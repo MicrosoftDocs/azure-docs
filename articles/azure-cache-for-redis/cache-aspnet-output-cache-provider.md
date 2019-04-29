@@ -1,5 +1,5 @@
 ---
-title: Cache ASP.NET Output Cache Provider
+title: ASP.NET Output Cache Provider for Azure Cache for Redis
 description: Learn how to cache ASP.NET Page Output using Azure Cache for Redis
 services: cache
 documentationcenter: na
@@ -69,7 +69,7 @@ Configure the attributes with the values from your cache blade in the Microsoft 
 | *loggingClassName*<br/>*loggingMethodName* | string<br/>string | *n/a* | *These attributes can be specified only through either web.config or AppSettings.*<br/><br/>Use these attributes to debug your application by providing logs from Session State/Output Cache along with logs from StackExchange.Redis. *loggingClassName* should be an assembly qualified class name that contains the method specified by *loggingMethodName*.<br/><br/>The method specified by *loggingMethodName* should be public, static, and void (not take any parameters), with a return type of **System.IO.TextWriter**. |
 | *applicationName* | string | The module name of the current process or "/" | *SessionStateProvider only*<br/>*This attribute can be specified only through either web.config or AppSettings.*<br/><br/>The app name prefix to use in Redis cache. The customer may use the same Redis cache for different purposes. To insure that the session keys do not collide, it can be prefixed with the application name. |
 | *throwOnError* | boolean | true | *SessionStateProvider only*<br/>*This attribute can be specified only through either web.config or AppSettings.*<br/><br/>Whether to throw an exception when an error occurs.<br/><br/>For more about *throwOnError*, see [Notes on *throwOnError*](#notes-on-throwonerror) in the [Attribute notes](#attribute-notes) section. |>*Microsoft.Web.Redis.RedisSessionStateProvider.LastException*. |
-| *retryTimeoutInMilliseconds* | positive integer | 5000 | *SessionStateProvider only*<br/>*This attribute can be specified only through either web.config or AppSettings.*<br/><br/>How long to retry when an operation fails. If this value is less than *operationTimeoutInMilliseconds*, the provider will not retry.<br/><br/>For more about *retryTimeoutInMilliseconds*, see [Notes on *retryTimeoutInMilliseconds*](#notes-on-retryTimeoutInMilliseconds) in the [Attribute notes](#attribute-notes) section. |
+| *retryTimeoutInMilliseconds* | positive integer | 5000 | *SessionStateProvider only*<br/>*This attribute can be specified only through either web.config or AppSettings.*<br/><br/>How long to retry when an operation fails. If this value is less than *operationTimeoutInMilliseconds*, the provider will not retry.<br/><br/>For more about *retryTimeoutInMilliseconds*, see [Notes on *retryTimeoutInMilliseconds*](#notes-on-retrytimeoutinmilliseconds) in the [Attribute notes](#attribute-notes) section. |
 | *redisSerializerType* | string | *n/a* | Specifies the assembly qualified type name of a class that implements Microsoft.Web.Redis. ISerializer and that contains the custom logic to serialize and deserialize the values. For more information, see [About *redisSerializerType*](#about-redisserializertype) in the [Attribute notes](#attribute-notes) section. |
 |
 
@@ -145,9 +145,9 @@ If you set *throwOnError* to **false**, then instead of throwing an exception wh
 
 This provides some retry logic to simplify the case where some session operation should retry on failure because of things like network glitch, while also allowing you to control the retry timeout or opt out of retry entirely.
 
-If you set *retryTimeoutInMilliseconds* to a number, e.g. 2000, then when a session operation fails, it will retry for 2000 milliseconds before treating it as an error. So to have the session state provider to apply this retry logic, just configure the timeout. The first retry will happen after 20 milliseconds, which is sufficient in most cases when a network glitch happens. After that, it will retry every second until it times out. Right after the time out, it will retry one more time to make sure that it won’t cut off the timeout by (at most) one second.
+If you set *retryTimeoutInMilliseconds* to a number, for example 2000, then when a session operation fails, it will retry for 2000 milliseconds before treating it as an error. So to have the session state provider to apply this retry logic, just configure the timeout. The first retry will happen after 20 milliseconds, which is sufficient in most cases when a network glitch happens. After that, it will retry every second until it times out. Right after the time out, it will retry one more time to make sure that it won’t cut off the timeout by (at most) one second.
 
-If you don’t think you need retry (e.g. when you are running the Redis server on the same machine as your application) or if you want to handle the retry logic yourself, set *retryTimeoutInMilliseconds* to 0.
+If you don’t think you need retry (for example, when you are running the Redis server on the same machine as your application) or if you want to handle the retry logic yourself, set *retryTimeoutInMilliseconds* to 0.
 
 ### About *redisSerializerType*
 
