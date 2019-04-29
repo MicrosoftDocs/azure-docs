@@ -15,7 +15,7 @@ ms.date: 04/29/2019
 
 # Model interpretability with Azure Machine Learning service
 
-In this article, you will learn how to explain why your model made the predictions it did with the interpretability package ([`explain`](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py)) of the Azure Machine Learning Python SDK.
+In this article, you will learn how to explain why your model made the predictions it did with the interpretability package  of the Azure Machine Learning Python SDK.
 
 During the training phase of the development cycle, model designers and evaluators can use to explain the output of a model to stakeholders to build trust.  They also use the insights into the model for debugging, validating model behavior matches their objectives, and to check for bias.
 
@@ -23,7 +23,7 @@ During the inferencing phase, data scientists can use interpretability to explai
 
 The interpretability classes are made available through two Python packages. Learn how to [install SDK packages for Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-* [azureml.explain.model](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py), the main package, contaiing functionalities supported by Microsoft. 
+* [`azureml.explain.model`](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py), the main package, contaiing functionalities supported by Microsoft. 
 
 * `azureml.contrib.explain.model`, preview and experimental functionalities that you can try.
 
