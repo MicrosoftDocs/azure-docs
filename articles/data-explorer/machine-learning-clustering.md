@@ -147,7 +147,7 @@ Basket implements the Apriori algorithm for item set mining and extracts all seg
 
 Both plugins are powerful and easy to use, but their significant limitation is due to the fact that they cluster a single record set in an unsupervised manner (with no labels). It's therefore unclear whether the extracted patterns characterize the selected record set (the anomalous records) or the global record set.
 
-## Clustering the difference between two records sets using `diffpatterns()`
+## Clustering the difference between two records sets
 
 The [`diffpatterns()`](/azure/kusto/query/diffpatternsplugin) plugin overcomes the limitation of `autocluster` and `basket`. `Diffpatterns` takes two record sets and extracts the main segments that are different between them. One set usually contains the anomalous record set being investigated (one analyzed by `autocluster` and `basket`). The other set contains the reference record set (baseline). 
 
