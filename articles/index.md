@@ -450,7 +450,7 @@ featureFlags:
 <li>
                                             <a href="/azure/vmware-cloudsimple/">
                                                 <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
-                                                <p>Azure VMware Solutions by CloudSimple</p>
+                                                <p>Azure VMware Solution by CloudSimple</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2104,8 +2104,8 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure VMware Solutions by CloudSimple</h3>
-                                                    <p>Run the VMware platform in Azure.</p>
+                                                    <h3>Azure VMware Solution by CloudSimple</h3>
+                                                    <p>Run the VMware platform in Azure</p>
                                                 </div>
                                             </div>
                                         </div>
