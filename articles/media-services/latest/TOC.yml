@@ -57,6 +57,8 @@
       href: autogen-bitrate-ladder.md      
     - name: Content-aware encoding
       href: cae-experimental.md
+    - Job error codes
+      href: https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode         
   - name: Media analytics 
     items:
     - name: Overview
@@ -64,6 +66,8 @@
       displayName: Presets
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md 
+    - Job error codes
+      href: https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode         
   - name: Packaging, delivery, protection
     items:
     - name: Packaging
@@ -74,7 +78,7 @@
       - name: Dynamic manifests
         href: filters-dynamic-manifest-overview.md 
       - name: Filters
-        href: filters-concept.md
+        href: filters-concept.md   
     - name: Content protection
       items:
       - name: Streaming protocols and encryption types
@@ -99,7 +103,9 @@
     - name: Streaming Policies
       href: streaming-policy-concept.md  
     - name: Content Key Policies
-      href: content-key-policy-concept.md              
+      href: content-key-policy-concept.md      
+    - name: Origin error codes  
+      href: origin-error-codes.md         
   - name: Live streaming 
     items:
     - name: Overview
@@ -138,8 +144,12 @@
       href: entities-overview.md 
     - name: RBAC
       href: rbac-overview.md
-    - name: Streaming Endpoints error codes  
-      href: origin-error-codes.md
+    - name: Error codes
+      items:
+      - name: Origin error codes  
+        href: origin-error-codes.md
+      - Job error codes
+        href: https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode
   - name: Migration guidance from v2 to v3
     href: migrate-from-v2-to-v3.md      
 - name: How-to guides
@@ -242,6 +252,12 @@
       href: https://aka.ms/ams-v3-go-ref
   - name: Resource Manager template
     href: /azure/templates/microsoft.media/allversions
+  - name: Error codes
+    items:
+    - name: Streaming Endpoints error codes  
+      href: origin-error-codes.md
+    - Job (encoding, analyzing) error codes
+      href: https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode    
 - name: Resources
   items:
   - name: Azure Media Services community
