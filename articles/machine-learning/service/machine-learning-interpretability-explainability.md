@@ -217,26 +217,11 @@ While you can train on the various compute targets supported by Azure Machine Le
     print('global importance names: {}'.format(global_importance_names))
     ```
 
-## Raw Feature Transformations
+## Raw reature transformations
 
 Optionally, you can pass your feature transformation pipeline to the explainer to receive explanations in terms of the raw features before the transformation (rather than engineered features). If you skip this, the explainer provides explanations in terms of engineered features. 
 
-The format of supported transformations is same as the one described in [sklearn-pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). We currently support these one-to-many or one-to-one transformers: 
-+ oneBinarizer
-+ KBinsDiscretizer
-+ KernelCenterer
-+ LabelEncoder
-+ MaxAbsScaler
-+ MinMaxScaler
-+ Normalizer
-+ OneHotEncoder
-+ OrdinalEncoder
-+ PowerTransformer
-+ QuantileTransformer
-+ RobustScaler
-+ StandardScaler
-
-In general, any transformations are supported as long as they operate on a single column and are therefore clearly one to many.
+The format of supported transformations is same as the one described in [sklearn-pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). In general, any transformations are supported as long as they operate on a single column and are therefore clearly one to many.
 
 ```python
 from sklearn.pipeline import Pipeline
@@ -251,7 +236,6 @@ numeric_transformations = [([f], Pipeline(steps=[('imputer', SimpleImputer(strat
 
 categorical_transformations = [([f], OneHotEncoder(handle_unknown='ignore', sparse=False)) for f in categorical]
 
-
 transformations = numeric_transformations + categorical_transformations
 
 # Append model to preprocessing pipeline.
@@ -264,6 +248,26 @@ clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
 # "features" and "classes" fields are optional
 tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x_train, features=dataset_feature_names, classes=dataset_classes, transformations=transformations)
 ```
+
+* Test the deployment
+    ``` python
+    import requests
+
+    # Create data to test service with
+    x_list = x_test.tolist()
+    examples = x_list[:4]
+    input_data = "{\"data\": " + str(examples) + "}"
+
+    headers = {'Content-Type':'application/json'}
+
+    # send request to service
+    resp = requests.post(service.scoring_uri, input_data, headers=headers)
+
+    print("POST to url", service.scoring_uri)
+    # can covert back to Python objects from json string if desired
+    print("prediction:", resp.text)
+    ``` 
+* Clean up by deleting any obsolete deployed web service using `service.delete()`.
 
 ## Next Steps
 
