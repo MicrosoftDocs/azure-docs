@@ -151,13 +151,15 @@ In this tutorial, you use the [Azure Cognitive Services Anomaly Detector APIs](.
 4. In the **Create** dialog box, provide the following values:
 
     ![Create Anomaly Detector resource](../media/tutorials/create-cognitive-services-account.png "Create Anomaly Detector resource")
+    
+    |Value |Description  |
+    |---------|---------|
+    |Name     | A name for the Anomaly Detector resource.        |
+    |Subscription     | The Azure subscription the resource will be associated with.        |
+    |Location     | An Azure location.        |
+    |Pricing tier     | A pricing tier for the service. For more information about Anomaly Detector pricing, see [pricing page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/anomaly-detector/).        |
+    |Resource group     | Specify whether you want to create a new resource group or select an existing one.        |
 
-   - Enter a name for the Anomaly Detector resource.
-   - Select the Azure subscription under which the resource is created.
-   - Select an Azure location.
-   - Select a pricing tier for the service. For more information about Anomaly Detector pricing, see [pricing page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/anomaly-detector/).
-   - Specify whether you want to create a new resource group or select an existing one.
-   - During Anomaly Detector public preview, you need to read the notice and check **I confirm I have read and understood the notice below.**
 
      Select **Create**.
 

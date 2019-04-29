@@ -16,6 +16,10 @@
           href: quickstarts/detect-data-anomalies-java.md
         - name: Using Python
           href: quickstarts/detect-data-anomalies-python.md
+- name: Tutorials
+  items:
+    - name: Anomaly detection on streaming data using Azure Databricks
+      href: tutorials/anomaly-detection-on-streaming-data.md
 - name: How-to guides
   items:
     - name: Identify anomalies in your data
