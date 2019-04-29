@@ -123,7 +123,7 @@ To consume the runbook by using Azure Data Factory, first create a **Webhook** f
 2. Give the Webhook a name and an expiry.  The name only identifies the Webhook inside the Automation Runbook, it doesn't form part of the URL.
 
    >[!CAUTION]
-   >Ensure to copy the URL before closing the wizard as you cannot get it back once closed.
+   >Ensure you copy the URL before closing the wizard as you cannot get it back once closed.
     
    ![Configure Webhook](./media/analysis-services-refresh-azure-automation/18.png)
 
@@ -167,7 +167,7 @@ This is deserialized and stored as PowerShell parameters, which are then used by
 An Azure Virtual Machine with a static public IP address can be used as an Azure Automation Hybrid Worker.  This public IP address can then be added to the Azure Analysis Services firewall.
 
 > [!IMPORTANT]
-> Ensure that the Virtual Machine public IP address is configured as static.
+> Ensure the Virtual Machine public IP address is configured as static.
 >
 >To learn more about configuring Azure Automation Hybrid Workers, see [Automate resources in your datacenter or cloud by using Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker).
 
