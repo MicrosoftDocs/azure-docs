@@ -34,40 +34,45 @@ This document describes a simple example on the use of the **Azure Data Explorer
 
 ## Create folders
 
-Create the following folders (*Functions*, *Policies*, *Tables*) in your Git repository. Copy the files from [here](https://github.com/Azure/azure-kusto-docs-samples/tree/master/DevOps_release_pipeline) into the respective folders and commit the change. These sample files are provided to execute the following workflow. 
+Create the following sample folders (*Functions*, *Policies*, *Tables*) in your Git repository. Copy the files from [here](https://github.com/Azure/azure-kusto-docs-samples/tree/master/DevOps_release_pipeline) into the respective folders and commit the change. These sample files are provided to execute the following workflow.
 
 ![Create folders](media/devops/create-folders.png)
 
-When creating your own workflow, ensure your code idempotent. For example, use [.create-merge table](/azure/kusto/management/tables#create-merge-tables) instead of [.create table](/azure/kusto/management/tables#create-table), and use [.create-or-alter](/azure/kusto/management/functions#create-or-alter-function) function instead of [.create function](/azure/kusto/management/functions#create-function). In addition, use [.create-or-alter]() <table command to update the ingestion mappings.>
+When creating your own workflow, ensure your code is idempotent. For example, use [.create-merge table](/azure/kusto/management/tables#create-merge-tables) instead of [.create table](/azure/kusto/management/tables#create-table), and use [.create-or-alter](/azure/kusto/management/functions#create-or-alter-function) function instead of [.create](/azure/kusto/management/functions#create-function)function. In addition, use [.create-or-alter]() <table command to update the ingestion mappings.> - check with Yoni re: new feature.
 
-## Create a release pipeline 
+## Create a release pipeline
 
 1. Sign in to your [Azure DevOps account](https://dev.azure.com/).
-1. Select **Pipelines** > **Releases** from left-hand menu and select **New pipeline**.
+1. Select **Pipelines** > **Releases** from left-hand menu and select **New pipeline**. The window opens....
 
     ![New pipeline](media/devops/new-pipeline.png)
 
-1. In **New release pipeline** window: **HOW get to pane** In the **Select a template** pane, select **Empty job**.
+1. In the **Select a template** window, select **Empty job**.
 
      ![Select a template](media/devops/select-template.png)
 
-1. **HOW get to pane** In **Stage** pane, add the **Stage name**
+1. In the release pipeline window clicking on Stage "button". In **Stage** pane, add the **Stage name**
 
     ![Name the stage](media/devops/stage-name.png)
 
-1. Select **Add an artifact**. In the **Add an artifact** window, select the repository where your code exists, fill out relevant information, and click **Add**. **Manoj: Save your pipeline**.
+1. Select **Add an artifact** button. In the **Add an artifact** window, select the repository where your code exists, fill out relevant information, and click **Add**. Click **Save** to save your pipeline.
 
     ![Add an artifact](media/devops/add-artifact.png)
 
 1. Create a **Variable** for **Endpoint URL** that'll be used in the task. The Azure Data Explorer cluster URI can be found in the overview page in the Azure portal. Construct the URI in the following format "https://<cluster URI>?DatabaseName=<DBName>" for example, https://democluster.westus2.kusto.windows.net?DatabaseName=SampleDB
+1. <they add the info after the ?>
+1. <Variable tab -> Add -> write the name and the value of endpoint. Click save>
 
     ![Create variable](media/devops/create-variable.png)
 
-1. In the **Pipeline** tab, click on the **1 job, 0 task** to add the tasks.
+1. In the **Pipeline** tab, click on the **1 job, 0 task** to add the tasks. (cut stage piece of screen capture and highlight, the link)
 
-1. Create three tasks to deploy **Tables**, **Functions**, and **Policies**, in this order.
+## Create tasks to Deploy
 
-1. Search for **Azure Data Explorer**, install the **Azure Data Explorer – Admin Commands** extension and click **Add**
+1. Create three tasks to deploy **Tables**, **Functions**, and **Policies**, in this order. (they are steps below)
+1. Click + near Agent job, search for Azure Data Explorer, under marketplace, Install 
+
+1. Search for **Azure Data Explorer**, install the **Azure Data Explorer – Admin Commands** extension under **Marketplace** and click **Add** on installed command
 
      ![Add admin commands](media/devops/add-admin-commands.png)
 
@@ -76,7 +81,7 @@ When creating your own workflow, ensure your code idempotent. For example, use [
     * **File path**: Specify */Tables/*.csl since the table creation files are in the *Table* folder.
     * **Endpoint URL**: enter the variable we created in previous step “$(EndPoint_URL)”
 
-1. Select **Use Service Endpoint** and **Create New** (**CORRECT?**). Complete the following information:
+1. Select **Use Service Endpoint** and select **New**. Complete the following information:
 
     |Setting  |Suggested value  |
     |---------|---------|
