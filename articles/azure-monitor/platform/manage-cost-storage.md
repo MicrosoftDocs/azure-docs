@@ -116,7 +116,7 @@ If your Log Analytics workspace has access to legacy pricing tiers, to change be
 3. Under **Pricing tier**, select a pricing tier and then click **Select**.  
     ![Selected pricing plan](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-If you want to move your workspace into the current pricing tier, you need to change your subscription's monitoring pricing model in Azure Monitor](usage-estimated-costs.md#moving-to-the-new-pricing-model) which will change the pricing tier of all workspaces in that subscription.
+If you want to move your workspace into the current pricing tier, you need to change your subscription's monitoring pricing model in [Azure Monitor](usage-estimated-costs.md#moving-to-the-new-pricing-model) which will change the pricing tier of all workspaces in that subscription.
 
 
 > [!NOTE]
