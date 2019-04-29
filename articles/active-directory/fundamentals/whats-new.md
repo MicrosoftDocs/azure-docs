@@ -37,7 +37,17 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## April 2019
 
-### Configure a naming policy for Office 365 groups in Azure AD portal (Public Preview)
+### Azure Active Directory (Azure AD) entitlement management is now available (Public preview)
+
+**Type:** New feature  
+**Service category:** Identity Governance  
+**Product capability:** Identity Governance
+
+Azure AD entitlement management, now in public preview, helps customers to delegate management of access packages, which defines how employees and business partners can request access, who must approve, and how long they have access. Access packages can manage membership in Azure AD and Office 365 groups, role assignments in enterprise applications, and role assignments for SharePoint Online sites. Read more about entitlement management at the [overview of Azure AD entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview). To learn more about the breadth of Azure AD Identity Governance features, including Privileged Identity Management, access reviews and Terms of use, see [What is Azure AD Identity Governance?](../governance/identity-governance-overview.md).
+
+---
+
+### Configure a naming policy for Office 365 groups in Azure AD portal (Public preview)
 
 **Type:** New feature  
 **Service category:** Group Management  
@@ -86,30 +96,6 @@ In April 2019, we've added these 21 new apps with Federation support to the app 
 [SAP Fiori](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-fiori-tutorial), [HRworks Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/hrworks-single-sign-on-tutorial), [Percolate](https://docs.microsoft.com/azure/active-directory/saas-apps/percolate-tutorial), [MobiControl](https://docs.microsoft.com/azure/active-directory/saas-apps/mobicontrol--tutorial), [Citrix NetScaler](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial), [Shibumi](https://docs.microsoft.com/azure/active-directory/saas-apps/shibumi-tutorial), [Benchling](https://docs.microsoft.com/azure/active-directory/saas-apps/benchling-tutorial), [MileIQ](https://mileiq.onelink.me/991934284/7e980085), [PageDNA](https://docs.microsoft.com/azure/active-directory/saas-apps/pagedna-tutorial), [EduBrite LMS](https://docs.microsoft.com/azure/active-directory/saas-apps/edubrite-lms-tutorial), [RStudio Connect](https://docs.microsoft.com/azure/active-directory/saas-apps/rstudio-connect-tutorial), [AMMS](https://docs.microsoft.com/azure/active-directory/saas-apps/amms-tutorial), [Mitel Connect](https://docs.microsoft.com/azure/active-directory/saas-apps/mitel-connect-tutorial), [Alibaba Cloud (Role-based SSO)](https://docs.microsoft.com/azure/active-directory/saas-apps/alibaba-cloud-service-role-based-sso-tutorial), [Certent Equity Management](https://docs.microsoft.com/azure/active-directory/saas-apps/certent-equity-management-tutorial), [Sectigo Certificate Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/sectigo-certificate-manager-tutorial), [GreenOrbit](https://docs.microsoft.com/azure/active-directory/saas-apps/greenorbit-tutorial), [Workgrid](https://docs.microsoft.com/azure/active-directory/saas-apps/workgrid-tutorial), [monday.com](https://docs.microsoft.com/azure/active-directory/saas-apps/mondaycom-tutorial), [SurveyMonkey Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/surveymonkey-enterprise-tutorial), [Indiggo](https://indiggolead.com/)
 
 For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
-
----
-
-### Azure Active Directory (Azure AD) Identity Governance is now available
-
-**Type:** New feature  
-**Service category:** Access Reviews  
-**Product capability:** Identity Governance
-
-Azure Active Directory (Azure AD) Identity Governance combines all the governance features, including access reviews, entitlement management (public preview), Privileged Identity Management (PIM), and Terms of use in a single view; helping you perform tasks such as creating an access review, creating an access package, viewing role assignments, or managing your Terms of use all in one place.
-
-To learn more about each of the available features, along with the relevant tutorials and support documentation, go to the Azure portal, click **Azure Active Directory**, click **Identity Governance**, and then visit the new getting started page.
-
-For more information, see [What is Azure AD Identity Governance?](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview).
-
----
-
-### Azure Active Directory (Azure AD) entitlement management is now available (Public preview)
-
-**Type:** New feature  
-**Service category:** Identity Governance  
-**Product capability:** Identity Governance
-
-Azure AD entitlement management, now in public preview, helps customers to delegate management of access packages, which defines how employees and business partners can request access, who must approve, and how long they have access. Access packages can manage membership in Azure AD and Office 365 groups, role assignments in enterprise applications, and role assignments for SharePoint Online sites. Read more about entitlement management at the [overview of Azure AD entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview). To learn more about the breadth of Azure AD Identity Governance features, including Privileged Identity Management, access reviews and Terms of use, see [What is Azure AD Identity Governance?](../governance/identity-governance-overview.md).
 
 ---
 
