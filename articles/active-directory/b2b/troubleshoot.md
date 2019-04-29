@@ -75,15 +75,15 @@ To comply with privacy laws, our APIs do not include custom messages in the emai
 
 If this scenario is important to you, you can suppress our API invitation email, and send it through the email mechanism of your choice. Consult your organization’s legal counsel to make sure any email you send this way also complies with privacy laws.
 
-## You are receiving the **AADSTS65005** error when trying to login to an Azure resource
+## You receive an “AADSTS65005” error when you try to log in to an Azure resource
 
-An end user with a guest account is unable to log on, and is receiving the following error:
+A user who has a guest account cannot log on, and is receiving the following error message:
 
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
 
-The end user has an Azure user account, is a viral tenant that has been abandoned/unmanaged, and there are no global or company administrators in the tenant.
+The user has an Azure user account and is a viral tenant who has been abandoned or unmanaged. Additionally, there are no global or company administrators in the tenant.
 
-To resolve this, you must take over the abandoned tenant. Please reference [Take over an unmanaged directory as administrator in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). You must also access the internet-facing DNS for the domain suffix in question, to provide direct evidence that you are in control of the namespace. After the tenant is returned to a managed state, please discuss with the customer whether leaving the user(s) and verified domain name is the best option for their organization.
+To resolve this problem, you must take over the abandoned tenant. Refer to  [Take over an unmanaged directory as administrator in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). You must also access the internet-facing DNS for the domain suffix in question in order to provide direct evidence that you are in control of the namespace. After the tenant is returned to a managed state, please discuss with the customer whether leaving the users and verified domain name is the best option for their organization.
 
 ## A guest user with a just-in-time or "viral" tenant is unable to reset their password
 
