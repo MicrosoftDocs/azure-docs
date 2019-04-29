@@ -4,7 +4,6 @@ description: Learn how to make containers and blobs available for anonymous acce
 services: storage
 author: tamram
 
-
 ms.service: storage
 ms.topic: article
 ms.date: 04/26/2017

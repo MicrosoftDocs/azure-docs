@@ -2,11 +2,11 @@
 title: Managing the Azure Storage Lifecycle
 description: Learn how to create lifecycle policy rules to transition aging data from Hot to Cool and Archive tiers.
 services: storage
-author: yzheng-msft
+author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
 ms.date: 3/20/2019
-ms.author: yzheng
+ms.author: mhopkins
 ms.subservice: common
 ---
 
