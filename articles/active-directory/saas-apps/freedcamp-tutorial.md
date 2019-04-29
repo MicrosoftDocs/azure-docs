@@ -18,6 +18,7 @@ ms.date: 04/29/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
+
 ---
 # Tutorial: Azure Active Directory integration with Freedcamp
 
@@ -50,7 +51,7 @@ To configure the integration of Freedcamp into Azure AD, you need to add Freedca
 
 **To add Freedcamp from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click the **Azure Active Directory** icon.
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
@@ -58,11 +59,11 @@ To configure the integration of Freedcamp into Azure AD, you need to add Freedca
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add new application, click **New application** button on the top of dialog.
+3. To add a new application, click **New application** button on the top of the dialog.
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Freedcamp**, select **Freedcamp** from result panel then click **Add** button to add the application.
+4. In the search box, type **Freedcamp**, select **Freedcamp** from result panel, and then click the **Add** button to add the application.
 
 	![Freedcamp in the results list](common/search-new-app.png)
 
@@ -94,7 +95,7 @@ To configure Azure AD single sign-on with Freedcamp, perform the following steps
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. On the **Set up Single Sign-On with SAML** page, click the **Edit** icon to open the **Basic SAML Configuration** dialog.
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -234,9 +235,9 @@ When you click the Freedcamp tile in the Access Panel, you should be automatical
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
