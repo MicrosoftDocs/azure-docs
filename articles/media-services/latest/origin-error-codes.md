@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services error codes and reasons | Microsoft Docs
-description: The topic gives an overview of Azure Media Services error codes and possible reasons to why you may have gotten it.
+title: Azure Media Services errors and reasons | Microsoft Docs
+description: This topic describes errors that you may recieve from the Azure Media Services packaging service.
 author: Juliako
 manager: femila
 editor: ''
@@ -16,9 +16,9 @@ ms.date: 04/22/2019
 ms.author: juliako
 
 ---
-# Azure Media Services HTTP errors
+# Media Services errors and reasons
 
-When using Microsoft Azure Media Services, you may receive HTTP error codes from the service depending on issues such as authentication tokens expiring to actions that are not supported in Media Services. The following is a list of **HTTP error codes** that may be returned by Media Services and the possible causes for them. 
+This topic describes errors that you may recieve from the Azure Media Services [Streaming Endpoints/Origin service](streaming-endpoint-concept.md).
 
 ## 400 Bad Request
 
@@ -95,9 +95,9 @@ The payload format sent by the client is in an unsupported format.
 |MPE_ENC_INVALID_INPUT_ENCRYPTION_FORMAT|0x8088021D	|The encryption is invalid for the input format.|
 |MPE_INVALID_ASSET_DELIVERY_POLICY_TYPE|0x8088021C|	Delivery policy type is invalid.|
 |MPE_ENC_MULTIPLE_SAME_DELIVERY_TYPE|0x8088024E	|The original settings could be shared by multiple output formats.|
-|MPE_FORMAT_NOT_SUPPORTED|0x80890205|The media format or type is unsupported, for example, we do not support quality level count is over 64, or, in FLV video tag we do not support a video frame with multiple SPS and multiple PPS.|
-|MPE_INPUT_FORMAT_NOT_SUPPORTED|0x80890218|	The input format of asset requested is not supported. We support Smooth (live), MP4 (VoD) and Progressive download formats.|
-|MPE_OUTPUT_FORMAT_NOT_SUPPORTED|0x8089020D|The output format requested is not supported. We support Smooth, DASH(CSF, CMAF), HLS (v3, v4, CMAF), and Progressive download formats.|
+|MPE_FORMAT_NOT_SUPPORTED|0x80890205|The media format or type is unsupported. For example, Media Services does not support quality level count that is over 64. In FLV video tag, Media Services does not support a video frame with multiple SPS and multiple PPS.|
+|MPE_INPUT_FORMAT_NOT_SUPPORTED|0x80890218|	The input format of asset requested is not supported. Media Services supports Smooth (live), MP4 (VoD) and Progressive download formats.|
+|MPE_OUTPUT_FORMAT_NOT_SUPPORTED|0x8089020D|The output format requested is not supported. Media Services supports Smooth, DASH(CSF, CMAF), HLS (v3, v4, CMAF), and Progressive download formats.|
 |MPE_ENCRYPTION_NOT_SUPPORTED|0x80890208|Encountered unsupported encryption type.|
 |MPE_MEDIA_TYPE_NOT_SUPPORTED|0x8089020E|The media type requested is not supported by the output format. The supported types are video, audio or "SUBT" subtitle.|
 |MPE_MEDIA_ENCODING_NOT_SUPPORTED|0x8089020F|The source asset media was encoded with a media format that is not compatible with the output format.|
@@ -128,7 +128,7 @@ The payload format sent by the client is in an unsupported format.
 |MPE_DTS_RESERVEDBOX_EXPECTED|0x80890105|DTS-specific error, cannot find the ReservedBox when it should present in the DTSSpecficBox during DTS box parsing.|
 |MPE_DTS_INVALID_CHANNEL_COUNT|0x80890106|DTS-specific error, no channels found in the DTSSpecficBox during DTS box parsing.|
 |MPE_DTS_SAMPLETYPE_MISMATCH|0x80890107|DTS-specific error, sample type mismatch in the DTSSpecficBox.|
-|MPE_DTS_MULTIASSET_DTSH_MISMATCH|0x80890108|DTS-specific error, multi-assert is set but DTSH sample type mismatch.|
+|MPE_DTS_MULTIASSET_DTSH_MISMATCH|0x80890108|DTS-specific error, multi-asset is set but DTSH sample type mismatch.|
 |MPE_DTS_INVALID_CORESTREAM_SIZE|0x80890109|DTS-specific error, core stream size is invalid.|
 |MPE_DTS_INVALID_SAMPLE_RESOLUTION|0x8089010A|DTS-specific error, sample resolution is invalid.|
 |MPE_DTS_INVALID_SUBSTREAM_INDEX|0x8089010B|DTS-specific error, sub-stream extension index is invalid.|
