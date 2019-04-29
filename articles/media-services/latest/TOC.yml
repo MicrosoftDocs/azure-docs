@@ -254,9 +254,9 @@
     href: /azure/templates/microsoft.media/allversions
   - name: Error codes
     items:
-    - name: Streaming Endpoints error codes  
+    - name: Origin error codes  
       href: origin-error-codes.md
-    - Job (encoding, analyzing) error codes
+    - name: Job error codes
       href: https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode    
 - name: Resources
   items:
