@@ -1,5 +1,5 @@
 ---
-title: Tenant and host pool creation in Windows Virtual Desktop - Azure
+title: Windows Virtual Desktop tenant and host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop tenant environment.
 services: virtual-desktop
 author: ChJenk
@@ -77,11 +77,11 @@ The Windows Virtual Desktop – Provision a host pool template is available from
 3. Before the # character, insert the CSP end customer tenant name.
 4. Open the new link in a browser and the Azure portal will load the template.
 
-```
+    ```Example
     Example: https://portal.azure.com/<CSP end customer tenant name>
-     #create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%
-     2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
-```
+    #create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%
+    2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
+    ```
 
 ## Azure Resource Manager template and PowerShell Desired State Configuration (DSC) errors
 
@@ -131,12 +131,12 @@ Example of raw error:
 Example of raw error:
 
 ```Error
- { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostDesktop/providers/Microsoft.
-  Resources/deployments/vmCreation-linkedTemplate/operations/76487E2A822284AB", "operationId": "76487E2A822284AB", "properties": { "provisioningOperation":
+ { "id": "/subscriptions/EXAMPLE/resourceGroups/demoHostDesktop/providers/Microsoft.
+  Resources/deployments/vmCreation-linkedTemplate/operations/EXAMPLE", "operationId": "EXAMPLE", "properties": { "provisioningOperation":
  "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId":
  "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message":
- "The Admin Username specified is not allowed.", "target": "adminUsername" } }, "targetResource": { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76
- /resourceGroups/demoHostDesktop/providers/Microsoft.Compute/virtualMachines/demoHostv2-1", "resourceType": "Microsoft.Compute/virtualMachines", "resourceName": "demoHostv2-1" } }}
+ "The Admin Username specified is not allowed.", "target": "adminUsername" } }, "targetResource": { "id": "/subscriptions/EXAMPLE
+ /resourceGroups/demoHostDesktop/providers/Microsoft.Compute/virtualMachines/demo", "resourceType": "Microsoft.Compute/virtualMachines", "resourceName": "demo" } }}
 ```
 
 **Cause:** Password provided contains forbidden substrings (admin, administrator, root).
@@ -150,7 +150,7 @@ Example of raw error:
 Example of raw error:
 
 ```Error
-{ "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostD/providers/Microsoft.Resources/deployments/
+{ "id": "/subscriptions/EXAMPLE/resourceGroups/demoHostD/providers/Microsoft.Resources/deployments/
  rds.wvd-hostpool4-preview-20190129132410/operations/5A0757AC9E7205D2", "operationId": "5A0757AC9E7205D2", "properties":
  { "provisioningOperation": "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T21:43:05.1416423Z",
  "duration": "PT7M56.8150879S", "trackingId": "43c4f71f-557c-4abd-80c3-01f545375455", "statusCode": "Conflict",
@@ -160,7 +160,7 @@ Example of raw error:
  Error message: \"DSC Configuration 'SessionHost' completed with error(s). Following are the first few: 
  PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message: 
  One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] } }, "targetResource": 
- { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostD/providers/Microsoft. 
+ { "id": "/subscriptions/EXAMPLE/resourceGroups/demoHostD/providers/Microsoft. 
  Compute/virtualMachines/desktop-1/extensions/dscextension",
  "resourceType": "Microsoft.Compute/virtualMachines/extensions", "resourceName": "desktop-1/dscextension" } }}
 ```
@@ -216,11 +216,9 @@ debug for usage details.","details":[{"code":"Conflict","message":"{\r\n \"statu
 deployment operations for details. Please see https://aka.ms/arm-debug for usage
 details.\",\r\n \"details\": [\r\n {\r\n \"code\": \"BadRequest\",\r\n \"message\":
 \"{\\r\\n \\\"error\\\": {\\r\\n \\\"code\\\": \\\"InvalidResourceReference\\\",\\r\\n
-\\\"message\\\": \\\"Resource /subscriptions/4b46ada1-921a-40e0-a964-
-50a4c19530a9/resourceGroups/ernani-wvd-
+\\\"message\\\": \\\"Resource /subscriptions/EXAMPLE/resourceGroups/ernani-wvd-
 demo/providers/Microsoft.Network/virtualNetworks/wvd-vnet/subnets/default
-referenced by resource /subscriptions/4b46ada1-921a-40e0-a964-
-50a4c19530a9/resourceGroups/ernani-wvd-
+referenced by resource /subscriptions/EXAMPLE/resourceGroups/ernani-wvd-
 demo/providers/Microsoft.Network/networkInterfaces/erd. Please make sure that
 the referenced resource exists, and that both resources are in the same
 region.\\\",\\r\\n\\\"details\\\": []\\r\\n }\\r\\n}\"\r\n }\r\n ]\r\n }\r\n ]\r\n }\r\n}"}]}
@@ -245,13 +243,10 @@ debug for usage details.","details":[{"code":"Conflict","message":"{\r\n \"statu
 deployment operations for details. Please see https://aka.ms/arm-debug for usage
 details.\",\r\n \"details\": [\r\n {\r\n \"code\": \"BadRequest\",\r\n \"message\":
 \"{\\r\\n \\\"error\\\": {\\r\\n \\\"code\\\": \\\"InvalidResourceReference\\\",\\r\\n
-\\\"message\\\": \\\"Resource /subscriptions/4b46ada1-921a-40e0-a964-
-50a4c19530a9/resourceGroups/ernani-wvd-
+\\\"message\\\": \\\"Resource /subscriptions/EXAMPLE/resourceGroups/ernani-wvd-
 demo/providers/Microsoft.Network/virtualNetworks/wvd-vnet/subnets/default
-referenced by resource /subscriptions/4b46ada1-921a-40e0-a964-
-50a4c19530a9/resourceGroups/ernani-wvd-
-demo/providers/Microsoft.Network/networkInterfaces/ernani-wvd-demo-0-nic was
-not found. Please make sure that the referenced resource exists, and that both
+referenced by resource /subscriptions/EXAMPLE/resourceGroups/DEMO/providers/Microsoft.Network/networkInterfaces
+/EXAMPLE was not found. Please make sure that the referenced resource exists, and that both
 resources are in the same region.\\\",\\r\\n \\\"details\\\": []\\r\\n }\\r\\n}\"\r\n
 }\r\n ]\r\n }\r\n ]\r\n }\r\n\
 ```
@@ -338,7 +333,7 @@ If you're running the GitHub Azure Resource Manager template, provide values for
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues with Windows Virtual Desktop client connections, see [Remote Desktop client connections](troubleshoot-client-connection.md).
 - To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- To learn more about the Preview service, see [Windows Desktop Preview environment](https://review.docs.microsoft.com/azure/virtual-desktop/environment-setup?branch=pr-en-us-71423).
+- To learn more about the Preview service, see [Windows Desktop Preview environment](https://review.docs.microsoft.com/azure/virtual-desktop/environment-setup).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

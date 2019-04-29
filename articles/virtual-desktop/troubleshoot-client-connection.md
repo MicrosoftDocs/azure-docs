@@ -74,7 +74,7 @@ If the Web client keeps prompting for credentials, follow these instructions.
 
 ## Remote Desktop client for Windows 7 or Windows 10 stops responding or cannot be opened
 
-Use the following PowerShell cmdlets to clean up OOB client registries.
+Use the following PowerShell cmdlets to clean up out-of-band (OOB) client registries.
 
 ```PowerShell
 Remove-ItemProperty 'HKCU:\Software\Microsoft\Terminal Server Client\Default' - Name FeedURLs
@@ -107,29 +107,29 @@ Follow these general troubleshooting instructions for client connection error co
 5. Using **Get-RdsHostPool** and **Get-RdsSessionHost** cmdlets, confirm that troubleshooting is being done on the correct host pool.
 6. Execute the command below to get a list of all failed activities of type connection for the specified time window:
 
-```cmd
- Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
- "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
-```
+    ```cmd
+     Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
+     "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
+    ```
 
 7. Using the **ActivityId** from the previous cmdlet output, run the command below:
 
-```
-(Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
-```
+    ```
+    (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
+    ```
 
 8. The command produces output similar to the output shown below. Use **ErrorCodeSymbolic** and **ErrorMessage** to troubleshoot the root cause.
 
-```
-ErrorSource       : <Source>
-ErrorOperation    : <Operation>
-ErrorCode         : <Error code>
-ErrorCodeSymbolic : <Error code string>
-ErrorMessage      : <Error code message>
-ErrorInternal     : <Internal for the OS>
-ReportedBy        : <Reported by component>
-Time              : <Timestampt>
-```
+    ```
+    ErrorSource       : <Source>
+    ErrorOperation    : <Operation>
+    ErrorCode         : <Error code>
+    ErrorCodeSymbolic : <Error code string>
+    ErrorMessage      : <Error code message>
+    ErrorInternal     : <Internal for the OS>
+    ReportedBy        : <Reported by component>
+    Time              : <Timestampt>
+    ```
 
 ### Error: O_ADD_USER_TO_GROUP_FAILED / Failed to add user = ≤username≥ to group = Remote Desktop Users. Reason: Win32.ERROR_NO_SUCH_MEMBER
 
@@ -156,7 +156,7 @@ A user can start Remote Desktop clients and is able to authenticate, however the
 Confirm that the user reporting the issues has been assigned to application groups by using this command line:
 
 ```cmd
-Get-RdsAppGroupUser \<tenantname\> \<hostpoolname\> \<appgroupname\>
+Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 ```
 
 Confirm that the user is logging in with the correct credentials.
@@ -169,7 +169,7 @@ If the web client is being used, confirm that there are no cached credentials is
 - To troubleshoot issues while creating a tenant and host pool in a Windows Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- To learn more about the Preview service, see [Windows Desktop Preview environment](https://review.docs.microsoft.com/azure/virtual-desktop/environment-setup?branch=pr-en-us-71423).
+- To learn more about the Preview service, see [Windows Desktop Preview environment](https://review.docs.microsoft.com/azure/virtual-desktop/environment-setup?).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

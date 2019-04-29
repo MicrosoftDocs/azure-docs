@@ -140,27 +140,27 @@ When the Windows Virtual Desktop Agent is first installed on session host VMs (e
 2. Install PSPing on the session host VM where the agent is running.
 3. Open the command prompt as an administrator and issue the command below:
 
-```cmd
-psping rdbroker.wvdselfhost.microsoft.com:443
-```
+    ```cmd
+    psping rdbroker.wvdselfhost.microsoft.com:443
+    ```
 
 4. Confirm that PSPing received information back from the RDBroker:
 
-```
-PsPing v2.10 - PsPing - ping, latency, bandwidth measurement utility
-Copyright (C) 2012-2016 Mark Russinovich
-Sysinternals - www.sysinternals.com
-TCP connect to 13.77.160.237:443:
-5 iterations (warmup 1) ping test:
-Connecting to 13.77.160.237:443 (warmup): from 172.20.17.140:60649: 2.00ms
-Connecting to 13.77.160.237:443: from 172.20.17.140:60650: 3.83ms
-Connecting to 13.77.160.237:443: from 172.20.17.140:60652: 2.21ms
-Connecting to 13.77.160.237:443: from 172.20.17.140:60653: 2.14ms
-Connecting to 13.77.160.237:443: from 172.20.17.140:60654: 2.12ms
-TCP connect statistics for 13.77.160.237:443:
-Sent = 4, Received = 4, Lost = 0 (0% loss),
-Minimum = 2.12ms, Maximum = 3.83ms, Average = 2.58ms
-```
+    ```
+    PsPing v2.10 - PsPing - ping, latency, bandwidth measurement utility
+    Copyright (C) 2012-2016 Mark Russinovich
+    Sysinternals - www.sysinternals.com
+    TCP connect to 13.77.160.237:443:
+    5 iterations (warmup 1) ping test:
+    Connecting to 13.77.160.237:443 (warmup): from 172.20.17.140:60649: 2.00ms
+    Connecting to 13.77.160.237:443: from 172.20.17.140:60650: 3.83ms
+    Connecting to 13.77.160.237:443: from 172.20.17.140:60652: 2.21ms
+    Connecting to 13.77.160.237:443: from 172.20.17.140:60653: 2.14ms
+    Connecting to 13.77.160.237:443: from 172.20.17.140:60654: 2.12ms
+    TCP connect statistics for 13.77.160.237:443:
+    Sent = 4, Received = 4, Lost = 0 (0% loss),
+    Minimum = 2.12ms, Maximum = 3.83ms, Average = 2.58ms
+    ```
 
 ## Troubleshooting issues with the Windows Virtual Desktop side-by-side stack
 
@@ -223,34 +223,35 @@ Follow these instructions to run remediation from the same subnet and domain:
 5. Navigate to folder where PsExec was unzipped.
 6. From command prompt, use the following command:
 
-```cmd
-        psexec.exe \\<VMname> cmd
-```
->[!Note]
->VMname is the machine name of the VM with the malfunctioning side-by-side stack.
+    ```cmd
+            psexec.exe \\<VMname> cmd
+    ```
+
+    >[!Note]
+    >VMname is the machine name of the VM with the malfunctioning side-by-side stack.
 
 7. Accept the PsExec License Agreement by clicking Agree.
 
-![Software license agreement screenshot.](media/SoftwareLicenseTerms.png)
+    ![Software license agreement screenshot.](media/SoftwareLicenseTerms.png)
 
->[!Note]
->This dialog will show up only the first time PsExec is run.
+    >[!Note]
+    >This dialog will show up only the first time PsExec is run.
 
 8. After the command prompt session opens on the VM with the malfunctioning side-by-side stack, run qwinsta and confirm that an entry named rdp-sxs is available. If not, a side-by-side stack isn't present on the VM so the issue isn't tied to the side-by-side stack.
 
-![Administrator command prompt](media/AdministratorCommandPrompt.png)
+    ![Administrator command prompt](media/AdministratorCommandPrompt.png)
 
 9. Run the following command, which will list Microsoft components installed on the VM with the malfunctioning side-by-side stack.
 
-```cmd
-    wmic product get name
-```
+    ```cmd
+        wmic product get name
+    ```
 
 10. Run the command below with product names from step above.
 
-```cmd
-    wmic product where name="<Remote Desktop Services Infrastructure Agent>" call uninstall
-```
+    ```cmd
+        wmic product where name="<Remote Desktop Services Infrastructure Agent>" call uninstall
+    ```
 
 11. Uninstall all products that start with “Remote Desktop.”
 
@@ -262,20 +263,20 @@ If your operating system is Microsoft Windows 10, continue with the instructions
 
 14. From the VM running PsExec, open File Explorer and copy disablesxsstackrc.ps1 to the system drive of the VM with the malfunctioned side-by-side stack.
 
-```
-   \\<VMname>\c$\
-```
+    ```cmd
+        \\<VMname>\c$\
+    ```
 
->[!NOTE]
->VMname is the machine name of the VM with the malfunctioning side-by-side stack.
+    >[!NOTE]
+    >VMname is the machine name of the VM with the malfunctioning side-by-side stack.
 
 15. The recommended process: from the PsExec tool, start PowerShell and navigate to the folder from the previous step and run disablesxsstackrc.ps1. Alternatively, you can run the following cmdlets:
 
-```PowerShell
-            Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings" -Name "SessionDirectoryListener" -Force
-            Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" -Recurse -Force
-            Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations" -Name "ReverseConnectionListener" -Force
-```
+    ```PowerShell
+    Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings" -Name "SessionDirectoryListener" -Force
+    Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" -Recurse -Force
+    Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations" -Name "ReverseConnectionListener" -Force
+    ```
 
 16. When the cmdlets are done running, restart the VM with the malfunctioning side-by-side stack.
 
@@ -286,7 +287,7 @@ If your operating system is Microsoft Windows 10, continue with the instructions
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues with Windows Virtual Desktop client connections, see [Remote Desktop client connections](troubleshoot-client-connection.md).
 - To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- To learn more about the Preview service, see [Windows Desktop Preview environment](https://review.docs.microsoft.com/azure/virtual-desktop/environment-setup?branch=pr-en-us-71423).
+- To learn more about the Preview service, see [Windows Desktop Preview environment](https://review.docs.microsoft.com/azure/virtual-desktop/environment-setup).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - To learn about auditing actions, see [Audit operations with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
