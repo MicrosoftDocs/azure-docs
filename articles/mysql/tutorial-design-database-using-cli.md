@@ -48,7 +48,7 @@ az group create --name myresourcegroup --location westus
 ## Create an Azure Database for MySQL server
 Create an Azure Database for MySQL server with the az mysql server create command. A server can manage multiple databases. Typically, a separate database is used for each project or for each user.
 
-The following example creates an Azure Database for MySQL server located in `westus` in the resource group `myresourcegroup` with name `mydemoserver`. The server has an administrator log in named `myadmin`. It is a General Purpose, Gen 5 server with 2 vCores. Substitute the `<server_admin_password>` with your own value.
+The following example creates an Azure Database for MySQL server located in `westus` in the resource group `myresourcegroup` with name `mydemoserver`. The server has an administrator user named `myadmin`. It is a General Purpose, Gen 5 server with 2 vCores. Substitute the `<server_admin_password>` with your own value.
 
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
