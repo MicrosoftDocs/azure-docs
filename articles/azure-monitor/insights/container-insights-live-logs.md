@@ -60,7 +60,7 @@ If you have enabled Kubernetes RBAC authorization, you will need to apply cluste
 2. Create the cluster rule binding by running the following command: `kubectl create -f LogReaderRBAC.yaml`. 
 
 ## Configure AKS with Azure Active Directory
-AKS can be configured to use Azure Active Directory (AD) for user authentication. If you are configuring this for the first time, see [Integrate Azure Active Directory with Azure Kubernetes Service](../../aks/aad-integration.md). During the steps to create the [client application](../../aks/aad-integration.md#create-client-application) and specify the **redirect URI**, you need to add another URI to the list `https://ininprodeusuxbase.microsoft.com/*`.  
+AKS can be configured to use Azure Active Directory (AD) for user authentication. If you are configuring this for the first time, see [Integrate Azure Active Directory with Azure Kubernetes Service](../../aks/azure-ad-integration.md). During the steps to create the [client application](../../aks/azure-ad-integration.md#create-client-application) and specify the **redirect URI**, you need to add another URI to the list `https://ininprodeusuxbase.microsoft.com/*`.  
 
 >[!NOTE]
 >Configuring authentication with Azure Active Directory for single-sign on can only be accomplished during intial deployment of a new AKS cluster. You cannot configure single-sign on for an AKS cluster already deployed.  

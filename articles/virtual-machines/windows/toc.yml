@@ -253,6 +253,8 @@
         href: shared-images-portal.md
       - name: CLI
         href: ../linux/shared-images.md
+      - name: Portal
+        href: shared-images-portal.md
       - name: Share images across tenants
         href: share-images-across-tenants.md
       - name: Troubleshoot shared images

@@ -38,6 +38,7 @@ This article describes an online migration from MongoDB to Azure Cosmos DB's API
 
 ## Prerequisites
 To complete this tutorial, you need to:
+- [Complete the pre-migration](../cosmos-db/mongodb-pre-migration.md) steps such as estimating throughput, choosing a partition key, and the indexing policy.
 - [Create an Azure Cosmos DB's API for MongoDB account](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 - Create an Azure Virtual Network (VNET) for the Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
@@ -210,6 +211,10 @@ After the service is created, locate it within the Azure portal, open it, and th
     This action will finish replaying all the pending changes and complete the migration.
 
     ![Activity status replaying](media/tutorial-mongodb-to-cosmosdb-online/dms-finish-migration.png)
+
+## Post-migration optimization
+
+After you migrate the data stored in MongoDB database to Azure Cosmos DB’s API for MongoDB, you can connect to Azure Cosmos DB and manage the data. You can also perform other post-migration optimization steps such as- optimizing the indexing policy, update the default consistency level or configure global distribution for your Azure Cosmos DB account. For more details, see the [Post-migration optimization](../cosmos-db/mongodb-post-migration.md) article. 
 
 ## Additional resources
 

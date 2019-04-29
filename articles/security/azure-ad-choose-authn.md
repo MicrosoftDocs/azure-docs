@@ -43,7 +43,7 @@ Azure AD supports the following authentication methods for hybrid identity solut
 ### Cloud authentication
 When you choose this authentication method, Azure AD handles users' sign-in process. Coupled with seamless single sign-on (SSO), users can sign in to cloud apps without having to reenter their credentials. With cloud authentication, you can choose from two options: 
 
-**Azure AD password hash synchronization**. The simplest way to enable authentication for on-premises directory objects in Azure AD. Users can use the same username and password that they use on-premises without having to deploy any additional infrastructure. Some premium features of Azure AD, like Identity Protection, require password hash synchronization for no matter which authentication method you choose.
+**Azure AD password hash synchronization**. The simplest way to enable authentication for on-premises directory objects in Azure AD. Users can use the same username and password that they use on-premises without having to deploy any additional infrastructure. Some premium features of Azure AD, like Identity Protection and [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync), require password hash synchronization, no matter which authentication method you choose.
 
 > [!NOTE] 
 > Passwords are never stored in clear text or encrypted with a reversible algorithm in Azure AD. For more information on the actual process of password hash synchronization, see [Implement password hash synchronization with Azure AD Connect sync](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization). 
@@ -86,7 +86,7 @@ Details on decision questions:
 
 * **User experience**. To improve users' sign-in experience, deploy seamless SSO with password hash synchronization. Seamless SSO eliminates unnecessary prompts when users are signed in.
 
-* **Advanced scenarios**. If organizations choose to, it's possible to use insights from identities with Azure AD Identity Protection reports with Azure AD Premium P2. An example is the leaked credentials report. Windows Hello for Business has [specific requirements when you use password hash synchronization](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). 
+* **Advanced scenarios**. If organizations choose to, it's possible to use insights from identities with Azure AD Identity Protection reports with Azure AD Premium P2. An example is the leaked credentials report. Windows Hello for Business has [specific requirements when you use password hash synchronization](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) require password hash synchronization to provision users with their corporate credentials in the managed domain.
 
 	Organizations that require multifactor authentication with password hash synchronization must use Azure AD multifactor authentication. Those organizations can't use third-party or on-premises multifactor authentication methods.
 

@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/25/2019
+ ms.date: 04/29/2019
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -13,6 +13,9 @@
 ## Sign in to Azure 
 
 Sign in to the Azure portal at https://portal.azure.com.
+
+> [!NOTE]
+> If you registered to use Shared Image Galleries during the preview, you might need to re-register the `Microsoft.Compute` provider. Open [Cloud Shell](https://shell.azure.com/bash) and type: `az provider register -n Microsoft.Compute`
 
 ## Create an image gallery
 

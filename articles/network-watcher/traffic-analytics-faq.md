@@ -3,8 +3,8 @@ title: Azure traffic analytics frequently asked questions | Microsoft Docs
 description: Get answers to some of the most frequently asked questions about traffic analytics.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: 
 
 ms.service: network-watcher
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 03/08/2018
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Traffic Analytics frequently asked questions
@@ -128,12 +128,6 @@ No. You can store raw logs in any storage account where an NSG is enabled for fl
 
 Select a supported region. If you select a non-supported region, you receive a "Not found" error. The supported regions are listed earlier in this article.
 
-## Why am I getting the error "Failed to update flow logs settings for ... InternalServerError..." when enabling NSG's in US Gov Virginia?
-
-This is due to a bug where ‘Microsoft.Network’ resource provider is not re-registered for a subscription in US Gov Virginia. The team is working on the fix for this. As a workaround, you would need to [manually re-register ‘Microsoft.Network’ RP](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors). 
-
-Please contact support if the problem persists. 
-
 ## What if I am getting the status, “Failed to load,” under the NSG flow logs page?
 
 The Microsoft.Insights provider must be registered for flow logging to work properly. If you are not sure whether the Microsoft.Insights provider is registered for your subscription, replace *xxxxx-xxxxx-xxxxxx-xxxx* in the following command, and run the following commands from PowerShell:
@@ -245,7 +239,7 @@ For example, as per the [pricing plan](https://azure.microsoft.com/pricing/detai
 
 ## How frequently does Traffic Analytics process data?
 
-Refer to the [data aggregation section](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) in Traffic Analytics Schema and Data Aggregation Document
+Refer to the [data aggregation section](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) in Traffic Analytics Schema and Data Aggregation Document
 
 ## How does Traffic Analytics decide that an IP is malicious? 
 
@@ -259,7 +253,7 @@ Steps :
 - You can use the shortlink for Log Analytics in Traffic Analytics. 
 - Use the [schema documented here](traffic-analytics-schema.md) to write your queries 
 - Click "New alert rule" to create the alert
-- Refer to [log alerts documentation](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) to create the alert
+- Refer to [log alerts documentation](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) to create the alert
 
 ## How can I navigate by using the keyboard in the geo map view?
 

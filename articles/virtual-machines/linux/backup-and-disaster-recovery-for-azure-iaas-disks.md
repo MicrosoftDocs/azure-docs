@@ -4,8 +4,8 @@
   services: virtual-machines-linux
   cloud: Azure
   documentationcenter: na
-  author: luywang
-  manager: jeconnoc
+  author: roygara
+  manager: twooley
 
   ms.assetid:
   ms.service: virtual-machines-linux
@@ -14,7 +14,7 @@
   ms.devlang: na
   ms.topic: article
   ms.date: 07/19/2017
-  ms.author: luywang
+  ms.author: rogarana
   ms.subservice: disks
 ---
 

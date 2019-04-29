@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/18/2018
+ms.date: 04/25/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -174,6 +174,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |90051|	Invalid Delegation Token. Invalid national Cloud ID ({cloudId}) is specified.|
 |90072| The account needs to be added as an external user in the tenant first. Sign-out and sign-in again with a different Azure AD account.|
 |90094| The grant requires administrator permissions. Ask your tenant administrator to provide consent for this application.|
+|500121| Authentication failed during strong authentication request.|
 |500133| The assertion is not within its valid time range. Ensure that the access token is not expired before using it for user assertion, or request a new token.|
 |530021|Application does not meet the conditional access approved app requirements.|
 

@@ -5,12 +5,13 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 03/14/2019
+ms.date: 04/22/2019
 ms.author: dacoulte
 ---
 # Azure Blueprints samples
 
-The following table includes links to samples for Azure Blueprints.
+The following table includes links to samples for Azure Blueprints. Each sample is production
+quality and ready to deploy today to assist you in meeting your various compliance needs.
 
 ## Standards-based blueprint samples
 
