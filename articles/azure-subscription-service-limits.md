@@ -72,6 +72,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
+* [Load Balancer](#load-balancer)
 * [Log Analytics](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Services](#mobile-services-limits)
@@ -79,6 +80,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Networking](#networking-limits)
 * [Network Watcher](#network-watcher-limits)
 * [Notification Hubs](#notification-hubs-limits)
+* [Public IP address](#publicip-address)
 * [Resource group](#resource-group-limits)
 * [Role-based access control](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
@@ -132,10 +134,10 @@ The following table details the features and limits of the Basic, Standard, and 
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### Networking limits
-[!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
-
-#### Networking limits
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
+
+#### ExpressRoute limits
+[!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
 #### Application Gateway limits
 

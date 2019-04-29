@@ -54,7 +54,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 Start creating your tests to monitor network connectivity to the service endpoints.
 
 1. Select the **Service Connectivity Monitor** tab.
-2. Select **Add Test**, and enter the test name and description. 
+2. Select **Add Test**, and enter the test name and description. You can create maximum 450 tests per workspace. 
 3. Select the type of test:<br>
 
     * Select **Web** to monitor connectivity to a service that responds to HTTP/S requests, such as outlook.office365.com or bing.com.<br>
