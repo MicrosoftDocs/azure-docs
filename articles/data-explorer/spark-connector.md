@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.date: 4/29/2019
 ---
 
-# Azure Data Explorer Connector for Apache Spark
+# Azure Data Explorer Connector for Apache Spark (Preview)
 
 [Apache Spark](https://spark.apache.org/) is a unified analytics engine for large-scale data processing. Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data. 
 
-Azure Data Explorer connector for Spark implements data source and data sink for moving data across Azure Data Explorer and Spark clusters to use both of their capabilities. Using Azure Data Explorer and Apache Spark, you can build fast and scalable applications targeting data driven scenarios, such as machine learning (ML), Extract-Transform-Load (ETL), and Log Analytics. Writing to Azure Data Explorer can be done in batch and streaming mode.
+Azure Data Explorer connector for Spark implements data source and data sink for moving data across Azure Data Explorer and Spark clusters to use both of their capabilities. Using Azure Data Explorer and Apache Spark, you can build fast and scalable applications targeting data driven scenarios, such as machine learning (ML), Extract-Transform-Load (ETL), and Log Analytics. 
+Writing to Azure Data Explorer can be done in batch and streaming mode.
 Reading from Azure Data Explorer supports column pruning and predicate pushdown, which reduces the volume of transferred data by filtering out data in Azure Data Explorer.
 
 Azure Data Explorer Spark connector is an [open source project](https://github.com/Azure/azure-kusto-spark) that can run on any Spark cluster.
@@ -43,7 +44,7 @@ Spark Connector can be built from [sources](https://github.com/Azure/azure-kusto
 * [Maven 3.x](https://maven.apache.org/download.cgi) installed
 * Apache Spark version 2.4.0 or higher
 
-> [!NOTE]
+> [!TIP]
 > 2.3.x versions are also supported, but may require some changes in pom.xml dependencies.
 
 For Scala/Java applications using Maven project definitions, link your application with the following artifact (latest version may differ):
@@ -77,28 +78,28 @@ For more information, refer to [connector usage](https://github.com/Azure/azure-
 > [!NOTE]
 > It is recommended to use the latest Azure Data Explorer Spark connector release when performing the following steps:
 
-1. Spark cluster settings, based on Azure Databricks cluster using Spark 2.4 and Scala 2.11: 
+1. Set the following Spark cluster settings, based on Azure Databricks cluster using Spark 2.4 and Scala 2.11: 
 
-    ![Databricks cluster settings](media/spark-connector/databricks-cluster-m.png)
+    ![Databricks cluster settings](media/spark-connector/databricks-cluster.png)
 
 1. Import the Azure Data Explorer connector library:
 
-    ![Import Azure Data Explorer library](media/spark-connector/db-create-library-m.png)
+    ![Import Azure Data Explorer library](media/spark-connector/db-create-library.png)
 
 1. Add additional dependencies:
 
-    ![Add dependencies](media/spark-connector/db-dependencies-m.png)
+    ![Add dependencies](media/spark-connector/db-dependencies.png)
 
-    > [!NOTE]
+    > [!TIP]
     > The correct java release version for each Spark release is found [here](https://github.com/Azure/azure-kusto-spark#dependencies).
 
 1. Verify that all required libraries are installed:
 
-    ![Verify libraries installed](media/spark-connector/db-libraries-view-b.png)
+    ![Verify libraries installed](media/spark-connector/db-libraries-view.png)
 
 ## Authentication
 
-Azure Data Explorer Spark connector allows you to authenticate with AAD using an AAD application, [AAD access token](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token), [device authentication](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (for non-production scenarios) or [Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault). The user must install azure-keyvault package and provide application credentials to access the Key Vault resource.
+Azure Data Explorer Spark connector allows you to authenticate with AAD using an [AAD application](#aad-application-authentication), [AAD access token](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token), [device authentication](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (for non-production scenarios) or [Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault). The user must install azure-keyvault package and provide application credentials to access the Key Vault resource.
 
 ### AAD Application Authentication
 
