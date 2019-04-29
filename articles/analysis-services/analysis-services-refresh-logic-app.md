@@ -87,7 +87,7 @@ Here's an example Azure Data Factory Web Activity that does this action.
 
 ![Data Factory Web Activity](./media/analysis-services-async-refresh-logic-app/11.png)
 
-## Using a self-contained Logic App
+## Use a self-contained Logic App
 
 If you don't plan on using an Orchestration tool such as Data Factory to trigger the model refresh, you can set the logic app to trigger the refresh based on a schedule.
 
