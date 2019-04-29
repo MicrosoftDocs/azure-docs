@@ -65,14 +65,32 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
     ```
     If you are using some other mechanism for DNS, you should ensure that the Data Box endpoint can be resolved.
     
-3. Set a shell variable `azjars` to point to the `hadoop-azure` and the `microsoft-windowsazure-storage-sdk` jar files. These files are under the Hadoop installation directory (You can check if these files exist by using this command `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` where `<hadoop_install_dir>` is the directory where you have installed Hadoop  ) Use the full paths. 
+4. Set a shell variable `azjars` to point to the `hadoop-azure` and the `microsoft-windowsazure-storage-sdk` jar files. These files are under the Hadoop installation directory (You can check if these files exist by using this command `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` where `<hadoop_install_dir>` is the directory where you have installed Hadoop  ) Use the full paths. 
     
     ```
     # azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar
     # azjars=$azjars,$hadoop_install_dir/share/hadoop/tools/lib/microsoft-windowsazure-storage-sdk-0.6.0.jar
     ```
 
-4. Copy data from the Hadoop HDFS to Data Box Blob storage.
+5. Create the storage container that you want to use for data copy. You should also specify a destination folder as part of this command. This could be a dummy destination folder at this point.
+
+    ```
+    # hadoop fs -libjars $azjars \
+    -D fs.AbstractFileSystem.wasb.Impl=org.apache.hadoop.fs.azure.Wasb \
+    -D fs.azure.account.key.[blob_service_endpoint]=[account_key] \
+    -mkdir -p  wasb://[container_name]@[blob_service_endpoint]/[destination_folder]
+    ```
+
+6. Run a list command to ensure that your container and folder were created.
+
+    ```
+    # hadoop fs -libjars $azjars \
+    -D fs.AbstractFileSystem.wasb.Impl=org.apache.hadoop.fs.azure.Wasb \
+    -D fs.azure.account.key.[blob_service_endpoint]=[account_key] \
+    -ls -R  wasb://[container_name]@[blob_service_endpoint]/
+    ```
+
+7. Copy data from the Hadoop HDFS to Data Box Blob storage, into the container that you created earlier. If the folder that you are copying into is not found, the command automatically creates it.
 
     ```
     # hadoop distcp \
@@ -128,4 +146,4 @@ This command copies both data and metadata from your storage account into your D
 
 ## Next steps
 
-Learn how Data Lake Storage Gen2 works with HDInsight clusters. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/Azure/storage/blobs/data-lake-storage-use-hdi-cluster?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+Learn how Data Lake Storage Gen2 works with HDInsight clusters. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).

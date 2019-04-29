@@ -21,7 +21,7 @@ DistCp provides a variety of command-line parameters and we strongly encourage y
 * **An existing Azure Storage account without Data Lake Storage Gen2 capabilities (hierarchical namespace) enabled**.
 * **An Azure Storage account with Data Lake Storage Gen2 feature enabled**. For instructions on how to create one, see [Create an Azure Data Lake Storage Gen2  storage account](data-lake-storage-quickstart-create-account.md)
 * **A filesystem** that has been created in the storage account with hierarchical namespace enabled.
-* **Azure HDInsight cluster** with access to a storage account with Data Lake Storage Gen2 enabled. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](data-lake-storage-use-hdi-cluster.md). Make sure you enable Remote Desktop for the cluster.
+* **Azure HDInsight cluster** with access to a storage account with Data Lake Storage Gen2 enabled. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Make sure you enable Remote Desktop for the cluster.
 
 ## Use DistCp from an HDInsight Linux cluster
 

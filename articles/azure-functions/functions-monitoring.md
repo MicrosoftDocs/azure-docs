@@ -591,7 +591,9 @@ The `tagOverrides` parameter sets the `operation_Id` to the function's invocatio
 
 ## Dependencies
 
-Dependencies that the function has to other services don't show up automatically. You can write custom code to show the dependencies. For examples, see the sample code in the [C# custom telemetry section](#log-custom-telemetry-in-c-functions). The sample code results in an *application map* in Application Insights that looks like the following image:
+Functions v2 automatically collects dependencies for HTTP requests, ServiceBus, and SQL.
+
+You can write custom code to show the dependencies. For examples, see the sample code in the [C# custom telemetry section](#log-custom-telemetry-in-c-functions). The sample code results in an *application map* in Application Insights that looks like the following image:
 
 ![Application map](./media/functions-monitoring/app-map.png)
 

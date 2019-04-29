@@ -70,7 +70,8 @@ To perform the steps described in this article, you must have:
 
      ![Select VPN][api-management-setup-vpn-select]
 
-5. Click **Save** at the top of the screen.
+5. Click **Save** in the top navigation bar.
+6. Click **Apply network configuration** in the top navigation bar.
 
 > [!NOTE]
 > The VIP address of the API Management instance will change each time VNET is enabled or disabled.
@@ -103,6 +104,7 @@ Following is a list of common misconfiguration issues that can occur while deplo
 
 * **Ports required for API Management**: Inbound and Outbound traffic into the Subnet in which API Management is deployed can be controlled using [Network Security Group][Network Security Group]. If any of these ports are unavailable, API Management may not operate properly and may become inaccessible. Having one or more of these ports blocked is another common misconfiguration issue when using API Management with a VNET.
 
+<a name="required-ports"> </a>
 When an API Management service instance is hosted in a VNET, the ports in the following table are used.
 
 | Source / Destination Port(s) | Direction          | Transport protocol |   [Service Tags](../virtual-network/security-overview.md#service-tags) <br> Source / Destination   | Purpose (*)                                                 | Virtual Network type |

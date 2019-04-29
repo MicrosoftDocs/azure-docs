@@ -50,17 +50,6 @@ For Basic and Standard Notification Hubs tiers, properly configured applications
 > [!NOTE]
 > Because push notifications depend on third-party Platform Notification Systems (such as Apple APNS and Google FCM), there is no SLA guarantee for the delivery of these messages. After Notification Hubs sends the batches to Platform Notification Systems (SLA guaranteed), it is the responsibility of the Platform Notification Systems to deliver the pushes (no SLA guaranteed).
 
-### Which customers are using Notification Hubs?
-
-Many customers use Notification Hubs. Some notable ones are listed here:
-
-* Sochi 2014: Hundreds of interest groups, 3+ million devices, and 150+ million notifications dispatched in two weeks. [Case study: Sochi]
-* Skanska: [Case study: Skanska]
-* Seattle Times: [Case study: Seattle Times]
-* Mural.ly: [Case study: Mural.ly]
-* 7Digital: [Case study: 7Digital]
-* Bing Apps: Tens of millions of devices send 3 million notifications per day.
-
 ### How do I upgrade or downgrade my hub or namespace to a different tier?
 
 Go to the **[Azure portal]** > **Notification Hubs Namespaces** or **Notification Hubs**. Select the resource you want to update, and go to **Pricing Tier**. Note the following requirements:
@@ -215,11 +204,6 @@ You can also programmatically access metrics. For more information, see the foll
 [Azure portal]: https://portal.azure.com
 [Notification Hubs Pricing]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-[Case Study: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
-[Case Study: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
-[Case Study: Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
-[Case Study: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
-[Case Study: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [Notification Hubs REST APIs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Notification Hubs Getting Started tutorials]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Chrome Apps tutorial]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/

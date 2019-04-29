@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 04/09/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -19,9 +19,7 @@ ms.custom: seodec18
 
 # Get a signing key from the existing policy
 
-One of the key design principles of the v3 API is to make the API more secure. v3 APIs do not return secrets or credentials on **Get** or **List** operations. The keys are always null, empty, or sanitized from the response. The user needs to call a separate action method to get secrets or credentials. The **Reader** role cannot call operations so it cannot call operations like Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Having separate actions enables you to set more granular RBAC security permissions in a custom role if desired.
-
-For more information, see [RBAC and Media Services accounts](rbac-overview.md)
+One of the key design principles of the v3 API is to make the API more secure. v3 APIs do not return secrets or credentials on **Get** or **List** operations. See the detailed explanation here: For more information, see [RBAC and Media Services accounts](rbac-overview.md)
 
 The example in this article shows how to use .NET to get a signing key from the existing policy. 
  

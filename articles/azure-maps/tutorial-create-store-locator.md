@@ -66,7 +66,7 @@ The wireframes show a fairly straightforward application. The application has a 
 
 ## Create the store location dataset
 
-Before we develop a store locator application, we need to create a dataset of the stores we want to display on the map. In this tutorial, we use a dataset for a fictitious coffee shop called Contoso Coffee. The dataset for this simple store locator is managed in an Excel workbook. The dataset contains 10,213 Contoso Coffee coffee shop locations spread across nine countries: the United States, Canada, the United Kingdom, France, Germany, Italy, the Netherlands, Denmark, and Spain. Here's a screenshot of what the data looks like:
+Before we develop a store locator application, we need to create a dataset of the stores we want to display on the map. In this tutorial, we use a dataset for a fictitious coffee shop called Contoso Coffee. The dataset for this simple store locator is managed in an Excel workbook. The dataset contains 10,213 Contoso Coffee coffee shop locations spread across nine countries/regions: the United States, Canada, the United Kingdom, France, Germany, Italy, the Netherlands, Denmark, and Spain. Here's a screenshot of what the data looks like:
 
 <br/>
 <center>
@@ -398,7 +398,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
 1. Add code to *index.js*. The following code initializes the map, adds an [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) that waits until the page is finished loading, wires up events to monitor the loading of the map, and powers the search button and My Location button.
 
-   When the user selects the search button, or when the user presses Enter after entering a location in the search box, a fuzzy search against the user's query is initiated. Pass in an array of country ISO 2 values to the `countrySet` option to limit the search results to those countries. Limiting the countries to search helps increase the accuracy of the results that are returned. 
+   When the user selects the search button, or when the user presses Enter after entering a location in the search box, a fuzzy search against the user's query is initiated. Pass in an array of country ISO 2 values to the `countrySet` option to limit the search results to those countries/regions. Limiting the countries/regions to search helps increase the accuracy of the results that are returned. 
   
    When the search is finished, take the first result and set the map camera over that area. When the user selects the My Location button, use the HTML5 Geolocation API that's built into the browser to retrieve the user's location and center the map over their location.  
 
@@ -564,7 +564,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
         },
 
         textOptions: {
-            textField: '{point_count_abbreviated}',
+            textField: ['get', 'point_count_abbreviated'],
             size: 12,
             font: ['StandardFont-Bold'],
             offset: [0, 0.4],
@@ -950,11 +950,11 @@ In this tutorial, you learn how to create a basic store locator by using Azure M
 > * Deploy your store locator as an [Azure App Service Web App](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
 > * Store your data in a database and search for nearby locations. To learn more, see the [SQL Server spatial data types overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) and [Query spatial data for the nearest neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
 
-You can access the code sample for this tutorial here:
+> [!div class="nextstepaction"]
+> [View full source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
 
-> [Create a store locator by using Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
-
-[See the sample live here](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
+> [!div class="nextstepaction"]
+> [View live sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
 
 To learn more about the coverage and capabilities of Azure Maps:
 

@@ -1,6 +1,6 @@
 ---
-title: Azure facilities, premises, and physical security | Microsoft Docs
-description: The article describes the Azure datacenters, including physical infrastructure, security, and compliance offerings.
+title: Physical security of Azure datacenters - Microsoft Azure | Microsoft Docs
+description: The article describes what Microsoft does to secure the Azure datacenters, including physical infrastructure, security, and compliance offerings.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -13,12 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 04/28/2019
 ms.author: terrylan
 
 ---
 
 # Azure facilities, premises, and physical security
+This article describes what Microsoft does to secure the Azure infrastructure.
+
+## Datacenter infrastructure
 Azure is composed of a [globally distributed datacenter infrastructure](https://azure.microsoft.com/global-infrastructure/), supporting thousands of online services and spanning more than 100 highly secure facilities worldwide.
 
 The infrastructure is designed to bring applications closer to users around the world, preserving data residency, and offering comprehensive compliance and resiliency options for customers. Azure has 52 regions worldwide, and is available in 140 countries.
@@ -66,7 +69,7 @@ Upon a system's end-of-life, Microsoft operational personnel follow rigorous dat
 ## Compliance
 We design and manage the Azure infrastructure to meet a broad set of international and industry-specific compliance standards, such as ISO 27001, HIPAA, FedRAMP, SOC 1, and SOC 2. We also meet country-specific standards, including Australia IRAP, UK G-Cloud, and Singapore MTCS. Rigorous third-party audits, such as those done by the British Standards Institute, verify adherence to the strict security controls these standards mandate.
 
-For a full list of compliance standards that Azure adheres to, see the [Compliance offerings](https://www.microsoft.com/trustcenter/compliance/complianceofferings). 
+For a full list of compliance standards that Azure adheres to, see the [Compliance offerings](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 ## Next steps
 To learn more about what Microsoft does to help secure the Azure infrastructure, see:

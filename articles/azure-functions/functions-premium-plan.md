@@ -103,15 +103,21 @@ Below are the currently supported regions for the public preview.
 |Region|
 |--|
 |Australia East|
-|Australia Souteast|
+|Australia Southeast|
 |Canada Central|
 |Central US|
+|East Asia|
 |East US 2|
+|France Central|
+|Japan West|
+|Korea Central|
 |North Europe|
 |South Central US|
+|South India|
 |Southeast Asia|
 |UK West|
 |West Europe|
+|West India|
 |West US|
 
 ## Known Issues

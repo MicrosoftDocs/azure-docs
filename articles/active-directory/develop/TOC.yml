@@ -350,6 +350,8 @@
         href: active-directory-certificate-credentials.md     
     - name: Application configuration
       items:
+      - name: App registrations training guide
+        href: app-registrations-training-guide.md
       - name: Applications and service principals
         href: app-objects-and-service-principals.md
       - name: Single tenant and multi-tenant apps
@@ -371,8 +373,6 @@
       items:
       - name: Configure role claims
         href: active-directory-enterprise-app-role-management.md
-      - name: Customize claims - Portal
-        href: active-directory-saml-claims-customization.md
       - name: Customize claims - PowerShell
         href: active-directory-claims-mapping.md
       - name: Configure optional claims

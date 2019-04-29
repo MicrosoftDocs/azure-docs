@@ -2,11 +2,11 @@
 title: Migrate data into Azure File Sync by using Azure Data Box and other methods  
 description: Migrate bulk data in a way that's compatible with Azure File Sync.
 services: storage
-author: fauhse
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: fauhse
+ms.author: rogarana
 ms.subservice: files
 ---
 
@@ -31,13 +31,13 @@ Here are the main benefits of using a transfer tool like Data Box for offline mi
 - Data Box and Azure File Sync require no downtime. When you use Data Box to transfer data into Azure, you use network bandwidth efficiently and preserve the file fidelity. You also keep your namespace up to date by uploading only the files that change after you move the data to Azure.
 
 ## Prerequisites for the offline data transfer
-Before you begin your offline data transfer:
+You should not enable sync on the server you are migrating before you complete your offline data transfer. Other things to consider before you begin are as follows:
 
-- Migrate your bulk data to one or multiple Azure file shares before you enable the sync with Azure File Sync.
-- If you plan to use Data Box for your bulk migration, review the [deployment prerequisites for Data Box](../../databox/data-box-deploy-ordered.md#prerequisites).
-- Plan your final Azure File Sync topology. For more information, see [Plan for an Azure File Sync deployment](storage-sync-files-planning.md).
-- Select the Azure Storage account or accounts that will hold the file shares you want to sync with. Migrate your bulk data to temporary staging shares that are in the same storage account or accounts. You can use only a final share and a staging share that are in the same storage account.
-- Create a new sync relationship with a server location. You can't use an existing sync relationship to migrate bulk data.
+- If you plan to use Data Box for your bulk migration: Review the [deployment prerequisites for Data Box](../../databox/data-box-deploy-ordered.md#prerequisites).
+- Plan your final Azure File Sync topology: [Plan for an Azure File Sync deployment](storage-sync-files-planning.md)
+- Select Azure storage account(s) that will hold the file shares you want to sync with. Ensure that your bulk migration happens to temporary staging shares in the same Storage Account(s). Bulk migration can only be enabled utilizing a final- and a staging- share that reside in the same storage account.
+- A bulk migration can only be utilized when you create a new sync relationship with a server location. You can't enable a bulk migration with an existing sync relationship.
+
 
 ## Process for offline data transfer
 Here's how to set up Azure File Sync in a way that's compatible with bulk migration tools such as Azure Data Box:
