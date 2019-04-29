@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/25/2019
+ms.date: 05/02/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
@@ -29,7 +29,10 @@ Geth is a Go Ethereum client you can use to attach to a Geth instance on an Azur
 You can find the Geth connection string in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to one of your Azure Blockchain Service member transaction nodes.
+1. Navigate to your Azure Blockchain Service member. Select **Transaction nodes** and the default transaction node link.
+
+    ![Select default transaction node](./media/connect-geth/transaction-nodes.png)
+
 1. Select **Connection strings**.
 1. Copy the connection string from **HTTPS (Access key 1)**. You need the command for the next section.
 
@@ -44,7 +47,15 @@ You can find the Geth connection string in the Azure portal.
     geth attach <connection string>
     ```
 
-1. Once connected to the transaction node's Ethereum console, you can call the web3 JavaScript Dapp API or the admin API. For example, to find out the chainId, type `admin.nodeInfo.protocols.istanbul.config.chainId` in the console.
+1. Once connected to the transaction node's Ethereum console, you can call the web3 JavaScript Dapp API or the admin API.
+
+    For example, Use the following API to find out the chainId.
+
+    ```bash
+    admin.nodeInfo.protocols.istanbul.config.chainId
+    ```
+
+    In this example, the chainId is 297.
 
     ![Azure Blockchain Service option](./media/connect-geth/geth-attach.png)
 

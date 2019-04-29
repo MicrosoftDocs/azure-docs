@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: seal
-ms.date: 04/23/2019
+ms.date: 05/02/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: seal
@@ -22,7 +22,6 @@ Azure AD provides cloud-based identity management and allows you to use a single
 ## Prerequisites
 
 * [Create a blockchain member using the Azure portal](create-member.md)
-* For more information about data security in Azure Blockchain Service, see [Azure Blockchain Service security](data-security.md).
 
 ## Grant access
 
@@ -34,7 +33,7 @@ To grant access permission at the member level.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Access control (IAM) > Add > Add role assignment**.
-1. Select the Blockchain Member Node Access (Preview) role and add the Azure AD ID object you wish to grant access to. Azure AD ID object can be:
+1. Select the **Blockchain Member Node Access (Preview)** role and add the Azure AD ID object you wish to grant access to. Azure AD ID object can be:
 
     | Azure AD object | Example |
     |-----------------|---------|
@@ -107,4 +106,7 @@ connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAA
 
 ## Next steps
 
-For more information about data security in Azure Blockchain Service, see [Azure Blockchain Service security](data-security.md).
+For more information about data security in Azure Blockchain Service, see:
+
+> [!div class="nextstepaction"]
+> [Azure Blockchain Service security](data-security.md)

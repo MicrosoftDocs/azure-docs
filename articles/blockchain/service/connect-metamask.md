@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/25/2019
+ms.date: 05/02/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
@@ -30,7 +30,10 @@ In this quickstart, you'll use MetaMask to connect to an Azure Blockchain Servic
 You need the Azure Blockchain Service endpoint address to connect to the blockchain network. You can find the endpoint address and access keys in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to your default Azure Blockchain Service member transaction node.
+1. Navigate to your Azure Blockchain Service member. Select **Transaction nodes** and the default transaction node link.
+
+    ![Select default transaction node](./media/connect-metamask/transaction-nodes.png)
+
 1. Select **Connection strings > Access keys**.
 1. Copy the endpoint address from **HTTPS (Access key 1)**. You need the address for the next section.
 
@@ -57,7 +60,7 @@ Remix is a browser-based Solidity development environment. Using MetaMask and Re
 1. In your browser, navigate to `https://remix.ethereum.org`.
 1. Select **Run**. 
 
-    Set **Environment** to **Injected Web3** and **Account** to your network.
+    MetaMask sets your **Environment** to **Injected Web3** and **Account** to your network.
 
     ![Run tab](./media/connect-metamask/injected-web3.png)
 

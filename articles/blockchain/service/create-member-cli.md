@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/25/2019
+ms.date: 05/02/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: seal
@@ -25,11 +25,11 @@ The Azure Cloud Shell is a free interactive shell that you can use to run the st
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
 
-If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.51 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.51 or later. Run `az --version` to find the version. If you need to install or upgrade, see [install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -55,7 +55,9 @@ There are several parameters and properties you need to pass. Replace the follow
 az resource create --resource-group myResourceGroup --name myblockchainmember --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties '{ "location": "eastus", "properties": {"password": "strongMemberAccountPassword@1", "protocol": "Quorum", "consortium": "myConsortiumName", "consortiumManagementAccountPassword": "strongConsortiumManagementPassword@1" }, "sku": { "name": "S0" } }'
 ```
 
-It takes about 10 minutes to create the blockchain member and supporting resources. The following shows example output of a successful create operation.
+It takes about 10 minutes to create the blockchain member and supporting resources.
+
+The following shows example output of a successful create operation.
 
 ```json
 {

@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/24/2019
+ms.date: 05/02/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -17,10 +17,11 @@ manager: femila
 
 Using Azure Blockchain Service, you can create private consortium blockchain networks where each blockchain network can be limited to specific participants in the network. Only participants in the private consortium blockchain network can view and interact with the blockchain. Consortium networks in Azure Blockchain Service can contain two types of member participant roles:
 
-**Administrator** - Privileged participants who can take consortium management actions and can participate in blockchain transactions.
-**User** -  Participants who cannot take any consortium management action but can participate in blockchain transactions.
+* **Administrator** - Privileged participants who can take consortium management actions and can participate in blockchain transactions.
 
-Consortium networks can be a mix of participant roles and can have an arbitrary number of each role type.
+* **User** -  Participants who cannot take any consortium management action but can participate in blockchain transactions.
+
+Consortium networks can be a mix of participant roles and can have an arbitrary number of each role type. There must be at least one administrator.
 
 The following diagram shows a consortium network with multiple participants:
 
@@ -30,7 +31,7 @@ With consortium management in Azure Blockchain Service, you can manage participa
 
 ## Roles
 
-Participants in a consortium can be individuals or organizations and can be assigned a user (member) role or an administrator role. The following table lists the high-level differences between the two roles:
+Participants in a consortium can be individuals or organizations and can be assigned a user role or an administrator role. The following table lists the high-level differences between the two roles:
 
 | Action | User role | Administrator role
 |--------|:----:|:------------:|
@@ -43,7 +44,7 @@ Participants in a consortium can be individuals or organizations and can be assi
 
 ### User role
 
-Users are consortium participants with no administrator capabilities. They cannot participate in managing members related to the consortium. The default role for new participants is user. Users can change their member display name and can remove themselves from a consortium.
+Users are consortium participants with no administrator capabilities. They cannot participate in managing members related to the consortium. Users can change their member display name and can remove themselves from a consortium.
 
 ### Administrator
 
@@ -60,13 +61,13 @@ Administrators can remove any participant from the consortium, including other a
 
 ## Consortium management smart contract
 
-Consortium management in Azure Blockchain Service is done via consortium management smart contracts. The smart contracts are automatically deployed to your nodes when you deploy a new blockchain member. <!--For a reference of the consortium management smart contracts, see [GitHub link]-->.
+Consortium management in Azure Blockchain Service is done via consortium management smart contracts. The smart contracts are automatically deployed to your nodes when you deploy a new blockchain member.
 
 The address of the root consortium management smart contract can be viewed in the Azure portal. The **RootContract address** is in blockchain member's overview section.
 
 ![RootContract address](./media/consortium/rootcontract-address.png)
 
-You can interact with the consortium management smart contract using the consortium management [PowerShell module](), Azure portal, or directly through the smart contract using the Azure Blockchain Service generated Ethereum account.
+You can interact with the consortium management smart contract using the consortium management [PowerShell module](manage-consortium-powershell.md), Azure portal, or directly through the smart contract using the Azure Blockchain Service generated Ethereum account.
 
 ## Ethereum account
 
