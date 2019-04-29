@@ -40,6 +40,10 @@ Unless otherwise noted, the examples in this article are for version 2.x.
 
 Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core 2.x supports, including [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). You must first install the .NET Core 2.x SDK.
 
+> [!IMPORTANT]
+> When you enable extension bundles in the project's host.json file, you do not need to install the .NET Core 2.x SDK. For more information, see [Local development with Azure Functions Core Tools and extension bundles
+](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Extension bundles requires version 2.6.1071 of the Core Tools, or a later version.
+
 #### <a name="windows-npm"></a>Windows
 
 The following steps use npm to install Core Tools on Windows. You can also use [Chocolatey](https://chocolatey.org/). For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
