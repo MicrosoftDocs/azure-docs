@@ -1,9 +1,8 @@
 ﻿---
-title: Azure Network Security Best Practices | Microsoft Docs
+title: Best practices for network security - Microsoft Azure
 description: This article provides a set of best practices for network security using built in Azure capabilities.
 services: security
-documentationcenter: na
-author: TomShinder
+author: TerryLanfear
 manager: barbkess
 editor: TomShinder
 
@@ -13,13 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/17/2018
+ms.date: 04/28/2019
 ms.author: TomSh
 
----
-# Azure Network Security Best Practices
-You can connect [Azure virtual machines (VMs)](https://azure.microsoft.com/services/virtual-machines/) and appliances to other networked devices by placing them on [Azure virtual networks](https://azure.microsoft.com/documentation/services/virtual-network/). That is, you can connect virtual network interface cards to a virtual network to allow TCP/IP-based communications between network-enabled devices. Virtual machines connected to an Azure virtual network can connect to devices on the same virtual network, different virtual networks, the internet, or your own on-premises networks.
 
+# Azure Network Security Best Practices
 This article discusses a collection of Azure network security best practices. These best practices are derived from our experience with Azure networking and the experiences of customers like yourself.
 
 For each best practice, this article explains:
