@@ -247,9 +247,12 @@ Lightweight Directory Access Protocol (LDAP) is used to read from and write to A
 
 For more information on secure LDAP, see [Configure secure LDAP (LDAPS) for an Azure AD Domain Services managed domain](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap).
 
-This section details the steps to create a self-signed certification, download the certificate and configure secure LDAP (LDAPS) for **hdifabrikam** Azure AD Domain Services managed domain. HDIFabrikam being the domain name, following powerShell script would create a certificate for hdifabrikam and will be saved under certificates path "LocalMachine" here is the powershell command.
+In this section, you create a self-signed certificate, download the certificate and configure secure LDAP (LDAPS) for the **hdifabrikam** Azure AD Domain Services managed domain.
 
-Any utility or application that creates a valid PKCS \#10 request can be used to form the SSL certificate request. In this case we are using PowerShell
+The following script creates a certificate for hdifabrikam. The certificate is saved under the path "LocalMachine".
+
+> [!Note] 
+> Any utility or application that creates a valid PKCS \#10 request can be used to form the SSL certificate request.
 
 ```powershell
 $lifetime = Get-Date
@@ -260,7 +263,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 
 ![alt-text](./media/apache-domain-joined-create-configure-esp/image100.jpg)
 
-Verify that the certificate is installed in the computer\'s Personal store. To do this, follow these steps:
+Verify that the certificate is installed in the computer\'s Personal store. Complete the following steps:
 
 1. Start Microsoft Management Console (MMC).
 1. Add the Certificates snap-in that manages certificates on the local computer.
@@ -270,7 +273,7 @@ Verify that the certificate is installed in the computer\'s Personal store. To d
 
 1. In the right pane, right-click the certificate that you created in the previous step, point to **All Tasks**, and then click **Export**.
 
-1. On the **[Export Private Key]** page, click **[Yes, export the private, t]**he private key is required for the encrypted messages to be read from the computer where the key will be imported.**[key]**. ]
+1. On the **Export Private Key** page, click **Yes, export the private, key]**. The private key is required for the encrypted messages to be read from the computer where the key will be imported.
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image103.png)
 
@@ -278,8 +281,8 @@ Verify that the certificate is installed in the computer\'s Personal store. To d
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image105.png)
 
-1. On the **[File to Export]** page, type the path and the name for the exported certificate file, and then
-click **[Next]**.
+1. On the **File to Export** page, type the path and the name for the exported certificate file, and then
+click **Next**.
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image107.png)
 
@@ -313,7 +316,7 @@ This Step requires 3 Pre-requisites.
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. Next step is to PEER the Virtual Network that is hosting AADDS and the Virtual Network that will host ESP enabled HDInsight cluster
+1. Create a peer relationship between the Virtual Network that is hosting AADDS (`HDIFabrikam-AADDSVNET`) and the Virtual Network that will host the ESP enabled HDInsight cluster (`HDIFabrikam-HDIVNet `). Use the following powershell code to peer these two virtual networks.
 
     ```powershell
     Add-AzVirtualNetworkPeering -Name HDIVNet-AADDSVNet -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName HDIFabrikam-CentralUS).Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName HDIFabrikam-WestUS)
@@ -321,20 +324,27 @@ This Step requires 3 Pre-requisites.
     Add-AzVirtualNetworkPeering -Name AADDSVNet-HDIVNet -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName HDIFabrikam-WestUS).Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName HDIFabrikam-CentralUS)
     ```
 
-1. Step is storage Account and one additional step is to
+1. Create a new Azure Data Lake Storage Gen2 account, **Hdigen2store**, that is configured with the user managed identity **HDIFabrikamManagedIdentity**. For more information on creating Data Lake Storage Gen2 accounts enabled with user managed identities, see [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image119.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image119.png)
 
-**Hdigen2store** ADL Gen 2 store, is enabled to use an user Managed Identity **HDIFabrikamManagedIdentity**. While creating the HDInsight cluster this identity will be used to configure the store**.** When a HDI clusters need to make an outbound request, it can identify itself with this configured Managed Identity **HDIFabrikamManagedIdentity** and pass this identity along with the request to access the store.
-
-![alt-text](./media/apache-domain-joined-create-configure-esp/image121.png)
+1. Setup custom DNS on the **HDIFabrikam-AADDSVNET** virtual network.
+    1. Go to the Azure portal > **Resource groups** > **OnPremADVRG** > **HDIFabrikam-AADDSVNET** > **DNS servers**.
+    1. Select **Custom** and 
 
 ![alt-text](./media/apache-domain-joined-create-configure-esp/image123.png)
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image125.jpg)
+1. Create a new HDInsight cluster.
+    1. Enter the desired details for section 1 **Basics**.
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image127.jpg)
+        ![alt-text](./media/apache-domain-joined-create-configure-esp/image125.jpg)
 
+    1. Under section 2 **Security + Networking**, click **Enabled** under **Enterprise Security Package**.
+
+        ![alt-text](./media/apache-domain-joined-create-configure-esp/image127.jpg)
+
+    1. Enter a **Cluster admin user**. Click **Cluster access group** and then select **HDIUserGroup**
+ 
 ![alt-text](./media/apache-domain-joined-create-configure-esp/image129.jpg)
 
 ![alt-text](./media/apache-domain-joined-create-configure-esp/image131.jpg)
