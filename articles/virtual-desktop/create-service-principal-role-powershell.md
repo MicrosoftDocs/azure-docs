@@ -104,7 +104,7 @@ Here are the three credentials you should write down and the cmdlets you need to
 
 ## Next steps
 
-Once you've create the service principal and assigned it a role in your Windows Virtual Desktop tenant, you can use it to create a host pool. To learn more about host pools, continue to the tutorial for creating a host pool in Windows Virtual Desktop.
+Once you've created the service principal and assigned it a role in your Windows Virtual Desktop tenant, you can use it to create a host pool. To learn more about host pools, continue to the tutorial for creating a host pool in Windows Virtual Desktop.
 
  > [!div class="nextstepaction"]
  > [Windows Virtual Desktop host pool tutorial](./create-host-pools-azure-marketplace.md)
