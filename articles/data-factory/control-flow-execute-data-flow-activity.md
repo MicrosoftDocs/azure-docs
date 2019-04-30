@@ -54,11 +54,11 @@ Choose the compute environment for this execution of your data flow. The default
 
 ![Debug button](media/data-flow/debugbutton.png "Debug button")
 
-Use the Data Flow Debug to utilize a warmed cluster for testing your data flows interactively in a pipeline debug run. Use the Pipleine Debug option to test your data flows inside a pipeline.
+Use the Data Flow Debug to utilize a warmed cluster for testing your data flows interactively in a pipeline debug run. Use the Pipeline Debug option to test your data flows inside a pipeline.
 
 ### Run on
 
-This is a required field that defines which Integration Runtime to use for your Data Flow activity exeuction. By default, Data Factory will use the default auto-resolve Azure Integration runtime. However, you can create your own Azure Integration Runtimes that define specific regions, compute type, core counts, and TTL for your data flow activity execution.
+This is a required field that defines which Integration Runtime to use for your Data Flow activity execution. By default, Data Factory will use the default auto-resolve Azure Integration runtime. However, you can create your own Azure Integration Runtimes that define specific regions, compute type, core counts, and TTL for your data flow activity execution.
 
 The default setting for Data Flow executions is 8 cores of general compute with a TTL of 60 minutes.
 
@@ -76,7 +76,7 @@ If you are using parameterized datasets, be sure to set the parameter values.
 
 You can only debug data flows with parameterized datasets from the Pipeline Debug run using the execute data flow activity. Currently, interactive debug sessions in ADF Data Flow do not work with parameterized data sets. Pipeline executions and debug runs will work with parameters.
 
-A good practice is to build your data flow with a static dataset so that you have full metadata column propagation availble at design-time. Then replace the static dataset with a dynamic parameterized dataset when you operationalize your data flow pipeline.
+A good practice is to build your data flow with a static dataset so that you have full metadata column propagation available at design-time. Then replace the static dataset with a dynamic parameterized dataset when you operationalize your data flow pipeline.
 
 ## Next steps
 See other control flow activities supported by Data Factory: 
