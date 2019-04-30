@@ -30,6 +30,19 @@ These non-rebootful maintenance operations are applied fault domain by fault dom
 
 Some applications may be impacted by these types of updates. In case the VM is live migrated to a different host, some sensitive workloads might notice a slight performance degradation in the few minutes leading up to the VM pause. Such applications can benefit from using Scheduled Events for [Windows](../articles/virtual-machines/windows/scheduled-events.md) or [Linux](../articles/virtual-machines/linux/scheduled-events.md) to prepare for VM maintenance and have no impact during Azure maintenance. Azure is also working on maintenance control features for such ultra-sensitive applications. 
 
+## Live Migration
+
+Live Migration is a non-rebootful operation that preserves memory for the VM and results in a limited pause or freeze, typically lasting no more than 5 seconds. Today, all standard VMs, apart from G, M, N, and a subset of A, L, & H series, are eligible for Live Migration. This equates to over 90% of the VMs deployed to the Azure Fleet. 
+
+Live Migration is initiated by the Azure Fabric in the following scenarios:
+- Planned Maintenance
+- Hardware Failure
+- Allocation Failure and Optimization
+
+Live Migration is tied into the Planned Maintenance scenario using the Scheduled Events protocols detailed in this article. Customers with eligible workloads receive a notification and are Live Migrated within the communicated window.
+
+Live Migration is also used for impending Hardware Failure that is detected by our Machine Learning algorithms and to improve Allocation Failure scenarios. To maintain exceptional customer experience, the Fabric will detect scenarios where VM allocation is reaching acceptable operational thresholds within a Datacenter, initiating Live Migration to ensure optimal performance. To learn more about our Predictive Modeling that detects instances of Hardware Failure, please see our blog post entitled [Improving Azure Virtual Machine resiliency with predictive ML and live migration](https://azure.microsoft.com/en-us/blog/improving-azure-virtual-machine-resiliency-with-predictive-ml-and-live-migration/?WT.mc_id=thomasmaurer-blog-thmaure). Customers will always receive a Live Migration notice in their Azure Portal in the Monitor / Service Health Logs.
+
 
 ## Maintenance requiring a reboot
 
