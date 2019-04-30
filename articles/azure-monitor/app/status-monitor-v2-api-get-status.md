@@ -126,4 +126,4 @@ If this process fails for any reason, you can run these commands manually:
 ## Next steps
 
  Do more with Status Monitor v2:
- - Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot) Status Monitor v2.
+ - Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.
