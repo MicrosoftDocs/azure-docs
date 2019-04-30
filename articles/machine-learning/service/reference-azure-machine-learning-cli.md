@@ -89,22 +89,9 @@ The following commands demonstrate how to use the CLI to manage resources used b
 + Attach an AKS cluster as a Compute Target.
 
     ```azurecli-interactive
-    az ml datastore attach-blob  -n datastorename -a accountname -c containername
-    ```
-
-+ Attach an AKS cluster as a Compute Target.
-
-    ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
     ```
 
-+ Create a new AMLcompute target
-
-+ Attach a workspace configuration to a folder to enable CLI contextual awareness.
-    ```azurecli-interactive
-    az ml folder attach -w myworkspace -g myresourcegroup
-    ```
-    
 ## <a id="experiments"></a>Run experiments
 
 * Start a run of your experiment. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you are looking at your file system) against the -c parameter.
