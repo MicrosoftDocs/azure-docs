@@ -246,4 +246,4 @@ Review our [API Reference](status-monitor-v2-api-enable-monitoring.md) for a det
 
 Do more with Status Monitor v2:
 
-- Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot) Status Monitor v2.
+- Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.
