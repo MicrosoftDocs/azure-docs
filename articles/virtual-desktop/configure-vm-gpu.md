@@ -2,7 +2,7 @@
 title: Configure GPU for Windows Virtual Desktop Preview - Azure
 description: How to enable GPU-accelerated rendering and encoding in Windows Virtual Desktop Preview.
 services: virtual-desktop
-author: denisgun
+author: gundarev
 
 ms.service: virtual-desktop
 ms.topic: how-to
