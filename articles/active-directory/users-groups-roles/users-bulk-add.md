@@ -1,5 +1,4 @@
 ---
-
 title: Bulk add users in the Azure Active Directory portal | Microsoft Docs
 description: Add users in bulk in the Azure admin center in Azure Active Directory
 services: active-directory 
@@ -29,17 +28,15 @@ Azure Active Directory (Azure AD) supports bulk user create and delete operation
 1. When the file contents are validated, you must fix eny errors before you can start the upload job.
 1. When your file passes validation, select **Submit** to start the Azure batch job that updates the user records. Job notifications are generated to apprise you of progress to completion.
 
-
 ## Troubleshoot bulk user addition
 
-The causes of your troubles are many. Let us make them few.
+The causes of your troubles are many. Let us make them few. Specific actions can address the causes of many  potential error states during the bulk add process.
 
 Validation error Message 1
 guidance 1
 
 Batch job failure Message 2
 Guidance 2
-
 
 ## Next steps
 

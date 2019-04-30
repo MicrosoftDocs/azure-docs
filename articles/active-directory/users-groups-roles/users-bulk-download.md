@@ -28,10 +28,9 @@ Azure Active Directory (Azure AD) supports bulk user create and delete operation
 1. When you finish editing the CSV file or if you have one of your own ready to upload, select the file under **Upload your CSV file** to be validated. The file contents are validated and you must fix eny errors before you can submit the job.
 1. When your file passes validation, select **Submit** to start the Azure batch job that add the new user information. Job notifications are generated to apprise you of progress.
 
-
 ## Troubleshoot bulk user addition
 
-The causes of your troubles are many. Let us make them few.
+The causes of your troubles are many. Let us make them few. Specific actions can address the causes of many  potential error states during the list download process.
 
 Validation error Message 1
 guidance 1
@@ -45,4 +44,3 @@ Bulk delete users
 Download list of users
 Download list of groups
 Download list of group members
-
