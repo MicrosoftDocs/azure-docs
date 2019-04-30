@@ -17660,22 +17660,22 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/quickstart-v1-add-azure-ad-app.md",
+      "source_path": "articles/active-directory/develop/quickstart-v1-add-azure-ad-app.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/active-directory/quickstart-v2-register-an-app.md",
+      "source_path": "articles/active-directory/develop/quickstart-v2-register-an-app.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/quickstart-v1-update-azure-ad-app.md",
+      "source_path": "articles/active-directory/develop/quickstart-v1-update-azure-ad-app.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-configure-app-access-web-apis",
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/active-directory/quickstart-v1-remove-azure-ad-app.md",
+      "source_path": "articles/active-directory/develop/quickstart-v1-remove-azure-ad-app.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-remove-app",
       "redirect_document_id": true
     },
