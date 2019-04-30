@@ -144,6 +144,7 @@ From this table, we can draw the following conclusions:
 | P2 |13 GB |4 |3,000 / 375 |350,000 |341,000 |
 | P3 |26 GB |4 |3,000 / 375 |350,000 |341,000 |
 | P4 |53 GB |8 |6,000 / 750 |400,000 |373,000 |
+| P5 |120 GB | | | | |
 
 For instructions on setting up stunnel or downloading the Redis tools such as `redis-benchmark.exe`, see the [How can I run Redis commands?](#cache-commands) section.
 
@@ -352,7 +353,7 @@ The following commands provide an example of using redis-benchmark.exe. For accu
 <a name="threadpool"></a>
 
 ### Important details about ThreadPool growth
-The CLR ThreadPool has two types of threads - "Worker" and "I/O Completion Port" (aka IOCP) threads.
+The CLR ThreadPool has two types of threads - "Worker" and "I/O Completion Port" (IOCP) threads.
 
 * Worker threads are used for things like processing the `Task.Run(…)`, or `ThreadPool.QueueUserWorkItem(…)` methods. These threads are also used by various components in the CLR when work needs to happen on a background thread.
 * IOCP threads are used when asynchronous IO happens (e.g. reading from the network).
