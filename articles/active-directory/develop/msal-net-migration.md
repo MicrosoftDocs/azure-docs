@@ -41,7 +41,7 @@ The following picture summarizes some of the differences between ADAL.NET and MS
 
 ADAL.NET is consumed from the [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package. the namespace to use is `Microsoft.IdentityModel.Clients.ActiveDirectory`.
 
-To use MSAL.NET you will need to add the [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet package (for the moment in Preview), and use the `Microsoft.Identity.Client` namespace
+To use MSAL.NET you will need to add the [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet package, and use the `Microsoft.Identity.Client` namespace
 
 ### Scopes not resources
 
