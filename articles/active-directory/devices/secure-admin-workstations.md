@@ -17,47 +17,70 @@ ms.reviewer: jairoc
 
 ms.collection: M365-identity-device-management
 ---
-# Overview
+# Why securing administrative workstations is critical for cloud service administrators
 
-The risk of your cloud service being compromised is an ever-growing concern. The attacks major organizations have experienced in recent years have frequently started by exploiting the weakest link and identifying methods to gain access to privileged resources. As documented in the [Verizon Threat report](https://enterprise.verizon.com/resources/reports/dbir/), privileged misuse is among the top five mechanisms used to breach organizations, and the second most commonly detected tactic in incidents reported in 2018. Most attackers start with simple reconnaissance, often specific to an industry, and use the information collected to identify the best means to exfiltrate data.  This process is illustrated as [attack graphs, and attack trees(https://en.wikipedia.org/wiki/Attack_tree)], a frequently used tactic to find unprotected and poorly protected entry points and use them to find the assets they are looking for. Attackers will infiltrate devices that may seem low risk or undervalued for reconnaissance and use them to locate an opportunity for lateral movement to find high valued data and successfully exfiltrate information once they gain privileged user roles.  
+The rapid adoption of cloud services and the ability to work from anywhere has created a new method for exploitation. Attackers are exploiting weak security controls on devices where administrators work and are able to gain access to privileged resources.
+
+As documented in the [Verizon Threat report](https://enterprise.verizon.com/resources/reports/dbir/), privileged misuse is among the top five mechanisms used to breach organizations, and the second most commonly detected tactic in incidents reported in 2018.
+
+Most attackers follow the path below:
+
+* Start with simple reconnaissance, often specific to an industry, to find a way in
+* Analyze and use the information collected to identify the best means to access and exfiltrate data or cause other intended harm
+* Access, gather, and cause intended harm
+* Exfiltrate and cover tracks
+
+Attackers frequently infiltrate devices that seem low risk or undervalued for reconnaissance and use them to locate an opportunity for lateral movement to find high valued data and successfully exfiltrate information once they gain privileged user roles.
 
 ![Typical compromise pattern](./media/secure-admin-workstations/typical-timeline.png)
 
-This document provides a solution to help protect your most sensitive computing devices by isolating management and services to help protect against lateral movement or attack-graph-based attacks from less valuable productivity devices, providing this solution using first-class Azure, and Office service. The design helps reduce the ability to successfully execute a breach by breaking the chain prior and prevent infiltration of the device used to manage or access sensitive cloud resources.
-
-Through this guidance, the discussion of local Administrative rights will be reviewed as the control and security vs usability and user customizability is a pivotal risk that must be evaluated when deploying a secured workstation. The recommendation of the guidance will lean to an isolated and locked down client workstation that includes the removal of privileged local users such as Administrator rights on Windows operating system.
-
-Deployment of the Secure workstation will also take advantage of the latest cloud-based technology built in Azure and Office to ensure the management of the service can be done effectively, reducing the risks of managing a complex solution. These technologies are implemented to provide administrators a defendable platform that can resists attack and protect your cloud services.
-
-The core implementation will take advantage of software available Azure and Office with core functions of [Intune MDM technology](https://docs.microsoft.com/Intune/mam-faq) to provide an isolation model, Microsoft autopilot to help automate the supply chain management, Azure Active directory for identity management, and embedded Windows 10RS5 + technology to provide device attestations, and health management.
-
-including:
+This document provides a solution to help protect your most sensitive computing devices by isolating management and services to help protect against lateral movement or attacks from less valuable productivity devices. The design helps reduce the ability to successfully execute a breach by breaking the chain prior and prevent infiltration of the device used to manage or access sensitive cloud resources. The solution described will utilize native Azure services that are part of the Microsoft 365 Enterprise stack including:
 
 * Intune for device management, including application and URL whitelisting
 * Autopilot for device setup and deployment and refresh
-* Azure AD for user isolation, user management, and conditional access 
+* Azure AD for user management, conditional access, and multi-factor authentication
 * Windows 10 (current version) for device health attestation and user experience
-* Microsoft Defender ATP for endpoint protection, detection, and response with cloud management 
+* Microsoft Defender Advanced Threat Protection (ATP) for endpoint protection, detection, and response with cloud management
 * Azure AD PIM for managing authorization, including Just In Time (JIT) privileged access to resources
 
-# Concepts
+## Who benefit from using a secure workstation?
 
-## Roles that should use a Secure Workstation
+An attacker who compromises a PC or device can do several things including impersonate all cached accounts, and use credentials, and tokens used on that device while they are logged on. This risk makes securing the devices used for administration so important as devices where a privileged account is used are targets for lateral movement and privilege escalation attacks. These accounts may be used for a variety of assets such as:
 
-One of the most important aspects of protecting accounts is the protection of devices on which that account is used. An attacker who compromises a PC or device can do several things including impersonate all cached accounts, and use credentials, and tokens used on that device while they are logged on. This risk applies to all accounts on a compromised host, but is important for privileged accounts whose illicit use would have a high potential impact such as administrators of on-premises and cloud systems, developer workstations for critical systems, social media accounts administrator with high exposure, and highly sensitive workstations like SWIFT payment terminals, workstations handling unpatented trade secrets, and similar.
+* Administrators of on-premises and cloud-based systems
+* Developer workstations for critical systems
+* Social media accounts administrator with high exposure
+* Highly sensitive workstations like SWIFT payment terminals
+* Workstations handling trade secrets
 
-Microsoft recommends implementing elevated security controls for the privileged workstations where these accounts are used to reduce risk (including [Office 365 Roadmap](https://aka.ms/o365secroadmap) and [Securing Privileged Access roadmap](https://aka.ms/sparoadmap)).
+Microsoft recommends implementing elevated security controls for the privileged workstations where these accounts are used to reduce risk including the [Azure Active Directory feature deployment guide](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2), [Office 365 Roadmap](https://aka.ms/o365secroadmap), and [Securing Privileged Access roadmap](https://aka.ms/sparoadmap)).
 
 ## Why dedicated workstations
 
-While you can lower risk by adding security controls to workstations that have access to web browsing and email, providing the strongest assurances for sensitive accounts requires removing the large number of attack vectors that email and web browsing allow. This requires a dedicated workstation separate from standard productivity workstations where browsing and email communication is normally performed.  Removing web browsing and email can have a negative impact workstation productivity, but this is typically acceptable for scenarios where the job tasks don’t explicitly require it and risk of a security incident is high.  
+While it is possible to add security to an existing device it is better to start with a secure foundation. Starting with a known good device and a set of known security controls puts your organization in the best position to maintain that increased level of security. With the ever growing number of attack vectors allowed by casual email and web browsing it is increasingly hard to ensure a device can be trusted. This guide works under the assumption a dedicated workstation separated from standard productivity, browsing, and email tasks are completed. Removal of productivity, web browsing, and email from a device can have a negative impact on productivity, but this is typically acceptable for scenarios where the job tasks don’t explicitly require it and risk of a security incident is high.
 
 > [!NOTE]
-> Web browsing here refers to general access to arbitrary websites, which is a high risk distinctly different from using a web browser to access a small number of well-known administrative websites for services like Azure, Office 365, Amazon, ServiceNow and the like.
+> Web browsing here refers to general access to arbitrary websites, which is a high risk distinctly different from using a web browser to access a small number of well-known administrative websites for services like Azure, Office 365, other cloud providers, and SaaS applications.
 
-Containment strategies provide increased security assurances by increasing the number and type of controls an adversary has to overcome in order to access sensitive assets. Microsoft has developed a model to provide containment of administrative privileges to assets (joined to an on premises active directory) using a tiered privilege model.
+Containment strategies provide increased security assurances by increasing the number and type of controls an adversary has to overcome in order to access sensitive assets. The model developed here provides containment of administrative privileges to specific devices using a tiered privilege model.
 
-Throughout the guidance, the following scenarios will be addressed to achieve a secured solution. These scenarios and user profiles reflect common users that can take advantage of the secure workstation, while balancing usability and risk. The guidance will provide configuration of settings based on the Intune security, NCSC, and [SECCON Framework](https://docs.microsoft.com/windows/security/threat-protection/windows-security-configuration-framework/windows-security-configuration-framework). These Hardening guides are used to illustrate a method in hardening Windows 10 and reducing the risks associated with device or user compromise using policy and technology to help manage security features and risks. The guidance will provide the steps required to achieve the fifth level of hardening as a secured workstation.
+Throughout the guidance, multiple scenarios will be addressed to achieve a more secure solution. These scenarios reflect common users in organizations that can benefit from a secure workstation, while balancing usability and risk. The guidance will provide configuration of settings based on industry standards. This guidance is used to illustrate a method in hardening Windows 10 and reducing the risks associated with device or user compromise using policy and technology to help manage security features and risks. We will outline the steps required to achieve a level of hardening called secured workstation.
+
+|    | Standard workstation | Enhanced workstation | VIP workstation | DevOps workstations | Secured workstation |
+| --- | :---: | :---: | :---: | :---: | :---: |
+| User in Azure AD | Yes | Yes | Yes | Yes | Yes |
+| Intune managed | Yes | Yes | Yes | Yes | Yes |
+| Device Azure AD registered | Yes |  |  |  |  |
+| Device Azure AD joined |   | Yes | Yes | Yes | Yes |
+| Intune security baseline applied |   | Yes | Yes | Yes | Yes |
+| Hardware meets secure Windows 10 Standards |   | Yes | Yes | Yes | Yes |
+| Enhanced Intune security baseline applied |   |   | Yes | Yes | Yes |
+| Removal of admin rights |   |   | Yes | Yes | Yes |
+| Microsoft Defender ATP enabled |   |   |   | Yes | Yes |
+| Deployment using Autodeploy |   |   |   | Yes | Yes |
+| Apps installed only by Intune |   |   |   | Yes | Yes |
+| URLs restricted to approved list only |   |   |   | Yes | Yes |
+| Custom Intune security baseline |   |   |   |   | Yes |
 
 ![SECCON Levels](./media/secure-admin-workstations/SECCON-levels.png)
 
