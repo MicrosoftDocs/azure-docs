@@ -362,7 +362,7 @@ Document ID: 2
 Document ID: 3
          Key phrases:
                 cat
-                rock
+                veterinarian
 Document ID: 4
          Key phrases:
                 fútbol
