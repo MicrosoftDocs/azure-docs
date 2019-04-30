@@ -1,20 +1,12 @@
 ---
-title: Delete Marketplace Offers - Azure Marketplace | Microsoft Docs
+title: Delete marketplace offers | Azure Marketplace 
 description: Delete offers on the Azure and AppSource Marketplaces using the Cloud Partner Portal
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Delete Azure Marketplace and AppSource offers or SKUs
