@@ -123,3 +123,7 @@ If this process fails for any reason, you can run these commands manually:
 **Optional**. Used only with InspectProcess. This switch will skip the user prompt to download the additional tools.
 
 
+## Next steps
+
+ Do more with Status Monitor v2:
+ - Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot) Status Monitor v2.
