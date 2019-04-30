@@ -9,7 +9,7 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 04/30/2019
 ms.custom: seodec18
 
 ---
@@ -48,6 +48,9 @@ You will not be able to deploy models on FPGAs until you have requested and been
 Tensor Flow
 Automated machine learning does not currently support tensor flow version 1.13. Installing this version will cause package dependencies to stop working. We are working to fix this issue in a future release. 
 
+### Experiment Charts
+
+Charts (precision-recall, ROC, gain curve etc.) shown in automated ML experiment iterations are not rendering corectly in user interface since 4/12. Chart plots are currently shown flipped. A resolution is under investigation.
 
 ## Databricks
 
@@ -97,6 +100,8 @@ If these steps don't solve the issue, try restarting the cluster.
 ## Azure portal
 
 If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal Overview page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, the workaround is to go directly to the [Azure portal](https://portal.azure.com) and search for the workspace name.
+
+
 
 ## Diagnostic logs
 
