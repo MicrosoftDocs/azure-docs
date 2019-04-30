@@ -244,6 +244,6 @@ Review our [API Reference](status-monitor-v2-api-enable-monitoring.md) for a det
 - [Add web client telemetry](../../azure-monitor/app/javascript.md) to see exceptions from web page code and to let you insert trace calls.
 - [Add Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so that you can insert trace and log calls
 
-Do more with Status Monitor v2
+Do more with Status Monitor v2:
 
 - Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot) Status Monitor v2.
