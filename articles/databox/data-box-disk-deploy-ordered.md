@@ -1,5 +1,5 @@
 ---
-title: Tutorial to order Microsoft Azure Data Box Disk | Microsoft Docs
+title: Tutorial to order Azure Data Box Disk | Microsoft Docs
 description: Use this tutorial to learn how to sign up and order an Azure Data Box Disk to import data into Azure.
 services: databox
 author: alkohli
