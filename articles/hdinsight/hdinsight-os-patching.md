@@ -23,6 +23,10 @@ Using the script action described in this article, you can modify the OS patchin
 
 > [!NOTE]  
 > This script action will only work with Linux-based HDInsight clusters created after August 1st, 2016. Patches will be effective only when VMs are rebooted. 
+<<<<<<< HEAD
+=======
+> This script will not automatically apply updates for all future update cycles. Run the script each time new updates need to be applied in order to install the updates and reboot the VM.
+>>>>>>> b9def6a828c... Update hdinsight-os-patching.md
 
 ## How to use the script 
 
@@ -30,7 +34,7 @@ When using this script requires the following information:
 1. The script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.
  	HDInsight uses this URI to find and run the script on all the virtual machines in the cluster.
   
-2. The cluster node types that the script is applied to: headnode, workernode, zookeeper. This script must be applied to all node types in the cluster. If it is not applied to a node type, then the virtual machines for that node type will continue to use the previous patching schedule.
+2. The cluster node types that the script is applied to: headnode, workernode, zookeeper. This script must be applied to all node types in the cluster. If it is not applied to a node type, then the virtual machines for that node type will not be updated.
 
 
 3.  Parameter: This script accepts three numeric parameters:
