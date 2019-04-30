@@ -216,7 +216,17 @@ Ensure that the data disks have been initialized, and then retry the operation:
 
 If the problem persists, contact support.
 
+## One or more disk(s) are available for protection(error code 153039)
+- **Possible cause** </br>
+  - if one or more disk(s) were recently added to the virtual machine after the protection. 
+  - if one or more disk(s) were initialized later after the protection of the virtual machine.
 
+### Fix the problem
+You can either choose to  protect the disks or ignore the warning to make the replication status of the VM healthy again.</br>
+1. To protect the disk(s). Navigate to Replicated Items > VM > Disks > click on unprotected disk >Enable Replication.
+ ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
+2. To dismiss the warning. Go to Replicated items > VM > Click on the dismiss alert under overview section.
+![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
 ## Unable to see the Azure VM for selection in "enable replication"
 
  **Cause 1:  Resource group and source Virtual machine are in different location** <br>

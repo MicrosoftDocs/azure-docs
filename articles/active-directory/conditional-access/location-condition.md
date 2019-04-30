@@ -48,16 +48,13 @@ A named location has the following components:
 - **IP ranges** - One or more IPv4 address ranges in CIDR format. Specifying an IPv6 address range is not supported.
 
    > [!NOTE]
-   > IPv6 address rangess cannot currently be included in a named locationThis measn IPv6 ranges cannot be excluded from a conditional access policy.
+   > IPv6 address rangess cannot currently be included in a named location. This measn IPv6 ranges cannot be excluded from a conditional access policy.
 
 - **Mark as trusted location** - A flag you can set for a named location to indicate a trusted location. Typically, trusted locations are network areas that are controlled by your IT department. In addition to conditional access, trusted named locations are also used by Azure Identity Protection and Azure AD security reports to reduce [false positives](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Countries/Regions** - This option enables you to select one or more country or region to define a named location.
 - **Include unknown areas** - Some IP addresses are not mapped to a specific country. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
 
-The number of named locations you can configure is constrained by the size of the related object in Azure AD. You can configure locations based on of the following limitations:
-
-- One named location with up to 1200 IP ranges.
-- A maximum of 90 named locations with one IP range assigned to each of them.
+The number of named locations you can configure is constrained by the size of the related object in Azure AD. Organizations can configure up to 90 lamed locations, each configured with up to 12000 IP ranges.
 
 Conditional access policy applies to IPv4 and IPv6 traffic. Currently named locations do not allow IPv6 ranges to be configured. This limitation causes the following situations:
 
