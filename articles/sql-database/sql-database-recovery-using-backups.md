@@ -75,7 +75,7 @@ You generally restore a database to an earlier point for recovery purposes. You 
 
 - **Data recovery**
 
-  If you plan to retrieve data from the restored database to recover from a user or application error, you need to write and execute a  data recovery scripts that extract data from the restored database and applies to the original database. Although the restore operation may take a long time to complete, the restoring database is visible in the database list throughout the restore process. If you delete the database during the restore, the restore operation will be canceled and you will not be charged for the database that did not complete the restore.
+  If you plan to retrieve data from the restored database to recover from a user or application error, you need to write and execute a  data recovery script that extracts data from the restored database and applies to the original database. Although the restore operation may take a long time to complete, the restoring database is visible in the database list throughout the restore process. If you delete the database during the restore, the restore operation will be canceled and you will not be charged for the database that did not complete the restore.
 
 To recover a single, pooled, or instance database to a point in time using the Azure portal, open the page for your database and click **Restore** on the toolbar.
 
