@@ -1,12 +1,12 @@
 ---
 
 title: Bulk add users in the Azure Active Directory portal | Microsoft Docs
-description: Add users in bulk in the Azure admin center. 
+description: Add users in bulk in the Azure admin center in Azure Active Directory
 services: active-directory 
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/18/2019
+ms.date: 05/01/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -20,11 +20,11 @@ ms.collection: M365-identity-device-management
 
 If your automation is powered by Graph API commands, you can still automate Azure AD bulk operations.
 
-## Create the user list
+## Populate a CSV template (Optional)
 
 nothing to commit, working tree clean
 
-## Add users in bulk
+## Upload your CSV file
 
 nothing to commit, working tree clean
 
