@@ -5,7 +5,7 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 04/27/2019
+ms.date: 04/29/2019
 ms.author: rolyon
 ms.custom: include file
 ---
@@ -33,7 +33,13 @@ ms.custom: include file
     > [!NOTE]
     > Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews.
 
+    If you are creating an access review of Azure AD roles, the following shows an example of the Review membership list.
+
     ![Create an access review - Review role membership](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
+
+    If you are creating an access review of Azure resource roles, the following shows an example of the Review membership list.
+
+    ![Create an access review - Review role membership](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
 
 1. In the **Reviewers** section, select one or more people to review all the users. Or you can select to have the members review their own access.
 
