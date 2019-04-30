@@ -20,7 +20,7 @@ This article describes how to plan your Azure Time Series Insights general avail
 
 ## Video
 
-### In this video, we cover Time Series Insights data retention and how to plan for it.</br>
+### Learn more about data retention in AzureTime Series Insights and how to plan for it.</br>
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
@@ -44,9 +44,9 @@ By default, Azure Time Series Insights retains data based on the amount of stora
 
 ## Understand data retention
 
-You can configure your Time Series Insights environment’s **Data retention time** setting, enabling up to **400 days** of retention. Time Series Insights has two modes, one that optimizes for ensuring your environment has the most up-to-date data (on by default), and another that optimizes for ensuring retention limits are met, where ingress is paused if the overall storage capacity of the environment is hit.  You can adjust retention and toggle between the two modes in the environment’s configuration page in the Azure portal.
+You can configure your Time Series Insights environment’s **Data retention time** setting, enabling up to 400 days of retention. Time Series Insights has two modes, one that optimizes for ensuring your environment has the most up-to-date data (on by default), and another that optimizes for ensuring retention limits are met, where ingress is paused if the overall storage capacity of the environment is hit.  You can adjust retention and toggle between the two modes in the environment’s configuration page in the Azure portal.
 
-You can configure a maximum of **400 days** of data retention in your Time Series Insights environment.
+You can configure a maximum of 400 days of data retention in your Time Series Insights environment.
 
 ### Configure data retention
 
@@ -62,7 +62,7 @@ You can configure a maximum of **400 days** of data retention in your Time Serie
 
 The other area to focus on for planning is ingress capacity, which is a derivative of the per-minute allocation.
 
-From a throttling perspective, an ingressed data packet with a packet size of **32 KB** is treated as **32** events, each sized **1 KB**. The maximum allowed event size is **32 KB**; data packets larger than **32 KB** are truncated.
+From a throttling perspective, an ingressed data packet with a packet size of 32 KB is treated as 32 events, each sized 1 KB. The maximum allowed event size is 32 KB; data packets larger than 32 KB are truncated.
 
 The following table summarizes the ingress capacity for each SKU:
 
@@ -71,13 +71,13 @@ The following table summarizes the ingress capacity for each SKU:
 |S1     |   30 million     |  30 GB     |  720    |  720 KB   |
 |S2     |   300 million    |   300 GB   | 7,200   | 7,200 KB  |
 
-You can increase the capacity of an **S1** or **S2 SKU** to 10 units in a single environment. You cannot migrate from an **S1** environment to an **S2**, or from an **S2** environment to an **S1**.
+You can increase the capacity of an S1 or S2 SKU to 10 units in a single environment. You cannot migrate from an S1 environment to an S2, or from an S2 environment to an S1.
 
 For ingress capacity, you should first determine the total ingress you require on a per-month basis. Next, determine what your per-minute needs are, as this is where throttling and latency play a role.
 
 If you have a spike in your data ingress lasting less than 24 hours, Time Series Insights can "catch-up" at an ingress rate of 2x the listed rates above.
 
-For example, if you have a single **S1 SKU** and ingress data at a rate of **720 events per minute**, and spike for less than 1 hour at a rate of **1440 events or less**, there would be no noticeable latency to your environment. However, if you exceed 1440 events per minute for more than one hour, you would likely experience latency to data that is visualized and available for query in your environment.
+For example, if you have a single S1 SKU and ingress data at a rate of 720 events per minute, and spike for less than 1 hour at a rate of 1440 events or less, there would be no noticeable latency to your environment. However, if you exceed 1440 events per minute for more than one hour, you would likely experience latency to data that is visualized and available for query in your environment.
 
 You may not know in advance how much data you expect to push. In this case, you can find data telemetry for [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) and [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) in your Azure portal. This telemetry can help you determine how to provision your environment. Use the **Metrics** page in the Azure portal for the respective event source to view its telemetry. If you understand your event source metrics, you can more effectively plan and provision your Time Series Insights environment.
 
@@ -93,11 +93,14 @@ For information about how to prevent throttling and latency, see [Mitigate laten
 
 ## Shaping your events
 
-It's important to ensure the way you send events to TSI supports the size of the environment you are provisioning (Conversely, you can map the size of the environment to how many events TSI reads and the size of each event).  Likewise, it's important to think about the attributes you may want to slice and filter by when querying your data.  With this in mind, we suggest reviewing the JSON shaping section of our [Sending events documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events).  It's towards the bottom of the page.  
+It's important to ensure the way you send events to TSI supports the size of the environment you are provisioning (conversely, you can map the size of the environment to how many events TSI reads and the size of each event). Likewise, it's important to think about the attributes you may want to slice and filter by when querying your data.
+
+> [!TIP]
+> Review the JSON shaping documentation in [Sending events](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events).
 
 ## Ensuring you have reference data in place
 
-A Reference Data Set is a collection of items that augment the events from your event source. Time Series Insights ingress engine joins each event from your event source with the corresponding data row in your reference data set. This augmented event is then available for query. This join is based on the Primary Key column(s) defined in your reference data set.
+A **Reference Data Set** is a collection of items that augment the events from your event source. Time Series Insights ingress engine joins each event from your event source with the corresponding data row in your reference data set. This augmented event is then available for query. This join is based on the Primary Key column(s) defined in your reference data set.
 
 Note, reference data is not joined retroactively. This means that only current and future ingress data is matched and joined to the reference date set, once it has been configured and uploaded.  If you plan to send lots of historical data to TSI and don't upload or create reference data in TSI first, then you may have to re-do your work (hint, not fun).  
 

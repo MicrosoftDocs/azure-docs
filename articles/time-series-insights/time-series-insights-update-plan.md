@@ -35,8 +35,8 @@ Azure Time Series Insights employs a pay-as-you-go business model. For more info
 
 When you provision a Time Series Insights Preview environment, you create two Azure resources:
 
-* Time Series Insights Preview environment
-* Azure Storage general-purpose V1 account
+* An Azure Time Series Insights Preview environment
+* An Azure Storage general-purpose V1 account
 
 To start, you need three additional items:
 
@@ -46,7 +46,7 @@ To start, you need three additional items:
 
 ## Configure Time Series IDs and Timestamp properties
 
-To create a new Time Series Insights environment, select a Time Series ID. Doing so acts as a logical partition for your data. As noted, make sure to have your Time Series IDs ready.
+To create a new Time Series Insights environment, select a **Time Series ID**. Doing so acts as a logical partition for your data. As noted, make sure to have your Time Series IDs ready.
 
 > [!IMPORTANT]
 > Time Series IDs are *immutable* and *can't be changed later*. Verify each one before final selection and first use.
@@ -75,9 +75,7 @@ You can verify the way that you send events to Time Series Insights. Ideally, yo
 A good rule of thumb:
 
 * Store metadata in your Time Series Model
-* Time Series Mode, instance fields, and events include only necessary information, such as:
-  * **Time Series ID**
-  * **Timestamp**
+* Time Series Mode, instance fields, and events include only necessary information, such as a **Time Series ID** or **Timestamp**.
 
 For more information, see [Shape events](./time-series-insights-send-events.md#json).
 

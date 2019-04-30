@@ -12,7 +12,7 @@
 
 ## Business disaster recovery
 
-This section describes features in Azure Time Series Insights that keep apps and services running even if a disaster occurs(**business disaster recovery**).
+This section describes features of Azure Time Series Insights that keep apps and services running even if a disaster occurs (**business disaster recovery**).
 
 ### High availability
 
@@ -24,10 +24,10 @@ Additional high availability features provided through Azure (and also available
 1. **Data restoration** and **storage recovery**: Azure provides [several options to preserve and recover data](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption).
 1. **Site Recovery** features through [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
 
-To provide global, cross-region high availability for devices and users, make sure to enable these powerful Azure disaster recovery features.
+Make sure to enable these Azure features to provide global, cross-region, high availability for your devices and users.
 
 > [!NOTE]
-> If Azure is configured to enable **cross-region availability**, no additional configuration is required within Time Series Insights.
+> If Azure is configured to enable **cross-region availability**, no additional cross-region availability configuration is required within Azure Time Series Insights.
 
 ### IoT and Event hubs
 
@@ -37,23 +37,23 @@ Some Azure IoT services also include built-in business disaster recovery feature
 1. [Event Hub policies](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).
 1. [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
 
-Integrating Time Series Insights with these other services can therefore provide additional disaster recovery support. For instance, telemetry sent to your Event Hub might be persisted to a backup Azure Blob Storage database.
+Integrating Time Series Insights with these other services provides additional disaster recovery opportunities. For instance, telemetry sent to your Event Hub might be persisted to a backup Azure Blob Storage database.
 
 ### Time Series Insights
 
-There are several ways to keep Time Series Insights data, apps, and services running even if disrupted. It might also be determined that a complete, duplicate, backup, or copy of your Azure Time Series environment is required:
+There are several ways to keep your Time Series Insights data, apps, and services running even if they're disrupted. You might also determine that a complete, duplicate, backup copy of your Azure Time Series environment is required:
 
 1. As a TSI-specific **failover instance** to redirect data and traffic to.
 1. For auditing and data preservation purposes.
 
-In general, the best way to duplicate a TSI environment is to create a second TSI environment in a backup Azure region. Events are then also sent to this secondary environment from your primary event source. Make sure to use a second, dedicated, consumer group and to follow that sources business disaster recovery guidelines (shared above).
+In general, the best way to duplicate a TSI environment is to create a second TSI environment in a backup Azure region. Events are also sent to this secondary environment from your primary event source. Make sure to use a second, dedicated, consumer group and to follow that source's business disaster recovery guidelines (provided above).
 
 Specifically, to create a duplicate environment:
 
 1. Create an environment in a second region ([Create a new Time Series Insights environment in the Azure portal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started)).
 1. Create a second dedicated consumer group for your event source.
 1. Connect that event source to the new environment making sure to designate the second, dedicated consumer group.
-    * Review the Time Series Insights [IoT Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) and [Event hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access) documentation.
+1. Review the Time Series Insights [IoT Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) and [Event hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access) documentation.
 
 Finally:
 
