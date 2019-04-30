@@ -27,18 +27,18 @@ Time Series Models play a vital role in queries and navigation because they cont
 With the goal to make it simple and effortless to manage time series contextualization, Time Series Model enables the following capabilities in Time Series Insights Preview. It helps you:
 
 * Author and manage computations or formulas, transform data leveraging scalar functions, aggregate operations, and so on.
-
 * Define parent-child relationships to enable navigation and reference and provide context to time series telemetry.
-
 * Define properties that are associated with the instances part of *instance fields* and use them to create hierarchies.
 
-## Times Series Model key components
+## Entity relationships
 
-Time Series Model has three major components:
+Time Series Models have three core entity relationships:
 
-* <a href="time-series-model-types">Time Series Model types</a>
-* <a href="time-series-model-hierarchies">Time Series Model hierarchies</a>
-* <a href="time-series-model-instances">Time Series Model instances</a>
+* <a href="#time-series-model-types">Time Series Model types</a>
+* <a href="#time-series-model-hierarchies">Time Series Model hierarchies</a>
+* <a href="#time-series-model-instances">Time Series Model instances</a>
+
+These are combined to specify a Time Series Model and to organize your Azure Time Series Insights data.
 
 ## Time Series Model types
 
@@ -153,7 +153,7 @@ Instances are defined by *typeId*, *timeSeriesId*, *name*, *description*, *hiera
 
 The *name* property is optional and case sensitive. If *name* is not available, it will default to the Time Series ID. If a *name* is provided, the Time Series ID will still be available in the Well (the grid below the charts in the explorer).
 
-## Time Series Model instance JSON example
+### Time Series Model instance JSON example
 
 Sample:
 
@@ -175,7 +175,7 @@ Sample:
 
 For more information about Time Series Model instances, see the [Reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
 
-## Time Series Model settings example
+### Time Series Model settings example
 
 Sample:
 
