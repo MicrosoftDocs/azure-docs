@@ -12,7 +12,7 @@
 
 ## Business disaster recovery
 
-This section describes Azure Time Series Insights features that keep apps and services running even in the event of a disaster (**business disaster recovery**).
+This section describes features in Azure Time Series Insights that keep apps and services running even if a disaster occurs(**business disaster recovery**).
 
 ### High availability
 
@@ -22,7 +22,7 @@ Additional high availability features provided through Azure (and also available
 
 1. **Failover**: Azure provides [geo-replication and loading balancing](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region).
 1. **Data restoration** and **storage recovery**: Azure provides [several options to preserve and recover data](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption).
-1. **Site recovery** features through [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
+1. **Site Recovery** features through [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
 
 To provide global, cross-region high availability for devices and users, make sure to enable these powerful Azure disaster recovery features.
 
@@ -34,21 +34,21 @@ To provide global, cross-region high availability for devices and users, make su
 Some Azure IoT services also include built-in business disaster recovery features:
 
 1. [IoT Hub high-availability disaster recovery](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr) including intra-region redundancy.
-1. [Event Hub policies](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
-1. [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+1. [Event Hub policies](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).
+1. [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
 
-While these features are not immediately present in Azure Time Series Insights, using those integrated services will provide those features to your Azure Time Series Insights instance.
+Integrating Time Series Insights with these other services can therefore provide additional disaster recovery support. For instance, telemetry sent to your Event Hub might be persisted to a backup Azure Blob Storage database.
 
 ### Time Series Insights
 
-As described, there are numerous ways to keep Time Series Insights data, apps, and services running even in the event of a disaster. However, it may be determined that a complete, duplicate, backup or copy of your Azure Time Series environment is also required. That can be useful:
+There are several ways to keep Time Series Insights data, apps, and services running even if disrupted. It might also be determined that a complete, duplicate, backup, or copy of your Azure Time Series environment is required:
 
-1. As a TSI-specific **failover instance** to redirect data and traffic to in the event of another instance's failure.
+1. As a TSI-specific **failover instance** to redirect data and traffic to.
 1. For auditing and data preservation purposes.
 
 In general, the best way to duplicate a TSI environment is to create a second TSI environment in a backup Azure region. Events are then also sent to this secondary environment from your primary event source. Make sure to use a second, dedicated, consumer group and to follow that sources business disaster recovery guidelines (shared above).
 
-Specifically, one would follow these steps to create and use a secondary Time Series Insights environment for the purposes described:
+Specifically, to create a duplicate environment:
 
 1. Create an environment in a second region ([Create a new Time Series Insights environment in the Azure portal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started)).
 1. Create a second dedicated consumer group for your event source.
