@@ -76,9 +76,17 @@ select this action: **Execute JavaScript Code**
 
    ![Select "Execute JavaScript Code"](./media/logic-apps-add-run-inline-code/select-inline-code-action.png)
 
-1. In the **Code** box, enter the code that you want to run. 
-When you type a recognized keyword, the autocomplete list appears 
-so that you can select from available keywords, for example:
+   The action appears in the designer and contains 
+   some default example code, including a return statement.
+
+   ![Inline Code action with default sample code](./media/logic-apps-add-run-inline-code/inline-code-action-default.png)
+
+1. In the **Code** box, delete the sample code, and enter the 
+code that you want to run. Write code that you'd put inside 
+a method, but without defining the method signature. 
+
+   When you type a recognized keyword, the autocomplete list appears 
+   so that you can select from available keywords, for example:
 
    ![Keyword autocomplete list](./media/logic-apps-add-run-inline-code/auto-complete.png)
 
@@ -99,17 +107,29 @@ so that you can select from available keywords, for example:
 
    ![Dynamic content list](./media/logic-apps-add-run-inline-code/inline-code-dynamic-content.png)
 
-   The list now shows all the outputs from the trigger, including the 
-   **Body** token, which you can now select. In this particular action, 
-   the **Body** token resolves to a `workflowContext` object that 
-   references the email's `Body` property value.
+   The list now shows the outputs from the trigger, 
+   including the **Body** token, which you can now select. 
+   With the inline code action, the **Body** token resolves 
+   to a `workflowContext` object that references the email's 
+   `Body` property value:
 
    ![Select trigger output](./media/logic-apps-add-run-inline-code/inline-code-example-select-outputs.png)
 
-   The code snippet then returns the result by calling the `match()` function, 
-   which finds matches in the email body against the regular expression. 
-   The **Compose** action takes the **Result** output from the inline code 
-   action and creates a single output.
+   The `workflowContext` object provides access to these subproperties: 
+   `workflow`, `trigger`, and `actions`. The `workflow` property also 
+   provides access to properties that contain information such as the 
+   workflow name, run ID, and so on. The outputs from `trigger` are 
+   values based the current run. The properties available through 
+   `actions` use the same names as the actions on the designer.
+
+   The inline code action doesn't require a `return` statement, 
+   but the value output from a `return` statement is available 
+   for later actions through the **Result** token. For example, 
+   the code snippet then returns the result by calling the 
+   `match()` function, which finds matches in the email body 
+   against the regular expression. The **Compose** action uses 
+   the **Result** token to reference the output from the inline 
+   code action and creates a single output.
 
    ![Finished logic app](./media/logic-apps-add-run-inline-code/inline-code-complete-example.png)
 
