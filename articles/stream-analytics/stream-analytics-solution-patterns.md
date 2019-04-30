@@ -72,7 +72,7 @@ For the more advanced customers of ASA, who wants to incorporate online training
 ![ASA ML app](media/stream-analytics-solution-patterns/mlapp.png)
 
 ## Near real-time data warehousing
-Another application pattern ASA customers use, after dashboarding and alerting, is near real-time data warehousing also called streaming data warehouse. In addition to events arriving at Event Hubs and IoT Hub from user’s application, [ASA running on IoT Edge](stream-analytics-edg.md) can be used to fulfill data cleansing, data reduction, and data store and forward needs. ASA running on IoT Edge can gracefully handle bandwidth limitation and connectivity issues in the system. ASA’s SQL output adapter can be used to output to SQL DW. However, the maximum throughput is only limited to 10 MB/s.
+Another application pattern ASA customers use, after dashboarding and alerting, is near real-time data warehousing also called streaming data warehouse. In addition to events arriving at Event Hubs and IoT Hub from user’s application, [ASA running on IoT Edge](stream-analytics-edge.md) can be used to fulfill data cleansing, data reduction, and data store and forward needs. ASA running on IoT Edge can gracefully handle bandwidth limitation and connectivity issues in the system. ASA’s SQL output adapter can be used to output to SQL DW. However, the maximum throughput is only limited to 10 MB/s.
 
 ![ASA Data Warehousing](media/stream-analytics-solution-patterns/datawarehousing.png)
 
