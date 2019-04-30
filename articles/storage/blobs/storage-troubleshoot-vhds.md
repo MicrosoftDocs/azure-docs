@@ -8,8 +8,8 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: rogarana
+ms.reviewer: wmgries
 ---
-
 
 # Troubleshoot disks attached to Azure VMs 
 

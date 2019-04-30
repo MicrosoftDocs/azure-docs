@@ -8,6 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: blobs
 ---
 
