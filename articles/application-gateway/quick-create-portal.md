@@ -59,7 +59,9 @@ For Azure to communicate between the resources that you create, it needs a virtu
 
 3. Select **OK** to return to the **Settings** page.
 
-4. Choose the **Frontend IP configuration**. Under **Frontend IP configuration**, verify **IP address type** is set to **Public**. Under **Public IP address**, verify **Create new** is selected. <br>You can configure the Frontend IP to be Public or Private as per your use case. In this example, we will choose a Public Frontend IP. 
+4. Choose the **Frontend IP configuration**. Under **Frontend IP configuration**, verify **IP address type** is set to **Public**. Under **Public IP address**, verify **Create new** is selected. <br>You can configure the Frontend IP to be Public or Private as per your use case. In this example, we will choose a Public Frontend IP.
+   > [!NOTE]
+   > For the Application Gateway v2 SKU, you can only choose **Public** IP configuration. Private IP configuration is currently not enabled for the v2 SKU.
 
 5. Enter *myAGPublicIPAddress* for the public IP address name. 
 
