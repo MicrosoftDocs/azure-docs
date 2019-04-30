@@ -59,7 +59,7 @@ The [pricing page](https://azure.microsoft.com/en-us/pricing/details/application
 
 **Example 1**
 
-An application gateway Standard_v2 is provisioned without autoscaling in manual scaling mode with fixed capacity of five instances.
+An Application Gateway Standard_v2 is provisioned without autoscaling in manual scaling mode with fixed capacity of five instances.
 
 Fixed price = 744(hours) * $0.20 = $148.8 <br>
 Capacity units = 744 (hours) 10 capacity unit per instance * five instances * $0.008 per capacity unit hour = $297.6
@@ -68,7 +68,7 @@ Total price = $148.8 + $297.6 = $446.4
 
 **Example 2**
 
-An application gateway standard_v2 is provisioned for a month and during this time it receives 25 new SSL connections/sec, average of 8.88 Mbps data transfer. Assuming connections are short lived, your price would be:
+An Application Gateway standard_v2 is provisioned for a month and during this time it receives 25 new SSL connections/sec, average of 8.88 Mbps data transfer. Assuming connections are short lived, your price would be:
 
 Fixed price = 744(hours) * $0.20 = $148.8
 
