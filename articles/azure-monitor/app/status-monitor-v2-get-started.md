@@ -91,5 +91,5 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
 Do more with Status Monitor v2:
 
-- Review the [Detailed instructions](status-monitor-v2-detailed-instructions) for an explanation of the commands found in this guide.
-- Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot) Status Monitor v2.
+- Review the [Detailed instructions](status-monitor-v2-detailed-instructions.md) for an explanation of the commands found in this guide.
+- Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.
