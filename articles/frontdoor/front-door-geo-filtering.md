@@ -57,7 +57,7 @@ You can configure a geo-filtering policy for your Front Door by either using [Az
 | BY | Belarus|
 | BZ | Belize|
 | CA | Canada|
-| CD | Congo, The Democratic Republic of the|
+| CD | Democratic Republic of the Congo|
 | CF | Central African Republic|
 | CH | Switzerland|
 | CI | Cote d'Ivoire|
@@ -67,7 +67,7 @@ You can configure a geo-filtering policy for your Front Door by either using [Az
 | CO | Colombia|
 | CR | Costa Rica|
 | CU | Cuba|
-| CV | Cape Verde|
+| CV | Cabo Verde|
 | CY | Cyprus|
 | CZ | Czech Republic|
 | DE | Germany|

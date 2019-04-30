@@ -103,7 +103,7 @@
       href: iot-accelerators-remote-monitoring-rbac.md
     - name: Explore telemetry
       items:
-      - name: Visualize telemetry with PowerBI
+      - name: Visualize telemetry with Power BI
         href: iot-accelerators-integrate-data-powerbi.md
       - name: Integrate Azure Time Series Insights with Remote Monitoring
         href: iot-accelerators-remote-monitoring-integrate-time-series-insights.md
@@ -142,26 +142,22 @@
     items: 
     - name: What is industrial IoT
       href: overview-iot-industrial.md 
-    - name: OPC Twin
-      items:
-        - name: What is OPC Twin
-          href: overview-opc-twin.md
-        - name: OPC Twin Architecture
-          href: overview-opc-twin-architecture.md
-    - name: OPC Vault
-      items:
-        - name: What is OPC Vault
-          href: overview-opc-vault.md 
-    - name: Connected Factory
-      items:
-      - name: Connected Factory Overview
-        href: iot-accelerators-connected-factory-features.md
-      - name: Connected Factory Architecture
-        href: iot-accelerators-connected-factory-sample-walkthrough.md
+    - name: What is OPC Twin
+      href: overview-opc-twin.md
+    - name: What is OPC Vault
+      href: overview-opc-vault.md 
+    - name: What is Connected Factory
+      href: iot-accelerators-connected-factory-features.md
   - name: Quickstarts
     items:
     - name: Try a connected factory solution
       href: quickstart-connected-factory-deploy.md
+  - name: Concepts
+    items:
+    - name: OPC Twin Architecture
+      href: overview-opc-twin-architecture.md
+    - name: Connected Factory Architecture
+      href: iot-accelerators-connected-factory-sample-walkthrough.md
   - name: How-to guides
     items:
     - name: Connected Factory

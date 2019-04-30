@@ -1,20 +1,12 @@
 ---
-title: Azure and Dynamics 365 consulting service offer - Define offer settings | Microsoft Docs
-description: Guide for defining offer settings in an Azure or Dynamics 365 consulting service offer in the Cloud Partner Portal.
+title: Define offer settings for a consulting service offer | Azure Marketplace 
+description: Define offer settings in an Azure or Dynamics 365 consulting service offer in the Cloud Partner Portal for the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: qianw211
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Offer settings tab
