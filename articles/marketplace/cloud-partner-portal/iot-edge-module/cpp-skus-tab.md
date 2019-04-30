@@ -1,20 +1,12 @@
 ---
-title: Azure IoT Edge module SKUs | Microsoft Docs
+title: Azure IoT Edge module SKUs | Azure Marketplace
 description: Create SKUs for an IoT Edge module.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # IoT Edge module SKUs tab
