@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 04/25/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 ## Accounts used for Azure AD Connect
 
-![](media/reference-connect-accounts-permissions/account5.png)
+![accounts overview](media/reference-connect-accounts-permissions/account5.png)
 
 Azure AD Connect uses 3 accounts in order to synchronize information from on-premises or Windows Server Active Directory to Azure Active Directory.  These accounts are:
 
