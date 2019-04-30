@@ -182,7 +182,7 @@ When performing backups for SQL Server running in Azure virtual machines, you ca
 
 This new feature, [SQL Server Data Files in Azure](https://msdn.microsoft.com/library/dn385720.aspx), is available starting with SQL Server 2014. Running SQL Server with data files in Azure demonstrates comparable performance characteristics as using Azure data disks.
 
-### Failover cluster instance and Storaged Spaces
+### Failover cluster instance and Storage Spaces
 
 When adding nodes to the cluster, on the **Confirmation** page if you are using Storage Spaces, clear the checkbox labled **Add all eligible storage to the cluster**. 
 
