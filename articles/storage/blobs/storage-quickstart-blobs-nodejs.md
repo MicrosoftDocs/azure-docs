@@ -9,6 +9,7 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: mhopkins
+ms.reviewer: seguler
 ---
 
 # How to upload, download, and list blobs using the client library for Node.js v2

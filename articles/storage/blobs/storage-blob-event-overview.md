@@ -5,6 +5,7 @@ services: storage,event-grid
 author: normesta
 
 ms.author: normesta
+ms.reviewer: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage

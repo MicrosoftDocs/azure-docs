@@ -9,6 +9,7 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: mhopkins
+ms.reviewer: seguler
 ---
 
 # Quickstart: Use .NET to create a blob in object storage

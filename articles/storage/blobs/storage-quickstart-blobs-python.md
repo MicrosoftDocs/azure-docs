@@ -9,6 +9,7 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: mhopkins
+ms.reviewer: seguler
 ---
 
 # Quickstart: Upload, download, and list blobs with Python

@@ -5,6 +5,7 @@ services: storage,event-grid
 author: normesta
 
 ms.author: normesta
+ms.reviewer: cbrooks
 ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: storage

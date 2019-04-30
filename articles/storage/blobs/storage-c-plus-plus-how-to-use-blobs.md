@@ -8,6 +8,7 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mhopkins
+ms.reviewer: seguler
 ms.subservice: blobs
 ---
 

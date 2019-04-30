@@ -8,6 +8,7 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
+ms.reviewer: fryu
 ms.custom: mvc
 ---
 

@@ -8,6 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: tamram
+ms.reviewer: wielriac
 ms.subservice: blobs
 ---
 

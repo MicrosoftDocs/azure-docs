@@ -9,6 +9,7 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: mhopkins
+ms.reviewer: seguler
 ---
 
 # Quickstart: Upload, download, list, and delete blobs using Azure Storage v10 SDK for JavaScript

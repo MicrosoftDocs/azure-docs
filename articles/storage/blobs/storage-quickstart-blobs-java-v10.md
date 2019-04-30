@@ -9,6 +9,7 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: mhopkins
+ms.reviewer: seguler
 ---
 
 # Quickstart: Upload, download, and list blobs by using the Java Storage SDK V10
