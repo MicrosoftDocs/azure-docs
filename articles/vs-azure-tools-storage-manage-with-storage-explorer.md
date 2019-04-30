@@ -51,7 +51,7 @@ Azure Storage Explorer is supported on the following distributions of Linux:
 
 Azure Storage Explorer may work on other distributions, but only ones listed above are officially supported.
 
-For more help installing Storage Explorer on Linux, see the [Troubleshooting Guide](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies).
+For more help installing Storage Explorer on Linux, see the [Troubleshooting Guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies).
 
 The Azure Storage Explorer [Release Notes](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contain specific steps for some distributions.
 
