@@ -22,7 +22,7 @@ By default, SQL Database backups are stored in geo-replicated blob storage (RA-G
 - Create a new database on any SQL Database server in the same region recovered to the point of the most recent backups.
 - Create a new database on any SQL Database server in any other region recovered to the point of the most recent replicated backups.
 
-If you configured [backup long-term retention](sql-database-long-term-retention.md), you can also create a new database from any LTR backup on any SQL Database server in any region.
+If you configured [backup long-term retention](sql-database-long-term-retention.md), you can also create a new database from any LTR backup on any SQL Database server.
 
 > [!IMPORTANT]
 > You cannot overwrite an existing database during restore.
@@ -48,7 +48,7 @@ The recovery time to restore a database using automated database backups is impa
 - The network bandwidth if the restore is to a different region
 - The number of concurrent restore requests being processed in the target region
 
-For a very large and/or active database, the restore may take several hours. If there is prolonged outage in a region, it is possible that there are large numbers of geo-restore requests being processed by other regions. When there are many requests, the recovery time may increase for databases in that region. Most database restores complete in less than 12 hours.
+For a large and/or very active database, the restore may take several hours. If there is prolonged outage in a region, it is possible that there are large numbers of geo-restore requests being processed by other regions. When there are many requests, the recovery time may increase for databases in that region. Most database restores complete in less than 12 hours.
 
 For a single subscription, there are limitations on number of concurrent restore requests.  These limitations apply to any combination of point in time restores, geo restores and restores from long-term retention backup):
 
@@ -67,7 +67,7 @@ Currently there isn't a built-in method to restore the entire server. The [Azure
 
 You can restore a standalone, pooled, or instance database to an earlier point in time using the Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases). The request can specify any service tier or compute size for the restored database. Ensure you have sufficient resources on the server to which you are restoring the database. Once complete, a new database will be created on the same server as the original database. The restored database will be charged at normal rates based on its service tier and compute size. You do not incur charges until the database restore is complete.
 
-You generally restore a database to an earlier point for recovery purposes. When doing so, you can treat the restored database as a replacement for the original database or use it to retrieve data from and then update the original database.
+You generally restore a database to an earlier point for recovery purposes. You can treat the restored database as a replacement for the original database or use it as a source data to update the original database.
 
 - **Database replacement**
 
@@ -75,7 +75,7 @@ You generally restore a database to an earlier point for recovery purposes. When
 
 - **Data recovery**
 
-  If you plan to retrieve data from the restored database to recover from a user or application error, you need to write and execute a  data recovery scripts that extracts data from the restored database and applies to the original database. Although the restore operation may take a long time to complete, the restoring database is visible in the database list throughout the restore process. If you delete the database during the restore, the restore operation will be canceled and you will not be charged for the database that did not complete the restore.
+  If you plan to retrieve data from the restored database to recover from a user or application error, you need to write and execute a  data recovery scripts that extract data from the restored database and applies to the original database. Although the restore operation may take a long time to complete, the restoring database is visible in the database list throughout the restore process. If you delete the database during the restore, the restore operation will be canceled and you will not be charged for the database that did not complete the restore.
 
 To recover a single, pooled, or instance database to a point in time using the Azure portal, open the page for your database and click **Restore** on the toolbar.
 
