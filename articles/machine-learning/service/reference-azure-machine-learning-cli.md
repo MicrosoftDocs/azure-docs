@@ -63,6 +63,11 @@ az extension remove -n azure-cli-ml
 
 The following commands demonstrate how to use the CLI to manage resources used by Azure Machine Learning.
 
++ If you do not already have one, create a resource group:
+
+    ```azurecli-interactive
+    az group create -n myresourcegroup -l westus2
+    ```
 
 + Create an Azure Machine Learning service workspace:
 
@@ -84,20 +89,23 @@ The following commands demonstrate how to use the CLI to manage resources used b
 + Attach an AKS cluster as a Compute Target.
 
     ```azurecli-interactive
+    az ml datastore attach-blob  -n datastorename -a accountname -c containername
+    ```
+
++ Attach an AKS cluster as a Compute Target.
+
+    ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
     ```
 
 + Create a new AMLcompute target
-    ```azurecli-interactive
-    az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
-    ```
-    
-## <a id="experiments"></a>Run Experiments
 
 + Attach a workspace configuration to a folder to enable CLI contextual awareness.
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
+    
+## <a id="experiments"></a>Run experiments
 
 * Start a run of your experiment. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you are looking at your file system) against the -c parameter.
 

@@ -216,6 +216,8 @@
       href: connector-couchbase.md
     - name: DB2
       href: connector-db2.md
+    - name: Delimited text format
+      href: format-delimited-text.md
     - name: Drill
       href: connector-drill.md
     - name: Dynamics 365
@@ -283,6 +285,8 @@
       href: connector-oracle-responsys.md
     - name: Oracle Service Cloud
       href: connector-oracle-service-cloud.md
+    - name: Parquet format
+      href: format-parquet.md
     - name: Paypal
       href: connector-paypal.md
     - name: Phoenix
