@@ -130,9 +130,9 @@ The following commands demonstrate how to register a trained model, and then dep
   ```
 
 + **OPTIONAL** Profile your model to get optimal CPU and memory values for deployment.
-```azurecli-interactive
-az ml model profile -n myprofile -m mymodel:1 --ic inferenceconfig.json -d "{\"data\": [[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]]}" -t myprofileresult.json
-```
+    ```azurecli-interactive
+    az ml model profile -n myprofile -m mymodel:1 --ic inferenceconfig.json -d "{\"data\": [[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]]}" -t myprofileresult.json
+    ```
 
 + Deploy your model to AKS
 
