@@ -75,11 +75,15 @@ The following commands demonstrate how to use the CLI to manage resources used b
     az ml workspace create -w myworkspace -g myresourcegroup
     ```
 
+    For more information, see [az ml workspace create](https://docs.microsoft.com/en-us/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create).
+
 + Attach a workspace configuration to a folder to enable CLI contextual awareness.
 
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
+
+    For more information, see [az ml folder attach](https://docs.microsoft.com/en-us/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
 
 + Attach an Azure blob container as a Datastore.
 
@@ -87,17 +91,23 @@ The following commands demonstrate how to use the CLI to manage resources used b
     az ml datastore attach-blob  -n datastorename -a accountname -c containername
     ```
 
+    For more information, see [az ml datastore attach-blob](https://docs.microsoft.com/en-us/cli/azure/ext/azure-cli-ml/ml/datastore?view=azure-cli-latest#ext-azure-cli-ml-az-ml-datastore-attach-blob).
+
 + Attach an AKS cluster as a Compute Target.
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
     ```
 
+    For more information, see [az ml computetarget attach aks](https://docs.microsoft.com/en-us/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks)
+
 + Create a new AMLcompute target
 
     ```azurecli-interactive
     az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
     ```
+
+    For more information, see [az ml computetarget create amlcompute](https://docs.microsoft.com/en-us/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)
     
 ## <a id="experiments"></a>Run experiments
 
@@ -107,11 +117,15 @@ The following commands demonstrate how to use the CLI to manage resources used b
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
 
+    For more information, see [az ml folder attach](https://docs.microsoft.com/en-us/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
+
 * Start a run of your experiment. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you are looking at your file system) against the -c parameter.
 
     ```azurecli-interactive
     az ml run submit-script -c local -e testexperiment train.py
     ```
+
+    For more information, see [az ml run submit-script](https://docs.microsoft.com/en-us/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 
 * View a list of experiments:
 
@@ -119,18 +133,29 @@ The following commands demonstrate how to use the CLI to manage resources used b
     az ml experiment list
     ```
 
+    For more information, see [az ml experiment list](https://docs.microsoft.com/en-us/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
+
 ## Model registration, profiling, deployment
 
 The following commands demonstrate how to register a trained model, and then deploy it as a production service:
 
 + Register a model with Azure Machine Learning:
 
-  ```azurecli-interactive
-  az ml model register -n mymodel -p sklearn_regression_model.pkl
-  ```
+    ```azurecli-interactive
+    az ml model register -n mymodel -p sklearn_regression_model.pkl
+    ```
+
+    For more information, see [az ml model register](https://docs.microsoft.com/en-us/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register).
 
 + Deploy your model to AKS
 
-  ```azurecli-interactive
-  az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
-  ```
+    ```azurecli-interactive
+    az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
+    ```
+
+    For more information, see [az ml model deploy](https://docs.microsoft.com/en-us/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy).
+
+
+## Next steps
+
+* [Command reference for the Machine Learning CLI extension](https://docs.microsoft.com/en-us/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest).
