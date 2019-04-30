@@ -1,11 +1,7 @@
 ---
 title: Azure CycleCloud Backup and Restore | Microsoft Docs
 description: Backup schedules and Restore process for Azure CycleCloud.
-services: azure cyclecloud
 author: mvrequa
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: mirequa
 ---

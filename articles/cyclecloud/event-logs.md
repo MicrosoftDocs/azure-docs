@@ -1,11 +1,7 @@
 ---
 title: Azure CycleCloud Event Logs | Microsoft Docs
 description: Review all activity with the Azure CycleCloud Event Log.
-services: azure cyclecloud
 author: KimliW
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: adjohnso
 ---

@@ -1,11 +1,7 @@
 ---
 title: Endpoint Creation in Azure CycleCloud | Microsoft Docs
 description: Manage data endpoints in Azure CycleCloud.
-services: azure cyclecloud
 author: KimliW
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: adjohnso
 ---

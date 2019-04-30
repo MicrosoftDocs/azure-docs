@@ -1,11 +1,7 @@
 ---
 title: Azure CycleCloud Data Management Overview | Microsoft Docs
 description: Azure CycleCloud Data Management using the Cycle telemetry engine
-services: azure cyclecloud
 author: KimliW
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: adjohnso
 ---

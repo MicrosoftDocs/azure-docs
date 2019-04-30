@@ -1,11 +1,8 @@
 ---
 title: Azure CycleCloud Submit Once Command List | Microsoft Docs
 description: Commands you can use with Azure CycleCloud's Submit Once tool.
-services: azure cyclecloud
 author: KimliW
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
+ms.technology: submitonce
 ms.date: 08/01/2018
 ms.author: adjohnso
 ---

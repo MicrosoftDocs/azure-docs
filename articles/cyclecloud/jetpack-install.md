@@ -1,11 +1,8 @@
 ---
 title: Azure CycleCloud Install Jetpack | Microsoft Docs
 description: How-to Install Jetpack on a VM.
-services: azure cyclecloud
 author: mvrequa
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
+ms.technology: jetpack
 ms.date: 08/01/2018
 ms.author: mirequa
 ---

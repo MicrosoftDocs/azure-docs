@@ -1,10 +1,7 @@
 ---
 title: Azure CycleCloud Template File Reference | Microsoft Docs
 description: Parameter reference for CycleCloud Template Files
-services: azure cyclecloud
 author: mvrequa
-ms.prod: cyclecloud
-ms.devlang: na
 ms.topic: reference
 ms.date: 10/23/2018
 ms.author: adjohnso

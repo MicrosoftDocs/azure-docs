@@ -1,11 +1,8 @@
 ---
 title: Azure CycleCloud HealthCheck Service | Microsoft Docs
 description: Learn about the Azure CycleCloud HealthCheck service.
-services: azure cyclecloud
 author: KimliW
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
+ms.technology: jetpack
 ms.date: 08/01/2018
 ms.author: adjohnso
 ---

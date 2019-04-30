@@ -1,11 +1,8 @@
 ---
 title: Azure CycleCloud Submit Once Diagrams | Microsoft Docs
 description:  Diagrams for two cluster workflows using Submit Once in Azure CycleCloud.
-services: azure cyclecloud
 author: KimliW
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
+ms.technology: submitonce
 ms.date: 08/01/2018
 ms.author: adjohnso
 ---

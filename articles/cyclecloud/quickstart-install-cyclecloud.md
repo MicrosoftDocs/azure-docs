@@ -1,11 +1,7 @@
 ---
 title: Azure CycleCloud Quickstart - Install and Setup CycleCloud | Microsoft Docs
 description: In this quickstart, you will install and setup Azure CycleCloud
-services: azure cyclecloud
 author: KimliW
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: quickstart
 ms.date: 08/01/2018
 ms.author: adjohnso
 ---
@@ -72,8 +68,11 @@ The output will display a series of information. You will need to save the `appI
 An SSH key is needed to log into the CycleCloud VM and clusters. Generate an SSH keypair:
 
 ```azurecli-interactive
-ssh-keygen -f ~/.ssh/id_rsa  -N "" -b 4096
+ssh-keygen -f ~/.ssh/id_rsa -m pem -t rsa -N "" -b 4096
 ```
+
+> [!NOTE]
+> The Python cryptography library used by the CycleCloud CLI does not support the newer OpenSSH serialization format. One must use `ssh-keygen -m pem` to generate the key with the older standard format.
 
 Retrieve the SSH public key with:
 

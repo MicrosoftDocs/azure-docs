@@ -1,11 +1,7 @@
 ---
 title: Azure CycleCloud Quickstart - Create and Run a Cluster | Microsoft Docs
 description: In this quickstart, you will create an HPC cluster
-services: azure cyclecloud
 author: KimliW
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: quickstart
 ms.date: 08/01/2018
 ms.author: adjohnso
 ---
@@ -19,7 +15,7 @@ In this quickstart, you will start a new cluster using PBS Pro as a scheduler an
 Click on **Clusters** in the main menu, which will bring up the list of available cluster types. These default cluster types expose a limited number of parameters in order to simplify and standardize cluster creation.
 
 > [!NOTE]
-> Azure CycleCloud ships with a limited number of supported cluster types by default, but many others are maintained in [CycleCloud GitHub](https://github.com/Azure?q=cyclecloud and can easily be imported into CycleCloud.
+> Azure CycleCloud ships with a limited number of supported cluster types by default, but many others are maintained in [CycleCloud GitHub](https://github.com/Azure?q=cyclecloud) and can easily be imported into CycleCloud.
 
 In this quickstart, you will create an HPC cluster configured with [LAMMPS](https://lammps.sandia.gov/). Click the LAMMPS icon under "Applications" on the **New Cluster** page to bring up the cluster creation wizard.
 
