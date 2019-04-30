@@ -4,9 +4,9 @@ description: Add and run code snippets with inline code in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: deli
-ms.author: derek1ee
-ms.reviewer: estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: derek1ee, LADocs
 ms.topic: article
 ms.date: 05/06/2019
 ---
@@ -120,7 +120,7 @@ so that you can select from available keywords, for example:
 Optionally, you can require that the **Inline Code** action 
 includes outputs from the trigger or specific actions that 
 your code references by adding the **Trigger** or **Actions** 
-parameters. This way is useful for scenarios where the 
+parameters. This option is useful for scenarios where the 
 referenced outputs might not be available.
 
 > [!TIP]
