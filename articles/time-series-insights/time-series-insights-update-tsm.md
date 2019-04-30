@@ -30,15 +30,15 @@ With the goal to make it simple and effortless to manage time series contextuali
 * Define parent-child relationships to enable navigation and reference and provide context to time series telemetry.
 * Define properties that are associated with the instances part of *instance fields* and use them to create hierarchies.
 
-## Entity relationships
+## Entity components
 
-Time Series Models have three core entity relationships:
+Time Series Models have three core components:
 
 * <a href="#time-series-model-types">Time Series Model types</a>
 * <a href="#time-series-model-hierarchies">Time Series Model hierarchies</a>
 * <a href="#time-series-model-instances">Time Series Model instances</a>
 
-These are combined to specify a Time Series Model and to organize your Azure Time Series Insights data.
+These components are combined to specify a Time Series Model and to organize your Azure Time Series Insights data.
 
 ## Time Series Model types
 
@@ -79,24 +79,12 @@ The following matrix works as a legend for variable definitions:
 
 [![table](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
 
-### Variable kind
-
-The following variable kinds are supported:
-
-* *Numeric*
-* *Aggregate*
-
-### Variable filter
-
-Variable filters specify an optional filter clause to restrict the number of rows being considered for computation based on conditions.
-
-### Variable value
-
-Variable values are and should be used in computation. This is the column in the events that we should refer to.
-
-### Variable aggregation
-
-The aggregate function of the variable enables part of computation. Time Series Insights supports regular aggregates (namely, *min*, *max*, *avg*, *sum*, and *count*).
+| Definition | Description |
+| --- | ---|
+| Variable kind |  *Numeric* and *Aggregate* kinds are supported |
+| Variable filter | Variable filters specify an optional filter clause to restrict the number of rows being considered for computation based on conditions. |
+| Variable value | Variable values are and should be used in computation. The relevant field to refer to for the data point in question. |
+| Variable aggregation | The aggregate function of the variable enables part of computation. Time Series Insights supports regular aggregates (namely, *min*, *max*, *avg*, *sum*, and *count*). |
 
 ## Time Series Model hierarchies
 
@@ -141,7 +129,7 @@ Depending on the *instance fields*, the hierarchy attributes and values appear a
 | ID4 | “building” = “1000”, “floor” = “10”  |
 | ID5 | None of “building”, “floor” or “room” is set |
 
-In the preceding example, ID1 and ID4 shows as part of hierarchy H1 in the Azure Time Series Insights explorer, and the rest are classified under *Unparented Instances* because they don't conform to the specified data hierarchy.
+In the preceding example, **ID1** and **ID4** show as part of hierarchy H1 in the Azure Time Series Insights explorer, and the rest are classified under *Unparented Instances* because they don't conform to the specified data hierarchy.
 
 ## Time Series Model instances
 
@@ -151,7 +139,7 @@ Instances are defined by *typeId*, *timeSeriesId*, *name*, *description*, *hiera
 
 *instanceFields* are properties of an instance and any static data that defines an instance. They define values of hierarchy or non-hierarchy properties while also supporting indexing to perform search operations.
 
-The *name* property is optional and case sensitive. If *name* is not available, it will default to the Time Series ID. If a *name* is provided, the Time Series ID will still be available in the Well (the grid below the charts in the explorer).
+The *name* property is optional and case-sensitive. If *name* is not available, it will default to the Time Series ID. If a *name* is provided, the Time Series ID will still be available in the Well (the grid below the charts in the explorer).
 
 ### Time Series Model instance JSON example
 
