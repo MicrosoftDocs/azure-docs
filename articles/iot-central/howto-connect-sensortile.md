@@ -1,6 +1,6 @@
 ---
-title: Connect a DevKit device to your Azure IoT Central application | Microsoft Docs
-description: As a device developer, learn how to connect an MXChip IoT DevKit device to your Azure IoT Central application.
+title: Connect a SensorTile.box device to your Azure IoT Central application | Microsoft Docs
+description: As a device developer, learn how to connect a SensorTile.box device to your Azure IoT Central application.
 author: sarahhubbard
 ms.author: sahubbar
 ms.date: 04/24/2019
@@ -12,16 +12,16 @@ manager: sandeep.pujar
 
 # Connect SensorTile.box device to your Azure IoT Central application
 
-This article describes how, as a device developer, to connect a SensorTile.Box device to your Microsoft Azure IoT Central application.
+This article describes how, as a device developer, to connect a SensorTile.box device to your Microsoft Azure IoT Central application.
 
 ## Before you begin
 
 To complete the steps in this article, you need the following resources:
 
-1. A SensorTile.box device, see [SensorTile.box](https://www.st.com/content/st_com/en/products/evaluation-tools/SensorTile.box) for more information.
-1. The ST BLE Sensor app installed on your Android device, you can [download it from here] (https://play.google.com/store/apps/details?id=com.st.bluems). For more information visit: [ST BLE Sensor] (http://www.st.com/stblesensor)
-1. An Azure IoT Central application created from the **DevKits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
-1. Add the **SensorTile** device template into your IoT Central application by visiting the **Device Templates** page, clicking **+ New**, and selecting the **SensorTile** template.
+* A SensorTile.box device, see [SensorTile.box](https://www.st.com/content/st_com/en/products/evaluation-tools/SensorTile.box) for more information.
+* The ST BLE Sensor app installed on your Android device, you can [download it from here] (https://play.google.com/store/apps/details?id=com.st.bluems). For more information visit: [ST BLE Sensor] (http://www.st.com/stblesensor)
+* An Azure IoT Central application created from the **DevKits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
+* Add the **SensorTile.box** device template into your IoT Central application by visiting the **Device Templates** page, clicking **+ New**, and selecting the **SensorTile** template.
 
 ### Get your device connection details
 
@@ -32,46 +32,44 @@ In your Azure IoT Central application, add a real device from the **SensorTile.b
     * Enter a lowercase **Device ID**, or use the suggested **Device ID**.
     * Enter a **Device Name**, or use the suggested name
 
-    ![Add Device](media/howto-connect-sensortile/add-device.png)
+    ![Add Device](media/howto-connect-sensortile/real-device.png)
 
 1. To get the device connection details, **Scope ID**, **Device ID**, and **Primary key**, select **Connect** on the device page.
 
-    ![Connection details](media/howto-connect-sensortile/device-connect.png)
+    ![Connection details](media/howto-connect-sensortile/connect-device.png)
 
 1. Make a note of the connection details. You're temporarily disconnected from the internet when you prepare your DevKit device in the next step.
 
 ## Set up the SensorTile.box with the mobile application
 
 In this section, you will learn how to push the application firmware onto the device and send the device data to IoT Central through the ST BLE Sensor mobile app by means of Bluetooth Low Energy (BLE) connectivity.
-1. Open the ST BLE Sensor app and press the **Create a new app** button
+1. Open the ST BLE Sensor app and press the **Create a new app** button.
 
     ![Create app](media/howto-connect-sensortile/create-app.png)
 
-1. Select the **Barometer** application
-1. Press the upload button
+1. Select the **Barometer** application.
+1. Press the upload button.
 
     ![Barometer upload](media/howto-connect-sensortile/barometer-upload.png)
 
-1. Press the play button associated with your SensorTile.box
-1. When the process is complete, the SensorTile.box will stream the temperature, pressure and humidity over BLE
+1. Press the play button associated with your SensorTile.box.
+1. When the process is complete, the SensorTile.box will stream the temperature, pressure and humidity over BLE.
 
-## Connect the SensorTile.Box to the cloud
+## Connect the SensorTile.box to the cloud
 
 In this section you will learn how to connect the SensorTile.box to the mobile application, and connect the mobile application to the cloud.
-1. Open the ST BLE Sensor and press the **Connect to a device** button
-1. Select your SensorTile.box to connect
-1. Using the left menu, select the **Cloud Logging** button
+1. Using the left menu, select the **Cloud Logging** button.
 
     ![Cloud logging](media/howto-connect-sensortile/cloud-logging.png)
 
-1. Select **Azure IoT Central** as the cloud provider
-1. Insert the Device ID and Scope ID that were previously noted
+1. Select **Azure IoT Central** as the cloud provider.
+1. Insert the Device ID and Scope ID that were previously noted.
 
     ![Credentials](media/howto-connect-sensortile/credentials.png)
 
-1. Select the **Application Key** radio button
-1. Click **Connect** and select the telemetry data you want to upload
-1. After few seconds, the data will appear on the IoT Central application dashboard
+1. Select the **Application Key** radio button.
+1. Click **Connect** and select the telemetry data you want to upload.
+1. After few seconds, the data will appear on the IoT Central application dashboard.
 
 ## SensorTile.box device template details
 
