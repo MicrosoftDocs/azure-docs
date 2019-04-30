@@ -126,7 +126,7 @@ Use the screenshot below to help build your chart.
 
 1. Select the line chart visualization.
 
-2. Add the `day` field from **Timestamp** to the line chart's **Axis**.
+2. Add the timestamp from the invoked function to the line chart's **Axis**. Then right click on it, and select **Timestamp**. 
 
 3. Add the following fields to the chart's **Values**. 
     * Value
@@ -138,7 +138,7 @@ Use the screenshot below to help build your chart.
 
 Your chart will look similar to the below screenshot:
 
-![An image of the new quick measure screen](../media/tutorials/chart-visualization2.jpg)
+![An image of the new quick measure screen](../media/tutorials/chart-visualization.png)
 
 ### Display data anomaly points
 
@@ -156,5 +156,10 @@ After clicking **Ok**, you will have a `Value for True` field, at the bottom of 
 
 Apply colors to your chart by clicking on the **Format** tool and **Data colors**. Your chart should look something like the following:
 
-![An image of the new quick measure screen](../media/tutorials/chart-final2.jpg)
+![An image of the new quick measure screen](../media/tutorials/final-chart.png)
 
+## Next steps
+
+* [Finding anomalies in your data with the Anomaly Detector API](../how-to/identify-anomalies.md)
+
+* [REST API Reference](https://aka.ms/anomaly-detector-rest-api-ref)
