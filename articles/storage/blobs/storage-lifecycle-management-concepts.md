@@ -75,9 +75,9 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 
 ```
-## ARM template with lifecycle managment policy
+## ARM template with lifecycle management policy
 
-You can define and deploy lifecycle managmement as part of your Azure solution deployment using ARM templates. The follow is a sample template to deploy a RA-GRS GPv2 storage account with a lifecycle management policy. 
+You can define and deploy lifecycle management as part of your Azure solution deployment using ARM templates. The follow is a sample template to deploy a RA-GRS GPv2 storage account with a lifecycle management policy. 
 
 ```json
 {
