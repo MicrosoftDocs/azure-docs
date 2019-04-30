@@ -382,9 +382,10 @@ Given this information, we strongly recommend that customers set the minimum con
 
 How to configure this setting:
 
-* The recommended way to change this setting programmatically is to use the [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) method from global.asax.cs. For example:
+* We recommend changing this setting programmatically by using the [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) method in `global.asax.cs`. For example:
 
 ```cs
+private readonly int minThreads = 200;
 void Application_Start(object sender, EventArgs e)
 {
     // Code that runs on application startup
@@ -396,12 +397,12 @@ void Application_Start(object sender, EventArgs e)
 ```
 
   > [!NOTE]
-  > The value specified by this method is a global setting, affecting the whole AppDomain. For example, if you have a 4-core machine and want to set *minWorkerThreads* and *minIoThreads* to 50 per CPU during run-time, you would use **ThreadPool.SetMinThreads (200, 200)**.
+  > The value specified by this method is a global setting, affecting the whole AppDomain. For example, if you have a 4-core machine and want to set *minWorkerThreads* and *minIoThreads* to 50 per CPU during run-time, you would use **ThreadPool.SetMinThreads(200, 200)**.
 
-* It is possible to specify this setting by using the [*minIoThreads* or *minWorkerThreads* configuration setting](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) under the `<processModel>` configuration element in `Machine.config`, usually located at `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **This is a System-wide setting, and is generally not recommended.**
+* It is also possible to specify this setting by using the [*minIoThreads* or *minWorkerThreads* configuration setting](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) under the `<processModel>` configuration element in `Machine.config`, usually located at `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **This is a System-wide setting, and is generally not recommended.**
 
   > [!NOTE]
-  > The value specified in this configuration element is a *per-core* setting. For example, if you have a 4-core machine and want your minIoThreads setting to be 200 at runtime, you would use `<processModel minIoThreads="50"/>`.
+  > The value specified in this configuration element is a *per-core* setting. For example, if you have a 4-core machine and want your *minIoThreads* setting to be 200 at runtime, you would use `<processModel minIoThreads="50"/>`.
   >
 
 <a name="server-gc"></a>
