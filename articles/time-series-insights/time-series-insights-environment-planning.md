@@ -36,7 +36,7 @@ Consider the following attributes to best plan the environment for long-term suc
 - <a href="#understand-data-retention">Data retention period</a>
 - <a href="#understand-ingress-capacity">Ingress capacity</a>
 - <a href="#shape-your-events">Shaping your events</a>
-- <a href="#ensure-you-have-reference-data-in-place">Ensuring you have reference data in place</a>
+- <a href="#ensure-you-have-reference-data">Ensuring you have reference data in place</a>
 
 ## Understand storage capacity
 
@@ -66,7 +66,7 @@ From a throttling perspective, an ingressed data packet with a packet size of 32
 
 The following table summarizes the ingress capacity for each SKU:
 
-|SKU  |Events Count Per Month, Per Unit  |Events size Per Month, Per Unit  |Events Count Per Minute, Per Unit  | Size Per Minute, Per Unit   |
+|SKU  |Events Count / Month / Unit  |Events size / Month / Unit  |Events Count / Minute / Unit  | Size / Minute / Unit   |
 |---------|---------|---------|---------|---------|
 |S1     |   30 million     |  30 GB     |  720    |  720 KB   |
 |S2     |   300 million    |   300 GB   | 7,200   | 7,200 KB  |
