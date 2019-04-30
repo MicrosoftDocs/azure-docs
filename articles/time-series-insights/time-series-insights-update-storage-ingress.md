@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
 ---
 
@@ -36,6 +36,8 @@ For more about the Parquet file type, see [Supported file types in Azure Storage
 
 ## Parquet file format
 
+[![Parquet file format](media/v2-update-storage-ingress/parquet-files.png)](media/v2-update-storage-ingress/parquet-files.png#lightbox)
+
 Parquet is a column-oriented, data file format that was designed for:
 
 * Interoperability
@@ -46,7 +48,7 @@ Time Series Insights chose Parquet because it provides efficient data compressio
 
 For a better understanding of the Parquet file format, see [Parquet documentation](https://parquet.apache.org/documentation/latest/).
 
-## Event structure in Parquet
+### Event structure in Parquet
 
 Time Series Insights creates and stores copies of blobs in the following two formats:
 
@@ -74,18 +76,18 @@ Time Series Insights events are mapped to Parquet file contents as follows:
 
 ## Partitions
 
-Each Time Series Insights Preview environment must have a Time Series ID property and a Timestamp property that uniquely identify it. Your Time Series ID acts as a logical partition for your data and gives the Time Series Insights Preview environment a natural boundary for distributing data across physical partitions. Physical partition management is managed by Time Series Insights Preview in an Azure storage account.
+Each Time Series Insights Preview environment must have a **Time Series ID** property and a **Timestamp** property that uniquely identify it. Your Time Series ID acts as a logical partition for your data and gives the Time Series Insights Preview environment a natural boundary for distributing data across physical partitions. Physical partition management is managed by Time Series Insights Preview in an Azure storage account.
 
 Time Series Insights uses dynamic partitioning to optimize storage and query performance by dropping and re-creating partitions. The Time Series Insights Preview dynamic partitioning algorithm tries to prevent a single physical partition from having data for multiple, distinct, logical partitions. In other words, the partitioning algorithm keeps all data specific to a single Time Series ID exclusively present in Parquet files without being interleaved with other Time Series IDs. The dynamic partitioning algorithm also tries to preserve the original order of events within a single Time Series ID.
 
 Initially, at ingress time, data is partitioned by the Timestamp so that a single, logical partition within a given time range can be spread across multiple physical partitions. A single physical partition might also contain many or all logical partitions. Because of blob size limitations, even with optimal partitioning, a single logical partition can occupy multiple physical partitions.
 
 > [!NOTE]
-> By default, the Timestamp value is the message *Enqueued Time* in your configured event source. 
+> By default, the Timestamp value is the message *Enqueued Time* in your configured event source.
 
 If you're uploading historical data or batch messages, assign the value you want to store with your data to the Timestamp property that maps to the appropriate Timestamp. The Timestamp property is case-sensitive. For more information, see [Time Series Model](./time-series-insights-update-tsm.md).
 
-## Physical partitions
+### Physical partitions
 
 A physical partition is a block blob that's stored in your storage account. The actual size of the blobs can vary because the size depends on the push rate. However, we expect blobs to be approximately 20 MB to 50 MB in size. This expectation led the Time Series Insights team to select 20 MB as the size to optimize query performance. This size could change over time, depending on file size and the velocity of data ingress.
 
@@ -94,7 +96,7 @@ A physical partition is a block blob that's stored in your storage account. The 
 > * Azure blobs are occasionally repartitioned for better performance by being dropped and re-created.
 > * Also, the same Time Series Insights data can be present in two or more blobs.
 
-## Logical partitions
+### Logical partitions
 
 A logical partition is a partition within a physical partition that stores all the data associated with a single partition key value. Time Series Insights Preview logically partitions each blob based on two properties:
 
@@ -179,7 +181,7 @@ Time Series Insights Preview indexes data by using a blob-size optimization stra
 
 > [!IMPORTANT]
 > * The Time Series Insights general availability (GA) release will make data available within 60 seconds of hitting an event source. 
-> * During the preview, expect a longer period before the data is made available. 
+> * During the preview, expect a longer period before the data is made available.
 > * If you experience any significant latency, be sure to contact us.
 
 ### Scale
