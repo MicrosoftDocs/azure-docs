@@ -91,7 +91,7 @@ The following container OS images can be used to deploy services:
     - No known limitations
 
 > [!NOTE]
-> Windows Server 2019 and 1809 do not have developer experience support through Visual Studio yet.
+> Visual Studio tooling for Mesh does not yet support deploying into Windows Server 2019 and 1809 containers.
 
 ### What types of applications can I deploy? 
 
