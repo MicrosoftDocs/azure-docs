@@ -109,7 +109,7 @@ if __name__ == "__main__":
 
 ```
 
-## Define Conda Environment
+## Define Conda environment
 Create a conda environment file named `myenv.yml` to specify the dependencies for your service. It's important to specify that you are using `tensorflow-gpu` to achieve accelerated performance.
 ```yaml
 name: aml-accel-perf
