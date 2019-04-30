@@ -106,11 +106,11 @@ Interacting with bootloader | Restart your VM from within the serial console bla
 ## Disable the Serial Console
 By default, all subscriptions have serial console access enabled. You can disable the serial console at either the subscription level or VM/VMSS level. Note that boot diagnostics must be enabled on a VM in order for serial console to work.
 
+### VM/VMSS-level disable
+The serial console can be disabled for a specific VM or VMSS by disabling the boot diagnostics setting. Turn off boot diagnostics from the Azure portal to disable the serial console for the VM or the VMSS. If you are using serial console on a VMSS, ensure you upgrade your VMSS instances to the latest model.
+
 > [!NOTE]
 > To enable or disable the serial console for a subscription, you must have write permissions to the subscription. These permissions include administrator or owner roles. Custom roles can also have write permissions.
-
-### VM/VMSS-level disable
-The serial console can be disabled for a specific VM or VMSS by disabling the boot diagnostics setting. Turn off boot diagnostics from the Azure portal to disable the serial console for the VM or the VMSS.
 
 ### Subscription-level disable
 The serial console can be disabled for an entire subscription through the [Disable Console REST API call](/rest/api/serialconsole/console/disableconsole). You can use the **Try It** function available on this API documentation page to disable and enable the serial console for a subscription. Enter your subscription ID for **subscriptionId**, enter **default** for **default**, and then select **Run**. Azure CLI commands aren't yet available.
