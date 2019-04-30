@@ -22,7 +22,7 @@ Select the column from Source 1 and from Source 2 whose values you wish to check
 
 ## Multiple exists conditions
 
-Next to each row in your column conditions for Exsits, you'll find a + sign available when you hover over reach row. This will allow you to add multiple rows for Exists conditions. Each additional condition is an "And".
+Next to each row in your column conditions for Exists, you'll find a + sign available when you hover over reach row. This will allow you to add multiple rows for Exists conditions. Each additional condition is an "And".
 
 ## Custom expression
 
