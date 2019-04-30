@@ -134,7 +134,7 @@ The query results are:
     }]
 ```
 
-The following query returns all the given names of children in the family whose `id` matches `WakefieldFamily`, ordered by grade.
+The following query returns all the given names of children in the family whose `id` matches `WakefieldFamily`, ordered by the city of residence.
 
 ```sql
     SELECT c.givenName
