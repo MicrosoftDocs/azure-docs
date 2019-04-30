@@ -27,7 +27,7 @@ Alternatively, you can specify the country/region using the `cc` query parameter
 > - en-AU (English, Australia)
 > - zh-CN (Chinese, China)
 
-## Countries
+## Countries/Regions
 
 |Country/region|Code|
 |-------|----|
