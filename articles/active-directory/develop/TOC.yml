@@ -342,7 +342,7 @@
         href: howto-add-terms-of-service-privacy-statement.md
     - name: Work with Microsoft Authentication Library
       items:
-        -name: MSAL.NET
+        - name: MSAL.NET
           items:
             - name: Instantiate a public client with options
               href: msal-net-instantiate-public-client-config-options.md
