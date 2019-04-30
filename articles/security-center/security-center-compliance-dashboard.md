@@ -3,7 +3,7 @@ title: Improve your regulatory compliance using Azure Security Center | Microsof
 description: "Tutorial: Learn how to Improve your regulatory compliance using Azure Security Center."
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
+ms.date: 4/30/2019
+ms.author: monhaber
 
 ---
 # Tutorial: Improve your regulatory compliance
@@ -45,8 +45,7 @@ The regulatory compliance dashboard view can help focus your attention on the ga
 
 >[!NOTE]
 > Currently supported regulatory standards are: Azure CIS, PCI DSS 3.2, ISO 27001, and SOC TSP. Additional standards will be reflected in the dashboard as it develops.
-
-1.  In the Security Center main menu, under **POLICY & COMPLIANCE** select **Regulatory compliance dashboard**. <br>
+1.  In the Security Center main menu, under **POLICY & COMPLIANCE** select **Regulatory compliance**. <br>
 At the top of the screen, you see a dashboard with an overview of your compliance status with the set of supported compliance regulations. You can see your overall compliance score, and the number of passing vs. failing assessments associated with each standard.
 
     ![computer description high confidence](./media/security-center-compliance-dashboard/compliance-dashboard.png)
