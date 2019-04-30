@@ -50,7 +50,7 @@ Automated machine learning does not currently support tensor flow version 1.13. 
 
 ### Experiment Charts
 
-Charts (precision-recall, ROC, gain curve etc.) shown in automated ML experiment iterations are not rendering corectly in user interface since 4/12. Chart plots are currently shown flipped. A resolution is under investigation.
+Binary classification charts (precision-recall, ROC, gain curve etc.) shown in automated ML experiment iterations are not rendering corectly in user interface since 4/12. Chart plots are currently showing inverse results, where better performing models are shown with lower results. A resolution is under investigation.
 
 ## Databricks
 
@@ -100,8 +100,6 @@ If these steps don't solve the issue, try restarting the cluster.
 ## Azure portal
 
 If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal Overview page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, the workaround is to go directly to the [Azure portal](https://portal.azure.com) and search for the workspace name.
-
-
 
 ## Diagnostic logs
 
