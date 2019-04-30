@@ -6,7 +6,7 @@ ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 5/6/2019
+ms.date: 05/06/2019
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL server in the Azure portal
