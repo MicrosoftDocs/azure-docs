@@ -26,9 +26,10 @@ Next to each row in your column conditions for Exsits, you will find a + sign av
 
 ## Custom expression
 
-![Exists custom settings](media/data-flow/exsits1.png "exists custom")
+![Exists custom settings](media/data-flow/exists1.png "exists custom")
 
 You can click "Custom Expression" to instead create a free-form expression as your exists or not-exists condition. Checking this box will allow you to type in your own expression as a condition.
 
 ## Next steps
 
+Similar transformations are [Lookup](data-flow-lookup.md) and [Join](data-flow-join.md)
