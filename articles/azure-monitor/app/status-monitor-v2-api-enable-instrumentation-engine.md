@@ -82,6 +82,6 @@ Configuring registry for instrumentation engine...
 - [Add Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so that you can insert trace and log calls
  
  Do more with Status Monitor v2:
- - Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot) Status Monitor v2.
- - [Get the config](status-monitor-v2-api-get-config) to confirm that your settings were recorded correctly.
- - [Get the status](status-monitor-v2-api-get-status) to inspect monitoring.
+ - Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+ - [Get the config](status-monitor-v2-api-get-config.md) to confirm that your settings were recorded correctly.
+ - [Get the status](status-monitor-v2-api-get-status.md) to inspect monitoring.
