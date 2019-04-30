@@ -38687,6 +38687,11 @@
       "source_path": "articles/cognitive-services/Speech-Service/translation.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-translate-speech-csharp",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/app-registration-portal-content.md",
+      "redirect_url": "/azure/active-directory/develop/quickstart-v2-register-an-app",
+      "redirect_document_id": false
     }
   ]
 }
