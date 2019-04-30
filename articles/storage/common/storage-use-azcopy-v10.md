@@ -12,11 +12,11 @@ ms.subservice: common
 
 # Get started with AzCopy
 
-AzCopy is the command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you set up AzCopy, and then find example snippets that you can use become productive with AzCopy in the least amount of time.
+AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you get started.
 
 ## Download AzCopy
 
-Download the AzCopy executable file. There's nothing to install.
+First, download the AzCopy executable file. There's nothing to install.
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
@@ -27,23 +27,26 @@ Download the AzCopy executable file. There's nothing to install.
 
 ## Authenticate your identity
 
-When you run an AzCopy command, the storage account needs to identify who you are, and assess what sorts of tasks you have permission to perform on the data in the account.
+Before you run an AzCopy command, the storage service needs to identify you, and then assess which tasks you have permission to perform.
 
-You can identify yourself by using either of these approaches:
+You can identify yourself by using your Azure account credentials, or by using a Shared Access Signature (SAS) token.
 
-- Azure account credentials
-- A Shared Access Signature (SAS) token
+Let's look at each option.
 
-### Use your Azure account credentials
+### Option 1: Use your Azure account credentials
 
 First, ensure that one of these roles has been assigned to your identity:
 
 - [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
-These assignments can be assigned in the scope of the storage account, the parent resource group or the parent subscription.
+These roles can be assigned to your identity in any of these scopes:
 
-Then, from a command prompt, type the following command:
+- Storage account
+- Resource group
+- Subscription
+
+From a command prompt, type the following command:
 
 ```azcopy
 azcopy login
@@ -57,13 +60,13 @@ Then, log-into your Azure account by using your Azure account credentials.
 
 ![Create a container](media/storage-use-azcopy-v10/azcopy-login-2.png)
 
-After you've successfully signed in, you can close the browser window, and begin using AzCopy.
+After you've successfully signed in, you can close the browser window and begin using AzCopy.
 
-### Use a SAS token
+### Option 2: Use a SAS token
 
-If you are unable to assign the [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) or [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) role to your identity, then you'll have to obtain a Shared Access signature (SAS), and then append that token to each AzCopy command that you execute.
+You can obtain a Shared Access signature (SAS), and then append that token to each AzCopy command that you execute.
 
-This command recursively copies data from a local directory to a blob container. A fictitious SAS token is appended to the end of the of the container path.
+This example command recursively copies data from a local directory to a blob container. A fictitious SAS token is appended to the end of the of the container path. 
 
 ```azcopy
 azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
@@ -93,7 +96,7 @@ For AzCopy command examples, see any of these articles.
 
 ## Configure, optimize, and troubleshoot
 
-See [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md).
+See [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
 
 ## Use AzCopy from Storage Explorer
 
