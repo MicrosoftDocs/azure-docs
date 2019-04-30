@@ -17,7 +17,7 @@ ms.author: magoedte
 
 # Managing and maintaining the Log Analytics agent for Windows and Linux
 
-After initial deployment of the Log Analytics Windows or Linux agent in Azure Monitor, you may need to reconfigure the agent, upgrade it, or remove it from the computer if has reached the retirement stage in its lifecycle. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
+After initial deployment of the Log Analytics Windows or Linux agent in Azure Monitor, you may need to reconfigure the agent, upgrade it, or remove it from the computer if it has reached the retirement stage in its lifecycle. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
 
 ## Upgrading agent
 
@@ -156,7 +156,7 @@ The following steps demonstrate how to reconfigure the Linux agent if you decide
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]`
     
-4. To verify your changes took affect, run the following command:
+4. To verify your changes took effect, run the following command:
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -l`
 
@@ -227,7 +227,7 @@ Perform the following steps if your Linux computers need to communicate through 
     ```
 
 ## Uninstall agent
-Use one of the following procedures to uninstall the Windows or Linux agent using the command-line or setup wizard.
+Use one of the following procedures to uninstall the Windows or Linux agent using the command line or setup wizard.
 
 ### Windows agent
 
