@@ -14,7 +14,7 @@ Learn how to create an Azure Cosmos DB Gremlin API resources using an Azure Reso
 
 Here is a copy of the template:
 
-[!code-json[create-cosmos-gremlin](~/quickstart-templates/101-cosmosdb-create-account/azuredeploy.json)]
+[!code-json[create-cosmos-gremlin](~/quickstart-templates/101-cosmosdb-gremlin/azuredeploy.json)]
 
 ## Deploy with Azure CLI
 

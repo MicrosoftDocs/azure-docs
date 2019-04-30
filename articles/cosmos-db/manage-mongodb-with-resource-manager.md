@@ -14,7 +14,7 @@ Learn how to create an Azure Cosmos DB API for MongoDB resources using an Azure 
 
 Here is a copy of the template:
 
-[!code-json[create-cosmos-mongo](~/quickstart-templates/101-cosmosdb-create-account/azuredeploy.json)]
+[!code-json[create-cosmos-mongo](~/quickstart-templates/101-cosmosdb-mongodb/azuredeploy.json)]
 
 ## Deploy via Azure CLI
 
