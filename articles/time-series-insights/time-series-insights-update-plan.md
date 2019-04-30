@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 04/30/2019
 ms.custom: seodec18
 ---
 
@@ -23,11 +23,11 @@ This article describes best practices to plan and get started quickly using the 
 
 To get started with Time Series Insights, it’s best if you understand:
 
-* What you get when you provision a Time Series Insights Preview environment.
-* What your Time Series IDs and Timestamp properties are.
-* What the new Time Series Model is, and how to build your own.
-* How to send events efficiently in JSON.
-* Time Series Insights business disaster recovery options.
+* What you get when you [provision a Time Series Insights Preview environment](#the-preview-environment).
+* What your [Time Series IDs and Timestamp properties are](#configure-time-series-ids-and-timestamp-properties).
+* What the new [Time Series Model is](#understand-the-time-series-model), and how to build your own.
+* How to [send events efficiently in JSON](#shape-your-events).
+* Time Series Insights [business disaster recovery options](#business-disaster-recovery).
 
 Azure Time Series Insights employs a pay-as-you-go business model. For more information about charges and capacity, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
@@ -58,7 +58,7 @@ The Timestamp property is also important. You can designate this property when y
 > [!TIP]
 > Verify the formatting and parsing requirements for your event sources.
 
-When left blank, the Event Enqueue Time of an event source is used as the event Timestamp. If you send historical data or batched events, customizing the Timestamp property is more helpful than the default Event Enqueue Time. For more information, read about [How to add event sources in IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md). 
+When left blank, the Event Enqueue Time of an event source is used as the event Timestamp. If you send historical data or batched events, customizing the Timestamp property is more helpful than the default Event Enqueue Time. For more information, read about [How to add event sources in IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
 ## Understand the Time Series Model
 

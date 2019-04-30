@@ -58,6 +58,9 @@ You can configure a maximum of 400 days of data retention in your Time Series In
 
    [![Configure retention](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
 
+> [!TIP]
+> Learn more about implementing an appropriate data retention policy by reviewing [How to configure retention](./time-series-insights-how-to-configure-retention.md).
+
 ## Understand ingress capacity
 
 The other area to focus on for planning is ingress capacity, which is a derivative of the per-minute allocation.
@@ -89,7 +92,7 @@ You may not know in advance how much data you expect to push. In this case, you 
 
 ### Mitigate throttling and latency
 
-For information about how to prevent throttling and latency, see [Mitigate latency and throttling](time-series-insights-environment-mitigate-latency.md).
+For information about how to prevent throttling and latency, read about how to [Mitigate latency and throttling](time-series-insights-environment-mitigate-latency.md).
 
 ## Shape your events
 
