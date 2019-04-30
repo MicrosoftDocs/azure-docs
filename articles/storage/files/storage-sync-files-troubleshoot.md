@@ -2,11 +2,11 @@
 title: Troubleshoot Azure File Sync | Microsoft Docs
 description: Troubleshoot common issues with Azure File Sync.
 services: storage
-author: jeffpatt24
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 01/31/2019
-ms.author: jeffpatt
+ms.author: rogarana
 ms.subservice: files
 ---
 
