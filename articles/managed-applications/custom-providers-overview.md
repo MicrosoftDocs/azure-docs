@@ -4,7 +4,7 @@ description: Describes the concepts for creating a custom resource provider with
 author: MSEvanhi
 ms.service: managed-applications
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 04/30/2019
 ms.author: evanhi
 ---
 
@@ -27,7 +27,7 @@ You start by letting Azure Resource Manager know about your custom provider. You
 
 For each resource type, you provide an endpoint that contains the REST operations (PUT, GET, DELETE) for that resource type. The endpoint can be hosted on any environment.
 
-You can also define custom actions for your resource provider. Use actions for operations such as start, stop, or restart. These actions call an endpoint directly, without deploying a resource.
+You can also define custom actions for your resource provider. Actions represent POST operations. Use actions for operations such as start, stop, or restart. You provide an endpoint that handles the request.
 
 The following example shows how to define a custom provider with an action and a resource type.
 
@@ -56,15 +56,17 @@ The following example shows how to define a custom provider with an action and a
 },
 ```
 
+For **routingType**, the accepted values are `Proxy` and `Cache`. Proxy means requests for the resource type or action are handled by the endpoint. The cache setting is only supported for resource types, not actions. To specify cache, you must also specify proxy. Cache means responses from the endpoint are stored to optimize read operations. Using the cache setting makes it easier to implement an API that is consistent and compliant with other Resource Manager services.
+
 ## Deploy your resource types
 
-After defining your custom provider, you can deploy your customized resource types. You can deploy your custom resource types in the same template as Azure resource types.
+After defining your custom provider, you can deploy your customized resource types.
 
 ```json
 {
+    "apiVersion": "2018-09-01-preview",
     "type": "Microsoft.CustomProviders/resourceProviders/users",
     "name": "[concat(parameters('rpname'), '/santa')]",
-    "apiVersion": "2018-09-01-preview",
     "location": "[parameters('location')]",
     "properties": {
         "FullName": "Santa Claus",
@@ -72,6 +74,8 @@ After defining your custom provider, you can deploy your customized resource typ
     }
 }
 ```
+
+You can deploy your custom resource types in the same template as other Azure resource types.
 
 ## Manage access
 
