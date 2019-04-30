@@ -27,8 +27,11 @@ ms.date: 04/30/2019
 
 ## Prerequisites
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
-[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+
+- **Install Ansible** - Do one of the following tasks:
+    - [Install](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine) and [configure](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials) Ansible on a Linux virtual machine 
+    - [Configure Azure Cloud Shell](/azure/cloud-shell/quickstart)
 
 ## Create a random postfix
 
