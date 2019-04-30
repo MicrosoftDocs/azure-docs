@@ -1,20 +1,12 @@
 ---
-title: Connect to your Microsoft Azure-based virtual machine | Microsoft Docs
+title: Connect to your Microsoft Azure-based virtual machine | Azure Marketplace
 description: Explains how to connect to the new virtual machine created on Azure.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 10/19/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Connect to your Azure-based virtual machine

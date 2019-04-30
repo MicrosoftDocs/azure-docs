@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 04/29/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
@@ -40,7 +40,7 @@ You can enable LinkedIn account connections for only the users you want to have 
 1. Under **LinkedIn account connections**, allow users to connect their accounts to access their LinkedIn connections within some Microsoft apps. No data is shared until users consent to connect their accounts.
 
     * Select **Yes** to enable the service for all users in your organization
-    * Select **Selected group** to enable only a group of selected users in your organization
+    * Select **Selected** to enable only a group of selected users in your organization
     * Select **No** to withdraw consent from all users in your organization
 
     ![Integrate LinkedIn account connections in the organization](./media/linkedin-integration/linkedin-integration.png)
@@ -51,7 +51,7 @@ You can enable LinkedIn account connections for only the users you want to have 
 > LinkedIn integration is not fully enabled for your users until they consent to connect their accounts. No data is shared when you enable account connections for your users.
 
 ### Assign selected users with a group
-We have replaced the ‘Selected’ option with ‘Selected group’ so that you can enable the ability to connect LinkedIn and Microsoft accounts for one group instead of individual users. If you don’t have LinkedIn account connections enabled for Selected individual users, you don’t need to do anything. If you have previously enabled LinkedIn account connections for selected, individual users, you should:
+We have replaced the ‘Selected’ option that specifies a list of users with the option to select a group of users so that you can enable the ability to connect LinkedIn and Microsoft accounts for a single group instead of many individual users. If you don’t have LinkedIn account connections enabled for selected individual users, you don’t need to do anything. If you have previously enabled LinkedIn account connections for selected individual users, you should:
 
 1. Get the current list of individual users
 1. Move the currently enabled individual users to a group

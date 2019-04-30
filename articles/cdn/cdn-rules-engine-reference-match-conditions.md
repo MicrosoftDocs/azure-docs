@@ -25,7 +25,7 @@ The second part of a rule is the match condition. A match condition identifies s
 
 For example, you can use a match condition to:
 - Filter requests for content at a particular location.
-- Filter requests generated from a particular IP address or country.
+- Filter requests generated from a particular IP address or country/region.
 - Filter requests by header information.
 
 ## Always match condition
@@ -51,7 +51,7 @@ The Location match conditions identify requests based on the requester's locatio
 Name | Purpose
 -----|--------
 [AS Number](#as-number) | Identifies requests that originate from a particular network.
-[Country](#country) | Identifies requests that originate from the specified countries.
+[Country](#country) | Identifies requests that originate from the specified countries/regions.
 
 ## Origin match conditions
 
@@ -232,7 +232,7 @@ Key information:
 
 ---
 ### Country
-You can specify a country through its country code. 
+You can specify a country/region through its country code. 
 
 The **Matches**/**Does Not Match** option determines the conditions under which the Country match condition is met:
 - **Matches**: Requires the request to contain the specified country code values. 
@@ -257,9 +257,9 @@ This match condition allows you to perform a multitude of customizations based o
 - URL Path Wildcard match: Set the [URL Path Wildcard match condition](#url-path-wildcard) to the directory that will be secured. 
     Append an asterisk to the end of the relative path to ensure that access to all of its children will be restricted by this rule.
 
-- Country match: Set the Country match condition to the desired set of countries.
-   - Allow: Set the Country match condition to **Does Not Match** to allow only the specified countries access to content stored in the location defined by the URL Path Wildcard match condition.
-   - Block: Set the Country match condition to **Matches** to block the specified countries from accessing content stored in the location defined by the URL Path Wildcard match condition.
+- Country match: Set the Country match condition to the desired set of countries/regions.
+   - Allow: Set the Country match condition to **Does Not Match** to allow only the specified countries/regions access to content stored in the location defined by the URL Path Wildcard match condition.
+   - Block: Set the Country match condition to **Matches** to block the specified countries/regions from accessing content stored in the location defined by the URL Path Wildcard match condition.
 
 - Deny Access (403) Feature: Enable the [Deny Access (403) feature](cdn-rules-engine-reference-features.md#deny-access-403) to replicate the allow or block portion of the Country Filtering feature.
 

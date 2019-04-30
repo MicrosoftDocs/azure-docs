@@ -24,7 +24,7 @@ The source code for the sample application is included with the Speech Devices S
 
 Before you begin developing with the Speech Devices SDK, gather the information and software you need:
 
-* Get a [development kit from ROOBO](http://ddk.roobo.com/). Kits are available with linear or circular microphone array configurations. Choose the correct configuration for your needs.
+* Get a [development kit from ROOBO](https://ddk.roobo.com/). Kits are available with linear or circular microphone array configurations. Choose the correct configuration for your needs.
 
     |Development kit configuration|Speaker location|
     |-----------------------------|------------|
@@ -195,4 +195,4 @@ If you get certificate failures when using the Speech Services, make sure that y
 
 ### Audio
 
-ROOBO provides a tool that captures all audio to flash memory. It might help you troubleshoot audio issues. A version of the tool is provided for each development kit configuration. On the  [ROOBO site](http://ddk.roobo.com/), select your device, and then select the **ROOBO Tools** link at the bottom of the page.
+ROOBO provides a tool that captures all audio to flash memory. It might help you troubleshoot audio issues. A version of the tool is provided for each development kit configuration. On the  [ROOBO site](https://ddk.roobo.com/), select your device, and then select the **ROOBO Tools** link at the bottom of the page.
