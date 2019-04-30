@@ -83,10 +83,15 @@ If you are developing on a Windows 10 April 2018 update (version 1803) machine, 
 The following container OS images can be used to deploy services:
 
 - Windows - windowsservercore and nanoserver
-    - Windows Server version 1709
-    - Windows Server version 1803
+    - Windows Server 1709
+    - Windows Server 1803
+    - Windows Server 1809
+    - Windows Server 2019 LTSC
 - Linux
     - No known limitations
+
+> [!NOTE]
+> Windows Server 2019 and 1809 do not have developer experience support through Visual Studio yet.
 
 ### What types of applications can I deploy? 
 
@@ -134,6 +139,10 @@ You might encounter CPU availability and limits being fixed across all applicati
 Multiple applications can't be deployed to a one-node cluster. To mitigate:
 - Use a five node cluster when deploying multiple apps to a local cluster.
 - Remove apps that you are not currently testing.
+
+### VS Tooling has limited support for Windows containers
+
+The Visual Studio tooling only supports deploying Windows Containers with a base OS version of Windows Server 1709 and 1803 today. 
 
 ## Feature gaps and other known issues
 
