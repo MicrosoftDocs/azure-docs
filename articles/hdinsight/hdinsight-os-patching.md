@@ -22,6 +22,7 @@ Using the script action described in this article, you can modify the OS patchin
 
 > [!NOTE]  
 > This script action will only work with Linux-based HDInsight clusters created after August 1st, 2016. Patches will be effective only when VMs are rebooted. 
+> This script doesn't auto apply for every update cycle. It needs to be run for every update cycle to install the updates and reboot the VM.
 
 ## How to use the script 
 
