@@ -86,7 +86,7 @@ Run the following command to upgrade the agent.
 ## Adding or removing a workspace
 
 ### Windows agent
-The steps in this section are necessary when you want to not only reconfigure the Windows agent to report to a different workspace or stop reporting to a specific workspace, but also when you want to configure the agent to report to more than one workspace (commonly referred to as multi-homing). Configuring the Windows agent to report to multiple workspaces can only be performed after initial setup of the agent and using the methods described below.    
+The steps in this section are necessary when you want to not only reconfigure the Windows agent to report to a different workspace or to remove a workspace from its configuration, but also when you want to configure the agent to report to more than one workspace (commonly referred to as multi-homing). Configuring the Windows agent to report to multiple workspaces can only be performed after initial setup of the agent and using the methods described below.    
 
 #### Update settings from Control Panel
 
@@ -136,7 +136,7 @@ $mma.ReloadConfiguration()
 >
 
 ### Linux agent
-The following steps demonstrate how to reconfigure the Linux agent if you decide to register it with a different workspace or want to remove a workspace from its configuration.
+The following steps demonstrate how to reconfigure the Linux agent if you decide to register it with a different workspace or to remove a workspace from its configuration.
 
 1. To verify it is registered to a workspace, run the following command:
 
