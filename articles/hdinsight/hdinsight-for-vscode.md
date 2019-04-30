@@ -366,16 +366,19 @@ HDInsight for Visual Studio Code supports the following features:
 When user submit job to a cluster that has read only permission (Reader role), Ambari credentials is required.
 
 ### View the Hive database
+
 - When you use the Reader role to extend the spark Gen1 cluster and Hive database cluster, you will be prompted to fill in the appropriate **Ambari** **username** or **ESP** **domain** **credential** and **password**. Then, review OUTPUT view for verification.
     ![HDInsight Tools for Visual Studio Code username](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-username.png)
     ![HDinsight Tools for Visual Studio Code password](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-password.png)
 
 ### View Storage Accounts for Gen2
+
 - Expand the spark Gen2 cluster with Reader role, you need to enter the storage **access** **key**. You can get the access key for storage account from the Azure portal. For information, see [View and copy access keys](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-manage#view-and-copy-access-keys)
 
     ![HDInsight Tools for Visual Studio Code Access Key](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-AccessKey.png)
 
 ### Link cluster from context menu
+
 1. Sign in to your Azure subscription with reader only account.
 2. Click **Azure** icon from leftmost column.
 
@@ -388,6 +391,7 @@ When user submit job to a cluster that has read only permission (Reader role), A
     ![HDInsight Tools for Visual Studio Code Reader Linked](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-reader-linked.png)
 
 ### Submit job to reader role cluster
+
 1. Sign in to your Azure subscription with reader only account.
 2. [Submit interactive Hive queries and Hive batch scripts](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-for-vscode#submit-interactive-hive-queries-hive-batch-scripts), you will be prompted to fill in the appropriate **Ambari** **username** or **ESP** **domain** **credential** and **password**. Then, review OUTPUT view for verification.
 3. [Submit interactive PySpark queries](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-for-vscode#submit-pyspark-batch-job) to spark Gen2 cluster, you need to enter the storage **access** **key**. You can get the access key for storage account from the Azure portal. For information, see [View and copy access keys](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-manage#view-and-copy-access-keys)
