@@ -58,4 +58,4 @@ Configuring registry for instrumentation engine...
 ## Next steps
 
  Do more with Status Monitor v2:
- - Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot) Status Monitor v2.
+ - Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.
