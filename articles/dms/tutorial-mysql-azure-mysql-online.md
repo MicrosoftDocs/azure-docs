@@ -10,10 +10,11 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 04/30/2019
 ---
 
 # Tutorial: Migrate MySQL to Azure Database for MySQL online using DMS
+
 You can use the Azure Database Migration Service to migrate the databases from an on-premises MySQL instance to [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) with minimal downtime. In other words, migration can be achieved with minimum downtime to the application. In this tutorial, you migrate the **Employees** sample database from an on-premises instance of MySQL 5.7 to Azure Database for MySQL by using an online migration activity in the Azure Database Migration Service.
 
 In this tutorial, you learn how to:
@@ -78,7 +79,7 @@ To complete this tutorial, you need to:
 
 To complete all the database objects like table schemas, indexes and stored procedures, we need to extract schema from the source database and apply to the database. To extract schema, you can use mysqldump with the `--no-data` parameter.
 
-Assuming you have MySQL employees sample database in the on-premises system, the command to do schema migration using mysqldump is:
+Assuming you have MySQL **Employees** sample database in the on-premises system, the command to do schema migration using mysqldump is:
 
 ```
 mysqldump -h [servername] -u [username] -p[password] --databases [db name] --no-data > [schema file path]
@@ -147,7 +148,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
 3. Search for migration, and then to the right of **Microsoft.DataMigration**, select **Register**.
 
-    ![Register resource provider](media/tutorial-mysql-to-azure-mysql-online/portal-register-resource-provider.png)    
+    ![Register resource provider](media/tutorial-mysql-to-azure-mysql-online/portal-register-resource-provider.png)
 
 ## Create a DMS instance
 
