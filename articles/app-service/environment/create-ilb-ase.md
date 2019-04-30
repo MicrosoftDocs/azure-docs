@@ -52,7 +52,7 @@ There are some things that you can't do when you use an ILB ASE:
 
 To create an ILB ASE:
 
-1. In the Azure portal, select **Create a resource** > **Web** > **App Service Environment**.
+1. In the Azure portal, select **Create a resource** > **Web** > **App Service Environment**.
 
 2. Select your subscription.
 
@@ -62,7 +62,7 @@ To create an ILB ASE:
 
 5. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/24`, which has 256 addresses and can handle a maximum-sized ASE and any scaling needs. 
 
-6. Select **Virtual Network/Location** > **Virtual Network Configuration**. Set the **VIP Type** to **Internal**.
+6. Select **Virtual Network/Location** > **Virtual Network Configuration**. Set the **VIP Type** to **Internal**.
 
 7. Enter a domain name. This domain is the one used for apps created in this ASE. There are some restrictions. It can't be:
 
@@ -92,14 +92,14 @@ On the **Virtual Network** blade, there is a **Virtual Network Configuration** o
 
 After you select **Internal**, the ability to add more IP addresses to your ASE is removed. Instead, you need to provide the domain of the ASE. In an ASE with an External VIP, the name of the ASE is used in the domain for apps created in that ASE.
 
-If you set **VIP Type** to **Internal**, your ASE name is not used in the domain for the ASE. You specify the domain explicitly. If your domain is *contoso.corp.net* and you create an app in that ASE named *timereporting*, the URL for that app is timereporting.contoso.corp.net.
+If you set **VIP Type** to **Internal**, your ASE name is not used in the domain for the ASE. You specify the domain explicitly. If your domain is *contoso.corp.net* and you create an app in that ASE named *timereporting*, the URL for that app is timereporting.contoso.corp.net.
 
 
 ## Create an app in an ILB ASE ##
 
 You create an app in an ILB ASE in the same way that you create an app in an ASE normally.
 
-1. In the Azure portal, select **Create a resource** > **Web + Mobile** > **Web App**.
+1. In the Azure portal, select **Create a resource** > **Web + Mobile** > **Web App**.
 
 1. Enter the name of the app.
 
@@ -113,7 +113,7 @@ You create an app in an ILB ASE in the same way that you create an app in an ASE
 
 1. Select or create an App Service plan. If you want to create a new App Service plan, select your ASE as the location. Select the worker pool where you want your App Service plan to be created. When you create the App Service plan, select your ASE as the location and the worker pool. When you specify the name of the app, the domain under your app name is replaced by the domain for your ASE.
 
-1. Select **Create**. If you want the app to appear on your dashboard, select the **Pin to dashboard** check box.
+1. Select **Create**. If you want the app to appear on your dashboard, select the **Pin to dashboard** check box.
 
 	![App Service plan creation][2]
 
@@ -123,7 +123,7 @@ You create an app in an ILB ASE in the same way that you create an app in an ASE
 
 An ILB ASE is slightly different than the non-ILB ASE. As already noted, you need to manage your own DNS. You also have to provide your own certificate for HTTPS connections.
 
-After you create your ASE, the domain name shows the domain you specified. A new item appears in the **Setting** menu called **ILB Certificate**. The ASE is created with a certificate that doesn't specify the ILB ASE domain. If you use the ASE with that certificate, your browser tells you that it's invalid. This certificate makes it easier to test HTTPS, but you need to upload your own certificate that's tied to your ILB ASE domain. This step is necessary regardless of whether your certificate is self-signed or acquired from a certificate authority.
+After you create your ASE, the domain name shows the domain you specified. A new item appears in the **Setting** menu called **ILB Certificate**. The ASE is created with a certificate that doesn't specify the ILB ASE domain. If you use the ASE with that certificate, your browser tells you that it's invalid. This certificate makes it easier to test HTTPS, but you need to upload your own certificate that's tied to your ILB ASE domain. This step is necessary regardless of whether your certificate is self-signed or acquired from a certificate authority.
 
 ![ILB ASE domain name][3]
 
@@ -150,7 +150,7 @@ The certificate that these PowerShell commands generate is flagged by browsers b
 
 To upload your own certificates and test access:
 
-1. After the ASE is created, go to the ASE UI. Select **ASE** > **Settings** > **ILB Certificate**.
+1. After the ASE is created, go to the ASE UI. Select **ASE** > **Settings** > **ILB Certificate**.
 
 1. To set the ILB certificate, select the certificate .pfx file and enter the password. This step takes some time to process. A message appears stating that an upload operation is in progress.
 

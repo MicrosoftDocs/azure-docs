@@ -41,7 +41,6 @@ However, Maps does not have the same level of information and accuracy for all r
 | Central African Republic         | ✓ | Ø |
 | Chad                             | ✓ | Ø |
 | Comoros                          | ✓ | Ø |
-| Congo                            | ✓ | ✓ |
 | Democratic Republic of the Congo | ✓ | ✓ |
 | Côte d'Ivoire                    | ✓ | Ø |
 | Djibouti                         | ✓ | Ø |
@@ -105,7 +104,6 @@ However, Maps does not have the same level of information and accuracy for all r
 | Canada                    | ✓ | ✓ |
 | Cayman Islands            | ✓ | ✓ |
 | Chile                     | ✓ | ✓ |
-| Clipperton Island         | ✓ | ✓ |
 | Colombia                  | ✓ | ✓ |
 | Costa Rica                | ✓ | ✓ |
 | Cuba                      | ✓ | ✓ |

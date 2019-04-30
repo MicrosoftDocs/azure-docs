@@ -7,11 +7,11 @@ ms.subservice: single-database
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: carlrab
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer:
 manager: craigg
-ms.date: 05/06/2019
+ms.date: 04/08/2019
 ---
 # What is a single database in Azure SQL Database
 
@@ -24,7 +24,11 @@ The single database deployment option creates a database in Azure SQL Database w
 
 ## Dynamic scalability
 
+<<<<<<< HEAD
 You can build your first app on a small, single database at low cost in the serverless (preview) compute tier or a small compute size in the provisioned compute tier. You change the [compute or service tier](sql-database-single-database-scale.md) manually or programmatically at any time to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
+=======
+You can build your first app on a small, single database at a low cost per month in low price/performance service tier and then [change its service tier](sql-database-single-database-scale.md) manually or programmatically at any time to thehigher price/performance service tier to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
+>>>>>>> 1a6a646aa504bc928739bac430da3c816e015075
 
 ## Single databases and elastic pools
 
