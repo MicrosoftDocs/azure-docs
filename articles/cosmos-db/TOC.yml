@@ -473,6 +473,8 @@
       items:
       - name: Create a container
         href: how-to-create-container.md
+      - name: Create a container with large partition key
+        href: large=partition-keys.md
       - name: Query a container
         href: how-to-query-container.md
       - name: Data modeling and partitioning - a real-world example
