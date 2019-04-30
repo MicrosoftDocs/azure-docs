@@ -66,3 +66,9 @@ Registry: skipping non-existent 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Ser
 Configuring registry for instrumentation engine...
 Successfully disabled Application Insights Status Monitor
 ```
+
+
+## Next steps
+
+ Do more with Status Monitor v2:
+ - Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot) Status Monitor v2.
