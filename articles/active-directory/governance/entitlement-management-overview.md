@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/24/2019
+ms.date: 04/27/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -87,15 +87,17 @@ Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21V
 
 ## What are access packages and policies?
 
-Entitlement management introduces the concept of an *access package*. An access package is a bundle of all the resources a user needs to work on a project or perform their job. The resources include access to groups, applications, and sites. Access packages are used to govern access for your internal employees, and also users outside your organization. Access packages are defined in containers called *catalogs*.
+Entitlement management introduces the concept of an *access package*. An access package is a bundle of all the resources a user needs to work on a project or perform their job. The resources include access to groups, applications, or sites. Access packages are used to govern access for your internal employees, and also users outside your organization. Access packages are defined in containers called *catalogs*.
 
 Access packages also include one or more *policies*. A policy defines the rules or guardrails to access an access package. Enabling a policy enforces that only the right users are granted access, to the right resources, and for the right amount of time.
+
+![Access package and policies](./media/entitlement-management-overview/elm-overview-access-package.png)
 
 With an access package and its policies, the access package manager defines:
 
 - Resources
 - Roles the users need for the resources
-- Users and external users that are eligible to request access
+- Internal users and external users that are eligible to request access
 - Approval process and the users that can approve or deny access
 - Duration of user's access
 
@@ -123,11 +125,11 @@ To better understand entitlement management and its documentation, you should re
 | Term or concept | Description |
 | --- | --- |
 | entitlement management | A service that assigns, revokes, and administers access packages. |
-| catalog | A container of related resources and access packages. |
-| General catalog | A built-in catalog that is always available. To add resources to the General catalog, requires certain permissions. |
 | access package | A collection of permissions and policies to resources that users can request. An access package is always contained in a catalog. |
 | access request | A request to access an access package. A request typically goes through a workflow. |
 | policy | A set of rules that defines the access lifecycle, such as how users get access, who can approve, and how long users have access. Example policies include employee access and external access. |
+| catalog | A container of related resources and access packages. |
+| General catalog | A built-in catalog that is always available. To add resources to the General catalog, requires certain permissions. |
 | resource | An asset or service (such as a group, application, or site) that a user can be granted permissions to. |
 | resource type | The type of resource, which includes groups, applications, and SharePoint Online sites. |
 | resource role | A collection of permissions associated with a resource. |
