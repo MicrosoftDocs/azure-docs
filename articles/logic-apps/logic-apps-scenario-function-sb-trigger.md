@@ -136,7 +136,7 @@ Service Bus SDK `OnMessageReceive()` listener.
    
    private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/.........";
    
-   // Re-use instance of http clients if possible - https://docs.microsoft.com/en-us/azure/azure-functions/manage-connections
+   // Re-use instance of http clients if possible - https://docs.microsoft.com/azure/azure-functions/manage-connections
    private static HttpClient httpClient = new HttpClient();
    
    public static void Run(string myQueueItem, TraceWriter log)
