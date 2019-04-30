@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: tamram
-ms.reviewer: dineshmurthy
+ms.reviewer: dineshm
 ms.subservice: common
 ---
 
