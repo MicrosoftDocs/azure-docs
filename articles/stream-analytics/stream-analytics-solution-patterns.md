@@ -14,7 +14,7 @@ ms.date: 04/28/2019
 Like many other services in Azure, ASA is often composed with other services to create a larger end to end solution. In this article, we start with the simplest ASA solutions, and discuss various architecture patterns. These patterns can then be further composed into more complex solutions. The patterns described in this page are not scenario-specific, so they can be used in a wide variety of scenarios. Examples of scenario-specific patterns are available on [azure architecture](https://azure.microsoft.com/solutions/architecture/?product=stream-analytics).
 
 ## Create the first ASA job for real-time dashboard
-ASA is designed for ease of use, so you can stand up real-time dashboard and alert solutions quickly. The simplest solution ingests events from Event Hubs or IoT Hub, and [feeds the Power BI dashboard using streaming dataset](service-real-time-streaming.md). The detailed step by step tutorial can be found [here](stream-analytics-manage-job.md).
+ASA is designed for ease of use, so you can stand up real-time dashboard and alert solutions quickly. The simplest solution ingests events from Event Hubs or IoT Hub, and [feeds the Power BI dashboard using streaming dataset](/power-bi/service-real-time-streaming). The detailed step by step tutorial can be found [here](stream-analytics-manage-job.md).
 
 ![ASA Power BI dashboard](media/stream-analytics-solution-patterns/pbidashboard.png)
 
@@ -36,7 +36,7 @@ The second most popular use of ASA is to generate real-time alerts. In this solu
 
 ![ASA event messaging app](media/stream-analytics-solution-patterns/eventmessagingapp.png)
 
-Event Hubs, on the other hand, offer the most flexible integration point. Many other services can consume events from Event Hubs, for example, Azure Data Explorer, and Time Series Insight. They can be connected directly to the Event Hubs sink from ASA to complete the solution. Event Hubs is also the highest throughput messaging broker you have on Azure for such integration scenarios.
+Event Hubs, on the other hand, offers the most flexible integration point. Many other services can consume events from Event Hubs, for example, Azure Data Explorer, and Time Series Insight. They can be connected directly to the Event Hubs sink from ASA to complete the solution. Event Hubs is also the highest throughput messaging broker you have on Azure for such integration scenarios.
 
 ## Dynamic applications and websites
 You can create custom real-time visualization such as dashboard or map visualization using Azure Stream Analytics and Azure SignalR Service. Using SignalR, web clients can be updated in real-time and show dynamic content.
@@ -46,7 +46,7 @@ You can create custom real-time visualization such as dashboard or map visualiza
 ## Incorporate real-time insights into your application through data stores
 Most web services and web applications today use request/response pattern to serve the presentation layer. The request/response pattern is simple to build, and can be easily scaled with low response time using stateless frontend and scalable stores such as Cosmos DB.
 
-On the other hand, high data volume often creates performance bottlenecks in a CRUD-based system, in addition to other problems. [Event sourcing solution pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing) is used to address this problem. Furthermore, temporal patterns and insights are difficult and inefficient to extract from a traditional data store. Modern high-volume data driven applications often adopt a dataflow-based architecture. ASA as the compute engine for data in motion is a linchpin in such an architecture.
+On the other hand, high data volume often creates performance bottlenecks in a CRUD-based system, in addition to other problems. [Event sourcing solution pattern](/azure/architecture/patterns/event-sourcing) is used to address this problem. Furthermore, temporal patterns and insights are difficult and inefficient to extract from a traditional data store. Modern high-volume data driven applications often adopt a dataflow-based architecture. ASA as the compute engine for data in motion is a linchpin in such an architecture.
 
 ![ASA event sourcing app](media/stream-analytics-solution-patterns/eventsourcingapp.png)
 
@@ -56,10 +56,10 @@ In real applications, where processing logic is complex and there is the need to
 
 ![ASA complex event sourcing app](media/stream-analytics-solution-patterns/eventsourcingapp2.png)
 
-This pattern improves the resiliency and manageability of the system. One thing to note though, even though ASA guarantees exactly once processing, there is a small chance that duplicate events may land in the intermediary Event Hubs. It’s important for the downstream ASA job to dedupe events using logic keys in a lookback window. You can find more details [here](https://docs.microsoft.com/en-us/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics).
+This pattern improves the resiliency and manageability of the system. One thing to note though, even though ASA guarantees exactly once processing, there is a small chance that duplicate events may land in the intermediary Event Hubs. It’s important for the downstream ASA job to dedupe events using logic keys in a lookback window. You can find more details [here](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics).
 
 ## Use reference data for application customization
-Many of ASA’s customers are ISVs who build SaaS solutions for their customers. End-user customization is often a requirement (for example, alerting threshold, processing rules, [geofences](geospatial-scenarios.md), and so on). ASA’s reference data feature is designed specifically for this use case. The application layer can accept parameter changes and store them in a SQL database. The ASA job periodically queries for changes from the database and makes the customization parameters accessible through reference data join. More information on how to use reference data for application customization purpose can be found for [SQL reference data](sql-reference-data.md), and [reference data join](https://docs.microsoft.com/en-us/stream-analytics-query/reference-data-join-azure-stream-analytics).
+Many of ASA’s customers are ISVs who build SaaS solutions for their customers. End-user customization is often a requirement (for example, alerting threshold, processing rules, [geofences](geospatial-scenarios.md), and so on). ASA’s reference data feature is designed specifically for this use case. The application layer can accept parameter changes and store them in a SQL database. The ASA job periodically queries for changes from the database and makes the customization parameters accessible through reference data join. More information on how to use reference data for application customization purpose can be found for [SQL reference data](sql-reference-data.md), and [reference data join](/stream-analytics-query/reference-data-join-azure-stream-analytics).
 
 This pattern can also be used to implement a rule engine, where the thresholds of the rules are defined from reference data. More info on the page: [Process configurable threshold-based rules in Azure Stream Analytics](stream-analytics-threshold-based-rules.md).
 
@@ -67,12 +67,12 @@ This pattern can also be used to implement a rule engine, where the thresholds o
 
 ## Adding ML to your real-time insights
 ASA’s built-in [Anomaly Detection model](stream-analytics-machine-learning-anomaly-detection.md) is a convenient way to introduce Machine Learning magic to your real-time application. For a wider range of ML needs, [ASA integrates with Azure Machine Learning’s scoring service](stream-analytics-machine-learning-integration-tutorial.md). However, at this moment throughput for such scoring can be limited. We are investigating how ASA can remove the throughput limitation by calling into a model scoring endpoint hosted in AKS/ACI. Regardless, this pattern gives you instant Machine Learning power in your ASA job, and turns your analytics from reactive to predictive.
-For the more advanced customers of ASA, who wants to incorporate online training and scoring into the same stream analytics pipeline, [here](stream-analytics-high-frequency-trading.md) is an example of how to do that with linear regression. Unfortunately, there is no built-in support for online training at this time.
+For the more advanced customers of ASA, who wants to incorporate online training and scoring into the same stream analytics pipeline, [here](stream-analytics-high-frequency-trading.md) is an example of how to do that with linear regression.
 
 ![ASA ML app](media/stream-analytics-solution-patterns/mlapp.png)
 
 ## Near real-time data warehousing
-Another application pattern ASA customers use, after dashboarding and alerting, is near real-time data warehousing also called streaming data warehouse. In addition to events arriving at Event Hubs and IoT Hub from user’s application, [ASA running on IoT Edge](stream-analytics/stream-analytics-edg.md) can be used to fulfill data cleansing, data reduction, and data store and forward needs. ASA running on IoT Edge can gracefully handle bandwidth limitation and connectivity issues in the system. ASA’s SQL output adapter can be used to output to SQL DW. However, the maximum throughput is only limited to 10 MB/s.
+Another application pattern ASA customers use, after dashboarding and alerting, is near real-time data warehousing also called streaming data warehouse. In addition to events arriving at Event Hubs and IoT Hub from user’s application, [ASA running on IoT Edge](stream-analytics-edg.md) can be used to fulfill data cleansing, data reduction, and data store and forward needs. ASA running on IoT Edge can gracefully handle bandwidth limitation and connectivity issues in the system. ASA’s SQL output adapter can be used to output to SQL DW. However, the maximum throughput is only limited to 10 MB/s.
 
 ![ASA Data Warehousing](media/stream-analytics-solution-patterns/datawarehousing.png)
 
@@ -97,7 +97,7 @@ Now, if we combine the offline analytics pattern with the near real-time applica
 ![ASA insights operationalization](media/stream-analytics-solution-patterns/insightsoperationalization.png)
 
 ## How to monitor ASA jobs
-An ASA job runs 24/7 to process incoming events continuously in real-time. Its uptime guarantee is crucial to the health of the end to end application. While ASA is the only stream analytics service in the industry that offers [99.9% availability guarantee]( https://azure.microsoft.com/en-us/support/legal/sla/stream-analytics/v1_0/), you may still incur some level of down time. Over the years, ASA has introduced metrics, logs,  and job states to reflect the health of the jobs. All of them are surfaced through Azure Monitor service, and can be further exported to OMS. More details can be found [here](stream-analytics-monitoring.md).
+An ASA job runs 24/7 to process incoming events continuously in real time. Its uptime guarantee is crucial to the health of the end to end application. While ASA is the only stream analytics service in the industry that offers [99.9% availability guarantee]( https://azure.microsoft.com/en-us/support/legal/sla/stream-analytics/v1_0/), you may still incur some level of down time. Over the years, ASA has introduced metrics, logs,  and job states to reflect the health of the jobs. All of them are surfaced through Azure Monitor service, and can be further exported to OMS. More details can be found [here](stream-analytics-monitoring.md).
 
 ![ASA monitoring](media/stream-analytics-solution-patterns/monitoring.png)
 
@@ -136,7 +136,7 @@ Fortunately, the aforementioned data archiving pattern can be used to process th
 
 ![ASA backfill](media/stream-analytics-solution-patterns/backfill.png)
 
-Today, the backfill process has to be done with an offline batch processing system, which most likely has a different programming model from ASA. This means you have to reimplement the entire processing logic. It’s conceivable that we enable running an ASA query in offline mode, so backfill can take place with the same query on the archived data.
+Today, the backfill process has to be done with an offline batch processing system, which most likely has a different programming model from ASA. This means you have to reimplement the entire processing logic.
 
 For backfilling, it’s still important to at least temporarily provision more resource to the output sinks to handle higher throughput than the steady state processing needs.
 
