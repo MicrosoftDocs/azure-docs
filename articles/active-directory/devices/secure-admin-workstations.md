@@ -1,6 +1,6 @@
 ---
-title: Creating secure admin workstations - Azure Active Directory
-description: Learn how to secure workstations to reduce the risk of breach due to misconfiguration or compromise
+title: Creating Azure managed workstations - Azure Active Directory
+description: Learn how to create secure Azure-managed workstations to reduce the risk of breach due to misconfiguration or compromise
 
 services: active-directory
 ms.service: active-directory
@@ -11,13 +11,13 @@ ms.date: 04/26/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: jairoc
+ms.reviewer: frasim
 
 # Customer intent: As an administrator, I want to provide staff with secured workstations to reduce the risk of breach due to misconfiguration or compromise.
 
 ms.collection: M365-identity-device-management
 ---
-# Why securing administrative workstations is critical for cloud service administrators
+# Create secure Azure-managed workstations
 
 The rapid adoption of cloud services and the ability to work from anywhere has created a new method for exploitation. Attackers are exploiting weak security controls on devices where administrators work and are able to gain access to privileged resources.
 
@@ -26,11 +26,11 @@ As documented in the [Verizon Threat report](https://enterprise.verizon.com/reso
 Most attackers follow the path below:
 
 * Start with simple reconnaissance, often specific to an industry, to find a way in
-* Analyze and use the information collected to identify the best means to access and exfiltrate data or cause other intended harm
+* Analyze collected information to identify the best means to gain access, exfiltrate data, or cause other intended harm
 * Access, gather, and cause intended harm
 * Exfiltrate and cover tracks
 
-Attackers frequently infiltrate devices that seem low risk or undervalued for reconnaissance and use them to locate an opportunity for lateral movement to find high valued data and successfully exfiltrate information once they gain privileged user roles.
+Attackers frequently infiltrate devices that seem low risk or undervalued for reconnaissance. These vulnerable devices are then used to locate an opportunity for lateral movement, find high valued data, and successfully exfiltrate information once they gain privileged user roles.
 
 ![Typical compromise pattern](./media/secure-admin-workstations/typical-timeline.png)
 
@@ -53,11 +53,11 @@ An attacker who compromises a PC or device can do several things including imper
 * Highly sensitive workstations like SWIFT payment terminals
 * Workstations handling trade secrets
 
-Microsoft recommends implementing elevated security controls for the privileged workstations where these accounts are used to reduce risk including the [Azure Active Directory feature deployment guide](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2), [Office 365 Roadmap](https://aka.ms/o365secroadmap), and [Securing Privileged Access roadmap](https://aka.ms/sparoadmap)).
+Microsoft recommends implementing elevated security controls for privileged workstations where these accounts are used to reduce risk. Additional guidance can be found in the [Azure Active Directory feature deployment guide](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2), [Office 365 Roadmap](https://aka.ms/o365secroadmap), and [Securing Privileged Access roadmap](https://aka.ms/sparoadmap)).
 
 ## Why dedicated workstations
 
-While it is possible to add security to an existing device it is better to start with a secure foundation. Starting with a known good device and a set of known security controls puts your organization in the best position to maintain that increased level of security. With the ever growing number of attack vectors allowed by casual email and web browsing it is increasingly hard to ensure a device can be trusted. This guide works under the assumption a dedicated workstation separated from standard productivity, browsing, and email tasks are completed. Removal of productivity, web browsing, and email from a device can have a negative impact on productivity, but this is typically acceptable for scenarios where the job tasks don’t explicitly require it and risk of a security incident is high.
+While it is possible to add security to an existing device, it is better to start with a secure foundation. Starting with a known good device and a set of known security controls puts your organization in the best position to maintain that increased level of security. With the ever growing number of attack vectors allowed by casual email and web browsing, it is increasingly hard to ensure a device can be trusted. This guide works under the assumption a dedicated workstation separated from standard productivity, browsing, and email tasks are completed. Removal of productivity, web browsing, and email from a device can have a negative impact on productivity, but this safeguard is typically acceptable for scenarios where the job tasks don’t explicitly require it and risk of a security incident is high.
 
 > [!NOTE]
 > Web browsing here refers to general access to arbitrary websites, which is a high risk distinctly different from using a web browser to access a small number of well-known administrative websites for services like Azure, Office 365, other cloud providers, and SaaS applications.
@@ -66,28 +66,26 @@ Containment strategies provide increased security assurances by increasing the n
 
 Throughout the guidance, multiple scenarios will be addressed to achieve a more secure solution. These scenarios reflect common users in organizations that can benefit from a secure workstation, while balancing usability and risk. The guidance will provide configuration of settings based on industry standards. This guidance is used to illustrate a method in hardening Windows 10 and reducing the risks associated with device or user compromise using policy and technology to help manage security features and risks. We will outline the steps required to achieve a level of hardening called secured workstation.
 
-|    | Standard workstation | Enhanced workstation | VIP workstation | DevOps workstations | Secured workstation |
+|    | Standard | Enhanced | VIP | DevOps | Secured |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | User in Azure AD | Yes | Yes | Yes | Yes | Yes |
 | Intune managed | Yes | Yes | Yes | Yes | Yes |
 | Device Azure AD registered | Yes |  |  |  |  |
 | Device Azure AD joined |   | Yes | Yes | Yes | Yes |
-| Intune security baseline applied |   | Yes | Yes | Yes | Yes |
+| Intune security baseline applied |   | Yes | Yes <br> (Enhanced) | Yes <br> (NCSC) | Yes <br> (Custom) |
 | Hardware meets secure Windows 10 Standards |   | Yes | Yes | Yes | Yes |
-| Enhanced Intune security baseline applied |   |   | Yes | Yes | Yes |
 | Removal of admin rights |   |   | Yes | Yes | Yes |
 | Microsoft Defender ATP enabled |   |   |   | Yes | Yes |
 | Deployment using Autodeploy |   |   |   | Yes | Yes |
 | Apps installed only by Intune |   |   |   | Yes | Yes |
 | URLs restricted to approved list only |   |   |   | Yes | Yes |
-| Custom Intune security baseline |   |   |   |   | Yes |
 
 ![SECCON Levels](./media/secure-admin-workstations/SECCON-levels.png)
 
 * Standard Workstation – A managed standard workstation provides a good starting point for most home, and simple business use. In this default-managed Intune deployment, no profile, or policy is applied. The devices are registered, and monitored as an [Intune MDM device](https://docs.microsoft.com/Intune/windows-enroll), [Users are AD enrolled](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium), and managed. But no hardening has is performed.
 * Enhanced Workstations– Is an entry level solution for basics of securing a Windows 10 workstation. All controls from the standard workstation are built on and the [Intune Security baselines](https://docs.microsoft.com/Intune/security-baselines) provided as an OOB experience that reduces the risk of the device being compromised.  The Enhanced workstation provides a secure means to ensure that users that require to work with customer data, and must actively do email and web browsing are performed is effectively on the front line and faces high exposure to many common cyberattacks. This workstation profile requires both uninterrupted productivity as well as strong security for common phishing and web-based attack vectors, as detailed with the [highly secure Windows 10 device](http://aka.ms/HighSecWin10).
    * The [Intune Security baseline](https://docs.microsoft.com/Intune/security-baselines) is applied to the host in the default profile.
-* VIP Workstation – Organizational VIPs reflect the next high-risk user in an organization. VIPs can reflect executives, as well as high profile users that may occasionally have contact with sensitive data such as payroll, or approval of services, and processes. The user profile demands a higher controlled environment while still being able to perform their productivity activity, such as mail, and web browsing while maintaining a simple to use experience. The users will expect features such as cookies, favorites, and other shortcuts available to operate. However these users do not require the ability to modify their device, and will not install drivers, develop code, or write scripts. 
+* VIP Workstation – Organizational VIPs reflect the next high-risk user in an organization. VIPs can reflect executives, as well as high profile users that may occasionally have contact with sensitive data such as payroll, or approval of services, and processes. The user profile demands a higher controlled environment while still being able to perform their productivity activity, such as mail, and web browsing while maintaining a simple to use experience. The users will expect features such as cookies, favorites, and other shortcuts available to operate. However these users do not require the ability to modify their device, and will not install drivers, develop code, or write scripts.
    * We apply the enhanced workstation baseline as a starting point.
    * Technology such as Application control, Application Guard, Credential guard, device guard, and exploit guard are enabled through ATP, and Defender in Windows 10 (RS5). Additionally, the device will be granted the ability to install applications. And applications will be provided using the Intune installer. No URL restrictions are applied.
    * Removal of the local administrator –
