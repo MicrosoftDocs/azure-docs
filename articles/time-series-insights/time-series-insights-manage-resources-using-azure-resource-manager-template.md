@@ -9,9 +9,10 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/08/2017
+ms.date: 04/30/2019
 ms.custom: seodec18
 ---
+
 # Create Time Series Insights resources using Azure Resource Manager templates
 
 This article describes how to create and deploy Time Series Insights resources using Azure Resource Manager templates, PowerShell, and the Time Series Insights resource provider.
@@ -32,7 +33,6 @@ A Resource Manager template is a JSON file that defines the infrastructure and c
 - [Microsoft.TimeSeriesInsights resource types](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 The [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) quickstart template is published on GitHub. This template creates a Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -92,8 +92,8 @@ To create a parameters file, copy the [201-timeseriesinsights-environment-with-e
    | eventHubNamespaceName | The namespace of the source event hub. |
    | eventHubName | The name of the source event hub. |
    | consumerGroupName | The name of the consumer group that the Time Series Insights service will use to read the data from the event hub. **NOTE:** To avoid resource contention, this consumer group must be dedicated to the Time Series Insights service and not shared with other readers. |
-   | environmentName | The name of the environment. The name cannot include:   '<', '>', '%', '&', ':', '\\', '?', '/' and any control characters. All other characters are allowed.|
-   | eventSourceName | The name of the event source child resource. The name cannot include:   '<', '>', '%', '&', ':', '\\', '?', '/' and any control characters. All other characters are allowed. |
+   | environmentName | The name of the environment. The name cannot include:   `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` and any control characters. All other characters are allowed.|
+   | eventSourceName | The name of the event source child resource. The name cannot include:   `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` and any control characters. All other characters are allowed. |
 
 #### Optional Parameters
 
@@ -103,7 +103,7 @@ To create a parameters file, copy the [201-timeseriesinsights-environment-with-e
    | environmentDisplayName | An optional friendly name to show in tooling or user interfaces instead of the environment name. |
    | environmentSkuName | The name of the sku. For more information, see the [Time Series Insights Pricing page](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
    | environmentSkuCapacity | The unit capacity of the Sku. For more information, see the [Time Series Insights Pricing page](https://azure.microsoft.com/pricing/details/time-series-insights/).|
-   | environmentDataRetentionTime | The minimum timespan the environment’s events will be available for query. The value must be specified in the ISO 8601 format, for example "P30D" for a retention policy of 30 days. |
+   | environmentDataRetentionTime | The minimum timespan the environment’s events will be available for query. The value must be specified in the ISO 8601 format, for example `P30D` for a retention policy of 30 days. |
    | eventSourceDisplayName | An optional friendly name to show in tooling or user interfaces instead of the event source name. |
    | eventSourceTimestampPropertyName | The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used. |
    | eventSourceKeyName | The name of the shared access key that the Time Series Insights service will use to connect to the event hub. |
