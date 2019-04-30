@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2019
+ms.date: 04/30/2019
 ms.author: magoedte
 ---
 
@@ -707,12 +707,12 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
 1. Save this file as *installsolutionsforvminsights.json* to a local folder.
 
-1. Edit the values for *WorkspaceName*, *ResourceGroupName*, and *WorkspaceLocation*. The value for *WorkspaceName* is the full resource ID of your Log Analytics workspace, which includes the workspace name. The value for *WorkspaceLocation* is the region the workspace is defined in.
+1. Capture the values for *WorkspaceName*, *ResourceGroupName*, and *WorkspaceLocation*. The value for *WorkspaceName* is the name of your Log Analytics workspace. The value for *WorkspaceLocation* is the region the workspace is defined in.
 
 1. You're ready to deploy this template by using the following PowerShell command:
 
     ```powershell
-    New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+    New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
     ```
 
     The configuration change can take a few minutes to complete. When it's complete, a message is displayed that's similar to the following and includes the result:
