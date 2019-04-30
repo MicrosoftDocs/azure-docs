@@ -19,7 +19,7 @@ This article describes some issues you might encounter in your Azure Time Series
 
 ## Video
 
-### In this video, we cover common Time Series Insights customer challenges and mitigations.</br>
+### Learn about common Time Series Insights customer challenges and mitigations.</br>
 
 > [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
