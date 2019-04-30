@@ -10,7 +10,7 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 11/27/2017
+ms.date: 04/30/2019
 ms.custom: seodec18
 ---
 
@@ -29,19 +29,19 @@ You are most likely to experience latency and throttling when you:
 
 ## Video
 
-### In this video, we cover Time Series Insights data ingress behavior and how to plan for it.</br>
+### Learn about Time Series Insights data ingress behavior and how to plan for it.</br>
 
 > [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
 ## Monitor latency and throttling with alerts
 
-Alerts can help you to help diagnose and mitigate latency issues caused by your environment. 
+Alerts can help you to help diagnose and mitigate latency issues caused by your environment.
 
-1. In the Azure portal, click **Metrics**. 
+1. In the Azure portal, click **Metrics**.
 
    ![Metrics](media/environment-mitigate-latency/add-metrics.png)
 
-2. Click **Add metric alert**.  
+1. Click **Add metric alert**.  
 
     ![Add metric alert](media/environment-mitigate-latency/add-metric-alert.png)
 

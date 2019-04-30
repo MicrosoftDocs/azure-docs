@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 04/09/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
 ---
 
@@ -19,7 +19,7 @@ This article describes some issues you might encounter in your Azure Time Series
 
 ## Video
 
-### In this video, we cover common Time Series Insights customer challenges and mitigations:</br>
+### In this video, we cover common Time Series Insights customer challenges and mitigations.</br>
 
 > [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
@@ -70,7 +70,7 @@ As an example, assume that this environment ingests messages from an event hub. 
 
 ![Example ingress rate for an event hub](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)
 
-The daily ingress rate is ~67,000 messages. This rate translates to approximately 46 messages every minute. If each event hub message is flattened to a single Time Series Insights event, throttling doesn't occur. If each event hub message is flattened to 100 Time Series Insights events, 4,600 events should be ingested every minute. An S1 SKU environment that has a capacity of 3 can ingress only 2,100 events every minute (1 million events per day = 700 events per minute at three units = 2,100 events per minute). For this setup, you see a lag due to throttling. 
+The daily ingress rate is ~67,000 messages. This rate translates to approximately 46 messages every minute. If each event hub message is flattened to a single Time Series Insights event, throttling doesn't occur. If each event hub message is flattened to 100 Time Series Insights events, 4,600 events should be ingested every minute. An S1 SKU environment that has a capacity of 3 can ingress only 2,100 events every minute (1 million events per day = 700 events per minute at three units = 2,100 events per minute). For this setup, you see a lag due to throttling.
 
 For a high-level understanding of how flattening logic works, see [Supported JSON shapes](./how-to-shape-query-json.md).
 
@@ -86,7 +86,7 @@ If you connect an existing event source, it's likely that your IoT hub or event 
 
 To fix the lag:
 
-1. Increase the SKU capacity to the maximum allowed value (10, in this case). After you increase capacity, the ingress process starts to catch up much more quickly. You are charged for the increased capacity. To visualize how quickly you're catching up, you can view the availability chart in the [Time Series Insights explorer](https://insights.timeseries.azure.com). 
+1. Increase the SKU capacity to the maximum allowed value (10, in this case). After you increase capacity, the ingress process starts to catch up much more quickly. You are charged for the increased capacity. To visualize how quickly you're catching up, you can view the availability chart in the [Time Series Insights explorer](https://insights.timeseries.azure.com).
 
 2. When the lag is caught up, decrease the SKU capacity to your normal ingress rate.
 
@@ -97,7 +97,7 @@ Ensure that the timestamp property name and value conform to the following rules
 * The timestamp property name is case-sensitive.
 * The timestamp property value that comes from your event source as a JSON string should have the format _yyyy-MM-ddTHH:mm:ss.FFFFFFFK_. An example is **2008-04-12T12:53Z**.
 
-The easiest way to ensure that your timestamp property name is captured and working properly is to use the Time Series Insights explorer. In the Time Series Insights explorer, using the chart, select a period of time after you entered the timestamp property name. Right-click the selection, and then select the **Explore events** option. 
+The easiest way to ensure that your timestamp property name is captured and working properly is to use the Time Series Insights explorer. In the Time Series Insights explorer, using the chart, select a period of time after you entered the timestamp property name. Right-click the selection, and then select the **Explore events** option.
 
 The first column header should be your timestamp property name. Next to the word **Timestamp**, you should see **($ts)**.
 
