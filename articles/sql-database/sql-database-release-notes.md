@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 04/23/2019
 ms.author: carlrab
 ---
 # SQL Database release notes
@@ -39,6 +39,22 @@ This article lists the new features and improvements in the SQL Database service
 |SQL Analytics|For information, see [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)|
 | Time zone support for managed instances|For more information, see [Time Zone in Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
 |||
+
+## April 2019
+
+### Service improvements
+
+| Service improvements | Details |
+| --- | --- |
+| Public endpoints for managed instance | For more information, see [Using Azure SQL Database managed instance securely with public endpoint](sql-database-managed-instance-public-endpoint-securely.md)
+| Time zone support for managed instance | For more information, see [Time Zone in Azure SQL Database Managed Instance (Preview)](sql-database-managed-instance-timezone.md)
+
+### Documentation improvements
+
+| Documentation improvements | Details |
+| --- | --- |
+| Public endpoints for managed instance | For more information, see [Using Azure SQL Database managed instance securely with public endpoint](sql-database-managed-instance-public-endpoint-securely.md)
+| Time zone support for managed instance | For more information, see [Time Zone in Azure SQL Database Managed Instance (Preview)](sql-database-managed-instance-timezone.md)
 
 ## March 2019
 
