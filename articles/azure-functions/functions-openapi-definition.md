@@ -145,7 +145,7 @@ Now you're ready to generate the OpenAPI definition.
     | ------------ |  ------- | -------------------------------------------------- |
     | **Name** | Globally unique name | A name is generated based on the name of your function app. |
     | **Subscription** | Your subscription | The subscription under which this new resource is created. |  
-    | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | The same resource as your function app, which should get set for you. |
+    | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | The same resource as your function app, which should get set for you. |
     | **Location** | West US | Choose the West US location |
     | **Organization name** | Contoso | The name of the organization used in the developer portal and for email notifications. |
     | **Administrator email** | your email | Email that received system notifications from API Management. |
