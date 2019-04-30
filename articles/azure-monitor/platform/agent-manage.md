@@ -1,6 +1,6 @@
 ---
 title: Managing the Azure Log Analytics Agent | Microsoft Docs
-description: This article describes the different management tasks that you will typically perform during the lifecycle of the Microsoft Monitoring Agent (MMA) deployed on a machine.
+description: This article describes the different management tasks that you will typically perform during the lifecycle of the Log Analytics Windows or Linux agent deployed on a machine.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -35,7 +35,7 @@ To update the agent on a Windows VM to the latest version not installed using th
 
 You can download the latest version of the Windows agent from your Log Analytics workspace, by performing the following steps.
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
 
@@ -86,6 +86,7 @@ Run the following command to upgrade the agent.
 ## Adding or removing a workspace
 
 ### Windows agent
+The steps in this section are necessary when you want to not only reconfigure the Windows agent to report to a different workspace or stop reporting to a specific workspace, but also when you want to configure the agent to report to more than one workspace (commonly referred to as multi-homing). Configuring the Windows agent to report to multiple workspaces can only be performed after initial setup of the agent and using the methods described below.    
 
 #### Update settings from Control Panel
 
