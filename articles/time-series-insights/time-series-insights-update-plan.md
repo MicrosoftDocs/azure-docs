@@ -17,7 +17,7 @@ ms.custom: seodec18
 This article describes best practices to plan and get started quickly using the Azure Time Series Insights Preview.
 
 > [!NOTE]
-> See [Plan your Azure Time Series Insights GA environment](time-series-insights-environment-planning.md), For best practices to plan a general availability TSI instance
+> See [Plan your Azure Time Series Insights GA environment](time-series-insights-environment-planning.md), for best practices to plan a general availability TSI instance.
 
 ## Best practices for planning and preparation
 
