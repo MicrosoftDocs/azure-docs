@@ -99,7 +99,7 @@ The following order of headers is used in order to determine how long an item wi
 2. Cache-Control: maxage=\<seconds>
 3. Expires: \<http-date>
 
-Cache-Control response headers that indicate that the response won’t be cached such as Cache-Control: private, Cache-Control: no-cache, and Cache-Control: no-store are honored. However, if there are multiple requests in-flight at a POP for the same URL, they may share the response.
+Cache-Control response headers that indicate that the response won’t be cached such as Cache-Control: private, Cache-Control: no-cache, and Cache-Control: no-store are honored. However, if there are multiple requests in-flight at a POP for the same URL, they may share the response. If no Cache-Control is present the default behavior is that AFD will cache the resource for X amount of time where X is randomly picked between 1 to 3 days.
 
 
 ## Request headers

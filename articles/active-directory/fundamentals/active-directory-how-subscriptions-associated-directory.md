@@ -27,7 +27,7 @@ All of your users have a single *home* directory for authentication. However, yo
 > [!Important]
 > When you associate a subscription to a different directory, users that have roles assigned using [role-based access control (RBAC)](../../role-based-access-control/role-assignments-portal.md) will lose their access. Classic subscription administrators (Service Administrator and Co-Administrators) will also lose access.
 > 
-> Additionally, moving your Azure Kubernetes Service (AKS) cluster to a different subscription, or moving the cluster-owning subscription to a new tenant, causes the cluster to lose functionality due to lost role assignments and service principals rights. For more information about AKS, see [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
+> Additionally, moving your Azure Kubernetes Service (AKS) cluster to a different subscription, or moving the cluster-owning subscription to a new tenant, causes the cluster to lose functionality due to lost role assignments and service principals rights. For more information about AKS, see [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/).
 
 ## Before you begin
 
@@ -72,7 +72,7 @@ After you associate a subscription to a different directory, there might be addi
 
 1. If you have any key vaults, you must change the key vault tenant ID. For more information, see [Change a key vault tenant ID after a subscription move](../../key-vault/key-vault-subscription-move-fix.md).
 
-2. If you have registered an Azure Stack using this subscription, you must re-register. For more information, see [Register Azure Stack with Azure](../../azure-stack/azure-stack-registration.md).
+2. If you have registered an Azure Stack using this subscription, you must re-register. For more information, see [Register Azure Stack with Azure](/azure-stack/operator/azure-stack-registration).
 
 
 
