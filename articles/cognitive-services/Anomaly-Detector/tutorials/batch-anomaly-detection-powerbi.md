@@ -13,11 +13,14 @@ ms.author: aahi
 
 # Tutorial: Visualize anomalies as a batch using Power BI
 
+Use this this tutorial perform batch anomaly detection on a time series data set. Using Power BI, you will take an Excel file, prepare the data for the Anomaly Detector API, and visualize statistical anomalies throughout it.
+
 In this tutorial, you'll learn how to:
 
-* Use Power BI Desktop to import and transform time series data
-* Integrate Power BI Desktop with the Anomaly Detector API for batch anomaly detection
-* Visualize anomalies found within your data, including expected and seen values, and anomaly detection boundaries.
+> [!div class="checklist"]
+> * Use Power BI Desktop to import and transform a time series data set
+> * Integrate Power BI Desktop with the Anomaly Detector API for batch anomaly detection
+> * Visualize anomalies found within your data, including expected and seen values, and anomaly detection boundaries.
 
 ## Prerequisites
 
@@ -111,7 +114,7 @@ You may get a warning message when you attempt to run the query because Power BI
 
 To fix this, click **File**, and **Options and settings**. Then click **Options**. Below **Current File**, select **Privacy**, and **Ignore the Privacy Levels and potentially improve performance**. 
 
-> [NOTE]
+> [!NOTE]
 > Be aware of your organization's policies for data privacy and access. See [Power BI Desktop privacy levels](https://docs.microsoft.com/en-us/power-bi/desktop-privacy-levels) for more information.
 
 Additionally, you may get a message asking you to specify how you want to connect to the API.
