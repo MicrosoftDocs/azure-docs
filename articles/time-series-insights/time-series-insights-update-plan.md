@@ -40,9 +40,9 @@ When you provision a Time Series Insights Preview environment, you create two Az
 
 To start, you need three additional items:
 
-- A [Time Series Model](./time-series-insights-update-tsm.md) 
-- An [event source connected to Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md) 
-- [Events flowing into the event source](./time-series-insights-send-events.md) that are both mapped to the model and are in valid JSON format 
+* A [Time Series Model](./time-series-insights-update-tsm.md).
+* An [event source connected to Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md).
+* [Events flowing into the event source](./time-series-insights-send-events.md) that are both mapped to the model and are in valid JSON format.
 
 ## Configure Time Series IDs and Timestamp properties
 
@@ -66,7 +66,7 @@ You can now configure your Time Series Insights environment’s Time Series Mode
 
 The model is dynamic, so it can be built at any time. To get started quickly, build and upload it prior to pushing data into Time Series Insights. To build your model, see [Use the Time Series Model](./time-series-insights-update-how-to-tsm.md).
 
-For many customers, the Time Series Model maps to an existing asset model or ERP system already in place. If you don't have an existing model, a prebuilt user experience is [provided](https://github.com/Microsoft/tsiclient) to get up and running quickly. To envision how a model might help you, view the [sample demo environment](https://insights.timeseries.azure.com/preview/demo). 
+For many customers, the Time Series Model maps to an existing asset model or ERP system already in place. If you don't have an existing model, a prebuilt user experience is [provided](https://github.com/Microsoft/tsiclient) to get up and running quickly. To envision how a model might help you, view the [sample demo environment](https://insights.timeseries.azure.com/preview/demo).
 
 ## Shape your events
 
@@ -76,38 +76,12 @@ A good rule of thumb:
 
 * Store metadata in your Time Series Model
 * Time Series Mode, instance fields, and events include only necessary information, such as:
-  * Time Series ID
-  * Timestamp
+  * **Time Series ID**
+  * **Timestamp**
 
 For more information, see [Shape events](./time-series-insights-send-events.md#json).
 
-## Business disaster recovery
-
-Time Series Insights is a high-availability service that uses redundancies at the Azure region level. Configuration isn't required to use these inherent functionalities. The Microsoft Azure platform also includes features to help you build solutions with disaster recovery capabilities or cross-region availability. To provide global, cross-region high availability for devices or users, take advantage of these Azure disaster recovery features. 
-
-For information on built-in features in Azure for business continuity and disaster recovery (BCDR), see [Azure business continuity technical guidance](https://docs.microsoft.com/azure/resiliency/resiliency-technical-guidance). For architecture guidance on strategies for Azure applications to achieve high availability and disaster recovery, see the paper on [Disaster recovery and high availability for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/index).
-
-> [!NOTE]
-> Time Series Insights doesn't have built-in BCDR. By default, Azure Storage, Azure IoT Hub, and Azure Event Hubs have recovery built in.
-
-To learn more, read about:
-
-* [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
-* [IoT Hub high-availability disaster recovery](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr)
-* [Event Hub policies](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
-
-If you require BCDR, you can still implement a recovery strategy. Create a second Time Series Insights environment in a backup Azure region. Send events to this secondary environment from your primary event source. Use a second dedicated consumer group and that event source's BCDR guidelines.
-
-Follow these steps to create and use a secondary Time Series Insights environment.
-
-1. Create an environment in a second region. For more information, see [Time Series Insights environments](./time-series-insights-get-started.md).
-1. Create a second dedicated consumer group for your event source. Connect that event source to the new environment. Be sure to designate the second dedicated consumer group. To learn more, see the [IoT Hub documentation](./time-series-insights-how-to-add-an-event-source-iothub.md) or the [Event Hub documentation](./time-series-insights-data-access.md).
-1. If your primary region is affected during a disaster incident, reroute operations to the backup Time Series Insights environment.
-
-> [!IMPORTANT]
-> * Note that a delay might be experienced in the event of a failover.
-> * Failover also might cause a momentary spike in message processing as operations are rerouted.
-> * For more information, see [Mitigate latency in Time Series Insights](./time-series-insights-environment-mitigate-latency.md).
+[!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
 ## Next steps
 
