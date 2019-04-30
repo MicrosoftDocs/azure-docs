@@ -3,7 +3,7 @@ title: Deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/gr
 description: Learn how to deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern.
 ms.service: jenkins
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, blue green deployment, continuous delivery, cd
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
@@ -112,12 +112,12 @@ You can set up a blue/green deployment in AKS manually, or with a setup script p
 #### Set up the Kubernetes cluster via the sample setup script
 1. Edit the **deploy/aks/setup/setup.sh** file, replacing the following placeholders with the appropriate values for your environment: 
 
-    - **&lt;your-resource-group-name>**
-    - **&lt;your-kubernetes-cluster-name>**
-    - **&lt;your-location>**
-    - **&lt;your-dns-name-suffix>**
+   - **&lt;your-resource-group-name>**
+   - **&lt;your-kubernetes-cluster-name>**
+   - **&lt;your-location>**
+   - **&lt;your-dns-name-suffix>**
 
-    ![Screenshot setup.sh script in bash, with several placeholders highlighted](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
+     ![Screenshot setup.sh script in bash, with several placeholders highlighted](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
 
 1. Run the setup script.
 

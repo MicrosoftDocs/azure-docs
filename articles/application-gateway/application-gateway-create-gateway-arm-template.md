@@ -1,29 +1,15 @@
 ﻿---
-title: Create an Azure Application Gateway - templates | Microsoft Docs
-description: This page provides instructions to create an Azure application gateway by using the Azure Resource Manager template
-documentationcenter: na
+title: Create an Azure Application Gateway - templates
+description: This article provides instructions to create an Azure application gateway by using the Azure Resource Manager template
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 4/15/2019
 ms.author: victorh
-
 ---
-# Create an application gateway by using the Azure Resource Manager template
 
-> [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-create-gateway-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-> * [Azure Classic PowerShell](application-gateway-create-gateway.md)
-> * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
-> * [Azure CLI](application-gateway-create-gateway-cli.md)
+# Create an application gateway by using the Azure Resource Manager template
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover and performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application Gateway provides many application delivery controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. To find a complete list of supported features, visit [Application Gateway overview](application-gateway-introduction.md)
 
@@ -56,16 +42,16 @@ You can download the existing Azure Resource Manager template to create a virtua
 1. Open the file that you saved and look at the contents under **parameters** in line
 1. Azure Resource Manager template parameters provide a placeholder for values that can be filled out during deployment.
 
-  | Parameter | Description |
-  | --- | --- |
-  | **subnetPrefix** |CIDR block for the application gateway subnet. |
-  | **applicationGatewaySize** | Size of the application gateway.  WAF only allows medium and large. |
-  | **backendIpaddress1** |IP address of the first web server. |
-  | **backendIpaddress2** |IP address of the second web server. |
-  | **wafEnabled** | Setting to determine if WAF is enabled.|
-  | **wafMode** | Mode of the web application firewall.  Available options are **prevention** or **detection**.|
-  | **wafRuleSetType** | Ruleset type for WAF.  Currently OWASP is the only supported option. |
-  | **wafRuleSetVersion** |Ruleset version. OWASP CRS 2.2.9 and 3.0 are currently the supported options. |
+   | Parameter | Description |
+   | --- | --- |
+   | **subnetPrefix** |CIDR block for the application gateway subnet. |
+   | **applicationGatewaySize** | Size of the application gateway.  WAF only allows medium and large. |
+   | **backendIpaddress1** |IP address of the first web server. |
+   | **backendIpaddress2** |IP address of the second web server. |
+   | **wafEnabled** | Setting to determine if WAF is enabled.|
+   | **wafMode** | Mode of the web application firewall.  Available options are **prevention** or **detection**.|
+   | **wafRuleSetType** | Ruleset type for WAF.  Currently OWASP is the only supported option. |
+   | **wafRuleSetVersion** |Ruleset version. OWASP CRS 2.2.9 and 3.0 are currently the supported options. |
 
 1. Check the content under **resources** and notice the following properties:
 
@@ -78,61 +64,63 @@ You can download the existing Azure Resource Manager template to create a virtua
 1. Save the file to a local folder on your computer.
 1. Open the file that you saved and edit the values for the parameters. Use the following values to deploy the application gateway described in our scenario.
 
-    ```json
-    {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "addressPrefix": {
-            "value": "10.0.0.0/16"
-            },
-            "subnetPrefix": {
-            "value": "10.0.0.0/28"
-            },
-            "applicationGatewaySize": {
-            "value": "WAF_Medium"
-            },
-            "capacity": {
-            "value": 2
-            },
-            "backendIpAddress1": {
-            "value": "10.0.1.10"
-            },
-            "backendIpAddress2": {
-            "value": "10.0.1.11"
-            },
-            "wafEnabled": {
-            "value": true
-            },
-            "wafMode": {
-            "value": "Detection"
-            },
-            "wafRuleSetType": {
-            "value": "OWASP"
-            },
-            "wafRuleSetVersion": {
-            "value": "3.0"
-            }
-        }
-    }
-    ```
+     ```json
+     {
+         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+         "contentVersion": "1.0.0.0",
+         "parameters": {
+             "addressPrefix": {
+             "value": "10.0.0.0/16"
+             },
+             "subnetPrefix": {
+             "value": "10.0.0.0/28"
+             },
+             "applicationGatewaySize": {
+             "value": "WAF_Medium"
+             },
+             "capacity": {
+             "value": 2
+             },
+             "backendIpAddress1": {
+             "value": "10.0.1.10"
+             },
+             "backendIpAddress2": {
+             "value": "10.0.1.11"
+             },
+             "wafEnabled": {
+             "value": true
+             },
+             "wafMode": {
+             "value": "Detection"
+             },
+             "wafRuleSetType": {
+             "value": "OWASP"
+             },
+             "wafRuleSetVersion": {
+             "value": "3.0"
+             }
+         }
+     }
+     ```
 
-1. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](http://www.jslint.com/).
+1. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](https://www.jslint.com/).
 
 ## Deploy the Azure Resource Manager template by using PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 If you have never used Azure PowerShell, visit: [How to install and configure Azure PowerShell](/powershell/azure/overview) and follow the instructions to sign into Azure and select your subscription.
 
 1. Login to PowerShell
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 1. Check the subscriptions for the account.
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     You are prompted to authenticate with your credentials.
@@ -140,19 +128,19 @@ If you have never used Azure PowerShell, visit: [How to install and configure Az
 1. Choose which of your Azure subscriptions to use.
 
     ```powershell
-    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
 1. If needed, create a resource group by using the **New-AzureResourceGroup** cmdlet. In the following example, you create a resource group called AppgatewayRG in East US location.
 
     ```powershell
-    New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
+    New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. Run the **New-AzureRmResourceGroupDeployment** cmdlet to deploy the new virtual network by using the preceding template and parameter files you downloaded and modified.
+1. Run the **New-AzResourceGroupDeployment** cmdlet to deploy the new virtual network by using the preceding template and parameter files you downloaded and modified.
     
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+    New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
@@ -218,7 +206,7 @@ To delete all resources created in this article, complete one of the following s
 ### PowerShell
 
 ```powershell
-Remove-AzureRmResourceGroup -Name appgatewayRG
+Remove-AzResourceGroup -Name appgatewayRG
 ```
 
 ### Azure CLI
@@ -237,4 +225,3 @@ If you want more information about load balancing options in general, visit:
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

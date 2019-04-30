@@ -11,7 +11,7 @@ ms.assetid: 636d3179-eba8-4841-bcb4-3563f6822a26
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
@@ -36,7 +36,7 @@ To copy data from Amazon S3, make sure you have been granted the following permi
 * `s3:GetObject` and `s3:GetObjectVersion` for Amazon S3 Object Operations.
 * `s3:ListBucket` for Amazon S3 Bucket Operations. If you are using the Data Factory Copy Wizard, `s3:ListAllMyBuckets` is also required.
 
-For details about the full list of Amazon S3 permissions, see [Specifying Permissions in a Policy](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
+For details about the full list of Amazon S3 permissions, see [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data from an Amazon S3 source by using different tools or APIs.
@@ -67,7 +67,7 @@ A linked service links a data store to a data factory. You create a linked servi
 | secretAccessKey |The secret access key itself. |Encrypted secret string |Yes |
 
 >[!NOTE]
->This connector requires access keys for IAM account to copy data from Amazon S3. [Temporary Security Credential](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) is not supported.
+>This connector requires access keys for IAM account to copy data from Amazon S3. [Temporary Security Credential](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) is not supported.
 >
 
 Here is an example:

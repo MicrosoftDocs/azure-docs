@@ -1,17 +1,12 @@
 ---
-title: Azure Cosmos DB global distribution tutorial for the SQL API | Microsoft Docs
+title: Azure Cosmos DB global distribution tutorial for the SQL API
 description: Learn how to set up Azure Cosmos DB global distribution using the SQL API.
-services: cosmos-db
-keywords: global distribution
-author: rafats
-manager: kfile
-
+author: rimman
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: rafats
-ms.custom: mvc
+ms.author: rimman
+ms.reviewer: sngun
 
 ---
 # Set up Azure Cosmos DB global distribution using the SQL API
@@ -92,7 +87,7 @@ The current write and read endpoints are available in DocumentClient.getWriteEnd
 
 Below is a code example for NodeJS/Javascript. Python and Java will follow the same pattern.
 
-```java
+```JavaScript
 // Creating a ConnectionPolicy object
 var connectionPolicy = new DocumentBase.ConnectionPolicy();
 

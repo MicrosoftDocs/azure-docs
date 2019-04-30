@@ -1,3 +1,10 @@
+---
+author: vladvino
+ms.service: api-management
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: vlvinogr
+---
 ## How APIM Proxy Server responds with SSL certificates in the TLS handshake
 
 ### Clients calling with SNI header

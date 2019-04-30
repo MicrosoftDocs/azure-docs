@@ -1,13 +1,16 @@
 ---
 title: Exclude disks from replication for VMware disaster recovery to Azure using Azure Site Recovery | Microsoft Docs
 description: Describes why and how to exclude VM disks from replication for VMware disaster recovery to Azure.
-author: nsoneji
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.date: 10/11/2018
-ms.author: nisoneji
+ms.date: 3/3/2019
+ms.author: mayg
+ms.topic: conceptual
 
 ---
+
 # Exclude disks from replication of VMware VMs to Azure
 
 This article describes how to exclude disks when replicating VMware VMs to Azure. This exclusion can optimize the consumed replication bandwidth or optimize the target-side resources that such disks utilize. If you need information about excluding disks for Hyper-V, read [this article](hyper-v-exclude-disk.md)
@@ -31,7 +34,7 @@ You can identify specific examples of data churn that are great candidates for e
 1. Split the single virtual disk into two virtual disks. One virtual disk has the operating system, and the other has the paging file.
 2. Exclude the paging file disk from replication.
 
-Similarly, you can use the following steps to optimize a disk that has both the Microsoft SQL Server tempdb fie and the system database file:
+Similarly, you can use the following steps to optimize a disk that has both the Microsoft SQL Server tempdb file and the system database file:
 
 1. Keep the system database and tempdb on two different disks.
 2. Exclude the tempdb disk from replication.
@@ -73,7 +76,7 @@ Disks on the source virtual machine are as follows:
 DB-Disk0-OS | DISK0 | C:\ | Operating system disk
 DB-Disk1| Disk1 | D:\ | SQL system database and User Database1
 DB-Disk2 (Excluded the disk from protection) | Disk2 | E:\ | Temp files
-DB-Disk3 (Excluded the disk from protection) | Disk3 | F:\ | SQL tempdb database (folder path(F:\MSSQL\Data\) </br /> </br />Write down the folder path before failover.
+DB-Disk3 (Excluded the disk from protection) | Disk3 | F:\ | SQL tempdb database (folder path(F:\MSSQL\Data\) <br /> <br />Write down the folder path before failover.
 DB-Disk4 | Disk4 |G:\ |User Database2
 
 Because data churn on two disks of the virtual machine is temporary, while you protect the SalesDB virtual machine, exclude Disk2 and Disk3 from replication. Azure Site Recovery will not replicate those disks. On failover, those disks will not be present on the failover virtual machine on Azure.
@@ -83,7 +86,7 @@ Disks on the Azure virtual machine after failover are as follows:
 **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | ---
 DISK0 |	C:\ | Operating system disk
-Disk1 |	E:\ | Temporary storage</br /> </br />Azure adds this disk and assigns the first available drive letter.
+Disk1 |	E:\ | Temporary storage<br /> <br />Azure adds this disk and assigns the first available drive letter.
 Disk2 | D:\ | SQL system database and User Database1
 Disk3 | G:\ | User Database2
 
@@ -147,7 +150,7 @@ In the previous example, the Azure virtual machine disk configuration is as foll
 **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | ---
 DISK0 | C:\ | Operating system disk
-Disk1 |	E:\ | Temporary storage</br /> </br />Azure adds this disk and assigns the first available drive letter.
+Disk1 |	E:\ | Temporary storage<br /> <br />Azure adds this disk and assigns the first available drive letter.
 Disk2 |	D:\ | SQL system database and User Database1
 Disk3 |	G:\ | User Database2
 
@@ -186,7 +189,7 @@ After failover of the virtual machine from VMware to Azure, disks on the Azure v
 **Disk name** | **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | Operating system disk
-DB-Disk1 | Disk1 | D:\ | Temporary storage</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Temporary storage<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | User data 1
 DB-Disk3 | Disk3 | F:\ | User data 2
 
@@ -213,10 +216,10 @@ Here are the paging file settings on the on-premises virtual machine:
 
 After failover of the virtual machine from VMware to Azure, disks on the Azure virtual machine are as follows:
 
-**Disk name**| **Guest operating system disk#**| **Drive letter** | **Data type on the disk**
+**Disk name** | **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0  |C:\ |Operating system disk
-DB-Disk1 | Disk1 | D:\ | Temporary storage</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Temporary storage<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | User data 1
 DB-Disk3 | Disk3 | F:\ | User data 2
 

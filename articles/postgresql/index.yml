@@ -4,18 +4,14 @@ title: Azure Database for PostgreSQL Documentation
 metadata:
   document_id: c0fe8cd3-35da-e3e5-718e-8f3cf2f87f34
   title: Azure PostgreSQL Documentation - Tutorials, API Reference
-  description: Azure Database for PostgreSQL is a relational database service in the Microsoft cloud built for developers based on the open source PostgreSQL database engine.
-  services: postgresql
-  author: czeumault
-  manager: carolz
+  description: Azure Database for PostgreSQL is a relational database service in the Microsoft cloud that is built for developers based on the open-source PostgreSQL database engine.
+  author: rachel-msft
+  ms.author: raagyema
   ms.service: postgresql
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/23/2017
-  ms.author: carolz
+  ms.date: 02/25/2019
 abstract:
-  description: Azure Database for PostgreSQL is a relational database service based on the open source Postgres database engine.  It is a fully managed database as a service offering capable of handling mission-critical workloads with predictable performance, security, high availability, and dynamic scalability.  Develop applications with Azure Database for PostgreSQL leveraging the open source tools and platform of your choice.  Learn how to use Azure Database for PostgreSQL with our quickstarts, tutorials, and samples.
+  description: Azure Database for PostgreSQL is a relational database service based on the open-source Postgres database engine.  It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance, security, high availability, and dynamic scalability.  Develop applications with Azure Database for PostgreSQL leveraging the open-source tools and platform of your choice.  Learn how to use Azure Database for PostgreSQL with our quickstarts, tutorials, and samples.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -41,6 +37,7 @@ sections:
     items:
     - html: Design a Database&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>
     - html: <a href="/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Build a Web App using Python and the CLI</a>
+    - html: <a href="/azure/postgresql/tutorial-monitor-and-tune">Monitor and tune the service</a>
 - title: Build your skills with Microsoft Learn
   items:
   - type: list
@@ -70,6 +67,8 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/cli/azure">Azure CLI</a></p>
+      html: <p><a href="/cli/azure/postgres">Azure CLI</a></p>
     - title: REST
       html: <p><a href="/rest/api/postgresql">REST API</a></p>
+    - title: Azure Resource Manager
+      html: <p><a href="/azure/templates/microsoft.dbforpostgresql/allversions">Resource Manager templates</a></p>      

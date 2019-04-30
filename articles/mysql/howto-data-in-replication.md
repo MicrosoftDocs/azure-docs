@@ -1,13 +1,10 @@
 ---
 title: Configure Data-in Replication to replicate data into Azure Database for MySQL.
 description: This article describes how to set up Data-in Replication for Azure Database for MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2018
 ---
 
@@ -182,7 +179,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
    ```
 
-2. Start replication
+1. Start replication
 
    Call the `mysql.az_replication_start` stored procedure to initiate replication.
 
@@ -190,7 +187,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    CALL mysql.az_replication_start;
    ```
 
-3. Check replication status
+1. Check replication status
 
    Call the [`show slave status`](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html) command on the replica server to view the replication status.
 	

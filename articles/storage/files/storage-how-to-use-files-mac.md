@@ -2,12 +2,12 @@
 title: Mount Azure file share over SMB with macOS | Microsoft Docs
 description: Learn how to mount an Azure file share over SMB with macOS.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 09/19/2017
-ms.author: renash
-ms.component: files
+ms.author: rogarana
+ms.subservice: files
 ---
 
 # Mount Azure file share over SMB with macOS
@@ -33,7 +33,7 @@ ms.component: files
 1. **Open Finder**: Finder is open on macOS by default, but you can ensure it is the currently selected application by clicking the "macOS face icon" on the dock:  
     ![The macOS face icon](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **Select "Connect to Server" from the "Go" Menu**: Using the UNC path from the [prerequisites](#preq), convert the beginning double backslash (`\\`) to `smb://` and all other backslashes (`\`) to forwards slashes (`/`). Your link should look like the following:
+2. **Select "Connect to Server" from the "Go" Menu**: Using the UNC path from the prerequisites, convert the beginning double backslash (`\\`) to `smb://` and all other backslashes (`\`) to forwards slashes (`/`). Your link should look like the following:
     ![The "Connect to Server" dialog](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **Use the storage account name and storage account key when prompted for a username and password**: When you click "Connect" on the "Connect to Server" dialog, you will be prompted for the username and password (This will be autopopulated with your macOS username). You have the option of placing the storage account name/storage account key in your macOS Keychain.

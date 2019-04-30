@@ -1,19 +1,20 @@
 ---
 title: Optimize cluster configurations with Apache Ambari - Azure HDInsight 
 description: Use the Apache Ambari web UI to configure and optimize HDInsight clusters.
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: ashish
+ms.date: 03/26/2019
+ms.author: hrasheed
 ---
-# Use Ambari to optimize HDInsight cluster configurations
 
-HDInsight provides Apache Hadoop clusters for large-scale data processing applications. Managing,  monitoring, and optimizing these complex multi-node clusters can be challenging. [Apache Ambari](http://ambari.apache.org/) is a web interface to  manage and monitor HDInsight Linux clusters.  For Windows clusters, use the Ambari [REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
+# Use Apache Ambari to optimize HDInsight cluster configurations
 
-For an introduction to using the Ambari Web UI, see [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
+HDInsight provides [Apache Hadoop](https://hadoop.apache.org/) clusters for large-scale data processing applications. Managing,  monitoring, and optimizing these complex multi-node clusters can be challenging. [Apache Ambari](https://ambari.apache.org/) is a web interface to  manage and monitor HDInsight Linux clusters.  For Windows clusters, use the [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
+
+For an introduction to using the Ambari Web UI, see [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
 
 Log in to  Ambari at `https://CLUSTERNAME.azurehdidnsight.net` with your cluster credentials. The initial screen  displays an overview dashboard.
 
@@ -45,7 +46,7 @@ To modify the NameNode Java heap size:
 
     ![Edit NameNode Java heap size](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
-1. The NameNode Java heap size is changed to 2 GB from 1 GB.
+1. The NameNode Java heap size is changed to 1 GB from 2 GB.
 
     ![Edited NameNode Java heap size](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
@@ -53,16 +54,16 @@ To modify the NameNode Java heap size:
 
     ![Save changes](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
 
-## Hive optimization
+## Apache Hive optimization
 
-The following sections describe configuration options for optimizing overall Hive performance.
+The following sections describe configuration options for optimizing overall Apache Hive performance.
 
 1. To modify Hive configuration parameters, select **Hive** from the Services sidebar.
 1. Navigate to the **Configs** tab.
 
 ### Set the Hive execution engine
 
-Hive provides two execution engines: MapReduce and Tez. Tez is faster than MapReduce. HDInsight Linux clusters have Tez as the default execution engine. To change the execution engine:
+Hive provides two execution engines: [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)  and [Apache TEZ](https://tez.apache.org/). Tez is faster than MapReduce. HDInsight Linux clusters have Tez as the default execution engine. To change the execution engine:
 
 1. In the Hive **Configs** tab, type **execution engine** in the filter box.
 
@@ -93,7 +94,7 @@ These changes  affect all Tez jobs across the server. To get an optimal result, 
 
 ### Tune reducers
 
-ORC and Snappy both offer high performance. However, Hive may have too few reducers by default, causing bottlenecks.
+[Apache ORC](https://orc.apache.org/) and [Snappy](https://google.github.io/snappy/) both offer high performance. However, Hive may have too few reducers by default, causing bottlenecks.
 
 For example, say you have an input data size of 50 GB. That data in ORC format with Snappy compression is 1 GB. Hive estimates the number of reducers needed as:     (number of bytes input to mappers / `hive.exec.reducers.bytes.per.reducer`).
 
@@ -119,7 +120,7 @@ A Hive query is executed in one or more stages. If the independent stages can be
 
 1.	To enable parallel query execution, navigate to the Hive **Config** tab and search for the `hive.exec.parallel` property. The default value is false. Change the value to true, and then press **Enter** to save the value.
  
-1.	To limit the number of jobs to be run in parallel, modify the `hive.exec.parallel.thread.number` property. The default value is 8.
+1.	To limit the number of jobs to run in parallel, modify the `hive.exec.parallel.thread.number` property. The default value is 8.
 
     ![Hive exec parallel](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
 
@@ -183,7 +184,7 @@ As a general rule, having the compression method splittable is important, otherw
 
     ![Hive exec compress intermediate](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > To compress intermediate files, choose a compression codec with lower CPU cost, even if the codec doesn't have a high compression output.
 
 1. To set the intermediate compression codec, add the custom property `mapred.map.output.compression.codec` to the `hive-site.xml` or `mapred-site.xml` file.
@@ -204,7 +205,7 @@ As a general rule, having the compression method splittable is important, otherw
 
     This will compress the intermediate file using Snappy compression. Once the property is added, it appears in the Custom hive-site pane.
 
-    > [!NOTE]
+    > [!NOTE]  
     > This procedure modifies the `$HADOOP_HOME/conf/hive-site.xml` file.
 
 ### Compress final output
@@ -276,24 +277,24 @@ Additional recommendations for optimizing the Hive execution engine:
 | Setting | Recommended | HDInsight Default |
 | -- | -- | -- |
 | `hive.mapjoin.hybridgrace.hashtable` | True = safer, slower; false = faster | false |
-| `tez.am.resource.memory.mb` | 4 GB upper bound for most | Auto-Tuned |
+| `tez.am.resource.memory.mb` | 4-GB upper bound for most | Auto-Tuned |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
 
-## Pig optimization
+## Apache Pig optimization
 
-Pig properties can be  modified from the Ambari web UI to tune Pig queries. Modifying Pig properties from Ambari directly modifies the Pig properties in the `/etc/pig/2.4.2.0-258.0/pig.properties` file.
+[Apache Pig](https://pig.apache.org/) properties can be  modified from the Ambari web UI to tune Pig queries. Modifying Pig properties from Ambari directly modifies the Pig properties in the `/etc/pig/2.4.2.0-258.0/pig.properties` file.
 
 1. To modify Pig properties, navigate to the Pig **Configs** tab, and then expand the **Advanced pig-properties** pane.
 
 1. Find, uncomment, and change the value of the property you wish to modify.
 
-1. Select **Save** on the top right side of the window to save the new value. Some properties may require a service restart.
+1. Select **Save** on the top-right side of the window to save the new value. Some properties may require a service restart.
 
     ![Advanced pig-properties](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
-> [!NOTE]
+> [!NOTE]  
 > Any session-level settings override property values in the `pig.properties` file.
 
 ### Tune execution engine
@@ -338,7 +339,7 @@ Pig generates temporary files during job execution. Compressing the temporary fi
 
 * `pig.tmpfilecompression`: When true, enables temporary file compression. The default value is false.
 
-* `pig.tmpfilecompression.codec`: The compression codec to use for compressing the temporary files. The recommended compression codecs are LZO and Snappy for lower CPU utilization.
+* `pig.tmpfilecompression.codec`: The compression codec to use for compressing the temporary files. The recommended compression codecs are [LZO](https://www.oberhumer.com/opensource/lzo/) and Snappy for lower CPU utilization.
 
 ### Enable split combining
 
@@ -355,9 +356,9 @@ The number of mappers is controlled by modifying the property `pig.maxCombinedSp
 The number of reducers is calculated based on the parameter `pig.exec.reducers.bytes.per.reducer`. The parameter specifies the number of bytes processed per reducer, by default  1 GB. To limit the maximum number of reducers, set the `pig.exec.reducers.max` property, by  default  999.
 
 
-## HBase optimization with the Ambari web UI
+## Apache HBase optimization with the Ambari web UI
 
-HBase configuration is modified from the **HBase Configs** tab. The following sections describe  some of the important configuration settings that affect HBase performance.
+[Apache HBase](https://hbase.apache.org/) configuration is modified from the **HBase Configs** tab. The following sections describe  some of the important configuration settings that affect HBase performance.
 
 ### Set HBASE_HEAPSIZE
 
@@ -402,7 +403,7 @@ The `hbase.client.scanner.caching` setting defines the number of rows read from 
 
 ![HBase number of rows fetched](./media/hdinsight-changing-configs-via-ambari/hbase-num-rows-fetched.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Do not set the value such that the time between invocation of the next method on a scanner is greater than the scanner timeout. The scanner timeout duration is defined by the `hbase.regionserver.lease.period` property.
 
 
@@ -447,5 +448,5 @@ Memstore local allocation buffer usage is determined by the property `hbase.hreg
 
 ## Next steps
 
-* [Manage HDInsight clusters with the Ambari web UI](hdinsight-hadoop-manage-ambari.md)
-* [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Manage HDInsight clusters with the Apache Ambari web UI](hdinsight-hadoop-manage-ambari.md)
+* [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

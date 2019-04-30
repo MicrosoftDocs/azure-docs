@@ -1,14 +1,13 @@
 ---
-title: Analyze and process JSON documents with Apache Hive in Azure HDInsight 
-description: Learn how to use JSON documents and analyze them by using apache Hive in Azure HDInsight
-services: hdinsight
+title: Analyze and process JSON documents with Apache Hive - Azure HDInsight
+description: Learn how to use JSON documents and analyze them by using Apache Hive in Azure HDInsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 02/27/2019
 ms.author: hrasheed
 
 ---
@@ -53,9 +52,9 @@ Learn how to process and analyze JavaScript Object Notation (JSON) files by usin
 }
 ```
 
-The file can be found at **wasb://processjson@hditutorialdata.blob.core.windows.net/**. For more information on how to use Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](../hdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster.
+The file can be found at **wasb://processjson\@hditutorialdata.blob.core.windows.net/**. For more information on how to use Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Apache Hadoop in HDInsight](../hdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster.
 
-In this tutorial, you use the Hive console. For instructions on how to open the Hive console, see [Use Hive with Hadoop on HDInsight with Remote Desktop](apache-hadoop-use-hive-remote-desktop.md).
+In this tutorial, you use the Apache Hive console. For instructions on how to open the Hive console, see [Use Apache Ambari Hive View with Apache Hadoop in HDInsight](apache-hadoop-use-hive-ambari-view.md).
 
 ## Flatten JSON documents
 The methods listed in the next section require that the JSON document be composed of a single row. So, you must flatten the JSON document to a string. If your JSON document is already flattened, you can skip this step and go straight to the next section on analyzing JSON data. To flatten the JSON document, run the following script:
@@ -79,7 +78,7 @@ SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
 SELECT * FROM StudentsOneLine
 ```
 
-The raw JSON file is located at **wasb://processjson@hditutorialdata.blob.core.windows.net/**. The **StudentsRaw** Hive table points to the raw JSON document that is not flattened.
+The raw JSON file is located at **wasb://processjson\@hditutorialdata.blob.core.windows.net/**. The **StudentsRaw** Hive table points to the raw JSON document that is not flattened.
 
 The **StudentsOneLine** Hive table stores the data in the HDInsight default file system under the **/json/students/** path.
 
@@ -97,7 +96,7 @@ Hive provides three different mechanisms to run queries on JSON documents, or yo
 * Use the get_json_object user-defined function (UDF).
 * Use the json_tuple UDF.
 * Use the custom Serializer/Deserializer (SerDe).
-* Write your own UDF by using Python or other languages. For more information on how to run your own Python code with Hive, see [Python UDF with Apache Hive and Pig][hdinsight-python].
+* Write your own UDF by using Python or other languages. For more information on how to run your own Python code with Hive, see [Python UDF with Apache Hive and Apache Pig][hdinsight-python].
 
 ### Use the get_json_object UDF
 Hive provides a built-in UDF called [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) that can perform JSON querying during runtime. This method takes two arguments--the table name and method name, which has the flattened JSON document and the JSON field that needs to be parsed. Let’s look at an example to see how this UDF works.
@@ -139,7 +138,7 @@ The output of this script in the Hive console:
 The json_tuple UDF uses the [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) syntax in Hive, which enables json\_tuple to create a virtual table by applying the UDT function to each row of the original table. Complex JSONs become too unwieldy because of the repeated use of **LATERAL VIEW**. Furthermore, **JSON_TUPLE** cannot handle nested JSONs.
 
 ### Use a custom SerDe
-SerDe is the best choice for parsing nested JSON documents. It lets you define the JSON schema, and then you can use the schema to parse the documents. For instructions, see [How to use a custom JSON SerDe with Microsoft Azure HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
+SerDe is the best choice for parsing nested JSON documents. It lets you define the JSON schema, and then you can use the schema to parse the documents. For instructions, see [How to use a custom JSON SerDe with Microsoft Azure HDInsight](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
 
 ## Summary
 In conclusion, the type of JSON operator in Hive that you choose depends on your scenario. If you have a simple JSON document and you have only one field to look up on, you can choose to use the Hive UDF get_json_object. If you have more than one key to look up on, then you can use json_tuple. If you have a nested document, then you should use the JSON SerDe.
@@ -148,9 +147,9 @@ In conclusion, the type of JSON operator in Hive that you choose depends on your
 
 For related articles, see:
 
-* [Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file](../hdinsight-use-hive.md)
-* [Analyze flight delay data by using Hive in HDInsight](../hdinsight-analyze-flight-delay-data.md)
-* [Analyze Twitter data by using Hive in HDInsight](../hdinsight-analyze-twitter-data.md)
+* [Use Apache Hive and HiveQL with Apache Hadoop in HDInsight to analyze a sample Apache log4j file](../hdinsight-use-hive.md)
+* [Analyze flight delay data by using Apache Hive in HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
+* [Analyze Twitter data by using Apache Hive in HDInsight](../hdinsight-analyze-twitter-data-linux.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

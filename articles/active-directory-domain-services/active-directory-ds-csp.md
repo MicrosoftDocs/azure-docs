@@ -9,7 +9,7 @@ editor: curtand
 
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -37,7 +37,7 @@ For more information, see the [Azure CSP overview](https://docs.microsoft.com/az
 ## Benefits of using Azure AD Domain Services in an Azure CSP subscription
 Azure AD Domain Services provides Windows Server AD compatible services in Azure such as LDAP, Kerberos/NTLM authentication, domain join, group policy, and DNS. Over the decades, many applications have been built to work against AD using these capabilities. Many independent software vendors (ISVs) have built and deployed applications at their customers' premises. These applications are onerous to support since that often requires access to the different environments in which these applications are deployed. With Azure CSP subscriptions, you have a simpler alternative with the scale and flexibility of Azure.
 
-Azure AD Domain Services now supports Azure CSP subscriptions. You can now deploy your application in an Azure CSP subscription tied to your customer's Azure AD directory. As a result, your employees (support staff) can manage, administer, and service the virtual machines on which your application is deployed using your organization's corporate credentials. Further, you can provision an Azure AD Domain Services managed domain for your customer's Azure AD directory. Your application is connected to your customer's managed domain. Therefore, capabilities within your application that rely on Kerberos/NTLM, LDAP, or the [System.DirectoryServices API](https://msdn.microsoft.com/library/system.directoryservices) work seamlessly against your customer's directory. Your end customers benefit greatly from consuming your application as a service, without needing to worry about maintaining the infrastructure the application is deployed on.
+Azure AD Domain Services now supports Azure CSP subscriptions. You can now deploy your application in an Azure CSP subscription tied to your customer's Azure AD directory. As a result, your employees (support staff) can manage, administer, and service the virtual machines on which your application is deployed using your organization's corporate credentials. Further, you can provision an Azure AD Domain Services managed domain for your customer's Azure AD directory. Your application is connected to your customer's managed domain. Therefore, capabilities within your application that rely on Kerberos/NTLM, LDAP, or the [System.DirectoryServices API](/dotnet/api/system.directoryservices) work seamlessly against your customer's directory. Your end customers benefit greatly from consuming your application as a service, without needing to worry about maintaining the infrastructure the application is deployed on.
 
 All billing for Azure resources you consume in that subscription, including Azure AD Domain Services, is charged back to you. You maintain full control over the relationship with the customer when it comes to sales, billing, technical support etc. With the flexibility of the Azure CSP platform, a small team of support agents can service many such customers who have instances of your application deployed.
 

@@ -4,7 +4,7 @@ description: " This article provides an overview of the core Azure security feat
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 5aa0a7ac-8f18-4ede-92a1-ae0dfe585e28
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
-Customer intent: As a IT Pro or decision maker I am trying to learn about identity mangement capabilities in Azure
+Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
 ---
 # Azure identity management security overview
 
@@ -63,7 +63,7 @@ Learn more:
 
 ## Reverse proxy
 
-Azure AD Application Proxy lets you publish on-premises applications, such as [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) sites, [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), and [IIS](http://www.iis.net/)-based apps inside your private network and provides secure access to users outside your network. Application Proxy provides remote access and SSO for many types of on-premises web applications with the thousands of SaaS applications that Azure AD supports. Employees can sign in to your apps from home on their own devices and authenticate through this cloud-based proxy.
+Azure AD Application Proxy lets you publish on-premises applications, such as [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) sites, [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), and [IIS](https://www.iis.net/)-based apps inside your private network and provides secure access to users outside your network. Application Proxy provides remote access and SSO for many types of on-premises web applications with the thousands of SaaS applications that Azure AD supports. Employees can sign in to your apps from home on their own devices and authenticate through this cloud-based proxy.
 
 Learn more:
 
@@ -150,9 +150,8 @@ With Azure AD Privileged Identity Management, you can:
 
 Learn more:
 
-* [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
-* [Roles in Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-roles.md)
-* [Azure AD Privileged Identity Management: How to add or remove a user role](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
+* [What is Azure AD Privileged Identity Management?](../active-directory/privileged-identity-management/pim-configure.md)
+* [Assign Azure AD directory roles in PIM](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
 ## Identity protection
 

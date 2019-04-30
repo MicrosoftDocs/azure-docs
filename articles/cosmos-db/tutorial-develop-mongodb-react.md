@@ -1,25 +1,21 @@
 ---
-title: "MongoDB, React, and Node.js tutorial for Azure | Microsoft Docs"
+title: "MongoDB, React, and Node.js tutorial for Azure"
 description: Learn how to create a MongoDB app with React and Node.js on Azure Cosmos DB using the exact same APIs you use for MongoDB with this video based tutorial series. 
-services: cosmos-db
 author: johnpapa
-manager: kfile
-editor: ''
-
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
-ms.custom: mvc
+ms.reviewer: sngun
 
 ---
 # Create a MongoDB app with React and Azure Cosmos DB  
 
-This multi-part video tutorial demonstrates how to create a hero tracking app with a React front-end. The app used Node and Express for the server, connects to Azure Cosmos DB with the [MongoDB API](mongodb-introduction.md), and then connects the React front-end to the server portion of the app. The tutorial also demonstrates how to do point-and-click scaling of Azure Cosmos DB in the Azure portal and how to deploy the app to the internet so everyone can track their favorite heroes. 
+This multi-part video tutorial demonstrates how to create a hero tracking app with a React front-end. The app used Node and Express for the server, connects to Cosmos database configured with the [Azure Cosmos DB's API for MongoDB](mongodb-introduction.md), and then connects the React front-end to the server portion of the app. The tutorial also demonstrates how to do point-and-click scaling of Cosmos DB in the Azure portal and how to deploy the app to the internet so everyone can track their favorite heroes. 
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) supports MongoDB client connections, so you can use Azure Cosmos DB in place of MongoDB, but use the same code that you use for MongoDB apps; but with added benefits such as simple cloud deployment, scaling, and super-fast reads and writes.  
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) supports wire protocol compatibility with MongoDB, enabling clients to use Azure Cosmos DB in place of MongoDB.  
 
 This multi-part tutorial covers the following tasks:
 
@@ -101,8 +97,6 @@ In this tutorial, you've learned how to:
 > * Connect the app to the Azure Cosmos DB account
 > * Test the app using Postman
 > * Run the application and add heroes to the database
-
-Check back for an additional video in this tutorial series that will cover deploying the application and globally replicating your data.
 
 You can proceed to the next tutorial and learn how to import MongoDB data into Azure Cosmos DB.  
 

@@ -17,8 +17,6 @@ ms.author: robreed
 ---
 # DSC Extension for Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
-## Overview
-
 Desired State Configuration (DSC) is a management platform that enables you to manage your IT and development infrastructure with configuration as code.
 
 DSCForLinux Extension is published and supported by Microsoft. The extension installs the OMI and DSC agent on Azure virtual machines. DSC extension can also do the following actions
@@ -30,26 +28,23 @@ DSCForLinux Extension is published and supported by Microsoft. The extension ins
 - Install custom DSC modules to the Linux VM (Install ExtensionAction)
 - Remove custom DSC modules to the Linux VM (Remove ExtensionAction)
 
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 ### Operating system
 
-The DSC Linux extension supports all the [Extension Supported OS's](https://azurewiki.cloudapp.netVMAgentExtension/extensionSupportedOSs) except:
+The DSC Linux extension supports all the [Linux distributions endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) except:
 
 | Distribution | Version |
 |---|---|
-| CentOS Linux | 6.5 and higher |
-| Ubuntu| 12.04 LTS, 14.04 LTS, 16.04 LTS  |
-| RHEL| 6.5 and higher  |
-| openSUSE| 13.1 and higher  |
-| SUSE Linux Enterprise Server| 11 SP3 and higher  |
-
-  
+| Debian | all versions |
+| Ubuntu| 18.04 |
  
 ### Internet connectivity
 
 The DSCForLinux extension requires that the target virtual machine is connected to the internet. For example, Register extension requires connectivity to Automation service. 
-For other actions such as Pull, Pull, Install requires connectivity to azure stroage/github. It depends on settings provided by Customer.
+For other actions such as Pull, Pull, Install requires connectivity to azure storage/github. It depends on settings provided by Customer.
 
 ## Extension schema
 
@@ -67,7 +62,7 @@ Here are all the supported public configuration parameters:
 * `ConfigurationModeFrequencyMins`: (optional, int) Specifies how often (in minutes) DSC ensures that the configuration is in the desired state.
 
 > [!NOTE]
-> If you are using a version < 2.3, mode parameter is same as ExtensionAction. Mode seems to be a overloaded term. Therefore to avoid the confusion, ExtensionAction is being used from 2.3 version onwards. For backward compatibility, the extension supports both mode and ExtensionAction. 
+> If you are using a version < 2.3, mode parameter is same as ExtensionAction. Mode seems to be an overloaded term. Therefore to avoid the confusion, ExtensionAction is being used from 2.3 version onwards. For backward compatibility, the extension supports both mode and ExtensionAction. 
 >
 
 ### 1.2 Protected configuration
@@ -366,10 +361,10 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 You can log in to your Azure account (Azure Resource Manager mode) by running:
 
 ```powershell>
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
-Click [**HERE**](../../azure-resource-manager/powershell-azure-resource-manager.md) to learn more about how to use Azure PowerShell with Azure Resource Manager.
+Click [**HERE**](../../azure-resource-manager/manage-resources-powershell.md) to learn more about how to use Azure PowerShell with Azure Resource Manager.
 
 You can deploy DSCForLinux Extension by running:
 
@@ -398,7 +393,7 @@ $publicConfig = '{
 ```
 
 ```
-Set-AzureRmVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
+Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
   -Name $extensionName -Publisher $publisher -ExtensionType $extensionName `
   -TypeHandlerVersion $version -SettingString $publicConfig -ProtectedSettingString $privateConfig
 ```

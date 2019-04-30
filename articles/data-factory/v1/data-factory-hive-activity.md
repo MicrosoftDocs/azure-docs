@@ -11,7 +11,7 @@ ms.assetid: 80083218-743e-4da8-bdd2-60d1c77b1227
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
@@ -167,7 +167,7 @@ To execute this Hive script in a Data Factory pipeline, you need to do the follo
 			]
 		}
 	}
-	```
+    ```
 6. Deploy the pipeline. See [Creating pipelines](data-factory-create-pipelines.md) article for details. 
 7. Monitor the pipeline using the data factory monitoring and management views. See [Monitoring and manage Data Factory pipelines](data-factory-monitor-manage-pipelines.md) article for details. 
 
@@ -213,10 +213,10 @@ To use parameterized Hive script, do the following
         ]
       }
     }
-	```
+    ```
 * In the Hive Script, refer to the parameter using **${hiveconf:parameterName}**. 
   
-	```
+    ```
     DROP TABLE IF EXISTS HiveSampleIn; 
     CREATE EXTERNAL TABLE HiveSampleIn 
     (
@@ -239,8 +239,8 @@ To use parameterized Hive script, do the following
         ProfileID,
         SUM(Duration)
     FROM HiveSampleIn Group by ProfileID
-	```
-## See Also
+    ```
+  ## See Also
 * [Pig Activity](data-factory-pig-activity.md)
 * [MapReduce Activity](data-factory-map-reduce.md)
 * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)

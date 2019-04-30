@@ -1,7 +1,6 @@
 ---
 title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - storage best practices
 description: Learn storage best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -14,7 +13,7 @@ ms.author: hrasheed
 
 This article gives recommendations for data storage in Azure HDInsight systems. It's part of a series that provides best practices to assist with migrating on-premises Apache Hadoop systems to Azure HDInsight.
 
-## Choose the right storage system for HDInsight clusters
+## Choose right storage system for HDInsight clusters
 
 The on-premises Apache Hadoop File System (HDFS) directory structure can be re-created in Azure Storage or Azure Data Lake Storage. You can then safely delete HDInsight clusters that are used for computation without losing user data. Both services can be used as both the default file system and an additional file system for an HDInsight cluster. The HDInsight cluster and the storage account must be hosted in the same region.
 
@@ -28,9 +27,12 @@ Azure storage can be geo-replicated. Although geo-replication gives geographic r
 
 One of the following formats can be used to access data that is stored in Azure Storage:
 
-- `wasb:///`: Access default storage using unencrypted communication.
-- `wasbs:///`: Access default storage using encrypted communication.
-- `wasb://<container-name>@<account-name>.blob.core.windows.net/`:    Used when communicating with a non-default storage account. 
+|Data Access Format |Description |
+|---|---|
+|`wasb:///`|Access default storage using unencrypted communication.|
+|`wasbs:///`|Access default storage using encrypted communication.|
+|`wasb://<container-name>@<account-name>.blob.core.windows.net/`|Used when communicating with a non-default storage account. |
+
 
 [Azure Storage Scalability and Performance Targets](../../storage/common/storage-scalability-targets.md) lists the current limits on Azure storage accounts. If the needs of the application exceed the scalability targets of a single storage account, the application can be built to use multiple storage accounts and then partition data objects across those storage accounts.
 
@@ -41,7 +43,7 @@ Azure Storage offers [soft delete for blob objects](../../storage/blobs/storage-
 You can create [blob snapshots](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob). A snapshot is a read-only version of a blob that's taken at a point in time and it provides a way to back up a blob. Once a snapshot has been created, it can be read, copied, or deleted, but not modified.
 
 > [!Note]
-> For older version of on-premises on-premises Hadoop Distributions that does not have the "wasbs" certificate, it needs to be imported to the Java trust store.
+> For older versions of on-premises Hadoop Distributions that don't have the "wasbs" certificate, they need to be imported to the Java trust store.
 
 The following methods can be used to import certificates into the Java trust store:
 
@@ -80,9 +82,9 @@ For more information, see the following articles:
 - [Create HDInsight clusters with Data Lake Storage by using the Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Use Data Lake Storage with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-store.md)
 
-### Azure Data Lake Storage Gen2 (preview)
+### Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 is the latest storage offering and is in Preview at the time of writing of this paper. It unifies the core capabilities from the first generation of Azure Data Lake Storage with a Hadoop compatible file system endpoint directly integrated into Azure Blob Storage. This enhancement combines the scale and cost benefits of object storage with the reliability and performance typically associated only with on-premises file systems.
+Azure Data Lake Storage Gen2 is the latest storage offering. It unifies the core capabilities from the first generation of Azure Data Lake Storage with a Hadoop compatible file system endpoint directly integrated into Azure Blob Storage. This enhancement combines the scale and cost benefits of object storage with the reliability and performance typically associated only with on-premises file systems.
 
 ADLS Gen 2 is built on top of [Azure Blob storage](../../storage/blobs/storage-blobs-introduction.md) and allows you to interface with data using both file system and object storage paradigms. Features from [Azure Data Lake Storage Gen1](../../data-lake-store/index.md), such as file system semantics, file-level security, and scale are combined with low-cost, tiered storage, high availability/disaster recovery capabilities, and a large SDK/tooling ecosystem from [Azure Blob storage](../../storage/blobs/storage-blobs-introduction.md). In Data Lake Storage Gen2, all the qualities of object storage remain while adding the advantages of a file system interface optimized for analytics workloads.
 
@@ -90,11 +92,11 @@ A fundamental feature of Data Lake Storage Gen2 is the addition of a [hierarchi
 
 In the past, cloud-based analytics had to compromise in areas of performance, management, and security. The Key features of Azure Data Lake Storage (ADLS) Gen2 are as follows:
 
-- **Hadoop compatible access**: Azure Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](../../storage/data-lake-storage/abfs-driver.md) is available within all Apache Hadoop environments that are included in [Azure HDInsight](../index.yml). This driver allows you to access data stored in Data Lake Storage Gen2.
+- **Hadoop compatible access**: Azure Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](../../storage/data-lake-storage/abfs-driver.md) is available within all Apache Hadoop environments that are included in [Azure HDInsight](../index.yml). This driver allows you to access data stored in Data Lake Storage Gen2.
 
 - **A superset of POSIX permissions**: The security model for Data Lake Gen2 fully supports ACL and POSIX permissions along with some extra granularity specific to Data Lake Storage Gen2. Settings may be configured through admin tools or through frameworks like Hive and Spark.
 
-- **Cost effective**: Data Lake Storage Gen2 features low-cost storage capacity and transactions. As data transitions through its complete life-cycle, billing rates change to minimize costs via built-in features such as [Azure Blob storage life cycle](../../storage/common/storage-lifecycle-managment-concepts.md).
+- **Cost effective**: Data Lake Storage Gen2 features low-cost storage capacity and transactions. As data transitions through its complete life-cycle, billing rates change to minimize costs via built-in features such as [Azure Blob storage life cycle](../../storage/common/storage-lifecycle-management-concepts.md).
 
 - **Works with Blob storage tools, frameworks, and apps**: Data Lake Storage Gen2 continues to work with a wide array of tools, frameworks, and applications that exist today for Blob storage.
 
@@ -106,10 +108,11 @@ One of the following formats can be used to access data that is stored in ADLS G
 
 For more information, see the following articles:
 
-- [Introduction to Azure Data Lake Storage Gen2 Preview](../../storage/data-lake-storage/introduction.md)
+- [Introduction to Azure Data Lake Storage Gen2](../../storage/data-lake-storage/introduction.md)
 - [The Azure Blob Filesystem driver (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
+- [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
-## Protect Azure Storage key visibility within the on-premises Hadoop cluster configuration
+## Secure Azure Storage keys within on-premises Hadoop cluster configuration
 
 The Azure storage keys that are added to the Hadoop configuration files, establish connectivity between on premises HDFS and Azure Blob storage. These keys can be protected by encrypting them with the Hadoop credential provider framework. Once encrypted, they can be stored and accessed securely.
 
@@ -138,7 +141,7 @@ hadoop credential create fs.azure.account.key.account.blob.core.windows.net -val
 hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode.xx.internal.cloudapp.net/path/to/jceks /user/user1/ wasb:<//yourcontainer@youraccount.blob.core.windows.net/>user1
 ```
 
-## Restrict access to Azure storage data using SAS signatures
+## Restrict Azure storage data access using SAS
 
 HDInsight by default has full access to data in the Azure Storage accounts associated with the cluster. Shared Access Signatures (SAS) on the blob container can be used to restrict access to the data, such as provide users with read-only access to the data.
 
@@ -146,11 +149,14 @@ HDInsight by default has full access to data in the Azure Storage accounts assoc
 
 1. Open the
     [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) file and change the following values:
-    - policy_name: The name to use for the stored policy to create.
-    - storage_account_name: The name of your storage account.
-    - storage_account_key: The key for the storage account.
-    - storage_container_name: The container in the storage account that you want to restrict access to.
-    - example_file_path: The path to a file that is uploaded to the container
+
+    |Token Property|Description|
+    |---|---|
+    |policy_name|The name to use for the stored policy to create.|
+    |storage_account_name|The name of your storage account.|
+    |storage_account_key|The key for the storage account.|
+    |storage_container_name|The container in the storage account that you want to restrict access to.|
+    |example_file_path|The path to a file that is uploaded to the container.|
 
 2. The SASToken.py file comes with the `ContainerPermissions.READ + ContainerPermissions.LIST` permissions and can be adjusted based on the use case.
 
@@ -160,12 +166,12 @@ HDInsight by default has full access to data in the Azure Storage accounts assoc
 
 5. To limit access to a container with Shared Access Signature, add a custom entry to the core-site configuration for the cluster under Ambari HDFS Configs Advanced Custom core-site Add property.
 
-6. Use the following values for the **Key** and **Value** fields:
+6. Use the following values for the **Key** and **Value** fields:
 
     **Key**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net`
     **Value**: The SAS KEY returned by the Python application FROM step 4 above.
 
-7. Click the **Add** button to save this key and value, then click the **Save** button to save the configuration changes. When prompted, add a description of the change ("adding SAS storage access" for example) and then click **Save**.
+7. Click the **Add** button to save this key and value, then click the **Save** button to save the configuration changes. When prompted, add a description of the change ("adding SAS storage access" for example) and then click **Save**.
 
 8. In the Ambari web UI, select HDFS from the list on the left, and then select **Restart All Affected** from the Service Actions drop down list on the right. When prompted, select **Confirm Restart All**.
 
@@ -179,7 +185,7 @@ There are three important things to remember regarding the use of SAS Tokens in 
 
 3. Unfortunately, the hadoop credential provider and decryption key provider (ShellDecryptionKeyProvider) currently do not work with the SAS tokens and so it currently cannot be protected from visibility.
 
-For more information, see [Use Azure Storage Shared Access Signatures to restrict access to data in HDInsight](../hdinsight-storage-sharedaccesssignature-permissions.md)
+For more information, see [Use Azure Storage Shared Access Signatures to restrict access to data in HDInsight](../hdinsight-storage-sharedaccesssignature-permissions.md).
 
 ## Use data encryption and replication
 
@@ -197,21 +203,19 @@ For more information, see the following articles:
 - [Azure storage replication](../../storage/common/storage-redundancy.md)
 - [Disaster guidance for Azure Data Lake Storage (ADLS)](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
 
-## Attach additional Azure storage accounts to the cluster
+## Attach additional Azure storage accounts to cluster
 
 During the HDInsight creation process, an Azure Storage account or Azure Data Lake storage account is chosen as the default file system. In addition to this default storage account, additional storage accounts can be added from the same Azure subscription or different Azure subscriptions during the cluster creation process or after a cluster has been created.
 
 Additional storage account can be added in one on the following ways:
 - Ambari HDFS Config Advanced Custom core-site Add the storage Account Name and key Restarting the services
-- Using [Script action](../hdinsight-hadoop-add-storage.md)
-    by passing the storage account name and key
+- Using [Script action](../hdinsight-hadoop-add-storage.md) by passing the storage account name and key
 
 > [!Note]
 > In valid use-cases, the limits on the Azure storage can be increased via a request made to [Azure Support](https://azure.microsoft.com/support/faq/).
 
 For more information, see the following articles:
 - [Add additional storage accounts to HDInsight](../hdinsight-hadoop-add-storage.md)
-- [Attach additional Azure storage accounts to the cluster](https://blogs.msdn.microsoft.com/ashish/2016/08/25/hdinsight-attach-additional-azure-storage-accounts/)
 
 ## Next steps
 

@@ -10,8 +10,8 @@ ms.author: dacoulte
 ms.custom: include file
 ---
 
-## Data Lake Storage Gen1
+## Data Lake Storage
 
 |  |  |
 |---------|---------|
-| [Enforce Data Lake Storage Gen1 encryption](../articles/governance/policy/samples/enforce-datalakestore-encryption.md) | Denies any Data Lake Storage Gen1 accounts that don't have encryption enabled. |
+| [Enforce Data Lake Storage Gen1 encryption](../articles/governance/policy/samples/enforce-data-lake-store-encryption.md) | Denies any Data Lake Storage Gen1 accounts that don't have encryption enabled. |

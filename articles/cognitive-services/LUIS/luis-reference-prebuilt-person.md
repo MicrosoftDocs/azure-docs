@@ -1,24 +1,25 @@
 ---
-title: PersonName prebuilt entity - LUIS Reference 
+title: PersonName prebuilt entity
 titleSuffix: Azure Cognitive Services
 description: This article contains personName prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 01/23/2019
 ms.author: diberry
 ---
 
-# PersonName entity
+# PersonName prebuilt entity for a LUIS app
 The prebuilt personName entity detects people names. Because this entity is already trained, you do not need to add example utterances containing personName to the application intents. personName entity is supported in English and Chinese [cultures](luis-reference-prebuilt-entities.md).
 
 ## Resolution for personName entity
 The following example shows the resolution of the **builtin.personName** entity.
 
-```JSON
+```json
 {
   "query": "Is Jill Jones in Cairo?",
   "topScoringIntent": {

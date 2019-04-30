@@ -1,0 +1,192 @@
+- name: Data Lake Storage Gen1 Documentation
+  href: index.md
+- name: Switch to Data Lake Storage Gen2 documentation
+  href: https://docs.microsoft.com/azure/storage/data-lake-storage/introduction
+- name: Overview
+  items:
+  - name: What is Data Lake Storage Gen1?
+    href: data-lake-store-overview.md
+  - name: Compare with Azure Storage
+    href: data-lake-store-comparison-with-blob-storage.md
+  - name: Processing big data
+    href: data-lake-store-data-scenarios.md
+  - name: Working with open-source applications
+    href: data-lake-store-compatible-oss-other-applications.md
+  - name: Best practices
+    href: data-lake-store-best-practices.md
+- name: Get started
+  items:
+  - name: Using Azure portal
+    href: data-lake-store-get-started-portal.md
+  - name: Using Azure PowerShell
+    href: data-lake-store-get-started-powershell.md
+  - name: Using Azure CLI
+    href: data-lake-store-get-started-cli-2.0.md
+- name: How to
+  items:
+  - name: Load and move data
+    items:
+    - name: Using Azure Data Factory
+      href: ../data-factory/load-azure-data-lake-store.md
+    - name: Using Storage Explorer
+      href: data-lake-store-in-storage-explorer.md
+    - name: Using AdlCopy
+      href: data-lake-store-copy-data-azure-storage-blob.md
+    - name: Using DistCp
+      href: data-lake-store-copy-data-wasb-distcp.md
+    - name: Using Sqoop
+      href: data-lake-store-data-transfer-sql-sqoop.md
+    - name: Upload data from offline sources
+      href: data-lake-store-offline-bulk-data-upload.md
+    - name: Migrate Data Lake Storage Gen1 across regions
+      href: data-lake-store-migration-cross-region.md
+  - name: Secure data
+    items:
+    - name: Security overview
+      href: data-lake-store-security-overview.md
+    - name: Access control
+      href: data-lake-store-access-control.md
+    - name: Securing stored data
+      href: data-lake-store-secure-data.md
+    - name: Encryption
+      href: data-lake-store-encryption.md
+    - name: Virtual network integration
+      href: data-lake-store-network-security.md
+  - name: Authenticate with Data Lake Storage Gen1
+    items:
+    - name: Authentication options
+      href: data-lakes-store-authentication-using-azure-active-directory.md
+    - name: End-user authentication
+      href: data-lake-store-end-user-authenticate-using-active-directory.md
+      items:
+      - name: Using Java
+        href: data-lake-store-end-user-authenticate-java-sdk.md
+      - name: Using .NET SDK
+        href: data-lake-store-end-user-authenticate-net-sdk.md
+      - name: Using REST API
+        href: data-lake-store-end-user-authenticate-rest-api.md
+      - name: Using Python
+        href: data-lake-store-end-user-authenticate-python.md
+    - name: Service-to-service authentication
+      href: data-lake-store-service-to-service-authenticate-using-active-directory.md
+      items:
+      - name: Using Java
+        href: data-lake-store-service-to-service-authenticate-java.md
+      - name: Using .NET SDK
+        href: data-lake-store-service-to-service-authenticate-net-sdk.md
+      - name: Using REST API
+        href: data-lake-store-service-to-service-authenticate-rest-api.md
+      - name: Using Python
+        href: data-lake-store-service-to-service-authenticate-python.md
+  - name: Work with Data Lake Storage Gen1
+    items:
+    - name: Account management operations
+      items:
+      - name: Using .NET SDK
+        href: data-lake-store-get-started-net-sdk.md
+      - name: Using REST API
+        href: data-lake-store-get-started-rest-api.md
+      - name: Using Python
+        href: data-lake-store-get-started-python.md
+    - name: Filesystem operations
+      items:
+      - name: Using .NET SDK
+        href: data-lake-store-data-operations-net-sdk.md
+      - name: Using Java SDK
+        href: data-lake-store-get-started-java-sdk.md
+      - name: Using REST API
+        href: data-lake-store-data-operations-rest-api.md
+      - name: Using Python
+        href: data-lake-store-data-operations-python.md
+  - name: Performance
+    items:
+    - name: Overview
+      href: data-lake-store-performance-tuning-guidance.md
+    - name: Using Azure PowerShell
+      href: data-lake-store-performance-tuning-powershell.md
+    - name: Using Spark on HDInsight
+      href: data-lake-store-performance-tuning-spark.md
+    - name: Using Hive on HDInsight
+      href: data-lake-store-performance-tuning-hive.md
+    - name: Using MapReduce on HDInsight
+      href: data-lake-store-performance-tuning-mapreduce.md
+    - name: Using Storm on HDInsight
+      href: data-lake-store-performance-tuning-storm.md
+  - name: Integrate with Azure services
+    items:
+    - name: With HDInsight
+      items:
+      - name: Using Azure portal
+        href: data-lake-store-hdinsight-hadoop-use-portal.md
+      - name: Using Azure PowerShell (default storage)
+        href: data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md
+      - name: Using Azure PowerShell (additional storage)
+        href: data-lake-store-hdinsight-hadoop-use-powershell.md
+      - name: Using Azure template
+        href: data-lake-store-hdinsight-hadoop-use-resource-manager-template.md
+    - name: Access from VMs in Azure VNET
+      href: data-lake-store-connectivity-from-vnets.md
+    - name: Use with Data Lake Analytics
+      href: ../data-lake-analytics/data-lake-analytics-get-started-portal.md
+    - name: Use with Azure Event Hubs
+      href: data-lake-store-archive-eventhub-capture.md
+    - name: Use with Data Factory
+      href: ../data-factory/load-azure-data-lake-store.md
+    - name: Use with Stream Analytics
+      href: data-lake-store-stream-analytics.md
+    - name: Use with Power BI
+      href: data-lake-store-power-bi.md
+    - name: Use with Data Catalog
+      href: data-lake-store-with-data-catalog.md
+    - name: Use with PolyBase in SQL Data Warehouse
+      href: ../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md
+    - name: Use with SQL Server Integration Services
+      href: https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager
+    - name: More Azure integration options
+      href: data-lake-store-integrate-with-other-services.md
+  - name: Manage
+    items:
+    - name: Access diagnostic logs
+      href: data-lake-store-diagnostic-logs.md
+    - name: Plan for high availability
+      href: data-lake-store-disaster-recovery-guidance.md
+- name: Reference
+  items:
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=data-lake-store
+  - name: Azure PowerShell
+    href: /powershell/module/az.datalakestore
+  - name: .NET
+    href: https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet
+  - name: Java
+    href: https://docs.microsoft.com/java/api/overview/azure/datalake?view=azure-java-stable
+  - name: Node.js
+    href: https://www.npmjs.com/package/azure-arm-datalake-store
+  - name: Python (Account Mgmt.)
+    href: https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python
+  - name: Python (Filesystem Mgmt.)
+    href: https://azure-datalake-store.readthedocs.io/en/latest
+  - name: REST
+    href: /rest/api/datalakestore
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.datalakestore/allversions
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/dls
+- name: Resources
+  items:
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/updates/?product=data-lake-store
+  - name: Data Lake Store Blog
+    href: https://blogs.msdn.microsoft.com/azuredatalake/
+  - name: Give feedback on UserVoice
+    href: https://feedback.azure.com/forums/327234-data-lake
+  - name: MSDN Forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/data-lake-store/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Stack Overflow Forum
+    href: https://stackoverflow.com/questions/tagged/azure-data-lake
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store

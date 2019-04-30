@@ -1,13 +1,15 @@
 ---
 title: Deploy containers with Helm in Kubernetes on Azure
-description: Use the Helm packaging tool to deploy containers in an Azure Kubernetes Service (AKS) cluster
+description: Learn how to use the Helm packaging tool to deploy containers in an Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: iainfoulds
+author: zr-msft
 
 ms.service: container-service
 ms.topic: article
-ms.date: 10/01/2018
-ms.author: iainfou
+ms.date: 03/06/2019
+ms.author: zarhoads
+
+#Customer intent: As a cluster operator or developer, I want to learn how to deploy Helm into an AKS cluster and then install and manage applications using Helm charts.
 ---
 
 # Install applications with Helm in Azure Kubernetes Service (AKS)
@@ -18,7 +20,7 @@ This article shows you how to configure and use Helm in a Kubernetes cluster on 
 
 ## Before you begin
 
-The steps detailed in this document assume that you have created an AKS cluster and have established a `kubectl` connection with the cluster. If you need these items see, the [AKS quickstart][aks-quickstart].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 You also need the Helm CLI installed, the client that runs on your development system and allows you to start, stop, and manage applications with Helm. If you use the Azure Cloud Shell, the Helm CLI is already installed. For installation instructions on your local platform see, [Installing Helm][helm-install].
 
@@ -95,7 +97,6 @@ The following condensed example output shows some of the Helm charts available f
 $ helm search
 
 NAME                           CHART VERSION	APP VERSION  DESCRIPTION
-stable/acs-engine-autoscaler   2.2.0         	2.1.1        Scales worker nodes within agent pools
 stable/aerospike               0.1.7        	v3.14.1.2    A Helm chart for Aerospike in Kubernetes
 stable/anchore-engine          0.1.7        	0.1.10       Anchore container analysis and policy evaluatio...
 stable/apm-server              0.1.0        	6.2.4        The server receives data from the Elastic APM a...
@@ -130,7 +131,7 @@ To update the list of charts, use the [helm repo update][helm-repo-update] comma
 ```console
 $ helm repo update
 
-Hang tight while we grab the latest from your chart repositories...
+Hold tight while we grab the latest from your chart repositories...
 ...Skip local chart repository
 ...Successfully got an update from the "stable" chart repository
 Update Complete. ⎈ Happy Helming!⎈
@@ -150,7 +151,7 @@ The following condensed example output shows the deployment status of the Kubern
 $ helm install stable/wordpress
 
 NAME:   wishful-mastiff
-LAST DEPLOYED: Thu Jul 12 15:53:56 2018
+LAST DEPLOYED: Wed Mar  6 19:11:38 2019
 NAMESPACE: default
 STATUS: DEPLOYED
 
@@ -198,8 +199,8 @@ To see a list of releases installed on your cluster, use the [helm list][helm-li
 ```console
 $ helm list
 
-NAME             REVISION	 UPDATED                 	 STATUS  	 CHART          	NAMESPACE
-wishful-mastiff  1       	 Thu Jul 12 15:53:56 2018	 DEPLOYED	 wordpress-2.1.3  default
+NAME        	    REVISION	UPDATED                 	STATUS  	CHART          	 APP VERSION	NAMESPACE
+wishful-mastiff	  1       	Wed Mar  6 19:11:38 2019	DEPLOYED	wordpress-2.1.3	 4.9.7      	default
 ```
 
 ## Clean up resources
@@ -233,4 +234,6 @@ For more information about managing Kubernetes application deployments with Helm
 [helm-ssl]: https://docs.helm.sh/using_helm/#using-ssl-between-helm-and-tiller
 
 <!-- LINKS - internal -->
-[aks-quickstart]: ./kubernetes-walkthrough.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

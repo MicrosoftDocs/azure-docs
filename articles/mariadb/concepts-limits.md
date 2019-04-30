@@ -3,17 +3,15 @@ title: Limitations in Azure Database for MariaDB
 description: This article describes limitations in Azure Database for MariaDB, such as number of connection and storage engine options.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 04/15/2019
 ---
 # Limitations in Azure Database for MariaDB
-The Azure Database for MariaDB service is in public preview. The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service.
+The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service.
 
 ## Maximum connections
-The maximum number of connections per pricing tier and vCores during preview are as follows:
+The maximum number of connections per pricing tier and vCores are as follows:
 
 |**Pricing Tier**|**vCore(s)**| **Max Connections**|
 |---|---|---|
@@ -24,10 +22,12 @@ The maximum number of connections per pricing tier and vCores during preview are
 |General Purpose| 8| 1250|
 |General Purpose| 16| 2500|
 |General Purpose| 32| 5000|
+|General Purpose| 64| 10000|
 |Memory Optimized| 2| 600|
 |Memory Optimized| 4| 1250|
 |Memory Optimized| 8| 2500|
 |Memory Optimized| 16| 5000|
+|Memory Optimized| 32| 10000|
 
 When connections exceed the limit, you may receive the following error:
 > ERROR 1040 (08004): Too many connections
@@ -40,7 +40,7 @@ When connections exceed the limit, you may receive the following error:
 
 ### Unsupported
 - [MyISAM](https://mariadb.com/kb/en/library/myisam-storage-engine/)
-- [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/l)
+- [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/)
 - [ARCHIVE](https://mariadb.com/kb/en/library/archive/)
 
 ## Privilege support
@@ -50,6 +50,8 @@ When connections exceed the limit, you may receive the following error:
 Many server parameters and settings can inadvertently degrade server performance or negate ACID properties of the DBMS. As such, to maintain the service integrity and SLA at a product level, this service does not expose the DBA role. The default user account, which is constructed when a new database instance is created, allows that user to perform most of DDL and DML statements in the managed database instance.
 - SUPER privilege: 
 Similarly [SUPER privilege](https://mariadb.com/kb/en/library/grant/#global-privileges) is also restricted.
+- DEFINER: 
+Requires super privileges to create and is restricted. If importing data using a backup, remove the `CREATE DEFINER` commands manually or by using the `--skip-definer` command when performing a mysqldump.
 
 ## Data manipulation statement support
 
@@ -74,6 +76,9 @@ Similarly [SUPER privilege](https://mariadb.com/kb/en/library/grant/#global-priv
 
 ### Subscription management
 - Dynamically moving pre-created servers across subscription and resource group is currently not supported.
+
+### VNet service endpoints
+- Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
 ## Current known issues
 - MariaDB server instance displays the incorrect server version after connection is established. To get the correct server instance engine version, use the `select version();` command.

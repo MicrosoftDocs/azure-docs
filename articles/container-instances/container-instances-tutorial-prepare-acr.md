@@ -1,6 +1,6 @@
 ---
-title: Azure Container Instances tutorial - Prepare Azure Container Registry
-description: Azure Container Instances tutorial part 2 of 3 - Prepare Azure Container Registry
+title: Tutorial - Prepare a container registry for Azure Container Instances
+description: Azure Container Instances tutorial part 2 of 3 - Prepare an Azure container registry and push an image
 services: container-instances
 author: dlepow
 
@@ -8,10 +8,10 @@ ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
+ms.custom: "seodec18, mvc"
 ---
 
-# Tutorial: Deploy and use Azure Container Registry
+# Tutorial: Deploy an Azure container registry and push a container image
 
 This is part two of a three-part tutorial. [Part one](container-instances-tutorial-prepare-app.md) of the tutorial created a Docker container image for a Node.js web application. In this tutorial, you push the image to Azure Container Registry. If you haven't yet created the container image, return to [Tutorial 1 – Create container image](container-instances-tutorial-prepare-app.md).
 
@@ -20,7 +20,7 @@ Azure Container Registry is your private Docker registry in Azure. In this tutor
 > [!div class="checklist"]
 > * Create an Azure Container Registry instance
 > * Tag a container image for your Azure container registry
-> * Upload  the image to your registry
+> * Upload the image to your registry
 
 In the next article, the last in the series, you deploy the container from your private registry to Azure Container Instances.
 
@@ -213,12 +213,12 @@ Advance to the next tutorial to learn how to deploy the container to Azure using
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
-[nodejs]: http://nodejs.org
+[nodejs]: https://nodejs.org
 
 <!-- LINKS - Internal -->
 [az-acr-create]: /cli/azure/acr#az-acr-create
 [az-acr-login]: /cli/azure/acr#az-acr-login
-[az-acr-repository-list]: /cli/azure/acr/repository#az-acr-list
+[az-acr-repository-list]: /cli/azure/acr/repository
 [az-acr-repository-show-tags]: /cli/azure/acr/repository#az-acr-repository-show-tags
 [az-acr-show]: /cli/azure/acr#az-acr-show
 [az-group-create]: /cli/azure/group#az-group-create

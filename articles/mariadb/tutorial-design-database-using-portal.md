@@ -3,11 +3,9 @@ title: 'Tutorial: Design an Azure Database for MariaDB by using the Azure portal
 description: This tutorial explains how to create and manage an Azure Database for MariaDB server and database by using the Azure portal.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 04/15/2019
 ms.custom: mvc
 ---
 
@@ -26,6 +24,8 @@ In this tutorial, you use the Azure portal to learn how to:
 > * Update data
 > * Restore data
 
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+
 ## Sign in to the Azure portal
 
 In your browser, go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
@@ -36,7 +36,7 @@ You create an Azure Database for MariaDB server with a defined set of [compute a
 
 1. Select the **Create a resource** button (+) in the upper left corner of the portal.
 
-2. In the search box, enter **Azure Database for MariaDB** to find the service.
+2. Select **Databases** > **Azure Database for MariaDB**. You can also type **MariaDB** in the search box to find the service.
    
    ![Go to MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-mariadb.png)
 
@@ -55,7 +55,7 @@ You create an Azure Database for MariaDB server with a defined set of [compute a
     Confirm password | *your choice*| Confirm the admin account password.
     Location | *the region closest to your users*| Select the location that is closest to your users or to your other Azure applications.
     Version | *the latest version*| The latest version (unless you have specific requirements for using a different version).
-    Pricing tier | See description. | The compute, storage, and backup configurations for your new server. Select **Pricing tier** > **General Purpose**. Keep the default values for the following settings:<br><ul><li>**Compute Generation** (Gen 5)</li><li>**vCore** (2 vCores)</li><li>**Storage** (5 GB)</li><li>**Backup Retention Period** (7 days)</li></ul><br>To enable your server backups in geo-redundant storage, for **Backup Redundancy Options**, select **Geographically Redundant**. <br><br>To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
+    Pricing tier | See description. | The compute, storage, and backup configurations for your new server. Select **Pricing tier** > **General Purpose**. Keep the default values for the following settings:<br><ul><li>**Compute Generation** (Gen 5)</li><li>**vCore** (4 vCores)</li><li>**Storage** (100 GB)</li><li>**Backup Retention Period** (7 days)</li></ul><br>To enable your server backups in geo-redundant storage, for **Backup Redundancy Options**, select **Geographically Redundant**. <br><br>To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
     
    ![Pricing tier](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
@@ -85,7 +85,7 @@ Get values for **Server name** (fully qualified) and **Server admin login name**
 
    ![Server properties](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-In our example, the server name is **mydemoserver.mariadb.database.azure.com** and the server admin login name is **myadmin@mydemoserver**.
+In our example, the server name is **mydemoserver.mariadb.database.azure.com** and the server admin login name is **myadmin\@mydemoserver**.
 
 ## Connect to the server by using mysql
 

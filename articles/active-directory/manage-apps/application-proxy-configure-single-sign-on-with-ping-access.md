@@ -3,19 +3,20 @@ title: Header-based authentication with PingAccess for Azure AD Application Prox
 description: Publish applications with PingAccess and App Proxy to support header-based authentication.
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Header-based authentication for single sign-on with Application Proxy and PingAccess
@@ -38,7 +39,7 @@ For more information, see [Azure Active Directory editions](../fundamentals/acti
 
 ## Publish your application in Azure
 
-This article is intended for people who are publishing an app with this scenario for the first time. It walks through how to get started with both Application and PingAccess, in addition to the publishing steps. If you’ve already configured both services but want a refresher on the publishing steps, you can skip the connector installation and move on to [Add your app to Azure AD with Application Proxy](#add-your-app-to-Azure-AD-with-Application-Proxy).
+This article is intended for people who are publishing an app with this scenario for the first time. It walks through how to get started with both Application and PingAccess, in addition to the publishing steps. If you’ve already configured both services but want a refresher on the publishing steps, you can skip the connector installation and move on to [Add your app to Azure AD with Application Proxy](#add-your-app-to-azure-ad-with-application-proxy).
 
 >[!NOTE]
 >Since this scenario is a partnership between Azure AD and PingAccess, some of the instructions exist on the Ping Identity site.
@@ -47,9 +48,9 @@ This article is intended for people who are publishing an app with this scenario
 
 If you already have Application Proxy enabled, and have a connector installed, you can skip this section and move on to [Add your app to Azure AD with Application Proxy](#add-your-app-to-azure-ad-with-application-proxy).
 
-The Application Proxy connector is a Windows Server service that directs the traffic from your remote employees to your published apps. For more detailed installation instructions, see [Enable Application Proxy in the Azure portal](application-proxy-enable.md).
+The Application Proxy connector is a Windows Server service that directs the traffic from your remote employees to your published apps. For more detailed installation instructions, see [Enable Application Proxy in the Azure portal](application-proxy-add-on-premises-application.md).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an application administrator.
 2. Select **Azure Active Directory** > **Application proxy**.
 3. Select **Download Connector** to start the Application Proxy connector download. Follow the installation instructions.
 
@@ -62,17 +63,17 @@ The Application Proxy connector is a Windows Server service that directs the tra
 
 There are two actions you need to take in the Azure portal. First, you need to publish your application with Application Proxy. Then, you need to collect some information about the app that you can use during the PingAccess steps.
 
-Follow these steps to publish your app. For a more detailed walkthrough of steps 1-8, see [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md).
+Follow these steps to publish your app. For a more detailed walkthrough of steps 1-8, see [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md).
 
-1. If you didn't in the last section, sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
+1. If you didn't in the last section, sign in to the [Azure portal](https://portal.azure.com) as an application administrator.
 2. Select **Azure Active Directory** > **Enterprise applications**.
 3. Select **Add** at the top of the blade.
 4. Select **On-premises application**.
 5. Fill out the required fields with information about your new app. Use the following guidance for the settings:
    - **Internal URL**: Normally you provide the URL that takes you to the app’s sign in page when you’re on the corporate network. For this scenario the connector needs to treat the PingAccess proxy as the front page of the app. Use this format: `https://<host name of your PA server>:<port>`. The port is 3000 by default, but you can configure it in PingAccess.
 
-    > [!WARNING]
-    > For this type of SSO, the internal URL must use https and cannot use http.
+     > [!WARNING]
+     > For this type of SSO, the internal URL must use https and cannot use http.
 
    - **Pre-authentication method**: Azure Active Directory
    - **Translate URL in Headers**: No
@@ -82,54 +83,54 @@ Follow these steps to publish your app. For a more detailed walkthrough of steps
 
 6. Select **Add** at the bottom of the blade. Your application is added, and the quick start menu opens.
 7. In the quick start menu,
-select **Assign a user for testing**, and add at least one user to the application. Make sure this test account has access to the on-premises application.
+   select **Assign a user for testing**, and add at least one user to the application. Make sure this test account has access to the on-premises application.
 8. Select **Assign** to save the test user assignment.
 9. On the app management blade, select **Single sign-on**.
 10. Choose **Header-based sign-on** from the drop-down menu. Select **Save**.
 
-   >[!TIP]
-   >If this is your first time using header-based single sign-on, you need to install PingAccess. To make sure your Azure subscription is automatically associated with your PingAccess installation, use the link on this single sign-on page to download PingAccess. You can open the download site now, or come back to this page later. 
+    >[!TIP]
+    >If this is your first time using header-based single sign-on, you need to install PingAccess. To make sure your Azure subscription is automatically associated with your PingAccess installation, use the link on this single sign-on page to download PingAccess. You can open the download site now, or come back to this page later. 
 
-   ![Select header-based sign-on](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.PNG)
+    ![Select header-based sign-on](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.PNG)
 
 11. Close the Enterprise applications blade or scroll all the way to the left to return to the Azure Active Directory menu.
 12. Select **App registrations**.
 
-   ![Select App registrations](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
+    ![Select App registrations](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
 
 13. Select the app you just added, then **Reply URLs**.
 
-   ![Select Reply URLs](./media/application-proxy-configure-single-sign-on-with-ping-access/reply-urls.png)
+    ![Select Reply URLs](./media/application-proxy-configure-single-sign-on-with-ping-access/reply-urls.png)
 
 14. Check to see if the external URL that you assigned to your app in step 5 is in the Reply URLs list. If it’s not, add it now.
 15. On the app settings blade, select **Required permissions**.
 
-  ![Select Required permissions](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
+    ![Select Required permissions](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
 
 16. Select **Add**. For the API, choose **Windows Azure Active Directory**, then **Select**. For the permissions, choose **Read and write all applications** and **Sign in and read user profile**, then **Select** and **Done**.  
 
-  ![Select permissions](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
+    ![Select permissions](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
 
 17. Grant permissions before you close the permissions screen. 
-![Grant Permissions](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
+    ![Grant Permissions](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
 
 ### Collect information for the PingAccess steps
 
 1. On your app settings blade, select **Properties**. 
 
-  ![Select Properties](./media/application-proxy-configure-single-sign-on-with-ping-access/properties.png)
+   ![Select Properties](./media/application-proxy-configure-single-sign-on-with-ping-access/properties.png)
 
 2. Save the **Application Id** value. This is used for the client ID when you configure PingAccess.
 3. On the app settings blade, select **Keys**.
 
-  ![Select Keys](./media/application-proxy-configure-single-sign-on-with-ping-access/Keys.png)
+   ![Select Keys](./media/application-proxy-configure-single-sign-on-with-ping-access/Keys.png)
 
 4. Create a key by entering a key description and choosing an expiration date from the drop-down menu.
 5. Select **Save**. A GUID appears in the **Value** field.
 
-  Save this value now, as you won’t be able to see it again after you close this window.
+   Save this value now, as you won’t be able to see it again after you close this window.
 
-  ![Create a new key](./media/application-proxy-configure-single-sign-on-with-ping-access/create-keys.png)
+   ![Create a new key](./media/application-proxy-configure-single-sign-on-with-ping-access/create-keys.png)
 
 6. Close the App registrations blade or scroll all the way to the left to return to the Azure Active Directory menu.
 7. Select **Properties**.
@@ -148,8 +149,8 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
-This example uses the [Azure portal](https://portal.azure.com) to udpate the *acceptedMappedClaims* field:
-1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
+This example uses the [Azure portal](https://portal.azure.com) to update the *acceptedMappedClaims* field:
+1. Sign in to the [Azure portal](https://portal.azure.com) as an application administrator.
 2. Select **Azure Active Directory** > **App registrations**.
 3. Select your application > **Manifest**.
 4. Select **Edit**, search for the *acceptedMappedClaims* field and change the value to **true**.
@@ -159,7 +160,7 @@ This example uses the [Azure portal](https://portal.azure.com) to udpate the *ac
 >[!NOTE]
 >To use a custom claim, you must also have a custom policy defined and assigned to the application.  This policy should include all required custom attributes.
 >
->Policy definition and assignment can be done through PowerShell, Azure AD Graph Explorer, or MS Graph.  If you are doing this in PowerShell, you may need to first use `New-AzureADPolicy `and then assign it to the application with `Set-AzureADServicePrincipalPolicy`.  For more information see the [Azure AD Policy documentation](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+>Policy definition and assignment can be done through PowerShell, Azure AD Graph Explorer, or MS Graph.  If you are doing this in PowerShell, you may need to first use `New-AzureADPolicy` and then assign it to the application with `Set-AzureADServicePrincipalPolicy`.  For more information see the [Azure AD Policy documentation](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ### Optional - Use a custom claim
 To make your application use a custom claim and include additional fields, be sure that you have also [created a custom claims mapping policy and assigned it to the application](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).

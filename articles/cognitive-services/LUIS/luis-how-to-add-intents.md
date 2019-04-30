@@ -1,36 +1,25 @@
 ---
-title: Add intents in LUIS applications
-titleSuffix: Azure Cognitive Services
+title: Add intents
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Add intents to your LUIS app to identify groups of questions or commands that have the same intentions. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
-ms.component: language-understanding
+manager: nitinme
+ms.custom: seodec18
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 04/01/2019
 ms.author: diberry
 ms.service: cognitive-services
 ---
 
-# Add intents 
+# Add intents to determine user intention of utterances
 
 Add [intents](luis-concept-intent.md) to your LUIS app to identify groups of questions or commands that have the same intention. 
 
 Intents are managed from top navigation bar's **Build** section, then from the left panel's **Intents**. 
 
-## Create an app
-
-1. Sign in to the [LUIS](https://www.luis.ai) portal.
-
-1. Select **Create new app**. 
-
-1. Name the new app `MyHumanResourcesApp`. Select the **English** culture. The description is optional. 
-
-1. Select **Done**. 
-
 ## Add intent
-
-1. The app opens to the **Intents** list.
 
 1. On the **Intents** page, select **Create new intent**.
 
@@ -52,25 +41,18 @@ Example utterances are text examples of user questions or commands. To teach Lan
 
 An utterance in an intent might have an intent prediction discrepancy between the selected intent and the prediction score. LUIS indicates this discrepancy with a red box around the **Labeled intent** on the row of the example utterance. 
 
-![Screenshot of Intents details page, with utterance highlighted](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+![Screenshot of Intents details page, with utterance prediction discrepancy errors](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
 
 In the top navigation, select **Train**. The prediction discrepancy is now gone.
+
+> [!Note]
+> When a red line is under a word or phrase in the example utterance, an [entity prediction error](luis-how-to-add-example-utterances.md#entity-status-predictions) has occurred. You need to correct it. 
 
 ## Add a custom entity
 
 Once an utterance is added to an intent, you can select text from within the utterance to create a custom entity. A custom entity is a way to tag text for extraction, along with the correct intent. 
 
-1. Select the word, `Seattle`, in the utterance. Square brackets are drawn around the text and a drop-down menu appears. 
-
-    ![Screenshot of Intents details page, creating custom entity](./media/luis-how-to-add-intents/create-custom-entity.png) 
-
-    This example selects a single word to mark as an entity. You can mark single works and phrases as entities.
-
-1. In the top text-box of the menu, enter `Location`, then select **Create new entity**. 
-
-    ![Screenshot of Intents details page, creating custom entity name](./media/luis-how-to-add-intents/create-custom-entity-name.png) 
-
-1. In the **What type of entity do you want to create?** pop-up window for entity creation, validate that the **entity name** is _Location_, and the **entity type** is _Simple_. Select **Done**.
+See [Add entity to utterance](luis-how-to-add-example-utterances.md) to learn more.
 
 ## Entity prediction discrepancy errors 
 
@@ -82,11 +64,11 @@ The text is highlighted in blue, indicating an entity.
 
 ## Add a prebuilt entity
 
-For information, see [Prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity).
+For information, see [Prebuilt entity](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
 ## Using the contextual toolbar
 
-When one or more example utterances is selected in the list, by checking the box to the left of an utterance, the toolbar above the utterance list allows you to perform the following actions:
+When one or more example utterances are selected in the list, by checking the box to the left of an utterance, the toolbar above the utterance list allows you to perform the following actions:
 
 * Reassign intent: move utterance(s) to different intent
 * Delete utterance(s)

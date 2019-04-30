@@ -1,13 +1,11 @@
 ---
-title: Use Azure Policy to create and manage policies to enforce organizational compliance
+title: Create and manage policies to enforce compliance
 description: Use Azure Policy to enforce standards, meet regulatory compliance and audit requirements, control costs, maintain security and performance consistency, and impose enterprise wide design principles.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
-ms.custom: mvc
 manager: carmonm
 ---
 # Create and manage policies to enforce compliance
@@ -36,15 +34,15 @@ the condition that all SQL Server databases must be v12.0 to be compliant.
 
 1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching for and selecting **Policy**.
 
-   ![Search for policy](../media/create-and-manage/search-policy.png)
+   ![Search for Policy in All Services](../media/create-and-manage/search-policy.png)
 
 1. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that has been assigned to take place within a specific scope.
 
-   ![Select assignments](../media/create-and-manage/select-assignments.png)
+   ![Select Assignments from Policy Overview page](../media/create-and-manage/select-assignments.png)
 
 1. Select **Assign Policy** from the top of the **Policy - Assignments** page.
 
-   ![Assign a policy definition](../media/create-and-manage/select-assign-policy.png)
+   ![Assign a policy definition from Assignments page](../media/create-and-manage/select-assign-policy.png)
 
 1. On the **Assign Policy** page, select the **Scope** by clicking the ellipsis and selecting either a management group or subscription. Optionally, select a resource group. A scope determines what resources or grouping of resources the policy assignment gets enforced on.  Then click **Select** at the bottom of the **Scope** page.
 
@@ -54,30 +52,30 @@ the condition that all SQL Server databases must be v12.0 to be compliant.
 
 1. Select the **Policy definition** ellipsis to open the list of available definitions. You can filter the policy definition **Type** to *Built-in* to view all and read their descriptions.
 
-1. Select **Require SQL Server version 12.0**. If you cannot find it right away, type **require sql server** into the search box and then press ENTER or click out of the search box. Click **Select** at the bottom of the **Available Definitions** page once you have found and selected the policy definition.
+1. Select **Require SQL Server version 12.0**. If you can't find it right away, type **require sql server** into the search box and then press ENTER or click out of the search box. Click **Select** at the bottom of the **Available Definitions** page once you have found and selected the policy definition.
 
-   ![Locate a policy](../media/create-and-manage/select-available-definition.png)
+   ![Use search filter to locate a policy](../media/create-and-manage/select-available-definition.png)
 
-1. The **Assignment name** is automatically populated with the policy name you selected, but you can change it. For this example, leave *Require SQL Server version 12.0*. You can also add an optional **Description**. The description provides details about this policy assignment.  **Assigned by** is automatically fill based on who is logged in. This field is optional, so custom values can be entered.
+1. The **Assignment name** is automatically populated with the policy name you selected, but you can change it. For this example, leave *Require SQL Server version 12.0*. You can also add an optional **Description**. The description provides details about this policy assignment.  **Assigned by** is automatically filled based on who is logged in. This field is optional, so custom values can be entered.
 
-1. Leave **Create a Managed Identity** unchecked. This _must_ be checked when the policy or initiative being assigned includes a policy with the [deployIfNotExists](../concepts/effects.md#deployifnotexists) effect. As the policy used for this tutorial does not, leave it blank. For more information, see [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md) and [how remediation security works](../how-to/remediate-resources.md#how-remediation-security-works).
+1. Leave **Create a Managed Identity** unchecked. This box _must_ be checked when the policy or initiative being assigned includes a policy with the [deployIfNotExists](../concepts/effects.md#deployifnotexists) effect. As the policy used for this tutorial doesn't, leave it blank. For more information, see [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md) and [how remediation security works](../how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Click **Assign**.
 
 ## Implement a new custom policy
 
 Now that you've assigned a built-in policy definition, you can do more with Azure Policy. Next,
-create a new custom policy to save costs by ensuring that VMs created in your environment cannot be
-in the G series. This way, every time a user in your organization tries to create VM in the G
+create a new custom policy to save costs by validating that VMs created in your environment can't
+be in the G series. This way, every time a user in your organization tries to create VM in the G
 series, the request is denied.
 
 1. Select **Definitions** under **Authoring** in the left side of the Azure Policy page.
 
-   ![Definition under authoring](../media/create-and-manage/definition-under-authoring.png)
+   ![Definition page under Authoring group](../media/create-and-manage/definition-under-authoring.png)
 
-1. Select **+ Policy definition** at the top of the page. This opens to the **Policy definition** page.
+1. Select **+ Policy definition** at the top of the page. This button opens to the **Policy definition** page.
 
-1. Enter the following:
+1. Enter the following information:
 
    - The management group or subscription in which the policy definition is saved. Select by using the ellipsis on **Definition location**.
 
@@ -92,32 +90,32 @@ series, the request is denied.
       - The policy rules/conditions, in this case – VM SKU size equal to G series
       - The policy effect, in this case – **Deny**.
 
-    Here's what the JSON should look like. Paste your revised code into the Azure portal.
+   Here's what the JSON should look like. Paste your revised code into the Azure portal.
 
-    ```json
-    {
-        "policyRule": {
-            "if": {
-                "allOf": [{
-                        "field": "type",
-                        "equals": "Microsoft.Compute/virtualMachines"
-                    },
-                    {
-                        "field": "Microsoft.Compute/virtualMachines/sku.name",
-                        "like": "Standard_G*"
-                    }
-                ]
-            },
-            "then": {
-                "effect": "deny"
-            }
-        }
-    }
-    ```
+   ```json
+   {
+       "policyRule": {
+           "if": {
+               "allOf": [{
+                       "field": "type",
+                       "equals": "Microsoft.Compute/virtualMachines"
+                   },
+                   {
+                       "field": "Microsoft.Compute/virtualMachines/sku.name",
+                       "like": "Standard_G*"
+                   }
+               ]
+           },
+           "then": {
+               "effect": "deny"
+           }
+       }
+   }
+   ```
 
-    The value of the *field* property in the policy rule must be one of the following: Name, Type, Location, Tags, or an alias. An example of an alias might be `"Microsoft.Compute/VirtualMachines/Size"`.
+   The *field* property in the policy rule must be one of the following values: Name, Type, Location, Tags, or an alias. An example of an alias might be `"Microsoft.Compute/VirtualMachines/Size"`.
 
-    To view more Azure policy samples, see [Azure Policy samples](../samples/index.md).
+   To view more Azure policy samples, see [Azure Policy samples](../samples/index.md).
 
 1. Select **Save**.
 
@@ -127,7 +125,7 @@ You can create a policy with the REST API for Policy Definitions. The REST API e
 create and delete policy definitions, and get information about existing definitions. To create a
 policy definition, use the following example:
 
-```http-interactive
+```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 ```
 
@@ -165,17 +163,16 @@ Include a request body similar to the following example:
 
 ## Create a policy definition with PowerShell
 
-Before proceeding with the PowerShell example, make sure you have installed the latest version of
-Azure PowerShell. Policy parameters were added in version 3.6.0. If you have an earlier version,
-the examples return an error indicating the parameter cannot be found.
+Before proceeding with the PowerShell example, make sure you've installed the latest version of
+the Azure PowerShell Az module. 
 
-You can create a policy definition using the `New-AzureRmPolicyDefinition` cmdlet.
+You can create a policy definition using the `New-AzPolicyDefinition` cmdlet.
 
 To create a policy definition from a file, pass the path to the file. For an external file, use the
 following example:
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition `
+$definition = New-AzPolicyDefinition `
     -Name 'denyCoolTiering' `
     -DisplayName 'Deny cool access tiering for storage' `
     -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
@@ -184,7 +181,7 @@ $definition = New-AzureRmPolicyDefinition `
 For a local file use, use the following example:
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition `
+$definition = New-AzPolicyDefinition `
     -Name 'denyCoolTiering' `
     -Description 'Deny cool access tiering for storage' `
     -Policy 'c:\policies\coolAccessTier.json'
@@ -193,7 +190,7 @@ $definition = New-AzureRmPolicyDefinition `
 To create a policy definition with an inline rule, use the following example:
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition -Name 'denyCoolTiering' -Description 'Deny cool access tiering for storage' -Policy '{
+$definition = New-AzPolicyDefinition -Name 'denyCoolTiering' -Description 'Deny cool access tiering for storage' -Policy '{
     "if": {
         "allOf": [{
                 "field": "type",
@@ -249,7 +246,7 @@ $parameters = '{
     }
 }'
 
-$definition = New-AzureRmPolicyDefinition -Name 'storageLocations' -Description 'Policy to specify locations for storage accounts.' -Policy $policy -Parameter $parameters
+$definition = New-AzPolicyDefinition -Name 'storageLocations' -Description 'Policy to specify locations for storage accounts.' -Policy $policy -Parameter $parameters
 ```
 
 ### View policy definitions with PowerShell
@@ -257,7 +254,7 @@ $definition = New-AzureRmPolicyDefinition -Name 'storageLocations' -Description 
 To see all policy definitions in your subscription, use the following command:
 
 ```azurepowershell-interactive
-Get-AzureRmPolicyDefinition
+Get-AzPolicyDefinition
 ```
 
 It returns all available policy definitions, including built-in policies. Each policy is returned
@@ -337,25 +334,25 @@ in the following format:
 ## Create and assign an initiative definition
 
 With an initiative definition, you can group several policy definitions to achieve one overarching
-goal. You create an initiative definition to ensure that resources within the scope of the
-definition stay compliant with the policy definitions that make up the initiative definition. For
-more information about initiative definitions, see [Azure Policy overview](../overview.md).
+goal. An initiative evaluates resources within scope of the assignment for compliance to the
+included policies. For more information about initiative definitions, see [Azure Policy
+overview](../overview.md).
 
 ### Create an initiative definition
 
 1. Select **Definitions** under **Authoring** in the left side of the Azure Policy page.
 
-   ![Select definitions](../media/create-and-manage/definition-under-authoring.png)
+   ![Select definition from the Definitions page](../media/create-and-manage/definition-under-authoring.png)
 
 1. Select **+ Initiative Definition** at the top of the page to open the **Initiative definition** page.
 
-   ![Initiative definition](../media/create-and-manage/initiative-definition.png)
+   ![Review initiative definition page](../media/create-and-manage/initiative-definition.png)
 
 1. Use the **Definition location** ellipsis to select a management group or subscription to store the definition. If the previous page was scoped to a single management group or subscription, **Definition location** is automatically populated.
 
 1. Enter the **Name** and **Description** of the initiative.
 
-   This example ensures that resources are in compliance with policy definitions about getting secure. Name the initiative **Get Secure** and set the description as: **This initiative has been created to handle all policy definitions associated with securing resources**.
+   This example validates that resources are in compliance with policy definitions about getting secure. Name the initiative **Get Secure** and set the description as: **This initiative has been created to handle all policy definitions associated with securing resources**.
 
 1. For **Category**, choose from existing options or create a new category.
 
@@ -367,13 +364,13 @@ more information about initiative definitions, see [Azure Policy overview](../ov
    - [Preview]: Monitor possible app Whitelisting in Security Center.
    - [Preview]: Monitor unencrypted VM Disks in Security Center.
 
-   After selecting the policy definition from the list, it is added under **Policies and Parameters**.
+   After selecting the policy definition from the list, it's added under **Policies and Parameters**.
 
-   ![Initiative definitions](../media/create-and-manage/initiative-definition-2.png)
+   ![Review initiative definition parameters](../media/create-and-manage/initiative-definition-2.png)
 
-1. If a policy definition being added to the initiative has parameters, they are shown under the policy name in the **Policies and Parameters** area. The _value_ can be set to either 'Set value' (hard coded for all assignments of this initiative) or 'Use Initiative Parameter' (set during each initiative assignment). If 'Set value' is selected, the drown-down to the right of _Values_ allows entering or selecting the desired value(s). If 'Use Initiative Parameter' is selected, a new **Initiative parameters** section is displayed allowing you to define the parameter that is set during initiative assignment. The allowed values on this initiative parameter can further restrict what may be set during initiative assignment.
+1. If a policy definition being added to the initiative has parameters, they're shown under the policy name in the **Policies and Parameters** area. The _value_ can be set to either 'Set value' (hard coded for all assignments of this initiative) or 'Use Initiative Parameter' (set during each initiative assignment). If 'Set value' is selected, the drop-down to the right of _Values_ allows entering or selecting the value(s). If 'Use Initiative Parameter' is selected, a new **Initiative parameters** section is displayed allowing you to define the parameter that is set during initiative assignment. The allowed values on this initiative parameter can further restrict what may be set during initiative assignment.
 
-   ![Initiative definition parameters](../media/create-and-manage/initiative-definition-3.png)
+   ![Change initiative definition parameters from allowed values](../media/create-and-manage/initiative-definition-3.png)
 
    > [!NOTE]
    > In the case of some `strongType` parameters, the list of values cannot be automatically
@@ -391,11 +388,11 @@ more information about initiative definitions, see [Azure Policy overview](../ov
 
 1. Locate the **Get Secure** initiative definition you previously created and click it. Select **Assign** at the top of the page to open to the **Get Secure: Assign initiative** page.
 
-   ![Assign a definition](../media/create-and-manage/assign-definition.png)
+   ![Assign a definition from Initiative definition page](../media/create-and-manage/assign-definition.png)
 
-   Alternatively, you can right-click on the selected row or left-click on the ellipsis at the end of the row for a contextual menu.  Then select **Assign**.
+   You can also right-click on the selected row or left-click on the ellipsis at the end of the row for a contextual menu.  Then select **Assign**.
 
-   ![Right-click a row](../media/create-and-manage/select-right-click.png)
+   ![Alternative options for an initiative](../media/create-and-manage/select-right-click.png)
 
 1. Fill out the **Get Secure: Assign Initiative** page by entering the following example information. You can use your own information.
 
@@ -405,7 +402,7 @@ more information about initiative definitions, see [Azure Policy overview](../ov
    - Description: This initiative assignment is tailored to enforce this group of policy definitions.
    - Assigned by: Automatically filled based on who is logged in. This field is optional, so custom values can be entered.
 
-1. Leave **Create a Managed Identity** unchecked. This _must_ be checked when the policy or initiative being assigned includes a policy with the [deployIfNotExists](../concepts/effects.md#deployifnotexists) effect. As the policy used for this tutorial does not, leave it blank. For more information, see [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md) and [how remediation security works](../how-to/remediate-resources.md#how-remediation-security-works).
+1. Leave **Create a Managed Identity** unchecked. This box _must_ be checked when the policy or initiative being assigned includes a policy with the [deployIfNotExists](../concepts/effects.md#deployifnotexists) effect. As the policy used for this tutorial doesn't, leave it blank. For more information, see [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md) and [how remediation security works](../how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Click **Assign**.
 
@@ -413,13 +410,13 @@ more information about initiative definitions, see [Azure Policy overview](../ov
 
 1. Select **Compliance** in the left side of the Azure Policy page.
 
-1. Locate the **Get Source** initiative. It is likely still in _Compliance state_ of **Not started**. Click on the initiative to get full details on the progress of the assignment.
+1. Locate the **Get Source** initiative. It's likely still in _Compliance state_ of **Not started**. Click on the initiative to get full details on the progress of the assignment.
 
-   ![Compliance - not started](../media/create-and-manage/compliance-status-not-started.png)
+   ![Initiative compliance page - evaluations not started](../media/create-and-manage/compliance-status-not-started.png)
 
 1. Once the initiative assignment has been completed, the compliance page is updated with the _Compliance state_ of **Compliant**.
 
-   ![Compliance - compliant](../media/create-and-manage/compliance-status-compliant.png)
+   ![Initiative compliance page- resources compliant](../media/create-and-manage/compliance-status-compliant.png)
 
 1. Clicking on any policy on the initiative compliance page opens the compliance details page for the policy. This page provides details at the resource level for compliance.
 
@@ -427,23 +424,23 @@ more information about initiative definitions, see [Azure Policy overview](../ov
 
 Following the example above, after assigning the policy definition to require SQL server version
 12.0, a SQL server created with any version other 12.0 would get denied. In this section, you walk
-through resolving a denied attempt to create a SQL server by creating an exclusion on a single
+through resolving a denied request to create a SQL server by creating an exclusion on a single
 resource group. The exclusion prevents enforcement of the policy (or initiative) on that resource.
 In the following example, any SQL server version is allowed in a single resource group. An
 exclusion can apply to a subscription, resource group, or you can narrow the exclusion to individual resources.
 
-A deployment prevented due to an assigned policy or initiative can be viewed in two locations:
+A deployment prevented by an assigned policy or initiative can be viewed in two locations:
 
-- On the resource group targeted by the deployment: Select **Deployments** in the left side of the page and click on the **Deployment Name** of the failed deployment. The resource that was denied is listed with a status of _Forbidden_. To determine the policy or initiative and assignment that denied the resource, click **Failed. Click here for details ->** on the Deployment Overview page. A window opens on the right side of the page with the error information. Under **Error Details** is the GUIDs of the related policy objects.
+- On the resource group targeted by the deployment: Select **Deployments** in the left side of the page, then and click on the **Deployment Name** of the failed deployment. The resource that was denied is listed with a status of _Forbidden_. To determine the policy or initiative and assignment that denied the resource, click **Failed. Click here for details ->** on the Deployment Overview page. A window opens on the right side of the page with the error information. Under **Error Details** are the GUIDs of the related policy objects.
 
   ![Deployment denied by policy assignment](../media/create-and-manage/rg-deployment-denied.png)
 
-- On the Azure Policy page: Select **Compliance** in the left side of the page and click on the **Require SQL Server version 12.0** policy. On the page that opens, you would see an increase in the **Deny** count. Under the **Events** tab, you would also see who attempted the deployment that was denied by the policy.
+- On the Azure Policy page: Select **Compliance** in the left side of the page and click on the **Require SQL Server version 12.0** policy. On the page that opens, you would see an increase in the **Deny** count. Under the **Events** tab, you would also see who tried the deployment that was denied by the policy.
 
   ![Compliance overview of an assigned policy](../media/create-and-manage/compliance-overview.png)
 
 In this example, Trent Baker, one of Contoso's Sr. Virtualization specialists, was doing required
-work. We need to grant him an exception, but we don't want the non-version 12.0 SQL servers in just
+work. We need to grant Trent an exception, but we don't want the non-version 12.0 SQL servers in just
 any resource group. We've created a new resource group, **SQLServers_Excluded** and will now grant
 it an exception to this policy assignment.
 
@@ -455,20 +452,20 @@ it an exception to this policy assignment.
 
 1. Set the **Exclusion** by clicking the ellipsis and selecting the resource group to exclude, *SQLServers_Excluded* in this example.
 
-   ![Request exclusion](../media/create-and-manage/request-exclusion.png)
+   ![Add an excluded resource group to the policy assignment](../media/create-and-manage/request-exclusion.png)
 
    > [!NOTE]
    > Depending on the policy and its effect, the exclusion could also be granted to specific resources within a resource group inside the scope of the assignment. As a **Deny** effect was used in this tutorial, it would not make sense to set the exclusion on a specific resource that already exists.
 
 1. Click **Select** and then click **Save**.
 
-In this section, you resolved the denial of the attempt to create a prohibited version of SQL server by creating an exclusion on a single resource group.
+In this section, you resolved the denied request by creating an exclusion on a single resource group.
 
 ## Clean up resources
 
-If you are done working with resources from this tutorial, use the following steps to delete any of the assignments or definitions created above:
+If you're done working with resources from this tutorial, use the following steps to delete any of the assignments or definitions created above:
 
-1. Select **Definitions** (or **Assignments** if you are trying to delete an assignment) under **Authoring** in the left side of the Azure Policy page.
+1. Select **Definitions** (or **Assignments** if you're trying to delete an assignment) under **Authoring** in the left side of the Azure Policy page.
 
 1. Search for the new initiative or policy definition (or assignment) you want to remove.
 
@@ -476,7 +473,7 @@ If you are done working with resources from this tutorial, use the following ste
 
 ## Next steps
 
-In this tutorial, you successfully accomplished the following:
+In this tutorial, you successfully accomplished the following tasks:
 
 > [!div class="checklist"]
 > - Assigned a policy to enforce a condition for resources you create in the future

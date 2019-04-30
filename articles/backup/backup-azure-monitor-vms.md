@@ -2,17 +2,19 @@
 title: Monitor backup alerts for Azure virtual machines
 description: Monitor events and alerts from Azure virtual machine backup jobs. Send email based on alerts.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/23/2018
-ms.author: markgal
+ms.date: 01/31/2019
+ms.author: raynew
 ---
 # Monitor alerts for Azure virtual machine backups
+
 Alerts are responses from the service that an event threshold has been met or surpassed. Knowing when problems start can be critical to keeping business costs down. Alerts typically do not occur on a schedule, and so it is helpful to know as soon as possible after alerts occur. For example, when a backup or restore job fails, an alert occurs within five minutes of the failure. In the vault dashboard, the Backup Alerts tile displays Critical and Warning-level events. In the Backup Alerts settings, you can view all events. But what do you do if an alert occurs when you are working on a separate issue? If you don't know when the alert happens, it could be a minor inconvenience, or it could compromise data. To make sure the correct people are aware of an alert - when it occurs, configure the service to send alert notifications via email. For details on setting up email notifications, see [Configure notifications](backup-azure-monitor-vms.md#configure-notifications).
 
 ## How do I find information about the alerts?
+
 To view information about the event that threw an alert, you must open the Backup Alerts section. There are two ways to open the Backup Alerts section: either from the Backup Alerts tile in the vault dashboard, or from the Alerts and Events section.
 
 To open the Backup Alerts blade from Backup Alerts tile:
@@ -34,9 +36,10 @@ To open the Backup Alerts blade from the Alerts and Events section:
 
     ![Event Detail](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
-    To customize the attributes displayed in the list, see [View additional event attributes](backup-azure-monitor-vms.md#view-additional-event-attributes)
+    To customize the attributes displayed in the list, see [View additional event attributes](backup-azure-monitor-vms.md)
 
 ## Configure notifications
+
  You can configure the service to send email notifications for the alerts that occurred over the past hour, or when particular types of events occur.
 
 To set up email notifications for alerts
@@ -56,14 +59,16 @@ To set up email notifications for alerts
 5. In the **Severity** dialog, choose one or more levels that you want to trigger email notification.
 6. Click **Save**.
 
-   ### What alert types are available for Azure IaaS VM backup?
+### What alert types are available for Azure IaaS VM backup
+
    | Alert Level | Alerts sent |
    | --- | --- |
    | Critical | for Backup failure, recovery failure |
    | Warning | for Backup jobs succeeded with warnings (for example: some writers failed while creating a snapshot) |
    | Informational | currently, no informational alerts are available for Azure VM backup |
 
-### Are there situations where email isn't sent even if notifications are configured?
+### Situations where email isn't sent even if notifications are configured
+
 There are situations where an alert is not sent, even though the notifications have been properly configured. In the following situations email notifications are not sent to avoid alert noise:
 
 * If notifications are configured to Hourly Digest, and an alert is raised and resolved within the hour.
@@ -73,9 +78,13 @@ There are situations where an alert is not sent, even though the notifications h
 
 ## Using Activity logs to get notifications for successful backups
 
+> [!NOTE]
+> We have moved to a new model of pumping Activity logs from Azure Backup on Recovery Services vaults. Unfortunately, this has impacted generation of activity logs in Azure Sovereign Clouds. If Azure Sovereign Cloud users created/configured any alerts from Activity logs via Azure Monitor as mentioned here, they would not be triggered. In that case, we would advise such users to use diagnostic settings and LA workspace or [PowerBI reporting solution](backup-azure-configure-reports.md) to get the relevant information. Also, in all Azure public regions, if a user is collecting Recovery Services Activity logs into a Log Analytic workspace as mentioned [here](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity), these logs also would not appear.
+
 If you want to be notified after backups are successful, you can use alerts built on the [activity logs](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) of the vault.
 
 ### Login into Azure portal
+
 Login into the Azure portal and proceed to the relevant Azure Recovery Services vault and click the “Activity log” section in the properties.
 
 ### Identify appropriate log
@@ -93,7 +102,6 @@ Then click “Add activity log alert” to generate alerts for all such logs.
 Clicking “Add activity log alert” will show you a screen as shown below
 
 ![Activity log alert](./media/backup-azure-monitor-vms/activity-logs-alerts-successful.png)
-    
 The subscription and resource group are used to store the alert. The criteria will be pre-filled. Make sure all the values are relevant to your requirement.
 
 For successful backups, the 'Level' is marked as "Informational" and Status as "Succeeded".
@@ -106,18 +114,19 @@ Use the “action group” to define the action upon generating an alert. You ca
 
 ![Activity log action group](./media/backup-azure-monitor-vms/activity-logs-alerts-action-group.png)
 
-
 Once you click OK, an activity log alert will be generated and subsequent activity logs recorded for successful backups will fire the action as defined in the action group.
 
 ### Limitations on Alerts
+
 Event-based alerts are subject to the following limitations:
 
 1. Alerts are triggered on all virtual machines in the Recovery Services vault. You cannot customize the alert for a subset of virtual machines in a Recovery Services vault.
 2. Alerts are sent from "alerts-noreply@mail.windowsazure.com". Currently you can't modify the email sender.
 
 ## Next steps
+
 For information on re-creating a virtual machine from a recovery point, check out [Restore Azure VMs](backup-azure-arm-restore-vms.md).
 
-If you need information on protecting your virtual machines, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md). 
+If you need information on protecting your virtual machines, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md).
 
 Learn more about the management tasks for VM backups in the article, [Manage Azure virtual machine backups](backup-azure-manage-vms.md).

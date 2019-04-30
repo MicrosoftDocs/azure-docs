@@ -4,23 +4,24 @@ description: Learn what you need to know to migrate classic policies in the Azur
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
-manager: mtillman
+author: MicrosoftGuyJFlo
+manager: daveba
 editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/24/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: nigu
 
-#Customer intent: As a IT admin, I need to understand what a policy migration is in conditional access so that I can get rid of my classic policies.
+#Customer intent: As an IT admin, I need to understand what a policy migration is in conditional access so that I can get rid of my classic policies.
 
+ms.collection: M365-identity-device-management
 ---
 
 # What is a policy migration in Azure Active Directory conditional access? 

@@ -75,17 +75,17 @@ You will use sample code from the [Azure IoT SDK for Node.js](https://github.com
 5. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
 
 6. Under the **Add Enrollment** panel, enter the following information:
-    - Select **X.509** as the identity attestation *Mechanism*.
-    - Under the *Primary certificate .pem or .cer file*, click *Select a file* to select the certificate file **{certificate-name}_cert.pem** created in the previous steps.  
-    - Optionally, you may provide the following information:
-      - Select an IoT hub linked with your provisioning service.
-      - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
-      - Update the **Initial device twin state** with the desired initial configuration for the device.
-   - Once complete, click the **Save** button. 
+   - Select **X.509** as the identity attestation *Mechanism*.
+   - Under the *Primary certificate .pem or .cer file*, click *Select a file* to select the certificate file **{certificate-name}_cert.pem** created in the previous steps.  
+   - Optionally, you may provide the following information:
+     - Select an IoT hub linked with your provisioning service.
+     - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
+     - Update the **Initial device twin state** with the desired initial configuration for the device.
+     - Once complete, click the **Save** button. 
 
-    [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
+     [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
 
-    On successful enrollment, your X.509 device appears as **{certificatename}** under the *Registration ID* column in the *Individual Enrollments* tab. Note this value for later.
+     On successful enrollment, your X.509 device appears as **{certificatename}** under the *Registration ID* column in the *Individual Enrollments* tab. Note this value for later.
 
 ## Simulate the device
 

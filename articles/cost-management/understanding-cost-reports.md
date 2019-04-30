@@ -5,11 +5,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
-ms.custom:
+manager: benshy
+ms.custom: seodec18
 ---
 
 # Understanding Cloudyn cost management reports
@@ -20,7 +20,7 @@ This article helps you understand Cloudyn cost management reports basic structur
 
 Here's a look at an example of the Cost Over Time report. Most Cloudyn reports have a similar layout.
 
-![sample report](./media/understanding-cost-reports/sample-report.png)
+![Example of the Cost Over Time report with numbered areas corresponding to descriptions](./media/understanding-cost-reports/sample-report.png)
 
 Each numbered area in the preceding image is described in detail in the following information:
 
@@ -36,17 +36,17 @@ Each numbered area in the preceding image is described in detail in the followin
       - Asset Management
       - Optimization
 
-  Type a filter name and the click **Save**.
+   Type a filter name and the click **Save**.
 
 3. **Tags**
 
     Use the Tags area to group by tag categories. Tags listed in the menu are Azure department or cost center tags or they are Cloudyn's cost entity and subscription tags. Select tags to filter results. You can also type a tag name (keyword) to filter results.
 
-    ![select options](./media/understanding-cost-reports/select-options.png)
+    ![Example of a list of tags to filter results by](./media/understanding-cost-reports/select-options.png)
 
     Click **Add** to add a new filter.
 
-    ![add filter](./media/understanding-cost-reports/add-filter.png)
+    ![Add filter box showing options and conditions to filter by](./media/understanding-cost-reports/add-filter.png)
 
     Tag grouping or filtering does not relate to Azure resources or resource group tags.
 
@@ -56,9 +56,9 @@ Each numbered area in the preceding image is described in detail in the followin
 
     Use groups in Cost Analysis reports to show standard, itemized categories from billing data in your report.  However, groups in Cost Allocation reports show view tag-based categories. Tag-based categories are defined in the cost allocation model and standard itemized categories from billing data.
 
-    ![groups tags](./media/understanding-cost-reports/groups-tags01.png)
+    ![First example list of tags that you can group by](./media/understanding-cost-reports/groups-tags01.png)
 
-    ![groups tags](./media/understanding-cost-reports/groups-tags02.png)
+    ![Second example list of tags that you can group by](./media/understanding-cost-reports/groups-tags02.png)
 
     In Cost Allocation Reports, groups in tag-based group categories might include:
       - Tags
@@ -66,55 +66,55 @@ Each numbered area in the preceding image is described in detail in the followin
       - Cloudyn cost entity tags
       - Subscription tag categories for cost allocation purposes
 
-  Examples might include:
-     - Cost center
-     - Department
-     - Application
-     - Environment
-     - Cost code
+   Examples might include:
+   - Cost center
+   - Department
+   - Application
+   - Environment
+   - Cost code
 
-    Here's a list of built-in groups available in reports:
+     Here's a list of built-in groups available in reports:
 
-    - **Cost Type**
-      - Select a cost type or multiple cost types, or select all. Cost types include:
-        - One-Time Fee
-        - Support
-        - Usage Cost
-    - **Customer**
-        - Select a specific customer, multiple customers, or select all customers.
-    - **Account Name**
-        - The account or subscription name. In Azure, it is the name of the Azure subscription.
-    - **Account No**
-        - Select an account, multiple accounts, or all accounts. In Azure, it is the Azure subscription’s GUID.
-    - **Parent Account**
-        - Select the parent account, multiple accounts, or select all.
-    - **Service**
-        - Select a service, multiple services, or select all services.
-    - **Provider**
-        - The cloud provider where assets and expenses are associated.
-    - **Region**
-        - Region where the resource is hosted.
-    - **Availability Zone**
-        - AWS isolated locations within a region.
-    - **Resource Type**
-        - The type of resource in use.
-    - **Sub-Type**
-        - Select the sub-type.
-    - **Operation**
-        - Select the operation or **Show all**.
-    - **Price Model**
-        - All Upfront
-        - No Upfront
-        - Partial Upfront
-        - On Demand
-        - Reservation
-        - Spot
-    - **Charge Type**
-        - Select Negative or Positive charge type or both.
-    - **Tenancy**
-        - Whether a machine is running as a dedicated machine.
-    -   **Usage Type**
-          - Usage type can be one-time fees or recurring fees.
+     - **Cost Type**
+     - Select a cost type or multiple cost types, or select all. Cost types include:
+       - One-Time Fee
+       - Support
+       - Usage Cost
+     - **Customer**
+       - Select a specific customer, multiple customers, or select all customers.
+     - **Account Name**
+       - The account or subscription name. In Azure, it is the name of the Azure subscription.
+     - **Account No**
+       - Select an account, multiple accounts, or all accounts. In Azure, it is the Azure subscription’s GUID.
+     - **Parent Account**
+       - Select the parent account, multiple accounts, or select all.
+     - **Service**
+       - Select a service, multiple services, or select all services.
+     - **Provider**
+       - The cloud provider where assets and expenses are associated.
+     - **Region**
+       - Region where the resource is hosted.
+     - **Availability Zone**
+       - AWS isolated locations within a region.
+     - **Resource Type**
+       - The type of resource in use.
+     - **Sub-Type**
+       - Select the sub-type.
+     - **Operation**
+       - Select the operation or **Show all**.
+     - **Price Model**
+       - All Upfront
+       - No Upfront
+       - Partial Upfront
+       - On Demand
+       - Reservation
+       - Spot
+     - **Charge Type**
+       - Select Negative or Positive charge type or both.
+     - **Tenancy**
+       - Whether a machine is running as a dedicated machine.
+     - **Usage Type**
+       - Usage type can be one-time fees or recurring fees.
 
 5. **Filters**
 
@@ -134,7 +134,7 @@ Each numbered area in the preceding image is described in detail in the followin
     - Reserved instances purchase fees
     - Some Azure Marketplace items.
 
-  Under Amortization, select **Amortized cost** or **Actual Cost**.
+   Under Amortization, select **Amortized cost** or **Actual Cost**.
 
 8. **Resolution**
 
@@ -157,11 +157,11 @@ Each numbered area in the preceding image is described in detail in the followin
 
     The Show/hide option does not have any effect in reports.
 
-12.   **Display formats**
+12. **Display formats**
 
     Use Display formats to select various graph or table views.
 
-    ![display formats](./media/understanding-cost-reports/display-formats.png)
+    ![Symbols of display formats that you can select](./media/understanding-cost-reports/display-formats.png)
 
 13. **Multi-color**
 
@@ -186,7 +186,7 @@ While viewing any report, click **Actions** and then select **Save to my reports
 
 ### Save a report to cloud provider storage
 
-In order to save a report to your cloud service provider, you must have already configured a storage account. While viewing any report, click **Actions** and then select **Schedule report**. Name the report and then either add a your own URL or use the automatically created URL. Select **Save to storage** and then select the storage account or add a new one. Enter a prefix that gets appended to the report file name. Select a either CSV or JSON file format and then save the report.
+In order to save a report to your cloud service provider, you must have already configured a storage account. While viewing any report, click **Actions** and then select **Schedule report**. Name the report and then either add a your own URL or use the automatically created URL. Select **Save to storage** and then select the storage account or add a new one. Enter a prefix that gets appended to the report file name. Select a CSV or JSON file format and then save the report.
 
 ### Schedule a report
 

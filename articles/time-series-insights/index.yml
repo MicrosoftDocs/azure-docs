@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Azure Time Series Insights Documentation
 metadata:
-  title: Azure Time Series Insights Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Learn how to run IoT analytics in the cloud with fully-managed event processing. Analyze data in real time from applications, sensors, devices, and more.
+  title: Azure Time Series Insights Documentation - Quickstarts, Tutorials, API Reference | Microsoft Docs
+  description: Learn how to run Azure IoT analytics in the cloud with fully managed event processing. Analyze data from applications, sensors, devices, and more in real time.
   services: time-series-insights
   author: anshan
   manager: cshankar
@@ -11,36 +11,54 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/16/2018
+  ms.date: 04/23/2019
   ms.author: anshan
 abstract:
-  description: Learn how to set up a Time Series Insights environment, explore, and analyze time series data of your IoT solutions or connected things. Documentation describes the prerequisites, how to, API references, and other articles to help you get started in minutes.
+  description: Welcome to Azure Time Series Insights. Azure Time Series Insights provides powerful data exploration and telemetry tools to help you improve operational analysis. This documentation describes the service, how to start working with its many features, the client SDK, and the powerful Time Series Insights APIs. Information is presented for two versions, one that is already generally available (Time Series Insights GA) and a major service update that is in preview (Time Series Insights Preview).
   aside:
     image:
       alt: A video introduction to Azure IoT Time Series Insights features.
       height: 110
-      src: media/index/tsi-intro-shannon-bloch.png
-      width: 250  
-    title: Time Series Insight for IoT apps. (16:09)
-    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Time-Series-Insight-for-IoT-apps/player
+      src: media/index/new-tsi-intro.png
+      width: 250
+    title: Time Series Insight for IoT apps. (13:31)
+    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics
     width: 250
 sections:
+
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: Learn how to deploy Log Analytics and configure collection of data from Azure, other cloud providers, and on-premises resources.
+    text: Learn about Azure Time Series Insights by exploring quick samples that help you get started in minutes.
   - type: list
     style: icon48
     items: 
     - image: 
         src: https://docs.microsoft.com/azure/time-series-insights/media/index/time-series-insights.svg
-      text: Explore Azure Time Series Insights
+      text: Explore Azure Time Series Insights GA
       href: /azure/time-series-insights/time-series-quickstart
+  - html: <p><a href="/azure/time-series-insights/time-series-insights-update-quickstart">Explore Azure Time Series Insights Preview</a></p>
+
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to create Azure Time Series Insights environments, single-page web apps, and more through several step-by-step examples.
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Azure Time Series Insights GA
+      html: <p><a href="/azure/time-series-insights/tutorial-create-populate-tsi-environment">Create an environment</a></p> <p><a href="/azure/time-series-insights/tutorial-create-tsi-sample-spa">Create a single-page web app</a></p> <p><a href="/azure/time-series-insights/tutorial-explore-js-client-lib">Explore the JavaScript client library</a></p>
+    - title: Azure Time Series Insights Preview
+      html: <p><a href="/azure/time-series-insights/time-series-insights-update-create-environment">Preview tutorial</a></p>
+
 - title: Reference
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: APIs
-      html: <p><a href="/rest/api/time-series-insights-management">Resource Management API</a></p>   <p><a href="/rest/api/time-series-insights/time-series-insights-reference-queryapi">Query API</a></p><p><a href="/rest/api/time-series-insights/time-series-insights-reference-query-syntax">Query Syntax</a></p>
+    - title: Time Series Insights GA APIs
+      html: <p><a href="/rest/api/time-series-insights-management">Resource Management API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">Query API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">Query Syntax</a></p>
+    - title: Time Series Insights Preview APIs
+      html: <p><a href="/rest/api/time-series-insights/preview-query">Query API</a></p> <p><a href="/rest/api/time-series-insights/preview-model">Model API</a></p> <p><a href="/rest/api/time-series-insights/preview-env">Environment API</a></p> <p><a href="/rest/api/time-series-insights/preview-tsx">Time Series Expression API</a></p>

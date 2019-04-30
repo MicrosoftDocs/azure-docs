@@ -1,19 +1,22 @@
 ---
-title: Go language Quickstart - predict intent - LUIS
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, use an available public LUIS app to determine a user's intention from conversational text. Using GO, send the user's intention as text to the public app's HTTP prediction endpoint. At the endpoint, LUIS applies the public app's model to analyze the natural language text for meaning, determining overall intent and extracting data relevant to the app's subject domain. 
+title: Get intent, Go
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: In this Go quickstart, use an available public LUIS app to determine a user's intention from conversational text.  
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the LUIS service, I want to query the LUIS endpoint of a published model using GO so that I can see the JSON prediction response. 
 ---
 
 # Quickstart: Get intent using Go
+
+In this quickstart, pass utterances to a LUIS endpoint and get intent and entities back.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 

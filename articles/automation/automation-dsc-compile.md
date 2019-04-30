@@ -3,7 +3,7 @@ title: Compiling configurations in Azure Automation State Configuration
 description: This article describes how to compile Desired State Configuration (DSC) configurations for Azure Automation.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 09/10/2018
@@ -319,6 +319,18 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 > [!NOTE]
 > When compilation is complete you may receive an error stating: **The 'Microsoft.PowerShell.Management' module was not imported because the 'Microsoft.PowerShell.Management' snap-in was already imported.** This warning can safely be ignored.
+
+## Partial Configuration
+
+Azure Automation State Configuration supports usage of
+[partial configurations](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs).
+In this scenario, DSC is configured to manage multiple configurations independently,
+and each configuration is retreieved from Azure Automation.
+However, only one configuration can be assigned to a node per automation account.
+This means if you are using two configurations for a node you will require two automation accounts.
+For more information about how teams can work together to collaboratively manage servers
+using configuration as code see
+[Understanding DSC's role in a CI/CD Pipeline](https://docs.microsoft.com/powershell/dsc/overview/authoringadvanced).
 
 ## Importing node configurations
 

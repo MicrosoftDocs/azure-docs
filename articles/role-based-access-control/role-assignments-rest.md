@@ -1,6 +1,6 @@
 ---
-title: Manage access using RBAC and the REST API - Azure | Microsoft Docs
-description: Learn how to manage access for users, groups, and applications, using role-based access control (RBAC) and the REST API. This includes how to list access, grant access, and remove access.
+title: Manage access to Azure resources using RBAC and the REST API - Azure | Microsoft Docs
+description: Learn how to manage access to Azure resources for users, groups, and applications using role-based access control (RBAC) and the REST API. This includes how to list access, grant access, and remove access.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -18,13 +18,13 @@ ms.author: rolyon
 ms.reviewer: bagovind
 
 ---
-# Manage access using RBAC and the REST API
+# Manage access to Azure resources using RBAC and the REST API
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you manage access for users, groups, and applications using RBAC and the REST API.
+[Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. This article describes how you manage access for users, groups, and applications using RBAC and the REST API.
 
 ## List access
 
-In RBAC, to list access, you list the role assignments. To list role assignments, use one of the [Role Assignments - List](/rest/api/authorization/roleassignments/list) REST APIs. To refine your results, you specify a scope and an optional filter. To call the API, you must have access to the `Microsoft.Authorization/roleAssignments/read` operation at the specified scope. Several [built-in roles](built-in-roles.md) are granted access to this operation.
+In RBAC, to list access, you list the role assignments. To list role assignments, use one of the [Role Assignments - List](/rest/api/authorization/roleassignments/list) REST APIs. To refine your results, you specify a scope and an optional filter.
 
 1. Start with the following request:
 
@@ -113,4 +113,4 @@ In RBAC, to remove access, you remove a role assignment. To remove a role assign
 
 - [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 - [Azure REST API Reference](/rest/api/azure/)
-- [Create custom roles using the REST API](custom-roles-rest.md)
+- [Create custom roles for Azure resources using the REST API](custom-roles-rest.md)

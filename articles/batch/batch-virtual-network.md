@@ -1,14 +1,16 @@
 ---
-title: Provision Azure Batch pool in a virtual network | Microsoft Docs
+title: Provision a pool in a virtual network - Azure Batch | Microsoft Docs
 description: How to create a Batch pool in an Azure virtual network so that compute nodes can communicate securely with other VMs in the network, such as a file server.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 
 ms.service: batch
 ms.topic: article
-ms.date: 10/05/2018
-ms.author: danlep
+ms.date: 04/10/2019
+ms.author: lahugh
+ms.custom: seodec18
+
 ---
 
 # Create an Azure Batch pool in a virtual network
@@ -43,7 +45,7 @@ Once you have created your VNet and assigned a subnet to it, you can create a Ba
 6. Specify the remaining required settings, including the **Node size**, **Target dedicated nodes**, and **Low priority nodes**, as well as any desired optional settings.
 7. In **Virtual Network**, select the virtual network and subnet you wish to use.
   
-  ![Add pool with virtual network](./media/batch-virtual-network/add-vnet-pool.png)
+   ![Add pool with virtual network](./media/batch-virtual-network/add-vnet-pool.png)
 
 ## User-defined routes for forced tunneling
 

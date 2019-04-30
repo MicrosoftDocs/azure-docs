@@ -66,18 +66,17 @@ The following steps guide you through the process of adding an owner or user to 
 3. From the list of labs, select the desired lab.
 4. On the lab's blade, select **Configuration and policies**. 
 5. On the **Configuration and policies** page, select **Access control (IAM)** from the menu on the left. 
-6. Select **Add** on the toolbar to add a user to a role.
-
-    ![Add user](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
+6. Select **Add role assignment** on the toolbar to add a user to a role.
 1. In the **Add permissions** window, do the following actions: 
     1. Select a role (for example: DevTest Labs User). The section [Actions that can be performed in each role](#actions-that-can-be-performed-in-each-role) lists the various actions that can be performed by users in the Owner, DevTest User, and Contributor roles.
     2. Select the user to be added to the role. 
     3. Select **Save**. 
-
-        ![Add user to the role](./media/devtest-lab-add-devtest-user/add-user.png) 
 11. When you return to the **Users** blade, the user has been added.  
 
 ## Add an external user to a lab using PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 In addition to adding users in the Azure portal, you can add an external user to your lab using a PowerShell script. 
 In the following example, modify the parameter values under the **Values to change** comment.
 You can retrieve the `subscriptionId`, `labResourceGroup`, and `labName` values from the lab blade in the Azure portal.
@@ -98,18 +97,18 @@ You can retrieve the `subscriptionId`, `labResourceGroup`, and `labName` values 
     $userDisplayName = "<Enter user's display name here>"
 
     # Log into your Azure account
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
     # Select the Azure subscription that contains the lab. 
     # This step is optional if you have only one subscription.
-    Select-AzureRmSubscription -SubscriptionId $subscriptionId
+    Select-AzSubscription -SubscriptionId $subscriptionId
 
     # Retrieve the user object
-    $adObject = Get-AzureRmADUser -SearchString $userDisplayName
+    $adObject = Get-AzADUser -SearchString $userDisplayName
 
     # Create the role assignment. 
     $labId = ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
-    New-AzureRmRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
+    New-AzRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
 
 ## Add an owner or user at the subscription level
 Azure permissions are propagated from parent scope to child scope in Azure. Therefore, owners of an Azure subscription that contains labs are automatically owners of those labs. They also own the VMs and other resources created by the lab's users, and the Azure DevTest Labs service. 

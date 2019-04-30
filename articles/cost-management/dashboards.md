@@ -1,15 +1,15 @@
 ---
 title: View key metrics with Cloudyn dashboards in Azure | Microsoft Docs
-description: This article describes how view key metrics with dashboards in Cloudyn.
+description: This article describes how you can view key metrics with dashboards in Cloudyn.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
-ms.custom:
+manager: vitavor
+ms.custom: seodec18
 ---
 
 # View key cost metrics with dashboards
@@ -38,7 +38,7 @@ To quickly get started with a custom dashboard, you can duplicate an existing on
 To create a custom dashboard:
 
 1. On the homepage, click **Add New +**. The My Dashboard page is displayed.  
-    ![My dashboard](./media/dashboards/my-dashboard.png)
+    ![My dashboard page where you add new reports](./media/dashboards/my-dashboard.png)
 2. Click **Add New Report**. The Add Report box is displayed.
 3. Select the report that you want to add to the dashboard widget. The widget is added to the dashboard.
 4. Repeat the preceding steps until the dashboard is complete.
@@ -58,7 +58,7 @@ You can share a custom dashboard with others to _Public_ or _My Entity_. When yo
 To share a custom dashboard to Public:
 
 1. In a dashboard, click **Dashboard Settings**. The Dashboard Settings box is displayed.  
-    ![dashboard options](./media/dashboards/dashboard-options.png)
+    ![dashboard settings for a custom dashboard](./media/dashboards/dashboard-options.png)
 2. In the Dashboard Settings box, click the arrow symbol and then click **Public**. The Public Dashboard confirmation dialog box is displayed.
 3. Click  **Yes**. The dashboard is now available to others.
 
@@ -111,13 +111,13 @@ You can set any dashboard as your default. Setting it to your default makes it a
 -Or-
 
 1. Click **Dashboard Settings** to see the list of available dashboards and select the dashboard that you want to set as the default.  
-    ![dashboard options](./media/dashboards/dashboard-options.png)
+    ![dashboard options for a default dashboard](./media/dashboards/dashboard-options.png)
 2. Click **Default** in the line of the dashboard. The Default Dashboard confirmation box is displayed.
 3. Click **Yes**. The dashboard is set to default.
 
 ## Management dashboard
 The Management (or MSP dashboard for MSP users) dashboard includes highlights of the main report types.  
-![Management dashboard](./media/dashboards/management-dash.png)
+![Management dashboard showing various reports](./media/dashboards/management-dash.png)
 
 ### Cost Entity Summary (Enterprise only)
 This widget summarizes the managed cost entities, including the number of entities and number of accounts.
@@ -153,7 +153,7 @@ This widget displays the storage services used by departments. Hover over the pi
 
 ## Cost Controller dashboard
 The Cost Controller dashboard shows pre-set cost allocation highlights.  
-![Cost Controller dashboard](./media/dashboards/cost-controller-dashboard.png)
+![Cost Controller dashboard showing various reports](./media/dashboards/cost-controller-dashboard.png)
 
 ### Cost Over Time
 This widget helps you spot cost trends. It highlights the cost for the last day, based on the trend of the last 30 days.
@@ -193,7 +193,7 @@ This widget highlights spend over the last six months.
 ## Asset Controller dashboard
 
 This dashboard displays the number of running instances, available and in-use disks, distribution of instance types, and storage information.  
-![Asset Controller dashboard](./media/dashboards/asset-controller-dashboard.png)
+![Asset Controller dashboard showing various reports](./media/dashboards/asset-controller-dashboard.png)
 
 ### Compute Instances
 This widget displays the number of running instances based on the usage trend over the last 30 days.
@@ -222,7 +222,7 @@ This widget highlights the number of running Amazon RDS instances based on the t
 
 ## Optimizer Dashboard
 This dashboard displays downsizing recommendations, unused resources, and potential savings.  
-![Optimizer dashboard](./media/dashboards/optimizer-dashboard.png)
+![Optimizer dashboard showing various reports](./media/dashboards/optimizer-dashboard.png)
 
 ### RI Calculator
 This widget displays the number of RI buying recommendations and highlights the potential annual savings.
@@ -252,7 +252,7 @@ The optimization recommendations are based on the usage and performance data mon
 
 ## S3 Tracker dashboard
 The S3 Tracker dashboard helps you find, analyze, and display your current storage usage and trends.  
-![S3 Tracker dashboard](./media/dashboards/s3-tracker-dashboard.png)
+![S3 Tracker dashboard showing various reports](./media/dashboards/s3-tracker-dashboard.png)
 
 ### All Buckets
 This widget highlights the total size of all your buckets, in GB, and the total number of objects in your buckets.
@@ -276,7 +276,7 @@ This widget highlights the number of objects per bucket in actual number and per
 
 ## Cloud Comparison Dashboard
 The Cloud Comparison dashboard helps you compare costs from different cloud providers based on pricing, CPU type, and RAM size.  
-![Cloud Comparison dashboard](./media/dashboards/cloud-comparison-dashboard.png)
+![Cloud Comparison dashboard showing various reports](./media/dashboards/cloud-comparison-dashboard.png)
 
 ### EC2 Cost in Azure by Instance Type
 This widget highlights the last 30 days of usage in on-demand rates. It compares the cost with the current Amazon EC2 cost vs the potential cost in Azure.

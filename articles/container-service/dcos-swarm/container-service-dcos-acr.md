@@ -1,5 +1,5 @@
 ---
-title: Using ACR with an Azure DC/OS cluster
+title: (DEPRECATED) Using ACR with an Azure DC/OS cluster
 description: Use an Azure Container Registry with a DC/OS cluster in Azure Container Service
 services: container-service
 author: julienstroheker
@@ -12,7 +12,9 @@ ms.author: juliens
 ms.custom: mvc
 
 ---
-# Use ACR with a DC/OS cluster to deploy your application
+# (DEPRECATED) Use ACR with a DC/OS cluster to deploy your application
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 In this article, we explore how to use Azure Container Registry with a DC/OS cluster. Using ACR allows you to privately store and manage container images. This tutorial covers the following tasks:
 
@@ -125,7 +127,7 @@ Now capture the container into a new image. The image name needs to include the 
 
 ```azurecli-interactive
 docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo
-````
+```
 
 Login into the Azure Container Registry. Replace the name with the loginServer name, the --username with the name of the container registry, and the --password with one of the provided passwords.
 

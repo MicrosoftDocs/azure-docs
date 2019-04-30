@@ -4,7 +4,7 @@ description: Learn how to remotely connect to a scale set instance (a Service Fa
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48

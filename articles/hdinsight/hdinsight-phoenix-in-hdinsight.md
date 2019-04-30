@@ -1,7 +1,6 @@
 ---
 title: Apache Phoenix in HDInsight - Azure HDInsight 
 description: 
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 
@@ -14,9 +13,9 @@ ms.author: ashishth
 ---
 # Apache Phoenix in HDInsight
 
-[Apache Phoenix](http://phoenix.apache.org/) is an open source, massively parallel relational database layer built on [HBase](hbase/apache-hbase-overview.md). Phoenix allows you to use SQL-like queries over HBase. Phoenix uses JDBC drivers underneath to enable users to create, delete, alter SQL tables, indexes, views and sequences, and upsert rows individually and in bulk. Phoenix uses noSQL native compilation rather than using MapReduce to compile queries, enabling the creation of low-latency applications on top of HBase. Phoenix adds coprocessors to support running client-supplied code in the address space of the server, executing the code colocated with the data. This approach minimizes client/server data transfer.
+[Apache Phoenix](https://phoenix.apache.org/) is an open source, massively parallel relational database layer built on [Apache HBase](hbase/apache-hbase-overview.md). Phoenix allows you to use SQL-like queries over HBase. Phoenix uses JDBC drivers underneath to enable users to create, delete, alter SQL tables, indexes, views and sequences, and upsert rows individually and in bulk. Phoenix uses noSQL native compilation rather than using MapReduce to compile queries, enabling the creation of low-latency applications on top of HBase. Phoenix adds coprocessors to support running client-supplied code in the address space of the server, executing the code colocated with the data. This approach minimizes client/server data transfer.
 
-Apache Phoenix opens up big data queries to non-developers who can use  an SQL-like syntax rather than programming. Phoenix is highly optimized for HBase, unlike other tools such as [Hive](hadoop/hdinsight-use-hive.md) and Spark SQL. The benefit to developers is writing highly performant queries with much less code.
+Apache Phoenix opens up big data queries to non-developers who can use a SQL-like syntax rather than programming. Phoenix is highly optimized for HBase, unlike other tools such as [Apache Hive](hadoop/hdinsight-use-hive.md) and Apache Spark SQL. The benefit to developers is writing highly performant queries with much less code.
 <!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 When you submit a SQL query, Phoenix compiles the query to HBase native calls and runs the scan (or plan) in parallel for optimization. This layer of abstraction frees the developer from writing MapReduce jobs,  to focus instead on the business logic and the workflow of their application around Phoenix's big data storage.
@@ -66,17 +65,17 @@ To add more columns later,  use the `ALTER VIEW` statement.
 
 ### Skip scan
 
-Skip scan uses one or more columns of a composite index to find distinct values. Unlike a range scan, skip scan implements intra-row scanning, yielding [improved performance](http://phoenix.apache.org/performance.html#Skip-Scan). While scanning, the first matched value is skipped along with the index until the next value is found.
+Skip scan uses one or more columns of a composite index to find distinct values. Unlike a range scan, skip scan implements intra-row scanning, yielding [improved performance](https://phoenix.apache.org/performance.html#Skip-Scan). While scanning, the first matched value is skipped along with the index until the next value is found.
 
 A skip scan uses the `SEEK_NEXT_USING_HINT` enumeration of the HBase filter. Using `SEEK_NEXT_USING_HINT`, the skip scan keeps track of which set of keys, or ranges of keys, are being searched for in each column. The skip scan then takes a key that was passed to it during filter evaluation, and determines whether it is one of the combinations. If not, the skip scan evaluates the next highest key to jump to.
 
 ### Transactions
 
-While HBase provides row-level transactions, Phoenix integrates with [Tephra](http://tephra.io/) to add cross-row and cross-table transaction support with full [ACID](https://en.wikipedia.org/wiki/ACID) semantics.
+While HBase provides row-level transactions, Phoenix integrates with [Tephra](https://tephra.io/) to add cross-row and cross-table transaction support with full [ACID](https://en.wikipedia.org/wiki/ACID) semantics.
 
 As with traditional SQL transactions, transactions provided through the Phoenix transaction manager allow you to ensure an atomic unit of data is successfully upserted, rolling back the transaction if the upsert operation fails on any transaction-enabled table.
 
-To enable Phoenix transactions, see the [Apache Phoenix transaction documentation](http://phoenix.apache.org/transactions.html).
+To enable Phoenix transactions, see the [Apache Phoenix transaction documentation](https://phoenix.apache.org/transactions.html).
 
 To create a new table with transactions enabled, set the `TRANSACTIONAL` property to `true` in a `CREATE` statement:
 
@@ -90,7 +89,7 @@ To alter an existing table to be transactional, use the same property in an `ALT
 ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > You cannot switch a transactional table back to being non-transactional.
 
 ### Salted Tables
@@ -118,7 +117,7 @@ CREATE TABLE Saltedweblogs (
     shippingamount DOUBLE NULL) SALT_BUCKETS=4;
 ```
 
-## Enable and tune Phoenix with Ambari
+## Enable and tune Phoenix with Apache Ambari
 
 An HDInsight HBase cluster includes the [Ambari UI](hdinsight-hadoop-manage-ambari.md) for making configuration changes.
 

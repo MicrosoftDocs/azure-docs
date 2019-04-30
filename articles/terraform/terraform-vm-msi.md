@@ -2,9 +2,9 @@
 title: Use an Azure Marketplace image to create a Terraform Linux virtual machine with a managed identity
 description: Use Marketplace image to create Terraform Linux virtual machine with a managed identity and Remote State Management to easily deploy resources to Azure.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, MSI, virtual machine, remote state, azure
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
@@ -32,7 +32,7 @@ Here are the steps to create an instance of a Linux Terraform virtual machine:
 
 3. On the Terraform details tab on the lower right, select the **Create** button.
 
-    ![Create a Terraform virtual machine](media\terraformmsi.png)
+    ![Create a Terraform virtual machine](media/terraformmsi.png)
 
 4. The following sections provide inputs for each of the steps in the wizard to create the Terraform Linux virtual machine. The following section lists the inputs that are needed to configure each of these steps.
 
@@ -72,7 +72,7 @@ The Terraform VM image performs the following steps:
 
 ## Access and configure a Linux Terraform virtual machine
 
-After you create the VM, you can sign in to it by using SSH. Use the account credentials that you created in the "Basics" section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](http://www.putty.org/).
+After you create the VM, you can sign in to it by using SSH. Use the account credentials that you created in the "Basics" section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](https://www.putty.org/).
 
 After you use SSH to connect to the virtual machine, you need to give contributor permissions for the entire subscription to managed identities for Azure resources on the virtual machine. 
 
@@ -80,7 +80,7 @@ Contributor permission helps MSI on VM to use Terraform to create resources outs
 
 `. ~/tfEnv.sh`
 
-The previous script uses the [AZ CLI v 2.0 interactive log-in](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) mechanism to authenticate with Azure and assign the virtual machine Managed Identity contributor permission on the entire subscription. 
+The previous script uses the [AZ CLI v 2.0 interactive log-in](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) mechanism to authenticate with Azure and assign the virtual machine Managed Identity contributor permission on the entire subscription. 
 
  The VM has a Terraform remote state back end. To enable it on your Terraform deployment, copy the remoteState.tf file from tfTemplate directory to the root of the Terraform scripts.  
 

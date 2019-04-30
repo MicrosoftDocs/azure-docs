@@ -4,11 +4,10 @@ description: This article describes geospatial functions that are used in Azure 
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 12/06/2018
 ---
 
 # Introduction to Stream Analytics geospatial functions

@@ -60,7 +60,7 @@ If you want to confirm that your solution has been published or test it, you nee
 
 To obtain an account:
 
-1. Request an [Azure Government trial account](https://azuregov.microsoft.com/trial/azuregovtrial).
+1. Request an [Azure Government trial account](https://azure.microsoft.com/global-infrastructure/government/request/?ReqType=Trial).
     * Indicate that your organization is a *Solution Provider Serving U.S. Federal, State, Local or Tribal Government Entities*.
 1. Wait for 3 - 5 business days for your account to be provisioned.
 1. Log in to the [Azure Government portal](https://portal.azure.us) with your newly created account.
@@ -99,10 +99,10 @@ Make sure that the image that your solution template relies on is available in A
 Check out the [Azure Government Marketplace images](documentation-government-image-gallery.md) documentation to obtain the list of images available.
 
 #### Resource providers and API versions
-You can obtain the full list of resource providers and their API versions by logging in to the [Azure Government portal](https://portal.azure.us) using your Azure Government account and following the steps listed in the [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md#portal) documentation.
+You can obtain the full list of resource providers and their API versions by logging in to the [Azure Government portal](https://portal.azure.us) using your Azure Government account and following the steps listed in the [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md#azure-portal) documentation.
 
 #### Extensions
-Make sure that your any virtual machine extensions that your solution template relies on is available in Azure Government. Check out the [Azure Government virtual machine extensions](documentation-government-extension.md) documentation to obtain the list of extensions available.
+Make sure that any virtual machine extensions that your solution template relies on are available in Azure Government. Check out the [Azure Government virtual machine extensions](documentation-government-extension.md) documentation to obtain the list of extensions available.
  
 ## Next steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)

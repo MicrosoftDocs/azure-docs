@@ -10,9 +10,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/28/2019
 ms.author: jingwang
 
 ---
@@ -131,7 +131,7 @@ For each Copy Activity run, Data Factory determines the number of parallel copie
 | Copy data from any source data store to Azure Table storage |4 |
 | All other copy scenarios |1 |
 
-[!TIP]
+> [!TIP]
 > When copying data between file-based stores, the default behavior (auto determined) usually give you the best throughput. 
 
 To control the load on machines that host your data stores, or to tune copy performance, you may choose to override the default value and specify a value for the **parallelCopies** property. The value must be an integer greater than or equal to 1. At run time, for the best performance, Copy Activity uses a value that is less than or equal to the value that you set.
@@ -192,6 +192,9 @@ Configure the **enableStaging** setting in Copy Activity to specify whether you 
 | **path** |Specify the Blob storage path that you want to contain the staged data. If you do not provide a path, the service creates a container to store temporary data. <br/><br/> Specify a path only if you use Storage with a shared access signature, or you require temporary data to be in a specific location. |N/A |No |
 | **enableCompression** |Specifies whether data should be compressed before it is copied to the destination. This setting reduces the volume of data being transferred. |False |No |
 
+>[!NOTE]
+> If you use staged copy with compression enabled, service principal or MSI authentication for staging blob linked service is not supported.
+
 Here's a sample definition of Copy Activity with the properties that are described in the preceding table:
 
 ```json
@@ -235,7 +238,17 @@ We suggest that you take these steps to tune the performance of your Data Factor
 
 1. **Establish a baseline**. During the development phase, test your pipeline by using Copy Activity against a representative data sample. Collect execution details and performance characteristics following [Copy activity monitoring](copy-activity-overview.md#monitoring).
 
-2. **Diagnose and optimize performance**. If the performance you observe doesn't meet your expectations, you need to identify performance bottlenecks. Then, optimize performance to remove or reduce the effect of bottlenecks. A full description of performance diagnosis is beyond the scope of this article, but here are some common considerations:
+2. **Diagnose and optimize performance**. If the performance you observe doesn't meet your expectations, you need to identify performance bottlenecks. Then, optimize performance to remove or reduce the effect of bottlenecks. 
+
+    In some cases, when you execute a copy activity in ADF, you will directly see "**Performance tuning tips**" on top of the [copy activity monitoring page](copy-activity-overview.md#monitor-visually) as shown in the following example. It not only tells you the bottleneck identified for the given copy run, but also guides you on what to change so as to boost copy throughput. The performance tuning tips currently provide suggestions like to use PolyBase when copying data into Azure SQL Data Warehouse, to increase Azure Cosmos DB RU or Azure SQL DB DTU when the resource on data store side is the bottleneck, to remove the unnecessary staged copy, etc. The performance tuning rules will be gradually enriched as well.
+
+    **Example: copy into Azure SQL DB with performance tuning tips**
+
+    In this sample, during copy run, ADF notice the sink Azure SQL DB reaches high DTU utilization which slows down the write operations, thus the suggestion is to increase the Azure SQL DB tier with more DTU. 
+
+    ![Copy monitoring with performance tuning tips](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+    In addition, the following are some common considerations. A full description of performance diagnosis is beyond the scope of this article.
 
    * Performance features:
      * [Parallel copy](#parallel-copy)

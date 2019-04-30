@@ -13,7 +13,7 @@
 
     ![Specify a DNS server](./media/vpn-gateway-specify-dns-portal-include/specify-dns-server.png "Specify a DNS Server")
 
-  - **DNS Servers:** Select **Custom**.
-  - **Add DNS server:** Enter the IP address of the DNS server that you want to use for name resolution.
+   - **DNS Servers:** Select **Custom**.
+   - **Add DNS server:** Enter the IP address of the DNS server that you want to use for name resolution.
 
 2. When you are done adding DNS servers, click **Save** at the top of the page.

@@ -3,7 +3,6 @@ title: Common query patterns in Azure Stream Analytics
 description: This article describes a number of common query patterns and designs that are useful in Azure Stream Analytics jobs.
 services: stream-analytics
 author: jseb225
-manager: kfile
 ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
@@ -43,6 +42,7 @@ For example, the car weight is coming on the input stream as strings and needs t
 
 **Solution**:
 
+```SQL
     SELECT
         Make,
         SUM(CAST(Weight AS BIGINT)) AS Weight
@@ -51,6 +51,7 @@ For example, the car weight is coming on the input stream as strings and needs t
     GROUP BY
         Make,
         TumblingWindow(second, 10)
+```
 
 **Explanation**:
 Use a **CAST** statement in the **Weight** field to specify its data type. See the list of supported data types in [Data types (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835065.aspx).
@@ -76,12 +77,14 @@ For example, check that the result returns license plates that start with A and 
 
 **Solution**:
 
+```SQL
     SELECT
         *
     FROM
         Input TIMESTAMP BY Time
     WHERE
         LicensePlate LIKE 'A%9'
+```
 
 **Explanation**:
 Use the **LIKE** statement to check the **LicensePlate** field value. It should start with an A, then have any string of zero or more characters, and then end with a 9. 
@@ -101,12 +104,13 @@ For example, provide a string description for how many cars of the same make pas
 **Output**:
 
 | CarsPassed | Time |
-| --- | --- | --- |
+| --- | --- |
 | 1 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 Toyotas |2015-01-01T00:00:10.0000000Z |
 
 **Solution**:
 
+```SQL
     SELECT
         CASE
             WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
@@ -118,6 +122,7 @@ For example, provide a string description for how many cars of the same make pas
     GROUP BY
         Make,
         TumblingWindow(second, 10)
+```
 
 **Explanation**:
 The **CASE** expression compares an expression to a set of simple expressions to determine the result. In this example, vehicle makes with a count of 1 returned a different string description than vehicle makes with a count other than 1. 
@@ -154,6 +159,7 @@ For example, analyze data for a threshold-based alert and archive all events to 
 
 **Solution**:
 
+```SQL
     SELECT
         *
     INTO
@@ -174,6 +180,7 @@ For example, analyze data for a threshold-based alert and archive all events to 
         TumblingWindow(second, 10)
     HAVING
         [Count] >= 3
+```
 
 **Explanation**:
 The **INTO** clause tells Stream Analytics which of the outputs to write the data to from this statement.
@@ -183,6 +190,7 @@ The second query does some simple aggregation and filtering, and it sends the re
 Note that you can also reuse the results of the common table expressions (CTEs) (such as **WITH** statements) in multiple output statements. This option has the added benefit of opening fewer readers to the input source.
 For example: 
 
+```SQL
     WITH AllRedCars AS (
         SELECT
             *
@@ -193,6 +201,7 @@ For example:
     )
     SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
     SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
+```
 
 ## Query example: Count unique values
 **Description**: Count the number of unique field values that appear in the stream within a time window.
@@ -217,14 +226,14 @@ For example, how many unique makes of cars passed through the toll booth in a 2-
 
 **Solution:**
 
-````
+```SQL
 SELECT
      COUNT(DISTINCT Make) AS CountMake,
      System.TIMESTAMP AS TIME
 FROM Input TIMESTAMP BY TIME
 GROUP BY 
      TumblingWindow(second, 2)
-````
+```
 
 
 **Explanation:**
@@ -249,6 +258,7 @@ For example, is the previous car on the toll road the same make as the current c
 
 **Solution**:
 
+```SQL
     SELECT
         Make,
         Time
@@ -256,6 +266,7 @@ For example, is the previous car on the toll road the same make as the current c
         Input TIMESTAMP BY Time
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
+```
 
 **Explanation**:
 Use **LAG** to peek into the input stream one event back and get the **Make** value. Then compare it to the **Make** value on the current event and output the event if they are different.
@@ -284,6 +295,7 @@ Use **LAG** to peek into the input stream one event back and get the **Make** va
 
 **Solution**:
 
+```SQL
     SELECT 
         LicensePlate,
         Make,
@@ -292,6 +304,7 @@ Use **LAG** to peek into the input stream one event back and get the **Make** va
         Input TIMESTAMP BY Time
     WHERE 
         IsFirst(minute, 10) = 1
+```
 
 Now let’s change the problem and find the first car of a particular make in every 10-minute interval.
 
@@ -305,6 +318,7 @@ Now let’s change the problem and find the first car of a particular make in ev
 
 **Solution**:
 
+```SQL
     SELECT 
         LicensePlate,
         Make,
@@ -313,6 +327,7 @@ Now let’s change the problem and find the first car of a particular make in ev
         Input TIMESTAMP BY Time
     WHERE 
         IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
+```
 
 ## Query example: Find the last event in a window
 **Description**: Find the last car in every 10-minute interval.
@@ -338,6 +353,7 @@ Now let’s change the problem and find the first car of a particular make in ev
 
 **Solution**:
 
+```SQL
     WITH LastInWindow AS
     (
         SELECT 
@@ -356,6 +372,7 @@ Now let’s change the problem and find the first car of a particular make in ev
         INNER JOIN LastInWindow
         ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
         AND Input.Time = LastInWindow.LastEventTime
+```
 
 **Explanation**:
 There are two steps in the query. The first one finds the latest time stamp in 10-minute windows. The second step joins the results of the first query with the original stream to find the events that match the last time stamps in each window. 
@@ -381,6 +398,7 @@ For example, have 2 consecutive cars from the same make entered the toll road wi
 
 **Solution**:
 
+```SQL
     SELECT
         Make,
         Time,
@@ -391,6 +409,7 @@ For example, have 2 consecutive cars from the same make entered the toll road wi
         Input TIMESTAMP BY Time
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
+```
 
 **Explanation**:
 Use **LAG** to peek into the input stream one event back and get the **Make** value. Compare it to the **MAKE** value in the current event, and then output the event if they are the same. You can also use **LAG** to get data about the previous car.
@@ -413,13 +432,13 @@ Use **LAG** to peek into the input stream one event back and get the **Make** va
 
 **Solution**:
 
-````
+```SQL
     SELECT
         [user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
     FROM input TIMESTAMP BY Time
     WHERE
         Event = 'end'
-````
+```
 
 **Explanation**:
 Use the **LAST** function to retrieve the last **TIME** value when the event type was **Start**. The **LAST** function uses **PARTITION BY [user]** to indicate that the result is computed per unique user. The query has a 1-hour maximum threshold for the time difference between **Start** and **Stop** events, but is configurable as needed **(LIMIT DURATION(hour, 1)**.
@@ -449,7 +468,7 @@ For example, suppose that a bug resulted in all cars having an incorrect weight 
 
 **Solution**:
 
-````
+```SQL
     WITH SelectPreviousEvent AS
     (
     SELECT
@@ -466,7 +485,7 @@ For example, suppose that a bug resulted in all cars having an incorrect weight 
     WHERE
         [weight] < 20000
         AND previousWeight > 20000
-````
+```
 
 **Explanation**:
 Use **LAG** to view the input stream for 24 hours and look for instances where **StartFault** and **StopFault** are spanned by the weight < 20000.
@@ -503,13 +522,14 @@ For example, generate an event every 5 seconds that reports the most recently se
 
 **Solution**:
 
+```SQL
     SELECT
         System.Timestamp AS windowEnd,
         TopOne() OVER (ORDER BY t DESC) AS lastEvent
     FROM
         input TIMESTAMP BY t
     GROUP BY HOPPINGWINDOW(second, 300, 5)
-
+```
 
 **Explanation**:
 This query generates events every 5 seconds and outputs the last event that was received previously. The [Hopping window](https://msdn.microsoft.com/library/dn835041.aspx "Hopping window--Azure Stream Analytics") duration determines how far back the query looks to find the latest event (300 seconds in this example).
@@ -550,7 +570,7 @@ For example, in an IoT scenario for home ovens, an alert must be generated when 
 
 **Solution**:
 
-````
+```SQL
 WITH max_power_during_last_3_mins AS (
     SELECT 
         System.TimeStamp AS windowTime,
@@ -584,7 +604,7 @@ WHERE
     t1.sensorName = 'temp'
     AND t1.value <= 40
     AND t2.maxPower > 10
-````
+```
 
 **Explanation**:
 The first query `max_power_during_last_3_mins`, uses the [Sliding window](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) to find the max value of the power sensor for every device, during the last 3 minutes. 
@@ -592,10 +612,11 @@ The second query is joined to the first query to find the power value in the mos
 And then, provided the conditions are met, an alert is generated for the device.
 
 ## Query example: Process events independent of Device Clock Skew (substreams)
-**Description**: Events can arrive late or out of order due to clock skews between event producers, clock skews between partitions, or network latency. In the following example, the device clock for TollID 2 is ten seconds behind TollID 1, and the device clock for TollID 3 is five seconds behind TollID 1. 
+**Description**: Events can arrive late or out of order due to clock skews between event producers, clock skews between partitions, or network latency. In the following example, the device clock for TollID 2 is five seconds behind TollID 1, and the device clock for TollID 3 is ten seconds behind TollID 1. 
 
 
 **Input**:
+
 | LicensePlate | Make | Time | TollID |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
@@ -608,6 +629,7 @@ And then, provided the conditions are met, an alert is generated for the device.
 | YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
 
 **Output**:
+
 | TollID | Count |
 | --- | --- |
 | 1 | 2 |
@@ -619,19 +641,64 @@ And then, provided the conditions are met, an alert is generated for the device.
 
 **Solution**:
 
-````
+```SQL
 SELECT
       TollId,
       COUNT(*) AS Count
 FROM input
       TIMESTAMP BY Time OVER TollId
 GROUP BY TUMBLINGWINDOW(second, 5), TollId
-
-````
+```
 
 **Explanation**:
 The [TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) clause looks at each device timeline separately using substreams. The output events for each TollID are generated as they are computed, meaning that the events are in order with respect to each TollID instead of being reordered as if all devices were on the same clock.
 
+## Query example: Remove duplicate events in a window
+**Description**: When performing an operation such as calculating averages over events in a given time window, duplicate events should be filtered.
+
+**Input**:  
+
+| DeviceId | Time | Attribute | Value |
+| --- | --- | --- | --- |
+| 1 |2018-07-27T00:00:01.0000000Z |Temperature |50 |
+| 1 |2018-07-27T00:00:01.0000000Z |Temperature |50 |
+| 2 |2018-07-27T00:00:01.0000000Z |Temperature |40 |
+| 1 |2018-07-27T00:00:05.0000000Z |Temperature |60 |
+| 2 |2018-07-27T00:00:05.0000000Z |Temperature |50 |
+| 1 |2018-07-27T00:00:10.0000000Z |Temperature |100 |
+
+**Output**:  
+
+| AverageValue | DeviceId |
+| --- | --- |
+| 70 | 1 |
+|45 | 2 |
+
+**Solution**:
+
+```SQL
+With Temp AS (
+    SELECT
+        COUNT(DISTINCT Time) AS CountTime,
+        Value,
+        DeviceId
+    FROM
+        Input TIMESTAMP BY Time
+    GROUP BY
+        Value,
+        DeviceId,
+        SYSTEM.TIMESTAMP
+)
+
+SELECT
+    AVG(Value) AS AverageValue, DeviceId
+INTO Output
+FROM Temp
+GROUP BY DeviceId,TumblingWindow(minute, 5)
+```
+
+**Explanation**:
+[COUNT(DISTINCT Time)](https://docs.microsoft.com/stream-analytics-query/count-azure-stream-analytics) returns the number of distinct values in the Time column within a time window. You can then use the output of this step to compute the average per device by discarding duplicates.
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).

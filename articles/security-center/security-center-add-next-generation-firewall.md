@@ -1,10 +1,10 @@
 ---
 title: Add a next generation firewall in Azure Security Center | Microsoft Docs
-description: This document shows you how to implement the Azure Security Center recommendations **Add a Next Generation Firewall** and **Route traffice through NGFW only**.
+description: This document shows you how to implement the Azure Security Center recommendations **Add a Next Generation Firewall** and **Route traffic through NGFW only**.
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 48b99015-4db8-4ce8-85e4-b544c0fa203e
@@ -58,7 +58,7 @@ This document showed you how to implement the Security Center recommendation "Ad
 
 To learn more about Security Center, see the following:
 
-* [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) -- Learn how to configure security policies.
 * [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.

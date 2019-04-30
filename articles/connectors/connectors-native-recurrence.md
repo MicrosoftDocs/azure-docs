@@ -1,6 +1,6 @@
 ---
-title: Create regularly running tasks and workflows with Azure Logic Apps | Microsoft Docs
-description: Automate tasks and workflows that run on a schedule with the Recurrence connector in Azure Logic Apps
+title: Schedule and run automated tasks and workflows with Azure Logic Apps | Microsoft Docs
+description: Automate scheduled and recurring tasks with the Recurrence connector in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,16 +10,17 @@ ms.reviewer: klam, LADocs
 ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 tags: connectors
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/08/2019
 ---
 
 # Create and run recurring tasks and workflows with Azure Logic Apps
 
-To schedule tasks, actions, workloads, or processes that run regularly, 
-you can create a logic app workflow that starts with the 
+To schedule actions, workloads, or processes that run regularly, 
+create a logic app workflow that starts with the 
 **Schedule - Recurrence** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). 
-With this trigger, you can set a date and time for starting the recurrence 
-and a recurrence schedule for performing tasks, such as these examples and more:
+You can set a date and time for starting the workflow 
+and a recurrence schedule for performing tasks, 
+such as these examples and more:
 
 * Get internal data: [Run a SQL stored procedure](../connectors/connectors-create-api-sqlazure.md) every day.
 * Get external data: Pull weather reports from NOAA every 15 minutes.
@@ -39,8 +40,11 @@ minutes, hours, days, weeks, or months.
 * Run and repeat each week, but only for specific days and times, 
 such as Monday through Friday at 8:00 AM and 5:00 PM.
 
-When the recurrence trigger fires each time, 
-Logic Apps creates and runs a new instance of your logic app workflow.
+When the recurrence trigger fires each time, Logic Apps creates 
+and runs a new instance of your logic app workflow. 
+
+To trigger your logic app and run only one time in the future, 
+see [Run jobs one time only](#run-once) later in this topic.
 
 ## Prerequisites
 
@@ -56,10 +60,12 @@ Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.micr
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 Create a blank logic app, or learn [how to create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. After Logic Apps Designer appears, in the search box, 
-enter "recurrence" as your filter. Select the **Schedule - Recurrence** trigger. 
+2. After Logic Apps Designer appears, under the search box, 
+choose **All**. In the search box, enter "recurrence" as your filter. 
+From the triggers list, select this trigger: 
+**Recurrence - Schedule** 
 
-   ![Schedule - Recurrence trigger](./media/connectors-native-recurrence/add-recurrence-trigger.png)
+   ![Select "Recurrence - Schedule" trigger](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
    This trigger is now the first step in your logic app.
 
@@ -126,35 +132,49 @@ You can configure these properties for the recurrence trigger.
 Here is an example [recurrence trigger definition](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger):
 
 ``` json
-{
-    "triggers": {
-        "Recurrence": {
-            "type": "Recurrence",
-            "recurrence": {
-                "frequency": "Week",
-                "interval": 1,
-                "schedule": {
-                    "hours": [
-                        10,
-                        12,
-                        14
-                    ],
-                    "minutes": [
-                        30
-                    ],
-                    "weekDays": [
-                        "Monday"
-                    ]
-                },
-               "startTime": "2017-09-07T14:00:00",
-               "timeZone": "Pacific Standard Time"
-            }
-        }
-    }
+"triggers": {
+   "Recurrence": {
+      "type": "Recurrence",
+      "recurrence": {
+         "frequency": "Week",
+         "interval": 1,
+         "schedule": {
+            "hours": [
+               10,
+               12,
+               14
+            ],
+            "minutes": [
+               30
+            ],
+            "weekDays": [
+               "Monday"
+            ]
+         },
+         "startTime": "2017-09-07T14:00:00",
+         "timeZone": "Pacific Standard Time"
+      }
+   }
 }
 ```
 
 ## FAQ
+
+<a name="run-once"></a>
+
+**Q:** What if I want to run a logic app one time only in the future? </br>
+**A:** To trigger your logic app and run one time without recurring, 
+you can use the **Scheduler: Run once jobs** template. After you create 
+a new logic app but before opening the Logic Apps designer, under the 
+**Templates** section, from the **Category** list, select **Schedule**, 
+and then select the template:
+
+![Select "Scheduler: Run once jobs" template](./media/connectors-native-recurrence/choose-run-once-template.png)
+
+Or, if you're using a blank logic app template, start your logic app with the 
+**When a HTTP request is received - Request** trigger. Pass the trigger's start 
+time as a parameter. For the next step, add the **Delay until - Schedule** action, 
+and provide the time for when the next action starts running.
 
 <a name="example-recurrences"></a>
 
@@ -214,7 +234,7 @@ Here's how this recurrence looks:
 | Start time | First run time | Future run times | 
 | ---------- | ------------ | ---------- | 
 | 2017-09-**07** at 2:00 PM | 2017-09-**09** at 2:00 PM | 2017-09-**11** at 2:00 PM </br>2017-09-**13** at 2:00 PM </br>2017-09-**15** at 2:00 PM </br>and so on...
-||||| 
+||||
 
 So for this scenario, no matter how far in the past you specify the start time, 
 for example, 2017-09-**05** at 2:00 PM or 2017-09-**01** at 2:00 PM, 

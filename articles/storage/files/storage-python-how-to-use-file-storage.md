@@ -2,13 +2,14 @@
 title: Develop for Azure Files with Python | Microsoft Docs
 description: Learn how to develop Python applications and services that use Azure Files to store file data.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
+
 ms.devlang: python
 ms.topic: article
-ms.date: 09/19/2017
-ms.author: tamram
-ms.component: files
+ms.date: 12/14/2018
+ms.author: rogarana
+ms.subservice: files
 ---
 
 # Develop for Azure Files with Python
@@ -28,7 +29,7 @@ This tutorial will demonstrate the basics of using Python to develop application
 
 ## Download and Install Azure Storage SDK for Python
 
-Azure Storage SDK for Python requires Python 2.7, 3.3, 3.4, 3.5, or 3.6, and comes in 4 different packages: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` and `azure-storage-queue`. In this tutorial we are going to use `azure-storage-file` package.
+The [Azure Storage SDK for Python](https://github.com/azure/azure-storage-python) requires Python 2.7, 3.3, 3.4, 3.5, or 3.6.
  
 ## Install via PyPi
 
@@ -38,13 +39,16 @@ To install via the Python Package Index (PyPI), type:
 pip install azure-storage-file
 ```
 
-
 > [!NOTE]
-> If you are upgrading from the Azure Storage SDK for Python version 0.36 or earlier, you will first need to uninstall using `pip uninstall azure-storage` as we are no longer releasing the Storage SDK for Python in a single package.
-> 
-> 
+> If you are upgrading from the Azure Storage SDK for Python version 0.36 or earlier, uninstall the older SDK using `pip uninstall azure-storage` before installing the latest package.
 
-For alternative installation methods, visit the [Azure Storage SDK for Python on Github](https://github.com/Azure/azure-storage-python/).
+For alternative installation methods, visit the [Azure Storage SDK for Python on GitHub](https://github.com/Azure/azure-storage-python/).
+
+## View the sample application
+f
+To view and run a sample application that shows how to use Python with Azure Files, see [Azure Storage: Getting Started with Azure Files in Python](https://github.com/Azure-Samples/storage-file-python-getting-started). 
+
+To run the sample application, make sure you have installed both the `azure-storage-file` and `azure-storage-common` packages.
 
 ## Set up your application to use Azure Files
 Add the following near the top of any Python source file in which you wish to programmatically access Azure Storage.
@@ -118,7 +122,7 @@ Finally, to delete a file, call `delete_file`.
 file_service.delete_file('myshare', None, 'myfile')
 ```
 
-## Create share snapshot (preview)
+## Create share snapshot
 You can create a point in time copy of your entire file share.
 
 ```python

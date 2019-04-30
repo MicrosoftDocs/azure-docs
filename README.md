@@ -4,7 +4,7 @@ Welcome to the open source [documentation](https://docs.microsoft.com/azure) of 
 
 ## Getting Started
 
-Contributing to open source is more than just providing updates, it's also letting us know when there is an issue. Read our [Contributing guidance](.github/CONTRIBUTING.md) to find out more.
+Contributing to open source is more than just providing updates, it's also letting us know when there is an issue. Read our [Contributing guidance](CONTRIBUTING.md) to find out more.
 
 ### Prerequisites
 
@@ -32,3 +32,4 @@ Please refer to [LICENSE](.github/LICENSE), [LICENSE-CODE](.github/LICENSE-CODE)
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+

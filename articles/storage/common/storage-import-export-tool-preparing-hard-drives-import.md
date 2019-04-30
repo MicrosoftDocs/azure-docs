@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
-ms.component: common
+ms.subservice: common
 ---
 # Preparing hard drives for an Import Job
 
@@ -19,7 +19,7 @@ The WAImportExport tool is the drive preparation and repair tool that you can us
 
 - **Machine configuration**
   - Windows 7, Windows Server 2008 R2, or a newer Windows operating system
-  - .NET Framework 4 must be installed. See [FAQ](#faq) on how to check if .Net Framework is installed on the machine.
+  - .NET Framework 4 must be installed. See [FAQ](#faq) on how to check if .NET Framework is installed on the machine.
 - **Storage account key** - You need at least one of the account keys for the storage account.
 
 ### Preparing disk for import job
@@ -75,7 +75,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | BasePath | **[Required]**<br/>The value of this parameter represents the source where the data to be imported is located. The tool will recursively copy all data located under this path.<br><br/>**Allowed Values**: This has to be a valid path on local computer or a valid share path and should be accessible by the user. The directory path must be an absolute path (not a relative path). If the path ends with "\\", it represents a directory else a path ending without "\\" represents a file.<br/>No regex is allowed in this field. If the path contains spaces, put it in "".<br><br/>**Example**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
 | DstBlobPathOrPrefix | **[Required]**<br/> The path to the destination virtual directory in your Windows Azure storage account. The virtual directory may or may not already exist. If it does not exist, Import/Export service will create one.<br/><br/>Be sure to use valid container names when specifying destination virtual directories or blobs. Keep in mind that container names must be lowercase. For container naming rules, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). If only root is specified, the directory structure of the source is replicated in the destination blob container. If a different directory structure is desired than the one in source, multiple rows of mapping in CSV<br/><br/>You can specify a container, or a blob prefix like music/70s/. The destination directory must begin with the container name, followed by a forward slash "/", and optionally may include a virtual blob directory that ends with "/".<br/><br/>When the destination container is the root container, you must explicitly specify the root container, including the forward slash, as $root/. Since blobs under the root container cannot include "/" in their names, any subdirectories in the source directory will not be copied when the destination directory is the root container.<br/><br/>**Example**<br/>If the destination blob path is https://mystorageaccount.blob.core.windows.net/video, the value of this field can be video/  |
 | BlobType | **[Optional]** block &#124; page<br/>Currently Import/Export service supports 2 kinds of Blobs. Page blobs and Block BlobsBy default all files will be imported as Block Blobs. And \*.vhd and \*.vhdx will be imported as Page BlobsThere is a limit on the block-blob and page-blob allowed size. See [Storage scalability targets](storage-scalability-targets.md) for more information.  |
-| Disposition | **[Optional]** rename &#124; no-overwrite &#124; overwrite <br/> This field specifies the copy-behavior during import i.e when data is being uploaded to the storage account from the disk. Available options are: rename&#124;overwite&#124;no-overwrite.Defaults to "rename" if nothing specified. <br/><br/>**Rename**: If an object with same name is present, creates a copy in destination.<br/>Overwrite: overwrites the file with newer file. The file with last-modified wins.<br/>**No-overwrite**: Skips writing the file if already present.|
+| Disposition | **[Optional]** rename &#124; no-overwrite &#124; overwrite <br/> This field specifies the copy-behavior during import i.e when data is being uploaded to the storage account from the disk. Available options are: rename&#124;overwrite&#124;no-overwrite.Defaults to "rename" if nothing specified. <br/><br/>**Rename**: If an object with same name is present, creates a copy in destination.<br/>Overwrite: overwrites the file with newer file. The file with last-modified wins.<br/>**No-overwrite**: Skips writing the file if already present.|
 | MetadataFile | **[Optional]** <br/>The value to this field is the metadata file which can be provided if the one needs to preserve the metadata of the objects or provide custom metadata. Path to the metadata file for the destination blobs. See [Import/Export service Metadata and Properties File Format](../storage-import-export-file-format-metadata-and-properties.md) for more information |
 | PropertiesFile | **[Optional]** <br/>Path to the property file for the destination blobs. See [Import/Export service Metadata and Properties File Format](../storage-import-export-file-format-metadata-and-properties.md) for more information. |
 
@@ -107,7 +107,7 @@ H,Format,SilentMode,Encrypt,
 | FormatOption | **[Required]** Format &#124; AlreadyFormatted<br/><br/> **Format**: Specifying this will format all the data on the disk. <br/>**AlreadyFormatted**: The tool will skip formatting when this value is specified. |
 | SilentOrPromptOnFormat | **[Required]** SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: Providing this value will enable user to run the tool in Silent Mode. <br/>**PromptOnFormat**: The tool will prompt the user to confirm whether the action is really intended at every format.<br/><br/>If not set, command will abort and display error message: "Incorrect value for SilentOrPromptOnFormat: none" |
 | Encryption | **[Required]** Encrypt &#124; AlreadyEncrypted<br/> The value of this field decides which disk to encrypt and which not to. <br/><br/>**Encrypt**: Tool will format the drive. If value of "FormatOption" field is "Format" then this value is required to be "Encrypt". If "AlreadyEncrypted" is specified in this case, it will result into an error "When Format is specified, Encrypt must also be specified".<br/>**AlreadyEncrypted**: Tool will decrypt the drive using the BitLockerKey provided in "ExistingBitLockerKey" Field. If value of "FormatOption" field is "AlreadyFormatted", then this value can be either "Encrypt" or "AlreadyEncrypted" |
-| ExistingBitLockerKey | **[Required]** If value of "Encryption" field is "AlreadyEncrypted"<br/> The value of this field is the BitLocker key that is associated with the particular disk. <br/><br/>This field should be left blank if the value of "Encryption" field is "Encrypt".  If BitLocker Key is specified in this case, it will result into an error "Bitlocker Key should not be specified".<br/>  **Example**: 060456-014509-132033-080300-252615-584177-672089-411631|
+| ExistingBitLockerKey | **[Required]** If value of "Encryption" field is "AlreadyEncrypted"<br/> The value of this field is the BitLocker key that is associated with the particular disk. <br/><br/>This field should be left blank if the value of "Encryption" field is "Encrypt".  If BitLocker Key is specified in this case, it will result into an error "BitLocker Key should not be specified".<br/>  **Example**: 060456-014509-132033-080300-252615-584177-672089-411631|
 
 ##  Preparing disk for import job
 
@@ -146,12 +146,12 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 If the data did not fit in specified drives in InitialDriveset, one can use the tool to add additional drives to same copy session. 
 
->[!NOTE] 
->The session id should match the previous session id. Journal file should match the one specified in previous session.
->
-```
-WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
-```
+> [!NOTE]
+> The session id should match the previous session id. Journal file should match the one specified in previous session.
+> 
+> ```
+> WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
+> ```
 
 **Example:**
 
@@ -314,7 +314,7 @@ However, same copy session cannot be used to import data to different storage ac
 
 When copy-session name is same across multiple runs of the tool, the logfile (/logdir) and storage account key (/sk) is also expected to be the same.
 
-SessionId can consist of letters, 0~9, understore (\_), dash (-) or hash (#), and its length must be 3~30.
+SessionId can consist of letters, 0~9, underscore (\_), dash (-) or hash (#), and its length must be 3~30.
 
 e.g. session-1 or session#1 or session\_1
 
@@ -336,7 +336,7 @@ One or more empty 2.5-inch or 3.5-inch SATAII or III or SSD hard drives connecte
 
 #### How can I enable BitLocker on my machine?
 
-Simple way to check is by right-clicking on System drive. It will show you options for Bitlocker if the capability is turned on. If it is off, you won't see it.
+Simple way to check is by right-clicking on System drive. It will show you options for BitLocker if the capability is turned on. If it is off, you won't see it.
 
 ![Check BitLocker](./media/storage-import-export-tool-preparing-hard-drives-import/BitLocker.png)
 
@@ -359,7 +359,7 @@ In order to disable TPM in BitLocker, go through the following steps:<br/>
 
 All Microsoft .NET Framework versions are installed in following directory: %windir%\Microsoft.NET\Framework\
 
-Navigate to the above mentioned part on your target machine where the tool needs to run. Look for folder name starting with "v4". Absence of such a directory means .NET 4 is not installed on your machine. You can download .Net 4 on your machine using [Microsoft .NET Framework 4 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=17851).
+Navigate to the above mentioned part on your target machine where the tool needs to run. Look for folder name starting with "v4". Absence of such a directory means .NET 4 is not installed on your machine. You can download .NET 4 on your machine using [Microsoft .NET Framework 4 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=17851).
 
 ### Limits
 
@@ -383,7 +383,7 @@ Although data is distributed across disks, the data when uploaded to the storage
 
 #### How many of the input disks will have active IO in parallel, when copy is in progress?
 
-The tool distributes data across the input disks based on the size of the input files. That said, the number of active disks in parallel completely delends on the nature of the input data. Depending on the size of individual files in the input dataset, one or more disks may show active IO in parallel. See next question for more details.
+The tool distributes data across the input disks based on the size of the input files. That said, the number of active disks in parallel completely depends on the nature of the input data. Depending on the size of individual files in the input dataset, one or more disks may show active IO in parallel. See next question for more details.
 
 #### How does the tool distribute the files across the disks?
 

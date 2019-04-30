@@ -67,7 +67,7 @@ The following example network configuration file creates a virtual network named
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
   <VirtualNetworkConfiguration>
     <Dns />
     <VirtualNetworkSites>
@@ -130,7 +130,7 @@ You can use PowerShell or the classic CLI to import a network configuration file
 
 ### Azure classic CLI
 
-1. [Install the Azure classic CLI](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Complete the remaining steps from a classic CLI command prompt.
+1. [Install the Azure classic CLI](/cli/azure/install-classic-cli). Complete the remaining steps from a classic CLI command prompt.
 2. Log in to Azure by entering the `azure login` command.
 3. Ensure you're in asm mode by entering the `azure config mode asm` command.
 4. Change the directory and filename in the following command as necessary, then run the command to import the network configuration file:

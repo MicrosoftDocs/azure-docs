@@ -16,7 +16,7 @@ ms.custom: include file
 
     ![Pick a publish target](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
-    When you enable **Run from Zip**, your function app in Azure is run directly from the deployment package. For more information, see [Run your Azure Functions from a package file](../articles/azure-functions/run-functions-from-deployment-package.md).
+    When you enable **Run from Zip**, your function app in Azure goes into read-only mode and is run directly from the deployment package. For more information, see [Run your Azure Functions from a package file](../articles/azure-functions/run-functions-from-deployment-package.md).
      
     >[!CAUTION]
     >When you choose **Select Existing**, all files in the existing function app in Azure are overwritten by files from the local project. Only use this option when republishing updates to an existing function app.

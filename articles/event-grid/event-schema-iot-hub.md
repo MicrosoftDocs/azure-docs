@@ -9,7 +9,7 @@ editor: ''
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 01/17/2019
 ms.author: kgremban
 ---
 
@@ -137,7 +137,7 @@ The contents of the data object are different for each event publisher. For **De
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| twin | object | Information about the device twin, which is the cloud represenation of application device metadata. | 
+| twin | object | Information about the device twin, which is the cloud representation of application device metadata. | 
 | deviceID | string | The unique identifier of the device twin. | 
 | etag | string | A validator for ensuring consistency of updates to a device twin. Each etag is guaranteed to be unique per device twin. |  
 | deviceEtag| string | A validator for ensuring consistency of updates to a device registry. Each deviceEtag is guaranteed to be unique per device registry. |

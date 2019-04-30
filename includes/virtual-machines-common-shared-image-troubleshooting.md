@@ -63,7 +63,7 @@ Make sure the provisioning state of the source managed image is **Succeeded**.
 Use the table below to see if the intended source region is supported:
 <br>
 
-| Create gallery in or “source region”   | Replicate rersion to or “target region” |
+| Create gallery in or “source region”   | Replicate version to or “target region” |
 |----------------------------------------|-------------------------------------------|
 | West Central US                        | All Azure Public Cloud regions            |
 | South Central US                       |                                           |

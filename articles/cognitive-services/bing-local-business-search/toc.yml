@@ -7,6 +7,9 @@
   items:
   - name: What is the Bing Local Business Search API?
     href: overview.md
+  - name: Compare the Bing Search APIs
+    href: ../Bing-Web-Search/bing-api-comparison.md
+    maintainContext: true
 - name: Quickstarts  
   items: 
     - name: REST API   
@@ -31,7 +34,8 @@
 - name: Reference
   items:
   - name: Use and display requirements
-    href: use-display-requirements.md
+    href: ../Bing-Web-Search/use-display-requirements.md
+    maintainContext: true
   - name: Local Business Search API reference
     href: local-search-reference.md
 - name: Resources

@@ -3,12 +3,12 @@ title: Profanity filtering - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Use profanity filtering in the Translator Text API.
 services: cognitive-services
-author: Jann-Skotdal
-manager: cgronlun
+author: v-pawal
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 02/21/2019
 ms.author: v-jansko
 ---
 

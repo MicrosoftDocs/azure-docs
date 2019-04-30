@@ -1,15 +1,16 @@
 ---
-title: Search responses - Bing Web Search API
+title: Bing Web Search API response structure and answer types 
 titleSuffix: Azure Cognitive Services
-description: Learn about answer types and responses from by the Bing Web Search API.
+description: Learn about the answer types and responses used by the Bing Web Search API.
 services: cognitive-services
-author: erhopf
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 8/13/2018
-ms.author: erhopf
+ms.date: 02/12/2019
+ms.author: aahi
+ms.custom: seodec2018
 ---
 
 # Bing Web Search API response structure and answer types  
@@ -36,7 +37,7 @@ Typically, Bing Web Search returns a subset of the answers. For example, if the 
 
 ## Webpages answer
 
-The [webPages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) answer contains a list of links to webpages that Bing Web Search determined were relevant to the query. Each [web page](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) in the list includes the page's name, url, display URL, short description of the content and the date Bing found the content.
+The [webPages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) answer contains a list of links to webpages that Bing Web Search determined were relevant to the query. Each [web page](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) in the list will include: the page's name, url, display URL, a short description of the content, and the date Bing found the content.
 
 ```json
 {
@@ -85,7 +86,7 @@ The [images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-a
 }, ...
 ```
 
-Depending on the user's device, you'd typically display a subset of the thumbnails with an option for the user to view the remaining images.
+Depending on the user's device, you'd typically display a subset of the thumbnails, with an option for the user to [page through](paging-webpages.md) the remaining images.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![List of thumbnail images](./media/cognitive-services-bing-web-api/bing-web-image-thumbnails.PNG)
@@ -308,7 +309,7 @@ A mathematical expression may contain the following functions:
 
 |Symbol|Description|
 |------------|-----------------|
-|Sqrt|Square root|
+|Sort|Square root|
 |Sin[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|Trigonometric functions (with arguments in radians)|
 |ArcSin[x], ArcCos[x], ArcTan[x]<br />ArcCsc[x], ArcSec[x], ArcCot[x]|Inverse trigonometric functions (giving results in radians)|
 |Exp[x], E^x|Exponential function|
@@ -422,6 +423,48 @@ If Bing determines that the user may have intended to search for something diffe
     }]
 }, ...
 ```
+
+The following shows how Bing uses the spelling suggestion.
+
+![Bing spelling suggestion example](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
+
+## Response headers
+
+Responses from the Bing Web Search API may contain the following headers:
+
+|||
+|-|-|
+|`X-MSEdge-ClientID`|The unique ID that Bing has assigned to the user|
+|`BingAPIs-Market`|The market that was used to fulfill the request|
+|`BingAPIs-TraceId`|The log entry on the Bing API server for this request (for support)|
+
+It is particularly important to persist the client ID and return it with subsequent requests. When you do this, the search will use past context in ranking search results and also provide a consistent user experience.
+
+However, when you call the Bing Web Search API from JavaScript, your browser's built-in security features (CORS) might prevent you from accessing the values of these headers.
+
+To gain access to the headers, you can make the Bing Web Search API request through a CORS proxy. The response from such a proxy has an `Access-Control-Expose-Headers` header that whitelists response headers and makes them available to JavaScript.
+
+It's easy to install a CORS proxy to allow our [tutorial app](tutorial-bing-web-search-single-page-app.md) to access the optional client headers. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then enter the following command at a command prompt.
+
+    npm install -g cors-proxy-server
+
+Next, change the Bing Web Search API endpoint in the HTML file to:
+
+    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+
+Finally, start the CORS proxy with the following command:
+
+    cors-proxy-server
+
+Leave the command window open while you use the tutorial app; closing the window stops the proxy. In the expandable HTTP Headers section below the search results, you can now see the `X-MSEdge-ClientID` header (among others) and verify that it is the same for each request.
+
+## Response headers in production
+
+The CORS proxy approach described in the previous answer is appropriate for development, testing, and learning.
+
+In a production environment, you should host a server-side script on the same domain as the Web page that uses the Bing Web Search API. This script should make API calls upon request from the Web page JavaScript and pass all results, including headers, back to the client. Since the two resources (page and script) share an origin, CORS is not used and the special headers are accessible to the JavaScript on the Web page.
+
+This approach also protects your API key from exposure to the public, since only the server-side script needs it. The script can use another method to make sure the request is authorized.
 
 The following shows how Bing uses the spelling suggestion.
 

@@ -3,13 +3,13 @@ title: Translator Text API Transliterate Method
 titlesuffix: Azure Cognitive Services
 description: Use the Translator Text API Transliterate method.
 services: cognitive-services
-author: Jann-Skotdal
-manager: cgronlun
+author: v-pawal
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 02/01/2019
 ms.author: v-jansko
 ---
 
@@ -38,15 +38,15 @@ Request parameters passed on the query string are:
   </tr>
   <tr>
     <td>language</td>
-    <td>*Required parameter*.<br/>Specifies the language of the text to convert from one script to another. Possible languages are listed in the `transliteration` scope obtained by querying the service for its [supported languages](.\v3-0-languages.md).</td>
+    <td>*Required parameter*.<br/>Specifies the language of the text to convert from one script to another. Possible languages are listed in the `transliteration` scope obtained by querying the service for its [supported languages](./v3-0-languages.md).</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Required parameter*.<br/>Specifies the script used by the input text. Look up [supported languages](.\v3-0-languages.md) using the `transliteration` scope, to find input scripts available for the selected language.</td>
+    <td>*Required parameter*.<br/>Specifies the script used by the input text. Look up [supported languages](./v3-0-languages.md) using the `transliteration` scope, to find input scripts available for the selected language.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Required parameter*.<br/>Specifies the output script. Look up [supported languages](.\v3-0-languages.md) using the `transliteration` scope, to find output scripts available for the selected combination of input language and input script.</td>
+    <td>*Required parameter*.<br/>Specifies the output script. Look up [supported languages](./v3-0-languages.md) using the `transliteration` scope, to find output scripts available for the selected combination of input language and input script.</td>
   </tr>
 </table> 
 
@@ -56,8 +56,8 @@ Request headers include:
   <th width="20%">Headers</th>
   <th>Description</th>
   <tr>
-    <td>_One authorization_<br/>_header_</td>
-    <td>*Required request header*.<br/>See [available options for authentication](./v3-0-reference.md#authentication).</td>
+    <td>Authentication header(s)</td>
+    <td><em>Required request header</em>.<br/>See <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -154,6 +154,8 @@ The following are the possible HTTP status codes that a request returns.
     <td>Server temporarily unavailable. Retry the request. If the error persists, report it with: date and time of the failure, request identifier from response header `X-RequestId`, and client identifier from request header `X-ClientTraceId`.</td>
   </tr>
 </table> 
+
+If an error occurs, the request will also return a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator Text API reference page](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## Examples
 

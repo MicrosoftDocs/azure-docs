@@ -3,7 +3,7 @@ title: Azure Automation State Configuration Continuous Deployment with Chocolate
 description: DevOps continuous deployment using Azure Automation State Configuration, DSC, and Chocolatey package manager.  Example with full JSON Resource Manager template and PowerShell source.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 08/08/2018
@@ -35,7 +35,7 @@ package running on any particular VM as new versions are created and deployed.
 Package managers such as [apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) are
 pretty well known in the Linux world, but not so much in the Windows world.
 [Chocolatey](https://chocolatey.org/) is such a thing, and Scott Hanselman's
-[blog](http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) on the topic is a great
+[blog](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) on the topic is a great
 intro. In a nutshell, Chocolatey allows you to install packages from a central repository of
 packages into a Windows system using the command line. You can create and manage your own
 repository, and Chocolatey can install packages from any number of repositories that you designate.
@@ -59,7 +59,7 @@ A DSC Resource is a module of code that has specific capabilities, such as manag
 Active Directory, or SQL Server. The Chocolatey DSC Resource knows how to access a NuGet Server
 (among others), download packages, install packages, and so on. There are many other DSC Resources
 in the [PowerShell
-Gallery](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).
+Gallery](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).
 These modules are installed into your Azure Automation State Configuration Pull Server (by you) so
 they can be used by your configurations.
 
@@ -80,7 +80,7 @@ of VM extensions.
 Starting at the top, you write your code, build and test, then create an installation package.
 Chocolatey can handle various types of installation packages, such as MSI, MSU, ZIP. And you have
 the full power of PowerShell to do the actual installation if Chocolateys native capabilities
-aren't quite up to it. Put the package into someplace reachable – a package repository. This usage
+aren't quite up to it. Put the package into some place reachable – a package repository. This usage
 example uses a public folder in an Azure blob storage account, but it can be anywhere. Chocolatey
 works natively with NuGet servers and a few others for management of package metadata. [This
 article](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) describes the options. This
@@ -112,8 +112,10 @@ details, see this article: [Onboarding machines for management by Azure Automati
 
 At an authenticated (`Connect-AzureRmAccount`) PowerShell command line: (can take a few minutes while the pull server is set up)
 
-    New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-    New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+```azurepowershell-interactive
+New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
+New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+```
 
 You can put your automation account into any of the following regions (aka location): East US 2,
 South Central US, US Gov Virginia, West Europe, Southeast Asia, Japan East, Central India and
@@ -205,9 +207,8 @@ Configuration ISVBoxConfig
             Name         = 'Web-Server-TCP-In'
             DisplayName  = 'Web Server (TCP-In)'
             Description  = 'IIS allow incoming web site traffic.'
-            DisplayGroup = 'IIS Incoming Traffic'
-            State        = 'Enabled'
-            Access       = 'Allow'
+            Enabled       = 'True'
+            Action       = 'Allow'
             Protocol     = 'TCP'
             LocalPort    = '80'
             Ensure       = 'Present'
@@ -250,7 +251,7 @@ server. The node configuration name is built as “configurationName.nodeName”
 
 For each package that you put into the package repository, you need a nuspec that describes it.
 That nuspec must be compiled and stored in your NuGet server. This process is described
-[here](http://docs.nuget.org/create/creating-and-publishing-a-package). You can use MyGet.org as a
+[here](https://docs.nuget.org/create/creating-and-publishing-a-package). You can use MyGet.org as a
 NuGet server. They sell this service, but have a starter SKU that's free. At NuGet.org you'll find
 instructions on installing your own NuGet server for your private packages.
 

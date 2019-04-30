@@ -4,7 +4,7 @@ description: "Learn about Azure Storage security best practices for securing you
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid:

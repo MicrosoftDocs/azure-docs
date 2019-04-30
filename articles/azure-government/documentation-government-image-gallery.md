@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 07/13/2018
+ms.date: 12/11/2018
 ms.author: gsacavdm
 
 ---
@@ -24,39 +24,45 @@ The following table shows a list of available images within the Azure Government
 
 Some of the prebuilt images include pay-as-you-go licensing for specific software. Work with your Microsoft account team or reseller for Azure Government-specific pricing. For more information, see [Virtual machine pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Images
 The list of virtual machine images available in Azure Government can be obtained by [connecting to Azure Government via PowerShell](documentation-government-get-started-connect-with-ps.md) and running the following commands:
 
 ```powershell
-Connect-AzureRmAccount -Environment AzureUSGovernment
+Connect-AzAccount -Environment AzureUSGovernment
 
-Get-AzureRmVMImagePublisher -Location USGovVirginia | `
-Get-AzureRmVMImageOffer | `
-Get-AzureRmVMImageSku
+Get-AzVMImagePublisher -Location USGovVirginia | `
+Get-AzVMImageOffer | `
+Get-AzVMImageSku
 ```
 <!-- 
-Get-AzureRmVMImagePublisher -Location USGovVirginia | `
-Get-AzureRmVMImageOffer | `
-Get-AzureRmVMImageSku | `
+Get-AzVMImagePublisher -Location USGovVirginia | `
+Get-AzVMImageOffer | `
+Get-AzVMImageSku | `
 Select-Object @{Name="Entry";Expression={"| " + $_.PublisherName + " | " + $_.Offer +  " | " + $_.Skus + " |" }} | `
 Select-Object -ExpandProperty Entry | `
 Out-File vm-images.md
 -->
 
-The table below contains a snapshot of the list of virtual machine images available in Azure Government via Resource Manager as of October 12, 2018.
+The table below contains a snapshot of the list of virtual machine images available in Azure Government via Resource Manager as of January 10, 2019.
 
 |Publisher|Offer|SKU|
 | --- | --- | --- |
 | 128technology | 128t_networking_platform | 128t_networking_platform |
 | a10networks | a10-vthunder-adc | vthunder_410_byol |
 | a10networks | a10-vthunder-adc | vthunder_byol |
+| a10networks | vthunder-414-gr1 | vthunder-414gr1-byol |
 | accessdata-group | adlab64-sw-cloud | 22000111 |
 | accessdata-group | adlab64-sw-cloud | 22000112 |
 | ACEPublishing | f5-big-ip | f5-bigip-virtual-edition-best-byol |
+| actifio | actifio-sky | actifio-global-manager |
+| actifio | actifio-sky | actifio-sky |
 | akumina | akumina-interchange | akam101 |
 | alertlogic | alert-logic-tm | 20215000100-tmpbyol |
 | alertlogic | alert-logic-wsm | 20216000100-wsmpbyl |
 | altamira-corporation | lumify | lumify |
+| arista-networks | veos-router | eos-4_21_0f |
 | asigra | asigra-on-azure | asigra-evaluation-vm |
 | aviatrix-systems | aviatrix-cloud-services | av-csg-byol |
 | aviatrix-systems | aviatrix-companion-gateway-v2 | aviatrix-companion-gateway-v2 |
@@ -71,7 +77,10 @@ The table below contains a snapshot of the list of virtual machine images availa
 | barracudanetworks | barracuda-spam-firewall | byol |
 | barracudanetworks | waf | byol |
 | barracudanetworks | waf | hourly |
+| barracudanetworks | waf | private-waf-hourly-blackboard |
+| barracudanetworks | waf | private-waf-hourly-fusion |
 | barracudanetworks | waf | private-waf-hourly-teletracking1 |
+| barracudanetworks | waf | private-waf-hourly-us-agency-for-int-dev |
 | batch | rendering-centos73 | rendering |
 | batch | rendering-windows2016 | rendering |
 | beyondtrust | beyondinsight | uvm-azm |
@@ -258,6 +267,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | center-for-internet-security-inc | cis-suse-linux-12-v2-0-0-l1 | cis-suse12-l1 |
 | center-for-internet-security-inc | cis-ubuntu-linux-1404-v2-0-0-l1 | cis-ubuntu1404-l1 |
 | center-for-internet-security-inc | cis-ubuntu-linux-1604-v1-0-0-l1 | cis-ubuntu1604-l1 |
+| center-for-internet-security-inc | cis-ubuntu-linux-1804-l1 | cis-ubuntu1804-l1 |
 | center-for-internet-security-inc | cis-windows-server-2008-r2-v3-0-1-l1 | cis-ws2008-r2-l1 |
 | center-for-internet-security-inc | cis-windows-server-2008-r2-v3-0-1-l2- | cis-ws2008-r2-l2 |
 | center-for-internet-security-inc | cis-windows-server-2012-r2-v2-2-1-l1 | cis-ws2012-r2-l1 |
@@ -266,8 +276,11 @@ The table below contains a snapshot of the list of virtual machine images availa
 | center-for-internet-security-inc | cis-windows-server-2012-v2-0-1-l2 | cis-ws2012-l2 |
 | center-for-internet-security-inc | cis-windows-server-2016-v1-0-0-l1 | cis-ws2016-l1 |
 | center-for-internet-security-inc | cis-windows-server-2016-v1-0-0-l2 | cis-ws2016-l2 |
+| checkpoint | check-point-cg-r8020-blink | mgmt-byol |
+| checkpoint | check-point-cg-r8020-blink | sg-byol |
 | checkpoint | check-point-r77-10 | SG-BYOL |
 | checkpoint | check-point-vsec-r80 | sg-byol |
+| checkpoint | check-point-vsec-r80-blink | sg-byol |
 | checkpoint | sg2 | sg-byol2 |
 | chef-software | chef-automate-vm-image | byol |
 | cisco | cisco-asav | asav-azure-byol |
@@ -278,6 +291,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | cisco | cisco-csr-1000v | 16_9-byol |
 | cisco | cisco-csr-1000v | 3_16 |
 | cisco | cisco-csr-1000v | csr-azure-byol |
+| cisco | cisco-csr-1000v | v16_10-byol |
 | cisco | cisco-ftdv | ftdv-azure-byol |
 | cisco | cisco-meraki-vmx100 | vmx100 |
 | cisco | cisco_cloud_vedge_17_2_4 | cisco_vedge_azurecloud_18_2_0 |
@@ -299,6 +313,8 @@ The table below contains a snapshot of the list of virtual machine images availa
 | cloudera | cloudera-centos-os | 6_8 |
 | cloudera | cloudera-centos-os | 7_2 |
 | cloudera | cloudera-centos-os | 7_4 |
+| cloudera | cloudera-centos-os | 7_5 |
+| cloudlink | cloudlink-securevm | cloudlink-securevm-67-byol |
 | codelathe | codelathe-filecloud-ubuntu | filecloud_ubuntu_byol |
 | codelathe | codelathe-filecloud-win2012r2 | filecloud_byol |
 | codelathe | filecloud-efss-windows2016 | filecloud_windows2016 |
@@ -306,12 +322,14 @@ The table below contains a snapshot of the list of virtual machine images availa
 | cognosys | 1-click-secured-joomla-on-ubuntu-1804-lts | 1-click-secured-joomla-on-ubuntu-18-04-lts |
 | cognosys | centos-7-4 | hardened-centos-7-4 |
 | cognosys | centos-7-5 | hardened-centos-7-5 |
+| cognosys | secured-redmine-on-centos | secured-redmine-on-centos |
 | cognosys | sql-server-2007-web-win2016-debug-utilities | sql-server-2017-web-win2016-debug-utilities |
 | cognosys | sql-server-2016-sp1-ent-win2016-debug-utilities | sql-server-2016-sp1-ent-win2016-debug-utilities |
 | cognosys | sql-server-2016-sp1-std-win2016-debug-utilities | sql-server-2016-sp1-std-win2016-debug-utilities |
 | cognosys | sql-server-2016-sp1-web-win2016-debug-utilities | sql-server-2016-sp1-web-win2016-debug-utilities |
 | cognosys | sql-server-2016-sp2-ent-win2016-debug-utilities | sql-server-2016-sp2-ent-win2016-debug-utilities |
 | cognosys | sql-server-2016-sp2-std-win2016-debug-utilities | sql-server-2016-sp2-std-win2016-debug-utilities |
+| cognosys | sql-server-2016-sp2-web-winser2016-debug-utilities | sql-server-2016-sp2-web-win2016-debug-utilities |
 | cognosys | sql-server-2017-std-win2016-utils | sql-server-2017-std-win2016-utils |
 | cognosys | sql-server-2017-win2016-debug-utilities | sql-server-2017-ent-win2016-debug-utilities |
 | cognosys | suse15 | suse-15-hardened |
@@ -319,6 +337,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | cognosys | ubuntu-18-04-lts | hardened-ubuntu-18-04-lts |
 | cohesive | vns3_4x_network_security | cohesive-vns3-4x-byol |
 | commvault | commvault | commvaulttrial |
+| commvault | commvault | vspallinone |
 | composable | composable | composable-govt |
 | connecting-software | cb-replicator-byol | cbrep-gov-byol |
 | CoreOS | CoreOS | Stable |
@@ -329,13 +348,23 @@ The table below contains a snapshot of the list of virtual machine images availa
 | credativ | Debian | 8-backports |
 | credativ | Debian | 9 |
 | credativ | Debian | 9-beta |
+| credativ | debian-test | sid |
+| cyxtera | appgatesdp-vm | v4_2_vm |
 | datastax | datastax-enterprise | datastaxenterprise |
 | dellemc | dell-emc-avamar-virtual-edition | avamar-virtual-edition-1810 |
 | dellemc | dell-emc-avamar-virtual-edition | avamar-virtual-edition-751 |
 | dellemc | dell-emc-datadomain-virtual-edition | ddve-31-ver-060100 |
 | dellemc | dell-emc-datadomain-virtual-edition | ddve-31-ver-060101 |
+| dellemc | dell-emc-datadomain-virtual-edition-v4 | ddve-40-ver-060200 |
+| dellemc | dell-emc-networker-virtual-edition | networker-virtual-edition-181 |
+| dellemc | dellemc-networker-virtual-edition | networker-virtual-edition-182 |
 | dell_software | uccs | uccs |
 | delphix | delphix_dynamic_data_platform | dynamic_data_platform_for_azure_5-1-8-0 |
+| derdack | enterprisealert | enterprisealert-2017-datacenter-10cal |
+| derdack | enterprisealert | enterprisealert-2017-datacenter-15cal |
+| derdack | enterprisealert | enterprisealert-2017-datacenter-20cal |
+| derdack | enterprisealert | enterprisealert-2017-datacenter-25cal |
+| derdack | enterprisealert | enterprisealert-2017-datacenter-50cal |
 | derdack | enterprisealert | enterprisealert-2017-datacenter-byol |
 | docker | docker-ee | docker-ee |
 | docker | docker4azure-cs | docker4azure-cs-1_12 |
@@ -360,19 +389,23 @@ The table below contains a snapshot of the list of virtual machine images availa
 | f5-networks | f5-big-ip-best | f5-bigip-virtual-edition-1g-best-hourly |
 | f5-networks | f5-big-ip-best | f5-bigip-virtual-edition-200m-best-hourly |
 | f5-networks | f5-big-ip-best | f5-bigip-virtual-edition-25m-best-hourly |
-| f5-networks | f5-big-ip-best | f5-bigip-virtual-edition-best-byol |
 | f5-networks | f5-big-ip-better | f5-bigip-virtual-edition-1g-better-hourly |
 | f5-networks | f5-big-ip-better | f5-bigip-virtual-edition-200m-better-hourly |
 | f5-networks | f5-big-ip-better | f5-bigip-virtual-edition-25m-better-hourly |
-| f5-networks | f5-big-ip-better | f5-bigip-virtual-edition-better-byol |
 | f5-networks | f5-big-ip-byol | f5-big-all-1slot-byol |
 | f5-networks | f5-big-ip-byol | f5-big-all-2slot-byol |
 | f5-networks | f5-big-ip-byol | f5-big-ltm-1slot-byol |
 | f5-networks | f5-big-ip-byol | f5-big-ltm-2slot-byol |
+| f5-networks | f5-big-ip-cloud-edition | f5-big-ip-per-app-ve-awf-200m-hourly |
+| f5-networks | f5-big-ip-cloud-edition | f5-big-ip-per-app-ve-awf-25m-hourly |
+| f5-networks | f5-big-ip-cloud-edition | f5-big-ip-per-app-ve-awf-byol |
+| f5-networks | f5-big-ip-cloud-edition | f5-big-ip-per-app-ve-ltm-200m-hourly |
+| f5-networks | f5-big-ip-cloud-edition | f5-big-ip-per-app-ve-ltm-25m-hourly |
+| f5-networks | f5-big-ip-cloud-edition | f5-big-ip-per-app-ve-ltm-byol |
+| f5-networks | f5-big-ip-cloud-edition | f5-bigiq-virtual-edition-byol |
 | f5-networks | f5-big-ip-good | f5-bigip-virtual-edition-1g-good-hourly |
 | f5-networks | f5-big-ip-good | f5-bigip-virtual-edition-200m-good-hourly |
 | f5-networks | f5-big-ip-good | f5-bigip-virtual-edition-25m-good-hourly |
-| f5-networks | f5-big-ip-good | f5-bigip-virtual-edition-good-byol |
 | f5-networks | f5-big-ip-per-app-ve | f5-big-ip-per-app-ve-awf-200m-hourly |
 | f5-networks | f5-big-ip-per-app-ve | f5-big-ip-per-app-ve-awf-25m-hourly |
 | f5-networks | f5-big-ip-per-app-ve | f5-big-ip-per-app-ve-ltm-200m-hourly |
@@ -384,6 +417,12 @@ The table below contains a snapshot of the list of virtual machine images availa
 | flashgrid-inc | flashgrid-racnode | fg-1709-rh-mc |
 | flashgrid-inc | flashgrid-racnode | fg-ol7-priv-byol |
 | flashgrid-inc | flashgrid-racnode | fg-rh7-priv-byol |
+| flashgrid-inc | flashgrid-skycluster | skycluster-ol |
+| flashgrid-inc | flashgrid-skycluster | skycluster-ol-priv-byol |
+| flashgrid-inc | flashgrid-skycluster | skycluster-rh |
+| flashgrid-inc | flashgrid-skycluster | skycluster-rh-priv-byol |
+| forcepoint-llc | forcepoint-ngfw | ngfw_byol |
+| forcepoint-llc | forcepoint-ngfw | ngfw_payg |
 | fortinet | fortinet-fortianalyzer | fortinet-fortianalyzer |
 | fortinet | fortinet-fortimanager | fortinet-fortimanager |
 | fortinet | fortinet_fortigate-vm_v5 | fortinet_fg-vm |
@@ -395,6 +434,12 @@ The table below contains a snapshot of the list of virtual machine images availa
 | gigamon-inc | gigamon-fm-5_4_00 | vseries-cntlr |
 | gigamon-inc | gigamon-fm-5_4_00 | vseries-node |
 | gigamon-inc | gigamon-fm-5_4_00_hourly | gfm-azure-hourly |
+| gigamon-inc | gigamon-fm-5_5_00 | gfm-azure |
+| gigamon-inc | gigamon-fm-5_5_00 | gvtap-cntlr |
+| gigamon-inc | gigamon-fm-5_5_00 | vseries-cntlr |
+| gigamon-inc | gigamon-fm-5_5_00 | vseries-node |
+| gigamon-inc | gigamon-fm-5_5_00_hourly | gfm-azure-hourly |
+| GitHub | GitHub-Enterprise | GitHub-Enterprise |
 | hanu | hanu-insightv2 | hanu-insight-v2-enterprise-byol |
 | hanu | hanu-insightv2 | hanu-insight-v2-standard-byol |
 | ibm | ibm-security-guardium-multi-cloud | ibm-security-guardium-aggregator |
@@ -409,6 +454,12 @@ The table below contains a snapshot of the list of virtual machine images availa
 | informatica | big-data-management-10-2-1 | informatica-big-data-management-v-10-2-1 |
 | informatica | platform_10_2_hf1_domain_rhel-7-3_byol | byol_rhel_platform_10_2_hf1 |
 | informatica | platform_10_2_hf1_domain_windows_byol | byol_win_platform_10_2_hf1 |
+| isvtestukbigcat | test_test_120520180725001 | testtestukbigcatvm001 |
+| isvtestuklegacy | testtest12192018070501 | isvtestuklegacysku2 |
+| isvtestuklegacy | testtestvmoffer121720180842 | testtestvmoffer01 |
+| isvtestuklegacy | test_test_111920181025-003 | isvtestuklegacyvm003 |
+| isvtestuklegacy | test_test_111920181130-004 | isvtestuklegacyvm004 |
+| isvtestuklegacy | test_test_111920181210-005 | isvtestuklegacyvm005 |
 | jamcracker | 4632d5b4-feb0-4332-8452-f2e66133672f | jamcracker_cloud_control_appliance_version5 |
 | jamcracker | jamcracker-cloudanalytics | jamcracker-cloudanalytics-version6_1 |
 | jamcracker | jamcracker-cloudanalytics-version4 | jamcracker-cloud-analytics-version4 |
@@ -436,8 +487,6 @@ The table below contains a snapshot of the list of virtual machine images availa
 | kemptech | vlm-azure | vlm-byol-lts |
 | kemptech | vlm-azure | vlm-spla |
 | kemptech | vlm-azure | vlm-spla-lts |
-| kinetica | kineticadbbyol | centos73-601 |
-| kinetica | kineticadbbyol | centos75-620 |
 | liebsoft | enterprise_random_password_manager | redim5521 |
 | mapr-technologies | mapr52-base-dev | 5202 |
 | marklogic | marklogic-9-byol | ml9031_centos_byol |
@@ -445,6 +494,8 @@ The table below contains a snapshot of the list of virtual machine images availa
 | mico | mobile-impact-platform | mipvm |
 | microsoft-ads | linux-data-science-vm-ubuntu | linuxdsvmubuntubyol |
 | microsoft-ads | windows-data-science-vm | windows2016byol |
+| microsoft-avere | vfxt | avere-vfxt-controller |
+| microsoft-avere | vfxt | avere-vfxt-node |
 | microsoft-azure-batch | centos-container | 7-5 |
 | microsoft-azure-batch | centos-container-rdma | 7-4 |
 | microsoft-azure-batch | ubuntu-server-container | 16-04-lts |
@@ -497,6 +548,15 @@ The table below contains a snapshot of the list of virtual machine images availa
 | MicrosoftSQLServer | SQL2014SP2-WS2012R2 | Web |
 | MicrosoftSQLServer | SQL2014SP2-WS2012R2-BYOL | Enterprise |
 | MicrosoftSQLServer | SQL2014SP2-WS2012R2-BYOL | Standard |
+| MicrosoftSQLServer | sql2014sp3-ws2012r2 | enterprise |
+| MicrosoftSQLServer | sql2014sp3-ws2012r2 | enterprise-byol |
+| MicrosoftSQLServer | sql2014sp3-ws2012r2 | express |
+| MicrosoftSQLServer | sql2014sp3-ws2012r2 | sqldev |
+| MicrosoftSQLServer | sql2014sp3-ws2012r2 | standard |
+| MicrosoftSQLServer | sql2014sp3-ws2012r2 | standard-byol |
+| MicrosoftSQLServer | sql2014sp3-ws2012r2 | web |
+| MicrosoftSQLServer | sql2014sp3-ws2012r2-byol | enterprise |
+| MicrosoftSQLServer | sql2014sp3-ws2012r2-byol | standard |
 | MicrosoftSQLServer | SQL2016-WS2012R2 | Enterprise |
 | MicrosoftSQLServer | SQL2016-WS2012R2 | Express |
 | MicrosoftSQLServer | SQL2016-WS2012R2 | SQLDEV |
@@ -525,6 +585,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | MicrosoftSQLServer | SQL2016SP2-WS2016-BYOL | Enterprise |
 | MicrosoftSQLServer | SQL2016SP2-WS2016-BYOL | Standard |
 | MicrosoftSQLServer | SQL2017-RHEL73 | Evaluation |
+| MicrosoftSQLServer | sql2017-ubuntu1604 | SQLDEV |
 | MicrosoftSQLServer | SQL2017-WS2016 | Enterprise |
 | MicrosoftSQLServer | SQL2017-WS2016 | Express |
 | MicrosoftSQLServer | SQL2017-WS2016 | SQLDEV |
@@ -532,6 +593,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | MicrosoftSQLServer | SQL2017-WS2016 | Web |
 | MicrosoftSQLServer | SQL2017-WS2016-BYOL | Enterprise |
 | MicrosoftSQLServer | SQL2017-WS2016-BYOL | Standard |
+| MicrosoftSQLServer | sql2019-rhel7 | SQLDEV |
 | MicrosoftSQLServer | SQL2019-WS2016 | SQLDEV |
 | MicrosoftVisualStudio | VisualStudio | VS-2015-Comm-VSU3-AzureSDK-29-WS2012R2 |
 | MicrosoftVisualStudio | VisualStudio | VS-2015-Comm-VSU3-AzureSDK-291-WS2012R2 |
@@ -542,26 +604,44 @@ The table below contains a snapshot of the list of virtual machine images availa
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-Latest-Preview-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-Latest-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-WS2016 |
+| MicrosoftVisualStudio | VisualStudio | vs-2019-preview-ws2016 |
+| MicrosoftVisualStudio | visualstudio2019 | vs-2019-ent-preview-ws2016 |
+| MicrosoftWindowsDesktop | Test-offer-legacy-id | RS3-Pro |
 | MicrosoftWindowsDesktop | Windows-10 | RS2-Pro |
 | MicrosoftWindowsDesktop | Windows-10 | RS2-ProN |
 | MicrosoftWindowsDesktop | Windows-10 | RS3-Pro |
+| MicrosoftWindowsDesktop | Windows-10 | rs3-pro-test |
 | MicrosoftWindowsDesktop | Windows-10 | RS3-ProN |
 | MicrosoftWindowsDesktop | Windows-10 | rs4-pro |
 | MicrosoftWindowsDesktop | Windows-10 | rs4-pron |
 | MicrosoftWindowsDesktop | Windows-10 | rs5-pro |
 | MicrosoftWindowsDesktop | Windows-10 | rs5-pron |
 | MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-smalldisk |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-zhcn |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-zhcn |
 | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter |
 | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-zhcn |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-Server-Core |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-Server-Core-smalldisk |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-smalldisk |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-RDSH |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-zhcn |
 | MicrosoftWindowsServer | WindowsServer | 2016-Nano-Server |
+| MicrosoftWindowsServer | WindowsServer | 2019-Datacenter |
+| MicrosoftWindowsServer | WindowsServer | 2019-Datacenter-Core |
+| MicrosoftWindowsServer | WindowsServer | 2019-Datacenter-Core-smalldisk |
+| MicrosoftWindowsServer | WindowsServer | 2019-Datacenter-Core-with-Containers |
+| MicrosoftWindowsServer | WindowsServer | 2019-Datacenter-Core-with-Containers-smalldisk |
+| MicrosoftWindowsServer | WindowsServer | 2019-Datacenter-smalldisk |
+| MicrosoftWindowsServer | WindowsServer | 2019-Datacenter-with-Containers |
+| MicrosoftWindowsServer | WindowsServer | 2019-Datacenter-with-Containers-smalldisk |
+| MicrosoftWindowsServer | WindowsServer | 2019-Datacenter-zhcn |
 | MicrosoftWindowsServer | WindowsServer-HUB | 2008-R2-SP1-HUB |
 | MicrosoftWindowsServer | WindowsServer-HUB | 2012-Datacenter-HUB |
 | MicrosoftWindowsServer | WindowsServer-HUB | 2012-R2-Datacenter-HUB |
@@ -569,22 +649,24 @@ The table below contains a snapshot of the list of virtual machine images availa
 | MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1709-smalldisk |
 | MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1709-with-Containers-smalldisk |
 | MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1803-with-Containers-smalldisk |
+| MicrosoftWindowsServer | WindowsServerSemiAnnual | Datacenter-Core-1809-with-Containers-smalldisk |
 | MicrosoftWindowsServerRemoteDesktop | WindowsServer | RDSH-Office365P |
 | MicrosoftWindowsServerRemoteDesktop | WindowsServer | Remote-Desktop-Session-Host |
+| modern-systems | modpaas | ms_modpaas_01 |
 | nasuni | nasuni-nmc | nasuni_nmc_7_10_6_prod |
 | nasuni | nasuni_edge_appliance | nasuni_edge_appliance_7_10_6_prod |
 | netapp | netapp-oncommand-cloud-manager | occm-byol |
 | netapp | netapp-ontap-cloud | ontap_cloud_byol |
+| netapp | netapp-ontap-cloud | ontap_cloud_byol_ha |
 | netapp | netapp-ontap-cloud | private_40_standard_premium |
 | noobaa | noobaa-hybrid-s3-archive-05 | pay-per-usage |
 | nubeva-inc | controller | byol |
 | nuxeo | nuxeo-6-lts | nuxeo-6-lts |
-| nuxeo | nuxeo-lts | nuxeo-lts-2015 |
-| nuxeo | nuxeo-lts | nuxeo-lts-2016 |
 | onyx-point-inc | op-bnf-v1 | bnfcv1 |
 | onyx-point-inc | op-bnf1_6-v1 | bnf1_6cv1 |
 | onyx-point-inc | op-dfi-v1 | dfiv1 |
 | onyx-point-inc | op-scc-v1 | op-scc-v1 |
+| onyx-point-inc | op_simp_6_1 | op_simp_6_1 |
 | OpenLogic | CentOS | 6.10 |
 | OpenLogic | CentOS | 6.7 |
 | OpenLogic | CentOS | 6.8 |
@@ -607,7 +689,9 @@ The table below contains a snapshot of the list of virtual machine images availa
 | Oracle | Oracle-Linux | 6.8 |
 | Oracle | Oracle-Linux | 7.2 |
 | orfast-technologies | orfast-mam-1 | orasft_mam_01 |
+| outsystems | os11-vm-baseimage | lifetime |
 | outsystems | os11-vm-baseimage | os11-ws2016 |
+| outsystems | os11-vm-baseimage | platformserver |
 | paloaltonetworks | panorama | byol |
 | paloaltonetworks | vmseries1 | bundle1 |
 | paloaltonetworks | vmseries1 | bundle2 |
@@ -615,6 +699,8 @@ The table below contains a snapshot of the list of virtual machine images availa
 | panzura-file-system | azura-freedom-filer-v7110 | fd-vm-azure-byol |
 | panzura-file-system | panzura-cloud-filer | fd-vm-azure-byol |
 | panzura-file-system | panzura-freedom-filer-7140-13222 | fd-vm-azure-byol |
+| panzura-file-system | panzura-freedom-filer-716-13549 | fd-vm-azure-byol |
+| panzura-file-system | panzura-freedom-filer-7220 | fd-vm-azure-byol |
 | panzura-file-system | panzura-freedom-filer-v7020 | fd-vm-azure-byol |
 | pivotal | bosh-windows-server | 2012r2gov |
 | pivotal | pivotal-ops-manager | pivotal-ops-manager |
@@ -622,13 +708,15 @@ The table below contains a snapshot of the list of virtual machine images availa
 | qlik | qlik-sense | qliksense |
 | qualysguard | qualys-virtual-firewall-appliance | qwaf |
 | qualysguard | qualys-virtual-scanner-v24 | qvsa-24 |
+| quest | qorestor_5_0_1 | tier_1 |
+| quest | qorestor_5_0_1 | tier_2 |
+| quest | qorestor_5_0_1 | tier_3 |
 | quest | rapid-recovery-core-vm | quest_rapid_recovery_core_vm |
 | radiant-logic | radiantone-vms | node-centos-7-5 |
-| radiant-logic | radiantone-vms | node-redhat-7-4 |
 | radiant-logic | radiantone-vms | node-redhat-7-5 |
-| radiant-logic | radiantone-vms | node-ubuntu-16-04-lts |
 | radiant-logic | radiantone-vms | node-ubuntu-18-04-lts |
 | radiant-logic | radiantone-vms | node-ws-2016 |
+| radware | alteon-va-cluster-monitor | alteon-va-cluster-monitoring |
 | radware | radware-alteon-va | radware-alteon-ng-va-adc |
 | rapid7 | nexpose-scan-engine | nexpose-scan-engine |
 | rapid7 | rapid7-vm-console | rapid7-vm-console |
@@ -638,6 +726,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | RedHat | RHEL | 6.9-LVM |
 | RedHat | RHEL | 7-LVM |
 | RedHat | RHEL | 7-RAW |
+| RedHat | RHEL | 7-RAW-CI |
 | RedHat | RHEL | 7.2 |
 | RedHat | RHEL | 7.3 |
 | RedHat | RHEL | 7.3-LVM |
@@ -646,8 +735,10 @@ The table below contains a snapshot of the list of virtual machine images availa
 | RedHat | RHEL | 7.4-RAW |
 | RedHat | RHEL | 7.4.Beta |
 | RedHat | RHEL | 7.4.Beta-LVM |
+| RedHat | RHEL | 7.5 |
 | RedHat | rhel-byos | rhel-lvm74 |
 | RedHat | rhel-byos | rhel-lvm75 |
+| RedHat | rhel-byos | rhel-raw69 |
 | RedHat | rhel-byos | rhel-raw75 |
 | RedHat | rhel-ocp-marketplace | rhel74 |
 | RedHat | rhel-ocp-marketplace | rhel75 |
@@ -660,6 +751,9 @@ The table below contains a snapshot of the list of virtual machine images availa
 | riverbed | riverbed-steelhead-9-2 | riverbed-steelhead-9-2 |
 | riverbed | riverbed-steelhead-9-5-0 | riverbed-steelhead-9-5-0 |
 | riverbed | riverbed-steelhead-9-6-0 | riverbed-steelhead-9-6-0 |
+| riverbed | riverbed_steelconnect_gw | riverbed-steelconnect-gw |
+| riverbed | riverbed_steelconnect_sh | riverbed-steelconnect-sh |
+| rsa-security-llc | securid8_4 | rsa-sid-azure-84 |
 | scalegrid | centos | free |
 | scality | scalityconnecthourly | connecthourly1 |
 | sentryone | sentryoneeval | sentryoneeval |
@@ -673,33 +767,37 @@ The table below contains a snapshot of the list of virtual machine images availa
 | starwind | starwindvirtualsan | starwindbyol |
 | starwind | starwindvtl | starwindvtl |
 | stonefly | stonefly-cloud-drive | byol_stonefly |
+| SUSE | openSUSE-Leap | 15-0 |
 | SUSE | openSUSE-Leap | 42.3 |
 | SUSE | SLES | 11-SP4 |
 | SUSE | SLES | 12-SP3 |
+| SUSE | SLES | 12-SP4 |
 | SUSE | SLES | 15 |
 | SUSE | SLES-BYOS | 11-SP4 |
 | SUSE | SLES-BYOS | 12-SP3 |
+| SUSE | SLES-BYOS | 12-SP4 |
 | SUSE | SLES-BYOS | 15 |
 | SUSE | SLES-HPC | 12-SP3 |
-| SUSE | SLES-SAP-BYOS | 12-SP1 |
 | SUSE | SLES-SAP-BYOS | 12-SP2 |
 | SUSE | SLES-SAP-BYOS | 12-SP3 |
+| SUSE | SLES-SAP-BYOS | 12-SP4 |
 | SUSE | SLES-SAP-BYOS | 15 |
 | SUSE | SLES-SAPCAL | 11-SP4 |
 | SUSE | SUSE-CaaSP-Admin-BYOS | 2.1 |
 | SUSE | SUSE-CaaSP-Cluster-BYOS | 2.1 |
-| SUSE | SUSE-Manager-Proxy-BYOS | 3.0 |
+| SUSE | SUSE-Manager-Proxy-BYOS | 3-2 |
 | SUSE | SUSE-Manager-Proxy-BYOS | 3.1 |
-| SUSE | SUSE-Manager-Server-BYOS | 3.0 |
+| SUSE | SUSE-Manager-Server-BYOS | 3-2 |
 | SUSE | SUSE-Manager-Server-BYOS | 3.1 |
-| SUSE | SUSE-Manager-Server-BYOS | 3.2 |
 | suse-byos | sles-byos | 12-sp1 |
 | tableau | tableau-server | bring-your-own-license |
 | talon | talon-fast | talon-azure-byol |
 | tenable | tenable-nessus-6-byol | tenable-nessus-byol |
 | tenable | tenablecorenessus | tenablecorenessusbyol |
 | teradata | teradata-data-mover | teradata-data-mover-agent-byol |
+| teradata | teradata-data-mover | teradata-data-mover-agent-hourly |
 | teradata | teradata-data-mover | teradata-data-mover-byol |
+| teradata | teradata-data-mover | teradata-data-mover-hourly |
 | teradata | teradata-data-mover-intellisphere | teradata-data-mover-agent-intellisphere |
 | teradata | teradata-data-mover-intellisphere | teradata-data-mover-intellisphere |
 | teradata | teradata-data-stream-controller | teradata-data-stream-controller-byol |
@@ -714,20 +812,70 @@ The table below contains a snapshot of the list of virtual machine images availa
 | teradata | teradata-database-1510-v2 | teradata-database-developer-1510 |
 | teradata | teradata-database-1510-v2 | teradata-database-enterprise-1510 |
 | teradata | teradata-database-1620 | teradata-database-advanced-1620 |
+| teradata | teradata-database-1620 | teradata-database-advanced-1620-248 |
+| teradata | teradata-database-1620 | teradata-database-advanced-1620-256 |
+| teradata | teradata-database-1620 | teradata-database-advanced-1620-336 |
+| teradata | teradata-database-1620 | teradata-database-advanced-1620-434 |
+| teradata | teradata-database-1620 | teradata-database-advanced-1620-496 |
+| teradata | teradata-database-1620 | teradata-database-advanced-1620-594 |
+| teradata | teradata-database-1620 | teradata-database-advanced-1620-914 |
+| teradata | teradata-database-1620 | teradata-database-advanced-1620-ls |
 | teradata | teradata-database-1620 | teradata-database-base-1620 |
+| teradata | teradata-database-1620 | teradata-database-base-1620-248 |
+| teradata | teradata-database-1620 | teradata-database-base-1620-256 |
+| teradata | teradata-database-1620 | teradata-database-base-1620-336 |
+| teradata | teradata-database-1620 | teradata-database-base-1620-434 |
+| teradata | teradata-database-1620 | teradata-database-base-1620-496 |
+| teradata | teradata-database-1620 | teradata-database-base-1620-594 |
+| teradata | teradata-database-1620 | teradata-database-base-1620-914 |
+| teradata | teradata-database-1620 | teradata-database-base-1620-ls |
 | teradata | teradata-database-1620 | teradata-database-developer-1620 |
 | teradata | teradata-database-1620 | teradata-database-enterprise-1620 |
+| teradata | teradata-database-1620 | teradata-database-enterprise-1620-248 |
+| teradata | teradata-database-1620 | teradata-database-enterprise-1620-256 |
+| teradata | teradata-database-1620 | teradata-database-enterprise-1620-336 |
+| teradata | teradata-database-1620 | teradata-database-enterprise-1620-434 |
+| teradata | teradata-database-1620 | teradata-database-enterprise-1620-496 |
+| teradata | teradata-database-1620 | teradata-database-enterprise-1620-594 |
+| teradata | teradata-database-1620 | teradata-database-enterprise-1620-914 |
+| teradata | teradata-database-1620 | teradata-database-enterprise-1620-ls |
 | teradata | teradata-database-1620-byol | teradata-database-advanced-1620-byol |
 | teradata | teradata-database-1620-byol | teradata-database-base-1620-byol |
 | teradata | teradata-database-1620-byol | teradata-database-enterprise-1620-byol |
 | teradata | teradata-database-1620-intellisphere | teradata-database-advanced-1620 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-advanced-1620-248 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-advanced-1620-256 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-advanced-1620-336 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-advanced-1620-434 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-advanced-1620-496 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-advanced-1620-594 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-advanced-1620-914 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-advanced-1620-ls |
 | teradata | teradata-database-1620-intellisphere | teradata-database-base-1620 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-base-1620-248 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-base-1620-256 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-base-1620-336 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-base-1620-434 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-base-1620-496 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-base-1620-594 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-base-1620-914 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-base-1620-ls |
 | teradata | teradata-database-1620-intellisphere | teradata-database-enterprise-1620 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-enterprise-1620-248 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-enterprise-1620-256 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-enterprise-1620-336 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-enterprise-1620-434 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-enterprise-1620-496 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-enterprise-1620-594 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-enterprise-1620-914 |
+| teradata | teradata-database-1620-intellisphere | teradata-database-enterprise-1620-ls |
 | teradata | teradata-ecosystem-manager | teradata-ecosystem-manager-byol |
 | teradata | teradata-querygrid-manager | teradata-querygrid-manager |
 | teradata | teradata-querygrid-manager-intellisphere | teradata-querygrid-manager-intellisphere |
 | teradata | teradata-rest-services | teradata-rest-services-byol |
 | teradata | teradata-server-management | teradata-server-management-byol |
+| teradata | teradata-unity | teradata-unity |
+| teradata | teradata-unity-intellisphere | teradata-unity-intellisphere |
 | teradata | teradata-viewpoint | teradata-viewpoint-multiple-systems-byol |
 | teradata | teradata-viewpoint | teradata-viewpoint-single-system-byol |
 | teradata | teradata-viewpoint | teradata-viewpoint-single-system-data-lab-byol |
@@ -735,6 +883,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | thales-vormetric | ciphertrust-ckm | ciphertrust-ckm |
 | thales-vormetric | vormetric-dsm | dsm-6-0-2-5162 |
 | thales-vormetric | vormetric-dsm-6-1-0 | dsm-6-1-0-9118 |
+| thales-vormetric | vormetric-dsm-6-1-0 | dsm-6-1-0-9229 |
 | thales-vormetric | vts-2_2_0_2604 | vts-2_2_0_2604 |
 | uniprint-net | uniprint-infinity | up_demo01 |
 | veeam | veeam-backup-replication | veeam-backup-replication-95 |
@@ -755,6 +904,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | zerto | zerto-cloud-appliance-50 | zerto60ga |
 | zerto | zerto-cloud-appliance-50 | zerto60u1ga |
 | zerto | zerto-cloud-appliance-50 | zerto60u3p1 |
+| zerto | zerto-cloud-appliance-50 | zerto65ga |
 
 ## Next steps
 * [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)

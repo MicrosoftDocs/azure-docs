@@ -1,18 +1,19 @@
 ---
-title: Azure MFA software development kit for custom apps
+title: Azure MFA software development kit for custom apps - Azure Active Directory
 description: This article shows you how to download and use the Azure MFA SDK to enable two-step verification for your custom apps.
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Building Multi-Factor Authentication into Custom Apps (SDK)
 
@@ -73,7 +74,7 @@ The following is web client code for a demo page.
 
     <!DOCTYPE html>
 
-    <html xmlns="http://www.w3.org/1999/xhtml">
+    <html xmlns="https://www.w3.org/1999/xhtml">
     <head runat="server">
     <title>Multi-Factor Authentication Demo</title>
     </head>

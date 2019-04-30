@@ -7,7 +7,7 @@ author: chliang
 manager: bix
 
 ms.service: cognitive-services
-ms.component: anomaly-detection
+ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author:  chliang
@@ -18,7 +18,7 @@ ms.author:  chliang
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 The tutorial shows how to use the Anomaly Detection API in Python and how to visualize your results using popular libraries. Using Jupyter to run the tutorial and trying your own data with your subscription key. To learn how to get started
-with interactive Jupyter notebooks, refer to [Jupyter Documentation](http://jupyter.readthedocs.io/en/latest/index.html). 
+with interactive Jupyter notebooks, refer to [Jupyter Documentation](https://jupyter.readthedocs.io/en/latest/index.html). 
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ with interactive Jupyter notebooks, refer to [Jupyter Documentation](http://jupy
 
 ## Download the example code
 
-1. Navigate to the [tutorial notebook in Github](https://github.com/MicrosoftAnomalyDetection/python-sample).
+1. Navigate to the [tutorial notebook in GitHub](https://github.com/MicrosoftAnomalyDetection/python-sample).
 2. Click on the green button to clone or download the tutorial. 
 
 ## Opening the tutorial notebook in Jupyter

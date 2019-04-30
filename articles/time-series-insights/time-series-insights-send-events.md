@@ -1,6 +1,6 @@
-﻿---
-title: How to send events to an Azure Time Series Insights environment | Microsoft Docs
-description: This tutorial explains how to create and configure event hub and run a sample application to push events to be shown in Azure Time Series Insights.
+---
+title: 'Send events to an Azure Time Series Insights environment | Microsoft Docs'
+description: Learn how to configure an event hub and run a sample application to push events you can view in Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -10,138 +10,85 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/09/2018
+ms.date: 12/03/2018
+ms.custom: seodec18
 ---
-# Send events to a Time Series Insights environment using event hub
-This article explains how to create and configure event hub and run a sample application to push events. If you have an existing event hub with events in JSON format, skip this tutorial and view your environment in [Time Series Insights](https://insights.timeseries.azure.com).
+
+# Send events to a Time Series Insights environment by using an event hub
+
+This article explains how to create and configure an event hub in Azure Event Hubs, and then run a sample application to push events. If you have an existing event hub that has events in JSON format, skip this tutorial and view your environment in [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 
 ## Configure an event hub
-1. To create an event hub, follow instructions from the Event Hub [documentation](../event-hubs/event-hubs-create.md).
 
-2. Search for **event hub** in the search bar. Click **Event Hubs** in the returned list.
+1. To learn how to create an event hub, see the [Event Hubs documentation](https://docs.microsoft.com/azure/event-hubs/).
+1. In the search box, search for **Event Hubs**. In the returned list, select **Event Hubs**.
+1. Select your event hub.
+1. When you create an event hub, you are really creating an event hub namespace. If you haven't yet created an event hub within the namespace, in the menu, under **Entities**, create an event hub.  
 
-3. Select your event hub by clicking on its name.
+    ![List of event hubs][1]
 
-4. Under **Entities** in the middle configuration window, click **Event Hubs** again.
+1. After you create an event hub, select it in the list of event hubs.
+1. In the menu, under **Entities**, select **Event Hubs**.
+1. Select the name of the event hub to configure it.
+1. Under **Entities**, select **Consumer groups**, and then select **Consumer Group**.
 
-5. Select the name of the event hub to configure it.
+    ![Create a consumer group][2]
 
-  ![Select event hub consumer group](media/send-events/consumer-group.png)
+1. Make sure you create a consumer group that is used exclusively by your Time Series Insights event source.
 
-6. Under **Entities**, select **Consumer groups**.
- 
-7. Make sure you create a consumer group that is used exclusively by your Time Series Insights event source.
+    > [!IMPORTANT]
+    > Make sure this consumer group isn't used by any other service (such as an Azure Stream Analytics job or another Time Series Insights environment). If the consumer group is used by the other services, read operations are negatively affected both for this environment and for other services. If you use **$Default** as the consumer group, other readers might potentially reuse your consumer group.
 
-   > [!IMPORTANT]
-   > Make sure this consumer group is not used by any other service (such as Stream Analytics job or another Time Series Insights environment). If the consumer group is used by other services, read operation is negatively affected for this environment and the other services. If you are using “$Default” as the consumer group, it could lead to potential reuse by other readers.
+1. In the menu, under **Settings**, select **Shared access policies**, and then select **Add**.
 
-8. Under the **Settings** heading, select **Share access policies**.
+    ![Select Shared access policies, and then select the Add button][3]
 
-9. On the event hub, create **MySendPolicy** that is used to send events in the csharp sample.
+1. In the **Add new shared access policy** pane, create a shared access named **MySendPolicy**. You'll use this shared access policy to send events in the C# examples later in this article.
 
-  ![Select Shared access policies and click Add button](media/send-events/shared-access-policy.png)  
+    ![In the Policy name box, enter MySendPolicy][4]
 
-  ![Add new shared access policy](media/send-events/shared-access-policy-2.png)  
+1. Under **Claim**, select the **Send** checkbox.
 
-## Add Time Series Insights reference data set 
-Using reference data in TSI contextualizes your telemetry data.  That context adds meaning to your data and makes it easier to filter and aggregate.  TSI joins reference data at ingress time and cannot retroactively join this data.  Therefore, it is critical to add reference data prior to adding an event source with data.  Data like location or sensor type are useful dimensions that you might want to join to a device/tag/sensor ID to make it easier to slice and filter.  
+## Add a Time Series Insights instance
 
-> [!IMPORTANT]
-> Having a reference data set configured is critical when you upload historical data.
+The Time Series Insights update uses instances to add contextual data to incoming telemetry data. The data is joined at query time by using a **Time Series ID**. The **Time Series ID** for the sample windmills project that we use later in this article is **Id**. To learn more about Time Series Insight instances and **Time Series ID**, see [Time Series Models](./time-series-insights-update-tsm.md).
 
-Ensure that you have reference data in place when you bulk upload historical data to TSI.  Keep in mind, TSI will immediately start reading from a joined event source if that event source has data.  It's useful to wait to join an event source to TSI until you have your reference data in place, especially if that event source has data in it. Alternatively, you can wait to push data to that event source until the reference data set is in place.
+### Create a Time Series Insights event source
 
-To manage reference data, there is the web-based user interface in the TSI Explorer, and there is a programmatic C# API. TSI Explorer has a visual user experience to upload files or paste-in existing reference data sets as JSON or CSV format. With the API, you can build a custom app when needed.
+1. If you haven't created an event source, complete the steps to [create an event source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 
-For more information on managing reference data in Time Series Insights, see the [reference data article](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
+1. Set a value for `timeSeriesId`. To learn more about **Time Series ID**, see [Time Series Models](./time-series-insights-update-tsm.md).
 
-## Create Time Series Insights event source
-1. If you haven't created an event source, follow [these instructions](time-series-insights-how-to-add-an-event-source-eventhub.md) to create an event source.
+### <a name="push-events"></a>Push events (windmills sample)
 
-2. Specify **deviceTimestamp** as the timestamp property name – this property is used as the actual timestamp in the C# sample. The timestamp property name is case-sensitive and values must follow the format __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__ when sent as JSON to event hub. If the property does not exist in the event, then the event hub enqueued time is used.
+1. In the search bar, search for **Event Hubs**. In the returned list, select **Event Hubs**.
 
-  ![Create event source](media/send-events/event-source-1.png)
+1. Select your event hub.
 
-## Sample code to push events
-1. Go to the event hub policy named **MySendPolicy**. Copy the **connection string** with the policy key.
+1. Go to **Shared Access Policies** > **RootManageSharedAccessKey**. Copy the value for **Connection sting-primary key**.
 
-  ![Copy MySendPolicy connection string](media/send-events/sample-code-connection-string.png)
+    ![Copy the value for the primary key connection string][5]
 
-2. Run the following code that to send 600 events per each of the three devices. Update `eventHubConnectionString` with your connection string.
+1. Go to https://tsiclientsample.azurewebsites.net/windFarmGen.html. The URL runs simulated windmill devices.
+1. In the **Event Hub Connection String** box on the webpage, paste the connection string that you copied in [Push events](#push-events).
+  
+    ![Paste the primary key connection string in the Event Hub Connection String box][6]
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using Microsoft.ServiceBus.Messaging;
+1. Select **Click to start**. The simulator generates instance JSON that you can use directly.
 
-namespace Microsoft.Rdx.DataGenerator
-{
-    internal class Program
-    {
-        private static void Main(string[] args)
-        {
-            var from = new DateTime(2017, 4, 20, 15, 0, 0, DateTimeKind.Utc);
-            Random r = new Random();
-            const int numberOfEvents = 600;
+1. Go back to your event hub in the Azure portal. On the **Overview** page, you should see the new events being received by the event hub:
 
-            var deviceIds = new[] { "device1", "device2", "device3" };
+    ![An event hub Overview page that shows metrics for the event hub][7]
 
-            var events = new List<string>();
-            for (int i = 0; i < numberOfEvents; ++i)
-            {
-                for (int device = 0; device < deviceIds.Length; ++device)
-                {
-                    // Generate event and serialize as JSON object:
-                    // { "deviceTimestamp": "utc timestamp", "deviceId": "guid", "value": 123.456 }
-                    events.Add(
-                        String.Format(
-                            CultureInfo.InvariantCulture,
-                            @"{{ ""deviceTimestamp"": ""{0}"", ""deviceId"": ""{1}"", ""value"": {2} }}",
-                            (from + TimeSpan.FromSeconds(i * 30)).ToString("o"),
-                            deviceIds[device],
-                            r.NextDouble()));
-                }
-            }
+<a id="json"></a>
 
-            // Create event hub connection.
-            var eventHubConnectionString = @"Endpoint=sb://...";
-            var eventHubClient = EventHubClient.CreateFromConnectionString(eventHubConnectionString);
-
-            using (var ms = new MemoryStream())
-            using (var sw = new StreamWriter(ms))
-            {
-                // Wrap events into JSON array:
-                sw.Write("[");
-                for (int i = 0; i < events.Count; ++i)
-                {
-                    if (i > 0)
-                    {
-                        sw.Write(',');
-                    }
-                    sw.Write(events[i]);
-                }
-                sw.Write("]");
-
-                sw.Flush();
-                ms.Position = 0;
-
-                // Send JSON to event hub.
-                EventData eventData = new EventData(ms);
-                eventHubClient.Send(eventData);
-            }
-        }
-    }
-}
-
-```
 ## Supported JSON shapes
+
 ### Sample 1
 
 #### Input
 
-A simple JSON object.
+A simple JSON object:
 
 ```json
 {
@@ -149,7 +96,8 @@ A simple JSON object.
     "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
-#### Output - one event
+
+#### Output: One event
 
 |id|timestamp|
 |--------|---------------|
@@ -158,7 +106,9 @@ A simple JSON object.
 ### Sample 2
 
 #### Input
-A JSON array with two JSON objects. Each JSON object will be converted to an event.
+
+A JSON array with two JSON objects. Each JSON object is converted to an event.
+
 ```json
 [
     {
@@ -171,7 +121,8 @@ A JSON array with two JSON objects. Each JSON object will be converted to an eve
     }
 ]
 ```
-#### Output - two events
+
+#### Output: Two events
 
 |id|timestamp|
 |--------|---------------|
@@ -183,6 +134,7 @@ A JSON array with two JSON objects. Each JSON object will be converted to an eve
 #### Input
 
 A JSON object with a nested JSON array that contains two JSON objects:
+
 ```json
 {
     "location":"WestUs",
@@ -197,10 +149,11 @@ A JSON object with a nested JSON array that contains two JSON objects:
         }
     ]
 }
-
 ```
-#### Output - two events
-Notice the property "location" is copied over to each of the event.
+
+#### Output: Two events
+
+The property **location** is copied over to each event.
 
 |location|events.id|events.timestamp|
 |--------|---------------|----------------------|
@@ -211,7 +164,7 @@ Notice the property "location" is copied over to each of the event.
 
 #### Input
 
-A JSON object with a nested JSON array containing two JSON objects. This input demonstrates that the global properties may be represented by the complex JSON object.
+A JSON object with a nested JSON array that contains two JSON objects. This input demonstrates that global properties can be represented by the complex JSON object.
 
 ```json
 {
@@ -242,15 +195,23 @@ A JSON object with a nested JSON array containing two JSON objects. This input d
     ]
 }
 ```
-#### Output - two events
+
+#### Output: Two events
 
 |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
 |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
-
-
 ## Next steps
-> [!div class="nextstepaction"]
-> [View your environment in Time Series Insights explorer](https://insights.timeseries.azure.com).
+
+- [View your environment](https://insights.timeseries.azure.com) in the Time Series Insights explorer.
+
+<!-- Images -->
+[1]: media/send-events/updated.png
+[2]: media/send-events/consumer-group.png
+[3]: media/send-events/shared-access-policy.png
+[4]: media/send-events/shared-access-policy-2.png
+[5]: media/send-events/sample-code-connection-string.png
+[6]: media/send-events/updated_two.png
+[7]: media/send-events/telemetry.png

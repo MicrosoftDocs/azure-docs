@@ -21,7 +21,7 @@ Azure Front Door Service delivers large files without a cap on file size. Front 
 
 </br>After the chunk arrives at the Front Door environment, it is cached and immediately served to the user. Front Door then pre-fetches the next chunk in parallel. This pre-fetch ensures that the content stays one chunk ahead of the user, which reduces latency. This process continues until the entire file is downloaded (if requested), all byte ranges are available (if requested), or the client terminates the connection.
 
-</br>For more information on the byte-range request, read [RFC 7233](http://www.rfc-base.org/rfc-7233.html).
+</br>For more information on the byte-range request, read [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 Front Door caches any chunks as they're received and so the entire file doesn't need to be cached on the Front Door cache. Subsequent requests for the file or byte ranges are served from the cache. If not all the chunks are cached, pre-fetching is used to request chunks from the backend. This optimization relies on the ability of the backend to support byte-range requests; if the backend doesn't support byte-range requests, this optimization isn't effective.
 
 ## File compression
@@ -95,11 +95,11 @@ Cache purges on the Front Door are case-insensitive. Additionally, they are quer
 
 ## Cache expiration
 The following order of headers is used in order to determine how long an item will be stored in our cache:</br>
-1. Cache-Control: s-maxage=<seconds>
-2. Cache-Control: maxage=<seconds>
-3. Expires: <http-date>
+1. Cache-Control: s-maxage=\<seconds>
+2. Cache-Control: maxage=\<seconds>
+3. Expires: \<http-date>
 
-Cache-Control response headers that indicate that the response won’t be cached such as Cache-Control: private, Cache-Control: no-cache, and Cache-Control: no-store are honored. However, if there are multiple requests in-flight at a POP for the same URL, they may share the response.
+Cache-Control response headers that indicate that the response won’t be cached such as Cache-Control: private, Cache-Control: no-cache, and Cache-Control: no-store are honored. However, if there are multiple requests in-flight at a POP for the same URL, they may share the response. If no Cache-Control is present the default behavior is that AFD will cache the resource for X amount of time where X is randomly picked between 1 to 3 days.
 
 
 ## Request headers

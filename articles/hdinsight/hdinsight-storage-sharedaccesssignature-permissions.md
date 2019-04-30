@@ -1,7 +1,6 @@
 ---
 title: Restrict access using Shared Access Signatures - Azure HDInsight 
 description: Learn how to use Shared Access Signatures to restrict HDInsight access to data stored in Azure storage blobs.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -16,13 +15,15 @@ ms.author: hrasheed
 
 HDInsight has full access to data in the Azure Storage accounts associated with the cluster. You can use Shared Access Signatures on the blob container to restrict access to the data. Shared Access Signatures (SAS) are a feature of Azure storage accounts that allows you to limit access to data. For example, providing read-only access to data.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > For a solution using Apache Ranger, consider using domain-joined HDInsight. For more information, see the [Configure domain-joined HDInsight](./domain-joined/apache-domain-joined-configure.md) document.
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight must have full access to the default storage for the cluster.
 
 ## Requirements
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * An Azure subscription
 * C# or Python. C# example code is provided as a Visual Studio solution.
@@ -30,9 +31,9 @@ HDInsight has full access to data in the Azure Storage accounts associated with 
   * Visual Studio must be version 2013, 2015, or 2017
   * Python must be version 2.7 or higher
 
-* A Linux-based HDInsight cluster OR [Azure PowerShell][powershell] - If you have an existing Linux-based cluster, you can use Ambari to add a Shared Access Signature to the cluster. If not, you can use Azure PowerShell to create a cluster and add a Shared Access Signature during cluster creation.
+* A Linux-based HDInsight cluster OR [Azure PowerShell][powershell] - If you have an existing Linux-based cluster, you can use Apache Ambari to add a Shared Access Signature to the cluster. If not, you can use Azure PowerShell to create a cluster and add a Shared Access Signature during cluster creation.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * The example files from [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). This repository contains the following items:
@@ -62,7 +63,7 @@ The difference between the two forms is important for one key scenario: revocati
 
 4. The account key that was used to create the SAS is regenerated. Regenerating the key causes all applications that use the previous key to fail authentication. Update all components to the new key.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > A shared access signature URI is associated with the account key used to create the signature, and the associated stored access policy (if any). If no stored access policy is specified, the only way to revoke a shared access signature is to change the account key.
 
 We recommend that you always use stored access policies. When using stored policies, you can either revoke signatures or extend the expiry date as needed. The steps in this document use stored access policies to generate SAS.
@@ -156,12 +157,12 @@ An example of creating an HDInsight cluster that uses the SAS is included in the
 1. From the prompt, use the following command to authenticate to your Azure subscription:
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
-    When prompted, log in with the account for your Azure subscription.
+    When prompted, sign in with the account for your Azure subscription.
 
-    If your account is associated with multiple Azure subscriptions, you may need to use `Select-AzureRmSubscription` to select the subscription you wish to use.
+    If your account is associated with multiple Azure subscriptions, you may need to use `Select-AzSubscription` to select the subscription you wish to use.
 
 4. From the prompt, change directories to the `CreateCluster` directory that contains the HDInsightSAS.ps1 file. Then use the following command to run the script
 
@@ -171,15 +172,15 @@ An example of creating an HDInsight cluster that uses the SAS is included in the
 
     As the script runs, it logs output to the PowerShell prompt as it creates the resource group and storage accounts. You are prompted to enter the HTTP user for the HDInsight cluster. This account is used to secure HTTP/s access to the cluster.
 
-    If you are creating a Linux-based cluster, you are prompted for an SSH user account name and password. This account is used to remotely log in to the cluster.
+    If you are creating a Linux-based cluster, you are prompted for an SSH user account name and password. This account is used to remotely sign in to the cluster.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > When prompted for the HTTP/s or SSH user name and password, you must provide a password that meets the following criteria:
    >
-   > * Must be at least 10 characters in length
-   > * Must contain at least one digit
-   > * Must contain at least one non-alphanumeric character
-   > * Must contain at least one upper or lower case letter
+   > * Must be at least 10 characters in length.
+   > * Must contain at least one digit.
+   > * Must contain at least one non-alphanumeric character.
+   > * Must contain at least one upper or lower case letter.
 
 It takes a while for this script to complete, usually around 15 minutes. When the script completes without any errors, the cluster has been created.
 
@@ -204,7 +205,7 @@ If you have an existing Linux-based cluster, you can add the SAS to the **core-s
 
     Click **OK** when the changes have been completed.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > You must restart several services before the change takes effect.
 
 6. In the Ambari web UI, select **HDFS** from the list on the left, and then select **Restart All Affected** from the **Service Actions** drop down list on the right. When prompted, select __Confirm Restart All__.
@@ -215,13 +216,7 @@ If you have an existing Linux-based cluster, you can add the SAS to the **core-s
 
 ## Test restricted access
 
-To verify that you have restricted access, use the following methods:
-
-* For **Windows-based** HDInsight clusters, use Remote Desktop to connect to the cluster. For more information, see [Connect to HDInsight using RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
-
-    Once connected, use the **Hadoop Command-Line** icon on the desktop to open a command prompt.
-
-* For **Linux-based** HDInsight clusters, use SSH to connect to the cluster. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+To verify that you have restricted access, use SSH to connect to the cluster. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Once connected to the cluster, use the following steps to verify that you can only read and list items on the SAS storage account:
 
@@ -275,28 +270,28 @@ Once connected to the cluster, use the following steps to verify that you can on
 
 **Symptoms**: When creating a cluster using the PowerShell script, you may receive the following error message:
 
-    New-AzureRmHDInsightCluster : A task was canceled.
+    New-AzHDInsightCluster : A task was canceled.
     At C:\Users\larryfr\Documents\GitHub\hdinsight-azure-storage-sas\CreateCluster\HDInsightSAS.ps1:62 char:5
-    +     New-AzureRmHDInsightCluster `
+    +     New-AzHDInsightCluster `
     +     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        + CategoryInfo          : NotSpecified: (:) [New-AzureRmHDInsightCluster], CloudException
+        + CategoryInfo          : NotSpecified: (:) [New-AzHDInsightCluster], CloudException
         + FullyQualifiedErrorId : Hyak.Common.CloudException,Microsoft.Azure.Commands.HDInsight.NewAzureHDInsightClusterCommand
 
 **Cause**: This error can occur if you use a password for the admin/HTTP user for the cluster, or (for Linux-based clusters) the SSH user.
 
 **Resolution**: Use a password that meets the following criteria:
 
-* Must be at least 10 characters in length
-* Must contain at least one digit
-* Must contain at least one non-alphanumeric character
-* Must contain at least one upper or lower case letter
+* Must be at least 10 characters in length.
+* Must contain at least one digit.
+* Must contain at least one non-alphanumeric character.
+* Must contain at least one upper or lower case letter.
 
 ## Next steps
 
 Now that you have learned how to add limited-access storage to your HDInsight cluster, learn other ways to work with data on your cluster:
 
-* [Use Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hadoop/hdinsight-use-pig.md)
+* [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
+* [Use Apache Pig with HDInsight](hadoop/hdinsight-use-pig.md)
 * [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs

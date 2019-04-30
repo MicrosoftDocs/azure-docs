@@ -1,7 +1,6 @@
 ---
 title: Manage Apache Hadoop clusters using Azure Classic CLI - Azure HDInsight
 description: Learn how to use the Azure classic CLI to manage Apache Hadoop clusters in Azure HDInsight.
-services: hdinsight
 ms.reviewer: jasonh
 author: tylerfox
 
@@ -15,7 +14,7 @@ ms.author: tyfox
 # Manage Apache Hadoop clusters in HDInsight using the Azure Classic CLI
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Learn how to use the [Azure Classic CLI](../cli-install-nodejs.md) to manage Apache Hadoop clusters in Azure HDInsight. The classic CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux.
+Learn how to use the [Azure Classic CLI](../cli-install-nodejs.md) to manage [Apache Hadoop](https://hadoop.apache.org/) clusters in Azure HDInsight. The classic CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux.
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
@@ -70,7 +69,7 @@ azure group delete <Resource Group Name>
 ```
 
 ## Scale clusters
-To change the Hadoop cluster size:
+To change the Apache Hadoop cluster size:
 
 ```cli
 azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
@@ -87,19 +86,17 @@ azure hdinsight cluster disable-http-access [options] <Cluster Name>
 ## Next steps
 In this article, you have learned how to perform different HDInsight cluster administrative tasks. To learn more, see the following articles:
 
-* [Administer HDInsight by using the Azure Portal][hdinsight-admin-portal]
+* [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md)
 * [Administer HDInsight by using Azure PowerShell][hdinsight-admin-powershell]
 * [Get started with Azure HDInsight][hdinsight-get-started]
 * [How to use the Azure Classic CLI][azure-command-line-tools]
 
 [azure-command-line-tools]: ../cli-install-nodejs.md
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 

@@ -1,12 +1,12 @@
 ---
 title: Test results for replication of Hyper-V VMs in VMM clouds to a secondary site with Azure Site Recovery | Microsoft Docs
 description: This article provides information about performance testing for replication of Hyper-V VMs in VMM clouds to a secondary site using Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
-ms.author: raynew
+ms.date: 12/27/2018
+ms.author: sutalasi
 
 ---
 # Test results for Hyper-V replication to a secondary site
@@ -170,10 +170,10 @@ The table summarizes the performance metrics and counters that were measured in 
 | CPU |\Processor(_Total)\% Processor Time |
 | Available memory |\Memory\Available MBytes |
 | IOPS |\PhysicalDisk(_Total)\Disk Transfers/sec |
-| VM read (IOPS) operations/sec |\Hyper-V Virtual Storage Device(<VHD>)\Read Operations/Sec |
-| VM write (IOPS) operations/sec |\Hyper-V Virtual Storage Device(<VHD>)\Write Operations/S |
-| VM read throughput |\Hyper-V Virtual Storage Device(<VHD>)\Read Bytes/sec |
-| VM write throughput |\Hyper-V Virtual Storage Device(<VHD>)\Write Bytes/sec |
+| VM read (IOPS) operations/sec |\Hyper-V Virtual Storage Device(\<VHD>)\Read Operations/Sec |
+| VM write (IOPS) operations/sec |\Hyper-V Virtual Storage Device(\<VHD>)\Write Operations/S |
+| VM read throughput |\Hyper-V Virtual Storage Device(\<VHD>)\Read Bytes/sec |
+| VM write throughput |\Hyper-V Virtual Storage Device(\<VHD>)\Write Bytes/sec |
 
 ## Next steps
 

@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ---
-<!--author=alkohli last changed: 9/16/15-->
 
 #### To cable for power
 1. Make sure that the power switches on each of the Power and Cooling Modules (PCMs) are in the OFF position.

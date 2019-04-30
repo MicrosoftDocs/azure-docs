@@ -8,26 +8,27 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 04/30/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 #Customer intent: As an application developer, I want to know how to remove my application from the Microsoft identity registered.
+ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Remove an application registered with the Microsoft identity platform (Preview)
+# Quickstart: Remove an application registered with the Microsoft identity platform
 
 Enterprise developers and software-as-a-service (SaaS) providers who have registered applications with Microsoft identity platform may need to remove an application's registration.
 
 In this quickstart, you'll learn how to:
 
-* [Remove an application authored by you or your organization](#remove-an-application-authored-by-your-organization)
-* [Remove an application authored by another organization](#remove-an-application-authoried-by-another-organization)
+* Remove an application authored by you or your organization
+* Remove an application authored by another organization
 
 ## Prerequisites
 
@@ -48,8 +49,8 @@ Applications that you or your organization have registered are represented by bo
 4. From the **Overview** page, select **Delete**.
 5. Select **Yes** to confirm that you want to delete the app.
 
-  > [!NOTE]
-  > To delete an application, you need to be listed as an owner of the application or have admin privileges.
+   > [!NOTE]
+   > To delete an application, you need to be listed as an owner of the application or have admin privileges.
 
 ## Remove an application authored by another organization
 

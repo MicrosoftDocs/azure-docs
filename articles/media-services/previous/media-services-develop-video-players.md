@@ -2,7 +2,7 @@
 title: Develop video player applications
 description: The topic provides links to Player Frameworks and plugins that you can use to develop your own client applications that can consume streaming media from Media Services.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
@@ -40,10 +40,10 @@ For more information:
 ## Other Tools for Creating Player Applications
 You can also use any of the following SDKs:
 
-* [Smooth Streaming Client SDK](http://www.iis.net/downloads/microsoft/smooth-streaming) 
+* [Smooth Streaming Client SDK](https://www.iis.net/downloads/microsoft/smooth-streaming) 
 * [Smooth Streaming Windows Store App](media-services-build-smooth-streaming-apps.md)
-* [Microsoft Media Platform: Player Framework](http://playerframework.codeplex.com/) 
-* [HTML5 Player Framework Documentation](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
+* [Microsoft Media Platform: Player Framework](https://playerframework.codeplex.com/) 
+* [HTML5 Player Framework Documentation](https://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 * [Microsoft Smooth Streaming Plugin for OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
 * [Licensing Microsoft® Smooth Streaming Client Porting Kit](https://aka.ms/sspk) 
 * [XBOX Video Application Development](https://xbox.create.msdn.com/) 

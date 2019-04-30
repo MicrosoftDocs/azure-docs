@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 # Configure Azure Storage connection strings
 

@@ -39,7 +39,7 @@ Before you configure and set up your StorSimple Virtual Array, make sure that:
 Use the following step-by-step instructions to set up and configure your StorSimple Virtual Array:
 
 * [Step 1: Complete the local web UI setup and register your device](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
-* [Step 2: Complete the required device setup](#step-2-complete-the-required-device-setup)
+* Step 2: Complete the required device setup
 * [Step 3: Add a volume](#step-3-add-a-volume)
 * [Step 4: Mount, initialize, and format a volume](#step-4-mount-initialize-and-format-a-volume)
 
@@ -93,7 +93,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
    
     On the **Web proxy** page:
    
-   1. Supply the **Web proxy URL** in this format: *http://host-IP address* or *FDQN:Port number*. Note that HTTPS URLs are not supported.
+   1. Supply the **Web proxy URL** in this format: *http:\//host-IP address* or *FQDN:Port number*. Note that HTTPS URLs are not supported.
    2. Specify **Authentication** as **Basic** or **None**.
    3. If you are using authentication, you will also need to provide a **Username** and **Password**.
    4. Click **Apply**. This will validate and apply the configured web proxy settings.

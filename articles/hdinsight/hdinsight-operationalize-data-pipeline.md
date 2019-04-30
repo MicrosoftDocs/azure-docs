@@ -1,7 +1,6 @@
 ---
 title: Operationalize a data analytics pipeline - Azure 
 description: Set up and run an example data pipeline that is triggered by new data and produces concise results.
-services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
@@ -24,13 +23,13 @@ In the following scenario, the input data is a flat file containing a batch of f
 | 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
-The example pipeline waits until a new time period's flight data arrives, then stores that detailed flight information into your Hive data warehouse for long-term analyses. The pipeline also creates a much smaller dataset that summarizes just the daily flight data. This daily flight summary data is sent to a SQL database to provide reports, such as for a website.
+The example pipeline waits until a new time period's flight data arrives, then stores that detailed flight information into your Apache Hive data warehouse for long-term analyses. The pipeline also creates a much smaller dataset that summarizes just the daily flight data. This daily flight summary data is sent to a SQL database to provide reports, such as for a website.
 
 The following diagram illustrates the example pipeline.
 
 ![Flight Data Pipeline](./media/hdinsight-operationalize-data-pipeline/pipeline-overview.png)
 
-## Oozie solution overview
+## Apache Oozie solution overview
 
 This pipeline uses Apache Oozie running on an HDInsight Hadoop cluster.
 
@@ -133,7 +132,7 @@ Your Azure SQL Database is now ready.
 
 To use the Oozie Web Console to view the status of your coordinator and workflow instances, set up an SSH tunnel to your HDInsight cluster. For more information, see [SSH Tunnel](hdinsight-linux-ambari-ssh-tunnel.md).
 
-> [!NOTE]
+> [!NOTE]  
 > You can also use Chrome with the [Foxy Proxy](https://getfoxyproxy.org/) extension to browse your cluster's web resources across the SSH tunnel. Configure it to proxy all request through the host `localhost` on the tunnel's port 9876. This approach is compatible with the Windows Subsystem for Linux, also known as Bash on Windows 10.
 
 1. Run the following command to open an SSH tunnel to your cluster:
@@ -144,13 +143,13 @@ To use the Oozie Web Console to view the status of your coordinator and workflow
 
 2. Verify the tunnel is operational by navigating to Ambari on your head node by browsing to:
 
-    http://headnodehost:8080
+    http:\//headnodehost:8080
 
 3. To access the **Oozie Web Console** from within Ambari, select **Oozie**, **Quick Links**, and then select **Oozie Web Console**.
 
 ### Configure Hive
 
-1. Download an example CSV file that contains flight data for one month. Download its ZIP file `2017-01-FlightData.zip` from the [HDInsight Github repository](https://github.com/hdinsight/hdinsight-dev-guide) and unzip it to the CSV file `2017-01-FlightData.csv`. 
+1. Download an example CSV file that contains flight data for one month. Download its ZIP file `2017-01-FlightData.zip` from the [HDInsight GitHub repository](https://github.com/hdinsight/hdinsight-dev-guide) and unzip it to the CSV file `2017-01-FlightData.csv`. 
 
 2. Copy this CSV file up to the Azure Storage account attached to your HDInsight cluster and place it in the `/example/data/flights` folder.
 
@@ -170,7 +169,7 @@ You can copy the file using SCP in your `bash` shell session.
 
 The sample data is now available. However, the pipeline requires two Hive tables for processing, one for the incoming data (`rawFlights`) and one for the summarized data (`flights`). Create these tables in Ambari as follows.
 
-1. Log in to Ambari by navigating to [http://headnodehost:8080](http://headnodehost:8080).
+1. Log in to Ambari by navigating to http:\//headnodehost:8080.
 2. From the list of services, select **Hive**.
 
     ![Selecting Hive in Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
@@ -424,7 +423,7 @@ The following table summarizes each of the properties and indicates where you ca
 | month | The month component of the day for which flight summaries are computed. Leave as is. |
 | day | The day of month component of the day for which flight summaries are computed. Leave as is. |
 
-> [!NOTE]
+> [!NOTE]  
 > Be sure to update your copy of the `job.properties` file with the values specific to your environment,  before you can deploy and run your Oozie workflow.
 
 ### Deploy and run the Oozie workflow
@@ -545,7 +544,7 @@ As you can see, the majority of the coordinator is just passing configuration in
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
     ```
 
-    A coordinator is responsible for scheduling actions within the `start` and `end` date range, according to the interval specified by the `frequency` attribute. Each scheduled action in turn runs the workflow as configured. In the coordinator definition above, the coordinator is configured to run actions from January 1st, 2017 to January 5th, 2017. The frequency is set to 1 day by the [Oozie Expression Language](http://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) frequency expression `${coord:days(1)}`. This results in the coordinator scheduling an action (and hence the workflow) once per day. For date ranges that are in the past, as in this example, the action will be scheduled to run without delay. The start of the date from which an action is scheduled to run is called the *nominal time*. For example, to process the data for January 1st, 2017 the coordinator will schedule action with a nominal time of 2017-01-01T00:00:00 GMT.
+    A coordinator is responsible for scheduling actions within the `start` and `end` date range, according to the interval specified by the `frequency` attribute. Each scheduled action in turn runs the workflow as configured. In the coordinator definition above, the coordinator is configured to run actions from January 1st, 2017 to January 5th, 2017. The frequency is set to 1 day by the [Oozie Expression Language](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) frequency expression `${coord:days(1)}`. This results in the coordinator scheduling an action (and hence the workflow) once per day. For date ranges that are in the past, as in this example, the action will be scheduled to run without delay. The start of the date from which an action is scheduled to run is called the *nominal time*. For example, to process the data for January 1st, 2017 the coordinator will schedule action with a nominal time of 2017-01-01T00:00:00 GMT.
 
 * Point 2: Within the date range of the workflow, the `dataset` element specifies where to look in HDFS for the data for a particular date range, and configures how Oozie determines whether the data is available yet for processing.
 
@@ -645,6 +644,6 @@ To run the pipeline with a coordinator, proceed in a similar fashion as for the 
 
 ## Next steps
 
-* [Apache Oozie Documentation](http://oozie.apache.org/docs/4.2.0/index.html)
+* [Apache Oozie Documentation](https://oozie.apache.org/docs/4.2.0/index.html)
 
 <!-- * Build the same pipeline [using Azure Data Factory](tbd.md).  -->

@@ -1,28 +1,30 @@
 ---
 title: Create a blockchain application in Azure Blockchain Workbench
-description: How to create a blockchain application in Azure Blockchain Workbench.
+description: Tutorial on how to create a blockchain application in Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
-ms.topic: article
+ms.date: 04/15/2019
+ms.topic: tutorial
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
 #customer intent: As a developer, I want to use Azure Blockchain Workbench to create a blockchain app.
 ---
-# Create a blockchain application in Azure Blockchain Workbench
+# Tutorial: Create a blockchain application in Azure Blockchain Workbench
 
 You can use Azure Blockchain Workbench to create blockchain applications that represent multi-party workflows defined by configuration and smart contract code.
 
-You learn how to:
+You'll learn how to:
 
 > [!div class="checklist"]
 > * Configure a blockchain application
 > * Create a smart contract code file
 > * Add a blockchain application to Blockchain Workbench
 > * Add members to the blockchain application
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -232,56 +234,17 @@ Add the following version pragma at the top of `HelloBlockchain.sol` smart contr
   pragma solidity ^0.4.20;
   ```
 
-### Base class
-
-**WorkbenchBase** base class enables Blockchain Workbench to create and update the contract. The base class is required for Blockchain Workbench specific smart contract code. Your contract needs to inherit from the **WorkbenchBase** base class.
-
-In `HelloBlockchain.sol` smart contract code file, add the **WorkbenchBase** class at the beginning of the file. 
-
-```
-contract WorkbenchBase {
-    event WorkbenchContractCreated(string applicationName, string workflowName, address originatingAddress);
-    event WorkbenchContractUpdated(string applicationName, string workflowName, string action, address originatingAddress);
-
-    string internal ApplicationName;
-    string internal WorkflowName;
-
-    function WorkbenchBase(string applicationName, string workflowName) internal {
-        ApplicationName = applicationName;
-        WorkflowName = workflowName;
-    }
-
-    function ContractCreated() internal {
-        WorkbenchContractCreated(ApplicationName, WorkflowName, msg.sender);
-    }
-
-    function ContractUpdated(string action) internal {
-        WorkbenchContractUpdated(ApplicationName, WorkflowName, action, msg.sender);
-    }
-}
-```
-The base class includes two important functions:
-
-|Base class function  | Purpose  | When to call  |
-|---------|---------|---------|
-| ContractCreated() | Notifies Blockchain Workbench a contract has been created | Before exiting the contract constructor |
-| ContractUpdated() | Notifies Blockchain Workbench a contract state has been updated | Before exiting a contract function |
-
 ### Configuration and smart contract code relationship
 
 Blockchain Workbench uses the configuration file and smart contract code file to create a blockchain application. There is a relationship between what is defined in the configuration and the code in the smart contract. Contract details, functions, parameters, and types are required to match to create the application. Blockchain Workbench verifies the files prior to application creation. 
 
 ### Contract
 
-For Blockchain Workbench, contracts need to inherit from the **WorkbenchBase** base class. When declaring the contract, you need to pass the application name and the workflow name as arguments.
-
-Add the **contract** header to your `HelloBlockchain.sol` smart contract code file. 
+Add the **contract** header to your `HelloBlockchain.sol` smart contract code file.
 
 ```
-contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') {
+contract HelloBlockchain {
 ```
-
-Your contract needs to inherit from the **WorkbenchBase** base class and pass in the parameters **ApplicationName**  and the workflow **Name** as defined in the configuration file. In this case, the application name and workflow name are the same.
 
 ### State variables
 
@@ -308,20 +271,15 @@ The constructor defines input parameters for a new smart contract instance of a 
 
 In the constructor function, write any business logic you want to perform prior to creating the contract. For example, initialize the state variables with starting values.
 
-Before exiting the constructor function, call the `ContractCreated()` function. This function notifies Blockchain Workbench a contract has been created.
-
 Add the constructor function to your contract in your `HelloBlockchain.sol` smart contract code file. 
 
 ```
     // constructor function
-    function HelloBlockchain(string message) public
+    constructor(string message) public
     {
         Requestor = msg.sender;
         RequestMessage = message;
         State = StateType.Request;
-    
-        // call ContractCreated() to create an instance of this workflow
-        ContractCreated();
     }
 ```
 
@@ -330,8 +288,6 @@ Add the constructor function to your contract in your `HelloBlockchain.sol` smar
 Functions are the executable units of business logic within a contract. Required parameters for the function are defined as function parameters in the configuration file. The number, order, and type of parameters must match in both files. Functions are associated to transitions in a Blockchain Workbench workflow in the configuration file. A transition is an action performed to move to the next stage of an application's workflow as determined by the contract.
 
 Write any business logic you want to perform in the function. For example, modifying a state variable's value.
-
-Before exiting the function, call the `ContractUpdated()` function. The function notifies Blockchain Workbench contract state has been updated. If you want to undo state changes made in the function, call revert(). Revert discards state changes made since the last call to ContractUpdated().
 
 1. Add the following functions to your contract in your `HelloBlockchain.sol` smart contract code file. 
 
@@ -343,12 +299,8 @@ Before exiting the function, call the `ContractUpdated()` function. The function
             {
                 revert();
             }
-    
             RequestMessage = requestMessage;
             State = StateType.Request;
-    
-            // call ContractUpdated() to record this action
-            ContractUpdated('SendRequest');
         }
     
         // call this function to send a response
@@ -356,10 +308,8 @@ Before exiting the function, call the `ContractUpdated()` function. The function
         {
             Responder = msg.sender;
     
-            // call ContractUpdated() to record this action
             ResponseMessage = responseMessage;
             State = StateType.Respond;
-            ContractUpdated('SendResponse');
         }
     }
     ```

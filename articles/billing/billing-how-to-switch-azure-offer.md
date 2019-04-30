@@ -4,7 +4,7 @@ description: Learn about how to change your Azure subscription and switch to a d
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing,top-support-issue
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: cwatson
+ms.author: banders
 
 ---
 # Change your Azure Pay-As-You-Go subscription to a different offer
@@ -82,7 +82,7 @@ You might not see the **Switch to another offer** button if:
 ### Why do I see "There are no offers available in your region or country at this time"?
 
 * You might not be eligible for any offer switches. Check the [list of available offers you can switch to](#whats-supported) and make sure that you've activated the right benefits with Visual Studio or Bizspark.
-* Some offers may not be available in all countries.
+* Some offers may not be available in all countries/regions.
 
 ### What does switching Azure offers do to my service and billing?
 
@@ -110,6 +110,6 @@ On the day you switch, an invoice is generated for all outstanding charges. Then
 * You can migrate the resources directly to the new subscription, see [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 * To transfer ownership of an Azure subscription and everything in it to someone else, see [Transferring ownership of an Azure subscription](billing-subscription-transfer.md)
 
-## Need help? Contact support.
+## Need help? Contact us.
 
-If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

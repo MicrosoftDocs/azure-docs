@@ -56,7 +56,7 @@ ionic plugin add cordova-plugin-ms-azure-mobile-apps
 
 Add the following lines to `app.component.ts` to create the client object:
 
-```
+```typescript
 declare var WindowsAzure: any;
 var client = new WindowsAzure.MobileServiceClient("https://yoursite.azurewebsites.net");
 ```
@@ -117,8 +117,8 @@ Follow these instructions to add your local settings to the configuration:
              "https://localhost:3000"
          ],
 
-    Replace the URLs with the URLs of your service.  Examples include "http://localhost:3000" (for the Node.js sample
-    service), or "http://localhost:4400" (for the Ripple service).  However, these URLs are examples - your situation,
+    Replace the URLs with the URLs of your service.  Examples include `http://localhost:3000` (for the Node.js sample
+    service), or `http://localhost:4400` (for the Ripple service).  However, these URLs are examples - your situation,
     including for the services mentioned in the examples, may be different.
 8. Click the **Read/Write** button in the top-right corner of the screen.
 9. Click the green **PUT** button.
@@ -141,7 +141,7 @@ Install the [phonegap-plugin-push] to handle push notifications.  This plugin ca
 `cordova plugin add` command on the command line, or via the Git plugin installer within Visual Studio.  The
 following code in your Apache Cordova app registers your device for push notifications:
 
-```
+```javascript
 var pushOptions = {
     android: {
         senderId: '<from-gcm-console>'
@@ -184,7 +184,7 @@ or the PNS.  The PNS could ban your traffic as a result of such attacks.
 
 ## More information
 
-You can find detailed API details in our [API documentation](http://azure.github.io/azure-mobile-apps-js-client/).
+You can find detailed API details in our [API documentation](https://azure.github.io/azure-mobile-apps-js-client/).
 
 <!-- URLs. -->
 [Azure portal]: https://portal.azure.com
@@ -193,7 +193,7 @@ You can find detailed API details in our [API documentation](http://azure.github
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [Apache Cordova Plugin for Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
-[your first Apache Cordova app]: http://cordova.apache.org/#getstarted
+[your first Apache Cordova app]: https://cordova.apache.org/#getstarted
 [phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device

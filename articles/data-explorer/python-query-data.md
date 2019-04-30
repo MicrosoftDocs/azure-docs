@@ -1,15 +1,14 @@
 ---
 title: 'Quickstart: Query data using the Azure Data Explorer Python library'
 description: 'In this quickstart, you learn how to query data from Azure Data Explorer using Python.'
-services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
 
-#Customer intent: As a Python developer, I want to query data so I can include it in my apps.
+# Customer intent: As a Python developer, I want to query data so I can include it in my apps.
 ---
 
 # Quickstart: Query data using the Azure Data Explorer Python library
@@ -29,7 +28,7 @@ This quickstart is also available as an [Azure Notebook](https://notebooks.azure
 Install *azure-kusto-data*.
 
 ```
-pip install azure-kusto-data==0.0.13
+pip install azure-kusto-data
 ```
 
 ## Add import statements and constants
@@ -63,7 +62,7 @@ KUSTO_CLUSTER = "https://help.kusto.windows.net/"
 KUSTO_DATABASE  = "Samples"
 ```
 
-Now construct the connection string. This example uses device authentication to access the cluster. You can also use AAD application certificate, AAD application key, and AAD user and password.
+Now construct the connection string. This example uses device authentication to access the cluster. You can also use [AAD application certificate](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), [AAD application key](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20), and [AAD user and password](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
 
 ```python
 KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_CLUSTER)

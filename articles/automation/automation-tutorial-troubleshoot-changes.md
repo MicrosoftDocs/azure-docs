@@ -3,11 +3,11 @@ title: Troubleshoot changes on an Azure virtual machine | Microsoft Docs
 description: Use Change Tracking to troubleshoot changes on an Azure virtual machine.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 keywords: change, tracking, automation
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 11/01/2018
+ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
@@ -39,7 +39,7 @@ To complete this tutorial, you need:
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at http://portal.azure.com.
+Sign in to the Azure portal at https://portal.azure.com.
 
 ## Enable Change tracking and Inventory
 
@@ -58,22 +58,24 @@ During onboarding, the VM is provisioned with the Microsoft Monitoring Agent (MM
 This agent is used to communicate with the VM and obtain information about installed software.
 
 Enabling the solution can take up to 15 minutes. During this time, you shouldn't close the browser window.
-After the solution is enabled, information about installed software and changes on the VM flows to Log Analytics.
+After the solution is enabled, information about installed software and changes on the VM flows to Azure Monitor logs.
 It can take between 30 minutes and 6 hours for the data to be available for analysis.
 
-## Using Change tracking in Log Analytics
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Change tracking generates log data that is sent to Log Analytics.
+## Using Change tracking in Azure Monitor logs
+
+Change tracking generates log data that is sent to Azure Monitor logs.
 To search the logs by running queries, select **Log Analytics** at the top of the **Change tracking** window.
 Change tracking data is stored under the type **ConfigurationChange**.
 The following sample Log Analytics query returns all the Windows Services that have been stopped.
 
-```
+```loganalytics
 ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-To learn more about running and searching log files in Log Analytics, see [Azure Log Analytics](../log-analytics/log-analytics-queries.md).
+To learn more about running and searching log files in Azure Monitor logs, see [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
 
 ## Configure Change tracking
 
@@ -173,12 +175,11 @@ Viewing changes in the Azure portal can be helpful, but being able to be alerted
 
 To add an alert for a stopped service, in the Azure portal, go to **Monitor**. And then under **Shared Services**, select **Alerts** and click **+ New alert rule**
 
-Under **1. Define alert condition**, click **+ Select target**. Under **Filter by resource type**, select **Log Analytics**. Select your Log Analytics workspace, and then select **Done**.
+Click **Select** to choose a resource. On the **Select a resource** page, select **Log Analytics** from the **Filter by resource type** drop-down. Select your Log Analytics workspace, and then select **Done**.
 
 ![Select a resource](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-Select **+ Add criteria**.
-Under **Configure signal logic**, in the table, select **Custom log search**. Enter the following query in the Search query text box:
+Click **Add condition**, on the **Configure signal logic** page, in the table, select **Custom log search**. Enter the following query in the Search query text box:
 
 ```loganalytics
 ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
@@ -190,11 +191,9 @@ Under **Alert logic**, for **Threshold**, enter **0**. When you're finished, sel
 
 ![Configure signal logic](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-Under **2. Define alert details**, enter a name and description for the alert. Set **Severity** to **Informational(Sev 2)**, **Warning(Sev 1)**, or **Critical(Sev 0)**.
+Under **Action Groups**, select **Create New**. An action group is a group of actions that you can use across multiple alerts. The actions can include but are not limited to email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md).
 
-![Define alert details](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
-
-Under **3. Define action group**, select **New action group**. An action group is a group of actions that you can use across multiple alerts. The actions can include but are not limited to email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Under **Alert details**, enter a name and description for the alert. Set **Severity** to **Informational(Sev 2)**, **Warning(Sev 1)**, or **Critical(Sev 0)**.
 
 In the **Action group name** box, enter a name for the alert and a short name. The short name is used in place of a full action group name when notifications are sent by using this group.
 
@@ -227,3 +226,4 @@ Continue to the overview for the Change tracking and Inventory solution to learn
 
 > [!div class="nextstepaction"]
 > [Change management and Inventory solution](automation-change-tracking.md)
+

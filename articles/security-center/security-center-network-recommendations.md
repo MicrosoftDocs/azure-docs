@@ -3,8 +3,8 @@ title: Protecting your network resources in Azure Security Center  | Microsoft D
 description: This document addresses recommendations in Azure Security Center that help you protect your Azure network resources and stay in compliance with security policies.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
+author: monhaber
+manager: barbkess
 editor: ''
 
 ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
+ms.date: 04/05/2019
+ms.author: monhaber
 
 ---
 # Protect your network resources in Azure Security Center
@@ -29,7 +29,7 @@ This article addresses recommendations that apply to your Azure resources from a
 The **Networking** page provides an overview of the sections you can deep dive into, to get more information about the health of your network resources:
 
 - Network map (Azure Security Center Standard tier only)
-- NSG hardening (Coming soon. Register for the preview)
+- Adaptive Network Hardening
 - Networking security recommendations.
 - Legacy **Networking** blade (the previous networking blade) 
  
@@ -45,7 +45,8 @@ To open the Network map:
  
 The default view of the topology map displays:
 - Subscriptions you selected in Azure. The map supports multiple subscriptions.
-- VMs, subnets, and Vnets of the Resource Manager resource type (Classic Azure resources are not supported)
+- VMs, subnets, and VNets of the Resource Manager resource type (Classic Azure resources are not supported)
+- Peered VNets
 - Only resources that have [network recommendations](security-center-recommendations.md) with a high or medium severity  
 - Internet facing resources
 - The map is optimized for the subscriptions you selected in Azure. If you modify your selection, the map is recalculated and re-optimized based on your new settings.  
@@ -94,7 +95,7 @@ For example, you might detect two machines that you weren’t aware could commun
 
 To drill down into a resource:
 1. When you select a specific resource on the map, the right pane opens and gives you general information about the resource, connected security solutions if there are any, and the recommendations relevant to the resource. It's the same type of behavior for each type of resource you select. 
-2. Click **Traffic** to see the list of possible outbound and inbound traffic on the resource - this is a comprehensive list of who can communicate with the resource and who it can communicate with, and through which protocols and ports.
+2. Click **Traffic** to see the list of possible outbound and inbound traffic on the resource - this is a comprehensive list of who can communicate with the resource and who it can communicate with, and through which protocols and ports. For example, when you select a VM, all the VMs it can communicate with are shown, and when you select a subnet, all the subnets which it can communicate with are shown.
 
 **This data is based on analysis of the Network Security Groups as well as advanced machine learning algorithms that analyze multiple rules to understand their crossovers and interactions.** 
 
@@ -129,7 +130,7 @@ The third level displays virtual machines, which is similar to what is described
 |Machine|40|Enable Network Security Groups on virtual machines|Enable Network Security Groups to control network access of your virtual machines.|
 |Subnet|35|Enable network security groups on subnets |Enable network  security groups to control network access of resources deployed in your subnets.|
 |Machine|30|Apply a Just-In-Time network access control|Apply just in time VM access control to permanently lock down access to selected ports, and enable authorized users to open them via the same mechanism and for a limited amount of time.|
-|Machine|20|Restrict access through Internet facing endpoint|Harden the network security goups of your Internet facing VMs by restricting the access of your existing allow rules.|
+|Machine|20|Restrict access through Internet facing endpoint|Harden the network security groups of your Internet facing VMs by restricting the access of your existing allow rules.|
 |Machine|10|Add a next generation firewall|Add a Next Generation Firewall (NGFW) solution to better protect your internet facing VMs.|
 |Machine|5|Route traffic through network gateway firewall only|In order to complete the deployment of your next generation firewall solution, traffic to your protected internet facing VMs should be routed only via the next generation firewall solution.|
 |VNet|5|Enable DDoS protection standard|Applications with public IPs in these virtual networks are not protected with the DDOS protection service standard. It is advised to enable it to enable mitigation of network volumetric and protocol attacks.|
@@ -145,6 +146,6 @@ To learn more about recommendations that apply to other Azure resource types, se
 
 To learn more about Security Center, see the following:
 
-* [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
 * [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.

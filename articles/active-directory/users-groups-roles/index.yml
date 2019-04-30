@@ -1,17 +1,17 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Active Directory user management documentation
+title: Enterprise user management documentation - Azure Active Directory
 metadata:
   document_id: 
   title: Azure Active Directory users, groups, roles, and licenses documentation
   description: Learn how to use users, groups, roles, and licenses to manage authentication to Azure cloud services in your tenant.
   services: active-directory
-  ms.component: users-groups-roles
+  ms.subservice: users-groups-roles
   author: curtand
   manager: mtillman
   ms.service: active-directory
   ms.topic: landing-page
-  ms.date: 08/12/2018
+  ms.date: 01/31/2019
   ms.author: curtand
 abstract:
   description: Azure AD user management tools such as groups and administrator role assignments help you accomplish your top tasks more quickly and accommodate growth. You can assign licenses or access to SaaS apps to groups instead of individuals, or delegate permissions to distribute the overhead of Azure AD identity management. 

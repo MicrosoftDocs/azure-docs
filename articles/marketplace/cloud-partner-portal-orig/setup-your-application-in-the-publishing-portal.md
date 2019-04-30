@@ -1,20 +1,20 @@
 ---
-title: Setup your application in the Publishing Portal | Microsoft Docs
-description: Instructions in how to setup your applicatoin in the Cloud Publishing Portal.
+title: Setup your application in the Publishing Portal 
+description: Instructions in how to setup your application in the Cloud Publishing Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
+
 author: pbutlerm
 manager: Ricardo.Villalobos  
-editor:
 
-ms.assetid: 
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Setup your application in the Publishing Portal
@@ -23,16 +23,16 @@ You are now ready to set up your application in the publishing portal.
 
 ## Login and Create a New Offer
 
-1. Sign in to the [Cloud Partner Portal](http://cloudpartner.azure.com/).
+1. Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/).
 2. From the left navigation bar, click on "+ New offer" and select "Dynamics 365 for Customer Engagement."
 
 ![Selecting a new offer](./media/CRMScreenShot14.png)
 
-3. A new offer "Editor" view is now opened for you, and we are ready to start authoring.
+1. A new offer "Editor" view is now opened for you, and we are ready to start authoring.
 
 ![New Offer screen](./media/CRMScreenShot15.png)
 
-4. The "forms" that need to be filled out are visible on the left within the "Editor" view. Each "form" consists of a set of fields that are to be filled out. Required fields are marked with a red asterisk (\*).
+1. The "forms" that need to be filled out are visible on the left within the "Editor" view. Each "form" consists of a set of fields that are to be filled out. Required fields are marked with a red asterisk (\*).
 
 There are four main forms for authoring a Dynamics 365 for Customer Engagement offer
 
@@ -49,7 +49,7 @@ The offer settings form is a basic form to specify the offer settings. The diffe
 
 This is a unique identifier for the offer within a publisher profile. This ID will be visible in product URLs. It can only be composed of lowercase alphanumeric characters or dashes (-). The ID cannot end in a dash and can have a maximum of 50 characters. This field is locked once an offer goes live.
 
-for example, if a publisher **"contoso"** publishers creates an offer with offer ID **"sample-WebApp"**, it will show up in AppSource as "https://appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
+for example, if a publisher **"contoso"** publishers creates an offer with offer ID **"sample-WebApp"**, it will show up in AppSource as "https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
 
 ### Publisher ID
 
@@ -84,7 +84,7 @@ Here is an explanation for these fields:
 
 ### CRM Package Availability
 
-In this section, select what regions of CRM your package will be made available to. For information on which regions serve which countries, please see the link: [http://o365datacentermap.azurewebsites.net/](http://o365datacentermap.azurewebsites.net/)
+In this section, select what regions of CRM your package will be made available to. For information on which CRM regions serve which countries/regions, please see the link: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 Note: Deploying to Germany "Sovereign and US Gov Cloud" Sovereign REQUIRES SPECIAL PERMISSION and VALIDATION DURING CERTIFICATION
 

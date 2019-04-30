@@ -1,20 +1,12 @@
 ---
-title: Retrieve operations API | Microsoft Docs
+title: Retrieve operations API | Azure Marketplace
 description: Retrieves all the operations on the offer or to get a particular operation for the specified operationId.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: reference
 ms.date: 09/14/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 
@@ -187,7 +179,7 @@ Body example
 |  submissionType              | Identifies the type of operation being reported for the offer, for example `Publish/GGoLive`      |
 |  createdDateTime             | UTC datetime when the operation was created                                                       |
 |  lastActionDateTime          | UTC datetime when the last update was done on the operation                                       |
-|  status                      | Status of the operation, either `not started | running | failed | completed`. Only one operation can have status `running` at a time. |
+|  status                      | Status of the operation, either `not started` \| `running` \| `failed` \| `completed`. Only one operation can have status `running` at a time. |
 |  error                       | Error message for failed operations                                                               |
 |  |  |
 

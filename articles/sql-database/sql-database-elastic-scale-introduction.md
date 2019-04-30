@@ -4,7 +4,7 @@ description: Software as a Service (SaaS) developers can easily create elastic, 
 services: sql-database
 ms.service: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -12,7 +12,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 01/25/2019
 ---
 # Scaling out with Azure SQL Database
 You can easily scale out Azure SQL databases using the **Elastic Database** tools. These tools and features let you use the database resources of **Azure SQL Database** to create solutions for transactional workloads, and especially Software as a Service (SaaS) applications. Elastic Database features are composed of the:
@@ -62,8 +62,8 @@ Most cloud-scale database applications use a combination of these two strategies
 ## Sharding
 *Sharding* is a technique to distribute large amounts of identically structured data across a number of independent databases. It is especially popular with cloud developers creating Software as a Service (SAAS) offerings for end customers or businesses. These end customers are often referred to as “tenants”. Sharding may be required for any number of reasons:  
 
-* The total amount of data is too large to fit within the constraints of a single database
-* The transaction throughput of the overall workload exceeds the capabilities of a single database
+* The total amount of data is too large to fit within the constraints of an individual database
+* The transaction throughput of the overall workload exceeds the capabilities of an individual database
 * Tenants may require physical isolation from each other, so separate databases are needed for each tenant
 * Different sections of a database may need to reside in different geographies for compliance, performance, or geopolitical reasons.
 

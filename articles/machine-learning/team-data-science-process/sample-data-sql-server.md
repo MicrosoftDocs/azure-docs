@@ -1,41 +1,32 @@
 ---
-title: Sample Data in SQL Server on Azure | Microsoft Docs
-description: Sample Data in SQL Server on Azure
+title: Sample Data in SQL Server on Azure - Team Data Science Process
+description: Sample data stored in SQL Server on Azure using SQL or the Python programming language, then move it to Azure Machine Learning.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
-manager: cgeonlun
+author: marktab
+manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 33c030d4-5cca-4cc9-99d7-2bd13a3926af
 ms.service: machine-learning
-ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # <a name="heading"></a>Sample data in SQL Server on Azure
+
 This article shows how to sample data stored in SQL Server on Azure using either SQL or the Python programming language. It also shows how to move sampled data into Azure Machine Learning by saving it to a file, uploading it to an Azure blob, and then reading it into Azure Machine Learning Studio.
 
-The Python sampling uses the [pyodbc](https://code.google.com/p/pyodbc/) ODBC library to connect to SQL Server on Azure and the [Pandas](http://pandas.pydata.org/) library to do the sampling.
+The Python sampling uses the [pyodbc](https://code.google.com/p/pyodbc/) ODBC library to connect to SQL Server on Azure and the [Pandas](https://pandas.pydata.org/) library to do the sampling.
 
 > [!NOTE]
 > The sample SQL code in this document assumes that the data is in a SQL Server on Azure. If it is not, refer to [Move data to SQL Server on Azure](move-sql-server-virtual-machine.md) article for instructions on how to move your data to SQL Server on Azure.
 > 
 > 
 
-The following **menu** links to articles that describe how to sample data from various storage environments. 
-
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
-
 **Why sample your data?**
-If the dataset you plan to analyze is large, it's usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) is to enable fast prototyping of the data processing functions and machine learning models.
+If the dataset you plan to analyze is large, it's usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) is to enable fast prototyping of the data processing functions and machine learning models.
 
-This sampling task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+This sampling task is a step in the [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="SQL"></a>Using SQL
 This section describes several methods using SQL to perform simple random sampling against the data in the database. Choose a method based on your data size and its distribution.
@@ -63,7 +54,7 @@ Tablesample can be used for sampling the data as well. This may be a better appr
 > 
 
 ### <a name="sql-aml"></a>Connecting to Azure Machine Learning
-You can directly  use the sample queries above in the Azure Machine Learning [Import Data][import-data] module to down-sample the data on the fly and bring it into an Azure Machine Learning experiment. A screen shot of using the reader module to read the sampled data is shown here:
+You can directly  use the sample queries above in the Azure Machine Learning [Import Data][import-data] module to down-sample the data on the fly and bring it into an Azure Machine Learning experiment. A screenshot of using the reader module to read the sampled data is shown here:
 
 ![reader sql][1]
 
@@ -74,12 +65,12 @@ This section demonstrates using the [pyodbc library](https://code.google.com/p/p
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-The [Pandas](http://pandas.pydata.org/) library in Python provides a rich set of data structures and data analysis tools for data manipulation for Python programming. The  following code reads a 0.1% sample of the data from a table in Azure SQL database into a Pandas data:
+The [Pandas](https://pandas.pydata.org/) library in Python provides a rich set of data structures and data analysis tools for data manipulation for Python programming. The  following code reads a 0.1% sample of the data from a table in Azure SQL database into a Pandas data:
 
     import pandas as pd
 
     # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select column1, cloumn2... from <table_name> tablesample (0.1 percent)''', conn)
+    data_frame = pd.read_sql('''select column1, column2... from <table_name> tablesample (0.1 percent)''', conn)
 
 You can now work with the sampled data in the Pandas data frame. 
 

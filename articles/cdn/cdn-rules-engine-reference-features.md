@@ -73,7 +73,7 @@ This feature is designed to provide additional information within a rule.
 Name | Purpose
 -----|--------
 [Comment](#comment) | Allows a note to be added within a rule.
- 
+ 
 ## Header features
 
 These features are designed to add, modify, or delete headers from the request or response.
@@ -123,7 +123,7 @@ Enabled|Indicates that the request is eligible for Edge Optimizer processing.
 Disabled|Restores the default behavior. The default behavior is to deliver content over the ADN platform without any additional processing.
 
 **Default Behavior:** Disabled
- 
+ 
 
 ### Edge Optimizer - Instantiate Configuration
 **Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
@@ -161,7 +161,7 @@ Name | Purpose
 [Cacheable Request Body Size](#cacheable-request-body-size) | Defines the threshold for determining whether a POST response can be cached.
 [User Variable](#user-variable) | For internal use only.
 
- 
+ 
 ## URL features
 
 These features allow a request to be redirected or rewritten to a different URL.
@@ -179,6 +179,7 @@ Name | Purpose
 ---
 ### Age Response Header
 **Purpose**: Determines whether an Age response header is included in the response sent to the requester.
+
 Value|Result
 --|--
 Enabled | The Age response header is included in the response sent to the requester.
@@ -188,7 +189,7 @@ Disabled | The Age response header is excluded from the response sent to the req
 
 [Back to top](#azure-cdn-rules-engine-features)
 
-</br>
+<br>
 
 ---
 ### Bandwidth Parameters
@@ -391,6 +392,7 @@ Option|Description
 --|--
 Original Path| Define the relative path to the types of requests whose cache-key is rewritten. A relative path can be defined by selecting a base origin path and then defining a regular expression pattern.
 New Path|Define the relative path for the new cache-key. A relative path can be defined by selecting a base origin path and then defining a regular expression pattern. This relative path can be dynamically constructed through the use of [HTTP variables](cdn-http-variables.md).
+
 **Default Behavior:** A request's cache-key is determined by the request URI.
 
 [Back to top](#azure-cdn-rules-engine-features)
@@ -470,6 +472,7 @@ text/html| HTML files
 text/css|Cascading Style Sheets (CSS)
 application/x-javascript|Javascript
 application/javascript|Javascript
+
 Key information:
 
 - Specify multiple Internet media types by delimiting each one with a single space. 
@@ -1022,6 +1025,7 @@ Value|Result
 --|--
 Enabled|Causes the POP to refetch the asset from the origin server.
 Disabled|Restores the default behavior. The default behavior is to serve up valid cache assets upon request.
+
 This feature is not required for correct caching and content delivery, but may be useful as a workaround. For example, dynamic content generators on origin servers can inadvertently result in 0-byte responses being sent to the POPs. These types of responses are typically cached by the POPs. If you know that a 0-byte response is never a valid response 
 
 for such content, then this feature can prevent these types of assets from being served to your clients.
@@ -1062,7 +1066,7 @@ This feature allows a customer origin server to find out client IP addresses thr
 
 Ensure that the specified header name does not match any of the following names:
 
-- Standard request header names. A list of standard header names can be found in [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+- Standard request header names. A list of standard header names can be found in [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Reserved header names:
     - forwarded-for
     - host
@@ -1280,6 +1284,7 @@ Option|Description
 -|-
  Source & Pattern | These settings define a request URI pattern that identifies the type of requests that may be rewritten. Only requests whose URL satisfies both of the following criteria will be rewritten: <br/><br/>  - **Source (or content access point):** Select a relative path that identifies an origin server. This path is the  _/XXXX/_ section and your endpoint name. <br/><br/> - **Source (pattern):** A pattern that identifies requests by relative path must be defined. This regular expression pattern must define a path that starts directly after the previously selected content access point (see above). <br/> Verify that the request URI criteria (that is, Source & Pattern) previously defined doesn't conflict with any of the match conditions defined for this feature. Specify a pattern; if you use a blank value as the pattern, all strings are matched. 
  Destination  |Define the relative URL to which the above requests will be rewritten by: <br/>    1. Selecting a content access point that identifies an origin server. <br/>    2. Defining a relative path using: <br/>        - A regular expression pattern <br/>        - [HTTP variables](cdn-http-variables.md) <br/> <br/> Substitute the values captured in the source pattern into the destination pattern using $_n_ where _n_ identifies a value by the order in which it was captured. For example, $1 represents the first value captured in the source pattern, while $2 represents the second value. 
+
  This feature allows the POPs to rewrite the URL without performing a traditional redirect. That is, the requester receives the same response code as if the rewritten URL had been requested.
 
 **Sample Scenario 1**

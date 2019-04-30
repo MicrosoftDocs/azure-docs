@@ -3,14 +3,14 @@ title: Article about known issues/migration limitations with online migrations t
 description: Learn about known issues/migration limitations with online migrations to Azure Database for MySQL.
 services: database-migration
 author: HJToland3
-ms.author: scphang
-manager: 
-ms.reviewer: 
-ms.service: database-migration
+ms.author: jtoland
+manager: craigg
+ms.reviewer: craigg
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/22/2018
+ms.date: 04/23/2019
 ---
 
 # Known issues/migration limitations with online migrations to Azure DB for PostgreSQL
@@ -18,8 +18,12 @@ ms.date: 09/22/2018
 Known issues and limitations associated with online migrations from PostgreSQL to Azure Database for PostgreSQL are described in the following sections. 
 
 ## Online migration configuration
-- The source PostgreSQL Server must be running version 9.5.11, 9.6.7, or 10.3 or later. For more information, see the article [Supported PostgreSQL Database Versions](1.2.%09https:/docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+- The source PostgreSQL Server must be running version 9.5.11, 9.6.7, or 10.3 or later. For more information, see the article [Supported PostgreSQL Database Versions](../postgresql/concepts-supported-versions.md).
 - Only same version migrations are supported. For example, migrating PostgreSQL 9.5.11 to Azure Database for PostgreSQL 9.6.7 is not supported.
+
+    > [!NOTE]
+    > For PostgreSQL version 10, currently DMS only supports migration of version 10.3 to Azure Database for PostgreSQL. We are planning  to support newer versions of PostgreSQL very soon.
+
 - To enable logical replication in the **source PostgreSQL postgresql.conf** file, set the following parameters:
     - **wal_level** = logical
     - **max_replication_slots** = [max number of databases for migration]; if you want to migrate 4 databases, set the value to 4
@@ -93,7 +97,7 @@ Large Object (LOB) columns are columns that can grow large. For PostgreSQL, exam
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Workaround**: If you have LOB object that is bigger than 32 KB, contact engineering team at [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
+    **Workaround**: If you have LOB object that is bigger than 32 KB, contact engineering team at [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 - **Limitation**: If there are LOB columns in the table, and there's no primary key set for the table, data might not be migrated for this table.
 

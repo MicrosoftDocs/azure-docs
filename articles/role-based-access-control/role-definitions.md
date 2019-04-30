@@ -1,6 +1,6 @@
 ---
-title: Understand role definitions in Azure RBAC | Microsoft Docs
-description: Learn about role definitions in role-based access control (RBAC) for fine-grained access management of resources in Azure.
+title: Understand role definitions in RBAC for Azure resources | Microsoft Docs
+description: Learn about role definitions in role-based access control (RBAC) for fine-grained access management of Azure resources.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
 ---
-# Understand role definitions
+# Understand role definitions for Azure resources
 
-If you are trying to understand how a role works or if you are creating your own [custom role](custom-roles.md), it's helpful to understand how roles are defined. This article describes the details of role definitions and provides some examples.
+If you are trying to understand how a role works or if you are creating your own [custom role for Azure resources](custom-roles.md), it's helpful to understand how roles are defined. This article describes the details of role definitions and provides some examples.
 
 ## Role definition structure
 
@@ -54,27 +54,23 @@ Here's the [Contributor](built-in-roles.md#contributor) role definition in JSON 
 
 ```json
 {
-    "Name":  "Contributor",
-    "Id":  "b24988ac-6180-42a0-ab88-20f7382dd24c",
-    "IsCustom":  false,
-    "Description":  "Lets you manage everything except access to resources.",
-    "Actions":  [
-                    "*"
-                ],
-    "NotActions":  [
-                       "Microsoft.Authorization/*/Delete",
-                       "Microsoft.Authorization/*/Write",
-                       "Microsoft.Authorization/elevateAccess/Action"
-                   ],
-    "DataActions":  [
-
-                    ],
-    "NotDataActions":  [
-
-                       ],
-    "AssignableScopes":  [
-                             "/"
-                         ]
+  "Name": "Contributor",
+  "Id": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+  "IsCustom": false,
+  "Description": "Lets you manage everything except access to resources.",
+  "Actions": [
+    "*"
+  ],
+  "NotActions": [
+    "Microsoft.Authorization/*/Delete",
+    "Microsoft.Authorization/*/Write",
+    "Microsoft.Authorization/elevateAccess/Action"
+  ],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/"
+  ]
 }
 ```
 
@@ -96,29 +92,25 @@ To support data operations, new data properties have been added to the role defi
 - Write a storage blob in a container
 - Delete a message in a queue
 
-Here's the [Storage Blob Data Reader (Preview)](built-in-roles.md#storage-blob-data-reader-preview) role definition, which includes operations in both the `Actions` and `DataActions` properties. This role allows you to read the blob container and also the underlying blob data.
+Here's the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role definition, which includes operations in both the `Actions` and `DataActions` properties. This role allows you to read the blob container and also the underlying blob data.
 
 ```json
 {
-    "Name":  "Storage Blob Data Reader (Preview)",
-    "Id":  "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
-    "IsCustom":  false,
-    "Description":  "Allows for read access to Azure Storage blob containers and data",
-    "Actions":  [
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/read"
-                ],
-    "NotActions":  [
-
-                   ],
-    "DataActions":  [
-                        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
-                    ],
-    "NotDataActions":  [
-
-                       ],
-    "AssignableScopes":  [
-                             "/"
-                         ]
+  "Name": "Storage Blob Data Reader",
+  "Id": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+  "IsCustom": false,
+  "Description": "Allows for read access to Azure Storage blob containers and data",
+  "Actions": [
+    "Microsoft.Storage/storageAccounts/blobServices/containers/read"
+  ],
+  "NotActions": [],
+  "DataActions": [
+    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
+  ],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/"
+  ]
 }
 ```
 
@@ -128,18 +120,18 @@ Authorization for all management operation API calls is handled by Azure Resourc
 
 ### Data operations example
 
-To better understand how management and data operations work, let's consider a specific example. Alice has been assigned the [Owner](built-in-roles.md#owner) role at the subscription scope. Bob has been assigned the [Storage Blob Data Contributor (Preview)](built-in-roles.md#storage-blob-data-contributor-preview) role at a storage account scope. The following diagram shows this example.
+To better understand how management and data operations work, let's consider a specific example. Alice has been assigned the [Owner](built-in-roles.md#owner) role at the subscription scope. Bob has been assigned the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role at a storage account scope. The following diagram shows this example.
 
 ![Role-based access control has been extended to support both management and data operations](./media/role-definitions/rbac-management-data.png)
 
-The [Owner](built-in-roles.md#owner) role for Alice and the [Storage Blob Data Contributor (Preview)](built-in-roles.md#storage-blob-data-contributor-preview) role for  Bob have the following actions:
+The [Owner](built-in-roles.md#owner) role for Alice and the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role for  Bob have the following actions:
 
 Owner
 
 &nbsp;&nbsp;&nbsp;&nbsp;Actions<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-Storage Blob Data Contributor (Preview)
+Storage Blob Data Contributor
 
 &nbsp;&nbsp;&nbsp;&nbsp;Actions<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
@@ -150,9 +142,11 @@ Storage Blob Data Contributor (Preview)
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Since Alice has a wildcard (`*`) action at a subscription scope, her permissions inherit down to enable her to perform all management actions. However, Alice cannot perform data operations. For example, by default, Alice cannot read the blobs inside a container, but she can read, write, and delete containers.
+Since Alice has a wildcard (`*`) action at a subscription scope, her permissions inherit down to enable her to perform all management actions. Alice can read, write, and delete containers. However, Alice cannot perform data operations without taking additional steps. For example, by default, Alice cannot read the blobs inside a container. To read the blobs, Alice would have to retrieve the storage access keys and use them to access the blobs.
 
-Bob's permissions are restricted to just the `Actions` and `DataActions` specified in the [Storage Blob Data Contributor (Preview)](built-in-roles.md#storage-blob-data-contributor-preview) role. Based on the role, Bob can perform both management and data operations. For example, Bob can read, write, and delete containers in the specified storage account and he can also read, write, and delete the blobs.
+Bob's permissions are restricted to just the `Actions` and `DataActions` specified in the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role. Based on the role, Bob can perform both management and data operations. For example, Bob can read, write, and delete containers in the specified storage account and he can also read, write, and delete the blobs.
+
+For more information about management and data plane security for storage, see the [Azure Storage security guide](../storage/common/storage-security-guide.md).
 
 ### What tools support using RBAC for data operations?
 
@@ -160,13 +154,21 @@ To view and work with data operations, you must have the correct versions of the
 
 | Tool  | Version  |
 |---------|---------|
-| [Azure PowerShell](/powershell/azure/install-azurerm-ps) | 5.6.0 or later |
+| [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 or later |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 or later |
 | [Azure for .NET](/dotnet/azure/) | 2.8.0-preview or later |
 | [Azure SDK for Go](/go/azure/azure-sdk-go-install) | 15.0.0 or later |
 | [Azure for Java](/java/azure/) | 1.9.0 or later |
 | [Azure for Python](/python/azure) | 0.40.0 or later |
 | [Azure SDK for Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 or later |
+
+To view and use the data operations in the REST API, you must set the **api-version** parameter to the following version or later:
+
+- 2018-01-01-preview
+
+The Azure portal also allows users to browse and manage the contents of Queues and Blob containers via the Azure AD preview experience. To see and manage the contents of a Queue or Blob container click the **Explore data using Azure AD preview** on the storage account Overview.
+
+![Explore Queues and Blob containers using Azure AD preview](./media/role-definitions/rbac-dataactions-browsing.png)
 
 ## Actions
 
@@ -220,10 +222,10 @@ Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root s
 | Role is available for assignment only in the Network resource group | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
 | Role is available for assignment in all scopes | `"/"` |
 
-For information about `AssignableScopes` for custom roles, see [Custom roles](custom-roles.md).
+For information about `AssignableScopes` for custom roles, see [Custom roles for Azure resources](custom-roles.md).
 
 ## Next steps
 
-* [Built-in roles](built-in-roles.md)
-* [Custom roles](custom-roles.md)
+* [Built-in roles for Azure resources](built-in-roles.md)
+* [Custom roles for Azure resources](custom-roles.md)
 * [Azure Resource Manager resource provider operations](resource-provider-operations.md)

@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Script sample to quickly get started using the Project URL Previewwith Python.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/29/2018
 ms.author: rosh
@@ -36,7 +36,7 @@ It is implemented in the following steps:
 
 The complete code for this demo follows:
 
-````
+```
 import http.client, urllib.parse
 import json
 
@@ -59,7 +59,7 @@ def get_preview ():
 
 result = get_preview ()
 print (json.dumps(json.loads(result), indent=4))
-````
+```
 ## Next steps
 - [C# quickstart](csharp.md)
 - [Java quickstart](java-quickstart.md)

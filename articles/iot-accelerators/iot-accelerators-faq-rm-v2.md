@@ -1,5 +1,5 @@
 ---
-title: Remote Monitoring solution accelerator FAQ | Microsoft Docs
+title: Remote Monitoring solution accelerator FAQ - Azure | Microsoft Docs
 description: Frequently asked questions for Remote Monitoring solution accelerator
 author: dominicbetts
 manager: timlt

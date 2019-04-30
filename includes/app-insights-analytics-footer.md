@@ -1,6 +1,13 @@
+---
+author: mrbullwinkle
+ms.service: application-insights
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: mbullwin
+---
 
 ## Analytics
-* [Overview](../articles/application-insights/app-insights-analytics.md)
+* [Overview](../articles/azure-monitor/app/analytics.md)
 * [Tour of Analytics](../articles/application-insights/app-insights-analytics-tour.md)
   * Start here. A tutorial covering the main features.
 * [Queries](../articles/application-insights/app-insights-analytics-reference.md)
@@ -13,5 +20,5 @@
   * Using Analytics.
 * [Language Reference](../articles/application-insights/app-insights-analytics-reference.md)
   * One-page reference.
-* [Troubleshooting](../articles/application-insights/app-insights-analytics-troubleshooting.md)
+* [Troubleshooting](../articles/azure-monitor/app/analytics-troubleshooting.md)
 

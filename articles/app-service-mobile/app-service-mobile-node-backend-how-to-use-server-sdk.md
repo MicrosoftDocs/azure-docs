@@ -141,7 +141,7 @@ an Express 4.x application:
 
     Save the file.
 
-1. Either run the application locally (the API is served on http://localhost:3000) or publish to Azure.
+1. Either run the application locally (the API is served on `http://localhost:3000`) or publish to Azure.
 
 ### <a name="create-node-backend-portal"></a>Create a Node.js back end by using the Azure portal
 
@@ -166,19 +166,19 @@ can add or modify tables and APIs, and then republish the project. For more info
 The following procedure uses a Git repository to download the quickstart
 project code:
 
-1. Install Git, if you haven't already done so. The steps required to install Git vary between operating systems. For operating system-specific distributions and installation guidance, see [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
-1. See [Prepare your repository](../app-service/app-service-deploy-local-git.md#prepare-your-repository) to enable the Git repository for your back-end site. Make a note of the deployment username and password.
-1. In the pane for your Mobile Apps back end, make a note of the **Git clone URL** setting.
-1. Execute the `git clone` command by using the Git clone URL. Enter your password when required, as in the
+1. Install Git, if you haven't already done so. The steps required to install Git vary between operating systems. For operating system-specific distributions and installation guidance, see [Installing Git](https://git-scm.com/book/en/Getting-Started-Installing-Git).
+2. See [Prepare your repository](../app-service/deploy-local-git.md#prepare-your-repository) to enable the Git repository for your back-end site. Make a note of the deployment username and password.
+3. In the pane for your Mobile Apps back end, make a note of the **Git clone URL** setting.
+4. Execute the `git clone` command by using the Git clone URL. Enter your password when required, as in the
    following example:
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
 
-1. Browse to the local directory (`/todolist` in the preceding example), and notice that project files have been
+5. Browse to the local directory (`/todolist` in the preceding example), and notice that project files have been
    downloaded. Locate the todoitem.json file in the `/tables` directory. This file defines permissions on the
    table. Also find the todoitem.js file in the same directory. It defines the CRUD operation scripts for
    the table.
-1. After you make changes to project files, run the following commands to add, commit, and then upload the
+6. After you make changes to project files, run the following commands to add, commit, and then upload the
    changes to the site:
 
         $ git commit -m "updated the table script"
@@ -1074,24 +1074,24 @@ download the project to your local computer. To edit script files in the online 
 [Xamarin.Forms Client quickstart]: app-service-mobile-xamarin-forms-get-started.md
 [Windows Store Client quickstart]: app-service-mobile-windows-store-dotnet-get-started.md
 [offline data sync]: app-service-mobile-offline-data-sync.md
-[Configure Azure Active Directory authentication]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Configure Facebook authentication]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
-[Configure Google authentication]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
-[Configure Microsoft authentication]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Configure Twitter authentication]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
-[Azure App Service deployment guide]: ../app-service/app-service-deploy-local-git.md
+[Configure Azure Active Directory authentication]: ../app-service/configure-authentication-provider-aad.md
+[Configure Facebook authentication]: ../app-service/configure-authentication-provider-facebook.md
+[Configure Google authentication]: ../app-service/configure-authentication-provider-google.md
+[Configure Microsoft authentication]: ../app-service/configure-authentication-provider-microsoft.md
+[Configure Twitter authentication]: ../app-service/configure-authentication-provider-twitter.md
+[Azure App Service deployment guide]: ../app-service/deploy-local-git.md
 [Monitoring Azure App Service]: ../app-service/web-sites-monitor.md
-[Enable diagnostic logging in Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
-[Troubleshoot Azure App Service in Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
+[Enable diagnostic logging in Azure App Service]: ../app-service/troubleshoot-diagnostic-logs.md
+[Troubleshoot Azure App Service in Visual Studio]: ../app-service/troubleshoot-dotnet-visual-studio.md
 [specify the Node version]: ../nodejs-specify-node-version-azure-apps.md
 [use Node modules]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
-[Express]: http://expressjs.com/
-[Swagger]: http://swagger.io/
+[Express]: https://expressjs.com/
+[Swagger]: https://swagger.io/
 
 [Azure portal]: https://portal.azure.com/
-[OData]: http://www.odata.org
+[OData]: https://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [todo sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
@@ -1100,6 +1100,6 @@ download the project to your local computer. To edit script files in the online 
 [QueryJS]: https://github.com/Azure/queryjs
 [Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [mssql Node.js package]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS middleware]: http://expressjs.com/guide/using-middleware.html
+[Microsoft SQL Server 2014 Express]: https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[ExpressJS middleware]: https://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

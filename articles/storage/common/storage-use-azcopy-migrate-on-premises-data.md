@@ -8,9 +8,9 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.component: common
+ms.subservice: common
 #Customer intent: As a customer with data, I want to move my data from its existing location so that I can have access to that data in my storage account.
---- 
+---
 
 #  Tutorial: Migrate on-premises data to cloud storage by using AzCopy
 
@@ -123,7 +123,7 @@ crontab -e
 */5 * * * * sh /path/to/script.sh
 ```
 
-Specifying the cron expression `*/5 * * * * ` in the command indicates that the shell script `script.sh` should run every five minutes. You can schedule the script to run at a specific time daily, monthly, or yearly. To learn more about setting the date and time for job execution, see [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+Specifying the cron expression `*/5 * * * *` in the command indicates that the shell script `script.sh` should run every five minutes. You can schedule the script to run at a specific time daily, monthly, or yearly. To learn more about setting the date and time for job execution, see [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
 # [Windows](#tab/windows)
 

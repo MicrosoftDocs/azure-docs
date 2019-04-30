@@ -1,10 +1,9 @@
 ---
-title: Traffic View in Azure Traffic Manager | Microsoft Docs
+title: Traffic View in Azure Traffic Manager
 description: Introduction to Traffic Manager Traffic View
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: jeconnoc
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -31,6 +30,8 @@ For example, you can use Traffic View to understand which regions have a large n
 
 Traffic View works by having Traffic Manager look at the incoming queries received in the past seven days against a profile that has this feature enabled. From the incoming queries information, Traffic View extracts the source IP of the DNS resolver that is used as a representation of the location of the users. These are then grouped together at a DNS resolver level granularity to create user base regions by using the geographic information of IP addresses maintained by Traffic Manager. Traffic Manager then looks at the Azure regions to which the query was routed and constructs a traffic flow map for users from those regions.  
 In the next step, Traffic Manager correlates the user base region to Azure region mapping with the network intelligence latency tables that it maintains for different end-user networks to understand the average latency experienced by users from those regions when connecting to Azure regions. All these calculations are then combined at a per local DNS resolver IP level before it is presented to you. You can consume the information in various ways.
+
+The frequency of Traffic view data update depends on multiple internal service variables. However, the data is usually updated once every 24 hours.
 
 >[!NOTE]
 >The latency described in Traffic View is a representative latency between the end user and the Azure regions to which they had connected to, and is not the DNS lookup latency. Traffic View makes a best effort estimate of the latency between the local DNS resolver and the Azure region the query was routed to, if there is insufficient data available then the latency returned will be null. 

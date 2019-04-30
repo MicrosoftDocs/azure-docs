@@ -1,32 +1,23 @@
 ---
-title: Business Process Libraries | Microsoft Docs
+title: Business Process Libraries | Azure Marketplace
 description: Explanation of business process libraries and methodologies.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: pbutlerm
 manager: Ricardo.Villalobos  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
-Business Process Libraries
-==========================
+# Business Process Libraries
 
 Business process libraries are nothing but task guides of your end-end
 scenarios. The business process library should directly align with your marketing content. Each business process in the business process library should have a [task recording](https://docs.microsoft.com/dynamics365/operations/dev-itpro/user-interface/task-recorder) associated with it. If you have processes that are outside Dynamics 365 for Operations, please attach a Visio to your BPM library.
 
 See [Business Process Modeler](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/business-process-modeler-libraries-lcs-solutions) for more info.
 
-Methodologies
-=============
+## Methodologies
 
 Lifecycle Services (LCS) for Microsoft Dynamics provides methodologies
 that you can use to ensure a more repeatable and predictable

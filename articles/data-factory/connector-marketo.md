@@ -10,9 +10,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
@@ -30,7 +30,7 @@ You can copy data from Marketo to any supported sink data store. For a list of d
 Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
 >[!NOTE]
->This Marketo connector is built on top of the Marketo REST API. Be aware that the Marketo has [concurrent request limit](http://developers.marketo.com/rest-api/) on service side. If you hit errors saying "Error while attempting to use REST API: Max rate limit '100' exceeded with in '20' secs (606)" or "Error while attempting to use REST API: Concurrent access limit '10' reached (615)", consider to reduce the concurrent copy activity runs to reduce the number of requests to the service.
+>This Marketo connector is built on top of the Marketo REST API. Be aware that the Marketo has [concurrent request limit](https://developers.marketo.com/rest-api/) on service side. If you hit errors saying "Error while attempting to use REST API: Max rate limit '100' exceeded with in '20' secs (606)" or "Error while attempting to use REST API: Concurrent access limit '10' reached (615)", consider to reduce the concurrent copy activity runs to reduce the number of requests to the service.
 
 ## Getting started
 
@@ -63,8 +63,8 @@ The following properties are supported for Marketo linked service:
             "endpoint" : "123-ABC-321.mktorest.com",
             "clientId" : "<clientId>",
             "clientSecret": {
-                 "type": "SecureString",
-                 "value": "<clientSecret>"
+                "type": "SecureString",
+                "value": "<clientSecret>"
             }
         }
     }
@@ -75,7 +75,12 @@ The following properties are supported for Marketo linked service:
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Marketo dataset.
 
-To copy data from Marketo, set the type property of the dataset to **MarketoObject**. There is no additional type-specific property in this type of dataset.
+To copy data from Marketo, set the type property of the dataset to **MarketoObject**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **MarketoObject** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -87,7 +92,8 @@ To copy data from Marketo, set the type property of the dataset to **MarketoObje
         "linkedServiceName": {
             "referenceName": "<Marketo linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -96,14 +102,14 @@ To copy data from Marketo, set the type property of the dataset to **MarketoObje
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Marketo source.
 
-### MarketoSource as source
+### Marketo as source
 
 To copy data from Marketo, set the source type in the copy activity to **MarketoSource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **MarketoSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Activitiy_Types"`. | Yes |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Activitiy_Types"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 

@@ -1,7 +1,6 @@
 ---
 title: Use extended Spark History Server to debug and diagnose Spark applications - Azure HDInsight 
 description: Use extended Spark History Server to debug and diagnose Spark applications - Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: jejiang
 ms.author: jejiang
@@ -10,23 +9,23 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
 ---
-# Use extended Spark History Server to debug and diagnose Spark applications
+# Use extended Apache Spark History Server to debug and diagnose Apache Spark applications
 
-This article provides guidance on how to use extended Spark History Server to debug and diagnose completed and running Spark applications. The extension includes data tab and graph tab and diagnosis tab. On the **Data** tab, users can check the input and output data of the Spark job. On the **Graph** tab, users can check the data flow and replay the job graph. On the **Diagnosis** tab, user can refer to **Data Skew**, **Time Skew** and **Executor Usage Analysis**.
+This article provides guidance on how to use extended Apache Spark History Server to debug and diagnose completed and running Spark applications. The extension includes data tab and graph tab and diagnosis tab. On the **Data** tab, users can check the input and output data of the Spark job. On the **Graph** tab, users can check the data flow and replay the job graph. On the **Diagnosis** tab, user can refer to **Data Skew**, **Time Skew** and **Executor Usage Analysis**.
 
-## Get access to Spark History Server
+## Get access to Apache Spark History Server
 
-Spark History Server is the web UI for completed and running Spark applications. 
+Apache Spark History Server is the web UI for completed and running Spark applications. 
 
-### Open the Spark History Server Web UI from Azure portal
+### Open the Apache Spark History Server Web UI from Azure portal
 
-1. From the [Azure portal](https://portal.azure.com/), open the Spark cluster. For more information, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+1. From the [Azure portal](https://portal.azure.com/), open the Spark cluster. For more information, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. From **Quick Links**, click **Cluster Dashboard**, and then click **Spark History Server**. When prompted, enter the admin credentials for the Spark cluster. 
 
     ![Spark History Server](./media/apache-azure-spark-history-server/launch-history-server.png "Spark History Server")
 
 ### Open the Spark History Server Web UI by URL
-Open the Spark History Server by browsing to the following URL, replace <ClusterName> with Spark cluster name of customer.
+Open the Spark History Server by browsing to the following URL, replace `<ClusterName>` with Spark cluster name of customer.
 
    ```
    https://<ClusterName>.azurehdinsight.net/sparkhistory
@@ -81,7 +80,7 @@ Select job ID then click **Data** on the tool menu to get the data view.
     ![graph feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## Graph tab in Spark History Server
+## Graph tab in Apache Spark History Server
 Select job ID then click **Graph** on the tool menu to get the job graph view.
 
 + Check overview of your job by the generated job graph. 
@@ -100,11 +99,11 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 
 + Play back the job by clicking the **Playback** button and stop anytime by clicking the stop button. The task display in color to show different status when playback:
 
-    + Green for succeeded: The job has completed successfully.
-    + Orange for retried: Instances of tasks that failed but do not affect the final result of the job. These tasks had duplicate or retry instances that may succeed later.
-    + Blue for running: The task is running.
-    + White for waiting or skipped: The task is waiting to run, or the stage has skipped.
-    + Red for failed: The task has failed.
+  + Green for succeeded: The job has completed successfully.
+  + Orange for retried: Instances of tasks that failed but do not affect the final result of the job. These tasks had duplicate or retry instances that may succeed later.
+  + Blue for running: The task is running.
+  + White for waiting or skipped: The task is waiting to run, or the stage has skipped.
+  + Red for failed: The task has failed.
 
     ![graph color sample, running](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
@@ -113,7 +112,7 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 
     ![graph color sample, failed](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
-    > [!NOTE]
+    > [!NOTE]  
     > Playback for each job is allowed. For incomplete job, playback is not supported.
 
 
@@ -126,25 +125,25 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
     ![graph tooltip](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + In job graph tab, stages will have tooltip and small icon displayed if they have tasks meet the below conditions:
-    + Data skew: data read size > average data read size of all tasks inside this stage * 2 and data read size > 10 MB
-    + Time skew: execution time > average execution time of all tasks inside this stage * 2 and execution time > 2 mins
+  + Data skew: data read size > average data read size of all tasks inside this stage * 2 and data read size > 10 MB.
+  + Time skew: execution time > average execution time of all tasks inside this stage * 2 and execution time > 2 mins.
 
     ![graph skew icon](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + The job graph node will display the following information of each stage:
-    + ID.
-    + Name or description.
-    + Total task number.
-    + Data read: the sum of input size and shuffle read size.
-    + Data write: the sum of output size and shuffle write size.
-    + Execution time: the time between start time of the first attempt and completion time of the last attempt.
-    + Row count: the sum of input records, output records, shuffle read records and shuffle write records.
-    + Progress.
+  + ID.
+  + Name or description.
+  + Total task number.
+  + Data read: the sum of input size and shuffle read size.
+  + Data write: the sum of output size and shuffle write size.
+  + Execution time: the time between start time of the first attempt and completion time of the last attempt.
+  + Row count: the sum of input records, output records, shuffle read records and shuffle write records.
+  + Progress.
 
-    > [!NOTE]
+    > [!NOTE]  
     > By default, the job graph node will display information from last attempt of each stage (except for stage execution time), but during playback graph node will show information of each attempt.
 
-    > [!NOTE]
+    > [!NOTE]  
     > For data size of read and write we use 1MB = 1000 KB = 1000 * 1000 Bytes.
 
 + Send feedback with issues by clicking **Provide us feedback**.
@@ -152,7 +151,7 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
     ![graph feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## Diagnosis tab in Spark History Server
+## Diagnosis tab in Apache Spark History Server
 Select job ID then click **Diagnosis** on the tool menu to get the job Diagnosis view. The diagnosis tab includes **Data Skew**, **Time Skew**, and **Executor Usage Analysis**.
     
 + Check the **Data Skew**, **Time Skew**, and **Executor Usage Analysis** by selecting the tabs respectively.
@@ -306,10 +305,10 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
    ```
 
-    + Check on **Head** and **Worker**.
-    + **Parameters**: set the parameters follow the bash usage.
+   + Check on **Head** and **Worker**.
+   + **Parameters**: set the parameters follow the bash usage.
 
-    ![upload log or upgrade hotfix](./media/apache-azure-spark-history-server/sparkui-upload2.png)
+     ![upload log or upgrade hotfix](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
 ## Known issues
@@ -320,8 +319,8 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
 
 ## Next steps
 
-* [Manage resources for a Spark cluster on HDInsight](apache-spark-resource-manager.md)
-* [Configure Spark settings](apache-spark-settings.md)
+* [Manage resources for an Apache Spark cluster on HDInsight](apache-spark-resource-manager.md)
+* [Configure Apache Spark settings](apache-spark-settings.md)
 
 
 ## Contact us

@@ -4,23 +4,24 @@ description: Learn how you can understand the impact of your conditional access 
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
-manager: mtillman
+author: MicrosoftGuyJFlo
+manager: daveba
 editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
-ms.author: markvi
+ms.date: 11/20/2018
+ms.author: joflore
 ms.reviewer: nigu
 
-#Customer intent: As a IT admin, I want to know how to use the What If tool for my existing conditional access policies, so that I can understand the impact they have on my environment. 
+#Customer intent: As an IT admin, I want to know how to use the What If tool for my existing conditional access policies, so that I can understand the impact they have on my environment. 
 
+ms.collection: M365-identity-device-management
 ---
 
 # What is the what if tool in Azure Active Directory conditional access?
@@ -50,9 +51,6 @@ As a next step, you can initiate a simulation run that evaluates your settings. 
 
 When the evaluation has finished, the tool generates a report of the affected policies.
 
-
-> [!NOTE]
-> Currently, the What If tool does not support nested groups. If a user is in a group and that group is member of another group that is used in a conditional access policy, then the what if tool does not correctly display the effect of that policy to the user. 
 
 
 ## Running the tool

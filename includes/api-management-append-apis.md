@@ -1,3 +1,10 @@
+---
+author: vladvino
+ms.service: api-management
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: vlvinogr
+---
 ## Append other APIs
 
 An API can be composed of APIs exposed by different services, including the OpenAPI Specification, a SOAP API, the API Apps feature of Azure App Service, Azure Function App, Azure Logic Apps, and Azure Service Fabric.

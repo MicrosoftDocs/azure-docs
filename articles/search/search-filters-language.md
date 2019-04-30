@@ -1,6 +1,6 @@
 ---
-title: Language filters in Azure Search | Microsoft Docs
-description: Filter criteria by user security identity, language, geo-location, or numeric values to reduce search results on queries in Azure Search, a hosted cloud search service on Microsoft Azure.
+title: Language filters for multi-lingual content in a search index - Azure Search
+description: Filter criteria to support multi language search, scoping query execution to language-specific fields.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -9,6 +9,7 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: heidist
+ms.custom: seodec2018
 ---
 
 # How to filter by language in Azure Search 
@@ -33,11 +34,11 @@ In our samples, including the [real-estate sample](search-get-started-portal.md)
   ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> For code examples showing field definitions with languages analyzers, see [Define an index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet#define-your-azure-search-index) and [Define an index (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api#define-your-azure-search-index-using-well-formed-json).
+> For code examples showing field definitions with languages analyzers, see [Define an index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) and [Define an index (REST)](search-create-index-rest-api.md).
 
 ## Build and load an index
 
-An intermediate (and perhaps obvious) step is that you have to [build and populate the index](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) before formulating a query. We mention this step here for completeness. One way to determine whether the index is available is by checking the indexes list in the [portal](https://portal.azure.com).
+An intermediate (and perhaps obvious) step is that you have to [build and populate the index](https://docs.microsoft.com/azure/search/search-create-index-dotnet) before formulating a query. We mention this step here for completeness. One way to determine whether the index is available is by checking the indexes list in the [portal](https://portal.azure.com).
 
 ## Constrain the query and trim results
 

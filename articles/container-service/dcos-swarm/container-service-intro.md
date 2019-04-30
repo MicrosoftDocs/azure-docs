@@ -1,5 +1,5 @@
 ---
-title: Docker container hosting in Azure cloud
+title: (DEPRECATED) Docker container hosting in Azure cloud
 description: Azure Container Service provides a way to simplify the creation, configuration, and management of a cluster of virtual machines that are preconfigured to run containerized applications.
 services: container-service
 author: rgardler
@@ -12,7 +12,9 @@ ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
 ---
 
-# Introduction to Docker container hosting solutions with Azure Container Service 
+# (DEPRECATED) Introduction to Docker container hosting solutions with Azure Container Service 
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Azure Container Service makes it simpler for you to create, configure, and manage a cluster of virtual machines that are preconfigured to run containerized applications. It uses an optimized configuration of popular open-source scheduling and orchestration tools. This enables you to use your existing skills, or draw upon a large and growing body of community expertise, to deploy and manage container-based applications on Microsoft Azure.
 
@@ -36,7 +38,7 @@ Azure Container Service provides a choice of Docker Swarm, DC/OS, or Kubernetes 
 ### Using DC/OS
 DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. Apache Mesos is housed at the Apache Software
 Foundation and lists some of the [biggest names in
-IT](http://mesos.apache.org/documentation/latest/powered-by-mesos/) as
+IT](https://mesos.apache.org/documentation/latest/powered-by-mesos/) as
 users and contributors.
 
 ![Azure Container Service configured for DC/OS showing agents and masters.](media/acs-intro/dcos.png)

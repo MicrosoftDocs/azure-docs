@@ -1,3 +1,10 @@
+---
+author: spelluru
+ms.service: devtest-lab
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: spelluru
+---
 ## Prerequisites 
 To complete this tutorial, you must have a VHD file uploaded to the storage account associated with the lab in which you are creating the custom image. Select any of the following links to upload a VHD file:
 

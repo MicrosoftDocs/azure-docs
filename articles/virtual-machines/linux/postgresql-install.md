@@ -3,7 +3,7 @@ title: Set up PostgreSQL on a Linux VM | Microsoft Docs
 description: Learn how to install and configure PostgreSQL on a Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
-ms.author: zarhoads
+ms.author: cynthn
 
 ---
 # Install and configure PostgreSQL on Azure
@@ -73,7 +73,7 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
 ## Configure PostgreSQL
 1. (Optional) Create a symbolic link to shorten the PostgreSQL reference to not include the version number:
    
-        # ln -s /opt/pgsql9.3.5 /opt/pgsql
+        # ln -s /opt/postgresql-9.3.5 /opt/pgsql
 2. Create a directory for the database:
    
         # mkdir -p /opt/pgsql_data
@@ -116,6 +116,7 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
 7. You can also check the PostgreSQL version:
    
         $ psql -V
+
 8. Initialize the database:
    
         $ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W
@@ -234,5 +235,5 @@ Use the following command to update data in a table. For this one, Sandy has con
 
 
 ## Get more information about PostgreSQL
-Now that you have completed the installation of PostgreSQL in an Azure Linux VM, you can enjoy using it in Azure. To learn more about PostgreSQL, visit the [PostgreSQL website](http://www.postgresql.org/).
+Now that you have completed the installation of PostgreSQL in an Azure Linux VM, you can enjoy using it in Azure. To learn more about PostgreSQL, visit the [PostgreSQL website](https://www.postgresql.org/).
 

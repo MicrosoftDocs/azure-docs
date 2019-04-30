@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: tamram
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Azure PowerShell samples for Azure Blob storage

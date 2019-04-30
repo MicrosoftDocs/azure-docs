@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to understand about the Microsoft identity platform so I can decide which endpoint and platform best meets my needs.
+ms.collection: M365-identity-device-management
 ---
 
 # About Microsoft identity platform
@@ -34,7 +35,7 @@ Applications using the latest ADAL and the latest MSAL will SSO with each other.
 
 The following diagram shows the Microsoft identity experience at a high level, including the app registration experience, SDKs, endpoints, and supported identities.
 
-![Microsoft identity platform today](./media/about-microsoft-identity-platform/microsoft-identity-platform-preview.png)
+![Microsoft identity platform today](./media/about-microsoft-identity-platform/about-microsoft-identity-platform.svg)
 
 The Microsoft identity platform has two endpoints (v1.0 and v2.0) and two sets of client libraries to handle these endpoints. When developing a new application, consider the advantages and the current state of the endpoints and the authentication libraries. Also consider these:
 

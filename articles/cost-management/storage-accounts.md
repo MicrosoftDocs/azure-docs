@@ -5,11 +5,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
-ms.custom:
+manager: benshy
+ms.custom: secdec18
 ---
 
 # Configure storage accounts for Cloudyn
@@ -30,18 +30,18 @@ If you don't have an AWS simple storage service (S3) bucket, you need to create 
 
 Configuring you Azure storage for use by Cloudyn is straightforward. Gather details about the storage account and copy them in the Cloudyn portal.
 
-1. Sign in to the Azure portal at http://portal.azure.com.
+1. Sign in to the Azure portal at https://portal.azure.com.
 2. Click **All Services**, select **Storage accounts**, scroll to the storage account that you want to use, and then select the account.
 3. On your storage account page under **Settings**, click **Access Keys**.
 4. Copy your **Storage account name** and **Connection string** under key1.  
-![Azure storage access keys](./media/storage-accounts/azure-storage-access-keys.png)  
+   ![Copy storage account name and connection string](./media/storage-accounts/azure-storage-access-keys.png)  
 5. Open the Cloudyn portal from the Azure portal or navigate to https://azure.cloudyn.com and sign in.
 6. Click the cog symbol and then select **Reports Storage Management**.
 7. Click **Add new +** and ensure that Microsoft Azure is selected. Paste your Azure storage account name in the **Name** area. Paste your **connection string** in the corresponding area. Enter a container name and then click **Save**.  
-![Cloudyn storage configured for Azure](./media/storage-accounts/azure-cloudyn-storage.png)
+   ![Paste Azure storage account name and connection string in the Add a new report storage box](./media/storage-accounts/azure-cloudyn-storage.png)
 
-  Your new Azure report storage entry appears in the storage account list.  
-    ![New Azure report storage in list](./media/storage-accounts/azure-storage-entry.png)
+   Your new Azure report storage entry appears in the storage account list.  
+    ![New Azure report storage entry in list](./media/storage-accounts/azure-storage-entry.png)
 
 
 You can now save reports to Azure storage. In any report, click **Actions** and then select **Schedule report**. Name the report and then either add your own URL or use the automatically created URL. Select  **Save to storage**  and then select the storage account. Enter a prefix that gets appended to the report file name. Select either CSV or JSON file format and then save the report.
@@ -63,8 +63,8 @@ bucket.
 4. Click the **JSON** tab.
 5. The following policy allows you to save a report to a S3 bucket. Copy and paste the following policy example to the **JSON** tab. Replace &lt;bucketname&gt; with your bucket name.
 
-  ```
-{
+   ```json
+   {
 	"Version": "2012-10-17",
 	"Statement": [
 	  {
@@ -78,11 +78,11 @@ bucket.
 		]
 	  }
     ]
-}
-```
+   }
+   ```
 
 6. Click **Review policy**.  
-    ![Review policy](./media/storage-accounts/aws-policy.png)  
+    ![AWS JSON policy showing example information](./media/storage-accounts/aws-policy.png)  
 7. On the Review policy page, type a name for your policy. For example, _CloudynSaveReport2S3_.
 8. Click **Create policy**.
 
@@ -98,7 +98,7 @@ To attach the new policy, you open the AWS console and edit the Cloudyn role or 
   1. Click your Cloudyn role name.
   2. On the **Permissions** tab, click **Attach Policy**.
   3. Search for the policy that you created and select it, then click **Attach Policy**.
-    ![AWS - Attach policy for a role](./media/storage-accounts/aws-attach-policy-role.png)
+    ![Example policy attached to your Cloudyn role](./media/storage-accounts/aws-attach-policy-role.png)
 
 **For users:**
 
@@ -107,7 +107,7 @@ To attach the new policy, you open the AWS console and edit the Cloudyn role or 
 3. In the **Grant Permission** section, select **Attach existing policies directly**.
 4. Search for the policy that you created and select it, then click **Next: Review**.
 5. On the Add permissions to role name page, click **Add permissions**.  
-    ![AWS - Attach policy for a user](./media/storage-accounts/aws-attach-policy-user.png)
+    ![Example policy attached to your Cloudyn user](./media/storage-accounts/aws-attach-policy-user.png)
 
 
 ### Optional: Set permission with bucket policy
@@ -118,11 +118,11 @@ You can also set permission to create reports on your S3 bucket using a bucket p
 2. Select the **Permissions** tab and then click **Bucket policy**.
 3. Copy and paste the following policy sample. Replace &lt;bucket\_name&gt; and &lt;Cloudyn\_principle&gt; with the ARN of your bucket. Replace the ARN of either the role or user used by Cloudyn.
 
-  ```
-{
-  "Id": "Policy1485775646248",
-  "Version": "2012-10-17",
-  "Statement": [
+   ```
+   {
+   "Id": "Policy1485775646248",
+   "Version": "2012-10-17",
+   "Statement": [
     {
       "Sid": "SaveReport2S3",
       "Action": [
@@ -136,9 +136,9 @@ You can also set permission to create reports on your S3 bucket using a bucket p
         ]
       }
     }
-  ]
-}
-```
+   ]
+   }
+   ```
 
 4. In the Bucket policy editor, click **Save**.
 
@@ -148,11 +148,11 @@ You can also set permission to create reports on your S3 bucket using a bucket p
 2. Click the cog symbol and then select **Reports Storage Management**.
 3. Click **Add new +** and ensure that AWS is selected.
 4. Select an account and storage bucket. The name of the AWS storage bucket is automatically filled-in.  
-    ![Add report storage for AWS bucket](./media/storage-accounts/aws-cloudyn-storage.png)  
+    ![Example information in the Add a new report storage box](./media/storage-accounts/aws-cloudyn-storage.png)  
 5. Click **Save** and then click **Ok**.
 
     Your new AWS report storage entry appears in the storage account list.  
-    ![New AWS report storage in list](./media/storage-accounts/aws-storage-entry.png)
+    ![New AWS report storage entry show in storage account list](./media/storage-accounts/aws-storage-entry.png)
 
 
 You can now save reports to Azure storage. In any report, click **Actions**  and then select **Schedule report**. Name the report and then either add your own URL or use the automatically created URL. Select  **Save to storage**  and then select the storage account. Enter a prefix that gets appended to the report file name. Select either CSV or JSON file format and then save the report.

@@ -1,6 +1,6 @@
 ---
-title: Diagnose and solve problems in Azure Time Series Insights | Microsoft Docs
-description: This article describes how to diagnose, troubleshoot, and solve common problems you might encounter in your Azure Time Series Insights environment. 
+title: 'Diagnose, troubleshoot, and solve issues in Azure Time Series Insights | Microsoft Docs'
+description: This article describes how to diagnose, troubleshoot, and solve common issues you might encounter in your Azure Time Series Insights environment.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -10,87 +10,105 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 04/09/2018
+ms.custom: seodec18
 ---
 
-# Diagnose and solve problems in your Time Series Insights environment
+# Diagnose and solve issues in your Time Series Insights environment
 
-This article describes some problems you might see in your Time Series Insights environment. It offers potential causes and solutions for resolution.
+This article describes some issues you might encounter in your Azure Time Series Insights environment. The article offers potential causes and solutions for resolution.
 
-## Video: 
+## Video
 
-### In this video, we cover common Time Series Insights customer challenges and mitigations.</br>
+### In this video, we cover common Time Series Insights customer challenges and mitigations:</br>
 
 > [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
-## Problem 1: No data is shown
-There are several common reasons why you might not see your data in the [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com):
+## Problem one: no data is shown
 
-### Possible cause A: Event source data is not in JSON format
-Azure Time Series Insights supports only JSON data. For JSON samples, see [Supported JSON shapes](time-series-insights-send-events.md#supported-json-shapes).
+No data in the [Azure Time Series Insights explorer](https://insights.timeseries.azure.com) might occur for several common reasons:
 
-### Possible cause B: Event source key is missing a required permission
-* For an IoT Hub, you need to provide the key that has **service connect** permission.
+### Cause A: event source data isn't in JSON format
 
-   ![IoT Hub service connect permission](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
+Azure Time Series Insights only supports JSON data. For JSON samples, see [Supported JSON shapes](./how-to-shape-query-json.md).
 
-   As shown in the preceding image, either of the policies **iothubowner** and **service** would work, because both have **service connect** permission.
+### Cause B: the event source key is missing a required permission
 
-* For an event hub, you need to provide the key that has **Listen** permission.
+* For an IoT hub in Azure IoT Hub, you must provide the key that has **service connect** permissions. Either of the **iothubowner** or **service** policies will work because they both have **service connect** permissions.
 
-   ![Event hub listen permission](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)
+   ![IoT Hub service connect permissions](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
-   As shown in the preceding image, either of the policies **read** and **manage** would work, because both have **Listen** permission.
+* For an event hub in Azure Event Hubs, you must provide the key that has **listen** permissions. Either of the **read** or **manage** policies will work because they both have **listen** permissions.
 
-### Possible cause C: The consumer group provided is not exclusive to Time Series Insights
-During registration of am IoT Hub or an event hub, you specify the consumer group that should be used for reading the data. This consumer group must **not** be shared. If the consumer group is shared, the underlying event hub automatically disconnects one of the readers randomly. Provide a unique consumer group for Time Series Insights to read from.
+   ![Event hub listen permissions](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)
 
-## Problem 2: Some data is shown, but some is missing
-When you can see data partially, but the data is lagging behind, there are several possibilities to consider:
+### Cause C: the consumer group provided isn't exclusive to Time Series Insights
 
-### Possible cause A: Your environment is getting throttled
-This is a common problem when environments are provisioned after the creation of an event source with data.  Azure IoT Hubs and Events Hubs store data up to seven days.  TSI will always start from the oldest event (FIFO), within the event source.  So if you have five million events in an event source when you connect to an S1, single-unit TSI environment, TSI will read approximately one million events per day.  This might appear to look as though TSI is experiencing five days of latency at first glance.  What is actually happening is that the environment is being throttled.  If you have old events in your event source, you can approach one of two ways:
+When you register an IoT hub or an event hub, it's important to set the consumer group that you want to use to read the data. This consumer group *can't be shared*. If the consumer group is shared, the underlying IoT hub or event hub automatically and randomly disconnects one of the readers. Provide a unique consumer group for Time Series Insights to read from.
 
-- Change your event source's retention limits to help get rid of old events that you don't want to show up in TSI
-- Provision a larger environment size (in terms of number of units) to increase throughput of old events.  Using the example above, if you increased that same S1 environment to five units for one day, the environment should catch-up to now within the day.  If your steady state event production is 1M or less events/day, then you can reduce the capacity of the event back down to one unit after it has caught up.  
+## Problem two: some data is shown, but data is missing
 
-The throttling limit is enforced based on the environment's SKU type and capacity. All event sources in the environment share this capacity. If the event source for your IoT Hub or event hub is pushing data beyond the enforced limits, you see throttling and a lag.
+When data appears only partially and the data appears to be lagging, you should consider several possibilities.
 
-The following diagram shows a Time Series Insights environment that has a SKU of S1 and a capacity of 3. It can ingress 3 million events per day.
+### Cause A: your environment is being throttled
+
+Throttling is a common issue when environments are provisioned after you create an event source that has data. Azure IoT Hub and Azure Events Hubs store data for up to seven days. Time Series Insights always start with the oldest event in the event source (first-in, first-out, or *FIFO*).
+
+For example, if you have 5 million events in an event source when you connect to an S1, single-unit Time Series Insights environment, Time Series Insights reads approximately 1 million events per day. It might look like Time Series Insights is experiencing five days of latency. However, what's happening is that the environment is being throttled.
+
+If you have old events in your event source, you can approach throttling in one of two ways:
+
+- Change your event source's retention limits to help remove old events that you don't want to show up in Time Series Insights.
+- Provision a larger environment size (number of units) to increase the throughput of old events. Using the preceding example, if you increase the same S1 environment to five units for one day, the environment should catch up within a day. If your steady-state event production is 1 million or fewer events per day, you can reduce the capacity of the event to one unit after it catches up.
+
+The throttling limit is enforced based on the environment's SKU type and capacity. All event sources in the environment share this capacity. If the event source for your IoT hub or event hub pushes data beyond the enforced limits, you see throttling and a lag.
+
+The following figure shows a Time Series Insights environment that has an SKU of S1 and a capacity of 3. It can ingress 3 million events per day.
 
 ![Environment SKU current capacity](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)
 
-For example, assume that this environment is ingesting messages from an event hub. Observe the ingress rate shown in the following diagram:
+As an example, assume that this environment ingests messages from an event hub. The following figure shows the ingress rate:
 
 ![Example ingress rate for an event hub](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)
 
-As shown in the diagram, the daily ingress rate is ~67,000 messages. This rate translates roughly to 46 messages every minute. If each event hub message is flattened to a single Time Series Insights event, this environment sees no throttling. If each event hub message is flattened to 100 Time Series Insights events, then 4,600 events should be ingested every minute. An S1 SKU environment that has a capacity of 3 can ingress only 2,100 events every minute (1 million events per day = 700 events per minute at 3 units = 2,100 events per minute). Therefore you see a lag due to throttling. 
+The daily ingress rate is ~67,000 messages. This rate translates to approximately 46 messages every minute. If each event hub message is flattened to a single Time Series Insights event, throttling doesn't occur. If each event hub message is flattened to 100 Time Series Insights events, 4,600 events should be ingested every minute. An S1 SKU environment that has a capacity of 3 can ingress only 2,100 events every minute (1 million events per day = 700 events per minute at three units = 2,100 events per minute). For this setup, you see a lag due to throttling. 
 
-For a high-level understanding of how flattening logic works, see [Supported JSON shapes](time-series-insights-send-events.md#supported-json-shapes).
+For a high-level understanding of how flattening logic works, see [Supported JSON shapes](./how-to-shape-query-json.md).
 
-### Recommended resolution steps for excessive throttling
-To fix the lag, increase the SKU capacity of your environment. For more information, see [How to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
+#### Recommended resolutions for excessive throttling
 
-### Possible cause B: Initial ingestion of historical data is causing slow ingress
-If you are connecting an existing event source, it's likely that your IoT Hub or event hub already has data in it. The environment starts pulling data from the beginning of the event source's message retention period.
+To fix the lag, increase the SKU capacity of your environment. For more information, see [Scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
 
-This behavior is the default behavior and cannot be overridden. You can engage throttling, and it may take a while to catch up on ingesting historical data.
+### Cause B: initial ingestion of historical data slows ingress
 
-#### Recommended resolution steps of large initial ingestion
-To fix the lag, take the following steps:
-1. Increase the SKU capacity to the maximum allowed value (10 in this case). After the capacity is increased, the ingress process starts catching up much faster. You can visualize how quickly you're catching up through the availability chart in the [Time Series Insights explorer](https://insights.timeseries.azure.com). You are charged for the increased capacity.
-2. After the lag is caught up, decrease the SKU capacity back to your normal ingress rate.
+If you connect an existing event source, it's likely that your IoT hub or event hub already contains data. The environment starts pulling data from the beginning of the event source's message retention period. This is the default processing and can't be overridden. You can engage throttling. Throttling might take a while to catch up as it ingests historical data.
 
-## Problem 3: My event source's *timestamp property name* setting doesn't work
-Ensure that the name and value conform to the following rules:
-* The timestamp property name is _case-sensitive_.
-* The timestamp property value that's coming from your event source, as a JSON string, should have the format _yyyy-MM-ddTHH:mm:ss.FFFFFFFK_. An example of such a string is “2008-04-12T12:53Z”.
+#### Recommended resolutions for large initial ingestion
 
-The easiest way to ensure that your *timestamp property name* is captured and working properly is to use the TSI explorer.  Within the TSI explorer, using the chart, select a period of time after you provided the *timestamp property name*.  Right-click the selection and choose the *explore events* option.  The first column header should be your *timestamp property name* and it should have a *($ts)* next to the word *Timestamp*, rather than:
-- *(abc)*, which would indicate TSI is reading the data values as strings
-- *Calendar icon*, which would indicate TSI is reading the data value as *datetime*
-- *#*, which would indicate TSI is reading the data values as an integer
+To fix the lag:
 
+1. Increase the SKU capacity to the maximum allowed value (10, in this case). After you increase capacity, the ingress process starts to catch up much more quickly. You are charged for the increased capacity. To visualize how quickly you're catching up, you can view the availability chart in the [Time Series Insights explorer](https://insights.timeseries.azure.com). 
+
+2. When the lag is caught up, decrease the SKU capacity to your normal ingress rate.
+
+## Problem three: my event source's timestamp property name setting doesn't work
+
+Ensure that the timestamp property name and value conform to the following rules:
+
+* The timestamp property name is case-sensitive.
+* The timestamp property value that comes from your event source as a JSON string should have the format _yyyy-MM-ddTHH:mm:ss.FFFFFFFK_. An example is **2008-04-12T12:53Z**.
+
+The easiest way to ensure that your timestamp property name is captured and working properly is to use the Time Series Insights explorer. In the Time Series Insights explorer, using the chart, select a period of time after you entered the timestamp property name. Right-click the selection, and then select the **Explore events** option. 
+
+The first column header should be your timestamp property name. Next to the word **Timestamp**, you should see **($ts)**.
+
+You should not see the following values:
+
+- *(abc)*: Indicates that Time Series Insights is reading the data values as strings.
+- *Calendar icon*: Indicates that Time Series Insights is reading the data value as *datetime*.
+- *#*: Indicates that Time Series Insights is reading the data values as an integer.
 
 ## Next steps
-- For additional assistance, start a conversation on the [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). 
-- You can also use [Azure support](https://azure.microsoft.com/support/options/) for assisted support options.
+
+- For assistance, start a conversation in the [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights).
+
+- For assisted support options, use [Azure support](https://azure.microsoft.com/support/options/).

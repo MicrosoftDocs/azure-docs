@@ -3,14 +3,14 @@ title: String claims transformation examples for the Identity Experience Framewo
 description: String claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # String claims transformations
@@ -74,10 +74,10 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
 ### Example
 
 - Input claims:
-    - **inputClaim1**: someone@contoso.com
-    - **inputClaim2**: someone@outlook.com
- - Input parameters:
-    - **stringComparison**:  ordinalIgnoreCase
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
+    - Input parameters:
+  - **stringComparison**:  ordinalIgnoreCase
 - Result: Error thrown
 
 ## ChangeCase 
@@ -109,11 +109,11 @@ Use this claim transformation to change any string ClaimType to lower or upper c
 ### Example
 
 - Input claims:
-    - **email**: SomeOne@contoso.com
+  - **email**: SomeOne@contoso.com
 - Input parameters:
     - **toCase**: LOWER
 - Output claims:
-    - **email**: someone@contoso.com
+  - **email**: someone@contoso.com
 
 ## CreateStringClaim 
 
@@ -177,8 +177,8 @@ Use this claims transformation to check if a claim is equal to another claim. Fo
 ### Example
 
 - Input claims:
-    - **inputClaim1**: someone@contoso.com
-    - **inputClaim2**: someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Input parameters:
     - **operator**:  NOT EQUAL
     - **ignoreCase**: true
@@ -234,7 +234,7 @@ Creates a random string using the random number generator. If the random number 
 | InputParameter | randomGeneratorType | string | Specifies the random value to be generated, `GUID` (global unique ID) or `INTEGER` (a number). |
 | InputParameter | stringFormat | string | [Optional] Format the random value. |
 | InputParameter | base64 | boolean | [Optional] Convert the random value to base64. If string format is applied, the value after string format is encoded to base64. |
-| InputParameter | maximumNumber | int | [Optional] For `INTEGER` randomGeneratorType only. Specify the maximute number. |
+| InputParameter | maximumNumber | int | [Optional] For `INTEGER` randomGeneratorType only. Specify the maximum number. |
 | InputParameter | seed  | int | [Optional] For `INTEGER` randomGeneratorType only. Specify the seed for the random value. Note: same seed yields same sequence of random numbers. |
 | OutputClaim | outputClaim | string | The ClaimTypes that will be produced after this claims transformation has been invoked. The random value. |
 
@@ -317,7 +317,7 @@ Use this claims transformation to format any string with one parameter {0}. The 
 - Input parameters:
     - **stringFormat**:  cpim_{0}@{RelyingPartyTenantId}
 - Output claims:
-    - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
+  - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
 ## FormatStringMultipleClaims
 
@@ -411,7 +411,7 @@ Look up a claim value from a list of values based on the value of another claim.
 | InputParameter | errorOnFailedLookup | boolean | Controlling whether an error is returned when no matching lookup. |
 | OutputClaim | inputParameterId | string | The ClaimTypes that will be produced after this claims transformation has been invoked. The value of the matching Id. |
 
-The following example looks up the domain name in one of the inpuParameters collections. The claims transformation looks up the domain name in the identifier and returns its value (an application ID).
+The following example looks up the domain name in one of the inputParameters collections. The claims transformation looks up the domain name in the identifier and returns its value (an application ID).
 
 ```XML
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
@@ -490,7 +490,7 @@ Use this claims transformation to parse the domain name after the @ symbol of th
 ### Example
 
 - Input claims:
-    - **emailAddress**: joe@outlook.com
+  - **emailAddress**: joe@outlook.com
 - Output claims:
     - **domain**: outlook.com
 

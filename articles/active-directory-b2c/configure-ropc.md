@@ -3,22 +3,21 @@ title: Configure the resource owner password credentials flow in Azure Active Di
 description: Learn how to configure the resource owner password credentials flow in Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 11/30/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Configure the resource owner password credentials flow in Azure AD B2C
 
 The resource owner password credentials (ROPC) flow is an OAuth standard authentication flow where the application, also known as the relying party, exchanges valid credentials such as userid and password for an ID token, access token, and a refresh token. 
 
-> [!NOTE]
-> This feature is in preview.
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 In Azure Active Directory (Azure AD) B2C, the following options are supported:
 
@@ -31,14 +30,17 @@ The following flows are not supported:
 - **Server-to-server**: The identity protection system needs a reliable IP address gathered from the caller (the native client) as part of the interaction. In a server-side API call, only the server’s IP address is used. If a dynamic threshold of failed authentications is exceeded, the identity protection system may identify a repeated IP address as an attacker.
 - **Confidential client flow**: The application client ID is validated, but the application secret is not validated.
 
-##  Create a resource owner policy
+##  Create a resource owner user flow
 
 1. Sign in to the Azure portal as the global administrator of your Azure AD B2C tenant.
 2. To switch to your Azure AD B2C tenant, select the B2C directory in the upper-right corner of the portal.
-3. Under **Policies**, select **Resource Owner policies**.
-4. Provide a name for the policy, such as *ROPC_Auth*, and then select **Application claims**.
-5. Select the application claims that you need for your application, such as *Display Name*, *Email Address*, and *Identity Provider*.
-6. Select **OK**, and then select **Create**.
+3. Click **User flows**, and select **New user flow**.
+4. Click the **All** tab and select **Sign in using ROPC**.
+5. Provide a name for the user flow, such as *ROPC_Auth*.
+6. Under **Application claims**, click **Show more**.
+7. Select the application claims that you need for your application, such as Display Name, Email Address, and Identity Provider.
+8. Select **OK**, and then select **Create**.
+9. Click **Run user flow**.
 
    You'll then see an endpoint such as this example:
 
@@ -53,9 +55,9 @@ The following flows are not supported:
 4. Leave all other values as they are, and then select **Create**.
 5. Select the new application, and note the Application ID for later use.
 
-## Test the policy
+## Test the user flow
 
-Use your favorite API development application to generate an API call, and review the response to debug your policy. Construct a call like this with the information in the following table as the body of the POST request:
+Use your favorite API development application to generate an API call, and review the response to debug your user flow. Construct a call like this with the information in the following table as the body of the POST request:
 - Replace *\<yourtenant.onmicrosoft.com>* with the name of your B2C tenant.
 - Replace *\<B2C_1A_ROPC_Auth>* with the full name of your resource owner password credentials policy.
 - Replace *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* with the Application ID from your registration.
@@ -76,7 +78,7 @@ Use your favorite API development application to generate an API call, and revie
 The actual POST request looks like the following:
 
 ```
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
 Host: yourtenant.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 

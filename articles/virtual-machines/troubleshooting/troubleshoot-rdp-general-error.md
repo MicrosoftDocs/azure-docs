@@ -61,7 +61,7 @@ To resolve this problem, [back up the operating system disk](../windows/snapshot
 
 ### Serial Console
 
-#### Step 1: Turn on Remote Desktop
+#### Step 1: Open CMD instance in Serial console
 
 1. Access the [Serial Console](serial-console-windows.md) by selecting **Support & Troubleshooting** > **Serial console (Preview)**. If the feature is enabled on the VM, you can connect the VM successfully.
 
@@ -225,8 +225,8 @@ For more information, see [Remote Desktop disconnects frequently in Azure VM](tr
 
       Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
   
-7. Detach the disk from the rescue VM.
-8. [Create a new VM from the disk](../windows/create-vm-specialized.md).
+1. Detach the disk from the rescue VM.
+1. [Create a new VM from the disk](../windows/create-vm-specialized.md).
 
 If the problem still happens, move to the step 2.
 

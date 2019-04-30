@@ -1,7 +1,6 @@
 ---
 title: Apache Storm topologies with Visual Studio and C# - Azure HDInsight 
 description: Learn how to create Storm topologies in C#. Create a simple word count topology in Visual Studio by using the Hadoop tools for Visual Studio.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -12,24 +11,24 @@ ROBOTS: NOINDEX
 ---
 # Develop C# topologies for Apache Storm by using the Data Lake tools for Visual Studio
 
-Learn how to create a C# Storm topology by using the Azure Data Lake (Hadoop) tools for Visual Studio. This document walks through the process of creating a Storm project in Visual Studio, testing it locally, and deploying it to an Apache Storm on Azure HDInsight cluster.
+Learn how to create a C# Apache Storm topology by using the Azure Data Lake (Apache Hadoop) tools for Visual Studio. This document walks through the process of creating a Storm project in Visual Studio, testing it locally, and deploying it to an Apache Storm on Azure HDInsight cluster.
 
 You also learn how to create hybrid topologies that use C# and Java components.
 
-> [!NOTE]
+> [!NOTE]  
 > While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster. Only Linux-based clusters created after October 28, 2016, support SCP.NET topologies.
 
 To use a C# topology with a Linux-based cluster, you must update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or later. The version of the package must also match the major version of Storm installed on HDInsight.
 
-| HDInsight version | Storm version | SCP.NET version | Default Mono version |
+| HDInsight version | Apache Storm version | SCP.NET version | Default Mono version |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
 | 3.3 |0.10.x |0.10.x.x</br>(only on Windows-based HDInsight) | NA |
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
 | 3.5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
 
-> [!IMPORTANT]
-> C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Check [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) for potential incompatibilities.
+> [!IMPORTANT]  
+> C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Check [Mono compatibility](https://www.mono-project.com/docs/about-mono/compatibility/) for potential incompatibilities.
 
 ## Install Visual Studio
 
@@ -51,7 +50,7 @@ To install Data Lake tools for Visual Studio, follow the steps in [Get started u
 
 When you submit a Storm topology from Visual Studio, SCP.NET generates a zip file that contains the topology and dependencies. Java is used to create these zip files, because it uses a format that is more compatible with Linux-based clusters.
 
-1. Install the Java Developer Kit (JDK) 7 or later on your development environment. You can get the Oracle JDK from [Oracle](https://aka.ms/azure-jdks). You can also use [other Java distributions](http://openjdk.java.net/).
+1. Install the Java Developer Kit (JDK) 7 or later on your development environment. You can get the Oracle JDK from [Oracle](https://aka.ms/azure-jdks). You can also use [other Java distributions](https://openjdk.java.net/).
 
 2. The `JAVA_HOME` environment variable must point to the directory that contains Java.
 
@@ -91,7 +90,7 @@ namespace ConsoleApplication2
 }
 ```
 
-## Storm templates
+## Apache Storm templates
 
 The Data Lake tools for Visual Studio provide the following templates:
 
@@ -108,18 +107,18 @@ The Data Lake tools for Visual Studio provide the following templates:
 | Storm Hybrid Sample |How to use a Java component. |
 | Storm Sample |A basic word count topology. |
 
-> [!WARNING]
-> Not all templates work with Linux-based HDInsight. NuGet packages used by the templates may not be compatible with Mono. Check the [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document and use the [.NET Portability Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) to identify potential problems.
+> [!WARNING]  
+> Not all templates work with Linux-based HDInsight. NuGet packages used by the templates may not be compatible with Mono. Check the [Mono compatibility](https://www.mono-project.com/docs/about-mono/compatibility/) document and use the [.NET Portability Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) to identify potential problems.
 
 In the steps in this document, you use the basic Storm Application project type to create a topology.
 
-### HBase templates notes
+### Apache HBase templates notes
 
 The HBase reader and writer templates use the HBase REST API, not the HBase Java API, to communicate with an HBase on HDInsight cluster.
 
 ### EventHub templates notes
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The Java-based EventHub spout component included with the EventHub Reader template may not work with Storm on HDInsight version 3.5 or later. An updated version of this component is available at [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib).
 
 For an example topology that uses this component and works with Storm on HDInsight 3.5, see [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
@@ -224,7 +223,7 @@ For an example topology that uses this component and works with Storm on HDInsig
 
    * **Counter.cs**: Implements a bolt that counts each word, and emits a new stream of words and the count for each word.
 
-     > [!NOTE]
+     > [!NOTE]  
      > These bolts read and write to streams, but you can also use a bolt to communicate with sources such as a database or service.
 
 3. Open **Splitter.cs**. It has only one method by default: **Execute**. The Execute method is called when the bolt receives a tuple for processing. Here, you can read and process incoming tuples, and emit outbound tuples.
@@ -402,21 +401,21 @@ return topologyBuilder;
 
 1. In **Solution Explorer**, right-click the project, and select **Submit to Storm on HDInsight**.
 
-   > [!NOTE]
+   > [!NOTE]  
    > If prompted, enter the credentials for your Azure subscription. If you have more than one subscription, sign in to the one that contains your Storm on HDInsight cluster.
 
 2. Select your Storm on HDInsight cluster from the **Storm Cluster** drop-down list, and then select **Submit**. You can monitor if the submission is successful by using the **Output** window.
 
 3. When the topology has been successfully submitted, the **Storm Topologies** for the cluster should appear. Select the **WordCount** topology from the list to view information about the running topology.
 
-   > [!NOTE]
+   > [!NOTE]  
    > You can also view **Storm Topologies** from **Server Explorer**. Expand **Azure** > **HDInsight**, right-click a Storm on HDInsight cluster, and then select **View Storm Topologies**.
 
     To view information about the components in the topology, double-click the component in the diagram.
 
 4. From the **Topology Summary** view, click **Kill** to stop the topology.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Storm topologies continue to run until they are deactivated, or the cluster is deleted.
 
 ## Transactional topology
@@ -427,7 +426,7 @@ Transactional topologies implement the following to support replay of data:
 
 * **Metadata caching**: The spout must store metadata about the data emitted, so that the data can be retrieved and emitted again if a failure occurs. Because the data emitted by the sample is small, the raw data for each tuple is stored in a dictionary for replay.
 
-* **Ack**: Each bolt in the topology can call `this.ctx.Ack(tuple)` to acknowledge that it has successfully processed a tuple. When all bolts have acked the tuple, the `Ack` method of the spout is invoked. The `Ack` method allows the spout to remove data that was cached for replay.
+* **Ack**: Each bolt in the topology can call `this.ctx.Ack(tuple)` to acknowledge that it has successfully processed a tuple. When all bolts have acknowledged the tuple, the `Ack` method of the spout is invoked. The `Ack` method allows the spout to remove data that was cached for replay.
 
 * **Fail**: Each bolt can call `this.ctx.Fail(tuple)` to indicate that processing has failed for a tuple. The failure propagates to the `Fail` method of the spout, where the tuple can be replayed by using cached metadata.
 
@@ -453,13 +452,13 @@ For an example of a hybrid topology, create a project and select **Storm Hybrid 
 
     * A transactional version is defined in **HybridTopologyTx_csharpSpout_javaBolt**.
 
-  > [!NOTE]
+  > [!NOTE]  
   > This version also demonstrates how to use Clojure code from a text file as a Java component.
 
 
 To switch the topology that is used when the project is submitted, move the `[Active(true)]` statement to the topology you want to use, before submitting it to the cluster.
 
-> [!NOTE]
+> [!NOTE]  
 > All the Java files that are required are provided as part of this project in the **JavaDependency** folder.
 
 Consider the following when you are creating and submitting a hybrid topology:
@@ -478,7 +477,7 @@ SCP.NET version 0.9.4.203 introduces a new class and method specifically for wor
 
 * **TopologyBuilder.SetEventHubSpout** method: Adds the Event Hub spout component to the topology.
 
-> [!NOTE]
+> [!NOTE]  
 > You must still use the **CustomizedInteropJSONSerializer** to serialize data produced by the spout.
 
 ## <a id="configurationmanager"></a>Use ConfigurationManager
@@ -526,7 +525,7 @@ Recent releases of SCP.NET support package upgrade through NuGet. When a new upd
 
 2. From the package manager, select **Updates**. If an update is available, it is listed. Click **Update** for the package to install it.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > If your project was created with an earlier version of SCP.NET that did not use NuGet, you must perform the following steps to update to a newer version:
 >
 > 1. In **Solution Explorer**, right-click the project, and select **Manage NuGet Packages**.
@@ -556,7 +555,7 @@ For Linux-based HDInsight clusters, make sure that your project uses binaries co
 
 Although it is easy to deploy a topology to a cluster, in some cases, you may need to test a topology locally. Use the following steps to run and test the example topology in this tutorial locally in your development environment.
 
-> [!WARNING]
+> [!WARNING]  
 > Local testing only works for basic, C#-only topologies. You cannot use local testing for hybrid topologies or topologies that use multiple streams.
 
 1. In **Solution Explorer**, right-click the project, and select **Properties**. In the project properties, change the **Output type** to **Console Application**.
@@ -680,10 +679,10 @@ Although it is easy to deploy a topology to a cluster, in some cases, you may ne
 
 3. Use **Windows Explorer** to locate the directory that contains your project. For example: **C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. In this directory, open **Bin**, and then click **Debug**. You should see the text files that were produced when the tests ran: sentences.txt, counter.txt, and splitter.txt. Open each text file and inspect the data.
 
-   > [!NOTE]
+   > [!NOTE]  
    > String data persists as an array of decimal values in these files. For example, \[[97,103,111]] in the **splitter.txt** file is the word *and*.
 
-> [!NOTE]
+> [!NOTE]  
 > Be sure to set the **Project type** back to **Class Library** before deploying to a Storm on HDInsight cluster.
 
 ### Log information
@@ -696,7 +695,7 @@ Context.Logger.Info("Component started");
 
 Logged information can be viewed from the **Hadoop Service Log**, which is found in **Server Explorer**. Expand the entry for your Storm on HDInsight cluster, and then expand **Hadoop Service Log**. Finally, select the log file to view.
 
-> [!NOTE]
+> [!NOTE]  
 > The logs are stored in the Azure storage account that is used by your cluster. To view the logs in Visual Studio, you must sign in to the Azure subscription that owns the storage account.
 
 ### View error information
@@ -748,14 +747,14 @@ For more ways to work with HDInsight and more Storm on HDInsight samples, see th
 **Apache Storm on HDInsight**
 
 * [Deploy and monitor topologies with Apache Storm on HDInsight](apache-storm-deploy-monitor-topology.md)
-* [Example topologies for Storm on HDInsight](apache-storm-example-topology.md)
+* [Example topologies for Apache Storm on HDInsight](apache-storm-example-topology.md)
 
 **Apache Hadoop on HDInsight**
 
-* [Use Hive with Hadoop on HDInsight](../hadoop/hdinsight-use-hive.md)
-* [Use Pig with Hadoop on HDInsight](../hadoop/hdinsight-use-pig.md)
-* [Use MapReduce with Hadoop on HDInsight](../hadoop/hdinsight-use-mapreduce.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](../hadoop/hdinsight-use-hive.md)
+* [Use Apache Pig with Apache Hadoop on HDInsight](../hadoop/hdinsight-use-pig.md)
+* [Use Apache Hadoop MapReduce with Apache Hadoop on HDInsight](../hadoop/hdinsight-use-mapreduce.md)
 
 **Apache HBase on HDInsight**
 
-* [Getting started with HBase on HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Getting started with Apache HBase on HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md)

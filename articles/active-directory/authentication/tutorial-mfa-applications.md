@@ -4,16 +4,17 @@ description: In this tutorial, you will enable Azure AD Multi-Factor Authenticat
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
 # Customer intent: As an Azure AD Administrator, I want to enhance user authentication with MFA to make sure the user is who they say they are.
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Complete an Azure Multi-Factor Authentication pilot roll out
 
