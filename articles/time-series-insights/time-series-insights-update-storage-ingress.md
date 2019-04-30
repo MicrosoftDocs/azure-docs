@@ -36,8 +36,6 @@ For more about the Parquet file type, see [Supported file types in Azure Storage
 
 ## Parquet file format
 
-[![Parquet file format](media/v2-update-storage-ingress/parquet-files.png)](media/v2-update-storage-ingress/parquet-files.png#lightbox)
-
 Parquet is a column-oriented, data file format that was designed for:
 
 * Interoperability
@@ -107,9 +105,9 @@ Time Series Insights Preview provides performant queries that are based on these
 
 It's important to select an appropriate Time Series ID, because it's an immutable property. For more information, see [Choose Time Series IDs](./time-series-insights-update-how-to-id.md).
 
-## Your Azure storage account
+## Azure storage
 
-### Storage
+### Your Storage account
 
 When you create a Time Series Insights pay-as-you-go environment, you create two resources: a Time Series Insights environment and an Azure Storage general-purpose V1 account where the data will be stored. We chose to make Azure Storage general-purpose V1 the default resource because of its interoperability, price, and performance. 
 
@@ -157,9 +155,9 @@ The API endpoint can be reached at `/getRecorded`. To learn more about this API,
 
 Don't delete blobs, because Time Series Insights Preview maintains metadata about the blobs within it.
 
-## Ingress
+## Time Series Insights data ingress
 
-### Time Series Insights ingress policies
+### Ingress policies
 
 Time Series Insights Preview supports the same event sources and file types that Time Series Insights currently supports.
 
