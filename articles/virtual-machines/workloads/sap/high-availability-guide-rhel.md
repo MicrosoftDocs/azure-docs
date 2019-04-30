@@ -125,11 +125,11 @@ SAP NetWeaver requires shared storage for the transport and profile directory. R
 
 ## Setting up (A)SCS
 
-You can either use an Azure Template from github to deploy all required Azure resources, including the virtual machines, availability set and load balancer or you can deploy the resources manually.
+You can either use an Azure Template from GitHub to deploy all required Azure resources, including the virtual machines, availability set and load balancer or you can deploy the resources manually.
 
 ### Deploy Linux via Azure Template
 
-The Azure Marketplace contains an image for Red Hat Enterprise Linux that you can use to deploy new virtual machines. You can use one of the quickstart templates on github to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
+The Azure Marketplace contains an image for Red Hat Enterprise Linux that you can use to deploy new virtual machines. You can use one of the quickstart templates on GitHub to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
 Follow these steps to deploy the template:
 
 1. Open the [ASCS/SCS template][template-multisid-xscs] on the Azure portal  
@@ -147,7 +147,7 @@ Follow these steps to deploy the template:
    1. System Availability  
       Select HA
    1. Admin Username, Admin Password or SSH key  
-      A new user is created that can be used to log on to the machine.
+      A new user is created that can be used to sign in to the machine.
    1. Subnet ID  
    If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like /subscriptions/**&lt;subscription ID&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;subnet name&gt;**
 
