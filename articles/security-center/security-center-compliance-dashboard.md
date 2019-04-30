@@ -60,7 +60,7 @@ You can potentially use this view to prioritize recommendations you need to reso
 
     ![compliance score impact](./media/security-center-compliance-dashboard/compliance-all-tabs.png)
 
-1. Click **Download report** to generate and download a PDF report summarizing your current compliance status for a particular standard.
+1. To generate and download a PDF report summarizing your current compliance status for a particular standard, click **Download report**.
 
     The report provides a high-level summary of your compliance status for the selected standard based on Security Center assessments data, and is organized according to the controls of that particular standard. The report can be shared with relevant stakeholders, and may serve to provide evidence to internal and external auditors.
 
