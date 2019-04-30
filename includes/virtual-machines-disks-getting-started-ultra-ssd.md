@@ -140,7 +140,7 @@ New-AzVm `
 Now that you have a VM that is capable of using ultra SSDs, you can create and attach an ultra SSD to it:
 
 ```powershell
-New-AzDiskConfig `
+$diskconfig = New-AzDiskConfig `
 -Location 'EastUS2' `
 -DiskSizeGB 8 `
 -DiskIOPSReadWrite 1000 `
