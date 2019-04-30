@@ -1,46 +1,65 @@
 ---
-title: Export the Azure Activity Log
-description: Archive the Azure Activity Log to Azure Storage or export it to an Azure Event Hub..
+title: Collect the Azure Activity Log
+description: Configure the Azure Activity Log to copy to a Log Analytics workspace for analysis, an Azure Storage Account for archiving, or stream to an Event Hub for exporting outside of Azure.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/21/2019
+ms.date: 04/30/2019
 ms.author: bwren
 ms.subservice: logs
 ---
-# Export the Azure Activity Log
-You can view the [Azure Activity Log](activity-logs-overview.md) in the Azure portal or you can 
+# Collect the Azure Activity Log for analysis, archiving, or export
+The [Azure Activity Log](activity-logs-overview.md) is automatically collected for every Azure subscription. In addition to viewing its entries in the Azure portal, you can copy them to the following locations:
 
-In addition to viewing the [Azure Activity Log](activity-logs-overview.md) in the Azure portal or copying it to a Log Analytics workspace where it can be analyzed with other data collected by Azure Monitor, you can archive it to an Azure storage account or stream it to an Event Hub. Since the process to configure both of these activities is similar, they are both described together in this article.
+- [Log Analytics workspace](#log-analytics-workspace) to analyze Azure Activity log with other monitoring data.
+- [Azure Storage Account](#azure-storage-account) to archive Activity log entry.
+- [Event Hubs](#event-hubs) to stream Activity log entries to another location.
 
 
-## Archive Activity Log
-Archiving the Activity Log to a storage account is useful if you would like to retain your log data longer than 90 days (with full control over the retention policy) for audit, static analysis, or backup. If you only need to retain your events for 90 days or less you do not need to set up archival to a storage account, since Activity Log events are retained in the Azure platform for 90 days without enabling archival.
+## Log Analytics workspace
+Connect the Activity log to a Log Analytics workspace to analyze it with other log data using log queries. You can copy the Activity log for multiple subscriptions to a single workspace to analyze them together. An Activity log can be connected to only one workspace, but a single workspace can be connected the Activity log for multiple subscriptions in the same Azure tenant. 
 
-## Stream Activity Log to Event Hub
-[Azure Event Hubs](/azure/event-hubs/) is a data streaming platform and event ingestion service that can receive and process millions of events per second. Data sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters. Two ways you might use the streaming capability for the Activity Log are:
+For collection across multiple tenants, see [Collect Azure Activity Logs into a Log Analytics workspace across subscriptions in different Azure Active Directory tenants](collect-activity-logs-subscriptions.md).
 
-* **Stream to third-party logging and telemetry systems**: Over time, Azure Event Hubs streaming will become the mechanism to pipe your Activity Log into third-party SIEMs and log analytics solutions.
-* **Build a custom telemetry and logging platform**: If you already have a custom-built telemetry platform or are thinking about building one, the highly scalable publish-subscribe nature of Event Hubs enables you to flexibly ingest the activity log. 
+Use the following procedure to connect the Activity log for one or more subscriptions to your Log Analytics workspace:
 
-## Prerequisites
+1. From the **Log Analytics workspaces** menu in the Azure portal, select the workspace to copy the Activity log.
+1. In the **Workspace Data Sources** section of the workspace's menu, select **Azure Activity log**.
+1. Click the subscription you want to connect.
 
-### Storage account
+    ![Workspaces](media/activity-log-export/workspaces.png)
+
+1. Click **Connect** to connect the Activity log in the subscription to the selected workspace. If the subscription is already connected to a workspace, click **Disconnect** first to disconnect it.
+
+    ![Connect Workspaces](media/activity-log-export/connect-workspace.png)
+
+## Azure Storage account
+Archiving the Activity Log to an Azure Storage account is useful if you would like to retain your log data longer than 90 days (with full control over the retention policy) for audit, static analysis, or backup. If you only need to retain your events for 90 days or less you do not need to set up archival to a storage account, since Activity Log events are retained in the Azure platform for 90 days without enabling archival.
+
 You need to [create a storage account](../../storage/common/storage-quickstart-create-account.md) if you don't already have one. You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. If you are also archiving Diagnostic Logs and metrics to a storage account though, you may choose to use that same storage account to keep all monitoring data in a central location. 
 
 The storage account does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 > [!NOTE]
->  You cannot currently archive data to a storage account that is behind a secured virtual network.
+>  You cannot currently archive data to a storage account that is behind a secured virtual network
+
+Archive the Activity Log to an Azure Storage account by creating a [Log Profile](#log-profile).
+
+## Event Hubs
+[Azure Event Hubs](/azure/event-hubs/) is a data streaming platform and event ingestion service that can receive and process millions of events per second. Data sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters. Two ways you might use the streaming capability for the Activity Log are:
+
+* **Stream to third-party logging and telemetry systems**: Over time, Azure Event Hubs streaming will become the mechanism to pipe your Activity Log into third-party SIEMs and log analytics solutions.
+* **Build a custom telemetry and logging platform**: If you already have a custom-built telemetry platform or are thinking about building one, the highly scalable publish-subscribe nature of Event Hubs enables you to flexibly ingest the activity log. 
 
 
-### Event hub
 You need to [create an event hub](../../event-hubs/event-hubs-create.md) if you don't already have one. If you previously streamed Activity Log events to this Event Hubs namespace, then that event hub will be reused.
 
 The shared access policy defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. You can create or modify shared access policies for the Event Hubs namespace in the Azure portal under the Configure tab for your Event Hubs namespace.
 
 To update the Activity Log log profile to include streaming, you must have the ListKey permission on that Event Hubs authorization rule. The Event Hubs namespace does not have to be in the same subscription as the subscription that's emitting logs, as long as the user who configures the setting has appropriate RBAC access to both subscriptions and both subscriptions are in the same AAD tenant.
+
+Stream the Activity Log to an Event Hub by creating a [Log Profile](#log-profile).
 
 ## Log profile
 You define how your Azure Activity log is exported using a **log profile**. The log profile defines the follwoing.
