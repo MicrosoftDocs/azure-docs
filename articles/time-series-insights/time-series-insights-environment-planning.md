@@ -56,7 +56,7 @@ You can configure a maximum of 400 days of data retention in your Time Series In
 
 1. In the **Data retention time (in days)** box, enter a value from 1 to 400.
 
-   ![Configure retention](media/environment-mitigate-latency/configure-retention.png)
+   [![Configure retention](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
 
 ## Understand ingress capacity
 
@@ -91,14 +91,14 @@ You may not know in advance how much data you expect to push. In this case, you 
 
 For information about how to prevent throttling and latency, see [Mitigate latency and throttling](time-series-insights-environment-mitigate-latency.md).
 
-## Shaping your events
+## Shape your events
 
 It's important to ensure the way you send events to TSI supports the size of the environment you are provisioning (conversely, you can map the size of the environment to how many events TSI reads and the size of each event). Likewise, it's important to think about the attributes you may want to slice and filter by when querying your data.
 
 > [!TIP]
 > Review the JSON shaping documentation in [Sending events](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events).
 
-## Ensuring you have reference data in place
+## Ensure you have reference data
 
 A **Reference Data Set** is a collection of items that augment the events from your event source. Time Series Insights ingress engine joins each event from your event source with the corresponding data row in your reference data set. This augmented event is then available for query. This join is based on the Primary Key column(s) defined in your reference data set.
 
