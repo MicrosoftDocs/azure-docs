@@ -37,7 +37,7 @@ After the container is migrated, you can create documents by populating the “_
 
 Choosing the right partition key is very important to utilize the provisioned throughput optimally. See [how to choose a partition key](partitioning-overview.md) article for more details. 
 
-> ![NOTE]
+> [!NOTE]
 > You can take advantage of system defined partition key only if you are using the latest/V3 version of SDKs in all the languages.
 
 The following example shows sample code to create a document with system defined partition key and read that document:
