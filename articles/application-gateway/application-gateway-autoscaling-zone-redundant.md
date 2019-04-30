@@ -20,7 +20,7 @@ The new v2 SKU includes the following enhancements:
 - **Static VIP**: Application gateway v2 SKU supports the static VIP type exclusively. This ensures that the VIP associated with application gateway doesn't change for the lifecycle of the deployment, even after a restart.
 - **Header Rewrite**: Application Gateway allows you to add, remove, or update HTTP request and response headers with v2 SKU. For more information, see [Rewrite HTTP headers with Application Gateway](rewrite-http-headers.md)
 - **Key Vault Integration (preview)**: Application Gateway v2 supports integration with Key Vault (in public preview) for server certificates that are attached to HTTPS enabled listeners. For more information, see [SSL termination with Key Vault certificates](key-vault-certs.md).
-- **Azure Kubernetes Service Ingress Controller (preview)**: The Application Gateway v2 Ingress Controller allows the Azure Application Gateway to be used as the ingress for an Azure Kubernetes Service known as AKS Cluster. For more information, see the [documentation page](https://azure.github.io/application-gateway-kubernetes-ingress/).
+- **Azure Kubernetes Service Ingress Controller (preview)**: The Application Gateway v2 Ingress Controller allows the Azure Application Gateway to be used as the ingress for an Azure Kubernetes Service (AKS) known as AKS Cluster. For more information, see the [documentation page](https://azure.github.io/application-gateway-kubernetes-ingress/).
 - **Performance enhancements**: The v2 SKU offers up to 5X better SSL offload performance as compared to the Standard/WAF SKU.
 - **Faster deployment and update time** The v2 SKU provides faster deployment and update time as compared to Standard/WAF SKU. This also includes WAF configuration changes.
 
@@ -35,7 +35,18 @@ The Standard_v2 and WAF_v2 SKU is available in the following regions: North Cent
 With the v2 SKU, the pricing model is driven by consumption and is no longer attached to instance counts or sizes. The v2 SKU pricing has two components:
 
 - **Fixed price** - This is hourly (or partial hour) price to provision a Standard_v2 or WAF_v2 Gateway.
-- **Capacity Unit price** - This is consumption-based cost that is charged in addition to fixed cost. Capacity Unit charge is also computed hourly or partial hourly.
+- **Capacity Unit price** - This is consumption-based cost that is charged in addition to the fixed cost. Capacity unit charge is also computed hourly or partial hourly. There are three dimensions to capacity unit - compute unit, persistent connections, and throughput. Compute unit is a measure of processor capacity consumed. Factors affecting compute unit are TLS connections/sec, URL Rewrite computations, and WAF rule processing. Persistent connection is a measure of established TCP connections to the application gateway in a given billing interval. Throughput is average Megabits/sec processed by the system in a given billing interval.
+
+Each capacity unit is comprised of at most: 1 compute unit, or 2500 persistent connections, or 2.22 Mbps throughput.
+
+Compute unit guidance:
+
+- **Standard_v2** - Each compute unit is capable of approximately 50 connections per second with RSA 2048-bit key TLS certificate.
+- **WAF_v2** - Each compute unit is capable of approximately 10 concurrent requests per second for 70-30% mix of traffic with 70% requests less than 2 KB GET/POST and remaining higher. WAF performance is not affected by response size currently.
+
+> [!NOTE]
+> Each instance can currently support approximately 10 capacity units.
+> The number of requests a compute unit can handle depends on various criteria like TLS certificate key size, key exchange algorithm, header rewrites, and in case of WAF incoming request size. We recommend you perform application tests to determine request rate per compute unit. Both capacity unit and compute unit will be made available as a metric before billing starts.
 
 **Pricing in US East**:
 
@@ -44,38 +55,36 @@ With the v2 SKU, the pricing model is driven by consumption and is no longer att
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-Capacity Unit details:
+The [pricing page](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) will be updated to reflect regional prices on May 14, 2019. Billing is scheduled to start on June 1, 2019.
 
-- **Standard_v2** - Each capacity unit can support approximately 50 connections per second with RSA 2048-bit key TLS certificate or 2500 persistent connections or 2.22 Mbps of traffic. Maximum capacity usage metric is charged.
-- **WAF_v2** - Each capacity unit is capable of approximately 10 concurrent requests per second for 70-30% mix of traffic with 70% requests less than 2 KB GET/POST and remaining higher. WAF performance is not affected by response size currently.
+**Example 1**
 
-**Example 1**:
+An application gateway Standard_v2 is provisioned without autoscaling in manual scaling mode with fixed capacity of five instances.
+
+Fixed price = 744(hours) * $0.20 = $148.8 <br>
+Capacity units = 744 (hours) 10 capacity unit per instance * five instances * $0.008 per capacity unit hour = $297.6
+
+Total price = $148.8 + $297.6 = $446.4
+
+**Example 2**
 
 An application gateway standard_v2 is provisioned for a month and during this time it receives 25 new SSL connections/sec, average of 8.88 Mbps data transfer. Assuming connections are short lived, your price would be:
 
-Fixed price = 744(hours) * $0.20 = **$148.8**
+Fixed price = 744(hours) * $0.20 = $148.8
 
-Capacity Unit price = 744(hours) * Max (50/25 capacity unit for connections/sec, 8.88/2.22 capacity unit for throughput) * $0.008 
+Capacity unit price = 744(hours) * Max (25/50 compute unit for connections/sec, 8.88/2.22 capacity unit for throughput) * $0.008 = 744 * 4 * 0.008 = $23.81
 
-= 744 * 4 * 0.008 = **$23.81**
+Total price = $148.8+23.81 = $172.61
 
-Total price = $148.8 + 23.81 = **$172.61**
+**Example 3**
 
-**Example 2**:
+An Application Gateway WAF_v2 is provisioned for a month and during this time it receives 25 new SSL connections/sec, average of 8.88 Mbps data transfer and does 80 request per second. Assuming connections are short lived, and that compute unit calculation for the application supports 10 RPS per compute unit, your price would be:
 
-An application gateway WAF_v2 is provisioned for a month and during this time it receives 25 new SSL connections/sec, average of 8.88 Mbps data transfer and does 80 request per second. Assuming connections are short lived, your price would be:
+Fixed price = 744(hours) * $0.36 = $267.84
 
-Fixed price = 744(hours) * $0.36 = **$267.84**
+Capacity unit price = 744(hours) * Max (compute unit Max(25/50 for connections/sec, 80/10 WAF RPS), 8.88/2.22 capacity unit for throughput) * $0.0144 = 744 * 8 * 0.0144 = $85.71
 
-Capacity Unit price = 744(hours) * Max (50/25 capacity unit for connections/sec, 8.88/2.22 capacity unit for throughput, 80/10 WAF RPS) * $0.0144
-
- = 744 * 8 * 0.0144 = **$85.71**
-
-Total price = $267.84 + $85.71 = **$353.55**
-
-> [!NOTE]
-> Each instance can support approximately 10 Capacity Units currently.
-> The number of requests a capacity unit can handle depends on various criteria like TLS certificate key size, key exchange algorithm, and in case of WAF incoming request size. We recommend applications to perform application tests to determine throughput per Capacity Unit.
+Total price = $267.84 + $85.71 = $353.55
 
 The [pricing page](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) will be updated to reflect regional prices on May 14, 2019. Billing is scheduled to start on June 1, 2019.
 

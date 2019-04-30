@@ -23,7 +23,6 @@ Application Gateway also supports several [server variables](https://docs.micros
 >
 > The HTTP header rewrite support is only available for the [Standard_V2 and WAF_v2 SKU](application-gateway-autoscaling-zone-redundant.md).
 
-
 ![Rewriting headers](media/rewrite-http-headers/rewrite-headers.png)
 
 ## Supported headers
@@ -161,5 +160,5 @@ Contact us at [AGHeaderRewriteHelp@microsoft.com](mailto:AGHeaderRewriteHelp@mic
 
 To learn how to rewrite HTTP headers, see:
 
--  [Rewrite HTTP headers using Azure portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
--  [Rewrite HTTP headers using Azure PowerShell](add-http-header-rewrite-rule-powershell.md)
+- [Rewrite HTTP headers using Azure portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Rewrite HTTP headers using Azure PowerShell](add-http-header-rewrite-rule-powershell.md)
