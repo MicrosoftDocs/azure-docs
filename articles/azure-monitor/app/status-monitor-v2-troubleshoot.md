@@ -201,5 +201,5 @@ If monitoring is working, at least 12 DLLS should be loaded.
 
 ## Next steps
 
-- Review our [API Reference](status-monitor-v2-overview#powershell-api-reference) to find a parameter you might have missed.
+- Review our [API Reference](status-monitor-v2-overview.md#powershell-api-reference) to find a parameter you might have missed.
 - If you come across an issue not listed here, you may contact us [here](https://github.com/Microsoft/ApplicationInsights-Home/issues).
