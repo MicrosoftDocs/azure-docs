@@ -49,7 +49,7 @@
     - name: Node quota
       href:  https://docs.azure.cloudsimple.com/node-quota/
     - name: Maintenance and updates
-      href: https://docs.azure.cloudsimple.com/cloudsimple-maintenance-updates/
+      href: cloudsimple-maintenance-updates.md
     - name: FAQ
       href: https://docs.azure.cloudsimple.com/cloudsimple-faq/
   - name: Tutorials
