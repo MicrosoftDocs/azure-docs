@@ -30,7 +30,7 @@ sections:
           image:
             src: ../media/index/i_overview.svg
           title: What is Form Recognizer?
-        - href: /azure/cognitive-services/form-recognizer/form-recognizer-container-howto.md
+        - href: /azure/cognitive-services/form-recognizer/form-recognizer-container-howto
           html: <p>Learn how to use the Form Recognizer container to parse form and table data.</p>
           image:
             src: ../media/index/i_get-started.svg
