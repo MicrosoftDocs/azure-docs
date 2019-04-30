@@ -110,7 +110,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
 * Start a run of your experiment. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you are looking at your file system) against the -c parameter.
 
     ```azurecli-interactive
-    az ml run submit-script -c local -e testexperiment train.py
+    az ml run submit-script -c sklearn -e testexperiment train.py
     ```
 
 * View a list of experiments:
