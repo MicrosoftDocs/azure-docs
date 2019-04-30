@@ -1,6 +1,6 @@
 ---
 title: Get consent for several resources (Microsoft Authentication Library for .NET) | Azure
-description: Learn about initializing public client and confidential client applications using the Microsoft Authentication Library for .NET (MSAL.NET).
+description: Learn how a user can get pre-consent for several resources using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -17,26 +17,24 @@ ms.date: 04/30/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to learn about initializing client applications so I can decide if this platform meets my application development needs and requirements.
+#Customer intent: As an application developer, I want to learn how to specify additional scopes so I can get pre-consent for several resources.
 ms.collection: M365-identity-device-management
 ---
 
 # User gets consent for several resources using MSAL.NET
 
 
-The Azure AD v2.0 endpoint does not allow you to get a token for several resources at once. Therefore the scopes parameter should only contain scopes for a single resource. However, you can ensure that the user pre-consents to several resources by using the extraScopesToConsent parameter.
+The Azure AD v2.0 endpoint does not allow you to get a token for several resources at once. Therefore, the scopes parameter in the acquire token method should only contain scopes for a single resource. However, you the user can pre-consent to several resources upfront by specifying additional scopes using the `.WithExtraScopeToConsent` builder method.
 
 > [!NOTE]
-> Getting consent for several resources works for Microsoft identity platform, but not for Azure AD B2C. B2C supports only admin consent, not user consent.
+> Getting consent for several resources works for Microsoft identity platform, but not for Azure AD B2C. Azure AD B2C supports only admin consent, not user consent.
 
 For example, if you have two resources that have 2 scopes each:
 
-- https://mytenant.onmicrosoft.com/customerapi (with 2 scopes customer.read and customer.write)
-- https://mytenant.onmicrosoft.com/vendorapi (with 2 scopes vendor.read and vendor.write)
+- https://mytenant.onmicrosoft.com/customerapi (with 2 scopes `customer.read` and `customer.write`)
+- https://mytenant.onmicrosoft.com/vendorapi (with 2 scopes `vendor.read` and `vendor.write`)
 
-You should use the `.WithAdditionalPromptToConsent` modifier which has the *extraScopesToConsent* parameter
-
-For example:
+You should use the `.WithExtraScopeToConsent` modifier which has the *extraScopesToConsent* parameter as shown in the following example:
 
 ```csharp
 string[] scopesForCustomerApi = new string[]
@@ -57,9 +55,8 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
-This will get you an access token for the first Web API. Then, you can silently acquire the second token from the token cache:
+This will get you an access token for the first web API. Then, when you need to access the second web API you can silently acquire the token from the token cache:
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
 ```
-See this GitHub issue for more context.
