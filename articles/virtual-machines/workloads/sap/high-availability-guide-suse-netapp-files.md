@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/030/2019
+ms.date: 04/30/2019
 ms.author: radeltch
 
 ---
