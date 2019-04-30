@@ -10,13 +10,13 @@ manager: jeconnoc
 ---
 # Preview: Create a Windows VM with Azure Image Builder
 
-This article is to show you how you can create a customized Windows image using the Azure VM Image Builder, and distribute to a region. The example in this article uses three different [customizers](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-customize):
+This article is to show you how you can create a customized Windows image using the Azure VM Image Builder. The example in this article uses three different [customizers](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-customize) for customizing the image:
 - PowerShell (ScriptUri) - download and run a [PowerShell script](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
 - Windows Restart - restarts the VM.
 - PowerShell (inline) - run a specific command. In this example, it creates a directory on the VM using `mkdir c:\\buildActions`.
 - File - copy a file from GitHub onto the VM. This example copies [index.md](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) to `c:\buildArtifacts\index.html` on the VM.
 
-We will be using a .json template to configure the image. The .json file we are using is here: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
+We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
 
 
 

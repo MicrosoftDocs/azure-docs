@@ -10,10 +10,12 @@ manager: jeconnoc
 ---
 # Preview: Create a Linux VM with Azure Image Builder
 
-This article shows you how you can create a basic customized image using the Azure Image Builder and the Azure CLI. This covers using three different customizations:
-Shell (ScriptUri) - download and run a shell script.
-Shell (inline) - run specific commands.
-File -copy a file from GitHub.
+This article shows you how you can create a customized Linux image using the Azure Image Builder and the Azure CLI. The example in this article uses three different [customizers](image-builder-json.md#properties-customize) for customizing the image:
+Shell (ScriptUri) - downloads and runs a [shell script](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh).
+Shell (inline) - runs specific commands. In this example, the inline commands include creating a directory and updating the OS.
+File - copies a [file from GitHub](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) into a directory on the VM.
+
+We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateLinux.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json). 
 
 > [!IMPORTANT]
 > Azure Image Builder is currently in public preview.
@@ -56,7 +58,7 @@ We will be using some pieces of information repeatedly, so we will create some v
 
 ```azurecli-interactive
 # Resource group name - we are using myImageBuilderRG in this example
-imageResourceGroup=myImageBuilerRG
+imageResourceGroup=myImageBuilerRGLinux
 # Datacenter location - we are using West US 2 in this example
 location=WestUS2
 # Name for the image - we are using myBuilderImage in this example

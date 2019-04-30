@@ -10,15 +10,11 @@ manager: jeconnoc
 ---
 # Create an image and distribute to a Shared Image Gallery 
 
-This article is to show you how you can create a basic customized image using the Azure VM Image Builder to create an image version in a [Shared Image Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries).
-
-The example in this article uses three different [customizers](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-customize):
-- PowerShell (ScriptUri) - download and run a [PowerShell script](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
-- Windows Restart - restarts the VM.
-- PowerShell (inline) - run a specific command. In this example, it creates a directory on the VM using `mkdir c:\\buildActions`.
-- File - copy a file from GitHub onto the VM. This example copies [index.md](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) to `c:\buildArtifacts\index.html` on the VM.
+This article is to show you how you can use the Azure Image Builder to create an image version in a [Shared Image Gallery](shared-image-galleries.md).
 
 We will be using a .json template to configure the image. The .json file we are using is here: [helloImageTemplateforWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/helloImageTemplateforWinSIG.json). 
+
+To distribute the image to a Shared Image Gallery, the template uses [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) as the value for the `distribute` section of the template.
 
 ## Register the features
 To use Azure Image Builder during the preview, you need to register the new feature.

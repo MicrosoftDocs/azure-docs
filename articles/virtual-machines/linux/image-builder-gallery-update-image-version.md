@@ -10,7 +10,9 @@ manager: jeconnoc
 ---
 # Create a new image version from an existing image version using Azure Image Builder
 
-This article is to show you how you can create a basic customized image using the Azure VM Image Builder, and then use the Azure [Shared Image Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries).
+This article shows you how to take an image version in a [Shared Image Gallery](shared-image-galleriesmd), update it, and publish it as a new image version to the gallery.
+
+We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json). 
 
 
 ## Register the features
@@ -45,14 +47,14 @@ az provider register -n Microsoft.Storage
 
 ## Set variables and permissions
 
-If you used [Create an image and distribute to a Shared Image Gallery](image-builder-gallery.md) to create your Shared Image Gallery, you've already created the variables we need. If not, please setup some variables to be used for this example.
+If you used [Create an image and distribute to a Shared Image Gallery](image-builder-gallery.md) to create your Shared Image Gallery, you've already created some of the variables we need. If not, please setup some variables to be used for this example.
 
 For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image. Update the resource group name in this example to be the same resource group as your source managed image.
 
 
 ```azurecli-interactive
 # Resource group name 
-sigResourceGroup=ibsigRG
+sigResourceGroup=ibLinuxGalleryRG
 # Gallery location 
 location=westus2
 # Additional region to replicate the image version to 
@@ -62,7 +64,7 @@ sigName=myIbGallery
 # Name of the image definition to use
 imageDefName=myIbImageDef
 # image distribution metadata reference name
-runOutputName=ubuntusig2sig
+runOutputName=aibSIGLinuxUpdate
 ```
 
 Create a variable for your subscription ID. You can get this using `az account show | grep id`.

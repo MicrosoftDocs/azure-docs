@@ -10,7 +10,12 @@ manager: jeconnoc
 ---
 # Create an image and distribute to a Shared Image Gallery 
 
-This article is to show you how you can create a basic customized image using the Azure VM Image Builder to create an image version in a [Shared Image Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries).
+This article is to show you how you can use the Azure Image Builder to create an image version in a [Shared Image Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries).
+
+
+We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
+
+To distribute the image to a Shared Image Gallery, the template uses [sharedImage](image-builder-json.md#distribute-sharedimage) as the value for the `distribute` section of the template.
 
 ## Register the features
 To use Azure Image Builder during the preview, you need to register the new feature.
@@ -48,8 +53,8 @@ We will be using some pieces of information repeatedly, so we will create some v
 For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image. Update the resource group name in this example to be the same resource group as your source managed image.
 
 ```azurecli-interactive
-# Resource group name - we are using ibsigRG in this example
-sigResourceGroup=ibsigRG
+# Resource group name - we are using ibLinuxGalleryRG in this example
+sigResourceGroup=ibLinuxGalleryRG
 # Datacenter location - we are using West US 2 in this example
 location=westus2
 # Additional region to replicate the image to - we are using East US in this example
@@ -59,7 +64,7 @@ sigName=myIbGallery
 # name of the image definition to be created - in this example we are using myImageDef
 imageDefName=myIbImageDef
 # image distribution metadata reference name
-runOutputName=u1804SigRo
+runOutputName=aibLinuxSIG
 ```
 
 Create a variable for your subscription ID. You can get this using `az account show | grep id`.

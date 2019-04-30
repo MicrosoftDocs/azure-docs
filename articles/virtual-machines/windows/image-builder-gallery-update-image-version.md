@@ -10,9 +10,9 @@ manager: jeconnoc
 ---
 # Create a new image version from an existing image version using Azure Image Builder
 
-This article is to show you how you can create a basic customized image using the Azure VM Image Builder, and then use the Azure [Shared Image Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries). 
+This article shows you how to take an image version in a [Shared Image Gallery](shared-image-galleries.md), update it, and publish it as a new image version to the gallery.
 
-
+We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIGfromWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
 
 
 ## Register the features
