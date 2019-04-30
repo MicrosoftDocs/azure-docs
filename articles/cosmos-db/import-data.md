@@ -81,6 +81,19 @@ The JSON file source importer option allows you to import one or more single doc
 
 ![Screenshot of JSON file source options - Database migration tools](./media/import-data/jsonsource.png)
 
+The connection string is in the following format:
+
+`AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>`
+
+The `<CosmosDB Endpoint>` is the "Host" in [Azure Cosmos DB account] > [Connection Strings] with port number 443.  
+The `<AccountKey>` is the "Password" in [Azure Cosmos DB account] > [Connection Strings].  
+The `<CosmosDB Database>` is the CosmosDB database name. 
+  
+Example: 
+`AccountEndpoint=myCosmosDbName.documents.azure.com:443;AccountKey=wJmFRYna6ttQ79ATmrTMKql8vPri84QBiHTt6oinFkZRvoe7Vv81x9sn6zlVlBY10bEPMgGM982wfYXpWXWB9w==;Database=ToDoList`
+  
+> [!NOTE] Use the Verify command to ensure that the MongoDB instance specified in the connection string field can be accessed.
+
 Here are some command-line samples to import JSON files:
 
 ```console
