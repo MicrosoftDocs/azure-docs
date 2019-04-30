@@ -6,7 +6,7 @@
  ms.author: tarcher
 ---
 
-- **Install Ansible**: Do one of the following tasks:
+- **Install Ansible** - Do one of the following options:
 
     - [Install](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine) and [configure](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials) Ansible on a Linux virtual machine 
-    - [Configure Azure Cloud Shell](/azure/cloud-shell/quickstart)
+    - [Configure Azure Cloud Shell](/azure/cloud-shell/quickstart) and - if you don't have access to a Linux virtual machine - [create a virtual machine with Ansible](/azure/virtual-machines/linux/ansible-create-vm).
