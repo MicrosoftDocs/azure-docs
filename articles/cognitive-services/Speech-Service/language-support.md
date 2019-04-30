@@ -24,7 +24,7 @@ The Microsoft speech recognition API supports the following languages. Different
   Code | Language | [Acoustic adaptation](how-to-customize-acoustic-models.md) | [Language adaptation](how-to-customize-language-model.md) | [Pronunciation adaptation](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
  ar-EG | Arabic (Egypt), modern standard | No | Yes | No
- ca-ES | Catalan (Spain) | No | No | No
+ ca-ES | Catalan | No | No | No
  da-DK | Danish (Denmark) | No | No | No
  de-DE | German (Germany) | Yes | Yes | No
  en-AU | English (Australia) | No | Yes | Yes
@@ -62,7 +62,7 @@ The text-to-speech REST API supports these voices, each of which supports a spec
 > [!IMPORTANT]
 > Pricing varies for standard, custom and neural voices. Please visit the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page for additional information.
 
-### Neural voices 
+### Neural voices
 
 Neural text-to-speech is a new type of speech synthesis powered by deep neural networks. When using a neural voice, synthesized speech is nearly indistinguishable from the human recordings.
 
@@ -70,22 +70,22 @@ Neural voices can be used to make interactions with chatbots and virtual assista
 
 For a full list of neural voices and regional availability, see [regions](regions.md#standard-and-neural-voices).
 
-Locale | Language | Gender | Full service name mapping | Short voice name 
+Locale | Language | Gender | Full service name mapping | Short voice name
 --------|----------|--------|---------|------------
-de-DE | German (Germany) | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, KatjaNeural)" | "de-DE-KatjaNeural" 
-en-US | English (US) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" | "en-US-GuyNeural" 
-en-US | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" | "en-US-JessaNeural" 
-it-IT | Italian (Italy) | Female |"Microsoft Server Speech Text to Speech Voice (it-IT, ElsaNeural)" | "it-IT-ElsaNeural" 
-zh-CN | Chinese (Mainland) | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural" 
+de-DE | German (Germany) | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, KatjaNeural)" | "de-DE-KatjaNeural"
+en-US | English (US) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" | "en-US-GuyNeural"
+en-US | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" | "en-US-JessaNeural"
+it-IT | Italian (Italy) | Female |"Microsoft Server Speech Text to Speech Voice (it-IT, ElsaNeural)" | "it-IT-ElsaNeural"
+zh-CN | Chinese (Mainland) | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
 
 > [!NOTE]
-> You can use either the full service name mapping or the short voice name in your speech synthesis requests. 
+> You can use either the full service name mapping or the short voice name in your speech synthesis requests.
 
 ### Standard voices
 
 More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
 
-Locale | Language | Gender | Full service name mapping | Short voice name 
+Locale | Language | Gender | Full service name mapping | Short voice name
 -------|----------|---------|----------|----------
 ar-EG\* | Arabic (Egypt) | Female | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-Hoda"
 ar-SA | Arabic (Saudi Arabia) | Male | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)" | "ar-SA-Naayf"
@@ -172,14 +172,14 @@ zh-TW | Chinese (Taiwan) | Female | "Microsoft Server Speech Text to Speech Voic
 \* *ar-EG supports Modern Standard Arabic (MSA).*
 
 > [!NOTE]
-> You can use either the full service name mapping or the short voice name in your speech synthesis requests. 
+> You can use either the full service name mapping or the short voice name in your speech synthesis requests.
 
 ### Customization
 
 Voice customization is available for de-DE, en-GB, en-IN, en-US, es-MX, fr-FR, it-IT, pt-BR, and zh-CN. Select the right locale that matches the training data you have to train a custom voice model. For example, if the recording data you have is spoken in English with a British accent, select en-GB.  
 
 > [!NOTE]
-> We do not support bi-lingual model training in Custom Voice, except for the Chinese-English bi-lingual. Select 'Chinese-English bilingual' if you want to train a Chinese voice that can speak English as well. Voice training in all locales starts with a data set of 2,000+ utterances, except for the en-US and zh-CN where you can start with any size of training data. 
+> We do not support bi-lingual model training in Custom Voice, except for the Chinese-English bi-lingual. Select 'Chinese-English bilingual' if you want to train a Chinese voice that can speak English as well. Voice training in all locales starts with a data set of 2,000+ utterances, except for the en-US and zh-CN where you can start with any size of training data.
 
 ## Speech translation
 
