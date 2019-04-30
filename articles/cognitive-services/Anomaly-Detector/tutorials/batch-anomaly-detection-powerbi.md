@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 04/30/2019
 ms.author: aahi
 ---
 
@@ -108,14 +108,16 @@ Invoke the query on your data sheet by selecting `Sheet1` below **Enter Paramete
 
 ![An image of the "Advanced Editor" button](../media/tutorials/invoke-function-screenshot.png)
 
-You may get a warning message when you attempt to run the query because Power BI doesn't let you combine an external data source with another query. 
+## Data source privacy and authentication
+
+> [!NOTE]
+> Be aware of your organization's policies for data privacy and access. See [Power BI Desktop privacy levels](https://docs.microsoft.com/en-us/power-bi/desktop-privacy-levels) for more information.
+
+You may get a warning message when you attempt to run the query since it utilizes an external data source. 
 
 ![An image showing a warning created by Power BI](../media/tutorials/blocked-function.png)
 
 To fix this, click **File**, and **Options and settings**. Then click **Options**. Below **Current File**, select **Privacy**, and **Ignore the Privacy Levels and potentially improve performance**. 
-
-> [!NOTE]
-> Be aware of your organization's policies for data privacy and access. See [Power BI Desktop privacy levels](https://docs.microsoft.com/en-us/power-bi/desktop-privacy-levels) for more information.
 
 Additionally, you may get a message asking you to specify how you want to connect to the API.
 
