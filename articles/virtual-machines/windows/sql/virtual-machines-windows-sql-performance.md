@@ -184,7 +184,7 @@ This new feature, [SQL Server Data Files in Azure](https://msdn.microsoft.com/li
 
 ### Failover cluster instance and Storage Spaces
 
-If you are using Storage Spaces, when adding nodes to the cluster on the **Confirmation** page, clear the checkbox labled **Add all eligible storage to the cluster**. 
+If you are using Storage Spaces, when adding nodes to the cluster on the **Confirmation** page, clear the checkbox labeled **Add all eligible storage to the cluster**. 
 
 ![Uncheck eligible storage](media/virtual-machines-windows-sql-performance/uncheck-eligible-cluster-storage.png)
 
