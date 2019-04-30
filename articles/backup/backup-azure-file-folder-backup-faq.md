@@ -50,7 +50,8 @@ The following types are supported:
 * Reparse Point: Not supported, skipped
 * Encrypted + Sparse: Not supported, skipped
 * Compressed Stream: Not supported, skipped
-* Sparse Stream: Not supported, skipped
+* Reparse points, including DFS links and junction points
+
 
 ### Can I use the MARS agent to back up files and folders on an Azure VM?  
 Yes. Azure Backup provides VM-level backup for Azure VMs using the VM extension for the Azure VM agent. If you want to back up  files and folders on the guest Windows operating system on the VM, you can install the MARS agent to do that. 
