@@ -33,26 +33,26 @@ The following example shows how to define a custom provider with an action and a
 
 ```json
 {
-    "apiVersion": "2018-09-01-preview",
-    "type": "Microsoft.CustomProviders/resourceProviders",
-    "name":"[parameters('rpname')]",
-    "location":"[parameters('location')]",
-    "properties" :{
-        "actions": [
-          {
-            "name": "ping",
-            "routingType":"Proxy",
-            "endpoint": "[concat('https://', parameters('funcname'), '.azurewebsites.net/api/{requestPath}')]"
-          }
-        ],
-        "resourceTypes": [
-          {
-            "name":"users",
-            "routingType":"Proxy,Cache",
-            "endpoint": "[concat('https://', parameters('funcname'), '.azurewebsites.net/api/{requestPath}')]"
-          }
-        ]
-    }
+  "apiVersion": "2018-09-01-preview",
+  "type": "Microsoft.CustomProviders/resourceProviders",
+  "name": "[parameters('funcName')]",
+  "location": "[parameters('location')]",
+  "properties": {
+    "actions": [
+      {
+        "name": "ping",
+        "routingType": "Proxy",
+        "endpoint": "[concat('https://', parameters('funcName'), '.azurewebsites.net/api/{requestPath}')]"
+      }
+    ],
+    "resourceTypes": [
+      {
+        "name": "users",
+        "routingType": "Proxy,Cache",
+        "endpoint": "[concat('https://', parameters('funcName'), '.azurewebsites.net/api/{requestPath}')]"
+      }
+    ]
+  }
 },
 ```
 
@@ -83,7 +83,7 @@ Use Azure [role-based access control](../role-based-access-control/overview.md) 
 
 ## Next steps
 
-In this article, you learned about benefits of using managed applications. Go to the next article to create a managed application definition.
+In this article, you learned about custom providers. Go to the next article to create a custom provider.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Publish an Azure managed application definition](publish-managed-app-definition-quickstart.md)
+> [Tutorial: Create custom provider and deploy custom resources](create-custom-provider.md)
