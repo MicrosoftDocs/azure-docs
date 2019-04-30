@@ -383,3 +383,18 @@ To update the user's RBAC role for the controller:
     * For *Assign access to* select *Azure AD user, group, or service principal*.
     * For *Select* search for the user you want to give permissions.
 1. Click *Save*.
+
+## Controller create failing due to controller name length
+
+### Reason
+An Azure Dev Spaces controller's name cannot be longer than 31 characters. If your controller's name exceeds 31 characters when you enable Dev Spaces on an AKS cluster or create a controller, you will receive an error like:
+
+*Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
+
+### Try
+
+Create a controller with an alternate name:
+
+```cmd
+azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
+```
