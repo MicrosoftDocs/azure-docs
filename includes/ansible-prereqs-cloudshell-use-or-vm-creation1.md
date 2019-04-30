@@ -7,5 +7,6 @@
 ---
 
 - **Install Ansible** - Do one of the following tasks:
+
     - [Install](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine) and [configure](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials) Ansible on a Linux virtual machine 
     - [Configure Azure Cloud Shell](/azure/cloud-shell/quickstart)
