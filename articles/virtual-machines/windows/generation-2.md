@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: lahugh
 ---
 
@@ -21,11 +21,10 @@ ms.author: lahugh
 
 > [!IMPORTANT]
 > Generation 2 VMs are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Support for generation 2 virtual machines (VMs) is now available in public preview on Azure. You can't change a virtual machine's generation after you've created it. So, we recommend that you review the considerations [here](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) as well as the information on this page before choosing a generation.
-
 
 Generation 2 VMs support key features like: increased memory, Intel® Software Guard Extensions (SGX), and virtual persistent memory (vPMEM), which are not supported on generation 1 VMs. Generation 2 VMs use the new UEFI-based Boot architecture vs the BIOS-based architecture used by generation 1 VMs. Compared to generation 1 VMs, generation 2 VMs may have improved boot and installation times.
 
@@ -33,14 +32,12 @@ This article provides an overview of generation 2 VM features on Azure. If you'd
 
 ## Creating a generation 2 VM
 
-Generation 2 VMs can be created from a marketplace image, a managed image, or a managed disk.
-
 ### Marketplace image
 
-Generation 2 VMs can be created from a marketplace image (which supports UEFI Boot) via the Azure portal or Azure CLI.
+Generation 2 VMs can be created from a marketplace image (which supports UEFI boot) via the Azure portal or Azure CLI.
 
-An offer named `windowsserver-gen2preview` contains Windows generation 2 images only. This avoids confusion with regards to generation 1 vs generation 2 images. To create generation 2 VMs, select **Images** from this offer and follow the standard VM creation process.
- 
+The `windowsserver-gen2preview` offer contains Windows generation 2 images only. This avoids confusion with regards to generation 1 vs generation 2 images. To create generation 2 VMs, select **Images** from this offer and follow the standard VM creation process.
+
 Currently, the following Windows generation 2 images are published in the Azure Marketplace:
 
 * 2019-datacenter-gen2
@@ -48,33 +45,21 @@ Currently, the following Windows generation 2 images are published in the Azure 
 * 2012-r2-datacenter-gen2
 * 2012-datacenter-gen2
 
-See the capabilities section for a list of supported marketplace images as we will continue adding additional images that support Generation 2 (UEFI boot). 
+See the capabilities section for a list of supported marketplace images as we will continue adding additional images that support Generation 2.
 
 ### Managed image or managed disk
 
 Generation 2 VMs can be created from managed image or managed disk in the same way you would create a generation 1 VM.
 
-You can use your on-premises generation 2 VHD file to create a generation 2 VM in Azure too. To do that you would need to the following:
+You can use your on-premises generation 2 .vhd file to create a generation 2 VM in Azure too. To use your on-premises VHD file, you must:
 
-* Create your OS disk as Gen2 from your on-prem VHD via powershell. You can set a property "-HyperVGeneration V2 when creating the disk. (You would need PS version 1.7 and above.)
-* You can then create a VM from this disk and it will create a Gen2 VM.
+1. Create your OS disk as generation 2 from your on-premises .vhd via [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) in PowerShell. Set the `-HyperVGeneration` property to `V2`. Generation 2 VMs can be created from a marketplace image, a managed image, or a managed disk. This requires PowerShell version 1.7 or higher.
 
-Generation 2 VMs can also be created using Virtual Machine Scale Set (VMSS). You can create generation 2 VMs using VMSS, via command line. 
+1. Create a VM from this disk, which results in a generation 2 VM.
 
-The ability to create Generation 2 Virtual Machine using VMSS via Portal will be available in the future.
+### Virtual machine scale sets
 
-
-### Create a generation 2 VM from a Marketplace image
-
-The Portal can be used to create a generation 2 VM from an Azure Marketplace image. See the [capabilities](#generation-1-vs-generation-2-vm-capabilities) section for a list of supported marketplace images.
-
-### Create a generation 2 VM from a managed image
-
-For public preview, generation 2 VMs can't be created with managed images using the Azure portal. Instead, use [PowerShell](quick-create-powershell.md) to create a generation 2 VM from a managed image.
-
-### Create a generation 2 VM from a managed disk
-
-Similar to managed images, in public preview generation 2 VMs can't be created with managed disks using the Azure portal. Instead, use [PowerShell](quick-create-powershell.md) to create a generation 2 VM from a managed disk. 
+Generation 2 VMs can also be created using virtual machine scale sets. You can create generation 2 VMs using Azure virtual machine scale sets via Azure CLI.
 
 ## Generation 2 VM sizes
 
@@ -85,7 +70,6 @@ Generation 1 VMs are supported by all VM sizes in Azure. Azure now offers Genera
 * [Fsv2-series](/sizes-compute.md#fsv2-series-1)
 * [GS-series](/sizes-memory.md#gs-series)
 * [Ls-series](/sizes-storage.md#ls-series) and [Lsv2-series](/sizes-storage.md#lsv2-series)
-
 
 ## Generation 2 VM images in Azure Marketplace
 
@@ -98,14 +82,14 @@ Generation 2 VMs support the following Azure Marketplace images:
 
 ## On-premises vs Azure generation 2 VMs
 
-Azure does not currently support some of the features that on-premises Hyper-V supports for Generation 2 VMs. 
+Azure does not currently support some of the features that on-premises Hyper-V supports for Generation 2 VMs.
 
 | Generation 2 feature                | On-premises Hyper-V | Azure |
 |-------------------------------------|---------------------|-------|
 | Secure Boot                         | :heavy_check_mark:  | :x:   |
 | Shielded VM                         | :heavy_check_mark:  | :x:   |
 | vTPM                                | :heavy_check_mark:  | :x:   |
-| Virtualization Based Security (VBS) | :heavy_check_mark:  | :x:   |
+| Virtualization-Based Security (VBS) | :heavy_check_mark:  | :x:   |
 | VHDX format                         | :heavy_check_mark:  | :x:   |
 
 ## Generation 1 vs generation 2 VM features
@@ -131,7 +115,7 @@ Azure does not currently support some of the features that on-premises Hyper-V s
 ## Frequently asked questions
 
 * **Do generation 2 VMs support Accelerated Networking?**  
-    Yes, generation 2 VMs support [Accelerated Networking](../../virtual-network/create-vm-accelerated-networking-cli).
+    Yes, generation 2 VMs support [Accelerated Networking](../../virtual-network/create-vm-accelerated-networking-cli.md).
 
 * **Is .vhdx supported on generation 2?**  
     No, only .vhd is supported on generation 2 VMs.
