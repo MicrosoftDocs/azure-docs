@@ -36,7 +36,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To configure Azure AD integration with Predictix Assortment Planning, you need to have the following:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* Predictix Assortment Planning subscription that has single sign-on enabled.
+* A Predictix Assortment Planning subscription that has single sign-on enabled.
 
 ## Scenario description
 
@@ -54,7 +54,7 @@ To set up the integration of Predictix Assortment Planning into Azure AD, you ne
 
 2. Go to **Enterprise applications** > **All applications**:
 
-	![Enterprise applications](common/enterprise-applications.png)
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add an application, select **New application** at the top of the window:
 
@@ -67,7 +67,7 @@ To set up the integration of Predictix Assortment Planning into Azure AD, you ne
 ## Configure and test Azure AD single sign-on
 
 In this section, you'll configure and test Azure AD single sign-on with Predictix Assortment Planning by using a test user named **Britta Simon**.
-To enable single sign-on, you need to establish relationship between an Azure AD user and the corresponding user in Predictix Assortment Planning.
+To enable single sign-on, you need to establish a relationship between an Azure AD user and the corresponding user in Predictix Assortment Planning.
 
 To configure and test Azure AD single sign-on with Predictix Assortment Planning, you need to complete these steps:
 
@@ -75,7 +75,7 @@ To configure and test Azure AD single sign-on with Predictix Assortment Planning
 2. **[Configure Predictix Assortment Planning single sign-on](#configure-predictix-assortment-planning-single-sign-on)** to set up single sign-on on the application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Azure AD single sign-on for the user.
-5. **[Create a Predictix Assortment Planning test user](#create-predictix-assortment-planning-test-user)** that's linked to the Azure AD representation of the user.
+5. **[Create a Predictix Assortment Planning test user](#create-a-predictix-assortment-planning-test-user)** that's linked to the Azure AD representation of the user.
 6. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -88,11 +88,11 @@ To configure Azure AD single sign-on with Predictix Assortment Planning, take th
 
     ![Select Single sign-on](common/select-sso.png)
 
-2. In the **Select a Single sign-on method** dialog box, select **SAML/WS-Fed** mode to enable single sign-on.
+2. In the **Select a single sign-on method** dialog box, select **SAML/WS-Fed** mode to enable single sign-on:
 
     ![Select a single sign-on method](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open **Basic SAML Configuration** dialog box.
+3. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box:
 
 	![Edit icon](common/edit-urls.png)
 
@@ -100,7 +100,7 @@ To configure Azure AD single sign-on with Predictix Assortment Planning, take th
 
     ![Basic SAML Configuration section](common/sp-identifier.png)
 
-	1. In the **Sign on URL** box, enter a URL by using this pattern:
+	1. In the **Sign on URL** box, enter a URL in this pattern:
 
        | |
     	|--|
@@ -108,7 +108,7 @@ To configure Azure AD single sign-on with Predictix Assortment Planning, take th
     	| `https://<sub-domain>.dev.ap.predictix.com/`|
     	| |
 
-    1. In the **Identifier (Entity ID)** box, enter a URL by using this pattern:
+    1. In the **Identifier (Entity ID)** box, enter a URL in this pattern:
 
         | |
     	|--|
@@ -155,7 +155,7 @@ In this section, you'll create a test user named Britta Simon in the Azure porta
 
     1. In the **Name** box, enter **BrittaSimon**.
   
-    1. In the **User name** box, enter brittasimon@\<yourcompanydomain>.\<extension>. (For example, BrittaSimon@contoso.com.)
+    1. In the **User name** box, enter **brittasimon@\<yourcompanydomain>.\<extension>**. (For example, BrittaSimon@contoso.com.)
 
     1. Select **Show password**, and then write down the value that's in the **Password** box.
 

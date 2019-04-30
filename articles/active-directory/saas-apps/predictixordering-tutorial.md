@@ -54,7 +54,7 @@ To set up the integration of Predictix Ordering into Azure AD, you need to add P
 
 2. Go to **Enterprise applications** > **All applications**:
 
-	![Enterprise applications](common/enterprise-applications.png)
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add an application, select **New application** at the top of the window:
 
@@ -75,7 +75,7 @@ To configure and test Azure AD single sign-on with Predictix Ordering, you need 
 2. **[Configure Predictix Ordering single sign-on](#configure-predictix-ordering-single-sign-on)** to set up single sign-on on the application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Azure AD single sign-on for the user.
-5. **[Create a Predictix Ordering test user](#create-predictix-ordering-test-user)** that's linked to the Azure AD representation of the user.
+5. **[Create a Predictix Ordering test user](#create-a-predictix-ordering-test-user)** that's linked to the Azure AD representation of the user.
 6. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -100,11 +100,11 @@ To configure Azure AD single sign-on with Predictix Ordering, take these steps:
 
     ![Basic SAML Configuration section](common/sp-identifier.png)
 
-	1. In the **Sign on URL** box, enter a URL by using this pattern:
+	1. In the **Sign on URL** box, enter a URL in this pattern:
 
        `https://<companyname-pricing>.ordering.predictix.com/sso/request`
 
-    1. In the **Identifier (Entity ID)** box, enter a URL by using this pattern:
+    1. In the **Identifier (Entity ID)** box, enter a URL in this pattern:
 
         | |
 	    |--|
@@ -151,7 +151,7 @@ In this section, you'll create a test user named Britta Simon in the Azure porta
 
     1. In the **Name** box, enter **BrittaSimon**.
   
-    1. In the **User name** field, enter brittasimon@\<yourcompanydomain>.\<extension>. (For example, BrittaSimon@contoso.com.)
+    1. In the **User name** field, enter **brittasimon@\<yourcompanydomain>.\<extension>**. (For example, BrittaSimon@contoso.com.)
 
     1. Select **Show Password**, and then write down the value that's in the **Password** box.
 
