@@ -30,7 +30,7 @@ The [Time Series Expression (TSX) language](https://docs.microsoft.com/rest/api/
 
 The following core APIs are supported.
 
-[![tsq](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
+[![Time Series Query overview](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
 ## Environment APIs
 

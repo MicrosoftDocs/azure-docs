@@ -20,7 +20,7 @@ Traditionally, the data that's collected from IoT devices lacks contextual infor
 
 Time Series Models play a vital role in queries and navigation because they contextualize device and non-device entities. Data that's persisted in Time Series Model powers time-series query computations by taking advantage of the formulas stored in them.
 
-[![tsm](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
+[![Time Series Model overview](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
 
 ## Key capabilities
 
@@ -77,7 +77,7 @@ Time Series Insights types have variables, which are named calculations over val
 
 The following matrix works as a legend for variable definitions:
 
-[![table](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
+[![Type variable definition table](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
 
 | Definition | Description |
 | --- | ---|
