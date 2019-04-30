@@ -346,8 +346,8 @@
           items:
             - name: Instantiate a public client with options
               href: msal-net-instantiate-public-client-config-options.md
-            - name: Instantiate a public client with options (ASP.NET Core)
-              href: msal-net-instantiate-public-client-config-options-aspnet-core.md
+            - name: Instantiate a confidential client with options
+              href: msal-net-instantiate-confidential-client-config-options.md
             - name: Get consent for several resources
               href: msal-net-user-gets-consent-for-multiple-resources.md
     - name: Work with Visual Studio

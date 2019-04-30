@@ -23,7 +23,17 @@ ms.collection: M365-identity-device-management
 
 # Instantiate a public client application with configuration options using MSAL.NET
 
-Imagine a .NET Core console application which has the following appsettings.json configuration file:
+This article describes how to instantiate a [public client application](msal-client-applications.md) using Microsoft Authentication Library for .NET (MSAL.NET).  The application is instantiated with configration options defined in a settings file.
+
+Before initializing an application, you first need to [register](quickstart-register-app.md) it so that your app can be integrated with the Microsoft identity platform. After registration, you may need the following information (which can be found in the Azure portal):
+
+- The client ID (a string representing a GUID)
+- The identity provider URL (named the instance) and the sign-in audience for your application. These two parameters are collectively known as the authority.
+- The tenant ID if you are writing a line of business application solely for your organization (also named single-tenant application).
+- For web apps, and sometimes for public client apps (in particular when your app needs to use a broker), you'll have also set the redirectUri where the identity provider will contact back your application with the security tokens.
+
+
+A .NET Core console application could have the following *appsettings.json* configuration file:
 
 ```json
 {
@@ -39,7 +49,7 @@ Imagine a .NET Core console application which has the following appsettings.json
 }
 ```
 
-You have very little code to read this file using the .NET provided configuration framework;
+The following code reads this file using the .NET configuration framework:
 
 ```csharp
 public class SampleConfiguration
@@ -81,7 +91,7 @@ public class SampleConfiguration
 }
 ```
 
-Now, to create your application, you will just need to write the following code:
+The following code creates your application, using the configuration from the settings file:
 
 ```csharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
@@ -89,4 +99,3 @@ var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.Pub
            .Build();
 ```
 
-and of course, you understand that before the .Build(), you can override your configuration with calls to .WithXXX as seen previously.
