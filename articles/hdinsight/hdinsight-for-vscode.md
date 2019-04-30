@@ -372,6 +372,7 @@ When user submit job to a cluster that has read only permission (Reader role), A
 
 ## View Storage Accounts for Gen2
 - Expand the spark Gen2 cluster with Reader role, you need to enter the storage **access** **key**. You can get the access key for storage account from the Azure portal. For information, see [View and copy access keys](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-manage#view-and-copy-access-keys)
+
     ![HDInsight Tools for Visual Studio Code Access Key](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-AccessKey.png)
 
 ## Link cluster from context menu
