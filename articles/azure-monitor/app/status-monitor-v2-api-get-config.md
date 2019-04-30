@@ -66,5 +66,5 @@ Filters:
 - [Add Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so that you can insert trace and log calls
  
  Do more with Status Monitor v2:
- - Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot) Status Monitor v2.
- - Make changes to this config using the [Set config](status-monitor-v2-api-set-config) cmdlet.
+ - Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+ - Make changes to this config using the [Set config](status-monitor-v2-api-set-config.md) cmdlet.
