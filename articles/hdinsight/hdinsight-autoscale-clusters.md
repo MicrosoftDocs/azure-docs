@@ -1,5 +1,5 @@
 ---
-title: Automatically scale Azure HDInsight clusters (preview)
+title: Automatically scale Azure HDInsight clusters
 description: Use the HDInsight Autoscale feature to automatically scale clusters
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,37 +8,61 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: hrasheed
-
 ---
-# Automatically scale Azure HDInsight clusters (preview)
+# Automatically scale Azure HDInsight clusters
 
 >[!Important]
 >The HDInsight Autoscale feature is currently in preview. Please send an email to hdiautoscalepm@microsoft.com to have Autoscale enabled for your subscription.
 
-Azure HDInsight’s cluster Autoscale feature automatically scales the number of worker nodes in a cluster up and down based on load within a predefined range. During the creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale then monitors the resource requirements of the analytics load and scales the number of worker nodes up or down accordingly. There is no additional charge for this feature.
+Azure HDInsight’s cluster Autoscale feature automatically scales the number of worker nodes in a cluster up and down.  During the creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale then monitors the resource requirements of the analytics load and scales the number of worker nodes up or down accordingly. There is no additional charge for this feature.
 
 ## Getting started
+
+### Autoscale types
+
+You can choose load-based scaling or schedule-based scaling for your HDInsight cluster. Load-based scaling based on load within a predefined range.
+
+Schedule-based scaling allows you to scale your HDInsight cluster at predetermined times
 
 ### Create a cluster with the Azure portal
 
 > [!Note]
 > Autoscale is currently only supported for Azure HDInsight Hive, MapReduce and Spark clusters version 3.6.
 
-To enable the Autoscale feature, do the following as part of the normal cluster creation process:
+To enable the Autoscale feature with load-based scaling, do the following as part of the normal cluster creation process:
 
 1. Select **Custom (size, settings, apps)** rather than **Quick create**.
-2. On **Custom** step 5 (**Cluster size**) check the **Worker node autoscale** checkbox.
-3. Enter the desired values for the following properties:  
+1. On **Custom** step 5 (**Cluster size**) check the **Worker node autoscale** checkbox.
+1. Select the option **Load-based** under **Autoscale type**.
+1. Enter the desired values for the following properties:  
 
     * Initial **Number of Worker nodes**.  
     * **Minimum** number of worker nodes.  
     * **Maximum** number of worker nodes.  
 
-![Enable worker node autoscale option](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
+    ![Enable worker node load-based autoscale option](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
 
 The initial number of worker nodes must fall between the minimum and maximum, inclusive. This value defines the initial size of the cluster when it is created. The minimum number of worker nodes must be greater than zero.
 
-After you choose the VM type for each node type, you will be able to see the estimated cost range for the whole cluster. You can then adjust these settings to fit your budget.
+To enable the Autoscale feature with schedule-based scaling, do the following as part of the normal cluster creation process:
+
+1. Select **Custom (size, settings, apps)** rather than **Quick create**.
+1. On **Custom** step 5 (**Cluster size**) check the **Worker node autoscale** checkbox.
+1. Enter the **Number of Worker nodes** which controls the limit for scaling up the cluster.
+1. Select the option **Schedule-based** under **Autoscale type**.
+1. Click **Configure** to open the **Autoscale configuration** window.
+1. Select your timezone and then click **+ Add condition**
+1. Select the days of the week which the new condition should apply to.
+1. Edit the time the condition should take effect and the number of nodes that the cluster should be scaled to.
+1. Add more conditions if needed.
+
+    ![Enable worker node schedule-based autoscale option](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png)
+
+The number of nodes for all timings must be between 1 and the number of worker nodes entered on the previous screen.
+
+For both load-based and schedule-based scaling, select the VM type for worker nodes by clicking **Worker node size** and **Head node size**. After you choose the VM type for each node type, you will be able to see the estimated cost range for the whole cluster. You can then adjust these settings to fit your budget.
+
+![Enable worker node schedule-based autoscale option](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-node-size-selection.png)
 
 Your subscription has a capacity quota for each region. The total number of cores of your head nodes combined with the maximum number of worker nodes can’t exceed the capacity quota. However, this quota is a soft limit; you can always create a support ticket to get it increased easily.
 
