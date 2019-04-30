@@ -35,6 +35,8 @@ In the **Application Settings** page, you can change the name and URL of your ap
 
 ![Application settings page](media/howto-administer/image0-a.png)
 
+If your administrator creates a custom theme for your application, this page includes an option to hide the **Application Name** in the UI. This is useful if the application logo in the custom theme includes the application name. For more information, see [Customize the Azure IoT Central UI](./howto-customize-ui.md).
+
 > [!Note]
 > If you change your URL, your old URL can be taken by another Azure IoT Central customer. If that happens, it is no longer available for you to use. When you change your URL, the old URL no longer works, and you need to notify your users about the new URL to use.
 

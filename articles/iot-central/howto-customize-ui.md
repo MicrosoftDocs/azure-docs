@@ -11,10 +11,6 @@ manager: philmea
 
 # As an administrator, I want to customize the themes and help links within Central so that my company’s brand is represented within the app. 
 
-# TODO - updates at least to how to administer, upload images, and personalize.
-
-# Orange ef671b
-# Blue 1b4cef
 ---
 
 # Customize the Azure IoT Central UI 
@@ -38,6 +34,8 @@ On this page, you can customize the following aspects of your application:
 ### Application logo
 
 A PNG image, no larger than 1 MB, with a transparent background. This logo displays to the left on the IoT Central application title bar.
+
+If your logo image includes the name of your application, you can hide the application name text. For more information, see [Manage application settings](./howto-administer.md#manage-application-settings).
 
 ### Browser icon (favicon)
 
