@@ -19,7 +19,7 @@ ms.author: juliako
 
 # Media Services job error codes
 
-This topic links to a REST reference document for detailed description of [Job](transforms-jobs-concept.md).
+This topic links to a REST reference document for detailed description of [Job](transforms-jobs-concept.md) error codes and messages.
 
 ## Job error codes
 
