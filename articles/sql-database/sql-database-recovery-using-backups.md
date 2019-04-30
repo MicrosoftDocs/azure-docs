@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 04/30/2019
 ---
 # Recover an Azure SQL database using automated database backups
 
@@ -118,7 +118,7 @@ Geo-restore is the default recovery option when your database is unavailable bec
 Point-in-time restore on a geo-secondary is not currently supported. Point-in-time restore can be done only on a primary database. For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Recovery from backups is the most basic of the disaster recovery solutions available in SQL Database with the longest Recovery Point Objective (RPO) and Estimate Recovery Time (ERT). For solutions using small size databases (e.g. Basic service tier or small size tenant databases in elastic pools), geo-restore is frequently a reasonable DR solution with an ERT of up to 12 hours (generally much less). For solutions using large databases and require shorter recovery times, you should consider using [Active geo-replication](sql-database-active-geo-replication.md) or [Auto-failover groups](sql-database-auto-failover-group.md). Active geo-replication offers a much lower RPO and ERT as it only requires you initiate a failover to a continuously replicated secondary. Auto-failover groups enable automatic failover for a group of databases. For more information on business continuity choices, see [Overview of business continuity](sql-database-business-continuity.md).
+> Geo-restore is the most basic disaster recovery solution available in SQL Database. It relies on automatically created geo-replicated backups with RPO = 1 hour and the estimated recovery time of up to 12 hours. It does not guarantee that the target region will have the capacity to restore your database(s) after a regional ourage because a sharp increase of demand will be likely. For non business critical application that use relatively small databases, geo-restore is a reasonable disaster recovery solution. For busniess critical applications that use large databases and must ensure business continuity, you should use [Auto-failover groups](sql-database-auto-failover-group.md). It offers a much lower RPO and RTO, and the capacity is always guaranteed. For more information on business continuity choices, see [Overview of business continuity](sql-database-business-continuity.md).
 
 ### Geo-restore using the Azure portal
 
