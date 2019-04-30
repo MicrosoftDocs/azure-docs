@@ -22,12 +22,12 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
-If you are running the CLI locally, you need to sign in to your account using the [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) command. Note the **id** property from the command output for the corresponding subscription name.
+If you are running the CLI locally, you need to sign in to your account using the [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) command. Note the **ID** property from the command output for the corresponding subscription name.
 ```azurecli-interactive
 az login
 ```
 
-If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account) command. Substitute the **id** property from the **az login** output for your subscription into the subscription id placeholder.
+If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account) command. Substitute the **ID** property from the **az login** output for your subscription into the subscription ID placeholder.
 ```azurecli-interactive
 az account set --subscription <subscription id>
 ```
