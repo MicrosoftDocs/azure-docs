@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/31/2018
+ms.date: 5/1/2019
 ms.author: harijay
 ---
 
@@ -31,13 +31,13 @@ Serial Console works in the same manner for VMs and VMSS instances. In this doc,
 
 ## Prerequisites
 
-- The VM or VMSS instance in which you're accessing a serial console must use the resource management deployment model. Classic deployments aren't supported.
+- Your VM or VMSS instance must use the resource management deployment model. Classic deployments aren't supported.
 
-- An account that uses a serial console must have the [Virtual Machine Contributor role](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) for the VM and the [boot diagnostics](boot-diagnostics.md) storage account:
+- Your account that uses serial console must have the [Virtual Machine Contributor role](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) for the VM and the [boot diagnostics](boot-diagnostics.md) storage account
 
-- The VM in which you're accessing a serial console must have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) function of the VM access extension. Select **Reset password** from the **Support + troubleshooting** section.
+- Your VM or VMSS instance must have a password-based user. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) function of the VM access extension. Select **Reset password** from the **Support + troubleshooting** section.
 
-- The VM or VMSS in which you're accessing a serial console must have [boot diagnostics](boot-diagnostics.md) enabled.
+- Your VM or VMSS instance must have [boot diagnostics](boot-diagnostics.md) enabled.
 
     ![Boot diagnostics settings](./media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
@@ -46,9 +46,10 @@ Serial Console works in the same manner for VMs and VMSS instances. In this doc,
 
 
 ## Get started with the Serial Console
-The Serial Console is accessible only through the Azure portal:
+The Serial Console for VMs and VMSS is accessible only through the Azure portal:
 
 ### Serial Console for Virtual Machines
+Serial Console for VMs is as straightforward as clicking on **Serial console** within the **Support + troubleshooting** section in the Azure portal.
   1. Open the [Azure portal](https://portal.azure.com).
 
   1. Navigate to **All resources** and select a Virtual Machine. The overview page for the VM opens.
@@ -58,6 +59,7 @@ The Serial Console is accessible only through the Azure portal:
      ![Linux Serial Console window](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 ### Serial Console for Virtual Machine Scale Sets
+Serial Console is available on a per-instance basis for VMSSes. You will have to navigate to the individual instance of a VMSS before seeing the **Serial console** button. If your VMSS does not have boot diagnostics enabled, ensure you update your VMSS model to enable boot diagnostics, and then upgrade all instances to the new model in order to access serial console.
   1. Open the [Azure portal](https://portal.azure.com).
 
   1. Navigate to **All resources** and select a Virtual Machine Scale Set. The overview page for the VMSS opens.
@@ -69,6 +71,7 @@ The Serial Console is accessible only through the Azure portal:
   1. From the **Support + troubleshooting** section, select **Serial console**. A new pane with the serial console opens and starts the connection.
 
      ![Linux VMSS Serial Console](./media/virtual-machines-serial-console/vmss-start-console.gif)
+
 
 > [!NOTE]
 > The serial console requires a local user with a configured password. VMs or VMSSes configured only with an SSH public key won't be able to sign in to the serial console. To create a local user with a password, use the [VMAccess Extension](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension), which is available in the portal by selecting **Reset password** in the Azure portal, and create a local user with a password.
@@ -101,13 +104,13 @@ SSH configuration issues | Access the serial console and change the settings. Se
 Interacting with bootloader | Restart your VM from within the serial console blade to access GRUB on your Linux VM. For more details and distro-specific information, see [Use serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md).
 
 ## Disable the Serial Console
-By default, all subscriptions have serial console access enabled for all VMs. You can disable the serial console at either the subscription level or VM level. Note that boot diagnostics must be enabled on a VM in order for serial console to work.
+By default, all subscriptions have serial console access enabled. You can disable the serial console at either the subscription level or VM/VMSS level. Note that boot diagnostics must be enabled on a VM in order for serial console to work.
 
 > [!NOTE]
 > To enable or disable the serial console for a subscription, you must have write permissions to the subscription. These permissions include administrator or owner roles. Custom roles can also have write permissions.
 
-### VM-level disable
-The serial console can be disabled for a specific VM by disabling that VM's boot diagnostics setting. Turn off boot diagnostics from the Azure portal to disable the serial console for the VM.
+### VM/VMSS-level disable
+The serial console can be disabled for a specific VM or VMSS by disabling the boot diagnostics setting. Turn off boot diagnostics from the Azure portal to disable the serial console for the VM or the VMSS.
 
 ### Subscription-level disable
 The serial console can be disabled for an entire subscription through the [Disable Console REST API call](/rest/api/serialconsole/console/disableconsole). You can use the **Try It** function available on this API documentation page to disable and enable the serial console for a subscription. Enter your subscription ID for **subscriptionId**, enter **default** for **default**, and then select **Run**. Azure CLI commands aren't yet available.
@@ -162,16 +165,16 @@ If a user is connected to the serial console and another user successfully reque
 > This means that a user who's disconnected won't be logged out. The ability to enforce a logout upon disconnect (by using SIGHUP or similar mechanism) is still on the roadmap. For Windows there is an automatic timeout enabled in Special Administrative Console (SAC); however, for Linux you can configure the terminal timeout setting. To do so, add `export TMOUT=600` in your *.bash_profile* or *.profile* file for the user you use to sign in to the console. This setting will time out the session after 10 minutes.
 
 ## Accessibility
-Accessibility is a key focus for the Azure serial console. To that end, we've ensured that the serial console is fully accessible.
+Accessibility is a key focus for the Azure Serial Console. To that end, we've ensured that the serial console is fully accessible.
 
 ### Keyboard navigation
 Use the **Tab** key on your keyboard to navigate in the serial console interface from the Azure portal. Your location will be highlighted on screen. To leave the focus of the serial console window, press **Ctrl**+**F6** on your keyboard.
 
-### Use the serial console with a screen reader
+### Use Serial Console with a screen reader
 The serial console has screen reader support built in. Navigating around with a screen reader turned on will allow the alt text for the currently selected button to be read aloud by the screen reader.
 
 ## Errors
-Because most errors are transient, retrying your connection can often fix them. The following table shows a list of errors and mitigations.
+Because most errors are transient, retrying your connection can often fix them. The following table shows a list of errors and mitigations. These errors and mitigations apply for both VMs and VMSS instances.
 
 Error                            |   Mitigation
 :---------------------------------|:--------------------------------------------|
@@ -183,7 +186,7 @@ Web socket is closed or could not be opened. | You may need to whitelist `*.cons
 A "Forbidden" response was encountered when accessing this VM's boot diagnostic storage account. | Ensure that boot diagnostics doesn't have an account firewall. An accessible boot diagnostic storage account is necessary for the serial console to function.
 
 ## Known issues
-We're aware of some issues with the serial console. Here's a list of these issues and steps for mitigation.
+We're aware of some issues with the serial console. Here's a list of these issues and steps for mitigation. These issues and mitigations apply for both VMs and VMSS instances.
 
 Issue                           |   Mitigation
 :---------------------------------|:--------------------------------------------|
