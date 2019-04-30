@@ -180,6 +180,10 @@ To learn more about using the Azure Functions Core Tools, see [Code and test Azu
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
+### Deployment Technology
+
+When publishing from Visual Studio, one of two technologies is used to perform the deployment: [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy) and [Zip Deploy (with Run From Package enabled)](functions-deployment-technologies.md#zip-deploy).
+
 ## Function app settings
 
 Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not uploaded automatically when you publish the project.
