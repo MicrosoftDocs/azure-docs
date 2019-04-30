@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 # Use the CLI extension for Azure Machine Learning service
 
-The Azure Machine Learning CLI is an extension to the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), a cross-platform command-line interface for the Azure platform. This extension provides commands for working with the Azure Machine Learning service from the command line. It allows you to automate your machine learning workflows. For example, you can perform the following actions:
+The Azure Machine Learning CLI is an extension to the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), a cross-platform command-line interface for the Azure platform. This extension provides commands for working with the Azure Machine Learning service. It allows you to automate your machine learning activities. The following list provides some example actions that you can do with the CLI extension:
 
 + Run experiments to create machine learning models
 
