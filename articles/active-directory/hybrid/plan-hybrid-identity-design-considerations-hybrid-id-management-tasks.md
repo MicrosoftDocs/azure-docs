@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
@@ -26,7 +26,7 @@ It is also important to have an identity solution geared to empower your users b
 ## Determine Hybrid Identity Management Tasks
 Distributing administrative tasks in your organization improves the accuracy and effectiveness of administration and improves the balance of the workload of an organization. Following are the pivots that define a robust identity management system.
 
- ![](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
+ ![identity management considerations](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
 
 To define hybrid identity management tasks, you must understand some essential characteristics of the organization that will be adopting hybrid identity. It is important to understand the current repositories being used for identity sources. By knowing those core elements, you will have the foundational requirements and based on that you will need to ask more granular questions that will lead you to a better design decision for your Identity solution.  
 
@@ -55,7 +55,7 @@ While defining those requirements, ensure that at least the following questions 
 ## Synchronization Management
 One of the goals of an identity manager, to be able to bring all the identity providers and keep them synchronized. You keep the data synchronized based on an authoritative master identity provider. In a hybrid identity scenario, with a synchronized management model, you manage all user and device identities in an on-premises server and synchronize the accounts and, optionally, passwords to the cloud. The user enters the same password on-premises as they do in the cloud, and at sign-in, the password is verified by the identity solution. This model uses a directory synchronization tool.
 
-![](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png)
+![directory sync](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png)
 To proper design the synchronization of your hybrid identity solution ensure that the following questions are answered:
 •    What are the sync solutions available for the hybrid identity solution?
 •    What are the single sign on capabilities available?

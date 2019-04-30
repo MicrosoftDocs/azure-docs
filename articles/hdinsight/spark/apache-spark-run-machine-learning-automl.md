@@ -10,11 +10,12 @@ ms.date: 01/14/2019
 ---
 # Run Azure Machine Learning workloads with automated machine learning (AutoML) on Apache Spark in Azure HDInsight
 
-Azure Machine Learning is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Azure Machine Learning publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel. Automated machine learning (AutoML) helps create high-quality machine learning models using intelligent automation and optimization. AutoML decides the right algorithm and hyper parameters to use for specific problem types.
+Azure Machine Learning simplifies and accelerates the building, training, and deployment of machine learning models. In automated machine learning (AutoML), you start with training data that has a defined target feature and then iterate through combinations of algorithms and feature selections to automatically select the best model for your data based on the training scores. HDInsight allows customers to provision clusters with hundreds of nodes. AutoML running on Spark in an HDInsight cluster allows users to use compute capacity across these nodes to run training jobs in a scale-out fashion, and to run multiple training jobs in parallel. This allows users to run AutoML experiments while sharing the compute with their other big data workloads.
+ 
 
 ## Install Azure Machine Learning on an HDInsight cluster
 
-For general tutorials of Azure Machine Learning and automated machine learning, see [Tutorial: Create your first data science experiment in Azure Machine Learning Studio](../../machine-learning/studio/create-experiment.md) and [Tutorial: Use automated machine learning to build your regression model](../../machine-learning/service/tutorial-auto-train-models.md).
+For general tutorials of automated machine learning, see [Tutorial: Use automated machine learning to build your regression model](../../machine-learning/service/tutorial-auto-train-models.md).
 All new HDInsight-Spark clusters come pre-installed with AzureML-AutoML SDK. You can get started with AutoML on HDInsight with this [sample Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi). This Jupyter Notebook demonstrates how to use an automated machine learning classifier for a simple classification problem.
 
 > [!Note]
