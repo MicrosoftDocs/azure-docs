@@ -280,7 +280,7 @@ You can disable/enable the auto-update feature by doing the following steps:
 
 [For single node gateway]
 1. Launch Windows PowerShell on the gateway machine.
-2. Switch to the *C:\\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\* folder.
+2. Switch to the *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* folder.
 3. Run the following command to turn the auto-update feature OFF (disable).
 
 	```powershell
@@ -293,7 +293,7 @@ You can disable/enable the auto-update feature by doing the following steps:
     ```
    [For multi-node highly available and scalable gateway](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Launch Windows PowerShell on the gateway machine.
-2. Switch to the *C:\\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\* folder.
+2. Switch to the *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* folder.
 3. Run the following command to turn the auto-update feature OFF (disable).
 
 	For gateway with high availability feature, an extra AuthKey param is required.
@@ -511,7 +511,7 @@ This section describes how to create and register a gateway using Azure PowerShe
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. In Azure PowerShell, switch to the folder: *C:\\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\*. Run *RegisterGateway.ps1* associated with the local variable **$Key** as shown in the following command. This script registers the client agent installed on your machine with the logical gateway you create earlier.
+1. In Azure PowerShell, switch to the folder: *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*. Run *RegisterGateway.ps1* associated with the local variable **$Key** as shown in the following command. This script registers the client agent installed on your machine with the logical gateway you create earlier.
 
 	```powershell
 	PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
