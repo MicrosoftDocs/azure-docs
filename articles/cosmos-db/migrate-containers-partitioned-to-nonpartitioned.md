@@ -101,3 +101,7 @@ If a migrated container is consumed by the latest/V3 version of SDK and you star
 
 ## Next steps
 
+* [Partitioning in Azure Cosmos DB](partitioning-overview.md)
+* [Request Units in Azure Cosmos DB](request-units.md)
+* [Provision throughput on containers and databases](set-throughput.md)
+* [Work with Azure Cosmos account](account-overview.md)
