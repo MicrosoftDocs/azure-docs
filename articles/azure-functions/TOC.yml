@@ -11,10 +11,10 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create function - Visual Studio
-    href: functions-create-your-first-function-visual-studio.md
   - name: Create function - Visual Studio Code
     href: functions-create-first-function-vs-code.md
+  - name: Create function - Visual Studio
+    href: functions-create-your-first-function-visual-studio.md
   - name: Create function - Java/Maven
     href: functions-create-first-java-maven.md
   - name: Create function - Python
@@ -60,7 +60,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=functions
+    href: https://www.serverlesslibrary.net/?technology=Functions%202.x
   - name: Azure CLI
     href: functions-cli-samples.md    
 - name: Concepts
