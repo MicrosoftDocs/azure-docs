@@ -6,7 +6,7 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 5/6/2019
+ms.date: 05/06/2019
 ms.custom: mvc
 ---
 # Quickstart: Create an Azure Database for PostgreSQL - Single Server using the Azure CLI
