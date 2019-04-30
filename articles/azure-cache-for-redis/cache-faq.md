@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 04/29/2019
 ms.author: yegu
 
 ---
@@ -378,20 +378,31 @@ In the previous example, you can see that for IOCP thread there are 6 busy threa
 Note that StackExchange.Redis can hit timeouts if growth of either IOCP or WORKER threads gets throttled.
 
 ### Recommendation
-Given this information, we strongly recommend that customers set the minimum configuration value for IOCP and WORKER threads to something larger than the default value. We can't give one-size-fits-all guidance on what this value should be because the right value for one application will be too high/low for another application. This setting can also impact the performance of other parts of complicated applications, so each customer needs to fine-tune this setting to their specific needs. A good starting place is 200 or 300, then test and tweak as needed.
+Given this information, we strongly recommend that customers set the minimum configuration value for IOCP and WORKER threads to something larger than the default value. We can't give one-size-fits-all guidance on what this value should be because the right value for one application will likely be too high or low for another application. This setting can also impact the performance of other parts of complicated applications, so each customer needs to fine-tune this setting to their specific needs. A good starting place is 200 or 300, then test and tweak as needed.
 
 How to configure this setting:
 
-* In ASP.NET, use the ["minIoThreads" or "minWorkerThreads" configuration setting]["minIoThreads" configuration setting] under the `<processModel>` configuration element in web.config. If you are running inside of Azure WebSites, this setting is not exposed through the configuration options. However, you should still be able to configure this setting programmatically (see below) from your Application_Start method in global.asax.cs.
+* The recommended way to change this setting programmatically is to use the [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) method from global.asax.cs. For example:
 
-  > [!NOTE] 
-  > The value specified in this configuration element is a *per-core* setting. For example, if you have a 4 core machine and want your minIOThreads setting to be 200 at runtime, you would use `<processModel minIoThreads="50"/>`.
-  >
-
-* Outside ASP.NET, and Azure WebSites global.asax, use the [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) API.
+```cs
+void Application_Start(object sender, EventArgs e)
+{
+    // Code that runs on application startup
+    AreaRegistration.RegisterAllAreas();
+    RouteConfig.RegisterRoutes(RouteTable.Routes);
+    BundleConfig.RegisterBundles(BundleTable.Bundles);
+    ThreadPool.SetMinThreads(minThreads, minThreads);
+}
+```
 
   > [!NOTE]
-  > The value specified by this API is a global setting, affecting the whole AppDomain. If you have a 4 core machine, and want to set minWorkerThreads and minIOThreads to 50 per CPU during run-time, you would use ThreadPool.SetMinThreads (200, 200).
+  > The value specified by this method is a global setting, affecting the whole AppDomain. For example, if you have a 4-core machine and want to set *minWorkerThreads* and *minIoThreads* to 50 per CPU during run-time, you would use **ThreadPool.SetMinThreads (200, 200)**.
+
+* It is possible to specify this setting by using the [*minIoThreads* or *minWorkerThreads* configuration setting](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) under the `<processModel>` configuration element in `Machine.config`, usually located at `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **This is a System-wide setting, and is generally not recommended.**
+
+  > [!NOTE]
+  > The value specified in this configuration element is a *per-core* setting. For example, if you have a 4-core machine and want your minIoThreads setting to be 200 at runtime, you would use `<processModel minIoThreads="50"/>`.
+  >
 
 <a name="server-gc"></a>
 
