@@ -35,8 +35,8 @@ Consider the following attributes to best plan the environment for long-term suc
 - <a href="#understand-storage-capacity">Storage capacity</a>
 - <a href="#understand-data-retention">Data retention period</a>
 - <a href="#understand-ingress-capacity">Ingress capacity</a>
-- <a href="#shaping-your-events">Shaping your events</a>
-- <a href="#ensuring-you-have-reference-data-in-place">Ensuring you have reference data in place</a>
+- <a href="#shape-your-events">Shaping your events</a>
+- <a href="#ensure-you-have-reference-data-in-place">Ensuring you have reference data in place</a>
 
 ## Understand storage capacity
 
