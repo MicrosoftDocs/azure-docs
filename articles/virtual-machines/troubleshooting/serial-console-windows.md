@@ -21,6 +21,8 @@ ms.author: harijay
 
 The Serial Console in the Azure portal provides access to a text-based console for Windows virtual machines (VMs) and virtual machine scale set (VMSS) instances. This serial connection connects to the COM1 serial port of the VM or VMSS instance, providing access to it independent of the network or operating system state. The serial console can only be accessed by using the Azure portal and is allowed only for those users who have an access role of Contributor or higher to the VM or VMSS.
 
+Serial Console works in the same manner for VMs and VMSS instances. In this doc, all mentions to VMs will implicitly include VMSS instances unless otherwise stated.
+
 For serial console documentation for Linux VMs and VMSS, see [Azure Serial Console for Linux](serial-console-linux.md).
 
 > [!NOTE]
