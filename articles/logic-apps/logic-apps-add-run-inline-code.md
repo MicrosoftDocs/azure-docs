@@ -18,12 +18,12 @@ you can add the built-in **Inline Code** action as a step in
 your logic app's workflow. This action works best when you want 
 to run code that fits this scenario:
 
-* Runs in JavaScript.
+* Runs in JavaScript. More languages to follow.
 * Finishes running in five seconds or fewer.
 * Handles data up to 50 MB in size.
 * Uses these [Node.js modules](https://www.w3schools.com/nodejs/ref_modules.asp). 
 
-This action returns just one output named **Result**, 
+This action returns a single output named **Result**, 
 which you can use in subsequent actions in your logic app. 
 For other scenarios where you want to create a function for your code, try 
 [creating and calling an Azure function](../logic-apps/logic-apps-azure-functions.md) 
