@@ -8,7 +8,7 @@ ms.author: adjohnso
 
 # Azure CycleCloud Quickstart 3: Submit and Auto Scale Jobs
 
-If you've completed Quickstarts 1 and 2, you've installed, set up, and configured Azure CycleCloud, and started a simple HPC cluster via the GUI. This quickstart will walk you through logging into the Master node, submitting a job, and observing the autoscaling behaviour.
+If you've completed Quickstarts 1 and 2, you've installed, set up, and configured Azure CycleCloud, and started a simple HPC cluster via the GUI. This quickstart will walk you through logging into the Master node, submitting a job, and observing the autoscaling behavior.
 
 ## Master Node
 
@@ -71,7 +71,7 @@ Once the job queue has been empty for five minutes, the execute nodes will begin
 Quickstart 3 is complete. In this exercise, you've submitted a job containing 1000 tasks to your Master Node, confirmed the request went through, and observed the auto scaling via the GUI. When the jobs are complete, you will need to clean up the resources used to free them for other activity.
 
 > [!NOTE]
-> If you want to continue with this Azure CycleCloud installation for the [CycleCloud Tutorials](/tutorials/modify-cluster-template.md), you do not need to follow quickstart 4. Be aware that you are charged for usage while the nodes are running, even if no jobs are scheduled.
+> If you want to continue with this Azure CycleCloud installation for the [CycleCloud Tutorials](./tutorials/modify-cluster-template.md), you do not need to follow quickstart 4. Be aware that you are charged for usage while the nodes are running, even if no jobs are scheduled.
 
 > [!div class="nextstepaction"]
 > [Continue to Quickstart 4](quickstart-clean-up-resources.md)
