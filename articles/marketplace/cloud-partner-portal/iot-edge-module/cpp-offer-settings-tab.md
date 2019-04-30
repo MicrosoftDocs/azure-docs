@@ -1,22 +1,13 @@
 ---
-title: Offer settings for an Azure IoT Edge module | Microsoft Docs
+title: Offer settings for an Azure IoT Edge module | Azure Marketplace
 description: Configure offer settings for an IoT Edge module.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
-
 
 # IoT Edge module Offer Settings tab
 
