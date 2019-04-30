@@ -204,8 +204,8 @@ You can view and update HTTP proxy by using Configuration Manager tool.
 ### Configure proxy server settings
 If you select **Use system proxy** setting for the HTTP proxy, gateway uses the proxy setting in diahost.exe.config and diawp.exe.config. If no proxy is specified in diahost.exe.config and diawp.exe.config, gateway connects to cloud service directly without going through proxy. The following procedure provides instructions for updating the diahost.exe.config file.
 
-1. In File Explorer, make a safe copy of *C:\\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config* to back up the original file.
-2. Launch Notepad.exe running as administrator, and open text file *C:\\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config*. You find the default tag for system.net as shown in the following code:
+1. In File Explorer, make a safe copy of *C:\\\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config* to back up the original file.
+2. Launch Notepad.exe running as administrator, and open text file *C:\\\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config*. You find the default tag for system.net as shown in the following code:
 
     ```
     <system.net>
@@ -310,7 +310,7 @@ You can disable/enable the auto-update feature by doing the following steps:
 Once you install the gateway, you can launch Data Management Gateway Configuration Manager in one of the following ways:
 
 1. In the **Search** window, type **Data Management Gateway** to access this utility.
-2. Run the executable *ConfigManager.exe* in the folder: *C:\\Program Files\Microsoft Data Management Gateway\2.0\Shared*.
+2. Run the executable *ConfigManager.exe* in the folder: *C:\\\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared*.
 
 ### Home page
 The Home page allows you to do the following actions:
