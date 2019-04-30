@@ -47,11 +47,10 @@ Compare the data retention behavior:
 ### Example one
 
 Consider an example environment with retention behavior **Continue ingress and purge old data**:
-In this example, **Data retention time** is set to 400 days. **Capacity** is set to S1 unit, which contains 30 GB of total capacity.   Let's assume inbound data accumulates to 500 MB each day on average. This environment can only retain 60 days worth of data given the rate of inbound data, since the maximum capacity is reached at 60 days. The inbound data accumulates as: 500 MB each day x 60 days = 30 GB.
 
-In this example, on the 61st day, the environment shows the freshest data, but purges the oldest data, older than 60 days. The purge makes room for the new data streaming in, so that new data may continue to be explored. 
+**Data retention time** is set to 400 days. **Capacity** is set to S1 unit, which contains 30 GB of total capacity.   Let's assume inbound data accumulates to 500 MB each day on average. This environment can only retain 60 days worth of data given the rate of inbound data, since the maximum capacity is reached at 60 days. The inbound data accumulates as: 500 MB each day x 60 days = 30 GB.
 
-If the user wishes to retain data longer, they can increase the size of the environment by adding additional units or can push less data.  
+On the 61st day, the environment shows the freshest data, but purges the oldest data, older than 60 days. The purge makes room for the new data streaming in, so that new data may continue to be explored. If the user wishes to retain data longer, they can increase the size of the environment by adding additional units or can push less data.  
 
 ### Example two
 
@@ -73,7 +72,7 @@ Whenever this environment’s daily ingress rate exceeds of 0.166 GB per day, da
 
 Consider an environment with retention behavior configured to **pause ingress**. In this example, the **Data retention period** is configured to 60 days. **Capacity** is set to 3 units of S1. Assume this environment has ingress of 2-GB data each day. In this environment, ingress is paused once the maximum capacity is reached.
 
-At that time, the environment shows the same dataset until ingress resumes or until ‘continue ingress’ is enabled (which would purge older data to make room for new data).
+At that time, the environment shows the same dataset until ingress resumes or until **continue ingress** is enabled (which would purge older data to make room for new data).
 
 When ingress resumes:
 
@@ -87,7 +86,7 @@ In the impacted Event Hubs, consider adjusting the **Message Retention** propert
 
 [![Event hub message retention.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-If no properties are configured on event source (timeStampPropertyName), TSI defaults to the timestamp of arrival at event hub as the x-axis. If timeStampPropertyName is configured to be something different, the environment looks for the configured timeStampPropertyName in the data packet when events are parsed.
+If no properties are configured on event source (`timeStampPropertyName`), TSI defaults to the timestamp of arrival at event hub as the X-axis. If `timeStampPropertyName` is configured to be something else, the environment looks for the configured `timeStampPropertyName` in the data packet when events are parsed.
 
 If you need to scale your environment up to accommodate additional capacity or to increase the length of retention, see [How to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md) for more information.  
 
