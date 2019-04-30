@@ -127,28 +127,16 @@ You might want to access data stored in the Time Series Insights Preview explore
 
 You can access your data in three general ways:
 
-* From the Time Series Insights Preview explorer.
-* From the Time Series Insights Preview APIs.
-* Directly from an Azure storage account.
-
-#### From the Time Series Insights Preview explorer
-
-You can export data as a CSV file from the Time Series Insights Preview explorer. For more information, see [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
-
-#### From the Time Series Insights Preview APIs
-
-The API endpoint can be reached at `/getRecorded`. To learn more about this API, see [Time Series Query](./time-series-insights-update-tsq.md).
+* From the Time Series Insights Preview explorer: you can export data as a CSV file from the Time Series Insights Preview explorer. For more information, see [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
+* From the Time Series Insights Preview APIs: the API endpoint can be reached at `/getRecorded`. To learn more about this API, see [Time Series Query](./time-series-insights-update-tsq.md).
+* Directly from an Azure storage account (below).
 
 #### From an Azure storage account
 
 * You need read access to whatever account you're using to access your Time Series Insights data. For more information, see [Manage access to your storage account resources](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources).
-
 * For more information about direct ways to read data from Azure Blob storage, see [Moving data to and from your storage account](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
 * To export data from an Azure storage account:
-
     * First make sure that your account meets the necessary requirements for exporting data. For more information, see [Storage import and export requirements](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements).
-
     * To learn about other ways to export data from your Azure storage account, see [Import and export data from blobs](https://docs.microsoft.com/azure/storage/common/storage-import-export-data-from-blobs).
 
 ### Data deletion
