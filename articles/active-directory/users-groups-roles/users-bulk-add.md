@@ -18,16 +18,32 @@ ms.collection: M365-identity-device-management
 
 # Bulk add users in the Azure Active Directory portal
 
-If your automation is powered by Graph API commands, you can still automate Azure AD bulk operations.
+Azure Active Directory (Azure AD) supports bulk user create and delete operations, and supports downloading lists of users, groups, and group members.
 
-## Populate a CSV template (Optional)
+## To bulk add users
 
-nothing to commit, working tree clean
+1. Sign in to your Azure AD organization with an account that is a User administrator in the organization.
+1. In Azure AD, select **Users** > **Bulk create**.
+1. On the **Bulk create user** page, select **Download** to receive and edit a valid formatted CSV file of user properties.
+1. When you finish editing the CSV file or if you have one of your own ready to upload, select the file under **Upload your CSV file** to be validated. 
+1. When the file contents are validated, you must fix eny errors before you can start the upload job.
+1. When your file passes validation, select **Submit** to start the Azure batch job that updates the user records. Job notifications are generated to apprise you of progress to completion.
 
-## Upload your CSV file
 
-nothing to commit, working tree clean
+## Troubleshoot bulk user addition
+
+The causes of your troubles are many. Let us make them few.
+
+Validation error Message 1
+guidance 1
+
+Batch job failure Message 2
+Guidance 2
 
 
+## Next steps
 
-
+Bulk delete users
+Download list of users
+Download list of groups
+Download list of group members
