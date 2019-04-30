@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
+ms.date: 04/25/2019
 ms.author: atsenthi
 
 ---
@@ -135,6 +135,9 @@ It may seem obvious, and it is often overlooked, but a microservice must report 
 
 Health is different from diagnostics. Health is about the microservice reporting its current state to take appropriate actions. A good example is working with upgrade and deployment mechanisms to maintain availability. Although a service may be currently unhealthy due to a process crash or machine reboot, the service might still be operational. The last thing you need is to make this worse by performing an upgrade. The best approach is to do an investigation first or allow time for the microservice to recover. Health events from a microservice help us make informed decisions and, in effect, help create self-healing services.
 
+## Microservices design guidance on Azure
+Visit the Azure architecture center for design guidance on [building microservices on Azure](https://docs.microsoft.com/azure/architecture/microservices/)
+
 ## Service Fabric as a microservices platform
 
 Azure Service Fabric emerged when Microsoft transitioned from delivering boxed products, which were typically monolithic in style, to delivering services. The experience of building and operating large services, such as Azure SQL Database and Azure Cosmos DB, shaped Service Fabric. The platform evolved over time as more and more services adopted it. Service Fabric had to run not only in Azure but also in standalone Windows Server deployments.
@@ -192,8 +195,10 @@ The objective of Service Fabric is to reduce the complexities of building micros
 
 ## Next steps
 
-* [Service Fabric terminology overview](service-fabric-technical-overview.md)
 * [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+* [Azure Architecture Center: Building microservices on Azure](https://docs.microsoft.com/azure/architecture/microservices/)
+* [Azure Service Fabric application and cluster best practices](service-fabric-best-practices-overview.md)
+* [Service Fabric terminology overview](service-fabric-technical-overview.md)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

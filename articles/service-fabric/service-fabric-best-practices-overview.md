@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/23/2019
+ms.date: 04/24/2019
 ms.author: pepogors
 ---
 
@@ -40,6 +40,10 @@ To manage Azure Service Fabric applications and clusters successfully, there are
 ## Monitoring and diagnostics
 
 * [Best practices for cluster monitoring and diagnostics](service-fabric-best-practices-monitoring.md)
+
+## Application design
+
+* [Best practices for application design](service-fabric-best-practices-applications.md)
 
 ## Checklist
 
