@@ -145,30 +145,30 @@
       href: search-howto-large-index.md
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
-    - name: Indexers
-      items:
-      - name: Indexers overview
-        href: search-indexer-overview.md
-      - name: Blob storage indexer
-        href: search-howto-indexing-azure-blob-storage.md
-      - name: Table storage indexer
-        href: search-howto-indexing-azure-tables.md
-      - name: SQL DB indexer
-        href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-      - name: Cosmos DB indexer
-        href: search-howto-index-cosmosdb.md
-      - name: One-to-many blob indexing
-        href: search-howto-index-one-to-many-blobs.md
-      - name: CSV blob indexing
-        href: search-howto-index-csv-blobs.md
-      - name: JSON blob indexing
-        href: search-howto-index-json-blobs.md
-      - name: Connect to SQL Server VMs
-        href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-      - name: Field mappings
-        href: search-indexer-field-mappings.md
-      - name: Troubleshooting common issues
-        href: search-indexer-troubleshooting.md
+  - name: Load data with indexers
+    items:
+    - name: Indexers overview
+      href: search-indexer-overview.md
+    - name: Blob storage indexer
+      href: search-howto-indexing-azure-blob-storage.md
+    - name: Table storage indexer
+      href: search-howto-indexing-azure-tables.md
+    - name: SQL DB indexer
+      href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+    - name: Cosmos DB indexer
+      href: search-howto-index-cosmosdb.md
+    - name: One-to-many blob indexing
+      href: search-howto-index-one-to-many-blobs.md
+    - name: CSV blob indexing
+      href: search-howto-index-csv-blobs.md
+    - name: JSON blob indexing
+      href: search-howto-index-json-blobs.md
+    - name: Connect to SQL Server VMs
+      href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+    - name: Field mappings
+      href: search-indexer-field-mappings.md
+    - name: Troubleshooting common issues
+      href: search-indexer-troubleshooting.md
   - name: AI-indexing (cognitive search)
     items:
     - name: Attach a Cognitive Services resource

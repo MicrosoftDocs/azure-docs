@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: virtual-machines
- author: jonbeck7
+ author: ayshakeen
  ms.service: virtual-machines
  ms.topic: include
  ms.date: 03/09/2018
- ms.author: azcspmt;jonbeck;cynthn
+ ms.author: azcspmt;ayshak;cynthn
  ms.custom: include file
 ---
 

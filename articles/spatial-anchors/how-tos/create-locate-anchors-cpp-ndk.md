@@ -34,7 +34,7 @@ To complete this guide, make sure you have:
 - Read through the [Azure Spatial Anchors overview](../overview.md).
 - Completed one of the [5-minute Quickstarts](../index.yml).
 - Basic knowledge on C++ and the <a href="https://developer.android.com/ndk/" target="_blank">Android Native Development Kit</a>.
-- Basic knowledge on <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.5.
+- Basic knowledge on <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.7.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 

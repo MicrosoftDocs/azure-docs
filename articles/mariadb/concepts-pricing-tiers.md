@@ -5,7 +5,7 @@ author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 04/15/2019
 ---
 
 # Azure Database for MariaDB pricing tiers
@@ -15,7 +15,7 @@ You can create an Azure Database for MariaDB server in one of three different pr
 |    | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | Compute generation | Gen 5 |Gen 5 | Gen 5 |
-| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
+| vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Memory per vCore | 2 GB | 5 GB | 10 GB |
 | Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
 | Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |

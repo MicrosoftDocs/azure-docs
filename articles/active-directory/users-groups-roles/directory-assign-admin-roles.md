@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 04/15/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -56,6 +56,18 @@ The following administrator roles are available:
   * Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
   *	Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
+* **[B2C User Flow Administrator](#b2c-user-flow-administrator)**: Users with this role can create and manage B2C User Flows (aka "built-in" policies) in Azure Portal. By creating or editing user flows, these users can change the html/CSS/javascript content of the user experience, change MFA requirements per user flow, change claims in the token and adjust session settings for all policies in the tenant. On the other hand, this role does not include the ability to review user data, or make changes to the attributes that are included in the tenant schema. Changes to Identity Experience Framework (aka Custom) policies is also outside the scope of this role.
+
+* **[B2C User Flow Attribute Administrator](#b2c-user-flow-attribute-administrator)**: Users with this role add or delete custom attributes available to all user flows in the tenant. As such, users with this role can change or add new elements to the end user schema and impact the behavior of all user flows and indirectly result in changes to what data may be asked of end users and ultimately sent as claims to applications. This role cannot edit user flows.
+
+* **[B2C IEF Keyset Administrator](#b2c-ief-keyset-administrator)**: 	User can create and manage policy keys and secrets for token encryption, token signatures, and claim encryption/decryption. By adding new keys to existing key containers, this limited administrator can rollover secrets as needed without impacting existing applications. This user can see the full content of these secrets and their expiration dates even after their creation.
+	
+  <b>Important:</b> This is a sensitive role. The keyset administrator role should be carefully audited and assigned with care during preproduction and production.
+
+* **[B2C IEF Policy Administrator](#b2c-ief-policy-administrator)**: Users in this role have the ability to create, read, update, and delete all custom policies in Azure AD B2C and therefore have full control over the Identity Experience Framework in the relevant Azure AD B2C tenant. By editing policies, this user can establish direct federation with external identity providers, change the directory schema, change all user-facing content (HTML, CSS, JavaScript), change the requirements to complete an authentication, create new users, send user data to external systems including full migrations, and edit all user information including sensitive fields like passwords and phone numbers. Conversely, this role cannot change the encryption keys or edit the secrets used for federation in the tenant.
+
+  <b>Important:</b> The B2 IEF Policy Administrator is a highly sensitive role which should be assigned on a very limited basis for tenants in production. Activities by these users should be closely audited, especially for tenants in production.
+
 * **[Billing Administrator](#billing-administrator)**: Makes purchases, manages subscriptions, manages support tickets, and monitors service health.
 
 * **[Cloud Application Administrator](#cloud-application-administrator)**: Users in this role have the same permissions as the Application Administrator role, excluding the ability to manage application proxy. This role grants the ability to create and manage all aspects of enterprise applications and application registrations. This role also grants the ability to consent to delegated permissions, and application permissions excluding Microsoft Graph and Azure AD Graph. Users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
@@ -68,7 +80,7 @@ The following administrator roles are available:
 
   In | Can do
   ----- | ----------
-  [Microsoft 365 compliance center](https://protection.microsoft.com) | Protect and manage your organization’s data across Microsoft 365 services<br>Manage compliance alerts
+  [Microsoft 365 compliance center](https://protection.office.com) | Protect and manage your organization’s data across Microsoft 365 services<br>Manage compliance alerts
   [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Track, assign, and verify your organization's regulatory compliance activities
   [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage data governance<br>Perform legal and data investigation<br>Manage Data Subject Request
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | View all Intune audit data
@@ -78,7 +90,7 @@ The following administrator roles are available:
 
   In | Can do
   ----- | ----------
-  [Microsoft 365 compliance center](https://protection.microsoft.com) | Monitor compliance-related policies across Microsoft 365 services<br>Manage compliance alerts
+  [Microsoft 365 compliance center](https://protection.office.com) | Monitor compliance-related policies across Microsoft 365 services<br>Manage compliance alerts
   [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Track, assign, and verify your organization's regulatory compliance activities
   [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage data governance<br>Perform legal and data investigation<br>Manage Data Subject Request
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | View all Intune audit data
@@ -107,6 +119,9 @@ The following administrator roles are available:
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Exchange Service Administrator ". It is "Exchange Administrator" in the [Azure portal](https://portal.azure.com). It is "Exchange Online admininistrator" in the [Exchange admin center](https://go.microsoft.com/fwlink/p/?LinkID=529144). 
 
+* **[External Identity Provider Administrator](#external-identity-provider-administrator)**: This administrator manages federation between Azure Active Directory tenants and external identity providers. With this role, users can add new identity providers and configure all available settings (e.g. authentication path, service id, assigned key containers). This user can enable the tenant to trust authentications from external identity providers. The resulting impact on end user experiences depends on the type of tenant:
+  * Azure Active Directory tenants for employees and partners: The addition  of a federation (e.g. with Gmail) will immediately impact all guest invitations not yet redeemed. See [Adding Google as an identity provider for B2B guest users](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
+  * Azure Active Directory B2C tenants: The addition of a federation (e.g. with Facebook, or with another Azure Active Directory) does not immediately impact end user flows until the identity provider is added as an option in a user flow (aka built-in policy). See [Configuring a Microsoft account as an identity provider](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) for an example. To change user flows, the limited role of "B2C User Flow Administrator" is required.
 
 * **[Global Administrator / Company Administrator](#company-administrator)**: Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online. The person who signs up for the Azure Active Directory tenant becomes a global administrator. Only global administrators can assign other administrator roles. There can be more than one global administrator at your company. Global admins can reset the password for any user and all other administrators.
 
@@ -168,7 +183,7 @@ The following administrator roles are available:
   
   In | Can do
   --- | ---
-  [Microsoft 365 security center](https://protection.microsoft.com) | Monitor security-related policies across Microsoft 365 services<br>Manage security threats and alerts<br>View reports
+  [Microsoft 365 security center](https://protection.office.com) | Monitor security-related policies across Microsoft 365 services<br>Manage security threats and alerts<br>View reports
   Identity Protection Center | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords
   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | All permissions of the Security Reader role<br>**Cannot** manage Azure AD role assignments or settings
   [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage security policies<br>View, investigate, and respond to security threats<br>View reports
@@ -183,7 +198,7 @@ The following administrator roles are available:
 
   In | Can do
   --- | ---
-  [Microsoft 365 security center](https://protection.microsoft.com) | All permissions of the Security Reader role<br>View, investigate, and respond to security threats alerts
+  [Microsoft 365 security center](https://protection.office.com) | All permissions of the Security Reader role<br>View, investigate, and respond to security threats alerts
   Identity Protection Center | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords
   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | All permissions of the Security Reader role
   [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
@@ -196,7 +211,7 @@ The following administrator roles are available:
 
   In | Can do
   --- | ---
-  [Microsoft 365 security center](https://protection.microsoft.com) | View security-related policies across Microsoft 365 services<br>View security threats and alerts<br>View reports
+  [Microsoft 365 security center](https://protection.office.com) | View security-related policies across Microsoft 365 services<br>View security threats and alerts<br>View reports
   Identity Protection Center | Read all security reports and settings information for security features<br><ul><li>Anti-spam<li>Encryption<li>Data loss prevention<li>Anti-malware<li>Advanced threat protection<li>Anti-phishing<li>Mailflow rules
   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Has read-only access to all information surfaced in Azure AD PIM: Policies and reports for Azure AD role assignments, security reviews and in the future read access to policy data and reports for scenarios besides Azure AD role assignment.<br>**Cannot** sign up for Azure AD PIM or make any changes to it. In the PIM portal or via PowerShell, someone in this role can activate additional roles (for example, Global Admin or Privileged Role Administrator), if the user is eligible for them.
   [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | View security policies<br>View and investigate security threats<br>View reports
@@ -312,6 +327,34 @@ Allowed to view, set and reset authentication method information for any non-adm
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+
+### B2C User Flow Administrator
+Create and manage all aspects of user flows.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.b2c/userFlows/allTasks | Read and configure user flows in  Azure Active Directory B2C. |
+
+### B2C User Flow Attribute Administrator
+Create and manage the attribute schema available to all user flows.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.b2c/userAttributes/allTasks | Read and configure user attributes in  Azure Active Directory B2C. |
+
+### B2C IEF Keyset Administrator
+Manage secrets for federation and encryption in the Identity Experience Framework.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.b2c/trustFramework/keySets/allTasks | Read and configure key sets in  Azure Active Directory B2C. |
+
+### B2C IEF Policy Administrator
+Create and manage trust framework policies in the Identity Experience Framework.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.b2c/trustFramework/policies/allTasks | Read and configure custom policies in  Azure Active Directory B2C. |
 
 ### Billing Administrator
 Can perform common billing related tasks like updating payment information.
@@ -673,6 +716,13 @@ Can manage all aspects of the Exchange product.
 | microsoft.office365.exchange/allEntities/allTasks | Manage all aspects of Exchange Online. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+
+### External Identity Provider Administrator
+Configure identity providers for use in direct federation.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.b2c/identityProviders/allTasks | Read and configure identity providers in  Azure Active Directory B2C. |
 
 ### Guest Inviter
 Can invite guest users independent of the ‘members can invite guests’ setting.

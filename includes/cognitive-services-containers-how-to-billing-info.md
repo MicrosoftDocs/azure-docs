@@ -3,7 +3,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/11/2019
+ms.date: 04/16/2019
 ---
 
 Queries to the container are billed at the pricing tier of the Azure resource used for the `<ApiKey>`.
@@ -21,7 +21,7 @@ All three of the following options must be specified with valid values in order 
 | Option | Description |
 |--------|-------------|
 | `ApiKey` | The API key of the Cognitive Service resource used to track billing information.<br/>The value of this option must be set to an API key for the provisioned resource specified in `Billing`. |
-| `Billing` | The endpoint of the Cognitive Service resource used to track billing information.<br/>The value of this option must be set to the endpoint URI of a provisioned LUIS Azure resource.|
+| `Billing` | The endpoint of the Cognitive Service resource used to track billing information.<br/>The value of this option must be set to the endpoint URI of a provisioned Azure resource.|
 | `Eula` | Indicates that you've accepted the license for the container.<br/>The value of this option must be set to `accept`. |
 
 

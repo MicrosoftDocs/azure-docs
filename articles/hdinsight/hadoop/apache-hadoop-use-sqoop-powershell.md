@@ -2,7 +2,6 @@
 title: Run Apache Sqoop jobs by using PowerShell and Azure HDInsight 
 description: Learn how to use Azure PowerShell from a workstation to run Apache Sqoop import and export between an Apache Hadoop cluster and an Azure SQL database.
 ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -14,7 +13,7 @@ ms.author: hrasheed
 # Run Apache Sqoop jobs by using Azure PowerShell for Apache Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Learn how to use Azure PowerShell to run Apache Sqoop jobs in Azure HDInsight to import and export data between an HDInsight cluster and an Azure SQL database or SQL Server database. This example exports data from `/tutorials/usesqoop/data/sample.log` from the default storage account, and then imports it to a table called `log4jlogs` in a SQL Server database.
+Learn how to use Azure PowerShell to run Apache Sqoop jobs in Azure HDInsight to import and export data between an HDInsight cluster and an Azure SQL database or SQL Server database. This example exports data from `/tutorials/usesqoop/data/sample.log` from the default storage account, and then imports it to a table called `log4jlogs` in a SQL Server database. This article is a continuation of [Use Apache Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md).
 
 ## Prerequisites
 
@@ -22,7 +21,8 @@ Before you begin this tutorial, you must have the following items:
 
 * A workstation with Azure PowerShell [AZ Module](https://docs.microsoft.com/powershell/azure/overview) installed.
 
-* An HDInsight cluster, Azure SQL Server, and database as defined from [Create cluster and SQL database](./hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* Completion of [Set up test environment](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) from [Use Apache Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md).
+
 
 ## Run Apache Sqoop by using PowerShell
 The following PowerShell script pre-processes the source file and then exports it to an Azure SQL database to table `log4jlogs`. Replace `CLUSTERNAME`, `CLUSTERPASSWORD`, and `SQLPASSWORD` with the values you used from the prerequisite.

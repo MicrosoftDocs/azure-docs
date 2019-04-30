@@ -3,7 +3,7 @@ title: REST API claims exchanges as an orchestration step in Azure Active Direct
 description: A topic on Azure Active Directory B2C custom policies that integrate with an API.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
