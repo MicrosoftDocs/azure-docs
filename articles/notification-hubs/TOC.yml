@@ -5,7 +5,7 @@
   - name: About Notification Hubs
     href: notification-hubs-push-notification-overview.md
   - name: Integration with App Service Mobile Apps
-    href: notification-hubs/notification-hubs-app-service.md
+    href: notification-hubs-app-service.md
 - name: Quickstarts
   items:
   - name: Create a notification hub - Azure portal
