@@ -54,6 +54,8 @@ When the domain is successfully added, the prebuilt domain box displays a **Remo
 
 Select **Intents** in the left-side navigation pane to review the HomeAutomation domain intents. Each intent has sample utterances.
 
+![Screenshot of HomeAutomation intents list](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot of HomeAutomation intents list")]
+
 > [!NOTE]
 > **None** is an intent provided by all LUIS apps. You use it to handle utterances that don't correspond to functionality your app provides. 
 
