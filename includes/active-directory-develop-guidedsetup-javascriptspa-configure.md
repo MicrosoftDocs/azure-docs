@@ -64,6 +64,6 @@ ms.custom: include file
     Where:
     - `Enter_the_Application_Id_here` - is the **Application (client) ID** for the application you registered.
     - `Enter_the_Tenant_Info_Here` - is set to one of the following options:
-       - If your application supports **Accounts in this organizational directory**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
+       - If your application supports **Accounts in this organizational directory**, replace this value with the **Tenant ID** or **Tenant name** (for example, contoso.microsoft.com)
        - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
        - If your application supports **Accounts in any organizational directory and personal Microsoft accounts**, replace this value with `common`. To restrict support to *Personal Microsoft accounts only*, replace this value with `consumers`.
