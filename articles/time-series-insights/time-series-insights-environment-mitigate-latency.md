@@ -39,11 +39,11 @@ Alerts can help you to help diagnose and mitigate latency issues caused by your 
 
 1. In the Azure portal, click **Metrics**.
 
-   ![Metrics](media/environment-mitigate-latency/add-metrics.png)
+   [![Metrics](media/environment-mitigate-latency/add-metrics.png)](media/environment-mitigate-latency/add-metrics.png#lightbox)
 
 1. Click **Add metric alert**.  
 
-    ![Add metric alert](media/environment-mitigate-latency/add-metric-alert.png)
+   [![Add metric alert](media/environment-mitigate-latency/add-metric-alert.png)](media/environment-mitigate-latency/add-metric-alert.png#lightbox)
 
 From there, you can configure alerts using the following metrics:
 
@@ -71,7 +71,7 @@ Also, if you suspect you are being throttled, you can compare your **Ingress Rec
 
 ## Improving performance
 
-To reduce throttling or experiencing latency, the best way to correct it is to increase your environment's capacity. 
+To reduce throttling or experiencing latency, the best way to correct it is to increase your environment's capacity.
 
 You can avoid latency and throttling by properly configuring your environment for the amount of data you want to analyze. For more information about how to add capacity to your environment, see [Scale your environment](time-series-insights-how-to-scale-your-environment.md).
 
