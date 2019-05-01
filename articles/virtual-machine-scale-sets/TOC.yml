@@ -152,6 +152,8 @@
     - name: vCPU quotas
       href: ../virtual-machines/windows/quotas.md
       maintainContext: true
+  - name: Scale Set FAQ
+    href: virtual-machine-scale-sets-faq.md
 - name: How To
   items:
   - name: Plan and design
@@ -183,6 +185,9 @@
         href: virtual-machine-scale-sets-autoscale-portal.md
       - name: Advanced autoscale
         href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+        maintainContext: true
+      - name: Troubleshoot autoscale
+        href: virtual-machine-scale-sets-troubleshoot.md
     - name: Applications on scale sets
       href: virtual-machine-scale-sets-deploy-app.md
     - name: Extensions on scale sets
@@ -199,6 +204,9 @@
         href: virtual-machine-scale-sets-encrypt-disks-ps.md
       - name: Use the Azure CLI
         href: virtual-machine-scale-sets-encrypt-disks-cli.md
+      - name: Disk encrytion with extension sequencing
+        href: ../security/azure-security-disk-encryption-extension-sequencing.md
+        maintainContext: true
     - name: Work with large scale sets
       href: virtual-machine-scale-sets-placement-groups.md
     - name: Convert a scale set template to use managed disk
@@ -238,7 +246,7 @@
       href: virtual-machine-scale-sets-maintenance-notifications.md
   - name: Use Ansible
     items:
-    - name: Create and manange scale sets
+    - name: Create and manage scale sets
       href: /azure/ansible/ansible-create-configure-vmss
       maintainContext: true
     - name: Deploy apps to scale sets
@@ -247,14 +255,6 @@
     - name: Autoscale a scale set
       href: /azure/ansible/ansible-auto-scale-vmss
       maintainContext: true
-  - name: Troubleshoot
-    items:
-    - name: Autoscale
-      href: virtual-machine-scale-sets-troubleshoot.md
-  - name: FAQ
-    items:
-    - name: Scale Set FAQ
-      href: virtual-machine-scale-sets-faq.md
 - name: Reference
   items:
   - name: Azure PowerShell
