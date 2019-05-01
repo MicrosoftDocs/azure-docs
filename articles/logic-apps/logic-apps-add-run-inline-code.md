@@ -197,7 +197,14 @@ However, before you start, you need the JSON version for the action name,
 which appears in the logic app's underlying workflow definition.
 
 * This capability doesn't support variables, loops, and iteration indexes.
-* Replace spaces with underscores (_) in JSON names.
+
+* JSON names use the underscore (_) and not a space.
+
+* For action names that use dots, include those dots, for example: 
+
+  ```text
+  My.Action.Name
+  ```
 
 1. On the designer toolbar, choose **Code view**, 
 and search inside the `actions` attribute for the action name. 
