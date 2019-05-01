@@ -16,20 +16,51 @@ ms.author: hrasheed
 
 Azure HDInsight’s cluster Autoscale feature automatically scales the number of worker nodes in a cluster up and down.  During the creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale then monitors the resource requirements of the analytics load and scales the number of worker nodes up or down accordingly. There is no additional charge for this feature.
 
-## Getting started
-
-### Autoscale types
-
-You can choose load-based scaling or schedule-based scaling for your HDInsight cluster. Load-based scaling based on load within a predefined range.
-
-Schedule-based scaling allows you to scale your HDInsight cluster at predetermined times
-
-### Create a cluster with the Azure portal
+## How it works
 
 > [!Note]
 > Autoscale is currently only supported for Azure HDInsight Hive, MapReduce and Spark clusters version 3.6.
 
-To enable the Autoscale feature with load-based scaling, do the following as part of the normal cluster creation process:
+You can choose load-based scaling or schedule-based scaling for your HDInsight cluster. Load-based scaling increases or decreases the number of nodes in your cluster, based on minimum and maximum limits that you set, to ensure optimal CPU utilization.
+
+Schedule-based scaling increases or decreases the number of nodes in your cluster based on conditions that take effect at specific times and scale the cluster to a desired number of nodes.
+
+### Metrics monitoring
+
+Autoscale continuously monitors the cluster and collects the following metrics:
+
+1. **Total Pending CPU**: The total number of cores required to start execution of all pending containers.
+2. **Total Pending Memory**: The total memory (in MB) required to start execution of all pending containers.
+3. **Total Free CPU**: The sum of all unused cores on the active worker nodes.
+4. **Total Free Memory**: The sum of unused memory (in MB) on the active worker nodes.
+5. **Used Memory per Node**: The load on a worker node. A worker node on which 10 GB of memory is used, is considered under more load than a worker with 2 GB of used memory.
+6. **Number of Application Masters per Node**: The number of Application Master (AM) containers running on a worker node. A worker node that is hosting two AM containers, is considered more important than a worker node that is hosting zero AM containers.
+
+The above metrics are checked every 60 seconds. Autoscale will make scale-up and scale-down decisions based on these metrics.
+
+### Load-based cluster scale-up
+
+When the following conditions are detected, Autoscale will issue a scale-up request:
+
+* Total pending CPU is greater than total free CPU for more than 3 minute.
+* Total pending memory is greater than total free memory for more than 3 minute.
+
+We will calculate that a certain number of new worker nodes are needed to meet the current CPU and memory requirements and then issue a scale-up request that adds that number of new worker nodes.
+
+### Load-based cluster scale-down
+
+When the following conditions are detected, Autoscale will issue a scale-down request:
+
+* Total pending CPU is less than total free CPU for more than 10 minutes.
+* Total pending memory is less than total free memory for more than 10 minutes.
+
+Based on the number of AM containers per node and the current CPU and memory requirements, Autoscale will issue a request to remove a certain number of nodes, specifying which nodes are potential candidates for removal.The scale down will trigger decommissioning of nodes and after the nodes are completely decommissioned, they will be removed.
+
+## Getting started
+
+### Create a cluster with load-based Autoscaling
+
+To enable the Autoscale feature with load-based scaling, complete the following steps as part of the normal cluster creation process:
 
 1. Select **Custom (size, settings, apps)** rather than **Quick create**.
 1. On **Custom** step 5 (**Cluster size**) check the **Worker node autoscale** checkbox.
@@ -43,6 +74,8 @@ To enable the Autoscale feature with load-based scaling, do the following as par
     ![Enable worker node load-based autoscale option](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
 
 The initial number of worker nodes must fall between the minimum and maximum, inclusive. This value defines the initial size of the cluster when it is created. The minimum number of worker nodes must be greater than zero.
+
+### Create a cluster with schedule-based Autoscaling
 
 To enable the Autoscale feature with schedule-based scaling, do the following as part of the normal cluster creation process:
 
@@ -60,46 +93,82 @@ To enable the Autoscale feature with schedule-based scaling, do the following as
 
 The number of nodes for all timings must be between 1 and the number of worker nodes entered on the previous screen.
 
-For both load-based and schedule-based scaling, select the VM type for worker nodes by clicking **Worker node size** and **Head node size**. After you choose the VM type for each node type, you will be able to see the estimated cost range for the whole cluster. You can then adjust these settings to fit your budget.
+### Final creation steps
+
+For both load-based and schedule-based scaling, select the VM type for worker nodes by clicking **Worker node size** and **Head node size**. After you choose the VM type for each node type, you will be able to see the estimated cost range for the whole cluster. Adjust the VM types to fit your budget.
 
 ![Enable worker node schedule-based autoscale option](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-node-size-selection.png)
 
 Your subscription has a capacity quota for each region. The total number of cores of your head nodes combined with the maximum number of worker nodes can’t exceed the capacity quota. However, this quota is a soft limit; you can always create a support ticket to get it increased easily.
 
 > [!Note]  
-> If you exceed the total core quota limit, You will receive an error message saying ‘the maximum node exceeded the available cores in this region, please choose another region or contact the support to increase the quota.’
+> If you exceed the total core quota limit, You will receive an error message saying 'the maximum node exceeded the available cores in this region, please choose another region or contact the support to increase the quota.'
 
 For more information on HDInsight cluster creation using the Azure portal, see [Create Linux-based clusters in HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).  
 
 ### Create a cluster with a Resource Manager template
 
-To create an HDInsight cluster with an Azure Resource Manager template, add an `autoscale` node to the `computeProfile` > `workernode` section with the properties `minInstanceCount` and `maxInstanceCount` as shown in the json snippet below.
+#### Load-based autoscaling
+
+You can create an HDInsight cluster with load-based Autoscaling an Azure Resource Manager template, by adding an `autoscale` node to the `computeProfile` > `workernode` section with the properties `minInstanceCount` and `maxInstanceCount` as shown in the json snippet below.
 
 ```json
-{                            
-    "name": "workernode",
-    "targetInstanceCount": 4,
-    "autoscale": {
-        "capacity": {
-            "minInstanceCount": 2,
-            "maxInstanceCount": 10
-        }        
-    },
-    "hardwareProfile": {
-        "vmSize": "Standard_D13_V2"
-    },
-    "osProfile": {
-        "linuxOperatingSystemProfile": {
-            "username": "[parameters('sshUserName')]",
-            "password": "[parameters('sshPassword')]"
-        }
-    },
-    "virtualNetworkProfile": null,
-    "scriptActions": []
+{
+  "name": "workernode",
+  "targetInstanceCount": 4,
+  "autoscale": {
+      "capacity": {
+          "minInstanceCount": 2,
+          "maxInstanceCount": 10
+      }
+  },
+  "hardwareProfile": {
+      "vmSize": "Standard_D13_V2"
+  },
+  "osProfile": {
+      "linuxOperatingSystemProfile": {
+          "username": "[parameters('sshUserName')]",
+          "password": "[parameters('sshPassword')]"
+      }
+  },
+  "virtualNetworkProfile": null,
+  "scriptActions": []
 }
 ```
 
 For more information on creating clusters with Resource Manager templates, see [Create Apache Hadoop clusters in HDInsight by using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  
+
+#### Schedule-based autoscaling
+
+You can create an HDInsight cluster with schedule-based Autoscaling an Azure Resource Manager template, by adding an `autoscale` node to the `computeProfile` > `workernode` section. The `autoscale` node contains a `recurrence` that has a `timezone` and `schedule` that describes when the change will take place.
+
+```json
+{
+  "autoscale": {
+    "recurrence": {
+      "timeZone": "Pacific Standard Time",
+      "schedule": [
+        {
+          "days": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "timeAndCapacity": {
+            "time": "11:00",
+            "minInstanceCount": 10,
+            "maxInstanceCount": 10
+          }
+        },
+      ]
+    }
+  },
+  "name": "workernode",
+  "targetInstanceCount": 4,
+}
+```
 
 ### Enable and disable Autoscale for a running cluster
 
@@ -109,38 +178,7 @@ You can only enable or disable Autoscale for new HDInsight clusters.
 
 You can view the cluster scale-up and scale-down history as part of the cluster metrics. You can also list all scaling actions over the past day, week, or longer period of time.
 
-## How it works
-
-### Metrics monitoring
-
-Autoscale continuously monitors the cluster and collects the following metrics:
-
-1. **Total Pending CPU**: The total number of cores required to start execution of all pending containers.
-2. **Total Pending Memory**: The total memory (in MB) required to start execution of all pending containers.
-3. **Total Free CPU**: The sum of all unused cores on the active worker nodes.
-4. **Total Free Memory**: The sum of unused memory (in MB) on the active worker nodes.
-5. **Used Memory per Node**: The load on a worker node. A worker node on which 10 GB of memory is used, is considered under more load than a worker with 2 GB of used memory.
-6. **Number of Application Masters per Node**: The number of Application Master (AM) containers running on a worker node. A worker node that is hosting two AM containers, is considered more important than a worker node that is hosting zero AM containers.
-
-The above metrics are checked every 60 seconds. Autoscale will make scale-up and scale-down decisions based on these metrics.
-
-### Cluster scale-up
-
-When the following conditions are detected, Autoscale will issue a scale-up request:
-
-* Total pending CPU is greater than total free CPU for more than 3 minute.
-* Total pending memory is greater than total free memory for more than 3 minute.
-
-We will calculate that a certain number of new worker nodes are needed to meet the current CPU and memory requirements and then issue a scale-up request that adds that number of new worker nodes.
-
-### Cluster scale-down
-
-When the following conditions are detected, Autoscale will issue a scale-down request:
-
-* Total pending CPU is less than total free CPU for more than 10 minutes.
-* Total pending memory is less than total free memory for more than 10 minutes.
-
-Based on the number of AM containers per node and the current CPU and memory requirements, Autoscale will issue a request to remove a certain number of nodes, specifying which nodes are potential candidates for removal.The scale down will trigger decommissioning of nodes and after the nodes are completely decommissioned, they will be removed.
+## Cluster state
 
 ## Next steps
 
