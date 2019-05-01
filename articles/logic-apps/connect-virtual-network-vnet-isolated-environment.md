@@ -18,11 +18,11 @@ For scenarios where your logic apps and integration accounts need access to an
 [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). 
 An ISE is a private and isolated environment that uses dedicated storage and other 
 resources that are kept separate from the public or "global" Logic Apps service. 
-This separation also reduces any impact that other Azure tenants might have on your 
-apps' performance. Your ISE is *injected* into to your Azure virtual network, 
+This separation also reduces any impact that other Azure tenants might have on 
+your apps' performance. Your ISE is *injected* into to your Azure virtual network, 
 which then deploys the Logic Apps service into your virtual network. When you create 
-a logic app or integration account, select this ISE as their location. Your logic 
-app or integration account can then directly access resources, such as virtual machines (VMs), 
+a logic app or integration account, select this ISE as their location. Your logic app 
+or integration account can then directly access resources, such as virtual machines (VMs), 
 servers, systems, and services, in your virtual network.
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
@@ -165,7 +165,7 @@ and then choose **Review + create**, for example:
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you want to create your environment |
    | **Integration Service Environment Name** | Yes | <*environment-name*> | The name to give your environment |
    | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to deploy your environment |
-   | **Additional capacity** | Yes | 0 to 10 | The number of processing units to use for this ISE resource. To add capacity after creation, see [Add capacity](#add-capacity). |
+   | **Additional capacity** | Yes | 0 to 10 | The number of additional processing units to use for this ISE resource. To add capacity after creation, see [Add capacity](#add-capacity). |
    | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, [create an Azure virtual network first](../virtual-network/quick-create-portal.md). <p>**Important**: You can *only* perform this injection when you create your ISE. |
    | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets for creating resources in your environment. To create each subnet, [follow the steps under this table](#create-subnet).  |
    |||||
@@ -253,12 +253,13 @@ choose **Create**, for example:
    > [!NOTE]
    > If deployment fails or you delete your ISE, 
    > Azure might take up to an hour before 
-   > releasing your subnets. If you delete your 
-   > virtual network, Azure generally takes up to 
-   > two hours before releasing up your subnets, 
-   > but this operation might take up to 12 hours. 
-   > This delay means you might have to wait before 
+   > releasing your subnets. This delay means 
+   > means you might have to wait before 
    > reusing those subnets in another ISE.
+   > If you delete your virtual network, 
+   > Azure generally takes up to two hours 
+   > before releasing up your subnets, but this 
+   > operation might take as long as 12 hours. 
 
 1. To view your environment, choose **Go to resource** if Azure 
 doesn't automatically go to your environment after deployment finishes.  
@@ -273,9 +274,9 @@ For more information about creating subnets, see
 Your ISE base unit has fixed capacity, so if you 
 need more throughput, you can add more scale units. 
 You can autoscale based on performance metrics or 
-based on a number of processing units. If you choose 
-autoscaling based on metrics, you can choose from 
-various criteria and specify the threshold 
+based on a number of additional processing units. 
+If you choose autoscaling based on metrics, you can 
+choose from various criteria and specify the threshold 
 conditions for meeting that criteria.
 
 1. In the Azure portal, find your ISE.
