@@ -56,14 +56,14 @@ Any-to-any connectivity, in the context of a global architecture, allows an ente
 
 **Figure 3: Virtual WAN traffic paths**
 
-Azure Virtual WAN supports the following global transit connectivity paths. The letters map to Figure 3.
+Azure Virtual WAN supports the following global transit connectivity paths. The letters in parentheses map to Figure 3.
 
-* Branch-to-VNet (A)  
-* Branch-to-branch (B)
+* Branch-to-VNet (a)  
+* Branch-to-branch (b)
 * ExpressRoute Global Reach 
-    * Remote User-to-VNet (C)
-    * Remote User-to-branch (D)
-    * VNet-to-VNet using VNet peering (E)
+    * Remote User-to-VNet (c)
+    * Remote User-to-branch (d)
+    * VNet-to-VNet using VNet peering (e)
 
 ### Branch-to-VNet
 
