@@ -208,7 +208,7 @@ We want to ensure that devices are fully configured before use. Intune provides 
 * **Show app profile installation progress** - Yes
    * **Block device use until all apps and profiles are installed** - Yes
 
-### Create an Autopilot deployment profile
+#### Create an Autopilot deployment profile
 
 After creating a device group, you must create a deployment profile so that you can configure the Autopilot devices.
 
@@ -223,7 +223,7 @@ After creating a device group, you must create a deployment profile so that you 
 1. Choose **Assignments** > **Assign to** > **Selected Groups**
    * **Select groups to include** - Secure Workstation Users
 
-### Enable a secure device baseline
+#### Enable a secure device baseline
 
 For this guidance, Windows 10 version 1809 is required for the use of Windows Defender ATP, Intune, and Windows Threat protection. To find your Windows version, follow the guidance outlined in the article [Enroll your first Windows 10 device](https://docs.microsoft.com/Intune/quickstart-enroll-windows-device).
 
@@ -253,40 +253,34 @@ To configure a security baseline profile in the Azure portal, browse to **Micros
 
 Check the System boot start driver initialization setting? Should we change this from the default?
 
-### Enabling Windows Defender Advanced Threat Protection (ATP), and jailbreak prevention
+#### Enable Intune compliance policies
 
-#### Auditing and Logging of devices
+Compliance policies define the configuration rules and settings that users and devices must meet to be considered compliant including:
 
-In the deployed solution we will rely on the configured ATP audit policies, and notifications that we enable with ATP enforcement. This design will not explore additional auditing, and monitoring outside of [ATP monitoring, and auditing capabilities](https://docs.microsoft.com/azure-advanced-threat-protection/atp-advanced-audit-policy).
-
-This feature is called "compliance policies". Compliance policies define the rules and settings that users and devices must meet to be compliant. We will require the following configurations:
-
-* Use a password to access organizational data on mobile devices
+* Use of a password to access organizational data on mobile devices
 * The device isn't jail-broken or rooted
-* A minimum operating system version on the device
+* The minimum operating system version on the device
 * The device to be at, or under a threat level
 
-We will be requiring devices to be compliant, with no ability to be used if core compliant services are altered.
+We will require devices to be compliant to access cloud services.
 
 In Microsoft Intune Device compliance - Compliance policy settings, we will enable the ability to validate compliant devices, and enable the Enhanced jailbreak detection with a validation no longer than 10 days.
 
-#### ATP protection
+NEED LIST OF SETTINGS FOR COMPLIANCE POLICY
 
-Windows Defender Advanced Threat Protection (ATP) and Microsoft Intune work together to help prevent security breaches, and help limit the impact of breaches. The capabilities will provide real-time detection. ATP will also provide our deployment extensive audit and logging of the end-point devices.
+#### Windows Defender ATP Intune integration
 
-1. Select All services, filter on Intune, and select Microsoft Intune.
-1. Select Device compliance > Windows Defender ATP > Open the Windows Defender Security Center.
+Windows Defender ATP and Microsoft Intune work together to help prevent security breaches, and help limit the impact of breaches. The capabilities will provide real-time detection. ATP will also provide our deployment extensive audit and logging of the end-point devices.
 
-Configuring Windows Defender ATP
+To configure Windows Defender ATP Intune integration in the Azure portal, browse to **Microsoft Intune** > **Device compliance** > **Windows Defender ATP**.
 
-1. Set up a connection to Intune via the Windows Defender Security Center:
-   * [Connect Windows Defender ATP to Microsoft Intune in the Windows Defender Security Center](https://securitycenter.windows.com/preferences2/integration)
-1. After a connection is established, click "Refresh" at the top of this section to hide this guide and continue to enable the settings below.
+1. In step one under **Configuring Windows Defender ATP**, click **Connect Windows Defender ATP to Microsoft Intune in the Windows Defender Security Center​**.
 1. In the Windows Defender Security Center:
    * Select Settings > Advanced features.
    * For Microsoft Intune connection, choose On:
    * Select Save preferences.
-1. Go back to Intune, Device compliance > Windows Defender ATP. Set Connect Windows devices version 10.0.15063 and above to Windows Defender ATP to On.
+1. After a connection is established, return to Intune and click "Refresh" at the top section.
+1. Set Connect Windows devices version 10.0.15063 and above to Windows Defender ATP to On.
 1. Select Save.
 
 Windows Defender Advanced Threat Protection (ATP) - https://docs.microsoft.com/Windows/security/threat-protection/
