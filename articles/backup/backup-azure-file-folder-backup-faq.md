@@ -75,7 +75,7 @@ When you rename a Windows machine, all currently configured backups are stopped.
 
 - You need to register the new machine name with the Backup vault.
 - When you register the new name with the vault, the first operation is a *full* backup.
-- If you need to recover data backed up to the vault with the old server name, use to the opton restore to an alterate location in the Recover Data Wizard. [Learn more](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine). 
+- If you need to recover data backed up to the vault with the old server name, use the option to restore to an alternate location in the Recover Data Wizard. [Learn more](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine). 
 
 ### What is the maximum file path length for backup?
 The MARS agent relies on NTFS, and uses the filepath length specification limited by the [Windows API](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths). If the files you want to protect are longer than the allowed value, back up the parent folder or the disk drive.  
