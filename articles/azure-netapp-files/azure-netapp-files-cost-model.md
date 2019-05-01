@@ -20,7 +20,7 @@ ms.author: b-juche
 
 Understanding the cost model for Azure NetApp Files helps you manage your expenses from the service.
 
-Azure NetApp Files is billed on provisioned storage capacity.  Provisioned capacity is allocated by creating capacity pools.  Capacity pools are billed based on $/provisioned-GiB/month in hourly increments.  The minimum size for a single capacity pool is 4 TiB, and capacity pools can be subsequently expanded in 1-TiB increments.  Volumes are created within capacity pools.  Each volume is assigned a quota that decrements from the pools-provisioned capacity.  Volumes can range in size from 100 GiB minimum up to 100 TiB maximum.  
+Azure NetApp Files is billed on provisioned storage capacity.  Provisioned capacity is allocated by creating capacity pools.  Capacity pools are billed based on $/provisioned-GiB/month in hourly increments.  The minimum size for a single capacity pool is 4 TiB, and capacity pools can be subsequently expanded in 1-TiB increments.  Volumes are created within capacity pools.  Each volume is assigned a quota that decrements from the pools-provisioned capacity.  The quota that can be assigned to volumes ranges from a minimum of 100 GiB minimum up to a maximum of 92 TiB.  
 
 For an active volume, capacity consumption against quota is based on logical (effective) capacity.
 
@@ -35,7 +35,7 @@ The diagram below illustrates these concepts.
     * Volume 1 is assigned a quota of 2 TiB and has 800 GiB of consumption.  
     * Volume 2 is assigned a quota of 1 TiB and has 100 GiB of consumption.  
     * Volume 3 is assigned a quota of 500 GiB but has 800 GiB of consumption (overage).  
-* The capacity pool is metered for 4 TiB of capacity (the provisioned amount).
+* The capacity pool is metered for 4 TiB of capacity (the provisioned amount).  
     3.8 TiB of capacity is consumed (2 TiB and 1 TiB of quota from Volumes 1 and 2, and 800 GiB of actual consumption for Volume 3). And 200 GiB of capacity is remaining.
 
    ![Capacity pool with three volumes](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png)
@@ -50,9 +50,9 @@ You can manually increase or decrease the pool size. However, the following cons
 * The provisioned pool size may not be decreased to less than the total used capacity in the pool.
 
 The maximum size of a capacity pool that you can create or resize to is 500 TiB.  When the total used capacity in a capacity pool exceeds 500 TiB, the following situations will occur:
-* Data writes will still be permitted (provided that the volume is below the system maximum of 100 TiB).
+* Data writes will still be permitted (if the volume is below the system maximum of 100 TiB).
 * After the one-hour grace period, the pool will be automatically resized in 1-TiB increments, until the pool provisioned capacity exceeds total used capacity.
-* The additional provisioned and billed pool capacity in excess of 500 TiB cannot be used to assign volume quota.  It also cannot be used to expand performance QoS limits. 
+* The additional provisioned and billed pool capacity exceeding 500 TiB cannot be used to assign volume quota.  It also cannot be used to expand performance QoS limits. 
     See the [service levels](azure-netapp-files-service-levels.md) article about performance limits and QoS sizing.
 
 The diagram below illustrates these concepts:
