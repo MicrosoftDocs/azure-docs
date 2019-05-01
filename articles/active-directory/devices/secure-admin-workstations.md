@@ -102,11 +102,11 @@ Throughout the guidance, multiple scenarios will be addressed to achieve a more 
       * Exploit guard
    * Applications installed using Intune only
 * DevOps – Developers and testers are an attractive target to attackers as these roles can alter systems of interest to the attackers. This is especially important for applications with internet access, business critical systems with sensitive data, systems process financial transactions, critical business functions where downtime can be expensive and other high value assets (sometimes referred to as “toxic” because of the damage to the business if released). This could include SWIFT payment terminals or operations technology SCADA/ICS that blends chemicals for food, drugs, construction materials, or medical supplies. All controls from the VIP workstation are built on top of.
-   * National Cyber Security Centre (NCSC) Intune security baseline applied
+   * National Cyber Security Center (NCSC) Intune security baseline applied
    * Browsing restrictions using URL approved lists
    * Deployment controlled with Windows Autopilot
 * Secured – An attacker who can compromise an administrative account can typically cause significant business damage by data theft, data alteration, or service disruption. In this hardened state, the workstation will enable all the security controls and policies described in the content. All controls from the DevOps workstation are built on top of.
-   * NCSC baseline with added controls taken from the SECCON security level 3 are applied to harden the host and its local policies
+   * NCSC baselines with added controls taken from the SECCON security level 3 are applied to harden the host and its local policies
 
 ![Secured workstation](./media/secure-admin-workstations/secure-workstation.png)
 
@@ -118,76 +118,102 @@ Throughout the guidance, multiple scenarios will be addressed to achieve a more 
 
 The concepts covered in this guide will assume Microsoft 365 Enterprise E5 or an equivalent SKU. Some of the recommendations in this guide can be implemented with lower SKUs. Additional information can be found on [Microsoft 365 Enterprise licensing](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise).
 
-### Setting up Azure Active Directory
+You may want to configure [group-based licensing](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-groups-assign) for your users to automate provisioning of licenses.
 
-Configuring the Azure Active Directory tenant, which will manage your users, groups, and devices for your administrator’s workstation requires that you enable identity services and features with an [administrator account](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
+### Azure Active Directory
+
+Configuring your Azure Active Directory (Azure AD) directory, which will manage your users, groups, and devices for your administrator workstations requires that you enable identity services and features with an [administrator account](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
 When you create the secured workstation administrator account, you are exposing the account to your current workstation. It is recommended you do this initial configuration and all global configuration from a known safe device. You can consider the guidance to [prevent malware infections](https://docs.microsoft.com/windows/security/threat-protection/intelligence/prevent-malware-infection) to reduce the risk of exposing first the first-time experience from attack.
 
 Organizations should require multi-factor authentication, at least for their administrators. See [Deploy cloud-based MFA](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted) for implementation guidance.
 
-### Removal of local admin rights
+#### Azure AD user and group configuration
 
-One of the last steps in moving devices to a secure mode is to remove the local administrator rights, and enforce a user only mode on the devices. The update requires to make the following changes https://docs.microsoft.com/azure/active-directory/devices/assign-local-admin
+From the Azure portal, browse to **Azure Active Directory** > **Users** > **New user**. [Create your Secure Workstation user](https://docs.microsoft.com/Intune/quickstart-create-user), who will be your device administrator.
 
-### Setting up Intune Users and Groups for Secure Administrator
+* **Name** - Secure Workstation Administrator
+* **User name** - secure-ws-admin@identityitpro.com
+* **Directory role** - **Limited administrator** and select the following administrative role
+   * **Intune Administrator**
+* **Create**
 
-Your Intune subscription will be associated with your Default directory, and the Azure Active directory administrator will be provisioned as the primary member.
+We will create two groups one for users of the workstations and one for the workstations themselves. From the Azure portal, browse to **Azure Active Directory** > **Groups** > **New group**
 
-Select Microsoft Intune, User All users – user. [Create your Secure Workstation user](https://docs.microsoft.com/Intune/quickstart-create-user), who will be your device Administrator. In this documentation, the user will be named ‘Secure Workstation Administrator’, user name ‘securews’
+First group for workstation users. You may want to configure [group-based licensing](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-groups-assign) for the users in this group to automate provisioning of licenses to users.
 
-* The user will require to be added to the directory role of ‘Limited administrator’ to be able to create users, groups and add secured workstation devices, and policies to the domain.
+* **Group type** - Security
+* **Group name** - Secure Workstation Users
+* **Membership type** - Assigned
+* Add your secure workstation administrator user to the group
+   * secure-ws-admin@identityitpro.com
+* You can add any other users that will be managing secure workstations to the group
+* **Create**
 
-[Create a group](https://docs.microsoft.com/Intune/quickstart-create-group) Microsoft Intune, Groups – All Groups. Select group type ‘Security’.
+Second group for workstation devices.
 
-* Group name ‘securedws’
-* Select membership type, as ‘assigned’. However the dynamic users can be configured if the correct policies are applied to the group.
-* Add your secure workstation administrator user to the group.
-* You can all add all the users that will be managing secure workstations to the newly create group.
+* **Group type** - Security
+* **Group name** - Secure Workstations
+* **Membership type** - Assigned
+* **Create**
 
-Set up Windows 10 enrollment, which will allow for your new workstation to be joined to the new group securedws group for selected devices. Follow the steps outlined on the [Intune Quickstart: Set up automatic enrollment for Windows 10 devices](https://docs.microsoft.com/Intune/quickstart-setup-auto-enrollment).
+#### Azure AD device configuration settings
 
-Configure your Devices setting in Active Directory to allow your administrative security group to join devices to your domain. This can be set Azure Active Directory - Devices - Device Settings
+##### Specify who can join devices to Azure AD
+
+Configure your Devices setting in Active Directory to allow your administrative security group to join devices to your domain. To configure this setting from the Azure portal, browse to **Azure Active Directory** > **Devices** > **Device settings**. Choose **Selected** under **Users may join devices to Azure AD** and select the "Secure Workstation Users" group.
+
+##### Removal of local admin rights
+
+As part of the rollout workstations users of the VIP, DevOps, and Secure level workstations will have no administrator rights on their machines. To configure this setting from the Azure portal, browse to **Azure Active Directory** > **Devices** > **Device settings**. Select **None** under **Additional local administrators on Azure AD joined devices**.
+
+##### Require Multi-Factor Auth to join devices
+
+To further strengthen the process of joining devices to Azure AD, browse to **Azure Active Directory** > **Devices** > **Device settings** choose **Yes** under **Require Multi-Factor Auth to join devices** then choose **Save**.
+
+#### Configure MDM
+
+From the Azure portal, browse to **Azure Active Directory** > **Mobility (MDM and MAM)** > **Microsoft Intune**. Change the setting **MDM user scope** to **All** and choose **Save** as we will allow any device to be managed by Intune in this scenario. More information can be found in the article [Intune Quickstart: Set up automatic enrollment for Windows 10 devices](https://docs.microsoft.com/Intune/quickstart-setup-auto-enrollment). We will create Intune configuration and compliance policies in a future step.
+
+#### Azure AD conditional access
+
+Azure AD conditional access can help keep these privileged administrative tasks on compliant devices. Users we have defined as members of the **Secure Workstation Users** group will be required to perform multi-factor authentication when signing in to cloud applications. We will follow the best practice guidance and exclude our emergency access accounts from the policy. Additional information can be found in the article [Manage emergency access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
+
+To configure conditional access from the Azure portal, browse to **Azure Active Directory** > **Conditional Access** > **New policy**.
+
+* **Name** - Secure device required policy
+* Assignments
+   * **Users and groups**
+      * Include - **Users and groups** - Select the **Secure Workstation Users** group created earlier
+      * Exclude - **Users and groups** - Select your organization's emergency access accounts
+   * **Cloud apps**
+      * Include - **All cloud apps**
+* Access controls
+   * **Grant** - Select **Grant access** radio button
+      * **Require multi-factor authentication**
+      * **Require device to be marked as compliant**
+      * For multiple controls - **Require all the selected controls**
+* Enable policy - **On**
+
+Organizations can optionally create policies to block countries where users would not access company resources. More information about IP location-based conditional access policies can be found in the article [What is the location condition in Azure Active Directory conditional access?](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition)
+
+### Intune configuration
+
+
+
+
+
 
 Configure your autopilot [enroll device](https://docs.microsoft.com/Intune/tutorial-use-autopilot-enroll-devices) for your secure workstations. The following elements should be addressed.
 
-Configure your MDM Active Directory – Configure
-
-Select some, and select the securedws group.
-
 Configure the Windows Enrollment settings to block devices to be used until the profiles and apps are installed.
 
-### Configuring Conditional Access to your Cloud Services
 
-Azure Active Directory can be configured to restrict management of your cloud service to ONLY allow secure workstations access this conditional access will ensure that your secured workstations are the only devices managing your cloud services. This will assure that users and devices are validated, and compliant before contact with any management processes.
-
-Deploying conditional access is outlined in the conditional-access guidance. We will configure the service to only allow for the devices we have provisioned to make any management to users and devices in our ‘secure-ws’ security group.
-
-Enable your conditional access in Microsoft Intune - Conditional Access Policies – New Policy
-
-We will add the ‘secure device required policy’. And configure the following settings.
-
-Set cloud apps to – All cloud Apps.
-
-Set User and groups – select securews
-
-We implement the device state to validate that only compliant devices can be used to manage cloud service. 
-
-Additionally, you can add location-based conditional access. Setting the location in Intune will provide the trusted locations for the conditional access.
-
-Location
 
 ### Create an Autopilot deployment profile
 
 After creating a device group, you must create a deployment profile so that you can configure the Autopilot devices.
 
-#### Selecting your MDM authority
-
-For a secure workstation, we will select that Intune MDM is the authority. Learn more about [choosing your MDM Authority](https://go.microsoft.com/fwlink/?linkid=844064).
-
-### Windows Hello for Business
-
-Configuring Windows hello for business will provide your secured devices two factor authentication. The Device enrollment - Windows enrollment - Windows Hello for Business – properties.  Configuration requires that  Hello for business is ‘enabled’ and default settings should require pin length of 6, with a pin expiration to be every three months. ‘remember pin history’ should be set to yes. And enhanced anti-spoofing should be set to yes. ‘Allow phone sign-in’ (set to yes) will provide your users a self-service management of device pin’s. 
 
 1. In Intune in the Azure portal, choose Device enrollment > Windows enrollment > Deployment Profiles > Create Profile.
 1. For Name, enter Secureworkstations. For Description, enter deployment of secure workstations.
@@ -200,7 +226,7 @@ Configuring Windows hello for business will provide your secured devices two fac
    * User account type: Standard
 1. Choose Create to create the profile. The Autopilot deployment profile is now available to assign to devices.
 1. Choose Device enrollment > Windows enrollment > Deployment Profiles > Assignments
-   * Selected Group > securedws
+   * Selected Group > Secure Workstation Users
 
 Additional reading for configuring Windows autopilot
 
@@ -231,11 +257,11 @@ This includes managing the following categories:
 
 #### Create a baseline profile (using Security baselines)
 
-Provide the baseline starting point giving it a name, here we use SecuredWS1, which we will use as a starting point for device enforcement.
+Provide the baseline starting point giving it a name, here we use Secured-Workstation-Baseline1, which we will use as a starting point for device enforcement.
 
 For the initial setup we will implement the baseline, and apply additional constraints in policies.
 
-Assign the securedws security group, and commit the changes with save+deploy
+Assign the Secure Workstation Users security group, and commit the changes with save+deploy
 
 ### Enabling Windows Defender Advanced Threat Protection (ATP), and jailbreak prevention
 
@@ -344,7 +370,7 @@ Microsoft scripting center provides the script [SetDesktopBackground.ps1](https:
 1. Select configure, and set Run this script using the logged on credentials, to yes
 1. Select create
 1. Select assignment
-1. Add the security group securedws
+1. Add the security group Secure Workstation Users
 1. D
 1. 
 1. 
@@ -372,7 +398,7 @@ NOTE – the script will require elevated rights and run as unsigned. You can us
 
 Go to Azure portal - All services - Intune - Device Enrollment – Windows Enrollment -Windows autopilot devices select Import the .csv file you have created.
 
-* Add the enrolled device (Laptop) to your security group securedws.
+* Add the enrolled device (Laptop) to your security group Secure Workstation Users.
 
 From the Windows device (laptop) In devices settings – Reset this PC select Get started and follow the prompts.
 
@@ -401,3 +427,23 @@ In a secured mode installing applications will be restricted to the Intune compa
 Installing an Intune managed copy of the [Company Portal](https://docs.microsoft.com/en-us/Intune/store-apps-company-portal-app) will permit the ability to push down additional tools on demand to users of the secured workstations.
 
 Finally, some organizations may be required to install win32 apps or apps that require other preparations to deploy. For these the [Microsoft win32 content prep tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) will provide a ready to use `.intunewin` format file for installation.
+
+
+
+
+### Windows Hello for Business
+
+Configuring Windows Hello for Business provides your secure devices multi-factor authentication and a great user experience. 
+
+Windows Hello for Business is enabled from the **Azure portal** > **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Windows Hello for Business** > **Properties**. 
+
+Under **Settings** configure the following settings
+
+* **Configure Windows Hello for Business** - **Enabled**
+* **Use a Trusted Platform Module** - **Required**
+* **Minimum PIN length** - **6**
+* **PIN expiration (days)** - **90**
+
+
+
+Configuration requires that  Hello for business is ‘enabled’ and default settings should require pin length of 6, with a pin expiration to be every three months. ‘remember pin history’ should be set to yes. And enhanced anti-spoofing should be set to yes. ‘Allow phone sign-in’ (set to yes) will provide your users a self-service management of device pin’s. 
