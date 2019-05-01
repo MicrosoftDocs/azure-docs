@@ -165,7 +165,7 @@ and then choose **Review + create**, for example:
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you want to create your environment |
    | **Integration Service Environment Name** | Yes | <*environment-name*> | The name to give your environment |
    | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to deploy your environment |
-   | **Additional capacity** | Yes | 0 to 10 | The number of processing units to use for this ISE resource. To add capacity after creation, see [Add capacity](#add-capacity). |
+   | **Additional capacity** | Yes | 0 to 10 | The number of additional processing units to use for this ISE resource. To add capacity after creation, see [Add capacity](#add-capacity). |
    | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, [create an Azure virtual network first](../virtual-network/quick-create-portal.md). <p>**Important**: You can *only* perform this injection when you create your ISE. |
    | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets for creating resources in your environment. To create each subnet, [follow the steps under this table](#create-subnet).  |
    |||||
@@ -253,12 +253,13 @@ choose **Create**, for example:
    > [!NOTE]
    > If deployment fails or you delete your ISE, 
    > Azure *might* take up to an hour before 
-   > releasing your subnets. If you try to delete 
-   > your virtual network, Azure generally takes up 
-   > to two hours before releasing up your subnets, 
-   > but this operation *might* take up to 12 hours. 
-   > This delay means you might have to wait before 
-   > reusing those subnets in another ISE.
+   > releasing your subnets. This delay means 
+   > you might have to wait before you can reuse 
+   > those subnets in another ISE.
+   > If you try to delete your virtual network, 
+   > Azure generally takes up to two hours before 
+   > releasing up your subnets, but this operation 
+   > *might* as long as 12 hours.
 
 1. To view your environment, choose **Go to resource** if Azure 
 doesn't automatically go to your environment after deployment finishes.  
@@ -270,9 +271,9 @@ doesn't automatically go to your environment after deployment finishes.
 Your ISE base unit has fixed capacity, so if you 
 need more throughput, you can add more scale units. 
 You can autoscale based on performance metrics or 
-based on a number of processing units. If you choose 
-autoscaling based on metrics, you can choose from 
-various criteria and specify the threshold 
+based on a number of additional processing units. 
+If you choose autoscaling based on metrics, you can 
+choose from various criteria and specify the threshold 
 conditions for meeting that criteria.
 
 1. In the Azure portal, find your ISE.
