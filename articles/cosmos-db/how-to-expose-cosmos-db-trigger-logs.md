@@ -20,7 +20,7 @@ The health logs describe how the Azure Cosmos DB Trigger behaves when attempting
 
 ## Enabling logs
 
-To enable the logs, you need to locate your `host.json` file in your Azure Functions project or Azure Functions App and follow the [documented steps](./azure-functions/functions-monitoring.md#log-configuration-in-hostjson) to enable traces for `Host.Triggers.CosmosDB` like so:
+To enable the logs, you need to locate your `host.json` file in your Azure Functions project or Azure Functions App and follow the [documented steps](../azure-functions/functions-monitoring.md#log-configuration-in-hostjson) to enable traces for `Host.Triggers.CosmosDB` like so:
 
 ```js
 {
@@ -47,5 +47,5 @@ traces
 
 ## Next steps
 
-* [Enable monitoring](./azure-functions/functions-monitoring.md) in your Azure Functions applications.
+* [Enable monitoring](../azure-functions/functions-monitoring.md) in your Azure Functions applications.
 * Check our [troubleshooting guide](./troubleshoot-changefeed-functions.md) for common issues.
