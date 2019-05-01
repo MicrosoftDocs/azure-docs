@@ -871,6 +871,8 @@ Here are some commonly used action types:
 
   * [**Response**](#response-action) for responding to requests
 
+  * [**Execute JavaScript Code](#run-javascript-code) for running JavaScript code snippets
+
   * [**Function**](#function-action) for calling Azure Functions
 
   * Data operation actions such as [**Join**](#join-action), [**Compose**](#compose-action), 
@@ -898,6 +900,7 @@ and help you organize workflow execution
 | Action type | Description | 
 |-------------|-------------| 
 | [**Compose**](#compose-action) | Creates a single output from inputs, which can have various types. | 
+| [**Execute JavaScript Code](#run-javascript-code) | Run JavaScript code snippets that fit within specific criteria. For code requirements and more information, see [Add and run code snippets with inline code](../logic-apps/logic-apps-add-run-inline-code.md). |
 | [**Function**](#function-action) | Calls an Azure Function. | 
 | [**HTTP**](#http-action) | Calls an HTTP endpoint. | 
 | [**Join**](#join-action) | Creates a string from all the items in an array and separates those items with a specified delimiter character. | 
@@ -1144,6 +1147,68 @@ This action definition merges a string variable that contains
 Here is the output that this action creates:
 
 `"abcdefg1234"`
+
+<a name="run-javascript-code"></a>
+
+### Execute JavaScript Code action
+
+This action runs a JavaScript code snippet and returns the output 
+through a `Result` object that later actions can reference. 
+Your code has access to the `workflowContext` object, 
+which you can use to reference property values for your 
+workflow (`workflow`), trigger (`trigger`), and previous actions (`actions`). 
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "<JavaScript-code-snippet>",
+      "explicitDependencies": {
+         "actions": [ <previous-actions> ],
+          "includeTrigger": true
+      }
+   },
+   "runAfter": {}
+}
+```
+*Required*
+
+| Value | Type | Description |
+|-------|------|-------------|
+| <*JavaScript-code-snippet*> | Varies | The JavaScript code that you want to run. For code requirements and more information, see [Add and run code snippets with inline code](../logic-apps/logic-apps-add-run-inline-code.md). |
+||||
+
+*Optional*
+
+The `explicitDependencies` attribute specifies that you want 
+to explicitly include outputs from the trigger, previous actions, 
+or both as dependencies for the code that you're running. 
+For more information, see [Add parameters for inline code](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters).
+
+| Value | Type | Description |
+|-------|------|-------------|
+| <*previous-actions*> | Varies | An array that contains previous actions |
+||||
+
+For the `includeTrigger` attribute, you can specify `true` or `false` values. 
+
+*Example*
+
+This action runs code that gets your logic app's name 
+and returns the text "Hello world from <logic-app-name>". 
+In this example, the code references the workflow's name 
+by using `workflowContext.workflow.name`. For more information, 
+see [Add and run code snippets with inline code](../logic-apps/logic-apps-add-run-inline-code.md).
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var text = \"Hello world from \" + workflowContext.workflow.name;\r\n\r\nreturn text;"
+   },
+   "runAfter": {}
+}
+```
 
 <a name="function-action"></a>
 
