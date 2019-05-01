@@ -19,9 +19,9 @@ ms.author: harijay
 
 # Azure Serial Console for Linux
 
-The Serial Console in the Azure portal provides access to a text-based console for Linux virtual machines (VMs) and virtual machine scale set (VMSS) instances. This serial connection connects to the COM1 serial port of the VM or VMSS instance, providing access to it independent of the network or operating system state. The serial console can only be accessed by using the Azure portal and is allowed only for those users who have an access role of Contributor or higher to the VM or VMSS.
+The Serial Console in the Azure portal provides access to a text-based console for Linux virtual machines (VMs) and virtual machine scale set (virtual machien scale set) instances. This serial connection connects to the COM1 serial port of the VM or virtual machien scale set instance, providing access to it independent of the network or operating system state. The serial console can only be accessed by using the Azure portal and is allowed only for those users who have an access role of Contributor or higher to the VM or virtual machien scale set.
 
-Serial Console works in the same manner for VMs and VMSS instances. In this doc, all mentions to VMs will implicitly include VMSS instances unless otherwise stated.
+Serial Console works in the same manner for VMs and virtual machien scale set instances. In this doc, all mentions to VMs will implicitly include virtual machien scale set instances unless otherwise stated.
 
 For Serial Console documentation for Windows, see [Serial Console for Windows](../windows/serial-console.md).
 
@@ -31,13 +31,13 @@ For Serial Console documentation for Windows, see [Serial Console for Windows](.
 
 ## Prerequisites
 
-- Your VM or VMSS instance must use the resource management deployment model. Classic deployments aren't supported.
+- Your VM or virtual machien scale set instance must use the resource management deployment model. Classic deployments aren't supported.
 
 - Your account that uses serial console must have the [Virtual Machine Contributor role](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) for the VM and the [boot diagnostics](boot-diagnostics.md) storage account
 
-- Your VM or VMSS instance must have a password-based user. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) function of the VM access extension. Select **Reset password** from the **Support + troubleshooting** section.
+- Your VM or virtual machien scale set instance must have a password-based user. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) function of the VM access extension. Select **Reset password** from the **Support + troubleshooting** section.
 
-- Your VM or VMSS instance must have [boot diagnostics](boot-diagnostics.md) enabled.
+- Your VM or virtual machien scale set instance must have [boot diagnostics](boot-diagnostics.md) enabled.
 
     ![Boot diagnostics settings](./media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
@@ -46,7 +46,7 @@ For Serial Console documentation for Windows, see [Serial Console for Windows](.
 
 
 ## Get started with the Serial Console
-The Serial Console for VMs and VMSS is accessible only through the Azure portal:
+The Serial Console for VMs and virtual machien scale set is accessible only through the Azure portal:
 
 ### Serial Console for Virtual Machines
 Serial Console for VMs is as straightforward as clicking on **Serial console** within the **Support + troubleshooting** section in the Azure portal.
@@ -59,22 +59,22 @@ Serial Console for VMs is as straightforward as clicking on **Serial console** w
      ![Linux Serial Console window](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 ### Serial Console for Virtual Machine Scale Sets
-Serial Console is available on a per-instance basis for VMSSes. You will have to navigate to the individual instance of a VMSS before seeing the **Serial console** button. If your VMSS does not have boot diagnostics enabled, ensure you update your VMSS model to enable boot diagnostics, and then upgrade all instances to the new model in order to access serial console.
+Serial Console is available on a per-instance basis for virtual machien scale sets. You will have to navigate to the individual instance of a virtual machien scale set before seeing the **Serial console** button. If your virtual machien scale set does not have boot diagnostics enabled, ensure you update your virtual machien scale set model to enable boot diagnostics, and then upgrade all instances to the new model in order to access serial console.
   1. Open the [Azure portal](https://portal.azure.com).
 
-  1. Navigate to **All resources** and select a Virtual Machine Scale Set. The overview page for the VMSS opens.
+  1. Navigate to **All resources** and select a Virtual Machine Scale Set. The overview page for the virtual machien scale set opens.
 
   1. Navigate to **Instances**
 
-  1. Select a VMSS instance
+  1. Select a virtual machien scale set instance
 
   1. From the **Support + troubleshooting** section, select **Serial console**. A new pane with the serial console opens and starts the connection.
 
-     ![Linux VMSS Serial Console](./media/virtual-machines-serial-console/vmss-start-console.gif)
+     ![Linux virtual machien scale set Serial Console](./media/virtual-machines-serial-console/vmss-start-console.gif)
 
 
 > [!NOTE]
-> The serial console requires a local user with a configured password. VMs or VMSSes configured only with an SSH public key won't be able to sign in to the serial console. To create a local user with a password, use the [VMAccess Extension](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension), which is available in the portal by selecting **Reset password** in the Azure portal, and create a local user with a password.
+> The serial console requires a local user with a configured password. VMs or virtual machine scale sets configured only with an SSH public key won't be able to sign in to the serial console. To create a local user with a password, use the [VMAccess Extension](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension), which is available in the portal by selecting **Reset password** in the Azure portal, and create a local user with a password.
 > You can also reset the administrator password in your account by [using GRUB to boot into single user mode](./serial-console-grub-single-user-mode.md).
 
 ## Serial Console Linux distribution availability
@@ -104,10 +104,10 @@ SSH configuration issues | Access the serial console and change the settings. Se
 Interacting with bootloader | Restart your VM from within the serial console blade to access GRUB on your Linux VM. For more details and distro-specific information, see [Use serial console to access GRUB and single user mode](serial-console-grub-single-user-mode.md).
 
 ## Disable the Serial Console
-By default, all subscriptions have serial console access enabled. You can disable the serial console at either the subscription level or VM/VMSS level. Note that boot diagnostics must be enabled on a VM in order for serial console to work.
+By default, all subscriptions have serial console access enabled. You can disable the serial console at either the subscription level or VM/virtual machien scale set level. Note that boot diagnostics must be enabled on a VM in order for serial console to work.
 
-### VM/VMSS-level disable
-The serial console can be disabled for a specific VM or VMSS by disabling the boot diagnostics setting. Turn off boot diagnostics from the Azure portal to disable the serial console for the VM or the VMSS. If you are using serial console on a VMSS, ensure you upgrade your VMSS instances to the latest model.
+### VM/virtual machien scale set-level disable
+The serial console can be disabled for a specific VM or virtual machien scale set by disabling the boot diagnostics setting. Turn off boot diagnostics from the Azure portal to disable the serial console for the VM or the virtual machien scale set. If you are using serial console on a virtual machien scale set, ensure you upgrade your virtual machien scale set instances to the latest model.
 
 > [!NOTE]
 > To enable or disable the serial console for a subscription, you must have write permissions to the subscription. These permissions include administrator or owner roles. Custom roles can also have write permissions.
@@ -174,7 +174,7 @@ Use the **Tab** key on your keyboard to navigate in the serial console interface
 The serial console has screen reader support built in. Navigating around with a screen reader turned on will allow the alt text for the currently selected button to be read aloud by the screen reader.
 
 ## Errors
-Because most errors are transient, retrying your connection can often fix them. The following table shows a list of errors and mitigations. These errors and mitigations apply for both VMs and VMSS instances.
+Because most errors are transient, retrying your connection can often fix them. The following table shows a list of errors and mitigations. These errors and mitigations apply for both VMs and virtual machien scale set instances.
 
 Error                            |   Mitigation
 :---------------------------------|:--------------------------------------------|
@@ -186,7 +186,7 @@ Web socket is closed or could not be opened. | You may need to whitelist `*.cons
 A "Forbidden" response was encountered when accessing this VM's boot diagnostic storage account. | Ensure that boot diagnostics doesn't have an account firewall. An accessible boot diagnostic storage account is necessary for the serial console to function.
 
 ## Known issues
-We're aware of some issues with the serial console. Here's a list of these issues and steps for mitigation. These issues and mitigations apply for both VMs and VMSS instances.
+We're aware of some issues with the serial console. Here's a list of these issues and steps for mitigation. These issues and mitigations apply for both VMs and virtual machien scale set instances.
 
 Issue                           |   Mitigation
 :---------------------------------|:--------------------------------------------|
@@ -217,9 +217,9 @@ A. While this usage may seem technically possible, the serial console is intende
 
 A. To enable or disable the serial console at a subscription-wide level, you must have write permissions to the subscription. Roles that have write permission include administrator or owner roles. Custom roles can also have write permissions.
 
-**Q. Who can access the serial console for my VM/VMSS?**
+**Q. Who can access the serial console for my VM/virtual machien scale set?**
 
-A. You must have the Virtual Machine Contributor role or higher for a VM or VMSS to access the serial console.
+A. You must have the Virtual Machine Contributor role or higher for a VM or virtual machien scale set to access the serial console.
 
 **Q. My serial console isn't displaying anything, what do I do?**
 
@@ -229,7 +229,7 @@ A. Your image is likely misconfigured for serial console access. For information
 
 A. Yes, it is! See [Serial Console for Virtual Machine Scale Sets](#serial-console-for-virtual-machine-scale-sets)
 
-**Q. If I set up my VM or VMSS by using only SSH key authentication, can I still use the serial console to connect to my VM/VMSS instance?**
+**Q. If I set up my VM or virtual machien scale set by using only SSH key authentication, can I still use the serial console to connect to my VM/virtual machien scale set instance?**
 
 A. Yes. Because the serial console doesn't require SSH keys, you only need to set up a username/password combination. You can do so by selecting **Reset password** in the Azure portal and using those credentials to sign in to the serial console.
 
