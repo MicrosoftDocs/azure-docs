@@ -22,7 +22,7 @@ ms.author: szark
 Partners provide Linux images in the Azure Marketplace. We are working with various Linux communities to add even more flavors to the Endorsed Distribution list. In the meantime, for distributions that are not available from the Marketplace, you can always bring your own Linux by following the guidelines at [Create and upload a virtual hard disk that contains the Linux operating system](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
 
 ## Supported distributions and versions
-The following table lists the Linux distributions and versions that are supported on Azure. Refer to [Support for Linux images in Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) for more detailed information about support for Linux and open source technology in Azure.
+The following table lists the Linux distributions and versions that are supported on Azure. Refer to [Support for Linux images in Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) for more detailed information about support for Linux and open-source technology in Azure.
 
 The Linux Integration Services (LIS) drivers for Hyper-V and Azure are kernel modules that Microsoft contributes directly to the upstream Linux kernel.  Some LIS drivers are built into the distribution's kernel by default. Older distributions that are based on Red Hat Enterprise (RHEL)/CentOS are available as a separate download at [Linux Integration Services Version 4.2 for Hyper-V and Azure](https://www.microsoft.com/en-us/download/details.aspx?id=55106). See [Linux kernel requirements](create-upload-generic.md#linux-kernel-requirements) for more information about the LIS drivers.
 
@@ -40,7 +40,7 @@ The Azure Linux Agent is already pre-installed on the Azure Marketplace images a
 | openSUSE |openSUSE Leap 42.2+ |In kernel |Package: In [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) repo under "python-azure-agent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu |Ubuntu 12.04+ **<sup>1</sup>** |In kernel |Package: In repo under "walinuxagent" <br/>Source code: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
-  - **<sup>1</sup>** For Ubuntu 12.04 support on Azure please refer to the [EOL notice](https://azure.microsoft.com/blog/ubuntu-12-04-precise-pangolin-nearing-end-of-life/).
+  - **<sup>1</sup>** Information about extended support for Ubuntu 12.04 and 14.04 can be found here: [Ubuntu Extended Security Maintenance](https://www.ubuntu.com/esm).
 
 
 ## Image Update Cadence
@@ -56,7 +56,7 @@ Azure works closely with various endorsed Linux distributions to optimize the im
 In most cases you will find these kernels pre-installed on the default images in the Azure Marketplace, and so Azure customers will immediately get the benefit of these optimized kernels. More information about these Azure-Tuned kernels can be found in the following links:
 
  - CentOS Azure-Tuned Kernel - Available via the CentOS Virtualization SIG - [More Info](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
- - Debian Cloud Kernel - Available with the Debian 10 and Debian 9-backports image on Azure - [More Info](https://wiki.debian.org/Cloud/MicrosoftAzure)
+ - Debian Cloud Kernel - Available with the Debian 10 and Debian 9 "backports" image on Azure - [More Info](https://wiki.debian.org/Cloud/MicrosoftAzure)
  - SLES Azure-Tuned Kernel - [More Info](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
  - Ubuntu Azure-Tuned Kernel - [More Info](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
 
