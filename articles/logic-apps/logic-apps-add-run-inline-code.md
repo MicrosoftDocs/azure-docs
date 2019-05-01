@@ -100,15 +100,8 @@ a method, but without defining the method signature.
 
    To make outputs from the trigger and previous actions 
    easier to reference, the dynamic content list appears 
-   while your cursor is inside the **Code** box. By default, 
-   this list shows only those outputs that match the current 
-   action's expected input format. To view all the available 
-   outputs from previous steps, choose **See more** in the 
-   dynamic content list.
-
-   ![Dynamic content list](./media/logic-apps-add-run-inline-code/inline-code-dynamic-content.png)
-
-   The list now shows the outputs from the trigger, 
+   while your cursor is inside the **Code** box. In this 
+   example, the list shows the outputs from the trigger, 
    including the **Body** token, which you can now select. 
    With the inline code action, the **Body** token resolves 
    to a `workflowContext` object that references the email's 
@@ -122,6 +115,10 @@ a method, but without defining the method signature.
    workflow name, run ID, and so on. The outputs from `trigger` are 
    values based the current run. The properties available through 
    `actions` use the same names as the actions on the designer.
+
+   > [!NOTE]
+   > The `workflowContext` object is read-only, so you can't 
+   > assign or change any values in the available properties.
 
    The inline code action doesn't require a `return` statement, 
    but the value output from a `return` statement is available 
@@ -152,14 +149,14 @@ run time.
 > from inside the **Code** box so that your code 
 > includes the resolved token references.
 
-For example, suppose you have code that references the **To** 
-and **Subject** outputs from the **Send an email** action for 
-the Office 365 Outlook connector. At run time, the Logic Apps 
-engine analyzes your code to determine whether you've referenced 
-any trigger or action outputs and includes those outputs automatically. 
-However, should you get an error that a referenced output isn't available, 
-you can add the **Actions** parameter and specify that the **Inline Code** 
-action include the **To** and **Subject** outputs.
+For example, suppose you have code that references the **SelectedOption** 
+output from the **Send an approval email** action for the Office 365 
+Outlook connector. At run time, the Logic Apps engine analyzes your 
+code to determine whether you've referenced any trigger or action 
+outputs and includes those outputs automatically. However, should 
+you get an error that a referenced output isn't available, you can 
+add the **Actions** parameter and specify that the **Inline Code** 
+action explicitly include outputs from the **Send an approval email** action.
 
 To add these parameters, open the **Add new parameter** list, 
 and select the parameters you want:
@@ -184,15 +181,37 @@ If you select **Triggers**, you're prompted whether to include trigger outputs.
 
 ### Include action outputs
 
-If you select **Actions**, you're prompted for the action outputs that you want.
+If you select **Actions**, you're prompted for the actions that you want to add. 
+However, before you start, you need the JSON version for the action name, 
+which appears in the logic app's underlying workflow definition.
 
-1. To add the first action, click inside the **Actions Item - 1** box.
+* This capability doesn't support variables, loops, and iteration indexes.
+* The dot (.) operator is used to reference properties, which means that 
+if you renamed actions by using this operator, you must manually 
+specify this when adding those actions as parameters.
 
-1. From the dynamic content list that appears, select the output you want.
+1. On the designer toolbar, choose **Code view**, 
+and search inside the `actions` attribute for the action name. 
 
-   ![](./media/logic-apps-add-run-inline-code/add-body-parameter.png)
+   For example, here is the JSON name for the **Send an approval email** action.
 
-1. To add another output, choose **Add new item**.
+   ![Find action name in JSON](./media/logic-apps-add-run-inline-code/find-action-name-json.png)
+
+1. To return to designer view, on the code view toolbar, 
+choose **Designer**.
+
+1. To add the first action, in the **Actions Item - 1** box, 
+enter the action's JSON name. 
+
+   ![Enter first action](./media/logic-apps-add-run-inline-code/add-action-parameter.png)
+
+1. To add another action, choose **Add new item**.
+
+## Reference
+
+For more information about the **Execute JavaScript Code** action's structure and syntax in your logic app's underlying workflow 
+definition using the Workflow Definition Language, see this action's 
+[reference section](../logic-apps/logic-apps-workflow-actions-triggers.md#run-javascript-code).
 
 ## Next steps
 
