@@ -199,47 +199,35 @@ Organizations can optionally create policies to block countries where users woul
 
 ### Intune configuration
 
+#### Configure enrollment status
 
+We want to ensure that devices are fully configured before use. Intune provides a means to **Block device use until all apps and profiles are installed**. This setting can be found in the **Azure portal** > **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Enrollment Status Page (Preview)** > **Default** > **Settings**.
 
-
-
-
-Configure your autopilot [enroll device](https://docs.microsoft.com/Intune/tutorial-use-autopilot-enroll-devices) for your secure workstations. The following elements should be addressed.
-
-Configure the Windows Enrollment settings to block devices to be used until the profiles and apps are installed.
-
-
+* **Show app profile installation progress** - Yes
+   * **Block device use until all apps and profiles are installed** - Yes
 
 ### Create an Autopilot deployment profile
 
 After creating a device group, you must create a deployment profile so that you can configure the Autopilot devices.
 
-
-1. In Intune in the Azure portal, choose Device enrollment > Windows enrollment > Deployment Profiles > Create Profile.
-1. For Name, enter Secureworkstations. For Description, enter deployment of secure workstations.
+1. In Intune in the Azure portal, choose **Device enrollment** > **Windows enrollment** > **Deployment Profiles** > **Create Profile**.
+1. For Name, enter **Secure workstation deployment profile**. For Description, enter **Deployment of secure workstations**.
 1. Set Convert all targeted devices to Autopilot to Yes. This setting makes sure that all devices in the list get registered with the Autopilot deployment service.  Allow 48 hours for the registration to be processed.
-1. For Deployment mode, choose Self-Deployed. Devices with this profile are associated with the user enrolling the device. User credentials are required to enroll the device.
-1. In the Join to Azure AD as box, choose Azure AD joined.
-1. Choose Out-of-box experience (OOBE), configure the following options and leave others set to the default, and then choose Save:
-   * End-user license agreement (EULA): Hide
-   * Privacy settings: Show
-   * User account type: Standard
-1. Choose Create to create the profile. The Autopilot deployment profile is now available to assign to devices.
-1. Choose Device enrollment > Windows enrollment > Deployment Profiles > Assignments
-   * Selected Group > Secure Workstation Users
-
-Additional reading for configuring Windows autopilot
-
-* https://docs.microsoft.com/en-us/Windows/deployment/Windows-autopilot/Windows-autopilot
-* https://docs.microsoft.com/en-us/Windows/deployment/Windows-autopilot/administer 
+1. For Deployment mode, choose **Self-Deploying (Preview)**. Devices with this profile are associated with the user enrolling the device. User credentials are required to enroll the device.
+1. In the Join to Azure AD as box, **Azure AD joined** should be chosen and greyed out.
+1. Select Out-of-box experience (OOBE), configure the following option and leave others set to the default, and then select **Ok**:
+   * User account type: **Standard**
+1. Select **Create** to create the profile. The Autopilot deployment profile is now available to assign to devices.
+1. Choose **Assignments** > **Assign to** > **Selected Groups**
+   * **Select groups to include** - Secure Workstation Users
 
 ### Enable a secure device baseline
 
-For the use of this guidance Windows version 1809 of Windows 10 will be required for the use of ATP, Intune client, and Windows Threat protection. To find your Windows version, follow the guidance outlined in the article [Enroll your first Windows 10 device](https://docs.microsoft.com/Intune/quickstart-enroll-windows-device).
+For this guidance, Windows 10 version 1809 is required for the use of Windows Defender ATP, Intune, and Windows Threat protection. To find your Windows version, follow the guidance outlined in the article [Enroll your first Windows 10 device](https://docs.microsoft.com/Intune/quickstart-enroll-windows-device).
 
-Additionally the [Intune secure baseline](https://docs.microsoft.com/Intune/security-baseline-settings-Windows) will be enabled to lock down the device and provide a secured workstation.
+Additionally, the [Intune secure baseline](https://docs.microsoft.com/Intune/security-baseline-settings-Windows) will be enabled to lock down the device and provide a secured workstation.
 
-This includes managing the following categories:
+This baseline includes settings in the following categories:
 
 |   |   |   |
 | :---: | :---: | :---: |
@@ -257,11 +245,15 @@ This includes managing the following categories:
 
 #### Create a baseline profile (using Security baselines)
 
-Provide the baseline starting point giving it a name, here we use Secured-Workstation-Baseline1, which we will use as a starting point for device enforcement.
+The security baseline provides a good start point for securing our devices, implement the baseline, and apply additional items in policies.
 
-For the initial setup we will implement the baseline, and apply additional constraints in policies.
+To configure a security baseline profile in the Azure portal, browse to **Microsoft Intune** > **Device security**. Select the **Preview: MDM Security Baseline for October 2018** and select **Create profile**.
 
-Assign the Secure Workstation Users security group, and commit the changes with save+deploy
+* Name the profile **Secured-Workstation-Baseline1**
+* From the **Assignments** tab, choose **+ Select existing** and pick the **Secure Workstation Users** group
+* From the **Review + Create** tab, select **Save + deploy**
+
+Check the System boot start driver initialization setting? Should we change this from the default?
 
 ### Enabling Windows Defender Advanced Threat Protection (ATP), and jailbreak prevention
 
@@ -306,7 +298,7 @@ Enable Windows Defender ATP - https://docs.microsoft.com/Windows/security/threat
 
 To successfully harden the secured workstation we will configure the installation by implementing the PowerShell SDK, and device configuration from JSON scripts to import configurations based on the SECCON 3 controls.
 
-Additionally, the following configuration will be required to be enabled for the SECCON controls. Will be done using Intune PowerShell sdk https://github.com/Microsoft/Intune-PowerShell-SDK and Intune scripts import scripts created by Dave Falkus. These will require that you configure your Intune consent, and [compliance manager](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center) to allow for users to export and import configurations using PowerShell.
+Additionally, the following configuration will be required to be enabled for the SECCON controls. Will be done using Intune PowerShell sdk https://github.com/Microsoft/Intune-PowerShell-SDK and Intune scripts import scripts created by Dave Falkus. These configuration changes, will require that you configure your Intune consent, and [compliance manager](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center) to allow for users to export and import configurations using PowerShell.
 
 The modules can be loaded using following command.
 
@@ -412,7 +404,7 @@ The device should have enabled basic user protections that will enable a secured
 
 ## Autodeployment of new devices
 
-When purchasing new devices, it is recommended that devices be factory set to [Windows 10 Pro in S mode](https://docs.microsoft.com/Windows/deployment/Windows-10-pro-in-s-mode), which limits the exposure and vulnerabilities during supply chain management. Once a device is received from your supplier the device will be moved from S mode to Full using Intune autopilot capabilities. The following guidance provides details on applying the transformation process.
+When purchasing new devices, it is recommended that devices be factory set to [Windows 10 Pro in S mode](https://docs.microsoft.com/Windows/deployment/Windows-10-pro-in-s-mode), which limits the exposure and vulnerabilities during supply chain management. Once a device is received from your supplier, the device will be moved from S mode to Full using Intune autopilot capabilities. The following guidance provides details on applying the transformation process.
 
 ## Additional tasks once the Secure workstation is configured
 
@@ -422,20 +414,17 @@ Monitoring the profiles to can be done using the monitoring [Microsoft Intune pr
 
 Configuring the company portal for custom apps
 
-In a secured mode installing applications will be restricted to the Intune company portal. However, installing the portal requires access to Microsoft Store. In the case of our secured solution, we will make the portal available to all devices using an offline mode of the company portal.
+In a secured mode, installing applications will be restricted to the Intune company portal. However, installing the portal requires access to Microsoft Store. In our secured solution, we will make the portal available to all devices using an offline mode of the company portal.
 
 Installing an Intune managed copy of the [Company Portal](https://docs.microsoft.com/en-us/Intune/store-apps-company-portal-app) will permit the ability to push down additional tools on demand to users of the secured workstations.
 
-Finally, some organizations may be required to install win32 apps or apps that require other preparations to deploy. For these the [Microsoft win32 content prep tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) will provide a ready to use `.intunewin` format file for installation.
-
-
-
+Finally, some organizations may be required to install win32 apps or apps that require other preparations to deploy. For these applications, the [Microsoft win32 content prep tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) will provide a ready to use `.intunewin` format file for installation.
 
 ### Windows Hello for Business
 
-Configuring Windows Hello for Business provides your secure devices multi-factor authentication and a great user experience. 
+Configuring Windows Hello for Business provides your secure devices multi-factor authentication and a great user experience.
 
-Windows Hello for Business is enabled from the **Azure portal** > **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Windows Hello for Business** > **Properties**. 
+Windows Hello for Business is enabled from the **Azure portal** > **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Windows Hello for Business** > **Properties**.
 
 Under **Settings** configure the following settings
 
@@ -444,6 +433,4 @@ Under **Settings** configure the following settings
 * **Minimum PIN length** - **6**
 * **PIN expiration (days)** - **90**
 
-
-
-Configuration requires that  Hello for business is ‘enabled’ and default settings should require pin length of 6, with a pin expiration to be every three months. ‘remember pin history’ should be set to yes. And enhanced anti-spoofing should be set to yes. ‘Allow phone sign-in’ (set to yes) will provide your users a self-service management of device pin’s. 
+Configuration requires that  Hello for business is ‘enabled’ and default settings should require pin length of 6, with a pin expiration to be every three months. ‘remember pin history’ should be set to yes. And enhanced anti-spoofing should be set to yes. ‘Allow phone sign-in’ (set to yes) will provide your users a self-service management of device pin’s.
