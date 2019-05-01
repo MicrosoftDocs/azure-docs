@@ -12,26 +12,38 @@ ms.subservice: common
 
 # Get started with AzCopy
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you get started.
+AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy and then use it to connect to your storage account so that you can begin transferring files.  
 
 ## Download AzCopy
 
-First, download the AzCopy executable file. There's nothing to install.
+First, download the AzCopy V10 executable file by using any of these links:
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
+There's nothing to install.
+
 > [!NOTE]
 > If you want to copy data to and from your [Azure Table storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) service, then install [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
 
+## Run AzCopy for the first time
+
+AzCopy V10 is an executable file so there's nothing to install.
+
+Just open a command prompt, and navigate to the directory where you downloaded the file.
+
+To see the list of AzCopy commands, type `azCopy`, and then press the ENTER key.
+
+To learn more about a specific command, add in the name of the command.
+
+For example, to learn about the `copy` command, type `azcopy copy`, and then press the ENTER key.
+
+Before you can do anything meaningful with AzCopy, the storage service needs to identify you, and then assess which tasks you have permission to perform. The next section explains how to authenticate your identity with your storage account.
+
 ## Authenticate your identity
 
-Before you run an AzCopy command, the storage service needs to identify you, and then assess which tasks you have permission to perform.
-
-You can identify yourself by using your Azure account credentials, or by using a Shared Access Signature (SAS) token.
-
-Let's look at each option.
+You can authenticate your identity by using your Azure account credentials, or by using a Shared Access Signature (SAS) token.
 
 ### Option 1: Use your Azure account credentials
 
@@ -43,10 +55,12 @@ First, ensure that one of these roles has been assigned to your identity:
 These roles can be assigned to your identity in any of these scopes:
 
 - Storage account
+
 - Resource group
+
 - Subscription
 
-From a command prompt, type the following command:
+Then, from a command prompt, type the following command:
 
 ```azcopy
 azcopy login
@@ -74,25 +88,17 @@ azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?s
 
 To learn more about SAS tokens and how to obtain one, see [Using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
 
-## Find help within the AzCopy tool
-
-To see the list of AzCopy commands, type `azCopy --help`, and then press the ENTER key.
-
-To get help with a specific command, add in the command name.
-
-For example, to get more information about the `copy` command, type `azcopy copy --help`, and then press the ENTER key.
-
-## Find command examples
+## Copy data to, from, or between storage accounts
 
 For AzCopy command examples, see any of these articles.
 
-[Transfer data with AzCopy and blob storage ](storage-use-azcopy-blobs.md)
+- [Transfer data with AzCopy and blob storage](storage-use-azcopy-blobs.md)
 
-[Transfer data with AzCopy and Azure Data Lake Storage Gen2](storage-use-azcopy-data-lake-gen2.md)
+- [Transfer data with AzCopy and Azure Data Lake Storage Gen2](storage-use-azcopy-data-lake-gen2.md)
 
-[Transfer data with AzCopy and file storage ](storage-use-files.md)
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 
-[Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
+- [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
 
 ## Configure, optimize, and troubleshoot
 
