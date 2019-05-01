@@ -54,6 +54,8 @@ To determine if scale-out for your server is necessary, monitor your server in A
 
 Another good metric to watch is average QPU by ServerResourceType. This metric compares average QPU for the primary server with that of the query pool. 
 
+![Query scale out metrics](media/analysis-services-scale-out/aas-scale-out-monitor.png)
+
 ### To configure QPU by ServerResourceType
 1. In a Metrics line chart, click **Add metric**. 
 2. In **RESOURCE**, select your server, then in **METRIC NAMESPACE**, select **Analysis Services standard metrics**, then in **METRIC**, select **QPU**, and then in **AGGREGATION**, select **Avg**. 
