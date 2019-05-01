@@ -62,7 +62,7 @@
       href: quickstart-scale-compute-tsql.md
   - name: Workload Management
     items: 
-    - name: Create workload classifier (Preview)
+    - name: Create workload classifier
       items:
       - name: T-SQL
         href: quickstart-create-a-workload-classifier-tsql.md
@@ -178,9 +178,9 @@
     items:
     - name: Resource classes & workload management
       href: resource-classes-for-workload-management.md
-    - name: Workload Classification (Preview)
+    - name: Workload Classification
       href: sql-data-warehouse-workload-classification.md
-    - name: Workload Importance (Preview)
+    - name: Workload Importance
       href: sql-data-warehouse-workload-importance.md
     - name: Memory & concurrency limits
       href: memory-and-concurrency-limits.md
