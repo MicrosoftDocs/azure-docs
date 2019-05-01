@@ -44,7 +44,7 @@ In this tutorial, you'll configure and test Azure AD single sign-on in a test en
 
 * Predictix Assortment Planning supports SP-initiated SSO.
 
-## Adding Predictix Assortment Planning from the gallery
+## Add Predictix Assortment Planning from the gallery
 
 To set up the integration of Predictix Assortment Planning into Azure AD, you need to add Predictix Assortment Planning from the gallery to your list of managed SaaS apps.
 

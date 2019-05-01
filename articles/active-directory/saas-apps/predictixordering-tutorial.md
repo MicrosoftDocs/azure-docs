@@ -90,7 +90,7 @@ To configure Azure AD single sign-on with Predictix Ordering, take these steps:
 
 2. In the **Select a single sign-on method** dialog box, select **SAML/WS-Fed** mode to enable single sign-on:
 
-    ![Select a sign-on method](common/select-saml-option.png)
+    ![Select a single sign-on method](common/select-saml-option.png)
 
 3. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box:
 
