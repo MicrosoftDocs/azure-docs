@@ -492,6 +492,8 @@
         href: how-to-sql-subquery.md
     - name: Change Feed
       items:
+      - name: Exposing Azure Cosmos DB Trigger logs
+        href: how-to-expose-cosmos-db-trigger-logs.md
       - name: Multiple Azure Cosmos DB Triggers
         href: how-to-create-multiple-cosmos-db-triggers.md
       - name: Troubleshoot Azure Cosmos DB Triggers
@@ -621,10 +623,6 @@
         href: bulk-executor-dot-net.md
       - name: Bulk executor - Java library
         href: bulk-executor-java.md
-    - name: Change Feed
-      items:
-      - name: Exposing Cosmos DB Trigger logs
-        href: how-to-functions-logs.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot Java Async SDK
