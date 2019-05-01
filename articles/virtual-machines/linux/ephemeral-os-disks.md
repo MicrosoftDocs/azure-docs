@@ -1,6 +1,6 @@
 ---
-title: Ephemeral OS disks for Azure VMs | Microsoft Docs
-description: Ephemeral OS disks for Azure VMs.Use the portal to attach new or existing data disk to a Linux VM.
+title: Ephemeral OS disks for Azure Virtual Machines | Microsoft Docs
+description: Learn more about ephemeral OS disks for Azure VMs.
 services: virtual-machines-linux
 author: cynthn
 manager: jeconnoc
@@ -9,20 +9,20 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 04/24/2019
+ms.date: 04/30/2019
 ms.author: cynthn
 ms.subservice: disks
 ---
 # Preview: Ephemeral OS disks for Azure VMs
  
-Ephemeral OS disk is now in public preview for Virtual Machines  (VMs) and Virtual Machine Scale Sets. Ephemeral OS disks are created on the host node and not persisted to Azure Storage. Ephemeral disks work well for stateless workloads that can tolerate individual VM instance failures due to unexpected events such as hardware failures, and are more focused on read/write latency to the OS disk and frequent VM instance reimaging. 
+Ephemeral OS disks are created on the local Virtual Machine (VM) storage and not persisted to the remote Azure Storage. Ephemeral OS disks work well for stateless workloads, where applications are tolerant of individual VM failures, but are more concerned about the time it takes for large scale deployments or time to reimage the individual VM instances. It is also suitable for applications, deployed using the classic deployment model, to move to the resource manager deployment model. With Ephemeral OS disk, you would observe lower read/write latency to the OS disk and faster VM reimage. In addition, Ephemeral OS disk is free i.e., you incur no storage cost for OS disk. 
  
 The key features of ephemeral disks are: 
-1.	They can be used with both Marketplace images and custom images up to 30GiB.
-2.	Lower run-time latency similar to a temporary disk. 
-3.	Ability to fast reset or reimage their VMs to the original boot state.  
-4.	Faster deployment time.
-5.	No dependency on persistent storage for VM availability. 
+- They can be used with both Marketplace images and custom images.
+- You can deploy VM Images up to the size of the VM Cache.
+- Ability to fast reset or reimage their VMs to the original boot state.  
+- Lower run-time latency similar to a temporary disk. 
+- No cost for the OS disk. 
  
 To join the preview, please fill in the form at http://aka.ms/ephemeralpreviewform  
  
@@ -30,16 +30,46 @@ Key differences between persistent and ephemeral OS disks:
 
 |                             | Persistent OS Disk                          | Ephemeral OS Disk                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| Size limit for OS disk      | 2 TiB                                                                                        | Up to 30 GiB for preview and up to VM cache size at general availability               |
+| Size limit for OS disk      | 2 TiB                                                                                        | Size limit for OS disk	2 TiB	Up to the VM cache size - [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md), and [GS](sizes-memory.md)              |
 | VM sizes supported          | All                                                                                          | DSv1, DSv2, DSv3, Esv2, Fs, FsV2, GS                                               |
 | Disk type support           | Managed and unmanaged OS disk                                                                | Managed OS disk only                                                               |
-| Region support              | All regions                                                                                  | All regions except: Azure Government, Azure Germany, and Azure China 21Vianet                                             |
-| Specialized OS disk support | Yes                                                                                          | No                                                                                 |
-| Data persistence            | OS disk data written to OS disk are stored in Azure Storage                                  | OS disk data is stored to local host machine and is not persisted to Azure Storage |
+| Region support              | All regions                                                                                  | All regions                              |
+| Data persistence            | OS disk data written to OS disk are stored in Azure Storage                                  | Data written to OS disk is stored to the local VM storage and is not persisted to Azure Storage. |
 | Stop-deallocated state      | VMs and scale set instances can be stop-deallocated and restarted from the stop-deallocated state | VMs and scale set instances cannot be stop-deallocated                                  |
+| Specialized OS disk support | Yes                                                                                          | No                                                                                 |
 | OS disk resize              | Supported during VM creation and after VM is stop-deallocated                                | Supported during VM creation only                                                  |
 | Resizing to a new VM size   | OS disk data is preserved                                                                    | Data on the OS disk is deleted, OS is re-provisioned                                      |
 
+## Register for the preview
+
+
+Self-register for the preview of Ephemeral OS Disks using the latest version of Azure CLI or Azure PowerShell.
+
+### PowerShell
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
+Register-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+```
+
+To check if you are registered for the preview:
+
+```azurepowershell-interactive
+Get-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+```
+
+### CLI
+
+```azurecli-interactive
+az provider register –namespace Microsoft.Compute
+az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
+```
+
+To check if you are registered for the preview:
+ 
+```azurecli-interactive
+az provider show –namespace ‘Microsoft.Compute’
+```
 
 
 ## Scale set deployment  
@@ -137,7 +167,7 @@ id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}
 
 **Q: What is the size of the local OS Disks?**
 
-A: For preview, we will support platform images up to 30 GB OS disk, where all read/writes to the OS disk will be local on the same node as the Virtual Machine. For general availability, due to limited OS image size on the drive, we will probably limit the OS disk size based on vCPU count. Currently we think this limit should be 8 GiB per vCPU with a minimum of 16 GiB, going up to 128 GiB. 
+A: For preview, we will support platform and/or images up to the VM cache size, where all read/writes to the OS disk will be local on the same node as the Virtual Machine. 
 
 **Q: Can the ephemeral OS disk be resized?**
 
@@ -149,7 +179,7 @@ A: Yes, you can attach a managed data disk to a VM that uses an ephemeral OS dis
 
 **Q: Will all VM sizes be supported for ephemeral OS disks?**
 
-A: No, all VM sizes are supported except the B-series, M-series, N-series, and H-series sizes.  
+A: No, all Premium Storage VM sizes are supported (DS, ES, FS and GS) except the B-series, M-series, N-series, and H-series sizes.  
  
 **Q: Can the ephemeral OS disk be applied to existing VMs and scale sets?**
 
@@ -161,16 +191,17 @@ A: No, you can't have a mix of ephemeral and persistent OS disk instances within
 
 **Q: Can the ephemeral OS disk be created using Powershell or CLI?**
 
-A: For preview, only Resource Manager template deployments are supported for creating ephemeral OS disks.
+A: Yes, you can create VMs with Ephemeral OS Disk using REST, Templates, PowerShell and CLI.
 
 **Q: What features are not supported with ephemeral OS disk?**
 
 A: Ephemeral disks do not support:
--	Capturing VM images
--	Disk snapshots 
--	Azure Disk Encryption 
--	Recovery Services Vault (Backup and Site Recovery) 
--	OS Disk Swap 
+- Capturing VM images
+- Disk snapshots 
+- Azure Disk Encryption 
+- Azure Backup
+- Azure Site Recovery  
+- OS Disk Swap 
  
 ## Next steps
 
