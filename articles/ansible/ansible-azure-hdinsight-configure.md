@@ -38,7 +38,7 @@ The following results are hard-coded:
 The following results are from include files:
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
-[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation3.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation3.md)] 
 
 ## Create a random postfix
 
