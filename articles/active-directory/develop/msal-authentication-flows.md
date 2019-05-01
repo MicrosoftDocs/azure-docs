@@ -1,6 +1,6 @@
 ---
-title: Client applications (Microsoft Authentication Library) | Azure
-description: Learn about public client and confidential client applications in the Microsoft Authentication Library (MSAL).
+title: Authentication flows (Microsoft Authentication Library) | Azure
+description: Learn about the authentication flows/grants used by the Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -17,7 +17,7 @@ ms.date: 04/25/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to learn about the types of client application so I can decide if this platform meets my application development needs and requirements.
+#Customer intent: As an application developer, I want to learn about the types authentication flows so I can decide if this platform meets my application development needs and requirements.
 ms.collection: M365-identity-device-management
 ---
 
