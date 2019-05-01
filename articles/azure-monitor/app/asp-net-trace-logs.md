@@ -17,7 +17,7 @@ ms.author: mbullwin
 ---
 # Explore .NET/.NET Core trace logs in Application Insights
 
-Send diagnostic tracing logs for your ASP.<i></i>NET/ASP.<i></i>NET Core application from ILogger, NLog, log4Net, or System.Diagnostics.Trace to [Azure Application Insights][start]. You can then explore and search them. Those logs are merged with the other log files from your application, so you can identify traces that are associated with each user request and correlate them with other events and exception reports.
+Send diagnostic tracing logs for your ASP.NET/ASP.NET Core application from ILogger, NLog, log4Net, or System.Diagnostics.Trace to [Azure Application Insights][start]. You can then explore and search them. Those logs are merged with the other log files from your application, so you can identify traces that are associated with each user request and correlate them with other events and exception reports.
 
 > [!NOTE]
 > Do you need the log-capture module? It's a useful adapter for third-party loggers. But if you aren't already using NLog, log4Net, or System.Diagnostics.Trace, consider just calling [**Application Insights TrackTrace()**](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) directly.
@@ -73,7 +73,7 @@ The NuGet package installs the necessary assemblies and modifies web.config or a
 
 ## ILogger
 
-For examples of using the Application Insights ILogger implementation with console applications and ASP.<i></i>NET Core, see [ApplicationInsightsLoggerProvider for .NET Core ILogger logs](ilogger.md).
+For examples of using the Application Insights ILogger implementation with console applications and ASP.NET Core, see [ApplicationInsightsLoggerProvider for .NET Core ILogger logs](ilogger.md).
 
 ## Insert diagnostic log calls
 If you use System.Diagnostics.Trace, a typical call would be:
@@ -165,7 +165,7 @@ You can, for example:
 * Save the configuration of a page as a favorite.
 
 > [!NOTE]
->If your application sends a lot of data and you're using the Application Insights SDK for ASP.<i></i>NET version 2.0.0-beta3 or later, the *adaptive sampling* feature may operate and send only a portion of your telemetry. [Learn more about sampling.](../../azure-monitor/app/sampling.md)
+>If your application sends a lot of data and you're using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the *adaptive sampling* feature may operate and send only a portion of your telemetry. [Learn more about sampling.](../../azure-monitor/app/sampling.md)
 >
 
 ## Troubleshooting
@@ -191,7 +191,7 @@ It can take a while for all the events and requests to get through the pipeline.
 Several factors affect the amount of data that's retained. For more information, see the [limits](../../azure-monitor/app/api-custom-events-metrics.md#limits) section of the customer event metrics page.
 
 ### I don't see some log entries that I expected
-If your application sends voluminous data and you're using the Application Insights SDK for ASP.<i></i>NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a portion of your telemetry. [Learn more about sampling.](../../azure-monitor/app/sampling.md)
+If your application sends voluminous amounts of data and you're using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a portion of your telemetry. [Learn more about sampling.](../../azure-monitor/app/sampling.md)
 
 ## <a name="add"></a>Next steps
 

@@ -210,7 +210,7 @@ You can still use the old provider. (It will be removed only in a major version 
 - In ASP.<i></i>NET Core (2.0 and later), the recommended way to  [enable logging providers](https://github.com/aspnet/Announcements/issues/255) is by using extension methods on ILoggingBuilder in **Program.cs** itself.
 
 > [!Note]
-> The new provider is available for applications that target NETSTANDARD2.0 or later. If your application targets older .NET Core versions, such as .NET Core 1.1, or it targets the .NET Framework, continue to use the old provider.
+> The new provider is available for applications that target NETSTANDARD2.0 or later. If your application targets older .NET Core versions, such as .NET Core 1.1, or if it targets the .NET Framework, continue to use the old provider.
 
 ## Console application
 
