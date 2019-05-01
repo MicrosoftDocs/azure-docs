@@ -20,7 +20,7 @@ In this article, you learn how to:
 > * Create an application gateway
 > * Create a virtual machine scale set with the default backend pool
 
-If you prefer, you can complete this article using [Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
+If you prefer, you can complete this procedure using [Azure PowerShell](tutorial-manage-web-traffic-powershell.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
