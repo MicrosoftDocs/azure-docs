@@ -1,6 +1,6 @@
 ---
 title: Azure Serial Console for Windows | Microsoft Docs
-description: Bi-Directional Serial Console for Azure Virtual Machines and VM Scale Sets.
+description: Bi-Directional Serial Console for Azure Virtual Machines and Virtual Machine Scale Sets.
 services: virtual-machines-windows
 documentationcenter: ''
 author: asinn826
@@ -144,12 +144,12 @@ The serial console can be used to send an NMI to an Azure virtual machine by usi
 For information on configuring Windows to create a crash dump file when it receives an NMI, see [How to generate a crash dump file by using an NMI](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file).
 
 ### Use function keys in serial console
-Function keys are enabled for usage for serial console in Windows VMs. The F8 in the serial console dropdown provides the convenience of easily entering the Advanced Boot Settings menu, but serial console is compatible with all other function keys. You may need to press **Fn** + **F1** (or F2, F3, etc) on your keyboard depending on the computer you are using serial console from.
+Function keys are enabled for usage for serial console in Windows VMs. The F8 in the serial console dropdown provides the convenience of easily entering the Advanced Boot Settings menu, but serial console is compatible with all other function keys. You may need to press **Fn** + **F1** (or F2, F3, etc.) on your keyboard depending on the computer you are using serial console from.
 
 ### Use WSL in serial console
 The Windows Subsystem for Linux (WSL) has been enabled for Windows Server 2019 or later, so it is also possible to enable WSL for use within the serial console if you are running Windows Server 2019 or later. This may be beneficial for users that also have a familiarity with Linux commands. For instructions to enable WSL for Windows Server, see the [Installation guide](https://docs.microsoft.com/windows/wsl/install-on-server).
 
-### Restart your Windows VM/VMSS instnace within Serial Console
+### Restart your Windows VM/VMSS instance within Serial Console
 You can initiate a restart within the serial console by navigating to the power button and clicking "Restart VM". This will initiate a VM restart, and you will see a notification within the Azure portal regarding the restart.
 
 This is useful in situations where you may want to access the boot menu without leaving the serial console experience.
