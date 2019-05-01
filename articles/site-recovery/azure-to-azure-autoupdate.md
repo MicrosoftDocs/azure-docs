@@ -6,7 +6,7 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/29/2098
 ms.author: rajanaki
 
 ---
@@ -26,9 +26,10 @@ When you use Site Recovery to manage updates, it deploys a global runbook (used 
 The default runbook schedule recurs daily at 12:00 AM in the time zone of the replicated VM's geo. You can also change the runbook schedule via the automation account.
 
 > [!NOTE]
+> Starting with Update Rollup 35, you can choose an existing automation account to use for updates. Prior to this update, Site Recovery created this account by default. This option is available when you enable replication for a VM. If you change the setting, it will apply for all Azure VMs protected in the same vault.
+ 
 > Turning on automatic updates doesn't require a restart of your Azure VMs or affect ongoing replication.
 
-> [!NOTE]
 > Job billing in the automation account is based on the number of job runtime minutes used in a month. By default, 500 minutes are included as free units for an automation account. Job execution takes a few seconds to about a minute each day and is covered as free units.
 
 | Free units included (each month) | Price |
@@ -58,7 +59,7 @@ When you enable replication for a VM either starting [from the VM view](azure-to
 
 
 > [!Note]
-> Either option notifies you of the automation account used for managing updates. If you're using this feature in a vault for the first time, a new automation account is created. All subsequent enable replications in the same vault use the previously created one.
+> Either option notifies you of the automation account used for managing updates. If you're using this feature in a vault for the first time, a new automation account is created by default. Alternately, you can customize the setting, and choose an existing automation account. All subsequent enable replications in the same vault use the previously created one.
 
 For a custom automation account, use the following script:
 

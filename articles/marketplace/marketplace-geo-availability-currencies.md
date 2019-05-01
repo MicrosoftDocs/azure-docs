@@ -2,9 +2,9 @@
 title: Geographic availability and Currency Support | Azure
 description: Geographic availability in Azure Marketplace and AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
-documentationcenter:
+
 author: qianw211
-manager: Patrick.Butler
+
 
 ms.service: marketplace
 ms.topic: article
@@ -113,7 +113,7 @@ Azure Marketplace offerings can be purchased in 141 geographies as defined by th
 | Norway                              | NO        | NOK          |
 | Oman                                | OM        | USD          |
 | Pakistan                            | PK        | USD          |
-| Palestine                           | PS        | USD          |
+| Palestinian Authority               | PS        | USD          |
 | Panama                              | PA        | USD          |
 | Paraguay                            | PY        | USD          |
 | Peru                                | PE        | USD          |
