@@ -1,6 +1,6 @@
 ---
-title: Setup SSL encryption and authentication for Apache Kafka in Azure HDInsight
-description: Setup SSL encryption for communication between Kafka clients and Kafka brokers as well as between Kafka brokers. Setup SSL authentication of clients.
+title: Set up SSL encryption and authentication for Apache Kafka in Azure HDInsight
+description: Set up SSL encryption for communication between Kafka clients and Kafka brokers as well as between Kafka brokers. Set up SSL authentication of clients.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: hrasheed
 ---
-# Setup Secure Sockets Layer (SSL) encryption and authentication for Apache Kafka in Azure HDInsight
+# Set up Secure Sockets Layer (SSL) encryption and authentication for Apache Kafka in Azure HDInsight
 
-This article shows you how to setup SSL encryption between Apache Kafka clients and Apache Kafka brokers. It also shows you how to setup authentication of clients (sometimes referred to as two-way SSL).
+This article shows you how to set up SSL encryption between Apache Kafka clients and Apache Kafka brokers. It also shows you how to set up authentication of clients (sometimes referred to as two-way SSL).
 
 > [!Important]
 > There are two clients which you can use for Kafka applications: a Java client and a console client. Only the Java client `ProducerConsumer.java` can use SSL for both producing and consuming. The console producer client `console-producer.sh` does not work with SSL.
@@ -113,7 +113,7 @@ Use the following detailed instructions to complete the broker setup:
 
 ## Update Kafka configuration to use SSL and restart brokers
 
-You have now setup each Kafka broker with a keystore and truststore, and imported the correct certificates. Next, modify related Kafka configuration properties using Ambari and then restart the Kafka brokers.
+You have now set up each Kafka broker with a keystore and truststore, and imported the correct certificates. Next, modify related Kafka configuration properties using Ambari and then restart the Kafka brokers.
 
 To complete the configuration modification, do the following steps:
 
@@ -211,7 +211,7 @@ ssl.key.password=<client_password>
 
 ## Client setup (without authentication)
 
-If you don't need authentication, the steps to setup only SSL encryption are:
+If you don't need authentication, the steps to set up only SSL encryption are:
 
 1. Sign in to the client machine (hn1) and navigate to the `~/ssl` folder
 1. Export the client password. Replace `<client_password>` with the actual administrator password on the Kafka client machine.
