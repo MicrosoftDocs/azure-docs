@@ -7,20 +7,21 @@ ms.service: virtual-machines-linux
 manager: jeconnoc
 ---
 
-Standardized virtual machine (VM) images allow organizations to migrate to the cloud and ensure consistency in the deployments. Images typically include predefined security and configuration settings and necessary software. Setting up your own imaging pipeline requires infrastructure and setup, but with Azure VM Image Builder, you can take an ISO or Azure Marketplace image and start creating your own images in a few steps.
+Standardized virtual machine (VM) images allow organizations to migrate to the cloud and ensure consistency in the deployments. Images typically include predefined security and configuration settings and necessary software. Setting up your own imaging pipeline requires time, infrastructure and setup, but with Azure VM Image Builder, just provide a simple configuration describing your image, submit it to the service, and the image is built, and distributed.
  
-The Azure VM Image Builder (Azure Image Builder) lets you start with a Windows or Linux-based Azure Marketplace image, Shared Image Gallery image version or Red Hat Enterprise Linux (RHEL) ISO and begin to add your own customizations. Because the Image Builder is built on [HashiCorp Packer](https://packer.io/), you can also import your existing Packer shell provisioner scripts. You can also specify where you would like your images hosted, in the Azure Shared Image Gallery (https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), as a managed image or a VHD.
+The Azure VM Image Builder (Azure Image Builder) lets you start with a Windows or Linux-based Azure Marketplace image, existing custom images or Red Hat Enterprise Linux (RHEL) ISO and begin to add your own customizations. Because the Image Builder is built on [HashiCorp Packer](https://packer.io/), you can also import your existing Packer shell provisioner scripts. You can also specify where you would like your images hosted, in the Azure Shared Image Gallery (virtual-machines-common-shared-image-galleries.md), as a managed image or a VHD.
 
 ## Preview features
 
 For the preview, these features are supported:
 
-- Migrate an existing image customization pipeline to Azure.  Use your existing scripts, commands, and processes to customize images.
-- Create *golden* custom images, then update and customize them further for specific uses.
-- Manage your image library and distribution, through integration with Azure Shared Image Gallery.
-- Create images in VHD format.
-- Use Red Hat **Bring Your Own Subscription** support. Create Red Hat Enterprise images for use with your eligible, unused Red Hat subscriptions.
-- Integrate Image Builder with your existing CI/CD pipeline. Simplify image customization as an integral part of your application build and release process.
+- Creation of golden basline images, that includes your minimum security and corporate configurations, and allow departments to customize it further for their needs.
+- Patching of existing images, Image Builder will allow you to continually patch existing custom images.
+- Integration with the Azure Shared Image Gallery, allows you to distribute, version, and scale images globally, and gives you an image management system.
+- Integration with existing image build pipelines, just call Image Builder from your pipeline, or use the simple Preview Image Builder Azure Devops Task.
+- Migrate an existing image customization pipeline to Azure. Use your existing scripts, commands, and processes to customize images.
+- Use Red Hat Bring Your Own Subscription support. Create Red Hat Enterprise images for use with your eligible, unused Red Hat subscriptions.
+- Creation of images in VHD format.
  
 
 ## Regions
@@ -31,27 +32,69 @@ The Azure Image Builder Service will be available for preview in these regions. 
 - West US
 - West US 2
 
+## OS support
+AIB will support Azure Marketplace base OS images:
+- Ubuntu 18.04
+- Ubuntu 16.04
+- RHEL 7.6
+- CentOS 7.6
+- Windows 2012 R2
+- Windows 2016
+- Windows 2019
+
+
 ## How it works
 
-The Azure Image Builder is a fully managed Azure service that is accessible by an Azure resource provider. The Azure Image Builder process has three main parts: source, customize and distribute. The process is defined in a configuration template that is used by the service, then stored as an ImageTemplate. 
- 
+
 ![Conceptual drawing of Azure Image Builder](./media/virtual-machines-image-builder-overview/image-builder.png)
 
+The Azure Image Builder is a fully managed Azure service that is accessible by an Azure resource provider. The Azure Image Builder process has three main parts: source, customize and distribute, these are reporesented in a template. The diagram below shows the components, with some of their properties. 
+ 
+
+
+**Image Builder Process** 
+
+![Conceptual drawing of the Azure Image Builder process](./media/virtual-machines-image-builder-overview/image-builder-process.png)
+
+1. Create the Image Template as a .json file. This .json file contains information about the image source, customizations, and distibution. There are multiple examples [here](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
+
+2. Submit it to the service, this will create an Image Template artifact in the resource group you specify. In the background, Image Builder will download the source image or ISO, and scripts as needed. These are stored in a separate resource group that is automatically created in your subscription, in the format: IT_<DestinationResourceGroup>_<TemplateName>. 
+
+3. Once the Image Template is created, you can then build the image. In the background Image Builder uses the template and source files to create a VM, network, and storage in the IT_<DestinationResourceGroup>_<TemplateName> resource group.
+
+4. As part of the image creation, Image builder distributes the image it according to the template, then deletes the additional resources in the IT_<DestinationResourceGroup>_<TemplateName> resource group that was created for the process.
 
 1. Create the ImageTemplate as a .json file and submit it to the service. Image Builder will download the source image or ISO, and scripts as needed. These are stored in a resource group that is automatically created in your subscription, in the format: `IT_<DestinationResourceGroup>_<TemplateName>`. 
 1. Image Builder uses the template and source files to create a VM, network, and storage in the `IT_<DestinationResourceGroup>_<TemplateName>` resource group. 
 1. Image builder creates an image and distributes it according to the template, then deletes the resource group that was created for the process.
 
 
+## Permissions
+
+To allow Azure VM Image Builder to distribute images to either the managed images or to a Shared Image Gallery, you will need to provide 'Contributor' permissions for the service "Azure Virtual Machine Image Builder" (app id cf32a0cc-373c-47c9-9156-0db11f6a6dfc) on the resource groups. 
+
+If you are using an existing custom managed image or image version, then the Azure Image Builder will need a minimum of ‘Reader’ access to those resource groups.
+
+You can assign access using the Azure CLI:
+
+```azurecli-interactive
+az role assignment create \
+    --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
+    --role Contributor \
+    --scope /subscriptions/$subscriptionID/resourceGroups/<distributeResoureGroupName>
+```
+
+If the service account is not found, that may mean that the subscription where you are adding the role assignment has not yet registered for the resource provider.
+
+
 ## Costs
 You will incur some compute, networking and storage costs when creating, building and storing images with Azure Image Builder. These costs are similar to the costs incurred in manually creating custom images. For the resources, you will be charged at your Azure rates. 
 
-- During the image creation process, files are downloaded and stored in the `IT_<DestinationResourceGroup>_<TemplateName>` resource group, which will incur a small storage costs. 
+During the image creation process, files are downloaded and stored in the `IT_<DestinationResourceGroup>_<TemplateName>` resource group, which will incur a small storage costs. f you do not want to keep these, delete the Image Template after the image build.
  
-- Image Builder creates a VM using a D1v2 VM size, and the storage, and networking needed for the VM. These resources will last for the duration of the build process, and will be deleted once Image Builder has finished creating the image. 
+Image Builder creates a VM using a D1v2 VM size, and the storage, and networking needed for the VM. These resources will last for the duration of the build process, and will be deleted once Image Builder has finished creating the image. 
  
-- Azure Image Builder will distribute the image to your chosen regions, which which might incur network egress charges.
-
+Azure Image Builder will distribute the image to your chosen regions, which which might incur network egress charges.
  
 ## Next steps 
  
