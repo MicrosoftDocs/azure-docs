@@ -21,7 +21,8 @@ to run code that fits this scenario:
 * Runs in JavaScript. More languages to follow.
 * Finishes running in five seconds or fewer.
 * Handles data up to 50 MB in size.
-* Uses these [Node.js modules](https://www.w3schools.com/nodejs/ref_modules.asp). 
+* Uses Node.js module 8.11.1. For more information, see 
+[Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
 
 This action returns a single output named **Result**, 
 which you can use in subsequent actions in your logic app. 
