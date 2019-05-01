@@ -73,7 +73,7 @@ az provider show –namespace ‘Microsoft.Compute’
 
 
 ## Scale set deployment  
-The process to create a scale set that uses an ephemeral OS disk is to add the 'diffDiskSettings' property to the 
+The process to create a scale set that uses an ephemeral OS disk is to add the `diffDiskSettings` property to the 
 `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` resource type in the template. Also, the caching policy must be set to `ReadOnly` for the ephemeral OS disk. 
 
 
