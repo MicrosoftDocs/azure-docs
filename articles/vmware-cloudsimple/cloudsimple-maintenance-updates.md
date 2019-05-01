@@ -3,7 +3,7 @@ title: Azure VMware Solution by CloudSimple - CloudSimple maintenance and update
 description: Describes the CloudSimple service process for scheduled maintenance and updates
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/29/2019
+ms.date: 04/30/2019
 ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
