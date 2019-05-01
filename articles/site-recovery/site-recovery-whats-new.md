@@ -57,7 +57,7 @@ New features added in the update.
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup).
 
 
-### Azure VM disaster recovery 
+#### Azure VM disaster recovery 
 New features added in the update.
 
 **Feature** | **Details**
@@ -67,7 +67,7 @@ New features added in the update.
 **Storage Spaces Direct** | You can set up disaster recovery for apps running on Azure VM apps by using [Storage Spaces Direct](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) for high availability.  Using Storage Spaces Direct (S2D) together with Site Recovery provides comprehensive protection of Azure VM workloads. S2D lets you host a guest cluster in Azure. This is especially useful when a VM hosts a critical application, such as SAP ASCS layer, SQL Server, or scale-out file server.
 
 
-### VMware/physical server disaster recovery
+#### VMware/physical server disaster recovery
 New features added in the update.
 
 **Feature** | **Details**
@@ -78,7 +78,7 @@ New features added in the update.
 
 ## Updates (January 2019)
 
-## Accelerated networking (Azure VMs)
+### Accelerated networking (Azure VMs)
 
 Accelerated networking enable single root I/O virtualization (SR-IOV) to a VM, improving networking performance. When you enable replication for an Azure VM, Site Recovery detects whether accelerated networking is enabled. If it is, after failover Site Recovery automatically configures accelerated networking on the target replica Azure VM, for both [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell#enable-accelerated-networking-on-existing-vms) and [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
@@ -86,14 +86,14 @@ Accelerated networking enable single root I/O virtualization (SR-IOV) to a VM, i
 
 ### Update rollup 32 
 
-[Update rollup 31](https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery) provides the following updates.
+[Update rollup 32](https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery) provides the following updates.
 
 **Update** | **Details**
 --- | ---
 **Providers and agents** | An update to Site Recovery agents and providers (as detailed in the rollup).
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup).
 
-### Azure VM disaster recovery
+#### Azure VM disaster recovery
 
 New features added in the update.
 
@@ -104,6 +104,7 @@ New features added in the update.
 #### VMware/physical server disaster recovery
 New features added in the update.
 
+#### VMware VMs/physical servers replication 
 **Feature** | **Details**
 --- | ---
 **Linux support** | Support was added for Redhat Enterprise Linux 7.6, RedHat Workstation 6/7, Oracle Linux 6.10/7.6, and new kernel versions for Ubuntu, Debian, and SUSE.
@@ -169,7 +170,7 @@ Disaster Recovery of Azure VMs incurs VM licensing costs, and network and storag
 **Providers and agents** | An update to Site Recovery agents and providers (as detailed in the rollup).
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup).
 
-### Azure VM disaster recovery
+#### Azure VM disaster recovery
 New features added in the update.
 
 **Feature** | **Details**
