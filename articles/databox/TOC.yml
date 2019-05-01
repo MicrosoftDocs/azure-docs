@@ -70,8 +70,10 @@
           href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json 
       - name: Troubleshoot
         items:
+        - name: Data Box issues
+          href: data-box-troubleshoot.md
         - name: Data Box Blob storage issues
-          href: data-box-troubleshoot-rest.md  
+          href: data-box-troubleshoot-rest.md    
  
   - name: Data Box Disk 
     items:

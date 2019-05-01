@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 04/30/2019
 ---
 
 # Tutorial: Migrate RDS MySQL to Azure Database for MySQL online using DMS
