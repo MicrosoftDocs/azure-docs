@@ -113,6 +113,8 @@ To learn more about how to create, upload, and manage your reference data in TSI
 
 ## Next steps
 
+- Get started by creating [a new Time Series Insights environment in the Azure portal](time-series-insights-get-started.md).
+
 - Learn how to [add an Event Hub event source](time-series-insights-how-to-add-an-event-source-eventhub.md) to Time Series Insights.
 
 - Read about how to [configure an IoT Hub event source](time-series-insights-how-to-add-an-event-source-iothub.md).
