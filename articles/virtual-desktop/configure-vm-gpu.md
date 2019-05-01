@@ -6,7 +6,7 @@ author: gundarev
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/12/2019
+ms.date: 05/06/2019
 ms.author: denisgun
 ---
 
