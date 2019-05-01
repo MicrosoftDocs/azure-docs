@@ -124,7 +124,7 @@ a method, but without defining the method signature.
    > you must add those action names to the [**Actions** parameter](#add-parameters)
    > and use this format when referencing those actions, for example:
    >
-   > ```javascript
+   > ```text
    > // Correct
    > workflowContext.actions["my.action.name"].body
    > // Incorrect
