@@ -23,7 +23,7 @@ CloudSimple continuously monitors the following VMs for uptime and availability,
 
 * ESXi hosts
 * vCenter
-* PSC*
+* PSC
 * NSX Manager
 
 CloudSimple also monitors the following continuously for failures:
