@@ -4,7 +4,7 @@ description: Learn how to migrate all the existing non-partitioned containers in
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 05/06/2019
 ms.author: mjbrown
 ---
 
@@ -19,7 +19,7 @@ The non-partitioned containers are legacy and you should migrate your existing n
 
 ## Migrate container using the system defined partition key
 
-To support the migration, Azure Cosmos DB defines a system defined partition key named "/_partitionkey" on all the containers that don’t have a partition key. For example, the definition of a container that is migrated to a partitioned container will be as follows: 
+To support the migration, Azure Cosmos DB defines a system defined partition key named "/_partitionkey" on all the containers that don’t have a partition key. You cannot change the partition key definition after the containers are migrated. For example, the definition of a container that is migrated to a partitioned container will be as follows: 
 
 ```json
 {
@@ -71,7 +71,7 @@ DeviceInformationItem deviceItem = new DeviceInformationItem() {Id = "1234", Dev
 CosmosItemResponse<DeviceInformationItem > response = await migratedContainer.Items.CreateItemAsync(deviceItem.PartitionKey, deviceItem);
 
 // Read back the document providing the same partition key
-CosmosItemResponse<DeviceInformationItem> readResponse = await fixedContainer.Items.ReadItemAsync<DeviceInformationItem>( partitionKey:deviceItem.PartitionKey, id: device.Id); 
+CosmosItemResponse<DeviceInformationItem> readResponse = await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>( partitionKey:deviceItem.PartitionKey, id: device.Id); 
 
 ```
 
@@ -79,11 +79,14 @@ For the complete sample, see the [.Net samples](https://github.com/Azure/azure-c
                       
 ## Migrate the documents
 
-While the container definition is enhanced with a partition key property, the documents within the container aren’t auto migrated. You need to repartition the existing documents by reading the documents that were created without a partition key and rewrite them back with "_partitionKey" property in the documents. 
-Applications can access the existing documents that don’t have a partition key by using the special system property called "CosmosContainerSettings.NonePartitionKeyValue". You can use this property in all the CRUD and query operations. The following example shows a sample to read a single Document from the NonePartitionKey. 
+While the container definition is enhanced with a partition key property, the documents within the container aren’t auto migrated. Which means the system partition key property "/_partitionKey" path is not automatically added to the existing documents. You need to repartition the existing documents by reading the documents that were created without a partition key and rewrite them back with "_partitionKey" property in the documents. 
+
+## Access documents that don't have a partition key
+
+Applications can access the existing documents that don’t have a partition key by using the special system property called "CosmosContainerSettings.NonePartitionKeyValue", this is the default value of the "_partitionKey" property. You can use this property in all the CRUD and query operations. The following example shows a sample to read a single Document from the NonePartitionKey. 
 
 ```csharp
-CosmosItemResponse<DeviceInformationItem> readResponse = await fixedContainer.Items.ReadItemAsync<DeviceInformationItem>( 
+CosmosItemResponse<DeviceInformationItem> readResponse = await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>( 
 partitionKey: CosmosContainerSettings.NonePartitionKeyValue, 
 id: device.Id); 
 
@@ -93,9 +96,7 @@ For the complete sample on how to repartition the documents, see the [.Net sampl
 
 ## Compatibility with SDKs
 
-Older version of Azure Cosmos DB SDKs such as V2.x.x and V1.x.x don’t support the system defined partition key property. So, when you read the container definition from an older SDK, it doesn’t contain any partition key definition and such container will behave exactly as before. 
-
-Applications that are built with the older version of SDKs continue to work with non-partitioned as is without any changes. 
+Older version of Azure Cosmos DB SDKs such as V2.x.x and V1.x.x don’t support the system defined partition key property. So, when you read the container definition from an older SDK, it doesn’t contain any partition key definition and these container will behave exactly as before. Applications that are built with the older version of SDKs continue to work with non-partitioned as is without any changes. 
 
 If a migrated container is consumed by the latest/V3 version of SDK and you start populating the system defined partition key within the new documents, you cannot access (read, update, delete, query) such documents from the older SDKs anymore.
 
