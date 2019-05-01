@@ -11,7 +11,7 @@ manager: dikamath
 ---
 # Activity management overview
 
-CloudSimple tracks all activities that can affect the functioning of your private clouds. These activities including alerts, events, tasks, and audit activity. The [Activity pages](activity) summarize all the current activity and allow you to drill down for additional details.
+CloudSimple tracks all activities that can affect the functioning of your private clouds. These activities including alerts, events, tasks, and audit activity. The [Activity pages](https://docs.azure.cloudsimple.com/activity/) summarize all the current activity and allow you to drill down for additional details.
 
 ## Events
 

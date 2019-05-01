@@ -41,7 +41,7 @@ vCenter server appliance (VCSA) provides the authentication, management, and orc
 
 ### vCenter single sign-on
 
-Embedded Platform Services Controller on VCSA is associated with a **vCenter Single Sign-On domain**.  The domain name is **cloudsimple.local**.  A default user **CloudOwner@cloudsimple.com** is created for you to access vCenter.  You can add your on-premises/Azure active directory [identity sources for vCenter](set-vcenter-identity).
+Embedded Platform Services Controller on VCSA is associated with a **vCenter Single Sign-On domain**.  The domain name is **cloudsimple.local**.  A default user **CloudOwner@cloudsimple.com** is created for you to access vCenter.  You can add your on-premises/Azure active directory [identity sources for vCenter](https://docs.azure.cloudsimple.com/set-vcenter-identity/).
 
 ## vSAN storage
 
@@ -112,4 +112,4 @@ CloudSimple provides quarterly maintenance updates to VMware software components
 
 ## Next steps
 
-* [CloudSimple maintenance and updates](cloudsimple-maintenance-updates)
+* [CloudSimple maintenance and updates](cloudsimple-maintenance-updates.md)

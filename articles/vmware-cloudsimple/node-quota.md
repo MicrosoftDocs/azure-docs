@@ -11,7 +11,7 @@ manager: dikamath
 ---
 # CloudSimple node quota limits
 
-Four nodes is the default quantity available for purchase, when your subscription is enabled for CloudSimple service.  You can purchase any [node type](cloudsimple-node) from Azure portal.  A minimum of three nodes of the same SKU are required to create a Private Cloud.  If you've purchased the nodes, you may see an error when you try to purchase additional nodes.
+Four nodes is the default quantity available for purchase, when your subscription is enabled for CloudSimple service.  You can purchase any [node type](cloudsimple-node.md) from Azure portal.  A minimum of three nodes of the same SKU are required to create a Private Cloud.  If you've purchased the nodes, you may see an error when you try to purchase additional nodes.
 
 ## Quota increase
 
@@ -35,4 +35,4 @@ You can also contact your Microsoft account representative at [azurevmwaresales@
 ## Next steps
 
 * [Purchase nodes](create-nodes.md)
-* [CloudSimple nodes overview](cloudsimple-node)
+* [CloudSimple nodes overview](cloudsimple-node.md)
