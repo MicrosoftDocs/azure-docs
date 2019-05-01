@@ -38,7 +38,7 @@ To run this tutorial, you need:
 * A Data Lake Storage account. See [Get started with Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md). 
 
 ##  Create a credential
-To access your Data Lake Storage account, you will need to create a Database Master Key to encrypt your credential secret used in the next step. You then create a Database Scoped Credential. For Gen1, the Databse Scoped Credential stores the service principal credentials set up in AAD. You must use the storage account key in the Database Scoped Credential for Gen2. 
+To access your Data Lake Storage account, you will need to create a Database Master Key to encrypt your credential secret used in the next step. You then create a Database Scoped Credential. For Gen1, the Database Scoped Credential stores the service principal credentials set up in AAD. You must use the storage account key in the Database Scoped Credential for Gen2. 
 
 To connect to Data Lake Storage Gen1, you must **first** create an Azure Active Directory Application, create an access key, and grant the application access to the Data Lake Storage Gen1 resource. For instructions, see [Authenticate to Azure Data Lake Storage Gen1 Using Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 
