@@ -104,7 +104,7 @@ If you expect to collect all the messages that your devices generate during long
 
 ### Time to live
 
-The time to live setting is the amount of time (in seconds) that a message can wait to be delivered before it expires. The default is 7200 seconds (two hours). 
+The time to live setting is the amount of time (in seconds) that a message can wait to be delivered before it expires. The default is 7200 seconds (two hours). The maximum value is only limited by the maximum value of an integer variable, which is around 2 billion. 
 
 This setting is a desired property of the IoT Edge hub, which is stored in the module twin. You can configure it in the Azure portal, in the **Configure advanced Edge Runtime settings** section, or directly in the deployment manifest. 
 
