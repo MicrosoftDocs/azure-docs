@@ -1,9 +1,8 @@
 ---
 title: Transfer data with AzCopy and blob storage | Microsoft Docs
-description: Transfer data with AzCopy and blob storage.
+description: This article contains a collection of AzCopy example commands that help you create containers, copy files, and synchronize folders between local file systems and containers.
 services: storage
 author: normesta
-
 ms.service: storage
 ms.topic: article
 ms.date: 01/03/2019
@@ -13,13 +12,14 @@ ms.subservice: common
 
 # Transfer data with AzCopy and blob storage 
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between blob storage containers.
+AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts.
 
 This article contains a collection of AzCopy example commands that help you create containers, copy files, and synchronize folders between local file systems and containers.
 
-Before you begin, download AzCopy v10. Then, use the `AzCopy login` command to sign into your storage account, or, obtain a SAS token that you can append to each AzCopy command.
-
-For guidance on accomplishing these tasks, see [Get started with AzCopy](storage-use-azcopy-v10.md).
+> [!IMPORTANT]
+> Before you begin, download AzCopy v10. Then, use the `AzCopy login` command to sign into your storage account, or, obtain a SAS token that you can append to each AzCopy command. 
+>
+>For guidance on accomplishing these tasks, see [Get started with AzCopy](storage-use-azcopy-v10.md).
 
 ## Create containers
 
@@ -35,19 +35,7 @@ outro-text
 
 ## Copy files
 
-Basic usage
-
-azcopy copy [source] [destination] [flags]
-
-For detailed descriptions of each flag, type `azcopy copy`, and then press the ENTER key.
-
-If you are using SAS, append the SAS token to all references to Blob containers. For example:
-
-  - azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
-
-If you use the `AzCopy login` command to sign into your storage account, you don't have to append the SAS token to the blob URI.
-
-This section contains the following example commands:
+This section helps you accomplish these tasks.
 
 > [!div class="checklist"]
 > * [Copy data from a local file system to a container]()
@@ -56,15 +44,24 @@ This section contains the following example commands:
 
 ### Copy data from a local file system to a container
 
-Intro text
+### Command syntax
 
-    hdfs dfs -mkdir [-p] <path>
+azcopy cp [path-to-local-file] https://[storage-account-name].blob.core.windows.net/[container-name]/[blob-name]
 
-Replace the `<path>` placeholder with the root file system name or a folder within your file system.
+### Placeholder values
 
-For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+Replace each placeholder that appears in this command. This table describes each placeholder.
 
-outro-text
+|Placeholder in command    |Replace this placeholder with..    |
+|--|--|
+|`[path-to-local-file]` | The fully qualified name of a file on your local machine that you want to upload to the container.|
+|`[storage-account-name]`    | The name of your storage account.
+|`[container-name]`    | The name of the container that you want to upload a file to. |
+|`[blob-name]`    |The name that you want to give this file. This does not change the name of the file on your local machine. |
+
+### Example
+
+`azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.blob.core.windows.net/mycontainer1/myTextFile.txt"`
 
 ### Copy data from a container to a local file system
 
