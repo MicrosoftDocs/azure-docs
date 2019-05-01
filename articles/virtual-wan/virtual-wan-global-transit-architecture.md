@@ -63,7 +63,7 @@ Azure Virtual WAN supports the following global transit connectivity paths. The 
 * ExpressRoute Global Reach 
     * Remote User-to-VNet (c)
     * Remote User-to-branch (d)
-    * VNet-to-VNet using VNet peering (e)
+    * VNet-to-VNet using VNet peering (e) 
 
 ### Branch-to-VNet
 
