@@ -50,24 +50,18 @@ az extension add --name aks-preview
 
 ### Register multiple node pool feature provider
 
-To create an AKS cluster that can use multiple node pools and run Windows Server containers, first enable four feature flags on your subscription. Multi-node pool clusters use a virtual machine scale set to manage the deployment and configuration of the Kubernetes nodes. Register the *MultiAgentpoolPreview*, *VMSSPreview*, *EnableSingleIPPerCCP*, and *WindowsPreview* feature flags using the [az feature register][az-feature-register] command as shown in the following example:
+To create an AKS cluster that can use multiple node pools and run Windows Server containers, first enable the *WindowsPreview* feature flags on your subscription. The *WindowsPreview* feature also uses multi-node pool clusters and virtual machine scale set to manage the deployment and configuration of the Kubernetes nodes. Register the  *WindowsPreview* feature flag using the [az feature register][az-feature-register] command as shown in the following example:
 
 ```azurecli-interactive
-az feature register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService
-az feature register --name VMSSPreview --namespace Microsoft.ContainerService
-az feature register --name EnableSingleIPPerCCP --namespace Microsoft.ContainerService
 az feature register --name WindowsPreview --namespace Microsoft.ContainerService
 ```
 
 > [!NOTE]
-> Any AKS cluster you create after you've successfully registered the *MultiAgentpoolPreview*, *VMSSPreview*, *EnableSingleIPPerCCP*, and *WindowsPreview* feature flags, use this preview cluster experience. To continue to create regular, fully-supported clusters, don't enable preview features on production subscriptions. Use a separate test or development Azure subscription for testing preview features.
+> Any AKS cluster you create after you've successfully registered the *WindowsPreview* feature flag use this preview cluster experience. To continue to create regular, fully-supported clusters, don't enable preview features on production subscriptions. Use a separate test or development Azure subscription for testing preview features.
 
 It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MultiAgentpoolPreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableSingleIPPerCCP')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
 ```
 
@@ -81,13 +75,14 @@ az provider register --namespace Microsoft.ContainerService
 
 The following limitations apply when you create and manage AKS clusters that support multiple node pools:
 
-* Multiple node pools are only available for clusters created after you've successfully registered the *MultiAgentpoolPreview* and *VMSSPreview* features for your subscription. You can't add or manage node pools with an existing AKS cluster created before these features were successfully registered.
+* Multiple node pools are available for clusters created after you've successfully registered the *WindowsPreview*. Multiple node pools are also available if you register the *MultiAgentpoolPreview* and *VMSSPreview* features for your subscription. You can't add or manage node pools with an existing AKS cluster created before these features were successfully registered.
 * You can't delete the first node pool.
 
 While this feature is in preview, the following additional limitations apply:
 
 * The AKS cluster can have a maximum of eight node pools.
 * The AKS cluster can have a maximum of 400 nodes across those eight node pools.
+* The Windows Server node pool name has a limit of 6 characters.
 
 ## Create a resource group
 
@@ -116,74 +111,25 @@ The following example output shows the resource group created successfully:
 ```
 
 ## Create AKS cluster
-
-In order to run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to use a network policy that uses [Azure CNI][azure-cni-about] (advanced) network plugin. With Azure CNI, you define your own virtual network and subnets. The Azure CNI network plugin can only be enabled and the network settings configured when the cluster is created. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking].
-
-The following example script:
-
-* Creates a virtual network and subnet.
-* Creates an Azure Active Directory (Azure AD) service principal for use with the AKS cluster.
-* Assigns *Contributor* permissions for the AKS cluster service principal on the virtual network.
-
-Provide your own secure *SP_PASSWORD*.
-
-```azurecli-interactive
-export SP_PASSWORD="mySecureP@ssw0rd"
-export RESOURCE_GROUP_NAME=myResourceGroup
-export CLUSTER_NAME=myAKSCluster
-export LOCATION=eastus
-
-# Create a virtual network and subnet
-az network vnet create \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name myVnet \
-    --address-prefixes 10.0.0.0/8 \
-    --subnet-name myAKSSubnet \
-    --subnet-prefix 10.240.0.0/16
-
-# Create a service principal and read in the application ID
-export SP_ID=$(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
-
-# Wait 15 seconds to make sure that service principal has propagated
-echo "Waiting for service principal to propagate..."
-sleep 15
-
-# Get the virtual network resource ID
-export VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP_NAME --name myVnet --query id -o tsv)
-
-# Assign the service principal Contributor permissions to the virtual network resource
-az role assignment create --assignee $SP_ID --scope $VNET_ID --role Contributor
-
-# Get the virtual network subnet resource ID
-export SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP_NAME --vnet-name myVnet --name myAKSSubnet --query id -o tsv)
-
-```
-
-Use the [az aks create][az-aks-create] command to create an AKS cluster named *myAKSCluster* in the defined virtual network and network policy.
+In order to run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to use a network policy that uses [Azure CNI][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]. Use the [az aks create][az-aks-create] command to create an AKS cluster named *myAKSCluster*. This command will create the necessary network resources if they don't exist.
   * The cluster is configured with one node
   * The *windows-admin-password* and *windows-admin-username* parameters set the admin credentials for any Windows Server containers created on the cluster.
 
 Provide your own secure *PASSWORD_WIN*.
 
 ```azurecli-interactive
-export PASSWORD_WIN="P@ssw0rd1234"
+PASSWORD_WIN="P@ssw0rd1234"
 
 az aks create \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --name $CLUSTER_NAME \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
     --node-count 1 \
     --kubernetes-version 1.13.5 \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
     --enable-vmss \
-    --network-plugin azure \
-    --service-cidr 10.0.0.0/16 \
-    --dns-service-ip 10.0.0.10 \
-    --docker-bridge-address 172.17.0.1/16 \
-    --vnet-subnet-id $SUBNET_ID \
-    --service-principal $SP_ID \
-    --client-secret $SP_PASSWORD 
+    --network-plugin azure
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -194,16 +140,15 @@ By default, an AKS cluster is created with a node pool that can run Linux contai
 
 ```azurecli
 az aks nodepool add \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --cluster-name $CLUSTER_NAME \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
     --os-type Windows \
     --name npwin \
     --node-count 1 \
-    --kubernetes-version 1.13.5 \
-    --vnet-subnet-id $SUBNET_ID
+    --kubernetes-version 1.13.5
 ```
 
-The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. When creating a node pool to run Windows Server containers, the default value for *node-vm-size* is *Standard_D2s_v3*. If you choose to set the *node-vm-size* parameter, please check the list of [restricted VM sizes][restricted-vm-sizes]. The minimum recommended size is *Standard_D2s_v3*.
+The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. When creating a node pool to run Windows Server containers, the default value for *node-vm-size* is *Standard_D2s_v3*. If you choose to set the *node-vm-size* parameter, please check the list of [restricted VM sizes][restricted-vm-sizes]. The minimum recommended size is *Standard_D2s_v3*. The above command also uses the default subnet in the default vnet created when running `az aks create`.
 
 ## Connect to the cluster
 
@@ -216,7 +161,7 @@ az aks install-cli
 To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
 ```azurecli-interactive
-az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 To verify the connection to your cluster, use the [kubectl get][kubectl-get] command to return a list of the cluster nodes.
@@ -332,7 +277,7 @@ To see the sample app in action, open a web browser to the external IP address o
 When the cluster is no longer needed, use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
-az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
+az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
