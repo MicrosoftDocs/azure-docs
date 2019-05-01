@@ -65,31 +65,31 @@ Azure Virtual WAN supports the following global transit connectivity paths. The 
     * Remote User-to-branch (d)
     * VNet-to-VNet using VNet peering (e) 
 
-### Branch-to-VNet
+### <a name="branchvnet"></a>Branch-to-VNet
 
 Branch-to-VNet is the primary path supported by Azure Virtual WAN. This path allows you to connect branches to Azure IAAS enterprise workloads that are deployed in Azure VNets. Branches can be connected to the virtual WAN via ExpressRoute or site-to-site VPN. The traffic transits to VNets that are connected to the virtual WAN hubs via VNet connections.
 
-### Branch-to-branch
+### <a name="branchbranch"></a>Branch-to-branch
 
 Branches can be connected to an Azure Virtual WAN hub using ExpressRoute circuits and/or site-to-site VPN connections. You can connect the branches to the Virtual WAN hub that is in the region closest to the branch.
 
 This option lets enterprises leverage the Azure backbone to connect branches. However, even though this capability is available, you should weigh the benefits of connecting branches over Azure Virtual WAN vs. using a private WAN.
 
-### ExpressRoute Global Reach
+### <a name="globalreach"></a>ExpressRoute Global Reach
 
 ExpressRoute is a private and resilient way to connect your on-premises networks to the Microsoft Cloud. ExpressRoute Global Reach is an add-on feature for ExpressRoute. With Global Reach, you can link ExpressRoute circuits together to make a private network between your on-premises networks. Branches that are connected to Azure Virtual WAN using ExpressRoute require the ExpressRoute Global Reach to communicate with each other.
 
 In this model, each branch that is connected to the Virtual WAN hub using ExpressRoute can connect to VNets using the branch-to-VNet path. Branch-to-branch traffic won't transit the hub because ExpressRoute Global Reach enables a more optimal path over Azure WAN.
 
-#### Remote User-to-VNet
+#### <a name="usertovnet"></a>Remote User-to-VNet
 
 You can enable direct, secure remote access to Azure using point-to-site connections from a remote user client to a virtual WAN. Enterprise remote users no longer have to hairpin to the cloud using a corporate VPN.
 
-#### Remote User-to-branch
+#### <a name="usertobranch"></a>Remote User-to-branch
 
 The Remote User-to-branch path lets remote users who are using a point-to-site connection to Azure access on-premises workloads and applications by transiting through the cloud. This path gives remote users the flexibility to access workloads that are both deployed in Azure and on-premises. Enterprises can enable central cloud-based secure remote access service in Azure Virtual WAN.
 
-#### VNet-to-VNet transit using VNet peering
+#### <a name="vnetvnet"></a>VNet-to-VNet transit using VNet peering
 
 To connect VNets to each other in order to support multi-tier applications that are implemented across multiple VNets, use VNet peering. A VNet-to-VNet transit scenario via Azure Virtual WAN is currently not supported, but is on the Azure roadmap. For more information about VNet peering, see [Configure VPN gateway transit for virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
 
