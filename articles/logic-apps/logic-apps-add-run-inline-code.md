@@ -119,6 +119,17 @@ a method, but without defining the method signature.
    > [!NOTE]
    > The `workflowContext` object is read-only, so you can't 
    > assign or change any values in the available properties.
+   > 
+   > If you have actions that use the dot (.) operator in their names, 
+   > you must add those action names to the [**Actions** parameter](#add-parameters)
+   > and use this format when referencing those actions, for example:
+   >
+   > ```javascript
+   > // Correct
+   > workflowContext.actions["my.action.name"].body
+   > // Incorrect
+   > workflowContext.actions.my.action.name.body
+   > ```
 
    The inline code action doesn't require a `return` statement, 
    but the value output from a `return` statement is available 
@@ -186,9 +197,7 @@ However, before you start, you need the JSON version for the action name,
 which appears in the logic app's underlying workflow definition.
 
 * This capability doesn't support variables, loops, and iteration indexes.
-* The dot (.) operator is used to reference properties, which means that 
-if you renamed actions by using this operator, you must manually 
-specify this when adding those actions as parameters.
+* Replace spaces with underscores (_) in JSON names.
 
 1. On the designer toolbar, choose **Code view**, 
 and search inside the `actions` attribute for the action name. 
