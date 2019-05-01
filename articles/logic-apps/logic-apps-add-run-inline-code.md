@@ -136,6 +136,8 @@ a method, but without defining the method signature.
 
 1. When you're done, save your logic app.
 
+<a name="add-parameters"></a>
+
 ## Add parameters
 
 Optionally, you can require that the **Inline Code** action 
