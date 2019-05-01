@@ -196,7 +196,7 @@ Assign these *actions* to the role:
 Set these privileges to enable a user to successfully request JIT access to a VM:
 Assign these *actions* to the user:
 - On the scope of a subscription or Resource Group that is associated with the VM:
-  - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ initiate/action
+  - Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action
 - On the scope of a Subscription or Resource Group or VM:
   - Microsoft.Compute/virtualMachines/read
 
