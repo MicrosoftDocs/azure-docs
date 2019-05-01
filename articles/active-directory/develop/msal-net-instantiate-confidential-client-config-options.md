@@ -1,6 +1,6 @@
 ---
-title: Get consent for several resources (Microsoft Authentication Library for .NET) | Azure
-description: Learn how to instantiate a public client application with configuration options using MSAL.NET using the Microsoft Authentication Library for .NET (MSAL.NET).
+title: Instantiate a confidential client app with options (Microsoft Authentication Library for .NET) | Azure
+description: Learn how to instantiate a confidential client application with configuration options using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -17,7 +17,7 @@ ms.date: 04/30/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to learn how to specify additional scopes so I can get pre-consent for several resources.
+#Customer intent: As an application developer, I want to learn how to use application config options so I can instantiate a confidential client app.
 ms.collection: M365-identity-device-management
 ---
 
