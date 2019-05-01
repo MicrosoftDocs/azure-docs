@@ -22,7 +22,7 @@ ms.author: aljo
 >
 >
 
-Follow the steps below to enable disk encryption on Service Fabric Windows Cluster Nodes. You will need to do these for each of the node types/virtual machine scale sets. For encrypting the nodes, we will leverage the Azure Disk Encryption capability on virtual machine scale sets.
+Follow the steps below to enable disk encryption on Service Fabric Windows Cluster Nodes. You will need to do these for each of the node types/virtual machine scale sets. For encrypting the nodes, we will leverage the Azure Disk Encryption capability on virtual machine scale sets. 
 
 The guide covers the following procedures:
 
