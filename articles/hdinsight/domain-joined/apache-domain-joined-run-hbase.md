@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 02/01/2019
 ---
 
-# Tutorial: Configure Apache HBase policies in HDInsight with Enterprise Security Package (Preview)
+# Tutorial: Configure Apache HBase policies in HDInsight with Enterprise Security Package
 
 Learn how to configure Apache Ranger policies for Enterprise Security Package (ESP) Apache HBase clusters. ESP clusters are connected to a domain allowing users to authenticate with domain credentials. In this tutorial, you create two Ranger policies to restrict access to different column-families in an HBase table.
 

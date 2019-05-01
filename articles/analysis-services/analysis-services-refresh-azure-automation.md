@@ -11,24 +11,24 @@ ms.author: chlound
 ---
 # Refresh with Azure Automation
 
-By using Azure Automation and PowerShell Runbooks, you can perform data-refresh operations on your Azure Analysis tabular models.  
+By using Azure Automation and PowerShell Runbooks, you can perform automated data refresh operations on your Azure Analysis tabular models.  
 
-The example in this article uses the PowerShell SqlServer modules.  For more information on these modules, see the following article:  https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps
+The example in this article uses the [PowerShell SqlServer modules](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps).
 
-A sample PowerShell Runbook is provided later in this article which demonstrates refreshing the Analysis Services model.  
+A sample PowerShell Runbook, which demonstrates refreshing a model is provided later in this article.  
 
 ## Authentication
 
 All calls must be authenticated with a valid Azure Active Directory (OAuth 2) token.  The example in this article will use a Service Principal (SPN) to authenticate to Azure Analysis Services.
 
-For more information on creating a Service Principal, see the following article: https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal
+To learn more about creating a Service Principal, see []
 
-## Pre-requisites
+## Prerequisites
 
 > [!IMPORTANT]
-> The following example assume that the Azure Analysis Services firewall is disabled.  If the firewall is enabled then the public IP address of the request initiator will need to be white listed in the Azure Analysis Services firewall.
+> The following example assumes the Azure Analysis Services firewall is disabled. If the firewall is enabled, then the public IP address of the request initiator will need to be whitelisted in the firewall.
 
-Install the SqlServer modules from the gallery.
+### Install SqlServer modules from PowerShell gallery.
 
 1. In your Azure Automation Account, Click **Modules**, then **Browse gallery**.
 
@@ -40,17 +40,17 @@ Install the SqlServer modules from the gallery.
  
     ![Import Module](./media/analysis-services-refresh-azure-automation/2.png)
 
-4. Click **OK**
+4. Click **OK**.
  
-Make sure you have a Service Principal (SPN) created.
+### Create a Service Principal (SPN)
 
-Configure permissions to Azure Analysis Services.
+To learn about creating a Service Principal, see [Create a service principal by using Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
-For more information on creating a Service Principal, see the following article https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal
+### Configure permissions in Azure Analysis Services
+ 
+The Service Principal you create must have server administrator permissions on the server. To learn more, see [Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md).
 
-For more information on assigning a service principal to server administrators, see the following article https://docs.microsoft.com/azure/analysis-services/analysis-services-addservprinc-admins.
-
-## Designing the Azure Automation Runbook
+## Design the Azure Automation Runbook
 
 1. In the Automation Account, create a **Credentials** resource which will be used to securely store the Service Principal.
 
@@ -64,7 +64,7 @@ For more information on assigning a service principal to server administrators, 
 
     ![Import Runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Browse for the **Refresh-Model.ps1** file, provide a **Name**, and give the runbook a **description**.  Then click **Create**.
+4. Browse for the **Refresh-Model.ps1** file, provide a **Name** and **description**, and then click **Create**.
 
     ![Import Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 
@@ -72,22 +72,22 @@ For more information on assigning a service principal to server administrators, 
 
     ![Publish Runbook](./media/analysis-services-refresh-azure-automation/10.png)
 
-> [!NOTE]
-> The credential resource that was created previously is retrieved by the runbook by using the **Get-AutomationPSCredential** command.  This command is then passed to the **Invoke-ProcessASADatabase** PowerShell command to perform the authentication to Azure Analysis Services.
+    > [!NOTE]
+    > The credential resource that was created previously is retrieved by the runbook by using the **Get-AutomationPSCredential** command.  This command is then passed to the **Invoke-ProcessASADatabase** PowerShell command to perform the authentication to Azure Analysis Services.
 
 6. Test the runbook by clicking **Start**.
 
     ![Start the Runbook](./media/analysis-services-refresh-azure-automation/11.png)
 
-7. Fill out the **DATABASENAME**, **ANALYSISSERVER** and **REFRESHTYPE** parameters and click **OK**.  The **WEBHOOKDATA** parameter is not required when the Runbook is run manually.
+7. Fill out the **DATABASENAME**, **ANALYSISSERVER**, and **REFRESHTYPE** parameters, and then click **OK**. The **WEBHOOKDATA** parameter is not required when the Runbook is run manually.
 
     ![Start the Runbook](./media/analysis-services-refresh-azure-automation/12.png)
 
-If the Runbook was executed successfully, you will receive an output like the following:
+If the Runbook executed successfully, you will receive an output like the following:
 
 ![Successful Run](./media/analysis-services-refresh-azure-automation/13.png)
 
-## Using a self-contained Azure Automation Runbook
+## Use a self-contained Azure Automation Runbook
 
 The Runbook can be configured to trigger the Azure Analysis Services model refresh on a scheduled basis.
 
@@ -97,13 +97,13 @@ This can be configured as follows:
  
     ![Create schedule](./media/analysis-services-refresh-azure-automation/14.png)
 
-2. Click **Schedule** > **Create a new schedule** and fill in the details.
+2. Click **Schedule** > **Create a new schedule**, and then fill in the details.
 
     ![Configure schedule](./media/analysis-services-refresh-azure-automation/15.png)
 
 3. Click **Create**.
 
-4. Fill in the parameters for the schedule.  These will be used each time the Runbook triggers.  The **WEBHOOKDATA** parameter should be left blank when running via a schedule.
+4. Fill in the parameters for the schedule. These will be used each time the Runbook triggers. The **WEBHOOKDATA** parameter should be left blank when running via a schedule.
 
     ![Configure parameters](./media/analysis-services-refresh-azure-automation/16.png)
 
@@ -111,27 +111,27 @@ This can be configured as follows:
 
 ## Consume with Data Factory
 
-To consume the runbook using Azure Data Factory, first create a **Webhook** for the runbook.  The **Webhook** will provide a URL which can be called via an Azure Data Factory web activity.
+To consume the runbook by using Azure Data Factory, first create a **Webhook** for the runbook. The **Webhook** will provide a URL which can be called via an Azure Data Factory web activity.
 
 > [!IMPORTANT]
 > To create a **Webhook**, the status of the Runbook must be **Published**.
 
-1. In your Automation Runbook, click **Webhooks**, then Add **Webhook**.
+1. In your Automation Runbook, click **Webhooks**, and then click **Add Webhook**.
 
    ![Add Webhook](./media/analysis-services-refresh-azure-automation/17.png)
 
 2. Give the Webhook a name and an expiry.  The name only identifies the Webhook inside the Automation Runbook, it doesn't form part of the URL.
 
    >[!CAUTION]
-   >Ensure to copy the URL before closing the wizard as you cannot get it back once closed.
+   >Ensure you copy the URL before closing the wizard as you cannot get it back once closed.
     
    ![Configure Webhook](./media/analysis-services-refresh-azure-automation/18.png)
 
-The parameters for the webhook can remain blank.  When configuring the Azure Data Factory web activity, the parameters can be passed into the body of the web call.
+    The parameters for the webhook can remain blank.  When configuring the Azure Data Factory web activity, the parameters can be passed into the body of the web call.
 
 3. In Data Factory, configure a **web activity**
 
-Example
+### Example
 
    ![Example Web Activity](./media/analysis-services-refresh-azure-automation/19.png)
 
@@ -162,14 +162,14 @@ This is deserialized and stored as PowerShell parameters, which are then used by
 
 ![Deserialized Webhook](./media/analysis-services-refresh-azure-automation/20.png)
 
-## Using a Hybrid Worker with Azure Analysis Services
+## Use a Hybrid Worker with Azure Analysis Services
 
 An Azure Virtual Machine with a static public IP address can be used as an Azure Automation Hybrid Worker.  This public IP address can then be added to the Azure Analysis Services firewall.
 
 > [!IMPORTANT]
-> Ensure that the Virtual Machine public IP address is configured as static.
+> Ensure the Virtual Machine public IP address is configured as static.
 >
->To learn more about configuring Azure Automation Hybrid Workers see the following article https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker#installing-a-hybrid-runbook-worker
+>To learn more about configuring Azure Automation Hybrid Workers, see [Automate resources in your datacenter or cloud by using Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker).
 
 Once a Hybrid Worker is configured, create a Webhook as described in the section [Consume with Data Factory](#consume-with-data-factory).  The only difference here is to select the **Run on** > **Hybrid Worker** option when configuring the Webhook.
 
