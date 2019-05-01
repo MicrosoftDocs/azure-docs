@@ -3,7 +3,7 @@ title: Overview of Azure Resource Graph
 description: Understand how the Azure Resource Graph service enables complex querying of resources at scale.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/30/2019
+ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
@@ -82,6 +82,12 @@ response time for all customers. If your organization wants to use the Resource 
 large-scale and frequent queries, use portal 'Feedback' from the Resource Graph page. Be sure to
 provide your business case and select the 'Microsoft can email you about your feedback' checkbox in
 order for the team to contact you.
+
+Resource Graph throttles at the tenant level. The service overrides and sets the
+`x-ms-ratelimit-remaining-tenant-reads` response header to indicate remaining queries available by
+user within the tenant. Resource Graph resets the quota every 5 seconds instead of every hour. For
+more information, see
+[Throttling Resource Manager requests](../../azure-resource-manager/resource-manager-request-limits.md).
 
 ## Running your first query
 
