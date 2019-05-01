@@ -42,7 +42,7 @@ This article lists the steps to run the Azure IoT Edge runtime on a Windows Serv
     1.	After a minute or two, you should see a message that the Edge runtime was installed and provisioned successfully.
 
 
-## Deploy from the Azure Portal
+## Deploy from the Azure portal
 1. From the Azure portal, search for “Windows Server” and select **Windows Server 2019 Datacenter** to begin the VM creation workflow. 
 2. From **Select a software plan** choose "Windows Server 2019 Datacenter Server Core with Containers", then select **Create**
 3. Complete step 5 in the "Deploy from the Azure Marketplace" instructions above.
@@ -98,4 +98,4 @@ To update an existing installation to the newest version of IoT Edge, see [Updat
 
 Learn more about using Windows virtual machines at the [Windows Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines/windows/).
 
-If you want to SSH into this VM after setup, follow the [Installation of OpenSSH for Windows Server](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse#installing-openssh-with-powershell) guide using remote desktop or remote powershell.
+If you want to SSH into this VM after setup, follow the [Installation of OpenSSH for Windows Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse#installing-openssh-with-powershell) guide using remote desktop or remote powershell.
