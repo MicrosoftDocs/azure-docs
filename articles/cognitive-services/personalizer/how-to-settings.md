@@ -17,17 +17,30 @@ ms.author: edjez
 
 Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
 
+## Create a Personalizer resource
+
 Create a Personalizer resource for each feedback loop. 
 
-## Configure service settings in the Azure portal
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/)
+1. Select the green **+** sign in the upper-left panel. Search for `Personalizer` and select it.
+1. Set the following:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Find your Personalizer resource. 
-1. In the **Resource management** section, select **Settings**.
+    | Property|Purpose|
+    |--|--|
+    |Resource name| The name of your resource as it appears in the portal.|
+    Subscription|The name of the billing subscription.|
+    |Location|The Azure region of the service.|
+    |Pricing tier|The pricing tier controls throughput.|
+    |Resource group|The logical grouping of services. If you are using this service in combination with other services, place all the resources in the same resource group.|
+    | | |
 
-    ![Sign in to the Azure portal. Find your Personalizer resource. In the Resource management section, select Settings.](media/settings/how-to-configure.png)
+1. Select **Create** to create the resource.
 
-### Reward settings for the feedback loop
+    Once your resource is created, it is ready to use. You don't have to configure it before it will work. 
+
+    Before leaving the Azure portal, copy one of your resource keys from the **Keys** page. You will need this to use the [Personalizer SDK](https://aka.ms/personalizer-dotnet-sdk-docs).
+
+### Configure reward settings for the feedback loop based on use case
 
 Configure the service's settings for your feedback loop's use of rewards. Changes to the following settings will reset the current Personalizer model and retrain it with the last 2 days of data:
 
