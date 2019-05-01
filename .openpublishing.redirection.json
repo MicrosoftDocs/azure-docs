@@ -15071,6 +15071,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/stream-analytics/stream-analytics-dotnet-management-sdk-v1.md",
+      "redirect_url": "/azure/stream-analytics/stream-analytics-dotnet-management-sdk",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/stream-analytics/stream-analytics-out-of-order-and-late-events.md",
       "redirect_url": "/azure/stream-analytics/stream-analytics-time-handling",
       "redirect_document_id": false
