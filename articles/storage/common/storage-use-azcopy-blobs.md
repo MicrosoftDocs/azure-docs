@@ -17,27 +17,29 @@ AzCopy is a command-line utility that you can use to copy data to, from, or betw
 This article contains a collection of AzCopy example commands. You can use them to create containers, upload files, download files, copy files, and synchronize folders.
 
 > [!IMPORTANT]
-> Before you begin, download AzCopy v10. Then, use the `AzCopy login` command to sign into your storage account, or, obtain a SAS token that you can append to each AzCopy command. 
+> Before you begin, download AzCopy v10. Then, use the `AzCopy login` command to sign into your storage account, or, obtain a SAS token that you can append to each AzCopy command.
 >
 >For guidance on accomplishing these tasks, see [Get started with AzCopy](storage-use-azcopy-v10.md).
 
 ## Create containers
 
-Intro text
+Use this command to create a blob container.
 
-    hdfs dfs -mkdir [-p] <path>
+```
+azcopy make "https://<storage-account-name>.blob.core.windows.net/<container-name>"
+```
 
-Replace the `<path>` placeholder with the root file system name or a folder within your file system.
+Example:
 
-For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
-
-outro-text
+`azcopy make "https://mystorageaccount.blob.core.windows.net/mycontainer"`
 
 ## Upload files
 
-### Copy data from a local file system to a container
+You can use AzCopy to upload files and folders from your local computer or a Virtual Hard Disk (VHD).
 
-Command:
+### Upload a file
+
+Use this command to upload a file from your local computer to a blob in a container.
 
 ```
 azcopy cp <local-file-path> https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>
@@ -47,7 +49,16 @@ Example:
 
 `azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.blob.core.windows.net/mycontainer1/myTextFile.txt"`
 
-### Copy data from a Virtual Hard Disk (VHD) to a container
+> [!TIP]
+> If you append the `--put-md5` flag to this command, AzCopy will calculate each file's md5 hash code, and then store that code in the `Content-md5` property of each corresponding blob for later use.
+
+### Upload a directory
+
+### Upload files by using wildcard characters
+
+### Upload files and directories by using wildcard characters
+
+### Upload data from a VHD
 
 ## Download files
 
@@ -59,7 +70,7 @@ Example:
 
 ### Copy containers between different storage accounts
 
-## Synchronize folders
+## Synchronize files
 
 ### Synchronize a local file system with a container
 
