@@ -35,7 +35,7 @@ At the end of this quickstart, your application will accept sign ins of work and
 
 To get started, make sure you meet these prerequisites:
 
-* Have Visual Studio 2015 Update 3 or Visual Studio 2017 installed. Don’t have it? [Download Visual Studio 2017 for free](https://www.visualstudio.com/downloads/)
+* Have Visual Studio 2015 Update 3 or Visual Studio 2019 installed. Don’t have it? [Download Visual Studio 2019 for free](https://www.visualstudio.com/downloads/)
 
 ## Scenario: Sign in users from work and school accounts in your ASP.NET app
 

@@ -65,7 +65,7 @@ Select **Authentication** menu, set **ID tokens** under **Implicit Grant**, and 
 
 #### Step 2: Download your project
 
-[Download the Visual Studio 2017 solution](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+[Download the Visual Studio 2019 solution](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 #### Step 3: Configure your Visual Studio project
 
