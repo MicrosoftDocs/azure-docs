@@ -252,16 +252,19 @@ choose **Create**, for example:
 
    > [!NOTE]
    > If deployment fails or you delete your ISE, 
-   > Azure *might* take up to an hour before 
-   > releasing your subnets. If you try to delete 
-   > your virtual network, Azure generally takes up 
-   > to two hours before releasing up your subnets, 
-   > but this operation *might* take up to 12 hours. 
+   > Azure might take up to an hour before 
+   > releasing your subnets. If you delete your 
+   > virtual network, Azure generally takes up to 
+   > two hours before releasing up your subnets, 
+   > but this operation might take up to 12 hours. 
    > This delay means you might have to wait before 
    > reusing those subnets in another ISE.
 
 1. To view your environment, choose **Go to resource** if Azure 
 doesn't automatically go to your environment after deployment finishes.  
+
+For more information about creating subnets, see 
+[Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md).
 
 <a name="add-capacity"></a>
 
