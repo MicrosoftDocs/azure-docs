@@ -114,7 +114,7 @@ To configure Azure AD single sign-on with Predictix Price Reporting, take these 
 	    | |
 
 	> [!NOTE]
-	> These values aren't real. You need to use the actual sign-on URL and identifier. Contact the [Predictix Price Reporting support team](https://www.infor.com/company/customer-center/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are placeholders. You need to use the actual sign-on URL and identifier. Contact the [Predictix Price Reporting support team](https://www.infor.com/company/customer-center/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Base64)**, per your requirements, and save the certificate on your computer:
 
@@ -178,7 +178,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
     ![Select Add user](common/add-assign-user.png)
 
-5. In the **Users and groups** dialog box, select **Britta Simon** in the users list, then click the **Select** button at the bottom of the screen.
+5. In the **Users and groups** dialog box, select **Britta Simon** in the users list, and then click the **Select** button at the bottom of the screen.
 
 6. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the screen.
 
