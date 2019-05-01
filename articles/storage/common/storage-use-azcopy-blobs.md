@@ -16,10 +16,18 @@ AzCopy is a command-line utility that you can use to copy data to, from, or betw
 
 This article contains a collection of AzCopy example commands. You can use them to create containers, upload files, download files, copy files, and synchronize folders.
 
-> [!IMPORTANT]
-> Before you begin, download AzCopy v10. Then, use the `AzCopy login` command to sign into your storage account, or, obtain a SAS token that you can append to each AzCopy command.
+## First, set up AzCopy
+
+See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to perform these set up tasks:
+
+> [!div class="checklist"]
+> * Download AzCopy
+> * Authenticate your identity
+
+> [!NOTE]
+> The examples in this article assume that you authenticate your identity by using the `AzCopy login` command.
 >
->For guidance on accomplishing these tasks, see [Get started with AzCopy](storage-use-azcopy-v10.md).
+> If you choose to authenticate your identity by using a SAS token, then for each AzCopy command, append that token to url of the container resource (For example: `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>`).
 
 ## Create containers
 
@@ -35,7 +43,7 @@ Example:
 
 ## Upload files
 
-You can use AzCopy to upload files and folders from your local computer or a Virtual Hard Disk (VHD).
+You can use AzCopy to upload files and folders from your local computer or from a Virtual Hard Disk (VHD).
 
 ### Upload a file
 
@@ -54,27 +62,183 @@ Example:
 
 ### Upload a directory
 
+Intro line.
+
+```
+command
+```
+
+Example:
+
+`example`
+
 ### Upload files by using wildcard characters
+
+Intro line.
+
+```
+command
+```
+
+Example:
+
+`example`
 
 ### Upload files and directories by using wildcard characters
 
+Intro line.
+
+```
+command
+```
+
+Example:
+
+`example`
+
 ### Upload data from a VHD
+
+Intro line.
+
+```
+command
+```
+
+Example:
+
+`example`
 
 ## Download files
 
-### Copy data from a container to a local file system
+You can use AzCopy to download blobs and containers to your local computer.
+
+### Download a file
+
+Intro line.
+
+```
+command
+```
+
+Example:
+
+`example`
+
+### Download a directory
+
+Intro line.
+
+```
+command
+```
+
+Example:
+
+`example`
+
+### Download files by using wildcard characters
+
+Intro line.
+
+```
+command
+```
+
+Example:
+
+`example`
+
+### Download files and directories by using wild card characters
+
+Intro line.
+
+```
+command
+```
+
+Example:
+
+`example`
 
 ## Copy files
 
+You can use AzCopy to copy blobs and containers between virtual directories and accross storage accounts.
+
+### Copy a blob to another blob
+
+Intro line.
+
+```
+command
+```
+
+Example:
+
+`example`
+
+### Copy a directory between virtual directories
+
+Intro line.
+
+```
+command
+```
+
+Example:
+
+`example`
+
 ### Copy data between containers in different storage accounts
+
+Intro line.
+
+```
+command
+```
+
+Example:
+
+`example`
 
 ### Copy containers between different storage accounts
 
+Intro line.
+
+```
+command
+```
+
+Example:
+
+`example`
+
 ## Synchronize files
+
+You can use AzCopy to synchronize folders and files.
 
 ### Synchronize a local file system with a container
 
+Intro line.
+
+```
+command
+```
+
+Example:
+
+`example`
+
 ### Synchronize a container with a local file system
+
+Intro line.
+
+```
+command
+```
+
+Example:
+
+`example`
 
 ## Raw material
 
