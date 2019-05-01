@@ -75,13 +75,13 @@
     - name: Advanced Data Security
       items:
       - name: Overview
-        href: ../sql-database/sql-database-advanced-data-security?toc=/azure/sql-data-warehouse/toc.json
+        href: ../sql-database/sql-database-advanced-data-security.md?toc=/azure/sql-data-warehouse/toc.json
       - name: Data Discovery & Classification
-        href: ../sql-database/sql-database-data-discovery-and-classification?toc=/azure/sql-data-warehouse/toc.json
+        href: ../sql-database/sql-database-data-discovery-and-classification.md?toc=/azure/sql-data-warehouse/toc.json
       - name: Vulnerability Assessment
-        href: ../sql-database/sql-vulnerability-assessment?toc=/azure/sql-data-warehouse/toc.json
+        href: ../sql-database/sql-vulnerability-assessment.md?toc=/azure/sql-data-warehouse/toc.json
       - name: Advanced Threat Protection
-        href: ../sql-database/sql-database-threat-detection-overview?toc=/azure/sql-data-warehouse/toc.json
+        href: ../sql-database/sql-database-threat-detection-overview.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Auditing
       href: ../sql-database/sql-database-auditing.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Network Security
@@ -111,9 +111,9 @@
     - name: Data Protection
       items:
       - name: Transparent Data Encryption (TDE) overview
-        href: ../sql-database/transparent-data-encryption-azure-sql?toc=/azure/sql-data-warehouse/toc.json
+        href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json
       - name: TDE with Bring Your Own Key
-        href: ../sql-database/transparent-data-encryption-byok-azure-sql?toc=/azure/sql-data-warehouse/toc.json
+        href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json
   - name: Data loading
     items:
     - name: Overview
