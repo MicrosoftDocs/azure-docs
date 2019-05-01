@@ -12,7 +12,7 @@ ms.subservice: common
 ---
 # Transfer data with AzCopy and file storage 
 
-**Create a file share**
+## Create a file share
 
 ```azcopy
 .\azcopy make "https://account.file.core.windows.net/share-name"

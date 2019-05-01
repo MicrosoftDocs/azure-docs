@@ -2,44 +2,146 @@
 title: Transfer data with AzCopy and blob storage | Microsoft Docs
 description: Transfer data with AzCopy and blob storage.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: tamram
+ms.author: normesta
 ms.subservice: common
 ---
 
 # Transfer data with AzCopy and blob storage 
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between blob storage containers. This article contains a collection of  AzCopy example commands that you can use at the command line or in custom scripts.
+AzCopy is a command-line utility that you can use to copy data to, from, or between blob storage containers.
+
+This article contains a collection of AzCopy example commands that help you create containers, copy files, and synchronize folders between local file systems and containers.
 
 Before you begin, download AzCopy v10. Then, use the `AzCopy login` command to sign into your storage account, or, obtain a SAS token that you can append to each AzCopy command.
 
 For guidance on accomplishing these tasks, see [Get started with AzCopy](storage-use-azcopy-v10.md).
 
-## Create a blob container
+## Create containers
 
-```azcopy
-.\azcopy make "https://account.blob.core.windows.net/container-name"
-```
+Intro text
 
+    hdfs dfs -mkdir [-p] <path>
+
+Replace the `<path>` placeholder with the root file system name or a folder within your file system.
+
+For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+
+outro-text
+
+## Copy files
+
+Basic usage
+
+azcopy copy [source] [destination] [flags]
+
+For detailed descriptions of each flag, type `azcopy copy`, and then press the ENTER key.
+
+If you are using SAS, append the SAS token to all references to Blob containers. For example:
+
+  - azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
+
+If you use the `AzCopy login` command to sign into your storage account, you don't have to append the SAS token to the blob URI.
+
+This section contains the following example commands:
+
+> [!div class="checklist"]
+> * [Copy data from a local file system to a container]()
+> * [Copy data from a container to a local file system]()
+> * [Load the data to an Azure SQL database by using Sqoop]()
+
+### Copy data from a local file system to a container
+
+Intro text
+
+    hdfs dfs -mkdir [-p] <path>
+
+Replace the `<path>` placeholder with the root file system name or a folder within your file system.
+
+For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+
+outro-text
+
+### Copy data from a container to a local file system
+
+Intro text
+
+    hdfs dfs -mkdir [-p] <path>
+
+Replace the `<path>` placeholder with the root file system name or a folder within your file system.
+
+For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+
+outro-text
+
+### Copy data from a Virtual Hard Disk (VHD) to a container
+
+Intro text
+
+    hdfs dfs -mkdir [-p] <path>
+
+Replace the `<path>` placeholder with the root file system name or a folder within your file system.
+
+For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+
+outro-text
+
+### Copy data between containers in different storage accounts
+
+Intro text
+
+    hdfs dfs -mkdir [-p] <path>
+
+Replace the `<path>` placeholder with the root file system name or a folder within your file system.
+
+For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+
+outro-text
+
+### Copy containers between different storage accounts
+
+Intro text
+
+    hdfs dfs -mkdir [-p] <path>
+
+Replace the `<path>` placeholder with the root file system name or a folder within your file system.
+
+For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+
+outro-text
+
+### Synchronize a local file system with a container
+
+Intro text
+
+    hdfs dfs -mkdir [-p] <path>
+
+Replace the `<path>` placeholder with the root file system name or a folder within your file system.
+
+For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+
+outro-text
+
+### Synchronize a container with a local file system
+
+Intro text
+
+    hdfs dfs -mkdir [-p] <path>
+
+Replace the `<path>` placeholder with the root file system name or a folder within your file system.
+
+For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+
+outro-text
+
+### Synchronize data
 
 
 ## Copy data to Azure Storage
-
-Use the copy command to transfer data from the source to the destination. The source or destination can be a:
-- Local file system
-- Azure Blob/Virtual Directory/Container URI
-- Azure File/Directory/File Share URI
-- Azure Data Lake Storage Gen2 Filesystem/Directory/File URI
-
-```azcopy
-.\azcopy copy <source path> <destination path> --<flag-name>=<flag-value>
-# Using the alias instead 
-.\azcopy cp <source path> <destination path> --<flag-name>=<flag-value>
-```
 
 The following command uploads all files under the folder `C:\local\path` recursively to the container `mycontainer1`, creating `path` directory in the container. When `--put-md5` flag is provided, AzCopy calculates and stores each file's md5 hash in `Content-md5` property of the corresponding blob for later use.
 
