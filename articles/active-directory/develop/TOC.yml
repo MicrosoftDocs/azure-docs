@@ -338,6 +338,8 @@
       items:
         - name: MSAL.NET
           items:
+            - name: Acquire a token from the cache
+              href: msal-net-acquire-token-silently.md
             - name: Instantiate a public client with options
               href: msal-net-instantiate-public-client-config-options.md
             - name: Instantiate a confidential client with options
