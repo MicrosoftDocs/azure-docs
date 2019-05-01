@@ -55,19 +55,19 @@ By default, apps and desktops running in multi-session configurations are render
 
 Remote Desktop encodes all graphics rendered by apps and desktops (whether rendered with GPU or with CPU) for transmission to Remote Desktop clients. By default, Remote Desktop does not leverage available GPUs for this encoding. Configure Group Policy for the session host to enable GPU-accelerated frame encoding. Continuing the steps above:
 
-5. Select policy **Prioritize H.264/AVC 444 Graphics mode for Remote Desktop connections** and set this policy to **Enabled** to force H.264/AVC 444 codec in the remote session.
-6. Select policy **Configure H.264/AVC hardware encoding for Remote Desktop connections** and set this policy to **Enabled** to enable hardware encoding for AVC/H.264 in the remote session.
+1. Select policy **Prioritize H.264/AVC 444 Graphics mode for Remote Desktop connections** and set this policy to **Enabled** to force H.264/AVC 444 codec in the remote session.
+2. Select policy **Configure H.264/AVC hardware encoding for Remote Desktop connections** and set this policy to **Enabled** to enable hardware encoding for AVC/H.264 in the remote session.
 
->[!NOTE]
->In Windows Server 2016, set option **Prefer AVC Hardware Encoding** to **Always attempt**.
+    >[!NOTE]
+    >In Windows Server 2016, set option **Prefer AVC Hardware Encoding** to **Always attempt**.
 
-7. Now that the group policies have been edited, force a group policy update. Open the Command Prompt and type:
+3. Now that the group policies have been edited, force a group policy update. Open the Command Prompt and type:
 
-```batch
-gpupdate.exe /force
-```
+    ```batch
+    gpupdate.exe /force
+    ```
 
-8. Sign out from the Remote Desktop session.
+4. Sign out from the Remote Desktop session.
 
 ## Verify GPU-accelerated app rendering
 
@@ -90,4 +90,4 @@ To verify that Remote Desktop is using GPU-accelerated encoding:
 These instructions should have you up and running with GPU acceleration on a single session host VM. Some additional considerations for enabling GPU acceleration across a larger host pool:
 
 * Consider using the [NVIDIA GPU Driver Extension](/azure/virtual-machines/extensions/hpccompute-gpu-windows) to simplify driver installation and updates across a number of VMs.
-* Consider using Active Directory Group Policy to simplify group policy configuration across a number of VMs.
+* Consider using Active Directory Group Policy to simplify group policy configuration across a number of VMs. For information about deploying Group Policy in the Active Directory domain, see [Working with Group Policy Objects](https://go.microsoft.com/fwlink/p/?LinkId=620889).
