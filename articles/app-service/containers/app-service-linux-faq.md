@@ -131,7 +131,7 @@ Add the full image name, including the private registry URL (for example, myacr.
 
 **Can I expose more than one port on my custom container image?**
 
-We do not currently support exposing more than one port.
+We don't support exposing more than one port.
 
 **Can I bring my own storage?**
 
@@ -149,11 +149,11 @@ We have automatic port detection. You can also specify an app setting called *WE
 
 No, the platform handles HTTPS termination at the shared front ends.
 
-## Multi-container with Docker Compose and Kubernetes
+## Multi-container with Docker Compose
 
 **How do I configure Azure Container Registry (ACR) to use with multi-container?**
 
-In order to use ACR with multi-container, **all container images** need to be hosted on the same ACR registry server. Once they are on the same registry server, you will need to create application settings and then update the Docker Compose or Kubernetes configuration file to include the ACR image name.
+In order to use ACR with multi-container, **all container images** need to be hosted on the same ACR registry server. Once they are on the same registry server, you will need to create application settings and then update the Docker Compose configuration file to include the ACR image name.
 
 Create the following application settings:
 
