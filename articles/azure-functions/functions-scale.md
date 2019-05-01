@@ -123,9 +123,9 @@ To learn more about storage account types, see [Introducing the Azure Storage se
 
 In the consumption and premium plans, the scale controller automatically scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. Each instance of the Functions host in the consumption plan is limited to 1.5 GB of memory and 1 CPU.  An instance of the host is the entire function app, meaning all functions within a function app share resource within an instance and scale at the same time. Function apps that share the same consumption plan are scaled independently.  In the premium plan, your plan size will determine the available memory and CPU for all apps in that plan on that instance.  
 
-The only thing the consumption plan determines is the region. It has no impact on which instances it uses or shares any context with other apps in the same plan. There is no downside or impact to having multiple apps share the same consumption plan. 
+Function code files are stored on Azure Files shares on the function's main storage account. When you delete the main storage account of the function app, the function code files are deleted and cannot be recovered.
 
-There is no downside or impact to having multiple apps share the same consumption plan. The only aspect that the consumption plan determines is the region. It has no impact on resiliency, scalability, or reliability of your function apps.
+There is no downside or impact to having multiple apps share the same consumption plan. The only aspect that the consumption plan determines is the region. Sharing it between apps has no impact on resiliency, scalability, or reliability of each individual function apps.
 
 > [!NOTE]
 > When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs. This delay occurs when a function app has gone idle. After the function app is running, blobs are processed immediately. To avoid this cold-start delay, use the Premium plan, or use the [Event Grid trigger](functions-bindings-event-grid.md). For more information, see [the blob trigger binding reference article](functions-bindings-storage-blob.md#trigger).
