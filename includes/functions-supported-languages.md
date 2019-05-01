@@ -22,6 +22,6 @@ ms.custom: include file
 |PHP                 |Experimental|N/A|
 |Batch (.cmd, .bat)  |Experimental|N/A|
 |Bash                |Experimental|N/A|
-|PowerShell          |Experimental|N/A|
+|PowerShell          |Experimental|Preview(PowerShell Core 6)|
 
 For information about planned changes to language support, see [Azure roadmap](https://azure.microsoft.com/roadmap/?tag=functions).
