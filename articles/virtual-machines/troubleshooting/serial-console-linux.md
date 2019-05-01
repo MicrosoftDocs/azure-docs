@@ -227,7 +227,7 @@ A. Your image is likely misconfigured for serial console access. For information
 
 **Q. Is the serial console available for virtual machine scale sets?**
 
-A. Yes, it is! See [Serial Console for Virtual Machine Scale Sets](#Serial-Console-for-Virtual-Machine-Scale-Sets)
+A. Yes, it is! See [Serial Console for Virtual Machine Scale Sets](#serial-console-for-virtual-machine-scale-sets)
 
 **Q. If I set up my VM or VMSS by using only SSH key authentication, can I still use the serial console to connect to my VM/VMSS instance?**
 
