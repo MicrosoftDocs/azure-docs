@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/01/2019
 ms.custom: seodec18
 ---
 
@@ -37,7 +37,7 @@ To add a new consumer group in your event hub:
 
 1. Under **Entities**, select **Consumer groups**, and then select **Consumer Group**.
 
-   ![Event hub - Add a consumer group](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
+   [![Event hub - Add a consumer group](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png#lightbox)
 
 1. On the **Consumer groups** page, enter a new unique value for **Name**.  Use this same name when you create a new event source in the Time Series Insights environment.
 
@@ -51,7 +51,7 @@ To add a new consumer group in your event hub:
 
 1. Under **Environment Topology**, select **Event Sources**, and then select **Add**.
 
-   ![Under Event Sources, select the Add button](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)
+   [![Under Event Sources, select the Add button](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png#lightbox)
 
 1. Enter a value for **Event source name** that is unique to this Time Series Insights environment, such as **event-stream**.
 
@@ -61,11 +61,11 @@ To add a new consumer group in your event hub:
    - If you have an existing event hub in one of your subscriptions, select **Use Event Hub from available subscriptions**. This option is the easiest approach.
    - If the event hub is external to your subscriptions or if you want to select advanced options, select **Provide Event Hub settings manually**.
 
-   ![In the New event source pane, enter values for the first three parameters](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)
+   [![In the New event source pane, enter values for the first three parameters](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)]((media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
 
 1. The following table describes the required properties for the **Use Event Hub from available subscriptions** option:
 
-   ![Subscription and event hub details](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)
+   [![Subscription and event hub details](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
 
    | Property | Description |
    | --- | --- |
@@ -96,7 +96,7 @@ To add a new consumer group in your event hub:
 
 1. Select **Create**.
 
-   ![Select Create](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
+   [![Select Create](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png#lightbox)
 
    After the event source is created, Time Series Insights automatically starts streaming data to your environment.
 
