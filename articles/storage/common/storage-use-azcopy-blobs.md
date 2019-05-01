@@ -14,7 +14,7 @@ ms.subservice: common
 
 AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts.
 
-This article contains a collection of AzCopy example commands that help you create containers, copy files, and synchronize folders between local file systems and containers.
+This article contains a collection of AzCopy example commands. You can use them to create containers, copy files, and synchronize folders.
 
 > [!IMPORTANT]
 > Before you begin, download AzCopy v10. Then, use the `AzCopy login` command to sign into your storage account, or, obtain a SAS token that you can append to each AzCopy command. 
@@ -33,112 +33,47 @@ For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.wi
 
 outro-text
 
-## Copy files
+## Copy data from a local file system to a container
 
-This section helps you accomplish these tasks.
+### Syntax
 
-> [!div class="checklist"]
-> * [Copy data from a local file system to a container]()
-> * [Copy data from a container to a local file system]()
-> * [Load the data to an Azure SQL database by using Sqoop]()
+```
+azcopy cp <local-file-path> https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>
+```
 
-### Copy data from a local file system to a container
+### Placeholders
 
-### Command syntax
+Replace each placeholder that appears in this command. 
 
-azcopy cp [path-to-local-file] https://[storage-account-name].blob.core.windows.net/[container-name]/[blob-name]
-
-### Placeholder values
-
-Replace each placeholder that appears in this command. This table describes each placeholder.
-
-|Placeholder in command    |Replace this placeholder with..    |
+|Placeholder    |Replace with..    |
 |--|--|
-|`[path-to-local-file]` | The fully qualified name of a file on your local machine that you want to upload to the container.|
-|`[storage-account-name]`    | The name of your storage account.
-|`[container-name]`    | The name of the container that you want to upload a file to. |
-|`[blob-name]`    |The name that you want to give this file. This does not change the name of the file on your local machine. |
+|**\<local-file-path\>** | The fully qualified name of a file on your local machine that you want to upload to the container.|
+|**\<account-name\>**    | The name of your storage account.
+|**\<container-name\>**    | The name of the container that you want to upload a file to. |
+|**\<blob-name\>**    |The name that you want to give this file. This does not change the name of the file on your local machine. |
 
 ### Example
+ ```
+azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.blob.core.windows.net/mycontainer1/myTextFile.txt"
+```
 
-`azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.blob.core.windows.net/mycontainer1/myTextFile.txt"`
+## Copy data from a container to a local file system
 
-### Copy data from a container to a local file system
+## Copy data from a Virtual Hard Disk (VHD) to a container
 
-Intro text
+## Copy data between containers in different storage accounts
 
-    hdfs dfs -mkdir [-p] <path>
+## Copy containers between different storage accounts
 
-Replace the `<path>` placeholder with the root file system name or a folder within your file system.
+## Synchronize a local file system with a container
 
-For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+## Synchronize a container with a local file system
 
-outro-text
+## Synchronize data
 
-### Copy data from a Virtual Hard Disk (VHD) to a container
+## Raw material
 
-Intro text
-
-    hdfs dfs -mkdir [-p] <path>
-
-Replace the `<path>` placeholder with the root file system name or a folder within your file system.
-
-For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
-
-outro-text
-
-### Copy data between containers in different storage accounts
-
-Intro text
-
-    hdfs dfs -mkdir [-p] <path>
-
-Replace the `<path>` placeholder with the root file system name or a folder within your file system.
-
-For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
-
-outro-text
-
-### Copy containers between different storage accounts
-
-Intro text
-
-    hdfs dfs -mkdir [-p] <path>
-
-Replace the `<path>` placeholder with the root file system name or a folder within your file system.
-
-For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
-
-outro-text
-
-### Synchronize a local file system with a container
-
-Intro text
-
-    hdfs dfs -mkdir [-p] <path>
-
-Replace the `<path>` placeholder with the root file system name or a folder within your file system.
-
-For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
-
-outro-text
-
-### Synchronize a container with a local file system
-
-Intro text
-
-    hdfs dfs -mkdir [-p] <path>
-
-Replace the `<path>` placeholder with the root file system name or a folder within your file system.
-
-For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
-
-outro-text
-
-### Synchronize data
-
-
-## Copy data to Azure Storage
+### Copy data to Azure Storage
 
 The following command uploads all files under the folder `C:\local\path` recursively to the container `mycontainer1`, creating `path` directory in the container. When `--put-md5` flag is provided, AzCopy calculates and stores each file's md5 hash in `Content-md5` property of the corresponding blob for later use.
 
@@ -158,7 +93,7 @@ To find more examples, use the following command:
 .\azcopy cp -h
 ```
 
-## Copy Blob data between two storage accounts
+### Copy Blob data between two storage accounts
 
 Copying data between two storage accounts uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, and doesn't use the client machine's network bandwidth. Data is copied between two Azure Storage servers directly, while AzCopy simply orchestrates the copy operation. This option is currently only available for Blob storage.
 
@@ -172,7 +107,7 @@ To copy a Blob container to another Blob container, use the following command:
 .\azcopy cp "https://myaccount.blob.core.windows.net/mycontainer/<sastoken>" "https://myotheraccount.blob.core.windows.net/mycontainer/<sastoken>" --recursive=true
 ```
 
-## Copy a VHD image to a storage account
+### Copy a VHD image to a storage account
 
 AzCopy by default uploads data into block blobs. To upload files as Append Blobs, or Page Blobs use the flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
 
@@ -180,7 +115,7 @@ AzCopy by default uploads data into block blobs. To upload files as Append Blobs
 .\azcopy cp "C:\local\path\mydisk.vhd" "https://myotheraccount.blob.core.windows.net/mycontainer/mydisk.vhd<sastoken>" --blob-type=PageBlob
 ```
 
-## Sync: incremental copy and delete (Blob storage only)
+### Sync: incremental copy and delete (Blob storage only)
 
 The sync command synchronizes contents of a source directory to a directory in the destination, comparing file names and last modified timestamps. This operation includes the optional deletion of destination files if those do not exist in the source when the `--delete-destination=prompt|true` flag is provided. By default, the delete behavior is disabled. 
 
