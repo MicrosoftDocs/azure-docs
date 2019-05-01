@@ -8,14 +8,10 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 05/06/2019
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
-
-> [!NOTE]
-> This capability is in 
-> [*public preview*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 For scenarios where your logic apps and integration accounts need access to an 
 [Azure virtual network](../virtual-network/virtual-networks-overview.md), create an 
@@ -149,14 +145,12 @@ follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), 
 on the main Azure menu, select **Create a resource**.
+In the search box, enter "integration service environment" as your filter.
 
    ![Create new resource](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
 
-1. In the search box, enter "integration service environment" as your filter.
-From the results list, select **Integration Service Environment (preview)**, 
-and then choose **Create**.
-
-   ![Select "Integration Service Environment"](./media/connect-virtual-network-vnet-isolated-environment/select-integration-service-environment.png)
+1. On the Integration Service Environment creation pane, 
+choose **Create**.
 
    ![Choose "Create"](./media/connect-virtual-network-vnet-isolated-environment/create-integration-service-environment.png)
 
@@ -171,8 +165,8 @@ and then choose **Review + create**, for example:
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you want to create your environment |
    | **Integration Service Environment Name** | Yes | <*environment-name*> | The name to give your environment |
    | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to deploy your environment |
-   | **Additional capacity** | Yes | 0, 1, 2, 3 | The number of processing units to use for this ISE resource. To add capacity after creation, see [Add capacity](#add-capacity). |
-   | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, you can create one here. <p>**Important**: You can *only* perform this injection when you create your ISE. However, before you can create this relationship, make sure you already set up role-based access control in your virtual network for Azure Logic Apps. |
+   | **Additional capacity** | Yes | 0 to 10 | The number of processing units to use for this ISE resource. To add capacity after creation, see [Add capacity](#add-capacity). |
+   | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, [create an Azure virtual network first](../virtual-network/quick-create-portal.md). <p>**Important**: You can *only* perform this injection when you create your ISE. However, before you can create this relationship, make sure you already set up role-based access control in your virtual network for Azure Logic Apps. |
    | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets for creating resources in your environment. To create each subnet, [follow the steps under this table](#create-subnet).  |
    |||||
 
@@ -231,6 +225,11 @@ and then choose **Review + create**, for example:
 
    1. Repeat these steps for three more subnets.
 
+      > [!NOTE]
+      > If the subnets you try to create aren't valid,
+      > the Azure portal shows a message, but doesn't 
+      > block your progress.
+
 1. After Azure successfully validates your ISE information, 
 choose **Create**, for example:
 
@@ -248,12 +247,18 @@ choose **Create**, for example:
 
    ![Deployment succeeded](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
+   Otherwise, follow the Azure portal 
+   instructions for troubleshooting deployment.
+
    > [!NOTE]
    > If deployment fails or you delete your ISE, 
    > Azure *might* take up to an hour before 
-   > releasing your subnets. So, you might 
-   > have to wait before reusing those 
-   > subnets in another ISE.
+   > releasing your subnets. If you try to delete 
+   > your virtual network, Azure generally takes up 
+   > to two hours before releasing up your subnets, 
+   > but this operation *might* take up to 12 hours. 
+   > This delay means you might have to wait before 
+   > reusing those subnets in another ISE.
 
 1. To view your environment, choose **Go to resource** if Azure 
 doesn't automatically go to your environment after deployment finishes.  
@@ -284,7 +289,7 @@ choose **Enable autoscale**.
 **Scale to a specific instance count**.
 
 1. If you choose instance-based, enter the number of 
-processing units between 0 and 3 inclusively. 
+processing units between 0 and 10 inclusively. 
 Otherwise, for metric-based, follow these steps:
 
    1. In the **Default** section, choose **Add a rule**.
@@ -351,11 +356,6 @@ except for the **Location** property where the
 Instead, select your ISE, rather than a region, for example:
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
-
-## Get support
-
-* For questions, visit the <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps forum</a>.
-* To submit or vote on feature ideas, visit the <a href="https://aka.ms/logicapps-wish" target="_blank">Logic Apps user feedback site</a>.
 
 ## Next steps
 
