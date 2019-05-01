@@ -101,8 +101,6 @@ New features added in the update.
 --- | ---
 **Linux support** | Support was added for RedHat Workstation 6/7, and new kernel versions for Ubuntu, Debian, and SUSE.
 **Storage Spaces Direct** | Site Recovery supports Azure VMs using Storage Spaces Direct (S2D).
-#### VMware/physical server disaster recovery
-New features added in the update.
 
 #### VMware VMs/physical servers replication 
 **Feature** | **Details**
