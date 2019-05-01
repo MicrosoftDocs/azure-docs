@@ -70,6 +70,10 @@
       href: analysis-services-deploy.md
     - name: Refresh with REST API
       href: analysis-services-async-refresh.md
+    - name: Refresh with Logic Apps 
+      href: analysis-services-refresh-logic-app.md
+    - name: Refresh with Azure Automation
+      href: analysis-services-refresh-azure-automation.md
   - name: Security
     items:
     - name: Manage database users

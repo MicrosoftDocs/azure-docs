@@ -1,20 +1,12 @@
 ---
-title: Cloud Partner Portal management - Azure Marketplace | Microsoft Docs
+title: Cloud Partner Portal management | Azure Marketplace 
 description: Describes the types of operations available to manage accounts for the Cloud Partner Portal for the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Cloud Partner Portal management

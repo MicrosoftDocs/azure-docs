@@ -2,16 +2,16 @@
 title: Support for Azure Marketplace and AppSource | Azure
 description: Support information and links for Azure Marketplace and AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
+
 author: yijenj
 manager: nunoc
-editor:
 
-ms.assetid: 
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj

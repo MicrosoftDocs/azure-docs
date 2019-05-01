@@ -76,7 +76,6 @@ The Azure AD needs permissions to perform the following actions:
 
 * Read directory data
 * Sign in and read user profile
-* Read directory data
 
 Assign these permissions using the [az ad app permission add][az-ad-app-permission-add] command:
 

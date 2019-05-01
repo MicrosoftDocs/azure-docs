@@ -181,7 +181,7 @@ double requestCharge = (double)stats["RequestCharge"];
 
 ### Use the MongoDB Java driver
 
-When using the [official MongoDB Java driver](http://mongodb.github.io/mongo-java-driver/) (see [this Quickstart](create-mongodb-java.md) regarding its usage), commands can be executed by calling the `runCommand` method on a `MongoDatabase` object.
+When using the [official MongoDB Java driver](https://mongodb.github.io/mongo-java-driver/) (see [this Quickstart](create-mongodb-java.md) regarding its usage), commands can be executed by calling the `runCommand` method on a `MongoDatabase` object.
 
 ```java
 Document stats = database.runCommand(new Document("getLastRequestStatistics", 1));
