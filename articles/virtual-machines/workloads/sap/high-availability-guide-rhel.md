@@ -96,7 +96,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA datab
   * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 * Probe Port
   * Port 620<strong>&lt;nr&gt;</strong>
-* Loadbalancing rules
+* Load-balancing rules
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 36<strong>&lt;nr&gt;</strong> TCP
   * 39<strong>&lt;nr&gt;</strong> TCP
@@ -113,7 +113,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA datab
   * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 * Probe Port
   * Port 621<strong>&lt;nr&gt;</strong>
-* Loadbalancing rules
+* Load-balancing rules
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
@@ -197,9 +197,9 @@ You first need to create the virtual machines for this cluster. Afterwards, you 
          1. Click OK
       1. Port 621**02** for ASCS ERS
          * Repeat the steps above to create a health probe for the ERS (for example 621**02** and **nw1-aers-hp**)
-   1. Loadbalancing rules
+   1. Load-balancing rules
       1. 32**00** TCP for ASCS
-         1. Open the load balancer, select load balancing rules and click Add
+         1. Open the load balancer, select load-balancing rules and click Add
          1. Enter the name of the new load balancer rule (for example **nw1-lb-3200**)
          1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-ascs-frontend**)
          1. Keep protocol **TCP**, enter port **3200**
@@ -462,7 +462,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Configure Keep Alive
 
-   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this you need to set a parameter in the SAP NetWeaver ASCS/SCS profile and change the Linux system settings. Read [SAP Note 1410736][1410736] for more information.
+   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this, you need to set a parameter in the SAP NetWeaver ASCS/SCS profile and change the Linux system settings. Read [SAP Note 1410736][1410736] for more information.
 
    The ASCS/SCS profile parameter enque/encni/set_so_keepalive was already added in the last step.
 
@@ -532,7 +532,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   If you are upgrading from an older version and switching to enqueue server 2, see sap note [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
+   If you are upgrading from an older version and switching to enqueue server 2, see SAP note [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 

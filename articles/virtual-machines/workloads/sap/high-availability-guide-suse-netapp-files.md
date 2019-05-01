@@ -109,7 +109,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA datab
   * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 * Probe Port
   * Port 620<strong>&lt;nr&gt;</strong>
-* Load balancing rules
+* Load-balancing rules
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 36<strong>&lt;nr&gt;</strong> TCP
   * 39<strong>&lt;nr&gt;</strong> TCP
@@ -126,7 +126,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA datab
   * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 * Probe Port
   * Port 621<strong>&lt;nr&gt;</strong>
-* Load balancing rules
+* Load-balancing rules
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
@@ -232,9 +232,9 @@ First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwa
          1. Click OK
       1. Port 621**01** for ASCS ERS
             * Repeat the steps above under "c" to create a health probe for the ERS (for example 621**01** and **health.QAS.ERS**)
-   1. Load balancing rules
+   1. Load-balancing rules
       1. 32**00** TCP for ASCS
-         1. Open the load balancer, select Load balancing rules and click Add
+         1. Open the load balancer, select Load-balancing rules and click Add
          1. Enter the name of the new load balancer rule (for example **lb.QAS.ASCS.3200**)
          1. Select the frontend IP address for ASCS, backend pool, and health probe you created earlier (for example **frontend.QAS.ASCS**)
          1. Keep protocol **TCP**, enter port **3200**
@@ -630,7 +630,7 @@ If using enqueue server 1 architecture (ENSA1), define the resources as follows:
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-   If you are upgrading from an older version and switching to enqueue server 2, see sap note [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+   If you are upgrading from an older version and switching to enqueue server 2, see SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 
