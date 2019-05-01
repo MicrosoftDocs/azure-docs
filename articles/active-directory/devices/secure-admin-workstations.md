@@ -201,6 +201,8 @@ Organizations can optionally create policies to block countries where users woul
 
 #### Configure enrollment status
 
+When purchasing new devices, Microsoft recommends that devices be factory set to [Windows 10 Pro in S mode](https://docs.microsoft.com/Windows/deployment/Windows-10-pro-in-s-mode), which limits the exposure and vulnerabilities during supply chain management. Once a device is received from your supplier, the device will be moved from S mode to Full using Autopilot. The following guidance provides details on applying the transformation process.
+
 We want to ensure that devices are fully configured before use. Intune provides a means to **Block device use until all apps and profiles are installed**. This setting can be found in the **Azure portal** > **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Enrollment Status Page (Preview)** > **Default** > **Settings**.
 
 * **Show app profile installation progress** - Yes
@@ -225,7 +227,7 @@ After creating a device group, you must create a deployment profile so that you 
 
 For this guidance, Windows 10 version 1809 is required for the use of Windows Defender ATP, Intune, and Windows Threat protection. To find your Windows version, follow the guidance outlined in the article [Enroll your first Windows 10 device](https://docs.microsoft.com/Intune/quickstart-enroll-windows-device).
 
-Additionally, the [Intune secure baseline](https://docs.microsoft.com/Intune/security-baseline-settings-Windows) will be enabled to lock down the device and provide a secured workstation.
+The [Intune secure baseline](https://docs.microsoft.com/Intune/security-baseline-settings-Windows) provides a good start point for securing our devices, implement the baseline, and apply additional items in policies.
 
 This baseline includes settings in the following categories:
 
@@ -242,10 +244,6 @@ This baseline includes settings in the following categories:
 | Credentials UI | MS Security Guide | Windows Defender |
 | Data Protection | MSS Legacy | Windows Ink Workspace |
 | Device Guard | Power | Windows PowerShell |
-
-#### Create a baseline profile (using Security baselines)
-
-The security baseline provides a good start point for securing our devices, implement the baseline, and apply additional items in policies.
 
 To configure a security baseline profile in the Azure portal, browse to **Microsoft Intune** > **Device security**. Select the **Preview: MDM Security Baseline for October 2018** and select **Create profile**.
 
@@ -394,17 +392,11 @@ Go to Azure portal - All services - Intune - Device Enrollment – Windows Enrol
 
 From the Windows device (laptop) In devices settings – Reset this PC select Get started and follow the prompts.
 
-## Validate your secured device
+### Validate your secured device
 
 At this point, we can review the enrolled device and check its configuration, which will be the selected default security baseline.
 
 The device should have enabled basic user protections that will enable a secured platform. The enhancement of the device includes
-
-## Additional Configuration to consider for system hardening
-
-## Autodeployment of new devices
-
-When purchasing new devices, it is recommended that devices be factory set to [Windows 10 Pro in S mode](https://docs.microsoft.com/Windows/deployment/Windows-10-pro-in-s-mode), which limits the exposure and vulnerabilities during supply chain management. Once a device is received from your supplier, the device will be moved from S mode to Full using Intune autopilot capabilities. The following guidance provides details on applying the transformation process.
 
 ## Additional tasks once the Secure workstation is configured
 
@@ -432,5 +424,6 @@ Under **Settings** configure the following settings
 * **Use a Trusted Platform Module** - **Required**
 * **Minimum PIN length** - **6**
 * **PIN expiration (days)** - **90**
-
-Configuration requires that  Hello for business is ‘enabled’ and default settings should require pin length of 6, with a pin expiration to be every three months. ‘remember pin history’ should be set to yes. And enhanced anti-spoofing should be set to yes. ‘Allow phone sign-in’ (set to yes) will provide your users a self-service management of device pin’s.
+* **Remember PIN history** - Yes (NOT AN OPTION NEED A NUMBER)
+* **Use enhanced anti-spoofing, when available** - Yes
+* **Allow phone sign-in** - Yes
