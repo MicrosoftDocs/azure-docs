@@ -25,7 +25,7 @@ First, download the AzCopy V10 executable file. There's nothing to install.
 > [!NOTE]
 > If you want to copy data to and from your [Azure Table storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) service, then install [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
 
-## Run AzCopy for the first time
+## Run AzCopy
 
 From a command prompt, navigate to the directory where you downloaded the file.
 

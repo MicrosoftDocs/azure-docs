@@ -1,6 +1,6 @@
 ---
 title: Transfer data with AzCopy and blob storage | Microsoft Docs
-description: Transfer data with AzCopy and blob storage .
+description: Transfer data with AzCopy and blob storage.
 services: storage
 author: tamram
 
@@ -10,7 +10,14 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.subservice: common
 ---
+
 # Transfer data with AzCopy and blob storage 
+
+AzCopy is a command-line utility that you can use to copy data to, from, or between blob storage containers. This article contains a collection of  AzCopy example commands that you can use at the command line or in custom scripts.
+
+Before you begin, download AzCopy v10. Then, use the `AzCopy login` command to sign into your storage account, or, obtain a SAS token that you can append to each AzCopy command.
+
+For guidance on accomplishing these tasks, see [Get started with AzCopy](storage-use-azcopy-v10.md).
 
 ## Create a blob container
 
@@ -18,13 +25,7 @@ ms.subservice: common
 .\azcopy make "https://account.blob.core.windows.net/container-name"
 ```
 
-**Create a blob container by using Azure Data Lake Storage Gen2**
 
-If you've enabled hierarchical namespaces on your Blob storage account, you can use the following command to create a new blob container for uploading files.
-
-```azcopy
-.\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name"
-```
 
 ## Copy data to Azure Storage
 
@@ -104,3 +105,12 @@ You can also sync a blob container down to a local file system:
 
 This command incrementally syncs the source to the destination based on the last modified timestamps. If you add or delete a file in the source, AzCopy will do the same in the destination. Before deletion, AzCopy will prompt you to confirm.
 
+## More examples
+
+See these articles:
+
+- [Transfer data with AzCopy and Azure Data Lake Storage Gen2](storage-use-azcopy-data-lake-gen2.md)
+
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
+
+- [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
