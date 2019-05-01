@@ -1,6 +1,6 @@
 ---
-title: Create containers with large partition keys
-description: Learn how to create a container with large partition key using Azure portal and different SDKs. 
+title: Create containers with large partition keys with Azure portal and various SDKs.
+description: Learn how to create a container in Azure Cosmos DB with large partition key using Azure portal and different SDKs. 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -14,11 +14,9 @@ Azure Cosmos DB uses hash-based partitioning scheme to achieve horizontal scalin
 
 Large partition keys are supported by using the functionality of an enhanced version of hash function, which can generate unique hash from larger partition keys. This hash version is also recommended for scenarios with high partition key cardinality irrespective of the size of the partition key. A Partition key cardinality is defined as the number of unique logical partitions, for example in the order of ~30000 logical partitions in a container. This article describes how to create a container with large partition key using Azure portal and different SDKs'. 
 
-## Create a container with a large partition key 
+## Create a large partition key (.Net SDK V2)
 
-### .Net SDK V2
-
-When using the .Net SDK to create a container with large partition key, you should specify the "PartitionKeyDefinitionVersion.V2" property. The following example shows how to specify the Version property within the PartitionKeyDefinition object and set it to PartitionKeyDefinitionVersion.V2:
+When using the .Net SDK to create a container with large partition key, you should specify the `PartitionKeyDefinitionVersion.V2` property. The following example shows how to specify the Version property within the PartitionKeyDefinition object and set it to PartitionKeyDefinitionVersion.V2:
 
 ```csharp
 DocumentCollection collection = await newClient.CreateDocumentCollectionAsync(
@@ -35,9 +33,9 @@ database,
       new RequestOptions { OfferThroughput = 400 });
 ```
 
-### Azure portal 
+### Create a large partition key (Azure portal) 
 
-When you create a container using Azure portal, checking the **My partition key is larger than 100-bytes** option will allow you to create a large partition key. By default, all the new containers are opted into using the large partition keys. Unselect the checkbox if you don’t need large partition keys or if you have applications running on SDKs' version older than 1.18.
+To create a large partition key, while you create a new container using the Azure portal, check the **My partition key is larger than 100-bytes** option. By default, all the new containers are opted into using the large partition keys. Unselect the checkbox if you don’t need large partition keys or if you have applications running on SDKs' version older than 1.18.
 
 ![Create large partition key using Azure portal](./media/large-partition-keys/large-partition-key-with-portal.png)
  
