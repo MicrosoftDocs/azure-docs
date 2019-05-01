@@ -1,6 +1,6 @@
 ---
 title: Copy or move data to Azure Storage by using AzCopy v10 | Microsoft Docs
-description: AzCopy is the command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you set up AzCopy, and then find example snippets that you can use become productive with AzCopy in the least amount of time.
+description: AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer files.
 services: storage
 author: normesta
 ms.service: storage
@@ -12,7 +12,7 @@ ms.subservice: common
 
 # Get started with AzCopy
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps to you download AzCopy, and then use it to connect to your storage account.
+AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer files.
 
 ## Download AzCopy
 
@@ -29,13 +29,13 @@ First, download the AzCopy V10 executable file. There's nothing to install.
 
 Open a command prompt. Then, navigate to the directory where you downloaded the file.
 
-To see the list of AzCopy commands, type `azCopy`, and then press the ENTER key.
+From the command prompt, type `azCopy`, and then press the ENTER key. A list of AzCopy commands appears in the command prompt window.
 
-To learn more about a specific command, add in the name of the command.
+To learn more about a specific command, type `azCopy` followed by the name of the command.
 
 For example, to learn about the `copy` command, type `azcopy copy`, and then press the ENTER key.
 
-Before you can do anything meaningful with AzCopy, the storage service needs to identify you, and then assess which tasks you have permission to perform. The next section explains how to authenticate your identity with your storage account.
+Before you can do anything meaningful with AzCopy, the storage service needs to authenticate your identity, and then assess which tasks your identity has permission to perform.
 
 ## Authenticate your identity
 
@@ -46,18 +46,15 @@ You can authenticate your identity by using your Azure account credentials, or b
 First, ensure that one of these roles has been assigned to your identity:
 
 - [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
-
 - [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 These roles can be assigned to your identity in any of these scopes:
 
 - Storage account
-
 - Resource group
-
 - Subscription
 
-From a command prompt, type the following command:
+After you've verified that your identity has one of these role assignments, open a command prompt, type the following command, and then press the ENTER key.
 
 ```azcopy
 azcopy login
@@ -67,15 +64,11 @@ This command returns an authentication code and the URL of a website. Open the w
 
 ![Create a container](media/storage-use-azcopy-v10/azcopy-login.png)
 
-Then, log-into your Azure account by using your Azure account credentials.
-
-![Create a container](media/storage-use-azcopy-v10/azcopy-login-2.png)
-
-After you've successfully signed in, you can close the browser window and begin using AzCopy.
+Then, log-into your Azure account by using your Azure account credentials. After you've successfully signed in, you can close the browser window and begin using AzCopy.
 
 ### Option 2: Use a SAS token
 
-You can obtain a SAS token, and then append that token to each AzCopy command that you execute.
+An alternative way to authenticate yourself is to obtain a SAS token, and then append that token to each AzCopy command that you execute.
 
 This example command recursively copies data from a local directory to a blob container. A fictitious SAS token is appended to the end of the of the container path. 
 
@@ -87,7 +80,9 @@ To learn more about SAS tokens and how to obtain one, see [Using shared access s
 
 ## Copy data to, from, or between storage accounts
 
-See any of these articles.
+After you've authenticated your identity or obtained a SAS token, you can begin transferring files. 
+
+To find example commands, see any of these articles.
 
 - [Transfer data with AzCopy and blob storage](storage-use-azcopy-blobs.md)
 
