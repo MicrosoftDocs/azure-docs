@@ -106,11 +106,6 @@ Logic apps in an ISE can reference only those integration accounts
 that are in the same ISE. When you create an integration account, 
 you can select your ISE as the location for your integration account.
 
-## Get support
-
-* For questions, visit the <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps forum</a>.
-* To submit or vote on feature ideas, visit the <a href="https://aka.ms/logicapps-wish" target="_blank">Logic Apps user feedback site</a>.
-
 ## Next steps
 
 * Learn how to [connect to Azure virtual networks from isolated logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
