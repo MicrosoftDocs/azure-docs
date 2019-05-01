@@ -143,7 +143,9 @@ New features added in the update.
 
 ### Automatic updates for the Mobility service (Azure VMs)
 
-Site Recovery added an option for automatic updates to the Mobility service extension. The Mobility service extension is installed on each Azure VM replicated by Site Recovery. When you enable replication, you select whether to allow Site Recovery to manage updates to the extension.<br/><br/> Updates don't require a VM restart, and don't affect replication. [Learn more](azure-to-azure-autoupdate.md).
+Site Recovery added an option for automatic updates to the Mobility service extension. The Mobility service extension is installed on each Azure VM replicated by Site Recovery. When you enable replication, you select whether to allow Site Recovery to manage updates to the extension.
+
+Updates don't require a VM restart, and don't affect replication. [Learn more](azure-to-azure-autoupdate.md).
 
 ### Pricing calculator for Azure VM disaster recovery
 
@@ -250,17 +252,3 @@ New features added in the update.
 ## Next steps
 
 Keep up-to-date with our updates on the [Azure Updates](https://azure.microsoft.com/updates/?product=site-recovery) page.
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
