@@ -25,7 +25,7 @@ This guide shows you how to use blobfuse, and mount a Blob storage container on 
 ## Install blobfuse on Linux
 Blobfuse binaries are available on [the Microsoft software repositories for Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) for Ubuntu and RHEL distributions. To install blobfuse on those distributions, configure one of the repositories from the list. You can also build the binaries from source code following the [Azure Storage installation steps](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) if there are no binaries available for your distribution.
 
-Blobfuse supports installation on Ubuntu 14.04 and 16.04. Run this command to make sure that you have one of those versions deployed:
+Blobfuse supports installation on Ubuntu 14.04, 16.04, and 18.04. Run this command to make sure that you have one of those versions deployed:
 ```
 lsb_release -a
 ```
@@ -47,11 +47,11 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-Similarly, change the URL to `.../ubuntu/16.04/...` to point to an Ubuntu 16.04 distribution.
+Similarly, change the URL to `.../ubuntu/16.04/...` or `.../ubuntu/18.04/...` to reference another Ubuntu version.
 
 ### Install blobfuse
 
-On a Ubuntu/Debian distribution:
+On an Ubuntu/Debian distribution:
 ```bash
 sudo apt-get install blobfuse
 ```
@@ -81,7 +81,7 @@ In Azure, you may use the ephemeral disks (SSD) available on your VMs to provide
 
 Make sure your user has access to the temporary path:
 ```bash
-sudo mkdir /mnt/resource/blobfusetmp
+sudo mkdir /mnt/resource/blobfusetmp -p
 sudo chown <youruser> /mnt/resource/blobfusetmp
 ```
 
@@ -93,8 +93,15 @@ accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
+The `accountName` is the prefix for your storage account - not the full URL.
 
-Once you've created this file, make sure to restrict access so no other user can read it.
+Create this file using:
+
+```
+touch ~/fuse_connection.cfg
+```
+
+Once you've created and edited this file, make sure to restrict access so no other users can read it.
 ```bash
 chmod 600 fuse_connection.cfg
 ```

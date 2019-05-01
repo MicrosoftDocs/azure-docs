@@ -142,7 +142,7 @@ In this section, we will go through how to set a query based exception alert. Fo
 
 ## How to unsubscribe from classic alert e-mail notifications
 
-This section applies to **classic availability alerts**, **Application Insights metric alerts**, and to **classic failure anomalies alerts**.
+This section applies to **classic availability alerts**, **classic Application Insights metric alerts**, and to **classic failure anomalies alerts**.
 
 You are receiving e-mail notifications for these classic alerts if any of the following applies:
 

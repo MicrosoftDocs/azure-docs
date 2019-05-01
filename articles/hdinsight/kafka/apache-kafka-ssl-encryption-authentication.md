@@ -1,7 +1,6 @@
 ---
 title: Setup SSL encryption and authentication for Apache Kafka in Azure HDInsight
 description: Setup SSL encryption for communication between Kafka clients and Kafka brokers as well as between Kafka brokers. Setup SSL authentication of clients.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight

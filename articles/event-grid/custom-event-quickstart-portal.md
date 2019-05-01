@@ -75,7 +75,7 @@ You subscribe to an event grid topic to tell Event Grid which events you want to
 
    ![Add event subscription](./media/custom-event-quickstart-portal/new-event-subscription.png)
 2. On the **Create Event Subscription** page, follow these steps:
-    1. Event a **name** for the event subscription.
+    1. Enter a **name** for the event subscription.
     3. Select **Web Hook** for the **Endpoint type**. 
     4. Choose **Select an endpoint**. 
 

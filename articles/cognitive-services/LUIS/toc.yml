@@ -61,12 +61,15 @@
       href: luis-quickstart-intents-regex-entity.md
     - name: Get exact text matches with lists
       href: luis-quickstart-intent-and-list-entity.md
-    - name: Get contextually-related data with hierarchical entities
-      href: luis-quickstart-intent-and-hier-entity.md
+    - name: Get related data with entity roles
+      href: tutorial-entity-roles.md
+      displayName: roles, geographyV2, context
     - name: Group and extract related data with composite entities
       href: luis-tutorial-composite-entity.md
+      displayName: roles
     - name: Get names with simple entities
       href: luis-quickstart-primary-and-secondary-data.md
+      displayName: roles
   - name: Improve app
     items:
     - name: Fix unsure predictions
@@ -77,6 +80,7 @@
       href: luis-tutorial-pattern.md
     - name: Extract contextually-related patterns
       href: luis-tutorial-pattern-roles.md
+      displayName: roles
     - name: Extract free-form data
       href: luis-tutorial-pattern-any.md
   - name: Use bot
@@ -112,7 +116,7 @@
     - name: Intents
       href: luis-concept-intent.md
     - name: Entities
-      displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, hierarchical, machine-learn, exact, mixed
+      displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, hierarchical, machine-learn, exact, mixed, roles
       href: luis-concept-entity-types.md
     - name: Utterances
       href: luis-concept-utterance.md
@@ -130,6 +134,7 @@
       href: luis-concept-feature.md
     - name: Patterns
       href: luis-concept-patterns.md
+      displayName: roles
   - name: Data management
     items:
     - name: Altering data
@@ -138,6 +143,7 @@
       href: luis-concept-data-conversion.md
     - name: Extracting data
       href: luis-concept-data-extraction.md
+      displayName: roles
     - name: Data Storage
       href: luis-concept-data-storage.md
   - name: Test
@@ -162,7 +168,7 @@
   items:
   - name: Start a new app
     href: luis-how-to-start-new-app.md
-    displayName: import
+    displayName: import, export, container
   - name: Build Model
     items:
     - name: Add an intent
@@ -171,7 +177,7 @@
       href: luis-how-to-add-example-utterances.md
     - name: Add entity without utterance
       href: luis-how-to-add-entities.md
-      displayName: import
+      displayName: roles, import
     - name: Use prebuilt models
       items:
       - name: Use domains
@@ -219,7 +225,7 @@
       displayName: synonym, interchange
       href: luis-how-to-add-features.md
     - name: Add Patterns
-      displayName: syntax, template
+      displayName: syntax, template, roles
       href: luis-how-to-model-intent-pattern.md
   - name: Train
     href: luis-how-to-train.md
@@ -242,7 +248,7 @@
       href: luis-how-to-azure-subscription.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
-      diplayName: import
+      diplayName: import, export, container
     - name: Manage authors and collaborators
       displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md

@@ -71,12 +71,12 @@ Inbound sync rule means the source for the attribute is a connector space and ta
 
  ![default rules](media/how-to-connect-fix-default-rules/default3a.png)
 
-Follow your own naming convention to name the rule, here we used **Custom In from AD - User**, this means that the rule is a custom rule and is an inbound rule from AD connector space to the Metaverse. 
+Follow your own naming convention to name the rule, here we used **Custom In from AD - User**, this means that the rule is a custom rule and is an inbound rule from AD connector space to the Metaverse.   
 
  ![default rules](media/how-to-connect-fix-default-rules/default3b.png)
 
-Give your own description of the rule so that the future maintenance of the rule is easy, like what’s objective of this rule and why it was needed.
-Selected connected system (the forest) the source of the attribute. Then Connected System Object Type and the Metaverse Object Type.
+Give your own description of the rule so that the future maintenance of the rule is easy, like what’s the objective of this rule and why it was needed.
+Select a Connected System (the forest) - the attribute source. Then, select the Connected System Object Type and the Metaverse Object Type.
 
 Specify the precedence value between 0 – 99 (lower the number, higher the precedence). Keep other fields like ‘Tag’, ‘Enable Password Sync’ and ‘Disabled’ as default.
 

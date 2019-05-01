@@ -3,10 +3,10 @@ title: Manage Backups with Azure Role-Based Access Control'
 description: Use Role-based Access Control to manage access to backup management operations in Recovery Services vault.
 services: backup
 author: trinadhk
-manager: shreeshd
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/09/2018
+ms.date: 04/17/2019
 ms.author: trinadhk
 ---
 
@@ -16,7 +16,7 @@ Azure Role-Based Access Control (RBAC) enables fine-grained access management fo
 > [!IMPORTANT]
 > Roles provided by Azure Backup are limited to actions that can be performed in Azure portal or via REST API or Recovery Services vault PowerShell or CLI cmdlets. Actions performed in Azure backup Agent Client UI or System center Data Protection Manager UI or Azure Backup Server UI are out of control of these roles.
 
-Azure Backup provides 3 built-in roles to control backup management operations. Learn more on [Azure RBAC built-in roles](../role-based-access-control/built-in-roles.md)
+Azure Backup provides three built-in roles to control backup management operations. Learn more on [Azure RBAC built-in roles](../role-based-access-control/built-in-roles.md)
 
 * [Backup Contributor](../role-based-access-control/built-in-roles.md#backup-contributor) - This role has all permissions to create and manage backup except creating Recovery Services vault and giving access to others. Imagine this role as admin of backup management who can do every backup management operation.
 * [Backup Operator](../role-based-access-control/built-in-roles.md#backup-operator) - This role has permissions to everything a contributor does except removing backup and managing backup policies. This role is equivalent to contributor except it can't perform destructive operations such as stop backup with delete data or remove registration of on-premises resources.
@@ -55,7 +55,24 @@ The following table captures the Backup management actions and corresponding min
 | Delete registered on-premises Windows Server/client/SCDPM or Azure Backup Server | Backup Contributor | Recovery vault resource |
 
 > [!IMPORTANT]
-> If you specify VM Contributor at a VM resource scope and click on Backup as part of VM settings, it will open 'Enable Backup' screen even though VM is already backed up as the call to verify backup status works only at subscription level. To avoid this, either go to vault and open the backup item view of the VM or specify VM Contributor role at a subscription level. 
+> If you specify VM Contributor at a VM resource scope and click on Backup as part of VM settings, it will open 'Enable Backup' screen even though VM is already backed up as the call to verify backup status works only at subscription level. To avoid this, either go to vault and open the backup item view of the VM or specify VM Contributor role at a subscription level.
+
+## Minimum role requirements for the Azure File share backup
+The following table captures the Backup management actions and corresponding role required to perform Azure File share operation.
+
+| Management Operation | Role Required | Resources |
+| --- | --- | --- |
+| Enable backup of Azure File shares | Backup Contributor |	Recovery Services vault |
+| |	Storage Account | Contributor	Storage account resource |
+| On-demand backup of VM | Backup Operator | Recovery Services vault |
+| Restore File share | Backup Operator | Recovery Services vault |
+| | Storage Account Contributor | Storage account resources where restore source and Target file shares are present |
+| Restore Individual Files | Backup Operator | Recovery Services vault |
+| |	Storage Account Contributor	|	Storage account resources where restore source and Target file shares are present |
+| Stop protection |	Backup Contributor | Recovery Services vault |		
+| Unregister storage account from vault |	Backup Contributor | Recovery Services vault |
+| |	Storage Account Contributor | Storage account resource|
+
 
 ## Next steps
 * [Role Based Access Control](../role-based-access-control/role-assignments-portal.md): Get started with RBAC in the Azure portal.

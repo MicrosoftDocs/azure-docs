@@ -34,10 +34,10 @@ The Speech SDK is available in these regions for **speech recognition** and **tr
  West US2 | `westus2` | https://westus2.cris.ai
  East US | `eastus` | https://eastus.cris.ai
  East US2 | `eastus2` | https://eastus2.cris.ai
- Central US | 'centralus' | https://centralus.cris.ai
- North Central US | 'northcentralus' | https://northcentralus.cris.ai
- South Central US | 'southcentralus' | https://southcentralus.cris.ai
- Central India | 'centralindia' | https://centralindia.cris.ai
+ Central US | `centralus` | https://centralus.cris.ai
+ North Central US | `northcentralus` | https://northcentralus.cris.ai
+ South Central US | `southcentralus` | https://southcentralus.cris.ai
+ Central India | `centralindia` | https://centralindia.cris.ai
  East Asia | `eastasia` | https://eastasia.cris.ai
  South East Asia | `southeastasia` | https://southeastasia.cris.ai
  Japan East | `japaneast` | https://japaneast.cris.ai

@@ -1,13 +1,12 @@
 ---
 title: Automatically scale Azure HDInsight clusters (preview)
 description: Use the HDInsight Autoscale feature to automatically scale clusters
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/11/2019
 ms.author: hrasheed
 
 ---
@@ -57,8 +56,10 @@ To create an HDInsight cluster with an Azure Resource Manager template, add an `
     "name": "workernode",
     "targetInstanceCount": 4,
     "autoscale": {
-        "minInstanceCount": 2,
-        "maxInstanceCount": 10
+        "capacity": {
+            "minInstanceCount": 2,
+            "maxInstanceCount": 10
+        }        
     },
     "hardwareProfile": {
         "vmSize": "Standard_D13_V2"

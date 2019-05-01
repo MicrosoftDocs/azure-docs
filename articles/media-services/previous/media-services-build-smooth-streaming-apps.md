@@ -57,41 +57,42 @@ This lesson contains the following procedures:
 3. Modify the code behind file
 4. Compile and test the application
 
-**To create a Windows Store project**
+### To create a Windows Store project
 
 1. Run Visual Studio; versions 2012 through 2015 are supported.
-2. From the **FILE** menu, click **New**, and then click **Project**.
-3. From the New Project dialog, type or select  the following values:
+1. From the **FILE** menu, click **New**, and then click **Project**.
+1. From the New Project dialog, type or select  the following values:
 
-| Name | Value |
-| --- | --- |
-| Template group |Installed/Templates/Visual C#/Windows Store |
-| Template |Blank App (XAML) |
-| Name |SSPlayer |
-| Location |C:\SSTutorials |
-| Solution Name |SSPlayer |
-| Create directory for solution |(selected) |
+    | Name | Value |
+    | --- | --- |
+    | Template group |Installed/Templates/Visual C#/Windows Store |
+    | Template |Blank App (XAML) |
+    | Name |SSPlayer |
+    | Location |C:\SSTutorials |
+    | Solution Name |SSPlayer |
+    | Create directory for solution |(selected) |
 
 1. Click **OK**.
 
-**To add a reference to the Smooth Streaming Client SDK**
+### To add a reference to the Smooth Streaming Client SDK
 
 1. From Solution Explorer, right-click **SSPlayer**, and then click **Add Reference**.
-2. Type or select the following values:
+1. Type or select the following values:
 
-| Name | Value |
-| --- | --- |
-| Reference group |Windows/Extensions |
-| Reference |Select Microsoft Smooth Streaming Client SDK for Windows 8 and Microsoft Visual C++ Runtime Package |
+    | Name | Value |
+    | --- | --- |
+    | Reference group |Windows/Extensions |
+    | Reference |Select Microsoft Smooth Streaming Client SDK for Windows 8 and Microsoft Visual C++ Runtime Package |
 
 1. Click **OK**. 
 
 After adding the references, you must select the targeted platform (x64 or x86), adding references will not work for Any CPU platform configuration.  In solution explorer, you will see yellow warning mark for these added references.
 
-**To design the player user interface**
+### To design the player user interface
 
 1. From Solution Explorer, double click **MainPage.xaml** to open it in the design view.
 2. Locate the **&lt;Grid&gt;** and **&lt;/Grid&gt;**  tags the XAML file, and paste the following code between the two tags:
+
    ```xml
          <Grid.RowDefinitions>
 
@@ -143,7 +144,7 @@ The MediaElement control does not support Smooth Streaming content out-of-box. T
 
 In this XAML file, some event handlers are associated with the controls.  You must define those event handlers.
 
-**To modify the code behind file**
+### To modify the code behind file
 
 1. From Solution Explorer, right-click **MainPage.xaml**, and then click **View Code**.
 2. At the top of the file, add the following using statement:
@@ -207,7 +208,7 @@ The finished the code behind file shall look like this:
 
 ![Codeview in Visual Studio of Smooth Streaming Windows Store application][CodeViewPic]
 
-**To compile and test the application**
+### To compile and test the application
 
 1. From the **BUILD** menu, click **Configuration Manager**.
 2. Change **Active solution platform** to match your development platform.
@@ -235,7 +236,7 @@ This lesson contains the following procedures:
 5. Add slider bar related code
 6. Compile and test the application
 
-**To register the Smooth Streaming byte-stream handler and pass the propertyset**
+### To register the Smooth Streaming byte-stream handler and pass the propertyset
 
 1. From Solution Explorer, right click **MainPage.xaml**, and then click **View Code**.
 2. At the beginning of the file, add the following using statement:
@@ -280,7 +281,7 @@ This lesson contains the following procedures:
    ```
 6. Press **CTRL+S** to save the file.
 
-**To add the adaptive source manager level event handler**
+### To add the adaptive source manager level event handler
 
 1. From Solution Explorer, right click **MainPage.xaml**, and then click **View Code**.
 2. Inside the **MainPage** class, add the following data member:
@@ -308,7 +309,7 @@ This lesson contains the following procedures:
    ```
 5. Press **CTRL+S** to save the file.
 
-**To add adaptive source level event handlers**
+### To add adaptive source level event handlers
 
 1. From Solution Explorer, right click **MainPage.xaml**, and then click **View Code**.
 2. Inside the **MainPage** class, add the following data member:
@@ -359,7 +360,7 @@ This lesson contains the following procedures:
 
 The same events are available on Adaptive Source manger level as well, which can be used for handling functionality common to all media elements in the app. Each AdaptiveSource includes its own events and all AdaptiveSource events will be cascaded under AdaptiveSourceManager.
 
-**To add Media Element event handlers**
+### To add Media Element event handlers
 
 1. From Solution Explorer, right click **MainPage.xaml**, and then click **View Code**.
 2. At the end of the **MainPage** class, add the following event handlers:
@@ -395,7 +396,7 @@ The same events are available on Adaptive Source manger level as well, which can
    ```
 4. Press **CTRL+S** to save the file.
 
-**To add slider bar related code**
+### To add slider bar related code
 
 1. From Solution Explorer, right click **MainPage.xaml**, and then click **View Code**.
 2. At the beginning of the file, add the following using statement:
@@ -528,7 +529,7 @@ The same events are available on Adaptive Source manger level as well, which can
    ```
 8. Press **CTRL+S** to save the file.
 
-**To compile and test the application**
+### To compile and test the application
 
 1. Press **F6** to compile the project. 
 2. Press **F5** to run the application.
@@ -545,7 +546,7 @@ Smooth Streaming is capable to stream content with multiple language audio track
 2. Modify the code behind file
 3. Compile and test the application
 
-**To modify the XAML file**
+### To modify the XAML file
 
 1. From Solution Explorer, right-click **MainPage.xaml**, and then click **View Designer**.
 2. Locate &lt;Grid.RowDefinitions&gt;, and modify the RowDefinitions so they looks like:
@@ -588,7 +589,7 @@ Smooth Streaming is capable to stream content with multiple language audio track
    ```
 4. Press **CTRL+S** to save the changes.
 
-**To modify the code behind file**
+### To modify the code behind file
 
 1. From Solution Explorer, right-click **MainPage.xaml**, and then click **View Code**.
 2. Inside the SSPlayer namespace, add a new class:
@@ -804,7 +805,8 @@ Smooth Streaming is capable to stream content with multiple language audio track
             changeStreams(selectedStreams);
         }
    ```
-   **To compile and test the application**
+
+### To compile and test the application
 
 1. Press **F6** to compile the project. 
 2. Press **F5** to run the application.
@@ -814,14 +816,15 @@ Smooth Streaming is capable to stream content with multiple language audio track
 
 You have completed lesson 3.  In this lesson, you add the functionality to choose streams.
 
-## Lesson 4: Select Smooth Streaming Tracks
+## Lesson 4: Select Smooth Streaming tracks
+
 A Smooth Streaming presentation can contain multiple video files encoded with different quality levels (bit rates) and resolutions. In this lesson, you will enable users to select tracks. This lesson contains the following procedures:
 
 1. Modify the XAML file
 2. Modify the code behind file
 3. Compile and test the application
 
-**To modify the XAML file**
+### To modify the XAML file
 
 1. From Solution Explorer, right-click **MainPage.xaml**, and then click **View Designer**.
 2. Locate the &lt;Grid&gt; tag with the name **gridStreamAndBitrateSelection**, append the following code at the end of the tag:
@@ -843,7 +846,7 @@ A Smooth Streaming presentation can contain multiple video files encoded with di
    ```
 3. Press **CTRL+S** to save he changes
 
-**To modify the code behind file**
+### To modify the code behind file
 
 1. From Solution Explorer, right-click **MainPage.xaml**, and then click **View Code**.
 2. Inside the SSPlayer namespace, add a new class:
@@ -1006,7 +1009,8 @@ A Smooth Streaming presentation can contain multiple video files encoded with di
             changeStreams(selectedStreams);
          }
    ```
-   **To compile and test the application**
+   
+### To compile and test the application
 
 1. Press **F6** to compile the project. 
 2. Press **F5** to run the application.
@@ -1017,6 +1021,7 @@ A Smooth Streaming presentation can contain multiple video files encoded with di
 You have completed lesson 4.  In this lesson, you add the functionality to choose tracks.
 
 ## Media Services learning paths
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
