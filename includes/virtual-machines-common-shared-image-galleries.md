@@ -43,9 +43,7 @@ The Shared Image Gallery feature has multiple resource types:
 Image definitions are a logical grouping for versions of an image. The image definition holds information about why the image was created, what OS it is for, and information about using the image. An image definition is like a plan for all of the details around creating a specific image. You don't deploy a VM from an image definition, but from the image version created from the definition.
 
 
-For customers planning on implementing shared images, **in an upcoming release**, you'll be able to use your personally defined **Publisher**, **Offer** and **SKU** values to find and specify an image definition, then create a VM using latest image version from the matching image definition.
-
-For example, here are three image definitions and their values:
+There are three parameters for each image definition that are used in combination - **Publisher**, **Offer** and **SKU**. These are used to find a specific image definition. You can have image versions that share one or two, but not all three values.  For example, here are three image definitions and their values:
 
 |Image Definition|Publisher|Offer|Sku|
 |---|---|---|---|
@@ -53,17 +51,7 @@ For example, here are three image definitions and their values:
 |myImage2|Contoso|Finance|Frontend|
 |myImage3|Testing|Finance|Frontend|
 
-All three of these have unique sets of values. You can have image versions that share one or two, but not all three values. **In an upcoming release**, you will be able to combine these values in order to request the latest version of a specific image. **This doesn't work in the current release**, but will be available in the future. When released, using the following syntax in Azure PowerShell should be used to set the source image as *myImage1* from the table above.
-
-```powershell
-$vmConfig = Set-AzVMSourceImage `
-   -VM $vmConfig `
-   -PublisherName Contoso `
-   -Offer Finance `
-   -Skus Backend 
-```
-
-The format is similar to how you can currently specify publisher, offer, and SKU for [Azure Marketplace images](../articles/virtual-machines/windows/cli-ps-findimage.md) in Azure PowerShell to get the latest version of a Marketplace image. Each image definition needs to have a unique set of these values.
+All three of these have unique sets of values. The format is similar to how you can currently specify publisher, offer, and SKU for [Azure Marketplace images](../articles/virtual-machines/windows/cli-ps-findimage.md) in Azure PowerShell to get the latest version of a Marketplace image. Each image definition needs to have a unique set of these values.
 
 The following are other parameters that can be set on your image definition so that you can more easily track your resources:
 
