@@ -107,7 +107,7 @@
       - name: Column-level security
         href: column-level-security.md
       - name: Row-level security
-        href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json
+        href: https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json
     - name: Data Protection
       items:
       - name: Transparent Data Encryption (TDE) overview
