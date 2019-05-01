@@ -32,11 +32,11 @@ Azure Cosmos DB offers a flexible policy-driven mechanism to resolve write confl
   > [!NOTE]
   > Last Write Wins is the default conflict resolution policy. It's available for the following APIs: SQL, MongoDB, Cassandra, Gremlin and Table.
 
-  To learn more, see [examples that use LWW conflict resolution policies](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  To learn more, see [examples that use LWW conflict resolution policies](how-to-manage-conflicts.md).
 
 - **Custom**: This resolution policy is designed for application-defined semantics for reconciliation of conflicts. When you set this policy on your Azure Cosmos container, you also need to register a *merge stored procedure*. This procedure is automatically invoked when conflicts are detected under a database transaction on the server. The system provides exactly once guarantee for the execution of a merge procedure as part of the commitment protocol.  
 
-  If you configure your container with the custom resolution option, and you fail to register a merge procedure on the container or the merge procedure throws an exception at runtime, the conflicts are written to the *conflicts feed*. Your application then needs to manually resolve the conflicts in the conflicts feed. To learn more, see [examples of how to use the custom resolution policy and how to use the conflicts feed](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  If you configure your container with the custom resolution option, and you fail to register a merge procedure on the container or the merge procedure throws an exception at runtime, the conflicts are written to the *conflicts feed*. Your application then needs to manually resolve the conflicts in the conflicts feed. To learn more, see [examples of how to use the custom resolution policy and how to use the conflicts feed](how-to-manage-conflicts.md).
 
   > [!NOTE]
   > Custom conflict resolution policy is available only for SQL API accounts.
@@ -46,6 +46,5 @@ Azure Cosmos DB offers a flexible policy-driven mechanism to resolve write confl
 Learn how to configure conflict resolution policies:
 
 * [How to configure multi-master in your applications](how-to-multi-master.md)
-* [How to use the LWW conflict resolution policy](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
-* [How to use the custom conflict resolution policy](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
+* [How to manage conflict resolution policies](how-to-manage-conflicts.md)
 * [How to read from the conflicts feed](how-to-manage-conflicts.md#read-from-conflict-feed)

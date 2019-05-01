@@ -205,8 +205,7 @@ A JSON object with a nested JSON array that contains two JSON objects. This inpu
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [View your environment in the Time Series Insights explorer](https://insights.timeseries.azure.com)
+- [View your environment](https://insights.timeseries.azure.com) in the Time Series Insights explorer.
 
 <!-- Images -->
 [1]: media/send-events/updated.png

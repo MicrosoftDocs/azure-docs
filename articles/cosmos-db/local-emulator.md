@@ -148,7 +148,7 @@ Start emulator from an administrator command prompt with “/EnableCassandraEndp
 
 * [Install Python 2.7](https://www.python.org/downloads/release/python-2716/)
 
-* [Install Cassandra CLI/CQLSH](http://cassandra.apache.org/download/)
+* [Install Cassandra CLI/CQLSH](https://cassandra.apache.org/download/)
 
 * Run the following commands in a regular command prompt window:
 
@@ -176,7 +176,7 @@ Start emulator from an administrator command prompt with “/EnableCassandraEndp
 
 Start emulator from an administrator command prompt with “/EnableGremlinEndpoint”. Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
-* [Install apache-tinkerpop-gremlin-console-3.3.4](http://tinkerpop.apache.org/downloads.html)
+* [Install apache-tinkerpop-gremlin-console-3.3.4](https://tinkerpop.apache.org/downloads.html)
 
 * In the emulator’s Data Explorer create a database "db1" and a collection "coll1"; for the partition key, choose "/name"
 

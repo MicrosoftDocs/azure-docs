@@ -48,6 +48,47 @@ Event Hubs Standard tier currently supports a maximum retention period of seven 
 ### How do I monitor my Event Hubs?
 Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](../azure-monitor/overview.md). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
+### What ports do I need to open on the firewall? 
+You can use the following protocols with Azure Service Bus to send and receive messages:
+
+- Advanced Message Queuing Protocol (AMQP)
+- HTTP
+- Apache Kafka
+
+See the following table for the outbound ports you need to open to use these protocols to communicate with Azure Event Hubs. 
+
+| Protocol | Ports | Details | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 and 5672 | See [AMQP protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| HTTP, HTTPS | 80, 443 |  |
+| Kafka | 9092 | See [Use Event Hubs from Kafka applications](event-hubs-for-kafka-ecosystem-overview.md)
+
+### What IP addresses do I need to whitelist?
+To find the right IP addresses to white list for your connections, follow these steps:
+
+1. Run the following command from a command prompt: 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. Note down the IP address returned in `Non-authoritative answer`. This IP address is static. The only point in time it would change is if you restore the namespace on to a different cluster.
+
+If you use the zone redundancy for your namespace, you need to do a few additional steps: 
+
+1. First, you run nslookup on the namespace.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. Note down the name in the **non-authoritative answer** section, which is in one of the following formats: 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
+
 ## Apache Kafka integration
 
 ### How do I integrate my existing Kafka application with Event Hubs?
