@@ -14,7 +14,7 @@ ms.subservice: common
 
 AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts.
 
-This article contains a collection of AzCopy example commands. You can use them to create containers, copy files, and synchronize folders.
+This article contains a collection of AzCopy example commands. You can use them to create containers, upload files, download files, copy files, and synchronize folders.
 
 > [!IMPORTANT]
 > Before you begin, download AzCopy v10. Then, use the `AzCopy login` command to sign into your storage account, or, obtain a SAS token that you can append to each AzCopy command. 
@@ -33,43 +33,37 @@ For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.wi
 
 outro-text
 
-## Copy data from a local file system to a container
+## Upload files
 
-### Syntax
+### Copy data from a local file system to a container
+
+Command:
 
 ```
 azcopy cp <local-file-path> https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>
 ```
 
-### Placeholders
+Example:
 
-Replace each placeholder that appears in this command. 
+`azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.blob.core.windows.net/mycontainer1/myTextFile.txt"`
 
-|Placeholder    |Replace with..    |
-|--|--|
-|**\<local-file-path\>** | The fully qualified name of a file on your local machine that you want to upload to the container.|
-|**\<account-name\>**    | The name of your storage account.
-|**\<container-name\>**    | The name of the container that you want to upload a file to. |
-|**\<blob-name\>**    |The name that you want to give this file. This does not change the name of the file on your local machine. |
+### Copy data from a Virtual Hard Disk (VHD) to a container
 
-### Example
- ```
-azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.blob.core.windows.net/mycontainer1/myTextFile.txt"
-```
+## Download files
 
-## Copy data from a container to a local file system
+### Copy data from a container to a local file system
 
-## Copy data from a Virtual Hard Disk (VHD) to a container
+## Copy files
 
-## Copy data between containers in different storage accounts
+### Copy data between containers in different storage accounts
 
-## Copy containers between different storage accounts
+### Copy containers between different storage accounts
 
-## Synchronize a local file system with a container
+## Synchronize folders
 
-## Synchronize a container with a local file system
+### Synchronize a local file system with a container
 
-## Synchronize data
+### Synchronize a container with a local file system
 
 ## Raw material
 
