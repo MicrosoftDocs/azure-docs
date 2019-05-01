@@ -27,15 +27,15 @@ First, download the AzCopy V10 executable file. There's nothing to install.
 
 ## Run AzCopy for the first time
 
-Open a command prompt. Then, navigate to the directory where you downloaded the file.
+From a command prompt, navigate to the directory where you downloaded the file.
 
-From the command prompt, type `azCopy`, and then press the ENTER key. A list of AzCopy commands appears in the command prompt window.
+To view a list of AzCopy commands, type `azCopy`, and then press the ENTER key.
 
 To learn more about a specific command, type `azCopy` followed by the name of the command.
 
 For example, to learn about the `copy` command, type `azcopy copy`, and then press the ENTER key.
 
-Before you can do anything meaningful with AzCopy, the storage service needs to authenticate your identity, and then assess which tasks your identity has permission to perform.
+Before you can do anything meaningful with AzCopy, you need to authenticate your identity with the storage service.
 
 ## Authenticate your identity
 
@@ -54,7 +54,7 @@ These roles can be assigned to your identity in any of these scopes:
 - Resource group
 - Subscription
 
-After you've verified that your identity has one of these role assignments, open a command prompt, type the following command, and then press the ENTER key.
+After you've verified that your identity has one of these role assignments, open a command prompt. Then, type the following command, and press the ENTER key.
 
 ```azcopy
 azcopy login
@@ -64,7 +64,7 @@ This command returns an authentication code and the URL of a website. Open the w
 
 ![Create a container](media/storage-use-azcopy-v10/azcopy-login.png)
 
-Then, log-into your Azure account by using your Azure account credentials. After you've successfully signed in, you can close the browser window and begin using AzCopy.
+A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, you can close the browser window and begin using AzCopy.
 
 ### Option 2: Use a SAS token
 
@@ -92,7 +92,7 @@ To find example commands, see any of these articles.
 
 - [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
 
-## Configure, optimize, and troubleshoot
+## Configure, optimize, and troubleshoot AzCopy
 
 See [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
 
@@ -106,6 +106,13 @@ In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload a
 
 > [!NOTE]
 > You don't have to enable this setting if you've enabled a hierarchical namespace on your storage account. That's because Storage Explorer automatically uses AzCopy on storage accounts that have a hierarchical namespace.  
+
+## Use a previous version of AzCopy
+
+AzCopy V10 is the currently supported version of AzCopy. However, if you need to use the previous version of AzCopy (AzCopy v8.1), see either of the following links:
+
+- [AzCopy on Windows (v8)](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [AzCopy on Linux (v8)](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ## Next steps
 
