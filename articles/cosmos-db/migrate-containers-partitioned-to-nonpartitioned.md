@@ -96,7 +96,7 @@ For the complete sample on how to repartition the documents, see the [.Net sampl
 
 ## Compatibility with SDKs
 
-Older version of Azure Cosmos DB SDKs such as V2.x.x and V1.x.x don’t support the system defined partition key property. So, when you read the container definition from an older SDK, it doesn’t contain any partition key definition and these container will behave exactly as before. Applications that are built with the older version of SDKs continue to work with non-partitioned as is without any changes. 
+Older version of Azure Cosmos DB SDKs such as V2.x.x and V1.x.x don’t support the system defined partition key property. So, when you read the container definition from an older SDK, it doesn’t contain any partition key definition and these containers will behave exactly as before. Applications that are built with the older version of SDKs continue to work with non-partitioned as is without any changes. 
 
 If a migrated container is consumed by the latest/V3 version of SDK and you start populating the system defined partition key within the new documents, you cannot access (read, update, delete, query) such documents from the older SDKs anymore.
 
