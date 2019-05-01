@@ -140,9 +140,10 @@ a method, but without defining the method signature.
 
 Optionally, you can require that the **Inline Code** action 
 includes outputs from the trigger or specific actions that 
-your code references by adding the **Trigger** or **Actions** 
-parameters. This option is useful for scenarios where the 
-referenced outputs might not be available.
+your code references as explicit dependencies by adding the 
+**Trigger** or **Actions** parameters. This option is useful 
+for scenarios where the referenced outputs aren't found at 
+run time.
 
 > [!TIP]
 > If you plan to reuse your code, select your outputs 
