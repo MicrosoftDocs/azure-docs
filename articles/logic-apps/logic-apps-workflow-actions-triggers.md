@@ -871,7 +871,7 @@ Here are some commonly used action types:
 
   * [**Response**](#response-action) for responding to requests
 
-  * [**Execute JavaScript Code](#run-javascript-code) for running JavaScript code snippets
+  * [**Execute JavaScript Code**](#run-javascript-code) for running JavaScript code snippets
 
   * [**Function**](#function-action) for calling Azure Functions
 
@@ -900,7 +900,7 @@ and help you organize workflow execution
 | Action type | Description | 
 |-------------|-------------| 
 | [**Compose**](#compose-action) | Creates a single output from inputs, which can have various types. | 
-| [**Execute JavaScript Code](#run-javascript-code) | Run JavaScript code snippets that fit within specific criteria. For code requirements and more information, see [Add and run code snippets with inline code](../logic-apps/logic-apps-add-run-inline-code.md). |
+| [**Execute JavaScript Code**](#run-javascript-code) | Run JavaScript code snippets that fit within specific criteria. For code requirements and more information, see [Add and run code snippets with inline code](../logic-apps/logic-apps-add-run-inline-code.md). |
 | [**Function**](#function-action) | Calls an Azure Function. | 
 | [**HTTP**](#http-action) | Calls an HTTP endpoint. | 
 | [**Join**](#join-action) | Creates a string from all the items in an array and separates those items with a specified delimiter character. | 
@@ -1165,12 +1165,13 @@ workflow (`workflow`), trigger (`trigger`), and previous actions (`actions`).
       "code": "<JavaScript-code-snippet>",
       "explicitDependencies": {
          "actions": [ <previous-actions> ],
-          "includeTrigger": true
+         "includeTrigger": true
       }
    },
    "runAfter": {}
 }
 ```
+
 *Required*
 
 | Value | Type | Description |
@@ -1185,12 +1186,12 @@ to explicitly include outputs from the trigger, previous actions,
 or both as dependencies for the code that you're running. 
 For more information, see [Add parameters for inline code](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters).
 
+For the `includeTrigger` attribute, you can specify `true` or `false` values.
+
 | Value | Type | Description |
 |-------|------|-------------|
 | <*previous-actions*> | Varies | An array that contains previous actions |
 ||||
-
-For the `includeTrigger` attribute, you can specify `true` or `false` values. 
 
 *Example*
 
