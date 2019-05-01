@@ -47,7 +47,7 @@ Every app that wants to accept both personal and work or school accounts must be
 * A **Redirect URI** or **Package Identifier** that can be used to direct responses back to your app
 * A few other scenario-specific values.
 
-For more details, learn how to [register an app](quickstart-v2-register-an-app.md).
+For more details, learn how to [register an app](quickstart-register-app.md).
 
 ## Endpoints
 
