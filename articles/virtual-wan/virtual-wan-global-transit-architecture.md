@@ -13,7 +13,7 @@ Customer intent: As someone with a networking background, I want to understand g
 
 # Global transit network architecture and Virtual WAN
 
-Global transit network architecture is being adopted by enterprises to consolidate, connect, and control the cloud-centric modern enterprise IT footprint. In a modern cloud-centric enterprise, network traffic does not need to be backhauled to HQ. Global transit network architecture is based on some familiar networking concepts while introducing some new concepts that are unique to cloud and cloud-based architectures.
+Global transit network architecture is being adopted by enterprises to consolidate, connect, and control the cloud-centric modern enterprise IT footprint. In a modern cloud-centric enterprise, network traffic does not need to be backhauled to HQ. Global transit network architecture is based on both familiar networking concepts, and new concepts that are unique to cloud and cloud-based architectures.
 
 ![architecture](./media/virtual-wan-global-transit/architecture2.png)
 
@@ -83,15 +83,15 @@ In this model, each branch that is connected to the Virtual WAN hub using Expres
 
 #### Remote User-to-VNet
 
-Direct secure remote access to Azure can be enabled using point-to-site connections from a remote user client to a virtual WAN. Enterprise remote users no longer have to hairpin to the cloud using a corporate VPN.
+You can enable direct, secure remote access to Azure using point-to-site connections from a remote user client to a virtual WAN. Enterprise remote users no longer have to hairpin to the cloud using a corporate VPN.
 
 #### Remote User-to-branch
 
-The remote user to branch path lets remote users who are using a point-to-site connection to Azure access on-premises workloads and applications by transiting through the cloud. This path gives remote users the flexibility to access workloads that are both deployed in Azure and on-premises. Enterprises can enable central cloud-based secure remote access service in Azure Virtual WAN.
+The Remote User-to-branch path lets remote users who are using a point-to-site connection to Azure access on-premises workloads and applications by transiting through the cloud. This path gives remote users the flexibility to access workloads that are both deployed in Azure and on-premises. Enterprises can enable central cloud-based secure remote access service in Azure Virtual WAN.
 
 #### VNet-to-VNet transit using VNet peering
 
-A VNet-to-VNet transit scenario via Azure Virtual WAN is currently not supported. Connecting VNets through VNet Peering is the recommended solution for VNets that need to be connected to each other in order to support multi-tier applications that are implemented across multiple VNets. VNet-to-VNet transit across virtual VWAN is on the Azure roadmap. For more information about VNet peering, see [Configure VPN gateway transit for virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
+To connect VNets to each other in order to support multi-tier applications that are implemented across multiple VNets, use VNet peering. A VNet-to-VNet transit scenario via Azure Virtual WAN is currently not supported, but is on the Azure roadmap. For more information about VNet peering, see [Configure VPN gateway transit for virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
 
 ## <a name="security"></a>Security and policy control
 
