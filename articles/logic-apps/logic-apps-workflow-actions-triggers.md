@@ -1193,7 +1193,7 @@ For the `includeTrigger` attribute, you can specify `true` or `false` values.
 | <*previous-actions*> | Varies | An array that contains previous actions |
 ||||
 
-*Example*
+*Example 1*
 
 This action runs code that gets your logic app's name 
 and returns the text "Hello world from <logic-app-name>". 
@@ -1210,6 +1210,37 @@ see [Add and run code snippets with inline code](../logic-apps/logic-apps-add-ru
    "runAfter": {}
 }
 ```
+
+*Example 2*
+
+This action runs code in a logic app that triggers when 
+a new email arrives in an Office 365 Outlook account. 
+The logic app also uses a send approval email action that 
+fowards the content from the received email and with a 
+request for approval. 
+
+The code extracts email addresses from the trigger's `Body` 
+property and returns those email addresses along with the 
+the `SelectedOption` property value from the approval action. 
+The action explicitly includes the send approval email action 
+as a dependency in the actions parameter.
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var re = /(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))/g;\r\n\r\nvar email = workflowContext.trigger.outputs.body.Body;\r\n\r\nvar reply = workflowContext.actions.Send_approval_email_.outputs.body.SelectedOption;\r\n\r\nreturn email.match(re) + \" - \" + reply;\r\n;",
+      "explicitDependencies": {
+         "actions": [
+            "Send_approval_email_"
+         ]
+      }
+   },
+   "runAfter": {}
+}
+```
+
+
 
 <a name="function-action"></a>
 
