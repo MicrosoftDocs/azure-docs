@@ -28,7 +28,8 @@ If you have suggestions for Site Recovery features, we'd love to [hear your feed
 
 #### VMware/physical server disaster recovery
 New features added in the update.
-**Update** | **Details**
+
+**Feature** | **Details**
 --- | ---
 **Managed disks** | Replication of on-premises VMware VMs and physical servers is now directly to managed disks in Azure. On-premises data is sent to a cache storage account in Azure, and recovery points are created in managed disks in the target location. This ensures you don't need to manage multiple target storage accounts.
 **Configuration server** | Site Recovery now supports a configuration servers with multiple NICs. You must add additional adapters to the configuration server VM before you register the configuration server in the vault. If you add afterwards, you need to re-register the server in the vault.
@@ -58,6 +59,7 @@ New features added in the update.
 
 ### Azure VM disaster recovery 
 New features added in the update.
+
 **Feature** | **Details**
 --- | ---
 **Network mapping** | For Azure VM disaster recovery, you can now use any available target network when you enable replication. 
@@ -67,6 +69,7 @@ New features added in the update.
 
 ### VMware/physical server disaster recovery
 New features added in the update.
+
 **Feature** | **Details**
 --- | ---
 **Linux BRTFS file system** | Site Recovery now supports replication of VMware VMs with the BRTFS file system. Replication isn't supported if:<br/><br/>- The BTRFS file system sub-volume is changed after enabling replication.<br/><br/>- The file system is spread over multiple disks.<br/><br/>- The BTRFS file system supports RAID.
@@ -117,6 +120,7 @@ New features added in the update.
 
 #### VMware VMs/physical servers replication 
 New features added in the update.
+
 **Feature** | **Details**
 --- | ---
 **Linux support** | Support was added for Oracle Linux 6.8 and 6.9/7.0, and for the UEK5 kernel.
@@ -133,14 +137,14 @@ New features added in the update.
 --- | ---
 **Linux support** | Supported was added for Oracle Linux 6.8 and 6.9/7.0; and for the UEK5 kernel.
 **Linux BRTFS file system** | Supported for Azure VMs.
-**Azure VMs in availability zones** | You can enable replication to another region for Azure VMs deployed in availability zones. ou can now enable replication for an Azure VM, and set the target for failover to a single VM instance, a VM in an availability set, or a VM in an availability zone. The setting doesn't impact replication. [Read](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region/) the announcement.
+**Azure VMs in availability zones** | You can enable replication to another region for Azure VMs deployed in availability zones. You can now enable replication for an Azure VM, and set the target for failover to a single VM instance, a VM in an availability set, or a VM in an availability zone. The setting doesn't impact replication. [Read](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region/) the announcement.
 **Firewall-enabled storage (portal/PowerShell)** | Support added for [firewall-enabled storage accounts](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> You can replicate Azure VMs with unmanaged disks on firewall-enabled storage accounts to another Azure region for disaster recovery.<br/><br/> You can use firewall-enabled storage accounts as target storage accounts for unmanaged disks.<br/><br/> Supported in portal and using PowerShell.
 
 ## Updates (December 2018)
 
 ### Automatic updates for the Mobility service (Azure VMs)
 
-Site Recovery added an option for automatic updates to the Mobility service extension.<br/><br/> The Mobility service extension is installed on each Azure VM replicated by Site Recovery. When you enable replication, you select whether to allow Site Recovery to manage updates to the extension.<br/><br/> Updates don't require a VM restart, and don't affect replication. [Learn more](azure-to-azure-autoupdate.md).
+Site Recovery added an option for automatic updates to the Mobility service extension. The Mobility service extension is installed on each Azure VM replicated by Site Recovery. When you enable replication, you select whether to allow Site Recovery to manage updates to the extension.<br/><br/> Updates don't require a VM restart, and don't affect replication. [Learn more](azure-to-azure-autoupdate.md).
 
 ### Pricing calculator for Azure VM disaster recovery
 
@@ -167,11 +171,12 @@ Disaster Recovery of Azure VMs incurs VM licensing costs, and network and storag
 
 ### Azure VM disaster recovery
 New features added in the update.
+
 **Feature** | **Details**
 --- | ---
 **Region support** | Site Recovery support added for Australia Central 1 and Australia Central 2.
 **Support for disk encryption** | Support added for disaster recovery of Azure VMs encrypted with Azure Disk Encryption (ADE) with the Azure AD app. [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md).
-**Disk exclusion** | Unitialized disks are now automatically excluded during Azure VM replication.
+**Disk exclusion** | Uninitialized disks are now automatically excluded during Azure VM replication.
 **Firewall-enabled storage (PowerShell)** | Support added for [firewall-enabled storage accounts](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> You can replicate Azure VMs with unmanaged disks on firewall-enabled storage accounts to another Azure region for disaster recovery.<br/><br/> You can use firewall-enabled storage accounts as target storage accounts for unmanaged disks.<br/><br/> Supported using PowerShell only.
 
 
@@ -207,10 +212,11 @@ New features added in the update.
 
 #### VMware VM/physical server disaster recovery 
 New features added in the update.
+
 **Feature** | **Details**
 --- | ---
 **Linux support** | Support added for RedHat Enterprise Linux 6.10, CentOS 6.10.<br/><br/> Linux-based VMs that use the GUID partition table (GPT) partition style in legacy BIOS compatibility mode are now supported. Review the [Azure VM FAQ](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks) for more information. 
-**Disaster recovery for VMs after migration** | Support for enabling disaster reocvery for an on-premises VMware VM migrated to Azure, without needing to uninstall the Mobility service on the VM before enabling replication to a secondary Azure region.
+**Disaster recovery for VMs after migration** | Support for enabling disaster recovery to a secondary region for an on-premises VMware VM migrated to Azure, without needing to uninstall the Mobility service on the VM before enabling replication.
 **Windows Server 2008** | Support for migrating machines running Windows Server 2008 R2/2008 64-bit and 32-bit.<br/><br/> Migration only (replication and failover). Failback isn't supported.
 
 ## Updates (July 2018)
