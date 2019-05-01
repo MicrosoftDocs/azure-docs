@@ -27,6 +27,7 @@ This article describes the different authentication flows provided by Microsoft 
 
 | Flow | Description | Used in|  
 | ---- | ----------- | ------- | 
+| [Interactive](#interactive) | Gets the token through an interactive process that prompts the user for credentials through a browser or pop-window. | Desktop/Mobile apps |
 | [Implicit grant](#implicit-grant) | Allows the app to get tokens without performing a backend server credential exchange. This allows the app to sign in the user, maintain session, and get tokens to other web APIs all within the client JavaScript code.| Single-page applications (SPA) |
 | [Authorization code](#authorization-code) | Used in apps that are installed on a device to gain access to protected resources, such as web APIs. This allows you to add sign in and API access to your mobile and desktop apps. | Web Apps / Web APIs / daemon apps | 
 | [On-behalf-of](#on-behalf-of) | An application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. | Web Apps / Web APIs / daemon apps |
@@ -35,6 +36,17 @@ This article describes the different authentication flows provided by Microsoft 
 | [Integrated Windows Authentication](#integrated-windows-authentication) | Allows applications on domain or Azure AD joined computers to acquire a token silently (without any UI interaction from the user).| Desktop/Mobile apps|
 | [Username/password](#usernamepassword) | Allows an application to sign in the user by directly handling their password. This flow is not recommended. | Desktop/mobile apps | 
 
+## Interactive
+MSAL supports the ability to interactively prompt the user for their credentials to sign in and obtain a token using those credentials.
+
+![Interactive flow](media/msal-authentication-flows/interactive.png)
+
+For more information on using MSAL.NET to interactively acquire tokens on specific platforms, read the following:
+- [Xamarin Android](msal-net-xamarin-android-considerations.md)
+- [Xamarin iOS](msal-net-xamarin-ios-considerations.md)
+- [Universal Windows Platform](msal-net-uwp-considerations.md)
+
+For more information on interactive calls in MSAL.js, read [Prompt behavior in MSAL.js interactive requests](msal-js-prompt-behavior.md)
 
 ## Implicit grant
 
@@ -52,6 +64,9 @@ MSAL supports the [OAuth 2 authorization code grant](v2-oauth2-auth-code-flow.md
 When users sign in to web applications (web sites), the web application receives an authorization code.  The authorization code is redeemed to acquire a token to call web APIs. In ASP.NET / ASP.NET core web apps, the only goal of `AcquireTokenByAuthorizationCode` is to add a token to the token cache, so that it can then be used by the application (usually in the controllers) which just get a token for an API using `AcquireTokenSilent`.
 
 ![Authorization code flow](media/msal-authentication-flows/authorization-code.png)
+
+1. Requests an authorization code, which is redeemed for an access token.
+2. Uses the access token to call a web API.
 
 ### Considerations
 - The authorization code is usable only once to redeem a token. Do not try to acquire a token multiple times with the same authorization code (it's explicitly prohibited by the protocol standard specification). If you redeem the code several times intentionally, or because you are not aware that a framework also does it for you, you'll get an error: `AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token.`
@@ -80,16 +95,21 @@ The client credentials grant flow permits a web service (confidential client) to
 > [!NOTE]
 > The confidential client flow is not available on the mobile platforms (UWP, Xamarin.iOS, and Xamarin.Android), since these only support public client applications.  Public client applications don't know how to prove the application's identity to the Identity Provider. A secure connection can be achieved on web app or web API back-ends by deploying a certificate.
 
-MSAL.NET supports three types of client credentials:
+MSAL.NET supports two types of client credentials. These client credentials need to be registered with Azure AD. The credentials are passed in to the constructors of the confidential client application in your code.
 
-- Application secrets <BR>![Confidential client with password](media/msal-authentication-flows/confidential-client-password.png)
-- Certificates <BR>![Confidential client with cert](media/msal-authentication-flows/confidential-client-certificate.png)
-- Optimized client assertions<BR>![Confidential client with assertions](media/msal-authentication-flows/confidential-client-assertions.png)
+### Application secrets 
 
-These client credentials need to be:
+![Confidential client with password](media/msal-authentication-flows/confidential-client-password.png)
 
-- Registered with Azure AD.
-- Passed in to the constructors of the confidential client application in your code.
+1. Acquires a token using application secret/password credentials.
+2. Uses the token to make requests of the resource.
+
+### Certificates 
+
+![Confidential client with cert](media/msal-authentication-flows/confidential-client-certificate.png)
+
+1. Acquires a token using certificate credentials.
+2. Uses the token to make requests of the resource.
 
 
 ## Device code
@@ -115,6 +135,9 @@ By using the device code flow, the application obtains tokens through a two-step
 MSAL supports Integrated Windows Authentication (IWA) for desktop or mobile applications that run on a domain joined or Azure AD joined Windows computer. Using IWA, these applications can acquire a token silently (without any UI interaction from the user). 
 
 ![Integrated Windows Authentication](media/msal-authentication-flows/integrated-windows-authentication.png)
+
+1. Acquires a token using Integrated Windows Authentication.
+2. Uses the token to make requests of the resource.
 
 ### Constraints
 
@@ -145,6 +168,9 @@ For more information on consent, see [v2.0 permissions and consent](v2-permissio
 MSAL supports the [OAuth 2 resource owner password credentials grant](v2-oauth-ropc.md), which allows an application to sign in the user by directly handling their password. In your desktop application, you can use the username/password flow to acquire a token silently. No UI is required when using the application.
 
 ![Username/password flow](media/msal-authentication-flows/username-password.png)
+
+1. Acquires a token by sending the username and password to the identity provider.
+2. Calls a web API using the token.
 
 > [!WARNING]
 > This flow is **not recommended** because it requires a high degree of trust and user exposure.  You should only use this flow when other, more secure, flows can't be used. For more information about this problem, see [this article](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 
