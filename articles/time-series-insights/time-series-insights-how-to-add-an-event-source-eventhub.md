@@ -61,7 +61,7 @@ To add a new consumer group in your event hub:
    - If you have an existing event hub in one of your subscriptions, select **Use Event Hub from available subscriptions**. This option is the easiest approach.
    - If the event hub is external to your subscriptions or if you want to select advanced options, select **Provide Event Hub settings manually**.
 
-   [![In the New event source pane, enter values for the first three parameters](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)]((media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
+   [![In the New event source pane, enter values for the first three parameters](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
 
 1. The following table describes the required properties for the **Use Event Hub from available subscriptions** option:
 
