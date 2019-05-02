@@ -113,6 +113,9 @@ The following is an informational document that presents some of the best practi
 - Always validate exports before switching over to the staging serverLeverage the staging server for Full Imports and Full Synchronizations to reduce business impact
 - Keep version consistency between Azure AD Connect Servers as much as possible 
 
+**Q: Can I allow Azure AD Connect to create the Azure AD Connector account on Workgroup machine?**
+No.  In order to allow Azure AD Connect to auto-create the Azure AD Connector account, the machine must be domain-joined.  
+
 ## Network
 **Q: I have a firewall, network device, or something else that limits the time that connections can stay open on my network. What should my client-side timeout threshold be when I use Azure AD Connect?**  
 All networking software, physical devices, or anything else that limits the maximum time that connections can remain open should use a threshold of at least five minutes (300 seconds) for connectivity between the server where the Azure AD Connect client is installed and Azure Active Directory. This recommendation also applies to all previously released Microsoft Identity synchronization tools.
@@ -142,6 +145,9 @@ Use the guidance that's outlined in the article [renew certificates](how-to-conn
 ## Environment
 **Q: Is it supported to rename the server after Azure AD Connect has been installed?**  
 No. Changing the server name renders the sync engine unable to connect to the SQL database instance, and the service cannot start.
+
+**Q: Are Next Generation Cryptographic (NGC) sync rules supported on a FIPS-enabled machine?**  
+No.  They are not supported.
 
 ## Identity data
 **Q: Why doesn't the userPrincipalName (UPN) attribute in Azure AD match the on-premises UPN?**  
