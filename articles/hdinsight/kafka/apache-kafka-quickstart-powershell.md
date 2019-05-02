@@ -30,7 +30,7 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 
 * The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
 
-* An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+* An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Sign in to Azure
 
