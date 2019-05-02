@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services packaging and origin errors | Microsoft Docs
-description: This topic describes errors that you may receive from the Azure Media Services packaging service.
+title: Azure Media Services Streaming Endpoints (Origin) errors | Microsoft Docs
+description: This topic describes errors that you may receive from the Azure Media Services Streaming Endpoints (Origin) service.
 author: Juliako
 manager: femila
 editor: ''
@@ -17,9 +17,9 @@ ms.author: juliako
 
 ---
 
-# Media Services packaging errors 
+# Streaming Endpoints (Origin) errors 
 
-This topic describes errors that you may receive from the Azure Media Services [packaging service](streaming-endpoint-concept.md).
+This topic describes errors that you may receive from the Azure Media Services [Streaming Endpoints (Origin) service](streaming-endpoint-concept.md).
 
 ## 400 Bad Request
 
