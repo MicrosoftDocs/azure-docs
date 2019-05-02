@@ -33,7 +33,7 @@ database,
       new RequestOptions { OfferThroughput = 400 });
 ```
 
-### Create a large partition key (Azure portal) 
+## Create a large partition key (Azure portal) 
 
 To create a large partition key, while you create a new container using the Azure portal, check the **My partition key is larger than 100-bytes** option. By default, all the new containers are opted into using the large partition keys. Unselect the checkbox if you don’t need large partition keys or if you have applications running on SDKs version older than 1.18.
 
