@@ -70,7 +70,7 @@ Select **Save and Train** to persist this answer. A new question-answer pair has
 
 ## Test the published knowledge base
 
-You can test the published version of knowledge base in test pane. Once you have published the KB, check the "published" box and send a query to get results from the published KB.
+You can test the published version of knowledge base in the test pane. Once you have published the KB, check the "published" box and send a query to get results from the published KB.
 
 ## Next steps
 
