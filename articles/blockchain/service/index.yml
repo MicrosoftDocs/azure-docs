@@ -47,3 +47,11 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/blockchain/service/send-transaction">Create an Azure Blockchain Service member and send a transaction</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/blockchain">REST API</a></p>
