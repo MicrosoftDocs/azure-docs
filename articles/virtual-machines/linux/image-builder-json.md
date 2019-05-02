@@ -1,14 +1,14 @@
 ---
-title: Azure Image Builder json format (preview)
-description: Learn more about the json format used with Azure Image Builder.
+title: Create an Azure Image Builder template (preview)
+description: Learn how to create a template to use with Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/0l/2019
+ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ---
-# Azure Image Builder json template format
+# Create an Azure Image Builder template 
 
 Azure Image Builder uses a .json file to pass information into the Image Builder service. In this article we will go over the sections of the json file, so you can build your own. To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
 

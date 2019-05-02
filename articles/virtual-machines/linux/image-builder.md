@@ -169,7 +169,7 @@ In the Image Builder Template, in the 'Properties', you will see the source imag
 cat helloImageTemplateLinux.json
 ```
 
-For more detailed information about this .json file, see [Image builder .json example](image-builder-json.md)
+For more detailed information about this .json file, see [Image builder template reference](image-builder-json.md)
 
 ## Clean up
 
@@ -187,4 +187,4 @@ az group delete -n $imageResourceGroup
 
 ## Next steps
 
-To learn more about the components of the .json file used in this article, see [Image builder json template example](image-builder-json.md).
+To learn more about the components of the .json file used in this article, see [Image builder json template reference](image-builder-json.md).

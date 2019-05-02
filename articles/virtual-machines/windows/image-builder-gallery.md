@@ -1,16 +1,16 @@
 ---
-title: Use Azure Image Builder with a Shared Image Gallery
-description: Create shared images with Azure Image Builder and Shared Image Gallery.
+title: Use Azure Image Builder with an image gallery for Windows virtual machines 
+description: Create Windows images with Azure Image Builder and Shared Image Gallery.
 author: cynthn
 ms.author: cynthn
-ms.date: 04/27/2019
+ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-widows
 manager: jeconnoc
 ---
-# Create an image and distribute to a Shared Image Gallery 
+# Create a Windows image and distribute it to a Shared Image Gallery 
 
-This article is to show you how you can use the Azure Image Builder to create an image version in a [Shared Image Gallery](shared-image-galleries.md).
+This article is to show you how you can use the Azure Image Builder to create an image version in a [Shared Image Gallery](shared-image-galleries.md), then distribute the image globally.
 
 We will be using a .json template to configure the image. The .json file we are using is here: [helloImageTemplateforWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/helloImageTemplateforWinSIG.json). 
 

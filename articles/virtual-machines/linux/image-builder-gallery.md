@@ -1,6 +1,6 @@
 ---
-title: Use Azure Image Builder with a Shared Image Gallery
-description: Create shared images with Azure Image Builder and Shared Image Gallery.
+title: Use Azure Image Builder with an image gallery for Linux virtual machines
+description: Create Linux images with Azure Image Builder and Shared Image Gallery.
 author: cynthn
 ms.author: cynthn
 ms.date: 04/20/2019
@@ -8,9 +8,9 @@ ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ---
-# Create an image and distribute to a Shared Image Gallery 
+# Create a Linux image and distribute it to a Shared Image Gallery 
 
-This article is to show you how you can use the Azure Image Builder to create an image version in a [Shared Image Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries).
+This article is to show you how you can use the Azure Image Builder to create an image version in a [Shared Image Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries), then distribute the image globally.
 
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 

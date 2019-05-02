@@ -269,7 +269,7 @@
         href: image-builder-overview.md
       - name: Use CLI
         href: image-builder.md
-      - name: .json reference
+      - name: Template reference
         href: image-builder-json.md
       - name: Use with galleries
         href: image-builder-gallery.md

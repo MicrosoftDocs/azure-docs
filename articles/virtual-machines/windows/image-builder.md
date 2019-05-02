@@ -175,5 +175,5 @@ az group delete -n $imageResourceGroup
 
 ## Next steps
 
-To learn more about the components of the .json file used in this article, see [Image builder json template example](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+To learn more about the components of the .json file used in this article, see [Image builder template reference](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
