@@ -43,7 +43,7 @@ Example:
 
 ## Upload files
 
-You can use AzCopy to upload files and folders from your local computer or from a Virtual Hard Disk (VHD).
+You can use AzCopy to upload files and folders from your local computer.
 
 ### Upload a file
 
@@ -59,10 +59,12 @@ Example:
 
 > [!NOTE]
 > If you append the `--put-md5` flag to this command, AzCopy will calculate the file's md5 hash code, and then store that code in the `Content-md5` property of the corresponding blob for later use.
+> [!NOTE]
+> AzCopy by default uploads data into block blobs. To upload files as Append Blobs, or Page Blobs use the flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
 
 ### Upload a folder
 
-This example copies a folder (and all of the files in that folder) to a blob container. The result is a folder in the container by the same name. 
+This example copies a folder (and all of the files in that folder) to a blob container. The result is a folder in the container by the same name.
 
 ```
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true
@@ -70,13 +72,13 @@ azcopy copy "<local-folder-path>" "https://<storage-account-name>.blob.core.wind
 
 Example:
 
-`azcopy copy "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer --recursive=true`
+`azcopy copy "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true`
 
 To copy to a folder within the container, just specify the name of that folder in your command string.
 
 Example:
 
-`azcopy copy "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobFolder --recursive=true`
+`azcopy copy "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobFolder" --recursive=true`
 
 If you specify the name of a folder that does not exist in the container, AzCopy creates a new folder by that name.
 
@@ -88,31 +90,15 @@ If you specify the name of a folder that does not exist in the container, AzCopy
 You can use the wildcard symbol (*) to provide partial file names.
 
 ```
-azcopy copy "<local-folder-path>/*<partial-file-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<folder-path>
+azcopy copy "<local-folder-path>/*<partial-file-name>*" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<folder-path>
 ```
 
 Example:
 
-`azcopy copy "C:\myFolder\*.pdf" "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobFolder`
+`azcopy copy "C:\myFolder\*.pdf" "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobFolder"`
 
 > [!NOTE]
 > Append the `--recursive=true` flag to upload files in all sub-folders.
-
-### Upload data from a VHD
-
-Intro line.
-
-
-```
-azcopy copy "<local-vhd-file-path>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<vhd-name>" --blob-type=PageBlob
-```
-
-Example:
-
-`.\azcopy copy "C:\myFolder\myVHD.vhd" "https://mystorageaccount.blob.core.windows.net/mycontainer/myVHD.vhd" --blob-type=PageBlob`
-
-> [!NOTE]
-> AzCopy by default uploads data into block blobs. To upload files as Append Blobs, or Page Blobs use the flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
 
 ## Download files
 
@@ -123,196 +109,119 @@ You can use AzCopy to download blobs and containers to your local computer.
 Intro line.
 
 ```
-command
+azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>" "<local-file-path>"
 ```
 
 Example:
 
-`example`
+`azcopy copy "https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt" "C:\myFolder\myTextFile.txt"`
 
 ### Download a folder
 
-Intro line.
+This example downloads a folder (and all of the files in that folder) to the local computer. 
 
 ```
-command
+azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/<folder-path>" "<local-folder-path>" --recursive=true
 ```
 
 Example:
 
-`example`
+`azcopy copy "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobFolder "C:\myFolder"  --recursive=true`
+
+This example results in a folder named `C:\myFolder\myBlobFolder` that contains all of the downloaded files.
 
 ### Download files by using wildcard characters
 
-Intro line.
+You can use the wildcard symbol (*) to provide partial file names.
 
 ```
-command
-```
-
-Example:
-
-`example`
-
-### Download files and directories by using wild card characters
-
-Intro line.
-
-```
-command
+azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/*<partial-file-name>*" "<local-folder-path>/"
 ```
 
 Example:
 
-`example`
+`azcopy copy "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobFolder/*.pdf" "C:\myFolder"`
 
-## Copy files
+> [!NOTE]
+> Append the `--recursive=true` flag to upload files in all sub-folders.
 
-You can use AzCopy to copy blobs and containers between blob folders and across storage accounts.
+## Copy blobs between storage accounts
 
-### Copy a blob to another blob
+You can use AzCopy to copy blobs to other storage accounts.
 
-Intro line.
+AzCopy uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer.
 
-```
-command
-```
-
-Example:
-
-`example`
-
-### Copy a folder to another folder within a container
-
-Intro line.
+### Copy a blob to another storage account
 
 ```
-command
+azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>"
 ```
 
 Example:
 
-`example`
+`azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt" "https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt"`
 
-### Copy data between containers in different storage accounts
-
-Intro line.
+### Copy a folder to another storage account
 
 ```
-command
+azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<folder-path>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<folder-path>" --recursive=true
 ```
 
 Example:
 
-`example`
+`azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobFolder" "https://mydestinationaccount.blob.core.windows.net/mycontainer/myBlobFolder" --recursive=true`
 
-### Copy containers between different storage accounts
-
-Intro line.
+### Copy a containers to another storage account
 
 ```
-command
+azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true
 ```
 
 Example:
 
-`example`
-
-## Synchronize files
-
-You can use AzCopy to synchronize folders and files.
-
-### Synchronize a local file system with a container
-
-Intro line.
-
-```
-command
-```
-
-Example:
-
-`example`
-
-### Synchronize a container with a local file system
-
-Intro line.
-
-```
-command
-```
-
-Example:
-
-`example`
-
-## Raw material
-
-### Copy data to Azure Storage
-
-The following command uploads all files under the folder `C:\local\path` recursively to the container `mycontainer1`, creating `path` folder in the container. When `--put-md5` flag is provided, AzCopy calculates and stores each file's md5 hash in `Content-md5` property of the corresponding blob for later use.
-
-```azcopy
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true --put-md5
-```
-
-The following command uploads all files under the folder `C:\local\path` (without recursing into the subdirectories) to the container `mycontainer1`:
-
-```azcopy
-.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --put-md5
-```
-
-To find more examples, use the following command:
-
-```azcopy
-.\azcopy cp -h
-```
-
-### Copy Blob data between two storage accounts
-
-Copying data between two storage accounts uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, and doesn't use the client machine's network bandwidth. Data is copied between two Azure Storage servers directly, while AzCopy simply orchestrates the copy operation. This option is currently only available for Blob storage.
-
-To copy the all of the Blob data between two storage accounts, use the following command:
-```azcopy
-.\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
-```
+`azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer" "https://mydestinationaccount.blob.core.windows.net/mycontainer" --recursive=true`
 
 To copy a Blob container to another Blob container, use the following command:
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/mycontainer/<sastoken>" "https://myotheraccount.blob.core.windows.net/mycontainer/<sastoken>" --recursive=true
 ```
 
-### Copy a VHD image to a storage account
+### Copy all containers, folders, and files to another storage account
 
-AzCopy by default uploads data into block blobs. To upload files as Append Blobs, or Page Blobs use the flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
-
-```azcopy
-.\azcopy cp "C:\local\path\mydisk.vhd" "https://myotheraccount.blob.core.windows.net/mycontainer/mydisk.vhd<sastoken>" --blob-type=PageBlob
+```
+azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/" "https://<destination-storage-account-name>.blob.core.windows.net/" --recursive=true
 ```
 
-### Sync: incremental copy and delete (Blob storage only)
+Example:
 
-The sync command synchronizes contents of a source folder to a folder in the destination, comparing file names and last modified timestamps. This operation includes the optional deletion of destination files if those do not exist in the source when the `--delete-destination=prompt|true` flag is provided. By default, the delete behavior is disabled. 
+`azcopy cp "https://mysourceaccount.blob.core.windows.net" "https://mydestinationaccount.blob.core.windows.net" --recursive=true`
 
-> [!NOTE] 
-> Use the `--delete-destination` flag with caution. Enable the [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) feature before you enable delete behavior in sync to prevent accidental deletions in your account. 
->
-> When `--delete-destination` is set to true, AzCopy will delete files that do not exist in the source from destination without any prompt to the user. If you want to be prompted for confirmation, use `--delete-destination=prompt`.
+## Synchronize files
 
-To sync your local file system to a storage account, use the following command:
+You can synchronize the contents of a source folder to a folder in the destination. The `sync` command compares file names and last modified timestamps. Set the `--delete-destination` optional flag to a value of `true` or `prompt` to delete files in the destination folder if those files no longer exist in the source folder. If you set the `--delete-destination` flag to `true` AzCopy deletes files without providing a prompt. If you want a prompt to appear before AzCopy deletes a file, set the `--delete-destination` flag to `prompt`.
 
-```azcopy
-.\azcopy sync "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
+> [!NOTE]
+> To prevent accidental deletions, make sure to enable the [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) feature before you use the `--delete-destination=prompt|true` flag.
+
+### Synchronize a local file system with a container
+
+```
+azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true
 ```
 
-You can also sync a blob container down to a local file system:
+Example:
 
-```azcopy
-# The SAS token isn't required for Azure Active Directory authentication.
-.\azcopy sync "https://account.blob.core.windows.net/mycontainer1" "C:\local\path" --recursive=true
+`azcopy sync "C:\myFolder" "https://<storage-account-name>.blob.core.windows.net/mycontainer" --recursive=true`
+
+### Synchronize a container with a local file system
+
+```
+.\azcopy sync "https://<storage-account-name>.blob.core.windows.net/<container-name>" "C:\myFolder" --recursive=true
 ```
 
-This command incrementally syncs the source to the destination based on the last modified timestamps. If you add or delete a file in the source, AzCopy will do the same in the destination. Before deletion, AzCopy will prompt you to confirm.
+Example:
+
+`\azcopy sync "https://<storage-account-name>.blob.core.windows.net/<container-name>" "C:\myFolder" --recursive=true`
 
 ## More examples
 
