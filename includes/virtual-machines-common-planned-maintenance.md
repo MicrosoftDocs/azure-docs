@@ -43,8 +43,6 @@ Live Migration is leveraged in some planned maintenance scenarios, and Scheduled
 
 Live Migration is also used to move Virtual Machines off of hardware with an impending predicted failure when detected by our Machine Learning algorithms and to optimize Virtual Machine allocations. To learn more about our Predictive Modeling that detects instances of degraded hardware, please see our blog post entitled [Improving Azure Virtual Machine resiliency with predictive ML and live migration](https://azure.microsoft.com/blog/improving-azure-virtual-machine-resiliency-with-predictive-ml-and-live-migration/?WT.mc_id=thomasmaurer-blog-thmaure). Customers will always receive a Live Migration notice in their Azure portal in the Monitor / Service Health Logs, as well as through Scheduled Events if these are being used.
 
-95% of Azure fleet supports memory preserving updates and live migration. The exceptions are M, L, H, and N series VMs.  
-
 ## Maintenance requiring a reboot
 
 In the rare case when VMs need to be rebooted for planned maintenance, you are notified in advance. Planned maintenance has two phases: the self-service window and a scheduled maintenance window.
