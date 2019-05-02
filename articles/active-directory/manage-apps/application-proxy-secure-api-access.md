@@ -68,7 +68,7 @@ To publish the API, you follow the same pattern as for publishing web apps. Foll
    
    ![Add API app](./media/application-proxy-secure-api-access/3-add-api-app.png)
    
-1. In the *All Enterprise Apps** pane, locate and select the new **SecretAPI** app. 
+1. In the **All Enterprise Apps** pane, locate and select the new **SecretAPI** app. 
    
    ![All Enterprise Apps](./media/application-proxy-secure-api-access/4-all-enterprise-apps.png)
    
