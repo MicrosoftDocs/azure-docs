@@ -32,11 +32,11 @@ sections:
       text: Connect using MetaMask
       href: /azure/blockchain/service/connect-metamask
     - image: 
-        src: ./media/index/multi-connect.svg
+        src: ./media/index/cligeneric.svg
       text: Connect using geth
       href: /azure/blockchain/service/connect-geth
     - image: 
-        src: ./media/index/multi-connect.svg
+        src: ./media/index/code-blocks.svg
       text: Connect using Truffle
       href: /azure/blockchain/service/connect-truffle
 - title: Step-by-Step Tutorials
