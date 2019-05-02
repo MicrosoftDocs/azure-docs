@@ -30,7 +30,7 @@ These non-rebootful maintenance operations are applied fault domain by fault dom
 
 Some applications may be impacted by these types of updates. In case the VM is live migrated to a different host, some sensitive workloads might notice a slight performance degradation in the few minutes leading up to the VM pause. Such applications can benefit from using Scheduled Events for [Windows](../articles/virtual-machines/windows/scheduled-events.md) or [Linux](../articles/virtual-machines/linux/scheduled-events.md) to prepare for VM maintenance and have no impact during Azure maintenance. Azure is also working on maintenance control features for such ultra-sensitive applications. 
 
-## Live Migration
+## Live migration
 
 Live Migration is a non-rebootful operation that preserves memory for the VM and results in a limited pause or freeze, typically lasting no more than 5 seconds. Today, all standard VMs, apart from G, M, N, and a subset of A, L, & H series, are eligible for Live Migration. This equates to over 90% of the VMs deployed to the Azure Fleet. 
 
@@ -58,11 +58,11 @@ When the self-service window has passed, the **scheduled maintenance window** be
 
 For information on managing maintenance requiring a reboot, see "Handling planned maintenance notifications" for [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) or [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
 
-### Availability Considerations during Scheduled Maintenance 
+### Availability considerations during scheduled maintenance 
 
 If you decide to wait until the scheduled maintenance window, there are a few things to consider for maintaining the highest availability of your VMs. 
 
-#### Paired Regions
+#### Paired regions
 
 Each Azure region is paired with another region within the same geography and together they make a regional pair. In scheduled maintenance phase, Azure will only update the VMs in a single region of a region pair. For example, when updating the VM in North Central US, Azure won't update any VM in South Central US at the same time. However, other regions such as North Europe can be under maintenance at the same time as East US. Understanding how region pairs work can help you better distribute your VMs across regions. For more information, see [Azure region pairs](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
