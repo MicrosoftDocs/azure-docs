@@ -12,7 +12,7 @@
 
 # Enable and deploy Azure ultra SSDs (preview)
 
-Azure ultra solid state drives (SSD) (preview) offer high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS virtual machines (VMs). This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Additional benefits of ultra SSD include the ability to dynamically change the performance of the disk along with your workloads without the need to restart your VMs. Ultra SSDs are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
+Azure ultra solid state drives (SSD) (preview) offer high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS virtual machines (VMs). This new offering provides top of the line performance at the same availability levels as our existing disks offerings. One major benefit of ultra SSDs is the ability to dynamically change the performance of the SSD along with your workloads without the need to restart your VMs. Ultra SSDs are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
 
 Currently, ultra SSDs are in preview and you must [enroll](https://aka.ms/UltraSSDPreviewSignUp) in the preview in order to access them.
 
@@ -24,13 +24,13 @@ CLI: `az vm list-skus --resource-type disks --query “[?name==UltraSSD_LRS]”`
 
 The response will be similar to the form below, where X is the zone to use for deploying in East US 2. X could be either 1, 2, or 3.
 
-Preserve the zone value, since you will be using it no matter how you choose to deploy ultra SSDs.
+Preserve the **Zones** value, it represents your availability zone and you will need it in order to deploy an ultra SSD.
 
 |ResourceType  |Name  |Location  |Zones  |Restriction  |Capability  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
-If there was no response from the command, that means your registration to the feature is either still pending, or not approved yet.
+If there was no response from the command, then your registration to the feature is either still pending, or not approved yet.
 
 Now that you know which zone to deploy to, follow the deployment steps in this article to get your first VMs deployed with ultra SSD.
 
