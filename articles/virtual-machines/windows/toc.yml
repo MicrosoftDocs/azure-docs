@@ -113,7 +113,7 @@
     - name: Backup and disaster recovery for disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md   
     - name: Ephemeral OS disks
-      href: ../linux/ephemeral-os-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json      
+      href: ephemeral-os-disks.md
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications

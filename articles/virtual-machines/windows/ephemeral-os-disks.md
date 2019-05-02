@@ -1,13 +1,13 @@
 ---
-title: Ephemeral OS disks for Azure Linux Virtual Machines | Microsoft Docs
+title: Ephemeral OS disks for Azure Windows Virtual Machines | Microsoft Docs
 description: Learn more about ephemeral OS disks for Azure VMs.
-services: virtual-machines-linux
+services: virtual-machines-windows
 author: cynthn
 manager: jeconnoc
 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/01/2019
 ms.author: cynthn
