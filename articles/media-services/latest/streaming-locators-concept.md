@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ---
 
@@ -29,7 +29,11 @@ If you want to specify encryption options on your stream, create the [Content Ke
 > * Properties of **Streaming Locators** that are of the Datetime type are always in UTC format.
 > * You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. 
 
-## Filtering, ordering, paging
+## Associate filters with Streaming Locators
+
+You can specify a list of [asset or account filters](filters-concept.md), which would apply to your [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). The [dynamic packager](dynamic-packaging-overview.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [dyanamic manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on Streaming Locator. We recommend that you use this feature if you want to apply filters but do not want to expose the filter names in the URL.
+
+## Filter, order, page Streaming Locator entities
 
 See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
 

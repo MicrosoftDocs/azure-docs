@@ -50,18 +50,20 @@
     href: getting-started-improving-your-classifier.md
   - name: Use the prediction API
     href: use-prediction-api.md
-  - name: Export your model to mobile
-    href: export-your-model.md
-  - name: Use ONNX model with Windows ML
-    href: custom-vision-onnx-windows-ml.md
-  - name: Run TensorFlow model in Python
-    href: export-model-python.md
-  - name: Build a model using the REST API
-    href: rest-api-tutorial.md
+  - name: Export models
+    items:
+    - name: Export your model to mobile
+      href: export-your-model.md
+    - name: Use ONNX model with Windows ML
+      href: custom-vision-onnx-windows-ml.md
+    - name: Run TensorFlow model in Python
+      href: export-model-python.md
   - name: Export or delete account data
     href: ./export-delete-data.md
   - name: Move your Limited Trial project to Azure
     href: ./move-your-project-to-azure.md
+  - name: Update your app to the 3.0 API
+    href: ./update-application-to-3.0-sdk.md
 - name: Reference
   items:
   - name: Custom Vision Training API  
@@ -86,7 +88,7 @@
   items:
   - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
-  - name: Pricing and limits
+  - name: Limits and quotas
     href: limits-and-quotas.md
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/598141-custom-vision-service

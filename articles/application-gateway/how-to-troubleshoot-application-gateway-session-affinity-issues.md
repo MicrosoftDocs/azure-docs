@@ -13,6 +13,9 @@ ms.author: absha
 
 Learn how to diagnose and resolve session affinity issues with Azure Application Gateway.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Overview
 
 The cookie-based session affinity feature is useful when you want to keep a user session on the same server. By using gateway-managed cookies, the Application Gateway can direct subsequent traffic from a user session to the same server for processing. This is important in cases where session state is saved locally on the server for a user session.
@@ -45,7 +48,7 @@ Sometimes the session affinity issues might occur when you forget to enable “C
 
 You can also check the value of the “**CookieBasedAffinity**” is set to *Enabled*under "**backendHttpSettingsCollection**" by using one of the following methods:
 
-- Run [Get-AzureRmApplicationGatewayBackendHttpSettings](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermapplicationgatewaybackendhttpsettings?view=azurermps-4.1.0) in PowerShell
+- Run [Get-AzApplicationGatewayBackendHttpSettings](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhttpsettings) in PowerShell
 - Look through the JSON file by using the Azure Resource Manager template
 
 ```
@@ -88,7 +91,7 @@ This issue occurs because Internet Explorer and other browsers may not store or 
 
 #### Resolution
 
-To fix this issue, you should access the Application Gateway by using a FQDN. For example, use [http://website.com](http://website.com/) or [http://appgw.website.com](http://appgw.website.com/) .
+To fix this issue, you should access the Application Gateway by using a FQDN. For example, use [http://website.com](https://website.com/) or [http://appgw.website.com](http://appgw.website.com/) .
 
 ## Additional logs to troubleshoot
 

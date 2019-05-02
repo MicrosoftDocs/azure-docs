@@ -70,7 +70,7 @@ and open your logic app in Logic App Designer, if not open already.
 
 1. In the search box, enter "dropbox" as your filter. 
 From the triggers list, select this trigger: 
-**When a file is created** 
+**When a file is created**
 
    ![Select Dropbox trigger](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
@@ -105,7 +105,7 @@ you're prompted to create a connection.
    | **gateway** | Yes | <*installed-gateway-name*> | The name for your previously installed gateway | 
    ||| 
 
-1. When you're done, choose **Create**. 
+1. When you're done, choose **Create**.
 
    Logic Apps configures and tests your connection, 
    making sure that the connection works properly. 

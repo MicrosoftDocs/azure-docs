@@ -4,14 +4,15 @@ titlesuffix: Azure Virtual Network
 description: Learn how to assign multiple IP addresses to a virtual machine using the Azure command-line interface (CLI).
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
-ms.author: jimdial
+ms.author: kumud
 
 ---
 # Assign multiple IP addresses to virtual machines using the Azure CLI
@@ -160,7 +161,7 @@ Add the private IP addresses to the VM operating system by completing the steps 
 
 ## <a name="add"></a>Add IP addresses to a VM
 
-You can add additional private and public IP addresses to an existing Azure network interface by completing the steps that follow. The examples build upon the [scenario](#Scenario) described in this article.
+You can add additional private and public IP addresses to an existing Azure network interface by completing the steps that follow. The examples build upon the [scenario](#scenario) described in this article.
 
 1. Open a command shell and complete the remaining steps in this section within a single session. If you don't already have Azure CLI installed and configured, complete the steps in the [Azure CLI installation](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) article and login to your Azure account with the `az-login` command.
 

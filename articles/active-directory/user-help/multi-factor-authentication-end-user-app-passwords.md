@@ -36,7 +36,7 @@ When using app passwords, it's important to remember:
 
 You're given an app password during your initial two-step verification registration. If you need more than that one password, you can create additional passwords, based on how you use two-step verification:
 
-- **You use two-step verification with your work or school account and the MyApps portal.** Create and delete your app passwords using the instructions in the [Create and delete app passwords using the MyApps portal](#create-and-delete-app-passwords-using-the-myapps-portal) section of this article. For more info about the MyApps portal and how to use it, see [What is the MyApps portal in Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
+- **You use two-step verification with your work or school account and the MyApps portal.** Create and delete your app passwords using the instructions in the Create and delete app passwords using the MyApps portal section of this article. For more info about the MyApps portal and how to use it, see [What is the MyApps portal in Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
 
 - **You use two-step verification with your work or school account and the Office 365 portal.** Create and delete your app passwords using the instructions in the [Create and delete app passwords using the Office 365 portal](#create-and-delete-app-passwords-using-the-office-365-portal) section of this article.
 

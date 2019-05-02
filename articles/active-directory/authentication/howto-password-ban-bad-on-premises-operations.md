@@ -1,5 +1,5 @@
 ---
-title: Azure AD Password Protection operations and reporting
+title: Azure AD Password Protection operations and reporting - Azure Active Directory
 description: Azure AD Password Protection post-deployment operations and reporting
 
 services: active-directory

@@ -35,7 +35,7 @@ Install the Azure Powershell module on the machine where you want to run the scr
 ## Connect to Azure
 Start Azure PowerShell and [connect to your subscription](/powershell/azure/overview):
 
-```PowerShell
+```powershell
 
     Add-AzAccount
 ```

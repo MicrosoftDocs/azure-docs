@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
 ---
 # How to create a Linux virtual machine with Azure Resource Manager templates
 
-This article shows you how to quickly deploy a Linux virtual machine (VM) with Azure Resource Manager templates and the Azure CLI. 
+Learn how to create a Linux virtual machine (VM) by using an Azure Resource Manager template and the Azure CLI from the Azure Cloud shell. To create a Windows virtual machine, see [Create a Windows virtual machine from a Resource Manager template](../windows/ps-template.md).
 
 ## Templates overview
 
@@ -34,7 +34,7 @@ Creating an Azure virtual machine usually includes two steps:
 1. Create a resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine.
 1. Create a virtual machine.
 
-The following example creates a VM from [a Azure Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). Only SSH authentication is allowed for this deployment. When prompted, provide the value of your own SSH public key, such as the contents of *~/.ssh/id_rsa.pub*. If you need to create an SSH key pair, see [How to create and use an SSH key pair for Linux VMs in Azure](mac-create-ssh-keys.md). Here is a copy of the template:
+The following example creates a VM from an [Azure Quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). Only SSH authentication is allowed for this deployment. When prompted, provide the value of your own SSH public key, such as the contents of *~/.ssh/id_rsa.pub*. If you need to create an SSH key pair, see [How to create and use an SSH key pair for Linux VMs in Azure](mac-create-ssh-keys.md). Here is a copy of the template:
 
 [!code-json[create-linux-vm](~/quickstart-templates/101-vm-sshkey/azuredeploy.json)]
 
@@ -80,8 +80,8 @@ In this example, you created a basic Linux VM. For more Resource Manager templat
 
 To learn more about creating templates, view the JSON syntax and properties for the resources types you deployed:
 
-* [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
-* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
-* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
-* [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
-* [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)
+- [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
+- [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+- [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
+- [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)

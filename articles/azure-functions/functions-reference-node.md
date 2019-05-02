@@ -44,12 +44,11 @@ FunctionsProject
  | - host.json
  | - package.json
  | - extensions.csproj
- | - bin
 ```
 
 At the root of the project, there's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has a folder with its own code file (.js) and binding configuration file (function.json). The name of `function.json`'s parent directory is always the name of your function.
 
-The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./functions-bindings-register.md#local-development-azure-functions-core-tools). When developing functions in the Azure portal, this registration is done for you.
+The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). When developing functions in the Azure portal, this registration is done for you.
 
 ## Exporting a function
 
@@ -138,7 +137,7 @@ Outputs (bindings of `direction === "out"`) can be written to by a function in a
 
 You can assign data to output bindings in one of the following ways (don't combine these methods):
 
-- **_[Recommended for multiple outputs]_ Returning an object.** If you are using a async/Promise returning function, you can return an object with assigned output data. In the example below, the output bindings are named "httpResponse" and "queueOutput" in *function.json*.
+- **_[Recommended for multiple outputs]_ Returning an object.** If you are using an async/Promise returning function, you can return an object with assigned output data. In the example below, the output bindings are named "httpResponse" and "queueOutput" in *function.json*.
 
   ```javascript
   module.exports = async function(context) {
@@ -612,6 +611,10 @@ When you create a function app that uses the App Service plan, we recommend that
 ### Cold Start
 
 When developing Azure Functions in the serverless hosting model, cold starts are a reality. *Cold start* refers to the fact that when your function app starts for the first time after a period of inactivity, it takes longer to start up. For JavaScript functions with large dependency trees in particular, cold start can be significant. To speed up the cold start process, [run your functions as a package file](run-functions-from-deployment-package.md) when possible. Many deployment methods use the run from package model by default, but if you're experiencing large cold starts and are not running this way, this change can offer a significant improvement.
+
+### Connection Limits
+
+When you use a service-specific client in an Azure Functions application, don't create a new client with every function invocation. Instead, create a single, static client in the global scope. For more information, see [managing connections in Azure Functions](manage-connections.md).
 
 ## Next steps
 

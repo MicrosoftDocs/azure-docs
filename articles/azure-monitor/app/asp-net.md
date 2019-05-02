@@ -121,6 +121,10 @@ To upgrade to a [new release of the SDK](https://github.com/Microsoft/Applicatio
 
 If you made any customizations to ApplicationInsights.config, save a copy of it before you upgrade. Then, merge your changes into the new version.
 
+## Video
+
+* External step-by-step video about [configuring Application Insights with a .NET application from scratch](https://www.youtube.com/watch?v=blnGAVgMAfA).
+
 ## Next steps
 
 There are alternative topics to look at if you are interested in:

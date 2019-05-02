@@ -32,7 +32,7 @@ Traffic Analytics is a cloud-based solution that provides visibility into user a
 1. All  flow logs at an NSG between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t” are captured at one-minute intervals in the storage account as blobs before being processed by Traffic Analytics. 
 2. Default processing interval of Traffic Analytics is 60 minutes. This means that every 60 mins Traffic Analytics picks blobs from storage for aggregation.
 3. Flows that have the same Source IP, Destination IP, Destination port, NSG name, NSG rule, Flow Direction, and Transport layer protocol (TCP or UDP) (Note: Source port is excluded for aggregation) are clubbed into a single flow by Traffic Analytics
-4. This single record is decorated (Details in the section below) and ingested in Log Analytics by Traffic Analytics.
+4. This single record is decorated (Details in the section below) and ingested in Log Analytics by Traffic Analytics.This process can take upto 1 hour max.
 5. FlowStartTime_t field indicates the first occurrence of such an aggregated flow (same four-tuple) in the flow log processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. 
 6. For any resource in TA, the flows indicated in the UI are total flows seen by the NSG, but in Log Anlaytics user will see only the single, reduced record. To see all the flows, use the blob_id field,  which can be referenced from Storage. The total flow count for that record will match the individual flows seen in the blob.
 
@@ -57,7 +57,7 @@ Listed below are the fields in the schema and what they signify
 | SrcIP_s |	Source IP address |	Will be blank in case of AzurePublic and ExternalPublic flows |
 | DestIP_s | Destination IP address	| Will be blank in case of AzurePublic and ExternalPublic flows |
 | VMIP_s | IP of the VM	| Used for AzurePublic and ExternalPublic flows |
-| PublicIP_S | Public IP addresses | Used for AzurePublic and ExternalPublic flows |
+| PublicIP_s | Public IP addresses | Used for AzurePublic and ExternalPublic flows |
 | DestPort_d | Destination Port | Port at which traffic is incoming | 
 | L4Protocol_s	| *	T <br> * U 	| Transport Protocol. T = TCP <br> U = UDP | 
 | L7Protocol_s	| Protocol Name	| Derived from destination port |
@@ -117,7 +117,8 @@ Listed below are the fields in the schema and what they signify
 1. ExternalPublic - One of the IP addresses belongs to Azure Virtual Network while the other IP address is a public IP that is not in Azure, is not reported as malicious in the ASC feeds that Traffic Analytics consumes for the processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. 
 1. MaliciousFlow - One of the IP addresses belong to azure virtual network while the other IP address is a public IP that is not in Azure and  is reported as malicious in the ASC feeds that Traffic Analytics consumes for the processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. 
 1. UnknownPrivate - One of the IP addresses belong to Azure Virtual Network while the other IP address belongs to private IP range as defined in RFC 1918 and could not be mapped by Traffic Analytics to a customer owned site or Azure Virtual Network.
-1. Unknown – Unable to map the either of the IP addresses in the flows with the customer topology in Azure as well as on-premise (site).
+1. Unknown – Unable to map the either of the IP addresses in the flows with the customer topology in Azure as well as on-premises (site).
+1. Some field names are appended with _s or _d . These do NOT signify source and destination.
 
 ### Next Steps
 To get answers to frequently asked questions, see [Traffic analytics FAQ](traffic-analytics-faq.md)

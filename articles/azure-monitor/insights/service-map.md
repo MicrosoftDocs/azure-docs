@@ -295,22 +295,22 @@ To manage cost and complexity, connection records do not represent individual ph
 
 | Property | Description |
 |:--|:--|
-|Direction |Direction of the connection, value is *inbound* or *outbound* |
-|Machine |The computer FQDN |
-|Process |Identity of process or groups of processes, initiating/accepting the connection |
-|SourceIp |IP address of the source |
-|DestinationIp |IP address of the destination |
-|DestinationPort |Port number of the destination |
-|Protocol |Protocol used for the connection.  Values is *tcp*. |
+| `Direction` |Direction of the connection, value is *inbound* or *outbound* |
+| `Machine` |The computer FQDN |
+| `Process` |Identity of process or groups of processes, initiating/accepting the connection |
+| `SourceIp` |IP address of the source |
+| `DestinationIp` |IP address of the destination |
+| `DestinationPort` |Port number of the destination |
+| `Protocol` |Protocol used for the connection.  Values is *tcp*. |
 
 To account for the impact of grouping, information about the number of grouped physical connections is provided in the following properties of the record:
 
 | Property | Description |
 |:--|:--|
-|LinksEstablished |The number of physical network connections that have been established during the reporting time window |
-|LinksTerminated |The number of physical network connections that have been terminated during the reporting time window |
-|LinksFailed |The number of physical network connections that have failed during the reporting time window. This information is currently available only for outbound connections. |
-|LinksLive |The number of physical network connections that were open at the end of the reporting time window|
+| `LinksEstablished` |The number of physical network connections that have been established during the reporting time window |
+| `LinksTerminated` |The number of physical network connections that have been terminated during the reporting time window |
+| `LinksFailed` |The number of physical network connections that have failed during the reporting time window. This information is currently available only for outbound connections. |
+| `LinksLive` |The number of physical network connections that were open at the end of the reporting time window|
 
 #### Metrics
 
@@ -318,12 +318,12 @@ In addition to connection count metrics, information about the volume of data se
 
 | Property | Description |
 |:--|:--|
-|BytesSent |Total number of bytes that have been sent during the reporting time window |
-|BytesReceived |Total number of bytes that have been received during the reporting time window |
-|Responses |The number of responses observed during the reporting time window. 
-|ResponseTimeMax |The largest response time (milliseconds) observed during the reporting time window.  If no value, the property is blank.|
-|ResponseTimeMin |The smallest response time (milliseconds) observed during the reporting time window.  If no value, the property is blank.|
-|ResponseTimeSum |The sum of all response times (milliseconds) observed during the reporting time window.  If no value, the property is blank|
+| `BytesSent` |Total number of bytes that have been sent during the reporting time window |
+| `BytesReceived` |Total number of bytes that have been received during the reporting time window |
+| `Responses` |The number of responses observed during the reporting time window. 
+| `ResponseTimeMax` |The largest response time (milliseconds) observed during the reporting time window.  If no value, the property is blank.|
+| `ResponseTimeMin` |The smallest response time (milliseconds) observed during the reporting time window.  If no value, the property is blank.|
+| `ResponseTimeSum` |The sum of all response times (milliseconds) observed during the reporting time window.  If no value, the property is blank|
 
 The third type of data being reported is response time - how long does a caller spend waiting for a request sent over a connection to be processed and responded to by the remote endpoint. The response time reported is an estimation of the true response time of the underlying application protocol. It is computed using heuristics based on the observation of the flow of data between the source and destination end of a physical network connection. Conceptually, it is the difference between the time the last byte of a request leaves the sender, and the time when the last byte of the response arrives back to it. These two timestamps are used to delineate request and response events on a given physical connection. The difference between them represents the response time of a single request. 
 
@@ -344,76 +344,76 @@ For convenience, the IP address of the remote end of a connection is included in
 
 | Property | Description |
 |:--|:--|
-|RemoteCountry |The name of the country hosting RemoteIp.  For example, *United States* |
-|RemoteLatitude |The geolocation latitude.  For example, *47.68* |
-|RemoteLongitude |The geolocation longitude.  For example, *-122.12* |
+| `RemoteCountry` |The name of the country hosting RemoteIp.  For example, *United States* |
+| `RemoteLatitude` |The geolocation latitude.  For example, *47.68* |
+| `RemoteLongitude` |The geolocation longitude.  For example, *-122.12* |
 
 #### Malicious IP
 Every RemoteIp property in *VMConnection* table is checked against a set of IPs with known malicious activity. If the RemoteIp is identified as malicious the following properties will be populated (they are empty, when the IP is not considered malicious) in the following properties of the record:
 
 | Property | Description |
 |:--|:--|
-|MaliciousIp |The RemoteIp address |
-|IndicatorThreadType |Threat indicator detected is one of the following values, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
-|Description |Description of the observed threat. |
-|TLPLevel |Traffic Light Protocol (TLP) Level is one of the defined values, *White*, *Green*, *Amber*, *Red*. |
-|Confidence |Values are *0 – 100*. |
-|Severity |Values are *0 – 5*, where *5* is the most severe and *0* is not severe at all. Default value is *3*.  |
-|FirstReportedDateTime |The first time the provider reported the indicator. |
-|LastReportedDateTime |The last time the indicator was seen by Interflow. |
-|IsActive |Indicates indicators are deactivated with *True* or *False* value. |
-|ReportReferenceLink |Links to reports related to a given observable. |
-|AdditionalInformation |Provides additional information, if applicable, about the observed threat. |
+| `MaliciousIp` |The RemoteIp address |
+| `IndicatorThreadType` |Threat indicator detected is one of the following values, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
+| `Description` |Description of the observed threat. |
+| `TLPLevel` |Traffic Light Protocol (TLP) Level is one of the defined values, *White*, *Green*, *Amber*, *Red*. |
+| `Confidence` |Values are *0 – 100*. |
+| `Severity` |Values are *0 – 5*, where *5* is the most severe and *0* is not severe at all. Default value is *3*.  |
+| `FirstReportedDateTime` |The first time the provider reported the indicator. |
+| `LastReportedDateTime` |The last time the indicator was seen by Interflow. |
+| `IsActive` |Indicates indicators are deactivated with *True* or *False* value. |
+| `ReportReferenceLink` |Links to reports related to a given observable. |
+| `AdditionalInformation` |Provides additional information, if applicable, about the observed threat. |
 
 ### ServiceMapComputer_CL records
 Records with a type of *ServiceMapComputer_CL* have inventory data for servers with Service Map agents. These records have the properties in the following table:
 
 | Property | Description |
 |:--|:--|
-| Type | *ServiceMapComputer_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | The unique identifier for a machine within the workspace |
-| ResourceName_s | The unique identifier for a machine within the workspace |
-| ComputerName_s | The computer FQDN |
-| Ipv4Addresses_s | A list of the server's IPv4 addresses |
-| Ipv6Addresses_s | A list of the server's IPv6 addresses |
-| DnsNames_s | An array of DNS names |
-| OperatingSystemFamily_s | Windows or Linux |
-| OperatingSystemFullName_s | The full name of the operating system  |
-| Bitness_s | The bitness of the machine (32-bit or 64-bit)  |
-| PhysicalMemory_d | The physical memory in MB |
-| Cpus_d | The number of CPUs |
-| CpuSpeed_d | The CPU speed in MHz|
-| VirtualizationState_s | *unknown*, *physical*, *virtual*, *hypervisor* |
-| VirtualMachineType_s | *hyperv*, *vmware*, and so on |
-| VirtualMachineNativeMachineId_g | The VM ID as assigned by its hypervisor |
-| VirtualMachineName_s | The name of the VM |
-| BootTime_t | The boot time |
+| `Type` | *ServiceMapComputer_CL* |
+| `SourceSystem` | *OpsManager* |
+| `ResourceId` | The unique identifier for a machine within the workspace |
+| `ResourceName_s` | The unique identifier for a machine within the workspace |
+| `ComputerName_s` | The computer FQDN |
+| `Ipv4Addresses_s` | A list of the server's IPv4 addresses |
+| `Ipv6Addresses_s` | A list of the server's IPv6 addresses |
+| `DnsNames_s` | An array of DNS names |
+| `OperatingSystemFamily_s` | Windows or Linux |
+| `OperatingSystemFullName_s` | The full name of the operating system  |
+| `Bitness_s` | The bitness of the machine (32-bit or 64-bit)  |
+| `PhysicalMemory_d` | The physical memory in MB |
+| `Cpus_d` | The number of CPUs |
+| `CpuSpeed_d` | The CPU speed in MHz|
+| `VirtualizationState_s` | *unknown*, *physical*, *virtual*, *hypervisor* |
+| `VirtualMachineType_s` | *hyperv*, *vmware*, and so on |
+| `VirtualMachineNativeMachineId_g` | The VM ID as assigned by its hypervisor |
+| `VirtualMachineName_s` | The name of the VM |
+| `BootTime_t` | The boot time |
 
 ### ServiceMapProcess_CL Type records
 Records with a type of *ServiceMapProcess_CL* have inventory data for TCP-connected processes on servers with Service Map agents. These records have the properties in the following table:
 
 | Property | Description |
 |:--|:--|
-| Type | *ServiceMapProcess_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | The unique identifier for a process within the workspace |
-| ResourceName_s | The unique identifier for a process within the machine on which it is running|
-| MachineResourceName_s | The resource name of the machine |
-| ExecutableName_s | The name of the process executable |
-| StartTime_t | The process pool start time |
-| FirstPid_d | The first PID in the process pool |
-| Description_s | The process description |
-| CompanyName_s | The name of the company |
-| InternalName_s | The internal name |
-| ProductName_s | The name of the product |
-| ProductVersion_s | The product version |
-| FileVersion_s | The file version |
-| CommandLine_s | The command line |
-| ExecutablePath _s | The path to the executable file |
-| WorkingDirectory_s | The working directory |
-| UserName | The account under which the process is executing |
-| UserDomain | The domain under which the process is executing |
+| `Type` | *ServiceMapProcess_CL* |
+| `SourceSystem` | *OpsManager* |
+| `ResourceId` | The unique identifier for a process within the workspace |
+| `ResourceName_s` | The unique identifier for a process within the machine on which it is running|
+| `MachineResourceName_s` | The resource name of the machine |
+| `ExecutableName_s` | The name of the process executable |
+| `StartTime_t` | The process pool start time |
+| `FirstPid_d` | The first PID in the process pool |
+| `Description_s` | The process description |
+| `CompanyName_s` | The name of the company |
+| `InternalName_s` | The internal name |
+| `ProductName_s` | The name of the product |
+| `ProductVersion_s` | The product version |
+| `FileVersion_s` | The file version |
+| `CommandLine_s` | The command line |
+| `ExecutablePath _s` | The path to the executable file |
+| `WorkingDirectory_s` | The working directory |
+| `UserName` | The account under which the process is executing |
+| `UserDomain` | The domain under which the process is executing |
 
 ## Sample log searches
 

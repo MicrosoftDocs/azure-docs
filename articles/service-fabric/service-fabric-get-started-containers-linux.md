@@ -4,7 +4,7 @@ description: Create your first Linux container application on Azure Service Fabr
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -118,7 +118,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name* gives a name to the running container (instead of the container ID).
 
-Connect to the running container. Open a web browser pointing to the IP address returned on port 4000, for example "http://localhost:4000". You should see the heading "Hello World!" display in the browser.
+Connect to the running container. Open a web browser pointing to the IP address returned on port 4000, for example "http:\//localhost:4000". You should see the heading "Hello World!" display in the browser.
 
 ![Hello World!][hello-world]
 
@@ -268,9 +268,9 @@ Use the install script provided in the templates at https://github.com/Azure-Sam
 ./install.sh
 ```
 
-Open a browser and navigate to Service Fabric Explorer at http://localhost:19080/Explorer (replace localhost with the private IP of the VM if using Vagrant on Mac OS X). Expand the Applications node and note that there is now an entry for your application type and another for the first instance of that type.
+Open a browser and navigate to Service Fabric Explorer at http:\//localhost:19080/Explorer (replace localhost with the private IP of the VM if using Vagrant on Mac OS X). Expand the Applications node and note that there is now an entry for your application type and another for the first instance of that type.
 
-Connect to the running container. Open a web browser pointing to the IP address returned on port 4000, for example "http://localhost:4000". You should see the heading "Hello World!" display in the browser.
+Connect to the running container. Open a web browser pointing to the IP address returned on port 4000, for example "http:\//localhost:4000". You should see the heading "Hello World!" display in the browser.
 
 ![Hello World!][hello-world]
 

@@ -25,7 +25,7 @@ Learn how to find and fix [single sign-on](../manage-apps/what-is-single-sign-on
 
 ## Before you begin
 
-We recommend installing the [My Apps Secure Sign-in Extension](../user-help/active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension). This browser extension makes it easy to gather the SAML request and SAML response information that you need to resolving issues with single sign-on. In case you cannot install the extension, this article shows you how to resolve issues both with and without the extension installed.
+We recommend installing the [My Apps Secure Sign-in Extension](../user-help/my-apps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension). This browser extension makes it easy to gather the SAML request and SAML response information that you need to resolving issues with single sign-on. In case you cannot install the extension, this article shows you how to resolve issues both with and without the extension installed.
 
 To download and install the My Apps Secure Sign-in Extension, use one of the following links.
 
@@ -60,7 +60,7 @@ When you try to sign in, you might see an error on your company sign-in page tha
 
 To debug this error, you need the error message and the SAML request. The My Apps Secure Sign-in Extension automatically gathers this information and displays resolution guidance on Azure AD. 
 
-### To resolve the sign-in error with the MyApps Secure Sign-in Extension installed
+### To resolve the sign-in error with the My Apps Secure Sign-in Extension installed
 
 1. When an error occurs, the extension redirects you back to the Azure AD **Test single sign-on** blade. 
 1. On the **Test single sign-on** blade, select **Download the SAML request**. 
@@ -69,14 +69,14 @@ To debug this error, you need the error message and the SAML request. The My App
 
 If no resolution is provided for the sign-in error, we suggest that you use the feedback textbox to inform us.
 
-### To resolve the error without installing the MyApps Secure Sign-in Extension
+### To resolve the error without installing the My Apps Secure Sign-in Extension
 
 1. Copy the error message at the bottom right corner of the page. The error message includes:
 	- A CorrelationID and Timestamp. These values are important when you create a support case with Microsoft because they help the engineers to identify your problem and provide an accurate resolution to your issue.
 	- A statement identifying the root cause of the problem.
 1. Go back to Azure AD and find the **Test single sign-on** blade.
 1. In the text box above **Get resolution guidance**, paste the error message.
-1. Click **Get resolution guidance** to display steps for resolving the issue. The guidance might require information from the SAML request or SAML response. If you’re not using the  MyApps Secure Sign-in Extension, you might need a tool such as [Fiddler](https://www.telerik.com/fiddler) to retrieve the SAML request and response.
+1. Click **Get resolution guidance** to display steps for resolving the issue. The guidance might require information from the SAML request or SAML response. If you’re not using the  My Apps Secure Sign-in Extension, you might need a tool such as [Fiddler](https://www.telerik.com/fiddler) to retrieve the SAML request and response.
 1. Verify that the destination in the SAML request corresponds to the SAML Single Sign-On Service URL obtained from Azure AD.
 1. Verify the issuer in the SAML request is the same identifier you have configured for the application in Azure AD. Azure AD uses the issuer to find an application in your directory.
 1. Verify AssertionConsumerServiceURL is where the application expects to receive the SAML token from Azure AD. You can configure this value in Azure AD, but it’s not mandatory if it’s part of the SAML request.

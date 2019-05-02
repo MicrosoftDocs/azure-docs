@@ -86,7 +86,7 @@ If `NameIDPolicy` is provided, you can include its optional `Format` attribute. 
 Azure AD ignores the `AllowCreate` attribute.
 
 ### RequestAuthnContext
-The `RequestedAuthnContext` element specifies the desired authentication methods. It is optional in `AuthnRequest` elements sent to Azure AD. Azure AD supports only one `AuthnContextClassRef` value: `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
+The `RequestedAuthnContext` element specifies the desired authentication methods. It is optional in `AuthnRequest` elements sent to Azure AD. Azure AD supports `AuthnContextClassRef` values such as `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### Scoping
 The `Scoping` element, which includes a list of identity providers, is optional in `AuthnRequest` elements sent to Azure AD.
@@ -154,7 +154,7 @@ The `Response` element includes the result of the authorization request. Azure A
 
 ### Issuer
 
-Azure AD sets the `Issuer` element to `https://login.microsoftonline.com/<TenantIDGUID>/` where <TenantIDGUID> is the tenant ID of the Azure AD tenant.
+Azure AD sets the `Issuer` element to `https://login.microsoftonline.com/<TenantIDGUID>/` where \<TenantIDGUID> is the tenant ID of the Azure AD tenant.
 
 For example, a response with Issuer element could look like the following sample:
 
@@ -189,7 +189,7 @@ In addition to the `ID`, `IssueInstant` and `Version`, Azure AD sets the followi
 
 #### Issuer
 
-This is set to `https://sts.windows.net/<TenantIDGUID>/`where <TenantIDGUID> is the Tenant ID of the Azure AD tenant.
+This is set to `https://sts.windows.net/<TenantIDGUID>/`where \<TenantIDGUID> is the Tenant ID of the Azure AD tenant.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>

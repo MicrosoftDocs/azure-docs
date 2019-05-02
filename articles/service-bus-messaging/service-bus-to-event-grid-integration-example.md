@@ -23,7 +23,7 @@ In this article, you learn how to set up an Azure function and a logic app, whic
  
 * Create a simple test Azure function for debugging and viewing the initial flow of events from the Event Grid. Perform this step regardless of whether you perform the others.
 * Create an Azure function to receive and process Azure Service Bus messages based on Event Grid events.
-* Utilize the The Logic Apps feature of Azure App Service.
+* Utilize the Logic Apps feature of Azure App Service.
 
 The example that you create assumes that the Service Bus topic has two subscriptions. The example also assumes that the Event Grid subscription was created to send events for only one Service Bus subscription. 
 

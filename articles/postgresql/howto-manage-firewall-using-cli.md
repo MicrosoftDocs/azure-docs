@@ -6,10 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 05/4/2018
+ms.date: 04/09/2019
 ---
 # Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI
-Server-level firewall rules enable administrators to manage access to an Azure Database for PostgreSQL Server from a specific IP address or range of IP addresses. Using convenient Azure CLI commands, you can create, update, delete, list, and show firewall rules to manage your server. For an overview of Azure Database for PostgreSQL firewall rules, see [Azure Database for PostgreSQL Server firewall rules](concepts-firewall-rules.md)
+Server-level firewall rules can be used to manage access to an Azure Database for PostgreSQL Server from a specific IP address or range of IP addresses. Using convenient Azure CLI commands, you can create, update, delete, list, and show firewall rules to manage your server. For an overview of Azure Database for PostgreSQL firewall rules, see [Azure Database for PostgreSQL Server firewall rules](concepts-firewall-rules.md).
+
+Virtual Network (VNet) rules can also be used to secure access to your server. Learn more about [creating and managing Virtual Network service endpoints and rules using the Azure CLI](howto-manage-vnet-using-cli.md).
 
 ## Prerequisites
 To step through this how-to guide, you need:
@@ -73,4 +75,5 @@ Upon success, there is no output. Upon failure, the error message text is return
 ## Next steps
 - Similarly, you can use a web browser to [Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal](howto-manage-firewall-using-portal.md).
 - Understand more about [Azure Database for PostgreSQL Server firewall rules](concepts-firewall-rules.md).
+- Further secure access to your server by [creating and managing Virtual Network service endpoints and rules using the Azure CLI](howto-manage-vnet-using-cli.md).
 - For help in connecting to an Azure Database for PostgreSQL server, see [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md).

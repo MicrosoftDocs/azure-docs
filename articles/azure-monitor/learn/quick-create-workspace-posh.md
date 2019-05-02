@@ -17,10 +17,7 @@ ms.author: magoedte
 
 # Create a Log Analytics workspace with Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to deploy a Log Analytics workspace in Azure Monitor. A Log Analytics workspace is a unique environment for Azure Monitor log data. Each workspace has its own data repository and configuration, and data sources and solutions are configured to store their data in a particular workspace. You require a Log Analytics workspace if you intend on collecting data from the following sources:
-
 
 * Azure resources in your subscription  
 * On-premises computers monitored by System Center Operations Manager  
@@ -35,9 +32,11 @@ For other sources, such as Azure VMs and Windows or Linux VMs in your environmen
 
 If you don't have an Azure subscription, create [a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module AzureRM version 5.7.0, or Az module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell Az module. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a workspace
 Create a workspace with [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). The following example creates a workspace named *TestWorkspace* in the resource group *Lab* in the *eastus* location using a Resource Manager template from your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. 

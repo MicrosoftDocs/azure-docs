@@ -74,7 +74,7 @@ To set up Azure AD, enter the basic SAML configuration. You can manually enter t
 
     To configure multiple replyURLs you can use the following PowerShell script.
 
-    ```PowerShell
+    ```powershell
     $sp = Get-AzureADServicePrincipal -SearchString "<Exact App  name>"
     $app = Get-AzureADApplication -SearchString "<Exact app name>"
     Set-AzureADApplication -ObjectId $app.ObjectId -ReplyUrls "<ReplyURLs>"
@@ -119,7 +119,7 @@ For more information, see [Manage certificates for federated single sign-on in A
 
 ### Set up target application
 
-To configure the application for single sign-on, locate the application's documentation. To find the documentation, scroll to the end of the SAML-based sign-on configuration page, and then click on **Configure <application name>**. 
+To configure the application for single sign-on, locate the application's documentation. To find the documentation, scroll to the end of the SAML-based sign-on configuration page, and then click on **Configure \<application name>**. 
 
 The required values vary according to the application. For details, see the application's SAML documentation. The Sign-On and Sign-Out service URL both resolve to the same endpoint, which is the SAML request-handling endpoint for your instance of Azure AD. The SAML Entity ID is the value that appears as the Issuer in the SAML token that is issued to the application.
 

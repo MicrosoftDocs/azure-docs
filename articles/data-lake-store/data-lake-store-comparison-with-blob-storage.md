@@ -3,8 +3,8 @@ title: Azure Data Lake Storage Gen1 comparison with Azure Storage Blob | Microso
 description: Azure Data Lake Storage Gen1 comparison with Azure Storage Blob
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: b199525b-84de-4f79-9eb6-69a613b8b217
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Comparing Azure Data Lake Storage Gen1 and Azure Blob Storage

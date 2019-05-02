@@ -1,7 +1,6 @@
 ---
 title: Use Apache Pig - Azure HDInsight
 description: Learn how to use Pig with Apache Hadoop on HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -111,7 +110,7 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 * [Upload data to HDInsight](../hdinsight-upload-data.md)
 * [Use Apache Hive with HDInsight][hdinsight-use-hive]
 * [Use Apache Sqoop with HDInsight](hdinsight-use-sqoop.md)
-* [Use Apache Oozie with HDInsight](../hdinsight-use-oozie.md)
+* [Use Apache Oozie with HDInsight](../hdinsight-use-oozie-linux-mac.md)
 * [Use MapReduce jobs with HDInsight][hdinsight-use-mapreduce]
 
 [apachepig-home]: https://pig.apache.org/

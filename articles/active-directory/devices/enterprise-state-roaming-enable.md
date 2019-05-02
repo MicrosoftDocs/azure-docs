@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
-ms.author: markvi
+ms.author: joflore
 
 ms.collection: M365-identity-device-management
 ---

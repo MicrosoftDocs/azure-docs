@@ -1,29 +1,15 @@
 ﻿---
-title: Create an Azure Application Gateway - templates | Microsoft Docs
-description: This page provides instructions to create an Azure application gateway by using the Azure Resource Manager template
-documentationcenter: na
+title: Create an Azure Application Gateway - templates
+description: This article provides instructions to create an Azure application gateway by using the Azure Resource Manager template
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 4/15/2019
 ms.author: victorh
-
 ---
-# Create an application gateway by using the Azure Resource Manager template
 
-> [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-create-gateway-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-> * [Azure Classic PowerShell](application-gateway-create-gateway.md)
-> * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
-> * [Azure CLI](application-gateway-create-gateway-cli.md)
+# Create an application gateway by using the Azure Resource Manager template
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover and performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application Gateway provides many application delivery controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. To find a complete list of supported features, visit [Application Gateway overview](application-gateway-introduction.md)
 
@@ -239,4 +225,3 @@ If you want more information about load balancing options in general, visit:
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

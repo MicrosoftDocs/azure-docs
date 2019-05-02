@@ -16,7 +16,7 @@
       href: apache-spark-jupyter-spark-sql-use-portal.md
     - name: Create an Apache Spark cluster - PowerShell
       href: apache-spark-jupyter-spark-sql-use-powershell.md
-    - name: Create an Apache Spark cluster - Resource Manager Template
+    - name: Create an Apache Spark cluster - Resource Manager template
       displayName: resource manager template, arm template, resource manager group
       href: apache-spark-jupyter-spark-sql.md
 - name: Tutorials
@@ -25,6 +25,7 @@
       href: apache-spark-load-data-run-query.md
     - name: Use VSCode to run Apache Spark queries
       href: ../hdinsight-for-vscode.md
+      maintainContext: true
     - name: Use IntelliJ to run Apache Spark queries
       href: apache-spark-intellij-tool-plugin.md
     - name: Analyze data using BI tools
@@ -35,6 +36,20 @@
       href: apache-spark-ipython-notebook-machine-learning.md
     - name: Create an Apache Spark app in IntelliJ
       href: apache-spark-create-standalone-application.md
+    - name: Monitor cluster availability with Ambari and Azure Monitor logs
+      href: ../hdinsight-cluster-availability.md    
+      maintainContext: true
+- name: Samples
+  items:
+  - name: .NET samples
+    href: ../hdinsight-sdk-dotnet-samples.md
+    maintainContext: true
+  - name: Java samples
+    href: ../hdinsight-sdk-java-samples.md
+    maintainContext: true
+  - name: Python samples
+    href: ../hdinsight-sdk-python-samples.md
+    maintainContext: true
 - name: How to
   items:
     - name: Use cluster storage
@@ -102,6 +117,7 @@
           href: apache-spark-connect-to-sql-database.md
         - name: Implement a lambda architecture using Apache Spark and Cosmos DB
           href: ../../cosmos-db/lambda-architecture.md
+          maintainContext: true
         - name: Run Azure ML workloads with AutoML
           href: apache-spark-run-machine-learning-automl.md
           maintainContext: true
@@ -138,6 +154,9 @@
           href: apache-spark-creating-ml-pipelines.md
     - name: Analyze big data
       items:
+        - name: Apache Hive with Apache Spark
+          href: ../interactive-query/apache-hive-warehouse-connector.md
+          maintainContext: true
         - name: Use Apache Spark to read and write Apache HBase data
           href: ../hdinsight-using-spark-query-hbase.md
           maintainContext: true
@@ -156,9 +175,6 @@
         maintainContext: true
       - name: Install and use Presto
         href: ../hdinsight-hadoop-install-presto.md
-        maintainContext: true
-      - name: Install or update Mono
-        href: ../hdinsight-hadoop-install-mono.md
         maintainContext: true
       - name: Add Apache Hive libraries
         href: ../hdinsight-hadoop-add-hive-libraries.md
@@ -181,21 +197,6 @@
             href: https://msdn.microsoft.com/library/mt706515.aspx
           - name: Publish HDInsight apps to Azure Marketplace
             href: ../hdinsight-apps-publish-applications.md
-            maintainContext: true
-          - name: Install published app - Cask Data Application Platform (CDAP)
-            href: ../hdinsight-apps-install-cask.md
-            maintainContext: true
-          - name: Install published app - Dataiku
-            href: ../hdinsight-apps-install-dataiku.md
-            maintainContext: true
-          - name: Install published app - Datameer
-            href: ../hdinsight-apps-install-datameer.md
-            maintainContext: true
-          - name: Install published app - H2O
-            href: ../hdinsight-apps-install-h2o.md
-            maintainContext: true
-          - name: Install published app - Streamsets
-            href: ../hdinsight-apps-install-streamsets.md
             maintainContext: true
     - name: Secure
       items:
@@ -226,39 +227,47 @@
       - name: Cluster capacity planning
         href: ../hdinsight-capacity-planning.md
         maintainContext: true
-      - name: Create Linux clusters
+      - name: Create HDInsight clusters
         href: ../hdinsight-hadoop-provision-linux-clusters.md
         maintainContext: true
         items:
-        - name: Use Azure PowerShell
-          href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
-          maintainContext: true
-        - name: Use cURL and the Azure REST API
-          href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
-          maintainContext: true
-        - name: Use the .NET SDK
-          href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
-          maintainContext: true
-        - name: Use the Azure Classic CLI
-          href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
-          maintainContext: true
         - name: Use the Azure portal
           href: ../hdinsight-hadoop-create-linux-clusters-portal.md
           maintainContext: true
         - name: Use Azure Resource Manager templates
           displayName: resource manager template, arm template, resource manager group
           href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
-      - name: Create on-demand clusters
-        href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-        maintainContext: true
+          maintainContext: true
+        - name: Use SDK for .NET
+          href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster
+        - name: Use SDK for Python
+          href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python#create-a-cluster
+        - name: Use SDK for Java
+          href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster
+        - name: Use Azure PowerShell
+          href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+          maintainContext: true
+        - name: Use cURL and the Azure REST API
+          href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
+          maintainContext: true      
+        - name: Use the Azure Classic CLI
+          href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
+          maintainContext: true
+        - name: Create on-demand clusters
+          href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+          maintainContext: true
       - name: Manage HDInsight clusters
+        href: ../hdinsight-administer-use-portal-linux.md
+        maintainContext: true
         items:
-        - name: Use Portal
-          href: ../hdinsight-administer-use-portal-linux.md
-          maintainContext: true
-        - name: Use .NET SDK
-          href: ../hdinsight-administer-use-dotnet-sdk.md
-          maintainContext: true
+        - name: Use SDK for .NET
+          href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management
+        - name: Use SDK for Python
+          href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+        - name: Use SDK for Java
+          href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+        - name: Use SDK for Go (Preview)
+          href: https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview
         - name: Use Azure PowerShell
           href: ../hdinsight-administer-use-powershell.md
           maintainContext: true
@@ -297,7 +306,7 @@
         - name: Run using cURL
           href: ../hadoop/apache-hadoop-use-sqoop-curl.md
           maintainContext: true
-        - name: Run using .NET SDK
+        - name: Run using SDK for .NET
           href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
           maintainContext: true
         - name: Run using Azure PowerShell
@@ -305,9 +314,6 @@
           maintainContext: true
       - name: Use Apache Oozie for workflows
         href: ../hdinsight-use-oozie-linux-mac.md
-        maintainContext: true
-      - name: Use time-based Apache Oozie coordinators
-        href: ../hdinsight-use-oozie-coordinator-time.md
         maintainContext: true
       - name: Cluster and service ports and URIs
         href: ../hdinsight-hadoop-port-settings-for-services.md
@@ -365,9 +371,6 @@
         - name: Apache Hive settings fix Out of Memory error
           href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
           maintainContext: true
-        - name: Use Apache Ambari Views to debug Apache Tez Jobs
-          href: ../hdinsight-debug-ambari-tez-view.md
-          maintainContext: true
         - name: Optimize Apache Hive queries
           href: ../hdinsight-hadoop-optimize-hive-query.md
           maintainContext: true
@@ -420,14 +423,14 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.hdinsight
-  - name: .NET SDK
+    href: /powershell/module/az.hdinsight
+  - name: SDK for .NET
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
-  - name: Python SDK
+  - name: SDK for Python
     href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
-  - name: Java SDK
-    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
-  - name: Go SDK
+  - name: SDK for Java
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+  - name: SDK for Go
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
@@ -440,23 +443,27 @@
     href: /azure/templates/microsoft.hdinsight/allversions
 - name: Resources
   items:
-    - name: Release notes
+  - name: Release notes
+    items:
+    - name: Current release notes
       href: ../hdinsight-release-notes.md
       maintainContext: true
       items:
       - name: Archived release notes
         href: ../hdinsight-release-notes-archive.md
         maintainContext: true
+      - name: Migrate to granular role-based access for cluster configurations
+        href: ../hdinsight-migrate-granular-access-cluster-configurations.md
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
     - name: Get help on the forum
-      href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight
+      href: https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight
     - name: Learning path
       href: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
     - name: Microsoft Professional Program for Big Data
-      href: https://academy.microsoft.com/en-us/professional-program/big-data/
+      href: https://academy.microsoft.com/en-us/professional-program/tracks/big-data/
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Windows tools for HDInsight
       href: ../hdinsight-hadoop-windows-tools.md
-      maintainContext: true    
+      maintainContext: true

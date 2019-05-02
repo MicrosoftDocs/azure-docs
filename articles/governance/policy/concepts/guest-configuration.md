@@ -1,7 +1,6 @@
 ---
 title: Understand how to audit the contents of a virtual machine
 description: Learn how Azure Policy uses Guest Configuration to audit settings inside an Azure virtual machine. 
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/18/2019
@@ -160,9 +159,11 @@ definition.
 
 The Guest Configuration extension writes log files to the following locations:
 
-Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\1.10.0.0\dsc\logs\dsc.log`
+Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\<version>\dsc\logs\dsc.log`
 
-Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-1.8.0/GCAgent/logs/dsc.log`
+Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
+
+Where `<version>` refers to the current version number.
 
 ## Guest Configuration samples
 

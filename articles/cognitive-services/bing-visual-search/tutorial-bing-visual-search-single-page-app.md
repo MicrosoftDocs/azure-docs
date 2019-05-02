@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 04/05/2019
 ms.author: aahi
 ---
-# Create a Visual Search single-page web app 
+# Create a Visual Search single-page web app
 
-The Bing Visual Search API provides an experience similar to the image details shown on Bing.com/images. With Visual Search, you can specify an image and get back insights about the image such as visually similar images, shopping sources, webpages that include the image, and more. 
+The Bing Visual Search API returns insights for an image. You can either upload an image or provide a URL to one. Insights are visually similar images, shopping sources, webpages that include the image, and more. Insights returned by the Bing Visual Search API are similar to ones shown on Bing.com/images.
 
-This article explains how to extend a single-page web app for the Bing Image Search API. To view that tutorial or get the source code used here, see [Tutorial: Create a single-page app for the Bing Image Search API](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md). 
+This tutorial explains how to extend a single-page web app for the Bing Image Search API. To view that tutorial or get the source code used here, see [Tutorial: Create a single-page app for the Bing Image Search API](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md).
 
 The full source code for this application (after extending it to use the Bing Visual Search API), is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
 
@@ -26,7 +26,7 @@ The full source code for this application (after extending it to use the Bing Vi
 
 ## Call the Bing Visual Search API and handle the response
 
-Edit the Bing Image Search tutorial and add the following code to the end of the `<script>` element (and before the closing `</script>` tag). The following code handles a visual search response from the API, iterates through the results, and displays them.
+Edit the Bing Image Search tutorial and add the following code to the end of the `<script>` element (and before the closing `</script>` tag). The following code handles a visual search response from the API, iterates through the results, and displays them:
 
 ``` javascript
 function handleVisualSearchResponse(){
@@ -58,8 +58,7 @@ function handleVisualSearchResponse(){
 }
 ```
 
-The following code sends a search request to the API, using an event listener to call `handleVisualSearchResponse()`.
-
+The following code sends a search request to the API, using an event listener to call `handleVisualSearchResponse()`:
 
 ```javascript
 function bingVisualSearch(insightsToken){
@@ -78,8 +77,8 @@ function bingVisualSearch(insightsToken){
     let requestBody = startBoundary + newLine;
     requestBody += bodyHeader;
     requestBody += JSON.stringify(postBody) + newLine + newLine;
-    requestBody += endBoundary + newLine;       
-    
+    requestBody += endBoundary + newLine;
+
     let request = new XMLHttpRequest();
 
     try {
@@ -97,7 +96,7 @@ function bingVisualSearch(insightsToken){
 
 ## Capture insights token
 
-Add the following code into the `searchItemsRenderer` object. This code adds a **find similar** link that calls the `bingVisualSearch` function when clicked. The function receives the imageInsightsToken as an argument.
+Add the following code to the `searchItemsRenderer` object. This code adds a **find similar** link that calls the `bingVisualSearch` function when clicked. The function receives the `imageInsightsToken` as an argument.
 
 ``` javascript
 html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + "\");'>find similar</a><br>");
@@ -105,7 +104,7 @@ html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + 
 
 ## Display similar images
 
-Add the following HTML code at line 601. This markup code adds an element used to display the results of the Bing Visual Search API call.
+Add the following HTML code at line 601. This markup code adds an element to display the results of the Bing Visual Search API call:
 
 ``` html
 <div id="insights">
@@ -119,4 +118,4 @@ With all the new JavaScript code and HTML elements in place, search results are 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Crop and upload an image](tutorial-visual-search-crop-area-results.md)
+> [Tutorial: Crop an image with the Bing Visual Search SDK for C#](tutorial-visual-search-crop-area-results.md)
