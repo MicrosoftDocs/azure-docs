@@ -39,7 +39,7 @@ While in either of these states, the managed disk will be billed at [standard HD
 Create an empty standard HDD for uploading by specifying the **Upload** parameter in the [New-AzDiskConfig](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) cmdlet, then call [New-AzDisk](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) to create the disk:
 
 ```powershell
-$diskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -OsType 'Windows' -DiskSizeGB 1023 -DiskIOPSReadWrite 500 - DiskMBpsReadWrite 8 -Location 'West US' -CreateOption 'Upload'
+$diskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -OsType 'Windows' -DiskSizeGB 1023 -Location 'West US' -CreateOption 'Upload'
 
 New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName' -Disk $diskconfig
 ```
