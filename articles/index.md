@@ -1152,8 +1152,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/fxt-edge-filer/">
-                                                <img src="media/index/azure-fxt-edge-f
-                                                iler.svg" alt="" />
+                                                <img src="media/index/azure-fxt-edge-filer.svg" alt="" />
                                                 <p>Azure FXT Edge Filer</p>
                                             </a>
                                         </li>
