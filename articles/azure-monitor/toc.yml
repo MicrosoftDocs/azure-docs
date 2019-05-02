@@ -188,7 +188,7 @@
         - name: Collect and analyze
           href: platform/activity-log-collect.md
         - name: Collect across tenants
-          href: platform/collect-activity-log-tenants.md
+          href: platform/activity-log-collect-tenants.md
         - name: Export 
           href: platform/activity-log-export.md
         - name: Schema

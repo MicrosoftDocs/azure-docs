@@ -58,7 +58,7 @@ Here are some of the things you can do with the Activity Log:
 * [Save it to a **Storage Account** for archival or manual inspection](../../azure-monitor/platform/archive-activity-log.md). You can specify the retention time (in days) using the **Log Profile**.
 * Query it via PowerShell Cmdlet, CLI, or REST API.
 
-## Query the Activity Log in the Azure portal
+## View the Activity Log in the Azure portal
 
 > [!NOTE] 
 > The Activity Log stores the logs in the backend for 90 days. If you would like to retain the data beyond this, please configure a **Log Profile** as described below. 
@@ -80,9 +80,7 @@ In the Azure portal, you can filter your Activity Log by these fields:
 * Event initiated by - The 'caller,' or user who performed the operation.
 * Open search - This is an open text search box that searches for that string across all fields in all events.
 
-Once you have defined a set of filters, you can pin a query to your Azure dashboard to always keep an eye on specific events.
-
-For even more power, you can click the **Logs** icon, which displays your Activity Log data in the [Collect and analyze Activity Logs solution](../../azure-monitor/platform/collect-activity-logs.md). The Activity Log blade offers a basic filter/browse experience on logs, but the Azure Monitor logs feature enables you to pivot, query, and visualize your data in more powerful ways.
+Click the **Logs** icon to query your Activity Log data in [Azure Monitor Logs](../../azure-monitor/platform/activity-logs-collect.md) if it's connected to a Log Analytics workspace.
 
 ## Next Steps
 
