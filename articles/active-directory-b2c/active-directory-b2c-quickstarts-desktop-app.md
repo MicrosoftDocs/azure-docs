@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Set up sign in for a desktop app using Azure Active Directory B2C | Microsoft Docs
-description: Run a sample ASP.NET desktop application that uses Azure Active Directory B2C to provide account sign in.
+title: Quickstart - Set up sign-in for a desktop app using Azure Active Directory B2C | Microsoft Docs
+description: Run a sample ASP.NET desktop application that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
 author: davidmu1
 manager: celestedg
@@ -50,7 +50,7 @@ Azure Active Directory (Azure AD) B2C provides cloud identity management to keep
 
     You authenticate (sign in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
 
-2. Finish the sign in process for the identity provider.
+2. Finish the sign-in process for the identity provider.
 
     Your new account profile details are pre-populated with information from your social account.
 
