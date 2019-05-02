@@ -8,7 +8,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 06/22/2018
+ms.date: 05/06/2019
 ---
 
 # Reference for trigger and action types in Workflow Definition Language for Azure Logic Apps
