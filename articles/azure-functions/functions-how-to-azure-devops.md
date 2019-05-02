@@ -57,7 +57,7 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
-    name: 'drop'
+    artifactName: 'drop'
 ```
 
 #### JavaScript
@@ -87,7 +87,7 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
-    name: 'drop'
+    artifactName: 'drop'
 ```
 
 #### Python
@@ -123,7 +123,7 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
-    name: 'drop'
+    artifactName: 'drop'
 ```
 
 ### Deploy your app
