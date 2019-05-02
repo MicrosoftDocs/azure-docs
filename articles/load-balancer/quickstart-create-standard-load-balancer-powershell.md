@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
+ms.date: 05/02/2019
 ms.author: kumud
 ms:custom: seodec18
 ---
@@ -33,7 +33,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 Before you can create your load balancer, you must create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroupLB* in the *EastUS* location:
 
 ```azurepowershell
-$rgName='MySLBResourceGroup'
+$rgName='MyResourceGroupSLB'
 $location='eastus'
 New-AzResourceGroup -Name $rgName -Location $location
 ```
@@ -156,7 +156,7 @@ $subnetConfig = New-AzVirtualNetworkSubnetConfig `
 # Create the virtual network
 $vnet = New-AzVirtualNetwork `
   -ResourceGroupName "myResourceGroupLB" `
-  -Location "EastUS" `
+  -Location $location `
   -Name "myVnet" `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $subnetConfig
@@ -257,7 +257,7 @@ Now you can create the VMs with [New-AzVM](/powershell/module/az.compute/new-azv
 # ############## VM1 ###############
 
 # Create a virtual machine configuration
-$vmConfig = New-AzVMConfig -VMName 'myVM1' -VMSize Standard_DS1_v2 | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM1' -Credential $cred | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | Add-AzVMNetworkInterface -Id $nicVM1.Id
+$vmConfig = New-AzVMConfig -VMName 'myVM1' -VMSize Standard_DS1_v2 | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM1' -Credential $cred | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2019-Datacenter -Version latest | Add-AzVMNetworkInterface -Id $nicVM1.Id
 
 # Create a virtual machine
 $vm1 = New-AzVM -ResourceGroupName $rgName -Zone 1 -Location $location -VM $vmConfig
@@ -265,7 +265,7 @@ $vm1 = New-AzVM -ResourceGroupName $rgName -Zone 1 -Location $location -VM $vmCo
 # ############## VM2 ###############
 
 # Create a virtual machine configuration
-$vmConfig = New-AzVMConfig -VMName 'myVM2' -VMSize Standard_DS1_v2 | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM2' -Credential $cred | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | Add-AzVMNetworkInterface -Id $nicVM2.Id
+$vmConfig = New-AzVMConfig -VMName 'myVM2' -VMSize Standard_DS1_v2 | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM2' -Credential $cred | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2019-Datacenter -Version latest | Add-AzVMNetworkInterface -Id $nicVM2.Id
 
 # Create a virtual machine
 $vm2 = New-AzVM -ResourceGroupName $rgName -Zone 2 -Location $location -VM $vmConfig
@@ -273,7 +273,7 @@ $vm2 = New-AzVM -ResourceGroupName $rgName -Zone 2 -Location $location -VM $vmCo
 # ############## VM3 ###############
 
 # Create a virtual machine configuration
-$vmConfig = New-AzVMConfig -VMName 'myVM3' -VMSize Standard_DS1_v2 | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM3' -Credential $cred | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | Add-AzVMNetworkInterface -Id $nicVM3.Id
+$vmConfig = New-AzVMConfig -VMName 'myVM3' -VMSize Standard_DS1_v2 | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM3' -Credential $cred | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2019-Datacenter -Version latest | Add-AzVMNetworkInterface -Id $nicVM3.Id
 
 # Create a virtual machine
 $vm3 = New-AzVM -ResourceGroupName $rgName -Zone 3 -Location $location -VM $vmConfig
@@ -285,23 +285,24 @@ It takes a few minutes to create and configure the three VMs.
 
 Install IIS with a custom web page on both back-end VMs as follows:
 
-1. Get the Public IP address of the Load Balancer. Using `Get-AzPublicIPAddress`, obtain the Public IP address of the Load Balancer.
+1. Get the public IP addresses of the three Vms using `Get-AzPublicIPAddress`.
 
   ```azurepowershell
-  Get-AzPublicIPAddress `
-   -ResourceGroupName $rgName `
-   -Name "myPublicIP" | select IpAddress
+   $vm1_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_1").IpAddress
+   $vm2_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_2").IpAddress
+   $vm3_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_3").IpAddress
   ```
-2. Create a remote desktop connection to VM1 using the Public Ip address that you obtained from the previous step. 
+2. Create remote desktop connections with *myVM1*, *myVM2*, and *myVM3* using the public IP addresses of the VMs as follows: 
 
-  ```azurepowershell
-
-    mstsc /v:PublicIpAddress:4221  
-  
+  ```azurepowershell    
+   mstsc /v:$vm1_rdp_ip
+   mstsc /v:$vm2_rdp_ip
+   mstsc /v:$vm3_rdp_ip
+   
   ```
 
-3. Enter the credentials for *VM1* to start the RDP session.
-4. Launch Windows PowerShell on VM1 and using the following commands to install IIS server and update the default htm file.
+3. Enter the credentials for each VM to start the RDP session.
+4. Launch Windows PowerShell on each VM and using the following commands to install IIS server and update the default htm file.
 
     ```azurepowershell
     # Install IIS
@@ -314,9 +315,8 @@ Install IIS with a custom web page on both back-end VMs as follows:
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from host " + $env:computername)
     ```
 
-5. Close the RDP connection with *myVM1*.
-6. Create a RDP connection with *myVM2* by running `mstsc /v:PublicIpAddress:4222` command, and repeat step 4 for *myVM2*.
-7. Create a RDP connection with *myVM2* by running `mstsc /v:PublicIpAddress:4223` command, and repeat step 4 for *myVM3*
+5. Close the RDP connections with *myVM1*, *myVM2*, and *myVM3*.
+
 
 ## Test load balancer
 Obtain the public IP address of your load balancer with [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). The following example obtains the IP address for *myPublicIP* created earlier:
