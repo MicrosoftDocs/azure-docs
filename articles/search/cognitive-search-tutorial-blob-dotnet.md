@@ -90,9 +90,9 @@ Begin by opening Visual Studio and creating a new Console App project that can r
 
 The [Azure Search .NET SDK](https://aka.ms/search-sdk) consists of a few client libraries that enable you to manage your indexes, data sources, indexers, and skillsets, as well as upload and manage documents and execute queries, all without having to deal with the details of HTTP and JSON. These client libraries are all distributed as NuGet packages.
 
-For this project, you will need to install the 7.x.x-preview version of the `Microsoft.Azure.Search` NuGet package and the latest `Microsoft.Extensions.Configuration.Json` NuGet package.
+For this project, you will need to install the 9.0 version of the `Microsoft.Azure.Search` NuGet package and the latest `Microsoft.Extensions.Configuration.Json` NuGet package.
 
-Install the `Microsoft.Azure.Search` NuGet package using the Package Manager console in Visual Studio. To open the Package Manager console select **Tools** > **NuGet Package Manager** > **Package Manager Console**. To get the command to run, navigate to the  [Microsoft.Azure.Search NuGet package page](https://www.nuget.org/packages/Microsoft.Azure.Search), select version 7.x.x-preview, and copy the Package Manager command. In the Package Manager console, run this command.
+Install the `Microsoft.Azure.Search` NuGet package using the Package Manager console in Visual Studio. To open the Package Manager console select **Tools** > **NuGet Package Manager** > **Package Manager Console**. To get the command to run, navigate to the  [Microsoft.Azure.Search NuGet package page](https://www.nuget.org/packages/Microsoft.Azure.Search), select version 9.0, and copy the Package Manager command. In the Package Manager console, run this command.
 
 To install the `Microsoft.Extensions.Configuration.Json` NuGet package in Visual Studio, select **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution...**. Select Browse and search for the `Microsoft.Extensions.Configuration.Json` NuGet package. Once you've found it, select the package, select your project, confirm the version is the latest stable version, then select Install.
 
@@ -193,9 +193,9 @@ In this section, you define a set of enrichment steps that you want to apply to 
 
 + [Language Detection](cognitive-search-skill-language-detection.md) to identify the content's language.
 
-+ [Text Split](cognitive-search-skill-textsplit.md) to break large content into smaller chunks before calling the key phrase extraction skill and the named entity recognition skill. Key phrase extraction and named entity recognition accept inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit.
++ [Text Split](cognitive-search-skill-textsplit.md) to break large content into smaller chunks before calling the key phrase extraction skill and the entity recognition skill. Key phrase extraction and entity recognition accept inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit.
 
-+ [Named Entity Recognition](cognitive-search-skill-named-entity-recognition.md) for extracting the names of organizations from content in the blob container.
++ [Entity Recognition](cognitive-search-skill-entity-recognition.md) for extracting the names of organizations from content in the blob container.
 
 + [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) to pull out the top key phrases.
 
@@ -308,9 +308,9 @@ SplitSkill splitSkill = new SplitSkill(
     maximumPageLength: 4000);
 ```
 
-### Named entity recognition skill
+### Entity recognition skill
 
-This `NamedEntityRecognitionSkill` instance is set to recognize category type `organization`. The **Named Entity Recognition** skill can also recognize category types `person` and `location`.
+This `EntityRecognitionSkill` instance is set to recognize category type `organization`. The **Entity Recognition** skill can also recognize category types `person` and `location`.
 
 Notice that the "context" field is set to ```"/document/pages/*"``` with an asterisk, meaning the enrichment step is called for each page under ```"/document/pages"```.
 
@@ -325,21 +325,21 @@ outputMappings.Add(new OutputFieldMappingEntry(
     name: "organizations",
     targetName: "organizations"));
 
-List<NamedEntityCategory> namedEntityCategory = new List<NamedEntityCategory>();
-namedEntityCategory.Add(NamedEntityCategory.Organization);
+List<EntityCategory> entityCategory = new List<entityCategory>();
+entityCategory.Add(entityCategory.Organization);
     
-NamedEntityRecognitionSkill namedEntityRecognition = new NamedEntityRecognitionSkill(
+EntityRecognitionSkill entityRecognitionSkill = new EntityRecognitionSkill(
     description: "Recognize organizations",
     context: "/document/pages/*",
     inputs: inputMappings,
     outputs: outputMappings,
-    categories: namedEntityCategory,
-    defaultLanguageCode: NamedEntityRecognitionSkillLanguage.En);
+    categories: entityCategory,
+    defaultLanguageCode: EntityRecognitionSkillLanguage.En);
 ```
 
 ### Key phrase extraction skill
 
-Like the `NamedEntityRecognitionSkill` instance that was just created, the **Key Phrase Extraction** skill is called for each page of the document.
+Like the `EntityRecognitionSkill` instance that was just created, the **Key Phrase Extraction** skill is called for each page of the document.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -372,7 +372,7 @@ skills.Add(ocrSkill);
 skills.Add(mergeSkill);
 skills.Add(languageDetectionSkill);
 skills.Add(splitSkill);
-skills.Add(namedEntityRecognition);
+skills.Add(entityRecognitionSkill);
 skills.Add(keyPhraseExtractionSkill);
 
 Skillset skillSet = new Skillset(
@@ -622,52 +622,11 @@ catch (Exception e)
 
 Repeat for additional fields: content, languageCode, keyPhrases, and organizations in this exercise. You can return multiple fields via `$select` using a comma-delimited list.
 
-<a name="access-enriched-document"></a>
-
-## Accessing the enriched document
-
-Cognitive search allows you to see the structure of the enriched document. Enriched documents are temporary structures created during enrichment, and then deleted when the process is complete.
-
-To capture a snapshot of the enriched document created during indexing, add a field called ```enriched``` to your index. The indexer automatically dumps into the field a string representation of all the enrichments for that document.
-
-The ```enriched``` field will contain a string that is a logical representation of the in-memory enriched document in JSON.  The field value is a valid JSON document, however. Quotes are escaped so you'll need to replace `\"` with `"` in order to view the document as formatted JSON.  
-
-The ```enriched``` field is intended for debugging purposes, only to help you understand the logical shape of the content that expressions are being evaluated against. It can be a useful tool to understand and debug your skillset.
-
-Repeat the previous exercise, including an `enriched` field to capture the contents of an enriched document:
-
-### Request body syntax
-```csharp
-// The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
-// It ensures that Pascal-case property names in the model class are mapped to camel-case
-// field names in the index.
-[SerializePropertyNamesAsCamelCase]
-public class DemoIndex
-{
-    [System.ComponentModel.DataAnnotations.Key]
-    [IsSearchable, IsSortable]
-    public string Id { get; set; }
-
-    [IsSearchable]
-    public string Content { get; set; }
-
-    [IsSearchable]
-    public string LanguageCode { get; set; }
-
-    [IsSearchable]
-    public string[] KeyPhrases { get; set; }
-
-    [IsSearchable]
-    public string[] Organizations { get; set; }
-
-    public string Enriched { get; set; }
-}
-```
 <a name="reset"></a>
 
 ## Reset and rerun
 
-In the early experimental stages of development, the most practical approach for design iterations is to delete the objects from Azure Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name. 
+In the early experimental stages of development, the most practical approach for design iterations is to delete the objects from Azure Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
 
 This tutorial took care of checking for existing indexers and indexes and deleting them if they already existed so that you can rerun your code.
 
@@ -677,11 +636,11 @@ As your code matures, you might want to refine a rebuild strategy. For more info
 
 ## Takeaways
 
-This tutorial demonstrates the basic steps for building an enriched indexing pipeline through the creation of component parts: a data source, skillset, index, and indexer.
+This tutorial demonstrated the basic steps for building an enriched indexing pipeline through the creation of component parts: a data source, skillset, index, and indexer.
 
 [Predefined skills](cognitive-search-predefined-skills.md) were introduced, along with skillset definition and the mechanics of chaining skills together through inputs and outputs. You also learned that `outputFieldMappings` in the indexer definition is required for routing enriched values from the pipeline into a searchable index on an Azure Search service.
 
-Finally, you learned how to test results and reset the system for further iterations. You learned that issuing queries against the index returns the output created by the enriched indexing pipeline. In this release, there is a mechanism for viewing internal constructs (enriched documents created by the system). You also learned how to check indexer status, and which objects to delete before rerunning a pipeline.
+Finally, you learned how to test results and reset the system for further iterations. You learned that issuing queries against the index returns the output created by the enriched indexing pipeline. You also learned how to check indexer status, and which objects to delete before rerunning a pipeline.
 
 ## Clean up resources
 
