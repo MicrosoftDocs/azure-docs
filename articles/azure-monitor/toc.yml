@@ -186,7 +186,7 @@
         - name: Overview
           href: platform/activity-logs-overview.md
         - name: Collect and analyze
-          href: platform/activity-log-collect.md
+          href: platflorm/activity-log-collect.md
         - name: Collect across tenants
           href: platform/activity-log-collect-tenants.md
         - name: Export 
