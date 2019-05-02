@@ -38,7 +38,7 @@ The following LUIS features are **not supported** in the V3 API:
 
 * Bing Spell Check V7
 
-[Reference documentation](https://aka.ms/luis-preview-api-v3) is available for V3.
+[Reference documentation](https://aka.ms/luis-api-v3) is available for V3.
 
 ## Prebuilt domains with new models and language coverage
 
