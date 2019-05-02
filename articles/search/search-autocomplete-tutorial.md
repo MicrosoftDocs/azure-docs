@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
 #Customer intent: As a developer, I want to understand autocomplete implementation, benefits, and tradeoffs.
@@ -19,7 +19,7 @@ In this article, learn how to use [suggestions](https://docs.microsoft.com/rest/
 
 + *Suggestions* are suggested results generated as you type, where each suggestion is a single result from the index that matches what you've typed so far. 
 
-+ *Autocomplete*, [a preview feature](search-api-preview.md), "finishes" the word or phrase that a user is currently typing. Instead of returning results, it completes a query, which you can then execute to return results. As with suggestions, a completed word or phrase in a query is predicated on a match in the index. The service won't offer queries that return zero results in the index.
++ *Autocomplete* "finishes" the word or phrase that a user is currently typing. Instead of returning results, it completes a query, which you can then execute to return results. As with suggestions, a completed word or phrase in a query is predicated on a match in the index. The service won't offer queries that return zero results in the index.
 
 You can download and run the sample code in **DotNetHowToAutocomplete** to evaluate these features. The sample code targets a prebuilt index populated with [NYCJobs demo data](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). The NYCJobs index contains a [Suggester construct](index-add-suggesters.md), which is a requirement for using either suggestions or autocomplete. You can use the prepared index hosted in a sandbox service, or [populate your own index](#configure-app) using a data loader in the NYCJobs sample solution. 
 
