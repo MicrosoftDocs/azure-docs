@@ -159,3 +159,6 @@ Any user with the **Manager** role in the Partner Center account will have the o
 
 Note that if you remove a tenant, all users in that tenant (and their account permissions) will be removed from your Partner Center account, but no users will be removed from Azure AD. 
 
+## Agreements
+
+In the Agreements section, you can view a list of the publishing agreements that you've authorized.
