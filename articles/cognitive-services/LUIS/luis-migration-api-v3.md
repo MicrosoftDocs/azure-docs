@@ -47,6 +47,7 @@ Review the [V3 API list of prebuilt domains](luis-reference-prebuilt-domains.md)
 ## Prebuilt entities with new JSON
 
 The V3 response object changes include [prebuilt entities](luis-reference-prebuilt-entities.md). 
+
 ## Request changes 
 
 ### Query string parameters
