@@ -341,12 +341,16 @@ conditions for meeting that criteria.
 
 1. In the Azure portal, find your ISE.
 
-1. To review usage performance metrics for your ISE, 
+1. To review usage and performance metrics for your ISE, 
 on your ISE's main menu, choose **Overview**.
+
+   ![View usage for ISE](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-usage.png)
 
 1. To set up autoscaling, under **Settings**, 
 select **Scale out**. On the **Configure** tab, 
 choose **Enable autoscale**.
+
+   ![Turn on autoscaling](./media/connect-virtual-network-vnet-isolated-environment/scale-out.png)
 
 1. In the **Default** section, choose either 
 **Scale based on a metric** or 
