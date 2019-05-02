@@ -76,7 +76,7 @@ The Time Series Insights update uses instances to add contextual data to incomin
 
 1. Select **Click to start**. The simulator generates instance JSON that you can use directly.
 
-1. Go back to your event hub in the Azure portal. On the **Overview** page, you should see the new events being received by the event hub:
+1. Go back to your event hub in the Azure portal. On the **Overview** page, you should see the new events being received by the event hub.
 
     [![An event hub Overview page that shows metrics for the event hub](media/send-events/telemetry.png)](media/send-events/telemetry.png#lightbox)
 
@@ -125,7 +125,7 @@ The Time Series Insights update uses instances to add contextual data to incomin
 
 ### Example three
 
-* **Input**: A JSON object with a nested JSON array that contains two JSON objects:
+* **Input**: A JSON object with a nested JSON array that contains two JSON objects.
 
     ```JSON
     {
