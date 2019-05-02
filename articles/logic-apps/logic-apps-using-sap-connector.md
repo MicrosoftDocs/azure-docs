@@ -531,7 +531,7 @@ Before you start, make sure you've met the previously listed [prerequisites](#pr
 
 * For Single Sign-On, gateway is running as a user that's mapped to SAP user.
 
-* SNC library that provides the additional security functions has been installed on the same machine as data gateway. Some of the examples of these include <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>, Kerberos, NTLM, etc.
+* SNC library that provides the additional security functions has been installed on the same machine as data gateway. Some of the examples of these include <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>, Kerberos, NTLM, and so on.
 
 To enable SNC for your requests to or from SAP system, select the **Use SNC** checkbox in SAP connection and provide these properties:
 
