@@ -90,8 +90,6 @@ The following is an informational document that presents some of the best practi
 - Ensure that if you are using a virtual server that resources required are dedicated
 - Ensure that you have the disk and disk configuration meet Best Practices for SQL Server
 - Install and configure Azure AD Connect Health for monitoring
-- Use SCOM to monitor health and stability of SQL Server
-- Use SCOM to monitor throttling via Event Log messages
 - Use the Delete Threshold that is built into Azure AD Connect.
 - Carefully review release updates to be prepared for all changes and new attributes that may be added
 - Backup everything

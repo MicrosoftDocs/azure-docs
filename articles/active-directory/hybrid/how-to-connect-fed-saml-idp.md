@@ -68,8 +68,8 @@ Within the SAML Response message, the Signature node contains information about 
 Bindings are the transport-related communications parameters that are required. The following requirements apply to the bindings
 
 1. HTTPS is the required transport.
-2.	Azure AD will require HTTP POST for token submission during logon
-3.	Azure AD will use HTTP POST for the authentication request to the identity provider and REDIRECT for the Logoff message to the identity provider.
+2.	Azure AD will require HTTP POST for token submission during sign-in.
+3.	Azure AD will use HTTP POST for the authentication request to the identity provider and REDIRECT for the sign-off message to the identity provider.
 
 ## Required attributes
 This table shows requirements for specific attributes in the SAML 2.0 message.
