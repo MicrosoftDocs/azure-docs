@@ -13,12 +13,12 @@ ms.author: yoafr
 
 # Retirement of Security Center features (July 2019)
 
-We have made several [improvements](https://azure.microsoft.com/updates/?product=security-center) to the Azure Security Center over the last 6 months.  
-With the improved capabilities we are removing a number of redundant features, as well as related APIs, from the Security Center on July 31, 2019.  
+We've made several [improvements](https://azure.microsoft.com/updates/?product=security-center) to Azure Security Center over the last six months.
+With these improved capabilities, we're removing some redundant features and related APIs from Security Center on July 31, 2019.  
 
-Most of the retired features can be replaced with new features in Azure Security Center or Log Analytics; and a few features can be implemented using [Azure Sentinel (preview)](https://azure.microsoft.com/services/azure-sentinel/), recently announced.
+Most of these retiring features can be replaced with new functionality in Azure Security Center or Azure Log Analytics. In addition, a few features can be implemented using [Azure Sentinel (preview)](https://azure.microsoft.com/services/azure-sentinel/).
 
-The list of features being retired from the Security Center includes:
+Security Center features to be retired include:
 
 - [Events dashboard](#menu_events)
 - [Search menu entry](#menu_search)
@@ -30,9 +30,10 @@ The list of features being retired from the Security Center includes:
 - [Edit security configurations for Security policies](#menu_securityconfigurations)
 - [Security & audit dashboard (originally used in OMS portal) for Log Analytics workspaces.](#menu_securityomsdashboard)
 
-The below provides detailed information for each retired feature and the steps you can take using the replacement features.
+This article provides detailed information for each retired feature and the steps you can take to implement replacement features.
 
 ## Events dashboard<a name="menu_events"></a>
+
 Security Center uses the Microsoft Monitoring Agent to collect various security related configurations and events from your machines and stores these events in your workspace(s). The [Events dashboard](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) allows viewing this data, and essentially provides another entry point to Log Analytics.
 
 Going forward the events dashboard will be retired:
@@ -46,11 +47,13 @@ The events dashboard that appears once a user clicks on a workspace, will also b
 ### Events dashboard - New experience
 
 Customers are encouraged to use Log Analytics’ native capabilities to view notable events on their workspace(s).
+
 If you have already created custom notable events from Security Center, these will be accessible via Log analytics -> select workspace -> Saved Searches. Your data will not be lost nor modified. Native Notable events are also available from the same screen.
 
 ![Workspace saved searches][3]
 
 ## Search menu entry<a name="menu_search"></a>
+
 Azure Security Center currently uses Azure Monitor logs search to retrieve and analyze your security data. This screen essentially serves as a façade to Log Analytics “[Search](https://docs.microsoft.com/azure/security-center/security-center-search)” page – allowing users to run Search queries on their selected workspace. Going forward this search window will be retired:
 
 ![Search page][4]
@@ -128,7 +131,7 @@ Your existing data will remain available in the Log Analytics security solution 
 
 We encourage our customers to onboard [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) for a rich investigation experience, powered by the alerts hunting feature. Azure Sentinel provides powerful hunting search and query tools to hunt for security threats across your organization’s data sources.  
 
-## Subset of Security solutions<a name="menu_solutions"></a>
+## Subset of security solutions<a name="menu_solutions"></a>
 
 Security Center has the ability to enable [integrated security solutions in Azure](https://docs.microsoft.com/azure/security-center/security-center-partner-integration). The following partner solutions would be removed, and supported in [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/), along with even more data sources.
 
