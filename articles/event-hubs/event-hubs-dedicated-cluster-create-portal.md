@@ -1,5 +1,5 @@
 ---
-title: Azure Quickstart - Create an Event Hubs dedciated cluster using the Azure portal | Microsoft Docs
+title: Azure Quickstart - Create an Event Hubs dedicated cluster using the Azure portal | Microsoft Docs
 description: In this quickstart, you learn how to create an Azure Event Hubs cluster using Azure portal.
 services: event-hubs
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.author: xurui
 ---
 
 # Quickstart: Create a dedicated Event Hubs cluster (preview) using Azure portal 
-Event Hubs clusters offer single-tenant deployments for customers with the most demanding streaming needs. This single-tenant offering has a guaranteed 99.99% SLA and is available only on our dedicated pricing tier. An Event Hubs cluster can ingress millions of events per second with guaranteed capacity and sub-second latency. Namespaces and event hubs created within the dedicated cluster include all features of the standard offering and more, but without any ingress limits. It also includes the popular [Event Hubs Capture](event-hubs-capture-overview.md) feature at no additional cost, allowing you to automatically batch and log data streams to [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) or [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md). For more information on Event Hubs dedicated clusters, see [Dedicated Event Hubs overview](event-hubs-dedicated-overview.md).
+Event Hubs clusters offer single-tenant deployments for customers with the most demanding streaming needs. This single-tenant offering has a guaranteed 99.99% SLA and is available only on our dedicated pricing tier. An Event Hubs cluster can ingress millions of events per second with guaranteed capacity and subsecond latency. Namespaces and event hubs created within the dedicated cluster include all features of the standard offering and more, but without any ingress limits. It also includes the popular [Event Hubs Capture](event-hubs-capture-overview.md) feature at no additional cost, allowing you to automatically batch and log data streams to [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) or [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md). For more information on Event Hubs dedicated clusters, see [Dedicated Event Hubs overview](event-hubs-dedicated-overview.md).
 
-Dedicated clusters are provisioned and billed by **Capacity Units (CUs)**, a pre-allocated amount of CPU and memory resources. You can purchase 1, 2, 4, 8, 12, 16 or 20 CUs for each cluster. To scale up a cluster, first create a 1 CU cluster, then submit a [support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+Dedicated clusters are provisioned and billed by **Capacity Units (CUs)**, a pre-allocated amount of CPU and memory resources. You can purchase 1, 2, 4, 8, 12, 16 or 20 CUs for each cluster. To scale up a cluster, first create a one CU cluster, then submit a [support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
 
-In this quickstart, you will create an Event Hubs dedicated cluster using the Azure portal.
+In this quickstart, you'll create an Event Hubs dedicated cluster using the Azure portal.
 
 ## Prerequisites
 To complete this quickstart, make sure that you have:
@@ -30,7 +30,7 @@ To complete this quickstart, make sure that you have:
 - [Created a resource group](../event-hubs/event-hubs-create#create-a-resource-group.md).
 
 ## Create an Event Hubs Dedicated Cluster
-An Event Hubs dedicated cluster provides a unique scoping container, referenced by its fully qualified domain name, in which you can create one or more namespaces. In the Preview phase of the portal self-serve experience, you will be able to create 1 CU clusters in supported regions. If you need a cluster larger than 1 CU, proceed to create a 1 CU cluster first before submitting a request to scale up your cluster. 
+An Event Hubs dedicated cluster provides a unique scoping container, referenced by its fully qualified domain name, in which you can create one or more namespaces. In the Preview phase of the portal self-serve experience, you can create one CU cluster in supported regions. If you need a cluster larger than one CU, continue to create a one CU cluster first before submitting a request to scale up your cluster. 
 
 To create a cluster in your resource group using the Azure portal, do the following steps:
 
@@ -49,7 +49,7 @@ To create a cluster in your resource group using the Azure portal, do the follow
     2. Select the **Review + Create** button.
 
         ![Create Event Hubs Cluster page - Tags page](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-tags-page.png)
-5. On the **Review + Create** page, review tje details and select **Create**. 
+5. On the **Review + Create** page, review the details, and select **Create**. 
 
     ![Create Event Hubs Cluster page - Review + Create page](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-review-create-page.png)
 
@@ -59,7 +59,7 @@ To create a cluster in your resource group using the Azure portal, do the follow
 
     ![Cluster management page - add namespace button](./media/event-hubs-dedicated-cluster-create-portal/cluster-management-page-add-namespace-button.png)
 2. On the create a namespace page, do the following steps:
-    1. Enter a **name for the namespace**.  The systems checks to see if the name is available.
+    1. Enter a **name for the namespace**.  The system checks to see if the name is available.
     2. The namespace inherits the following properties:
         1. Subscription ID
         2. Resource Group
@@ -73,17 +73,19 @@ To create a cluster in your resource group using the Azure portal, do the follow
 
 ## Submit a support request for your dedicated cluster
 
-To submit a support request follow these steps:
+To submit a support request, follow these steps:
 
 1. In [Azure portal](https://portal.azure.com), select **Help + support** from the left menu.
 2. Select **+ New support request** from the Support menu.
-3. On the support screen follow these steps:
-    1. For **Issue Type**, select **Technical** from the drop down menu.
-    2. For **Subscription**, selecte your subscription from the drop down menu.
-    3. For **Service**, select my services and Event Hubs from drop down menu.
+3. On the support page, follow these steps:
+    1. For **Issue Type**, select **Technical** from the drop-down menu.
+    2. For **Subscription**, select your subscription from the drop-down menu.
+    3. For **Service**, select my services and Event Hubs from drop-down menu.
     4. For **Resource**, select your cluster if it exists already, otherwise select **General Question/Resource Not Available**.
-    5. For **Problem type**, select **Quota** from drop down.
-    6. For **Problem subtype**, select **Request for Dedicated SKU** from drop down menu or **Request to Scale Up or Scale Down Dedicated Cluster**.
+    5. For **Problem type**, select **Quota** from drop-down.
+    6. For **Problem subtype**, select one of the following values from the drop-down list:
+        1. Select **Request for Dedicated SKU** to request for the feature to be supported in your region.
+        2. Select **Request to Scale Up or Scale Down Dedicated Cluster** if you want to scale up or scale down your dedicated cluster. 
     7. For **Subject**, describe the issue.
 
         ![Support ticket page](./media/event-hubs-dedicated-cluster-create-portal/support-ticket.png)
@@ -97,7 +99,7 @@ To submit a support request follow these steps:
 
 
 ## Next steps
-In this article, you created an Event Hubs cluster. For step-by-step instructions to send and receive events from an event hub, and capture ecents to an Azure storage or Azure Data Lake Store,see the following tutorials:
+In this article, you created an Event Hubs cluster. For step-by-step instructions to send and receive events from an event hub, and capture events to an Azure storage or Azure Data Lake Store, see the following tutorials:
 
 - [Send and receive events on .NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [Use Azure portal to enable Event Hubs Capture](event-hubs-capture-enable-through-portal.md)
