@@ -46,7 +46,7 @@ The following FAQs cover basic concepts and questions about Azure Cache for Redi
 * [Azure Cache for Redis performance](#azure-cache-for-redis-performance)
 * [In what region should I locate my cache?](#in-what-region-should-i-locate-my-cache)
 * [How am I billed for Azure Cache for Redis?](#how-am-i-billed-for-azure-cache-for-redis)
-* [Can I use Azure Cache for Redis with Azure Government Cloud, Azure China 21Vianet Cloud, or Microsoft Azure Germany?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
+* [Can I use Azure Cache for Redis with Azure Government Cloud, Azure China Cloud, or Microsoft Azure Germany?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
 
 ## Development FAQs
 * [What do the StackExchange.Redis configuration options do?](#what-do-the-stackexchangeredis-configuration-options-do)
@@ -158,8 +158,8 @@ For best performance and lowest latency, locate your Azure Cache for Redis in th
 ### How am I billed for Azure Cache for Redis?
 Azure Cache for Redis pricing is [here](https://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly rate. Caches are billed on a per-minute basis from the time that the cache is created until the time that a cache is deleted. There is no option for stopping or pausing the billing of a cache.
 
-### Can I use Azure Cache for Redis with Azure Government Cloud, Azure China 21Vianet Cloud, or Microsoft Azure Germany?
-Yes, Azure Cache for Redis is available in Azure Government Cloud, Azure China 21Vianet Cloud, and Microsoft Azure Germany. The URLs for accessing and managing Azure Cache for Redis are different in these clouds compared with Azure Public Cloud. 
+### Can I use Azure Cache for Redis with Azure Government Cloud, Azure China Cloud, or Microsoft Azure Germany?
+Yes, Azure Cache for Redis is available in Azure Government Cloud, Azure China 21Vianet Cloud, and Microsoft Azure Germany. The URLs for accessing and managing Azure Cache for Redis are different in these clouds compared with Azure Public Cloud.
 
 | Cloud   | Dns Suffix for Redis            |
 |---------|---------------------------------|
