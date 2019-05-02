@@ -63,6 +63,8 @@
     href: azure-management.md
   - name: Continuous monitoring
     href: continuous-monitoring.md
+  - name: Data sources
+    href: platform/data-sources.md
   - name: Data platform
     items:
     - name: Overview
@@ -75,14 +77,6 @@
       href: platform/data-platform-logs.md
     - name: Log data ingestion time
       href: platform/data-ingestion-time.md         
-  - name: Data sources
-    items:
-    - name: Data sources summary
-      href: platform/data-sources.md
-    - name: Activity log
-      href: platform/activity-logs-overview.md
-    - name: Diagnostic logs
-      href: platform/diagnostic-logs-overview.md 
   - name: Data security
     items:
     - name: Log data
@@ -189,14 +183,20 @@
       items:
       - name: Activity log
         items:
-        - name: Collect and Analyze
-          href: platform/collect-activity-logs.md
-        - name: Collect across tenants
-          href: platform/collect-activity-logs-subscriptions.md
-        - name: Export 
+        - name: Activity log
+          href: platform/activity-log-overview.md
+        - name: Collect and analyze
           href: platform/activity-log-collect.md
+        - name: Collect across tenants
+          href: platform/collect-activity-log-tenants.md
+        - name: Export 
+          href: platform/activity-log-export.md
+        - name: Schema
+          href: platform/activity-log-schema.md
       - name: Diagnostic logs
         items: 
+        - name: Diagnostic logs
+          href: platform/diagnostic-logs-overview.md 
         - name: Collect in Logs
           href: platform/diagnostic-logs-stream-log-store.md
           href: platform/collect-azure-metrics-logs.md
@@ -1041,8 +1041,6 @@
     items:
     - name: Diagnostic logs services, categories, and schemas
       href: platform/diagnostic-logs-schema.md
-    - name: Activity log event schema
-      href: platform/activity-log-schema.md
     - name: Azure Diagnostics extension schema
       href: platform/diagnostics-extension-schema.md
       items:
