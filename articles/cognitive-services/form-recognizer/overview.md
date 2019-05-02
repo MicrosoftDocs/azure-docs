@@ -73,8 +73,6 @@ Explore the [REST API reference document](https://aka.ms/form-recognizer/api).
 
 The service is offered as a [Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) of an Azure Service under the [Online Service Terms](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). You will retain ownership of your data and we only use it to provide the Online Services as explained in your agreement:
 
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
-
 ## Next steps
 
 Follow a [quickstart](quickstarts/curl-train-extract.md) to get started using the [Form Recognizer APIs](https://aka.ms/form-recognizer/api).
