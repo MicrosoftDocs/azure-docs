@@ -97,13 +97,13 @@ To configure Azure AD single sign-on with Projectplace, take these steps:
 
 	![Edit icon](common/edit-urls.png)
 
-4. In the **Basic SAML Configuration** section, in the **Sign-on URL** box, enter a URL in this pattern:
+4. In the **Basic SAML Configuration** dialog box, in the **Sign-on URL** box, enter a URL in this pattern:
 
     `https://<company>.projectplace.com`
 
-   ![Basic SAML Configuration section](common/sp-signonurl.png)
+   ![Basic SAML Configuration dialog box](common/sp-signonurl.png)
 	> [!NOTE]
-	> This value is a placeholder. You need to use the actual sign-on URL. Contact the [Projectplace support team](https://success.planview.com/Projectplace/Support) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> This value is a placeholder. You need to use the actual sign-on URL. Contact the [Projectplace support team](https://success.planview.com/Projectplace/Support) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Federation Metadata XML**, per your requirements, and save the certificate on your computer:
 
@@ -144,15 +144,15 @@ In this section, you'll create a test user named Britta Simon in the Azure porta
 
     1. In the **Name** box, enter **BrittaSimon**.
   
-    1. In the **User name** box, enter **brittasimon@\<yourcompanydomain>.\<extension>**. (For example, BrittaSimon@contoso.com.)
+    1. In the **User name** box, enter **brittasimon@\<yourcompanydomain>.\<extension>**. (For example, brittasimon@contoso.com.)
 
-    1. Select **Show password**, and then write down the value that's in the **Password** box.
+    1. Select **Show Password**, and then write down the value that's in the **Password** box.
 
     1. Select **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable Britta Simon to use Azure single sign-on by granting her access to Projectplace.
+In this section, you'll enable Britta Simon to use Azure AD single sign-on by granting her access to Projectplace.
 
 1. In the Azure portal, select **Enterprise applications**, select **All applications**, and then select **Projectplace**.
 
