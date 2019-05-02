@@ -41,7 +41,7 @@ For more information, see [Migration guidance for moving from Media Services v2 
 ### Performance improvements
 
 * The maximum file size supported for processing was updated. See, [Quotas and limitations](limits-quotas-constraints.md).
-* [Encoding speeds updates](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
+* [Encoding speeds improvements](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
 
 ## March 2019
 
