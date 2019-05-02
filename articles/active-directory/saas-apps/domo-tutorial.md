@@ -171,7 +171,7 @@ To configure Azure AD single sign-on with Domo, perform the following steps:
 
 ### Configure Domo Single Sign-On
 
-To configure single sign-on on **Domo** side, please navigate to Domo's Knowledge Base article found [here](http://knowledge.domo.com?cid=azuread), and follow the instructions.
+To configure single sign-on on **Domo** side, please navigate to Domo's Knowledge Base article found [here](https://knowledge.domo.com?cid=azuread), and follow the instructions.
 
 ### Create an Azure AD test user 
 

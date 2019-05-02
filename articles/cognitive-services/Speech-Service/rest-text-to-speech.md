@@ -199,7 +199,7 @@ Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
-    name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
+    name='en-US-JessaRUS'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
 ```

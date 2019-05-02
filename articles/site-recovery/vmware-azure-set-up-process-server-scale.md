@@ -1,23 +1,25 @@
 ---
-title: Set up a process server in Azure to fail back during disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs'
-description: This article describes how to set up a process server in Azure, to fail back from Azure to on-premises during disaster recovery of VMware VMs and physical servers.
+title: Set up a scale-out process server during disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs'
+description: This article describes how to set up scale-out process server during disaster recovery of VMware VMs and physical servers.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/23/2019
 ms.author: ramamill
 ---
 
-# Scale for failback with additional process servers
+# Scale with additional process servers
 
-By default, when you're replicating VMware VMs or physical servers to Azure using [Site Recovery](site-recovery-overview.md), a process server is installed on the configuration server machine, and is used to coordinate data transfer between Site Recovery and your on-premises infrastructure. To increase capacity and scale out your replication deployment, you can add additional standalone process servers. This article describes how to do this.
+By default, when you're replicating VMware VMs or physical servers to Azure using [Site Recovery](site-recovery-overview.md), a process server is installed on the configuration server machine, and is used to coordinate data transfer between Site Recovery and your on-premises infrastructure. To increase capacity and scale out your replication deployment, you can add additional standalone process servers. This article describes how to setup a scale-out process server.
 
 ## Before you start
 
 ### Capacity planning
 
 Make sure you've performed [capacity planning](site-recovery-plan-capacity-vmware.md) for VMware replication. This helps you to identify how and when you should deploy additional process servers.
+
+From 9.24 version, guidance is added during selection of process server for new replications. Process server will be marked Healthy, Warning and Critical based on certain criteria. To understand different scenarios that can influence state of process server, review the [process server alerts](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
 
 > [!NOTE]
 > Use of a cloned Process Server component is not supported. Follow the steps in this article for each PS scale-out.
@@ -39,8 +41,6 @@ Where each protected source machine is configured with 3 disks of 100 GB each.
 The prerequisites for the additional process server are summarized in the following table.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
-
-
 
 ## Download installation file
 
