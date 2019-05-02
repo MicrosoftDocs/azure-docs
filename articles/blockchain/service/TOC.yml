@@ -47,6 +47,8 @@
     href: manage-consortium-powershell.md
 - name: Resources
   items:
+  - name: Blockchain REST API
+    href: https://docs.microsoft.com/rest/api/blockchain/
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/blockchain/
   - name: Azure Blockchain Service Visual Studio Code extension
