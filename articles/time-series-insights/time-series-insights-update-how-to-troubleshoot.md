@@ -16,13 +16,13 @@ ms.custom: seodec18
 
 This article summarizes several common problems you might encounter when you work with your Azure Time Series Insights Preview environment. The article also describes potential causes and solutions for each problem.
 
-## Problem: I can’t find my environment in the Time Series Insights Preview explorer
+## Problem: I can’t find my environment in the Preview explorer
 
 This problem might occur if you don’t have permissions to access the Time Series Insights environment. Users need a reader-level access role to view their Time Series Insights environment. To verify the current access levels and grant additional access, visit the Data Access Policies section on the Time Series Insights resource in the [Azure portal](https://portal.azure.com/).
 
   [![Environment](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
 
-## Problem: no data is seen in the Time Series Insights Preview explorer
+## Problem: no data is seen in the Preview explorer
 
 There are several common reasons why you might not see your data in the [Azure Time Series Insights Preview explorer](https://insights.timeseries.azure.com/preview).
 
@@ -68,7 +68,7 @@ You might be sending data without the Time Series ID.
     > [!NOTE]
     > At this time, Time Series Insights supports a maximum ingestion rate of 6 Mbps.
 
-## Problem: my event source's Timestamp property name setting doesn't work
+## Problem: my event source's Timestamp property name doesn't work
 
 Ensure that the name and value conform to the following rules:
 
@@ -83,7 +83,7 @@ The easiest way to ensure that your Timestamp property name is captured and work
 
 If the Timestamp property isn’t explicitly specified, an event’s IoT hub or event hub Enqueued Time is used as the default time stamp.
 
-## Problem: I can’t edit or view my Time Series Model
+## Problem: I can’t view or edit my Time Series Model
 
 - You might be accessing a Time Series Insights S1 or S2 environment.
 
@@ -95,7 +95,7 @@ If the Timestamp property isn’t explicitly specified, an event’s IoT hub or 
 
    Users need contributor-level access to edit and view their Time Series Model. To verify the current access levels and grant additional access, visit the Data Access Policies section on your Time Series Insights resource in the Azure portal.
 
-## Problem: all my instances in the Time Series Insights Preview explorer don’t have a parent
+## Problem: all my instances in the Preview explorer lack a parent
 
 This problem might occur if your environment doesn’t have a Time Series Model hierarchy defined. For more information, see [Work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
 
