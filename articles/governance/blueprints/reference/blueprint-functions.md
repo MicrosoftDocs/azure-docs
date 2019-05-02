@@ -38,12 +38,12 @@ Returns an object of properties populated with that blueprint artifacts outputs.
 
 ### Return value
 
-An object of output properties. The output properties are dependent on the type of blueprint
+An object of output properties. The **outputs** properties are dependent on the type of blueprint
 artifact being referenced. All types follow the format:
 
 ```json
 {
-  "output": {collectionOfOutputProperties}
+  "outputs": {collectionOfOutputProperties}
 }
 ```
 
@@ -51,7 +51,7 @@ artifact being referenced. All types follow the format:
 
 ```json
 {
-    "output": {
+    "outputs": {
         "policyAssignmentId": "{resourceId-of-policy-assignment}",
         "policyAssignmentName": "{name-of-policy-assignment}",
         "policyDefinitionId": "{resourceId-of-policy-definition}",
