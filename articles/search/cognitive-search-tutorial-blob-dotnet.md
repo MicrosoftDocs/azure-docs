@@ -221,7 +221,7 @@ outputMappings.Add(new OutputFieldMappingEntry(
     targetName: "text"));
 
 OcrSkill ocrSkill = new OcrSkill(
-    description: "Extract text (plain and structured) from image).",
+    description: "Extract text (plain and structured) from image.",
     context: "/document/normalized_images/*",
     inputs: inputMappings,
     outputs: outputMappings,
