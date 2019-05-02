@@ -442,21 +442,13 @@ public class MyController : ApiController
 
 ApplicationInsightsLoggerProvider captures ILogger logs and creates TraceTelemetry from them. If an Exception object is passed to the **Log()** method on ILogger, *ExceptionTelemetry* is created instead of TraceTelemetry. These telemetry items can be found in same places as any other TraceTelemetry or ExceptionTelemetry for Application Insights, including portal, analytics, or Visual Studio local debugger.
 
-   If you prefer to always send TraceTelemetry, use this snippet: ```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```
+If you prefer to always send TraceTelemetry, use this snippet: ```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```
 
-<<<<<<< HEAD
 ### I don't have the SDK installed, and I use Azure Web App Extension to enable Application Insights for my Asp.Net Core applications. How do I use the new provider? 
-=======
-1. *I don't have the SDK installed, and I use Azure Web App Extension to enable Application Insights for my ASP.NET Core applications. How do I use the new provider?*
->>>>>>> 01303f6fce92086d77128736fa18f3c523288507
 
 The Application Insights extension in Azure Web App uses the old provider. You can modify the filtering rules in the *appsettings.json* file for your application. To take advantage of the new provider, use build-time instrumentation by taking a NuGet dependency on the SDK. This article will be updated when the extension switches to use the new provider.
 
-<<<<<<< HEAD
-###I'm using the standalone package Microsoft.Extensions.Logging.ApplicationInsights and enabling Application Insights provider by calling **builder.AddApplicationInsights("ikey")**. Is there an option to get an instrumentation key from configuration?
-=======
-1. *I'm using the standalone package Microsoft.Extensions.Logging.ApplicationInsights and enabling the Application Insights provider by calling **builder.AddApplicationInsights("ikey")**. Is there an option to get an instrumentation key from configuration?*
->>>>>>> 01303f6fce92086d77128736fa18f3c523288507
+### I'm using the standalone package Microsoft.Extensions.Logging.ApplicationInsights and enabling Application Insights provider by calling **builder.AddApplicationInsights("ikey")**. Is there an option to get an instrumentation key from configuration?
 
 
 Modify Program.cs and appsettings.json as follows:
