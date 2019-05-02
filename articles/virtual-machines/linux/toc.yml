@@ -25,7 +25,7 @@
     href: tutorial-custom-images.md
   - name: 5 - Highly available VMs
     href: tutorial-availability-sets.md
-  - name: 6 - Create a VM scale set
+  - name: 6 - Create a scale set
     href: tutorial-create-vmss.md
   - name: 7 - Load balance VMs
     href: tutorial-load-balancer.md
@@ -80,6 +80,9 @@
         href: constrained-vcpu.md
     - name: Storage optimized
       href: sizes-storage.md
+      items:
+      - name: Optimize performance
+        href: storage-performance.md
     - name: GPU optimized
       href: sizes-gpu.md
       items:
@@ -216,7 +219,7 @@
           href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
         - name: Ubuntu
           href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
-    - name: Log in with Azure Active Directory credentials
+    - name: Sign in with Azure Active Directory credentials
       href: login-using-aad.md
     - name: Updates and patches
       items:
@@ -242,10 +245,8 @@
     items:
     - name: Prepay for VMs - Azure reservations
       href: prepay-reserved-vm-instances.md
-    - name: Prepay for RedHat software  
-      href: prepay-rhel-software-charges.md       
-    - name: Prepay for SUSE software  
-      href: prepay-suse-software-charges.md 
+    - name: Prepay for Azure software plans
+      href: prepay-suse-software-charges.md
     - name: What are Azure reservations?
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: VM instance size flexibility
@@ -258,6 +259,8 @@
         href: shared-image-galleries.md
       - name: Create shared images using CLI
         href: shared-images.md
+      - name: Portal
+        href: shared-images-portal.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
     - name: Find and use images
@@ -369,8 +372,8 @@
         href: openshift-prerequisites.md
       - name: OpenShift Container Platform
         href: openshift-container-platform.md
-      - name: OKD
-        href: openshift-okd.md
+      - name: OpenShift Marketplace Self-Managed
+        href: openshift-marketplace-self-managed.md
       - name: Azure Stack
         href: openshift-azure-stack.md
       - name: OpenShift post-deployment tasks

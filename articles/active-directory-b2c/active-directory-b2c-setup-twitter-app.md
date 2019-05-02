@@ -3,7 +3,7 @@ title: Set up sign-up and sign-in with a Twitter account using Azure Active Dire
 description: Provide sign-up and sign-in to customers with Twitter accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity

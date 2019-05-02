@@ -66,7 +66,7 @@ Azure-managed Default Rule Set is enabled by default. To disable an individual r
 
 ## Next steps
 
-- Learn about [ Azure web application firewall](waf-overview.md).
+- Learn about [Azure web application firewall](waf-overview.md).
 - Learn more about [Azure Front Door](front-door-overview.md).
 
 

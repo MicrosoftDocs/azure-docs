@@ -127,6 +127,8 @@
       href: platform/activity-log-alerts.md  
     - name: Common alert schema
       href: platform/alerts-common-schema.md
+    - name: Action rules
+      href: platform/alerts-action-rules.md  
   - name: Visualize data
     href: visualizations.md
   - name: Partner integrations
@@ -327,14 +329,35 @@
             href: app/snapshot-debugger-troubleshoot.md
         - name: Diagnostics
           href: ../application-insights/app-insights-azure-diagnostics.md
-        - name: Previews
-          href: app/previews.md
       - name: ASP.NET apps
         items:
         - name: Web apps
           href: app/asp-net.md
-        - name: Status Monitor
+        - name: Status Monitor 
           href: app/monitor-performance-live-website-now.md
+        - name: Status Monitor v2
+          href: app/status-monitor-v2-overview.md
+          items:
+          - name: Getting started
+            href: app/status-monitor-v2-get-started.md
+          - name: Detailed instructions
+            href: app/status-monitor-v2-detailed-instructions.md
+          - name: Troubleshooting and known issues
+            href: app/status-monitor-v2-troubleshoot.md
+          - name: API Disable-InstrumentationEngine
+            href: app/status-monitor-v2-api-disable-instrumentation-engine.md
+          - name: API Disable-ApplicationInsightsMonitoring
+            href: app/status-monitor-v2-api-disable-monitoring.md
+          - name: API Enable-InstrumentationEngine
+            href: app/status-monitor-v2-api-enable-instrumentation-engine.md
+          - name: API Enable-ApplicationInsightsMonitoring
+            href: app/status-monitor-v2-api-enable-monitoring.md
+          - name: API Get-ApplicationInsightsMonitoringConfig
+            href: app/status-monitor-v2-api-get-config.md
+          - name: API Get-ApplicationInsightsMonitoringStatus
+            href: app/status-monitor-v2-api-get-status.md
+          - name: API Set-ApplicationInsightsMonitoringConfig
+            href: app/status-monitor-v2-api-set-config.md
         - name: Windows services
           href: app/windows-services.md
         - name: Windows desktop
@@ -371,9 +394,7 @@
       - name: Java apps
         items:
         - name: Web apps
-          href: app/java-get-started.md
-        - name: Web apps - runtime
-          href: app/java-live.md
+          href: app/java-get-started.md        
         - name: Docker apps
           href: app/docker.md
         - name: Log traces
@@ -546,6 +567,8 @@
           href: insights/container-insights-optout.md
         - name: View container live logs
           href: insights/container-insights-live-logs.md
+        - name: Analyze data with log queries
+          href: insights/container-insights-log-search.md
         - name: Alerting
           href: insights/container-insights-alerts.md
         - name: Agent management
@@ -558,6 +581,8 @@
         href: insights/containers.md
       - name: Monitor Docker applications
         href: app/docker.md
+      - name: Application Insights for Kubernetes
+        href: app/kubernetes.md
     - name: Monitor resource groups
       href: insights/resource-group-insights.md
     - name: Monitor databases
@@ -604,7 +629,7 @@
           href: insights/vminsights-performance.md
         - name: Using workbooks
           href: insights/vminsights-workbooks.md
-        - name: Query data with Log Analytics
+        - name: Analyze data with log queries
           href: insights/vminsights-log-search.md
         - name: Disable monitoring
           href: insights/vminsights-optout.md
@@ -680,8 +705,10 @@
         href: platform/metrics-getting-started.md
       - name: Advanced features of Metrics Explorer
         href: platform/metrics-charts.md
-      - name: Examples of metrics charts
+      - name: Examples of metric charts
         href: platform/metric-chart-samples.md
+      - name: Troubleshooting metric charts
+        href: platform/metrics-troubleshoot.md
     - name: Logs
       items:
       - name: Log queries

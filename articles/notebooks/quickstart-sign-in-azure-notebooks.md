@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/15/2019
 ms.author: kraigb
 ---
 
@@ -29,6 +29,9 @@ Although you can always view Azure Notebooks without signing in, you must sign i
 1. When prompted, enter the email address of a Microsoft Account or a work or school account and select **Next**. Account types are described on [Your user account for Azure Notebooks](azure-notebooks-user-account.md). If you don't have a Microsoft Account, or wish to make one for use specifically with Azure Notebooks, select **Create one**:
 
     ![Create new Microsoft account command in sign-in prompt](media/accounts/create-new-microsoft-account.png)
+
+    > [!Tip]
+    > If you attempt to create a new account with an email address that already has an account associated with it, you may see the message, "You can't sign up here with a work or school email address. Use a personal email, such as Gmail or Yahoo!, or get a new Outlook email." In that case, try signing in with the work email address without creating a new account.
 
 1. Enter your password when prompted.
 

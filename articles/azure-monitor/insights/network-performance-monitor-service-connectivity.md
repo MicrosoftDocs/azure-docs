@@ -54,7 +54,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 Start creating your tests to monitor network connectivity to the service endpoints.
 
 1. Select the **Service Connectivity Monitor** tab.
-2. Select **Add Test**, and enter the test name and description. 
+2. Select **Add Test**, and enter the test name and description. You can create maximum 450 tests per workspace. 
 3. Select the type of test:<br>
 
     * Select **Web** to monitor connectivity to a service that responds to HTTP/S requests, such as outlook.office365.com or bing.com.<br>
@@ -63,7 +63,7 @@ Start creating your tests to monitor network connectivity to the service endpoin
 5. In **Target**, enter the URL/FQDN/IP address to which you want to monitor network connectivity.
 6. In **Port number**, enter the port number of the target service. 
 7. In **Test Frequency**, enter a value for how frequently you want the test to run. 
-8. Select the nodes from which you want to monitor the network connectivity to service. 
+8. Select the nodes from which you want to monitor the network connectivity to service. Ensure that the number of agents added per test is less than 150. Any agent can test maximum 150 endpoints/agents.
 
     >[!NOTE]
     > For Windows server-based nodes, the capability uses TCP-based requests to perform the network measurements. For Windows client-based nodes, the capability uses ICMP-based requests to perform the network measurements. In some cases, the target application blocks incoming ICMP-based requests when the nodes are Windows client-based. The solution is unable to perform network measurements. We recommend that you use Windows server-based nodes in such cases. 

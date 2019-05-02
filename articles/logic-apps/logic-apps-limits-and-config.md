@@ -187,46 +187,20 @@ Here are the limits for custom connectors that you can create from web APIs.
 Here are the limits on the number of artifacts for each integration account. 
 For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-*Free tier*
+> [!NOTE] 
+> Use the Free tier only for exploratory scenarios, 
+> not production scenarios. This tier restricts 
+> throughput and usage, and has no service-level agreement (SLA).
 
-Use the free tier only for exploratory scenarios, not production scenarios. 
-This tier restricts throughput and usage, and has no service-level agreement (SLA).
-
-| Artifact | Limit | Notes |
-|----------|-------|-------|
-| Assemblies | 10 | |
-| Batch configurations | 5 |
-| Certificates | 25 | |
-| EDI trading agreements | 10 | |
-| EDI trading partners | 25 | |
-| Maps | 25 | |
-| Schemas | 25 |
-||||
-
-*Basic tier*
-
-| Artifact | Limit | Notes |
-|----------|-------|-------|
-| Assemblies | 25 | |
-| Batch configurations | 1 | |
-| Certificates | 2 | |
-| EDI trading agreements | 1 | |
-| EDI trading partners | 2 | |
-| Maps | 500 | |
-| Schemas | 500 |
-||||
-
-*Standard tier*
-
-| Artifact | Limit | Notes |
-|----------|-------|-------|
-| Assemblies | 50 | |
-| Batch configurations | 50 |
-| Certificates | 500 | |
-| EDI trading agreements | 500 | |
-| EDI trading partners | 500 | |
-| Maps | 1,000 | |
-| Schemas | 1,000 |
+| Artifact | Free | Basic | Standard |
+|----------|------|-------|----------|
+| EDI trading agreements | 10 | 1 | 500 |
+| EDI trading partners | 25 | 2 | 500 |
+| Maps | 25 | 500 | 1,000 |
+| Schemas | 25 | 500 | 1,000 |
+| Assemblies | 10 | 25 | 50 |
+| Certificates | 25 | 2 | 500 |
+| Batch configurations | 5 | 1 | 50 |
 ||||
 
 <a name="artifact-capacity-limits"></a>
@@ -340,7 +314,7 @@ this service for this scenario. For more info, see
 | South India | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Southeast Asia | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
 | West Central US | 13.78.137.247, 52.161.8.128, 52.161.19.82, 52.161.26.172 |
-| West Europe | 13.95.155.53, 52.174.49.6, 52.174.49.6, 52.174.54.218 |
+| West Europe | 13.95.155.53, 51.144.176.185, 52.174.49.6, 52.174.54.218 |
 | West India | 104.211.157.237, 104.211.164.25, 104.211.164.112, 104.211.165.81 |
 | West US | 13.91.252.184, 52.160.90.237, 138.91.188.137, 157.56.160.212 |
 | West US 2 | 13.66.128.68, 13.66.224.169, 52.183.30.10, 52.183.39.67 |

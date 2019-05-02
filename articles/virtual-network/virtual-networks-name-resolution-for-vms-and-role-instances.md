@@ -91,7 +91,7 @@ There are a number of different DNS caching packages available (such as dnsmasq)
   * Start the dnsmasq service with `systemctl start dnsmasq.service`. 
   * Edit **/etc/sysconfig/network/config**, and change *NETCONFIG_DNS_FORWARDER=""* to *dnsmasq*.
   * Update resolv.conf with `netconfig update`, to set the cache as the local DNS resolver.
-* **OpenLogic (uses NetworkManager)**:
+* **CentOS (uses NetworkManager)**:
   * Install the dnsmasq package with `sudo yum install dnsmasq`.
   * Enable the dnsmasq service with `systemctl enable dnsmasq.service`.
   * Start the dnsmasq service with `systemctl start dnsmasq.service`.
@@ -124,7 +124,7 @@ The resolv.conf file is usually auto-generated, and should not be edited. The sp
 * **SUSE** (uses netconf):
   1. Add *timeout:1 attempts:5* to the **NETCONFIG_DNS_RESOLVER_OPTIONS=""** parameter in **/etc/sysconfig/network/config**.
   2. Run `netconfig update` to update.
-* **OpenLogic** (uses NetworkManager):
+* **CentOS** (uses NetworkManager):
   1. Add *echo "options timeout:1 attempts:5"* to **/etc/NetworkManager/dispatcher.d/11-dhclient**.
   2. Update with `service network restart`.
 

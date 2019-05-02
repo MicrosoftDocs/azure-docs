@@ -69,6 +69,12 @@
       href: sql-database-connect-query-ruby.md
     - name: R
       href: sql-database-connect-query-r.md
+  - name: Machine Learning Services
+    items:
+    - name: Create R scripts
+      href: sql-database-quickstart-r-create-script.md
+    - name: Train and score a model
+      href: sql-database-quickstart-r-train-score-model.md
 - name: Tutorials
   items:
   - name: Design a database in SQL Database
@@ -102,7 +108,7 @@
   - name: Azure PowerShell
     href: sql-database-powershell-samples.md
   - name: Azure Resource Manager
-    displayName: ARM template
+    displayName: Resource Manager template
     href: sql-database-resource-manager-samples.md 
 - name: Concepts
   items:
@@ -122,6 +128,7 @@
     items:
     - name: Overview
       href: sql-database-service-tiers-general-purpose-business-critical.md
+      displayName: provisioned compute tier  
     - name: General purpose / Standard service tiers
       href: sql-database-service-tier-general-purpose.md
     - name: Business critical / Premium service tiers
@@ -186,6 +193,8 @@
       href: sql-database-managed-instance-transact-sql-information.md 
     - name: Time zone in Managed Instance
       href: sql-database-managed-instance-timezone.md
+    - name: Secure public endpoints in managed instance
+      href: sql-database-managed-instance-public-endpoint-securely.md
   - name: Platform as a Service
     items:
     - name: Platform as a Service overview
@@ -223,8 +232,6 @@
   - name: Security   
     items:
     - name: Security overview
-      href: sql-database-security-index.yml
-    - name: Security capabilities
       href: sql-database-security-overview.md
       displayName: compliance, fedramp, soc, fact, fisc, hitrust, pci, iso  
     - name: Advanced data security
@@ -347,9 +354,9 @@
       href: sql-database-temporal-tables.md
     - name: Job automation 
       href: sql-database-job-automation-overview.md
-    - name: Machine learning
+    - name: Machine Learning Services
       items:
-      - name: Machine learning overview
+      - name: Overview
         href: sql-database-machine-learning-services-overview.md
       - name: Key differences
         href: sql-database-machine-learning-services-differences.md
@@ -465,6 +472,8 @@
       href: sql-database-managed-instance-threat-detection.md
     - name: Connect applications
       href: sql-database-managed-instance-connect-app.md
+    - name: Configure public endpoint
+      href: sql-database-managed-instance-public-endpoint-configure.md
   - name: Load and move data
     items:
     - name: Copy a database within Azure
@@ -643,6 +652,14 @@
           href: saas-multitenantdb-schema-management.md
         - name: ETL for analytics
           href: saas-multitenantdb-tenant-analytics.md
+  - name: Machine Learning Services
+    items:
+      - name: Write advanced R functions
+        href: sql-database-machine-learning-services-functions.md
+      - name: Work with R and SQL data
+        href: sql-database-machine-learning-services-data-issues.md
+      - name: Add R packages
+        href: sql-database-machine-learning-services-add-r-packages.md
 - name: Reference
   items:
   - name: Azure PowerShell

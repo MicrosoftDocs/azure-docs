@@ -60,6 +60,9 @@ Here are some of the things you can do with the Activity Log:
 
 ## Query the Activity Log in the Azure portal
 
+> [!NOTE] 
+> The Activity Log stores the logs in the backend for 90 days. If you would like to retain the data beyond this, please configure a **Log Profile** as described below. 
+
 Within the Azure portal, you can view your Activity Log in several places:
 * The **Activity Log** that you can access by searching for the Activity Log under **All services** in the left-hand navigation pane.
 * **Monitor** appears by default in the left-hand navigation pane. The Activity Log is one section of Azure Monitor.

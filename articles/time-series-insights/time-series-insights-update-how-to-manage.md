@@ -87,11 +87,11 @@ You can manage your Azure Time Series Insights Preview environment by using the 
 
 ## Next steps
 
-Read [Plan your environment](./time-series-insights-update-plan.md).
+- Read [Plan your environment](./time-series-insights-update-plan.md).
 
-Read [Add an event hub source](./time-series-insights-how-to-add-an-event-source-eventhub.md).
+- Learn how to [Add an event hub source](./time-series-insights-how-to-add-an-event-source-eventhub.md).
 
-Read [Add an IoT hub source](./time-series-insights-how-to-add-an-event-source-iothub.md).
+- Configure [an IoT hub source](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
 <!-- Images -->
 [1]: media/v2-update-manage/manage_one.PNG

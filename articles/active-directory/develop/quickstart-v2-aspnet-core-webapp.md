@@ -52,9 +52,9 @@ In this quickstart, you'll learn how an ASP.NET Core web app can sign in persona
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
 >    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `AspNetCore-Quickstart`.
->    - In **Reply URL**, add `https://localhost:44321/`, and select **Register**.
+>    - In **Redirect URI**, add `https://localhost:44321/`, and select **Register**.
 > 1. Select the **Authentication** menu, and then add the following information:
->    - In **Reply URL**, add `https://localhost:44321/signin-oidc`,  and select **Register**.
+>    - In **Redirect URIs**, add `https://localhost:44321/signin-oidc`,  and select **Save**.
 >    - In the **Advanced settings** section, set **Logout URL** to `https://localhost:44321/signout-oidc`.
 >    - Under **Implicit grant**, check **ID tokens**.
 >    - Select **Save**.
@@ -145,7 +145,7 @@ The line containing `.AddAzureAd` adds the Microsoft identity platform authentic
 
 
 > [!NOTE]
-> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications you need to validate the issuer
+> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications you need to validate the issuer.
 > See the samples to understand how to do that.
 
 ### Protect a controller or a controller's method
