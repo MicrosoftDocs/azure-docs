@@ -34,11 +34,12 @@ From inside of the Kubernetes cluster, Webhook Token Authentication is used to v
 
 The first Azure AD application is used to get a users Azure AD group membership.
 
-1. Select **Azure Active Directory** > **App registrations** > **New application registration**.
+1. Select **Azure Active Directory** > **App registrations** > **New registration**.
 
-   Give the application a name, select **Web app / API** for the application type, and enter any URI formatted value for **Sign-on URL**. Select **Create** when done.
-
-   ![Create Azure AD registration](media/aad-integration/app-registration.png)
+    Give the application a name, such as *AKSAzureADServer*.
+    For **Supported account types**, choose *Accounts in this organizational directory only*.
+    Choose *Web* for the **Redirect URI** type, and enter any URI formatted value such as *http://aksazureadserver*.
+    Select **Register** when done.
 
 2. Select **Manifest** and edit the `groupMembershipClaims` value to `"All"`.
 
