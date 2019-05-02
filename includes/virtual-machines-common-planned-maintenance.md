@@ -5,7 +5,7 @@
  author: shants123
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 12/14/2018
+ ms.date: 4/30/2019
  ms.author: shants
  ms.custom: include file
 ---
@@ -14,7 +14,7 @@ Azure periodically updates platform to improve the reliability, performance, and
 
 - If a non-rebootful update is possible, the VM is paused while the host is updated or it is live migrated to an already updated host.
 
-- If maintenance requires a reboot, you get a notice of when the maintenance is planned. Azure will also give a time window where you can start the maintenance yourself, at a time that works for you. Azure is investing in technologies to reduce the cases when the VMs have to be rebooted for planned platform maintenance. 
+- If maintenance requires a reboot, you get a notice of when the maintenance is planned. Azure will also give a time window where you can start the maintenance yourself, at a time that works for you. Self-maintenance time window is typically four weeks unless it is urgent to perform maintenance. Azure is also investing in technologies to reduce the cases when the VMs have to be rebooted for planned platform maintenance. 
 
 This page describes how Azure performs both types of maintenance. For more information about unplanned events (outages), see Manage the availability of virtual machines for [Windows](../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
@@ -24,7 +24,7 @@ For "how-to" information on managing planned maintenance, see "Handling planned 
 
 ## Maintenance not requiring a reboot
 
-The goal for most maintenance that doesn't require a reboot is less than 10 seconds pause for the VM. In certain cases memory preserving maintenance mechanisms are used, which pauses the VM for up to 30 seconds and preserves the memory in RAM. The virtual machine is then resumed and the clock of the virtual machine is automatically synchronized. Azure is increasingly using live migration technologies and improving memory preserving maintenance mechanism to reduce the pause duration.
+The goal for most non-zero impact maintenance that doesn't require a reboot is less than 10 seconds pause for the VM. Azure chooses the update mechanism that is least impactful to customer VMs. In certain cases, memory preserving maintenance mechanisms are used, which pauses the VM for up to 30 seconds and preserves the memory in RAM. The VM is then resumed and its clock is automatically synchronized. Azure is increasingly using live migration technologies and improving memory preserving maintenance mechanism to reduce the pause duration.  
 
 These non-rebootful maintenance operations are applied fault domain by fault domain, and progress is stopped if any warning health signals are received. 
 
@@ -43,12 +43,13 @@ Live Migration is leveraged in some planned maintenance scenarios, and Scheduled
 
 Live Migration is also used to move Virtual Machines off of hardware with an impending predicted failure when detected by our Machine Learning algorithms and to optimize Virtual Machine allocations. To learn more about our Predictive Modeling that detects instances of degraded hardware, please see our blog post entitled [Improving Azure Virtual Machine resiliency with predictive ML and live migration](https://azure.microsoft.com/blog/improving-azure-virtual-machine-resiliency-with-predictive-ml-and-live-migration/?WT.mc_id=thomasmaurer-blog-thmaure). Customers will always receive a Live Migration notice in their Azure portal in the Monitor / Service Health Logs, as well as through Scheduled Events if these are being used.
 
+95% of Azure fleet supports memory preserving updates and live migration. The exceptions are M, L, H, and N series VMs.  
 
 ## Maintenance requiring a reboot
 
 In the rare case when VMs need to be rebooted for planned maintenance, you are notified in advance. Planned maintenance has two phases: the self-service window and a scheduled maintenance window.
 
-The **self-service window** lets you start the maintenance on your VMs. During this time, you can query each VM to see their status and check the result of your last maintenance request.
+The **self-service window** lets you start the maintenance on your VMs. During this time that is typically four weeks, you can query each VM to see their status and check the result of your last maintenance request.
 
 When you start self-service maintenance, your VM is redeployed to an already updated node. Because the VM reboots, the temporary disk is lost and dynamic IP addresses associated with virtual network interface are updated.
 
