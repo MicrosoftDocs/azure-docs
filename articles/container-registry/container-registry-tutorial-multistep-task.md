@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Automate container image builds - Azure Container Registry Tasks
-description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger container image builds in the cloud when you commit source code to a Git repository.
+title: Tutorial - Multi-step container tasks - Azure Container Registry Tasks
+description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger a multi-step workflow to build, run, and push container images in the cloud when you commit source code to a Git repository.
 services: container-registry
 author: dlepow
 
@@ -10,20 +10,21 @@ ms.date: 05/02/2019
 ms.author: danlep
 ms.custom: "seodec18, mvc"
 # Customer intent: As a developer or devops engineer, I want to trigger
-# container image builds automatically when I commit code to a Git repo.
+# a multi-step container workfolow automatically when I commit code to a Git repo.
 ---
 
-# Tutorial: Automate container image builds in the cloud when you commit source code
+# Tutorial: Run a multi-step container workflow in the cloud when you commit source code
 
-In addition to a [quick task](container-registry-tutorial-quick-task.md), ACR Tasks supports automated Docker container image builds in the cloud when you commit source code to a Git repository.
+In addition to a [quick task](container-registry-tutorial-quick-task.md), ACR Tasks supports multi-steps tasks that can automatically trigger building, running, and pushing container images in the cloud when you commit source code to a Git repository.
 
-In this tutorial, your ACR task builds and pushes a single container image specified in a Dockerfile when you commit source code to a Git repo. To create a [multi-step task](container-registry-tasks-multi-step.md) that uses a YAML file to define steps to build, push, and optionally test multiple containers on code commit, see [Tutorial: Run a multi-step container workflow in the cloud when you commit source code](container-registry-multistep-task.md). For an overview of ACR Tasks, see [Automate OS and framework patching with ACR Tasks](container-registry-tasks-overview.md)
+In this tutorial, you use an example YAML file to define a multi-step task that builds, runs, and pushes two container images to two different registries when you commit code to a Git repo. To create a task that only automates a single image build on code commit, see [Tutorial: Automate container image builds in the cloud when you commit source code](container-registry-tutorial-build-task.md). For an overview of ACR Tasks, see [Automate OS and framework patching with ACR Tasks](container-registry-tasks-overview.md),
 
-
-In this tutorial:
+In this tutorial, you:
 
 > [!div class="checklist"]
+> * Define a multi-step task using a YAML file
 > * Create a task
+> * Add credentials to the task to enable access to another registry
 > * Test the task
 > * View task status
 > * Trigger the task with a code commit
@@ -32,7 +33,7 @@ This tutorial assumes you've already completed the steps in the [previous tutori
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you'd like to use the Azure CLI locally, you must have Azure CLI version **2.0.46** or later installed  and logged in with [az login][az-login]. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
+If you'd like to use the Azure CLI locally, you must have Azure CLI version **2.0.63** or later installed and logged in with [az login][az-login]. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
 
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
@@ -295,5 +296,6 @@ In this tutorial, you learned how to use a task to automatically trigger contain
 [az-acr-task-list-runs]: /cli/azure/acr
 [az-login]: /cli/azure/reference-index#az-login
 
-
-
+<!-- IMAGES -->
+[build-task-01-new-token]: ./media/container-registry-tutorial-build-tasks/build-task-01-new-token.png
+[build-task-02-generated-token]: ./media/container-registry-tutorial-build-tasks/build-task-02-generated-token.png
