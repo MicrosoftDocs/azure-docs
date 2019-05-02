@@ -39,9 +39,9 @@ Before following the instructions in this article, you should ensure that you ha
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]  
-* Microsoft Azure SDK for .NET for Visual Studio 2017, available through the Visual Studio Installer.
+* Microsoft Azure SDK for .NET for Visual Studio 2019, available through the Visual Studio Installer.
 
-All the screenshots in this article have been taken using Microsoft Visual Studio Community 2017. If your system is configured with a different version it is possible that your screens and options won't match entirely, but if you meet the above prerequisites this solution should work.
+All the screenshots in this article have been taken using Microsoft Visual Studio Community. If your system is configured with a different version it is possible that your screens and options won't match entirely, but if you meet the above prerequisites this solution should work.
 
 ## <a name="_Toc395637761"></a>Step 1: Create an Azure Cosmos DB database account
 Let's start by creating an Azure Cosmos DB account. If you already have a SQL account for Azure Cosmos DB or if you are using the Azure Cosmos DB Emulator for this tutorial, you can skip to [Create a new ASP.NET MVC application](#_Toc395637762).

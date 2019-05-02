@@ -48,9 +48,9 @@ Before following the instructions in this article, ensure that you have the foll
 
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]  
 
-* Microsoft Azure SDK for .NET for Visual Studio 2017, available through the Visual Studio Installer.
+* Microsoft Azure SDK for .NET for Visual Studio 2019, available through the Visual Studio Installer.
 
-All the screenshots in this article have been taken using Microsoft Visual Studio Community 2017. If your system is configured with a different version, it is possible that your screens and options may not match entirely, but if you meet the above prerequisites this solution should work.
+All the screenshots in this article have been taken using Microsoft Visual Studio Community. If your system is configured with a different version, it is possible that your screens and options may not match entirely, but if you meet the above prerequisites this solution should work.
 
 ## <a name="create-an-azure-cosmos-account"></a>Step 1: Create an Azure Cosmos account
 
