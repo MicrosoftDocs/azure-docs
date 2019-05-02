@@ -28,6 +28,7 @@ When you're ready to upload your data, go to the [Custom Voice portal](http://ak
 Go to the **Data** tab and click **Upload data**. In the wizard, select the correct data type that matches what you have prepared.
 
 Each dataset you upload must meet the requirements for the data type that you choose. It is important to correctly format your data before it's uploaded. This ensures the data will be accurately processed by the Custom Voice service. Go to [Prepare data for Custom Voice](how-to-custom-voice-prepare-data.md) and make sure your data has been rightly formatted.
+![Select a Custom Voice data type](media/custom-voice/custom-voice-select-voice-data-type.png)
 
 > [!NOTE]
 > Free subscription (F0) users can upload two datasets simultaneously. Standard subscription (S0) users can upload five datasets simultaneously. If you reach the limit, wait until at least one of your datasets finishes importing. Then try again.
