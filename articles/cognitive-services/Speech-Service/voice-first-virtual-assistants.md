@@ -15,7 +15,7 @@ ms.custom:
 
 # About custom voice-first virtual assistants preview
 
-Custom virtual assistants using Azure Speech Services empower developers to create natural, human-like conversational interfaces for their applications and experiences. The Bot Framework's Direct Line Speech channel enhances these capabilities by providing a coordinated, orchestrated entry point to a compatible bot that enables voice in, voice out interaction with low latency and high reliability. These bots can use Microsoft's Language Understanding (LUIS) for natural language interaction. Direct Line Speech is accessed by devices using the Speech Services Software Development Kit (SDK).
+Custom virtual assistants using Azure Speech Services empower developers to create natural, human-like conversational interfaces for their applications and experiences. The Bot Framework's Direct Line Speech channel enhances these capabilities by providing a coordinated, orchestrated entry point to a compatible bot that enables voice in, voice out interaction with low latency and high reliability. These bots can use Microsoft's Language Understanding (LUIS) for natural language interaction. Direct Line Speech is accessed by devices using the Speech Software Development Kit (SDK).
 
    ![Conceptual diagram of the direct line speech orchestration service flow](media/voice-first-virtual-assistants/overview.png "The Speech Channel flow")
 
