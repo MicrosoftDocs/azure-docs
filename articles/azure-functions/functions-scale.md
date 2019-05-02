@@ -19,28 +19,36 @@ ms.custom: H1Hack27Feb2017
 ---
 # Azure Functions scale and hosting
 
-When you create a function app in Azure, you must choose the hosting plan to dictate the behavior of that app. There are three options available: the Consumption plan, the Premium plan (Preview), and the App Service plan. Choosing your hosting plan controls:
+When you create a function app in Azure, you must choose a hosting plan for your app. There are three hosting plans available for Azure Functions: [Consumption plan](#consumption-plan), [Premium plan](#premium-plan), and [App Service plan](#app-service-plan).
 
-* How Azure Functions scales
-* The resources available to each instance
-* Whether some features (like VNET connectivity) are present
+The hosting plan you choose dictates the following behaviors:
 
-The Consumption plan automatically adds compute power when your code is running. Your app is scaled out when needed to handle load, and scaled down when code stops running. You don't have to pay for idle VMs or reserve capacity in advance. The Premium plan will also automatically scale and add additional compute power when your code is running.  The Premium plan comes with additional features like premium compute instances (better hardware), the ability to keep instances warm indefinitely, and VNet connectivity.  The App Service Plan allows you to take advantage of dedicated infrastructure - your app doesn't scale based on events, but is always warm (it doesn't scale to zero).
+* How your function app is scaled.
+* The resources available to each function app instance.
+* Support for advanced features, such as VNET connectivity.
+
+Both Consumption and Premium plans automatically add compute power when your code is running. Your app is scaled out when needed to handle load, and scaled down when code stops running. You don't have to pay for idle VMs or reserve capacity in advance.  
+
+Premium plan provides additional features, such as premium compute instances, the ability to keep instances warm indefinitely, and VNet connectivity.
+
+App Service plan allows you to take advantage of dedicated infrastructure, which you manage. Your function app doesn't scale based on events, which means is never scales down to zero. (Requires that [Always on](#always-on) be enabled.)
 
 > [!NOTE]
 > You can switch between Consumption and Premium plans by changing the plan property of the function app resource.
 
-## Azure Functions hosting plan levels of support
+## Hosting plan support
 
-The three hosting plans available in Azure Functions provide two different levels of support:
+Feature support falls into the following two categories:
 
-* _Generally available (GA)_ - Fully supported and approved for production use.
-* _Preview_ - Not yet supported but is expected to reach GA status in the future.
+* _Generally available (GA)_: fully supported and approved for production use.
+* _Preview_: not yet fully supported and approved for production use.
+
+The following table indicates the current level of support for the three hosting plans, when running on either Windows or Linux:
 
 | | Consumption plan | Premium plan | App Service plan |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | GA | Preview | GA |
-| Linux | Preview | N/A | GA |
+| Windows | GA | preview | GA |
+| Linux | preview | N/A | GA |
 
 ## Consumption plan
 
@@ -53,9 +61,11 @@ The Consumption plan is the default hosting plan and offers the following benefi
 * Pay only when your functions are running
 * Scale out automatically, even during periods of high load
 
-## Premium plan (preview)
+All Consumption plans in a given region share the same set of resources. There's no downside or impact to having multiple apps running in the same Consumption plan. Assigning multiple apps to the same consumption plan has no impact on resilience, scalability, or reliability of each app.
 
-When you're using the Premium plan, instances of the Azure Functions host are rapidly added and removed based on the number of incoming events just like the Consumption plan.  However, the Premium plan also offers:
+## <a name="premium-plan"></a>Premium plan (preview)
+
+When you're using the Premium plan, instances of the Azure Functions host are added and removed based on the number of incoming events just like the Consumption plan.  Premium plan supports the following features:
 
 * Perpetually warm instances to avoid any cold start
 * VNet connectivity
@@ -66,7 +76,7 @@ When you're using the Premium plan, instances of the Azure Functions host are ra
 
 Information on how you can configure these options can be found in the [Azure Functions premium plan document](functions-premium-plan.md).
 
-Instead of billing per execution and memory consumed, billing for the Premium plan is based on the number of core seconds, execution time, and memory used used across needed and reserved instances.  At least one instance is required to be warm at all times, so there is a fixed monthly cost per plan that is active (regardless of the number of executions).
+Instead of billing per execution and memory consumed, billing for the Premium plan is based on the number of core seconds, execution time, and memory used across needed and reserved instances.  At least one instance must be warm at all times. This means that there is a fixed monthly cost per active plan, regardless of the number of executions.
 
 Consider the Azure Functions premium plan in the following situations:
 
@@ -91,7 +101,7 @@ Consider an App Service plan in the following situations:
 
 You pay the same for function apps in an App Service Plan as you would for other App Service resources, like web apps. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/overview-hosting-plans.md).
 
-With an App Service plan, you can manually scale out by adding more VM instances, or you can enable autoscale. For more information, see [Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). You can also scale up by choosing a different App Service plan. For more information, see [Scale up an app in Azure](../app-service/web-sites-scale.md). 
+With an App Service plan, you can manually scale out by adding more VM instances. You can also enable autoscale. For more information, see [Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). You can also scale up by choosing a different App Service plan. For more information, see [Scale up an app in Azure](../app-service/web-sites-scale.md). 
 
 When running JavaScript functions on an App Service plan, you should choose a plan that has fewer vCPUs. For more information, see [Choose single-core App Service plans](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
@@ -130,7 +140,7 @@ To learn more about storage account types, see [Introducing the Azure Storage se
 
 ## How the consumption and premium plans work
 
-In the consumption and premium plans, the Azure Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. Each instance of the Functions host in the consumption plan is limited to 1.5 GB of memory and 1 CPU.  An instance of the host is the entire function app, meaning all functions within a function app share resource within an instance and scale at the same time. Function apps that share the same consumption plan are scaled independently.  In the premium plan, your plan size will determine the available memory and CPU for all apps in that plan on that instance.  
+In the consumption and premium plans, the Azure Functions infrastructure scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. Each instance of the Functions host in the consumption plan is limited to 1.5 GB of memory and one CPU.  An instance of the host is the entire function app, meaning all functions within a function app share resource within an instance and scale at the same time. Function apps that share the same consumption plan are scaled independently.  In the premium plan, your plan size will determine the available memory and CPU for all apps in that plan on that instance.  
 
 Function code files are stored on Azure Files shares on the function's main storage account. When you delete the main storage account of the function app, the function code files are deleted and cannot be recovered.
 
