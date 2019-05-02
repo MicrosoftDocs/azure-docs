@@ -29,7 +29,7 @@ Because replicas are read-only, they don't directly reduce write-capacity burden
 
 The read replica feature uses MySQL asynchronous replication. The feature isn't meant for synchronous replication scenarios. There will be a measurable delay between the master and the replica. The data on the replica eventually becomes consistent with the data on the master. Use this feature for workloads that can accommodate this delay.
 
-Read replicas can be used to enhance your disaster recovery plan. You first need to have a replica in a different Azure region from the master. In the event of a disaster, you can stop replication to that server and redirect your workload to it. Stopping replication allows the replica to begin accepting writes, as well as reads. Learn more in the [stop replication](#stop-replication) section.
+Read replicas can enhance your disaster recovery plan. If there is a regional disaster and your master server is unavailable, you can direct your workload to a replica in another region. To do this, first let the replica accept writes by using the stop replication function. You can then redirect your application by updating the connection string. Learn more in the [stop replication](#stop-replication) section.
 
 ## Create a replica
 
