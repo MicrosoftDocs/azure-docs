@@ -109,27 +109,25 @@ a method, but without defining the method signature.
 
    ![Select trigger output](./media/logic-apps-add-run-inline-code/inline-code-example-select-outputs.png)
 
-   The `workflowContext` object provides access to these subproperties: 
-   `workflow`, `trigger`, and `actions`. The `workflow` property also 
-   provides access to properties that contain information such as the 
-   workflow name, run ID, and so on. The outputs from `trigger` are 
-   values based the current run. The properties available through 
-   `actions` use the same names as the actions on the designer.
+   The read-only `workflowContext` object provides access to these 
+   subproperties that you can use to reference their outputs: 
 
-   > [!NOTE]
-   > The `workflowContext` object is read-only, so you can't 
-   > assign or change any values in the available properties.
-   > 
-   > If you have actions that use the dot (.) operator in their names, 
-   > you must add those action names to the [**Actions** parameter](#add-parameters)
-   > and use this format when referencing those actions, for example:
-   >
-   > ```text
-   > // Correct
-   > workflowContext.actions["my.action.name"].body
-   > // Incorrect
-   > workflowContext.actions.my.action.name.body
-   > ```
+   | Property | Description |
+   |----------|-------------|
+   | `workflow` | Workflow property values, such as the workflow name, run ID, and so on |
+   | `trigger` | Trigger property values that are outputs from the current workflow instance run |
+   | `actions` | Property values for previous actions, which use the same names as the actions that appear in the Logic App Designer |
+   |||
+
+   If your code needs to reference action names that use the dot (.) operator, 
+   you must [add those action names to the **Actions** parameter](#add-parameters), 
+   and your code references to those action names must use square brackets ([]) 
+   and enclose the names in quotes, for example:
+   
+   `// Correct`</br> 
+   `workflowContext.actions["my.action.name"].body`</br>
+   `// Incorrect`</br>
+   `workflowContext.actions.my.action.name.body`
 
    The inline code action doesn't require a `return` statement, 
    but the value output from a `return` statement is available 
@@ -193,23 +191,22 @@ If you select **Triggers**, you're prompted whether to include trigger outputs.
 ### Include action outputs
 
 If you select **Actions**, you're prompted for the actions that you want to add. 
-However, before you start, you need the JSON version for the action name, 
+However, before you start adding actions, you need the JSON version for the action name, 
 which appears in the logic app's underlying workflow definition.
 
 * This capability doesn't support variables, loops, and iteration indexes.
 
-* JSON names use the underscore (_) and not a space.
+* JSON names use an underscore (_), not a space.
 
 * For action names that use dots, include those dots, for example: 
 
-  ```text
-  My.Action.Name
-  ```
+  `My.Action.Name`
 
 1. On the designer toolbar, choose **Code view**, 
 and search inside the `actions` attribute for the action name. 
 
-   For example, here is the JSON name for the **Send an approval email** action.
+   For example, `Send_approval_email_` is the JSON 
+   name for the **Send an approval email** action.
 
    ![Find action name in JSON](./media/logic-apps-add-run-inline-code/find-action-name-json.png)
 
