@@ -10,7 +10,7 @@ ms.author: normesta
 ms.subservice: common
 ---
 
-# Transfer data with AzCopy and blob storage 
+# Transfer data with AzCopy and blob storage
 
 AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts.
 
