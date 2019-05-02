@@ -65,7 +65,7 @@ After your VM is running, use the **Notebook VMs** section to launch the Jupyter
 
 1. On the Jupyter notebook webpage, the top foldername is your username.  Select this folder.
 
-1. The samples foldername includes the SDK version number when the notebooks were verified, for example **samples-1.0.33.1**. Select the samples folder.
+1. The samples foldername includes a version number, for example **samples-1.0.33.1**.  Select the samples folder.
 
 1. Select the **quickstart** notebook.
 
