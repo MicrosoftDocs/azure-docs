@@ -331,6 +331,12 @@ Send in the following JSON body to add a new sublist with synonyms to the list, 
 
 The prediction response includes that list entity, with all the other predicted entities, because it is defined in the request. 
 
+## TimezoneOffset renamed to datetimeReference
+
+**In V2**, the `[timezoneOffset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2)` parameter is sent in the prediction request as a query string parameter, regardless if the request is sent as a GET or POST request. 
+
+**In V3**, the same functionality is provided with the POST body parameter, `datetimeReference`. 
+
 ## Marking placement of entities in utterances
 
 **In V2**, an entity was marked in an utterance with the `startIndex` and `endIndex`. 
