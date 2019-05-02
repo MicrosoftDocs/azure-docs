@@ -53,7 +53,7 @@ First, determine the VM size to deploy. As part of this preview, only DsV3 and E
 
 To use ultra SSDs, you must create a VM that is capable of using ultra SSDs.
 
-Replace or set the `$vmname`, `$rgname`, `$diskname`, `$location`, `$password`, `$user` with your own values. Set `$zone` with the availability zone value you obtained from the start of this article. Then run the following CLI command to create an ultra enabled VM:
+Replace or set the `$vmname`, `$rgname`, `$diskname`, `$location`, `$password`, `$user` variables with your own values. Set `$zone`  to the value of your availability zone from the start of this article. Then run the following CLI command to create an ultra enabled VM:
 
 ```azurecli-interactive
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
@@ -101,7 +101,7 @@ az disk update `
 
 First, determine the VM size to deploy. As part of this preview, only DsV3 and EsV3 VM families are supported. Refer to the second table on this [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) for additional details about these VM sizes.
 
-To use ultra SSDs, you must create a VM that is capable of using ultra SSDs. Replace or set the variables with your own values and then run the following [New-AzVm](/powershell/module/az.compute/new-azvm) command to create an ultra enabled VM:
+To use ultra SSDs, you must create a VM that is capable of using ultra SSDs. Replace or set the `$resourcegroup` and `$vmName` variables with your own values. Set `$zone` to the value of your availability zone from the start of this article. Then run the following [New-AzVm](/powershell/module/az.compute/new-azvm) command to create an ultra enabled VM:
 
 ```powershell
 New-AzVm `
