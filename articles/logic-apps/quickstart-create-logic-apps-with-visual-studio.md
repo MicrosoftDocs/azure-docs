@@ -279,7 +279,7 @@ Enter the resource group name as confirmation, and choose **Delete**.
 
 ## Get support
 
-For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps).
 
 ## Next steps
 
