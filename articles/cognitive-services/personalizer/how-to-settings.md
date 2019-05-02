@@ -77,4 +77,4 @@ From the Resource management's section for **Model and Policy**, import a new le
 
 ## Next steps
 
-[Reinforcement learning](concepts-reinforcement-learning.md) 
+[How to use the Personalizer container](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
