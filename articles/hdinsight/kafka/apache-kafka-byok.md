@@ -1,12 +1,12 @@
 ---
-title: Bring your own key for Apache Kafka on Azure HDInsight (Preview)
+title: Bring your own key for Apache Kafka on Azure HDInsight
 description: This article describes how to use your own key from Azure Key Vault to encrypt data stored in Apache Kafka on Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 05/06/2019
 ---
 
 # Bring your own key for Apache Kafka on Azure HDInsight
