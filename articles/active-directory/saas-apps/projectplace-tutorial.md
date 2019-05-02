@@ -73,7 +73,7 @@ To enable single sign-on, you need to establish a relationship between an Azure 
 To configure and test Azure AD single sign-on with Projectplace, you need to complete these steps:
 
 1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable the feature for your users.
-2. **[Configure Projectplace single sign-on](#configure-projectplace-single-sign-on)** to set up single sign-on on the application side.
+2. **[Configure Projectplace single sign-on](#configure-projectplace-single-sign-on)** on the application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Azure AD single sign-on for the user.
 5. **[Create a Projectplace test user](#create-projectplace-test-user)** that's linked to the Azure AD representation of the user.
@@ -178,7 +178,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 ### Create a Projectplace test user
 
-To enable Azure AD users to sign in to Projectplace, you need to add them to Projectplace. You need to do this configuration manually.
+To enable Azure AD users to sign in to Projectplace, you need to add them to Projectplace. You need add them manually.
 
 To create a user account, take these steps:
 

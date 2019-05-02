@@ -72,7 +72,7 @@ To enable single sign-on, you need to establish a relationship between an Azure 
 To configure and test Azure AD single sign-on with Predictix Ordering, you need to complete these steps:
 
 1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable the feature for your users.
-2. **[Configure Predictix Ordering single sign-on](#configure-predictix-ordering-single-sign-on)** to set up single sign-on on the application side.
+2. **[Configure Predictix Ordering single sign-on](#configure-predictix-ordering-single-sign-on)** on the application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Azure AD single sign-on for the user.
 5. **[Create a Predictix Ordering test user](#create-a-predictix-ordering-test-user)** that's linked to the Azure AD representation of the user.
