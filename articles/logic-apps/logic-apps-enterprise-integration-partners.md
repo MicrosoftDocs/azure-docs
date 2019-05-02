@@ -72,7 +72,7 @@ When you're done, choose **OK**.
    ![View new partner](./media/logic-apps-enterprise-integration-partners/partner-6.png)git 
 
    > [!NOTE]
-   > For RosettaNet, addtional properties are required for Partners. They can be provided by editing the partner. The Edit partner section covers them.
+   > For RosettaNet, addtional properties are required for Partners. They can be provided by editing the partner. 
 
 ## Edit partner
 
@@ -90,9 +90,9 @@ Choose the **Partners** tile.
 
    ![Make and save your changes](./media/logic-apps-enterprise-integration-partners/edit-2.png)
 
-   For RosettaNet, additional information about the Partner can be provided. Choose **Partner Classficiation** to indicate the type of organization. The **Supply chain code** is the supply chain code for the partner, for exampme, "Information Technology" or "Electronic Components".
+   For RosettaNet, additional information about the Partner can be provided. Choose **Partner Classficiation** to indicate the type of organization. The **Supply chain code** is the supply chain code for the partner, for example, "Information Technology" or "Electronic Components".
 
-   ![Make and save your changes](./media/logic-apps-enterprise-integration-partners/edit-rn.png)
+   ![Make and save your changes](./media/logic-apps-enterprise-integration-partners/edit-rn-partner.png)
 
    After you're done, choose **OK** to save the changes.
 
