@@ -17,9 +17,11 @@ manager: philmea
 
 *This article applies to administrators.*
 
-IoT Central lets you customize the UI of your application by applying custom themes and modifying the help links to point to your own custom help resources. The following screenshots show a standard theme and a custom theme:
+IoT Central lets you customize the UI of your application by applying custom themes and modifying the help links to point to your own custom help resources. The following screenshot shows a page using the standard theme:
 
 ![Standard IoT Central theme](./media/howto-customize-ui/standard-ui.png)
+
+The following screenshot shows a page using a custom screenshot with the customized UI elements highlighted:
 
 ![Custom IoT Central theme](./media/howto-customize-ui/themed-ui.png)
 

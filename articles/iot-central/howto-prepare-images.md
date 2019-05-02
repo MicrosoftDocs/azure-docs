@@ -113,7 +113,6 @@ Under **Configure Image**, select the **Image** tile to upload an image from you
 
 Now that you have learned how to prepare and upload images to your Azure IoT Central application, here are the suggested next steps:
 
-> [!div class="nextstepaction"]
-> [Customize the Azure IoT Central UI](./howto-customize-ui.md)
-> [Configure the application dashboard](./howto-configure-homepage.md)
-> [Manage devices in your Azure IoT Central application](howto-manage-devices.md)
+* [Customize the Azure IoT Central UI](./howto-customize-ui.md)
+* [Configure the application dashboard](./howto-configure-homepage.md)
+* [Manage devices in your Azure IoT Central application](howto-manage-devices.md)
