@@ -17,20 +17,20 @@ ms.author: xurui
 # Quickstart: Create a dedicated Event Hubs cluster (preview) using Azure portal 
 Event Hubs clusters offer single-tenant deployments for customers with the most demanding streaming needs. This single-tenant offering has a guaranteed 99.99% SLA and is available only on our dedicated pricing tier. An Event Hubs cluster can ingress millions of events per second with guaranteed capacity and subsecond latency. Namespaces and event hubs created within the dedicated cluster include all features of the standard offering and more, but without any ingress limits. It also includes the popular [Event Hubs Capture](event-hubs-capture-overview.md) feature at no additional cost, allowing you to automatically batch and log data streams to [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) or [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md). For more information on Event Hubs dedicated clusters, see [Dedicated Event Hubs overview](event-hubs-dedicated-overview.md).
 
-Dedicated clusters are provisioned and billed by **Capacity Units (CUs)**, a pre-allocated amount of CPU and memory resources. You can purchase 1, 2, 4, 8, 12, 16 or 20 CUs for each cluster. To scale up a cluster, first create a one CU cluster, then submit a [support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+Dedicated clusters are provisioned and billed by **Capacity Units (CUs)**, a pre-allocated amount of CPU and memory resources. You can purchase 1, 2, 4, 8, 12, 16 or 20 CUs for each cluster. To scale up a cluster, first create a cluster with one CU, then submit a [support ticket](#submit-a-support-request-for-your-dedicated-cluster). 
 
 In this quickstart, you'll create an Event Hubs dedicated cluster using the Azure portal.
 
 ## Prerequisites
 To complete this quickstart, make sure that you have:
 
-- An Azure account. If you don't have one, [purchase an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) before you begin. This feature isn't supported with the free Azure account. 
+- An Azure account. If you don't have one, [purchase an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) before you begin. This feature isn't supported with a free Azure account. 
 - [Visual Studio](https://visualstudio.microsoft.com/vs/) 2017 Update 3 (version 15.3, 26730.01) or later.
 - [.NET Standard SDK](https://dotnet.microsoft.com/download), version 2.0 or later.
 - [Created a resource group](../event-hubs/event-hubs-create.md#create-a-resource-group.md).
 
 ## Create an Event Hubs Dedicated Cluster
-An Event Hubs dedicated cluster provides a unique scoping container, referenced by its fully qualified domain name, in which you can create one or more namespaces. In the Preview phase of the portal self-serve experience, you can create one CU cluster in supported regions. If you need a cluster larger than one CU, continue to create a one CU cluster first before submitting a request to scale up your cluster. 
+An Event Hubs dedicated cluster provides a unique scoping container, referenced by its fully qualified domain name, in which you can create one or more namespaces. In the Preview phase of the portal self-serve experience, you can create one CU cluster in supported regions. If you need a cluster larger than one CU, create a cluster with one CU first and then submit a request to scale up your cluster. 
 
 To create a cluster in your resource group using the Azure portal, do the following steps:
 
@@ -40,12 +40,12 @@ To create a cluster in your resource group using the Azure portal, do the follow
     1. Enter a **name for the cluster**. The system immediately checks to see if the name is available.
     2. Select the **subscription** in which you want to create the cluster.
     3. Select the **resource group** in which you want to create the cluster.
-    4. Select a **location** for the cluster. If your preferred region is grayed out, submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+    4. Select a **location** for the cluster. If your preferred region is grayed out, submit a [support request](#submit-a-support-request-for-your-dedicated-cluster).
     5. Select the **Next: Tags** button at the bottom of the page. You may have to wait a few minutes for the system to fully provision the resources.
 
         ![Create Event Hubs Cluster - Basics page](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-basics-page.png)
 4. On the **Tags** page, take the following steps:
-    1. Enter a name and a value for the tag you want to add. This step is optional.   
+    1. Enter a **name** and a **value** for the tag you want to add. This step is **optional**.  
     2. Select the **Review + Create** button.
 
         ![Create Event Hubs Cluster page - Tags page](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-tags-page.png)
@@ -78,11 +78,11 @@ To submit a support request, follow these steps:
 1. In [Azure portal](https://portal.azure.com), select **Help + support** from the left menu.
 2. Select **+ New support request** from the Support menu.
 3. On the support page, follow these steps:
-    1. For **Issue Type**, select **Technical** from the drop-down menu.
-    2. For **Subscription**, select your subscription from the drop-down menu.
-    3. For **Service**, select my services and Event Hubs from drop-down menu.
+    1. For **Issue Type**, select **Technical** from the drop-down list.
+    2. For **Subscription**, select your subscription.
+    3. For **Service**, select **My services**, and then select **Event Hubs**.
     4. For **Resource**, select your cluster if it exists already, otherwise select **General Question/Resource Not Available**.
-    5. For **Problem type**, select **Quota** from drop-down.
+    5. For **Problem type**, select **Quota**.
     6. For **Problem subtype**, select one of the following values from the drop-down list:
         1. Select **Request for Dedicated SKU** to request for the feature to be supported in your region.
         2. Select **Request to Scale Up or Scale Down Dedicated Cluster** if you want to scale up or scale down your dedicated cluster. 
