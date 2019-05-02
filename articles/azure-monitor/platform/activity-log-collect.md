@@ -26,7 +26,7 @@ Connecting the Activity Log to a Log Analytics workspace provides the following 
 - Use [log queries](../log-query/log-query-overview.md) to perform complex analysis and gain deep insights on Activity Log entries.
 
 ## Connect Activity Log to Log Analytics workspace
-An Activity Log can be connected to only one workspace, but a single workspace can be connected to the Activity Log for multiple subscriptions in the same Azure tenant. For collection across multiple tenants, see [Collect Azure Activity Logs into a Log Analytics workspace across subscriptions in different Azure Active Directory tenants](collect-activity-logs-subscriptions.md).
+An Activity Log can be connected to only one workspace, but a single workspace can be connected to the Activity Log for multiple subscriptions in the same Azure tenant. For collection across multiple tenants, see [Collect Azure Activity Logs into a Log Analytics workspace across subscriptions in different Azure Active Directory tenants](activity-log-collect-tenants.md).
 
 Use the following procedure to connect the Activity Log to your Log Analytics workspace:
 

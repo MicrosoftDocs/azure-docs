@@ -184,7 +184,7 @@
       - name: Activity log
         items:
         - name: Activity log
-          href: platform/activity-log-overview.md
+          href: platform/activity-logs-overview.md
         - name: Collect and analyze
           href: platform/activity-log-collect.md
         - name: Collect across tenants
