@@ -22,7 +22,7 @@ ms.author: juliako
 [Azure Monitor](../../azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. All data collected by Azure Monitor fits into one of two fundamental types, metrics and log. You can monitor Media Services diagnostic logs and create alerts and notifications for the collected metrics and logs. 
 You can visualize and analyze the metrics data using [Metrics explorer](../../azure-monitor/platform/metrics-getting-started.md). You can send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), or use 3rd party services.
 
-For detailed overview, see [Azure Monitor Metrics](../../azure-monitor/platform/data-collection.md) and [Azure Monitor Diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md).
+For detailed overview, see [Azure Monitor Metrics](../../azure-monitor/platform/data-platform.md) and [Azure Monitor Diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
 This topic discusses currently available [Media Services Metrics](#media-services-metrics) and [Media Services Diagnostic logs](#media-services-diagnostic-logs).
 
@@ -34,8 +34,8 @@ Currently, the following Media Services [Streaming Endpoints](https://docs.micro
 
 |Name|Description|
 |---|---|
-|Requests|Gives details around total # of requests serviced by streaming endpoint.|
-|Egress|Total number of egress bytes. For example, bytes streamed by streaming endpoint.|
+|Requests|Gives details around total # of requests serviced by the Streaming Endpoint.|
+|Egress|Total number of egress bytes. For example, bytes streamed by the Streaming Endpoint.|
 |Success end to end Latency| Gives information about end to end latency of successful requests.|
 
 For example, to get "Egress" metrics with CLI, you would run the following `az monitor metrics` CLI command:

@@ -32,6 +32,7 @@ During lab creation, teachers can enable **remote desktop connection** for **Lin
 > [!IMPORTANT] 
 > Enabling **remote desktop connection** only opens the **RDP** port on Linux machines. You, as a teacher, connect to the Linux machine using SSH for the first time, and install RDP and GUI packages so that you can connect to the Linux machine using RDP later. Then, you **publish** the image so that students can RDP in to the student Linux VMs. 
 
+## Supported operating systems
 Currently, the remote desktop connection is supported for the following operating systems:
 
 - openSUSE Leap 42.3

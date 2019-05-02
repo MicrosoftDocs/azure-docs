@@ -48,7 +48,7 @@ The following table shows the endpoints to change.
 
 See also:
 - [Developer Notes for Azure in China Applications](https://msdn.microsoft.com/library/azure/dn578439.aspx)
-- [Azure Datacenter IP Ranges in China](https://www.microsoft.com/download/details.aspx?id=42064) 
+- [Azure Datacenter IP Ranges in China](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062) 
 - [Developers Guide](https://www.azure.cn/documentation/articles/developerdifferences/#dev-guide) (in Chinese).
 
 | Service category | Global Azure URI | Azure URI (in China) |
@@ -77,6 +77,6 @@ See also:
 
 ## Next steps
 - [Developers Guide](https://www.azure.cn/documentation/articles/developerdifferences/#dev-guide) (in Chinese)
-- [Azure Datacenter IP Ranges in China](https://www.microsoft.com/download/details.aspx?id=42064)
+- [Azure Datacenter IP Ranges in China](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)
 - [Manage performance and connectivity](/azure/china/china-how-to-manage-performance)
 - [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)

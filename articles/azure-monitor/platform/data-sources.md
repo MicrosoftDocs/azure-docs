@@ -17,7 +17,7 @@ ms.author: bwren
 ---
 
 # Sources of data in Azure Monitor
-This article describes the sources of data collected by Azure Monitor to monitor the health and performance of your  resources and the applications running on them. These resources could be in Azure, in another cloud, or on-premises.  See [Data collected by Azure Monitor](data-collection.md) for details on how this data stored and how you can view it.
+This article describes the sources of data collected by Azure Monitor to monitor the health and performance of your  resources and the applications running on them. These resources could be in Azure, in another cloud, or on-premises.  See [Data collected by Azure Monitor](data-platform.md) for details on how this data stored and how you can view it.
 
 Monitoring data in Azure comes from a variety of sources that can be organized into tiers, the highest tiers being your application and any operating systems and the lower tiers being components of Azure platform. This is illustrated in the following diagram with each tier described in detail in the following sections.
 
@@ -56,7 +56,7 @@ Metrics and resource level diagnostic logs provide information about the _intern
 
 
 ### Metrics
-Most Azure services will generate [platform metrics](data-collection.md#metrics) that reflect their performance and operation. The specific [metrics will vary for each type of resource](metrics-supported.md).  They are accessible from metrics analytics and can be copied to logs for trending and other analysis using Log Analytics.
+Most Azure services will generate [platform metrics](data-platform-metrics.md) that reflect their performance and operation. The specific [metrics will vary for each type of resource](metrics-supported.md).  They are accessible from metrics analytics and can be copied to logs for trending and other analysis using Log Analytics.
 
 
 ### Resource diagnostic Logs
@@ -113,4 +113,4 @@ Azure Monitor can collect log data from any REST client using the [Data Collecto
 
 ## Next steps
 
-- Learn more about the [types of monitoring data collected by Azure Monitor](data-collection.md) and how to view and analyze this data.
+- Learn more about the [types of monitoring data collected by Azure Monitor](data-platform.md) and how to view and analyze this data.

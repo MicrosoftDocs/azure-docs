@@ -3,7 +3,7 @@ title: Azure Active Directory B2C custom policies | Microsoft Docs
 description: Learn about Azure Active Directory B2C custom policies.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity

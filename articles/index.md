@@ -220,7 +220,7 @@ featureFlags:
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Command-line tools</h3>
+                                                <h3>Management tools</h3>
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/cli/azure">
@@ -232,6 +232,18 @@ featureFlags:
                                                         <a class="barLink" href="/powershell/azure/overview">
                                                             <img src="media/index/azure_dev-8.svg" alt="">
                                                             Azure PowerShell
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/azure/azure-portal/">
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="">
+                                                            Azure portal
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="https://azure.microsoft.com/features/azure-portal/mobile-app/">
+                                                            <img src="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg" alt="">
+                                                            Azure mobile app
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -433,6 +445,12 @@ featureFlags:
                                             <a href="/azure/cyclecloud/">
                                                 <img src="media/index/logo_cyclecloud.svg" alt="" />
                                                 <p>CycleCloud</p>
+                                            </a>
+                                        </li>
+<li>
+                                            <a href="/azure/vmware-cloudsimple/">
+                                                <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
+                                                <p>Azure VMware Solution by CloudSimple</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1634,6 +1652,12 @@ featureFlags:
                                                 <p>Azure Sentinel</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/asc-for-iot/">
+                                                <img src="media/index/asc-for-iot.svg" alt="" />
+                                                <p>Azure Security Center for IoT</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Identity</h3>
                                     <ul>
@@ -1749,9 +1773,9 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/azure-portal/">
+                                            <a href="/azure/azure-portal/">
                                                 <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
-                                                <p>Microsoft Azure Portal</p>
+                                                <p>Azure portal</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1767,7 +1791,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service-mobile">
+                                            <a href="https://azure.microsoft.com/features/azure-portal/mobile-app/">
                                                 <img src="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg" alt="" />
                                                 <p>Azure mobile app</p>
                                             </a>
@@ -2063,6 +2087,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>CycleCloud</h3>
                                                     <p>Create, manage, operate, and optimize HPC and big compute clusters of any scale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+<li>
+                                <a href="/azure/vmware-cloudsimple/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure VMware Solution by CloudSimple</h3>
+                                                    <p>Run the VMware platform in Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4858,6 +4901,25 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/asc-for-iot/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/asc-for-iot.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Security Center for IoT</h3>
+                                                    <p>Learn how to unify your security management and enable advanced threat protection across your IoT solution</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -5387,7 +5449,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="https://portal.azure.com">
+                                <a href="/azure/azure-portal/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -5397,7 +5459,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Microsoft Azure Portal</h3>
+                                                    <h3>Azure portal</h3>
                                                     <p>Build, manage, and monitor all Azure products in a single, unified console</p>
                                                 </div>
                                             </div>
@@ -6075,7 +6137,7 @@ featureFlags:
                             </li>
                             <li>
                                 <div class="container">
-                                    <h2>Command-Line Interface (CLI)</h2>
+                                    <h2>Management tools</h2>
                                 </div>
                             </li>
                             <li>
@@ -6092,7 +6154,7 @@ featureFlags:
                                                     Azure CLI
                                                 </h3>
                                                 <p>
-                                                    <a href="/cli/azure">Get Started</a>
+                                                    <a href="/cli/azure">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure/reference-index">Reference</a>
@@ -6114,10 +6176,48 @@ featureFlags:
                                             <div class="cardText">
                                                 <h3>Azure PowerShell</h3>
                                                 <p>
-                                                    <a href="/powershell/azure/get-started-azureps">Get Started</a>
+                                                    <a href="/powershell/azure/get-started-azureps">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/powershell/azure/overview">Reference</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>Azure portal</h3>
+                                                <p>
+                                                    <a href="/azure/azure-portal/">Get started</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>Azure mobile app</h3>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/features/azure-portal/mobile-app/">Get started</a>
                                                 </p>
                                             </div>
                                         </div>

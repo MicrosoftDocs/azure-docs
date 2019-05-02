@@ -25,7 +25,7 @@
     href: tutorial-custom-images.md
   - name: 5 - Highly available VMs
     href: tutorial-availability-sets.md
-  - name: 6 - Create a VM scale set
+  - name: 6 - Create a scale set
     href: tutorial-create-vmss.md
   - name: 7 - Load balance VMs
     href: tutorial-load-balancer.md
@@ -77,6 +77,9 @@
     - name: Storage optimized
       displayName: ls
       href: sizes-storage.md    
+      items:
+      - name: Optimize performance
+        href: storage-performance.md
     - name: GPU optimized
       displayName: NV NVv2 NC NCv2 NCv3 ND
       href: sizes-gpu.md   
@@ -248,6 +251,8 @@
         href: shared-images.md
       - name: Create shared images using CLI
         href: ../linux/shared-images.md
+      - name: Portal
+        href: shared-images-portal.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
     - name: Find and use images

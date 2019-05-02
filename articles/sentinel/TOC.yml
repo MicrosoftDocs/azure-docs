@@ -66,6 +66,8 @@
         href: connect-f5.md  
       - name: Connect Syslog
         href: connect-syslog.md
+      - name: Connect Symantec ICDX
+        href: connect-symantec.md
       - name: Connect Cisco
         href: connect-cisco.md
     - name: Connect threat intelligence

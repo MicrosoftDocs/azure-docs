@@ -29,9 +29,9 @@ This article shows you how to manage DNS records for your DNS zone by using Azur
 
 The examples in this article assume you have already [installed Azure PowerShell, signed in, and created a DNS zone](dns-operations-dnszones.md).
 
-## Introduction
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## Introduction
 
 Before creating DNS records in Azure DNS, you first need to understand how Azure DNS organizes DNS records into DNS record sets.
 
@@ -386,7 +386,7 @@ Each cmdlet prompts for confirmation if the `$ConfirmPreference` PowerShell pref
 
 You can override the current `$ConfirmPreference` setting using the `-Confirm` parameter. If you specify `-Confirm` or `-Confirm:$True` , the cmdlet prompts you for confirmation before it runs. If you specify `-Confirm:$False` , the cmdlet does not prompt you for confirmation. 
 
-For more information about `-Confirm` and `$ConfirmPreference`, see [About Preference Variables](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
+For more information about `-Confirm` and `$ConfirmPreference`, see [About Preference Variables](/powershell/module/microsoft.powershell.core/about/about_preference_variables).
 
 ## Next steps
 
@@ -394,4 +394,4 @@ Learn more about [zones and records in Azure DNS](dns-zones-records.md).
 <br>
 Learn how to [protect your zones and records](dns-protect-zones-recordsets.md) when using Azure DNS.
 <br>
-Review the [Azure DNS PowerShell reference documentation](/powershell/module/azurerm.dns).
+Review the [Azure DNS PowerShell reference documentation](/powershell/module/az.dns).

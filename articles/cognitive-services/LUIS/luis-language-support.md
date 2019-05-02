@@ -100,7 +100,7 @@ The following cultures have custom tokenizer versions:
 |German<br>`de-de`|1.0.1|Tokenizes words by splitting them on spaces.<br> if a user enters `Ich fahre einen krankenwagen` as an utterance, it remains a single token. Thus `krankenwagen` is marked as a single entity. |
 
 ### Migrating between tokenizer versions
-
+<!--
 Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
 
 Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`. 
@@ -200,5 +200,8 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
     "settings": []
 }
 ```
+-->
 
-The second choice is to [import the file as a new app](luis-how-to-start-new-app.md#import-an-app-from-file), instead of a version. This action means the new app has a different app ID but uses the tokenizer version specified in the file. 
+Tokenization happens at the app level. There is no support for version-level tokenization. 
+
+[Import the file as a new app](luis-how-to-start-new-app.md#import-an-app-from-file), instead of a version. This action means the new app has a different app ID but uses the tokenizer version specified in the file. 

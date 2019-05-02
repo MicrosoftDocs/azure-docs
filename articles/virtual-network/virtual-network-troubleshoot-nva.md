@@ -63,17 +63,21 @@ Use PowerShell
 1. Open PowerShell and then sign in to your Azure account.
 2. Run the following command (replace the bracketed values with your information):
 
-   Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>  
+   ```powershell
+   Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
+   ```
 
 3. Check the **EnableIPForwarding** property.
 4. If IP forwarding is not enabled, run the following commands to enable it:
 
+   ```powershell
    $nic2 = Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
    $nic2.EnableIPForwarding = 1
    Set-AzNetworkInterface -NetworkInterface $nic2
    Execute: $nic2 #and check for an expected output:
    EnableIPForwarding   : True
    NetworkSecurityGroup : null
+   ```
 
 **Check for NSG when using Standard SKU Pubilc IP**
 When using a Standard SKU and Public IPs, there must be an NSG created and an explicit rule to allow the traffic to the NVA.

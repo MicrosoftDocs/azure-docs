@@ -3,8 +3,8 @@ title: Network security in Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Understand how virtual network integration works in Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.service: data-lake-store

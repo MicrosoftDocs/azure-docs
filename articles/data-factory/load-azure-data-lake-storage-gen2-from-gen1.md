@@ -30,7 +30,7 @@ This article shows you how to use the Data Factory Copy Data tool to copy data f
 
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * Azure Data Lake Storage Gen1 account with data in it.
-* Azure Storage account with Data Lake Storage Gen2 enabled: If you don't have a Storage account, click [here](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) to create one.
+* Azure Storage account with Data Lake Storage Gen2 enabled: If you don't have a Storage account, [create an account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 
 ## Create a data factory
 
@@ -100,7 +100,7 @@ This article shows you how to use the Data Factory Copy Data tool to copy data f
    
    ![Specify Azure Data Lake Storage Gen2 account](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
-9. In the **Choose the output file or folder** page, enter **copyfromadlsgen1** as the output folder name, and select **Next**: 
+9. In the **Choose the output file or folder** page, enter **copyfromadlsgen1** as the output folder name, and select **Next**. ADF will create the corresponding ADLS Gen2 file system and sub-folders during copy if it doesn't exist.
 
     ![Specify output folder](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
 
