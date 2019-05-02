@@ -1,4 +1,5 @@
 ---
+# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: An experimental preset for content-aware encoding - Azure | Microsoft Docs
 description: This article discusses content-aware encoding in Azure Media Services
 services: media-services
@@ -8,11 +9,11 @@ manager: femila
 editor: ''
 
 ms.service: media-services
-ms.workload: ''
+ms.workload: 
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: sethm
-ms.custom: ''
+ms.custom: 
 
 ---
 
