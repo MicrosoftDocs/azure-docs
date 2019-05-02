@@ -119,8 +119,27 @@ a method, but without defining the method signature.
    |----------|-------------|
    | `workflow` | The workflow object, which is equivalent to calling the [workflow() function](../logic-apps/workflow-definition-language-functions-reference.md#workflow). Provides access to workflow property values, such as the workflow name, run ID, and so on. |
    | `trigger` | The trigger result object, which is equivlent to calling the [trigger() function](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Provides access to trigger property values from the current workflow instance run. |
-   | `actions` | A collection of result objects from previous actions in the current workflow instance run. Each object's key is the action's name, and the value is equivalent to calling the [action() function](../logic-apps/workflow-definition-language-functions-reference.md#action) with `@action('<action-name>')`. Provides access to property values from previous actions, which use the same names as the actions that appear in the Logic App Designer |
+   | `actions` | A collection of result objects from previous actions in the current workflow instance run. Each object's key is the action's name, and the value is equivalent to calling the [actions() function](../logic-apps/workflow-definition-language-functions-reference.md#actions) with `@actions('<action-name>')`. Provides access to property values from previous actions, which use the same names as the actions that appear in the Logic App Designer. |
    |||
+
+   Here's the structure for the `workflowContext` object:
+
+   ```json
+   {
+      "workflowContextObject": {
+         "actions": {
+            "<action-name-1>": @actions('<action-name-1>'),
+            "<action-name-2>": @actions('<action-name-2>')
+         },
+         "trigger": {
+            @trigger()
+         },
+         "workflow": {
+            @workflow()
+         }
+      }
+   }
+   ```
 
    > [!NOTE]
    > 

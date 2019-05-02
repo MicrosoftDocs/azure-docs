@@ -1169,13 +1169,32 @@ results through a `Result` token that later actions can reference.
 }
 ```
 
-In the `code` attribute, your code snippet can use the read-only 
-`workflowContext` object as input by accessing that object's 
-`workflow`, `trigger`, and `actions` subproperties. These 
-subproperties provide access to a workflow object, trigger result object, 
-and a collection of result objects from the current workflow run. 
-You can use these objects to reference property 
-values from the workflow, trigger, and previous actions in the current run.
+In the `code` attribute, your JavaScript code snippet can use the 
+read-only `workflowContext` object as input by accessing that 
+object's `workflow`, `trigger`, and `actions` subproperties. 
+These subproperties provide access to a workflow object, 
+trigger result object, and a collection of result objects 
+from the current workflow run. You can use these objects 
+to reference property values from the workflow, trigger, 
+and previous actions in the current run. Here's the 
+structure for the `workflowContext` object:
+
+```json
+{
+   "workflowContextObject": {
+      "actions": {
+         "<action-name-1>": @actions('<action-name-1>'),
+         "<action-name-2>": @actions('<action-name-2>')
+      },
+      "trigger": {
+         @trigger()
+      },
+      "workflow": {
+         @workflow()
+      }
+   }
+}
+```
 
 *Required*
 
@@ -1195,7 +1214,7 @@ For the `includeTrigger` attribute, you can specify `true` or `false` values.
 
 | Value | Type | Description |
 |-------|------|-------------|
-| <*previous-actions*> | Varies | An array with results from previous actions |
+| <*previous-actions*> | Varies | An array with results from your specified previous actions |
 ||||
 
 *Example 1*
