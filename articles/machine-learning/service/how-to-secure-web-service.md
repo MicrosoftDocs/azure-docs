@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 02/05/2019
+ms.date: 04/29/2019
 ms.custom: seodec18
 ---
 
@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 In this article, you will learn how to secure a web service deployed with the Azure Machine Learning service. You can restrict access to web services and secure the data submitted by clients using [Hypertext Transfer Protocol Secure (HTTPS)](https://en.wikipedia.org/wiki/HTTPS).
 
-HTTPS is used to secure communications between a client and your web service by encrypting communications between the two. Encryption is handled using [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Sometimes this is still referred to as Secure Sockets Layer (SSL), which was the predecessor to TLS.
+HTTPS is used to secure communications between a client and your web service by encrypting communications between the two. Encryption is handled using [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Sometimes TLS is still referred to as Secure Sockets Layer (SSL), which was the predecessor to TLS.
 
 > [!TIP]
 > The Azure Machine Learning SDK uses the term 'SSL' for properties related to enabling secure communications. This does not mean that TLS is not used by your web service, just that SSL is the more recognizable term for many readers.
@@ -30,7 +30,7 @@ TLS and SSL both rely on __digital certificates__, which are used to perform enc
 >
 > HTTPS also enables the client to verify the authenticity of the server that it is connecting to. This protects clients against [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attacks.
 
-The process of securing a new web service or an existing one is as follows:
+The general process of securing a new web service or an existing one is as follows:
 
 1. Get a domain name.
 
@@ -39,6 +39,9 @@ The process of securing a new web service or an existing one is as follows:
 3. Deploy or update the web service with the SSL setting enabled.
 
 4. Update your DNS to point to the web service.
+
+> [!IMPORTANT]
+> If you are deploying to Azure Kubernetes Service (AKS), you can provide your own certificate or use a certificate provided by Microsoft. If you use the Microsoft provided certificate, you do not need to get a domain name or SSL certificate. For more information, see the [Enable SSL and deploy](#enable) section.
 
 There are slight differences when securing web services across the [deployment targets](how-to-deploy-and-where.md).
 
@@ -61,19 +64,78 @@ When requesting a certificate, you must provide the fully qualified domain name 
 > [!WARNING]
 > Self-signed certificates should be used only for development. They should not be used in production. Self-signed certificates can cause problems in your client applications. For more information, see the documentation for the network libraries used in your client application.
 
-## Enable SSL and deploy
+## <a id="enable"></a> Enable SSL and deploy
 
-To deploy (or re-deploy) the service with SSL enabled, set the `ssl_enabled` parameter to `True`, wherever applicable. Set the `ssl_certificate` parameter to the value of the __certificate__ file and the `ssl_key` to the value of the __key__ file.
+To deploy (or redeploy) the service with SSL enabled, set the `ssl_enabled` parameter to `True`, wherever applicable. Set the `ssl_certificate` parameter to the value of the __certificate__ file and the `ssl_key` to the value of the __key__ file.
 
-+ **Deploy on Azure Kubernetes Service (AKS)**
++ **Visual interface - Create secure Azure Kubernetes Service (AKS) for deployment** 
+    
+    Refer to this if you are trying to create secure deploying compute for visual interface. While provisioning the AKS cluster, provide values for SSL-related parameters then create a new AKS.  Please refer to below code snippet:
+    
 
-  While provisioning the AKS cluster, provide values for SSL-related parameters as shown in the code snippet:
+    > [!TIP]
+    >  If you are not familiar with the Python SDK, start from [Azure Machine Learning Python SDK Overview.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+
+
+    ```python
+    from azureml.core.compute import AksCompute, ComputeTarget
+
+    # Provide SSL-related parameters when provisioning the AKS cluster
+    prov_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")   
+ 
+    aks_name = 'secure-aks'
+    # Create the cluster
+    aks_target = ComputeTarget.create(workspace = ws,
+                                        name = aks_name,
+                                        provisioning_configuration = prov_config)
+    
+    # Wait for the create process to complete
+    aks_target.wait_for_completion(show_output = True)
+    print(aks_target.provisioning_state)
+    print(aks_target.provisioning_errors)
+    ```
+    
+   
+
++ **Deploy on Azure Kubernetes Service (AKS) and FPGA**
+
+  When deploying to AKS, you can either create a new AKS cluster or attach an existing one. Creating a new cluster uses [AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none-) while attaching an existing cluster uses [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none-). Both return a configuration object that has an `enable_ssl` method.
+
+  The `enable_ssl` method can either use a certificate provided by Microsoft, or one that you supply.
+
+  * When using a certificate __provided by Microsoft__, you must use the `leaf_domain_label` parameter. Using this parameter will create the service using a certificate provided by Microsoft. The `leaf_domain_label` is used to generate the DNS name for the service. For example, a value of `myservice` creates a domain name of `myservice<6-random-characters>.<azureregion>.cloudapp.azure.com`, where `<azureregion>` is the region that contains the service. Optionally, you can use the `overwrite_existing_domain` parameter to overwrite the existing leaf domain label.
+
+    To deploy (or re-deploy) the service with SSL enabled, set the `ssl_enabled` parameter to `True`, wherever applicable. Set the `ssl_certificate` parameter to the value of the __certificate__ file and the `ssl_key` to the value of the __key__ file.
+
+    > [!IMPORTANT]
+    > When using a certificate provided by Microsoft, you do not need to purchase your own certificate or domain name.
+
+    The following example demonstrates how to create configurations that enable an SSL certificate created by Microsoft:
 
     ```python
     from azureml.core.compute import AksCompute
-
-    provisioning_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+    # Config used to create a new AKS cluster and enable SSL
+    provisioning_config = AksCompute.provisioning_configuration().enable_ssl(leaf_domain_label = "myservice")
+    # Config used to attach an existing AKS cluster to your workspace and enable SSL
+    attach_config = AksCompute.attach_configuration(resource_group = resource_group,
+                                          cluster_name = cluster_name).enable_ssl(leaf_domain_label = "myservice")
     ```
+
+  * When using __a certificate you purchased__, use the `ssl_cert_pem_file`, `ssl_key_pem_file`, and `ssl_cname` parameters.  The following example demonstrates how to create configurations that use an SSL certificate you provide using `.pem` files:
+
+    ```python
+    from azureml.core.compute import AksCompute
+    # Config used to create a new AKS cluster and enable SSL
+    provisioning_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+    provisioning_config = AksCompute.provisioning_configuration().enable_ssl(ssl_cert_pem_file="cert.pem",
+                                        ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+    # Config used to attach an existing AKS cluster to your workspace and enable SSL
+    attach_config = AksCompute.attach_configuration(resource_group = resource_group,
+                                         cluster_name = cluster_name).enable_ssl(ssl_cert_pem_file="cert.pem",
+                                        ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+    ```
+
+  For more information on `enable_ssl`, see [AksProvisioningConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) and [AksAttachConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-).
 
 + **Deploy on Azure Container Instances (ACI)**
 
@@ -85,15 +147,7 @@ To deploy (or re-deploy) the service with SSL enabled, set the `ssl_enabled` par
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-+ **Deploy on Field Programmable Gate Arrays (FPGA)**
-
-  While deploying to FPGA, provide values for the SSL-related parameters as shown in the code snippet:
-
-    ```python
-    from azureml.contrib.brainwave import BrainwaveWebservice
-
-    deployment_config = BrainwaveWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem")
-    ```
+  For more information, see [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none-).
 
 ## Update your DNS
 
@@ -107,11 +161,17 @@ Next, you must update your DNS to point to the web service.
 
 + **For AKS**:
 
+  > [!WARNING]
+  > If you used the `leaf_domain_label` to create the service with a certificate provided by Microsoft, do not manually update the DNS value for the cluster. The value should be set automatically.
+
   Update the DNS under the "Configuration" tab of the "Public IP Address" of the AKS cluster as shown in the image. You can find the Public IP Address as one of the resource types created under the resource group that contains the AKS agent nodes and other networking resources.
 
   ![Azure Machine Learning service: Securing web services with SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
+
+
 
 ## Next steps
 Learn how to:
 + [Consume a machine learning model deployed as a web service](how-to-consume-web-service.md)
 + [Securely run experiments and inferencing inside an Azure Virtual Network](how-to-enable-virtual-network.md)
+
