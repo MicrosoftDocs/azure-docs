@@ -353,4 +353,4 @@ See [Job error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberro
 
 ## Next steps
 
-> [CLI samples](cli-samples.md)
+[Media Services overview](media-services-overview.md)

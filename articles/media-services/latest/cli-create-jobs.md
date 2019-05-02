@@ -13,7 +13,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/01/2019
+ms.date: 05/01/2019
 ms.author: juliako
 ---
 
@@ -23,9 +23,9 @@ In Media Services v3, when you submit Jobs to process your videos, you have to t
 
 ## Prerequisites 
 
-[Create a Media Services account](../create-account-cli-how-to.md).
+[Create a Media Services account](create-account-cli-how-to.md).
 
-[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
+[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 ## Example script
 
@@ -83,4 +83,4 @@ You get a response similar to this:
 
 ## Next steps
 
-For more examples, see [Azure CLI samples](../cli-samples.md).
+[Media Services overview](media-services-overview.md)
