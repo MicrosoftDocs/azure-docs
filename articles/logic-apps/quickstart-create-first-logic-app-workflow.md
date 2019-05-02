@@ -243,7 +243,7 @@ On the **Overview** page, choose **Delete resource group**.
 
 ## Get support
 
-For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps).
 
 ## Next steps
 
