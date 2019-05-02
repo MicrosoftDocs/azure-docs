@@ -35,7 +35,7 @@ You will need the following setup for this quickstart:
 * To run the project with a node.js server,
     * Install [Node.js](https://nodejs.org/en/download/)
     * Install [Visual Studio Code](https://code.visualstudio.com/download) to edit the project files
-* To run the project as a Visual Studio solution, install [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
+* To run the project as a Visual Studio solution, install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 
 > [!div renderon="docs"]
 > ## Register and download your quickstart application

@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - [Create user flows](tutorial-create-user-flows.md) to enable user experiences in your application. 
-- Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with **.NET desktop development** and **ASP.NET and web development** workloads.
+- Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with **.NET desktop development** and **ASP.NET and web development** workloads.
 
 ## Add the native client application
 

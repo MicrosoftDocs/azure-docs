@@ -22,7 +22,7 @@ Azure Active Directory (Azure AD) B2C provides cloud identity management to keep
 
 ## Prerequisites
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload. 
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload. 
 - A social account from either Facebook, Google, Microsoft, or Twitter.
 - [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip) or clone the sample web app from GitHub.
 

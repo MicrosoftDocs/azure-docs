@@ -70,12 +70,12 @@ In this quickstart, you'll learn how an ASP.NET Core web app can sign in persona
 
 #### Step 2: Download your ASP.NET Core project
 
-- [Download the Visual Studio 2017 solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+- [Download the Visual Studio 2019 solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 #### Step 3: Configure your Visual Studio project
 
 1. Extract the zip file to a local folder within the root folder - for example, **C:\Azure-Samples**
-1. If you use Visual Studio 2017, open the solution in Visual Studio (optional).
+1. If you use Visual Studio 2019, open the solution in Visual Studio (optional).
 1. Edit the **appsettings.json** file. Find `ClientId` and update the value of `ClientId` with the **Application (client) ID** value of the application you just registered. 
 
     ```json

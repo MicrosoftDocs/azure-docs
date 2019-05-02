@@ -35,7 +35,7 @@ At the end of this quickstart, your application will accept sign ins of work and
 
 To get started, make sure you meet these prerequisites:
 
-* Have Visual Studio 2015 Update 3 or Visual Studio 2017 installed. Don’t have it? [Download Visual Studio 2017 for free](https://www.visualstudio.com/downloads/)
+* Have Visual Studio 2015 Update 3 or later installed. Don’t have it? [Download Visual Studio 2019 for free](https://www.visualstudio.com/downloads/)
 
 ## Scenario: Sign in users from work and school accounts in your ASP.NET app
 
@@ -67,9 +67,10 @@ To download this sample's Visual Studio project instead, follow these steps:
 ## Step 2: Create your ASP.NET project
 
 1. In Visual Studio, go to **File > New > Project**.
-2. Under **Visual C#\Web**, select **ASP.NET Web Application (.NET Framework)**.
-3. Name your application and select **OK**.
-4. Select **Empty** and then select the checkbox to add **MVC** references.
+2. For **Project type**, select **Web**, then select **ASP.NET Web Application (.NET Framework)**.
+3. Name your application and select **Create**.
+4. Select **Empty** and then select **MVC** under **Add folders & core references** to add MVC references.
+5. Select **Create**.
 
 ## Step 3: Add authentication components
 
@@ -122,7 +123,7 @@ To create an OWIN middleware *Startup Class*:
 Create a new controller to expose sign-in and sign-out methods.
 
 1.	Right-click the **Controllers** folder and select **Add > Controller**
-2.	Select **MVC (.NET version) Controller – Empty**.
+2.	Select **MVC {version} Controller – Empty**.
 3.	Select **Add**.
 4.	Name it `HomeController` and select **Add**.
 5.	Add **OWIN** namespaces to the class:
