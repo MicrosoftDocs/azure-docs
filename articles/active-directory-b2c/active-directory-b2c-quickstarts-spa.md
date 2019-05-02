@@ -78,7 +78,12 @@ You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quick
 
 ## Next steps
 
-In this quickstart, you used a sample single-page application to sign in with a custom login page, sign in with a social identity provider, create an Azure AD B2C account, and call a web API protected by Azure AD B2C. 
+In this quickstart, you used a sample single-page application to:
+
+* Sign in with a custom login page
+* Sign in with a social identity provider
+* Create an Azure AD B2C account
+* Call a web API protected by Azure AD B2C
 
 Get started creating your own Azure AD B2C tenant.
 
