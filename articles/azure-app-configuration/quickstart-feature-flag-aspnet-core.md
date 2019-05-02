@@ -26,8 +26,6 @@ The .NET Core Feature Management libraries extend the .NET and ASP.NET Core fram
 
 You can use any code editor to do the steps in this quickstart. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
-![Quickstart app launch local](./media/quickstarts/aspnet-core-app-launch-local.png)
-
 ## Prerequisites
 
 To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/download).
@@ -40,9 +38,9 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
 
 6. Select **Feature Manager** > **+ Create** to add the following feature flags:
 
-    | Name | Value |
+    | Key | State |
     |---|---|
-    | Beta | On |
+    | Beta | Off |
 
 ## Create an ASP.NET Core web app
 
@@ -249,7 +247,21 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
         dotnet run
 
-3. Open a browser window, and go to `http://localhost:5000`, which is the default URL for the web app hosted locally.
+3. Open a browser window, and go to `https://localhost:5001`, which is the default URL for the web app hosted locally.
+
+    ![Quickstart app launch local](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
+
+4. Sign in to the [Azure portal](https://aka.ms/azconfig/portal). Select **All resources**, and select the app configuration store instance that you created in the quickstart.
+
+5. Select **Feature Manager**, and change the value of *Beta* to *On*:
+
+    | Key | State |
+    |---|---|
+    | Beta | On |
+
+6. Refresh the browser page to see the new configuration settings.
+
+    ![Quickstart app launch local](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
 
 ## Clean up resources
 

@@ -51,6 +51,8 @@
       href: howto-integrate-azure-managed-service-identity.md
     - name: Import or export configuration data
       href: howto-import-export-data.md
+    - name: Best practices
+      href: howto-best-practices.md
 - name: Reference
   items:
     - name: Configuration
@@ -75,5 +77,7 @@
   items:
     - name: Getting started video
       href: https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
+    - name: FAQ
+      href: faq.md
     - name: Provide product feedback
       href: https://github.com/Azure/AppConfiguration/issues
