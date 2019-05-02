@@ -61,13 +61,18 @@ When you're done, choose **OK**.
 
    ![Add partner details](./media/logic-apps-enterprise-integration-partners/partner-3.png)
 
+   For RosettaNet, as per the standard, the **Qualifier** can only be DUNS. The **Value** must be nine digits long, and must correspond to the DUNS number.
+
 7. Choose the **Partners** tile again.
 
    ![Choose "Partners" tile](./media/logic-apps-enterprise-integration-partners/partner-5.png)
 
    Your new partner now appears. 
 
-   ![View new partner](./media/logic-apps-enterprise-integration-partners/partner-6.png)
+   ![View new partner](./media/logic-apps-enterprise-integration-partners/partner-6.png)git 
+
+   > [!NOTE]
+   > For RosettaNet, addtional properties are required for Partners. They can be provided by editing the partner. The Edit partner section covers them.
 
 ## Edit partner
 
@@ -79,14 +84,17 @@ Choose the **Partners** tile.
 
 2. Under **Partners**, select the partner you want to edit.
 
-   ![Select partner to delete](./media/logic-apps-enterprise-integration-partners/edit-1.png)
-
+   ![Select partner to edit](./media/logic-apps-enterprise-integration-partners/edit-1.png)
+   
 3. Under **Update Partner**, make your changes.
-After you're done, choose **Save**. 
 
    ![Make and save your changes](./media/logic-apps-enterprise-integration-partners/edit-2.png)
 
-   To cancel your changes, select **Discard**.
+   For RosettaNet, additional information about the Partner can be provided. Choose **Partner Classficiation** to indicate the type of organization. The **Supply chain code** is the supply chain code for the partner, for exampme, "Information Technology" or "Electronic Components".
+
+   ![Make and save your changes](./media/logic-apps-enterprise-integration-partners/edit-rn.png)
+
+   After you're done, choose **OK** to save the changes.
 
 ## Delete partner
 
