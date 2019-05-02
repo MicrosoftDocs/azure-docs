@@ -179,3 +179,9 @@ It's not hard to imagine that all the solution patterns mentioned above can be c
 The key is to design your system in composable patterns, so each subsystem can be built, tested, upgraded, and recover independently.
 
 ## Next steps
+
+You now have seen a variety of solution patterns using Azure Stream Analytics. Next, you can dive deep and create your first Stream Analytics job:
+
+* [Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md).
+* [Create a Stream Analytics job by using Azure PowerShell](stream-analytics-quick-create-powershell.md).
+* [Create a Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md).
