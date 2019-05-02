@@ -9,7 +9,7 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 05/01/2019
 ms.author: cynthn
 ms.subservice: disks
 ---
@@ -24,14 +24,13 @@ The key features of ephemeral disks are:
 - Lower run-time latency similar to a temporary disk. 
 - No cost for the OS disk. 
  
-To join the preview, please fill in the form at http://aka.ms/ephemeralpreviewform  
  
 Key differences between persistent and ephemeral OS disks:
 
 |                             | Persistent OS Disk                          | Ephemeral OS Disk                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | Size limit for OS disk      | 2 TiB                                                                                        | Size limit for OS disk	2 TiB	Up to the VM cache size - [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md), and [GS](sizes-memory.md)              |
-| VM sizes supported          | All                                                                                          | DSv1, DSv2, DSv3, Esv2, Fs, FsV2, GS                                               |
+| VM sizes supported          | All                                                                                          | DSv1, DSv2, DSv3, Esv2, Fs, FsV2, GS, M                                               |
 | Disk type support           | Managed and unmanaged OS disk                                                                | Managed OS disk only                                                               |
 | Region support              | All regions                                                                                  | All regions                              |
 | Data persistence            | OS disk data written to OS disk are stored in Azure Storage                                  | Data written to OS disk is stored to the local VM storage and is not persisted to Azure Storage. |
@@ -204,6 +203,5 @@ A: Ephemeral disks do not support:
 - OS Disk Swap 
  
 ## Next steps
-
-For more information, see [Ephemeral OS Disk in limited preview](https://azure.microsoft.com/en-us/blog/ephemeral-os-disk-limited-public-preview/).
+For more information about the different sizes available for virtual machines, see [Azure Virtual Machine sizes](sizes.md).
 
