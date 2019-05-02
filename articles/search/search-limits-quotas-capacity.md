@@ -44,7 +44,10 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 | Resource | Free | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Maximum indexes |3 |5 or 15 |50 |200 |200 |1000 per partition or 3000 per service |10 |10 |
-| Maximum fields per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| Maximum simple fields per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| Maximum complex collection fields per index |40 |40 |40 |40 |40 |40 |40 |40 |
+| Maximum elements across all complex collections per document |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| Maximum depth of complex fields |10 |10 |10 |10 |10 |10 |10 |10 |
 | Maximum [suggesters](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
 | Maximum [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
 | Maximum functions per profile |8 |8 |8 |8 |8 |8 |8 |8 |

@@ -17,6 +17,24 @@ ms.custom: seodec18
 
 This article helps you find and correct errors or failures encountered when using the Azure Machine Learning service.
 
+## Visual interface issues
+
+Visual interface for machine learning service issues.
+
+### Long compute preparation time
+
+Create new compute or evoke leaving compute takes time, may be a few minutes or even longer. The team is working for optimization.
+
+
+### Cannot run an experiment only contains dataset 
+
+You might want to run an experiment only contains dataset  to visualize the dataset. However, it's not allowed to run an experiment only contains dataset today. We are actively fixing this issue.
+ 
+Before the fix, you can connect the dataset to any data transformation module (Select Columns in Dataset, Edit Metadata, Split Data etc.) and run the experiment. Then you can visualize the dataset. 
+
+Below image shows how:
+![visulize-data](./media/resource-known-issues/aml-visualize-data.png)
+
 ## SDK installation issues
 
 **Error message: Cannot uninstall 'PyYAML'**
