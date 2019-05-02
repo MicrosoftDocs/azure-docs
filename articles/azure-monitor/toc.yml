@@ -189,12 +189,12 @@
       items:
       - name: Activity log
         items:
-        - name: Collect 
-          href: platform/activity-log-collect.md
+        - name: Collect and Analyze
+          href: platform/collect-activity-logs.md
         - name: Collect across tenants
           href: platform/collect-activity-logs-subscriptions.md
-        - name: Analytics
-          href: platform/collect-activity-logs.md
+        - name: Export 
+          href: platform/activity-log-collect.md
       - name: Diagnostic logs
         items: 
         - name: Collect in Logs
