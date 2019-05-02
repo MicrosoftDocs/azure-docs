@@ -18,6 +18,28 @@ By default, AKS clusters have unrestricted outbound (egress) internet access. Th
 
 This article details what network ports and fully qualified domain names (FQDNs) are required and optional if you restrict egress traffic in an AKS cluster.
 
+## Before you begin
+
+You need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
+To create an AKS cluster that can limit egress traffic, first enable a feature flag on your subscription. To register the *AKSLockingDownEgressPreview* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
+
+```azurecli-interactive
+az feature register --name AKSLockingDownEgressPreview --namespace Microsoft.ContainerService
+```
+
+It takes a few minutes for the status to show *Registered*. You can check on the registration status by using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSLockingDownEgressPreview')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
 ## Egress traffic overview
 
 For management and operational purposes, nodes in an AKS cluster need to access certain ports and fully qualified domain names (FQDNs). These actions could be to communicate with the API server, or to download and then install core Kubernetes cluster components and node security updates. By default, egress (outbound) internet traffic is not restricted for nodes in an AKS cluster.
@@ -66,6 +88,8 @@ The following FQDN / application rules are recommended for AKS clusters to funct
 | *.opinsights.azure.com                  | HTTPS:443 | Recommended for correct metrics and monitoring using Azure Monitor. |
 | *.monitoring.azure.com                  | HTTPS:443 | Recommended for correct metrics and monitoring using Azure Monitor. |
 | gov-prod-policy-data.trafficmanager.net | HTTPS:443 | This address is used for correct operation of Azure Policy (currently in preview in AKS). |
+| apt.dockerproject.org                   | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
+| nvidia.github.io                        | HTTPS:443 | This address is used for correct driver installation and operation on GPU-based nodes. |
 
 ## Next steps
 
@@ -77,3 +101,6 @@ In this article, you learned what ports and addresses to allow if you restrict e
 [install-azure-cli]: /cli/azure/install-azure-cli
 [network-policy]: use-network-policies.md
 [azure-firewall]: ../firewall/overview.md
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
