@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 11/02/2018
+ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -72,6 +72,46 @@ The simplest way to do this is to use SQL Server Management Studio installed on 
       With the latest build, provisioning the database can now be performed out of band by the SQL administrator and then installed by the Azure AD Connect administrator with database owner rights. For more information, see [Install Azure AD Connect by using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md).
 
 To keep things simple, we recommend that users who install Azure AD Connect be system administrators in SQL. However, with recent builds you can now use delegated SQL administrators, as described in [Install Azure AD Connect using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md).
+
+**Q: What are some of the best practices from the field?**  
+
+The following is an informational document that presents some of the best practices that engineering, support and our consultants have developed over the years.  This is presented in a bullet list that can be quickly referenced.  Although this list attempts to be comprehensive, there may be additional best practices that might not have made it on the list yet.
+
+- If using Full SQL then it should remain local vs. remote
+    - Fewer hops
+    - Easier to troubleshoot
+    - Less complexity
+    - Need to designate resources to SQL and allow overhead for Azure AD Connect and OS
+- Bypass Proxy if at all possible, if you are unable to bypass the proxy then you need to ensure that the timeout value is greater than 5 minutes.
+- If proxy is required then you must add the proxy to the machine.config file
+- Be aware of local SQL jobs and maintenance and how they will impact Azure AD Connect - particularly re-indexing
+- Ensure than DNS can resolve externally
+- Ensure that [server specifications](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect) are per recommendation whether you are using physical or virtual servers
+- Ensure that if you are using a virtual server that resources required are dedicated
+- Ensure that you have the disk and disk configuration meet Best Practices for SQL Server
+- Install and configure Azure AD Connect Health for monitoring
+- Use SCOM to monitor health and stability of SQL Server
+- Use SCOM to monitor throttling via Event Log messages
+- Use the Delete Threshold that is built into Azure AD Connect.
+- Carefully review release updates to be prepared for all changes and new attributes that may be added
+- Backup everything
+    - Backup Keys
+    - Backup Synchronization Rules
+    - Backup Server Configuration
+    - Backup SQL Database
+- Ensure that there are no 3rd party backup agents that are backing up SQL without the SQL VSS Writer (common in virtual servers with 3rd party snapshots)
+- Limit the amount of custom synchronization rules that are used as they add complexity
+- Treat Azure AD Connect Servers as Tier 0 Servers
+- Be leery of modifying  cloud synchronization rules without great understanding of the impact and the right business drivers
+- Make sure that the correct URL's and Firewall ports are open for support of Azure AD Connect and Azure AD Connect Health
+- Leverage the cloud filtered attribute to troubleshoot and prevent phantom objects
+- With the Staging Server ensure that you are using the Azure AD Connect Configuration Documenter for consistency between servers
+- Staging Servers should be in separate datacenters (Physical Locations
+- Staging servers are not meant to be a High Availability solution, but you can have multiple staging servers
+- Introducing a "Lag" Staging Servers could mitigate some potential downtime in case of error
+- Test and Validate all upgrades on the Staging Server first
+- Always validate exports before switching over to the staging serverLeverage the staging server for Full Imports and Full Synchronizations to reduce business impact
+- Keep version consistency between Azure AD Connect Servers as much as possible 
 
 ## Network
 **Q: I have a firewall, network device, or something else that limits the time that connections can stay open on my network. What should my client-side timeout threshold be when I use Azure AD Connect?**  
