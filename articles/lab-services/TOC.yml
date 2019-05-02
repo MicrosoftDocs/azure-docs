@@ -166,6 +166,8 @@
         href: connect-environment-lab-virtual-network.md
       - name: Integrate environments into your Azure DevOps CI/CD pipeline
         href: integrate-environments-devops-pipeline.md
+      - name: Use Platform-as-a-Service (PaaS) services
+        href: use-pass-services.md
     - name: Secure access to labs
       items:
       - name: Add lab owners and users
