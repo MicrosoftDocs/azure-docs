@@ -20,6 +20,8 @@ ms.author: b-juche
 
 Understanding resource limits for Azure NetApp Files helps you manage your volumes.
 
+The following table describes resource limits for Azure NetApp Files:
+
 |  **Resource**  |  **Default Limit**  |  **Adjustable via Support Request**  |
 |----------------|---------------------|--------------------------------------|
 |  Number of NetApp accounts per Azure  Subscription   |  10    |  Yes   |
@@ -40,10 +42,10 @@ You can create an Azure support request to increase the adjustable limits from t
 
 From Azure portal navigation plane: 
 
-1. Click **Help + support**
-2. Click **+ New support request**
+1. Click **Help + support**.
+2. Click **+ New support request**.
 3. On the Basics tab, provide the following information: 
-    * Issue type: Select **Service and subscription limits (quotas)**
+    * Issue type: Select **Service and subscription limits (quotas)**.
     * Subscriptions: Select the subscription with the resource that needs the quota increase.
     * Quota type: Select **Storage: Azure NetApp Files limits**.
     * Click **Next: Solutions**.
