@@ -60,7 +60,7 @@ Azure Active Directory (Azure AD) B2C provides cloud identity management to keep
 
     ![Sign In or Sign Up provider](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-    You authenticate (sign-in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
+    You authenticate (sign in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
 
 3. Finish the sign-in process for the identity provider.
 
