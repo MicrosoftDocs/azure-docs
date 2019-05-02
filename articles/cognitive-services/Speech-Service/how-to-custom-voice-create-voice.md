@@ -19,7 +19,7 @@ In [Prepare data for Custom Voice](how-to-custom-voice-prepare-data.md), we desc
 > [!NOTE]
 > This page assumes you have read [Get started with Custom Voice](how-to-custom-voice.md) and [Prepare data for Custom Voice](how-to-custom-voice-prepare-data.md), and have created a Custom Voice project.
 
-Check the languages supported for custom voice: language for customization.
+Check the languages supported for custom voice: [language for customization](language-support.md#customization).
 
 ## Upload your datasets
 
@@ -27,7 +27,7 @@ When you're ready to upload your data, go to the [Custom Voice portal](http://ak
 
 Go to the **Data** tab and click **Upload data**. In the wizard, select the correct data type that matches what you have prepared.
 
-Each dataset you upload must meet the requirements for the data type that you choose. It is important to correctly format your data before it's uploaded. This ensures the data will be accurately processed by the Custom Voice service. Go to Prepare data for Custom Voice and make sure your data has been rightly formatted.
+Each dataset you upload must meet the requirements for the data type that you choose. It is important to correctly format your data before it's uploaded. This ensures the data will be accurately processed by the Custom Voice service. Go to [Prepare data for Custom Voice](how-to-custom-voice-prepare-data.md) and make sure your data has been rightly formatted.
 
 > [!NOTE]
 > Free subscription (F0) users can upload two datasets simultaneously. Standard subscription (S0) users can upload five datasets simultaneously. If you reach the limit, wait until at least one of your datasets finishes importing. Then try again.
@@ -45,7 +45,7 @@ The following table shows the processing states for imported datasets:
 | Succeeded	| Your dataset has been validated and may now be used to build a voice model. |
 | Failed | Your dataset has been failed during processing due to many reasons, for example file errors, data problems or network issues. |
 
-After validation is complete, you can see the total number of matched utterances for each of your datasets in the **Utterance** column. If the data type you have selected requires long-audio segmentation, this column only reflects the utterances we have segmented for you either based on your transcripts or through the speech transcription service. You can further download the dataset validated to view the detail results of the utterances successfully imported and their mapping transcripts. Hint: long-audio segmentation can take more than an hour to complete data processing.
+After validation is complete, you can see the total number of matched utterances for each of your datasets in the **Utterances** column. If the data type you have selected requires long-audio segmentation, this column only reflects the utterances we have segmented for you either based on your transcripts or through the speech transcription service. You can further download the dataset validated to view the detail results of the utterances successfully imported and their mapping transcripts. Hint: long-audio segmentation can take more than an hour to complete data processing.
 
 For en-US and zh-CN datasets, you can further download a report to check the pronunciation scores and the noise level for each of your recordings. The pronunciation score ranges from 0 to 100. A score below 70 normally indicates a speech error or script mismatch. A heavy accent can reduce your pronunciation score and impact the generated digital voice.
 
@@ -73,9 +73,9 @@ After your dataset has been validated, you can use it to build your custom voice
     > Duplicate audio names will be removed from the training. Make sure the datasets you select do not contain the same audio names across multiple .zip files.
 
     > [!TIP]
-    > When the datasets you have submitted for training contain a total number of less than 6,000 distinct utterances, you will train your voice model through the Statistical Parametric Synthesis technique. In the case where your training data exceeds a total number of 6,000 distinct utterances, you will kick off a training process with the Concatenation Synthesis technique. Normally the concatenation technology can result in more natural, and higher-fidelity voice results. Contact the Custom Voice team if you want to train a model with the latest Neural TTS technology that can produce a digital voice equivalent to the publically available [neural voices](https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support?branch=release-build-cogserv-speech-services#neural-voices).
+    > Using the datasets from the same speaker is required for quality results. When the datasets you have submitted for training contain a total number of less than 6,000 distinct utterances, you will train your voice model through the Statistical Parametric Synthesis technique. In the case where your training data exceeds a total number of 6,000 distinct utterances, you will kick off a training process with the Concatenation Synthesis technique. Normally the concatenation technology can result in more natural, and higher-fidelity voice results. [Contact the Custom Voice team](mailto:speechsupport@microsoft.com) if you want to train a model with the latest Neural TTS technology that can produce a digital voice equivalent to the publically available [neural voices](language-support.md#neural-voices).
 
-5.	Click **Create** to begin creating your voice model.
+5.	Click **Train** to begin creating your voice model.
 
 The Training table displays a new entry that corresponds to this newly created model. The table also displays the status: Processing, Succeeded, Failed.
 
@@ -105,13 +105,10 @@ After your voice font is successfully built, you can test it before deploying it
 
 3.	Select one or multiple models that you would like to test.
 
-4.	Provide the text you want the voice(s) to speak. Or use the SSML to generate the audio with the voice(s). If you have selected to test multiple models at one time, the same text/SSML will be used for the testing for different models.
+4.	Provide the text you want the voice(s) to speak. If you have selected to test multiple models at one time, the same text will be used for the testing for different models.
 
     > [!NOTE]
-    > The maximum input size is 1,024 characters, including all tags for the SSML request. The language of your text must be the same as the language of your voice font.
-
-    > [!TIP]
-    > Check [Speech Synthesis Markup Language](speech-synthesis-markup.md) to learn how to use SSML to control the output results.
+    > The language of your text must be the same as the language of your voice font. Only successfully trained models can be tested. Only plain text is supported in this step. 
 
 5.	Click **Create**.
 
@@ -121,11 +118,11 @@ You can also find the test results in the detail page of each models you have se
 
 ## Create and use a custom voice endpoint
 
-After you've successfully created and tested your voice model, you deploy it in a custom Text-to-Speech endpoint. You then use this endpoint in place of the usual endpoint when making Text-to-Speech requests through the REST API. Your custom endpoint can be called only by the subscription that you used to deploy the font.
+After you've successfully created and tested your voice model, you deploy it in a custom Text-to-Speech endpoint. You then use this endpoint in place of the usual endpoint when making Text-to-Speech requests through the REST API. Your custom endpoint can be called only by the subscription that you have used to deploy the font.
 
 To create a new custom voice endpoint, go to **Text-to-Speech > Custom Voice > Deployment**. Select **Add endpoint** and enter a **Name** and **Description** for your custom endpoint. Then select the custom voice model you would like to associate with this endpoint.
 
-After you have clicked the **Create** button, in the endpoint table, you will see an entry for your new endpoint. It may take a few minutes to instantiate a new endpoint. When the status of the deployment is **Succeeded**, the endpoint is ready for use.
+After you have clicked the **Add** button, in the endpoint table, you will see an entry for your new endpoint. It may take a few minutes to instantiate a new endpoint. When the status of the deployment is **Succeeded**, the endpoint is ready for use.
 
 > [!NOTE]
 > Free subscription (F0) users can have only one model deployed. Standard subscription (S0) users can create up to 50 endpoints, each with its own custom voice.
@@ -135,10 +132,11 @@ After you have clicked the **Create** button, in the endpoint table, you will se
 
 After your endpoint is deployed, the endpoint name appears as a link. Click the link to display information specific to your endpoint, such as the endpoint key, endpoint URL, and sample code.
 
-Online testing of the endpoint is also available via the custom voice portal. To test your endpoint, choose **Validate endpoint** from the **Endpoint detail** page. The endpoint testing page appears. Enter the text to be spoken (in either plain text or SSML format) in the text box. To hear the text spoken in your custom voice font, select **Play**. This testing feature will be charged against your custom speech synthesis usage.
+Online testing of the endpoint is also available via the custom voice portal. To test your endpoint, choose **Check endpoint** from the **Endpoint detail** page. The endpoint testing page appears. Enter the text to be spoken (in either plain text or [SSML format](speech-synthesis-markup.md) in the text box. To hear the text spoken in your custom voice font, select **Play**. This testing feature will be charged against your custom speech synthesis usage.
 
-The custom endpoint is functionally identical to the standard endpoint that's used for text-to-speech requests. See [REST API](https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis) for more information.
+The custom endpoint is functionally identical to the standard endpoint that's used for text-to-speech requests. See [REST API](rest-text-to-speech.md) for more information.
 
 ## Next steps
 
 * [Guide: Record your voice samples](record-custom-voice-samples.md)
+* [Text-to-Speech API reference](rest-text-to-speech.md)
