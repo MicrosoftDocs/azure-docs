@@ -28,9 +28,9 @@ This table lists data types and how each is used to create a custom text-to-spee
 
 | Data type | Description | When to use | Additional service required | Quantity for training a model | Locale(s) |
 | --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
-| **Individual utterances + matching transcript** | A collection (.zip) of audio files (.wav) as individual utterances. Each audio file should be 15 seconds or less in length, paired with a formatted transcript (.txt). | Professional recordings with matching transcripts | Ready for training. | No hard requirement for en-US and zh-CN. 2,000+ utterances for other locales. | All Custom Voice locales |
+| **Individual utterances + matching transcript** | A collection (.zip) of audio files (.wav) as individual utterances. Each audio file should be 15 seconds or less in length, paired with a formatted transcript (.txt). | Professional recordings with matching transcripts | Ready for training. | No hard requirement for en-US and zh-CN. More than 2,000+ distinct utterances for other locales. | All Custom Voice locales |
 | **Long audio + transcript (beta)** | A collection (.zip) of long, unsegmented audio files (longer than 20 seconds), paired with a transcript (.txt) that contains all spoken words. | You have audio files and matching transcripts, but they are not segmented into utterances. | Segmentation (using batch transcription).<br>Audio format transformation where required. | No hard requirement for en-US and zh-CN. | `en-US` and `zh-CN` |
-| **Audio only (beta)** | A collection (.zip) of audio files without a transcript. | You only have audio files available, without transcripts. | Segmentation + transcript generation (using batch transcription). | No hard requirement for `en-US` and `zh-CN`. | `en-US` and `zh-CN` |
+| **Audio only (beta)** | A collection (.zip) of audio files without a transcript. | You only have audio files available, without transcripts. | Segmentation + transcript generation (using batch transcription).<br>Audio format transformation where required.| No hard requirement for `en-US` and `zh-CN`. | `en-US` and `zh-CN` |
 
 Files should be grouped by type into a dataset and uploaded as a zip file. Each dataset can only contain a single data type.
 
@@ -83,8 +83,7 @@ Below is an example of how the transcripts are organized utterance by utterance 
 0000000002[tab]	We have trouble scoring.
 0000000003[tab]	It was Janet Maslin.
 ```
-
-The custom voice system normalizes transcripts by converting the text to lowercase and removing extraneous punctuation. It’s important that the transcripts are 100% accurate transcriptions of the corresponding audio. Errors in the transcripts will introduce quality loss during the training.
+It’s important that the transcripts are 100% accurate transcriptions of the corresponding audio. Errors in the transcripts will introduce quality loss during the training.
 
 > [!TIP]
 > When building production text-to-speech voices, select utterances (or write scripts) that take into account both phonetic coverage and efficiency. Having trouble getting the results you want? [Contact the Custom Voice](mailto:speechsupport@microsoft.com) team to find out more about having us consult.
@@ -103,8 +102,6 @@ Follow these guidelines when preparing audio for segmentation.
 | Property | Value |
 | -------- | ----- |
 | File format | RIFF (.wav) with a sampling rate of at least 16 khz-16-bit in PCM or .mp3 with a bit rate of at least 256 KBps, grouped into a .zip file |
-| Sample rate | 16,000 Hz and above |
-| Sample format	| PCM, 16-bit |
 | File name	| ASCII characters only. Unicode characters in the name will fail (for example, the Chinese characters, or symbols like "—"). No duplicate names allowed. |
 | Audio length | Longer than 20 seconds |
 | Archive format | .zip |
@@ -139,15 +136,13 @@ Follow these guidelines when preparing audio.
 
 | Property | Value |
 | -------- | ----- |
-| File format | RIFF (WAV) or MP3, grouped into a .zip file |
-| Sample rate | 16,000 Hz and above |
-| Sample format | PCM, 16-bit |
+| File format | RIFF (.wav) with a sampling rate of at least 16 khz-16-bit in PCM or .mp3 with a bit rate of at least 256 KBps, grouped into a .zip file |
 | File name | ASCII characters only. Unicode characters in the name will fail (for example, the Chinese characters, or symbols like "—"). No duplicate name allowed. |
 | Audio length | Longer than 20 seconds |
 | Archive format | .zip |
 | Maximum archive size | 200 MB |
 
-All audio files should be grouped into a zip file. No subfolder is allowed in the zip file. Once your dataset is successfully uploaded, we will help you segment the audio file into utterances based on our speech batch transcription service. Unique IDs will be assigned to the segmented utterances automatically. Matching transcripts will be generated through speech recognition. You can check the segmented utterances and the matching transcripts by downloading the dataset.
+All audio files should be grouped into a zip file. No subfolder is allowed in the zip file. Once your dataset is successfully uploaded, we will help you segment the audio file into utterances based on our speech batch transcription service. Unique IDs will be assigned to the segmented utterances automatically. Matching transcripts will be generated through speech recognition. All .mp3 files will be transformed into the .wav format after processing. You can check the segmented utterances and the matching transcripts by downloading the dataset.
 
 ## Next steps
 
