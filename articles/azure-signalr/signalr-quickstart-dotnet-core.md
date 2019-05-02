@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 03/01/2019
 ms.author: zhshang
 ---
-# Quickstart: Create a chat room with SignalR Service
+# Quickstart: Create a chat room by using SignalR Service
 
 
 Azure SignalR Service is an Azure service that helps developers easily build web applications with real-time features. This service is based on [SignalR for ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
@@ -179,7 +179,7 @@ If the connection is successful, that connection is passed to `bindConnectionMes
 
 In this section, you'll add a development runtime environment for ASP.NET Core. For more information, see [Work with multiple environments in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/environments).
 
-1. Create a new folder in your project named *Properties*.
+1. Create a folder named *Properties* in your project.
 
 2. Add a new file named *launchSettings.json* to the folder, with the following content, and save the file.
 
@@ -253,7 +253,7 @@ After a few moments, the resource group and all of its resources are deleted.
 
 ## Next steps
 
-In this quickstart, you created a new Azure SignalR Service resource and used it with an ASP.NET Core web app to push content updates in real time to multiple connected clients. To learn more about using Azure SignalR Service, continue to the next tutorial that demonstrates authentication.
+In this quickstart, you created a new Azure SignalR Service resource. You then used it with an ASP.NET Core web app to push content updates in real time to multiple connected clients. To learn more about using Azure SignalR Service, continue to the tutorial that demonstrates authentication.
 
 > [!div class="nextstepaction"]
 > [Azure SignalR Service authentication](./signalr-concept-authenticate-oauth.md)
