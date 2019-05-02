@@ -76,20 +76,7 @@ In general, databases are run on a machine with sufficient capacity to satisfy r
 
 ### Memory management
 
-Memory for serverless databases is reclaimed more frequently than for provisioned databases. This behavior is important to control costs in serverless.
-
-#### Cache reclaiming
-
-Unlike provisioned compute, memory from the SQL cache is reclaimed from a serverless database when CPU or cache utilization is low. In both serverless and provisioned compute, cache entries can be evicted if all available memory is used.
-
-- Cache utilization is considered low when the total size of the most recently used cache entries falls below a threshold for a period of time.
-- When cache reclamation is triggered, the target cache size is reduced incrementally to a fraction of its previous size and reclaiming only continues if usage remains low.
-- When cache reclamation occurs, the policy for selecting cache entries to evict is the same selection policy as for provisioned compute databases when memory pressure is high.
-- The cache size is never reduced below the minimum memory as defined by minimum vCores.
-
-#### Cache hydration
-
-The SQL cache grows as data is fetched from disk in the same way and with the same speed as for provisioned databases. The cache is allowed to grow unconstrained up to the max memory limit when the database is busy.
+Memory for serverless databases is reclaimed more frequently than for provisioned databases. This behavior is important to control costs in serverless. Unlike provisioned compute, memory from the SQL cache is reclaimed from a serverless database when CPU or cache utilization is low.
 
 ## Autopause and autoresume
 
@@ -119,6 +106,11 @@ Autoresume is triggered if any of the following conditions are true at any time:
 |Database copying|Create database as copy<br>Export to a BACPAC file|
 |SQL data sync|Synchronization between hub and member databases that run on a configurable schedule or are performed manually|
 |Modifying certain database metadata|Adding new database tags<br>Changing max vcores, min vcores, autopause delay|
+|SQL Server Management Studio (SSMS)|Using SSMS version 18 and opening a new query window for any database in the server will resume any auto-paused database in the same server. This behavior does not occur if using SSMS version 17.9.1 with IntelliSense turned-off.|
+
+### Connectivity
+
+If a serverless databases is paused, then the first login will resume the database and return an error stating that the database is unavailable. Once the database is resumed, the login must be retried to establish connectivity. Database clients with connection retry logic should not need to be modified.
 
 ### Latency
 
