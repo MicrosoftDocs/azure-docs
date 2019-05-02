@@ -30,7 +30,7 @@ New to faceted navigation and want more detail? See [How to implement faceted na
 
 ## Choose fields
 
-Facets can be calculated over single value fields as well as collections. Fields that work best in faceted navigation have low cardinality: a small number of distinct values that repeat throughout documents in your search corpus (for example, a list of colors, countries, or brand names). 
+Facets can be calculated over single value fields as well as collections. Fields that work best in faceted navigation have low cardinality: a small number of distinct values that repeat throughout documents in your search corpus (for example, a list of colors, countries/regions, or brand names). 
 
 Faceting is enabled on a field-by-field basis when you create the index, by setting the following attributes to TRUE: `filterable`, `facetable`. Only filterable fields can be faceted.
 
