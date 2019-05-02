@@ -170,9 +170,10 @@ result from the **Send approval email** action for the Office 365 Outlook
 connector. At create time, the Logic Apps engine analyzes your code to 
 determine whether you've referenced any trigger or action results and 
 includes those results automatically. At run time, should you get an 
-error that the referenced trigger or action result isn't available, 
-you must explicitly add that dependency. In this example, you add 
-the **Actions** parameter and specify that the **Inline Code** action 
+error that the referenced trigger or action result isn't available in 
+the specified `workflowContext` object, you can add that trigger or 
+action as an explicit dependency. In this example, you add the 
+**Actions** parameter and specify that the **Inline Code** action 
 explicitly include the result from the **Send approval email** action.
 
 To add these parameters, open the **Add new parameter** list, 
