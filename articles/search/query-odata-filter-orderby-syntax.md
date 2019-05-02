@@ -1,7 +1,7 @@
 ---
 title: OData expression syntax for filters and order-by clauses - Azure Search
 description: Filter and order-by expression OData syntax for Azure Search queries.
-ms.date: 03/27/2019
+ms.date: 05/02/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -30,7 +30,7 @@ A **$filter** expression can execute standalone as a fully expressed query, or r
 
 
 ```POST
-POST /indexes/hotels/docs/search?api-version=2017-11-11
+POST /indexes/hotels/docs/search?api-version=2019-05-06
     {
       "filter": "(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'"
     }
@@ -39,7 +39,7 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 Another common use case is filters combined faceting, where the filter reduces the query surface area based on a user-driven facet navigation selection:
 
 ```POST
-POST /indexes/hotels/docs/search?api-version=2017-11-11
+POST /indexes/hotels/docs/search?api-version=2019-05-06
     {
       "search": "test",
       "facets": [ "tags", "baseRate,values:80|150|220" ],
