@@ -73,7 +73,10 @@ The following JSON is with the `verbose` parameter set to `false`:
         },
         "entities": {
             "ordinal": [
-                2
+                {
+                    "offset": 2,
+                    "relativeTo": "start"
+                }
             ]
         }
     }
@@ -95,18 +98,24 @@ The following JSON is with the `verbose` parameter set to `true`:
         },
         "entities": {
             "ordinal": [
-                2
+                {
+                    "offset": 2,
+                    "relativeTo": "start"
+                }
             ],
             "$instance": {
                 "ordinal": [
-                    {
-                        "type": "builtin.ordinal",
-                        "text": "second",
-                        "startIndex": 10,
-                        "length": 6,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
+                  {
+                    "type": "builtin.ordinal",
+                    "text": "second",
+                    "startIndex": 10,
+                    "length": 6,
+                    "modelTypeId": 2,
+                    "modelType": "Prebuilt Entity Extractor",
+                    "recognitionSources": [
+                        "model"
+                    ]
+                  }
                 ]
             }
         }
