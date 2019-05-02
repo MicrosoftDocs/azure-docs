@@ -9,7 +9,7 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
-ms.date: 07/08/2016
+ms.date: 05/06/2019
 ---
 
 # Add trading partners for integration accounts in Azure Logic Apps with Enterprise Integration Pack
