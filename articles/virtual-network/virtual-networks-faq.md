@@ -243,7 +243,7 @@ The following resources use Basic Load Balancers which means you cannot communic
 - SQL Always-on
 - SQL MI
 - API Managemenet
-- ADDS
+- Active Directory Domain Service (ADDS)
 - Logic Apps
 - HD Insight
 -	Azure Batch

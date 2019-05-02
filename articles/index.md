@@ -447,6 +447,12 @@ featureFlags:
                                                 <p>CycleCloud</p>
                                             </a>
                                         </li>
+<li>
+                                            <a href="/azure/vmware-cloudsimple/">
+                                                <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
+                                                <p>Azure VMware Solution by CloudSimple</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Databases</h3>
                                     <ul>
@@ -1029,6 +1035,12 @@ featureFlags:
                                                 <p>Bing Image Search API</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/open-datasets">
+                                                <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                <p>Open Datasets</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Migration</h3>
                                     <ul>
@@ -1265,6 +1277,12 @@ featureFlags:
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Data Lake Storage Gen1</p>
                                             </a>
+                                        </li>
+                                        <li>
+                                        <a href="/azure/open-datasets">
+                                            <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                            <p>Open Datasets</p>
+                                        </a>
                                         </li>
                                     </ul>
                                     <h3>DevOps</h3>
@@ -2081,6 +2099,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>CycleCloud</h3>
                                                     <p>Create, manage, operate, and optimize HPC and big compute clusters of any scale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+<li>
+                                <a href="/azure/vmware-cloudsimple/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure VMware Solution by CloudSimple</h3>
+                                                    <p>Run the VMware platform in Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3624,6 +3661,25 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/open-datasets">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Open Datasets</h3>
+                                                    <p>Curated public datasets to enhance machine learning models</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/azure-netapp-files/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3796,6 +3852,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure Search</h3>
                                                     <p>Fully-managed search-as-a-service</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/open-datasets">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Open Datasets</h3>
+                                                    <p>Curated public datasets to enhance machine learning models</p>
                                                 </div>
                                             </div>
                                         </div>
