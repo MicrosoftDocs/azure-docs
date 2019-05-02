@@ -4,7 +4,7 @@ description: Reference for the simple query syntax used for full text search que
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 05/02/2019
 author: "brjohnstmsft"
 ms.author: "brjohnst"
 ms.manager: cgronlun
