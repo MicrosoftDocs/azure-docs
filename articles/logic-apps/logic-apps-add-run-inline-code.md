@@ -159,13 +159,13 @@ run time.
 > includes the resolved token references.
 
 For example, suppose you have code that references the **SelectedOption** 
-output from the **Send an approval email** action for the Office 365 
+output from the **Send approval email** action for the Office 365 
 Outlook connector. At run time, the Logic Apps engine analyzes your 
 code to determine whether you've referenced any trigger or action 
 outputs and includes those outputs automatically. However, should 
 you get an error that a referenced output isn't available, you can 
 add the **Actions** parameter and specify that the **Inline Code** 
-action explicitly include outputs from the **Send an approval email** action.
+action explicitly include outputs from the **Send approval email** action.
 
 To add these parameters, open the **Add new parameter** list, 
 and select the parameters you want:
@@ -206,7 +206,7 @@ which appears in the logic app's underlying workflow definition.
 and search inside the `actions` attribute for the action name. 
 
    For example, `Send_approval_email_` is the JSON 
-   name for the **Send an approval email** action.
+   name for the **Send approval email** action.
 
    ![Find action name in JSON](./media/logic-apps-add-run-inline-code/find-action-name-json.png)
 
