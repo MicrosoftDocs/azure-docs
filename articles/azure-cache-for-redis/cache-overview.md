@@ -23,9 +23,9 @@ ms.custom: mvc
 
 Azure Cache for Redis is based on the popular software [Redis](https://redis.io/). It is typically used as a cache to improve the performance and scalability of systems that rely heavily on backend data-stores. Performance is improved by temporarily copying frequently accessed data to fast storage located close to the application. With [Azure Cache for Redis](https://redis.io/), this fast storage is located in-memory with Azure Cache for Redis instead of being loaded from disk by a database.
 
-Azure Cache for Redis can also be used as an in-memory data structure store, distributed non-relational database, and message broker. Application performance is improved by taking advantage of the low-latency, high-throughput performance of the Redis engine.
+Azure Cache for Redis can also be used as an in-memory data structure store, a distributed non-relational database, and a message broker. Application performance is improved by taking advantage of the low-latency, high-throughput performance of the Redis engine.
 
-Azure Cache for Redis gives you access to a secure, dedicated Azure Cache for Redis, managed by Microsoft, hosted within Azure, and accessible to any application within or outside of Azure.
+Azure Cache for Redis provides you access to a secure, dedicated Redis cache. Azure Cache for Redis is managed by Microsoft, hosted within Azure, and accessible to any application within or outside of Azure.
 
 ## Using Azure Cache for Redis
 
