@@ -179,7 +179,7 @@
       href: use-network-policies.md
     - name: Use pod security policies (preview)
       href: use-pod-security-policies.md
-    - name: Whitelist IP address ranges for API server access (preview)
+    - name: Define API server authorized IP ranges (preview)
       href: api-server-authorized-ip-ranges.md
     - name: Update cluster service principal credentials
       href: update-credentials.md

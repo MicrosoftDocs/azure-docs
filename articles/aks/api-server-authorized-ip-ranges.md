@@ -12,11 +12,11 @@ ms.author: iainfou
 #Customer intent: As a cluster operator, I want to increase the security of my cluster by limiting access to the API server to only the IP addresses that I specify.
 ---
 
-# Preview - Secure access to the API server using an IP address ranges in Azure Kubernetes Service (AKS)
+# Preview - Secure access to the API server using authorized IP address ranges in Azure Kubernetes Service (AKS)
 
 In Kubernetes, the API server receives requests to perform actions in the cluster such as to create resources or scale the number of nodes. The API server is the central way to interact with and manage a cluster. To improve cluster security and minimize attacks, the API server should only be accessible from a limited set of IP address ranges.
 
-This article shows you how to use the API server IP address ranges to limit requests to control plane. This feature is currently in preview.
+This article shows you how to use API server authorized IP address ranges to limit requests to control plane. This feature is currently in preview.
 
 > [!IMPORTANT]
 > AKS preview features are self-service and opt-in. Previews are provided to gather feedback and bugs from our community. However, they are not supported by Azure technical support. If you create a cluster, or add these features to existing clusters, that cluster is unsupported until the feature is no longer in preview and graduates to general availability (GA).
