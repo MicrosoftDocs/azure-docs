@@ -271,44 +271,6 @@ doesn't automatically go to your environment after deployment finishes.
 For more information about creating subnets, see 
 [Add a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md).
 
-<a name="add-capacity"></a>
-
-### Add capacity
-
-Your ISE base unit has fixed capacity, so if you 
-need more throughput, you can add more scale units. 
-You can autoscale based on performance metrics or 
-based on a number of additional processing units. 
-If you choose autoscaling based on metrics, you can 
-choose from various criteria and specify the threshold 
-conditions for meeting that criteria.
-
-1. In the Azure portal, find your ISE.
-
-1. To view performance metrics for your ISE, 
-on your ISE's main menu, choose **Overview**.
-
-1. To set up autoscaling, under **Settings**, 
-select **Scale out**. On the **Configure** tab, 
-choose **Enable autoscale**.
-
-1. In the **Default** section, choose either 
-**Scale based on a metric** or 
-**Scale to a specific instance count**.
-
-1. If you choose instance-based, enter the number of 
-processing units between 0 and 10 inclusively. 
-Otherwise, for metric-based, follow these steps:
-
-   1. In the **Default** section, choose **Add a rule**.
-
-   1. On the **Scale rule** pane, set up your criteria 
-   and action to take when the rule triggers.
-
-   1. When you're done, choose **Add**.
-
-1. When you're finished, remember to save your changes.
-
 <a name="create-logic-apps-environment"></a>
 
 ## Create logic app - ISE
@@ -364,6 +326,44 @@ except for the **Location** property where the
 Instead, select your ISE, rather than a region, for example:
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
+
+<a name="add-capacity"></a>
+
+## Add capacity to ISE
+
+Your ISE base unit has fixed capacity, so if you 
+need more throughput, you can add more scale units. 
+You can autoscale based on performance metrics or 
+based on a number of additional processing units. 
+If you choose autoscaling based on metrics, you can 
+choose from various criteria and specify the threshold 
+conditions for meeting that criteria.
+
+1. In the Azure portal, find your ISE.
+
+1. To review usage performance metrics for your ISE, 
+on your ISE's main menu, choose **Overview**.
+
+1. To set up autoscaling, under **Settings**, 
+select **Scale out**. On the **Configure** tab, 
+choose **Enable autoscale**.
+
+1. In the **Default** section, choose either 
+**Scale based on a metric** or 
+**Scale to a specific instance count**.
+
+1. If you choose instance-based, enter the number of 
+processing units between 0 and 10 inclusively. 
+Otherwise, for metric-based, follow these steps:
+
+   1. In the **Default** section, choose **Add a rule**.
+
+   1. On the **Scale rule** pane, set up your criteria 
+   and action to take when the rule triggers.
+
+   1. When you're done, choose **Add**.
+
+1. When you're finished, remember to save your changes.
 
 ## Next steps
 
