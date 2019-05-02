@@ -60,7 +60,7 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 > [!Note]
 > The minimum and recommended values are based off of Docker limits and *not* the host machine resources.
 
-## Get the container image with `docker pull`
+## Get the container image with docker pull command
 
 Container images for Form Recognizer are available.
 
@@ -68,7 +68,7 @@ Container images for Form Recognizer are available.
 |-----------|------------|
 | cognitive-services-form-recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
 
-If you intent to use the `cognitive-services-recognize-text` [container](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull), instead of the Form Recognizer service, make sure you use the `docker pull` command with the correct container name: 
+If you intend to use the `cognitive-services-recognize-text` [container](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull), instead of the Form Recognizer service, make sure you use the `docker pull` command with the correct container name: 
 
 ```
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
