@@ -16,13 +16,15 @@ Azure ultra solid state drives (SSD) (preview) offer high throughput, high IOPS,
 
 Currently, ultra SSDs are in preview and you must [enroll](https://aka.ms/UltraSSDPreviewSignUp) in the preview in order to access them.
 
-Once approved, run one of the following commands to determine which zone in East US 2 to deploy your ultra disk to:
+Once approved, you need to determine which availability zone you are in, in order to use ultra SSDs. Run either of the following commands to determine which zone in East US 2 to deploy your ultra disk to:
 
 PowerShell: `Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
 CLI: `az vm list-skus --resource-type disks --query “[?name==UltraSSD_LRS]”`
 
 The response will be similar to the form below, where X is the zone to use for deploying in East US 2. X could be either 1, 2, or 3.
+
+Preserve the zone value, since you will be using it no matter how you choose to deploy ultra SSDs.
 
 |ResourceType  |Name  |Location  |Zones  |Restriction  |Capability  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
@@ -41,45 +43,20 @@ If you would like to create a VM with multiple ultra SSDs, refer to the sample [
 The following describe the new/modified Resource Manager template changes:
 **apiVersion** for `Microsoft.Compute/virtualMachines` and `Microsoft.Compute/Disks` must be set as `2018-06-01` (or later).
 
-Specify Disk Sku UltraSSD_LRS, disk capacity, IOPS, and throughput in MBps to create an ultra disk. The following is an example that creates a disk with 1,024 GiB (GiB = 2^30 Bytes), 80,000 IOPS, and 1,200 MBps  (MBps = 10^6 Bytes per second):
-
-```json
-"properties": {  
-    "creationData": {  
-    "createOption": "Empty"  
-},  
-"diskSizeGB": 1024,  
-"diskIOPSReadWrite": 80000,  
-"diskMBpsReadWrite": 1200,  
-}
-```
-
-Add an additional capability on the properties of the VM to indicate it's ultra enabled (refer to the [sample](https://aka.ms/UltraSSDTemplate) for the full Resource Manager template):
-
-```json
-{
-    "apiVersion": "2018-06-01",
-    "type": "Microsoft.Compute/virtualMachines",
-    "properties": {
-                    "hardwareProfile": {},
-                    "additionalCapabilities" : {
-                                    "ultraSSDEnabled" : "true"
-                    },
-                    "osProfile": {},
-                    "storageProfile": {},
-                    "networkProfile": {}
-    }
-}
-```
+Specify Disk Sku UltraSSD_LRS, disk capacity, IOPS, zone, and throughput in MBps to create an ultra disk.
 
 Once the VM is provisioned, you can partition and format the data disks and configure them for your workloads.
 
 ## Deploy an ultra SSD using CLI
 
-To use ultra SSDs, you must create a VM that is capable of using ultra SSDs. Replace or set the variables with your own values and then run the following CLI command to create an ultra enabled VM:
+First, determine the VM size to deploy. As part of this preview, only DsV3 and EsV3 VM families are supported. Refer to the second table on this [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) for additional details about these VM sizes.
+
+To use ultra SSDs, you must create a VM that is capable of using ultra SSDs.
+
+Replace or set the `$vmname`, `$rgname`, `$diskname`, `$location`, `$password`, `$user` with your own values. Set `$zone` with the availability zone value you obtained from the start of this article. Then run the following CLI command to create an ultra enabled VM:
 
 ```azurecli-interactive
-az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled --zone $zone --authentication-type password --admin-password xxxx --admin-username ultrauser --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
+az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
 ```
 
 ### Create an ultra SSD using CLI
@@ -121,6 +98,8 @@ az disk update `
 ```
 
 ## Deploy an ultra SSD using PowerShell
+
+First, determine the VM size to deploy. As part of this preview, only DsV3 and EsV3 VM families are supported. Refer to the second table on this [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) for additional details about these VM sizes.
 
 To use ultra SSDs, you must create a VM that is capable of using ultra SSDs. Replace or set the variables with your own values and then run the following [New-AzVm](/powershell/module/az.compute/new-azvm) command to create an ultra enabled VM:
 
