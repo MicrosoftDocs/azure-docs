@@ -80,7 +80,7 @@ You get a response like this:
 
 ## Start the streaming endpoint
 
-The following Azure CLI command starts the default **Sstreaming Endpoint**.
+The following Azure CLI command starts the default **Streaming Endpoint**.
 
 ```azurecli
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
