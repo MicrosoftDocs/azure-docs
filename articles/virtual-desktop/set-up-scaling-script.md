@@ -45,13 +45,19 @@ First, prepare your environment for the scaling script:
 
 1. Sign in to the VM (**scaling VM**) that will run the scheduled task with a domain administrative account.
 2. Create a folder on the scaling VM to hold the scaling script and its configuration (for example, **C:\\scaling-HostPool1**).
-3. Download the **basicScaler.ps1**, **Config.xml**, and **Functions-PSStoredCredentials.ps1** files, and the **PowershellModules** folder from the [scaling script repository](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) and copy them to the folder you created in step 2.
+3. Download the **basicScaler.ps1**, **Config.xml**, and **Functions-PSStoredCredentials.ps1** files from the [scaling script repository](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) and copy them to the folder you created in step 2.
 
 ### Create securely stored credentials
 
 Next, you'll need to create the securely stored credentials:
 
 1. Open PowerShell ISE as an administrator.
+3 Import RDS PowerShell module:
+
+    ```powershell
+    Install-Module Microsoft.RdInfra.RdPowershell
+    ```
+    
 2. Open the edit pane and load the **Function-PSStoredCredentials.ps1** file.
 3. Run the following cmdlet:
     
