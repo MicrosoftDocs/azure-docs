@@ -26,8 +26,6 @@ In the rollout template used in [Use Azure Deployment Manager with Resource Mana
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Understand the scenario
-> * Download the tutorial files
 > * Prepare the artifacts
 > * Create the user-defined managed identity
 > * Create the service topology template
@@ -54,17 +52,16 @@ To complete this article, you need:
 
 To test the health check function, you need a health check service. An easy solution is to create an [Azure Function](/azure/azure-functions/). The function takes a status, and returns the value. Your Azure Deployment Manager template uses the status value to determine the action. The knowledge of Azure Function is not required to complete this tutorial.
 
-Two files are used for deploying the Azure Function:
+The following two files are used for deploying the Azure Function. You don't need to download these files to go through the tutorial.
 
 * A resource manager template located at [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). You deploy this template to create an Azure Function.  
 * A zip file of the Azure Function source code, [https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](https://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). This zip called is called by the resource manager template.
 
-You don't need to download these two files.
-
 To deploy the Azure function, select **Try it** to open the Azure Cloud shell, and then paste the following script into the shell window.  To paste the code, right-click the shell window. The project name is used as a prefix to generate unique resource names.
 
 > [!IMPORTANT]
-> **projectName** in the script is used to generate names for the Azure services. Make sure to use the same projectName through the tutorial.
+> **projectName** in the script is used to generate names for the Azure services that are used in this tutorial. Different Azure services have different requirements on the names. To ensure the deployment is successful, choose a name with less than 12 lower case letters and numbers. 
+> Make a copy of the project name, and make sure to use the same projectName through the tutorial.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -92,26 +89,30 @@ To verify and test the Azure function:
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/{healthStatus}?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
+    Notice `{healthStatus}` in the URL, replace it with the actual status code. 
+
 1. Open the URL with a health status populated, such as:
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/healthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-    The result shall be similar to:
+    The result shall be similar to the following.  The status is the value you past in the URL.
 
     ```console
     Status: healthy
     ```
 
-1. You need the following values when you deploy the rollout later in this tutorial:
+1. To complete this tutorial, you need two of the URLs, one with the healthy status, and the other one with unhealthy status. For example:
 
-    - The URL: the URL before **?**, such as **https://myhc0417webapp.azurewebsites.net/api/healthStatus/healthy** from the previous URL.
-    - The code: the value of the **code**, such as **hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==** from the previous URL.
+    ```url
+    https://myhc0417webapp.azurewebsites.net/api/healthStatus/healthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
+    https://myhc0417webapp.azurewebsites.net/api/healthStatus/unhealthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
+    ```
 
 ## Revise the rollout template
 
-Use the following steps to configure the Azure Deployment Manager rollout template to consume the health check Azure Function.
+This section is optional for this tutorial.  The purpose of this section is to show you to implement a health check step in the rollout template.
 
 1. Open **CreateADMRollout.json**. This JSON file is a part of the download.  See [Prerequisites](#prerequisites).
 1. Add two more parameters:
@@ -141,7 +142,7 @@ Use the following steps to configure the Azure Deployment Manager rollout templa
       "properties": {
         "stepType": "healthCheck",
         "attributes": {
-          "waitDuration": "PT1M",
+          "waitDuration": "PT0M",
           "maxElasticDuration": "PT0M",
           "healthyStateDuration": "PT1M",
           "type": "REST",
@@ -181,7 +182,7 @@ Use the following steps to configure the Azure Deployment Manager rollout templa
 
     Based on the definition, the rollout proceeds if the health status is either *healthy* or *warning*. 
 
-1. Update the **dependsON** of the rollout defintion to:
+1. Update the **dependsON** of the rollout definition to:
 
     ```json
     "dependsOn": [
@@ -207,12 +208,13 @@ Use the following steps to configure the Azure Deployment Manager rollout templa
             "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceWUS.name,  variables('serviceTopology').serviceWUS.serviceUnit1.name)]",
             "postDeploymentSteps": [
                 {
-                    "stepId": "[resourceId('Microsoft.DeploymentManager/steps/', 'HealthCheckStep')]"
+                    "stepId": "[resourceId('Microsoft.DeploymentManager/steps/', 'healthCheckStep')]"
                 }
             ]
         },
         {
             "name": "stepGroup3",
+            "dependsOnStepGroups": ["stepGroup2"],
             "preDeploymentSteps": [],
             "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceEUS.name,  variables('serviceTopology').serviceEUS.serviceUnit2.name)]",
             "postDeploymentSteps": []
@@ -227,7 +229,7 @@ Use the following steps to configure the Azure Deployment Manager rollout templa
     ]
     ```
 
-    The health check step is used after rolling out stepGroup1 and stepGroup2. stepGroup3 and stepGroup4 will only be deployed if the healthy status is either *healthy* or *warning*.
+    The health check step is used after rolling out stepGroup1 and stepGroup2. stepGroup3 and stepGroup4 are only deployed if the healthy status is either *healthy* or *warning*.
 
 ## Deploy the topology
 
