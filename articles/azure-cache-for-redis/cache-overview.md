@@ -18,7 +18,8 @@ ms.custom: mvc
 #As a developer, I want to understand what Azure Cache for Redis is and how it can improve performance in my application.
 
 ---
-# What is Azure Cache for Redis
+
+# Azure Cache for Redis description
 
 Azure Cache for Redis is based on the popular software [Redis](https://redis.io/). It is typically used as a cache to improve the performance and scalability of systems that rely heavily on backend data-stores. Performance is improved by temporarily copying frequently accessed data to fast storage located close to the application. With [Azure Cache for Redis](https://redis.io/), this fast storage is located in-memory with Azure Cache for Redis instead of being loaded from disk by a database.
 
@@ -26,7 +27,7 @@ Azure Cache for Redis can also be used as an in-memory data structure store, dis
 
 Azure Cache for Redis gives you access to a secure, dedicated Azure Cache for Redis, managed by Microsoft, hosted within Azure, and accessible to any application within or outside of Azure.
 
-## Why use Azure Cache for Redis
+## Using Azure Cache for Redis
 
 There are many common patterns where Azure Cache for Redis is used to support application architecture or to improve application performance. Some of the most common include the following:
 
@@ -46,7 +47,7 @@ Azure Cache for Redis is available in the following tiers:
 |---|---|
 Basic | A single node cache. This tier supports multiple memory sizes (250 MB - 53 GB). This is an ideal tier for development/test and non-critical workloads. The Basic tier has no service-level agreement (SLA) |
 | Standard | A replicated cache in a two-node, primary/secondary, configuration managed by Microsoft, with a high-availability SLA (99.9%) |
-| Premium | The Premium-tier is the Enterprise ready tier. Premium tier Caches support more features and have higher throughput with lower latencies. Caches in the Premium tier are deployed on more powerful hardware providing better performance compared to the Basic or Standard Tier. This advantage means the throughput for a cache of the same size will be higher in Premium compared to Standard tier |
+| Premium | The Premium tier is the Enterprise-ready tier. Premium tier Caches support more features and have higher throughput with lower latencies. Caches in the Premium tier are deployed on more powerful hardware providing better performance compared to the Basic or Standard Tier. This advantage means the throughput for a cache of the same size will be higher in Premium compared to Standard tier. |
 
 > [!TIP]
 > For more information about size, throughput, and bandwidth with premium caches, see [Azure Cache for Redis FAQ](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
@@ -54,7 +55,7 @@ Basic | A single node cache. This tier supports multiple memory sizes (250 MB - 
 
 You can scale your cache up to a higher tier after it has already been created. Scaling down to a lower tier is not supported. For step-by-step scaling instructions, see [How to Scale Azure Cache for Redis](cache-how-to-scale.md) and [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-### Feature Comparison
+### Feature comparison
 
 The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/) page provides a detailed comparison of each tier. The following table helps describe some of the features supported by tier:
 
@@ -64,9 +65,10 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 | [Redis data persistence](cache-how-to-premium-persistence.md) |✔|-|-|
 | [Redis cluster](cache-how-to-premium-clustering.md) |✔|-|-|
 | [Security via Firewall rules](cache-configure.md#firewall) |✔|✔|✔|
+| [Encryption in transit](https://docs.microsoft.com/en-us/azure/security/security-azure-encryption-overview) |✔|✔|✔|
 | [Enhanced security and isolation with VNet](cache-how-to-premium-vnet.md) |✔|-|-|
 | [Import/Export](cache-how-to-import-export-data.md) |✔|-|-|
-| [Schedule updates](cache-administration.md#schedule-updates) |✔|-|-|
+| [Scheduled updates](cache-administration.md#schedule-updates) |✔|✔|✔|
 | [Geo-replication](cache-how-to-geo-replication.md) |✔|-|-|
 | [Reboot](cache-administration.md#reboot) |✔|✔|✔|
 
