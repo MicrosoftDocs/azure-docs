@@ -71,7 +71,7 @@ Explore the [REST API reference document](https://aka.ms/form-recognizer/api).
 
 ## Data privacy and security
 
-The service is offered as a [Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) of an Azure Service under the [Online Service Terms](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). You will retain ownership of your data and we only use it to provide the Online Services as explained in your agreement:
+The service is offered as a [Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) of an Azure Service under the [Online Service Terms](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). As with all the Cognitive Services, developers using the Form Recognizer service should be aware of Microsoft's policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
 
 ## Next steps
 
