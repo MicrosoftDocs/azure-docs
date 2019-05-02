@@ -36,7 +36,7 @@ If you use an earlier version of Microsoft.ApplicationInsights.AspNet SDK or you
        </ItemGroup>
    ```
 
-1. Modify **Program.cs* as shown here:
+1. Modify **Program.cs** as shown here:
 
    ```csharp
    using Microsoft.AspNetCore;
@@ -72,7 +72,7 @@ If you use an earlier version of Microsoft.ApplicationInsights.AspNet SDK or you
    }
    ```
 
-The code in step 2 configures `ApplicationInsightsLoggerProvider`. The following code shows an example Controller class, which uses `ILogger` to send logs. The logs are captured by ApplicationInsights.
+The code in step 2 configures `ApplicationInsightsLoggerProvider`. The following code shows an example Controller class, which uses `ILogger` to send logs. The logs are captured by Application Insights.
 
 ```csharp
 public class ValuesController : ControllerBase
@@ -357,11 +357,11 @@ The following code snippet configures logs for *Warning* and above from all cate
 
 ### What are the old and new versions of ApplicationInsightsLoggerProvider?
 
-- [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) included a built-in ApplicationInsightsLoggerProvider (Microsoft.ApplicationInsights.AspNetCore.Logging.ApplicationInsightsLoggerProvider), which was enabled through **ILoggerFactory** extension methods. This provider is marked obsolete from version 2.7.0-beta2. It will be removed completely in the next major version change. The [Microsoft.ApplicationInsights.AspNetCore 2.6.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) package itself isn't obsolete. It's required to enable monitoring of requests, dependencies, and so on.
+[Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) included a built-in ApplicationInsightsLoggerProvider (Microsoft.ApplicationInsights.AspNetCore.Logging.ApplicationInsightsLoggerProvider), which was enabled through **ILoggerFactory** extension methods. This provider is marked obsolete from version 2.7.0-beta2. It will be removed completely in the next major version change. The [Microsoft.ApplicationInsights.AspNetCore 2.6.1](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) package itself isn't obsolete. It's required to enable monitoring of requests, dependencies, and so on.
 
-- The suggested alternative is the new standalone package [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights), which contains an improved ApplicationInsightsLoggerProvider (Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider) and extension methods on ILoggerBuilder for enabling it.
+The suggested alternative is the new standalone package [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights), which contains an improved ApplicationInsightsLoggerProvider (Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider) and extension methods on ILoggerBuilder for enabling it.
 
-- [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.0-beta3 takes a dependency on the new package and enables ILogger capture automatically.
+[Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.0-beta3 takes a dependency on the new package and enables ILogger capture automatically.
 
 ### Why are some ILogger logs shown twice in Application Insights?
 
@@ -444,9 +444,9 @@ ApplicationInsightsLoggerProvider captures ILogger logs and creates TraceTelemet
 
 If you prefer to always send TraceTelemetry, use this snippet: ```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```
 
-### I don't have the SDK installed, and I use Azure Web App Extension to enable Application Insights for my Asp.Net Core applications. How do I use the new provider? 
+### I don't have the SDK installed, and I use the Azure Web Apps extension to enable Application Insights for my ASP.NET Core applications. How do I use the new provider? 
 
-The Application Insights extension in Azure Web App uses the old provider. You can modify the filtering rules in the *appsettings.json* file for your application. To take advantage of the new provider, use build-time instrumentation by taking a NuGet dependency on the SDK. This article will be updated when the extension switches to use the new provider.
+The Application Insights extension in Azure Web Apps uses the old provider. You can modify the filtering rules in the *appsettings.json* file for your application. To take advantage of the new provider, use build-time instrumentation by taking a NuGet dependency on the SDK. This article will be updated when the extension switches to use the new provider.
 
 ### I'm using the standalone package Microsoft.Extensions.Logging.ApplicationInsights and enabling Application Insights provider by calling **builder.AddApplicationInsights("ikey")**. Is there an option to get an instrumentation key from configuration?
 
