@@ -12,7 +12,7 @@ ms.date: 05/06/2019
 ms.author: erhopf
 ---
 
-# Create a Custom
+# Create a Custom Voice
 
 In [Prepare data for Custom Voice](how-to-custom-voice-prepare-data.md), we described the different data types you can use to train a custom voice and the different format requirements. Once you have prepared your data, you can start to upload them to the [Custom Voice portal](http://aka.ms/custom-voice-portal), or through the Custom Voice training API. Here we describe the steps of training a custom voice through the portal.
 
@@ -109,7 +109,7 @@ After your voice font is successfully built, you can test it before deploying it
 4.	Provide the text you want the voice(s) to speak. If you have selected to test multiple models at one time, the same text will be used for the testing for different models.
 
     > [!NOTE]
-    > The language of your text must be the same as the language of your voice font. Only successfully trained models can be tested. Only plain text is supported in this step. 
+    > The language of your text must be the same as the language of your voice font. Only successfully trained models can be tested. Only plain text is supported in this step.
 
 5.	Click **Create**.
 
