@@ -126,7 +126,7 @@ $natrule3 = New-AzLoadBalancerInboundNatRuleConfig `
 
 ### Create load balancer
 
-Create the Standard Load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). The following example creates a public Standard Load Balancer named myLoadBalancer using the front-end IP configuration, back-end pool, health probe, load balancing rule, and NAT rules that you created in the preceding steps:
+Create the Standard Load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). The following example creates a public Standard Load Balancer named myLoadBalancer using the front-end IP configuration, back-end pool, health probe, load-balancing rule, and NAT rules that you created in the preceding steps:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer `
@@ -250,7 +250,7 @@ Set an administrator username and password for the VMs with [Get-Credential](htt
 $cred = Get-Credential
 ```
 
-Now you can create the VMs with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates two VMs and the required virtual network components if they do not already exist. In this example, the NICs (*MyNic1*, *MyNic2*, and *MyNic3* ) created in the preceding step are assigned to virtual machines *myVM1*, *myVM2*, and *VM3*. In addition, since the NICs are associated to the load balancer's backend pool, the VMs are automatically added to the backend pool.
+Now you can create the VMs with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates two VMs and the required virtual network components if they do not already exist. In this example, the NICs (*MyNic1*, *MyNic2*, and *MyNic3*) created in the preceding step are assigned to virtual machines *myVM1*, *myVM2*, and *VM3*. In addition, since the NICs are associated to the load balancer's backend pool, the VMs are automatically added to the backend pool.
 
 ```azurepowershell-interactive
 
@@ -285,7 +285,7 @@ It takes a few minutes to create and configure the three VMs.
 
 Install IIS with a custom web page on both back-end VMs as follows:
 
-1. Get the public IP addresses of the three Vms using `Get-AzPublicIPAddress`.
+1. Get the public IP addresses of the three VMs using `Get-AzPublicIPAddress`.
 
   ```azurepowershell
    $vm1_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_1").IpAddress
