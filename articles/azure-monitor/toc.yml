@@ -183,7 +183,7 @@
       items:
       - name: Activity log
         items:
-        - name: Activity log
+        - name: Overview
           href: platform/activity-logs-overview.md
         - name: Collect and analyze
           href: platform/activity-log-collect.md
@@ -195,21 +195,21 @@
           href: platform/activity-log-schema.md
       - name: Diagnostic logs
         items: 
-        - name: Diagnostic logs
+        - name: Overview
           href: platform/diagnostic-logs-overview.md 
         - name: Collect in Logs
           href: platform/diagnostic-logs-stream-log-store.md
-          href: platform/collect-azure-metrics-logs.md
         - name: Collect from Azure storage
+          href: platform/collect-azure-metrics-logs.md
         - name: Archive to storage
           href: platform/archive-diagnostic-logs.md
         - name: Stream data to Event Hub
           href: platform/diagnostic-logs-stream-event-hubs.md
-        - name: Enable diagnostic settings with Resource Manager templates
+        - name: Enable with Resource Manager templates
           href: platform/diagnostic-logs-stream-template.md
-      - name: Service logs and metrics
-        href: platform/azure-storage-iis-table.md
-      - name: Forward to Event Hub
+        - name: Service logs and metrics
+          href: platform/azure-storage-iis-table.md
+      - name: Stream to Event Hub
         href: platform/stream-monitoring-data-event-hubs.md   
       - name: Correlate custom data sources
         href: app/custom-data-correlation.md

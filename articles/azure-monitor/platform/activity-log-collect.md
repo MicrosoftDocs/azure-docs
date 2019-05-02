@@ -25,7 +25,7 @@ Connecting the Activity Log to a Log Analytics workspace provides the following 
 - Correlate Activity Log data with other monitoring data collected by Azure Monitor.
 - Use [log queries](../log-query/log-query-overview.md) to perform complex analysis and gain deep insights on Activity Log entries.
 
-## Connect Activity Log to Log Analytics workspace
+## Connect to Log Analytics workspace
 An Activity Log can be connected to only one workspace, but a single workspace can be connected to the Activity Log for multiple subscriptions in the same Azure tenant. For collection across multiple tenants, see [Collect Azure Activity Logs into a Log Analytics workspace across subscriptions in different Azure Active Directory tenants](activity-log-collect-tenants.md).
 
 Use the following procedure to connect the Activity Log to your Log Analytics workspace:
@@ -40,8 +40,8 @@ Use the following procedure to connect the Activity Log to your Log Analytics wo
 
     ![Connect Workspaces](media/activity-log-export/connect-workspace.png)
 
-## Analyze the Activity Log in Log Analytics workspace
-When you connect an Activity Log to a Log Analytics workspace, entries will be written to the workspace into a table called **AzureActivity**. The structure of this table varies depending on the [category of log entry](activity-logs-overview.md#categories-in-the-activity-log). See [Azure Activity Log event schema](activity-log-schema.md) for a description of each category.
+## Analyze in Log Analytics workspace
+When you connect an Activity Log to a Log Analytics workspace, entries will be written to the workspace into a table called **AzureActivity** that you can retrieve with a [log query](../log-query/log-query-overview.md). The structure of this table varies depending on the [category of log entry](activity-logs-overview.md#categories-in-the-activity-log). See [Azure Activity Log event schema](activity-log-schema.md) for a description of each category.
 
 ## Activity Logs Analytics solution
 The Azure Log Analytics monitoring solution includes multiple log queries and views for analyzing the Activity Log records in your Log Analytics workspace.
@@ -52,12 +52,12 @@ Use the procedure in [Install a monitoring solution](../insights/solutions.md#in
 ### Use the solution
 Monitoring solutions are accessed from the **Monitor** menu in the Azure portal. Select **More** in the **Insights** section to open the **Overview** page with the solution tiles. The **Azure Activity Logs** tile displays a count of the number of **AzureActivity** records in your workspace.
 
-![Azure Activity Logs tile](./media/collect-activity-logs/azure-activity-logs-tile.png)
+![Azure Activity Logs tile](media/collect-activity-logs/azure-activity-logs-tile.png)
 
 
 Click the **Azure Activity Logs** tile to open the **Azure Activity Logs** view. The view includes the visualization parts in the following table. Each part lists up to 10 items matching that parts's criteria for the specified time range. You can run a log query that returns all  matching records by clicking **See all** at the bottom of the part.
 
-Activity Log data only appears *after* you've configured your Activity Logs to go to the solution, so you can't view data before then.
+![Azure Activity Logs dashboard](media/collect-activity-logs/activity-log-dash.png)
 
 | Visualization part | Description |
 | --- | --- |
@@ -65,8 +65,6 @@ Activity Log data only appears *after* you've configured your Activity Logs to g
 | Activity Logs by Status | Shows a doughnut chart for Azure Activity Log status for the selected date range and a list of the top ten status records. Click the chart to run a log query for `AzureActivity \| summarize AggregatedValue = count() by ActivityStatus`. Click a status item to run a log search returning all Activity Log entries for that status record. |
 | Activity Logs by Resource | Shows the total number of resources with Activity Logs and lists the top ten resources with record counts for each resource. Click the total area to run a log search for `AzureActivity \| summarize AggregatedValue = count() by Resource`, which shows all Azure resources available to the solution. Click a resource to run a log query returning all activity records for that resource. |
 | Activity Logs by Resource Provider | Shows the total number of resource providers that produce Activity Logs and lists the top ten. Click the total area to run a log query for `AzureActivity \| summarize AggregatedValue = count() by ResourceProvider`, which shows all Azure resource providers. Click a resource provider to run a log query returning all activity records for the provider. |
-
-![Azure Activity Logs dashboard](./media/collect-activity-logs/activity-log-dash.png)
 
 ## Next steps
 
