@@ -20,7 +20,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 # Changing the ADSync service account password
-If you change the ADSync service account password, the Synchronization Service will not be able start correctly until you have abandoned the encryption key and reinitialized the Azure AD Connect sync service account password. 
+If you change the ADSync service account password, the Synchronization Service will not be able start correctly until you have abandoned the encryption key and reinitialized the ADSync service account password. 
 
 Azure AD Connect, as part of the Synchronization Services uses an encryption key to store the passwords of the AD DS Connector account and ADSync service accounts.  These accounts are encrypted before they are stored in the database. 
 
