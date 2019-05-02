@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/29/2019
+ms.date: 05/02/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -121,7 +121,7 @@ To configure Azure AD single sign-on with Alibaba Cloud Service (Role-based SSO)
 	![image](common/idp-intiated.png)
 
 	> [!Note]
-	> If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
+	> If the **Identifier** and **Reply URL** values do not get auto populated, then fill in the values manually according to your requirement.
 
 5. Alibaba Cloud Service (Role-based SSO) application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
@@ -180,7 +180,7 @@ the **Note** field, click **Upload** to upload the federation metadata file you 
 
 5. After the IdP is successfully created, click **Create RAM Role**.
 
-6. In the **RAM Role Name** filed, enter `AADrole`, select `AAD` from the **Select IdP** drop-down list and click OK.
+6. In the **RAM Role Name** field enter `AADrole`, select `AAD` from the **Select IdP** drop-down list and click OK.
 
 	>[!NOTE]
 	>You can grant permission to the role as needed. After creating the IdP and the corresponding role, we recommend that you save the ARNs of the IdP and the role for subsequent use. You can obtain the ARNs on the IdP information page and the role information page.
@@ -268,9 +268,9 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The User dialog box](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
+    b. In the **User name** field, type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
