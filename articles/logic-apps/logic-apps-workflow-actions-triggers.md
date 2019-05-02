@@ -1152,11 +1152,8 @@ Here is the output that this action creates:
 
 ### Execute JavaScript Code action
 
-This action runs a JavaScript code snippet and returns the output 
-through a `Result` object that later actions can reference. 
-Your code has access to the `workflowContext` object, 
-which you can use to reference property values for your 
-workflow (`workflow`), trigger (`trigger`), and previous actions (`actions`). 
+This action runs a JavaScript code snippet and returns the 
+results through a `Result` token that later actions can reference. 
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1172,6 +1169,14 @@ workflow (`workflow`), trigger (`trigger`), and previous actions (`actions`).
 }
 ```
 
+In the `code` attribute, your code snippet can use the read-only 
+`workflowContext` object as input by accessing that object's 
+`workflow`, `trigger`, and `actions` subproperties. These 
+subproperties provide access to a workflow object, trigger result object, 
+and a collection of result objects from the current workflow run. 
+You can use these objects to reference property 
+values from the workflow, trigger, and previous actions in the current run.
+
 *Required*
 
 | Value | Type | Description |
@@ -1179,10 +1184,10 @@ workflow (`workflow`), trigger (`trigger`), and previous actions (`actions`).
 | <*JavaScript-code-snippet*> | Varies | The JavaScript code that you want to run. For code requirements and more information, see [Add and run code snippets with inline code](../logic-apps/logic-apps-add-run-inline-code.md). |
 ||||
 
-*Optional*
+*Required in some cases*
 
 The `explicitDependencies` attribute specifies that you want 
-to explicitly include outputs from the trigger, previous actions, 
+to explicitly include results from the trigger, previous actions, 
 or both as dependencies for the code that you're running. 
 For more information, see [Add parameters for inline code](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters).
 
@@ -1190,16 +1195,16 @@ For the `includeTrigger` attribute, you can specify `true` or `false` values.
 
 | Value | Type | Description |
 |-------|------|-------------|
-| <*previous-actions*> | Varies | An array that contains previous actions |
+| <*previous-actions*> | Varies | An array with results from previous actions |
 ||||
 
 *Example 1*
 
-This action runs code that gets your logic app's name 
-and returns the text "Hello world from <logic-app-name>". 
-In this example, the code references the workflow's name 
-by using `workflowContext.workflow.name`. For more information, 
-see [Add and run code snippets with inline code](../logic-apps/logic-apps-add-run-inline-code.md).
+This action runs code that gets your logic app's name and returns 
+the text "Hello world from <logic-app-name>" as the result. 
+In this example, the code references the workflow's name by 
+using `workflowContext.workflow.name`. For more information, see 
+[Add and run code snippets with inline code](../logic-apps/logic-apps-add-run-inline-code.md).
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1216,14 +1221,14 @@ see [Add and run code snippets with inline code](../logic-apps/logic-apps-add-ru
 This action runs code in a logic app that triggers when 
 a new email arrives in an Office 365 Outlook account. 
 The logic app also uses a send approval email action that 
-fowards the content from the received email and with a 
+fowards the content from the received email along with a 
 request for approval. 
 
 The code extracts email addresses from the trigger's `Body` 
 property and returns those email addresses along with the 
 the `SelectedOption` property value from the approval action. 
 The action explicitly includes the send approval email action 
-as a dependency in the actions parameter.
+as a dependency in the `explicitDependencies` > `actions` attribute.
 
 ```json
 "Execute_JavaScript_Code": {
