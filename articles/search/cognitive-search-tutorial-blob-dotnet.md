@@ -457,16 +457,6 @@ var index = new Index()
 During testing you may find that you're attempting to create the index more than once. Because of this, check to see if the index that you're about to create already exists before attempting to create it.
 
 ```csharp
-bool exists = serviceClient.Indexes.Exists(index.Name);
-if (exists)
-{
-    serviceClient.Indexes.Delete(index.Name);
-}
-
-serviceClient.Indexes.Create(index);
-```
-
-```csharp
 try
 {
     bool exists = serviceClient.Indexes.Exists(index.Name);
