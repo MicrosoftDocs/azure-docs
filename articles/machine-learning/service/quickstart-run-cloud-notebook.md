@@ -63,7 +63,11 @@ After your VM is running, use the **Notebook VMs** section to launch the Jupyter
 
     The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM.
 
-1. On the Jupyter notebook webpage, select the **samples/quickstart** folder to see the quickstart notebook.
+1. On the Jupyter notebook webpage, the top foldername is your username.  Select this folder.
+
+1. The samples foldername includes the SDK version number when the notebooks were verified, for example **samples-1.0.33.1**. Select the samples folder.
+
+1. Select the **quickstart** notebook.
 
 ## Run the notebook
 
@@ -143,10 +147,12 @@ You can also keep the resource group but delete a single workspace. Display the 
 In this quickstart, you completed these tasks:
 
 * Create a notebook VM
-* Start a Jupyter Notebook server on your notebook VM
+* Launch the Jupyter web interface
 * Open a notebook that contains code to estimate pi and logs errors at each iteration.
 * Run the notebook.
 * View the logged error values in your workspace.  This example shows how the workspace can help you keep track of information generated in a script. 
+
+On the Jupyter Notebook webpage, browse through other notebooks in the samples folder to learn more about Azure Machine Learning service.
 
 For an in-depth workflow experience, follow Machine Learning tutorials to train and deploy a model:  
 
