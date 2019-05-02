@@ -144,8 +144,6 @@ In the consumption and premium plans, the Azure Functions infrastructure scales 
 
 Function code files are stored on Azure Files shares on the function's main storage account. When you delete the main storage account of the function app, the function code files are deleted and cannot be recovered.
 
-There is no downside or impact to having multiple apps share the same consumption plan. The only aspect that the consumption plan determines is the region. Sharing it between apps has no impact on resiliency, scalability, or reliability of each individual function apps.
-
 > [!NOTE]
 > When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs. This delay occurs when a function app has gone idle. After the function app is running, blobs are processed immediately. To avoid this cold-start delay, use the Premium plan, or use the [Event Grid trigger](functions-bindings-event-grid.md). For more information, see [the blob trigger binding reference article](functions-bindings-storage-blob.md#trigger).
 
