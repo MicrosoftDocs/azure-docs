@@ -27,7 +27,7 @@ To complete this quickstart, make sure that you have:
 - An Azure account. If you don't have one, [purchase an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) before you begin. This feature isn't supported with a free Azure account. 
 - [Visual Studio](https://visualstudio.microsoft.com/vs/) 2017 Update 3 (version 15.3, 26730.01) or later.
 - [.NET Standard SDK](https://dotnet.microsoft.com/download), version 2.0 or later.
-- [Created a resource group](../event-hubs/event-hubs-create.md#create-a-resource-group.md).
+- [Created a resource group](../event-hubs/event-hubs-create.md#create-a-resource-group).
 
 ## Create an Event Hubs Dedicated Cluster
 An Event Hubs dedicated cluster provides a unique scoping container, referenced by its fully qualified domain name, in which you can create one or more namespaces. In the Preview phase of the portal self-serve experience, you can create one CU cluster in supported regions. If you need a cluster larger than one CU, create a cluster with one CU first and then submit a request to scale up your cluster. 
@@ -68,7 +68,7 @@ To create a cluster in your resource group using the Azure portal, do the follow
     3. Select **Create** to create the namespace. Now you can manage your cluster.  
 
         ![Create namespace in the cluster page](./media/event-hubs-dedicated-cluster-create-portal/create-namespace-cluster-page.png)
-3. Once your namespace is created, you can [create an event hub](event-hubs-create.md#create-an-event-hub.md) as you would normally create one within a namespace. 
+3. Once your namespace is created, you can [create an event hub](event-hubs-create.md#create-an-event-hub) as you would normally create one within a namespace. 
 
 
 ## Submit a support request for your dedicated cluster
