@@ -26,12 +26,12 @@ ms.author: monhaber
 1. Connect the VM hosting the SQL server to the Log Analytics workspace. For instructions, see [Connect Windows computers to Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/agent-windows).
 1. Go to **Marketplace** > **Get Started**.
 1. Search for SQL Advanced Data Security. 
-    ![Advanced Data Security for IaaS](.\media\security-center-iaas-data\sql-advanced-data-security.png)
+    ![Advanced Data Security for IaaS](./media/security-center-iaas-data/sql-advanced-data-security.png)
 1. Click **SQL Advanced Data Security**. The **SQL Advanced Data Security** page open.
-   ![Advanced Data Security Create](.\media\security-center-iaas-data\sql-advanced-data-create.png)
+   ![Advanced Data Security Create](./media/security-center-iaas-data/sql-advanced-data-create.png)
 1. Click **Create**.
 1. Select the workspace to use and click **Create**.
-   ![Select workspace](.\media\security-center-iaas-data\sql-workspace.png)
+   ![Select workspace](./media/security-center-iaas-data/sql-workspace.png)
 
 1. Restart the [VM's SQL server](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services?view=sql-server-2017).
 
