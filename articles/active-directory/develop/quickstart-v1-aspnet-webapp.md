@@ -43,7 +43,7 @@ To get started, make sure you meet these prerequisites:
 
 A browser accesses an ASP.NET web site and requests a user to authenticate using a sign in button in this scenario. In this scenario, most of the work to render the web page occurs on the server side.
 
-The quickstart demonstrates how to sign in users on an ASP.NET web application starting from an empty template. It also includes steps such as adding a sign in button and every controller and methods and discusses the concepts behind these tasks. You can also create a project to sign in Azure AD users (work and school accounts) by using the [Visual Studio web template](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) and selecting **Organizational Accounts** and then one of the cloud options - this option uses a richer template, with additional controllers, methods, and views.
+The quickstart demonstrates how to sign in users on an ASP.NET web application starting from an empty template. It also includes steps such as adding a sign-in button and every controller and methods and discusses the concepts behind these tasks. You can also create a project to sign in Azure AD users (work and school accounts) by using the [Visual Studio web template](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) and selecting **Organizational Accounts** and then one of the cloud options - this option uses a richer template, with additional controllers, methods, and views.
 
 ## Libraries
 
@@ -289,7 +289,7 @@ Select the hyperlink to see the user's claims. This action leads you to the cont
 |---|---|---|
 | Name | {User Full Name} | The user’s first and last name |
 | Username | <span>user@domain.com</span> | The username used to identify the logged user |
-| Subject| {Subject} |A string to uniquely identify the user logon across the web |
+| Subject| {Subject} |A string to uniquely identify the user sign in across the web |
 | Tenant ID | {Guid} | A *guid* to uniquely represent the user’s Azure AD organization |
 
 In addition, you see a table including all user claims included in authentication request. For a list of all claims in an ID Token and their explanation, see [List of claims in ID token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
