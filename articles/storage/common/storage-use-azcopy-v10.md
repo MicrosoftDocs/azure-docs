@@ -78,9 +78,9 @@ azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?s
 
 To learn more about SAS tokens and how to obtain one, see [Using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
 
-## Copy data to, from, or between storage accounts
+## Transfer files
 
-After you've authenticated your identity or obtained a SAS token, you can begin transferring files. 
+After you've authenticated your identity or obtained a SAS token, you can begin transferring files.
 
 To find example commands, see any of these articles.
 
@@ -96,7 +96,7 @@ To find example commands, see any of these articles.
 
 See [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
 
-## Use AzCopy from Storage Explorer
+## Use AzCopy in Storage Explorer
 
 If you want to leverage the performance advantages of AzCopy, but you prefer to use Storage Explorer rather than the command line to interact with your files, then enable AzCopy in Storage Explorer.
 

@@ -27,7 +27,7 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to perform 
 > [!NOTE]
 > The examples in this article assume that you authenticate your identity by using the `AzCopy login` command.
 >
-> If you choose to authenticate your identity by using a SAS token, then for each AzCopy command, append that token to url of the container resource (For example: `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>`).
+> If you choose to authenticate your identity by using a SAS token, then for each AzCopy command, append that token to url of the container resource (For example: "https://\<storage-account-name\>.blob.core.windows.net/\<container-name\>?**\<SAS-token\>**").
 
 ## Create containers
 
@@ -50,63 +50,69 @@ You can use AzCopy to upload files and folders from your local computer or from 
 Use this command to upload a file from your local computer to a blob in a container.
 
 ```
-azcopy cp <local-file-path> https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>
+azcopy cp "<local-file-path>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>"
 ```
 
 Example:
 
-`azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.blob.core.windows.net/mycontainer1/myTextFile.txt"`
+`azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt"`
 
-> [!TIP]
+> [!NOTE]
+> If you append the `--put-md5` flag to this command, AzCopy will calculate the file's md5 hash code, and then store that code in the `Content-md5` property of the corresponding blob for later use.
+
+### Upload a folder
+
+This example copies a folder (and all of the files in that folder) to a blob container. The result is a folder in the container by the same name. 
+
+```
+azcopy copy "<local-folder-path>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true
+```
+
+Example:
+
+`azcopy copy "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer --recursive=true`
+
+To copy to a folder within the container, just specify the name of that folder in your command string.
+
+Example:
+
+`azcopy copy "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobFolder --recursive=true`
+
+If you specify the name of a folder that does not exist in the container, AzCopy creates a new folder by that name.
+
+> [!NOTE]
 > If you append the `--put-md5` flag to this command, AzCopy will calculate each file's md5 hash code, and then store that code in the `Content-md5` property of each corresponding blob for later use.
-
-### Upload a directory
-
-Intro line.
-
-```
-command
-```
-
-Example:
-
-`example`
 
 ### Upload files by using wildcard characters
 
-Intro line.
+You can use the wildcard symbol (*) to provide partial file names.
 
 ```
-command
-```
-
-Example:
-
-`example`
-
-### Upload files and directories by using wildcard characters
-
-Intro line.
-
-```
-command
+azcopy copy "<local-folder-path>/*<partial-file-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<folder-path>
 ```
 
 Example:
 
-`example`
+`azcopy copy "C:\myFolder\*.pdf" "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobFolder`
+
+> [!NOTE]
+> Append the `--recursive=true` flag to upload files in all sub-folders.
 
 ### Upload data from a VHD
 
 Intro line.
 
+
 ```
-command
+azcopy copy "<local-vhd-file-path>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<vhd-name>" --blob-type=PageBlob
 ```
 
 Example:
 
-`example`
+`.\azcopy copy "C:\myFolder\myVHD.vhd" "https://mystorageaccount.blob.core.windows.net/mycontainer/myVHD.vhd" --blob-type=PageBlob`
+
+> [!NOTE]
+> AzCopy by default uploads data into block blobs. To upload files as Append Blobs, or Page Blobs use the flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
 
 ## Download files
 
@@ -124,7 +130,7 @@ Example:
 
 `example`
 
-### Download a directory
+### Download a folder
 
 Intro line.
 
@@ -162,7 +168,7 @@ Example:
 
 ## Copy files
 
-You can use AzCopy to copy blobs and containers between virtual directories and accross storage accounts.
+You can use AzCopy to copy blobs and containers between blob folders and across storage accounts.
 
 ### Copy a blob to another blob
 
@@ -176,7 +182,7 @@ Example:
 
 `example`
 
-### Copy a directory between virtual directories
+### Copy a folder to another folder within a container
 
 Intro line.
 
@@ -244,7 +250,7 @@ Example:
 
 ### Copy data to Azure Storage
 
-The following command uploads all files under the folder `C:\local\path` recursively to the container `mycontainer1`, creating `path` directory in the container. When `--put-md5` flag is provided, AzCopy calculates and stores each file's md5 hash in `Content-md5` property of the corresponding blob for later use.
+The following command uploads all files under the folder `C:\local\path` recursively to the container `mycontainer1`, creating `path` folder in the container. When `--put-md5` flag is provided, AzCopy calculates and stores each file's md5 hash in `Content-md5` property of the corresponding blob for later use.
 
 ```azcopy
 .\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true --put-md5
@@ -286,7 +292,7 @@ AzCopy by default uploads data into block blobs. To upload files as Append Blobs
 
 ### Sync: incremental copy and delete (Blob storage only)
 
-The sync command synchronizes contents of a source directory to a directory in the destination, comparing file names and last modified timestamps. This operation includes the optional deletion of destination files if those do not exist in the source when the `--delete-destination=prompt|true` flag is provided. By default, the delete behavior is disabled. 
+The sync command synchronizes contents of a source folder to a folder in the destination, comparing file names and last modified timestamps. This operation includes the optional deletion of destination files if those do not exist in the source when the `--delete-destination=prompt|true` flag is provided. By default, the delete behavior is disabled. 
 
 > [!NOTE] 
 > Use the `--delete-destination` flag with caution. Enable the [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) feature before you enable delete behavior in sync to prevent accidental deletions in your account. 
