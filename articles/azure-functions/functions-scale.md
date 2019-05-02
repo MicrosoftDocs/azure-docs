@@ -19,7 +19,11 @@ ms.custom: H1Hack27Feb2017
 ---
 # Azure Functions scale and hosting
 
-Azure Functions runs in two different plans: Consumption plan and Premium plan (public preview). The Consumption plan automatically adds compute power when your code is running. Your app is scaled out when needed to handle load, and scaled down when code stops running. You don't have to pay for idle VMs or reserve capacity in advance.  The Premium plan will also automatically scale and add additional compute power when your code is running.  The Premium plan comes with additional features like premium compute instances, the ability to keep instances warm indefinitely, and VNet connectivity.  If you have an existing App Service Plan, you can also run your function apps within them.
+You can run your function apps in two Azure Functions-specific plans: [Consumption plan](#consumption-plan) and [Premium plan](#premium-plan-public-preview). Both plans automatically add compute power when your code is running. Your app is scaled out when needed to handle load, and scaled down when code stops running. You don't have to pay for idle VMs or reserve capacity in advance.  
+
+Premium plan provides additional features, such as premium compute instances, the ability to keep instances warm indefinitely, and VNet connectivity.  
+
+Your function apps can also be run in an existing [App Service plan](#app-service-plan).
 
 > [!NOTE]  
 > Both [Premium plan](https://aka.ms/functions-premiumplan) and [Consumption plan for Linux](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) are currently in preview.
@@ -45,6 +49,8 @@ The Consumption plan is the default hosting plan and offers the following benefi
 
 * Pay only when your functions are running.
 * Scale out automatically, even during periods of high load.
+
+All Consumption plans in a given region share the same set of resources. This means that there is no downside or impact to having multiple apps running in the same Consumption plan. Assigning multiple apps to the same consumption plan has no impact on resilience, scalability, or reliability of each app.
 
 ## Premium plan (public preview)
 
@@ -124,8 +130,6 @@ To learn more about storage account types, see [Introducing the Azure Storage se
 In the consumption and premium plans, the scale controller automatically scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. Each instance of the Functions host in the consumption plan is limited to 1.5 GB of memory and 1 CPU.  An instance of the host is the entire function app, meaning all functions within a function app share resource within an instance and scale at the same time. Function apps that share the same consumption plan are scaled independently.  In the premium plan, your plan size will determine the available memory and CPU for all apps in that plan on that instance.  
 
 Function code files are stored on Azure Files shares on the function's main storage account. When you delete the main storage account of the function app, the function code files are deleted and cannot be recovered.
-
-There is no downside or impact to having multiple apps share the same consumption plan. The only aspect that the consumption plan determines is the region. Sharing it between apps has no impact on resiliency, scalability, or reliability of each individual function apps.
 
 > [!NOTE]
 > When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs. This delay occurs when a function app has gone idle. After the function app is running, blobs are processed immediately. To avoid this cold-start delay, use the Premium plan, or use the [Event Grid trigger](functions-bindings-event-grid.md). For more information, see [the blob trigger binding reference article](functions-bindings-storage-blob.md#trigger).
