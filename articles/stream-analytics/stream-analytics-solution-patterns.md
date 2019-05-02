@@ -19,7 +19,7 @@ With Azure Stream Analytics' ease of use, you can quickly stand up real-time das
 
 ![ASA Power BI dashboard](media/stream-analytics-solution-patterns/pbidashboard.png)
 
-This solution can be built in just a few minutes from Azure portal. There is no extensive coding is involved, and SQL language is used to express the business logic.
+This solution can be built in just a few minutes from Azure portal. There is no extensive coding involved, and SQL language is used to express the business logic.
 
 This real-time dashboard solution pattern offers the lowest latency from the event source to the Power BI dashboard in a browser. Azure Stream Analytics is the only Azure service with this built-in capability.
 
