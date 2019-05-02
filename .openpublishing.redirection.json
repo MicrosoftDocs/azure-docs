@@ -1096,6 +1096,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-qsg.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices-sdk-android-quickstart",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-licensing-ps-examples.md",
       "redirect_url": "/azure/active-directory/users-groups-roles/licensing-ps-examples",
       "redirect_document_id": true
@@ -33284,6 +33289,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/service/how-to-build-deploy-onnx.md",
+      "redirect_url": "/azure/machine-learning/service/concept-onnx",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-hub/iot-hub-raspberry-pi-kit-python-get-started.md",
       "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
       "redirect_document_id": true
@@ -37071,6 +37081,31 @@
     {
       "source_path": "articles/cognitive-services/QnAMaker/How-To/publish-knowledge-base.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-publish-knowledge-base",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/prepare-transcription.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-human-labeled-transcriptions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-acoustic-models.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-language-model.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-pronunciation.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-create-custom-endpoint.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-deploy-model",
       "redirect_document_id": true
     },
     {
