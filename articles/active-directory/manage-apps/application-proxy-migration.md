@@ -45,7 +45,7 @@ Use this table to understand how Threat Management Gateway (TMG), Unified Access
 | No components in the demilitarized zone (DMZ) | - | - | - | Yes |
 | No inbound connections | - | - | - | Yes |
 
-For most scenarios, we recommend Azure AD Application as the modern solution. Web Application Proxy is only preferred in scenarios that require a proxy server for AD FS, and you can't use custom domains in Azure Active Directory. 
+For most scenarios, we recommend Azure AD Application Proxy as the modern solution. Web Application Proxy is only preferred in scenarios that require a proxy server for AD FS, and you can't use custom domains in Azure Active Directory. 
 
 Azure AD Application Proxy offers unique benefits when compared to similar products, including:
 

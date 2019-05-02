@@ -11,7 +11,6 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ---
-
 # How to use alternative inputs
 
 This tutorial shows how to use the Alternative Inputs field for user utterances in the teaching interface.
@@ -43,6 +42,8 @@ Alternative inputs are alternate, semantically equivalent user utterances which 
 3. Type "city" for the "Entity Name."
 4. Click the "Create" button.
 
+![](../media/T10_actions.png)
+
 Now, let's create three actions.
 
 ### Create the First Action
@@ -53,11 +54,15 @@ Now, let's create three actions.
 4. In the "Disqualifying Entitles" field, type "city."
 5. Click the "Create" button.
 
+![](../media/T10_action_create_1.png)
+
 ### Create the Second Action
 
 1. On the left panel, click "Actions", then the "New Action" button.
 2. In the "Bot's response..." field, type "The weather in $city is probably sunny."
 3. Click the "Create" button.
+
+![](../media/T10_action_create_2.png)
 
 ### Create the Third Action
 
@@ -66,7 +71,11 @@ Now, let's create three actions.
 3. In the "Disqualifying Entitles" field, type "city."
 4. Click the "Create" button.
 
+![](../media/T10_action_create_3.png)
+
 You now have three actions.
+
+![](../media/T10_actions.png)
 
 ### Train the Model
 
@@ -77,7 +86,9 @@ You now have three actions.
 5. In the chat panel, where it says "Type your message...", type in "Denver"
 6. Click the "Score Actions" button.
 7. Select the response, "The weather in Denver is probably sunny."
-8. Click the "Save" button.
+8. Click the "Submit Changes" button.
+
+![](../media/T10_training_1.png)
 
 Let's train the model more by creating another train dialog.
 
@@ -91,7 +102,9 @@ Let's train the model more by creating another train dialog.
 6. Click "Seattle", then click "city" from the Entity List.
 7. Click the "Score Actions" button.
 8. Select the response, "The weather in Seattle is probably sunny."
-9. Click the "Save" button.
+9. Click the "Submit Changes" button.
+
+![](../media/T10_training_2.png)
 
 ### Third Model Train Dialog Using Alternative Input
 
@@ -101,7 +114,7 @@ Let's train the model more by creating another train dialog.
 	- The Model is uncertain to the best option, so it would choose the highest percentile by default.
 4. Click the "Abandon Teaching" button, then "Confirm" button.
 
-![](../media/tutorial8_closescores.png)
+![](../media/T10_training_3.png)
 
 Let's better tune the system using alternative inputs. You can add alternative input while teaching or later.
 
@@ -110,7 +123,7 @@ Let's better tune the system using alternative inputs. You can add alternative i
 1. In the "Add alternative input..." field, type "help" and hit enter.
 1. Click the "Save Changes" button.
 
-![](../media/tutorial8_helpalternates.png)
+![](../media/T10_training_4.png)
 
 Let's add another alternative input to handle Houston.
 
@@ -123,13 +136,15 @@ Let's add another alternative input to handle Houston.
 1. Click the "Save Changes" button.
 1. Click the "Save Edit" button.
 
+![](../media/T10_training_5.png)
+
 ### Testing the Model
 
 1. On the left panel, click "Log Dialogs", then the "New Log Dialog."
 2. In the chat panel, where it says "Type your message...", type in "help me"
 3. In the chat panel, where it says "Type your message...", type in "forecast for Denver"
 
-![](../media/tutorial8_altcities.png)
+![](../media/T10_logdialog.png)
 
 ## Next steps
 

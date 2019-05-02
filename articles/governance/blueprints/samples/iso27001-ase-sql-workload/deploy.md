@@ -1,15 +1,14 @@
 ---
-title: Sample - ISO 27001 App Service Environment/SQL Database workload blueprint - Deploy steps
+title: Sample - ISO 27001 ASE/SQL workload blueprint - Deploy steps
 description: Deploy steps of the ISO 27001 App Service Environment/SQL Database workload blueprint sample.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
-ms.topic: conceptual
+ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ---
-# Deploy the Azure Blueprints ISO 27001 App Service Environment/SQL Database workload blueprint sample
+# Deploy the ISO 27001 App Service Environment/SQL Database workload blueprint sample
 
 To deploy the Azure Blueprints ISO 27001 App Service Environment/SQL Database workload blueprint
 sample, the following steps must be taken:
@@ -139,7 +138,9 @@ provided to make each deployment of the copy of the blueprint sample unique.
      they're defined during the assignment of the blueprint. For a full list or artifact parameters
      and their descriptions, see [Artifact parameters table](#artifact-parameters-table).
 
-1. Once all parameters have been entered, select **Assign** at the bottom of the page.
+1. Once all parameters have been entered, select **Assign** at the bottom of the page. The blueprint
+   assignment is created and artifact deployment begins. Deployment takes roughly an hour. To check
+   on the status of deployment, open the blueprint assignment.
 
 > [!WARNING]
 > The Azure Blueprints service and the built-in blueprint samples are **free of cost**. Azure

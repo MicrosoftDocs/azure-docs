@@ -8,14 +8,11 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/25/2019
 ms.author: juliako
 ---
 
 # Tutorial: Use the Video Indexer API
-
-> [!Note]
-> The Video Indexer V1 API was deprecated on August 1st, 2018. You should now use the Video Indexer v2 API. <br/>To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://api-portal.videoindexer.ai/). 
 
 Video Indexer consolidates various audio and video artificial intelligence (AI) technologies offered by Microsoft in one integrated service, making development simpler. The APIs are designed to enable developers to focus on consuming Media AI technologies without worrying about scale, global reach, availability, and reliability of cloud platform. You can use the API to upload your files, get detailed video insights, get URLs of insight and player widgets in order to embed them into your application, and other tasks.
 
@@ -69,19 +66,6 @@ To make things easier, you can use the **Authorization** API > **GetAccounts** t
 Access tokens expire after 1 hour. Make sure your access token is valid before using the Operations API. If expires, call the Authorization API again to get a new access token.
  
 You are ready to start integrating with the API. Find [the detailed description of each Video Indexer REST API](https://api-portal.videoindexer.ai/).
-
-## Location
-
-All operation APIs require a Location parameter, which indicates the region to which the call should be routed and in which the account was created.
-
-The values described in the following table apply. The **Param value** is the value you pass when using the API.
-
-|**Name**|**Param value**|**Description**|
-|---|---|---|
-|Trial|trail|Used for trial accounts.|
-|West US|westus2|Used for the Azure West US 2 region.|
-|North Europe |northeurope|Used for the Azure North Europe region.|
-|East Asia|eastasia|Used for the Azure East Asia region.|
 
 ## Account ID 
 
@@ -218,8 +202,12 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
+## See also
+
+- [Video Indexer overview](video-indexer-overview.md)
+- [Regions](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+
 ## Next steps
 
 [Examine details of the output JSON](video-indexer-output-json-v2.md).
 
-[Video Indexer overview](video-indexer-overview.md)

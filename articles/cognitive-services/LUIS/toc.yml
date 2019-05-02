@@ -61,12 +61,15 @@
       href: luis-quickstart-intents-regex-entity.md
     - name: Get exact text matches with lists
       href: luis-quickstart-intent-and-list-entity.md
-    - name: Get contextually-related data with hierarchical entities
-      href: luis-quickstart-intent-and-hier-entity.md
+    - name: Get related data with entity roles
+      href: tutorial-entity-roles.md
+      displayName: roles, geographyV2, context
     - name: Group and extract related data with composite entities
       href: luis-tutorial-composite-entity.md
+      displayName: roles
     - name: Get names with simple entities
       href: luis-quickstart-primary-and-secondary-data.md
+      displayName: roles
   - name: Improve app
     items:
     - name: Fix unsure predictions
@@ -77,6 +80,7 @@
       href: luis-tutorial-pattern.md
     - name: Extract contextually-related patterns
       href: luis-tutorial-pattern-roles.md
+      displayName: roles
     - name: Extract free-form data
       href: luis-tutorial-pattern-any.md
   - name: Use bot
@@ -102,16 +106,17 @@
     - name: Authoring cycle
       href: luis-concept-app-iteration.md
     - name: Collaboration
-      displayName: shared, transfer, ownership, author, access
+      displayName: shared, transfer, ownership, author, access, import
       href: luis-concept-collaborator.md
     - name: Versioning
       href: luis-concept-version.md
+      displayName: import
   - name: Design Model
     items:
     - name: Intents
       href: luis-concept-intent.md
     - name: Entities
-      displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, hierarchical, machine-learn, exact, mixed
+      displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, hierarchical, machine-learn, exact, mixed, roles
       href: luis-concept-entity-types.md
     - name: Utterances
       href: luis-concept-utterance.md
@@ -129,6 +134,7 @@
       href: luis-concept-feature.md
     - name: Patterns
       href: luis-concept-patterns.md
+      displayName: roles
   - name: Data management
     items:
     - name: Altering data
@@ -137,6 +143,7 @@
       href: luis-concept-data-conversion.md
     - name: Extracting data
       href: luis-concept-data-extraction.md
+      displayName: roles
     - name: Data Storage
       href: luis-concept-data-storage.md
   - name: Test
@@ -149,10 +156,11 @@
     items:
     - name: Design strategies
       href: luis-concept-enterprise.md
+      displayName: import
   - name: Security
     items:
     - name: App access
-      displayName: public, public app, AAD, compliance, ISO, certification, trust center
+      displayName: public, public app, AAD, compliance, ISO, certification, trust center, import
       href: luis-concept-security.md
     - name: Authoring and endpoint keys
       href: luis-concept-keys.md
@@ -160,6 +168,7 @@
   items:
   - name: Start a new app
     href: luis-how-to-start-new-app.md
+    displayName: import, export, container
   - name: Build Model
     items:
     - name: Add an intent
@@ -168,6 +177,7 @@
       href: luis-how-to-add-example-utterances.md
     - name: Add entity without utterance
       href: luis-how-to-add-entities.md
+      displayName: roles, import
     - name: Use prebuilt models
       items:
       - name: Use domains
@@ -210,12 +220,12 @@
     items:
     - name: Review endpoint utterances
       displayName: active learning
-      href: luis-how-to-review-endoint-utt.md
+      href: luis-how-to-review-endpoint-utterances.md
     - name: Add Phrase list
       displayName: synonym, interchange
       href: luis-how-to-add-features.md
     - name: Add Patterns
-      displayName: syntax, template
+      displayName: syntax, template, roles
       href: luis-how-to-model-intent-pattern.md
   - name: Train
     href: luis-how-to-train.md
@@ -225,6 +235,7 @@
       href: luis-interactive-test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
+      displayName: import
   - name: Publish
     href: luis-how-to-publish-app.md
   - name: Manage app
@@ -237,8 +248,9 @@
       href: luis-how-to-azure-subscription.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
+      diplayName: import, export, container
     - name: Manage authors and collaborators
-      displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership
+      displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
     - name: Manage authoring key
       href: luis-how-to-account-settings.md
@@ -249,7 +261,7 @@
   - name: Use containers
     items:
     - name: Install and run containers
-      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
       href: luis-container-howto.md
     - name: Configure containers
       href: luis-container-configuration.md
@@ -257,9 +269,9 @@
   items:
   - name: User privacy
     href: luis-user-privacy.md
-  - name: Regions
+  - name: Authoring and publishing regions
     href: luis-reference-regions.md
-    displayName: failover, fail-over, fail over, Europe, EU, Austrailia, business continuity, bcdr
+    displayName: failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr
   - name: Boundaries
     href: luis-boundaries.md
   - name: Prebuilt entity reference
@@ -390,6 +402,7 @@
     href: luis-glossary.md
   - name: Troubleshooting
     href: troubleshooting.md
+    displayName: FAQ, import
   - name: Pricing and limits 
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
   - name: Stack Overflow

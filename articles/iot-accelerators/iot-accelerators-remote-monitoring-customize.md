@@ -68,7 +68,7 @@ The following steps outline the process to set up a local environment for UI dev
     npm start
     ```
 
-1. The previous command runs the UI locally at http://localhost:3000/dashboard. You can edit the code while the site is running and see it update dynamically.
+1. The previous command runs the UI locally at http:\//localhost:3000/dashboard. You can edit the code while the site is running and see it update dynamically.
 
 ## Customize the layout
 

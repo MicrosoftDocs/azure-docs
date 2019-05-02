@@ -2,7 +2,6 @@
 title: Hadoop stack trace error messages - Azure HDInsight 
 description: Index of Hadoop stack trace error messages in Azure HDInsight. Find the error in the list to see troubleshooting information.
 keywords: stack trace, error messages
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -20,7 +19,7 @@ Articles are organized by types of errors.
 
 ## Apache Hive query performance
 * [Optimize Apache Hive queries for Apache Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md): This article covers some most common Hive performance optimization methods that you can apply to Hive queries.
-* [Troubleshoot Apache Hive query performance issues in HDInsight Hadoop cluster](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/).
+* [Troubleshoot Apache Hive by using Azure HDInsight](hdinsight-troubleshoot-hive.md).
 
 ## More troubleshooting articles
 * [Information about using HDInsight on Linux](hdinsight-hadoop-linux-information.md)

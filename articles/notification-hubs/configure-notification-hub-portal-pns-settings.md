@@ -25,7 +25,7 @@ If you haven't already created a notification hub, create one now. For more info
 
 To set up Apple Push Notification Service (APNS):
 
-1. In the Azure portal, in the **Notification Hub**, select **Apple (APNS)**.
+1. In the Azure portal, on the **Notification Hub** page, select **Apple (APNS)** from the left menu.
 
 1. For **Authentication Mode**, select either **Certificate** or **Token**.
 
@@ -38,7 +38,7 @@ To set up Apple Push Notification Service (APNS):
 
    b. If you select **Token**:
 
-   * Enter the values for **Key Id**, **Bundle Id**, **Team Id**, and **Token**.
+   * Enter the values for **Key ID**, **Bundle ID**, **Team ID**, and **Token**.
    * Select **Sandbox** mode. Or, to send push notifications to users who purchased your app from the store, select **Production** mode.
 
      ![Screenshot of an APNS token configuration in the Azure portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
@@ -49,7 +49,7 @@ For for more information, see [Push notifications to iOS by using Azure Notifica
 
 To set up push notifications for Google Firebase Cloud Messaging (FCM):
 
-1. In the Azure portal, in the **Notification Hub**, select **Google (GCM/FCM)**. 
+1. In the Azure portal, on the **Notification Hub** page, select **Google (GCM/FCM)** from the left menu. 
 2. Paste the **API Key** for the FCM project that you saved earlier. 
 3. Select **Save**. 
 
@@ -63,7 +63,7 @@ For more information, see [Push notifications to Android devices by using Notifi
 
 To set up Windows Push Notification Service (WNS):
 
-1. In the Azure portal, in the **Notification Hub**, select **Windows (WNS)**.
+1. In the Azure portal, on the **Notification Hub** page, select **Windows (WNS)** from the left menu.
 2. Enter values for **Package SID** and **Security Key**.
 3. Select **Save**.
 
@@ -75,7 +75,7 @@ For information, see [Send notifications to UWP apps by using Azure Notification
 
 To set up Microsoft Push Notification Service (MPNS) for Windows Phone: 
 
-1. In the Azure portal, in the **Notification Hub**, select **Windows Phone (MPNS)**.
+1. In the Azure portal, on the **Notification Hub** page, select **Windows Phone (MPNS)** from the left menu.
 1. Enable either unauthenticated or authenticated push notifications:
 
    a. To enable unauthenticated push notifications, select **Enable unauthenticated push** > **Save**.
@@ -95,7 +95,7 @@ For more information, see [Push notifications to Windows Phone apps by using Not
 
 To set up push notifications for Amazon Device Messaging (ADM):
 
-1. In the Azure portal, in the **Notification Hub**, select **Amazon (ADM)**.
+1. In the Azure portal, on the **Notification Hub** page, select **Amazon (ADM)** from the left menu.
 2. Enter values for **Client ID** and **Client Secret**.
 3. Select **Save**.
     
@@ -107,7 +107,7 @@ For more information, see [Get started with Notification Hubs for Kindle apps](n
 
 To set up push notifications for Baidu:
 
-1. In the Azure portal, in the **Notification Hub**, select **Baidu (Android China)**. 
+1. In the Azure portal, on the **Notification Hub** page, select **Baidu (Android China)** from the left menu. 
 2. Enter the **Api Key** that you obtained from the Baidu console in the Baidu cloud push project. 
 3. Enter the **Secret Key** that you obtained from the Baidu console in the Baidu cloud push project. 
 4. Select **Save**. 

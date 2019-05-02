@@ -1,6 +1,6 @@
 ---
 
-title: Resolve license assignment problems for a group - Azure Active Directory | Microsoft Docs
+title: Resolve license assignment problems for an group - Azure Active Directory | Microsoft Docs
 description: How to identify and resolve license assignment problems when you're using Azure Active Directory group-based licensing
 services: active-directory
 keywords: Azure AD licensing
@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
@@ -32,19 +32,19 @@ When you're using group-based licensing, the same errors can occur, but they hap
 
 1. To find users in an error state in a specific group, open the pane for the group. Under **Licenses**, a notification appears if there are any users in an error state.
 
-   ![Group, error notification](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![Group and error notifications message](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
 2. Select the notification to open a list of all affected users. You can select each user individually to see more details.
 
-   ![Group, list of users in error state](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![list of users in group licensing error state](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
 3. To find all groups that contain at least one error, on the **Azure Active Directory** blade select **Licenses**, and then select **Overview**. An information box is displayed when groups require your attention.
 
-   ![Overview, information about groups in error state](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![Overview and information about groups in error state](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
 4. Select the box to see a list of all groups with errors. You can select each group for more details.
 
-   ![Overview, list of groups with errors](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
+   ![Overview and list of groups with errors](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
 
 The following sections give a description of each potential problem and the way to resolve it.

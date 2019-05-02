@@ -1,7 +1,6 @@
 ---
 title: Azure HDInsight Go SDK
 description: Reference for Azure HDInsight Go SDK
-services: hdinsight
 author: tylerfox
 
 ms.service: hdinsight
@@ -68,7 +67,7 @@ az account set -s <name or ID of subscription>
 ```
 
 > [!IMPORTANT]  
-> If you have not already registered the HDInsight Resource Provider by another function (such as by creating an HDInsight Cluster through the Azure Portal), you need to do this once before you can authenticate. This can be done from the [Azure Cloud Shell](https://shell.azure.com/bash) by running the following command:
+> If you have not already registered the HDInsight Resource Provider by another function (such as by creating an HDInsight Cluster through the Azure portal), you need to do this once before you can authenticate. This can be done from the [Azure Cloud Shell](https://shell.azure.com/bash) by running the following command:
 >```azurecli-interactive
 >az provider register --namespace Microsoft.HDInsight
 >```

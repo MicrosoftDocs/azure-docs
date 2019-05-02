@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/11/2019
+ms.date: 3/18/2019
 ms.custom: mvc
 ---
 
@@ -55,7 +55,7 @@ The server is created with the following default values (unless you manually ove
 ---|---|---
 server-name | System generated | A unique name that identifies your Azure Database for MySQL server.
 resource-group | System generated | A new Azure resource group.
-sku-name | GP_Gen5_4 | The name of the sku. Follows the convention {pricing tier}\_{compute generation}\_{vCores} in shorthand. The default is a General Purpose Gen5 server with 4 vCores. See our [pricing page](https://azure.microsoft.com/pricing/details/mysql/) for more information about the tiers.
+sku-name | GP_Gen5_2 | The name of the sku. Follows the convention {pricing tier}\_{compute generation}\_{vCores} in shorthand. The default is a General Purpose Gen5 server with 2 vCores. See our [pricing page](https://azure.microsoft.com/pricing/details/mysql/) for more information about the tiers.
 backup-retention | 7 | How long a backup should be retained. Unit is days.
 geo-redundant-backup | Disabled | Whether geo-redundant backups should be enabled for this server or not.
 location | westus2 | The Azure location for the server.

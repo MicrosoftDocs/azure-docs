@@ -12,9 +12,11 @@ manager: carmonm
 ---
 # Forward Azure Automation State Configuration reporting data to Azure Monitor logs
 
-Azure Automation State Configuration can send Desired State Configuration (DSC) node status data to
-your Log Analytics workspace. Compliance status is visible in the Azure portal or with PowerShell,
-for nodes and for individual DSC resources in node configurations. With Azure Monitor logs you can:
+Azure Automation State Configuration retains node status data for 30 days.
+You can send node status data to your Log Analytics workspace if you prefer to retain this data for a longer period.
+Compliance status is visible in the Azure portal or with PowerShell,
+for nodes and for individual DSC resources in node configurations.
+With Azure Monitor logs you can:
 
 - Get compliance information for managed nodes and individual resources
 - Trigger an email or alert based on compliance status
@@ -37,7 +39,7 @@ To start sending your Automation State Configuration reports to Azure Monitor lo
 
 To begin importing data from Azure Automation DSC into Azure Monitor logs, complete the following steps:
 
-1. Log in to your Azure account in PowerShell. See [Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
+1. Log in to your Azure account in PowerShell. See [Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)
 1. Get the _ResourceId_ of your automation account by running the following PowerShell command:
    (if you have more than one automation account, choose the _ResourceID_ for the account you want to configure).
 

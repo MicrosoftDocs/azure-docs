@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/28/2019
 ms.author: monhaber
 
 ---
@@ -97,7 +97,7 @@ To select the VMs that you want to enable:
 
 
 > [!NOTE]
->When JIT VM Access is enabled for a VM, Azure Security Center creates deny all inbound traffic rules for the selected ports in the network security groups associated with it. The rules will either be the top priority of your Network Security Groups, or lower priority than existing rules that are already there. This depends on an analysis performed by Azure Security Center that determines whether a rule is secure or not.
+>When JIT VM Access is enabled for a VM, Azure Security Center creates "deny all inbound traffic" rules for the selected ports in the network security groups associated with it. If other rules had been created for the selected ports, then the existing rules take priority over the new “deny all inbound traffic”  rules. If there are no existing rules on the selected ports, then the new “deny all inbound traffic” rules take top priority in the Network Security Groups.
 >
 
 ### Request JIT access to a VM
@@ -158,9 +158,13 @@ In the Azure portal, when you try to connect to a VM, Azure checks to see if you
 
   ![jit prompt](./media/security-center-just-in-time/jit-prompt.png)
 
-- If you do have a JIT policy configured on the VM, you can click **Request access** to enable you to have access in accordance with the JIT policy set for the VM.
+- If you do have a JIT policy configured on the VM, you can click **Request access** to enable you to have access in accordance with the JIT policy set for the VM. The access is requested with the following default parameters:
+    - **source IP**: ‘Any’ (*) (cannot be changed)
+    - **time range**: 3 hours (cannot be changed)
+    - **port number** RDP port 3389 for Windows / port 22 for Linux (You can change the port number in the **Connect to virtual machine** dialog box.)
 
-  ![jit request access](./media/security-center-just-in-time/jit-request-access.png)
+
+  >![jit request access](./media/security-center-just-in-time/jit-request-access.png)
 
 ## Auditing JIT access activity
 

@@ -1,20 +1,12 @@
 ---
-title: SaaS Sell through Azure - APIs | Microsoft Docs
+title: SaaS Sell through Azure APIs | Azure Marketplace
 description: Explains how to create a SaaS offer through marketplace APIs.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: reference
 ms.date: 09/17/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 
@@ -83,12 +75,12 @@ To register a new application using the Azure portal, perform the following step
      and public [user-agent-based  clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
      The same application can also expose both a client and resource/API.
    - **Sign-On URL**: For Web app/API applications, provide the base
-     URL of your app. For example, **http://localhost:31544** might
+     URL of your app. For example, **http:\//localhost:31544** might
      be the URL for a web app running on your local machine. Users
      would then use this URL to sign in to a web client application.
    - **Redirect URI**: For Native applications, provide the URI used
      by Azure AD to return token responses. Enter a value specific to
-     your application, for example **http://MyFirstAADApp**.
+     your application, for example **http:\//MyFirstAADApp**.
 
      ![SaaS AD App Registrations](./media/saas-offer-app-registration-2.png)
      For specific examples for web applications or native

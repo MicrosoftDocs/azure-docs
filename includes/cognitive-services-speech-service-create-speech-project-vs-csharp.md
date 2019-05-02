@@ -8,7 +8,7 @@ ms.author: wolfma
 
 1. Start Visual Studio 2017.
 
-1. From the menu bar in Visual Studio, select **Tools > Get Tools** and make sure that the **.Net desktop development** workload is available. If the workload hasn't been installed, mark the checkbox, then click **Modify** to start the installation. It may take a few minutes to download and install.
+1. From the menu bar in Visual Studio, select **Tools > Get Tools** and make sure that the **.NET desktop development** workload is available. If the workload hasn't been installed, mark the checkbox, then click **Modify** to start the installation. It may take a few minutes to download and install.
 
    If the checkbox next to **.NET desktop development** is selected, you can close the dialog box now.
 

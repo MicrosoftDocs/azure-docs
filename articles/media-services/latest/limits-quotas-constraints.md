@@ -23,7 +23,8 @@ This article describes quotas and limitations in Azure Media Services v3.
 | Assets per Azure Media Services account | 1,000,000|
 | Dynamic Manifest Filters|100|
 | JobInputs per Job | 50  (fixed)|
-| JobOutputs per Job/TransformOutputs in a Transform | 20 (fixed) |
+| JobOutputs per Job | 20 (fixed) |
+| TransformOutputs in a Transform | 20 (fixed) |
 | Files per JobInput|10 (fixed)|
 | File size| In some scenarios, there is a limit on the maximum file size supported for processing in Media Services. <sup>(1)</sup> |
 | Jobs per Media Services account | 500,000 <sup>(2)</sup> (fixed)|
@@ -31,7 +32,8 @@ This article describes quotas and limitations in Azure Media Services v3.
 | Listing Jobs|Paginate the response, with 500 Jobs per page|
 | Live Events per Media Services account |5|
 | Media Services accounts in a single subscription | 25 (fixed) |
-| Live Outputs in running state per LiveEvent |3|
+| Live Outputs in running state per Live Event |3|
+| Max Live Output duration | 25 hours |
 | Storage accounts | 100<sup>(4)</sup> (fixed) |
 | Streaming Endpoints (stopped or running) per Media Services account|2 (fixed)|
 | Streaming Policies | 100 <sup>(3)</sup> |

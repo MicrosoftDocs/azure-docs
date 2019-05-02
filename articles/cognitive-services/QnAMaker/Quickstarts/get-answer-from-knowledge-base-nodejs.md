@@ -53,7 +53,7 @@ The following code makes an HTTPS request to the QnA Maker API to send the quest
 
 [!code-nodejs[Add a POST request to send question to knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/get-answer/get-answer.js?range=24-49 "Add a POST request to send question to knowledge base")]
 
-The `Authorization` header's value includes the string `EndpointKey `. 
+The `Authorization` header's value includes the string `EndpointKey`. 
 
 ## Install the dependencies
 

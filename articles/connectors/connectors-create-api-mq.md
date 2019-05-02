@@ -2,8 +2,7 @@
 # required metadata
 title: Connect to MQ server - Azure Logic Apps | Microsoft Docs
 description: Send and retrieve messages with an Azure or on-premises MQ server and Azure Logic Apps
-author: valthom
-manager: jeconnoc
+author: valrobb
 ms.author: valthom
 ms.date: 06/01/2017
 ms.topic: article

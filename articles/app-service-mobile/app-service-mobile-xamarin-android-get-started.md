@@ -35,7 +35,7 @@ To complete this tutorial, you need the following prerequisites:
 
 * An active Azure account. If you don't have an account, sign up for an Azure trial and get up to 10 free Mobile
   Apps. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
-* Visual Studio with Xamarin. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) for instructions.
+* Visual Studio with Xamarin. See [Setup and install for Visual Studio and Xamarin](/visualstudio/cross-platform/setup-and-install) for instructions.
 
 ## Create an Azure Mobile App backend
 Follow these steps to create a Mobile App backend.

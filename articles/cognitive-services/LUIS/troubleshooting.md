@@ -9,7 +9,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 03/21/2019
 ms.author: diberry
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
@@ -58,6 +58,14 @@ Cortana prebuilt apps were deprecated in 2017. They are no longer supported.
 ### How do I transfer ownership of a LUIS app?
 To transfer a LUIS app to a different Azure subscription, export the LUIS app and import it using a new account. Update the LUIS app ID in the client application that calls it. The new app may return slightly different LUIS scores from the original app.
 
+### A prebuilt entity is tagged in an example utterance instead of my custom entity. How do I fix this? 
+
+See [Troubleshooting prebuilt entities](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
+
+### I tried to import an app or version file but I got an error, what happened? 
+
+Read more about [version import errors](luis-how-to-manage-versions.md#import-errors) and [app import errors](luis-how-to-start-new-app.md#import-errors).
+
 <a name="luis-collaborating"></a>
 
 ## Collaborating
@@ -74,7 +82,7 @@ See [Azure Active Directory resources](luis-how-to-collaborate.md#azure-active-d
 
 Unexpected query prediction results are based on the state of the published model. To correct the model, you may need to change the model, train, and publish again. 
 
-Correcting the model starts with [active learning](luis-how-to-review-endoint-utt.md).
+Correcting the model starts with [active learning](luis-how-to-review-endpoint-utterances.md).
 
 You can remove non-deterministic training by updating the [application version settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) in order to use all training data.
 

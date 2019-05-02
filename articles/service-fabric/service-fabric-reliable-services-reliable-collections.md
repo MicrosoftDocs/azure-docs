@@ -4,7 +4,7 @@ description: Service Fabric stateful services provide reliable collections that 
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: masnider,rajak,zhol
 
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1

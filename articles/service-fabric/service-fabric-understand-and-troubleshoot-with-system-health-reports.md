@@ -4,7 +4,7 @@ description: Describes the health reports sent by Azure Service Fabric component
 services: service-fabric
 documentationcenter: .net
 author: oanapl
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 52574ea7-eb37-47e0-a20a-101539177625
@@ -25,7 +25,7 @@ Azure Service Fabric components provide system health reports on all entities in
 > 
 > 
 
-System health reports provide visibility into cluster and application functionality, and flag problems. For applications and services, system health reports verify that entities are implemented and are behaving correctly from the Service Fabric perspective. The reports don't provide any health monitoring of the business logic of the service or detection of hung processes. User services can enrich the health data with information specific to their logic.
+System health reports provide visibility into cluster and application functionality, and flag problems. For applications and services, system health reports verify that entities are implemented and are behaving correctly from the Service Fabric perspective. The reports don't provide any health monitoring of the business logic of the service or detection of processes that are not responding. User services can enrich the health data with information specific to their logic.
 
 > [!NOTE]
 > Health reports sent by user watchdogs are visible only *after* the system components create an entity. When an entity is deleted, the health store automatically deletes all the health reports associated with it. The same is true when a new instance of the entity is created. An example is when a new stateful persisted service replica instance is created. All reports associated with the old instance are deleted and cleaned up from the store.
@@ -80,7 +80,7 @@ System.FM reports as OK when the node joins the ring (it's up and running). It r
 
 The following example shows the System.FM event with a health state of OK for node up:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricNodeHealth  _Node_0
 
 NodeName              : _Node_0
@@ -133,7 +133,7 @@ System.CM reports as OK when the application has been created or updated. It inf
 
 The following example shows the state event on the **fabric:/WordCount** application:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
 
 ApplicationName                 : fabric:/WordCount
@@ -165,7 +165,7 @@ System.FM reports as OK when the service has been created. It deletes the entity
 
 The following example shows the state event on the service **fabric:/WordCount/WordCountWebService**:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountWebService -ExcludeHealthStatistics
 
 
@@ -220,7 +220,7 @@ The following examples describe some of these reports.
 
 The following example shows a healthy partition:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountWebService | Get-ServiceFabricPartitionHealth -ExcludeHealthStatistics -ReplicasFilter None
 
 PartitionId           : 8bbcd03a-3a53-47ec-a5f1-9b77f73c53b2
@@ -242,7 +242,7 @@ HealthEvents          :
 
 The following example shows the health of a partition that's below target replica count. The next step is to get the partition description, which shows how it's configured: **MinReplicaSetSize** is three and **TargetReplicaSetSize** is seven. Then get the number of nodes in the cluster, which in this case is five. So, in this case, two replicas can't be placed, because the target number of replicas is higher than the number of nodes available.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None -ExcludeHealthStatistics
 
 
@@ -320,7 +320,7 @@ PS C:\> @(Get-ServiceFabricNode).Count
 
 The following example shows the health of a partition that's stuck in reconfiguration due to the user not honoring the cancellation token in the **RunAsync** method. Investigating the health report of any replica marked as primary (P) can help to drill down further into the problem.
 
-```PowerShell
+```powershell
 PS C:\utilities\ServiceFabricExplorer\ClientPackage\lib> Get-ServiceFabricPartitionHealth 0e40fd81-284d-4be4-a665-13bc5a6607ec -ExcludeHealthStatistics 
 
 
@@ -384,7 +384,7 @@ System.RA reports OK when the replica has been created.
 
 The following example shows a healthy replica:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 
 PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
@@ -415,7 +415,7 @@ These health warnings are raised after retrying the action locally some number o
 
 The following example shows the health of a replica that's throwing `TargetInvocationException` from its open method. The description contains the point of failure, **IStatefulServiceReplica.Open**, the exception type **TargetInvocationException**, and the stack trace.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 337cf1df-6cab-4825-99a9-7595090c0b1b -ReplicaOrInstanceId 131483509874784794
 
 
@@ -466,7 +466,7 @@ Exception has been thrown by the target of an invocation.
 
 The following example shows a replica that's constantly crashing during close:
 
-```PowerShell
+```powershell
 C:>Get-ServiceFabricReplicaHealth -PartitionId dcafb6b7-9446-425c-8b90-b3fdf3859e64 -ReplicaOrInstanceId 131483565548493142
 
 
@@ -511,7 +511,7 @@ In rare cases, the reconfiguration can be stuck due to communication or other pr
 
 The following example shows a health report where a reconfiguration is stuck on the local replica. In this sample, it's due to a service not honoring the cancellation token.
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 9a0cedee-464c-4603-abbc-1cf57c4454f3 -ReplicaOrInstanceId 131483600074836703
 
 
@@ -597,7 +597,7 @@ To unblock the reconfiguration:
 
 The following example shows the health event from System.RAP for a reliable service that's not honoring the cancellation token in **RunAsync**:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 5f6060fb-096f-45e4-8c3d-c26444d8dd10 -ReplicaOrInstanceId 131483966141404693
 
 
@@ -636,7 +636,7 @@ Other API calls that can get stuck are on the **IReplicator** interface. For exa
 
 - **IReplicator.CatchupReplicaSet**: This warning indicates one of two things. There are insufficient up replicas. To see if this is the case, look at the replica status of the replicas in the partition or the System.FM health report for a stuck reconfiguration. Or the replicas are not acknowledging operations. The PowerShell cmdlet `Get-ServiceFabricDeployedReplicaDetail` can be used to determine the progress of all the replicas. The problem lies with replicas whose `LastAppliedReplicationSequenceNumber` value is behind the primary's `CommittedSequenceNumber` value.
 
-- **IReplicator.BuildReplica(<Remote ReplicaId>)**: This warning indicates a problem in the build process. For more information, see [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md). It might be due to a misconfiguration of the replicator address. For more information, see [Configure stateful Reliable Services](service-fabric-reliable-services-configuration.md) and [Specify resources in a service manifest](service-fabric-service-manifest-resources.md). It might also be a problem on the remote node.
+- **IReplicator.BuildReplica(\<Remote ReplicaId>)**: This warning indicates a problem in the build process. For more information, see [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md). It might be due to a misconfiguration of the replicator address. For more information, see [Configure stateful Reliable Services](service-fabric-reliable-services-configuration.md) and [Specify resources in a service manifest](service-fabric-service-manifest-resources.md). It might also be a problem on the remote node.
 
 ### Replicator system health reports
 **Replication queue full:**
@@ -675,7 +675,7 @@ When a Naming operation takes longer than expected, the operation is flagged wit
 
 The following example shows a create service operation. The operation took longer than the configured duration. "AO" retries and sends work to "NO." "NO" completed the last operation with TIMEOUT. In this case, the same replica is primary for both the "AO" and "NO" roles.
 
-```PowerShell
+```powershell
 PartitionId           : 00000000-0000-0000-0000-000000001000
 ReplicaId             : 131064359253133577
 AggregatedHealthState : Warning
@@ -732,7 +732,7 @@ System.Hosting reports as OK when an application has been successfully activated
 
 The following example shows a successful activation:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ExcludeHealthStatistics
 
 ApplicationName                    : fabric:/WordCount
@@ -789,7 +789,7 @@ System.Hosting reports as OK if the service type has been registered successfull
 
 The following example shows a healthy deployed service package:
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
 
 

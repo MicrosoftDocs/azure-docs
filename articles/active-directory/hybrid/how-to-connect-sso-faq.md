@@ -40,16 +40,16 @@ Listed below is a non-exhaustive list of applications that can send these parame
 
 | Application name | Application URL to be used |
 | -- | -- |
-| Access panel | https://myapps.microsoft.com/contoso.com |
-| Outlook on Web | https://outlook.office365.com/contoso.com |
-| Office 365 portals | <https://portal.office.com?domain_hint=contoso.com>, <https://www.office.com?domain_hint=contoso.com> |
+| Access panel | https:\//myapps.microsoft.com/contoso.com |
+| Outlook on Web | https:\//outlook.office365.com/contoso.com |
+| Office 365 portals | https:\//portal.office.com?domain_hint=contoso.com, https:\//www.office.com?domain_hint=contoso.com |
 
-In addition, users get a silent sign-on experience if an application sends sign-in requests to Azure AD's endpoints set up as tenants - that is, https://login.microsoftonline.com/contoso.com/<..> or https://login.microsoftonline.com/<tenant_ID>/<..> - instead of Azure AD's common endpoint - that is, https://login.microsoftonline.com/common/<...>. Listed below is a non-exhaustive list of applications that make these types of sign-in requests.
+In addition, users get a silent sign-on experience if an application sends sign-in requests to Azure AD's endpoints set up as tenants - that is, https:\//login.microsoftonline.com/contoso.com/<..> or https:\//login.microsoftonline.com/<tenant_ID>/<..> - instead of Azure AD's common endpoint - that is, https:\//login.microsoftonline.com/common/<...>. Listed below is a non-exhaustive list of applications that make these types of sign-in requests.
 
 | Application name | Application URL to be used |
 | -- | -- |
-| SharePoint Online | https://contoso.sharepoint.com |
-| Azure portal | https://portal.azure.com/contoso.com |
+| SharePoint Online | https:\//contoso.sharepoint.com |
+| Azure portal | https:\//portal.azure.com/contoso.com |
 
 In the above tables, replace "contoso.com" with your domain name to get to the right application URLs for your tenant.
 
@@ -84,7 +84,7 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
 2. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
 3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
 4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
-5. Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
+5. Call `Get-AzureADSSOStatus | ConvertFrom-Json`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
 
 ### Step 2. Update the Kerberos decryption key on each AD forest that it was set it up on
 
@@ -135,7 +135,7 @@ Follow tasks 1 through 4 below if you have disabled Seamless SSO using Azure AD 
 2. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
 3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
 4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
-5. Call `Get-AzureADSSOStatus`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
+5. Call `Get-AzureADSSOStatus | ConvertFrom-Json`. This command provides you the list of AD forests (look at the "Domains" list) on which this feature has been enabled.
 
 ### Step 3. Manually delete the `AZUREADSSOACCT` computer account from each AD forest that you see listed.
 

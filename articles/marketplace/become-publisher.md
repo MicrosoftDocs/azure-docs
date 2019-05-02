@@ -1,17 +1,17 @@
 ---
-title: Become a Publisher in the storefronts on the marketplace | Azure
+title: Become a Publisher in the storefronts on the marketplace | Azure Marketplace
 description: This article describes how to become a publisher on the marketplace.  
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
+
 author: ellacroi
 manager: nunoc
-editor:
 
-ms.assetid: 
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
@@ -41,6 +41,8 @@ Participation in Microsoft’s cloud marketplace requires membership in the Micr
 After registering, record the Microsoft Partner Network ID for your organization. You will need this during step 3 when submitting your marketplace registration form.
 *	Learn about the benefits of the [Microsoft Partner Network](https://partner.microsoft.com/commercial)
 *	If your organization has an existing membership, then you will join your organization during registration. If you use [Partner Center](https://partnercenter.microsoft.com/partner/home), you will be able to see the ID in your Partner Center account. If you use [Partner Membership Center (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), you will be able to see it in your Partner Membership Center account. 
+
+Open a ticket with Microsoft [partner support](https://partner.microsoft.com/support) for issues with MPN registration.
 
 ---
 
