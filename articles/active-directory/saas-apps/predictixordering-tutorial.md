@@ -96,9 +96,9 @@ To configure Azure AD single sign-on with Predictix Ordering, take these steps:
 
 	![Edit icon](common/edit-urls.png)
 
-4. In the **Basic SAML Configuration** section, complete the following steps.
+4. In the **Basic SAML Configuration** dialog box, complete the following steps.
 
-    ![Basic SAML Configuration section](common/sp-identifier.png)
+    ![Basic SAML Configuration dialog box](common/sp-identifier.png)
 
 	1. In the **Sign on URL** box, enter a URL in this pattern:
 
@@ -141,7 +141,7 @@ In this section, you'll create a test user named Britta Simon in the Azure porta
 
     ![Select All users](common/users.png)
 
-2. Select **New user** at the top of the screen.
+2. Select **New user** at the top of the screen:
 
     ![Select New user](common/new-user.png)
 
@@ -151,7 +151,7 @@ In this section, you'll create a test user named Britta Simon in the Azure porta
 
     1. In the **Name** box, enter **BrittaSimon**.
   
-    1. In the **User name** field, enter **brittasimon@\<yourcompanydomain>.\<extension>**. (For example, BrittaSimon@contoso.com.)
+    1. In the **User name** box, enter **brittasimon@\<yourcompanydomain>.\<extension>**. (For example, BrittaSimon@contoso.com.)
 
     1. Select **Show Password**, and then write down the value that's in the **Password** box.
 

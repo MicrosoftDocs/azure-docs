@@ -66,7 +66,7 @@ To set up the integration of Predictix Assortment Planning into Azure AD, you ne
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you'll configure and test Azure AD single sign-on with Predictix Assortment Planning by using a test user named **Britta Simon**.
+In this section, you'll configure and test Azure AD single sign-on with Predictix Assortment Planning by using a test user named Britta Simon.
 To enable single sign-on, you need to establish a relationship between an Azure AD user and the corresponding user in Predictix Assortment Planning.
 
 To configure and test Azure AD single sign-on with Predictix Assortment Planning, you need to complete these steps:
@@ -145,7 +145,7 @@ In this section, you'll create a test user named Britta Simon in the Azure porta
 
     ![Select All users](common/users.png)
 
-2. Select **New user** at the top of the screen.
+2. Select **New user** at the top of the screen:
 
     ![Select New user](common/new-user.png)
 

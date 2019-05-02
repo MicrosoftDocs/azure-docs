@@ -67,7 +67,7 @@ To set up the integration of Pegasystems into Azure AD, you need to add Pegasyst
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you'll configure and test Azure AD single sign-on with Pegasystems by using a test user named **Britta Simon**.
+In this section, you'll configure and test Azure AD single sign-on with Pegasystems by using a test user named Britta Simon.
 To enable single sign-on, you need to establish a relationship between an Azure AD user and the corresponding user in Pegasystems.
 
 To configure and test Azure AD single sign-on with Pegasystems, you need to complete these steps:
@@ -97,15 +97,17 @@ To configure Azure AD single sign-on with Pegasystems, take these steps:
 
 	![Edit icon](common/edit-urls.png)
 
-4. In the **Basic SAML Configuration** section, if you want to configure the application in IdP-initiated mode, complete the following steps.
+4. In the **Basic SAML Configuration** dialog box, if you want to configure the application in IdP-initiated mode, complete the following steps.
 
-    ![Basic SAML Configuration section](common/idp-intiated.png)
+    ![Basic SAML Configuration dialog box](common/idp-intiated.png)
 
     1. In the **Identifier** box, enter a URL in this pattern:
-    `https://<customername>.pegacloud.io:443/prweb/sp/<instanceID>`
+
+       `https://<customername>.pegacloud.io:443/prweb/sp/<instanceID>`
 
     1. In the **Reply URL** box, enter a URL in this pattern:
-    `https://<customername>.pegacloud.io:443/prweb/PRRestService/WebSSO/SAML/AssertionConsumerService`
+
+       `https://<customername>.pegacloud.io:443/prweb/PRRestService/WebSSO/SAML/AssertionConsumerService`
 
 5. If you want to configure the application in SP-initiated mode, select **Set additional URLs** and complete the following steps.
 
@@ -114,7 +116,7 @@ To configure Azure AD single sign-on with Pegasystems, take these steps:
 	1. In the **Sign on URL** box, enter the sign on URL value.
 
     1. In the **Relay State** box, enter a URL in this pattern:
-    `https://<customername>.pegacloud.io/prweb/sso`
+       `https://<customername>.pegacloud.io/prweb/sso`
 
 	> [!NOTE]
 	> The values provided here are placeholders. You need to use the actual identifier, reply URL, sign on URL, and relay state URL. You can get the identifier and reply URL values from a Pega application, as explained later in this tutorial. To get the relay state value, contact the [Pegasystems support team](https://www.pega.com/contact-us). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -147,7 +149,7 @@ To configure Azure AD single sign-on with Pegasystems, take these steps:
 
 	1. In the **Name** box, enter the attribute name shown for that row.
 
-	1. Leave the **Namespace** blank.
+	1. Leave the **Namespace** box empty.
 
 	1. For the **Source**, select **Attribute**.
 
@@ -157,7 +159,7 @@ To configure Azure AD single sign-on with Pegasystems, take these steps:
 
 	1. Select **Save**.
 
-8. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to the **Federation Metadata XML**, per your requirements, and save the certificate on your computer:
+8. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Federation Metadata XML**, per your requirements, and save the certificate on your computer:
 
 	![Certificate download link](common/metadataxml.png)
 

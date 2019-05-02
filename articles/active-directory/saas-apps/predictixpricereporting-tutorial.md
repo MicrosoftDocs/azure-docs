@@ -67,7 +67,7 @@ To set up the integration of Predictix Price Reporting into Azure AD, you need t
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you'll configure and test Azure AD single sign-on with Predictix Price Reporting by using a test user named **Britta Simon**.
+In this section, you'll configure and test Azure AD single sign-on with Predictix Price Reporting by using a test user named Britta Simon.
 To enable single sign-on, you need to establish a relationship between an Azure AD user and the corresponding user in Predictix Price Reporting.
 
 To configure and test Azure AD single sign-on with Predictix Price Reporting, you need to complete these steps:
@@ -97,9 +97,9 @@ To configure Azure AD single sign-on with Predictix Price Reporting, take these 
 
 	![Edit icon](common/edit-urls.png)
 
-4. In the **Basic SAML Configuration** section, complete the following steps.
+4. In the **Basic SAML Configuration** dialog box, complete the following steps.
 
-    ![Basic SAML Configuration section](common/sp-identifier.png)
+    ![Basic SAML Configuration dialog box](common/sp-identifier.png)
 
 	1. In the **Sign on URL** box, enter a URL in this pattern:
 
@@ -136,7 +136,7 @@ To configure single sign-on on the Predictix Price Reporting side, you need to s
 
 ### Create an Azure AD test user
 
-The objective of this section is to create a test user named Britta Simon in the Azure portal.
+In this section, you'll create a test user named Britta Simon in the Azure portal.
 
 1. In the Azure portal, select **Azure Active Directory** in the left pane, select **Users**, and then select **All users**:
 
@@ -154,7 +154,7 @@ The objective of this section is to create a test user named Britta Simon in the
   
     1. In the **User name** box, enter **brittasimon@\<yourcompanydomain>.\<extension>**. (For example, BrittaSimon@contoso.com.)
 
-    1. Select **Show password**, and then write down the value that's in the **Password** box.
+    1. Select **Show Password**, and then write down the value that's in the **Password** box.
 
     1. Select **Create**.
 
