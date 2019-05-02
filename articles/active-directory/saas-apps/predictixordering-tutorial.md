@@ -33,7 +33,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-To configure Azure AD integration with Predictix Ordering, you need to have the following:
+To configure Azure AD integration with Predictix Ordering, you need to have:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/pricing/free-trial/).
 * A Predictix Ordering subscription that has single sign-on enabled.

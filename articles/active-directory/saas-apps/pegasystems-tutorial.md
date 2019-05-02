@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-To configure Azure AD integration with Pegasystems, you need to have the following:
+To configure Azure AD integration with Pegasystems, you need to have:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can sign up for a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 * A Pegasystems subscription that has single sign-on enabled.
@@ -76,7 +76,7 @@ To configure and test Azure AD single sign-on with Pegasystems, you need to comp
 2. **[Configure Pegasystems single sign-on](#configure-pegasystems-single-sign-on)** on the application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Azure AD single sign-on for the user.
-5. **[Create a Pegasystems test user](#create-pegasystems-test-user)** that's linked to the the Azure AD representation of the user.
+5. **[Create a Pegasystems test user](#create-pegasystems-test-user)** that's linked to the Azure AD representation of the user.
 6. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -247,7 +247,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 	![List of applications](common/all-applications.png)
 
-3. In the the left pane, select **Users and groups**:
+3. In the left pane, select **Users and groups**:
 
     ![Select Users and groups](common/users-groups-blade.png)
 

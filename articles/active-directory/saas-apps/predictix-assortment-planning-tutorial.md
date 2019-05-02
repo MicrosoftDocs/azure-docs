@@ -33,7 +33,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-To configure Azure AD integration with Predictix Assortment Planning, you need to have the following:
+To configure Azure AD integration with Predictix Assortment Planning, you need to have:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/pricing/free-trial/).
 * A Predictix Assortment Planning subscription that has single sign-on enabled.
@@ -135,7 +135,7 @@ To configure Azure AD single sign-on with Predictix Assortment Planning, take th
 
 ### Configure Predictix Assortment Planning single sign-on
 
-To configure single sign-on on the Predictix Assortment Planning side, you need to send the certificate that you downloaded and URLs that you copied from the Azure portal to the [Predictix Assortment Planning support team](https://www.infor.com/support). This team ensures the SAML SSO connection is set properly on both sides.
+To configure single sign-on on the Predictix Assortment Planning side, you need to send the certificate that you downloaded and the URLs that you copied from the Azure portal to the [Predictix Assortment Planning support team](https://www.infor.com/support). This team ensures the SAML SSO connection is set properly on both sides.
 
 ### Create an Azure AD test user
 

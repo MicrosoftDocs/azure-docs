@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-To configure Azure AD integration with Predictix Price Reporting, you need to have the following:
+To configure Azure AD integration with Predictix Price Reporting, you need:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can sign up for a [one-month trial](https://azure.microsoft.com/pricing/free-trial/) subscription.
 * A Predictix Price Reporting subscription that has single sign-on enabled.

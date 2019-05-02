@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-To configure Azure AD integration with Percolate, you need to have the following:
+To configure Azure AD integration with Percolate, you need to have:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
 * A Percolate subscription that has single sign-on enabled.
@@ -68,7 +68,7 @@ To configure the integration of Percolate into Azure AD, you need to add Percola
 ## Configure and test Azure AD single sign-on
 
 In this section, you'll configure and test Azure AD single sign-on with Percolate by using a test user named **Britta Simon**.
-To enable sign-on, you need to establish a relationship between an Azure AD user and the corresponding user in Percolate.
+To enable single sign-on, you need to establish a relationship between an Azure AD user and the corresponding user in Percolate.
 
 To configure and test Azure AD single sign-on with Percolate, you need to complete these steps:
 
@@ -192,7 +192,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 5. In the **Users and groups** dialog box, select **Britta Simon** in the users list, and then click the **Select** button at the bottom of the screen.
 
-6. If expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the screen.
+6. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the screen.
 
 7. In the **Add Assignment** dialog box, select **Assign**.
 
