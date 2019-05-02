@@ -20,7 +20,7 @@ GPUs offer performance advantages over CPUs on highly parallelizable computation
 
 This example will show you how to deploy a TensorFlow saved model to Azure Machine Learning. 
 
-## Goals and Prerequisites
+## Goals and prerequisites
 
 Follow the instructions to:
 * Create a GPU enabled AKS cluster
@@ -31,12 +31,12 @@ Prerequisites:
 * Python
 * Tensorflow SavedModel registered. To learn how to register models see [Deploy Models](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#registermodel)
 
-This article is based on [Deploying Tensorflow Models to Aks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), which uses TensorFlow saved models and deploys to an AKS cluster. However, with small changes to the scoring file and environment file it is aplicaple to any machine learning framework which support GPUs.  
+This article is based on [Deploying Tensorflow Models to AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), which uses TensorFlow saved models and deploys to an AKS cluster. However, with small changes to the scoring file and environment file it is applicable to any machine learning framework which support GPUs.  
 
 ## Provision AKS cluster with GPUs
 Azure has many different GPU options, all of which can be used for Inferencing. See [the list of N Series](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) for a full breakdown of capabilities and costs. 
 
-For more information on using AKS with Azure Machine Learning service, see the [How to deploy and where article](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#create-a-new-cluster)
+For more information on using AKS with Azure Machine Learning service, see the [How to deploy and where article.](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#create-a-new-cluster)
 
 ```python
 # Provision AKS cluster with GPU machine
@@ -145,7 +145,7 @@ inference_config = InferenceConfig(runtime= "python",
                                    gpu_enabled=True)
 ```
 
-For more information see [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) and 
+For more information, see [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) and 
 [AksServiceDeploymentConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py).
 ## Deploy the model
 
@@ -200,5 +200,5 @@ aks_target.delete()
 ## Next steps
 
 * [Deploy model on FPGA](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service)
-* [Deploy model with Onnx](https://docs.microsoft.com/azure/machine-learning/service/how-to-build-deploy-onnx#deploy)
+* [Deploy model with ONNX](https://docs.microsoft.com/azure/machine-learning/service/how-to-build-deploy-onnx#deploy)
 * [Train Tensorflow DNN Models](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-tensorflow)
