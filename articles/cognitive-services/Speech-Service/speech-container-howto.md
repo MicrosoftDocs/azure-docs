@@ -221,7 +221,7 @@ This command:
 
 ### Speech-to-text
 
-The container provides websocket-based query endpoint APIs, that are accessed through [Speech services SDK documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+The container provides websocket-based query endpoint APIs, that are accessed through the [Speech SDK](index.yml).
 
 By default, the Speech SDK uses online speech services. To use the container, you need to change the initialization method. See the examples below.
 
