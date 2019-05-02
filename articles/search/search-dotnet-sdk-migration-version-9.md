@@ -169,6 +169,9 @@ If you are upgrading from version 8.0-preview to version 9, be aware that encryp
 
 If your application has a hard dependency on this feature, you will not be able to upgrade to version 9 of the Azure Search .NET SDK. You can continue to use version 8.0-preview. However, please keep in mind that **we do not recommend using preview SDKs in production applications**. Preview features are for evaluation only and may change.
 
+> [!NOTE]
+> If you created encrypted indexes or synonym maps using version 8.0-preview of the SDK, you will still be able use them and modify their definitions using version 9 of the SDK without adversely affecting their encryption status. Version 9 of the SDK will not send the `encryptionKey` property to the REST API, and as a result the REST API will not change the encryption status of the resource. 
+
 ### Behavioral change in data retrieval
 
 If you're using the "dynamically typed" `Search`, `Suggest`, or `Get` APIs that return instances of type `Document`, be aware that they now deserialize empty JSON arrays to `object[]` instead of `string[]`.
