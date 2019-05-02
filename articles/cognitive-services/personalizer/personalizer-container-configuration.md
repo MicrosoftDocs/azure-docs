@@ -1,7 +1,7 @@
 ---
 title: How Personalizer Works
 titleSuffix: Azure Cognitive Services
-description: 
+description: Learn how to run the Personalizer container with the docker run command configuration settings.
 author: edjez
 manager: nitinme
 ms.service: cognitive-services
