@@ -46,22 +46,7 @@ Review the [V3 API list of prebuilt domains](luis-reference-prebuilt-domains.md)
 
 ## Prebuilt entities with new JSON
 
-The following prebuilt entities have JSON schema changes for the V3 API:
-
-* [Age](luis-reference-prebuilt-age.md#preview-api-version-3x)
-* [Currency (Money)](luis-reference-prebuilt-currency.md#preview-api-version-3x)
-* [DateTimeV2](luis-reference-prebuilt-datetimev2.md#preview-api-version-3x)
-* [Dimension](luis-reference-prebuilt-dimension.md#preview-api-version-3x)
-* [Email](luis-reference-prebuilt-email.md#preview-api-version-3x)
-* [GeographyV2](luis-reference-prebuilt-geographyv2.md#preview-api-version-3x)
-* [Number](luis-reference-prebuilt-number.md#preview-api-version-3x)
-* [Ordinal](luis-reference-prebuilt-ordinal.md#preview-api-version-3x)
-* [Percentage](luis-reference-prebuilt-percentage.md#preview-api-version-3x)
-* [PersonName](luis-reference-prebuilt-person.md#preview-api-version-3x)
-* [Phonenumber](luis-reference-prebuilt-phonenumber.md#preview-api-version-3x)
-* [Temperature](luis-reference-prebuilt-temperature.md#preview-api-version-3x)
-* [URL](luis-reference-prebuilt-url.md#preview-api-version-3x)
-
+The V3 response object changes include [prebuilt entities](luis-reference-prebuilt-entities.md). 
 ## Request changes 
 
 ### Query string parameters
