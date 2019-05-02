@@ -234,7 +234,7 @@ dataset.head(3)
 
 Frequently, the data we work with while cleaning and preparing data is just a subset of the total data we need for production. As a result, some of the assumptions we make as part of our cleaning might turn out to be false. For example, in a data set that updates continuously, a column that originally only contained numbers within a certain range might contain a wider range of values in later executions. These errors often result in either broken pipelines or bad data.
 
-Datasets supports creating assertions on data, which are evaluated as the pipeline executes. These assertions let us verify that our assumptions on the data continue to be accurate and, when not, to handle failures accordingly.
+Datasets support creating assertions on data, which are evaluated as the pipeline executes. These assertions let us verify that our assumptions on the data continue to be accurate and, when not, to handle failures accordingly.
 
 For example, if you want to constrain `Latitude` and `Longitude` values in your Dataset to specific numeric ranges, the [`assert_value()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#assert-value-columns--multicolumnselection--expression--azureml-dataprep-api-expressions-expression--policy--azureml-dataprep-api-engineapi-typedefinitions-assertpolicy----assertpolicy-errorvalue--1---error-code--str----assertionfailed------azureml-dataprep-api-dataflow-dataflow) method ensures this is always the case.
 
