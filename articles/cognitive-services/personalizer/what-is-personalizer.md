@@ -61,3 +61,4 @@ Personalizer Service has two APIs:
 ## Next steps
 
 [Quickstart: Create a feedback loop in C#](csharp-quickstart-commandline-feedback-loop.md)
+[Use the interactive demo](https://personalizationdemo.azurewebsites.net/)
