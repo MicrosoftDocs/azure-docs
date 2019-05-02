@@ -103,7 +103,7 @@ def score(data):
 
 if __name__ == "__main__":
     init()
-    with open("lynx.jpg", 'rb') as f:
+    with open("lynx.jpg", 'rb') as f: #load file for testing locally
         content = f.read()
         print(score(content))
 
