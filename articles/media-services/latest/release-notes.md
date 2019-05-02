@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/01/2019
 ms.author: juliako
 ---
 
@@ -33,7 +33,8 @@ For more information, see [Migration guidance for moving from Media Services v2 
 
 ## April 2019
 
-[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) was added to the built-in analyzer presets.
+* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) was added to the built-in analyzer presets.
+* The built-in encoder presets now include one for [Content-aware Encoding](cae-experimental.md). 
 
 ## March 2019
 
