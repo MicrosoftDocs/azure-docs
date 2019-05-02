@@ -35,7 +35,7 @@ This article lists the steps to run the Azure IoT Edge runtime on a Windows Serv
     1.	Select the **RunPowerShellScript** option
     1.	Copy this script into the command window with your device connection string: 
         ```powershell
-        . {Invoke-WebRequest -useb https://raw.githubusercontent.com/Azure/iotedge/master/scripts/windows/setup/IotEdgeSecurityDaemon.ps1} | Invoke-Expression; `
+        . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
         Install-IoTEdge -Manual -DeviceConnectionString '<connection-string>'
         ```
     1.	Execute the script to install the Edge runtime and set your connection string by selecting **Run**
@@ -85,7 +85,7 @@ This article lists the steps to run the Azure IoT Edge runtime on a Windows Serv
 1. Set the device connection string (You can follow the [Register a new Azure IoT Edge device with Azure CLI](how-to-register-device-cli.md) how-to guide if you’re not familiar with this process):
 
    ```azurecli-interactive
-   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunPowerShellScript --script ". {Invoke-WebRequest -useb https://raw.githubusercontent.com/Azure/iotedge/master/scripts/windows/setup/IotEdgeSecurityDaemon.ps1} | Invoke-Expression; `Install-IoTEdge -Manual -DeviceConnectionString '<connection-string>'"
+   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunPowerShellScript --script ". {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `Install-IoTEdge -Manual -DeviceConnectionString '<connection-string>'"
    ```
 
 ## Next steps
