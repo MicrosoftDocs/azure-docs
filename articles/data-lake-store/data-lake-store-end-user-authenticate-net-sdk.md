@@ -26,7 +26,7 @@ ms.author: twooley
 In this article, you learn about how to use the .NET SDK to do end-user authentication with Azure Data Lake Storage Gen1. For service-to-service authentication with Data Lake Storage Gen1 using .NET SDK, see [Service-to-service authentication with Data Lake Storage Gen1 using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 ## Prerequisites
-* **Visual Studio 2013, 2015, or 2017**. The instructions below use Visual Studio 2017.
+* **Visual Studio 2013 or above**.
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 

@@ -35,7 +35,7 @@ You need the following to complete this sample successfully:
 
 ## Create a .NET console project
 
-In Visual Studio, create a new .NET console application. The following steps show you how to create a console application in Visual Studio 2017. The steps are similar in other versions of Visual Studio. You can use the Azure Cosmos DB Table Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
+In Visual Studio, create a new .NET console application. The following steps show you how to create a console application in Visual Studio. (The steps may vary slightly, depending on which version of Visual Studio you're using.) You can use the Azure Cosmos DB Table Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
 
 1. Select **File** > **New** > **Project**.
 

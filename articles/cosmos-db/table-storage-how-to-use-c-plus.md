@@ -458,7 +458,7 @@ if (table.delete_table_if_exists())
 ```
 
 ## Troubleshooting
-* Build errors in Visual Studio 2017 Community Edition
+* Build errors in Visual Studio Community Edition
 
   If your project gets build errors because of the include files storage_account.h and table.h, remove the **/permissive-** compiler switch. 
   - In **Solution Explorer**, right-click your project and select **Properties**.

@@ -23,7 +23,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 * [A sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data and sends it to an event hub. Download the sample app to your system.
 
-* [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/) to run the sample app
+* [Visual studio 2019](https://www.visualstudio.com/vs/) to run the sample app
 
 ## Sign in to the Azure portal
 

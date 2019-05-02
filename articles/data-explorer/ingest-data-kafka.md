@@ -23,7 +23,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
  
 * [A sample app](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) that generates data and sends it to Kafka
 
-* [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/) to run the sample app
+* [Visual studio 2019](https://www.visualstudio.com/vs/) to run the sample app
  
 ## Kafka connector setup
 
