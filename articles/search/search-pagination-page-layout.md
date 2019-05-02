@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
