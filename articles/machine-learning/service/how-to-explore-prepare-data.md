@@ -40,7 +40,7 @@ To explore and prepare your data, you'll need:
 Take a sample of your data to get an initial understanding of your data architecture and content. At this time, the [`sample()`](https://docs.microsoft.com//python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#sample-sample-strategy--arguments-) method from the Dataset class supports Top N, Simple Random, and Stratified sampling strategies.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 import random
 
 # create an in-memory Dataset from a local file
@@ -105,7 +105,6 @@ sample_dataset.to_pandas_dataframe()
 1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
 2|10535059|HZ278872|4/15/2016 4:30|004XX S KILBOURN AVE|810|THEFT|...
 
-
 ## Explore with summary statistics
 
  Detect anomalies, missing values, or error counts with the [`get_profile()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-profile-arguments-none--generate-if-not-exist-true--workspace-none--compute-target-none-) method. This function gets the profile and summary statistics of your data, which in turn helps determine the necessary data preparation operations to apply.
@@ -148,7 +147,7 @@ From the Dataset profile generated in the preceding section, we see that `Latitu
 First, get the latest definition of the Dataset with [`get_definition()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) and pare down the data with [`keep_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#keep-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow), so we only view the columns we want to address.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 import azureml.dataprep as dprep
 
 # get the latest definition of Dataset
@@ -218,7 +217,6 @@ As shown in the following output table, the missing latitude was imputed with th
 1|10516598|False|41.744107|-87.664494
 2|10519196|False|41.780049|-87.000000
 
-
 Update the Dataset definition with, [`update_definition()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#update-definition-definition--definition-update-message-) to keep the performed transformation steps.
 
 ```Python
@@ -242,6 +240,7 @@ For example, if you want to constrain `Latitude` and `Longitude` values in your 
 
 ```Python
 from azureml.dataprep import value
+from azureml.core.dataset import Dataset
 
 # get the latest definition of the Dataset
 ds_def = dataset.get_definition()
@@ -278,7 +277,7 @@ print(error.originalValue)
 One of the more advanced tools for Datasets is the ability to derive columns using examples of desired results. This lets you give the SDK an example, so it can generate code to achieve the intended transformations.
 
 ```Python
-from azureml.dataset import Dataset
+from azureml.core.dataset import Dataset
 
 # create an in-memory Dataset from a local file
 dataset = Dataset.auto_read_files('./data/crime.csv')
@@ -298,8 +297,8 @@ The following code provides two examples of desired output, ("2016-04-04 23:56:0
 ```Python
 ds_def = dataset.get_definition()
 ds_def = ds_def.derive_column_by_example(
-        source_columns = "Date", 
-        new_column_name = "Date_Time_Range", 
+        source_columns = "Date",
+        new_column_name = "Date_Time_Range",
         example_data = [("2016-04-04 23:56:00", "2016-04-04 10PM-12AM"), ("2016-04-15 17:00:00", "2016-04-15 4PM-6PM")]
     )
 ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
@@ -325,7 +324,7 @@ When you gather data from different sources you might encounter variations in sp
 For example, the column `inspections.business.city` contains several forms of the city name "San Francisco".
 
 ```Python
-from azureml.Dataset import Dataset
+from azureml.core.dataset import Dataset
 
 # create an in-memory Dataset from a local json file
 dataset = Dataset.auto_read_files('./data/city.json')

@@ -40,7 +40,7 @@ Load files from your local machine by specifying the file or folder path with th
 * Inferring and converting column data types.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 
 dataset = Dataset.auto_read_files('./data/crime.csv')
 ```
@@ -56,7 +56,9 @@ To create Datasets from an Azure Datastore, be sure to:
 * Import the [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) and [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#definition) and `Dataset` packages from the SDK.
 
 ```Python
-from azureml.core import Workspace, Datastore, Dataset
+from azureml.core.workspace import Workspace
+from azureml.core.datastore import Datastore
+from azureml.core.dataset import Dataset
 
 datastore_name = 'your datastore name'
 
@@ -94,21 +96,21 @@ dataset.head(5)
 Use the [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) method to register Datasets to your workspace for sharing and reuse within your organization and across various experiments.
 
 ```Python
-dataset = dataset.register(workspace = 'workspace_name',
-                           name = "dataset_crime",
+dataset = dataset.register(workspace = workspace,
+                           name = 'dataset_crime',
                            description = 'Training data',
                            exist_ok = False
                            )
 ```
 
 >[!NOTE]
-> The default parameter setting for `register()` is `exist_ok = False'. If you try to register a Dataset with the same name without changing this setting an error results.
+> The default parameter setting for `register()` is `exist_ok = False`. If you try to register a Dataset with the same name without changing this setting an error results.
 
 The `register()` method updates the definition of an already registered Dataset with the parameter setting, `exist_ok = True`.
 
 ```Python
-dataset = dataset.register(workspace = workspace_name,
-                           name = "dataset_crime",
+dataset = dataset.register(workspace = workspace,
+                           name = 'dataset_crime',
                            description = 'Training data',
                            exist_ok = True)
 ```
@@ -133,7 +135,7 @@ Registered Datasets are accessible and consumable locally, remotely and on compu
 ```Python
 workspace = Workspace.from_config()
 
-dataset = workspace.Datasets['dataset_crime']
+dataset = workspace.datasets['dataset_crime']
 ```
 
 ## Next steps
