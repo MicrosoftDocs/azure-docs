@@ -52,23 +52,23 @@ First, prepare your environment for the scaling script:
 Next, you'll need to create the securely stored credentials:
 
 1. Open PowerShell ISE as an administrator.
-3 Import RDS PowerShell module:
+2. Import the RDS PowerShell module by running the following cmdlet:
 
     ```powershell
     Install-Module Microsoft.RdInfra.RdPowershell
     ```
     
-2. Open the edit pane and load the **Function-PSStoredCredentials.ps1** file.
-3. Run the following cmdlet:
+3. Open the edit pane and load the **Function-PSStoredCredentials.ps1** file.
+4. Run the following cmdlet:
     
     ```powershell
     Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
     ```
     
     For example, **Set-Variable -Name KeyPath -Scope Global -Value "c:\\scaling-HostPool1"**
-4. Run the **New-StoredCredential -KeyPath \$KeyPath** cmdlet. When prompted, enter your Windows Virtual Desktop credentials with permissions to query the host pool (the host pool is specified in the **config.xml**).
+5. Run the **New-StoredCredential -KeyPath \$KeyPath** cmdlet. When prompted, enter your Windows Virtual Desktop credentials with permissions to query the host pool (the host pool is specified in the **config.xml**).
     - If you use different service principals or standard account, run the **New-StoredCredential -KeyPath \$KeyPath** cmdlet once for each account to create local stored credentials.
-5. Run **Get-StoredCredentials -List** to confirm the credentials were created successfully.
+6. Run **Get-StoredCredentials -List** to confirm the credentials were created successfully.
 
 ### Configure the config.xml file
 
