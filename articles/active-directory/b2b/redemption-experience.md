@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Azure Active Directory B2B collaboration invitation redemption
 
-This article describes the ways your guest users can access your resources. If you invite a guest via email, the invitation includes a redemption link the guest can use to access your app or portal. If you choose not to send invitations, you can add a guest user to your directory and give them a direct link to an app or portal. In either case, guests are guided through a first-time consent process. This process ensures that your guests agree to [privacy terms](#privacy-policy-agreement) and accept any [terms of use](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou) you've set up. 
+This article describes the ways your guest users can access your resources. If you invite a guest via email, the invitation includes a redemption link the guest can use to access your app or portal. If you choose not to send invitations, you can add a guest user to your directory and give them a direct link to an app or portal. In either case, guests are guided through a first-time consent process. This process ensures that your guests agree to privacy terms and accept any [terms of use](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou) you've set up. 
 
 When you add a guest user to your directory, the guest user account has a consent status (viewable in PowerShell) that’s initially set to **PendingAcceptance**. This setting remains until the guest accepts your invitation and agrees to your privacy policy and terms of use. After that, the consent status changes to **Accepted**, and the consent pages are no longer presented to the guest.
 
@@ -27,10 +27,10 @@ When you add a guest user to your directory, the guest user account has a consen
 
 When you add a guest user to your directory by [using the Azure portal](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal), an invitation email is sent to the guest in the process. If you’re [using PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell) to add guest users to your directory, you can opt to send invitation emails. Here’s a description of the guest’s experience when they redeem the link in the email.
 
-1.	The guest receives an [invitation email](https://docs.microsoft.com/azure/active-directory/b2b/invitation-email-elements) that's sent from **Microsoft Invitations**.
-2.	The guest selects **Get Started** in the email.
-3.	If the guest doesn't have an Azure AD account, a Microsoft Account (MSA), or an email account in a federated organization, they're prompted to create an MSA (unless the [one-time passcode](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) feature is enabled, which doesn’t require an MSA).
-4.	The guest is guided through the [consent experience](#consent-experience-for-the-guest) described below.
+1. The guest receives an [invitation email](https://docs.microsoft.com/azure/active-directory/b2b/invitation-email-elements) that's sent from **Microsoft Invitations**.
+2. The guest selects **Get Started** in the email.
+3. If the guest doesn't have an Azure AD account, a Microsoft Account (MSA), or an email account in a federated organization, they're prompted to create an MSA (unless the [one-time passcode](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) feature is enabled, which doesn’t require an MSA).
+4. The guest is guided through the [consent experience](#consent-experience-for-the-guest) described below.
 
 ## Redemption through a direct link
 
