@@ -69,7 +69,7 @@ This pattern improves the resiliency and manageability of the system. However, e
 
 The Azure Stream Analytics reference data feature is designed specifically for end-user customization like alerting threshold, processing rules, and [geofences](geospatial-scenarios.md). The application layer can accept parameter changes and store them in a SQL database. The Stream Analytics job periodically queries for changes from the database and makes the customization parameters accessible through a reference data join. For more information on how to use reference data for application customization, see [SQL reference data](sql-reference-data.md) and [reference data join](/stream-analytics-query/reference-data-join-azure-stream-analytics).
 
-This pattern can also be used to implement a rule engine where the thresholds of the rules are defined from reference data. For more information on rules, see [Process configurable threshold-based rules in Azure Stream Analytics](stream-analytics-threshold-based-rules.md).
+This pattern can also be used to implement a rules engine where the thresholds of the rules are defined from reference data. For more information on rules, see [Process configurable threshold-based rules in Azure Stream Analytics](stream-analytics-threshold-based-rules.md).
 
 ![ASA reference data app](media/stream-analytics-solution-patterns/refdataapp.png)
 
@@ -87,7 +87,7 @@ Another common pattern is real-time data warehousing, also called streaming data
 
 ![ASA Data Warehousing](media/stream-analytics-solution-patterns/datawarehousing.png)
 
-One way to improve the throughput with some latency tradeoff is to archive the events into Azure Blob storage, and then [import them into SQL Data Warehouse with Polybase](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md). You must manually stitch together output from Stream Analytics to blob storage and input from blob storage to SQL Data Warehouse by [archiving the data by timestamp](stream-analytics-custom-path-patterns-blob-storage-output.md) and importing periodically. 
+One way to improve the throughput with some latency tradeoff is to archive the events into Azure Blob storage, and then [import them into SQL Data Warehouse with Polybase](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md). You must manually stitch together output from Stream Analytics to blob storage and input from blob storage to SQL Data Warehouse by [archiving the data by timestamp](stream-analytics-custom-path-patterns-blob-storage-output.md) and importing periodically.
 
 In this usage pattern, Azure Stream Analytics is used as a near real-time ETL engine. Newly arriving events are continuously transformed and stored for downstream analytics service consumption.
 
@@ -101,7 +101,7 @@ Most data science and analytics activities still happen offline. Data can be arc
 
 ## Use reference data for enrichment
 
-Data enrichment is often a requirement for ETL engines. Azure Stream Analytics supports data enrichment with [reference data](stream-analytics-use-reference-data.md) from both SQL database and Azure Blob storage. Data enrichment can be done for data landing in both Azure Data Lake or SQL Data Warehouse.
+Data enrichment is often a requirement for ETL engines. Azure Stream Analytics supports data enrichment with [reference data](stream-analytics-use-reference-data.md) from both SQL database and Azure Blob storage. Data enrichment can be done for data landing in both Azure Data Lake and SQL Data Warehouse.
 
 ![ASA offline analytics with data enrichment](media/stream-analytics-solution-patterns/offlineanalytics.png)
 
@@ -127,7 +127,7 @@ There are two key things to monitor:
 
     This metric reflects how far behind your processing pipeline is in wall clock time (seconds). Some of the delay is attributed to the inherent processing logic. As a result, monitoring the increasing trend is much more important than monitoring the absolute value. The steady state delay should be addressed by your application design, not by monitoring or alerts.
 
-Upon failure, activity logs and [diagnostics logs](stream-analytics-job-diagnostic-logs.md) are the best places to being looking for errors.
+Upon failure, activity logs and [diagnostics logs](stream-analytics-job-diagnostic-logs.md) are the best places to begin looking for errors.
 
 ## Build resilient and mission critical applications
 
@@ -146,7 +146,7 @@ Provisioning more resources can speed up the process, but the effect of having a
 
 1. Test that your job is scalable to a larger number of SUs. Not all queries are scalable. You need to make sure your query is [parallelized](stream-analytics-parallelization.md).
 
-2. Make sure there are enough partitions in the upstream Event Hubs or IoT Hub that you can add more Throughput Units (TUs) to scale the input throughput. Remember, each Event Hub TU maxes out at an output rate of 2 MB/s.
+2. Make sure there are enough partitions in the upstream Event Hubs or IoT Hub that you can add more Throughput Units (TUs) to scale the input throughput. Remember, each Event Hubs TU maxes out at an output rate of 2 MB/s.
 
 3. Make sure you have provisioned enough resources in the output sinks (i.e., SQL Database, Cosmos DB), so they don't throttle the surge in output, which can sometimes cause the system to lock up.
 
