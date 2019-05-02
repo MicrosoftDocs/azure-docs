@@ -18,15 +18,16 @@ you can add the built-in **Inline Code** action as a step in
 your logic app's workflow. This action works best when you want 
 to run code that fits this scenario:
 
-* Runs in JavaScript. More languages to follow.
+* Runs in JavaScript. More languages coming soon.
 * Finishes running in five seconds or fewer.
 * Handles data up to 50 MB in size.
-* Uses Node.js module 8.11.1. For more information, see 
+* Uses Node.js version 8.11.1. For more information, see 
 [Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
 
-This action returns a single output named **Result**, 
-which you can use in subsequent actions in your logic app. 
-For other scenarios where you want to create a function for your code, try 
+This action runs the code snippet and returns the output from 
+that snippet as a token named **Result**, which you can use in 
+subsequent actions in your logic app. For other scenarios 
+where you want to create a function for your code, try 
 [creating and calling an Azure function](../logic-apps/logic-apps-azure-functions.md) 
 in your logic app.
 
@@ -94,49 +95,54 @@ a method, but without defining the method signature.
    In this example, the code snippet first creates a variable 
    that stores a *regular expression*, which specifies a pattern 
    to match in input text. The code then creates a variable that 
-   stores the email body output from the trigger.
+   stores the email body data from the trigger.
 
    ![Create variables](./media/logic-apps-add-run-inline-code/save-email-body-variable.png)
 
-   To make outputs from the trigger and previous actions 
+   To make the results from the trigger and previous actions 
    easier to reference, the dynamic content list appears 
    while your cursor is inside the **Code** box. In this 
-   example, the list shows the outputs from the trigger, 
+   example, the list shows available results from the trigger, 
    including the **Body** token, which you can now select. 
-   With the inline code action, the **Body** token resolves 
+   In the inline code action, the **Body** token resolves 
    to a `workflowContext` object that references the email's 
    `Body` property value:
 
-   ![Select trigger output](./media/logic-apps-add-run-inline-code/inline-code-example-select-outputs.png)
+   ![Select result](./media/logic-apps-add-run-inline-code/inline-code-example-select-outputs.png)
 
-   The read-only `workflowContext` object provides access to these 
-   subproperties that you can use to reference their outputs: 
+   The read-only `workflowContext` object is available to use 
+   as input for your code in the **Inline Code** action and 
+   provides access to these subproperties that you can use 
+   to access trigger and action property values: 
 
    | Property | Description |
    |----------|-------------|
-   | `workflow` | Workflow property values, such as the workflow name, run ID, and so on |
-   | `trigger` | Trigger property values that are outputs from the current workflow instance run |
-   | `actions` | Property values for previous actions, which use the same names as the actions that appear in the Logic App Designer |
+   | `workflow` | The workflow object, which is equivalent to calling the [workflow() function](../logic-apps/workflow-definition-language-functions-reference.md#workflow). Provides access to workflow property values, such as the workflow name, run ID, and so on. |
+   | `trigger` | The trigger result object, which is equivlent to calling the [trigger() function](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Provides access to trigger property values from the current workflow instance run. |
+   | `actions` | A collection of result objects from previous actions in the current workflow instance run. Each object's key is the action's name, and the value is equivalent to calling the [action() function](../logic-apps/workflow-definition-language-functions-reference.md#action) with `@action('<action-name>')`. Provides access to property values from previous actions, which use the same names as the actions that appear in the Logic App Designer |
    |||
 
-   If your code needs to reference action names that use the dot (.) operator, 
-   you must [add those action names to the **Actions** parameter](#add-parameters), 
-   and your code references to those action names must use square brackets ([]) 
-   and enclose the names in quotes, for example:
-   
-   `// Correct`</br> 
-   `workflowContext.actions["my.action.name"].body`</br>
-   `// Incorrect`</br>
-   `workflowContext.actions.my.action.name.body`
+   > [!NOTE]
+   > 
+   > If your code needs to reference action names that use the dot (.) operator, 
+   > you must [add those action names to the **Actions** parameter](#add-parameters), 
+   > and your code references to those action names must use square brackets ([]) 
+   > and enclose the names in quotes, for example:
+   > 
+   > `// Correct`</br> 
+   > `workflowContext.actions["my.action.name"].body`</br>
+   > 
+   > `// Incorrect`</br>
+   > `workflowContext.actions.my.action.name.body`
 
    The inline code action doesn't require a `return` statement, 
-   but the value output from a `return` statement is available 
-   for later actions through the **Result** token. For example, 
-   the code snippet then returns the result by calling the 
-   `match()` function, which finds matches in the email body 
+   but the results from a `return` statement are available for 
+   reference in later actions through the **Result** token. 
+   For example, the code snippet returns the result by calling 
+   the `match()` function, which finds matches in the email body 
    against the regular expression. The **Compose** action uses 
-   the **Result** token to reference the output from the inline 
-   code action and creates a single output.
+   the **Result** token to reference the results from the inline 
+   code action and creates a single result.
 
    ![Finished logic app](./media/logic-apps-add-run-inline-code/inline-code-complete-example.png)
 
@@ -146,26 +152,28 @@ a method, but without defining the method signature.
 
 ## Add parameters
 
-Optionally, you can require that the **Inline Code** action 
-includes outputs from the trigger or specific actions that 
-your code references as explicit dependencies by adding the 
-**Trigger** or **Actions** parameters. This option is useful 
-for scenarios where the referenced outputs aren't found at 
-run time.
+In some cases, you might have to explicitly require that the 
+**Inline Code** action includes results from the trigger or 
+specific actions that your code references as dependencies by 
+adding the **Trigger** or **Actions** parameters. This option 
+is useful for scenarios where the referenced results aren't 
+found at run time.
 
 > [!TIP]
-> If you plan to reuse your code, select your outputs 
-> from inside the **Code** box so that your code 
-> includes the resolved token references.
+> If you plan to reuse your code, add references to 
+> properties by using the **Code** box so that your code 
+> includes the resolved token references, rather than 
+> adding the trigger or actions as explicit dependencies.
 
 For example, suppose you have code that references the **SelectedOption** 
-output from the **Send approval email** action for the Office 365 
-Outlook connector. At run time, the Logic Apps engine analyzes your 
-code to determine whether you've referenced any trigger or action 
-outputs and includes those outputs automatically. However, should 
-you get an error that a referenced output isn't available, you can 
-add the **Actions** parameter and specify that the **Inline Code** 
-action explicitly include outputs from the **Send approval email** action.
+result from the **Send approval email** action for the Office 365 Outlook 
+connector. At create time, the Logic Apps engine analyzes your code to 
+determine whether you've referenced any trigger or action results and 
+includes those results automatically. At run time, should you get an 
+error that the referenced trigger or action result isn't available, 
+you must explicitly add that dependency. In this example, you add 
+the **Actions** parameter and specify that the **Inline Code** action 
+explicitly include the result from the **Send approval email** action.
 
 To add these parameters, open the **Add new parameter** list, 
 and select the parameters you want:
@@ -174,31 +182,31 @@ and select the parameters you want:
 
    | Parameter | Description |
    |-----------|-------------|
-   | **Actions** | Include an array with outputs from previous actions. See [Include action outputs](#action-outputs). |
-   | **Trigger** | Include outputs from the trigger. See [Include trigger outputs](#trigger-outputs). |
+   | **Actions** | Include an array with results from previous actions. See [Include action results](#action-results). |
+   | **Trigger** | Include results from the trigger. See [Include trigger results](#trigger-results). |
    |||
 
-<a name="trigger-outputs"></a>
+<a name="trigger-results"></a>
 
-### Include trigger outputs
+### Include trigger results
 
-If you select **Triggers**, you're prompted whether to include trigger outputs.
+If you select **Triggers**, you're prompted whether to include trigger results.
 
 * From the **Trigger** list, select **Yes**.
 
-<a name="action-outputs"></a>
+<a name="action-results"></a>
 
-### Include action outputs
+### Include action results
 
 If you select **Actions**, you're prompted for the actions that you want to add. 
-However, before you start adding actions, you need the JSON version for the action name, 
-which appears in the logic app's underlying workflow definition.
+However, before you start adding actions, you need the version of the action name 
+that appears in the logic app's underlying workflow definition.
 
 * This capability doesn't support variables, loops, and iteration indexes.
 
-* JSON names use an underscore (_), not a space.
+* Names in your logic app's workflow definition use an underscore (_), not a space.
 
-* For action names that use dots, include those dots, for example: 
+* For action names that use the dot operator (.), include those operators, for example: 
 
   `My.Action.Name`
 
