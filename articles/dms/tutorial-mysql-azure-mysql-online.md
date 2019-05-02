@@ -10,11 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-<<<<<<< HEAD
 ms.date: 04/19/2019
-=======
-ms.date: 04/29/2019
->>>>>>> d60320c2ae4cfb42c38d4d4760899f635a4b6857
 ---
 
 # Tutorial: Migrate MySQL to Azure Database for MySQL online using DMS
