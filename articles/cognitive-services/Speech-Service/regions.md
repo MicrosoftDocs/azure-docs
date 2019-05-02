@@ -24,9 +24,9 @@ Make sure that you use the endpoint that matches the region for your subscriptio
 In the [Speech SDK](speech-sdk.md), regions are specified as a string
 (for example, as a parameter to `SpeechConfig.FromSubscription` in the Speech SDK for C#).
 
-### Speech recognition and translation
+### Speech-to-text, text-to-speech, and translation
 
-The Speech SDK is available in these regions for **speech recognition** and **translation**:
+The Speech SDK is available in these regions for **speech recognition**, **text-to-speech**, and **translation**:
 
   Region | Speech SDK Parameter | Speech Customization Portal
  ------|-------|--------
