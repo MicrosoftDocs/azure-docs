@@ -476,7 +476,7 @@ To learn more about policies, see [Kubernetes network policies][kubernetes-netwo
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
 [calicoctl]: https://docs.projectcalico.org/v3.5/reference/calicoctl/
 [calico-support]: https://www.projectcalico.org/support
