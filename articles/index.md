@@ -1152,7 +1152,8 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/fxt-edge-filer/">
-                                                <img src="media/index/AzureFXTEdgeFiler.svg" alt="" />
+                                                <img src="media/index/azure-fxt-edge-f
+                                                iler.svg" alt="" />
                                                 <p>Azure FXT Edge Filer</p>
                                             </a>
                                         </li>
@@ -2610,7 +2611,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img alt="" src="media/index/AzureFXTEdgeFiler.svg" data-linktype="relative-path">
+                                                        <img alt="" src="media/index/azure-fxt-edge-filer.svg" data-linktype="relative-path">
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
