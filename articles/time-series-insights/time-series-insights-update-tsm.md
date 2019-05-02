@@ -198,9 +198,9 @@ For more information about Time Series Model settings, see the [Reference docume
 
 ## Next steps
 
-See [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md).
+- See [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md).
 
-See the new [Time Series Model](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
+- See the new [Time Series Model](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
 
 <!-- Images -->
 [1]: media/v2-update-tsm/tsm.png

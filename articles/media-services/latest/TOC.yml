@@ -47,7 +47,7 @@
     items:
     - name: Overview
       href: encoding-concept.md   
-      displayName: Presets
+      displayName: encoding, presets, jobs, adaptive, bitrate
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md 
     - name: Media Encoder Standard formats
@@ -56,14 +56,19 @@
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md      
     - name: Content-aware encoding
+      displayName: content, aware, cae
       href: cae-experimental.md
+    - name: Job error codes
+      href: https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode         
   - name: Media analytics 
     items:
     - name: Overview
       href: analyzing-video-audio-files-concept.md
-      displayName: Presets
+      displayName: analyzing, presets, jobs
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md 
+    - name: Job error codes
+      href: https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode         
   - name: Packaging, delivery, protection
     items:
     - name: Packaging
@@ -74,7 +79,7 @@
       - name: Dynamic manifests
         href: filters-dynamic-manifest-overview.md 
       - name: Filters
-        href: filters-concept.md
+        href: filters-concept.md   
     - name: Content protection
       items:
       - name: Streaming protocols and encryption types
@@ -99,7 +104,9 @@
     - name: Streaming Policies
       href: streaming-policy-concept.md  
     - name: Content Key Policies
-      href: content-key-policy-concept.md              
+      href: content-key-policy-concept.md      
+    - name: Origin error codes  
+      href: origin-error-codes.md         
   - name: Live streaming 
     items:
     - name: Overview
@@ -138,6 +145,12 @@
       href: entities-overview.md 
     - name: RBAC
       href: rbac-overview.md
+    - name: Error codes
+      items:
+      - name: Origin error codes  
+        href: origin-error-codes.md
+      - name: Job error codes
+        href: https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode
   - name: Migration guidance from v2 to v3
     href: migrate-from-v2-to-v3.md      
 - name: How-to guides
@@ -163,6 +176,8 @@
         href: configure-connect-dotnet-howto.md
       - name: Connect with Node.js
         href: configure-connect-nodejs-howto.md
+      - name: Connect with Python
+        href: configure-connect-python-howto.md
   - name: Upload content
     items:
     - name: From HTTPS - .NET
@@ -238,8 +253,17 @@
       href: https://aka.ms/ams-v3-go-ref
   - name: Resource Manager template
     href: /azure/templates/microsoft.media/allversions
+  - name: Error codes
+    items:
+    - name: Origin error codes  
+      href: origin-error-codes.md
+    - name: Job error codes
+      href: https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode    
 - name: Resources
   items:
+  - name: Azure Media Services community
+    displayName: forums, twitter, feedback
+    href: media-services-community.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=web-mobile
   - name: Pricing

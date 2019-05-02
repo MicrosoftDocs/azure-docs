@@ -35,7 +35,7 @@ In this how-to, you'll learn how to configure the SDK within your application to
 
 This how-to assumes that you know how to:
 
-- Provision your app using the legacy portal for Azure Active Directory (Azure AD). For more info, see [Register an app with the Azure AD v1.0 endpoint](quickstart-v1-add-azure-ad-app.md)
+- Provision your app using the legacy portal for Azure Active Directory (Azure AD). For more info, see [Register an app](quickstart-register-app.md)
 - Integrate your application with the [Azure AD Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## Single sign-on concepts

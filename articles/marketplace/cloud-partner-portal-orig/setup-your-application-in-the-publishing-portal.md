@@ -1,20 +1,20 @@
 ---
-title: Setup your application in the Publishing Portal | Microsoft Docs
+title: Setup your application in the Publishing Portal 
 description: Instructions in how to setup your application in the Cloud Publishing Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
+
 author: pbutlerm
 manager: Ricardo.Villalobos  
-editor:
 
-ms.assetid: 
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Setup your application in the Publishing Portal
@@ -84,7 +84,7 @@ Here is an explanation for these fields:
 
 ### CRM Package Availability
 
-In this section, select what regions of CRM your package will be made available to. For information on which regions serve which countries, please see the link: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
+In this section, select what regions of CRM your package will be made available to. For information on which CRM regions serve which countries/regions, please see the link: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 Note: Deploying to Germany "Sovereign and US Gov Cloud" Sovereign REQUIRES SPECIAL PERMISSION and VALIDATION DURING CERTIFICATION
 
