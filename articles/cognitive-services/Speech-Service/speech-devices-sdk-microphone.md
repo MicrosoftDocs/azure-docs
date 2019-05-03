@@ -31,6 +31,8 @@ device form factor.
 | \# Mics  | 7                 | 4                 | 4              | 2              |
 | Geometry | 6 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced| 3 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced | Length = 120 mm, Spacing = 40 mm | Spacing = 40 mm |
 
+Microphone channels should be ordered according to the numbering depicted for each above array, increasing from 0. The Microsoft Audio Stack will require an additional reference stream of audio playback to perform echo cancellation.
+
 ## Component selection
 
 Microphone components should be selected to accurately reproduce a signal free of noise and distortion.
