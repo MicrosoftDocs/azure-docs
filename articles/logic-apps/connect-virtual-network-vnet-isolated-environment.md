@@ -165,7 +165,7 @@ and then choose **Review + create**, for example:
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you want to create your environment |
    | **Integration Service Environment Name** | Yes | <*environment-name*> | The name to give your environment |
    | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to deploy your environment |
-   | **Additional capacity** | Yes | 0 to 10 | The number of additional processing units to use for this ISE resource. To add capacity after creation, see [Add capacity](#add-capacity). |
+   | **Additional capacity** | Yes | 0 to 10 | The number of additional processing units to use for this ISE resource. To add capacity after creation, see [Add ISE capacity](#add-capacity). |
    | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, [create an Azure virtual network first](../virtual-network/quick-create-portal.md). <p>**Important**: You can *only* perform this injection when you create your ISE. |
    | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets for creating resources in your environment. To create each subnet, [follow the steps under this table](#create-subnet).  |
    |||||
@@ -329,7 +329,7 @@ Instead, select your ISE, rather than a region, for example:
 
 <a name="add-capacity"></a>
 
-## Add capacity to ISE
+## Add ISE capacity
 
 Your ISE base unit has fixed capacity, so if you 
 need more throughput, you can add more scale units. 
@@ -342,7 +342,7 @@ conditions for meeting that criteria.
 1. In the Azure portal, find your ISE.
 
 1. To review usage and performance metrics for your ISE, 
-on your ISE's main menu, choose **Overview**.
+on your ISE's main menu, select **Overview**.
 
    ![View usage for ISE](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-usage.png)
 
@@ -352,22 +352,25 @@ choose **Enable autoscale**.
 
    ![Turn on autoscaling](./media/connect-virtual-network-vnet-isolated-environment/scale-out.png)
 
+1. For **Autoscale setting name**, provide a name for your setting.
+
 1. In the **Default** section, choose either 
 **Scale based on a metric** or 
 **Scale to a specific instance count**.
 
-1. If you choose instance-based, enter the number of 
-processing units between 0 and 10 inclusively. 
-Otherwise, for metric-based, follow these steps:
+   * If you choose instance-based, enter the 
+   number of processing units between 0 and 10 inclusively.
 
-   1. In the **Default** section, choose **Add a rule**.
+   * If you choose metric-based, follow these steps:
 
-   1. On the **Scale rule** pane, set up your criteria 
-   and action to take when the rule triggers.
+     1. In the **Rules** section, choose **Add a rule**.
 
-   1. When you're done, choose **Add**.
+     1. On the **Scale rule** pane, set up your criteria 
+     and action to take when the rule triggers.
 
-1. When you're finished, remember to save your changes.
+     1. When you're done, choose **Add**.
+
+1. When you're finished with your autoscale settings, save your changes.
 
 ## Next steps
 
