@@ -105,10 +105,11 @@ az storage account create -n $scriptStorageAcc -g $strResourceGroup -l $location
 az storage container create -n $scriptStorageAccContainer --fail-on-exist --account-name $scriptStorageAcc
 
 # copy in an example script from the GitHub repo 
-az storage blob copy start --destination-blob customizeScript.sh \
-                           --destination-container $scriptStorageAccContainer \
-                           --account-name $scriptStorageAcc \
-                           --source-uri https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh
+az storage blob copy start \
+    --destination-blob customizeScript.sh \
+    --destination-container $scriptStorageAccContainer \
+    --account-name $scriptStorageAcc \
+    --source-uri https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh
 ```
 
 
@@ -172,6 +173,7 @@ az resource create \
 
 Start the image build.
 
+```azurecli-interactive
 az resource invoke-action \
      --resource-group $imageResourceGroup \
      --resource-type  Microsoft.VirtualMachineImages/imageTemplates \
