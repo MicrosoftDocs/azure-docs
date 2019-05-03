@@ -170,7 +170,9 @@ To configure Azure AD single sign-on with Displayr, perform the following steps:
 
 	e. Open the Certificate (Raw) in Notepad, copy its content and paste it into the **Certificate** text box.
 
-	f. Click **Save**.	
+	f. **Group mappings** are optional.
+
+	g. Click **Save**.	
 
 ### Create an Azure AD test user 
 
