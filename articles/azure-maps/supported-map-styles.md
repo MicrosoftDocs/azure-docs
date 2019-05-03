@@ -52,6 +52,17 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 * JS map control 
 * Android map control
 
+
+## grayscale_light
+**grayscale light** is a light version of the road map style.
+
+![grayscale light](./media/supported-map-styles/grayscale_light.png)
+
+**Applicable APIs:**
+* JS map control
+* Android map control
+
+
 ## night
 **night** is a dark version of the road map style with colored roads and symbols.
 
@@ -68,15 +79,5 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **Applicable APIs:**
 * [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
-* JS map control
-* Android map control
-
-## grayscale_light
-
-**grayscale light** is a light version of the road map style.
-
-![grayscale light](./media/supported-map-styles/grayscale_light.png)
-
-**Applicable APIs:**
 * JS map control
 * Android map control
