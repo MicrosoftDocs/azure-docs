@@ -1,8 +1,7 @@
 ---
-title: Common security attributes for Azure API Management
+title: Security attributes for Azure API Management
 description: A checklist of common security attributes for evaluating API Management
 services: api-management
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: api-management
@@ -12,9 +11,9 @@ ms.date: 04/16/2019
 ms.author: mbaldwin
 
 ---
-# Common security attributes for API Management
+# Security attributes for API Management
 
-Security is integrated into every aspect of an Azure service. This article documents the common security attributes built into API Management.
+This article documents the security attributes built into API Management.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 

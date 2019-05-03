@@ -11,9 +11,9 @@ ms.date: 04/16/2019
 ms.author: mbaldwin
 
 ---
-# Common security attributes for Azure Storage
+# Security attributes for Azure Storage
 
-Security is integrated into every aspect of an Azure service. This article documents the common security attributes built into Azure Storage. 
+This article documents the security attributes built into Azure Storage. 
 
 [!INCLUDE [Security Attributes Header](../../../includes/security-attributes-header.md)]
 
@@ -57,7 +57,7 @@ Security is integrated into every aspect of an Azure service. This article docum
 | Control and management plane logging and audit | Yes | Azure Resource Manager Activity Log |
 | Data plane logging and audit| Yes | Service Diagnostic Logs, and Azure Monitor Logging starting preview  |
 
-## Configuration Management
+## Configuration management
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|

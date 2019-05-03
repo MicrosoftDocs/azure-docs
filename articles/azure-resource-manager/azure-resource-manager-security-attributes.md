@@ -10,9 +10,9 @@ ms.date: 04/25/2019
 ms.author: mbaldwin
 
 ---
-# Common security attributes for Azure Resource Manager
+# Security attributes for Azure Resource Manager
 
-Security is integrated into every aspect of an Azure service. This article documents the common security attributes built into Azure Resource Manager.
+This article documents the security attributes built into Azure Resource Manager.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 

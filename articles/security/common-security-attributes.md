@@ -11,9 +11,9 @@ ms.date: 04/03/2019
 ms.author: mbaldwin
 
 ---
-# Common security attributes for Azure services
+# Security attributes for Azure services
 
-Security is integrated into every aspect of an Azure service. This article collects the common security attributes for selected Azure services. 
+This article collects the common security attributes for selected Azure services. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -109,7 +109,7 @@ Security is integrated into every aspect of an Azure service. This article colle
 | Control and management plane logging and audit| Yes | All customer triggered actions from the Azure portal are logged to activity logs. |
 | Data plane logging and audit| No | Azure Backup data plane can't be reached directly.  |
 
-### Configuration Management
+### Configuration management
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
@@ -353,7 +353,7 @@ Security is integrated into every aspect of an Azure service. This article colle
 | Control and management plane logging and audit| Yes | All control plane operations run through processes for auditing and approvals. |
 | Data plane logging and audit| N/A | Customer owns the cluster.  |
 
-### Configuration Management
+### Configuration management
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
@@ -402,7 +402,7 @@ Security is integrated into every aspect of an Azure service. This article colle
 | Control and management plane logging and audit | Yes | Azure Resource Manager Activity Log |
 | Data plane logging and audit| Yes | Service Diagnostic Logs, and Azure Monitor Logging starting preview  |
 
-### Configuration Management
+### Configuration management
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
