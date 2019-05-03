@@ -95,15 +95,11 @@ For a pop-up window experience, enable the `popUp` config option. You can also p
 The redirect methods do not return a promise due to the navigation away from the main app. To process and access the returned tokens, you will need to register success and error callbacks before calling the redirect methods.
 
 ```javascript
-function tokenReceivedCallback(response) {
-    // use response in callback code
+function authCallback(error, response) {
+    //handle redirect response
 }
 
-function errorReceivedCallback(error) {
-    // handle error in callback code
-}
-
-userAgentApplication.handleRedirectCallbacks(tokenReceivedCallback, errorReceivedCallback);
+userAgentApplication.handleRedirectCallback(authCallback);
 
 const loginRequest = {
     scopes: ["user.read", "user.write"]
