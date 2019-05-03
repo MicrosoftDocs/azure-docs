@@ -38,16 +38,33 @@ Create a new project in Visual Studio, using the ASP.NET Core Web Application te
 
 You need your subscription key and endpoint for this next step. You can find that information at https://azure.microsoft.com/try/cognitive-services/my-apis/.
 
-Open _Controllers\HomeController.cs_, and replace the `HomeController` class with the following code, supplying your subscription key and endpoint where appropriate.
+Right-click on the project in the _Solution Explorer_ and choose **Manage User Secrets**. This will open a file called _secrets.json_. Replace the contents of that file with the following, supplying your subscription key and endpoint where appropriate.
+
+```json
+{
+  "SubscriptionKey": YOUR_SUBSCRIPTION_KEY,
+  "Endpoint": YOUR_ENDPOINT
+}
+```
+
+Open _Controllers\HomeController.cs_, and replace the `HomeController` class with the following code.
 
 ```csharp
 public class HomeController : Controller
 {
-    // Insert your Azure subscription key here
-    private const string SubscriptionKey = "";
+    private readonly string SubscriptionKey;
+    private readonly string Endpoint;
 
-    // Insert your endpoint here
-    private const string Endpoint = "";
+    public HomeController(Microsoft.Extensions.Configuration.IConfiguration configuration)
+    {
+        SubscriptionKey = configuration["SubscriptionKey"];
+        Endpoint = configuration["Endpoint"];
+
+        if (string.IsNullOrEmpty(Endpoint) || string.IsNullOrEmpty(SubscriptionKey))
+        {
+            throw new ArgumentNullException("Endpoint or subscriptionKey is null!");
+        }
+    }
 
     public IActionResult Index()
     {
@@ -57,23 +74,18 @@ public class HomeController : Controller
     [Route("token")]
     public async Task<string> Token()
     {
-        return await GetTokenAsync(Endpoint, SubscriptionKey);
+        return await GetTokenAsync();
     }
 
     /// <summary>
     /// Exchange your Azure subscription key for an access token
     /// </summary>
-    private async Task<string> GetTokenAsync(string endpoint, string subscriptionKey)
+    private async Task<string> GetTokenAsync()
     {
-        if (string.IsNullOrEmpty(endpoint) || string.IsNullOrEmpty(subscriptionKey))
-        {
-            throw new ArgumentNullException("Endpoint or subscriptionKey is null!");
-        }
-
         using (var client = new System.Net.Http.HttpClient())
         {
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-            using (var response = await client.PostAsync($"{endpoint}/issueToken", null))
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
+            using (var response = await client.PostAsync($"{Endpoint}/issueToken", null))
             {
                 return await response.Content.ReadAsStringAsync();
             }
