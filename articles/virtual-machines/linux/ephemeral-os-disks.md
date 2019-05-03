@@ -9,7 +9,7 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/01/2019
+ms.date: 05/02/2019
 ms.author: cynthn
 ms.subservice: disks
 ---
@@ -18,5 +18,5 @@ ms.subservice: disks
 [!INCLUDE [virtual-machines-common-ephemeral](../../../includes/virtual-machines-common-ephemeral.md)]
  
 ## Next steps
-For more information about the different sizes available for virtual machines, see [Azure Virtual Machine sizes](sizes.md).
+You can create a VM with an ephemeral OS disk using the [Azure CLI](https://docs.microsoft.com/cli/azure/vm#az-vm-create).
 
