@@ -29,6 +29,8 @@
       href: azure-to-azure-tutorial-migrate.md 
     - name: Move Azure VMs to Availability Zones
       href: move-Azure-VMs-AVset-Azone.md
+    - name: Move Azure VMs between Government & Public regions
+      href: region-move-cross-geos.md
   - name: VMware VM disaster recovery to Azure
     items:
     - name: Prepare Azure
@@ -91,9 +93,11 @@
       href: vmware-azure-about-disaster-recovery.md
     - name: Common questions
       href: vmware-azure-common-questions.md
-    - name: VMware/Physical to Azure support matrix
+    - name: VMware/physical to Azure support matrix
       href: vmware-physical-azure-support-matrix.md
-    - name: Support requirements for configuration server deployment
+    - name: About Site Recovery components (configuration/process/master target server)
+      href: vmware-physical-azure-config-process-server-overview.md
+    - name: Support requirements for configuration and process servers 
       href: vmware-azure-configuration-server-requirements.md
     - name: VMware to Azure architecture
       href: vmware-azure-architecture.md
@@ -111,7 +115,7 @@
       href: hyper-v-azure-architecture.md
   - name: About physical server disaster recovery to Azure
     items:
-    - name: VMware/Physical to Azure support matrix
+    - name: VMware/physical to Azure support matrix
       href: vmware-physical-azure-support-matrix.md
     - name: Physical server to Azure architecture
       href: physical-azure-architecture.md
@@ -175,6 +179,10 @@
         href: azure-to-azure-autoupdate.md
       - name: Updates in Azure Site Recovery
         href: service-updates-how-to.md
+      - name: Remove servers and disable protection
+        href: site-recovery-manage-registration-and-protection.md
+      - name: Delete a vault
+        href: delete-vault.md
   - name: VMware to Azure disaster recovery
     items:
     - name: Set up networking
@@ -191,6 +199,8 @@
         items:
         - name: Overview and prerequisites
           href: site-recovery-deployment-planner.md
+        - name: Deployment Planner version history
+          href: site-recovery-deployment-planner-history.md
         - name: Run the Deployment Planner tool
           href: site-recovery-vmware-deployment-planner-run.md
         - name: Analyze the generated report
@@ -313,6 +323,8 @@
         items:
         - name: Overview and prerequisites
           href: hyper-v-deployment-planner-overview.md
+        - name: Deployment Planner version history
+          href: site-recovery-deployment-planner-history.md
         - name: Run the Deployment Planner tool
           href: hyper-v-deployment-planner-run.md
         - name: Analyze the generated report
@@ -419,10 +431,14 @@
       href: site-recovery-extension-troubleshoot.md
   - name: VMware/physical server
     items: 
+    - name: Monitor process servers
+      href: vmware-physical-azure-monitor-process-server.md
     - name: Troubleshoot VMware to Azure replication
       href: vmware-azure-troubleshoot-replication.md
     - name: Troubleshoot the configuration server
       href: vmware-azure-troubleshoot-configuration-server.md
+    - name: Troubleshoot process servers
+      href: vmware-physical-azure-troubleshoot-process-server.md
     - name: Troubleshoot push installation of the Mobility service for VMware VMs/physical servers
       href: vmware-azure-troubleshoot-push-install.md
     - name: Troubleshoot failover to Azure

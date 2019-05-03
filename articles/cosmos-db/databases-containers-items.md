@@ -4,7 +4,7 @@ description: This article describes how to create and use Azure Cosmos DB databa
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 04/17/2019
 ms.author: rimman
 ms.reviewer: sngun
 
@@ -57,7 +57,7 @@ You can set [Time To Live (TTL)](time-to-live.md) on selected items within an Az
 
 By using [Change Feed](change-feed.md), you can subscribe to the operations log that is managed for each of the logical partitions of your container. The Change Feed provides the log of all the updates performed on the container along with the before and the after images of the items. See [How to build reactive applications using Change Feed](serverless-computing-database.md). You can also configure the retention duration for the Change Feed by using the change feed policy on the container. 
 
-You can register [stored procedures, triggers, user-defined functions (UDFs)](stored-procedures-triggers-udfs.md) and [merge procedures](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy-with-a-stored-procedure) with your Azure Cosmos container. 
+You can register [stored procedures, triggers, user-defined functions (UDFs)](stored-procedures-triggers-udfs.md) and [merge procedures](how-to-manage-conflicts.md) with your Azure Cosmos container. 
 
 You can specify a [unique key constraint](unique-keys.md) on your Azure Cosmos container. By creating a unique key policy, you ensure the uniqueness of one or more values per logical partition key. Once a container has been created with a unique key policy, it prevents the creation of any new or updated items with values that duplicate the values specified by the unique key constraint. To learn more, see [Unique key constraints](unique-keys.md).
 
@@ -113,7 +113,7 @@ Every Azure Cosmos item has the following system defined properties. Depending o
 |_etag | System generated | Entity tag used for optimistic concurrency control | Yes | No | No | No | No |
 |_ts | System generated | The timestamp of the last update of the item | Yes | No | No | No | No |
 |_self | System generated | Addressable URI of the item | Yes | No | No | No | No |
-|id | Either | User-defined unique name within a logical partition. If the user doesn’t specify the id, the system will automatically generate one. | Yes | Yes | Yes | Yes | Yes |
+|id | Either | User-defined unique name within a logical partition. If the user doesn’t specify the ID, the system will automatically generate one. | Yes | Yes | Yes | Yes | Yes |
 |Arbitrary user-defined properties | User-defined | User-defined properties represented in API-native representation (JSON, BSON, CQL, etc.) | Yes | Yes | Yes | Yes | Yes |
 
 ### Operations on items

@@ -70,7 +70,7 @@ For more information, see [Updates to geospatial features in Azure Stream Analyt
 
 **Previous levels:** The upsert behavior was *insert or merge*.
 
-**1.2 level:** Native Bulk API integration with CosmosDB output maximizes throughput and efficiently handles throttling requests.
+**1.2 level:** Native Bulk API integration with CosmosDB output maximizes throughput and efficiently handles throttling requests. For more information, see [the Azure Stream Analytics output to Azure Cosmos DB page](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12).
 
 The upsert behavior is *insert or replace*.
 

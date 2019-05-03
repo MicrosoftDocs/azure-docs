@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/29/2019
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -48,16 +48,21 @@ The selected default file name is used at the root and any subdirectories when a
 
 ## CDN and SSL support
 
-To make your static website files available over HTTPS, see [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md). As a part of this process, you need to *point your CDN to the web endpoint* as opposed to the blob endpoint. You may need to wait a few minutes before your content is visible as the CDN configuration is not immediately executed.
+To make your static website files available over your custom domain and HTTPS, see [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md). As a part of this process, you need to *point your CDN to the web endpoint* as opposed to the blob endpoint. You may need to wait a few minutes before your content is visible as the CDN configuration is not immediately executed.
 
 When you update your static website, be sure to clear cached content on the CDN edge servers by purging the CDN endpoint. For more information, see [Purge an Azure CDN endpoint](../../cdn/cdn-purge-endpoint.md).
+
+> [!NOTE]
+> HTTPS is supported natively through the account web endpoint. The use of custom domains over HTTPS requires the use of Azure CDN at this time. 
+>
+> Public account web endpoint over HTTPS: `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
 
 ## Custom domain names
 
 You can [configure a custom domain name for your Azure Storage account](storage-custom-domain-name.md) to make your static website available via a custom domain. For an in-depth look at hosting your domain on [Azure, see Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
 
 ## Pricing
-Static website hosting is provided at no additional cost. For more details on prices for Azure Blob Storage, check out the [Azure Blob Storage Pricing Page](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Enabling static website hosting is free of charge. Customers are charged for the utilized blob storage and operations costs. For more details on prices for Azure Blob Storage, check out the [Azure Blob Storage Pricing Page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Quickstart
 
@@ -155,7 +160,10 @@ No, static website hosting is only available in GPv2 standard storage accounts.
 Yes, the new web endpoint obeys the VNET and firewall rules configured for the storage account.
 
 **Is the web endpoint case-sensitive?**  
-Yes, the web endpoint is case-sensitive just like the blob endpoint. 
+Yes, the web endpoint is case-sensitive just like the blob endpoint.
+
+**Is the web endpoint accessible via both HTTP and HTTPS?**
+Yes, the web endpoint is accessible via both HTTP and HTTPS. However, if the storage account is configured to require secure transfer over HTTPS, then users must use the HTTPS endpoint. For more information, see [Require secure transfer in Azure Storage](../common/storage-require-secure-transfer.md).
 
 ## Next steps
 * [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
