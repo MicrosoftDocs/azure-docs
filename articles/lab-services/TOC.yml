@@ -174,6 +174,8 @@
         href: devtest-lab-add-devtest-user.md
       - name: Customize permissions with custom roles
         href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
+      - name: Automate adding a lab user
+        href: automate-add-lab-user.md
     - name: Configure a lab
       items: 
       - name: Set policies and schedules
