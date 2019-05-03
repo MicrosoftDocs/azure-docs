@@ -43,29 +43,25 @@ Now that you've completed the steps required to enable ACR Tasks to read commit 
 
 ### YAML file
 
-To create a multi-step task, you define the steps in a [YAML file](container-registry-tasks-reference-yaml.md). The example multi-step task for this tutorial is defined in the file `multitask.yaml`, which is in the root of the GitHub repo that you cloned:
+To create a multi-step task, you define the steps in a [YAML file](container-registry-tasks-reference-yaml.md). The first example multi-step task for this tutorial is defined in the file `multitask.yaml`, which is in the root of the GitHub repo that you cloned:
 
 ```yml
 version: v1.0.0
 steps:
-# Build target images
+# Build target image
 - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f Dockerfile .
-- build: -t {{.Values.regLatest}}/hello-world:{{.Run.Date}} -f Dockerfile .
 # Run image 
 - cmd: -d -p 8080:80 --name test -t {{.Run.Registry}}/hello-world:{{.Run.ID}} 
-# Push images
+# Push image
 - push:
   - {{.Run.Registry}}/hello-world:{{.Run.ID}}
-  - {{.Values.regLatest}}/hello-world:{{.Run.Date}}
 ```
 
 This multi-step task does the following:
 
-1. Uses two `build` steps to build images from the Dockerfile in the working directory:
-  * The first is targeted for the `Run.Registry`, the registry where the task is run, and tagged with the ACR Tasks run ID. 
-  * The second is targeted for a registry identified by the value of `regLatest`, which you set when you create the task (or provide through an external `values.yaml` file). This image is tagged with the run date.
-1. Uses a `cmd` step to run the first image in a temporary container. This example runs the container in the background and returns the container ID. In a real-world scenario, you might test a running container to ensure it runs correctly.
-1. In a `push` step, pushes the images that were built, the first to the run registry, the second to the registry identified by `regLatest`.
+1. Uses a `build` step to build an image from the Dockerfile in the working directory. The first is targeted for the `Run.Registry`, the registry where the task is run, and tagged with the ACR Tasks run ID. 
+1. Uses a `cmd` step to run the image in a temporary container. This example runs the container in the background and returns the container ID. In a real-world scenario, you might test a running container to ensure it runs correctly.
+1. In a `push` step, pushes the image that was built to the run registry.
 
 
 ### Task command
@@ -88,11 +84,7 @@ az acr task create \
     --branch master \
     --file multitask.yaml \
     --git-access-token $GIT_PAT \
-    --set regLatest=
 ```
-
-> [!IMPORTANT]
-> If you previously created tasks during the preview with the `az acr build-task` command, those tasks need to be re-created using the [az acr task][az-acr-task] command.
 
 This task specifies that any time code is committed to the *master* branch in the repository specified by `--context`, ACR Tasks will build the container image from the code in that branch. The Dockerfile specified by `--file` from the repository root is used to build the image. The `--image` argument specifies a parameterized value of `{{.Run.ID}}` for the version portion of the image's tag, ensuring the built image correlates to a specific build, and is tagged uniquely.
 
@@ -305,6 +297,54 @@ da4       taskhelloworld  Linux       Succeeded  Git Commit  2018-09-17T23:03:45
 da3       taskhelloworld  Linux       Succeeded  Manual      2018-09-17T22:55:35Z  00:00:35
 da2       taskhelloworld  Linux       Succeeded  Manual      2018-09-17T22:50:59Z  00:00:32
 da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59Z  00:00:57
+```
+
+## Create a multi-registry multi-step task
+
+ACR Tasks by default is set up to push or pull images from the registry where the task runs. You might want to run a multi-step task that targets one or more registries in addition to the run registry. For example, you might need to build images in one registry, and store images with different tags in a second registry. This example shows you how to create such a task and provide credentials for another registry.
+
+If you don't already have a second registry, create one for this example. To create the task, you need the name of the registry login server, which is of the form *mycontainerregistry.azurecr.io* (all lowercase)
+
+### YAML file
+
+The second example multi-step task for this tutorial is defined in the file `multitaskandregistry.yaml`, which is in the root of the GitHub repo that you cloned:
+
+```yml
+version: v1.0.0
+steps:
+# Build target images
+- build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f Dockerfile .
+- build: -t {{.Values.regLatest}}/hello-world:{{.Run.Date}} -f Dockerfile .
+# Run image 
+- cmd: -d -p 8080:80 --name test -t {{.Run.Registry}}/hello-world:{{.Run.ID}} 
+- cmd: -d -p 8080:80 --name test -t {{.Run.Registry}}/hello-world:{{.Run.ID}} 
+# Push images
+- push:
+  - {{.Run.Registry}}/hello-world:{{.Run.ID}}
+  - {{.Values.regLatest}}/hello-world:{{.Run.Date}}
+```
+
+This multi-step task does the following:
+
+1. Uses two `build` steps to build images from the Dockerfile in the working directory:
+  * The first is targeted for the `Run.Registry`, the registry where the task is run, and tagged with the ACR Tasks run ID. 
+  * The second is targeted for a registry identified by the value of `regLatest`, which you set when you create the task (or provide through an external `values.yaml` file). This image is tagged with the run date.
+1. Uses a `cmd` step to run each of the built containers. This example runs each container in the background and returns the container ID. In a real-world scenario, you might test each running container to ensure it runs correctly.
+1. In a `push` step, pushes the images that were built, the first to the run registry, the second to the registry identified by `regLatest`.
+
+### Task command
+
+Using the shell environment variables defined previously, create the task by executing following [az acr task create][az-acr-task-create] command. Substitue the
+
+```azurecli-interactive
+az acr task create \
+    --registry $ACR_NAME \
+    --name multitask \
+    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
+    --branch master \
+    --file multitaskandregistry.yaml \
+    --git-access-token $GIT_PAT \
+    --set regLatest=<another registry login server>
 ```
 
 ## Next steps
