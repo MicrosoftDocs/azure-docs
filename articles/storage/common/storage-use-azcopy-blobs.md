@@ -106,8 +106,6 @@ You can use AzCopy to download blobs and containers to your local computer.
 
 ### Download a file
 
-Intro line.
-
 ```
 azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>" "<local-file-path>"
 ```
@@ -181,11 +179,6 @@ Example:
 
 `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer" "https://mydestinationaccount.blob.core.windows.net/mycontainer" --recursive=true`
 
-To copy a Blob container to another Blob container, use the following command:
-```azcopy
-.\azcopy cp "https://myaccount.blob.core.windows.net/mycontainer/<sastoken>" "https://myotheraccount.blob.core.windows.net/mycontainer/<sastoken>" --recursive=true
-```
-
 ### Copy all containers, folders, and files to another storage account
 
 ```
@@ -221,7 +214,7 @@ Example:
 
 Example:
 
-`\azcopy sync "https://<storage-account-name>.blob.core.windows.net/<container-name>" "C:\myFolder" --recursive=true`
+`\azcopy sync "https://mystorageaccount.blob.core.windows.net/mycontainer" "C:\myFolder" --recursive=true`
 
 ## More examples
 
