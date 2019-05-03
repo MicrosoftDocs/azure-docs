@@ -92,65 +92,43 @@ a method, but without defining the method signature.
 
    ![Keyword autocomplete list](./media/logic-apps-add-run-inline-code/auto-complete.png)
 
-   In this example, the code snippet first creates a variable 
-   that stores a *regular expression*, which specifies a pattern 
-   to match in input text. The code then creates a variable that 
-   stores the email body data from the trigger.
+   This example code snippet first creates a variable that 
+   stores a *regular expression*, which specifies a pattern 
+   to match in input text. The code then creates a variable 
+   that stores the email body data from the trigger.
 
    ![Create variables](./media/logic-apps-add-run-inline-code/save-email-body-variable.png)
 
    To make the results from the trigger and previous actions 
    easier to reference, the dynamic content list appears 
-   while your cursor is inside the **Code** box. In this 
+   while your cursor is inside the **Code** box. For this 
    example, the list shows available results from the trigger, 
-   including the **Body** token, which you can now select. 
-   In the inline code action, the **Body** token resolves 
-   to a `workflowContext` object that references the email's 
-   `Body` property value:
+   including the **Body** token, which you can now select.
+
+   After you select the **Body** token, the inline code 
+   action resolves the token to a `workflowContext` object 
+   that references the email's `Body` property value:
 
    ![Select result](./media/logic-apps-add-run-inline-code/inline-code-example-select-outputs.png)
 
-   The read-only `workflowContext` object is available to use 
-   as input for your code in the **Inline Code** action and 
-   provides access to these subproperties that you can use 
-   to access trigger and action property values: 
-
-   | Property | Description |
-   |----------|-------------|
-   | `actions` | A collection of result objects from previous actions in the current workflow instance run. Each object's key is the action's name, and the value is equivalent to calling the [actions() function](../logic-apps/workflow-definition-language-functions-reference.md#actions) with `@actions('<action-name>')`. Provides access to property values from previous actions, which use the same names as the actions that appear in the Logic App Designer. |
-   | `trigger` | The trigger result object, which is equivlent to calling the [trigger() function](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Provides access to trigger property values from the current workflow instance run. |
-   | `workflow` | The workflow object, which is equivalent to calling the [workflow() function](../logic-apps/workflow-definition-language-functions-reference.md#workflow). Provides access to workflow property values, such as the workflow name, run ID, and so on. |
-   |||
-
-   Here's the structure for the `workflowContext` object:
-
-   ```json
-   {
-      "workflowContextObject": {
-         "actions": {
-            "<action-name-1>": @actions('<action-name-1>'),
-            "<action-name-2>": @actions('<action-name-2>')
-         },
-         "trigger": {
-            @trigger()
-         },
-         "workflow": {
-            @workflow()
-         }
-      }
-   }
-   ```
+   In the **Code** box, your snippet can use the read-only 
+   `workflowContext` object as input. This object has 
+   subproperties that give your code access to the results 
+   from the trigger and previous actions in your workflow.
+   For more information, see this section later in this topic: 
+   [Reference trigger and action results in your code](#workflowcontext).
 
    > [!NOTE]
-   > 
-   > If your code needs to reference action names that use the dot (.) operator, 
-   > you must [add those action names to the **Actions** parameter](#add-parameters), 
-   > and your code references to those action names must use square brackets ([]) 
-   > and enclose the names in quotes, for example:
-   > 
+   >
+   > If your code snippet references action names that use the 
+   > dot (.) operator, you must add those action names to the 
+   > [**Actions** parameter](#add-parameters). Those references 
+   > must also enclose the action names with square brackets ([]) 
+   > and quotation marks, for example:
+   >
    > `// Correct`</br> 
    > `workflowContext.actions["my.action.name"].body`</br>
-   > 
+   >
    > `// Incorrect`</br>
    > `workflowContext.actions.my.action.name.body`
 
@@ -166,6 +144,108 @@ a method, but without defining the method signature.
    ![Finished logic app](./media/logic-apps-add-run-inline-code/inline-code-complete-example.png)
 
 1. When you're done, save your logic app.
+
+<a name="workflowcontext"></a>
+
+### Reference trigger and action results in your code
+
+The `workflowContext` object has this structure, which includes 
+the `actions`, `trigger`, and `workflow` subproperties:
+
+```json
+{
+   "workflowContext": {
+      "actions": {
+         "<action-name-1>": @actions('<action-name-1>'),
+         "<action-name-2>": @actions('<action-name-2>')
+      },
+      "trigger": {
+         @trigger()
+      },
+      "workflow": {
+         @workflow()
+      }
+   }
+}
+```
+
+This table contains more information about these subproperties:
+
+| Property | Type | Description |
+|----------|------|-------|
+| `actions` | Object collection | Result objects from actions that run before your code snippet runs. Each object has a *key-value* pair where the key is the name of an action, and the value is equivalent to calling the [actions() function](../logic-apps/workflow-definition-language-functions-reference.md#actions) with `@actions('<action-name>')`. The action's name uses the same action name that's used in the underlying workflow definition, which replaces spaces (" ") in the action name with underscores (_). This object provides access to action property values from the current workflow instance run. |
+| `trigger` | Object | Result object from the trigger and equivalent to calling the [trigger() function](../logic-apps/workflow-definition-language-functions-reference.md#trigger). This object provides access to trigger property values from the current workflow instance run. |
+| `workflow` | Object | The workflow object and equivalent to calling the [workflow() function](../logic-apps/workflow-definition-language-functions-reference.md#workflow). This object provides access to workflow property values, such as the workflow name, run ID, and so on, from the current workflow instance run. |
+|||
+
+In this topic's example, the `workflowContext` object has 
+these properties that your code can access:
+
+```json
+{
+   "workflowContext": {
+      "trigger": {
+         "name": "When_a_new_email_arrives",
+         "inputs": {
+            "host": {
+               "connection": {
+                  "name": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/connections/office365"
+               }
+            },
+            "method": "get",
+            "path": "/Mail/OnNewEmail",
+            "queries": {
+               "includeAttachments": "False"
+            }
+         },
+         "outputs": {
+            "headers": {
+               "Pragma": "no-cache",
+               "Content-Type": "application/json; charset=utf-8",
+               "Expires": "-1",
+               "Content-Length": "962095"
+            },
+            "body": {
+               "Id": "AAMkADY0NGZhNjdhLTRmZTQtNGFhOC1iYjFlLTk0MjZlZjczMWRhNgBGAAAAAABmZwxUQtCGTqSPpjjMQeD",
+               "DateTimeReceived": "2019-03-28T19:42:16+00:00",
+               "HasAttachment": false,
+               "Subject": "Hello World",
+               "BodyPreview": "Hello World",
+               "Importance": 1,
+               "ConversationId": "AAQkADY0NGZhNjdhLTRmZTQtNGFhOC1iYjFlLTk0MjZlZjczMWRhNgAQ",
+               "IsRead": false,
+               "IsHtml": true,
+               "Body": "Hello World",
+               "From": "<sender>@<domain>.com",
+               "To": "<recipient-2>@<domain>.com;<recipient-2>@<domain>.com",
+               "Cc": null,
+               "Bcc": null,
+               "Attachments": []
+            }
+         },
+         "startTime": "2019-05-03T14:30:45.971564Z",
+         "endTime": "2019-05-03T14:30:50.1746874Z",
+         "scheduledTime": "2019-05-03T14:30:45.8778117Z",
+         "trackingId": "1cd5ffbd-f989-4df5-a96a-6e9ce31d03c5",
+         "clientTrackingId": "08586447130394969981639729333CU06",
+         "originHistoryName": "08586447130394969981639729333CU06",
+         "code": "OK",
+         "status": "Succeeded"
+      },
+      "workflow": {
+         "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<logic-app-workflow-name>",
+         "name": "<logic-app-workflow-name>",
+         "type": "Microsoft.Logic/workflows",
+         "location": "<Azure-region>",
+         "run": {
+            "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<logic-app-workflow-name>/runs/08586453954668694173655267965CU00",
+            "name": "08586453954668694173655267965CU00",
+            "type": "Microsoft.Logic/workflows/runs"
+         }
+      }
+   }
+}
+```
 
 <a name="add-parameters"></a>
 
@@ -202,7 +282,7 @@ and select the parameters you want:
 
    | Parameter | Description |
    |-----------|-------------|
-   | **Actions** | Include an array with results from previous actions. See [Include action results](#action-results). |
+   | **Actions** | Include results from previous actions. See [Include action results](#action-results). |
    | **Trigger** | Include results from the trigger. See [Include trigger results](#trigger-results). |
    |||
 
@@ -226,12 +306,12 @@ that appears in the logic app's underlying workflow definition.
 
 * Names in your logic app's workflow definition use an underscore (_), not a space.
 
-* For action names that use the dot operator (.), include those operators, for example: 
+* For action names that use the dot operator (.), include those operators, for example:
 
   `My.Action.Name`
 
 1. On the designer toolbar, choose **Code view**, 
-and search inside the `actions` attribute for the action name. 
+and search inside the `actions` attribute for the action name.
 
    For example, `Send_approval_email_` is the JSON 
    name for the **Send approval email** action.
@@ -242,7 +322,7 @@ and search inside the `actions` attribute for the action name.
 choose **Designer**.
 
 1. To add the first action, in the **Actions Item - 1** box, 
-enter the action's JSON name. 
+enter the action's JSON name.
 
    ![Enter first action](./media/logic-apps-add-run-inline-code/add-action-parameter.png)
 

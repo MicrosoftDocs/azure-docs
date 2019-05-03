@@ -1152,8 +1152,8 @@ Here is the output that this action creates:
 
 ### Execute JavaScript Code action
 
-This action runs a JavaScript code snippet and returns the 
-results through a `Result` token that later actions can reference. 
+This action runs a JavaScript code snippet and returns the results 
+through a `Result` token that later actions can reference.
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1169,52 +1169,27 @@ results through a `Result` token that later actions can reference.
 }
 ```
 
-In the `code` attribute, your JavaScript code snippet can use the 
-read-only `workflowContext` object as input by accessing that 
-object's `workflow`, `trigger`, and `actions` subproperties. 
-These subproperties provide access to a workflow object, 
-trigger result object, and a collection of result objects 
-from the current workflow run. You can use these objects 
-to reference property values from the workflow, trigger, 
-and previous actions in the current run. Here's the 
-structure for the `workflowContext` object:
-
-```json
-{
-   "workflowContextObject": {
-      "actions": {
-         "<action-name-1>": @actions('<action-name-1>'),
-         "<action-name-2>": @actions('<action-name-2>')
-      },
-      "trigger": {
-         @trigger()
-      },
-      "workflow": {
-         @workflow()
-      }
-   }
-}
-```
-
 *Required*
 
 | Value | Type | Description |
 |-------|------|-------------|
-| <*JavaScript-code-snippet*> | Varies | The JavaScript code that you want to run. For code requirements and more information, see [Add and run code snippets with inline code](../logic-apps/logic-apps-add-run-inline-code.md). |
+| <*JavaScript-code-snippet*> | Varies | The JavaScript code that you want to run. For code requirements and more information, see [Add and run code snippets with inline code](../logic-apps/logic-apps-add-run-inline-code.md). <p>In the `code` attribute, your code snippet can use the read-only `workflowContext` object as input. This object has subproperties that give your code access to the results from the trigger and previous actions in your workflow. For more information about the `workflowContext` object, see [Reference trigger and action results in your code](../logic-apps/add-run-inline-code.md#workflowcontext). |
 ||||
 
 *Required in some cases*
 
-The `explicitDependencies` attribute specifies that you want 
-to explicitly include results from the trigger, previous actions, 
-or both as dependencies for the code that you're running. 
-For more information, see [Add parameters for inline code](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters).
+The `explicitDependencies` attribute specifies that you 
+want to explicitly include results from the trigger, 
+previous actions, or both as dependencies for the code 
+that you're running. For more information, see 
+[Add parameters for inline code](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters).
 
-For the `includeTrigger` attribute, you can specify `true` or `false` values.
+For the `includeTrigger` attribute, you can 
+specify `true` or `false` values.
 
 | Value | Type | Description |
 |-------|------|-------------|
-| <*previous-actions*> | Varies | An array with results from your specified previous actions |
+| <*previous-actions*> | Varies | An array with the actions that run before your code snippet. Use the action names that appear in your workflow definition where action names use underscores (_), not spaces (" "). |
 ||||
 
 *Example 1*
