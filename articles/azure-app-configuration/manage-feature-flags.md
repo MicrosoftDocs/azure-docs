@@ -36,11 +36,11 @@ The **Feature Manager** in the Azure portal for App Configuration provides a UI 
 
     ![Feature flag list](./media/azure-app-configuration-feature-flags.png)
 
-2. Enter a unique key name for the feature flag. You will use this name to reference the flag in your code.
+2. Enter a unique key name for the feature flag. You need this name to reference the flag in your code.
 
 3. Optionally give the feature flag a more human-friendly description.
 
-4. Set the initial state of the feature flag. In many cases, it is either *Off* or *On*.
+4. Set the initial state of the feature flag. It is usually just *On* or *Off*.
 
     ![Feature flag create](./media/azure-app-configuration-feature-flag-create.png)
 
@@ -65,10 +65,10 @@ Follow the following steps to change a feature flag's state value.
 
 ## Access feature flags
 
-Feature flags created by the **Feature Manager** are stored as regular key-values, though under a special namespace prefix *.appconfig.featureflag*. You can view the underlying key-values using the **Configuration Explorer**. Feature flags can be retrieved from App Configuration just like any key-value using its configuration providers, SDKs, command-line extensions, and REST APIs.
+Feature flags created by the **Feature Manager** are stored and retrieved as regular key-values. They are kept under a special namespace prefix *.appconfig.featureflag*. You can view the underlying key-values using the **Configuration Explorer**. Your application can retrieve them using the App Configuration configuration providers, SDKs, command-line extensions, and REST APIs.
 
 ## Next steps
 
-In this tutorial, you learned how to manage feature flags and their states using App Configuration. Refer to the following resources for more information on feature management support in App Configuration and ASP.NET Core.
+In this tutorial, you learned how to manage feature flags and their states using App Configuration. See the following resources for more information on feature management support in App Configuration and ASP.NET Core.
 
 * [Use feature flags in an ASP.NET Core app](./use-feature-flags-dotnet-core.md)

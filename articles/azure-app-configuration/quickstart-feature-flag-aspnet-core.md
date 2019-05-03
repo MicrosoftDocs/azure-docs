@@ -20,9 +20,9 @@ ms.author: yegu
 ---
 # Quickstart: Add feature flags to an ASP.NET Core app
 
-Feature management in ASP.NET Core can be enabled by connecting your application to Azure App Configuration, a service in Azure that helps manage application and feature settings. You can use it to store all your feature flags and control their states centrally. This quickstart shows you how to incorporate the service into an ASP.NET Core web app to create an end-to-end implementation of feature management.
+Feature management in ASP.NET Core can be enabled by connecting your application to Azure App Configuration. You can use this managed service to store all your feature flags and control their states centrally. This quickstart shows you how to incorporate the service into an ASP.NET Core web app to create an end-to-end implementation of feature management.
 
-The .NET Core Feature Management libraries extend the .NET and ASP.NET Core frameworks with comprehensive feature flag support. It is built on top of the .NET Core configuration system. It integrates seamlessly with App Configuration through its .NET Core configuration provider.
+The .NET Core Feature Management libraries extend the framework with comprehensive feature flag support. They are built on top of the .NET Core configuration system. They seamlessly integrate with App Configuration through its .NET Core configuration provider.
 
 You can use any code editor to do the steps in this quickstart. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
@@ -56,7 +56,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/app-secrets) to your project. The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code.
 
-- Open your *.csproj* file. Add a `UserSecretsId` element as shown here, and replace its value with your own, which typically is a GUID. Save the file.
+- Open the *.csproj* file. Add a `UserSecretsId` element as shown here, and replace its value with your own, which typically is a GUID. Save the file.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -94,7 +94,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
 
-    Secret Manager is used only to test the web app locally. When the app is deployed, for example, to [Azure App Service](https://azure.microsoft.com/services/app-service/web), you use an application setting, for example, **Connection Strings** in App Service. You use this setting instead of storing the connection string with Secret Manager.
+    Secret Manager is used only to test the web app locally. When the app is deployed to [Azure App Service](https://azure.microsoft.com/services/app-service/web), for example, you use an application setting **Connection Strings** in App Service instead of with Secret Manager to store the connection string.
 
     This secret is accessed with the configuration API. A colon (:) works in the configuration name with the configuration API on all supported platforms. See [Configuration by environment](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 

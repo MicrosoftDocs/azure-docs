@@ -40,6 +40,7 @@ App Configuration offers the following benefits:
 * Flexible key representations and mappings
 * Tagging with labels
 * Point-in-time replay of settings
+* Dedicated UI for feature flag management
 * Comparison of two sets of configurations on custom-defined dimensions
 * Enhanced security through Azure-managed identities
 * Complete data encryptions, at rest or in transit
@@ -67,5 +68,6 @@ The easiest way to add an app configuration store to your application is through
 * [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md)
 * [.NET Core quickstart](./quickstart-dotnet-core-app.md)
 * [.NET Framework quickstart](./quickstart-dotnet-app.md)
-* [Java Spring quickstart](./quickstart-java-spring-app.md)
 * [Azure Function quickstart](./quickstart-azure-function-csharp.md)
+* [Java Spring quickstart](./quickstart-java-spring-app.md)
+* [ASP.NET Core feature flag quickstart](./quickstart-feature-flag-aspnet-core.md)

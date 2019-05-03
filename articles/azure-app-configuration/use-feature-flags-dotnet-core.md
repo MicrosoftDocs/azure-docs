@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Tutorial: Use feature flags in a .NET Core app
 
-The .NET Core Feature Management libraries provide idiomatic support for implementing feature flags in an .NET or ASP.NET Core application. They allow you to add feature flags to your code declaratively in most cases so that you do not have to write all the `if` statements for them manually. They manage feature flag lifecycles (e.g., refresh and cache flag states, guarantee a flag state to be immutable during a request call) behind the scene. In addition, the ASP.NET Core library offers out-of-the-box integrations including MVC controller actions, views, routes, and middleware.
+The .NET Core Feature Management libraries provide idiomatic support for implementing feature flags in an .NET or ASP.NET Core application. They allow you to add feature flags to your code more declaratively so that you do not have to write all the `if` statements for them manually. They manage feature flag lifecycles (for example, refresh and cache flag states, guarantee a flag state to be immutable during a request call) behind the scene. In addition, the ASP.NET Core library offers out-of-the-box integrations including MVC controller actions, views, routes, and middleware.
 
 The [Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) quickstart shows a number of ways to add feature flags in an ASP.NET Core application. This tutorial explains these in more details. See the [ASP.NET Core feature management documentation](https://go.microsoft.com/fwlink/?linkid=2091410) for a complete reference.
 
@@ -57,7 +57,7 @@ The feature manager retrieves feature flags from the "FeatureManagement" section
     }
     ```
 
-To use them effectively, you should keep feature flags outside of the application and manage them separately. Doing so allows you to modify flag states at any time and have those changes taking affect in the application right away. App Configuration provides a centralized place for organizing and controlling all your feature flags through a dedicated portal UI and delivers the flags to your application directly through its .NET Core client libraries. The easiest way to connect your ASP.NET Core application to App Configuration is through the configuration provider `Microsoft.Extensions.Configuration.AzureAppConfiguration`. You can use this NuGet package in your code by adding the following to the *Program.cs* file:
+To use them effectively, you should keep feature flags outside of the application and manage them separately. Doing so allows you to modify flag states at any time and have those changes taking effect in the application right away. App Configuration provides a centralized place for organizing and controlling all your feature flags through a dedicated portal UI and delivers the flags to your application directly through its .NET Core client libraries. The easiest way to connect your ASP.NET Core application to App Configuration is through the configuration provider `Microsoft.Extensions.Configuration.AzureAppConfiguration`. You can use this NuGet package in your code by adding the following to the *Program.cs* file:
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -88,9 +88,9 @@ Feature flag values are expected to change over time. By default, the feature ma
 
 ## Feature flag declaration
 
-Each feature flag has two parts: a name and a list of one or more filters that are used to evaluate if a feature's state is *on* (i.e., when its value is `True`). A filter defines a use case for which a feature should be turned on. If a feature flag has multiple filters, the filter list is traversed in order until one of the filters determines that the feature should be enabled. At this point the feature flag is considered as *on* and any remaining filter results are skipped. If no filter indicates that the feature should be enabled, the feature flag is *off*.
+Each feature flag has two parts: a name and a list of one or more filters that are used to evaluate if a feature's state is *on* (that is, when its value is `True`). A filter defines a use case for which a feature should be turned on. If a feature flag has multiple filters, the filter list is traversed in order until one of the filters determines that the feature should be enabled. At this point, the feature flag is considered as *on* and any remaining filter results are skipped. If no filter indicates that the feature should be enabled, the feature flag is *off*.
 
-The feature manager supports *appsettings.json* as a feature flag source since it is a valid .NET Core configuration provider. Below we have an example of the format used to set up feature flags in a json file.
+The feature manager supports *appsettings.json* as a configuration source for feature flags. The following example shows how to set up feature flags in a json file.
 
     ```csharp
     "FeatureManagement": {
@@ -113,7 +113,7 @@ By convention, the `FeatureManagement` section of this json document is used for
 
 * **FeatureA** is *on*.
 * **FeatureB** is *off*.
-* **FeatureC** specifies a filter named *Browser* with a *Parameters* property. This is an example of a configurable filter and it specifies the *Edge* and *Chrome* browsers as *AllowedBrowsers* for enabling the **FeatureC** flag.
+* **FeatureC** specifies a filter named *Browser* with a *Parameters* property. *Browser* is an example of a configurable filter and it specifies the *Edge* and *Chrome* browsers as *AllowedBrowsers* for enabling the **FeatureC** flag.
 
 ## Referencing
 
@@ -130,7 +130,7 @@ Though not required, feature flags should be defined as `enum` variables so that
 
 ## Feature flag check
 
-The basic pattern of feature management is to first check if a feature flag is set to *on* and then perform the enclosed actions if that is the case. This is done through the `IFeatureManager.IsEnabled()` method in code.
+The basic pattern of feature management is to first check if a feature flag is set to *on* and then perform the enclosed actions if that is the case.
 
     ```csharp
     IFeatureManager featureManager;
@@ -143,7 +143,7 @@ The basic pattern of feature management is to first check if a feature flag is s
 
 ## Dependency injection
 
-In ASP.NET Core MVC, the `IFeatureManager` can be accessed through dependency injection.
+In ASP.NET Core MVC, the feature manager `IFeatureManager` can be accessed through dependency injection.
 
     ```csharp
     public class HomeController : Controller
@@ -193,7 +193,7 @@ In MVC views, a `<feature>` tag can be used to render content based on whether a
 
 ## MVC filter
 
-MVC filters can be set up such that they are applied based on the state of a feature flag. The following adds an MVC filter named `SomeMvcFilter`. This filter is triggered within the MVC pipeline only if *FeatureA* is enabled.
+MVC filters can be set up such that they are activated based on the state of a feature flag. The following adds an MVC filter named `SomeMvcFilter`. This filter is triggered within the MVC pipeline only if *FeatureA* is enabled.
 
     ```csharp
     services.AddMvc(options => {
@@ -203,7 +203,7 @@ MVC filters can be set up such that they are applied based on the state of a fea
 
 ## Route
 
-Routes can be exposed dynamically based on feature flags. The following adds a route which sets `Beta` as the default controller only when *FeatureA* is enabled.
+Routes can be exposed dynamically based on feature flags. The following adds a route, which sets `Beta` as the default controller, only when *FeatureA* is enabled.
 
     ```csharp
     app.UseMvc(routes => {
@@ -230,7 +230,7 @@ This builds off the more generic capability to branch the entire application bas
 
 ## Next steps
 
-In this tutorial, you learned how to implement feature flags in your ASP.NET Core application by utilizing the `Microsoft.FeatureManagement` libraries. Refer to the following resources for more information on feature management support in ASP.NET Core and App Configuration.
+In this tutorial, you learned how to implement feature flags in your ASP.NET Core application by utilizing the `Microsoft.FeatureManagement` libraries. See the following resources for more information on feature management support in ASP.NET Core and App Configuration.
 
 * [ASP.NET Core feature flag sample code]()
 * [Microsoft.FeatureManagement documentation]()
