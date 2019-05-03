@@ -282,7 +282,7 @@ cf19      example1   linux       Succeeded  Manual     2019-05-03T03:03:30Z  00:
 
 ACR Tasks by default has permissions to push or pull images from the registry where the task runs. You might want to run a multi-step task that targets one or more registries in addition to the run registry. For example, you might need to build images in one registry, and store images with different tags in a second registry that is accessed by a production system. This example shows you how to create such a task and provide credentials for another registry.
 
-If you don't already have a second registry, create one for this example. If you need a registry, see the [previous tutorial](../articles/container-registry/container-registry-tutorial-quick-task.md), or [Quickstart: Create a container registry using the Azure CLI](../articles/container-registry/container-registry-get-started-azure-cli.md).
+If you don't already have a second registry, create one for this example. If you need a registry, see the [previous tutorial](container-registry-tutorial-quick-task.md), or [Quickstart: Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md).
 
 To create the task, you need the name of the registry login server, which is of the form *mycontainerregistrydate.azurecr.io* (all lowercase). In this example, you use the second registry to store images tagged by build date.
 
