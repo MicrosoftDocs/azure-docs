@@ -173,7 +173,7 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run any of the three containers. The command uses the following parameters:
 
-**During the private preview**, the billing settings must be valid to start the container but you are not billed for usage.
+**During the preview**, the billing settings must be valid to start the container, but you aren't billed for usage.
 
 | Placeholder | Value |
 |-------------|-------|
