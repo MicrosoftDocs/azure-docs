@@ -182,7 +182,7 @@ To complete this tutorial, you need to:
 
   Finally, remember that changing the authentication protocol may impact client authentication.
 
-## Assess the effort required to migrate from Oracle to Azure Database for PostgreSQL
+## Assess the effort for an Oracle to Azure Database for PostgreSQL migration
 
 We recommend using ora2pg to assess the effort required to migrate from Oracle to Azure Database for PostgreSQL. Use the `ora2pg -t SHOW_REPORT` directive to create a report listing all the Oracle objects, the estimated migration cost (in developer days), and certain database objects that may require special attention as part of the conversion.
 
