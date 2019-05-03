@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor - Zero instrumentation application monitoring for Kubernetes hosted apps | Microsoft Docs
-description: Application Insight for Kubernetes is a monitoring solution that allows you to collect Application Insights telemetry pertaining to incoming and outgoing requests to and from pods running in your Kubernetes cluster by utilizing service mesh technology called Istio.
+description: Zero instrumentation application monitoring for Kubernetes hosted apps is a monitoring solution that allows you to collect Application Insights telemetry pertaining to incoming and outgoing requests to and from pods running in your Kubernetes cluster by utilizing service mesh technology called Istio.
 services: application-insights
 author: rishabjolly
 manager: carmonm
@@ -13,7 +13,7 @@ ms.author: rijolly
 # Zero instrumentation application monitoring for Kubernetes hosted apps
 
 > [!IMPORTANT]
-> Application Insights for Kubernetes via service mesh is currently in public preview.
+> This functionality is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -31,7 +31,7 @@ Azure Monitor now leverages service mesh tech on your Kubernetes cluster to prov
 
 ## Capabilities
 
-By using Application Insights for your Kubernetes hosted app, you will be able to use:
+By using zero instrumentation application monitoring for Kubernetes hosted apps, you will be able to use:
 
 - [Application Map](../../azure-monitor/app/app-map.md)
 - [Live Stream Metrics](../../azure-monitor/app/live-stream.md)
@@ -68,9 +68,9 @@ sidecar injection method described above, you need to recreate pods to ensure Is
 rolling update or delete individual pods and wait for them to be recreated.
 - Ensure your application complies with [Istio requirements](https://istio.io/docs/setup/kubernetes/prepare/requirements/).
 
-### Deploy Application Insights for Kubernetes
+### Deploy zero instrumentation application monitoring for Kubernetes hosted apps
 
-1. Download and extract an [*Application Insights for Kubernetes* release](https://github.com/Microsoft/Application-Insights-Istio-Adapter/releases/).
+1. Download and extract an [*Application Insights adapter* release](https://github.com/Microsoft/Application-Insights-Istio-Adapter/releases/).
 2. Navigate to */src/kubernetes/* inside the release folder.
 3. Edit *application-insights-istio-mixer-adapter-deployment.yaml*
     - edit the value of *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* environment variable to contain the instrumentation key of the Application Insights resource in Azure portal to contain the telemetry.
@@ -110,7 +110,7 @@ Below is the troubleshooting flow to use when telemetry doesn't appear in the Az
    ```
    Verify that there is a container named *istio-proxy* running on the pod.
 
-5. View *Application Insights for Kubernetes* adapter's traces.
+5. View the Application Insights adapter’s traces.
 
    ```console
    kubectl get pods -n istio-system -l "app=application-insights-istio-mixer-adapter"
