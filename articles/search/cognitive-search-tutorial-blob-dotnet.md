@@ -138,7 +138,11 @@ Create an instance of the `SearchServiceClient` class using the information you 
 ```csharp
 IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
 IConfigurationRoot configuration = builder.Build();
-SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
+
+string searchServiceName = configuration["SearchServiceName"];
+string adminApiKey = configuration["SearchServiceAdminApiKey"];
+
+SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
 ```
 
 > [!NOTE]
@@ -598,12 +602,13 @@ Warnings are common with some source file and skill combinations and do not alwa
 
 After indexing is finished, you can run queries that return the contents of individual fields. By default, Azure Search returns the top 50 results. The sample data is small so the default works fine. However, when working with larger data sets, you might need to include parameters in the query string to return more results. For instructions, see [How to page results in Azure Search](search-pagination-page-layout.md).
 
-As a verification step, query the index for all of the fields.
+As a verification step, query the index for all of the fields. Note that `searchServiceName` was defined when creating the `SearchServiceClient` instance earlier in this tutorial.
 
 ```csharp
 DocumentSearchResult<DemoIndex> results;
+string queryApiKey = configuration["SearchServiceQueryApiKey"];
 
-ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(configuration);
+ISearchIndexClient indexClientForQueries = new SearchIndexClient(searchServiceName, "demoindex", new SearchCredentials(queryApiKey));
 
 try
 {
