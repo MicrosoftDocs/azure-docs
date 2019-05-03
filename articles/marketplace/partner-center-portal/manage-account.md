@@ -179,21 +179,115 @@ To add users to your Partner Center account that already exist in your company's
 5.	In the **Roles** section, specify the role(s) or customized permissions for the selected user(s).
 6.	Select **Save**.
 
-#### Create or invite new users
+#### Create new users
 
-To create brand new user accounts or invite outside users via email, you must have **Global administrator** permissions
+To create brand new user accounts, you must have an account with [**Global administrator**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) permissions. 
 
+1. Go to **Users** (under **Account settings**), select **Add users**, then choose **Create new users**.
+1. Enter a first name, last name, and username for each new user. 
+1. If you want the new user to have a global administrator account in your organization's directory, check the box labeled **Make this user a Global administrator in your Azure AD, with full control over all directory resources**. This will give the user full access to all administrative features in your company's Azure AD. They'll be able to add and manage users in your organization's work account (Azure AD tenant), though not in Partner Center, unless you grant the account the appropriate role/permissions. 
+1. If you checked the box to **Make this user a Global administrator**, you'll need to provide a **Password recovery email** for the user to recover their password if necessary.
+1. In the **Group membership** section, select any groups to which you want the new user to belong.
+1. In the **Roles** section, specify the role(s) or customized permissions for the user.
+1. Select **Save**.
 
-Creating a new user in Partner Center will also create an account for that user in the Azure AD tenant to which you are signed in. Making changes to a user's name in Partner Center will make the same changes in your organization's Azure AD tenant.
+Creating a new user in Partner Center will also create an account for that user in the work account (Azure AD tenant) to which you are signed in. Making changes to a user's name in Partner Center will make the same changes in your organization's work account (Azure AD tenant).
+
+#### Invite users by email
+
+To invite users that are not currently a part of your company work account (Azure AD tenant) via email, you must have an account with [**Global administrator**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) permissions. 
+
+1. Go to **Users** (under **Account settings**), select **Add users**, then choose **Invite users by email**.
+1. Enter one or more email addresses (up to ten), separated by commas or semicolons.
+1. In the **Roles** section, specify the role(s) or customized permissions for the user.
+1. Select **Save**.
+
+The users you invited will get an email invitation to join your Partner Center account. A new guest-user account will be created in your work account (Azure AD tenant). Each user will need to accept their invitation before they can access your account.
+
+If you need to resend an invitation, visit the **Users** page, find the invitation in the list of users, select their email address (or the text that says *Invitation pending*). Then, at the bottom of the page, select **Resend invitation**.
+ 
 
 > [!NOTE]
 > If your organization uses [directory integration](https://go.microsoft.com/fwlink/p/?LinkID=724033) to sync the on-premises directory service with your Azure AD, you won't be able to create new users, groups, or Azure AD applications in Partner Center. You (or another admin in your on-premises directory) will need to create them directly in the on-premises directory before you'll be able to see and add them in Partner Center.
 
+#### Changing a user password
+
+If one of your users needs to change their password, they can do so themselves if you provided a **Password recovery email** when creating the user account. You can also update a user's password by following the steps below. To change a user's password in your company work account (Azure AD tenant), you must be signed in on an account with [**Global administrator**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) permissions. Note that this will change the user's password in your Azure AD tenant, along with the password they use to access Partner Center.
+
+1.	From the **Users** page (under **Account settings**), select the name of the user account that you want to edit.
+2.	Select the **Reset password** button at the bottom of the page.
+3.	A confirmation page will appear showing the login information for the user, including a temporary password. Be sure to print or copy this info and provide it to the user, as you won't be able to access the temporary password after you leave this page.
+
 ### Add or remove groups
+
+Groups allow you to control multiple user roles and permissions all together.
+
+#### Add an existing group
+
+To add a group that already exists in your organization's work account (Azure AD tenant) to your Partner Center account: 
+
+1.	From the **Users** page (under **Account settings**), select **Add groups**.
+2.	Select one or more groups from the list that appears. You can use the search box to search for specific groups.
+If you select more than one group to add to your Partner Center account, you must assign them the same role or set of custom permissions. To add multiple groups with different roles/permissions, repeat these steps for each role or set of custom permissions.
+3.	When you are finished choosing groups, click **Add selected**.
+4.	In the **Roles** section, specify the role(s) or customized permissions for the selected group(s). All members of the group will be able to access your Partner Center account with the permissions you apply to the group, regardless of the roles and permissions associated with their individual account.
+5.	Select **Save**.
+
+When you add an existing group, every user who is a member of that group will be able to access your Partner Center account, with the permissions associated with the group's assigned role.
+
+#### Add a new group
+
+To add a brand-new group to your Partner Center account: 
+
+1.	From the **Users** page (under **Account settings**), select **Add groups**.
+2.	On the next page, select **New group**.
+3.	Enter the display name for the new group.
+4.	Specify the role(s) or customized permissions for the group. All members of the group will be able to access your Partner Center account with the permissions you apply here, regardless of the roles/permissions associated with their individual account.
+5.	Select user(s) for the new group from the list that appears. You can use the search box to search for specific users.
+6.	When you are finished selecting users, click **Add selected** to add them to the new group.
+7.	Select **Save**.
+
+Note that this new group will be created in your organization's work account (Azure AD tenant) as well, not just in your Partner Center account.
 
 ### Add or remove Azure AD applications
 
+You can allow applications or services that are part of your company's Azure AD to access your Partner Center account. 
+
+#### Add existing Azure AD applications 
+
+To add applications that already exist in your company's Azure Active Directory: 
+
+1.	From the **Users** page (under **Account settings**), select **Add Azure AD applications**.
+2.	Select one or more Azure AD applications from the list that appears. You can use the search box to search for specific Azure AD applications. If you select more than one Azure AD application to add to your Partner Center account, you must assign them the same role or set of custom permissions. To add multiple Azure AD applications with different roles/permissions, repeat these steps for each role or set of custom permissions.
+3.	When you are finished selecting Azure AD applications, click **Add selected**.
+5.	In the **Roles** section, specify the role(s) or customized permissions for the selected Azure AD application(s).
+6.	Select **Save**.
+
+#### Add new Azure AD applications 
+
+If you want to grant Partner Center access to a brand-new Azure AD application account, you can create one in the **Users** section. Note that this will create a new account in your company work account (Azure AD tenant), not just in your Partner Center account. If you are primarily using this Azure AD application for Partner Center authentication, and don't need users to access it directly, you can enter any valid address for the **Reply URL** and **App ID URI**, as long as those values are not used by any other Azure AD application in your directory.
+
+1.	From the **Users** page (under **Account settings**), select **Add Azure AD applications**.
+2.	On the next page, select **New Azure AD application**.
+3.	Enter the **Reply URL** for the new Azure AD application. This is the URL where users can sign in and use your Azure AD application (sometimes also known as the App URL or Sign-On URL). The **Reply URL** can't be longer than 256 characters and must be unique within your directory.
+4.	Enter the **App ID URI** for the new Azure AD application. This is a logical identifier for the Azure AD application that is presented when a single sign-on request is sent to Azure AD. Note that the **App ID URI** must be unique for each Azure AD application in your directory. This ID can't be longer than 256 characters. For more info about the App ID URI, see [Integrating applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#changing-the-application-registration-to-support-multi-tenant).
+5.	In the **Roles** section, specify the role(s) or customized permissions for the Azure AD application.
+6.	Select **Save**.
+
+After you add or create an Azure AD application, you can return to the **Users** section and select the application name to review settings for the application, including the Tenant ID, Client ID, Reply URL, and App ID URI.
+
+#### Manage keys for an Azure AD application
+
+If your Azure AD application reads and writes data in Microsoft Azure AD, it will need a key. You can create keys for an Azure AD application by editing its information in Partner Center. You can also remove keys that are no longer needed.
+
+1.	From the **Users** page (under **Account settings**), select the name of the Azure AD application. You'll see all of the active keys for the Azure AD application, including the date on which the key was created and when it will expire. 
+2. To remove a key that is no longer needed, select **Remove**.
+3.	To add a new key, select **Add new key**.
+4.	You will see a screen showing the **Client ID** and **Key values**. Be sure to print or copy this information, as you won't be able to access it again after you leave this page.
+4.	If you want to create more keys, select **Add another key**.
+
 ### Edit account details 
+
 
 ### Define roles and permissions
 
@@ -201,19 +295,17 @@ Users in the Commercial Marketplace program can be assigned one of the two roles
 
 
 
-
-
-Otherwise, you can [create a new Azure AD tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant) from within Partner Center at no additional charge.
-
-
-
 ## Manage Azure AD tenants
 
-**Azure AD tenant** is the term used to represent an organization within Azure Active Directory. A single Azure AD tenant can be associated with multiple Partner Center accounts. You only need to have one Azure AD tenant associated with your Partner Center account in order to add multiple account users, but you also have the option to add multiple Azure AD tenants to a single Partner Center account. 
+**Azure AD tenant** is the term used to represent an organization within Azure Active Directory, we also refer to this as a **work account** in Partner Center. 
 
-Any user with the **Manager** role in the Partner Center account will have the option to add and remove Azure AD tenants from the account. [Learn more about roles in Partner Center]().
+A single Azure AD tenant, or work account, can be associated with multiple Partner Center accounts. You only need to have one Azure AD tenant associated with your Partner Center account in order to add multiple account users, but you also have the option to add multiple Azure AD tenants to a single Partner Center account. 
+
+Any user with the [**Manager** role](#define-roles-and-permissions) in the Partner Center account will have the option to add and remove Azure AD tenants from the account.
 
 Note that if you remove a tenant, all users in that tenant (and their account permissions) will be removed from your Partner Center account, but no users will be removed from Azure AD. 
+
+You can [create a new Azure AD tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant) from within Partner Center at no additional charge.
 
 <!-- ### Add new Azure AD Tenants to your Partner Center account -->
 <!-- ### Associate Azure AD with your Partner Center account -->
