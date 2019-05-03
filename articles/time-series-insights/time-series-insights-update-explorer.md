@@ -32,7 +32,7 @@ The Azure Time Series Insights Preview explorer consists of the following elemen
 
 [![The Explorer view](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
 
-1. <a href="#environment-panel">**Environment panel**</a>: Displays your Azure TSI environments.
+1. <a href="#environment-dropdown">**Environment panel**</a>: Displays your Azure TSI environments.
 1. <a href="#navigation-menu">**Navigation menu**</a>: Lets you switch between the **Analyze** and **Model** pages.
 1. <a href="#hierarchy-tree">**Hierarchy tree**</a>: Lets you select specific model and data elements to be charted.
 1. <a href="#preview-well">**Time series well**</a>: Displays your currently selected data elements in table format with color-coding.
@@ -81,13 +81,13 @@ To learn more about the Time Series Model, see [Times Series Models](./time-seri
 
 ## Preview well
 
-The well displays instance fields and other metadata associated with selected TSI instances. The check boxes on the right-side let you hide or display specific instances from the current chart. You may also remove specific data elements from your current data well by clicking the red **X** control in the top-right corner of the element.
+The well displays instance fields and other metadata associated with selected TSI instances. The check boxes on the right-side let you hide or display specific instances from the current chart. You may also remove specific data elements from your current data well by clicking the red **Delete** (trash can) control in the top-right corner of the element.
 
   [![The Preview well](media/v2-update-explorer/explorer-five.png)](media/v2-update-explorer/explorer-five.png#lightbox)
 
 You can also reconfigure the layout of your **Analyze** chart page by selecting the ellipses icon in the rop-right:
 
-  [![Telemetry focus view](media/v2-update-explorer/explorer-six.png)](media/v2-update-explorer/explorer-six.png#lightbox)
+  [![Telemetry layout options](media/v2-update-explorer/explorer-six.png)](media/v2-update-explorer/explorer-six.png#lightbox)
 
 > [!NOTE]
 > If you see the following message, the instance does not have any data during the time span selected. To resolve the issue, you can increase the time span or confirm that the instance is pushing data.
@@ -116,15 +116,15 @@ With the chart, you can display TSI instances as lines. You can collapse the env
 
 You can further drill into a specific data slice by left-clicking a data point on the current graph and then dragging the selected area to the endpoint of your choice. Right-click the greyed, selected area, and click **Zoom** as shown in this following image:
 
-  [![Preview chart selection](media/v2-update-explorer/explorer-nine.png)](media/v2-update-explorer/explorer-nine.png#lightbox)
+  [![Preview chart zoom](media/v2-update-explorer/explorer-nine.png)](media/v2-update-explorer/explorer-nine.png#lightbox)
 
 After you perform the **Zoom** action, you will see your selected dataset. Click the Y-axis format control to cycle through the three Y-axis representations of your Time Series Insights data.
 
-  [![Preview chart zoom](media/v2-update-explorer/explorer-ten.png)](media/v2-update-explorer/explorer-ten.png#lightbox)
+  [![Preview chart Y-axis](media/v2-update-explorer/explorer-ten.png)](media/v2-update-explorer/explorer-ten.png#lightbox)
 
 Here you can see an example of shared Y-axes:
 
-  [![Preview chart Y-axis](media/v2-update-explorer/explorer-eleven.png)](media/v2-update-explorer/explorer-eleven.png#lightbox)
+  [![Preview shared Y-axis](media/v2-update-explorer/explorer-eleven.png)](media/v2-update-explorer/explorer-eleven.png#lightbox)
 
 ## Time editor panel
 
@@ -154,11 +154,11 @@ The Time Series Insights Preview navigation panel appears at the top of your TSI
 
 ### Current session share link control
 
-  [![Resource endpoint location](media/v2-update-explorer/explorer-fifteen.png)](media/v2-update-explorer/explorer-fifteen.png#lightbox)
+  [![Share icon](media/v2-update-explorer/explorer-fifteen.png)](media/v2-update-explorer/explorer-fifteen.png#lightbox)
 
 Select the new **Share** icon to share a URL link with your team.
 
-  [![Resource endpoint location](media/v2-update-explorer/url-share.png)](media/v2-update-explorer/url-share.png#lightbox)
+  [![Share your instance URL](media/v2-update-explorer/url-share.png)](media/v2-update-explorer/url-share.png#lightbox)
 
 * Currently selected data well
 
