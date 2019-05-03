@@ -42,10 +42,9 @@ First, determine the VM size to deploy. As part of this preview, only DsV3 and E
 
 If you would like to create a VM with multiple ultra SSDs, refer to the sample [Create a VM with multiple ultra SSD](https://aka.ms/UltraSSDTemplate).
 
-The following describe the new/modified Resource Manager template changes:
-**apiVersion** for `Microsoft.Compute/virtualMachines` and `Microsoft.Compute/Disks` must be set as `2018-06-01` (or later).
+If you intend to use your own template, make sure that **apiVersion** for `Microsoft.Compute/virtualMachines` and `Microsoft.Compute/Disks` is set as `2018-06-01` (or later).
 
-Specify Disk Sku UltraSSD_LRS, disk capacity, IOPS, zone, and throughput in MBps to create an ultra disk.
+Set the disk sku to **UltraSSD_LRS**, then set the disk capacity, IOPS, availability zone, and throughput in MBps to create an ultra disk.
 
 Once the VM is provisioned, you can partition and format the data disks and configure them for your workloads.
 
