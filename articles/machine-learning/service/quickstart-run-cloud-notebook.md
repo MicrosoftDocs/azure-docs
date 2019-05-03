@@ -47,7 +47,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 1. Provide a name for your VM. Then select **Create**.
 
-    > [!TIP]
+    > [!NOTE]
     > Your Notebook VM name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character.  The name must also be unique across your Azure subscription.
 
     ![Create a new VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
