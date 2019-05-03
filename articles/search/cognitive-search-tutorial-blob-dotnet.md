@@ -133,16 +133,25 @@ using Microsoft.Extensions.Configuration;
 
 ## Create a client
 
-Create an instance of the `SearchServiceClient` class using the information you added to `appsettings.json`.
+Create an instance of the `SearchServiceClient` class.
 
 ```csharp
 IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
 IConfigurationRoot configuration = builder.Build();
+SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
+```
 
-string searchServiceName = configuration["SearchServiceName"];
-string adminApiKey = configuration["SearchServiceAdminApiKey"];
+`CreateSearchServiceClient` creates a new `SearchServiceClient` using values that are stored in the application's config file (appsettings.json).
 
-SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
+```csharp
+private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
+{
+   string searchServiceName = configuration["SearchServiceName"];
+   string adminApiKey = configuration["SearchServiceAdminApiKey"];
+
+   SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
+   return serviceClient;
+}
 ```
 
 > [!NOTE]
@@ -606,9 +615,8 @@ As a verification step, query the index for all of the fields. Note that `search
 
 ```csharp
 DocumentSearchResult<DemoIndex> results;
-string queryApiKey = configuration["SearchServiceQueryApiKey"];
 
-ISearchIndexClient indexClientForQueries = new SearchIndexClient(searchServiceName, "demoindex", new SearchCredentials(queryApiKey));
+ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(configuration);
 
 try
 {
@@ -617,6 +625,19 @@ try
 catch (Exception e)
 {
     // Handle exception
+}
+```
+
+`CreateSearchIndexClient` creates a new `SearchIndexClient` using values that are stored in the application's config file (appsettings.json). Note that the search service query API key is used and not the admin key.
+
+```csharp
+private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
+{
+   string searchServiceName = configuration["SearchServiceName"];
+   string queryApiKey = configuration["SearchServiceQueryApiKey"];
+
+   SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "demoindex", new SearchCredentials(queryApiKey));
+   return indexClient;
 }
 ```
 
