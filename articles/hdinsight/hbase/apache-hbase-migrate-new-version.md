@@ -192,7 +192,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 1. If you're upgrading HDInsight 3.6 to 4.0, follow the steps below, otherwise skip to step 10:
     1. Restart all required services in Ambari by selecting	**Services** > **Restart All Required**.
     1. Stop the HBase service.
-    1. SSH to the Zookeeper node, and execute zkCli command `rmr /hbase-unsecure` to remove the HBase root znode in Zookeeper.
+    1. SSH to the Zookeeper node, and execute the [zkCli](https://github.com/go-zkcli/zkcli) command `rmr /hbase-unsecure` to remove the HBase root znode from Zookeeper.
     1. Restart HBase.
 1. If you're upgrading to any other HDInsight version besides 4.0, follow these steps:
     1. Save your changes.
