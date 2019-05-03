@@ -81,9 +81,9 @@ rolling update or delete individual pods and wait for them to be recreated.
    kubectl apply -f .
    ```
 
-### Verify Application Insights for Kubernetes deployment
+### Verify deployment
 
-- Ensure Application Insights for Kubernetes adapter has been deployed:
+- Ensure Application Insights adapter has been deployed:
 
   ```console
   kubectl get pods -n istio-system -l "app=application-insights-istio-mixer-adapter"
