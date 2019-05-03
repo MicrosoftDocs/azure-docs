@@ -195,5 +195,10 @@ The following Azure CLI example shows you how to add a person to the DevTest Lab
 az role assignment create --roleName "DevTest Labs User" --signInName <email@company.com> -–resource-name "<Lab Name>" --resource-type “Microsoft.DevTestLab/labs" --resource-group "<Resource Group Name>"
 ```
 
+## Next steps
+See the following articles:
 
+- [Create and manage virtual machines with DevTest Labs using the Azure CLI](devtest-lab-vmcli.md)
+- [Create a virtual machine with DevTest Labs using Azure PowerShell](devtest-lab-vm-powershell.md)
+- [Use command-line tools to start and stop Azure DevTest Labs virtual machines](use-command-line-start-stop-virtual-machines.md)
 
