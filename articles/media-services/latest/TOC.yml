@@ -28,6 +28,8 @@
     href: analyze-videos-tutorial-with-api.md
   - name: AES-128 dynamic encryption - .NET
     href: protect-with-aes128.md       
+  - name: DRM dynamic encryption - .NET
+    href: protect-with-drm.md    
 - name: Samples
   items:
   - name: Azure code samples
