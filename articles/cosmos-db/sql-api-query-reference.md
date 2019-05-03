@@ -3128,7 +3128,7 @@ SELECT
 |[GetCurrentDateTime](#bk_get_current_date_time)|[GetCurrentTimestamp](#bk_get_current_timestamp)||
 
 ####  <a name="bk_get_current_date_time"></a> GetCurrentDateTime
- Returns the current date and time as a UTC Date Time ISO 8601 string.
+ Returns the current UTC date and time as an ISO 8601 string.
   
  **Syntax**
   
@@ -3138,7 +3138,7 @@ GetCurrentDateTime ()
   
   **Return Types**
   
-  Returns a string expression containing the current UTC Date Time ISO 8601 string. 
+  Returns a string value containing the current UTC date and time ISO 8601 string. 
 
   This is expressed in the format YYYY-MM-DDThh:mm:ss.sssZ where:
   
@@ -3148,9 +3148,9 @@ GetCurrentDateTime ()
   |MM|two-digit month (01 = January, etc.)|
   |DD|two-digit day of month (01 through 31)|
   |T|signifier for beginning of time elements|
-  |hh|two digits of hour (00 through 23)|
-  |mm|two digits of minute (00 through 59)|
-  |ss|two digits of second (00 through 59)|
+  |hh|two digit hour (00 through 23)|
+  |mm|two digit minutes (00 through 59)|
+  |ss|two digit seconds (00 through 59)|
   |.sss|three digits of decimal fractions of a second|
   |Z|UTC (Coordinated Universal Time) designator||
   
@@ -3158,7 +3158,9 @@ GetCurrentDateTime ()
 
   **Remarks**
 
-  Please note that GetCurrentDateTime is a nondeterministic function. Also note that the result returned is UTC (Coordinated Universal Time).
+  GetCurrentDateTime is a nondeterministic function. 
+  
+  The result returned is UTC (Coordinated Universal Time).
 
   **Examples**  
   
@@ -3187,11 +3189,13 @@ GetCurrentTimestamp ()
   
   **Return Types**  
   
-  Returns a numeric expression containing the current number of milliseconds that have elapsed since the Unix epoch i.e. the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
+  Returns a numeric value containing the current number of milliseconds that have elapsed since the Unix epoch i.e. the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
 
   **Remarks**
 
-  Please note that GetCurrentTimestamp is a nondeterministic function. Also note that the result returned is UTC (Coordinated Universal Time).
+  GetCurrentTimestamp is a nondeterministic function. 
+  
+  The result returned is UTC (Coordinated Universal Time).
 
   **Examples**  
   
