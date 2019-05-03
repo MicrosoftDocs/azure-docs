@@ -397,7 +397,7 @@ After the initial Full load is completed, the databases are marked **Ready to cu
 
    ![Start cutover](media/tutorial-oracle-azure-postgresql-online/dms-start-cutover.png)
 
-3. Select **Confirm**, and the select **Apply**.
+3. Select **Confirm**, and then select **Apply**.
 4. When the database migration status shows **Completed**, connect your applications to the new target Azure Database for PostgreSQL instance.
 
  > [!NOTE]
