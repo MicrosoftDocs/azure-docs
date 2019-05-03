@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 05/06/2019
 ---
 
 # Tutorial: Migrate MongoDB to Azure Cosmos DB's API for MongoDB online using DMS
