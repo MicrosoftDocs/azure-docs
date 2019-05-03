@@ -93,6 +93,8 @@ Use a Notebook VM as a secure, enterprise-ready hosting environment for Jupyter
 
 Azure Machine Learning SDK for Python v1.0.30 released.
 
+The [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline_endpoint.pipelineendpoint?view=azure-ml-py) was introduce to add a new version of a published pipeline while maintaining same endpoint.
+
 ## 2019-04-17
 
 ### Azure Machine Learning Data Prep SDK v1.1.2
