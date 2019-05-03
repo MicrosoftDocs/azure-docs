@@ -345,11 +345,11 @@ After the service is created, locate it within the Azure portal, open it, and th
 1. Select **Save**, and then on the **Install OCI driver** screen, sign into your Oracle account and download the driver **instantclient-basiclite-windows.x64-12.2.0.1.0.zip** (37,128,586 Byte(s)) (SHA1 Checksum: 865082268) from [here](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst).
 2. Download the driver to a shared folder.
 
-  Make sure the folder is shared with the username that you specified with minimum Read-only access. Azure Database Migration Service accesses and reads from the share to upload the OCI driver to Azure by impersonating the username you specify.
+   Make sure the folder is shared with the username that you specified with minimum Read-only access. Azure Database Migration Service accesses and reads from the share to upload the OCI driver to Azure by impersonating the username you specify.
 
-  The username you specify must be a Windows user account.
+   The username you specify must be a Windows user account.
 
-  ![OCI Driver Install](media/tutorial-oracle-azure-postgresql-online/dms-oci-driver-install.png)
+   ![OCI Driver Install](media/tutorial-oracle-azure-postgresql-online/dms-oci-driver-install.png)
 
 ## Specify target details
 
@@ -395,7 +395,7 @@ After the initial Full load is completed, the databases are marked **Ready to cu
 
 2. Make sure to stop all the incoming transactions to the source database; wait until the **Pending changes** counter shows **0**.
 
-  ![Start cutover](media/tutorial-oracle-azure-postgresql-online/dms-start-cutover.png)
+   ![Start cutover](media/tutorial-oracle-azure-postgresql-online/dms-start-cutover.png)
 
 3. Select **Confirm**, and the select **Apply**.
 4. When the database migration status shows **Completed**, connect your applications to the new target Azure Database for PostgreSQL instance.
