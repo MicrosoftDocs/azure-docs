@@ -62,7 +62,7 @@ From Azure portal navigation plane:
 
     2. Specify the appropriate support method and provide your contract information.
 
-    3. Click **Next: Review + create**
+    3. Click **Next: Review + create** to create the request. 
 
 
 ## Next steps  
