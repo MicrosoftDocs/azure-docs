@@ -9,11 +9,12 @@ ms.reviewer: barbkess
 
 ms.assetid: 729b8eb6-efc4-47fb-9f34-8998ca2c9545
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/11/2018
+ms.date: 05/03/2018
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -34,7 +35,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To configure Azure AD integration with Atlassian Cloud, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
 * Atlassian Cloud single sign-on enabled subscription
 * To enable Security Assertion Markup Language (SAML) single sign-on for Atlassian Cloud products, you need to set up Atlassian Access. Learn more about [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
@@ -140,21 +141,29 @@ To configure Azure AD single sign-on with Atlassian Cloud, perform the following
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
 ### Configure Atlassian Cloud Single Sign-On
 
-1. To get SSO configured for your application, sign in to the Atlassian portal with administrator credentials.
+1. To automate the configuration within Atlassian Cloud, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-2. You need to verify your domain before going to configure single sign-on. For more information, see [Atlassian domain verification](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) document.
+	![My apps extension](common/install-myappssecure-extension.png)
 
-3. In the left pane, select **SAML single sign-on**. If you haven't already done so, subscribe to Atlassian Identity Manager.
+2. After adding extension to the browser, click on **Setup Atlassian Cloud** will direct you to the Atlassian Cloud application. From there, provide the admin credentials to sign into Atlassian Cloud. The browser extension will automatically configure the application for you and automate steps 3-7.
+
+	![Setup configuration](common/setup-sso.png)
+
+3. If you want to setup Atlassian Cloud manually, open a new web browser window and sign into your Atlassian Cloud company site as an administrator and perform the following steps:
+
+4. You need to verify your domain before going to configure single sign-on. For more information, see [Atlassian domain verification](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) document.
+
+5. In the left pane, select **SAML single sign-on**. If you haven't already done so, subscribe to Atlassian Identity Manager.
 
 	![Configure single sign-on](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_11.png)
 
-4. In the **Add SAML configuration** window, do the following:
+6. In the **Add SAML configuration** window, do the following:
 
 	![Configure single sign-on](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
 
@@ -166,7 +175,7 @@ To configure Azure AD single sign-on with Atlassian Cloud, perform the following
 
     d. Click **Save Configuration**.
 
-5. To ensure that you have set up the correct URLs, update the Azure AD settings by doing the following:
+7. To ensure that you have set up the correct URLs, update the Azure AD settings by doing the following:
 
     ![Configure single sign-on](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
 
