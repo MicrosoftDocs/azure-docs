@@ -52,7 +52,7 @@ A named location has the following components:
 
 - **Mark as trusted location** - A flag you can set for a named location to indicate a trusted location. Typically, trusted locations are network areas that are controlled by your IT department. In addition to conditional access, trusted named locations are also used by Azure Identity Protection and Azure AD security reports to reduce [false positives](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Countries/Regions** - This option enables you to select one or more country or region to define a named location.
-- **Include unknown areas** - Some IP addresses are not mapped to a specific country. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
+- **Include unknown areas** - Some IP addresses are not mapped to a specific country or region. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
 
 The number of named locations you can configure is constrained by the size of the related object in Azure AD. You can configure locations based on of the following limitations:
 
