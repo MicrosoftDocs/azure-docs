@@ -1178,14 +1178,12 @@ through a `Result` token that later actions can reference.
 
 *Required in some cases*
 
-The `explicitDependencies` attribute specifies that you 
-want to explicitly include results from the trigger, 
-previous actions, or both as dependencies for the code 
-that you're running. For more information, see 
-[Add parameters for inline code](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters).
+The `explicitDependencies` attribute specifies that you want to explicitly 
+include results from the trigger, previous actions, or both as dependencies 
+for your code snippet. For more information about adding these dependencies, see 
+[Add parameters for inline code](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters). 
 
-For the `includeTrigger` attribute, you can 
-specify `true` or `false` values.
+For the `includeTrigger` attribute, you can specify `true` or `false` values.
 
 | Value | Type | Description |
 |-------|------|-------------|
@@ -1197,8 +1195,10 @@ specify `true` or `false` values.
 This action runs code that gets your logic app's name and returns 
 the text "Hello world from <logic-app-name>" as the result. 
 In this example, the code references the workflow's name by 
-using `workflowContext.workflow.name`. For more information, see 
-[Add and run code snippets with inline code](../logic-apps/logic-apps-add-run-inline-code.md).
+accessing the `workflowContext.workflow.name` property through 
+the read-only `workflowContext` object. For more information about 
+using the `workflowContext` object, see 
+[Reference trigger and action results in your code](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
 
 ```json
 "Execute_JavaScript_Code": {
