@@ -47,9 +47,9 @@ There are three primary ways to interact with data stored in Time Series Insight
 
 - The second way to start is to use the JavaScript SDK to quickly embed powerful charts and graphs in your  web application. With just a few lines of code, you can author powerful queries. Use them to populate line charts, pie charts, bar charts, heatmaps, data grids, and more. All of these elements exist out-of-the-box by using the SDK. The SDK also abstracts Time Series Insights query APIs. You can use them to author SQL-like predicates to query the data you want to show on a dashboard. For hybrid presentation-layer solutions, Time Series Insights offers parameterized URLs. They provide seamless connection points with the Time Series Insights Preview explorer for deep dives into data.
 
-    * Read the [Time Series Insights JS client library](https://docs.microsoft.com/azure/time-series-insights/tutorial-explore-js-client-lib) and the [Time Series Insights client](https://github.com/Microsoft/tsiclient) documentation to learn more about the JavaScript SDK.
+    * Read the [Time Series Insights JS client library](/tutorial-explore-js-client-lib.md) and the [Time Series Insights client](https://github.com/Microsoft/tsiclient) documentation to learn more about the JavaScript SDK.
 
-    * Learn more about parameterized URLs by reviewing [Parameterized URLs](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-parameterized-urls).
+    * Learn more about sharing URLs and the new UI by reviewing [Visualize data in the explorer Preview](time-series-insights-update-explorer.md).
 
 - The third way to start is to use the powerful APIs to query data stored in Time Series Insights. Time Series Insights has temporal operators such as `from`, `to`, `first`, and `last`. It has aggregations and transformations such as `average`, `min`, `max`, `split by`, `order by`, and `DateHistogram`. It also has filtering operators such as `has`, `in`, `and`, `or`, `greater than`, and `REGEX`. All these operators enable downstream applications to quickly find interesting trends and patterns in your data. Use them to populate home-grown visualizations to spot anomalies.
 
