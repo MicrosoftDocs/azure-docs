@@ -36,46 +36,50 @@ The first Azure AD application is used to get a users Azure AD group membership.
 
 1. Select **Azure Active Directory** > **App registrations** > **New registration**.
 
-    Give the application a name, such as *AKSAzureADServer*.
-    For **Supported account types**, choose *Accounts in this organizational directory only*.
-    Choose *Web* for the **Redirect URI** type, and enter any URI formatted value such as *http://aksazureadserver*.
-    Select **Register** when done.
+    * Give the application a name, such as *AKSAzureADServer*.
+    * For **Supported account types**, choose *Accounts in this organizational directory only*.
+    * Choose *Web* for the **Redirect URI** type, and enter any URI formatted value such as *https://aksazureadserver*.
+    * Select **Register** when done.
 
-2. Select **Manifest** and edit the `groupMembershipClaims` value to `"All"`.
+1. Select **Manifest** and edit the `groupMembershipClaims` value to `"All"`.
 
-   **Save** the updates once complete.
+    ![Update group membership to all](media/aad-integration/edit-manifest.png)
 
-   ![Update group membership to all](media/aad-integration/edit-manifest.png)
+    **Save** the updates once complete.
 
-3. Back on the Azure AD application, select **Settings** > **Keys**.
+1. Back on the Azure AD application, select **Certificates & secrets**.
 
-   Add a key description, select an expiration deadline, and select **Save**. Take note of the key value. When deploying an Azure AD enabled AKS cluster, this value is referred to as the `Server application secret`.
+    * Choose to create a **+ New client secret**.
+    * Add a key description such as *AKS Azure AD server*, choose an expiration time, then select **Add**.
+    * Take note of the key value. It's only displayed this initial time. When you deploy an Azure AD enabled AKS cluster, this value is referred to as the `Server application secret`.
 
-   ![Get the application private key](media/aad-integration/application-key.png)
+1. Return to the Azure AD application, select **API permissions**, then choose to **+ Add a permission**.
 
-4. Return to the Azure AD application, select **Settings** > **Required permissions** > **Add** > **Select an API** > **Microsoft Graph** > **Select**.
+    * Under **Microsoft APIs**, choose *Microsoft Graph*.
+    * Choose **Delegated permissions**, then place a check next to **Directory > Directory.Read.All (Read directory data)**.
+        * If a default delegated permission for **User > User.Read (Sign in and read user profile)** doesn't exist, place a check this permission.
+    * Choose **Application permissions**, then then place a check next to **Directory > Directory.Read.All (Read directory data)**.
 
-   ![Select graph API](media/aad-integration/graph-api.png)
+        ![Set graph permissions](media/aad-integration/graph-permissions.png)
 
-5. Under **APPLICATION PERMISSIONS** place a check next to **Read directory data**.
+    * Choose **Add permissions** to save the updates.
 
-   ![Set application graph permissions](media/aad-integration/read-directory.png)
+1. Under the **Grant consent** section, choose to **Grant admin consent**. This button is greyed out and is unavailable if the current account is not a tenant admin.
 
-6. Under **DELEGATED PERMISSIONS**, place a check next to **Sign in and read user profile** and **Read directory data**. Choose **Select** to save the updates.
-
-   ![Set application graph permissions](media/aad-integration/delegated-permissions.png)
-
-   Then, select **Done**.
-
-7. Choose *Microsoft Graph* from the list of APIs, then select **Grant Permissions**. This step will fail if the current account is not a tenant admin.
-
-   ![Set application graph permissions](media/aad-integration/grant-permissions.png)
-
-   When the permissions have been successfully granted, the following notification is displayed in the portal:
+    When the permissions have been successfully granted, the following notification is displayed in the portal:
 
    ![Notification of successful permissions granted](media/aad-integration/permissions-granted.png)
 
-8. Return to the application and take note of the **Application ID**. When deploying an Azure AD-enabled AKS cluster, this value is referred to as the `Server application ID`.
+1. Return to the Azure AD application, select **Expose an API**, then choose to **+ Add a scope**.
+    
+    * Set *Scope name*, *admin consent display name*, and *admin consent description* to *AKSAzureADServer*
+    * Make sure the **State** is set to *Enabled*.
+
+        ![Expose the server app as an API for use with other services](media/aad-integration/expose-api.png)
+
+    * Choose **Add scope**.
+
+1. Return to the application overview page and take note of the **Application (client) ID**. When you deploy an Azure AD-enabled AKS cluster, this value is referred to as the `Server application ID`.
 
    ![Get application ID](media/aad-integration/application-id.png)
 
@@ -83,29 +87,29 @@ The first Azure AD application is used to get a users Azure AD group membership.
 
 The second Azure AD application is used when logging in with the Kubernetes CLI (kubectl.)
 
-1. Select **Azure Active Directory** > **App registrations** > **New application registration**.
+1. Select **Azure Active Directory** > **App registrations** > **New registration**.
 
-   Give the application a name, select **Native** for the application type, and enter any URI formatted value for **Redirect URI**. Select **Create** when done.
+    * Give the application a name, such as *AKSAzureADClient*.
+    * For **Supported account types**, choose *Accounts in this organizational directory only*.
+    * Choose *Web* for the **Redirect URI** type, and enter any URI formatted value such as *https://aksazureadclient*.
+    * Select **Register** when done.
 
-   ![Create AAD registration](media/aad-integration/app-registration-client.png)
+1. From the Azure AD application, select **API permissions**, then choose to **+ Add a permission**.
 
-2. From the Azure AD application, select **Settings** > **Required permissions** > **Add** > **Select an API** and search for the name of the server application created in the last step of this document.
+    * Select **My APIs**, then choose your Azure AD server application created in the previous step, such as *AKSAzureADServer*.
+    * Choose **Delegated permissions**, then place a check next to your Azure AD server app.
 
-   ![Configure application permissions](media/aad-integration/select-api.png)
+        ![Configure application permissions](media/aad-integration/select-api.png)
 
-    Select your server application, then choose **Select**.
+    * Choose **add permissions.
 
-3. Back on the *Add API access* window, choose **Select permissions**. Please a check mark under the *Delegated permissions* for access to your application, then choose **Select**.
+1. Under the **Grant consent** section, choose to **Grant admin consent**. This button is greyed out and is unavailable if the current account is not a tenant admin.
 
-   ![Select AKS AAD server application endpoint](media/aad-integration/select-server-app.png)
+    When the permissions have been successfully granted, the following notification is displayed in the portal:
 
-   Back on the *Add API access* window, select **Done**.
+    ![Notification of successful permissions granted](media/aad-integration/permissions-granted.png)
 
-4. Select your server API from the list and then choose **Grant Permissions**:
-
-   ![Grant permissions](media/aad-integration/grant-permissions-client.png)
-
-5. Back on the AD application, take note of the **Application ID**. When deploying an Azure AD-enabled AKS cluster, this value is referred to as the `Client application ID`.
+1. Back on the AD application, take note of the **Application ID**. When deploying an Azure AD-enabled AKS cluster, this value is referred to as the `Client application ID`.
 
    ![Get the application ID](media/aad-integration/application-id-client.png)
 
