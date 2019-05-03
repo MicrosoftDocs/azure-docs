@@ -81,7 +81,7 @@ To learn more about the Time Series Model, see [Times Series Models](./time-seri
 
 ## Preview well
 
-The well displays instance fields and other metadata associated with selected TSI instances. The check boxes on the right-side let you hide or display specific instances from the current chart. You may also remove specific data elements from your current data well by clicking the red **Delete** (trash can) control in the top-right corner of the element.
+The well displays instance fields and other metadata associated with selected TSI instances. The check boxes on the right-side let you hide or display specific instances from the current chart. You may also remove specific data elements from your current data well by clicking the red **Delete** (trash can) control in the left-side of the element.
 
   [![The Preview well](media/v2-update-explorer/explorer-five.png)](media/v2-update-explorer/explorer-five.png#lightbox)
 
@@ -159,8 +159,6 @@ The Time Series Insights Preview navigation panel appears at the top of your TSI
 Select the new **Share** icon to share a URL link with your team.
 
   [![Share your instance URL](media/v2-update-explorer/url-share.png)](media/v2-update-explorer/url-share.png#lightbox)
-
-* Currently selected data well
 
 ### Tenant section
 
