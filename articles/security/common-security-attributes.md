@@ -17,6 +17,55 @@ Security is integrated into every aspect of an Azure service. This article colle
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
+## [Azure API Management(../api-management-security-attributes.md)
+
+### Preventative
+
+| Security Attribute | Yes/No | Notes |
+|---|---|--|
+| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes (service-side encryption only) | Sensitive data such as certificates, keys, and secret-named values are encrypted with service-managed, per service instance keys. |
+| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes | [Express Route](../expressroute/index.yml) and VNet encryption is provided by [Azure networking](../virtual-network/index.yml). |
+| Encryption key handling (CMK, BYOK, etc.)| No | All encryption keys are per service instance and are service managed. |
+| Column level encryption (Azure Data Services)| N/A | |
+| API calls encrypted| Yes | Management plane calls are made through [Azure Resource Manager](../azure-resource-manager/index.yml) over TLS. A valid JSON web token (JWT) is required.  Data plane calls can be secured with TLS and one of supported authentication mechanisms (e.g. client certificate or JWT).
+ |
+
+### Network segmentation
+
+| Security Attribute | Yes/No | Notes |
+|---|---|--|
+| Service endpoint support| No | |
+| VNet injection support| Yes | |
+| Network isolation and firewalling support| Yes | Using networking security groups (NSG) and Azure Application Gateway (or other software appliance) respectively. |
+| Forced tunneling support| Yes | Azure networking provides forced tunneling. |
+
+### Detection
+
+| Security Attribute | Yes/No | Notes|
+|---|---|--|
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | |
+
+### Identity and access management
+
+| Security Attribute | Yes/No | Notes|
+|---|---|--|
+| Authentication| Yes | |
+| Authorization| Yes | |
+
+
+### Audit trail
+
+| Security Attribute | Yes/No | Notes|
+|---|---|--|
+| Control and management plane logging and audit| Yes | [Azure Monitor activity logs](../azure-monitor/platform/activity-logs-overview.md) |
+| Data plane logging and audit| Yes | [Azure Monitor diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md) and (optionally) [Azure Application Insights](../azure-monitor/app/app-insights-overview.md).  |
+
+### Configuration management
+
+| Security Attribute | Yes/No | Notes|
+|---|---|--|
+| Configuration management support (versioning of configuration, etc.)| Yes | Using the [Azure API Management DevOps Resource Kit](https://aka.ms/apimdevops) |
+
 
 ## [Azure Backup](../backup/backup-security-attributes.md)
 
@@ -66,6 +115,7 @@ Security is integrated into every aspect of an Azure service. This article colle
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes|  |
 
+
 ## [Azure Key Vault](../key-vault/key-vault-security-attributes.md)
 
 ### Preventative
@@ -114,6 +164,152 @@ Security is integrated into every aspect of an Azure service. This article colle
 |---|---|--|
 | Control/Management plane access controls | Yes | Azure Resource Manager Role-Based Access Control (RBAC) |
 | Data plane access controls (At every service level) | Yes | Key Vault Access Policy |
+
+## [Azure Relay](../service-bus-relay/service-bus-relay-security-attributes.md)
+
+### Preventative
+
+| Security Attribute | Yes/No | Notes |
+|---|---|--|
+| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>|  N/A | Relay is a web socket and does not persist data. |
+| Encryption in transit:<ul><li>Express route encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| Yes | Service requires TLS. |
+| Encryption key handling (CMK, BYOK, etc.)| No | Uses Microsoft TLS certs only.  |
+| Column level encryption (Azure Data Services)| N/A | |
+| API calls encrypted| Yes | HTTPS. |
+
+### Network segmentation
+
+| Security Attribute | Yes/No | Notes |
+|---|---|--|
+| Service endpoint support| No |  |
+| Network isolation and firewalling support| No |  |
+| Forced tunneling support| N/A | Relay is the TLS tunnel  |
+
+### Detection
+
+| Security Attribute | Yes/No | Notes|
+|---|---|--|
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | |
+
+### Identity and access management
+
+| Security Attribute | Yes/No | Notes|
+|---|---|--|
+| Authentication| Yes | Via SAS. |
+| Authorization|  Yes | Via SAS. |
+
+
+### Audit trail
+
+| Security Attribute | Yes/No | Notes|
+|---|---|--|
+| Control and management plane logging and audit| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml). |
+| Data plane logging and audit| Yes | Connection success / failure and errors and logged.  |
+
+### Configuration management
+
+| Security Attribute | Yes/No | Notes|
+|---|---|--|
+| Configuration management support (versioning of configuration, etc.)| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml).|
+
+
+
+## [Azure Resource Manager](../azure-resource-manager/azure-resource-manager-security-attributes.md)
+
+### Preventative
+
+| Security Attribute | Yes/No | Notes |
+|---|---|--|
+| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes |  |
+| Encryption in transit:<ul><li>Express route encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| Yes | HTTPS/TLS. |
+| Encryption key handling (CMK, BYOK, etc.)| N/A | Azure Resource Manager stores no customer content, only control data. |
+| Column level encryption (Azure Data Services)| Yes | |
+| API calls encrypted| Yes | |
+
+### Network segmentation
+
+| Security Attribute | Yes/No | Notes |
+|---|---|--|
+| Service endpoint support| No | |
+| VNet injection support| Yes | |
+| Network isolation and firewalling support| No |  |
+| Forced tunneling support| No |  |
+
+### Detection
+
+| Security Attribute | Yes/No | Notes|
+|---|---|--|
+| Azure monitoring support (Log analytics, App insights, etc.)| No | |
+
+### Identity and access management
+
+| Security Attribute | Yes/No | Notes|
+|---|---|--|
+| Authentication| Yes | [Azure Active Directory](/azure/active-directory) based.|
+| Authorization| Yes | |
+
+
+### Audit trail
+
+| Security Attribute | Yes/No | Notes|
+|---|---|--|
+| Control and management plane logging and audit| Yes | Activity logs expose all write operations (PUT, POST, DELETE) performed on your resources; see [View activity logs to audit actions on resources](resource-group-audit.md). |
+| Data plane logging and audit| N/A | |
+
+### Configuration management
+
+| Security Attribute | Yes/No | Notes|
+|---|---|--|
+| Configuration management support (versioning of configuration, etc.)| Yes |  |
+
+
+## [Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-security-attributes.md)
+
+### Preventative
+
+| Security Attribute | Yes/No | Notes |
+|---|---|--|
+| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>|  Yes for server-side encryption-at-rest by default. | Customer managed keys and BYOK are not yet supported. Client side encryption is the client's responsibility |
+| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes | Supports standard HTTPS/TLS mechanism. |
+| Encryption key handling (CMK, BYOK, etc.)| No |   |
+| Column level encryption (Azure Data Services)| N/A | |
+| API calls encrypted| Yes | API calls are made through [Azure Resource Manager](../azure-resource-manager/index.yml) and HTTPS. |
+
+### Network segmentation
+
+| Security Attribute | Yes/No | Notes |
+|---|---|--|
+| Service endpoint support| Yes (Premium tier only) | VNet service endpoints are supported for [Service Bus Premium tier](service-bus-premium-messaging.md) only. |
+| VNet injection support| No | |
+| Network isolation and firewalling support| Yes (Premium tier only) |  |
+| Forced tunneling support| No |  |
+
+### Detection
+
+| Security Attribute | Yes/No | Notes|
+|---|---|--|
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | Supported via [Azure Monitor and Alerts](service-bus-metrics-azure-monitor.md). |
+
+### Identity and access management
+
+| Security Attribute | Yes/No | Notes|
+|---|---|--|
+| Authentication| Yes | Managed through [Azure Active Directory Managed Service Identity](service-bus-managed-service-identity.md); see [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md).|
+| Authorization| Yes | Supports authorization via [RBAC](service-bus-role-based-access-control.md) (Preview) and SAS token; see [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md). |
+
+### Audit trail
+
+| Security Attribute | Yes/No | Notes|
+|---|---|--|
+| Control and management plane logging and audit| Yes | Operations logs are available; see [Service Bus diagnostic logs](service-bus-diagnostic-logs.md).  |
+| Data plane logging and audit| No |  |
+
+### Configuration management
+
+| Security Attribute | Yes/No | Notes|
+|---|---|--|
+| Configuration management support (versioning of configuration, etc.)| Yes | Supports resource provider versioning through the [Azure Resource Manager API](/rest/api/resources/).|
+
 
 ## [Azure Service Fabric](../service-fabric/service-fabric-security-attributes.md)
 
