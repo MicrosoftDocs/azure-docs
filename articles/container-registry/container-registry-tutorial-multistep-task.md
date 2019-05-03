@@ -308,8 +308,8 @@ steps:
 This multi-step task does the following:
 
 1. Runs two `build` steps to build images from the Dockerfile in the working directory:
-  * The first targets the `Run.Registry`, the registry where the task is run, and is tagged with the ACR Tasks run ID. 
-  * The second targets the registry identified by the value of `regDate`, which you set when you create the task (or provide through an external `values.yaml` file passed to `az acr task create`). This image is tagged with the run date.
+    * The first targets the `Run.Registry`, the registry where the task is run, and is tagged with the ACR Tasks run ID. 
+    * The second targets the registry identified by the value of `regDate`, which you set when you create the task (or provide through an external `values.yaml` file passed to `az acr task create`). This image is tagged with the run date.
 1. Runs a `cmd` step to run one of the built containers. This example starts a long-running container in the background and returns the container ID, then stops the container. In a real-world scenario, you might test a running container to ensure it runs correctly.
 1. In a `push` step, pushes the images that were built, the first to the run registry, the second to the registry identified by `regDate`.
 
