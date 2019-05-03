@@ -20,12 +20,22 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+
 ## 2019-05-02
 
 ### Azure portal
 
 + Create automated ML experiments in the portal.
 
+## 2019-04-26
+
+### Azure Machine Learning SDK for Python v1.0.33
++ **New features**
+  + Default clusters "cpu-cluster" and "gpu-cluster" are created as part of Workspace provisioning.
+  + If Workspace creation fails, depended resources are cleaned.
+  + Default Azure Container Registry SKU was switched to basic.
+  + Azure Container Registry is created lazily, when needed for run or image creation.
+  + Support for Environments for training runs.
 
 ## 2019-04-22
 
