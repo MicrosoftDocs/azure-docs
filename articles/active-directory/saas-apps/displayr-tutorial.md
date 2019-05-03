@@ -147,15 +147,15 @@ To configure Azure AD single sign-on with Displayr, perform the following steps:
 
 2. Click on **Settings** then navigate to **Account**.
 
-	![Displayr Configuration](./media/displayr-tutorial/config01.png)
+	![Configuration](./media/displayr-tutorial/config01.png)
 
 3. Switch to **Settings** from the top menu and scroll down the page for clicking **Configure Single Sign On (SAML)**.
 
-	![Displayr Configuration](./media/displayr-tutorial/config02.png)
+	![Configuration](./media/displayr-tutorial/config02.png)
 
 4. On the **Single Sign On (SAML)** page, perform the following steps:
 
-	![Displayr Configuration](./media/displayr-tutorial/config03.png)
+	![Configuration](./media/displayr-tutorial/config03.png)
 
 	a. Check the **Enable Single Sign On (SAML)** box.
 
@@ -223,7 +223,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Displayr test user
 
-To enable Azure AD users to sign in to Displayr, they must be provisioned into Displayr. In Displayr, provisioning is a manual task.
+To enable Azure AD users, sign in to Displayr, they must be provisioned into Displayr. In Displayr, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
@@ -233,7 +233,7 @@ To enable Azure AD users to sign in to Displayr, they must be provisioned into D
 
 	![Displayr Configuration](./media/displayr-tutorial/config01.png)
 
-3. Switch to **Settings** from the top menu and scroll down the page, till **Users** section then click on **New User**.
+3. Switch to **Settings** from the top menu and scroll down the page, untill **Users** section then click on **New User**.
 
 	![Displayr Configuration](./media/displayr-tutorial/config07.png)
 
