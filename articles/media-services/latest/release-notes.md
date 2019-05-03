@@ -31,17 +31,19 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 For more information, see [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md#known-issues).
 
+## May 2019
+
+### Performance improvements
+
+* The maximum file size supported for processing was updated. See, [Quotas and limitations](limits-quotas-constraints.md).
+* [Encoding speeds improvements](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
+
 ## April 2019
 
 ### New presets
 
 * [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) was added to the built-in analyzer presets.
 * [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) was added to the built-in encoder presets. For more information, see [Content-aware encoding](cae-experimental.md). 
-
-### Performance improvements
-
-* The maximum file size supported for processing was updated. See, [Quotas and limitations](limits-quotas-constraints.md).
-* [Encoding speeds improvements](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
 
 ## March 2019
 
