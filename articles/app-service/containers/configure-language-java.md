@@ -156,6 +156,18 @@ This section shows how to connect Java applications deployed on Azure App Servic
     - If you're using **Java SE**, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
     - If you're using **Tomcat**, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name.
     - If you're using **WildFly**, see the AppDynamics documentation [here](https://docs.appdynamics.com/display/PRO45/JBoss+and+Wildfly+Startup+Settings) for guidance about installing the Java agent and JBoss configuration.
+    
+## Configure JAR Applications
+
+### Starting JAR Apps
+
+By default, App Service expects your JAR application to be named `app.jar`. If it has this name, it will be run automatically. For Maven users, you can set the JAR name by including `<finalName>app</finalName>` in the `<build>` section of your `pom.xml`.
+
+If you want to use a different name for your JAR, you must also provide the [Startup Command](app-service-linux-faq.md#startup-file) that executes your JAR file. For example, `java -jar my-jar-app.jar`. The Startup Command is set in the Portal, under Configuration > General Settings, or with an Application Setting named `STARTUP_COMMAND`.
+
+### Other configurations
+
+App Service Linux routes incoming requests to port 80, so your application should listen on port 80 as well. You can do this in your application's configuration (such as Spring's `application.properties` file), or in your Startup Command (for example, `java -jar spring-app.jar --server.port=80`).
 
 ## Configure Tomcat
 
