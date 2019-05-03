@@ -1,18 +1,15 @@
 ---
-title: Automatically scale Azure HDInsight clusters
+title: Automatically scale Azure HDInsight clusters (preview)
 description: Use the HDInsight Autoscale feature to automatically scale clusters
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 05/02/2019
 ms.author: hrasheed
 ---
-# Automatically scale Azure HDInsight clusters
-
->[!Important]
->The HDInsight Autoscale feature is currently in preview. Please send an email to hdiautoscalepm@microsoft.com to have Autoscale enabled for your subscription.
+# Automatically scale Azure HDInsight clusters (preview)
 
 Azure HDInsight’s cluster Autoscale feature automatically scales the number of worker nodes in a cluster up and down.  During the creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale then monitors the resource requirements of the analytics load and scales the number of worker nodes up or down accordingly. There is no additional charge for this feature.
 
@@ -172,13 +169,18 @@ You can create an HDInsight cluster with schedule-based Autoscaling an Azure Res
 
 ### Enable and disable Autoscale for a running cluster
 
-You can only enable or disable Autoscale for new HDInsight clusters.
+To enable Autoscale on a running cluster select **Cluster size** under **Settings**. Then click **Enable autoscale**. Select the type of Autoscale that you want and enter the options for load-based or schedule-based scaling. Finally, click **Save**.
+
+![Enable worker node schedule-based autoscale option](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
 
 ## Monitoring
 
 You can view the cluster scale-up and scale-down history as part of the cluster metrics. You can also list all scaling actions over the past day, week, or longer period of time.
 
-## Cluster state
+Select **Metrics** under **Monitoring**. Then click **Add metric** and **Number of Active Workers** from the **Metric** dropdown box.
+
+![Enable worker node schedule-based autoscale option](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
+
 
 ## Next steps
 
