@@ -155,7 +155,7 @@ In this section, you'll create a test user named Britta Simon in the Azure porta
 
     1. In the **Name** box, enter **BrittaSimon**.
   
-    1. In the **User name** box, enter **brittasimon@\<yourcompanydomain>.\<extension>**. (For example, brittasimon@contoso.com.)
+    1. In the **User name** box, enter **BrittaSimon@\<yourcompanydomain>.\<extension>**. (For example, BrittaSimon@contoso.com.)
 
     1. Select **Show password**, and then write down the value that's in the **Password** box.
 

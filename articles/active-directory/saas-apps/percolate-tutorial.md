@@ -67,7 +67,7 @@ To configure the integration of Percolate into Azure AD, you need to add Percola
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you'll configure and test Azure AD single sign-on with Percolate by using a test user named **Britta Simon**.
+In this section, you'll configure and test Azure AD single sign-on with Percolate by using a test user named Britta Simon.
 To enable single sign-on, you need to establish a relationship between an Azure AD user and the corresponding user in Percolate.
 
 To configure and test Azure AD single sign-on with Percolate, you need to complete these steps:
@@ -97,7 +97,7 @@ To configure Azure AD single sign-on with Percolate, take these steps:
 
 	![Edit icon](common/edit-urls.png)
 
-4. In the **Basic SAML Configuration** section, you don't need to take any action to configure the application in IdP-initiated mode. The app is already integrated with Azure.
+4. In the **Basic SAML Configuration** dialog box, you don't need to take any action to configure the application in IdP-initiated mode. The app is already integrated with Azure.
 
     ![Percolate Domain and URLs single sign-on information](common/preintegrated.png)
 
@@ -164,15 +164,15 @@ In this section, you'll create a test user named Britta Simon in the Azure porta
 
     1. In the **Name** box, enter **BrittaSimon**.
   
-    1. In the **User name** box, enter **brittasimon@\<yourcompanydomain>.\<extension>**. (For example, BrittaSimon@contoso.com.)
+    1. In the **User name** box, enter **BrittaSimon@\<yourcompanydomain>.\<extension>**. (For example, BrittaSimon@contoso.com.)
 
-    1. Select **Show password**, and then write down the value that's in the **Password** box.
+    1. Select **Show Password**, and then write down the value that's in the **Password** box.
 
     1. Select **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable Britta Simon to use Azure single sign-on by granting her access to Percolate.
+In this section, you'll enable Britta Simon to use Azure AD single sign-on by granting her access to Percolate.
 
 1. In the Azure portal, select **Enterprise applications**, select **All applications**, and then select **Percolate**.
 
@@ -212,9 +212,9 @@ To create a user account, take these steps:
 
 	![Create users page](./media/percolate-tutorial/configure04.png)
 
-	1. In **Email** box, enter the email address of the user. For example, brittasimon@contoso.com.
+	1. In the **Email** box, enter the email address of the user. For example, brittasimon@contoso.com.
 
-	1. In **Full name** box, enter the name of the user. For example, **Brittasimon**.
+	1. In the **Full name** box, enter the name of the user. For example, **Brittasimon**.
 
 	1. Select **Create users**.
 
