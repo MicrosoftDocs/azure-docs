@@ -47,10 +47,10 @@ From Azure portal navigation plane:
 1. Click **Help + support**.
 2. Click **+ New support request**.
 3. On the Basics tab, provide the following information: 
-    * Issue type: Select **Service and subscription limits (quotas)**.
-    * Subscriptions: Select the subscription for the resource that you need the quota increased.
-    * Quota type: Select **Storage: Azure NetApp Files limits**.
-    * Click **Next: Solutions**.
+    1. Issue type: Select **Service and subscription limits (quotas)**.
+    2. Subscriptions: Select the subscription for the resource that you need the quota increased.
+    3. Quota type: Select **Storage: Azure NetApp Files limits**.
+    4. Click **Next: Solutions**.
 4. On the Details tab:
     1. In the Description box, provide the following information for the corresponding resource type:
 
