@@ -26,9 +26,9 @@
   - name: Analyze your video - .NET
     displayName: job, transform
     href: analyze-videos-tutorial-with-api.md
-  - name: AES-128 dynamic encryption - .NET
+  - name: Encrypt dynamically with AES-128 - .NET
     href: protect-with-aes128.md       
-  - name: DRM dynamic encryption - .NET
+  - name: Encrypt dynamically with DRM - .NET
     href: protect-with-drm.md    
 - name: Samples
   items:
