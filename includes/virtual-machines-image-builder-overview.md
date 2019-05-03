@@ -56,7 +56,7 @@ The Azure Image Builder is a fully managed Azure service that is accessible by a
  
 
 
-**Image Builder Process** 
+**Image Builder process** 
 
 ![Conceptual drawing of the Azure Image Builder process](./media/virtual-machines-image-builder-overview/image-builder-process.png)
 

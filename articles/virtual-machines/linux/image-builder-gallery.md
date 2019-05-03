@@ -252,6 +252,6 @@ Delete the resource group.
 az group delete -n $sigResourceGroup -y
 ```
 
-## Next Steps
+## Next steps
 
 Learn more about [Azure Shared Image Galleries](shared-image-galleries.md).

@@ -158,7 +158,7 @@ sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateMsi.json
 sed -i -e "s%<runOutputName>%$runOutputName%g" helloImageTemplateMsi.json
 ```
 
-## Create the Image
+## Create the image
 
 Submit the image configuration to the Azure Image Builder service.
 
@@ -214,7 +214,7 @@ You should see the image was customized with a Message of the Day as soon as you
 *******************************************************
 ```
 
-## Clean Up
+## Clean up
 
 When you are finished, you can delete the resources if they are no longer needed.
 
@@ -228,6 +228,6 @@ az group delete -n $imageResourceGroup
 az group delete -n $strResourceGroup
 ```
 
-## Next Steps
+## Next steps
 
 If you have any trouble working with Azure Image Builder, see [Troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md?toc=%2fazure%2fvirtual-machines%context%2ftoc.json).

@@ -159,7 +159,7 @@ You should see these two directories created during image customization:
 - buildActions
 - buildArtifacts
 
-## Clean Up
+## Clean up
 
 When you are done, delete the resources.
 
