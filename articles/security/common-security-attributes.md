@@ -253,7 +253,7 @@ This article collects the common security attributes for selected Azure services
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Control and management plane logging and audit| Yes | Activity logs expose all write operations (PUT, POST, DELETE) performed on your resources; see [View activity logs to audit actions on resources](resource-group-audit.md). |
+| Control and management plane logging and audit| Yes | Activity logs expose all write operations (PUT, POST, DELETE) performed on your resources; see [View activity logs to audit actions on resources](../azure-resource-manager/resource-group-audit.md). |
 | Data plane logging and audit| N/A | |
 
 ### Configuration management
@@ -279,7 +279,7 @@ This article collects the common security attributes for selected Azure services
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Service endpoint support| Yes (Premium tier only) | VNet service endpoints are supported for [Service Bus Premium tier](service-bus-premium-messaging.md) only. |
+| Service endpoint support| Yes (Premium tier only) | VNet service endpoints are supported for [Service Bus Premium tier](../service-bus-messaging/service-bus-premium-messaging.md) only. |
 | VNet injection support| No | |
 | Network isolation and firewalling support| Yes (Premium tier only) |  |
 | Forced tunneling support| No |  |
@@ -288,20 +288,20 @@ This article collects the common security attributes for selected Azure services
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| Yes | Supported via [Azure Monitor and Alerts](service-bus-metrics-azure-monitor.md). |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | Supported via [Azure Monitor and Alerts](../service-bus-messaging/service-bus-metrics-azure-monitor.md). |
 
 ### Identity and access management
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Authentication| Yes | Managed through [Azure Active Directory Managed Service Identity](service-bus-managed-service-identity.md); see [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md).|
-| Authorization| Yes | Supports authorization via [RBAC](service-bus-role-based-access-control.md) (Preview) and SAS token; see [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md). |
+| Authentication| Yes | Managed through [Azure Active Directory Managed Service Identity](../service-bus-messaging/service-bus-managed-service-identity.md); see [Service Bus authentication and authorization](../service-bus-messaging/service-bus-authentication-and-authorization.md).|
+| Authorization| Yes | Supports authorization via [RBAC](../service-bus-messaging/service-bus-role-based-access-control.md) (Preview) and SAS token; see [Service Bus authentication and authorization](../service-bus-messaging/service-bus-authentication-and-authorization.md). |
 
 ### Audit trail
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Control and management plane logging and audit| Yes | Operations logs are available; see [Service Bus diagnostic logs](service-bus-diagnostic-logs.md).  |
+| Control and management plane logging and audit| Yes | Operations logs are available; see [Service Bus diagnostic logs](../service-bus-messaging/service-bus-diagnostic-logs.md).  |
 | Data plane logging and audit| No |  |
 
 ### Configuration management
