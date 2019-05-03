@@ -105,7 +105,7 @@ To configure Azure AD single sign-on with Displayr, perform the following steps:
 	In the **Sign-on URL** text box, type a URL:
     `https://app.displayr.com/Login`
 
-5. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
+5. In the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificateraw.png)
 
