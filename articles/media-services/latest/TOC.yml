@@ -216,9 +216,7 @@
   - name: Protect content
     items:
     - name: Get content key policy - .NET
-      href: get-content-key-policy-dotnet-howto.md
-    - name: DRM dynamic encryption - .NET
-      href: protect-with-drm.md      
+      href: get-content-key-policy-dotnet-howto.md   
     - name: Offline FairPlay for iOS 
       href: offline-fairplay-for-ios.md
     - name: Offline Widevine for Android
