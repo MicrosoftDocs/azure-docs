@@ -16,9 +16,9 @@ ms.date: 05/02/2019
 
 # Create and explore automated machine learning experiments in the Azure portal (Preview)
 
- In this article, you learn how to create, run, and explore automated machine learning experiments in the Azure portal without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](https://docs.microsoft.com/azure/machine-learning/service/concept-automated-ml).
+ In this article, you learn how to create, run, and explore automated machine learning experiments in the Azure portal without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](concept-automated-ml.md).
 
- If you prefer a more code based experience, you can also [configure your automated machine learning experiments in Python](how-to-configure-auto-train.md) with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+ If you prefer a more code-based experience, you can also [configure your automated machine learning experiments in Python](how-to-configure-auto-train.md) with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ Navigate to the left pane of your workspace. Select Automated Machine Learning u
 
 ![Azure portal experiment landing page](media/how-to-create-portal-experiments/landing-page.png)
 
-Otherwise, you will see your Automated machine learning dashboard with an overview of all of your automated machine learning experiments and runs, including those run using the SDK. Here you can filter and explore your runs by date, experiment name, and run status.
+Otherwise, you will see your Automated machine learning dashboard with an overview of all of your automated machine learning experiments, including those run with the SDK. Here you can filter and explore your runs by date, experiment name, and run status.
 
 ![Azure portal experiment dashboard](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -144,8 +144,6 @@ You can get a vast variety of summary statistics across your data set to verify 
 
 * **Kurtosis**: the kurtosis of the column. Blank entries appear for features with irrelevant types.
 
-Furthermore, you can use these statistics to decide whether you want to include or exclude certain columns. By toggling the selector on each column, you can control the scope across which columns will be used in your automated machine learning experiment.
-
 <a name="preprocess"></a>
 
 ### Advanced preprocessing
@@ -164,72 +162,24 @@ When configuring your experiments, you can enable the advanced setting `Preproce
 |Weight of Evidence (WoE)|Calculates WoE as a measure of correlation of categorical columns to the target column. It is calculated as the log of the ratio of in-class vs out-of-class probabilities. This step outputs one numerical feature column per class and removes the need to explicitly impute missing values and outlier treatment.|
 |Cluster Distance|Trains a k-means clustering model on all numerical columns.  Outputs k new features, one new numerical feature per cluster, containing the distance of each sample to the centroid of each cluster.|
 
-## Run experiment
+## Run experiment and view results
 
-To run the experiment, click the Start button.
-  
-The experiment preparing process takes a couple of minutes.
+To run the experiment, click Start. The experiment preparing process takes a couple of minutes.
 
-## View results
+### View experiment details
 
-Once the experiment preparation phase is done, you'll see the run details screen. This will give you a full list of the models created. By default, the model that scores the highest based on your parameters will be at the top of the list. As the training job tries out more models, you'll see them added to the list and the chart.
-Use the chart to get a quick comparison of the metrics for the models produced so far.
-
-![Run details dashboard](media/how-to-create-portal-experiments/run-details.png)
-
-You are able to drill down on any of the output models which opens the details of that model including performance and distribution charts and metrics. [Learn more about charts](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts).
-
-![Iteration details](media/how-to-create-portal-experiments/dashboard.png)
+Once the experiment preparation phase is done, you'll see the Run Detail screen. This gives you a full list of the models created. By default, the model that scores the highest based on your parameters is at the top of the list. As the training job tries out more models, they are added to the iteration list and chart. Use the iteration chart to get a quick comparison of the metrics for the models produced so far.
 
 Training jobs can take a while for each pipeline to finish running.
 
-## Deploy model
+![Run details dashboard](media/how-to-create-portal-experiments/run-details.png)
 
-Once you have the best model at hand, it is time to deploy it as a web service to predict on new data.
+### View training run details
 
-Automated ML helps you with deploying the model without writing code:
+Drill down on any of the output models to see training run details, like performance metrics and distribution charts. [Learn more about charts](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts).
 
-1. From the Run Summary pane on the right, select "Register model".
-
-    ![Register model](media/how-to-create-portal-experiments/register-model.png)
-
-1. Once the model is registered, you'll be able to download the scoring script to be used during the deployment.
-
-    ![Download scoring script](media/how-to-create-portal-experiments/download-scoring-script.png)
-
-1. Once you have the scoring script, go to the "Models" page (in the left navigation pane under **Assets**).
-
-    ![Model navigation pane](media/how-to-create-portal-experiments/nav-pane-models.png)
-
-1. Check the checkbox next to the model you registered, and select "Create image".
-
-    You can identify the model by its description, which includes the run ID and iteration number, in the following format: **<Run_ID>_<Iteration_number>_Model**.
-
-1. Enter a name for the image, and upload the scoring file you previously downloaded. [Learn more about scoring scripts](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where.md#script).
-
-    You can use your own scoring script and Conda file. If you don't have a Conda file, [create your own](tutorial-deploy-models-with-aml.md#create-environment-file) and upload it along with any other additional files you may want to use.
-
-    ![Create an image form](media/how-to-create-portal-experiments/create-image.png)
-
-1. Select the "Create" button to start the image creation. This will take a few minutes to complete, once done, you will see a message on the top bar.
-
-1. Go to the "Images" tab, check the checkbox next to the image you want to deploy, and select "Create deployment".
-
-    ![Image create deployment screen](media/how-to-create-portal-experiments/images-create-deployment.png)
-
-1. Enter a unique deployment name.
-
-1. (optional) Enter a description for the deployment.
-
-1. Select the target compute type to use. 
-
-    ![Create deployment form](media/how-to-create-portal-experiments/create-deployment.png)
-
-1. Select "Create" to start the deployment process, it will take several minutes to complete.
-
-1. That's it! You have an operational web service to generate predictions.
+![Iteration details](media/how-to-create-portal-experiments/iteration-details.png)
 
 ## Next steps
 
-* [How to consume a deployed model](how-to-consume-web-service.md).
-* [Collect data for models in production](how-to-enable-data-collection.md).
+* [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.
