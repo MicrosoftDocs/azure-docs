@@ -19,19 +19,23 @@ ms.custom: mvc
 
 ### How is App Configuration different from Key Vault?
 
-Key Vault is the best place to store application secrets. It provides hardware-level encryption, granular access policies and management operations such as certificate rotation. App Configuration is designed for a distinct set of use cases: it helps developers externalize application settings and control feature availability. It simplifies the tasks of working with complex configuration data by supporting hierarchical namespace, labeling, extensive queries, batch retrieval, and specialized management UI. App Configuration is complementary to Key Vault and the two should be used side-by-side in most application deployments.
+App Configuration is designed for a distinct set of use cases: it helps developers manage application settings and control feature availability. It aims to simplify many of the tasks of working with complex configuration data. It supports hierarchical namespace, labeling, extensive queries, batch retrieval, and specialized management operations and user-interfaces. App Configuration is complementary to Key Vault and the two should be used side by side in most application deployments.
+
+### Should I store secrets in App Configuration?
+
+While App Configuration provides hardened security, Key Vault is still the best place for storing application secrets. It provides hardware-level encryption, granular access policies, and management operations such as certificate rotation.
 
 ### Does App Configuration encrypt my data?
 
-Yes, App Configuration encrypts all user data at rest and in transit.
+Yes. App Configuration encrypts all key values it holds and network communication. Key names are used as indices for retrieving configuration data and are not encrypted.
 
 ### Does App Configuration support Azure Virtual Network (VNET)?
 
-Not yet. VNET service endpoint is planned for general availability.
+Not yet. VNET support is planned for general availability.
 
-### How should I store configurations for multiple environments (test, staging, production, etc.)?
+### How should I store configurations for multiple environments (test, staging, production, and so on)?
 
-Currently you control who has access to App Configuration at the per-store level. You should use a separate store for each environment with different permission requirements. This gives you the best security isolation.
+Currently you can control who has access to App Configuration at a per-store level. You should use a separate store for each environment that requires different permissions. This approach gives you the best security isolation.
 
 ### What are the recommended ways to use App Configuration?
 
