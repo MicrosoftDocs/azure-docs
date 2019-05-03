@@ -32,25 +32,19 @@ This article lists the steps to install the Azure IoT Edge runtime on your Windo
 
 Using Linux containers on Windows systems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes. To learn more, see [Use IoT Edge on Windows to run Linux containers](how-to-install-iot-edge-windows-with-linux.md).
 
+For information about what's included in the latest version of IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
+
 ## Prerequisites
 
 Use this section to review whether your Windows device can support IoT Edge, and to prepare it for a container engine before installation. 
 
 ### Supported Windows versions
 
-Azure IoT Edge with Windows containers can run on the following versions of Windows:
-* Windows 10 or IoT Core with October 2018 update (build 17763)
-* Windows Server 2019 (build 17763)
-
-For more information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported systems](support.md#operating-systems). 
-
-For more information about what's included in the latest version of IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
+For development and test scenarios, Azure IoT Edge with Windows containers can be installed on any version of Windows 10 or Windows Server 2019 (build 17763) that supports the containers feature. For information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported systems](support.md#operating-systems). 
 
 ### Prepare for a container engine 
 
 Azure IoT Edge relies on a [OCI-compatible](https://www.opencontainers.org/) container engine. For production scenarios, use the Moby engine included in the installation script to run Windows containers on your Windows device. 
-
-If you want to install IoT Edge on a virtual machine, enable nested virtualization and allocate at least 2-GB memory. How you enable nested virtualization is different depending on the hypervisor your use. For Hyper-V, generation 2 virtual machines have nested virtualization enabled by default. For VMWare, there's a toggle to enable the feature on your virtual machine. 
 
 ## Install IoT Edge on a new device
 
