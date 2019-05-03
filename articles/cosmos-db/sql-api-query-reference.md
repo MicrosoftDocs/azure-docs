@@ -711,7 +711,8 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 |[Mathematical functions](#bk_mathematical_functions)|The mathematical functions each perform a calculation, usually based on input values that are provided as arguments, and return a numeric value.|  
 |[Type checking functions](#bk_type_checking_functions)|The type checking functions allow you to check the type of an expression within SQL queries.|  
 |[String functions](#bk_string_functions)|The string functions perform an operation on a string input value and return a string, numeric or Boolean value.|  
-|[Array functions](#bk_array_functions)|The array functions perform an operation on an array input value and return numeric, Boolean, or array value.|  
+|[Array functions](#bk_array_functions)|The array functions perform an operation on an array input value and return numeric, Boolean, or array value.|
+|[Date and Time functions](#bk_date_and_time_functions)|The date and time functions allow you to get the current, or perform an operation on, a numeric epoch in milliseconds, or a string date time in ISO 8601 format.|
 |[Spatial functions](#bk_spatial_functions)|The spatial functions perform an operation on a spatial object input value and return a numeric or Boolean value.|  
   
 ###  <a name="bk_mathematical_functions"></a> Mathematical functions  
@@ -3118,7 +3119,96 @@ SELECT
            "s7": [] 
 }]  
 ```  
- 
+
+###  <a name="bk_date_and_time_functions"></a> Date and Time functions
+ The following scalar functions allow you to get the current, or perform an operation on, a numeric epoch in milliseconds, or a string date time in ISO 8601 format.
+
+|||
+|-|-|
+|[GetCurrentDateTime](#bk_get_current_date_time)|[GetCurrentTimestamp](#bk_get_current_timestamp)||
+
+####  <a name="bk_get_current_date_time"></a> GetCurrentDateTime
+ Returns the current date and time as a UTC Date Time ISO 8601 string.
+  
+ **Syntax**
+  
+```
+GetCurrentDateTime ()
+```
+  
+  **Return Types**
+  
+  Returns a string expression containing the current UTC Date Time ISO 8601 string. 
+
+  This is expressed in the format YYYY-MM-DDThh:mm:ss.sssZ where:
+  
+  |||
+  |-|-|
+  |YYYY|four-digit year|
+  |MM|two-digit month (01 = January, etc.)|
+  |DD|two-digit day of month (01 through 31)|
+  |T|signifier for beginning of time elements|
+  |hh|two digits of hour (00 through 23)|
+  |mm|two digits of minute (00 through 59)|
+  |ss|two digits of second (00 through 59)|
+  |.sss|three digits of decimal fractions of a second|
+  |Z|UTC (Coordinated Universal Time) designator||
+  
+  For more details on the ISO 8601 format, see [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+
+  **Remarks**
+
+  Please note that GetCurrentDateTime is a nondeterministic function.
+
+  **Examples**  
+  
+  The following example shows how to get the current UTC Date Time using the GetCurrentDateTime built-in function.
+  
+```  
+SELECT GetCurrentDateTime() AS currentUtcDateTime
+```  
+  
+ Here is an example result set.
+  
+```  
+[{
+  "currentUtcDateTime": "2019-05-03T20:36:17.784Z"
+}]  
+```  
+
+####  <a name="bk_get_current_timestamp"></a> GetCurrentTimestamp
+ Returns the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970. 
+  
+ **Syntax**  
+  
+```  
+GetCurrentTimestamp ()  
+```  
+  
+  **Return Types**  
+  
+  Returns a numeric expression containing the current number of milliseconds that have elapsed since the Unix epoch i.e. the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
+
+  **Remarks**
+
+  Please note that GetCurrentTimestamp is a nondeterministic function. Also note that the current timestamp returned is UTC (Coordinated Universal Time).
+
+  **Examples**  
+  
+  The following example shows how to get the current timestamp using the GetCurrentTimestamp built-in function.
+  
+```  
+SELECT GetCurrentTimestamp() AS currentUtcTimestamp
+```  
+  
+ Here is an example result set.
+  
+```  
+[{
+  "currentUtcTimestamp": 1556916469065
+}]  
+```  
+
 ###  <a name="bk_spatial_functions"></a> Spatial functions  
  The following scalar functions perform an operation on a spatial object input value and return a numeric or Boolean value.  
   
