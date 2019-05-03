@@ -98,15 +98,12 @@ To configure Azure AD single sign-on with Displayr, perform the following steps:
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+4. On the **Basic SAML Configuration** section, perform the following step:
 
-    ![Displayr Domain and URLs single sign-on information](common/sp-identifier.png)
+    ![Displayr Domain and URLs single sign-on information](common/sp-intiated.png)
 
-	a. In the **Sign-on URL** text box, type a URL:
+	In the **Sign-on URL** text box, type a URL:
     `https://app.displayr.com/Login`
-
-    b. In the **Identifier (Entity ID)** text box, type a URL:
-    `www.displayr.com`
 
 5. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
 
@@ -226,7 +223,31 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Displayr test user
 
-In this section, you create a user called Britta Simon in Displayr. Work with [Displayr support team](mailto:support@displayr.com) to add the users in the Displayr platform. Users must be created and activated before you use single sign-on. 
+To enable Azure AD users to sign in to Displayr, they must be provisioned into Displayr. In Displayr, provisioning is a manual task.
+
+**To provision a user account, perform the following steps:**
+
+1. Sign in to Displayr as an Administrator.
+
+2. Click on **Settings** then navigate to **Account**.
+
+	![Displayr Configuration](./media/displayr-tutorial/config01.png)
+
+3. Switch to **Settings** from the top menu and scroll down the page, till **Users** section then click on **New User**.
+
+	![Displayr Configuration](./media/displayr-tutorial/config07.png)
+
+4. On the **New User** page, perform the following steps:
+
+	![Displayr Configuration](./media/displayr-tutorial/config06.png)
+
+	a. In **Name** text box, enter the name of user like **Brittasimon**.
+
+	b. In **Email** text box, enter the email of user like `Brittasimon@contoso.com`.
+
+	c. Select your appropriate **Group membership**.
+
+	d. Click **Save**.
 
 ### Test single sign-on 
 
