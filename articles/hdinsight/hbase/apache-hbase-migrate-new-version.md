@@ -3,25 +3,15 @@ title: Migrate an HBase cluster to a new version - Azure HDInsight
 description: How to migrate HBase clusters to a new version.
 author: ashishthaps
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 05/06/2019
 ms.author: ashishth
-
 ---
 # Migrate an Apache HBase cluster to a new version
 
-Job-based clusters, such as [Apache Spark](https://spark.apache.org/) and [Apache Hadoop](https://hadoop.apache.org/), are straightforward to upgrade - see [Upgrade HDInsight cluster to a newer version](../hdinsight-upgrade-cluster.md):
-
-1. Back up transient (locally stored) data.
-2. Delete the existing cluster.
-3. Create a new cluster in the same VNET subnet.
-4. Import transient data.
-5. Start jobs and continue processing on the new cluster.
-
-To upgrade an [Apache HBase](https://hbase.apache.org/) cluster some additional steps are needed, as described in this article.
+This article discusses the steps required to update your Apache HBase cluster on Azure HDInsight to a newer version.
 
 > [!NOTE]  
 > The downtime while upgrading should be minimal, on the order of minutes. This downtime is caused by the steps to flush all in-memory data, then the time to configure and restart the services on the new cluster. Your results will vary, depending on the number of nodes, amount of data, and other variables.
@@ -54,7 +44,7 @@ Here is an example version compatibility matrix, where Y indicates compatibility
 
 ## Upgrade with same Apache HBase major version
 
-The following scenario is for upgrading from HDInsight 3.4 to 3.6 (both come with Apache HBase 1.1.2) with the same HBase major version. Other version upgrades are similar, as long as there are no compatibility issues between source and destination versions.
+To upgrade your Apache HBase cluster on Azure HDInsight, complete the following steps:
 
 1. Make sure that your application is compatible with the new version, as shown in the HBase compatibility matrix and release notes. Test your application in a cluster running the target version of HDInsight and HBase.
 
@@ -182,13 +172,13 @@ The following scenario is for upgrading from HDInsight 3.4 to 3.6 (both come wit
     
 4. Stop ingestion to the old HBase cluster.
 5. To ensure that any recent data in the memstore is flushed, run the previous script again.
-6. Log in to [Apache Ambari](https://ambari.apache.org/) on the old cluster (https://OLDCLUSTERNAME.azurehdidnsight.net) and stop the HBase services. When you are prompted to confirm that you'd like to stop the services, check the box to turn on maintenance mode for HBase. For more information on connecting to and using Ambari, see [Manage HDInsight clusters by using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md).
+6. Sign in to [Apache Ambari](https://ambari.apache.org/) on the old cluster (https://OLDCLUSTERNAME.azurehdidnsight.net) and stop the HBase services. When you are prompted to confirm that you'd like to stop the services, check the box to turn on maintenance mode for HBase. For more information on connecting to and using Ambari, see [Manage HDInsight clusters by using the Ambari Web UI](../hdinsight-hadoop-manage-ambari.md).
 
 	![In Ambari, click the Services tab, then HBase on the left-hand menu, then Stop under Service Actions](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
 
 	![Check the Turn On Maintenance Mode for HBase checkbox, then confirm](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
 
-7. Log in to Ambari on the new HDInsight cluster. Change the `fs.defaultFS` HDFS setting to point to the container name used by the original cluster. This setting is under **HDFS > Configs > Advanced > Advanced core-site**.
+7. Sign in to Ambari on the new HDInsight cluster. Change the `fs.defaultFS` HDFS setting to point to the container name used by the original cluster. This setting is under **HDFS > Configs > Advanced > Advanced core-site**.
 
 	![In Ambari, click the Services tab, then HDFS on the left-hand menu, then the Configs tab, then the Advanced tab underneath](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
 
@@ -199,10 +189,15 @@ The following scenario is for upgrading from HDInsight 3.4 to 3.6 (both come wit
    Change the hbase.rootdir path to point to the container of the original cluster.
 
 	![In Ambari, change the container name for hbase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
-	
-9. Save your changes.
-10. Restart all required services as indicated by Ambari.
-11. Point your application to the new cluster.
+1. If you are upgrading HDInsight 3.6 to 4.0 follow these additional steps:
+    1. Restart all required services in Ambari by selecting	**Services** > **Restart All Required**.
+    1. Stop the HBase service.
+    1. SSH to Zookeeper node, and execute zkCli command `rmr /hbase-unsecure` to remove HBase root znode in Zookeeper.
+    1. Restart HBase
+1. If you are upgrading to any other HDInsight version besides 4.0 follow these steps:
+    1. Save your changes.
+    1. Restart all required services as indicated by Ambari.
+1. Point your application to the new cluster.
 
     > [!NOTE]  
     > The static DNS for your application changes when upgrading. Rather than hard-coding this DNS, you can configure a CNAME in your domain name's DNS settings that points to the cluster's name. Another option is to use a configuration file for your application that you can update without redeploying.
