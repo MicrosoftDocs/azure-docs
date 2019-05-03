@@ -99,7 +99,7 @@ To configure Azure AD single sign-on with Atlassian Cloud, perform the following
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     ![[Application Name] Domain and URLs single sign-on information](common/idp-relay.png)
 
@@ -115,7 +115,7 @@ To configure Azure AD single sign-on with Atlassian Cloud, perform the following
     `https://<instancename>.atlassian.net`
 
     > [!NOTE]
-    > The preceding values are not real. Update these values with the actual identifier and reply URL. You will get these real values from the Atlassian Cloud SAML Configuration screen which is explained later in the tutorial.
+    > The preceding values are not real. Update these values with the actual identifier and reply URL. You will get these real values from the **Atlassian Cloud SAML Configuration** screen which is explained later in the **Configure Atlassian Cloud Single Sign-On** of tutorial.
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -167,9 +167,9 @@ To configure Azure AD single sign-on with Atlassian Cloud, perform the following
 
 	![Configure single sign-on](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
 
-	a. In the **Identity provider Entity ID** box, paste the SAML entity ID that you copied from the Azure portal.
+	a. In the **Identity provider Entity ID** box, paste the **Azure AD Identifier** that you copied from the Azure portal.
 
-    b. In the **Identity provider SSO URL** box, paste the SAML single sign-on service URL that you copied from the Azure portal.
+    b. In the **Identity provider SSO URL** box, paste the **Login URL** that you copied from the Azure portal.
 
     c. Open the downloaded certificate from the Azure portal in a .txt file, copy the value (without the *Begin Certificate* and *End Certificate* lines), and then paste it in the **Public X509 certificate** box.
 
@@ -179,9 +179,9 @@ To configure Azure AD single sign-on with Atlassian Cloud, perform the following
 
     ![Configure single sign-on](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
 
-	a. In the SAML window, copy the **SP Identity ID** and then, in the Azure portal, under Atlassian Cloud **Domain and URLs**, paste it in the **Identifier** box.
+	a. In the SAML window, copy the **SP Identity ID** and then, in the Azure portal, under Atlassian Cloud **Basic SAML Configuration**, paste it in the **Identifier** box.
 
-	b. In the SAML window, copy the **SP Assertion Consumer Service URL** and then, in the Azure portal, under Atlassian Cloud **Domain and URLs**, paste it in the **Reply URL** box. The sign-on URL is the tenant URL of your Atlassian Cloud.
+	b. In the SAML window, copy the **SP Assertion Consumer Service URL** and then, in the Azure portal, under Atlassian Cloud **Basic SAML Configuration**, paste it in the **Reply URL** box. The sign-on URL is the tenant URL of your Atlassian Cloud.
 
 	> [!NOTE]
 	> If you're an existing customer, after you update the **SP Identity ID** and **SP Assertion Consumer Service URL** values in the Azure portal, select **Yes, update configuration**. If you're a new customer, you can skip this step.
