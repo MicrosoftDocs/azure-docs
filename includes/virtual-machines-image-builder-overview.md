@@ -20,7 +20,7 @@ The Azure VM Image Builder (Azure Image Builder) lets you start with a Windows o
 
 For the preview, these features are supported:
 
-- Creation of golden basline images, that includes your minimum security and corporate configurations, and allow departments to customize it further for their needs.
+- Creation of golden baseline images, that includes your minimum security and corporate configurations, and allow departments to customize it further for their needs.
 - Patching of existing images, Image Builder will allow you to continually patch existing custom images.
 - Integration with the Azure Shared Image Gallery, allows you to distribute, version, and scale images globally, and gives you an image management system.
 - Integration with existing image build pipelines, just call Image Builder from your pipeline, or use the simple Preview Image Builder Azure DevOps Task.
@@ -52,7 +52,7 @@ AIB will support Azure Marketplace base OS images:
 
 ![Conceptual drawing of Azure Image Builder](./media/virtual-machines-image-builder-overview/image-builder.png)
 
-The Azure Image Builder is a fully managed Azure service that is accessible by an Azure resource provider. The Azure Image Builder process has three main parts: source, customize and distribute, these are reporesented in a template. The diagram below shows the components, with some of their properties. 
+The Azure Image Builder is a fully managed Azure service that is accessible by an Azure resource provider. The Azure Image Builder process has three main parts: source, customize and distribute, these are represented in a template. The diagram below shows the components, with some of their properties. 
  
 
 
@@ -60,7 +60,7 @@ The Azure Image Builder is a fully managed Azure service that is accessible by a
 
 ![Conceptual drawing of the Azure Image Builder process](./media/virtual-machines-image-builder-overview/image-builder-process.png)
 
-1. Create the Image Template as a .json file. This .json file contains information about the image source, customizations, and distibution. There are multiple examples [here](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
+1. Create the Image Template as a .json file. This .json file contains information about the image source, customizations, and distribution. There are multiple examples [here](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
 
 2. Submit it to the service, this will create an Image Template artifact in the resource group you specify. In the background, Image Builder will download the source image or ISO, and scripts as needed. These are stored in a separate resource group that is automatically created in your subscription, in the format: IT_<DestinationResourceGroup>_<TemplateName>. 
 
