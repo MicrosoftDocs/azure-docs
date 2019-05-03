@@ -101,7 +101,7 @@ the following port and URLs are required for State Configuration (DSC) to commun
 Proxy support for the DSC agent is available in Windows version 1809 and later.
 To configure this option,
 set the value for **ProxyURL** and **ProxyCredential** in the
-[metaconfiguration script](../automation-dsc-onboarding#generating-dsc-metaconfigurations)
+[metaconfiguration script](automation-dsc-onboarding#generating-dsc-metaconfigurations)
 used to register nodes.
 Proxy is not available in DSC for previous versions of Windows.
 
