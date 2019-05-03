@@ -17,12 +17,12 @@ ms.custom: "seodec18, mvc"
 
 In addition to a [quick task](container-registry-tutorial-quick-task.md), ACR Tasks supports multi-step, multi-container-based workflows that can automatically trigger when you commit source code to a Git repository. 
 
-In this tutorial, you learn how to use a YAML file to define a multi-step task that builds, runs, and pushes one or more container images to a registry when you commit source code. To create a task that only automates a single image build on code commit, see [Tutorial: Automate container image builds in the cloud when you commit source code](container-registry-tutorial-build-task.md). For an overview of ACR Tasks, see [Automate OS and framework patching with ACR Tasks](container-registry-tasks-overview.md),
+In this tutorial, you learn how to use example YAML files to define multi-step tasks that build, run, and push one or more container images to a registry when you commit source code. To create a task that only automates a single image build on code commit, see [Tutorial: Automate container image builds in the cloud when you commit source code](container-registry-tutorial-build-task.md). For an overview of ACR Tasks, see [Automate OS and framework patching with ACR Tasks](container-registry-tasks-overview.md),
 
-In this tutorial, you:
+In this tutorial:
 
 > [!div class="checklist"]
-> * Define example multi-step tasks using a YAML file
+> * Define a multi-step task using a YAML file
 > * Create a task
 > * Optionally add credentials to the task to enable access to another registry
 > * Test the task
@@ -39,7 +39,7 @@ If you'd like to use the Azure CLI locally, you must have Azure CLI version **2.
 
 ## Create a multi-step task
 
-Now that you've completed the steps required to enable ACR Tasks to read commit status and create webhooks in a repository, you can create a multi-step task that triggers building, running, and pushing container images.
+Now that you've completed the steps required to enable ACR Tasks to read commit status and create webhooks in a repository, create a multi-step task that triggers building, running, and pushing a container image.
 
 ### YAML file
 
@@ -61,7 +61,7 @@ steps:
 This multi-step task does the following:
 
 1. Runs a `build` step to build an image from the Dockerfile in the working directory. The image targets the `Run.Registry`, the registry where the task is run, and is tagged with a unique ACR Tasks run ID. 
-1. Runs a `cmd` step to run the image in a temporary container. This example starts a long-running container in the background and returns the container ID, then stops it. In a real-world scenario, you might include steps to test the running container to ensure it runs correctly.
+1. Runs a `cmd` step to run the image in a temporary container. This example starts a long-running container in the background and returns the container ID, then stops the container. In a real-world scenario, you might include steps to test the running container to ensure it runs correctly.
 1. In a `push` step, pushes the image that was built to the run registry.
 
 ### Task command
@@ -153,7 +153,7 @@ To test the multi-step task, trigger it manually by executing the [az acr task r
 az acr task run --registry $ACR_NAME --name example1
 ```
 
-By default, the `az acr task run` command streams the log output to your console when you execute the command.
+By default, the `az acr task run` command streams the log output to your console when you execute the command. The output shows the progress of running each of the task steps.
 
 ```console
 Queued a run with ID: cf19
@@ -264,7 +264,7 @@ Username for 'https://github.com': <github-username>
 Password for 'https://githubuser@github.com': <personal-access-token>
 ```
 
-Once you've pushed a commit to your repository, the webhook created by ACR Tasks fires and kicks off a build in Azure Container Registry. Display the logs for the currently running task to verify and monitor the build progress:
+Once you've pushed a commit to your repository, the webhook created by ACR Tasks fires and kicks off the task in Azure Container Registry. Display the logs for the currently running task to verify and monitor the build progress:
 
 ```azurecli-interactive
 az acr task logs --registry $ACR_NAME
@@ -279,7 +279,7 @@ Run ID: cf1d
 
 [...]
 
-Run ID: cf1d was successful after 38s
+Run ID: cf1d was successful after 37s
 ```
 
 ## List builds
@@ -297,22 +297,22 @@ $ az acr task list-runs --registry $ACR_NAME --output table
 
 RUN ID    TASK       PLATFORM    STATUS     TRIGGER    STARTED               DURATION
 --------  ---------  ----------  ---------  ---------  --------------------  ----------
-cf1d      taskmulti  linux       Succeeded  Commit     2019-05-03T04:16:44Z  00:00:37
-cf1c      taskmulti  linux       Succeeded  Commit     2019-05-03T04:16:44Z  00:00:39
-cf1b      taskmulti  linux       Succeeded  Manual     2019-05-03T03:10:30Z  00:00:31
-cf1a      taskmulti  linux       Succeeded  Commit     2019-05-03T03:09:32Z  00:00:31
-cf19      taskmulti  linux       Succeeded  Manual     2019-05-03T03:03:30Z  00:00:21
+cf1d      example1   linux       Succeeded  Commit     2019-05-03T04:16:44Z  00:00:37
+cf1c      example1   linux       Succeeded  Commit     2019-05-03T04:16:44Z  00:00:39
+cf1b      example1   linux       Succeeded  Manual     2019-05-03T03:10:30Z  00:00:31
+cf1a      example1   linux       Succeeded  Commit     2019-05-03T03:09:32Z  00:00:31
+cf19      example1   linux       Succeeded  Manual     2019-05-03T03:03:30Z  00:00:21
 ```
 
 ## Create a multi-registry multi-step task
 
-ACR Tasks by default can push or pull images from the registry where the task runs. You might want to run a multi-step task that targets one or more registries in addition to the run registry. For example, you might need to build images in one registry, and store images with different tags in a second registry that deploys to a production system. This example shows you how to create such a task and provide credentials for another registry.
+ACR Tasks by default has permissions to push or pull images from the registry where the task runs. You might want to run a multi-step task that targets one or more registries in addition to the run registry. For example, you might need to build images in one registry, and store images with different tags in a second registry that is accessed by a production system. This example shows you how to create such a task and provide credentials for another registry.
 
-If you don't already have a second registry, create one for this example. To create the task, you need the name of the registry login server, which is of the form *mycontainerregistry.azurecr.io* (all lowercase). This registry will contain images tagged by build date
+If you don't already have a second registry, create one for this example. To create the task, you need the name of the registry login server, which is of the form *mycontainerregistry.azurecr.io* (all lowercase). In this example, you use the second registry to store images tagged by build date.
 
 ### YAML file
 
-The second example multi-step task for this tutorial is defined in the file `taskmulti-image.yaml`, which is in the root of the GitHub repo that you cloned:
+The second example multi-step task for this tutorial is defined in the file `taskmulti-multiregistry.yaml`, which is in the root of the GitHub repo that you cloned:
 
 ```yml
 version: v1.0.0
@@ -333,18 +333,18 @@ This multi-step task does the following:
 
 1. Runs two `build` steps to build images from the Dockerfile in the working directory:
   * The first targets the `Run.Registry`, the registry where the task is run, and is tagged with the ACR Tasks run ID. 
-  * The second targets the registry identified by the value of `regDate`, which you set when you create the task (or provide through an external `values.yaml` file). This image is tagged with the run date.
-1. Runs a `cmd` step to run each of the built containers. This example runs each container in the background and returns the container ID. In a real-world scenario, you might test eachRu running container to ensure it runs correctly.
+  * The second targets the registry identified by the value of `regDate`, which you set when you create the task (or provide through an external `values.yaml` file passed to `az acr task create`). This image is tagged with the run date.
+1. Runs a `cmd` step to run one of the built containers. This example starts a long-running container in the background and returns the container ID, then stops the container. In a real-world scenario, you might test a running container to ensure it runs correctly.
 1. In a `push` step, pushes the images that were built, the first to the run registry, the second to the registry identified by `regDate`.
 
 ### Task command
 
-Using the shell environment variables defined previously, create the task by executing following [az acr task create][az-acr-task-create] command. Substitute the name of your registry for *mycontainerregistrydate*.
+Using the shell environment variables defined previously, create the task by executing the following [az acr task create][az-acr-task-create] command. Substitute the name of your registry for *mycontainerregistrydate*.
 
 ```azurecli-interactive
 az acr task create \
     --registry $ACR_NAME \
-    --name taskmulti-image \
+    --name example2 \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
     --branch master \
     --file taskmulti-image.yaml \
@@ -352,17 +352,31 @@ az acr task create \
     --set regDate=mycontainerregistrydate.azurecr.io
 ```
 
-Add credential:
+### Add task credential
+
+To push images to the registry identified by the value of `regDate`, use the [az acr task credential add][az-acr-task-credential-add] command to add login credentials for that registry to the task.
+
+For this example, we recommend that you create a [service principal](container-registry-auth-service-principal.md) with access to the registry scoped to the *AcrPush* role. To create the service principal, see this [Azure CLI script](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
+
+Pass the service principal application ID and password in the following `az acr task credential add` command:
 
 ```azurecli-interactive
-az acr task credential add -n taskmulti-image -r danlep0501 --login-server danlep0429a.azurecr.io  -u ca6f26b2-e27b-4773-886a-0d24db7c4efc -p 6254e3ab-2b12-44dd-b686-b6f37e4b9c46
+az acr task credential add --name example2 \
+    --registry $ACR_NAME \
+    --login-server danlep0429a.azurecr.io \
+    --username <service-principal-application-id> \
+    --password <service-principal-password>
 ```
 
-Run task
+### Test the multi-step workflow
+
+As in the preceding example, to test the multi-step task, trigger it manually by executing the [az acr task run][az-acr-task-run] command. To trigger the task with a commit to the Git repository, see the section [Trigger a build with a commit](#trigger-a-build-with-a-commit).
 
 ```azurecli-interactive
-az acr task run -n taskmulti-image -r danlep0501
+az acr task run --registry $ACR_NAME --name example2
 ```
+
+By default, the `az acr task run` command streams the log output to your console when you execute the command. As before, the output shows the progress of running each of the task steps.
 
 Output:
 
@@ -376,10 +390,10 @@ Waiting for an agent...
 2019/05/03 04:33:43 Successfully set up Docker network: acb_default_network
 2019/05/03 04:33:43 Setting up Docker configuration...
 2019/05/03 04:33:44 Successfully set up Docker configuration
-2019/05/03 04:33:44 Logging in to registry: danlep0501.azurecr.io
-2019/05/03 04:33:45 Successfully logged into danlep0501.azurecr.io
-2019/05/03 04:33:45 Logging in to registry: danlep0429a.azurecr.io
-2019/05/03 04:33:47 Successfully logged into danlep0429a.azurecr.io
+2019/05/03 04:33:44 Logging in to registry: mycontainerregistry.azurecr.io
+2019/05/03 04:33:45 Successfully logged into mycontainerregistry.azurecr.io
+2019/05/03 04:33:45 Logging in to registry: mycontainerregistrydate.azurecr.io
+2019/05/03 04:33:47 Successfully logged into mycontainerregistrydate.azurecr.io
 2019/05/03 04:33:47 Executing step ID: acb_step_0. Working directory: '', Network: 'acb_default_network'
 2019/05/03 04:33:47 Scanning for dependencies...
 2019/05/03 04:33:47 Successfully scanned dependencies
@@ -406,7 +420,7 @@ Step 5/5 : CMD ["node", "/src/server.js"]
 Removing intermediate container 9e1077ff1974
  ---> 7377116bb2a3
 Successfully built 7377116bb2a3
-Successfully tagged danlep0501.azurecr.io/hello-world:cf1g
+Successfully tagged mycontainerregistry.azurecr.io/hello-world:cf1g
 2019/05/03 04:33:55 Successfully executed container: acb_step_0
 2019/05/03 04:33:55 Executing step ID: acb_step_1. Working directory: '', Network: 'acb_default_network'
 2019/05/03 04:33:55 Scanning for dependencies...
@@ -428,7 +442,7 @@ Step 5/5 : CMD ["node", "/src/server.js"]
  ---> Using cache
  ---> 7377116bb2a3
 Successfully built 7377116bb2a3
-Successfully tagged danlep0429a.azurecr.io/hello-world:20190503-043342z
+Successfully tagged mycontainerregistrydate.azurecr.io/hello-world:20190503-043342z
 2019/05/03 04:33:57 Successfully executed container: acb_step_1
 2019/05/03 04:33:57 Executing step ID: acb_step_2. Working directory: '', Network: 'acb_default_network'
 2019/05/03 04:33:57 Launching container with name: acb_step_2
@@ -439,8 +453,8 @@ Successfully tagged danlep0429a.azurecr.io/hello-world:20190503-043342z
 test
 2019/05/03 04:34:09 Successfully executed container: acb_step_3
 2019/05/03 04:34:09 Executing step ID: acb_step_4. Working directory: '', Network: 'acb_default_network'
-2019/05/03 04:34:09 Pushing image: danlep0501.azurecr.io/hello-world:cf1g, attempt 1
-The push refers to repository [danlep0501.azurecr.io/hello-world]
+2019/05/03 04:34:09 Pushing image: mycontainerregistry.azurecr.io/hello-world:cf1g, attempt 1
+The push refers to repository [mycontainerregistry.azurecr.io/hello-world]
 dad9c06b0de6: Preparing
 f989e7acc7de: Preparing
 172ed8ca5e43: Preparing
@@ -452,9 +466,9 @@ dad9c06b0de6: Pushed
 f989e7acc7de: Pushed
 8dfad2055603: Layer already exists
 cf1g: digest: sha256:75354e9edb995e8661438bad9913deed87a185fddd0193811f916d684b71a5d2 size: 1366
-2019/05/03 04:34:12 Successfully pushed image: danlep0501.azurecr.io/hello-world:cf1g
-2019/05/03 04:34:12 Pushing image: danlep0429a.azurecr.io/hello-world:20190503-043342z, attempt 1
-The push refers to repository [danlep0429a.azurecr.io/hello-world]
+2019/05/03 04:34:12 Successfully pushed image: mycontainerregistry.azurecr.io/hello-world:cf1g
+2019/05/03 04:34:12 Pushing image: mycontainerregistrydate.azurecr.io/hello-world:20190503-043342z, attempt 1
+The push refers to repository [mycontainerregistrydate.azurecr.io/hello-world]
 dad9c06b0de6: Preparing
 f989e7acc7de: Preparing
 172ed8ca5e43: Preparing
@@ -466,7 +480,7 @@ f989e7acc7de: Preparing
 dad9c06b0de6: Pushed
 f989e7acc7de: Pushed
 20190503-043342z: digest: sha256:75354e9edb995e8661438bad9913deed87a185fddd0193811f916d684b71a5d2 size: 1366
-2019/05/03 04:34:19 Successfully pushed image: danlep0429a.azurecr.io/hello-world:20190503-043342z
+2019/05/03 04:34:19 Successfully pushed image: mycontainerregistrydate.azurecr.io/hello-world:20190503-043342z
 2019/05/03 04:34:19 Step ID: acb_step_0 marked as successful (elapsed time in seconds: 8.125744)
 2019/05/03 04:34:19 Populating digests for step ID: acb_step_0...
 2019/05/03 04:34:21 Successfully populated digests for step ID: acb_step_0
@@ -479,7 +493,7 @@ f989e7acc7de: Pushed
 2019/05/03 04:34:23 The following dependencies were found:
 2019/05/03 04:34:23
 - image:
-    registry: danlep0501.azurecr.io
+    registry: mycontainerregistry.azurecr.io
     repository: hello-world
     tag: cf1g
     digest: sha256:75354e9edb995e8661438bad9913deed87a185fddd0193811f916d684b71a5d2
@@ -491,7 +505,7 @@ f989e7acc7de: Pushed
   git:
     git-head-revision: 9d9023473c46a5e2c315681b11eb4552ef0faccc
 - image:
-    registry: danlep0429a.azurecr.io
+    registry: mycontainerregistrydate.azurecr.io
     repository: hello-world
     tag: 20190503-043342z
     digest: sha256:75354e9edb995e8661438bad9913deed87a185fddd0193811f916d684b71a5d2
@@ -508,7 +522,7 @@ Run ID: cf1g was successful after 46s
 
 ## Next steps
 
-In this tutorial, you learned how to use a task to automatically trigger container image builds in Azure when you commit source code to a Git repository. Move on to the next tutorial to learn how to create tasks that trigger builds when a container image's base image is updated.
+In this tutorial, you learned how to create multi-step, multi-container-based tasks that can automatically trigger when you commit source code to a Git repository. Move on to the next tutorial to learn how to create tasks that trigger builds when a container image's base image is updated.
 
 > [!div class="nextstepaction"]
 > [Automate builds on base image update](container-registry-tutorial-base-image-update.md)
@@ -518,10 +532,11 @@ In this tutorial, you learned how to use a task to automatically trigger contain
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-task]: /cli/azure/acr
-[az-acr-task-create]: /cli/azure/acr
-[az-acr-task-run]: /cli/azure/acr
-[az-acr-task-list-runs]: /cli/azure/acr
+[az-acr-task]: /cli/azure/acr/task
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
+[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
+[az-acr-task-add-credential]: /cli/azure/acr/task/credential#az-acr-task-credential-add
 [az-login]: /cli/azure/reference-index#az-login
 
 <!-- IMAGES -->
