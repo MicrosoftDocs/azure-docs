@@ -74,15 +74,7 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
 1. Select **01.run-experiment.ipynb** to open the notebook.
 
-1. You may see a message that the kernel has not been set.  Select **Python 3.6 - AzureML**, then select **Set Kernel**.
-
-   ![Set the kernel](./media/quickstart-run-cloud-notebook/set-kernel.png)
-
-1. The status area tells you to wait until the kernel has started. The message disappears once the kernel is ready.
-
-    ![Wait for kernel to start](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
-
-1.  Click into the first code cell and select **Run**.
+1. Click into the first code cell and select **Run**.
 
     > [!NOTE]
     > Code cells have brackets before them. If the brackets are empty (__[  ]__), the code has not been run. While the code is running, you see an asterisk(__[*]__). After the code completes, a number **[1]** appears.  The number tells you the order in which the cells ran.
@@ -98,11 +90,13 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
     ![Authenticate](media/quickstart-run-cloud-notebook/authenticate.png)
 
-1. When you are done, the cell number __[2]__ appears.  If you had to sign in, you will see a successful authentication status message.   If you didn't have to sign in, you won't see any output for this cell, only the number appears to show that the cell ran successfully.
+1. When complete, the cell number __[2]__ appears.  If you had to sign in, you will see a successful authentication status message.   If you didn't have to sign in, you won't see any output for this cell, only the number appears to show that the cell ran successfully.
 
     ![Success message](media/quickstart-run-cloud-notebook/success.png)
 
-1. Run the rest of the code cells.  As each cell finishes running, you will see its cell number appear. Only the last cell displays any other output.  In the largest code cell, you see `run.log`  used in multiple places. Each `run.log` adds its value to your workspace.
+1. Run the rest of the code cells.  As each cell finishes running, you will see its cell number appear. Only the last cell displays any other output.  
+
+    In the largest code cell, you see `run.log`  used in multiple places. Each `run.log` adds its value to your workspace.
 
 
 ## View logged values
