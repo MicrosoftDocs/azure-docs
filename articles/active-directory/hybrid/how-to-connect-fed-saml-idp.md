@@ -36,7 +36,7 @@ Microsoft supports this sign-on experience as the integration of a Microsoft clo
 >     - Windows 8 Mail Client and Windows 8.1 Mail Client
 >     - Windows 10 Mail Client
 
-All other clients are not available in this sign-on scenario with your SAML 2.0 Identity Provider. For example, the Lync 2010 desktop client is not able to log in into the service with your SAML 2.0 Identity Provider configured for single sign-on.
+All other clients are not available in this sign-on scenario with your SAML 2.0 Identity Provider. For example, the Lync 2010 desktop client is not able to sign in to the service with your SAML 2.0 Identity Provider configured for single sign-on.
 
 ## Azure AD SAML 2.0 protocol requirements
 This document contains detailed requirements on the protocol and message formatting that your SAML 2.0 identity provider must implement to federate with Azure AD to enable sign-on to one or more Microsoft cloud services (such as Office 365). The SAML 2.0 relying party (SP-STS) for a Microsoft cloud service used in this scenario is Azure AD.
@@ -69,7 +69,7 @@ Bindings are the transport-related communications parameters that are required. 
 
 1. HTTPS is the required transport.
 2.	Azure AD will require HTTP POST for token submission during sign-in.
-3.	Azure AD will use HTTP POST for the authentication request to the identity provider and REDIRECT for the sign-off message to the identity provider.
+3.	Azure AD will use HTTP POST for the authentication request to the identity provider and REDIRECT for the sign out message to the identity provider.
 
 ## Required attributes
 This table shows requirements for specific attributes in the SAML 2.0 message.
