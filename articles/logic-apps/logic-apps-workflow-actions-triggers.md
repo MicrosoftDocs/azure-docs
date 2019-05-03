@@ -1187,7 +1187,7 @@ For the `includeTrigger` attribute, you can specify `true` or `false` values.
 
 | Value | Type | Description |
 |-------|------|-------------|
-| <*previous-actions*> | Varies | An array with the actions that run before your code snippet. Use the action names that appear in your workflow definition where action names use underscores (_), not spaces (" "). |
+| <*previous-actions*> | String array | An array with your specified action names. Use the action names that appear in your workflow definition where action names use underscores (_), not spaces (" "). |
 ||||
 
 *Example 1*
