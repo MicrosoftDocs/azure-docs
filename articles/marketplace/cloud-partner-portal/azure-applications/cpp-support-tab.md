@@ -1,20 +1,12 @@
 ---
-title: Configure Azure application support | Microsoft Docs
+title: Configure Azure application support | Azure Marketplace 
 description: Configure Azure application support for an offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Azure application Support tab

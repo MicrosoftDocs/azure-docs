@@ -10,17 +10,19 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 2/22/2019
+ms.date: 02/22/2019
 ms.custom: seodec18
 ---
 
-# Load and read data with Azure Machine Learning
-
+# Load and read data with the Azure Machine Learning Data Prep SDK
 In this article, you learn different methods of loading data using the Azure Machine Learning Data Prep SDK. To see reference documentation for the SDK, see the [overview](https://aka.ms/data-prep-sdk). The SDK supports multiple data ingestion features, including:
 
 * Load from many file types with parsing parameter inference (encoding, separator, headers)
 * Type-conversion using inference during file loading
 * Connection support for MS SQL Server and Azure Data Lake Storage
+
+> [!Important]
+> If you are building a new solution, try the [Azure Machine Learning Datasets](how-to-explore-prepare-data.md) (preview) for data exploration and preparation. Datasets is the next version of the data prep SDK, offering expanded functionality for managing data sets in AI solutions.
 
 The following table shows a selection of functions used for loading data from common file types.
 
