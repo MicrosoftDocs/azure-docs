@@ -13,7 +13,7 @@ ms.topic: article
 ms.date: 04/03/2019
 ---
 
-# Tutorial: Migrate MongoDB to Azure Cosmos DB's API for MongoDB online using DMS (Preview)
+# Tutorial: Migrate MongoDB to Azure Cosmos DB's API for MongoDB online using DMS
 You can use the Azure Database Migration Service to perform an online (minimal downtime) migration of databases from an on-premises or cloud instance of MongoDB to Azure Cosmos DB's API for MongoDB.
 
 In this tutorial, you learn how to:

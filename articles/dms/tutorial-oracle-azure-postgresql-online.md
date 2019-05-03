@@ -13,13 +13,12 @@ ms.topic: article
 ms.date: 05/06/2019
 ---
 
-# Tutorial: Migrate Oracle to Azure Database for PostgreSQL online using DMS
+# Tutorial: Migrate Oracle to Azure Database for PostgreSQL online using DMS (Preview)
 
 You can use Azure Database Migration Service to migrate the databases from Oracle databases hosted on-premises or on virtual machines to [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) with minimal downtime. In other words, you can complete the migration with minimal downtime to the application. In this tutorial, you migrate the **HR** sample database from an on-premises or virtual machine instance of Oracle 11g to Azure Database for PostgreSQL by using the online migration activity in Azure Database Migration Service.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-
 > * Assess the migration effort using the ora2pg tool.
 > * Migrate the sample schema using the ora2pg tool.
 > * Create an instance of Azure Database Migration Service.
@@ -163,7 +162,7 @@ To complete this tutorial, you need to:
 
 > [!IMPORTANT]
 > For the public preview release of this scenario, Azure Database Migration Service supports Oracle version 10g or 11g. Customers running Oracle version 12c or later should note that the minimum authentication protocol allowed for ODBC driver to connect to Oracle must be 8. For an Oracle source that is version 12c or later, you must configure the authentication protocol as follows:
-
+>
 > * Update SQLNET.ORA:
 >
 >    ```
@@ -179,8 +178,8 @@ To complete this tutorial, you need to:
 >    ```
 >
 >   For more information, see the page [here](http://www.dba-oracle.com/t_allowed_login_version_server.htm).
-
-  Finally, remember that changing the authentication protocol may impact client authentication.
+>
+> Finally, remember that changing the authentication protocol may impact client authentication.
 
 ## Assess the effort for an Oracle to Azure Database for PostgreSQL migration
 
@@ -217,33 +216,33 @@ For example, if the Oracle source has as schema of “HR”.”EMPLOYEES”.”E
 To ensure that the case format of the schema.table.column is the same for both Oracle and Azure Database for PostgreSQL, we recommend that you use the following steps.
 
 > [!NOTE]
-> You can use a different approach to derive the upper-case schema. We are working to improve and automate this step, a change that we plan to deploy soon.
+> You can use a different approach to derive the upper-case schema. We are working to improve and automate this step.
 
 1. Export schemas using ora2pg with lower cases. In the table creation sql script, create a schema with upper case “SCHEMA” manually.
 2. Import the rest of the Oracle objects, such as triggers, sequences, procedures, types, and functions, into Azure Database for PostgreSQL.
 3. To make TABLE and COLUMN UPPER case, run the following script:
 
-  ```
-  -- INPUT: schema name
-  set schema.var = “HR”;
+   ```
+   -- INPUT: schema name
+   set schema.var = “HR”;
 
-  -- Generate statements to rename tables and columns
-  SELECT 1, 'SET search_path = "' ||current_setting('schema.var')||'";'
-  UNION ALL 
-  SELECT 2, 'alter table "'||c.relname||'" rename '||a.attname||' to "'||upper(a.attname)||'";'
-  FROM pg_class c
-  JOIN pg_attribute a ON a.attrelid = c.oid
-  JOIN pg_type t ON a.atttypid = t.oid
-  LEFT JOIN pg_catalog.pg_constraint r ON c.oid = r.conrelid
+   -- Generate statements to rename tables and columns
+   SELECT 1, 'SET search_path = "' ||current_setting('schema.var')||'";'
+   UNION ALL 
+   SELECT 2, 'alter table "'||c.relname||'" rename '||a.attname||' to "'||upper(a.attname)||'";'
+   FROM pg_class c
+   JOIN pg_attribute a ON a.attrelid = c.oid
+   JOIN pg_type t ON a.atttypid = t.oid
+   LEFT JOIN pg_catalog.pg_constraint r ON c.oid = r.conrelid
     AND r.conname = a.attname
-  WHERE c.relnamespace = (select oid from pg_namespace where nspname=current_setting('schema.var')) AND a.attnum > 0 AND c.relkind ='r'
-  UNION ALL
-  SELECT 3, 'alter table '||c.relname||' rename to "'||upper(c.relname)||'";'
-  FROM pg_catalog.pg_class c
+   WHERE c.relnamespace = (select oid from pg_namespace where nspname=current_setting('schema.var')) AND a.attnum > 0 AND c.relkind ='r'
+   UNION ALL
+   SELECT 3, 'alter table '||c.relname||' rename to "'||upper(c.relname)||'";'
+   FROM pg_catalog.pg_class c
     LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
-  WHERE c.relkind ='r' AND n.nspname=current_setting('schema.var')
-  ORDER BY 1;
-  ```
+   WHERE c.relkind ='r' AND n.nspname=current_setting('schema.var')
+   ORDER BY 1;
+   ```
 
 * Drop the foreign key in the target database for the full load to run. Refer to the **Migrate the sample schema** section of the article [here](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online) for a script that you can use to drop the foreign key.
 * Use Azure Database Migration Service to run for full load and sync.
@@ -328,10 +327,10 @@ After the service is created, locate it within the Azure portal, open it, and th
 4. On the **New migration project** screen, specify a name for the project, in the **Source server type** text box, select **Oracle**, in the **Target server type** text box, select **Azure Database for PostgreSQL**.
 5. In the **Choose type of activity** section, select **Online data migration**.
 
-  ![Create Database Migration Service Project](media/tutorial-oracle-azure-postgresql-online/dms-create-project5.png)
+   ![Create Database Migration Service Project](media/tutorial-oracle-azure-postgresql-online/dms-create-project5.png)
 
-  > [!NOTE]
-  > Alternately, you can choose **Create project only** to create the migration project now and execute the migration later.
+   > [!NOTE]
+   > Alternately, you can choose **Create project only** to create the migration project now and execute the migration later.
 
 6. Select **Save**, note the requirements to successfully use Azure Database Migration Service to perform an online migration, and then select **Create and run activity**.
 
@@ -396,13 +395,13 @@ After the initial Full load is completed, the databases are marked **Ready to cu
 
 2. Make sure to stop all the incoming transactions to the source database; wait until the **Pending changes** counter shows **0**.
 
-![Start cutover](media/tutorial-oracle-azure-postgresql-online/dms-start-cutover.png)
+  ![Start cutover](media/tutorial-oracle-azure-postgresql-online/dms-start-cutover.png)
 
 3. Select **Confirm**, and the select **Apply**.
 4. When the database migration status shows **Completed**, connect your applications to the new target Azure Database for PostgreSQL instance.
 
-> [!NOTE]
-> Since PostgreSQL by default has schema.table.column in lower case, you can revert from upper case to lower case by using the script in the **Set up the schema in Azure Database for PostgreSQL** section earlier in this article.
+ > [!NOTE]
+ > Since PostgreSQL by default has schema.table.column in lower case, you can revert from upper case to lower case by using the script in the **Set up the schema in Azure Database for PostgreSQL** section earlier in this article.
 
 ## Next steps
 
