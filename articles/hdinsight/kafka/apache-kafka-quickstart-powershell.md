@@ -34,10 +34,18 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 
 ## Sign in to Azure
 
-Sign in to your Azure subscription with the `Login-AzAccount` cmdlet and follow the on-screen directions.
+Sign in to your Azure subscription with the `Connect-AzAccount` cmdlet and follow the on-screen directions.
 
 ```powershell
-Login-AzAccount
+# Login to your Azure subscription
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Connect-AzAccount
+}
+
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 ```
 
 ## Create resource group
@@ -45,8 +53,8 @@ Login-AzAccount
 Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. The following example prompts you for the name and location, and then creates a new resource group:
 
 ```powershell
-$resourceGroup = Read-Input -Prompt "Enter the resource group name"
-$location = Read-Input -Prompt "Enter the Azure region to use"
+$resourceGroup = Read-Host -Prompt "Enter the resource group name"
+$location = Read-Host -Prompt "Enter the Azure region to use"
 
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
@@ -55,10 +63,10 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 While Kafka on HDInsight uses Azure Managed disks to store Kafka data, the cluster also uses Azure Storage to store information such as logs. Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) to create a new storage account.
 
-> [!WARNING]  
+> [!IMPORTANT]  
 > Storage account kind `BlobStorage` can only be used as secondary storage for HDInsight clusters.
 
-```powershell
+```azurepowershell-interactive
 $storageName = Read-Host -Prompt "Enter the storage account name"
 
 New-AzStorageAccount `
@@ -82,7 +90,7 @@ $storageContext = New-AzStorageContext `
                     -StorageAccountName $storageName `
                     -StorageAccountKey $storageKey
 
-New-AzStorageContainer -Name $containerName -Context $storageContext 
+New-AzStorageContainer -Name $containerName -Context $storageContext
 ```
 
 ## Create an Apache Kafka cluster
