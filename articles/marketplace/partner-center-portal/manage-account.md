@@ -11,25 +11,32 @@ ms.date: 05/30/2019
 
 # How to manage your Commercial Marketplace account in Partner Center 
 
-Once you've [created a Partner Center account](./create-account.md), you can manage your account and offers using the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace).
+Once you've [created a Partner Center account](./create-account.md), you can manage your account and offers using the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
 In this article, we'll dive into how to manage your Partner Center account, including how to: 
 
-- Access your account settings
+- Access your Partner Center account settings
+- Find your Seller ID, User ID, Publisher ID, and Azure AD tenants
+- Update contact information 
+- Manage financial details (payout account, tax profile, payout hold status)
+- Set up Tracking GUIDs for monitoring customer usage
 - Add new or manage existing account users
 - Manager user roles and permissions
+- 
+
+<!-- What about these?
 - Sell subscriptions
 - Manage billing and invoicing
 - Create new business profiles
 - Manage referrals
 - Set up incentive programs
-- Provide customer support
+- Provide customer support -->
 
 
 ## Access your account settings
 
 If you have not already done so, you (or your organization's administrator) should access the [account settings](https://partner.microsoft.com/dashboard/account/management) for your Partner Center account in order to:
-- verify your company's account status
+- check your company's account verification status
 - confirm your Seller ID, MPN ID, Publisher ID, and contact information, including the company approver and seller contact
 - set up your company’s financial details, including tax exemptions if appropriate
 - create user accounts for anyone who will use your business account in Partner Center
@@ -50,7 +57,7 @@ Inside **Account settings**, you will be able to view your:
 
 ### Account details
 
-In the Account details section, you can see basic info, like your **Account type** (Company or Individual) and the **Verification status** of your account. During your account verification process, these settings will display each step required, including email verfication, employment verification, and business verification. You can also update your email here and resend the verification if needed. 
+In the Account details section, you can see basic info, like your **Account type** (Company or Individual) and the **Verification status** of your account. During your account verification process, these settings will display each step required, including email verification, employment verification, and business verification. You can also update your email here and resend the verification if needed. 
 
 ### Publisher IDs
 
@@ -62,15 +69,20 @@ In the Contact info section, you can see your **Publisher display name**, **Sell
 
 ### Financial details
 
-In the Financial details section, you can provide or update your financial information if you publish paid apps, add-ins, or services. Sign in with your associated Microsoft Account to use pre-existing payment information. 
+In the Financial details section, you can provide or update your financial information if you publish paid apps, add-ins, or services. 
 
-If you only plan to list free offers, you don't need to set up a payout account or fill out any tax forms. If you change your mind later and decide you do want to sell through Microsoft, you can set up your payout account and fill out tax forms at that time. 
+If you only plan to list free offers, you don't need to set up a payout account or fill out any tax forms. If you change your mind later, and decide you do want to sell through Microsoft, you can set up your payout account and fill out tax forms at that time. 
 
 #### Payout account
 
-A payout account is the bank account to which proceeds are sent from your sales. This bank account must be located in the same country where you registered your Partner Center account.
+A payout account is the bank account to which proceeds are sent from your sales. This bank account must be in the same country where you registered your Partner Center account.
 
-To add a payout account, you will need to:
+To setup your payout account, you need to **associate your Microsoft Account**:
+1. In **Account settings**, under the **Financial details** section, select **Associate your Microsoft Account**. 
+2. When prompted, sign in with your Microsoft Account (MSA). This account cannot already be associated with another Partner Center account. 
+3. To complete the setup of your payout account, log completely out of Partner Center, then log back in with your Microsoft Account (rather than your work account). 
+
+Now that your Microsoft Account is associated, to add a payout account, you will need to:
 - **Choose a payment method**: Bank account or PayPal
 - **Add payment information**: This may include choosing an account type (checking or savings), entering the account holder name, account number, and routing number, billing address, phone number, or PayPal email address. *For more information about using PayPal as your account payment method and to find out whether it is supported in your market region, see [PayPal info](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
 
@@ -91,10 +103,10 @@ You can complete and submit your tax forms electronically in Partner Center; in 
 
 Different countries and regions have different tax requirements. The exact amount that you must pay in taxes depends on the countries and regions where you sell your offers. Microsoft remits sales and use tax on your behalf in some countries. These countries will be identified in the process of listing your offer. In other countries, depending on where you are registered, you may need to remit sales and use tax for your sales directly to the local taxing authority. In addition, the sales proceeds you receive may be taxable as income. We strongly encourage you to contact the relevant authority for your country or region that can best help you determine the right tax info for your Microsoft sales transactions.
 
-**Withholding rates**
+##### Withholding rates
 The info you submit in your tax forms determines the appropriate tax withholding rate. The withholding rate applies only to sales that you make into the United States; sales made into non-US locations are not subject to withholding. The withholding rates vary, but for most developers registering outside the United States, the default rate is 30%. You have the option of reducing this rate if your country has agreed to an income tax treaty with the United States.
 
-**Tax treaty benefits**
+##### Tax treaty benefits
 If you are outside the United States, you may be able to take advantage of tax treaty benefits. These benefits vary from country to country, and may allow you to reduce the amount of taxes that Microsoft withholds. You can claim tax treaty benefits by completing Part II of the W-8BEN form. We recommend that you communicate with the appropriate resources in your country or region to determine whether these benefits apply to you.
 
 [Learn more about tax details for Windows app/game developers and Azure Marketplace publishers](https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps).
@@ -116,22 +128,98 @@ The device management settings apply only to UWP publishing. [Learn more](https:
 
 ### Tracking GUIDs
 
-<!-- Need info about this -->
+Globally Unique Identifiers (GUIDs) are unique reference numbers (with 32 hexadecimal digits) that can be used for tracking your Azure usage. 
+
+To create GUIDs for tracking, you should use a GUID generator. The Azure Storage team has created a [GUID generator form](https://aka.ms/StoragePartners) that will email you a GUID of the correct format and can be reused across the different tracking systems.
+
+We recommend you create a unique GUID for every offer and distribution channel for each product. You can opt to use a single GUID for the product's multiple distribution channels if you do not want reporting to be split.
+
+If you deploy a product by using a template and it is available on both the Azure Marketplace and on GitHub, you can create and register 2 distinct GUIDS:
+
+*	Product A in Azure Marketplace
+*	Product A on GitHub
+
+Reporting is done by the partner value (Microsoft Partner ID) and the GUIDs. You can also track GUIDs at a more granular level like the SKU, where SKUs are variants of an offer.
+
+For more information, see the [Tracking Azure customer usage with GUIDs FAQ](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq).
+
 
 
 ## Manage user accounts, define roles, permissions, groups, and applications
 
-Partner Center leverages [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) for multi-user account access and management. Once your Partner Center account has been associated with your organization’s Azure Active Directory, you can:
+Partner Center leverages [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) for multi-user account access and management. Your organization's Azure AD is automatically associated with your Partner Center account as part of the enrollment process. 
 
-•	add, remove, and manage user accounts;
-•	define the role or custom permissions that each user should have; 
-•	assign a role to a group of users, or to an AAD application.
+## Manage Users
 
-If your organization already uses Office 365 or other business services from Microsoft, you already have Azure AD. Otherwise, you can [create a new Azure AD tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant) from within Partner Center at no additional charge.
+The **Users** section of Partner Center (under **Account Settings**) let's you use Azure AD to manage the users, groups, and Azure AD applications that have access to your Partner Center account. Note that in order to manage users, you must be signed in with your [work account](./company-work-accounts.md) (the associated Azure AD tenant).
 
-### Associate Azure AD with your Partner Center account
+Once you are signed in with your work account (Azure AD tenant), you can:
+- [Add or remove users](#add-or-remove-users)
+- Add or remove groups
+- Add or remove Azure AD applications
+- Edit account details 
+- Define roles and permissions
+
+<!-- You are currently signed in as admin@pcsaascontoso.onmicrosoft.com. To manage a different Azure AD tenant, you'll need to sign out, then sign back in as a user (with the Manager role in Partner Center) for that tenant. -->
+
+Keep in mind that all Partner Center users (including groups and Azure AD applications) must have an active account in an [Azure AD tenant](#manage-azure-ad-tenants) that is associated with your Partner Center account. 
+
+### Add or remove users
+
+Your account must have [**Manager-level**](#define-roles-and-permissions) permissions for the [work account (Azure AD tenant)](./company-work-accounts.md) in which you want to add or edit users.
+
+#### Add existing users
+
+To add users to your Partner Center account that already exist in your company's [work account (Azure AD tenant)](./company-work-accounts.md):
+
+1. Go to **Users** (under **Account settings**) and select **Add users**.
+2. Select one or more users from the list that appears. You can use the search box to search for specific users.
+*If you select more than one user to add to your Partner Center account, you must assign them the same role or set of custom permissions. To add multiple users with different roles/permissions, repeat these steps for each role or set of custom permissions.
+3.	When you are finished choosing users, click **Add selected**.
+5.	In the **Roles** section, specify the role(s) or customized permissions for the selected user(s).
+6.	Select **Save**.
+
+#### Create or invite new users
+
+To create brand new user accounts or invite outside users via email, you must have **Global administrator** permissions
+
+
+Creating a new user in Partner Center will also create an account for that user in the Azure AD tenant to which you are signed in. Making changes to a user's name in Partner Center will make the same changes in your organization's Azure AD tenant.
+
+> [!NOTE]
+> If your organization uses [directory integration](https://go.microsoft.com/fwlink/p/?LinkID=724033) to sync the on-premises directory service with your Azure AD, you won't be able to create new users, groups, or Azure AD applications in Partner Center. You (or another admin in your on-premises directory) will need to create them directly in the on-premises directory before you'll be able to see and add them in Partner Center.
+
+### Add or remove groups
+
+### Add or remove Azure AD applications
+
+### Edit account details 
+
+### Define roles and permissions
+
+Users in the Commercial Marketplace program can be assigned one of the two roles: **Manager** and **Developer** in the user management experience. The roles assigned to the users define the behavior of the user in the Commercial Marketplace program.
+
+
+
+
+
+Otherwise, you can [create a new Azure AD tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant) from within Partner Center at no additional charge.
+
+
+
+## Manage Azure AD tenants
+
+**Azure AD tenant** is the term used to represent an organization within Azure Active Directory. A single Azure AD tenant can be associated with multiple Partner Center accounts. You only need to have one Azure AD tenant associated with your Partner Center account in order to add multiple account users, but you also have the option to add multiple Azure AD tenants to a single Partner Center account. 
+
+Any user with the **Manager** role in the Partner Center account will have the option to add and remove Azure AD tenants from the account. [Learn more about roles in Partner Center]().
+
+Note that if you remove a tenant, all users in that tenant (and their account permissions) will be removed from your Partner Center account, but no users will be removed from Azure AD. 
+
+<!-- ### Add new Azure AD Tenants to your Partner Center account -->
+<!-- ### Associate Azure AD with your Partner Center account -->
 
 To associate your organization’s existing Azure AD tenant with your Partner Center account:
+<!-- This is done automatically during the initial enrollment process, but you can add additional tenants -->
 
 1. From Partner Center, select the gear icon (near the upper right corner of the dashboard) and then
 select **Developer settings**. In the **Settings** menu, select **Tenants**.
@@ -147,18 +235,15 @@ select **Developer settings**. In the **Settings** menu, select **Tenants**.
 In order to create new users, or make other changes to your Azure AD, you’ll need to sign in using an account with [**global administrator permission**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). However, you don’t need global administrator permission in order to associate the tenant with your Partner Center account, or to add users who already exist in your organization’s tenant.
 
 
-## Manage users
-Account settings is located at the upper right corner of your [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/account/usermanagement) in Partner Center. Select the gear icon (near the upper right corner of the dashboard) and then select **Developer settings**. Once Account settings is open, select **Users**. To manage users, you must **Sign in with Azure AD** using your associated credentials. (If you have not done so already, you must [associated your Azure AD credentials with your Partner Center account](#associate-azure-ad-with-your-partner-center-account).)
+<!-- ## Manage users
+
+Account settings is located at the upper right corner of your [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/account/usermanagement) in Partner Center. Select the gear icon (near the upper right corner of the dashboard) and then select **Developer settings**. Once Account settings is open, select **Users**. To manage users, you must **Sign in with Azure AD** using your associated credentials. (If you have not done so already, you must [associated your Azure AD credentials with your Partner Center account](#associate-azure-ad-with-your-partner-center-account).) -->
 
 
-### Manage Azure AD tenants
 
-**Azure AD tenant** is the term used to represent an organization within Azure Active Directory. A single Azure AD tenant can be associated with multiple Partner Center accounts. You only need to have one Azure AD tenant associated with your Partner Center account in order to add multiple account users, but you also have the option to add multiple Azure AD tenants to a single Partner Center account. 
 
-Any user with the **Manager** role in the Partner Center account will have the option to add and remove Azure AD tenants from the account. [Learn more about roles in Partner Center]().
 
-Note that if you remove a tenant, all users in that tenant (and their account permissions) will be removed from your Partner Center account, but no users will be removed from Azure AD. 
 
 ## Agreements
 
-In the Agreements section, you can view a list of the publishing agreements that you've authorized.
+The **Agreements** section of Partner Center (under **Account Settings**) let's you view a list of the publishing agreements that you've authorized.

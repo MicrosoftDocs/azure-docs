@@ -33,6 +33,8 @@ With the transition to Partner Center, new functionality is available to publish
 
 Account and user management in Partner Center make it easy for individuals to access the portal and for administrators to apply appropriate permissions. Compared to prior offer management portals, the role-based access control capabilities in Partner Center provide security enhancements that will make the publishing process simpler for large organizations. 
 
+Partner Center will also bring an improved certification experience. Certification will now leverage automation and machine learning for improved turnaround times and quicker processing. Maintaining accuracy will remain a top priority, ensuring that the cloud marketplace is safe and contains valuable offers for our customers. Requirements will not change, but now when you submit offers through Partner Center, you will receive more detailed and descriptive certification reports referencing public-facing policies(https://docs.microsoft.com/legal/marketplace/certification-policies). 
+
 Analytics provide a view into offer performance, and the reporting is also improved in Partner Center. With data visualization and insightful graphs, publishers can monitor sales, act on performance to optimize listings, and maintain relationships with customers and resellers. 
 
 Learn more about recent and future releases by visiting the [marketplace roadmap](https://aka.ms/publicmarketplaceroadmap), or join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/). 
