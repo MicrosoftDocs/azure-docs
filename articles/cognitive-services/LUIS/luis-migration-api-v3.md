@@ -333,7 +333,7 @@ The prediction response includes that list entity, with all the other predicted 
 
 ## TimezoneOffset renamed to datetimeReference
 
-**In V2**, the `[timezoneOffset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2)` parameter is sent in the prediction request as a query string parameter, regardless if the request is sent as a GET or POST request. 
+**In V2**, the `timezoneOffset` [parameter](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2) is sent in the prediction request as a query string parameter, regardless if the request is sent as a GET or POST request. 
 
 **In V3**, the same functionality is provided with the POST body parameter, `datetimeReference`. 
 
