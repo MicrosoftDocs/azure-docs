@@ -8,13 +8,13 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/03/2019
 ms.custom: seodec18
 ---
 
 # Visualize data in the explorer Preview
 
-This document describes the UI/UX features and interface of the Azure Time Series Insights  Preview [explorer web app](https://insights.timeseries.azure.com/preview/samples). Specifically, it discusses the layout of the hosted sample, interface customization options, and navigation through the provided demo.
+This document describes the UI/UX features and interface of the Azure Time Series Insights Preview [demo web app](https://insights.timeseries.azure.com/preview/demo). Specifically, it discusses the layout of the hosted sample, interface customization options, and navigation through the provided demo.
 
 ## Prerequisites
 
@@ -33,24 +33,28 @@ The Azure Time Series Insights Preview explorer consists of the following elemen
 [![The Explorer view](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
 
 1. <a href="#environment-panel">**Environment panel**</a>: Displays your Azure TSI environments.
-1. <a href="#navigation-menu">**Navigation bar**</a>: Lets you switch between analytics and model pages.
+1. <a href="#navigation-menu">**Navigation menu**</a>: Lets you switch between the **Analyze** and **Model** pages.
 1. <a href="#hierarchy-tree">**Hierarchy tree**</a>: Lets you select specific model and data elements to be charted.
 1. <a href="#preview-well">**Time series well**</a>: Displays your currently selected data elements in table format with color-coding.
 1. <a href="#preview-chart">**Chart panel**</a>:  Displays your current working chart.
 1. <a href="#time-editor-panel">**Timeline**</a>:  Lets you modify your working time span.
 1. <a href="#navigation-panel">**App bar**</a>:  Contains your user management options, such as current tenant, and lets you change theme and language settings.
 
-## Environment panel
+## Environment dropdown
 
-The environment panel displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go environments (Preview) and S1/S2 environments (general availability or GA). Simply click the Time Series Insights environment you want to use.
+The environment dropdown displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go environments (Preview) and S1/S2 environments (general availability or GA). 
+
+1. Simply click the the dropdown arrow next to your displayed environment:
 
   [![The control panel](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
+
+1. Then, select the desired environment.
 
 ## Navigation menu
 
   [![The navigation menu](media/v2-update-explorer/explorer-three.png)](media/v2-update-explorer/explorer-three.png#lightbox)
 
-The navigation menu unites all of your Time Series Insights app in one convenient location. And, with the navigation menu, you can switch between them:
+The navigation menu allows you to select between two views:
 
 * **Analyze**: Lets you chart and perform rich analytics on your modeled or unmodeled time series data.
 * **Model**: Lets you push new Time Series Insights Preview types, hierarchies, and instances to your Time Series Insights model.
@@ -81,7 +85,7 @@ The well displays instance fields and other metadata associated with selected TS
 
   [![The Preview well](media/v2-update-explorer/explorer-five.png)](media/v2-update-explorer/explorer-five.png#lightbox)
 
-You can also pop out the telemetry panel to get a better vertical view of the elements in your data well.
+You can also reconfigure the layout of your **Analyze** chart page by selecting the ellipses icon in the rop-right:
 
   [![Telemetry focus view](media/v2-update-explorer/explorer-six.png)](media/v2-update-explorer/explorer-six.png#lightbox)
 
@@ -110,11 +114,11 @@ With the chart, you can display TSI instances as lines. You can collapse the env
 
 1. **Current data element**: The currently selected data element and its associated details.
 
-You can further drill into a specific data slice by left-clicking a data point on the current graph and then dragging the selected area to the endpoint of your choice. Right-click the greyed, selected area, and click zoom as shown in this following image:
+You can further drill into a specific data slice by left-clicking a data point on the current graph and then dragging the selected area to the endpoint of your choice. Right-click the greyed, selected area, and click **Zoom** as shown in this following image:
 
   [![Preview chart selection](media/v2-update-explorer/explorer-nine.png)](media/v2-update-explorer/explorer-nine.png#lightbox)
 
-After you perform the zoom action, you will see your selected dataset. Click the Y-axis format control to cycle through the three Y-axis representations of your Time Series Insights data.
+After you perform the **Zoom** action, you will see your selected dataset. Click the Y-axis format control to cycle through the three Y-axis representations of your Time Series Insights data.
 
   [![Preview chart zoom](media/v2-update-explorer/explorer-ten.png)](media/v2-update-explorer/explorer-ten.png#lightbox)
 
@@ -146,20 +150,16 @@ When you work with Time Series Insights Preview, you first select a time span. T
 
 ## Navigation panel
 
-The Time Series Insights Preview navigation panel appears at the top of your TSI app:
-
-  [![Top menu bar](media/v2-update-explorer/explorer-fourteen.png)](media/v2-update-explorer/explorer-fourteen.png#lightbox)
-
-It provides the following functionalities.
+The Time Series Insights Preview navigation panel appears at the top of your TSI app. It provides the following functionalities.
 
 ### Current session share link control
 
   [![Resource endpoint location](media/v2-update-explorer/explorer-fifteen.png)](media/v2-update-explorer/explorer-fifteen.png#lightbox)
 
-Select the link web control (highlighted) to generate a URL to save or share your current Azure Time Series Insights working session, which includes:
+Select the new **Share** icon to share a URL link with your team.
 
-* Currently selected time range
-* Currently selected interval size
+  [![Resource endpoint location](media/v2-update-explorer/url-share.png)](media/v2-update-explorer/url-share.png#lightbox)
+
 * Currently selected data well
 
 ### Tenant section
@@ -168,6 +168,7 @@ Select the link web control (highlighted) to generate a URL to save or share you
 
 * Displays your current Time Series Insights login account information.
 * Lets you switch between the available Time Series Insights themes.
+* Allows you to view the Preview [demo web app](https://insights.timeseries.azure.com/preview/demo).
 
 ### Theme selection
 
