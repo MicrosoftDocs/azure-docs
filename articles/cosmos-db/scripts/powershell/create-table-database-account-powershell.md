@@ -1,27 +1,27 @@
 ---
-title: Azure PowerShell Script - Multiregion replication for Azure Cosmos DB
-description: Azure PowerShell Script Sample - Multiregion replication for Azure Cosmos DB
-ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+title: Azure PowerShell script- Create an Azure Cosmos DB Table API account
+description: Azure PowerShell script sample - Create an Azure Cosmos DB Table API account
 author: SnehaGunda
 ms.author: sngun
+ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.devlang: PowerShell
 ms.topic: sample
-ms.date: 05/10/2017
+ms.date: 08/08/2018
 ms.reviewer: sngun
 ---
 
-# Replicate an Azure Cosmos DB database account in multiple regions and configure failover priorities using PowerShell
+# Azure Cosmos DB: Create a Table API account using PowerShell
 
-This sample replicates any kind of Azure Cosmos DB database account in multiple regions and configures failover priorities using PowerShell. 
+This sample PowerShell script creates an Azure Cosmos DB Table API account. 
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/replicate-database-multiple-regions/replicate-database-multiple-regions.ps1?highlight=37-44,47-48,51-55 "Replicate an Azure Cosmos DB account across multiple regions")]
+[!code-powershell[main](../../../../powershell_scripts/cosmosdb/create-and-configure-Table-database/create-and-configure-Table-database.ps1 "Create an Azure Cosmos DB account")]
 
 ## Clean up deployment
 
@@ -39,7 +39,6 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Creates a logical server that hosts a database or elastic pool. |
-| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Modifies the database account. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
@@ -47,4 +46,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
 
-Additional Azure Cosmos DB PowerShell script samples can be found in the [Azure Cosmos DB PowerShell scripts](../powershell-samples.md).
+Additional Azure Cosmos DB PowerShell script samples can be found in the [Azure Cosmos DB PowerShell scripts](../../powershell-samples.md).

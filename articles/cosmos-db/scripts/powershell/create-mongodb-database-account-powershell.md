@@ -1,27 +1,27 @@
 ---
-title: Azure PowerShell Script-Get account keys for Azure Cosmos DB
-description: Azure PowerShell Script Sample - Get account keys for Azure Cosmos DB
+title: Azure PowerShell script- Create an Azure Cosmos DB API account for MongoDB
+description: Azure PowerShell script sample - Create an Azure Cosmos DB API account for MongoDB
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 author: SnehaGunda
 ms.author: sngun
 ms.devlang: PowerShell
+ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 05/10/2017
+ms.date: 05/29/2018
 ms.reviewer: sngun
 ---
 
-# Get account keys for Azure Cosmos DB using PowerShell
+# Create an Azure Cosmos DB account with Azure Cosmos DB's API for MongoDB using PowerShell
 
-This sample gets account keys for any kind of Azure Cosmos DB account.  
+This sample PowerShell script creates a Cosmos account with Azure Cosmos DB's API for MongoDB. 
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/get-account-keys/get-account-keys.ps1?highlight=36-40 "Get the keys for an Azure Cosmos DB account")]
+[!code-powershell[main](../../../../powershell_scripts/cosmosdb/create-and-configure-mongodb-database/create-and-configure-mongodb-database.ps1 "Create an Azure Cosmos DB account")]
 
 ## Clean up deployment
 
@@ -39,7 +39,6 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Creates a logical server that hosts a database or elastic pool. |
-| [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction) | Invokes an action on the Azure CosmosDB account. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
@@ -47,4 +46,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
 
-Additional Azure Cosmos DB PowerShell script samples can be found in the [Azure Cosmos DB PowerShell scripts](../powershell-samples.md).
+Additional Azure Cosmos DB PowerShell script samples can be found in the [Azure Cosmos DB PowerShell scripts](../../powershell-samples.md).

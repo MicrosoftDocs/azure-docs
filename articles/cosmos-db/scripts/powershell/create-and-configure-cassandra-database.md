@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script-Create an Azure Cosmos DB Cassandra API account
-description: Azure PowerShell Script Sample - Create an Azure Cosmos DB Cassandra API account
+title: Azure PowerShell script-Create an Azure Cosmos DB Cassandra API account
+description: Azure PowerShell script sample - Create an Azure Cosmos DB Cassandra API account
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -15,13 +15,13 @@ ms.reviewer: sngun
 
 This sample PowerShell script creates an Azure Cosmos DB Cassandra API account. 
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Sample script
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/create-and-configure-cassandra-database/create-and-configure-cassandra-database.ps1?highlight=9,12-15,18,21-23,26-29,32-37 "Create an Azure Cosmos DB account")]
+[!code-powershell[main](../../../../powershell_scripts/cosmosdb/create-and-configure-cassandra-database/create-and-configure-cassandra-database.ps1?highlight=9,12-15,18,21-23,26-29,32-37 "Create an Azure Cosmos DB account")]
 
 ## Clean up deployment
 
@@ -46,4 +46,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
 
-Additional Azure Cosmos DB PowerShell script samples can be found in the [Azure Cosmos DB PowerShell scripts](../powershell-samples.md).
+Additional Azure Cosmos DB PowerShell script samples can be found in the [Azure Cosmos DB PowerShell scripts](../../powershell-samples.md).
