@@ -1,32 +1,43 @@
 ---
 title: Azure PowerShell Samples for Azure Cosmos DB
 description: Azure PowerShell Samples - Scripts to help you create and manage Azure Cosmos DB accounts. 
-author: SnehaGunda
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/16/2017
-ms.author: sngun
+ms.date: 05/08/2019
+ms.author: mjbrown
 ---
 
 # Azure PowerShell samples for Azure Cosmos DB
 
-The following table includes links to sample Azure PowerShell scripts for Azure Cosmos DB. At this time, you can only manage the Azure Cosmos DB account via PowerShell; other resources such as databases and containers cannot be managed via PowerShell.
+The following table includes links to sample Azure PowerShell scripts for Azure Cosmos DB for Core (SQL) API.
 
 | |  |
 |---|---|
-|**Create an Azure Cosmos DB account**||
-|[Create and configure a Cosmos account with SQL API](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a single Azure Cosmos DB account to use with the SQL API. |
-|[Create and configure a Cosmos account with Azure Cosmos DB's API for MongoDB](scripts/create-mongodb-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a single Cosmos account with Azure Cosmos DB's API for MongoDB. |
-|[Create and configure a Cosmos account with Gremlin API](scripts/create-graph-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a single Azure Cosmos DB account to use with the Gremlin API. |
-|[Create and configure a Cosmos account with Cassandra API](scripts/create-and-configure-cassandra-database.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a single Azure Cosmos DB account to use with the Cassandra API. |
-|[Create and configure a Cosmos account with Table API](scripts/create-table-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a single Azure Cosmos DB account to use with the Table API. |
-|**Scale Azure Cosmos DB**||
-|[Replicate Azure Cosmos DB account in multiple regions and configure failover priorities](scripts/scale-multiregion-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Globally replicates account data into multiple regions with a specified failover priority.|
-|**Secure Azure Cosmos DB**||
-| [Get account keys](scripts/secure-get-account-key-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Gets the primary and secondary master write keys and primary and secondary read-only keys for the account.|
-| [Get MongoDB connection string](scripts/secure-mongo-connection-string-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Gets the connection string to connect your MongoDB app to your Azure Cosmos DB account.|
-|[Regenerate account keys](scripts/secure-regenerate-key-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Regenerates the master or read-only key for the account.|
-|[Create a firewall](scripts/create-firewall-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an inbound IP access control policy to limit access to the account from an approved set of machines and/or cloud services.|
-|**High availability, disaster recovery, backup, and restore**||
-|[Configure failover policy](scripts/ha-failover-policy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Sets the failover priority of each region in which the account is replicated.|
+|**Azure Cosmos accounts**||
+|[Create an account](scripts/powershell/sql/ps-account-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos SQL API account. |
+|[Get an account](scripts/powershell/sql/ps-account-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get the properties of an Azure Cosmos account. |
+|[Add a region](scripts/powershell/sql/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get an Azure Cosmos account and add a region to the list of locations. |
+|[Change the failover priority](scripts/powershell/sql/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Change the failover priority of an Azure Cosmos account with a manual failover trigger. |
+|[Update tags](scripts/powershell/sql/ps-account-tags-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Update the tags for an Azure Cosmos account. |
+|[Get account keys](scripts/powershell/sql/ps-account-key-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get the primary and secondary keys of an Azure Cosmos account. |
+|[Regenerate account keys](scripts/powershell/sql/ps-account-key-regenerate.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Regenerate the primary and secondary keys of an Azure Cosmos account. |
+|[List connection strings](scripts/powershell/sql/ps-account-connection-string-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get the primary and secondary connection strings of an Azure Cosmos account. |
+|[Create IP Firewall](scripts/powershell/sql/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Create an IP Firewall for an Azure Cosmos account. |
+|[Delete an Azure Cosmos account](scripts/powershell/sql/ps-account-delete.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Delete an Azure Cosmos account. |
+|**Azure Cosmos databases**||
+| [Create a database](scripts/powershell/sql/ps-database-create.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Create a database within an Azure Cosmos account.|
+| [Create a database with shared/database-level throughput](scripts/powershell/sql/ps-database-create-shared.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Create an Azure Cosmos database with database-level throughput that is shared with its containers.|
+| [List all databases](scripts/powershell/sql/ps-database-list.md?toc=%2fpowershell%2fmodule%2ftoc.json) | List all the databases in an Azure Cosmos account.|
+| [Get a database](scripts/powershell/sql/ps-database-get.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Get the properties of an Azure Cosmos database.|
+|**Azure Cosmos containers**||
+| [Create a container](scripts/powershell/sql/ps-container-create.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Create an Azure Cosmos container with dedicated throughput.|
+| [Create a container with shared throughput](scripts/powershell/sql/ps-container-create-shared.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Create an Azure Cosmos container with throughput shared with other containers in the database.|
+| [Create a container with index policy](scripts/powershell/sql/ps-container-create-index-custom.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Create an Azure Cosmos container with a custom index policy.|
+| [Create a container with no index policy](scripts/powershell/sql/ps-container-create-index-none.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Create an Azure Cosmos container with index policy turned off.|
+| [Create a container with unique keys & TTL](scripts/powershell/sql/ps-container-create-unique-key-ttl.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Create an Azure Cosmos container with a unique key constraint and time-to-live configured.|
+| [Create a container with conflict resolution](scripts/powershell/sql/ps-container-create-conflict-policy.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Create an Azure Cosmos container with last-writer-wins conflict resolution policy.|
+| [List all containers](scripts/powershell/sql/ps-container-list.md?toc=%2fpowershell%2fmodule%2ftoc.json) | List all containers in an Azure Cosmos database.|
+| [Get a container](scripts/powershell/sql/ps-container-get.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Get the properties for a container in an Azure Cosmos database.|
+| [Delete a container](scripts/powershell/sql/ps-container-delete.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Delete a container in an Azure Cosmos database.|
 |||
