@@ -43,18 +43,34 @@ express --view=pug myapp
 cd myapp
 ```
 
-Install yarn dependencies, and add the package `request`, which will be used later in the tutorial.
+Install yarn dependencies, and add dependencies `request` and `dotenv`, which will be used later in the tutorial.
 
 ```bash
 yarn
 yarn add request
+yarn add dotenv
 ```
 
 ## Acquire an access token
 
 Next, write a backend API to retrieve an access token using your subscription key. You need your subscription key and endpoint for this next step. You can find that information at https://azure.microsoft.com/try/cognitive-services/my-apis/.
 
-Once you have your subscription key and endpoint, open the _routes\index.js_ file and the following import at the top of the file:
+Once you have your subscription key and endpoint, create a new file called _.env_, and paste the following code into it, replacing `{YOUR_SUBSCRIPTION_KEY}` and `{YOUR_ENDPOINT}` with your subscription key and endpoint, respectively.
+
+```text
+SUBSCRIPTION_KEY={YOUR_SUBSCRIPTION_KEY}
+ENDPOINT={YOUR_ENDPOINT}
+```
+
+Be sure not to commit this file into source control, as it contains secrets that should not be made public.
+
+Next, open _app.js_ and add the following to the top of the file. This loads the subscription key and endpoint as environment variables into Node.
+
+```javascript
+require('dotenv').config();
+```
+
+Open the _routes\index.js_ file and the following import at the top of the file:
 
 ```javascript
 var request = require('request');
@@ -66,10 +82,10 @@ Next, add the following code directly below that line. This code creates an API 
 router.get('/token', function(req, res, next) {
   request.post({
     headers: {
-        'Ocp-Apim-Subscription-Key': YOUR_SUBSCRIPTION_KEY,
+        'Ocp-Apim-Subscription-Key': process.env.SUBSCRIPTION_KEY,
         'content-type': 'application/x-www-form-urlencoded'
     },
-    url: 'https://' + YOUR_ENDPOINT + '/issueToken'
+    url: process.env.ENDPOINT + '/issueToken'
   },
   function(err, resp, token) {
     return res.send(token);
@@ -77,7 +93,7 @@ router.get('/token', function(req, res, next) {
 });
 ```
 
-Replace `YOUR_SUBSCRIPTION_KEY` with your subscription key, and replace `YOUR_ENDPOINT` with your endpoint. This API endpoint should be secured behind some form of authentication (for example, [OAuth](https://oauth.net/2/)); that work is beyond the scope of this tutorial.
+This API endpoint should be secured behind some form of authentication (for example, [OAuth](https://oauth.net/2/)); that work is beyond the scope of this tutorial.
 
 ## Launch the Immersive Reader with sample content
 
