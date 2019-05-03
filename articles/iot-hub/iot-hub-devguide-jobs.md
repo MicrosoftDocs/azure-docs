@@ -38,8 +38,6 @@ PUT /jobs/v2/<jobId>?api-version=2018-06-30
 
 Authorization: <config.sharedAccessSignature>
 Content-Type: application/json; charset=utf-8
-Request-Id: <guid>
-User-Agent: <sdk-name>/<sdk-version>
 
 {
     "jobId": "<jobId>",
@@ -65,6 +63,38 @@ The query condition can also be on a single device ID or on a list of device IDs
 
 [IoT Hub Query Language](iot-hub-devguide-query-language.md) covers IoT Hub query language in additional detail.
 
+The following snippet shows the request and response to schedule a direct method call of testMethod on all devices on contoso-hub-1:
+
+```
+PUT https://contoso-hub-1.azure-devices.net/jobs/v2/12345?api-version=2018-06-30 HTTP/1.1
+Authorization: SharedAccessSignature sr=contoso-hub-1.azure-devices.net&sig=68ivcHktSc0NDPdksPnKUeVHFI%2FGHgfAhmJ%2Bv8Hxalg%3D&se=1556849884&skn=iothubowner
+Content-Type: application/json; charset=utf-8
+Host: contoso-hub-1.azure-devices.net
+Content-Length: 318
+
+{
+    "jobId": "12345",
+    "type": "scheduleDeviceMethod",
+    "cloudToDeviceMethod": {
+        "methodName": "testMethod",
+        "payload": {},
+        "responseTimeoutInSeconds": 30
+    },
+    "queryCondition": "*'", 
+    "startTime": "2019-05-04T15:53:00.077Z",
+    "maxExecutionTimeInSeconds": 20
+}
+
+HTTP/1.1 200 OK
+Content-Length: 65
+Content-Type: application/json; charset=utf-8
+Vary: Origin
+Server: Microsoft-HTTPAPI/2.0
+Date: Fri, 03 May 2019 01:46:18 GMT
+
+{"jobId":"12345","type":"scheduleDeviceMethod","status":"queued"}
+```
+
 ## Jobs to update device twin properties
 
 The following snippet shows the HTTPS 1.1 request details for updating device twin properties using a job:
@@ -74,8 +104,6 @@ PUT /jobs/v2/<jobId>?api-version=2018-06-30
 
 Authorization: <config.sharedAccessSignature>
 Content-Type: application/json; charset=utf-8
-Request-Id: <guid>
-User-Agent: <sdk-name>/<sdk-version>
 
 {
     "jobId": "<jobId>",
@@ -87,6 +115,44 @@ User-Agent: <sdk-name>/<sdk-version>
 }
 ```
 
+> [!NOTE]
+> The *updateTwin* property requires a valid etag match; for example, `etag="*"`.
+
+The following snippet shows the request and response for a job scheduled to update device twin properties for test-device on contoso-hub-1.
+
+```
+PUT https://contoso-hub-1.azure-devices.net/jobs/v2/123456789?api-version=2018-06-30 HTTP/1.1
+Authorization: SharedAccessSignature sr=contoso-hub-1.azure-devices.net&sig=BN0USX10kqBIMDMz21eg8kHWcVwaW4bjq3Pm6iKzRuA%3D&se=1556925787&skn=iothubowner
+Content-Type: application/json; charset=utf-8
+Host: contoso-hub-1.azure-devices.net
+Content-Length: 343
+
+{
+    "jobId": "123456789",
+    "type": "scheduleUpdateTwin",
+    "updateTwin": {
+      "properties": {
+        "desired": {
+          "test1": "value1"
+        }
+      },
+     "etag": "*"
+     },
+    "queryCondition": "deviceId = 'test-device'",
+    "startTime": "2019-05-08T12:19:56.868Z",
+    "maxExecutionTimeInSeconds": 20
+}
+
+HTTP/1.1 200 OK
+Content-Length: 67
+Content-Type: application/json; charset=utf-8
+Vary: Origin
+Server: Microsoft-HTTPAPI/2.0
+Date: Fri, 03 May 2019 22:45:13 GMT
+
+{"jobId":"123456789","type":"scheduleUpdateTwin","status":"queued"}
+```
+
 ## Querying for progress on jobs
 
 The following snippet shows the HTTPS 1.1 request details for querying for jobs:
@@ -96,8 +162,6 @@ GET /jobs/v2/query?api-version=2018-06-30[&jobType=<jobType>][&jobStatus=<jobSta
 
 Authorization: <config.sharedAccessSignature>
 Content-Type: application/json; charset=utf-8
-Request-Id: <guid>
-User-Agent: <sdk-name>/<sdk-version>
 ```
 
 The continuationToken is provided from the response.
