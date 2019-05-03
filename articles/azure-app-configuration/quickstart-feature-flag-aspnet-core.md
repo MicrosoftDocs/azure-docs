@@ -20,7 +20,7 @@ ms.author: yegu
 ---
 # Quickstart: Add feature flags to an ASP.NET Core app
 
-Azure App Configuration is a managed configuration service in Azure. You can use it to store and control all your application feature flags centrally. This quickstart shows you how to incorporate the service into an ASP.NET Core web app to create an end-to-end implementation of feature management.
+Feature management in ASP.NET Core can be enabled by connecting your application to Azure App Configuration, a service in Azure that helps manage application and feature settings. You can use it to store all your feature flags and control their states centrally. This quickstart shows you how to incorporate the service into an ASP.NET Core web app to create an end-to-end implementation of feature management.
 
 The .NET Core Feature Management libraries extend the .NET and ASP.NET Core frameworks with comprehensive feature flag support. It is built on top of the .NET Core configuration system. It integrates seamlessly with App Configuration through its .NET Core configuration provider.
 
@@ -78,9 +78,9 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
 1. Add references to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` and `Microsoft.FeatureManagement` NuGet packages by running the following commands:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008450001
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
 
-        dotnet add package Microsoft.FeatureManagement --version 1.0.0-preview-008450001-1028
+        dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-008520001-199
 
 2. Run the following command to restore packages for your project:
 
@@ -123,8 +123,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 6. Open *Startup.cs*, and add references to the .NET Core feature manager.
 
     ```csharp
-    using Microsoft.FeatureManagement;
-    using Microsoft.FeatureManagement.FeatureFilters;
+    using Microsoft.FeatureManagement.AspNetCore;
     ```
 
 7. Update the `ConfigureServices` method to add the feature flag support by calling the `services.AddFeatureFlags()` method and optionally include any filter to be used with feature flags by calling `services.AddFeatureFilter<FilterType>()`:
@@ -132,31 +131,15 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddFeatureFlags()
-                .AddFeatureFilter<BrowserFilter>();
+        services.AddFeatureFlags();
     }
     ```
 
-8. Update the `Configure` method to add a MVC route that is controlled by a feature flag by calling the `routes.MapRouteForFeature()` method:
+8. Add a *MyFeatureFlags.cs* file.
 
     ```csharp
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
-        app.UseMvc(routes =>
-        {
-            routes.MapRouteForFeature("Beta", "betaDefault", "{controller=Beta}/{action=Index}/{id?}", null, null, null);
-        });
-    }
-    ```
-
-9. Add a *MyFeatureFlags.cs* file.
-
-    ```csharp
-    using Microsoft.FeatureManagement;
-
     namespace TestFeatureFlags
     {
-        [FeatureFlag]
         public enum MyFeatureFlags
         {
             Beta
@@ -164,11 +147,11 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     }
     ```
 
-10. Add *BetaController.cs* to the Controllers directory:
+9. Add *BetaController.cs* to the Controllers directory:
 
     ```csharp
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.FeatureManagement;
+    using Microsoft.FeatureManagement.AspNetCore;
 
     namespace TestFeatureFlags.Controllers
     {
@@ -190,13 +173,13 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     }
     ```
 
-11. Open *_ViewImports.cshtml* in the Views directory, and add the feature manager tag helper:
+10. Open *_ViewImports.cshtml* in the Views directory, and add the feature manager tag helper:
 
     ```html
     @addTagHelper *, Microsoft.FeatureManagement
     ```
 
-12. Open *_Layout.cshtml* in the Views > Shared directory, and replace to the `<nav>` bar under `<body>` > `<header>` with the following code:
+11. Open *_Layout.cshtml* in the Views > Shared directory, and replace to the `<nav>` bar under `<body>` > `<header>` with the following code:
 
     ```html
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -225,7 +208,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     </nav>
     ```
 
-13. Create a Beta directory under Views and add *Index.cshtml* to it:
+12. Create a Beta directory under Views and add *Index.cshtml* to it:
 
     ```html
     @{

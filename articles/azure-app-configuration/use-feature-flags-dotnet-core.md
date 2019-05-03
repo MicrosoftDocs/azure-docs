@@ -20,9 +20,9 @@ ms.custom: mvc
 ---
 # Tutorial: Use feature flags in a .NET Core app
 
-The .NET Core Feature Management (`Microsoft.FeatureManagement`) libraries provide idiomatic support for implementing feature flags in an .NET or ASP.NET Core application. They allow you to add feature flags to your code declaratively in most cases so that you do not have to write all the `if` statements for them manually. They manage feature flag lifecycles (e.g., refresh and cache flag states, guarantee a flag state to be immutable during a request call) behind the scene. In addition, the ASP.NET Core library offers out-of-the-box integrations including MVC controller actions, views, routes, and middleware.
+The .NET Core Feature Management libraries provide idiomatic support for implementing feature flags in an .NET or ASP.NET Core application. They allow you to add feature flags to your code declaratively in most cases so that you do not have to write all the `if` statements for them manually. They manage feature flag lifecycles (e.g., refresh and cache flag states, guarantee a flag state to be immutable during a request call) behind the scene. In addition, the ASP.NET Core library offers out-of-the-box integrations including MVC controller actions, views, routes, and middleware.
 
-The [Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) quickstart shows a number of ways to add feature flags in an ASP.NET Core application. This tutorial explains these in more details. See the [Micrososoft.FeatureManagement documentation]() for a complete reference.
+The [Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) quickstart shows a number of ways to add feature flags in an ASP.NET Core application. This tutorial explains these in more details. See the [ASP.NET Core feature management documentation](https://go.microsoft.com/fwlink/?linkid=2091410) for a complete reference.
 
 In this tutorial, you learn how to:
 
@@ -32,7 +32,18 @@ In this tutorial, you learn how to:
 
 ## Setup
 
-The .NET Core feature manager `IFeatureManager` gets feature flags from the framework's native configuration system. As a result, you can define your application's feature flags using any configuration source that .NET Core supports, including the local *appsettings.json* file or environment variables. Feature manager relies on .NET Core dependency injection. You can register the feature management services using standard conventions. The following example tells the feature manager to use the "FeatureManagement" section of the configuration data for feature flag settings.
+The .NET Core feature manager `IFeatureManager` gets feature flags from the framework's native configuration system. As a result, you can define your application's feature flags using any configuration source that .NET Core supports, including the local *appsettings.json* file or environment variables. Feature manager relies on .NET Core dependency injection. You can register the feature management services using standard conventions.
+
+    ```csharp
+    IConfiguration Configuration { get; set;}
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddFeatureFlags();
+    }
+    ```
+
+The feature manager retrieves feature flags from the "FeatureManagement" section of the .NET Core configuration data by default. The following example tells it to read from a different section called "MyFeatureFlags" instead.
 
     ```csharp
     IConfiguration Configuration { get; set;}
@@ -41,7 +52,7 @@ The .NET Core feature manager `IFeatureManager` gets feature flags from the fram
     {
         services.AddFeatureFlags(options =>
         {
-            options.UseConfiguration(Configuration.GetSection("FeatureManagement"));
+            options.UseConfiguration(Configuration.GetSection("MyFeatureFlags"));
         });
     }
     ```
@@ -83,16 +94,8 @@ The feature manager supports *appsettings.json* as a feature flag source since i
 
     ```csharp
     "FeatureManagement": {
-        "FeatureA": {
-            "EnabledFor": [
-                {
-                    "Name": "AlwaysOn"
-                }
-            ]
-        }
-        "FeatureB": {
-            "EnabledFor": []
-        }
+        "FeatureX": true, // Feature flag set to on
+        "FeatureY": false, // Feature flag set to off
         "FeatureC": {
             "EnabledFor": [
                 {
@@ -108,25 +111,15 @@ The feature manager supports *appsettings.json* as a feature flag source since i
 
 By convention, the `FeatureManagement` section of this json document is used for feature flag settings. The above example shows three feature flags with their filters defined in the *EnabledFor* property:
 
-* **FeatureA** has a filter with the value of *AlwaysOn*, which is a built-in filter. This feature flag is always *on*. The *Name* associated with this filter has no real meaning and can be set to any string.
-* **FeatureB** has no filters in its *EnabledFor* property. It is always *off*.
+* **FeatureA** is *on*.
+* **FeatureB** is *off*.
 * **FeatureC** specifies a filter named *Browser* with a *Parameters* property. This is an example of a configurable filter and it specifies the *Edge* and *Chrome* browsers as *AllowedBrowsers* for enabling the **FeatureC** flag.
-
-The following illustrates an alternative way to define simple feature flags that do not use filters.
-
-    ```csharp
-    "FeatureManagement": {
-        "FeatureX": true, // Feature flag set to on
-        "FeatureY": false // Feature flag set to off
-    }
-    ```
 
 ## Referencing
 
 Though not required, feature flags should be defined as `enum` variables so that they can be referenced easily in code.
 
     ```csharp
-    [FeatureFlag]
     public enum MyFeatureFlags
     {
         FeatureA,
@@ -146,20 +139,6 @@ The basic pattern of feature management is to first check if a feature flag is s
     {
         // Run the following code
     }
-    ```
-
-There may be times when different actions are triggered depending on whether a feature flag is on or off. This can be realized by using the `IFeatureManager.Use(Action runIfOn, Action runIfOff)` method.
-
-    ```csharp
-    featureManager.Use(
-        nameof(MyFeatureFlags.FeatureA),
-        () => {
-            // This following code will run if MyFeatureFlags.FeatureT's value is true
-        },
-        () => {
-            // This following code will run if MyFeatureFlags.FeatureT's value is false
-        }
-    );
     ```
 
 ## Dependency injection
@@ -190,10 +169,10 @@ In MVC controllers, a `Feature` attribute can be used to control whether a whole
     }
     ```
 
-The following `Index` action above requires *FeatureB* to be *on* before it can run.
+The following `Index` action above requires *FeatureA* to be *on* before it can run.
 
     ```csharp
-    [Feature(MyFeatureFlags.FeatureB)]
+    [Feature(MyFeatureFlags.FeatureA)]
     public IActionResult Index()
     {
         return View();
@@ -214,17 +193,17 @@ In MVC views, a `<feature>` tag can be used to render content based on whether a
 
 ## MVC filter
 
-MVC filters can be set up such that they are applied based on the state of a feature flag. The following adds an MVC filter named `SomeMvcFilter`. This filter is triggered within the MVC pipeline only if *FeatureC* is enabled.
+MVC filters can be set up such that they are applied based on the state of a feature flag. The following adds an MVC filter named `SomeMvcFilter`. This filter is triggered within the MVC pipeline only if *FeatureA* is enabled.
 
     ```csharp
     services.AddMvc(options => {
-        options.Filters.AddForFeature<SomeMvcFilter>(nameof(MyFeatureFlags.FeatureC));
+        options.Filters.AddForFeature<SomeMvcFilter>(nameof(MyFeatureFlags.FeatureA));
     });
     ```
 
 ## Route
 
-Routes can be exposed dynamically based on feature flags. The following adds a route to a beta function only when *FeatureA* is enabled.
+Routes can be exposed dynamically based on feature flags. The following adds a route which sets `Beta` as the default controller only when *FeatureA* is enabled.
 
     ```csharp
     app.UseMvc(routes => {

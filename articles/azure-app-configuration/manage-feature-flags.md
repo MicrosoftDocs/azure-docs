@@ -34,13 +34,24 @@ The **Feature Manager** in the Azure portal for App Configuration provides a UI 
 
 1. Select **Feature Manager** > **+ Create** to add a feature flag.
 
+    ![Feature flag list](./media/azure-app-configuration-feature-flags.png)
+
 2. Enter a unique key name for the feature flag. You will use this name to reference the flag in your code.
 
 3. Optionally give the feature flag a more human-friendly description.
 
 4. Set the initial state of the feature flag. In many cases, it is either *Off* or *On*.
 
+    ![Feature flag create](./media/azure-app-configuration-feature-flag-create.png)
+
 5. When the state is *On*, optionally specify any additional condition to qualify it with **Add filter**. Enter a built-in or custom filter key and associate parameter(s). Built-in filters include:
+
+    | Key | JSON Parameters |
+    |---|---|
+    | Microsoft.Percentage | {"Value": 0-100 percent} |
+    | Microsoft.TimeWindow | {"Start": UTC time, "End": UTC time} |
+
+    ![Feature flag filter](./media/azure-app-configuration-feature-flag-filter.png)
 
 ## Update feature flag states
 
@@ -54,7 +65,7 @@ Follow the following steps to change a feature flag's state value.
 
 ## Access feature flags
 
-Feature flags created by the **Feature Manager** are stored as normal keys, though under a special namespace prefix *.appconfig.featureflag*. You can view the actual keys using the *Configuration Explorer*. Feature flags can be retrieved from App Configuration just like any key using its configuration providers, SDKs, command-line extensions, and REST APIs.
+Feature flags created by the **Feature Manager** are stored as regular key-values, though under a special namespace prefix *.appconfig.featureflag*. You can view the underlying key-values using the **Configuration Explorer**. Feature flags can be retrieved from App Configuration just like any key-value using its configuration providers, SDKs, command-line extensions, and REST APIs.
 
 ## Next steps
 

@@ -31,7 +31,7 @@ We have introduced a couple of new terms above. We will define them and others f
 
 * **Feature flag**: A feature flag is a variable with a binary state of *on* or *off* and has an associated code block. Its state decides whether the code block runs or not.
 * **Feature manager**: A feature manager is an application package that handles the lifecycle of all feature flags in an application. It typically provides additional functionality such as caching of flags and update of their states.
-* **Filter**: A filter is a rule for evaluating the state of a feature flag. User group, device or browser type, geo location are all examples of what a filter can represent.
+* **Filter**: A filter is a rule for evaluating the state of a feature flag. User group, device or browser type, geo location, time window are all examples of what a filter can represent.
 
 An effective implementation of feature management consists of at least two components working in concert: an application that makes use of feature flags and a separate repository that stores feature flags and their current states. Their interactions are illustrated below.
 
