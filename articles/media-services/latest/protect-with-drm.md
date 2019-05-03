@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -150,6 +150,8 @@ When you run the app, you see the following:
 
 ![Protect with DRM](./media/protect-with-drm/playready_encrypted_url.png)
 
+You can open a browser and paste the resulting URL to launch the Azure Media Player demo page with the URL and token filled out for you already. 
+ 
 ## Clean up resources in your Media Services account
 
 Generally, you should clean up everything except objects that you are planning to reuse (typically, you will reuse Transforms, and you will persist StreamingLocators, etc.). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  For example, the following code deletes Jobs.
