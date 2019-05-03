@@ -34,12 +34,16 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to perform 
 Use this command to create a blob container.
 
 ```
-azcopy make "https://<storage-account-name>.blob.core.windows.net/<container-name>"
+azcopy make "https://<storage-account-name>.<uri-suffix>/<container-name>"
 ```
 
 Example:
 
 `azcopy make "https://mystorageaccount.blob.core.windows.net/mycontainer"`
+
+Example (hierarchical namespace file systems):
+
+`azcopy make "https://mystorageaccount.dfs.core.windows.net/mycontainer"`
 
 ## Upload files
 
