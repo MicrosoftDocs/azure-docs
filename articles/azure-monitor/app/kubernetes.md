@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor - Application Insights for Kubernetes with service mesh Istio | Microsoft Docs
+title: Azure Monitor - Zero instrumentation application monitoring for Kubernetes hosted apps | Microsoft Docs
 description: Application Insight for Kubernetes is a monitoring solution that allows you to collect Application Insights telemetry pertaining to incoming and outgoing requests to and from pods running in your Kubernetes cluster by utilizing service mesh technology called Istio.
 services: application-insights
 author: rishabjolly
@@ -10,7 +10,7 @@ ms.date: 04/25/2019
 ms.author: rijolly
 ---
 
-# Application Insights for Kubernetes with service mesh
+# Zero instrumentation application monitoring for Kubernetes hosted apps
 
 > [!IMPORTANT]
 > Application Insights for Kubernetes via service mesh is currently in public preview.
