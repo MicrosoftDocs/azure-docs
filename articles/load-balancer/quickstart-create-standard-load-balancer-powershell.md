@@ -163,7 +163,6 @@ $vnet = New-AzVirtualNetwork `
 ```
 ### Create public IP addresses for the VMs
 
-# Create public IP address
 To access your VMs using a RDP connection, you need public IP address for the VMs. Since a Standard Load Balancer is used in this scenario, you must create Standard public IP addresses for the VMs with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress).
 
 ```azurepowershell
@@ -287,19 +286,19 @@ Install IIS with a custom web page on both back-end VMs as follows:
 
 1. Get the public IP addresses of the three VMs using `Get-AzPublicIPAddress`.
 
-  ```azurepowershell
-   $vm1_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_1").IpAddress
-   $vm2_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_2").IpAddress
-   $vm3_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_3").IpAddress
-  ```
+      ```azurepowershell
+       $vm1_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_1").IpAddress
+       $vm2_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_2").IpAddress
+       $vm3_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_3").IpAddress
+      ```
 2. Create remote desktop connections with *myVM1*, *myVM2*, and *myVM3* using the public IP addresses of the VMs as follows: 
 
-  ```azurepowershell    
-   mstsc /v:$vm1_rdp_ip
-   mstsc /v:$vm2_rdp_ip
-   mstsc /v:$vm3_rdp_ip
+      ```azurepowershell    
+       mstsc /v:$vm1_rdp_ip
+       mstsc /v:$vm2_rdp_ip
+       mstsc /v:$vm3_rdp_ip
    
-  ```
+      ```
 
 3. Enter the credentials for each VM to start the RDP session.
 4. Launch Windows PowerShell on each VM and using the following commands to install IIS server and update the default htm file.
