@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 05/07/2019
 ms.author: diberry
 ---
 
@@ -211,6 +211,74 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
       }
     }
   ]
+```
+
+## Preview API version 3.x
+
+DatetimeV2 JSON response has changed in the API V3. 
+
+Changes from API V2:
+* `datetimeV2.timex.type` property is no longer returned because it is returned at the parent level, `datetimev2.type`. 
+* The `datetimeV2.timex` property has been renamed to `datetimeV2.value`.
+
+For the utterance, `8am on may 2nd 2017`, the V3 version of DatetimeV2 is:
+
+```JSON
+{
+    "query": "8am on may 2nd 2017",
+    "prediction": {
+        "normalizedQuery": "8am on may 2nd 2017",
+        "topIntent": "None",
+        "entities": {
+            "datetimeV2": [
+                {
+                    "type": "datetime",
+                    "timex": [
+                        "2017-05-02T08"
+                    ]
+                }
+            ]
+        }
+    }
+}
+```
+
+The following JSON is with the `verbose` parameter set to `false`:
+
+```json
+{
+    "query": "8am on may 2nd 2017",
+    "prediction": {
+        "normalizedQuery": "8am on may 2nd 2017",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.6826963
+            }
+        },
+        "entities": {
+            "datetimeV2": [
+                {
+                    "type": "datetime",
+                    "timex": [
+                        "2017-05-02T08"
+                    ]
+                }
+            ],
+            "$instance": {
+                "datetimeV2": [
+                    {
+                    "type": "builtin.datetimeV2.datetime",
+                    "text": "8am on may 2nd 2017",
+                    "startIndex": 0,
+                    "length": 19,
+                    "modelTypeId": 2,
+                    "modelType": "Prebuilt Entity Extractor"
+                }
+            ],
+        }
+    }
+}
 ```
 
 ## Deprecated prebuilt datetime
