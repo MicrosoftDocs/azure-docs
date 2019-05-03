@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2019
+ms.date: 05/03/2019
 ms.author: chmutali
 
 ms.collection: M365-identity-device-management
@@ -138,29 +138,29 @@ Replaces values within a string. It works differently depending on the parameter
 
 * When **oldValue** and **replacementValue** are provided:
   
-  * Replaces all occurrences of oldValue in the source  with replacementValue
+  * Replaces all occurrences of **oldValue** in the **source**  with **replacementValue**
 * When **oldValue** and **template** are provided:
   
   * Replaces all occurrences of the **oldValue** in the **template** with the **source** value
 * When **regexPattern**, **regexGroupName**, **replacementValue** are provided:
   
-  * Replaces all values matching oldValueRegexPattern in the source string with replacementValue
+  * Replaces all values matching **oldValue** **regexPattern** in the **source** string with **replacementValue**
 * When **regexPattern**, **regexGroupName**, **replacementPropertyName** are provided:
   
   * If **source** has no value, **source** is returned
-  * If **source** has a value, uses **regexPattern** and **regexGroupName** to extract replacement value from the property with **replacementPropertyName**. Replacement value is returned as the result
+  * If **source** has a value, uses **regexPattern** and **regexGroupName** to extract **replacementValue** from the property with **replacementPropertyName**. **replacementValue** is returned as the result
 
 **Parameters:**<br> 
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Required |String |Usually name of the attribute from the source object. |
+| **source** |Required |String |Usually name of the attribute from the **source** object. |
 | **oldValue** |Optional |String |Value to be replaced in **source** or **template**. |
-| **regexPattern** |Optional |String |Regex pattern for the value to be replaced in **source**. Or, when replacementPropertyName is used, pattern to extract value from replacement property. |
-| **regexGroupName** |Optional |String |Name of the group inside **regexPattern**. Only when  replacementPropertyName is used, we will extract value of this group as replacementValue from replacement property. |
+| **regexPattern** |Optional |String |Regex pattern for the value to be replaced in **source**. Or, when **replacementPropertyName** is used, pattern to extract value from **replacementPropertyName**. |
+| **regexGroupName** |Optional |String |Name of the group inside **regexPattern**. Only when  **replacementPropertyName** is used, we will extract value of this group as **replacementValue** from **replacementPropertyName**. |
 | **replacementValue** |Optional |String |New value to replace old one with. |
-| **replacementAttributeName** |Optional |String |Name of the attribute to be used for replacement value, when source has no value. |
-| **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with source value. |
+| **replacementPropertyName** |Optional |String |Name of the attribute to be used for replacement value, when **source** has no value. |
+| **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with **source** value. |
 
 - - -
 ### SelectUniqueValue
