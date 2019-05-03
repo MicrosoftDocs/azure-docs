@@ -29,7 +29,7 @@ Blockchain Workbench allows you to deploy a blockchain ledger along with a set o
 * Service Bus
 * SQL Database (Standard S0) + SQL Logical Server
 * Azure Storage account (Standard LRS)
-* Virtual Machine scale set with capacity of 1
+* Virtual machine scale set with capacity of 1
 * Virtual Network resource group (with Load Balancer, Network Security Group, Public IP Address, Virtual Network)
 * Optional: Azure Blockchain Service (Basic B0 default)
 
