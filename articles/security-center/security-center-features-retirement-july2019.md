@@ -34,21 +34,21 @@ This article provides detailed information for each retired feature and the step
 
 ## Events dashboard<a name="menu_events"></a>
 
-Security Center uses the Microsoft Monitoring Agent to collect various security related configurations and events from your machines and stores these events in your workspace(s). The [Events dashboard](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) allows viewing this data, and essentially provides another entry point to Log Analytics.
+Security Center uses Microsoft Monitoring Agent to collect various security related configurations and events from your machines. It stores these events in your workspace(s). The [events dashboard](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) lets you view this data and  gives you an entry point to Log Analytics.
 
-Going forward the events dashboard will be retired:
+We are retiring the events dashboard:
 
 ![Events workspace selection screen][1]
 
-The events dashboard that appears once a user clicks on a workspace, will also be retired:
+We are also retiring the events dashboard that appears when you select a workspace:
 
 ![Events dashboard][2]
 
-### Events dashboard - New experience
+### Events dashboard - the new experience
 
-Customers are encouraged to use Log Analytics’ native capabilities to view notable events on their workspace(s).
+We encouraged you to use the native capabilities of Azure Log Analytics to view notable events on your workspace(s).
 
-If you have already created custom notable events from Security Center, these will be accessible via Log analytics -> select workspace -> Saved Searches. Your data will not be lost nor modified. Native Notable events are also available from the same screen.
+If you've created custom notable events in Security Center, these will be accessible. Go to **Log Analytics** > **Select workspace** > **Saved Searches**. Your data won't be lost nor modified. Native notable events are also available from the same screen.
 
 ![Workspace saved searches][3]
 
