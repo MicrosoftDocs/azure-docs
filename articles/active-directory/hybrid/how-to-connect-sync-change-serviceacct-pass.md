@@ -75,7 +75,7 @@ First you can stop the service in the Windows Service Control Manager.  Make sur
 #### Abandon the existing encryption key
 Abandon the existing encryption key so that new encryption key can be created:
 
-1. Log in to your Azure AD Connect Server as administrator.
+1. Sign in to your Azure AD Connect Server as administrator.
 
 2. Start a new PowerShell session.
 
