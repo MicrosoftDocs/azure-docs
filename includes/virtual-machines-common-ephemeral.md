@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-Ephemeral OS disks are created on the local Virtual Machine (VM) storage and not persisted to the remote Azure Storage. Ephemeral OS disks work well for stateless workloads, where applications are tolerant of individual VM failures, but are more concerned about the time it takes for large-scale deployments or time to reimage the individual VM instances. It is also suitable for applications, deployed using the classic deployment model, to move to the Resource Manager deployment model. With Ephemeral OS disk, you would observe lower read/write latency to the OS disk and faster VM reimage. In addition, Ephemeral OS disk is free i.e., you incur no storage cost for OS disk. 
+Ephemeral OS disks are created on the local Virtual Machine (VM) storage and not persisted to the remote Azure Storage. Ephemeral OS disks work well for stateless workloads, where applications are tolerant of individual VM failures, but are more concerned about the time it takes for large-scale deployments or time to reimage the individual VM instances. It is also suitable for applications, deployed using the classic deployment model, to move to the Resource Manager deployment model. With Ephemeral OS disk, you would observe lower read/write latency to the OS disk and faster VM reimage. In addition, Ephemeral OS disk is free, you incur no storage cost for OS disk. 
  
 The key features of ephemeral disks are: 
 - They can be used with both Marketplace images and custom images.
@@ -24,7 +24,7 @@ Key differences between persistent and ephemeral OS disks:
 
 |                             | Persistent OS Disk                          | Ephemeral OS Disk                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| Size limit for OS disk      | 2 TiB                                                                                        | Cache size for the VM size or 2TiB, whichever is smaller - [DS](../articles/linux/sizes-general.md), [ES](../articles/linux/sizes-memory.md), [M](../articles/linux/sizes-memory.md), [FS](../articles/linux/sizes-compute.md), and [GS](../articles/linux/sizes-memory.md)              |
+| Size limit for OS disk      | 2 TiB                                                                                        | Cache size for the VM size or 2TiB, whichever is smaller - [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), and [GS](../articles/virtual-machines/linux/sizes-memory.md)              |
 | VM sizes supported          | All                                                                                          | DSv1, DSv2, DSv3, Esv2, Fs, FsV2, GS, M                                               |
 | Disk type support           | Managed and unmanaged OS disk                                                                | Managed OS disk only                                                               |
 | Region support              | All regions                                                                                  | All regions                              |
