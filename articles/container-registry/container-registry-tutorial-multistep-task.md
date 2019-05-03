@@ -10,7 +10,7 @@ ms.date: 05/02/2019
 ms.author: danlep
 ms.custom: "seodec18, mvc"
 # Customer intent: As a developer or devops engineer, I want to trigger
-# a multi-step container workfolow automatically when I commit code to a Git repo.
+# a multi-step container workflow automatically when I commit code to a Git repo.
 ---
 
 # Tutorial: Run a multi-step container workflow in the cloud when you commit source code
@@ -37,9 +37,38 @@ If you'd like to use the Azure CLI locally, you must have Azure CLI version **2.
 
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
-## Create the build task
+## Create a multi-step task
 
-Now that you've completed the steps required to enable ACR Tasks to read commit status and create webhooks in a repository, you can create a task that triggers a container image build on commits to the repo.
+Now that you've completed the steps required to enable ACR Tasks to read commit status and create webhooks in a repository, you can create a multi-step task that triggers building, running, and pushing container images.
+
+### YAML file
+
+To create a multi-step task, you define the steps in a [YAML file](container-registry-tasks-reference-yaml.md). The example multi-step task for this tutorial is defined in the file `multitask.yaml`, which is in the root of the GitHub repo that you cloned:
+
+```yml
+version: v1.0.0
+steps:
+# Build target images
+- build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f Dockerfile .
+- build: -t {{.Values.regLatest}}/hello-world:{{.Run.Date}} -f Dockerfile .
+# Run image 
+- cmd: -d -p 8080:80 --name test -t {{.Run.Registry}}/hello-world:{{.Run.ID}} 
+# Push images
+- push:
+  - {{.Run.Registry}}/hello-world:{{.Run.ID}}
+  - {{.Values.regLatest}}/hello-world:{{.Run.Date}}
+```
+
+This multi-step task does the following:
+
+1. Uses two `build` steps to build images from the Dockerfile in the working directory:
+  * The first is targeted for the `Run.Registry`, the registry where the task is run, and tagged with the ACR Tasks run ID. 
+  * The second is targeted for a registry identified by the value of `regLatest`, which you set when you create the task (or provide through an external `values.yaml` file). This image is tagged with the run date.
+1. Uses a `cmd` step to run the first image in a temporary container. This example runs the container in the background and returns the container ID. In a real-world scenario, you might test a running container to ensure it runs correctly.
+1. In a `push` step, pushes the images that were built, the first to the run registry, the second to the registry identified by `regLatest`.
+
+
+### Task command
 
 First, populate these shell environment variables with values appropriate for your environment. This step isn't strictly required, but makes executing the multiline Azure CLI commands in this tutorial a bit easier. If you don't populate these environment variables, you must manually replace each value wherever they appear in the example commands.
 
@@ -54,12 +83,12 @@ Now, create the task by executing following [az acr task create][az-acr-task-cre
 ```azurecli-interactive
 az acr task create \
     --registry $ACR_NAME \
-    --name taskhelloworld \
-    --image helloworld:{{.Run.ID}} \
+    --name multitask \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
     --branch master \
-    --file Dockerfile \
-    --git-access-token $GIT_PAT
+    --file multitask.yaml \
+    --git-access-token $GIT_PAT \
+    --set regLatest=
 ```
 
 > [!IMPORTANT]

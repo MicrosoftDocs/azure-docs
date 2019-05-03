@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 05/02/2019
 ms.author: danlep
 ---
 ## Prerequisites
@@ -13,7 +13,7 @@ This tutorial assumes you've already completed the steps in the [previous tutori
 
 ### Container registry
 
-You must have an Azure container registry in your Azure subscription to complete this tutorial. If you need a registry, see the [previous tutorial](../articles/container-registry/container-registry-tutorial-quick-task.md), or [Quickstart: Create a container registry using the Azure CLI](../articles/container-registry/container-registry-get-started-azure-cli.md).
+You must have at least one Azure container registry in your Azure subscription to complete this tutorial. For the multi-step task example, two registries are recommended. If you need a registry, see the [previous tutorial](../articles/container-registry/container-registry-tutorial-quick-task.md), or [Quickstart: Create a container registry using the Azure CLI](../articles/container-registry/container-registry-get-started-azure-cli.md).
 
 ## Create a GitHub personal access token
 
