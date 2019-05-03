@@ -81,7 +81,7 @@ subscriptionID=<Subscription ID>
 
 Get the image version that you want to update.
 
-```
+```azurecli-interactive
 sigDefImgVersionId=$(az sig image-version list \
    -g $sigResourceGroup \
    --gallery-name $sigName \
@@ -102,7 +102,7 @@ az role assignment create \
 
 
 ## Modify HelloImage Example
-You can review the example we are about to use by opening the .json file here: [https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) along with the [Image Builder template reference](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+You can review the example we are about to use by opening the .json file here: [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) along with the [Image Builder template reference](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 
 Download the .json example and configure it with your variables. 
@@ -159,9 +159,16 @@ az vm create \
 
 ## Verify the customization
 
+## Verify the customization
+Create a Remote Desktop connection to the VM using the username and password you set when you created the VM. Inside the VM, open a cmd prompt and type:
 
+```console
+dir c:\
+```
 
-
+You should now see two directories:
+- `buildActions` that was created in the first image version.
+- `buildActions2` that was created as part up updating the first image version to create the second image version.
 
 
 ## Next Steps

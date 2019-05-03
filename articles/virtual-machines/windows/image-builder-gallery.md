@@ -52,7 +52,7 @@ az provider register -n Microsoft.Compute
 
 ## Set variables and permissions 
 
-We will be using some pieces of information repeatedly, so we will create some variables to store that information. Replace the values for the variables with your own information.
+We will be using some pieces of information repeatedly, so we will create some variables to store that information. Replace the values for the variables, like `username` and `vmpassword`, with your own information.
 
 ```azurecli-interactive
 # Resource group name - we are using ibsigRG in this example
@@ -68,8 +68,8 @@ imageDefName=winSvrimages
 # image distribution metadata reference name
 runOutputName=w2019SigRo
 # User name and password for the VM
-username="user name for the VM"
-vmpassword="password for the VM"
+username="azureuser"
+vmpassword="passwordfortheVM"
 ```
 
 Create a variable for your subscription ID. You can get this using `az account show | grep id`.
@@ -187,9 +187,7 @@ Create a Remote Desktop connection to the VM using the username and password you
 dir c:\
 ```
 
-You should see these two directories created during image customization:
-- buildActions
-- buildArtifacts
+You should see a directory named `buildActions` that was created during image customization.
 
 
 ## Clean up resources

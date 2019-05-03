@@ -188,4 +188,4 @@ az group delete -n $imageResourceGroup
 
 ## Next steps
 
-To learn more about the components of the .json file used in this article, see [Image builder json template reference](image-builder-json.md).
+To learn more about the components of the .json file used in this article, see [Image Builder template reference](image-builder-json.md).
