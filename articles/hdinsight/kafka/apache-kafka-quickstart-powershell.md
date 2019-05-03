@@ -36,7 +36,7 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 
 Sign in to your Azure subscription with the `Connect-AzAccount` cmdlet and follow the on-screen directions.
 
-```powershell
+```azurepowershell-interactive
 # Login to your Azure subscription
 $sub = Get-AzSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
@@ -52,7 +52,7 @@ if(-not($sub))
 
 Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. The following example prompts you for the name and location, and then creates a new resource group:
 
-```powershell
+```azurepowershell-interactive
 $resourceGroup = Read-Host -Prompt "Enter the resource group name"
 $location = Read-Host -Prompt "Enter the Azure region to use"
 
@@ -80,7 +80,7 @@ New-AzStorageAccount `
 
 HDInsight stores data in the storage account in a blob container. Use [New-AzStorageContainer](/powershell/module/Az.Storage/New-AzStorageContainer) to create a new container.
 
-```powershell
+```azurepowershell-interactive
 $containerName = Read-Host -Prompt "Enter the container name"
 
 $storageKey = (Get-AzStorageAccountKey `
@@ -97,7 +97,7 @@ New-AzStorageContainer -Name $containerName -Context $storageContext
 
 Create an Apache Kafka on HDInsight cluster with [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster).
 
-```powershell
+```azurepowershell-interactive
 # Create a Kafka 1.1 cluster
 $clusterName = Read-Host -Prompt "Enter the name of the Kafka cluster"
 $httpCredential = Get-Credential -Message "Enter the cluster login credentials" -UserName "admin"
@@ -331,7 +331,7 @@ You can also programmatically create producers and consumers. For an example of 
 
 When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, HDInsight, and all related resources.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 
