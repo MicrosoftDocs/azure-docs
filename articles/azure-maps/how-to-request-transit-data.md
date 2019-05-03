@@ -3,7 +3,7 @@ title: How to request transit data in Azure Maps | Microsoft Docs
 description: Request public transit data using the Azure Maps Mobility service.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 05/01/2019
+ms.date: 05/03/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -506,17 +506,17 @@ To make a route request, complete the steps below:
     }
     ```
 
-4. If you observe carefully, there are multiple **bus** routes in the response. Each route has unique itinerary ID and a summary to describe each transit leg. Next we will request details for the fastest route using the `itineraryId` in the response.
+4. If you observe carefully, there are multiple **bus** routes in the response. Each route has unique **itinerary ID** and a summary that describes each leg of the route. Next we will request details for the fastest route using the `itineraryId` in the response.
 
 ## Request fastest route itinerary
 
-The Azure Maps [Get Transit Itinerary]() allows you to request data for a particular route using the route's **itinerary ID** returned by the [Get Nearby Transit](https://aka.ms/AzureMapsMobilityNearbyTransit) service. To make a request, complete the steps below:
+The Azure Maps [Get Transit Itinerary](https://aka.ms/AzureMapsMobilityTransitItinerary) service allows you to request data for a particular route using the route's **itinerary ID** returned by the [Get Transit Routes API](https://aka.ms/AzureMapsMobilityTransitRoute) service. To make a request, complete the steps below:
 
-1. In Postman, click **New Request** | **GET request** and name it **Get Route info**.
+1. In Postman, click **New Request** | **GET request** and name it **Get Transit info**.
 
 2. On the Builder tab, select the **GET** HTTP method, enter the following request URL for your API endpoint and click **Send**.
 
-    We will set the `DetailType`() parameter to **itineraryShape** so that the response contains stop information for public transit and turn-by-turn navigation for walk and bike legs of the route.
+    We will set the `DetailType` parameter to **itineraryShape** so that the response contains stop information for public transit and turn-by-turn navigation for walk and bike legs of the route.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/itinerary/json?api-version=1.0&subscription-key={subscription-key}&query={itineraryId}&detailType=itineraryShape
