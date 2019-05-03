@@ -712,7 +712,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 |[Type checking functions](#bk_type_checking_functions)|The type checking functions allow you to check the type of an expression within SQL queries.|  
 |[String functions](#bk_string_functions)|The string functions perform an operation on a string input value and return a string, numeric or Boolean value.|  
 |[Array functions](#bk_array_functions)|The array functions perform an operation on an array input value and return numeric, Boolean, or array value.|
-|[Date and Time functions](#bk_date_and_time_functions)|The date and time functions allow you to get the current, or perform an operation on, a numeric epoch in milliseconds, or a string date time in ISO 8601 format.|
+|[Date and Time functions](#bk_date_and_time_functions)|The date and time functions allow you to get the current UTC date and time in two forms; a numeric timestamp whose value is the Unix epoch in milliseconds or as a string which conforms to the ISO 8601 format.|
 |[Spatial functions](#bk_spatial_functions)|The spatial functions perform an operation on a spatial object input value and return a numeric or Boolean value.|  
   
 ###  <a name="bk_mathematical_functions"></a> Mathematical functions  
@@ -3121,7 +3121,7 @@ SELECT
 ```  
 
 ###  <a name="bk_date_and_time_functions"></a> Date and Time functions
- The following scalar functions allow you to get the current, or perform an operation on, a numeric epoch in milliseconds, or a string date time in ISO 8601 format.
+ The following scalar functions allow you to get the current UTC date and time in two forms; a numeric timestamp whose value is the Unix epoch in milliseconds or as a string which conforms to the ISO 8601 format. 
 
 |||
 |-|-|
@@ -3158,7 +3158,7 @@ GetCurrentDateTime ()
 
   **Remarks**
 
-  Please note that GetCurrentDateTime is a nondeterministic function.
+  Please note that GetCurrentDateTime is a nondeterministic function. Also note that the result returned is UTC (Coordinated Universal Time).
 
   **Examples**  
   
@@ -3191,7 +3191,7 @@ GetCurrentTimestamp ()
 
   **Remarks**
 
-  Please note that GetCurrentTimestamp is a nondeterministic function. Also note that the current timestamp returned is UTC (Coordinated Universal Time).
+  Please note that GetCurrentTimestamp is a nondeterministic function. Also note that the result returned is UTC (Coordinated Universal Time).
 
   **Examples**  
   
