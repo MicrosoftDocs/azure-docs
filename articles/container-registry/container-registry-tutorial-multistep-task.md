@@ -15,7 +15,7 @@ ms.custom: "seodec18, mvc"
 
 # Tutorial: Run a multi-step container workflow in the cloud when you commit source code
 
-In addition to a [quick task](container-registry-tutorial-quick-task.md), ACR Tasks supports multi-steps tasks that can automatically trigger building, running, and pushing container images in the cloud when you commit source code to a Git repository.
+In addition to a [quick task](container-registry-tutorial-quick-task.md), ACR Tasks supports multi-step, multi-container-based workflows that can automatically trigger when you commit source code to a Git repository. 
 
 In this tutorial, you learn how to use a YAML file to define a multi-step task that builds, runs, and pushes one or more container images to a registry when you commit source code. To create a task that only automates a single image build on code commit, see [Tutorial: Automate container image builds in the cloud when you commit source code](container-registry-tutorial-build-task.md). For an overview of ACR Tasks, see [Automate OS and framework patching with ACR Tasks](container-registry-tasks-overview.md),
 
@@ -43,7 +43,7 @@ Now that you've completed the steps required to enable ACR Tasks to read commit 
 
 ### YAML file
 
-To create a multi-step task, you define the steps in a [YAML file](container-registry-tasks-reference-yaml.md). The first example multi-step task for this tutorial is defined in the file `multitask.yaml`, which is in the root of the GitHub repo that you cloned:
+You define the steps for a multi-step taks in a [YAML file](container-registry-tasks-reference-yaml.md). The first example multi-step task for this tutorial is defined in the file `taskmulti.yaml`, which is in the root of the GitHub repo that you cloned:
 
 ```yml
 version: v1.0.0
@@ -79,14 +79,14 @@ Now, create the task by executing the following [az acr task create][az-acr-task
 ```azurecli-interactive
 az acr task create \
     --registry $ACR_NAME \
-    --name taskmulti \
+    --name example1 \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
     --branch master \
-    --file multitask.yaml \
-    --git-access-token $GIT_PAT \
+    --file taskmulti.yaml \
+    --git-access-token $GIT_PAT
 ```
 
-This task specifies that any time code is committed to the *master* branch in the repository specified by `--context`, ACR Tasks will run the multi-step from the code in that branch. The YAML file specified by `--file` from the repository root is used to run the steps. 
+This task specifies that any time code is committed to the *master* branch in the repository specified by `--context`, ACR Tasks will run the multi-step task from the code in that branch. The YAML file specified by `--file` from the repository root defines the steps. 
 
 Output from a successful [az acr task create][az-acr-task-create] command is similar to the following:
 
@@ -99,7 +99,7 @@ Output from a successful [az acr task create][az-acr-task-create] command is sim
   "credentials": null,
   "id": "/subscriptions/<Subscription ID>/resourceGroups/myregistry/providers/Microsoft.ContainerRegistry/registries/myregistry/tasks/taskmulti",
   "location": "westus",
-  "name": "taskmulti",
+  "name": "example1",
   "platform": {
     "architecture": "amd64",
     "os": "linux",
@@ -112,7 +112,7 @@ Output from a successful [az acr task create][az-acr-task-create] command is sim
     "baseImageDependencies": null,
     "contextAccessToken": null,
     "contextPath": "https://github.com/gituser/acr-build-helloworld-node.git",
-    "taskFilePath": "multitask.yaml",
+    "taskFilePath": "taskmulti.yaml",
     "type": "FileTask",
     "values": [],
     "valuesFilePath": null
@@ -145,12 +145,12 @@ Output from a successful [az acr task create][az-acr-task-create] command is sim
 }
 ```
 
-## Test the build task
+## Test the multi-step workflow
 
-You now have a task that defines your build. To test the build pipeline, trigger a build manually by executing the [az acr task run][az-acr-task-run] command:
+To test the multi-step task, trigger it manually by executing the [az acr task run][az-acr-task-run] command:
 
 ```azurecli-interactive
-az acr task run --registry $ACR_NAME --name taskmulti
+az acr task run --registry $ACR_NAME --name example1
 ```
 
 By default, the `az acr task run` command streams the log output to your console when you execute the command.
