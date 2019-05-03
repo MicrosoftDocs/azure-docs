@@ -88,9 +88,6 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
 1. Run the second code cell. If you see instructions to authenticate, copy the code and follow the link to sign in. Once you sign in, your browser will remember this setting.  
 
-    > [!TIP]
-    > Be sure not to copy the space after the code.  
-
     ![Authenticate](media/quickstart-run-cloud-notebook/authenticate.png)
 
 1. When complete, the cell number __[2]__ appears.  If you had to sign in, you will see a successful authentication status message.   If you didn't have to sign in, you won't see any output for this cell, only the number appears to show that the cell ran successfully.
