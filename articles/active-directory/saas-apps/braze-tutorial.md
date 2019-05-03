@@ -123,16 +123,10 @@ To configure Azure AD single sign-on with Braze, perform the following steps:
 
 	| Name | Source Attribute|
 	| -----| --------------- |
-	| displayname | displayname |
-	| facsimilenumber| user.facsimiletelephonenumber|
-	| jobtitle| user.jobtitle|
-	| phonenumber| user.telephonenumber|
-	| preferredlanguage| user.preferredlanguange|
-	| country| user.country|
-	| emailaddress| user.mail|
-	| postalcode| user.postalcode|
-	| stateorprovince| user.state|
-	| surname| user.surname|
+	| email | user.userprincipalname |
+	| first_name| user.givenname|
+	| last_name| user.surname|
+	| login| user.mail|
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -237,4 +231,3 @@ When you click the Braze tile in the Access Panel, you should be automatically s
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
