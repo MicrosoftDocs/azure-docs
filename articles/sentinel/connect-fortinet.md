@@ -68,7 +68,8 @@ To see a network diagram of both options, see [Connect data sources](connect-dat
               2. Download and install the [security_events config file](https://aka.ms/asi-syslog-config-file-linux) that configures the Syslog agent to listen on port 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Where {0} should be replaced with your workspace GUID.
 
               3. Restart the syslog daemon `sudo service syslog-ng restart`
-      2. Restart the Syslog agent using this command: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
+      2. Restart the Syslog agent using this command: `sudo /opt/microsoft/omsagent/bin/service_control restart {0}`
+      Where {0} should be replaced with your workspace GUID. 
       1. Confirm that there are no errors in the agent log by running this command: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
 
 ### Deploy the agent on an on premises Linux server
