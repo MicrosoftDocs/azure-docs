@@ -49,7 +49,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
     ![Create a new VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
-1. Wait approximately 4-5 minutes, then select **Refresh**.  Try refreshing every 30 seconds or so until the status is **Running**.
+1. Wait approximately 4-5 minutes, until the status changes to **Running**.
 
     ![Refresh](media/quickstart-run-cloud-notebook/refresh.png)
 
