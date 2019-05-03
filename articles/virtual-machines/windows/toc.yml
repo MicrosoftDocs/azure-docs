@@ -267,6 +267,10 @@
         href: image-builder-gallery.md
       - name: Update an image version
         href: image-builder-gallery-update-image-version.md
+      - name: Use scripts in Azure Storage
+        href: ../linux/image-builder-user-assigned-identity.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      - name: Troubleshooting
+        href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Find and use images
       href: cli-ps-findimage.md
     - name: Prepare VM for upload

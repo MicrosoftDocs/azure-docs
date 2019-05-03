@@ -3,7 +3,7 @@ title: Create a Windows VM with Azure Image Builder (preview)
 description: Create a Windows VM with the Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 04/26/2019
+ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: jeconnoc
@@ -17,8 +17,6 @@ This article is to show you how you can create a customized Windows image using 
 - File - copy a file from GitHub onto the VM. This example copies [index.md](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) to `c:\buildArtifacts\index.html` on the VM.
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
-
-
 
 
 > [!IMPORTANT]

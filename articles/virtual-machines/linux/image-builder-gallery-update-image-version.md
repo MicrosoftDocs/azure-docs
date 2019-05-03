@@ -1,14 +1,14 @@
 ---
-title: Create a new image version from an existing image version using Azure Image Builder
+title: Create a new image version from an existing image version using Azure Image Builder (preview)
 description: Create a new image version from an existing image version using Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 04/17/2019
+ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ---
-# Create a new image version from an existing image version using Azure Image Builder
+# Preview: Create a new image version from an existing image version using Azure Image Builder
 
 This article shows you how to take an existing image version in a [Shared Image Gallery](shared-image-galleries.md), update it, and publish it as a new image version to the gallery.
 
@@ -96,7 +96,7 @@ az role assignment create \
 
 
 ## Modify HelloImage Example
-You can review the example we are about to use by opening the .json file here: [https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) along with the [Image Builder template reference](image-builder-json.md). 
+You can review the example we are about to use by opening the .json file here: [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) along with the [Image Builder template reference](image-builder-json.md). 
 
 
 Download the .json example and configure it with your variables. 
@@ -167,6 +167,13 @@ You should see the image was customized with a "Message of the Day" as soon as y
 *******************************************************
 ```
 
+Type `exit` to close the SSH connection.
+
+You can also list the image versions that are now available in your gallery.
+
+```azurecli-interactive
+az sig image-version list -g $sigResourceGroup -r $sigName -i $imageDefName -o table
+```
 
 
 ## Next Steps

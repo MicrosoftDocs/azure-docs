@@ -1,19 +1,23 @@
 ---
-title: Create a new image version from an existing image version using Azure Image Builder
+title: Create a new image version from an existing image version using Azure Image Builder (preview)
 description: Create a new image version from an existing image version using Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 04/27/2019
+ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: jeconnoc
 ---
-# Create a new image version from an existing image version using Azure Image Builder
+# Preview: Create a new image version from an existing image version using Azure Image Builder
 
 This article shows you how to take an existing image version in a [Shared Image Gallery](shared-image-galleries.md), update it, and publish it as a new image version to the gallery.
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIGfromWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
 
+> [!IMPORTANT]
+> Azure Image Builder is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Register the features
 To use Azure Image Builder during the preview, you need to register the new feature.

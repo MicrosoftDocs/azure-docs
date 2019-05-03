@@ -8,7 +8,7 @@ ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ---
-# Create an Azure Image Builder template 
+# Preview: Create an Azure Image Builder template 
 
 Azure Image Builder uses a .json file to pass information into the Image Builder service. In this article we will go over the sections of the json file, so you can build your own. To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
 
@@ -133,7 +133,6 @@ Azure Image Builder supports the following Azure Marketplace images:
 * Ubuntu 16.04
 * RHEL 7.6
 * CentOS 7.6
-* Windows 2012 R2
 * Windows 2016
 * Windows 2019
 
