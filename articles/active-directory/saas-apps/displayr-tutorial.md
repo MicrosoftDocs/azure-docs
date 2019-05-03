@@ -233,7 +233,7 @@ To enable Azure AD users, sign in to Displayr, they must be provisioned into Dis
 
 	![Displayr Configuration](./media/displayr-tutorial/config01.png)
 
-3. Switch to **Settings** from the top menu and scroll down the page, untill **Users** section then click on **New User**.
+3. Switch to **Settings** from the top menu and scroll down the page, until **Users** section then click on **New User**.
 
 	![Displayr Configuration](./media/displayr-tutorial/config07.png)
 
@@ -255,7 +255,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Displayr tile in the Access Panel, you should be automatically signed in to the Displayr for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
