@@ -24,10 +24,13 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to perform 
 > * Download AzCopy
 > * Authenticate your identity
 
-> [!NOTE]
-> The examples in this article assume that you authenticate your identity by using the `AzCopy login` command.
->
+There's really only two things to be aware of before you use the snippets in this article:
+
+> [!div class="checklist"]
+> * The examples in this article assume that you authenticate your identity by using the `AzCopy login` command.
 > If you choose to authenticate your identity by using a SAS token, then for each AzCopy command, append that token to url of the container resource (For example: "https://\<storage-account-name\>.blob.core.windows.net/\<container-name\>?**\<SAS-token\>**").
+> * If you've enabled a hierarchical namespace for your account, then use the string `dfs.core.windows.net` instead of `blob.core.windows.net` in your resource URIs.
+> Each example shows a version that contains the string `dfs.core.windows.net` and a version that contains the string `blob.core.windows.net` in resource URIs.
 
 ## Create containers
 
@@ -37,11 +40,9 @@ Use this command to create a blob container.
 azcopy make "https://<storage-account-name>.<uri-suffix>/<container-name>"
 ```
 
-Example:
+Examples:
 
 `azcopy make "https://mystorageaccount.blob.core.windows.net/mycontainer"`
-
-Example (hierarchical namespace file systems):
 
 `azcopy make "https://mystorageaccount.dfs.core.windows.net/mycontainer"`
 
