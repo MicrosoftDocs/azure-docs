@@ -62,7 +62,8 @@ Public preview
 | Operating System | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Windows 10 IoT Core, build 17763 | Yes | No |
-| Windows Server 2019 | Yes | No |
+| Windows Server 2019, build 17763 | Yes | No |
+| Windows Server IoT 2019, build 17763 | Yes | No |
 
 The Windows operating systems listed above are the requirements for devices that run Windows containers on Windows. This configuration is the only supported configuration for production. The Azure IoT Edge installation packages for Windows allow the use of Linux containers on Windows; however, this configuration is for development and testing only. Use of Linux containers on Windows is not a supported configuration for production. Any version of Windows 10 build 14393 or newer and Windows Server 2016 or newer can be used for this development scenario.
 
