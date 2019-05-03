@@ -94,7 +94,7 @@ To configure Azure AD single sign-on with Displayr, perform the following steps:
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. On the **Set-up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -102,13 +102,13 @@ To configure Azure AD single sign-on with Displayr, perform the following steps:
 
     ![Displayr Domain and URLs single sign-on information](common/sp-identifier.png)
 
-	a. In the **Sign on URL** text box, type a URL:
+	a. In the **Sign-on URL** text box, type a URL:
     `https://app.displayr.com/Login`
 
     b. In the **Identifier (Entity ID)** text box, type a URL:
     `www.displayr.com`
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
+5. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificateraw.png)
 
@@ -220,7 +220,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+7. In the **Add Assignment** dialog, click the **Assign** button.
 
 ### Create Displayr test user
 
