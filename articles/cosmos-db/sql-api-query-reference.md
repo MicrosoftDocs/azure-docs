@@ -3138,7 +3138,7 @@ GetCurrentDateTime ()
   
   **Return Types**
   
-  Returns a string value containing the current UTC date and time ISO 8601 string. 
+  Returns the current UTC date and time ISO 8601 string value. 
 
   This is expressed in the format YYYY-MM-DDThh:mm:ss.sssZ where:
   
@@ -3189,7 +3189,7 @@ GetCurrentTimestamp ()
   
   **Return Types**  
   
-  Returns a numeric value containing the current number of milliseconds that have elapsed since the Unix epoch i.e. the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
+  Returns a numeric value, the current number of milliseconds that have elapsed since the Unix epoch i.e. the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
 
   **Remarks**
 
