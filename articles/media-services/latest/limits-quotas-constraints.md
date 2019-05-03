@@ -55,7 +55,7 @@ The following table shows the limits on the media reserved units S1, S2, and S3.
 
 Any Job record in your account older than 90 days will be automatically deleted, even if the total number of records is below the maximum quota. 
 
-<sub>3</sup> Live Outputs start on creation and stop when deleted.
+<sup>3</sup> Live Outputs start on creation and stop when deleted.
 
 <sup>4</sup> The storage accounts must be from the same Azure subscription.
 
