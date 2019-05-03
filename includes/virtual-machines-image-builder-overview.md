@@ -23,7 +23,7 @@ For the preview, these features are supported:
 - Creation of golden basline images, that includes your minimum security and corporate configurations, and allow departments to customize it further for their needs.
 - Patching of existing images, Image Builder will allow you to continually patch existing custom images.
 - Integration with the Azure Shared Image Gallery, allows you to distribute, version, and scale images globally, and gives you an image management system.
-- Integration with existing image build pipelines, just call Image Builder from your pipeline, or use the simple Preview Image Builder Azure Devops Task.
+- Integration with existing image build pipelines, just call Image Builder from your pipeline, or use the simple Preview Image Builder Azure DevOps Task.
 - Migrate an existing image customization pipeline to Azure. Use your existing scripts, commands, and processes to customize images.
 - Use Red Hat Bring Your Own Subscription support. Create Red Hat Enterprise images for use with your eligible, unused Red Hat subscriptions.
 - Creation of images in VHD format.
@@ -75,7 +75,7 @@ The Azure Image Builder is a fully managed Azure service that is accessible by a
 
 ## Permissions
 
-To allow Azure VM Image Builder to distribute images to either the managed images or to a Shared Image Gallery, you will need to provide 'Contributor' permissions for the service "Azure Virtual Machine Image Builder" (app id cf32a0cc-373c-47c9-9156-0db11f6a6dfc) on the resource groups. 
+To allow Azure VM Image Builder to distribute images to either the managed images or to a Shared Image Gallery, you will need to provide 'Contributor' permissions for the service "Azure Virtual Machine Image Builder" (app ID: cf32a0cc-373c-47c9-9156-0db11f6a6dfc) on the resource groups. 
 
 If you are using an existing custom managed image or image version, then the Azure Image Builder will need a minimum of ‘Reader’ access to those resource groups.
 

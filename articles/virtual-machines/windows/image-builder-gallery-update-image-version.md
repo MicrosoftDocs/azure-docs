@@ -121,7 +121,7 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIGfromWinSI
 
 ## Create the Image
 
-Submit the image confiuration to the VM Image Builder Service.
+Submit the image configuration to the VM Image Builder Service.
 
 ```azurecli-interactive
 az resource create \

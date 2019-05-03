@@ -336,7 +336,7 @@ By default, Azure Image Builder will also run ‘deprovision’ code at the end 
 
 The commands Image Builder users to generalize may not be suitable for every situation, so Azure Image Builder will allow you to customize this command, if needed. 
 
-If you are migrating existing customization, and you are using different Sysprep/waagent commands, you can using the Image Builder generic commands, and if the VM creattion fails, use your own Sysprep or waagent commands.
+If you are migrating existing customization, and you are using different Sysprep/waagent commands, you can using the Image Builder generic commands, and if the VM creation fails, use your own Sysprep or waagent commands.
 
 If Azure Image Builder creates a Windows custom image successfully, and you create a VM from it, then find that the VM creation fails or does not complete successfully, you will need to review the Windows Server Sysprep documentation or raise a support request with the Windows Server Sysprep Customer Services Support team, who can troubleshoot and advise on the correct Sysprep usage.
 
@@ -358,7 +358,7 @@ while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Window
 ```
 
 #### Overriding the Commands
-To override the commands, use the PowerShell or Shell script provisioners to create the command files with the exact file name, and put them in the corret directories:
+To override the commands, use the PowerShell or Shell script provisioners to create the command files with the exact file name, and put them in the correct directories:
 
 * Windows: c:\DeprovisioningScript.ps1
 * Linux: /tmp/DeprovisioningScript.sh
@@ -375,7 +375,7 @@ Azure Image Builder supports three distribution targets:
 
 You can distribute an image to both of the target types in the same configuration, please see [examples](https://github.com/danielsollondon/azvmimagebuilder/blob/7f3d8c01eb3bf960d8b6df20ecd5c244988d13b6/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
 
-Because you can have more than one taget to distribute to, Image Builder maintains a state for every distribution target that can be accessed by querying the `runOutputName`.  The `runOutputName` is an object you can query post distribution for information about that distribution. For example, you can query the location of the VHD, or regions where the image version was replicated to. This is a property of every distribution target. The `runOutputName` must be unique to each distribution target.
+Because you can have more than one target to distribute to, Image Builder maintains a state for every distribution target that can be accessed by querying the `runOutputName`.  The `runOutputName` is an object you can query post distribution for information about that distribution. For example, you can query the location of the VHD, or regions where the image version was replicated to. This is a property of every distribution target. The `runOutputName` must be unique to each distribution target.
  
 ### Distribute: managedImage
 
