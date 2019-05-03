@@ -11,7 +11,7 @@ ms.date: 06/27/2018
 ---
 # Submit jobs from R Tools for Visual Studio
 
-[R Tools for Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) is a free, open-source extension for the Community (free), Professional, and Enterprise editions of both [Visual Studio 2017](https://www.visualstudio.com/downloads/), and [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) or higher.
+[R Tools for Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) is a free, open-source extension for the Community (free), Professional, and Enterprise editions of [Visual Studio](https://www.visualstudio.com/downloads/).
 
 RTVS enhances your R workflow by offering tools such as the [R Interactive window](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (REPL), intellisense (code completion), [plot visualization](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) through R libraries such as ggplot2 and ggviz, [R code debugging](https://docs.microsoft.com/visualstudio/rtvs/debugging), and more.
 
@@ -19,7 +19,7 @@ RTVS enhances your R workflow by offering tools such as the [R Interactive windo
 
 1. Install [R Tools for Visual Studio](https://docs.microsoft.com/visualstudio/rtvs/installation).
 
-    ![Installing RTVS in Visual Studio 2017](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
+    ![Installing RTVS in Visual Studio](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
 
 2. Select the *Data science and analytical applications* workload, then select the **R language support**, **Runtime support for R development**, and **Microsoft R Client** options.
 
