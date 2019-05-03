@@ -49,10 +49,15 @@ public class HomeController : Controller
     // Insert your endpoint here
     private const string Endpoint = "";
 
-    public async Task<IActionResult> Index()
+    public IActionResult Index()
     {
-        ViewBag.AccessToken = await GetTokenAsync(Endpoint, SubscriptionKey);
         return View();
+    }
+
+    [Route("token")]
+    public async Task<string> Token()
+    {
+        return await GetTokenAsync(Endpoint, SubscriptionKey);
     }
 
     /// <summary>
@@ -68,7 +73,7 @@ public class HomeController : Controller
         using (var client = new System.Net.Http.HttpClient())
         {
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-            using (var response = await client.PostAsync($"https://{endpoint}/issueToken", null))
+            using (var response = await client.PostAsync($"{endpoint}/issueToken", null))
             {
                 return await response.Content.ReadAsStringAsync();
             }
@@ -91,8 +96,21 @@ Now, we'll add some sample content to this web app. Open _Views\Home\Index.cshtm
 
 @section scripts {
 <script type='text/javascript' src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-0.0.1.js'></script>
+<script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
 <script type='text/javascript'>
-    function launchImmersiveReader() {
+    function getImmersiveReaderTokenAsync() {
+        return new Promise((resolve) => {
+            $.ajax({
+                url: '/token',
+                type: 'GET',
+                success: token => {
+                    resolve(token);
+                }
+            });
+        });
+    }
+
+    async function launchImmersiveReader() {
         const content = {
             title: document.getElementById('title').innerText,
             chunks: [ {
@@ -101,7 +119,8 @@ Now, we'll add some sample content to this web app. Open _Views\Home\Index.cshtm
             } ]
         };
 
-        ImmersiveReader.launchAsync('@ViewBag.AccessToken', content, { uiZIndex: 1000000 });
+        const token = await getImmersiveReaderTokenAsync();
+        ImmersiveReader.launchAsync(token, content, { uiZIndex: 1000000 });
     }
 </script>
 }
