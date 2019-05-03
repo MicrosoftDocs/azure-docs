@@ -21,11 +21,11 @@ This quickstart shows how to create a cloud resource in your Azure Machine Learn
  
 In this quickstart, you take the following actions:
 
-* Create a new cloud-based notebook server in your workspace
-* Launch the Jupyter web interface
+* Create a new cloud-based notebook server in your workspace.
+* Launch the Jupyter web interface.
 * Open a notebook that contains code to estimate pi and logs errors at each iteration.
 * Run the notebook.
-* View the logged error values in your workspace.  This example shows how the workspace can help you keep track of information generated in a script. 
+* View the logged error values in your workspace. This example shows how the workspace can help you keep track of information generated in a script. 
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
@@ -139,8 +139,8 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 In this quickstart, you completed these tasks:
 
-* Create a notebook VM
-* Launch the Jupyter web interface
+* Create a notebook VM.
+* Launch the Jupyter web interface.
 * Open a notebook that contains code to estimate pi and logs errors at each iteration.
 * Run the notebook.
 * View the logged error values in your workspace.  This example shows how the workspace can help you keep track of information generated in a script. 
