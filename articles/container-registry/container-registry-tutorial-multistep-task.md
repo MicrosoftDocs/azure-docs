@@ -43,7 +43,7 @@ Now that you've completed the steps required to enable ACR Tasks to read commit 
 
 ### YAML file
 
-You define the steps for a multi-step taks in a [YAML file](container-registry-tasks-reference-yaml.md). The first example multi-step task for this tutorial is defined in the file `taskmulti.yaml`, which is in the root of the GitHub repo that you cloned:
+You define the steps for a multi-step task in a [YAML file](container-registry-tasks-reference-yaml.md). The first example multi-step task for this tutorial is defined in the file `taskmulti.yaml`, which is in the root of the GitHub repo that you cloned:
 
 ```yml
 version: v1.0.0
@@ -153,7 +153,7 @@ To test the multi-step task, trigger it manually by executing the [az acr task r
 az acr task run --registry $ACR_NAME --name example1
 ```
 
-By default, the `az acr task run` command streams the log output to your console when you execute the command. The output shows the progress of running each of the task steps.
+By default, the `az acr task run` command streams the log output to your console when you execute the command. The output shows the progress of running each of the task steps. The output below is condensed to show key steps.
 
 ```console
 Queued a run with ID: cf19
@@ -172,26 +172,9 @@ Waiting for an agent...
 2019/05/03 03:03:36 Successfully scanned dependencies
 2019/05/03 03:03:36 Launching container with name: acb_step_0
 Sending build context to Docker daemon  24.06kB
-Step 1/5 : FROM node:9-alpine
- ---> a56170f59699
-Step 2/5 : COPY . /src
- ---> 5c023dcfb476
-Step 3/5 : RUN cd /src && npm install
- ---> Running in 90b6edf153f1
-npm notice created a lockfile as package-lock.json. You should commit this file.
-npm WARN helloworld@1.0.0 No repository field.
 
-up to date in 0.083s
-Removing intermediate container 90b6edf153f1
- ---> d1c8c32c2da5
-Step 4/5 : EXPOSE 80
- ---> Running in ad8cc1eaaac1
-Removing intermediate container ad8cc1eaaac1
- ---> ede510be13f8
-Step 5/5 : CMD ["node", "/src/server.js"]
- ---> Running in 5296659db2ea
-Removing intermediate container 5296659db2ea
- ---> f669bfd170af
+[...]
+
 Successfully built f669bfd170af
 Successfully tagged myregistry.azurecr.io/hello-world:cf19
 2019/05/03 03:03:43 Successfully executed container: acb_step_0
@@ -201,18 +184,9 @@ Successfully tagged myregistry.azurecr.io/hello-world:cf19
 2019/05/03 03:03:44 Successfully executed container: acb_step_1
 2019/05/03 03:03:44 Executing step ID: acb_step_2. Working directory: '', Network: 'acb_default_network'
 2019/05/03 03:03:44 Pushing image: myregistry.azurecr.io/hello-world:cf19, attempt 1
-The push refers to repository [myregistry.azurecr.io/hello-world]
-8be8597e9244: Preparing
-a085e0add9c7: Preparing
-172ed8ca5e43: Preparing
-8c9992f4e5dd: Preparing
-8dfad2055603: Preparing
-a085e0add9c7: Pushed
-8be8597e9244: Pushed
-8c9992f4e5dd: Layer already exists
-172ed8ca5e43: Layer already exists
-8dfad2055603: Layer already exists
-cf19: digest: sha256:6b981a8ca8596e840228c974c929db05c0727d8630465de536be74104693467a size: 1366
+
+[...]
+
 2019/05/03 03:03:46 Successfully pushed image: myregistry.azurecr.io/hello-world:cf19
 2019/05/03 03:03:46 Step ID: acb_step_0 marked as successful (elapsed time in seconds: 7.425169)
 2019/05/03 03:03:46 Populating digests for step ID: acb_step_0...
@@ -308,7 +282,9 @@ cf19      example1   linux       Succeeded  Manual     2019-05-03T03:03:30Z  00:
 
 ACR Tasks by default has permissions to push or pull images from the registry where the task runs. You might want to run a multi-step task that targets one or more registries in addition to the run registry. For example, you might need to build images in one registry, and store images with different tags in a second registry that is accessed by a production system. This example shows you how to create such a task and provide credentials for another registry.
 
-If you don't already have a second registry, create one for this example. To create the task, you need the name of the registry login server, which is of the form *mycontainerregistry.azurecr.io* (all lowercase). In this example, you use the second registry to store images tagged by build date.
+If you don't already have a second registry, create one for this example. If you need a registry, see the [previous tutorial](../articles/container-registry/container-registry-tutorial-quick-task.md), or [Quickstart: Create a container registry using the Azure CLI](../articles/container-registry/container-registry-get-started-azure-cli.md).
+
+To create the task, you need the name of the registry login server, which is of the form *mycontainerregistrydate.azurecr.io* (all lowercase). In this example, you use the second registry to store images tagged by build date.
 
 ### YAML file
 
@@ -376,7 +352,7 @@ As in the preceding example, to test the multi-step task, trigger it manually by
 az acr task run --registry $ACR_NAME --name example2
 ```
 
-By default, the `az acr task run` command streams the log output to your console when you execute the command. As before, the output shows the progress of running each of the task steps.
+By default, the `az acr task run` command streams the log output to your console when you execute the command. As before, the output shows the progress of running each of the task steps. The output is condensed to show key steps
 
 Output:
 
@@ -399,27 +375,9 @@ Waiting for an agent...
 2019/05/03 04:33:47 Successfully scanned dependencies
 2019/05/03 04:33:47 Launching container with name: acb_step_0
 Sending build context to Docker daemon  25.09kB
-Step 1/5 : FROM node:9-alpine
- ---> a56170f59699
-Step 2/5 : COPY . /src
- ---> ab39002fa420
-Step 3/5 : RUN cd /src && npm install
- ---> Running in bba1ddd5ce5a
-npm notice created a lockfile as package-lock.json. You should commit this file.
-npm WARN helloworld@1.0.0 No repository field.
 
-up to date in 0.083s
-Removing intermediate container bba1ddd5ce5a
- ---> 78dfbda229c0
-Step 4/5 : EXPOSE 80
- ---> Running in c1585481b2f3
-Removing intermediate container c1585481b2f3
- ---> e26c96b5b052
-Step 5/5 : CMD ["node", "/src/server.js"]
- ---> Running in 9e1077ff1974
-Removing intermediate container 9e1077ff1974
- ---> 7377116bb2a3
-Successfully built 7377116bb2a3
+[...]
+
 Successfully tagged mycontainerregistry.azurecr.io/hello-world:cf1g
 2019/05/03 04:33:55 Successfully executed container: acb_step_0
 2019/05/03 04:33:55 Executing step ID: acb_step_1. Working directory: '', Network: 'acb_default_network'
@@ -427,21 +385,9 @@ Successfully tagged mycontainerregistry.azurecr.io/hello-world:cf1g
 2019/05/03 04:33:56 Successfully scanned dependencies
 2019/05/03 04:33:56 Launching container with name: acb_step_1
 Sending build context to Docker daemon  25.09kB
-Step 1/5 : FROM node:9-alpine
- ---> a56170f59699
-Step 2/5 : COPY . /src
- ---> Using cache
- ---> ab39002fa420
-Step 3/5 : RUN cd /src && npm install
- ---> Using cache
- ---> 78dfbda229c0
-Step 4/5 : EXPOSE 80
- ---> Using cache
- ---> e26c96b5b052
-Step 5/5 : CMD ["node", "/src/server.js"]
- ---> Using cache
- ---> 7377116bb2a3
-Successfully built 7377116bb2a3
+
+[...]
+
 Successfully tagged mycontainerregistrydate.azurecr.io/hello-world:20190503-043342z
 2019/05/03 04:33:57 Successfully executed container: acb_step_1
 2019/05/03 04:33:57 Executing step ID: acb_step_2. Working directory: '', Network: 'acb_default_network'
@@ -455,31 +401,15 @@ test
 2019/05/03 04:34:09 Executing step ID: acb_step_4. Working directory: '', Network: 'acb_default_network'
 2019/05/03 04:34:09 Pushing image: mycontainerregistry.azurecr.io/hello-world:cf1g, attempt 1
 The push refers to repository [mycontainerregistry.azurecr.io/hello-world]
-dad9c06b0de6: Preparing
-f989e7acc7de: Preparing
-172ed8ca5e43: Preparing
-8c9992f4e5dd: Preparing
-8dfad2055603: Preparing
-8c9992f4e5dd: Layer already exists
-dad9c06b0de6: Pushed
-172ed8ca5e43: Layer already exists
-f989e7acc7de: Pushed
-8dfad2055603: Layer already exists
-cf1g: digest: sha256:75354e9edb995e8661438bad9913deed87a185fddd0193811f916d684b71a5d2 size: 1366
+
+[...]
+
 2019/05/03 04:34:12 Successfully pushed image: mycontainerregistry.azurecr.io/hello-world:cf1g
 2019/05/03 04:34:12 Pushing image: mycontainerregistrydate.azurecr.io/hello-world:20190503-043342z, attempt 1
 The push refers to repository [mycontainerregistrydate.azurecr.io/hello-world]
-dad9c06b0de6: Preparing
-f989e7acc7de: Preparing
-172ed8ca5e43: Preparing
-8c9992f4e5dd: Preparing
-8dfad2055603: Preparing
-172ed8ca5e43: Layer already exists
-8dfad2055603: Layer already exists
-8c9992f4e5dd: Layer already exists
-dad9c06b0de6: Pushed
-f989e7acc7de: Pushed
-20190503-043342z: digest: sha256:75354e9edb995e8661438bad9913deed87a185fddd0193811f916d684b71a5d2 size: 1366
+
+[...]
+
 2019/05/03 04:34:19 Successfully pushed image: mycontainerregistrydate.azurecr.io/hello-world:20190503-043342z
 2019/05/03 04:34:19 Step ID: acb_step_0 marked as successful (elapsed time in seconds: 8.125744)
 2019/05/03 04:34:19 Populating digests for step ID: acb_step_0...
@@ -522,7 +452,7 @@ Run ID: cf1g was successful after 46s
 
 ## Next steps
 
-In this tutorial, you learned how to create multi-step, multi-container-based tasks that can automatically trigger when you commit source code to a Git repository. Move on to the next tutorial to learn how to create tasks that trigger builds when a container image's base image is updated.
+In this tutorial, you learned how to create multi-step, multi-container-based tasks that automatically trigger when you commit source code to a Git repository. For advanced features of multi-step tasks, including parallel and dependent step execution, see the [ACR Tasks YAML reference](container-registry-tasks-reference-yaml.md). Move on to the next tutorial to learn how to create tasks that trigger builds when a container image's base image is updated.
 
 > [!div class="nextstepaction"]
 > [Automate builds on base image update](container-registry-tutorial-base-image-update.md)
