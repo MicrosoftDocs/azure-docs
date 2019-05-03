@@ -27,7 +27,7 @@ This article documents the security attributes built into Azure Key Vault.
 | Column level encryption (Azure Data Services)| N/A |  |
 | API calls encrypted| Yes | Using HTTPS. |
 
-## Network Segmentation
+## Network segmentation
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -50,7 +50,7 @@ This article documents the security attributes built into Azure Key Vault.
 | Authorization| Yes | Using Key Vault Access Policy. |
 
 
-## Audit Trail
+## Audit trail
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|

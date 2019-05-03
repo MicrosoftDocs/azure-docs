@@ -79,7 +79,7 @@ This article collects the common security attributes for selected Azure services
 | Column level encryption (Azure Data Services)| No |  |
 | API calls encrypted| Yes |  |
 
-### Network Segmentation
+### Network segmentation
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -102,7 +102,7 @@ This article collects the common security attributes for selected Azure services
 | Authorization| Yes | Customer created and built-in RBAC roles are used. See Use Role-Based Access Control to manage Azure Backup recovery points (/azure/backup/backup-rbac-rs-vault) for more information. |
 
 
-### Audit Trail
+### Audit trail
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
@@ -128,7 +128,7 @@ This article collects the common security attributes for selected Azure services
 | Column level encryption (Azure Data Services)| N/A |  |
 | API calls encrypted| Yes | Using HTTPS. |
 
-### Network Segmentation
+### Network segmentation
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -151,7 +151,7 @@ This article collects the common security attributes for selected Azure services
 | Authorization| Yes | Using Key Vault Access Policy. |
 
 
-### Audit Trail
+### Audit trail
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
@@ -323,7 +323,7 @@ This article collects the common security attributes for selected Azure services
 | Column level encryption (Azure Data Services)| N/A |  |
 | API calls encrypted| Yes | Service Fabric API calls are made through Azure Resource Manager. A valid JSON web token (JWT) is required. |
 
-### Network Segmentation
+### Network segmentation
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -346,7 +346,7 @@ This article collects the common security attributes for selected Azure services
 | Authorization| Yes | Identity and access management (IAM) for calls via SFRP. Calls directly to cluster end point supports two roles: User and Admin. The customer can map the APIs to either role. |
 
 
-### Audit Trail
+### Audit trail
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
@@ -372,7 +372,7 @@ This article collects the common security attributes for selected Azure services
 | Column level encryption (Azure Data Services)| N/A |  |
 | API calls encrypted| Yes |  |
 
-### Network Segmentation
+### Network segmentation
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -395,7 +395,7 @@ This article collects the common security attributes for selected Azure services
 | Authorization| Yes | Support Authorization via RBAC, POSIX ACLs, and SAS Tokens |
 
 
-### Audit Trail
+### Audit trail
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|

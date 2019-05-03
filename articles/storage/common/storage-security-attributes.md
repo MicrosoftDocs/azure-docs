@@ -27,7 +27,7 @@ This article documents the security attributes built into Azure Storage.
 | Column level encryption (Azure Data Services)| N/A |  |
 | API calls encrypted| Yes |  |
 
-## Network Segmentation
+## Network segmentation
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -50,7 +50,7 @@ This article documents the security attributes built into Azure Storage.
 | Authorization| Yes | Support Authorization via RBAC, POSIX ACLs, and SAS Tokens |
 
 
-## Audit Trail
+## Audit trail
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|

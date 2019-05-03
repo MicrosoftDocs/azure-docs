@@ -29,7 +29,7 @@ This article documents the security attributes built into Azure Service Fabric.
 | Column level encryption (Azure Data Services)| N/A |  |
 | API calls encrypted| Yes | Service Fabric API calls are made through Azure Resource Manager. A valid JSON web token (JWT) is required. |
 
-## Network Segmentation
+## Network segmentation
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -52,7 +52,7 @@ This article documents the security attributes built into Azure Service Fabric.
 | Authorization| Yes | Identity and access management (IAM) for calls via SFRP. Calls directly to cluster end point supports two roles: User and Admin. The customer can map the APIs to either role. |
 
 
-## Audit Trail
+## Audit trail
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
