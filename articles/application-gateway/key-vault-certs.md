@@ -18,10 +18,10 @@ ms.author: victorh
 
 This public preview offers two models for SSL termination:
 
-- You can explicitly provide SSL certificates attached to the listener. This is the traditional model of passing SSL certificates to Application Gateway for SSL termination.
+- You can explicitly provide SSL certificates attached to the listener. This model is the traditional way to pass SSL certificates to Application Gateway for SSL termination.
 - You can optionally provide a reference to an existing Key Vault certificate or secret when you create an HTTPS-enabled listener.
 
-Key Vault integration offers many benefits, including:
+Application Gateway integration with Key Vault offers many benefits, including:
 
 - Stronger security, because SSL certificates aren't directly handled by the application development team. Integration allows a separate security team to:
   * Set up application gateways.
@@ -34,11 +34,11 @@ Application Gateway currently supports software-validated certificates only. Har
 
 ## How integration works
 
-Integration with Key Vault requires a three-step configuration process:
+Application Gateway integration with Key Vault requires a three-step configuration process:
 
 1. **Create a user-assigned managed identity**
 
-   You create or reuse an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault on your behalf. For more information, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md). This step creates a new identity in the Azure Active Directory tenant. The identify is trusted by the subscription that's used to create the identity.
+   You create or reuse an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault on your behalf. For more information, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md). This step creates a new identity in the Azure Active Directory tenant. The identity is trusted by the subscription that's used to create the identity.
 
 1. **Configure your key vault**
 
@@ -46,7 +46,7 @@ Integration with Key Vault requires a three-step configuration process:
 
 1. **Configure the application gateway**
 
-   After you complete the two preceding steps, you can set up or modify an existing application gateway to use the user-assigned managed identity. You can also configure the HTTP listener’s SSL certificate to point to the complete URI of the key vault certificate or secret ID.
+   After you complete the two preceding steps, you can set up or modify an existing application gateway to use the user-assigned managed identity. You can also configure the HTTP listener’s SSL certificate to point to the complete URI of the Key Vault certificate or secret ID.
 
    ![Key vault certificates](media/key-vault-certs/ag-kv.png)
 
