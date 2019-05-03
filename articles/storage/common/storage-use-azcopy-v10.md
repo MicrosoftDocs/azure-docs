@@ -14,6 +14,8 @@ ms.subservice: common
 
 AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer files.
 
+<a id="download-and-install-azcopy" />
+
 ## Download AzCopy
 
 First, download the AzCopy V10 executable file. There's nothing to install.
@@ -85,8 +87,6 @@ After you've authenticated your identity or obtained a SAS token, you can begin 
 To find example commands, see any of these articles.
 
 - [Transfer data with AzCopy and blob storage](storage-use-azcopy-blobs.md)
-
-- [Transfer data with AzCopy and Azure Data Lake Storage Gen2](storage-use-azcopy-data-lake-gen2.md)
 
 - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 

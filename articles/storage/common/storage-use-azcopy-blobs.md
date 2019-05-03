@@ -251,8 +251,6 @@ Examples:
 
 See these articles:
 
-- [Transfer data with AzCopy and Azure Data Lake Storage Gen2](storage-use-azcopy-data-lake-gen2.md)
-
 - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 
 - [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
