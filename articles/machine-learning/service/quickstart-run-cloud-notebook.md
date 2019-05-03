@@ -51,7 +51,6 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 1. Wait approximately 4-5 minutes, until the status changes to **Running**.
 
-    ![Refresh](media/quickstart-run-cloud-notebook/refresh.png)
 
 ## Launch Jupyter web interface
 
