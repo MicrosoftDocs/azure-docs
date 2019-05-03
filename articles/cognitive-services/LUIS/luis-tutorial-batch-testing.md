@@ -23,7 +23,7 @@ Requirements for batch testing:
 
 * Maximum of 1000 utterances per test. 
 * No duplicates. 
-* Entity types allowed: only machined-learned entities of simple, hierarchical (parent-only), and composite. Batch testing is only useful for machined-learned intents and entities.
+* Entity types allowed: only machined-learned entities of simple and composite. Batch testing is only useful for machined-learned intents and entities.
 
 When using an app other than this tutorial, do *not* use the example utterances already added to an intent. 
 
@@ -90,7 +90,7 @@ Use the following steps:
 
 ## Review batch results
 
-The batch chart displays four quadrants of results. To the right of the chart is a filter. By default, the filter is set to the first intent in the list. The filter contains all the intents and only simple, hierarchical (parent-only), and composite entities. When you select a [section of the chart](luis-concept-batch-test.md#batch-test-results) or a point within the chart, the associated utterance(s) display below the chart. 
+The batch chart displays four quadrants of results. To the right of the chart is a filter. By default, the filter is set to the first intent in the list. The filter contains all the intents and only simple and composite entities. When you select a [section of the chart](luis-concept-batch-test.md#batch-test-results) or a point within the chart, the associated utterance(s) display below the chart. 
 
 While hovering over the chart, a mouse wheel can enlarge or reduce the display in the chart. This is useful when there are many points on the chart clustered tightly together. 
 
@@ -164,7 +164,7 @@ In order to verify that the utterances in the batch test are correctly predicted
 
 ## Create batch file with entities 
 
-In order to verify entities in a batch test, the entities need to be labeled in the batch JSON file. Only the machine-learned entities are used: simple, hierarchical (parent-only), and composite entities. Do not add non-machine-learned entities because they are always found either through regular expressions, or explicit text matches.
+In order to verify entities in a batch test, the entities need to be labeled in the batch JSON file. Only the machine-learned entities are used: simple and composite entities. Do not add non-machine-learned entities because they are always found either through regular expressions, or explicit text matches.
 
 The variation of entities for total word ([token](luis-glossary.md#token)) count can impact the prediction quality. Make sure the training data supplied to the intent with labeled utterances includes a variety of lengths of entity. 
 
