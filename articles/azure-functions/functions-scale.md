@@ -27,7 +27,7 @@ The hosting plan you choose dictates the following behaviors:
 * The resources available to each function app instance.
 * Support for advanced features, such as VNET connectivity.
 
-Both Consumption and Premium plans automatically add compute power when your code is running. Your app is scaled out when needed to handle load, and scaled down when code stops running. You don't have to pay for idle VMs or reserve capacity in advance.  
+Both Consumption and Premium plans automatically add compute power when your code is running. Your app is scaled out when needed to handle load, and scaled down when code stops running. For the Consumption plan, you also don't have to pay for idle VMs or reserve capacity in advance.  
 
 Premium plan provides additional features, such as premium compute instances, the ability to keep instances warm indefinitely, and VNet connectivity.
 
@@ -61,7 +61,7 @@ The Consumption plan is the default hosting plan and offers the following benefi
 * Pay only when your functions are running
 * Scale out automatically, even during periods of high load
 
-All Consumption plans in a given region share the same set of resources. There's no downside or impact to having multiple apps running in the same Consumption plan. Assigning multiple apps to the same consumption plan has no impact on resilience, scalability, or reliability of each app.
+Function apps in the same region can be assigned to the same Consumption plan. There's no downside or impact to having multiple apps running in the same Consumption plan. Assigning multiple apps to the same consumption plan has no impact on resilience, scalability, or reliability of each app.
 
 ## <a name="premium-plan"></a>Premium plan (preview)
 
