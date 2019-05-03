@@ -20,6 +20,8 @@ ms.author: b-juche
 
 Understanding resource limits for Azure NetApp Files helps you manage your volumes.
 
+## Resource limits
+
 The following table describes resource limits for Azure NetApp Files:
 
 |  **Resource**  |  **Default Limit**  |  **Adjustable via Support Request**  |
@@ -36,7 +38,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum size of a single volume     |    100 TiB    |    No       |
 
 
-## Request Limit Increase 
+## Request limit increase 
 
 You can create an Azure support request to increase the adjustable limits from the table above. 
 
@@ -46,18 +48,23 @@ From Azure portal navigation plane:
 2. Click **+ New support request**.
 3. On the Basics tab, provide the following information: 
     * Issue type: Select **Service and subscription limits (quotas)**.
-    * Subscriptions: Select the subscription with the resource that needs the quota increase.
+    * Subscriptions: Select the subscription for the resource that you need the quota increased.
     * Quota type: Select **Storage: Azure NetApp Files limits**.
     * Click **Next: Solutions**.
-4. On the Details tab, provide the following information for the corresponding resource type in the Description box:
+4. On the Details tab:
+    1. In the Description box, provide the following information for the corresponding resource type:
 
-|  **Resource**  |    **Parent Resources**      |    **Requested New Limits**     |    **Reason for quota increase**       |
-|----------------|------------------------------|---------------------------------|------------------------------------------|
-|  Account |  *Subscription ID*   |  *Requested new maximum **account** number*    |  *What scenario or use case prompted the request?*  |
-|  Pool    |  *Subscription ID, Account URI*  |  *Requested new maximum **pool** number*   |  *What scenario or use case prompted the request?*  |
-|  Volume  |  *Subscription ID, Account URI, Pool URI*   |  *Requested new maximum **volume** number*     |  *What scenario or use case prompted the request?*  |
+        |  **Resource**  |    **Parent Resources**      |    **Requested New Limits**     |    **Reason for quota increase**       |
+        |----------------|------------------------------|---------------------------------|------------------------------------------|
+        |  Account |  *Subscription ID*   |  *Requested new maximum **account** number*    |  *What scenario or use case prompted the request?*  |
+        |  Pool    |  *Subscription ID, Account URI*  |  *Requested new maximum **pool** number*   |  *What scenario or use case prompted the request?*  |
+        |  Volume  |  *Subscription ID, Account URI, Pool URI*   |  *Requested new maximum **volume** number*     |  *What scenario or use case prompted the request?*  |
+
+    2. Specify the appropriate support method and provide your contract information.
+
+    3. Click **Next: Review + create**
 
 
-**Next steps**
+## Next steps  
 
 [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)

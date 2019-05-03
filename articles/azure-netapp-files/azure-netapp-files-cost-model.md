@@ -49,19 +49,19 @@ When the total used capacity of a pool exceeds its provisioned capacity, data wr
 ## Manual changes of the pool size  
 
 You can manually increase or decrease the pool size. However, the following constraints apply:
-* Service minimum and maximum limits.  
+* Service minimum and maximum limits  
     See the article about [resource limits](azure-netapp-files-resource-limits.md).
 * A 1-TiB increment after the initial 4-TiB minimum purchase
 * A one-hour minimum billing increment
 * The provisioned pool size may not be decreased to less than the total used capacity in the pool.
 
-## Maximum size pool overage behavior  
+## Behavior of maximum-size pool overage   
 
 The maximum size of a capacity pool that you can create or resize to is 500 TiB.  When the total used capacity in a capacity pool exceeds 500 TiB, the following situations will occur:
 * Data writes will still be permitted (if the volume is below the system maximum of 100 TiB).
 * After the one-hour grace period, the pool will be automatically resized in 1-TiB increments, until the pool provisioned capacity exceeds total used capacity.
 * The additional provisioned and billed pool capacity exceeding 500 TiB cannot be used to assign volume quota. It also cannot be used to expand performance QoS limits.  
-    See the [service levels](azure-netapp-files-service-levels.md) article about performance limits and QoS sizing.
+    See [service levels](azure-netapp-files-service-levels.md) about performance limits and QoS sizing.
 
 The diagram below illustrates these concepts:
 * We have a capacity pool with a Premium storage tier and a 500-TiB capacity. The pool contains nine volumes.
