@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 04/26/2019
+ms.date: 05/06/2019
 ---
 # Choose among the vCore service tiers and migrate from DTU service tiers
 
@@ -36,7 +36,7 @@ The following table helps you understand the differences between the three tiers
 |---|---|---|---|
 |Best for|Most business workloads. Offers budget oriented balanced and scalable compute and storage options.|Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.|Most business workloads with highly scalable storage and read-scale requirements|
 |CPU|**Provisioned compute**:<br/>Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore<br/>**Serverless compute**<br/>Gen5: 0.5 - 4 vCore|**Provisioned compute**:<br/>Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|**Provisioned compute**:<br/>Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|
-|Memory|**Provisioned compute**:<br/>Gen4: 7 GB per core<br/>Gen5: 5.1 GB per core<br/>**Serverless compute**<br/>Gen5: 3 GB per core|**Provisioned compute**:<br/>Gen4: 7 GB per core<br/>Gen5: 5.1 GB per core |**Provisioned compute**:<br/>Gen4: 7 GB per core<br/>Gen5: 5.1 GB per core|
+|Memory|**Provisioned compute**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore<br/>**Serverless compute**<br/>Gen5: 3 GB per vCore|**Provisioned compute**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore |**Provisioned compute**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore|
 |Storage|Uses remote storage:<br/>**Single database provisioned compute**:<br/>5 GB – 4 TB<br/>**Single database serverless compute**:<br/>5 GB - 1 TB<br/>**Managed Instance**: 32 GB - 8 TB |Uses local SSD storage:<br/>**Single database provisioned compute**:<br/>5 GB – 4 TB<br/>**Managed Instance**:<br/>32 GB - 4 TB |Flexible, autogrow of storage as needed. Supports up to 100 TB storage and beyond. Local SSD storage for local buffer pool cache and local data storage. Azure remote storage as final long-term data store. |
 |Compute|Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|Gen5: 1 to 80 vCore|
 |Memory|Gen4: 7 GB per core<br>Gen5: 5.1 GB per core | Gen4: 7 GB per core<br>Gen5: 5.1 GB per core |Gen5: 5.1 GB per core|
@@ -53,8 +53,6 @@ The following table helps you understand the differences between the three tiers
 - For more information, see [vCore resource limits in single database](sql-database-vcore-resource-limits-single-databases.md) and [vCore resource limits in Managed Instance](sql-database-managed-instance.md#vcore-based-purchasing-model).
 - For more information about the General Purpose and Business Critical service tiers, see [General Purpose and Business Critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md).
 - For details on the Hyperscale service tier in the vCore-based purchasing model, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md).  
-
-
 
 ## Azure Hybrid Benefit
 
