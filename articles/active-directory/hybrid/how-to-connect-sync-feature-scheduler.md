@@ -20,7 +20,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Scheduler
-This topic describes the built-in scheduler in Azure AD Connect sync (a.k.a. sync engine).
+This topic describes the built-in scheduler in Azure AD Connect sync (sync engine).
 
 This feature was introduced with build 1.1.105.0 (released February 2016).
 
