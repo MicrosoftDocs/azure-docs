@@ -72,7 +72,7 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
     | Authentication type | Select if you want to use a password or key for connecting to VMs. |
     | Password | The password is used for connecting to VMs. |
     | SSH | Use an RSA public key in the single-line format beginning  with **ssh-rsa** or use the multi-line PEM format. You can generate SSH keys using `ssh-keygen` on Linux and OS X, or by using PuTTYGen on Windows. More information on SSH keys, see [How to use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md). |
-    | Database and Blockchain password | Specify the password to use for access to the database created as part of the deployment. |
+    | Database and Blockchain password | Specify the password to use for access to the database created as part of the deployment. The password must meet three of the following four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not number sign(#), percent(%), comma(,), star(*), back quote(\`), double quote("), single quote('), dash(-) and semicolumn(;) |
     | Deployment region | Specify where to deploy Blockchain Workbench resources. For best availability, this should match the **Location** setting. |
     | Subscription | Specify the Azure Subscription you wish to use for your deployment. |
     | Resource groups | Create a new Resource group by selecting **Create new** and specify a unique resource group name. |
