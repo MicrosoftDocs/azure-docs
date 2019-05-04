@@ -115,7 +115,7 @@ The [Time Series Insights sample application](https://insights.timeseries.azure.
    [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=3-7,34-37)]
 
 > [!TIP]
-> To learn more about Microsoft-supported ADAL libraries, see the [ADAL reference documentation](../active-directory/develop/active-directory-authentication-libraries#microsoft-supported-client-libraries).
+> To learn more about Microsoft-supported ADAL libraries, see the [ADAL reference documentation](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries#microsoft-supported-client-libraries).
 
 ### Control identification
 
