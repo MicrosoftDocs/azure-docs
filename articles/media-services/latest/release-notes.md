@@ -33,10 +33,6 @@ For more information, see [Migration guidance for moving from Media Services v2 
 
 ## May 2019
 
-### Added functionality 
-
-A “single subclip” functionality is now supported when creating an encoding **Job**. This functionality works with the [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presets and [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) presets. 
-
 ### Performance improvements
 
 * The maximum file size supported for processing was updated. See, [Quotas and limitations](limits-quotas-constraints.md).
