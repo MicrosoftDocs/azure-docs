@@ -11,7 +11,7 @@ ms.date: 05/06/2019
 ---
 # Configure outbound traffic restriction for Azure HDInsight clusters
 
-The HDInsight clusters have several external dependencies that it requires access, to function properly. The cluster usually lives in the customer specified Virtual Network (VNet).
+The HDInsight clusters have several external dependencies that it requires access, to function properly. The cluster usually lives in the customer specified virtual network.
 
 There are several inbound dependencies. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published in this document. You can also create Network Security Group(NSG) rules with this information to secure inbound traffic to the clusters.
 
@@ -25,16 +25,17 @@ The solution to securing outbound addresses lies in use of a firewall device tha
 
 The steps to lock down egress from your existing HDInsight with Azure Firewall are:
 
-1. Enable service endpoints to SQL, Storage on your HDInsight subnet. When you have service endpoints enabled to Azure SQL, any Azure SQL dependencies that your cluster have must be configured with service endpoints as well. To enable the correct service endpoints, complete the following steps:
+1. Enable service endpoints for SQL and storage on your HDInsight subnet. When you have service endpoints enabled to Azure SQL, any Azure SQL dependencies that your cluster has must be configured with service endpoints as well. To enable the correct service endpoints, complete the following steps:
     1. Sign in to the Azure portal and select the virtual network that your HDInsight cluster is deployed in.
-    1. Select **Service endpoints** under **Settings** and click **Add**.
-    1. Select **Microsoft.SQL** under **Service** and **Select all** under **Subnets**.
-    1. Repeat the above step for **Microsoft.Storage** service. 
-    1. If you are using an ESP cluster, then you must also select Microsoft.AzureActiveDirectory service endpoint.
+    1. Select **Subnets** under **Settings**.
+    1. Select the subnet where your cluster is deployed.
+    1. On the screen to edit the subnet settings, click **Microsoft.SQL** and **Microsoft.Storage** from the **Service endpoints** > **Services** dropdown box.
+    1. If you are using an ESP cluster, then you must also select the **Microsoft.AzureActiveDirectory** service endpoint.
+    1. Click **Save**.
 
-        ![Title: select service endpoints](./media/hdinsight-restrict-outbound-traffic/image004.png)
+        ![Title: Add service endpoints](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-service-endpoint.png)
 
-1. Create a subnet named AzureFirewallSubnet in the VNet where your cluster exists. Follow the instructions in the Azure Firewall documentation to create your Azure Firewall.
+1. Create a subnet named **AzureFirewallSubnet** in the virtual network where your cluster exists. For more information, see [Tutorial: Deploy and configure Azure Firewall using the Azure portal](../firewall/tutorial-firewall-deploy-portal.md).
 1. From the Azure Firewall UI > Rules > Application rule collection, select Add application rule collection. Provide a name, priority, and set Allow. In the FQDN tags section, provide a name, set the source addresses to * and select the HDInsight and the Windows Update FQDN Tags.
 
     ![Title: Add application rule](./media/hdinsight-restrict-outbound-traffic/image006.png)
