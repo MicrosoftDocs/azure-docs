@@ -52,7 +52,7 @@ After clicking on these tiles, you will see a list of topics related to the issu
 
 After you choose to investigate the issue further by clicking on the list of topics, you can view more details about the topic often supplemented with graphs and markdowns. Diagnostic report can be a powerful tool for pinpointing the problem with your app. If you have found the information you need or you want to look at other detectors, you can simply close the detector tab and go back to the Genie interface to further investigate other problem areas.
 
-![Diagnostic report](./media/app-service-diagnostics/diagnosticreport5.png)
+![Diagnostic report](./media/app-service-diagnostics/fulldiagnosticreport5.png)
 
 ## Health checkup 
 
