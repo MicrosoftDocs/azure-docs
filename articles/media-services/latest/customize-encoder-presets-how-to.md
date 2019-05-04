@@ -30,7 +30,7 @@ When creating custom presets, the following considerations apply:
 
 ## Prerequisites 
 
-[Create a Media Services account](create-account-cli-how-to.md). <br/>Make sure to remember the resource group name and the Media Services account name. 
+[Create a Media Services account](create-account-cli-how-to.md)
 
 ## Download the sample
 
