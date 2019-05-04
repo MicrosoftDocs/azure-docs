@@ -63,14 +63,14 @@ The query condition can also be on a single device ID or on a list of device IDs
 
 [IoT Hub Query Language](iot-hub-devguide-query-language.md) covers IoT Hub query language in additional detail.
 
-The following snippet shows the request and response to schedule a direct method call of testMethod on all devices on contoso-hub-1:
+The following snippet shows the request and response for a job scheduled to call a direct method named testMethod on all devices on contoso-hub-1:
 
 ```
 PUT https://contoso-hub-1.azure-devices.net/jobs/v2/12345?api-version=2018-06-30 HTTP/1.1
 Authorization: SharedAccessSignature sr=contoso-hub-1.azure-devices.net&sig=68ivcHktSc0NDPdksPnKUeVHFI%2FGHgfAhmJ%2Bv8Hxalg%3D&se=1556849884&skn=iothubowner
 Content-Type: application/json; charset=utf-8
 Host: contoso-hub-1.azure-devices.net
-Content-Length: 318
+Content-Length: 317
 
 {
     "jobId": "12345",
@@ -80,7 +80,7 @@ Content-Length: 318
         "payload": {},
         "responseTimeoutInSeconds": 30
     },
-    "queryCondition": "*'", 
+    "queryCondition": "*", 
     "startTime": "2019-05-04T15:53:00.077Z",
     "maxExecutionTimeInSeconds": 20
 }
@@ -118,7 +118,7 @@ Content-Type: application/json; charset=utf-8
 > [!NOTE]
 > The *updateTwin* property requires a valid etag match; for example, `etag="*"`.
 
-The following snippet shows the request and response for a job scheduled to update device twin properties for test-device on contoso-hub-1.
+The following snippet shows the request and response for a job scheduled to update device twin properties for test-device on contoso-hub-1:
 
 ```
 PUT https://contoso-hub-1.azure-devices.net/jobs/v2/123456789?api-version=2018-06-30 HTTP/1.1
