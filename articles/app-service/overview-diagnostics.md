@@ -34,7 +34,7 @@ For Azure Functions, navigate to your function app, and in the top navigation, c
 
 In the App Service Diagnostics homepage, you can choose the category that best describes the issue with your app by using the keywords in each homepage tile. This is also where you will find **Diagnostic Tools** for Windows apps. [See more details below](##Diagnostic-Tools-(Only-for-Windows-app))
 
-![Homepage](./media/app-service-diagnostics/homepage1.png)
+![Homepage](./media/app-service-diagnostics/appservicediagnosticshomepage1.png)
 
 ## Interacting with Genie
 
