@@ -24,9 +24,9 @@ Check out coverage for [**Render**](render-coverage.md).
 
 | Symbol             | Meaning                                |
 |--------------------|----------------------------------------|
-| ✓                  | Country provided with detailed data.   |
-| Ø                  | Country provided with simplified data. |
-| Country is missing | Country data is not provided.          |
+| ✓                  | Country/region provided with detailed data.   |
+| Ø                  | Country/region provided with simplified data. |
+| Country is missing | Country/region data is not provided.          |
 
 <br>  
 
