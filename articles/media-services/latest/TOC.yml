@@ -55,7 +55,7 @@
       href: media-encoder-standard-formats.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md       
-    - name: Content aware encoding
+    - name: Content-aware encoding
       href: cae-experimental.md          
     - name: Job error codes
       href: https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode         
