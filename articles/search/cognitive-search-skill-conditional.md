@@ -1,6 +1,6 @@
 ---
 title: Conditional cognitive search skill (Azure Search) | Microsoft Docs
-description: Conditional Skill that allows filtering, creating defaults, and merging values.
+description: Conditional skill that allows filtering, creating defaults, and merging values.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -16,9 +16,9 @@ ms.author: luisca
 
 #	Conditional skill
 
-The **Conditional skill** enables a variety of scenarios that require a boolean operation to decide the data that should be assigned to an output. These scenarios include: filtering, assigning a default value and merging data based on a condition.
+The *conditional skill* enables a variety of scenarios that require a boolean operation to determine the data to assign to an output. These scenarios include: filtering, assigning a default value, and merging data based on a condition.
 
-The following pseudocode explains what the Conditional Skill accomplishes:
+The following pseudocode explains what the conditional skill accomplishes:
 
 ```
 if (condition) 
@@ -28,7 +28,7 @@ else
 ```
 
 > [!NOTE]
-> This skill is not bound to a Cognitive Services API and you are not charged for using it. You should still [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md), however, to override the **Free** resource option that limits you to a small number of daily enrichments per day.
+> This skill is not bound to an Azure Cognitive Services API, and you are not charged for using it. However, you should still [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to override the "Free" resource option that limits you to a small number of enrichments per day.
 
 ## @odata.type  
 Microsoft.Skills.Util.ConditionalSkill
@@ -40,7 +40,8 @@ This skill is special because its inputs are evaluated fields.
 
 The following are valid values of an expression:
 
--	Annotation Paths (paths in expressions must be delimited by "$(" and ")") <br/>
+-	Annotation paths (paths in expressions must be delimited by "$(" and ")")
+ <br/>
     Examples:
     ```
         "= $(/document)"
@@ -78,7 +79,7 @@ The following are valid values of an expression:
         "= $(/document/lengthInMeters) / 0.3049" // division
     ```
 
-Because of the evaluation supported, the Conditional Skill can be used for minor transformation scenarios. See sample [skill definition 4](#transformation-examples) for an example.
+Because it supports evaluation, you can use the conditional skill for minor transformation scenarios. See example, see [skill definition 4](#transformation-examples).
 
 ## Skill inputs
 Inputs are case-sensitive.
@@ -86,17 +87,17 @@ Inputs are case-sensitive.
 | Inputs	  | Description |
 |-------------|-------------|
 | condition   | This input is an [evaluated field](#evaluated-fields) that represents the condition to evaluate. This condition should evaluate to a boolean value (true or false).   <br/>  Examples: <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
-| whenTrue    | This input is an [evaluated field](#evaluated-fields). The value to return if the condition is evaluated to true. Constants strings should be returned in ' ' quotes. <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/> |
-| whenFalse   | This input is an [evaluated field](#evaluated-fields). The value to return if the condition is evaluated to false.  <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
+| whenTrue    | This input is an [evaluated field](#evaluated-fields) that represents the value to return if the condition is evaluated to true. Constants strings should be returned in single quotation marks (' and '). <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/> |
+| whenFalse   | This input is an [evaluated field](#evaluated-fields) that represents the value to return if the condition is evaluated to false.  <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
 
 ## Skill outputs
-There is a single output called 'output'. It will return the value of whenFalse if the condition is false, or whenTrue if the condition is true.
+There's a single output called "output." It returns the value of *whenFalse* if the condition is false or *whenTrue* if the condition is true.
 
 ## Examples
 
-###	Sample skill definition 1: Filtering documents to return only "French" documents
+###	Sample skill definition 1: Filter documents to return only French documents
 
-The following output will return an array of sentences ("/document/frenchSentences") if the language of the document is french. If the language is not french, that value will be set to null.
+The following output returns an array of sentences ("/document/frenchSentences") if the language of the document is French. If the language is not French, that value will be set to null.
 
 ```json
 {
@@ -110,12 +111,12 @@ The following output will return an array of sentences ("/document/frenchSentenc
     "outputs": [ { "name": "output", "targetName": "frenchSentences" } ]
 }
 ```
-If "/document/frenchSentences" is used as the *context* of another skill, that skill will only run if "/document/frenchSentences" is not set to null
+If "/document/frenchSentences" is used as the *context* of another skill, that skill will only run if "/document/frenchSentences" isn't set to null.
 
 
-###	Sample skill definition 2: Setting a default value when it does not exist.
+###	Sample skill definition 2: Setting a default value when it doesn't exist
 
-The following output will create an annotation ("/document/languageWithDefault") that is set to either the language of the document, or "es" if the language is not set.
+The following output creates an annotation ("/document/languageWithDefault") that's set to either the language of the document or to "es" if the language is not set.
 
 ```json
 {
@@ -130,9 +131,9 @@ The following output will create an annotation ("/document/languageWithDefault")
 }
 ```
 
-###	Sample skill definition 3: Merging values from two different fields into a single field
+###	Sample skill definition 3: Merge values from two  fields into one
 
-In this example, some sentences have a *frenchSentiment* property. Whenever the *frenchSentiment* property is null, we would like to use the *englishSentiment* value. We assign the output to a member called simply *sentiment* ("/document/sentiment/*/sentiment").
+In this example, some sentences have a **frenchSentiment** property. Whenever the **frenchSentiment** property is null, we want to use the *englishSentiment* value. We assign the output to a member that's called simply *sentiment* ("/document/sentiment/*/sentiment").
 
 ```json
 {
@@ -148,11 +149,11 @@ In this example, some sentences have a *frenchSentiment* property. Whenever the 
 ```
 
 ## Transformation examples
-###	Sample skill definition 4: Performing data transformations on a single field
+###	Sample skill definition 4: Perform data transformations on a single field
 
-In this example, we receive a sentiment between 0 and 1, and we would like to transform it so that it is between -1 and 1. This is a small math transformation that we could do using the Conditional Skill.
+In this example, we receive a *sentiment* that's between 0 and 1. We want to transform it so that it's between -1 and 1. We can use the conditional skill to do this minor transfrormation.
 
-In this specific example, we never use the conditional aspect of the skill as the condition is always true. 
+In this example, we don't use the conditional aspect of the skill because the condition is always *true*. 
 
 ```json
 {
@@ -167,9 +168,8 @@ In this specific example, we never use the conditional aspect of the skill as th
 }
 ```
 
-
 ## Special considerations
-Note that some of the parameters are evaluated, so you need to be especially careful following the documented pattern. Expressions must start with an equals sign "=" and paths must be delimited by "$(" and ")". Make sure to put your strings in 'single quotes' as that will help the evaluator distinguish between strings and actual paths and operators. Also, make sure to put a whitespace around operators (for instance a * in a path has a different meaning than the multiplication operator).
+Some parameters are evaluated, so you need to be especially careful to follow the documented pattern. Expressions must start with an equals sign ("="), a path must be delimited by "$(" and ")". Make sure to put your strings in single quotation marks. That helps the evaluator distinguish between strings and actual paths and operators. Also, make sure to put white space around operators (for instance, a "*" in a path means something different than multiply).
 
 
 ## Next steps
