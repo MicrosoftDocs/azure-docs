@@ -32,7 +32,7 @@ ms.custom: include file
             storeAuthStateInCookie: true
         }
     };
-    
+
     var graphConfig = {
         graphMeEndpoint: "https://graph.microsoft.com/v1.0/me"
     };
@@ -45,7 +45,7 @@ ms.custom: include file
 
     var myMSALObj = new Msal.UserAgentApplication(msalConfig);
     // Register Callbacks for redirect flow
-    myMSALObj.handleRedirectCallbacks(acquireTokenRedirectCallBack, acquireTokenErrorRedirectCallBack);
+    myMSALObj.handleRedirectCallback(authRedirectCallBack);
 
     function signIn() {
 
@@ -105,11 +105,16 @@ ms.custom: include file
     }
 
 
-    function acquireTokenRedirectCallBack(response) {
-        if (response.tokenType === "access_token") {
-            callMSGraph(graphConfig.graphEndpoint, response.accessToken, graphAPICallback);
-        } else {
-            console.log("token type is:" + response.tokenType);
+    function authRedirectCallBack(error, response) {
+        if (error) {
+            console.log(error);
+        }
+        else {
+            if (response.tokenType === "access_token") {
+                callMSGraph(graphConfig.graphEndpoint, response.accessToken, graphAPICallback);
+            } else {
+                console.log("token type is:" + response.tokenType);
+            }
         }
     }
 
