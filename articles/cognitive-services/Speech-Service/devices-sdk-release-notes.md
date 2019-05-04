@@ -23,14 +23,11 @@ The following sections list changes in the most recent releases.
 *	Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 1.5.0. For more information, see its [release notes](https://aka.ms/csspeech/whatsnew).
 *	New wake word technology brings significant quality improvements, see Breaking Changes.
 *	New audio processing pipeline for improved far-field recognition.
-*	Support for [Azure Kinect DK](https://aka.ms/sdsdk-akdk) on Linux
 
 **Breaking changes**
 
 *	Due to the new wake word technology all wake words must be re-created at our improved wake word portal. To fully remove old keywords from the device uninstall the old app.
 	- adb uninstall com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
-
-
 
 ## Cognitive Services Speech Devices SDK 1.4.0: 2019-Apr release 
 
