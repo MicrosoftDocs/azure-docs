@@ -136,7 +136,7 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 ```
 
 ## Conditional access and claims challenges
-When getting tokens silently, your application may receive errors when a [conditional access claims challenge](conditional-access-dev-guide.md#scenario-single-page-app-spa-using-adaljs) such as MFA policy is required by an API you are trying to access.
+When getting tokens silently, your application may receive errors when a [conditional access claims challenge](conditional-access-dev-guide.md) such as MFA policy is required by an API you are trying to access.
 
 The pattern to handle this error is to interactively acquire a token using MSAL. Interactively acquiring a token prompts the user and gives them the opportunity to satisfy the required conditional access policy.
 
@@ -148,7 +148,7 @@ When calling an API requiring conditional access from MSAL.NET, your application
 To handle the claim challenge, you will need to use the `.WithClaim()` method of the `PublicClientApplicationBuilder` class.
 
 ### JavaScript
-When getting tokens silently (using `acquireTokenSilent`) using MSAL.js, your application may receive errors when a [conditional access claims challenge](conditional-access-dev-guide.md#scenario-single-page-app-spa-using-adaljs) such as MFA policy is required by an API you are trying to access.
+When getting tokens silently (using `acquireTokenSilent`) using MSAL.js, your application may receive errors when a [conditional access claims challenge](conditional-access-dev-guide.md) such as MFA policy is required by an API you are trying to access.
 
 The pattern to handle this error is to make an interactive call to acquire token in MSAL.js such as `acquireTokenPopup` or `acquireTokenRedirect` as in the following example:
 
