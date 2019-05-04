@@ -43,10 +43,10 @@ Let's look at an example. You have a setting **Asset1** whose value may vary for
 
 ### Bootstrapping to App Configuration
 
-To access an App Configuration store, you can use its connection string, which is available in the Azure portal. Connection strings contain credential information and are considered as secrets. They need to be stored in a Key Vault. A better option is to use Azure managed identity. With this method, you only need to App Configuration endpoint URL to bootstrap access to your configuration store. You can embed the URL in your application code (for example, in the *appsettings.json* file). See [Integrate with Azure managed identities](howto-integrate-azure-managed-service-identity.md) for more details.
+To access an App Configuration store, you can use its connection string, which is available in the Azure portal. Connection strings contain credential information and are considered as secrets. They need to be stored in a Key Vault. A better option is to use Azure managed identity. With this method, you only need App Configuration endpoint URL to bootstrap access to your configuration store. You can embed the URL in your application code (for example, in the *appsettings.json* file). See [Integrate with Azure managed identities](howto-integrate-azure-managed-service-identity.md) for more details.
 
-### Accessing App Configuration from App Service
+### Accessing App Configuration from App Service (Web app or Function app)
 
-You can enter the connection string to your App Configuration store into App Service through the Azure portal. You can also store it in Key Vault and [reference it from App Service](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references). You can also use Azure managed identity to access the configuration store. See [Integrate with Azure managed identities](howto-integrate-azure-managed-service-identity.md) for more details.
+You can enter the connection string to your App Configuration store into the Application settings of App Service through the Azure portal. You can also store it in Key Vault and [reference it from App Service](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references). You can also use Azure managed identity to access the configuration store. See [Integrate with Azure managed identities](howto-integrate-azure-managed-service-identity.md) for more details.
 
-Alternatively, you can push configuration from App Configuration to App Service. App Configuration provides an export function that sends data directly into App Service. With this method, you do not need to be change the application code at all.
+Alternatively, you can push configuration from App Configuration to App Service. App Configuration provides an export function (in Azure portal and CLI) that sends data directly into App Service. With this method, you do not need to change the application code at all.
