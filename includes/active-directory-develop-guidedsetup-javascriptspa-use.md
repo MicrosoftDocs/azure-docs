@@ -39,7 +39,7 @@ ms.custom: include file
 
     // this can be used for login or token request, however in more complex situations
     // this can have diverging options
-    var request = {
+    var requestObj = {
         scopes: ["user.read"]
     };
 
@@ -47,9 +47,10 @@ ms.custom: include file
     // Register Callbacks for redirect flow
     myMSALObj.handleRedirectCallback(authRedirectCallBack);
 
+
     function signIn() {
 
-        myMSALObj.loginPopup(request).then(function (loginResponse) {
+        myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
             //Login Success
             showWelcomeMessage();
             acquireTokenPopupAndCallMSGraph();
@@ -58,16 +59,16 @@ ms.custom: include file
         });
     }
 
-
     function acquireTokenPopupAndCallMSGraph() {
-        //Call acquireTokenSilent (iframe) to obtain a token for Microsoft Graph
-        myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
+        //Always start with acquireTokenSilent to obtain a token in the signed in user from cache
+        myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
             callMSGraph(graphConfig.graphMeEndpoint, tokenResponse.accessToken, graphAPICallback);
         }).catch(function (error) {
-            console.log(error.errorCode);
-            // Call acquireTokenPopup (popup window) in case of acquireTokenSilent failure due to consent or interaction required ONLY
+            console.log(error);
+            // Upon acquireTokenSilent failure (due to consent or interaction or login required ONLY)
+            // Call acquireTokenPopup(popup window)
             if (requiresInteraction(error.errorCode)) {
-                myMSALObj.acquireTokenPopup(request).then(function (tokenResponse) {
+                myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
                     callMSGraph(graphConfig.graphMeEndpoint, tokenResponse.accessToken, graphAPICallback);
                 }).catch(function (error) {
                     console.log(error);
@@ -91,18 +92,20 @@ ms.custom: include file
     }
 
 
-   function acquireTokenRedirectAndCallMSGraph() {
-        //Call acquireTokenSilent (iframe) to obtain a token for Microsoft Graph
-        myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
-            callMSGraph(graphConfig.graphMeEndpoint, tokenResponse.accessToken, graphAPICallback);
-        }).catch(function (error) {
-            console.log(error);
-            //Call acquireTokenRedirect in case of acquireToken Failure
-            if (requiresInteraction(error.errorCode)) {
-                myMSALObj.acquireTokenRedirect(request);
-            }
-        });
-    }
+    //This function can be removed if you do not need to support IE
+    function acquireTokenRedirectAndCallMSGraph() {
+         //Always start with acquireTokenSilent to obtain a token in the signed in user from cache
+         myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
+             callMSGraph(graphConfig.graphMeEndpoint, tokenResponse.accessToken, graphAPICallback);
+         }).catch(function (error) {
+             console.log(error);
+             // Upon acquireTokenSilent failure (due to consent or interaction or login required ONLY)
+             // Call acquireTokenRedirect
+             if (requiresInteraction(error.errorCode)) {
+                 myMSALObj.acquireTokenRedirect(requestObj);
+             }
+         });
+     }
 
 
     function authRedirectCallBack(error, response) {
@@ -118,11 +121,6 @@ ms.custom: include file
         }
     }
 
-
-    function  acquireTokenErrorRedirectCallBack(error) {
-        console.log(error);
-    }
-
     function requiresInteraction(errorCode) {
         if (!errorCode || !errorCode.length) {
             return false;
@@ -132,6 +130,17 @@ ms.custom: include file
             errorCode === "login_required";
     }
 
+    // Browser check variables
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf('MSIE ');
+    var msie11 = ua.indexOf('Trident/');
+    var msedge = ua.indexOf('Edge/');
+    var isIE = msie > 0 || msie11 > 0;
+    var isEdge = msedge > 0;
+    //If you support IE, our recommendation is that you sign-in using Redirect APIs
+    //If you as a developer are testing using Edge InPrivate mode, please add "isEdge" to the if check
+    // can change this to default an experience outside browser use
+    var loginType = isIE ? "REDIRECT" : "POPUP";
 
     if (loginType === 'POPUP') {
         if (myMSALObj.getAccount()) {// avoid duplicate code execution on page load in case of iframe and popup window.
@@ -141,7 +150,7 @@ ms.custom: include file
     }
     else if (loginType === 'REDIRECT') {
         document.getElementById("SignIn").onclick = function () {
-            myMSALObj.loginRedirect(request);
+            myMSALObj.loginRedirect(requestObj);
         };
         if (myMSALObj.getAccount() && !myMSALObj.isCallback(window.location.hash)) {// avoid duplicate code execution on page load in case of iframe and popup window.
             showWelcomeMessage();
