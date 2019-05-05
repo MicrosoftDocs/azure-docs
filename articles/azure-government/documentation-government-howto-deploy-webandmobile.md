@@ -22,7 +22,7 @@ ms.author: sdubeymsft
 
 Microsoft Azure Government delivers a dedicated cloud with world-class security and compliance, enabling US government agencies and their partners to transform their workloads to the cloud. For example, your may want to provision and deploy a web app in the Azure Government cloud. To learn more about Azure App Service and see end-to-end scenarios, see [App Service - API Apps Documentation](../app-service/index.yml)
 
-This article describes how to deploy an Azure App Services app to Azure Government using Visual Studio 2017.
+This article describes how to deploy an Azure App Services app to Azure Government using Visual Studio 2019.
 
 In this tutorial, you learn how to:
 
@@ -37,7 +37,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 
 * Review [Guidance for developers](documentation-government-developer-guide.md).<br/> This article discusses Azure Government's unique URLs and endpoints for managing your environment. You must know about these endpoints in order to connect to Azure Government. 
 * Review [Compare Azure Government and global Azure](compare-azure-government-global-azure.md) and click on a service of interest to see variations between Azure Government and global Azure.
-* Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> with the **ASP.NET and web development** workload.
+* Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> with the **ASP.NET and web development** workload.
 
     If you've installed Visual Studio already, add the workload in Visual Studio by clicking **Tools** > **Get Tools and Features**.
 

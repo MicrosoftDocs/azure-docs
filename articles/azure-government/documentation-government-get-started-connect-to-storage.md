@@ -49,7 +49,7 @@ For more information on Azure Storage Explorer, click [here](https://docs.micros
 ### Prerequisites
 * Have an active Azure Government subscription.
 If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
-* Download Visual Studio 2017 and [Connect to Azure Government](documentation-government-get-started-connect-with-vs.md).
+* Download Visual Studio 2019 and [Connect to Azure Government](documentation-government-get-started-connect-with-vs.md).
 
 ### Getting Started with Storage API
 One important difference to note when connecting with the Storage API is that the URL for storage is different than the URL for storage in commercial Azure – specifically, the domain ends with “core.usgovcloudapi.net”, rather than “core.windows.net”.
