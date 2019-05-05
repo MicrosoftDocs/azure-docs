@@ -11,12 +11,20 @@ ms.author: hrasheed
 ---
 # Automatically scale Azure HDInsight clusters (preview)
 
-Azure HDInsight’s cluster Autoscale feature automatically scales the number of worker nodes in a cluster up and down.  During the creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale then monitors the resource requirements of the analytics load and scales the number of worker nodes up or down accordingly. There's no additional charge for this feature.
+Azure HDInsight’s cluster Autoscale feature automatically scales the number of worker nodes in a cluster up and down. Other types of nodes in the cluster cannot be scaled currently.  During the creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale then monitors the resource requirements of the analytics load and scales the number of worker nodes up or down accordingly. There's no additional charge for this feature.
+
+## Cluster compatibility
+
+The following table describes the cluster types and versions that are compatible with the Autoscale feature.
+
+| Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+|---|---|---|---|---|---|---|---|
+| HDInsight 3.6 without ESP | Yes | Yes | Soon | No | No | No | No |
+| HDInsight 4.0 without ESP | Yes | Yes | Soon | No | No | No | No |
+| HDInsight 3.6 with ESP | Yes | Yes | Soon | No | No | No | No |
+| HDInsight 3.6 with ESP | Yes | Yes | Soon | No | No | No | No |
 
 ## How it works
-
-> [!Note]
-> Autoscale is currently only supported for Azure HDInsight Hive, MapReduce and Spark clusters version 3.6.
 
 You can choose load-based scaling or schedule-based scaling for your HDInsight cluster. Load-based scaling changes the number of nodes in your cluster within minimum and maximum limits that you set, to ensure optimal CPU utilization and minimize running cost.
 
@@ -175,9 +183,29 @@ To enable Autoscale on a running cluster select **Cluster size** under **Setting
 
 ## Monitoring
 
-You can view the cluster scale-up and scale-down history as part of the cluster metrics. You can also list all scaling actions over the past day, week, or longer period of time.
+### Cluster status
 
-Select **Metrics** under **Monitoring**. Then click **Add metric** and **Number of Active Workers** from the **Metric** dropdown box.
+The cluster status listed in the Azure portal can help you monitor Autoscale activities.
+
+![Enable worker node load-based autoscale option](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png)
+
+All of the cluster status messages that you might see are explained in the list below.
+
+| Cluster status | Explanation |
+|---|---|
+| Running | The cluster is operating normally. All of the previous Autoscale activities have completed successfully. |
+| Updating  | The cluster Autoscale configuration is being updated.  |
+| HDInsight configuration  | A cluster scale up or scale down operation is in progress.  |
+| Updating Error  | HDInsight encountered issues during the Autoscale configuration update. Customers can choose to either retry the update or disable autoscale.  |
+| Error  | Something is wrong with the cluster, and it is not usable. You must delete this cluster and create a new one.  |
+
+To view the current number of nodes in your cluster view the **Cluster size** chart on the **Overview** page for your cluster, or click **Cluster size** under **Settings**.
+
+### Operation history
+
+You can view the cluster scale-up and scale-down history as part of the cluster metrics. You can also list all scaling actions over the past day, week, or other period of time.
+
+Select **Metrics** under **Monitoring**. Then click **Add metric** and **Number of Active Workers** from the **Metric** dropdown box. Click the button in the upper right to change the time range.
 
 ![Enable worker node schedule-based autoscale option](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
