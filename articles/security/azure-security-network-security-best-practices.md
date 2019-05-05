@@ -44,7 +44,7 @@ Azure virtual networks are similar to LANs on your on-premises network. The idea
 
 Best practices for logically segmenting subnets include:
 
-**Best practice**: Don’t assign allow rules with broad ranges (for example, allow 0.0.0.0 through 255.255.255.255).
+**Best practice**: Don’t assign allow rules with broad ranges (for example, allow 0.0.0.0 through 255.255.255.255).  
 **Detail**: Ensure troubleshooting procedures discourage or ban setting up these types of rules. These allow rules lead to a false sense of security and are frequently found and exploited by red teams.
 
 **Best practice**: Segment the larger address space into subnets.   
@@ -58,7 +58,7 @@ When you use network security groups for network access control between subnets,
 **Best practice**: Avoid small virtual networks and subnets to ensure simplicity and flexibility.
 **Detail**: Most organizations add more resources than initially planned, and re-allocating addresses is labor intensive. Using small subnets adds limited security value, and mapping a network security group to each subnet adds overhead. Define subnets broadly to ensure that you have flexibility for growth.
 
-**Best practice**: Simplify network security group rule management by defining [Application Security Groups](https://docs.microsoft.com/rest/api/virtualnetwork/applicationsecuritygroups).
+**Best practice**: Simplify network security group rule management by defining [Application Security Groups](https://docs.microsoft.com/rest/api/virtualnetwork/applicationsecuritygroups).  
 **Detail**: Define an Application Security Group for lists of IP addresses that you think might change in the future or be used across many network security groups. Be sure to name Application Security Groups clearly so others can understand their content and purpose.
 
 ## Adopt a Zero Trust approach
@@ -68,13 +68,13 @@ Networks need to evolve from traditional defenses because networks might be vuln
 
 Best practices are:
 
-**Best practice**: Give conditional access to resources based on device, identity, assurance, network location, and more.
+**Best practice**: Give conditional access to resources based on device, identity, assurance, network location, and more.  
 **Detail**: [Azure AD conditional access](../active-directory/conditional-access/overview.md) lets you apply the right access controls by implementing automated access control decisions based on the required conditions. For more information, see [Manage access to Azure management with conditional access](../role-based-access-control/conditional-access-azure-management.md).
 
-**Best practice**: Enable port access only after workflow approval.
+**Best practice**: Enable port access only after workflow approval.  
 **Detail**: You can use [just-in-time VM access in Azure Security Center](../security-center/security-center-just-in-time.md) to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
 
-**Best practice**: Grant temporary permissions to perform privileged tasks, which prevents malicious or unauthorized users from gaining access after the permissions have expired. Access is granted only when users need it.
+**Best practice**: Grant temporary permissions to perform privileged tasks, which prevents malicious or unauthorized users from gaining access after the permissions have expired. Access is granted only when users need it.  
 **Detail**: Use just-in-time access in Azure AD Privileged Identity Management or in a third-party solution to grant permissions to perform privileged tasks.
 
 Zero Trust is the next evolution in network security. The state of cyberattacks drives organizations to take the “assume breach” mindset, but this approach shouldn’t be limiting. Zero Trust networks protect corporate data and resources while ensuring that organizations can build a modern workplace by using technologies that empower employees to be productive anytime, anywhere, in any way.
