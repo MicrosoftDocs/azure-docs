@@ -34,7 +34,7 @@ This document describes a simple example on the use of the **Azure Data Explorer
 
 ## Create folders
 
-Create the following sample folders (*Functions*, *Policies*, *Tables*) in your Git repository. Copy the files from [here](https://github.com/Azure/azure-kusto-docs-samples/tree/master/DevOps_release_pipeline) into the respective folders as seen below and commit the change. These sample files are provided to execute the following workflow.
+Create the following sample folders (*Functions*, *Policies*, *Tables*) in your Git repository. Copy the files from [here](https://github.com/Azure/azure-kusto-docs-samples/tree/master/DevOps_release_pipeline) into the respective folders as seen below and commit the changes. The sample files are provided to execute the following workflow.
 
 ![Create folders](media/devops/create-folders.png)
 
@@ -61,7 +61,7 @@ Create the following sample folders (*Functions*, *Policies*, *Tables*) in your 
 
     ![Create variable](media/devops/create-variable.png)
 
-    The Azure Data Explorer cluster URI can be found in the overview page of your **Azure Data Explorer Cluster** in the Azure portal. Construct the URI in the following format `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  For example, https://kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
+    To find your Endpoint_URL, the overview page of your **Azure Data Explorer Cluster** in the Azure portal contains the Azure Data Explorer cluster URI. Construct the URI in the following format `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  For example, https://kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
 
     ![Azure Data Explorer cluster URI](media/devops/cluster-uri.png)
 
@@ -81,7 +81,7 @@ Create the following sample folders (*Functions*, *Policies*, *Tables*) in your 
     * **Display name**: Name of the task
     * **File path**: In the **Tables** task, specify */Tables/*.csl since the table creation files are in the *Table* folder.
     * **Endpoint URL**: enter the `EndPoint URL`variable created in previous step.
-    * Select **Use Service Endpoint** and select **New**.
+    * Select **Use Service Endpoint** and select **+ New**.
 
     ![Update Kusto command task](media/devops/kusto-command-task.png)
 
@@ -90,7 +90,7 @@ Create the following sample folders (*Functions*, *Policies*, *Tables*) in your 
     |Setting  |Suggested value  |
     |---------|---------|
     |**Connection name**     |    Enter a name to identify this service endpoint     |
-    |**Cluster Url**    |    Value can be found in overview section of your Azure Data     |  Explorer cluster in the Azure portal
+    |**Cluster Url**    |    Value can be found in the overview section of your Azure Data Explorer Cluster in the Azure portal | 
     |**Service Principal Id**    |    Enter the AAD App ID (created as prerequisite)     |
     |**Service Principal App Key**     |    Enter the AAD App Key (created as prerequisite)    |
     |**AAD tenant Id**    |      Enter your AAD tenant (such as microsoft.com, contoso.com...)    |
