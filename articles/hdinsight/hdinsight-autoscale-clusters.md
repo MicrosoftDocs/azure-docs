@@ -11,7 +11,7 @@ ms.author: hrasheed
 ---
 # Automatically scale Azure HDInsight clusters (preview)
 
-Azure HDInsight’s cluster Autoscale feature automatically scales the number of worker nodes in a cluster up and down. Other types of nodes in the cluster cannot be scaled currently.  During the creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale then monitors the resource requirements of the analytics load and scales the number of worker nodes up or down accordingly. There's no additional charge for this feature.
+Azure HDInsight’s cluster Autoscale feature automatically scales the number of worker nodes in a cluster up and down. Other types of nodes in the cluster can't be scaled currently.  During the creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale then monitors the resource requirements of the analytics load and scales the number of worker nodes up or down. There's no additional charge for this feature.
 
 ## Cluster compatibility
 
@@ -26,7 +26,7 @@ The following table describes the cluster types and versions that are compatible
 
 ## How it works
 
-You can choose load-based scaling or schedule-based scaling for your HDInsight cluster. Load-based scaling changes the number of nodes in your cluster within minimum and maximum limits that you set, to ensure optimal CPU utilization and minimize running cost.
+You can choose load-based scaling or schedule-based scaling for your HDInsight cluster. Load-based scaling changes the number of nodes in your cluster, within a range that you set, to ensure optimal CPU utilization and minimize running cost.
 
 Schedule-based scaling changes the number of nodes in your cluster based on conditions that take effect at specific times. These conditions scale the cluster to a desired number of nodes.
 
@@ -41,7 +41,7 @@ Autoscale continuously monitors the cluster and collects the following metrics:
 5. **Used Memory per Node**: The load on a worker node. A worker node on which 10 GB of memory is used, is considered under more load than a worker with 2 GB of used memory.
 6. **Number of Application Masters per Node**: The number of Application Master (AM) containers running on a worker node. A worker node that is hosting two AM containers, is considered more important than a worker node that is hosting zero AM containers.
 
-The above metrics are checked every 60 seconds. Autoscale will make scale-up and scale-down decisions based on these metrics.
+The above metrics are checked every 60 seconds. Autoscale makes scale-up and scale-down decisions based on these metrics.
 
 ### Load-based cluster scale-up
 
@@ -177,7 +177,7 @@ You can create an HDInsight cluster with schedule-based Autoscaling an Azure Res
 
 ### Enable and disable Autoscale for a running cluster
 
-To enable Autoscale on a running cluster select **Cluster size** under **Settings**. Then click **Enable autoscale**. Select the type of Autoscale that you want and enter the options for load-based or schedule-based scaling. Finally, click **Save**.
+To enable Autoscale on a running cluster, select **Cluster size** under **Settings**. Then click **Enable autoscale**. Select the type of Autoscale that you want and enter the options for load-based or schedule-based scaling. Finally, click **Save**.
 
 ![Enable worker node schedule-based autoscale option](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
 
@@ -197,9 +197,9 @@ All of the cluster status messages that you might see are explained in the list 
 | Updating  | The cluster Autoscale configuration is being updated.  |
 | HDInsight configuration  | A cluster scale up or scale down operation is in progress.  |
 | Updating Error  | HDInsight encountered issues during the Autoscale configuration update. Customers can choose to either retry the update or disable autoscale.  |
-| Error  | Something is wrong with the cluster, and it is not usable. You must delete this cluster and create a new one.  |
+| Error  | Something is wrong with the cluster, and it is not usable. Delete this cluster and create a new one.  |
 
-To view the current number of nodes in your cluster view the **Cluster size** chart on the **Overview** page for your cluster, or click **Cluster size** under **Settings**.
+To view the current number of nodes in your cluster, go to the **Cluster size** chart on the **Overview** page for your cluster, or click **Cluster size** under **Settings**.
 
 ### Operation history
 
