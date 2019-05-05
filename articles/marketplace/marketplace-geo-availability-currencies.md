@@ -2,9 +2,9 @@
 title: Geographic availability and Currency Support | Azure
 description: Geographic availability in Azure Marketplace and AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
-documentationcenter:
+
 author: qianw211
-manager: Patrick.Butler
+
 
 ms.service: marketplace
 ms.topic: article
