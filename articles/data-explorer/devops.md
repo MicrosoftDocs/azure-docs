@@ -14,8 +14,8 @@ ms.date: 05/05/2019
 
 # Azure DevOps Task for Azure Data Explorer
 
-[Azure DevOps Services](https://azure.microsoft.com/services/devops/) provides development collaboration tools including high-performance pipelines, free private Git repositories, configurable Kanban boards, and extensive automated and continuous testing capabilities. [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is an Azure DevOps capability that enables you to manage CI/CD to deploy your code with a high-performance pipelines that work with any language, platform, and cloud.
-[Azure Data Explorer - Admin Commands](https://marketplace.visualstudio.com/items?itemName=Azure-Kusto.PublishToADX) is the Azure Pipelines task that enables you to create release pipelines and deploy your database changes to your Azure Data Explorer databases. It is available for free in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
+[Azure DevOps Services](https://azure.microsoft.com/services/devops/) provides development collaboration tools such as high-performance pipelines, free private Git repositories, configurable Kanban boards, and extensive automated and continuous testing capabilities. [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is an Azure DevOps capability that enables you to manage CI/CD to deploy your code with high-performance pipelines that work with any language, platform, and cloud.
+[Azure Data Explorer - Admin Commands](https://marketplace.visualstudio.com/items?itemName=Azure-Kusto.PublishToADX) is the Azure Pipelines task that enables you to create release pipelines and deploy your database changes to your Azure Data Explorer databases. It's available for free in the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 
 This document describes a simple example on the use of the **Azure Data Explorer – Admin Commands** task to deploy your schema changes to your database. For complete CI/CD pipelines, refer to [Azure DevOps documentation](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops#vsts).
 
@@ -57,7 +57,7 @@ Create the following sample folders (*Functions*, *Policies*, *Tables*) in your 
 
     ![Add an artifact](media/devops/add-artifact.png)
 
-1. In the **Variables** tab, select **+ Add** to create a variable for **Endpoint URL** that'll be used in the task. Write the **Name** and the **Value** of the endpoint. Select **Save** to save your pipeline. 
+1. In the **Variables** tab, select **+ Add** to create a variable for **Endpoint URL** that will be used in the task. Write the **Name** and the **Value** of the endpoint. Select **Save** to save your pipeline. 
 
     ![Create variable](media/devops/create-variable.png)
 
@@ -93,7 +93,7 @@ Create the following sample folders (*Functions*, *Policies*, *Tables*) in your 
     |**Cluster Url**    |    Value can be found in overview section of your Azure Data     |  Explorer cluster in the Azure portal
     |**Service Principal Id**    |    Enter the AAD App ID (created as prerequisite)     |
     |**Service Principal App Key**     |    Enter the AAD App Key (created as prerequisite)    |
-    |**AAD tenant id**    |      Enter your AAD tenant (such as microsoft.com, contoso.com...)    |
+    |**AAD tenant Id**    |      Enter your AAD tenant (such as microsoft.com, contoso.com...)    |
 
     Select **Allow all pipelines to use this connection** checkbox. Select **OK**.
 
