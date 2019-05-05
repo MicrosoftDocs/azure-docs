@@ -167,34 +167,6 @@ The data returned from the endpoint includes the entity name, the discovered tex
 |--|--|--|
 |Simple Entity|`Customer`|`bob jones`|
 
-## Hierarchical entity data
-
-**Hierarchical entities will eventually be deprecated. Use [entity roles](luis-concept-roles.md) to determine entity subtypes, instead of hierarchical entities.**
-
-[Hierarchical](luis-concept-entity-types.md) entities are machine-learned and can include a word or phrase. Children are identified by context. If you're looking for a parent-child relationship with exact text match, use a [List](#list-entity-data) entity.
-
-`book 2 tickets to paris`
-
-In the previous utterance, `paris` is labeled a `Location::ToLocation` child of the `Location` hierarchical entity.
-
-The data returned from the endpoint includes the entity name and child name, the discovered text from the utterance, the location of the discovered text, and the score:
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Location::ToLocation",
-    "startIndex": 18,
-    "endIndex": 22,
-    "score": 0.6866132
-  }
-]
-```
-
-|Data object|Parent|Child|Value|
-|--|--|--|--|
-|Hierarchical Entity|Location|ToLocation|"paris"|
-
 ## Composite entity data
 [Composite](luis-concept-entity-types.md) entities are machine-learned and can include a word or phrase. For example, consider a composite entity of prebuilt `number` and `Location::ToLocation` with the following utterance:
 
@@ -207,53 +179,54 @@ Notice that `2`, the number, and `paris`, the ToLocation have words between them
 Composite entities are returned in a `compositeEntities` array and all entities within the composite are also returned in the `entities` array:
 
 ```JSON
-  "entities": [
+
+"entities": [
     {
-      "entity": "paris",
-      "type": "Location::ToLocation",
-      "startIndex": 18,
-      "endIndex": 22,
-      "score": 0.956998169
+    "entity": "2 tickets to cairo",
+    "type": "ticketInfo",
+    "startIndex": 0,
+    "endIndex": 17,
+    "score": 0.67200166
     },
     {
-      "entity": "2",
-      "type": "builtin.number",
-      "startIndex": 5,
-      "endIndex": 5,
-      "resolution": {
+    "entity": "2",
+    "type": "builtin.number",
+    "startIndex": 0,
+    "endIndex": 0,
+    "resolution": {
+        "subtype": "integer",
         "value": "2"
-      }
+    }
     },
     {
-      "entity": "2 tickets to paris",
-      "type": "Order",
-      "startIndex": 5,
-      "endIndex": 22,
-      "score": 0.7714499
+    "entity": "cairo",
+    "type": "builtin.geographyV2",
+    "startIndex": 13,
+    "endIndex": 17
     }
-  ],
-  "compositeEntities": [
+],
+"compositeEntities": [
     {
-      "parentType": "Order",
-      "value": "2 tickets to paris",
-      "children": [
+    "parentType": "ticketInfo",
+    "value": "2 tickets to cairo",
+    "children": [
         {
-          "type": "builtin.number",
-          "value": "2"
+        "type": "builtin.geographyV2",
+        "value": "cairo"
         },
         {
-          "type": "Location::ToLocation",
-          "value": "paris"
+        "type": "builtin.number",
+        "value": "2"
         }
-      ]
+    ]
     }
-  ]
+]
 ```    
 
 |Data object|Entity name|Value|
 |--|--|--|
 |Prebuilt Entity - number|"builtin.number"|"2"|
-|Hierarchical Entity - Location|"Location::ToLocation"|"paris"|
+|Prebuilt Entity - GeographyV2|"Location::ToLocation"|"paris"|
 
 ## List entity data
 
