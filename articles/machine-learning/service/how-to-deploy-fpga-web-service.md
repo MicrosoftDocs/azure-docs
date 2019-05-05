@@ -59,7 +59,7 @@ FPGAs are available in these Azure regions:
 
 ## Sample notebooks
 
-For your convenience, [sample notebooks](https://aka.ms/aml-notebooks) are available for the example below and in addition to other examples.  Look under how-to-use-azureml and deployment folders for accelerated models.
+For your convenience, [sample notebooks](https://aka.ms/aml-accel-models-notebooks) are available for the example below and other examples.
 
 ## Create and containerize your model
 
@@ -68,6 +68,7 @@ This document will describe how to create a TensorFlow graph to preprocess the i
 Follow the instructions to:
 
 * Define the TensorFlow model
+* Convert the model
 * Deploy the model
 * Consume the deployed model
 * Delete deployed services
@@ -157,7 +158,7 @@ print(output_tensors)
 > [!IMPORTANT]
 > Save the input and output tensors because you will need them for model conversion and inferencing requests.
 
-The available models and the corresponding default classifier output tensors are below. This is the value that you would use during inferencing if you used the default classifier.
+The available models and the corresponding default classifier output tensors are below, which is what you would use during inferencing if you used the default classifier.
 
 + Resnet50, QuantizedResnet50
 ``
@@ -206,7 +207,7 @@ print(registered_model.name, registered_model.description, registered_model.vers
 
 ### Convert model
 
-The TensorFlow graph needs to be converted to the Open Neural Network Exchange format ([ONNX](https://onnx.ai/)).  You will need to provide the names of the input and output tensors, and these names will be used by your client when you consume the web service.
+Convert the TensorFlow graph to the Open Neural Network Exchange format ([ONNX](https://onnx.ai/)).  You will need to provide the names of the input and output tensors, and these names will be used by your client when you consume the web service.
 
 ```python
 from azureml.accel import AccelOnnxConverter
@@ -224,7 +225,7 @@ print("\nSuccessfully converted: ", converted_model.name, converted_model.url, c
 
 ### Create Docker image
 
-The converted model and all dependencies are added to a Docker image.  This Docker image can then be deployed and instantiated in the cloud or a supported edge device such as [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview).  You can also add tags and descriptions for your registered Docker image.
+The converted model and all dependencies are added to a Docker image.  This Docker image can then be deployed and instantiated.  Supported deployment targets include AKS in the cloud or an  edge device such as [Azure Data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview).  You can also add tags and descriptions for your registered Docker image.
 
 ```python
 from azureml.core.image import Image
@@ -360,4 +361,4 @@ For information on securing FPGA web services, see the [Secure web services](how
 
 ## PBS Family VMs
 
-The PBS Family are Azure VMs with Intel Arria 10 FPGAs.  It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation.  The PB6 VM has 6 vCPUs and 1 FPGA, and it will automatically be provisioned by Azure ML as part of deploying a model to an FPGA.  It is only used with Azure ML, and it cannot run arbitrary bitstreams (e.g. you will not be able to flash the FPGA with bitstreams to do encryption, encoding, etc.). 
+The PBS Family of Azure VMs contains Intel Arria 10 FPGAs.  It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation.  The PB6 VM has six vCPUs and one FPGA, and it will automatically be provisioned by Azure ML as part of deploying a model to an FPGA.  It is only used with Azure ML, and it cannot run arbitrary bitstreams.  For example, you will not be able to flash the FPGA with bitstreams to do encryption, encoding, etc. 
