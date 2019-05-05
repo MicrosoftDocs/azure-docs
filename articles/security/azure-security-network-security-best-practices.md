@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2019
+ms.date: 05/05/2019
 ms.author: TomSh
 
 ---
@@ -55,7 +55,7 @@ Best practices for logically segmenting subnets include:
 
 When you use network security groups for network access control between subnets, you can put resources that belong to the same security zone or role in their own subnets.
 
-**Best practice**: Avoid small virtual networks and subnets to ensure simplicity and flexibility.
+**Best practice**: Avoid small virtual networks and subnets to ensure simplicity and flexibility.   
 **Detail**: Most organizations add more resources than initially planned, and re-allocating addresses is labor intensive. Using small subnets adds limited security value, and mapping a network security group to each subnet adds overhead. Define subnets broadly to ensure that you have flexibility for growth.
 
 **Best practice**: Simplify network security group rule management by defining [Application Security Groups](https://docs.microsoft.com/rest/api/virtualnetwork/applicationsecuritygroups).  
