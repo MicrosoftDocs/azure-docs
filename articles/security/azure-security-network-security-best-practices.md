@@ -72,7 +72,7 @@ Best practices are:
 **Detail**: [Azure AD conditional access](../active-directory/conditional-access/overview.md) lets you apply the right access controls by implementing automated access control decisions based on the required conditions. For more information, see [Manage access to Azure management with conditional access](../role-based-access-control/conditional-access-azure-management.md).
 
 **Best practice**: Enable port access only after workflow approval.
-**Detail**: You can use [just-in-time VM access in Azure Security Center](../security-center/security-center-just-in-time) to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
+**Detail**: You can use [just-in-time VM access in Azure Security Center](../security-center/security-center-just-in-time.md) to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
 
 **Best practice**: Grant temporary permissions to perform privileged tasks, which prevents malicious or unauthorized users from gaining access after the permissions have expired. Access is granted only when users need it.
 **Detail**: Use just-in-time access in Azure AD Privileged Identity Management or in a third-party solution to grant permissions to perform privileged tasks.
