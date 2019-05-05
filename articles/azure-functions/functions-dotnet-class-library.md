@@ -25,7 +25,7 @@ Azure Functions supports C# and C# script programming languages. If you're looki
 This article assumes that you've already read the following articles:
 
 * [Azure Functions developers guide](functions-reference.md)
-* [Azure Functions Visual Studio 2017 Tools](functions-develop-vs.md)
+* [Azure Functions Visual Studio 2019 Tools](functions-develop-vs.md)
 
 ## Functions class library project
 
