@@ -2,7 +2,6 @@
 title: Connect to Apache Hadoop using Data Lake Tools for Visual Studio - Azure HDInsight
 description: Learn how to install and use Data Lake Tools for Visual Studio to connect to Apache Hadoop clusters in Azure HDInsight, and then run Hive queries.
 keywords: hadoop tools,hive query,visual studio,visual studio hadoop
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -87,7 +86,7 @@ To connect to the Azure portal from Visual Studio:
 
 1. From Server Explorer, navigate to **Azure** > **HDInsight** and select your cluster.
 
-2. Right-click an HDInsight cluster, and select **Manage Cluster in Azure Portal**.
+2. Right-click an HDInsight cluster, and select **Manage Cluster in Azure portal**.
 
 To ask questions and/or provide feedback from Visual Studio:
 
@@ -107,7 +106,7 @@ After opening a container, you can use the following buttons to upload, delete, 
 ## Run interactive Apache Hive queries
 [Apache Hive](https://hive.apache.org) is a data warehouse infrastructure that's built on Hadoop. Hive is used for data summarization, queries, and analysis. You can use Data Lake Tools for Visual Studio to run Hive queries from Visual Studio. For more information about Hive, see [Use Apache Hive with HDInsight](hdinsight-use-hive.md).
 
-[Interactive Query](../interactive-query/apache-interactive-query-get-started.md) uses [Hive on LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) in Apache Hive 2.1. Interactive Query brings interactivity to complex data warehouse-style queries on large, stored datasets. Running Hive queries on Interactive Query is much faster compared to traditional Hive batch jobs. For more information, see [Run Apache Hive batch jobs](#run-hive-batch-jobs).
+[Interactive Query](../interactive-query/apache-interactive-query-get-started.md) uses [Hive on LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) in Apache Hive 2.1. Interactive Query brings interactivity to complex data warehouse-style queries on large, stored datasets. Running Hive queries on Interactive Query is much faster compared to traditional Hive batch jobs. For more information, see Run Apache Hive batch jobs.
 
 > [!NOTE]  
 > You can run interactive Hive queries only when you connect to an [HDInsight Interactive Query](../interactive-query/apache-interactive-query-get-started.md) cluster.
@@ -149,10 +148,10 @@ To create a Hive table, you can use the GUI or you can use Hive queries. For inf
 ### <a name="run.queries"></a>Create and run Hive queries
 You have two options for creating and running Hive queries:
 
-* Create ad-hoc queries
+* Create ad hoc queries
 * Create a Hive application
 
-To create, and run ad-hoc queries:
+To create, and run ad hoc queries:
 
 1. Right-click the cluster where you want to run the query, and select **Write a Hive Query**.  
 
@@ -234,19 +233,19 @@ From the job graph, you can select **Task Execution Detail** to get structured a
 ### View Hive jobs
 You can view job queries, job output, job logs, and Yarn logs for Hive jobs.
 
-In the most recent release of the tools, you can see what’s inside your Hive jobs by collecting and surfacing Yarn logs. A Yarn log can help you investigating performance issues. For more information about how HDInsight collects Yarn logs, see [Access HDInsight application logs programmatically](../hdinsight-hadoop-access-yarn-app-logs.md).
+In the most recent release of the tools, you can see what’s inside your Hive jobs by collecting and surfacing Yarn logs. A Yarn log can help you investigating performance issues. For more information about how HDInsight collects Yarn logs, see [Access HDInsight application logs programmatically](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
 To view Hive jobs:
 
 1. Right-click an HDInsight cluster, and select **View Jobs**. A list of the Hive jobs that ran on the cluster appears.  
 
 2. Select a job. In the **Hive Job Summary** window, select one of the following:
-    - **Job Query**
-    - **Job Output**
-    - **Job Log**  
-    - **Yarn log**
+   - **Job Query**
+   - **Job Output**
+   - **Job Log**  
+   - **Yarn log**
 
-    ![Screenshot of the HDInsight Visual Studio Tools View Hive Jobs window](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "View Hive jobs")
+     ![Screenshot of the HDInsight Visual Studio Tools View Hive Jobs window](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "View Hive jobs")
 
 
 ## Run Apache Pig scripts
@@ -270,5 +269,5 @@ In this article, you learned how to use the Data Lake Tools for Visual Studio pa
 * [Use Hadoop Hive in HDInsight](hdinsight-use-hive.md)
 * [Get started using Apache Hadoop in HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Submit Apache Hadoop jobs in HDInsight](submit-apache-hadoop-jobs-programmatically.md)
-* [Analyze Twitter data with Apache Hadoop in HDInsight](../hdinsight-analyze-twitter-data.md)
+* [Analyze Twitter data with Apache Hadoop in HDInsight](../hdinsight-analyze-twitter-data-linux.md)
 

@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: ab89f8ee-2507-4625-94bc-b24ef3d5e006
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -183,7 +183,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -236,7 +236,7 @@ To enable Azure AD users to sign in to Envi MMIS, they must be provisioned into 
 
 	![Add Employee](./media/envimmis-tutorial/user3.png)
 
-	a. In the **User Name** textbox, type the username of Britta Simon account like **brittasimon@contoso.com**.
+	a. In the **User Name** textbox, type the username of Britta Simon account like **brittasimon\@contoso.com**.
 	
 	b. In the **First Name** textbox, type the first name of BrittaSimon like **Britta**.
 
@@ -244,9 +244,9 @@ To enable Azure AD users to sign in to Envi MMIS, they must be provisioned into 
 
 	d. Enter the Title of the user in the **Title** of the textbox.
 	
-	e. In the **Email Address** textbox, type the email address of Britta Simon account like **brittasimon@contoso.com**.
+	e. In the **Email Address** textbox, type the email address of Britta Simon account like **brittasimon\@contoso.com**.
 
-	f. In the **SSO User Name** textbox, type the username of Britta Simon account like **brittasimon@contoso.com**.
+	f. In the **SSO User Name** textbox, type the username of Britta Simon account like **brittasimon\@contoso.com**.
 
 	g. Click **Save**.
 

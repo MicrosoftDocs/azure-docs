@@ -1,24 +1,24 @@
 ---
 title: How to implement custom synchronization to optimize for higher availability and performance in Azure Cosmos DB
 description: Learn how to implement custom synchronization to optimize for higher availability and performance in Azure Cosmos DB
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 2/12/2019
-ms.author: mjbrown
+ms.date: 04/15/2019
+ms.author: rimman
 ---
 
 # How to implement custom synchronization to optimize for higher availability and performance
 
-Azure Cosmos DB offers five well-defined consistency levels for you to choose from to balance the tradeoff between the consistency, performance, and availability. Strong consistency ensures data is synchronously replicated and durably persisted in every region where the Azure Cosmos account is available. This configuration, while providing the highest level of durability, comes at the cost of performance and availability. If an application wants to control/relax the data durability to suit the application need without compromising availability, it can employ custom synchronization at the application layer to achieve the desired level of durability.
+Azure Cosmos DB offers [five well-defined consistency levels](consistency-levels.md) for you to choose from to balance the tradeoff between the consistency, performance, and availability. Strong consistency ensures data is synchronously replicated and durably persisted in every region, where the Azure Cosmos account is available. This configuration, while providing the highest level of durability, comes at the cost of performance and availability. If an application wants to control/relax the data durability to suit the application needs without compromising availability, it can employ *custom synchronization* at the application layer to achieve the desired level of durability.
 
 The diagram below visually depicts the custom synchronization model.
 
 ![Custom Synchronization](./media/how-to-custom-synchronization/custom-synchronization.png)
 
-In this scenario, an Azure Cosmos container is replicated globally across several regions across multiple continents. Using strong consistency for all regions in this scenario would impact performance. To ensure a higher level of data durability without compromising the write latency, the application can use two clients that share the same session token.
+In this scenario, an Azure Cosmos container is replicated globally across several regions across multiple continents. Using strong consistency for all regions in this scenario would impact the performance. To ensure a higher level of data durability without compromising the write latency, the application can use two clients that share the same [session token](how-to-manage-consistency.md#utilize-session-tokens).
 
-The first client can write data to the local region (for example, US West). The second client (for example, in US East) is a read client used for ensuring the synchronization. By flowing session token from the write response to the following read, the read will ensure synchronization of writes to US East. Azure Cosmos DB will ensure writes are seen by at least one region and are guaranteed to survive a regional outage, if the original write region were to go down. In this scenario, every write is synchronized to US East, reducing the latency of employing strong consistency across all regions. In a multi-master scenario, where writes are occurring in every region, this model can be extended to synchronize to multiple regions in parallel.
+The first client can write data to the local region (for example, US West). The second client (for example, in US East) is a read client used for ensuring the synchronization. By flowing the session token from the write response to the following read, the read will ensure synchronization of writes to US East. Azure Cosmos DB will ensure writes are seen by at least one region and are guaranteed to survive a regional outage, if the original write region were to go down. In this scenario, every write is synchronized to US East, reducing the latency of employing strong consistency across all regions. In a multi-master scenario, where writes are occurring in every region, this model can be extended to synchronize to multiple regions in parallel.
 
 ## Configure the clients
 
@@ -84,9 +84,6 @@ This model can be extended to synchronize to multiple regions in parallel.
 To learn more about global distribution and consistency in Azure Cosmos DB, read the following articles:
 
 * [Choosing the right consistency level in Azure Cosmos DB](consistency-levels-choosing.md)
-
 * [Consistency, availability, and performance tradeoffs in Azure Cosmos DB](consistency-levels-tradeoffs.md)
-
 * [How to manage consistency in Azure Cosmos DB](how-to-manage-consistency.md)
-
 * [Partitioning and data distribution in Azure Cosmos DB](partition-data.md)

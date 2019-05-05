@@ -136,7 +136,7 @@ When you work with Time Series Insights Preview, you first select a time span. T
 
 1. **Date range to and from web control**: With this web control you can easily click and select your desired date and time ranges. You can also use the control to switch between different time zones. After you make the changes, to apply to your current workspace, select **Save**.
 
-  ![explorer-thirteen][13]
+   ![explorer-thirteen][13]
 
 ## Time Series Insights Preview navigation panel
 
@@ -211,10 +211,11 @@ You can show and hide elements in the chart panel by selecting the visible icon 
 
 ## Next steps
 
-See the following articles:
-* [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md)
-* [Data modeling](./time-series-insights-update-tsm.md)
-* [Diagnosing and troubleshooting](./time-series-insights-update-how-to-troubleshoot.md)
+- Learn about [storage and ingress](./time-series-insights-update-storage-ingress.md) in the Azure Time Series Insights Preview.
+
+- Read the Time Series Insights Preview document on [data modeling](./time-series-insights-update-tsm.md).
+
+- Learn [how to diagnose and troubleshoot](./time-series-insights-update-how-to-troubleshoot.md) your Time Series Insights instance.
 
 <!-- Images -->
 [1]: media/v2-update-explorer/explorer-one.png

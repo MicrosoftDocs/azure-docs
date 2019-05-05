@@ -1,10 +1,9 @@
 ---
 title: Work with large data sets
 description: Understand how to get and control large data sets while working with Azure Resource Graph.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
@@ -79,7 +78,7 @@ part of **QueryRequestOptions**.
 ## Paging results
 
 When it's necessary to break a result set into smaller sets of records for processing or because a
-result set would exceed the maximum allowed value of _5000_ returned records, use paging. The [REST
+result set would exceed the maximum allowed value of _1000_ returned records, use paging. The [REST
 API](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** provides values to
 indicate of a results set has been broken up: **resultTruncated** and **$skipToken**.
 **resultTruncated** is a boolean value that informs the consumer if there are additional records

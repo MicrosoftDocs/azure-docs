@@ -58,9 +58,9 @@ Because it is a publish setting, you do not see it on the intents or entities pa
 
 1. Select the following entity from the list of prebuilt entities then select **Done**:
 
-    * **[PersonName](luis-reference-prebuilt-person.md)** 
+   * **[PersonName](luis-reference-prebuilt-person.md)** 
 
-    ![Screenshot of number select in prebuilt entities dialog](./media/luis-quickstart-intent-and-sentiment-analysis/add-personname-prebuilt-entity.png)
+     ![Screenshot of number select in prebuilt entities dialog](./media/luis-quickstart-intent-and-sentiment-analysis/add-personname-prebuilt-entity.png)
 
 ## Create an intent to determine employee feedback
 

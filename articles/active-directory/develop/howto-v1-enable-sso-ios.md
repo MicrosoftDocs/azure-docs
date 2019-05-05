@@ -39,7 +39,7 @@ This how-to applies to:
 
 This how-to assumes that you know how to:
 
-* Provision your app using the legacy portal for Azure AD. For more info, see [Register an app with the Azure AD v1.0 endpoint](quickstart-v1-add-azure-ad-app.md)
+* Provision your app using the legacy portal for Azure AD. For more info, see [Register an app](quickstart-register-app.md)
 * Integrate your application with the [Azure AD iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## Single sign-on concepts
@@ -226,7 +226,7 @@ When you do have entitlements set up correctly you should see a file in your pro
 </plist>
 ```
 
-Once you have the keychain entitlement enabled in each of your applications, and you are ready to use SSO, tell the odentity SDK about your keychain by using the following setting in your `ADAuthenticationSettings` with the following setting:
+Once you have the keychain entitlement enabled in each of your applications, and you are ready to use SSO, tell the identity SDK about your keychain by using the following setting in your `ADAuthenticationSettings` with the following setting:
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";

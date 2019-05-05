@@ -7,7 +7,7 @@
     displayName: overview
     href: what-is-ml-studio.md
   - name: Compare our ML products
-    href: ../service/overview-more-machine-learning.md       
+    href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
     maintainContext: true
 - name: Tutorials
   items:
@@ -96,7 +96,7 @@
     - name: Use R and Python
       items:
       - name: Get started in R
-        href: r-quickstart.md
+        href: r-get-started.md
       - name: Execute R scripts
         href: extend-your-experiment-with-r.md
       - name: Author custom R modules

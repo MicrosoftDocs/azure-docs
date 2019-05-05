@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 97261535-7a2d-4d73-94c8-38116b8a776e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -103,6 +103,7 @@ To configure Azure AD single sign-on with webMethods Integration Cloud, perform 
     ![webMethods Integration Cloud Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
+
 	| |
 	|--|
 	| `<SUBDOMAIN>.webmethodscloud.com` |
@@ -110,6 +111,7 @@ To configure Azure AD single sign-on with webMethods Integration Cloud, perform 
 	| `<SUBDOMAIN>.webmethodscloud.de` |
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
+
 	| |
 	|--|
 	| `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoResponse` |
@@ -121,6 +123,7 @@ To configure Azure AD single sign-on with webMethods Integration Cloud, perform 
     ![webMethods Integration Cloud Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoRequest` |
@@ -166,7 +169,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

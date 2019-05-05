@@ -57,7 +57,7 @@ If you used the previously described method to create a file in your Azure Cloud
 ```azurecli-interactive
 az storage blob upload \
     --container-name mystoragecontainer \
-    --name helloworld
+    --name helloworld \
     --file helloworld
 ```
 

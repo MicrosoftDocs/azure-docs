@@ -1,6 +1,6 @@
 ---
-title: Create a Azure Media Services account - Azure CLI| Microsoft Docs
-description: Use the Azure CLI script to create a Azure Media Services account.
+title: Create an Azure Media Services account - Azure CLI| Microsoft Docs
+description: Use the Azure CLI script to create an Azure Media Services account.
 services: media-services
 documentationcenter: ''
 author: Juliako

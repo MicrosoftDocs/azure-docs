@@ -1,5 +1,5 @@
 ---
-title: Manage Machine Learning Studio web services using API Management
+title: Manage web services using API Management
 titleSuffix: Azure Machine Learning Studio
 description: A guide showing how to manage AzureML web services using API Management. Manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring.
 services: machine-learning
@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
@@ -18,9 +18,6 @@ This guide shows you how to quickly get started using API Management to manage y
 
 ## What is Azure API Management?
 Azure API Management is an Azure service that lets you manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring. Click [here](https://azure.microsoft.com/services/api-management/) for details on Azure API Management. Click [here](/azure/api-management/import-and-publish) for a guide on how to get started with Azure API Management. This other guide, which this guide is based on, covers more topics, including notification configurations, tier pricing, response handling, user authentication, creating products, developer subscriptions, and usage dashboarding.
-
-## What is AzureML?
-AzureML is an Azure service for machine learning that enables you to easily build, deploy, and share advanced analytics solutions. Click [here](https://azure.microsoft.com/services/machine-learning/) for details on AzureML.
 
 ## Prerequisites
 To complete this guide, you need:
@@ -180,11 +177,11 @@ Rename it to **SimpleFeatureHashingExperiment**. Expand **Saved Datasets** and d
 
 Expand **Data Transformation** and **Manipulation** and drag **Select Columns in Dataset** onto your experiment. Connect **Book Reviews from Amazon** to **Select Columns in Dataset**.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
+![Connect the book reviews dataset module to a Project Columns module](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
 Click **Select Columns in Dataset** and then click **Launch column selector** and select **Col2**. Click the checkmark to apply these changes.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
+![Select columns using column names](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
 Expand **Text Analytics** and drag **Feature Hashing** onto the experiment. Connect **Select Columns in Dataset** to **Feature Hashing**.
 

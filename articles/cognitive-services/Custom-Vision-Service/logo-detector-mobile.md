@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ---
 # Tutorial: Recognize Azure service logos in camera pictures
@@ -96,7 +96,6 @@ Next, open the *Source\VisualProvision\AppSettings.cs* file and populate the `Co
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
 
-
 ## Create a service principal
 
 The app requires an Azure service principal account to deploy services to your Azure subscription. A service principal lets you delegate specific permissions to an app using role-based access control. To learn more, see the [service principals guide](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
@@ -126,6 +125,7 @@ Upon successful completion, you should see the following JSON output, including 
   ...
 }
 ```
+
 Take note of the `clientId` and `tenantId` values. Add them to the appropriate fields in the *Source\VisualProvision\AppSettings.cs* file.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=8-16)]
@@ -133,9 +133,10 @@ Take note of the `clientId` and `tenantId` values. Add them to the appropriate f
 ## Run the app
 
 At this point, you've given the app access to:
-* A trained Custom Vision model
-* The Computer Vision service
-* A service principal account 
+
+- A trained Custom Vision model
+- The Computer Vision service
+- A service principal account
 
 Follow these steps to run the app:
 
@@ -158,7 +159,6 @@ Follow these steps to run the app:
 
     ![The app screen, showing a drop-down field for Target Azure subscription](media/azure-logo-tutorial/app-az-subscription.png)
 
-    
 
 1. The camera on your device will be activated. Take a photo of one of the Azure service logos that you trained. A deployment window should prompt you to select a region and resource group for the new services (as you would do if you were deploying them from the Azure portal). 
 
@@ -166,7 +166,7 @@ Follow these steps to run the app:
 
     ![An app screen showing fields for the deployment region and resource group](media/azure-logo-tutorial/app-deployment-options.png)
 
-## Clean up resources 
+## Clean up resources
 
 If you've followed all of the steps of this scenario and used the app to deploy Azure services to your account, go to the [Azure portal](https://ms.portal.azure.com/). There, cancel the services you don't want to use.
 

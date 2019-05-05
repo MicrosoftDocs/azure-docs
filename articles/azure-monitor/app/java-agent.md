@@ -67,7 +67,6 @@ Set the content of the xml file. Edit the following example to include or omit t
                reportCaughtExceptions="true"
                reportExecutionTime="true"
                />
-
            <!-- Report on the particular signature
                 void methodTwo(String, int) -->
            <Method name="methodTwo"
@@ -84,12 +83,27 @@ You have to enable reports exception and method timing for individual methods.
 
 By default, `reportExecutionTime` is true and `reportCaughtExceptions` is false.
 
-### Spring Boot Agent additional config
+## Additional config (Spring Boot)
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
 
+For Azure App Services do the following:
+
+* Select Settings > Application Settings
+* Under App Settings, add a new key value pair:
+
+Key: `JAVA_OPTS`
+Value: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.3.1-SNAPSHOT.jar`
+
+For the latest version of the Java agent check the releases [here](https://github.com/Microsoft/ApplicationInsights-Java/releases
+). 
+
+The agent must be packaged as a resource in your project such that it ends up in the D:/home/site/wwwroot/ directory. You can confirm that your agent is in the correct App Service directory by going to **Development Tools** > **Advanced Tools** > **Debug Console** and examining the contents of the site directory.    
+
+* Save the settings and Restart your app. (These steps only apply to App Services running on Windows.)
+
 > [!NOTE]
-> AI-Agent.xml and the agent jar file should be in the same folder. They are often placed together in the `/resources` folder of the project. 
+> AI-Agent.xml and the agent jar file should be in the same folder. They are often placed together in the `/resources` folder of the project.  
 
 ### Spring Rest Template
 

@@ -3,12 +3,12 @@ title: Set up sign-up and sign-in with a LinkedIn account - Azure Active Directo
 description: Provide sign-up and sign-in to customers with LinkedIn accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 04/01/2019
 ms.author: davidmu
 ms.subservice: B2C
 ---
@@ -37,3 +37,6 @@ To use a LinkedIn account as an [identity provider](active-directory-b2c-referen
 7. Select **Set up this identity provider** and enter the Client Id that you recorded earlier as the **Client ID** and enter the Client Secret that you recorded as the **Client secret** of the LinkedIn account application that you created earlier.
 8. Click **OK** and then click **Create** to save your LinkedIn account configuration.
 
+## Migration from v1.0 to v2.0
+
+LinkedIn recently [updated their API's from v1.0 to v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). As part of the migration, Azure AD B2C is only able to obtain the full name of the LinkedIn user during the sign-up. If an email address is one of the attributes that is collected during sign-up, the user must manually enter the email address and validate it.

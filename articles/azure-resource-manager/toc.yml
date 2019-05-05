@@ -18,9 +18,8 @@
   - name: Utilize template reference
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
   - name: Create multiple instances
+    displayName: iteration,copy
     href: resource-manager-tutorial-create-multiple-instances.md
-  - name: Move resources
-    href: resource-manager-tutorial-move-resources.md
   - name: Set resource deployment order
     displayName: dependent resources, dependency
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
@@ -39,7 +38,7 @@
   - name: Secure artifacts
     href: resource-manager-tutorial-secure-artifacts.md
   - name: Use safe deployment practices
-    displayName: azure deployment manager
+    displayName: adm
     href: deployment-manager-tutorial.md
   - name: Troubleshoot template deployment
     href: resource-manager-tutorial-troubleshoot.md
@@ -51,34 +50,17 @@
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: Concepts
   items:
-  - name: Templates
-    items:
-    - name: Template file structure
-      href: resource-group-authoring-templates.md
-    - name: Parameters
-      href: resource-manager-templates-parameters.md
-    - name: Variables
-      href: resource-manager-templates-variables.md
-    - name: Functions
-      href: resource-group-authoring-templates.md#functions
-    - name: Resources
-      href: resource-manager-templates-resources.md
-    - name: Outputs
-      href: resource-manager-templates-outputs.md
-  - name: Guidance
-    items:
-    - name: Template best practices
-      href: template-best-practices.md
-    - name: Subscription governance
-      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold
-      maintainContext: true
-    - name: Templates for cloud consistency
-      href: templates-cloud-consistency.md
+  - name: Template file structure
+    displayName: parameters,variables,resources,outputs
+    href: resource-group-authoring-templates.md
+  - name: Template best practices
+    href: template-best-practices.md
+  - name: Templates for cloud consistency
+    href: templates-cloud-consistency.md
   - name: Resource providers and types
     href: resource-manager-supported-services.md
-  - name: Management groups
-    href: management-groups-overview.md
   - name: Deployment Manager
+    displayName: adm
     href: deployment-manager-overview.md
   - name: Deployment modes
     href: deployment-modes.md
@@ -86,6 +68,8 @@
     href: resource-group-delete.md
   - name: Resource Manager and classic deployment
     href: resource-manager-deployment-model.md
+  - name: Azure common security attributes
+    href: azure-resource-manager-security-attributes.md
 - name: How to
   items:
   - name: Create templates
@@ -93,10 +77,12 @@
     - name: Create template
       href: how-to-create-template.md
     - name: Create resource groups and resources at subscription
+      displayName: subscription level deployment
       href: deploy-to-subscription.md
     - name: Define resource dependencies
       href: resource-group-define-dependencies.md
     - name: Modularize templates
+      displayName: linked templates, nested templates
       href: resource-group-linked-templates.md
     - name: Manage secrets
       displayname: key vault
@@ -110,12 +96,16 @@
   - name: Deploy templates
     items:
     - name: Deploy - portal
+      displayName: deployment
       href: resource-group-template-deploy-portal.md
     - name: Deploy - CLI
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy-cli.md
     - name: Deploy - PowerShell
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy.md
     - name: Deploy - REST API
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy-rest.md
     - name: Secure templates with SAS token
       items:
@@ -212,8 +202,9 @@
   - name: Template reference
     href: subtoc/toc.yml
   - name: Template functions
-    href: resource-group-template-functions.md
     items:
+    - name: All functions
+      href: resource-group-template-functions.md
     - name: Array and object functions
       href: resource-group-template-functions-array.md
     - name: Comparison functions
@@ -236,12 +227,14 @@
       href: move-support-resources.md
     - name: Tag support
       href: tag-support.md
+  - name: Resource providers by service
+    href: azure-services-resource-providers.md
   - name: REST - Resource Manager
     href: /rest/api/resources/
   - name: REST - Deployment Manager
     href: /rest/api/deploymentmanager/
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.resources
+    href: /powershell/module/az.resources
   - name: Azure CLI
     href: /cli/azure/resource
   - name: .NET
@@ -249,7 +242,7 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.resources
   - name: Python
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html
+    href: /python/api/overview/azure/resources?view=azure-python
 - name: Resources
   items:
   - name: Azure Roadmap

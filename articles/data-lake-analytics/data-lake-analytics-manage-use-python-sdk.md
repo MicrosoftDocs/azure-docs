@@ -73,7 +73,7 @@ from azure.datalake.store import core, lib, multithread
 
 ## Required for Azure Data Lake Analytics account management
 from azure.mgmt.datalake.analytics.account import DataLakeAnalyticsAccountManagementClient
-from azure.mgmt.datalake.analytics.account.models import DataLakeAnalyticsAccount, DataLakeStoreAccountInfo
+from azure.mgmt.datalake.analytics.account.models import DataLakeAnalyticsAccount, DataLakeStoreAccountInformation
 
 ## Required for Azure Data Lake Analytics job management
 from azure.mgmt.datalake.analytics.job import DataLakeAnalyticsJobManagementClient
@@ -160,7 +160,7 @@ adlaAcctResult = adlaAcctClient.account.create(
 	DataLakeAnalyticsAccount(
 		location=location,
 		default_data_lake_store_account=adls,
-		data_lake_store_accounts=[DataLakeStoreAccountInfo(name=adls)]
+		data_lake_store_accounts=[DataLakeStoreAccountInformation(name=adls)]
 	)
 ).wait()
 ```

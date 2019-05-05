@@ -52,7 +52,7 @@ az account set --subscription "<subscription ID>"
 
 ### 2. Get the list of supported providers, locations, and bandwidths
 
-Before you create an ExpressRoute circuit, you need the list of supported connectivity providers, locations, and bandwidth options. The CLI command 'az network express-route list-service-providers' returns this information, which you’ll use in later steps:
+Before you create an ExpressRoute circuit, you need the list of supported connectivity providers, locations, and bandwidth options. The CLI command `az network express-route list-service-providers` returns this information, which you’ll use in later steps:
 
 ```azurecli-interactive
 az network express-route list-service-providers
@@ -150,7 +150,7 @@ The response contains the service key.
 
 ### 4. List all ExpressRoute circuits
 
-To get a list of all the ExpressRoute circuits that you created, run the 'az network express-route list' command. You can retrieve this information at any time by using this command. To list all circuits, make the call with no parameters.
+To get a list of all the ExpressRoute circuits that you created, run the `az network express-route list` command. You can retrieve this information at any time by using this command. To list all circuits, make the call with no parameters.
 
 ```azurecli-interactive
 az network express-route list

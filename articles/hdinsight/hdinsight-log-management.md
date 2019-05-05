@@ -1,15 +1,14 @@
 ---
 title: Manage logs for an HDInsight cluster - Azure HDInsight 
 description: Determine the types, sizes, and retention policies for HDInsight activity log files.
-services: hdinsight
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.author: ashishth
+ms.date: 03/19/2019
+ms.author: hrasheed
 ---
 # Manage logs for an HDInsight cluster
 
@@ -38,13 +37,12 @@ The following cluster details are useful in helping to gather information in you
 * Cluster state, including details of the last state change
 * Type and number of HDInsight instances specified for the master, core, and task nodes
 
-You can get most of this top-level information using the Azure portal.  Alternatively, you can use the Azure Classic CLI to get information about your HDInsight cluster(s):
+You can get most of this top-level information using the Azure portal.  Alternatively, you can use [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) to get information about your HDInsight cluster(s):
 
+```azurecli
+    az hdinsight list --resource-group <ResourceGroup>
+    az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
-    azure hdinsight cluster list
-    azure hdinsight cluster show <ClusterName>
-```
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 You can also use PowerShell to view this information.  For more information, see [Apache Manage Hadoop clusters in HDInsight by using Azure PowerShell](hdinsight-administer-use-powershell.md).
 
@@ -72,7 +70,7 @@ A typical HDInsight cluster uses several services and open-source software packa
 
 ### View cluster configuration settings with the Ambari UI
 
-Apache Ambari simplifies the management, configuration, and monitoring of a HDInsight cluster by providing a web UI and a REST API. Ambari is included on Linux-based HDInsight clusters. Select the **Cluster Dashboard** pane on the Azure portal HDInsight page to open the**'Cluster Dashboards** link page.  Next, select the **HDInsight cluster dashboard** pane to open the Ambari UI.  You are prompted for your cluster login credentials.
+Apache Ambari simplifies the management, configuration, and monitoring of a HDInsight cluster by providing a web UI and a REST API. Ambari is included on Linux-based HDInsight clusters. Select the **Cluster Dashboard** pane on the Azure portal HDInsight page to open the **Cluster Dashboards** link page.  Next, select the **HDInsight cluster dashboard** pane to open the Ambari UI.  You are prompted for your cluster login credentials.
 
 To open a list of service views, select the **Ambari Views** pane on the Azure portal page for HDInsight.  This list varies, depending on which libraries you've installed.  For example, you may see YARN Queue Manager, Hive View, and Tez View.  Select any service link to see configuration and service information.  The Ambari UI **Stack and Version** page provides information about the cluster services' configuration and service version history. To navigate to this section of the Ambari UI, select the **Admin** menu and then **Stacks and Versions**.  Select the **Versions** tab to see service version information.
 
@@ -94,7 +92,7 @@ The next step is reviewing the job execution log files for the various services.
 
 ### Access the Hadoop log files
 
-HDInsight stores its log files both in the cluster file system and in Azure storage. You can examine log files in the cluster by opening an SSH connection to the cluster and browsing the file system, or by using the Hadoop YARN Status portal on the remote head node server. You can examine the log files in Azure storage using any of the tools that can access and download data from Azure storage. Examples are AZCopy, CloudXplorer, and the Visual Studio Server Explorer. You can also use PowerShell and the Azure Storage Client libraries, or the Azure .NET SDKs, to access data in Azure blob storage.
+HDInsight stores its log files both in the cluster file system and in Azure storage. You can examine log files in the cluster by opening an [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) connection to the cluster and browsing the file system, or by using the Hadoop YARN Status portal on the remote head node server. You can examine the log files in Azure storage using any of the tools that can access and download data from Azure storage. Examples are [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer), and the Visual Studio Server Explorer. You can also use PowerShell and the Azure Storage Client libraries, or the Azure .NET SDKs, to access data in Azure blob storage.
 
 Hadoop runs the work of the jobs as *task attempts* on various nodes in the cluster. HDInsight can initiate speculative task attempts, terminating any other task attempts that do not complete first. This generates significant activity that is logged to the controller, stderr, and syslog log files on-the-fly. In addition, multiple task attempts are running simultaneously, but a log file can only display results linearly.
 
@@ -163,14 +161,14 @@ To control the size and number of log files retained, set the following properti
 
 ### Other log management techniques
 
-To avoid running out of disk space, you can use some OS tools such as `logrotate` to manage handling of log files. You can configure `logrotate` to run on a daily basis, compressing log files and removing old ones. Your approach  depends on your requirements, such as how long to keep the logfiles on local nodes. 
+To avoid running out of disk space, you can use some OS tools such as [logrotate](https://linux.die.net/man/8/logrotate) to manage handling of log files. You can configure `logrotate` to run on a daily basis, compressing log files and removing old ones. Your approach  depends on your requirements, such as how long to keep the logfiles on local nodes.  
 
-You can also check whether DEBUG logging is enabled for one or more services, which greatly increases the output log size. 
+You can also check whether DEBUG logging is enabled for one or more services, which greatly increases the output log size.  
 
 To collect the logs from all the nodes to one central location, you can create a data flow, such as ingesting all log entries into Solr.
 
 ## Next steps
 
 * [Monitoring and Logging Practice for HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Access Apache Hadoop YARN application log on Linux-based HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Access Apache Hadoop YARN application logs in Linux-based HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [How to control size of log files for various Apache Hadoop components](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

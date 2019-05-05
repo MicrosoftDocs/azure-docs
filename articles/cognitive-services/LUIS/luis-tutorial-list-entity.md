@@ -18,9 +18,9 @@ This tutorial demonstrates the use of a [list entity](luis-concept-entity-types.
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-* Create a list entity 
-* Add normalized values and synonyms
-* Validate improved entity identification
+> * Create a list entity 
+> * Add normalized values and synonyms
+> * Validate improved entity identification
 
 ## Prerequisites
 

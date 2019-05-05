@@ -99,13 +99,13 @@ Ensure that you meet the following prerequisites:
 
 1. To create a new GPO linked to an OU, open the Group Policy Management snap-in and locate the OU to which the GPO will be linked. In the example, the OU is named **IPSecOU**. 
 
-  [![9]][9]
+   [![9]][9]
 2. In the Group Policy Management snap-in, select the OU, and right-click. In the dropdown, click "**Create a GPO in this domain, and Link it here…**".
 
-  [![10]][10]
+   [![10]][10]
 3. Name the GPO an intuitive name so that you can easily locate it later. Click **OK** to create and link the GPO.
 
-  [![11]][11]
+   [![11]][11]
 
 ## <a name="enablelink"></a>2. Enable the GPO link
 
@@ -114,38 +114,38 @@ To apply the GPO to the OU, the GPO must not only be linked to the OU, but the l
 1. Locate the GPO that you created, right-click, and select **Edit** from the dropdown.
 2. To apply the GPO to the OU, select **Link Enabled**.
 
-  [![12]][12]
+   [![12]][12]
 
 ## <a name="filteraction"></a>3. Define the IP filter action
 
 1. From the drop-down, right-click **IP Security Policy on Active Directory**, and then click **Manage IP filter lists and filter actions...**.
 
-  [![15]][15]
+   [![15]][15]
 2. On the "**Manage filter Actions**" tab, click **Add**.
 
-  [![16]][16]
+   [![16]][16]
 
 3. On the **IP Security Filter Action wizard**, click **Next**.
 
-  [![17]][17]
+   [![17]][17]
 4. Name the filter action an intuitive name so that you can find it later. In this example, the filter action is named **myEncryption**. You can also add a description. Then, click **Next**.
 
-  [![18]][18]
+   [![18]][18]
 5. **Negotiate security** lets you define the behavior if IPsec can't be established with another computer. Select **Negotiate security**, then click **Next**.
 
-  [![19]][19]
+   [![19]][19]
 6. On the **Communicating with computers that do not support IPsec** page, select **Do not allow unsecured communication**, then click **Next**.
 
-  [![20]][20]
+   [![20]][20]
 7. On the **IP Traffic and Security** page, select **Custom**, then click **Settings...**.
 
-  [![21]][21]
+   [![21]][21]
 8. On the **Custom Security Method Settings** page, select **Data integrity and encryption (ESP): SHA1, 3DES**. Then, click **OK**.
 
-  [![22]][22]
+   [![22]][22]
 9. On the **Manage Filter Actions** page, you can see that the **myEncryption** filter was successfully added. Click **Close**.
 
-  [![23]][23]
+   [![23]][23]
 
 ## <a name="filterlist1"></a>4. Define an IP filter list
 
@@ -153,36 +153,36 @@ Create a filter list that specifies encrypted HTTP traffic with destination port
 
 1. To qualify which types of traffic must be encrypted, use an **IP filter list**. In the **Manage IP Filter Lists** tab, click **Add** to add a new IP filter list.
 
-  [![24]][24]
+   [![24]][24]
 2. In the **Name:** field, type a name for your IP filter list. For example, **azure-onpremises-HTTP8080**. Then, click **Add**.
 
-  [![25]][25]
+   [![25]][25]
 3. On the **IP Filter Description and Mirrored property** page, select **Mirrored**. The mirrored setting matches packets going in both directions, which allows for two-way communication. Then click **Next**.
 
-  [![26]][26]
+   [![26]][26]
 4. On the **IP Traffic Source** page, from the **Source address:** dropdown, choose **A specific IP Address or Subnet**. 
 
-  [![27]][27]
+   [![27]][27]
 5. Specify the source address **IP Address or Subnet:** of the IP traffic, then click **Next**.
 
-  [![28]][28]
+   [![28]][28]
 6. Specify the **Destination address:** IP Address or Subnet. Then, click **Next**.
 
-  [![29]][29]
+   [![29]][29]
 7. On the **IP Protocol Type** page, select **TCP**. Then, click **Next**.
 
-  [![30]][30]
+   [![30]][30]
 8. On the **IP Protocol Port** page, select **From any port** and **To this port:**. Type **8080** in the text box. These settings specify only the HTTP traffic on destination port 8080 will be encrypted. Then, click **Next**.
 
-  [![31]][31]
+   [![31]][31]
 9. View the IP filter list.  The configuration of the IP Filter List **azure-onpremises-HTTP8080** triggers encryption for all traffic that matches the following criteria:
 
-  * Any source address in 10.0.1.0/24 (Azure Subnet2)
-  * Any destination address in 10.2.27.0/25 (on-premises subnet)
-  * TCP protocol
-  * Destination port 8080
+   * Any source address in 10.0.1.0/24 (Azure Subnet2)
+   * Any destination address in 10.2.27.0/25 (on-premises subnet)
+   * TCP protocol
+   * Destination port 8080
 
-  [![32]][32]
+   [![32]][32]
 
 ## <a name="filterlist2"></a>5. Edit the IP filter list
 
@@ -190,16 +190,16 @@ To encrypt the same type of traffic in opposite direction (from the on-premises 
 
 1. To add a new IP filter to the IP Filter List, select **Edit**.
 
-  [![33]][33]
+   [![33]][33]
 2. On the **IP Filter List** page, click **Add**.
 
-  [![34]][34]
+   [![34]][34]
 3. Create a second IP filter using the settings in the following example:
 
-  [![35]][35]
+   [![35]][35]
 4. After you create the second IP filter, the IP filter list will look like this:
 
-  [![36]][36]
+   [![36]][36]
 
 If encryption is required between an on-premises location and an Azure subnet to protect an application, instead of modifying the existing IP filter list, you can add a new IP filter list instead. Associating 2 IP filter lists to the same IPsec policy provides better flexibility because a specific IP filter list can be modified or removed at any time without impacting the other IP filter lists.
 
@@ -209,16 +209,16 @@ Create an IPsec policy with security rules.
 
 1. Select the **IPSecurity Policies on Active directory** that is associated with the OU. Right-click, and select **Create IP Security Policy**.
 
-  [![37]][37]
+   [![37]][37]
 2. Name the security policy. For example, **policy-azure-onpremises**. Then, click **Next**.
 
-  [![38]][38]
+   [![38]][38]
 3. Click **Next** without selecting the checkbox.
 
-  [![39]][39]
+   [![39]][39]
 4. Verify that the **Edit properties** checkbox is selected, and then click **Finish**.
 
-  [![40]][40]
+   [![40]][40]
 
 ## <a name="editipsec"></a>7. Edit the IPsec security policy
 
@@ -226,34 +226,34 @@ Add to the IPsec policy the **IP Filter List** and **Filter Action** that you pr
 
 1. On the HTTP policy Properties **Rules** tab, click **Add**.
 
-  [![41]][41]
+   [![41]][41]
 2. On the Welcome page, click **Next**.
 
-  [![42]][42]
+   [![42]][42]
 3. A rule provides the option to define the IPsec mode: tunnel mode or transport mode.
 
-  * In tunnel mode, the original packet is encapsulated by a set of IP headers. Tunnel mode protects the internal routing information by encrypting the IP header of the original packet. Tunnel mode is widely implemented between gateways in site-to-site VPN scenarios. Tunnel mode is in most of cases used for end-to-end encryption between hosts.
+   * In tunnel mode, the original packet is encapsulated by a set of IP headers. Tunnel mode protects the internal routing information by encrypting the IP header of the original packet. Tunnel mode is widely implemented between gateways in site-to-site VPN scenarios. Tunnel mode is in most of cases used for end-to-end encryption between hosts.
 
-  * Transport mode encrypts only the payload and ESP trailer; the IP header of the original packet isn't encrypted. In transport mode, the IP source and IP destination of the packets are unchanged.
+   * Transport mode encrypts only the payload and ESP trailer; the IP header of the original packet isn't encrypted. In transport mode, the IP source and IP destination of the packets are unchanged.
 
-  Select **This rule does not specify a tunnel**, and then click **Next**.
+   Select **This rule does not specify a tunnel**, and then click **Next**.
 
-  [![43]][43]
+   [![43]][43]
 4. **Network Type** defines which network connection associates with the security policy. Select **All network connections**, and then click **Next**.
 
-  [![44]][44]
+   [![44]][44]
 5. Select the IP filter list that you created previously,  **azure-onpremises-HTTP8080**, and then click **Next**.
 
-  [![45]][45]
+   [![45]][45]
 6. Select the existing Filter Action **myEncryption** that you created previously.
 
-  [![46]][46]
+   [![46]][46]
 7. Windows supports four distinct types of authentications: Kerberos, certificates, NTLMv2, and pre-shared key. Because we are working with domain-joined hosts, select **Active Directory default (Kerberos V5 protocol)**, and then click **Next**.
 
-  [![47]][47]
+   [![47]][47]
 8. The new policy creates the security rule: **azure-onpremises-HTTP8080**. Click **OK**.
 
-  [![48]][48]
+   [![48]][48]
 
 The IPsec policy requires all HTTP connections on the destination port 8080 to use IPsec transport mode. Because HTTP is a clear text protocol, having the security policy enabled ensures data is encrypted when is transferred through the ExpressRoute private peering. IP Security policy for Active Directory is more complex to configure than Windows Firewall with Advanced Security, but it does allow for more customization of the IPsec connection.
 
@@ -261,11 +261,11 @@ The IPsec policy requires all HTTP connections on the destination port 8080 to u
 
 1. View the policy. The security group policy is defined, but not yet assigned.
 
-  [![49]][49]
+   [![49]][49]
 2. To assign the security group policy to the OU **IPSecOU**, right-click the security policy and chose **Assign**.
-Every computer tht belongs to the OU will have the security group policy assigned.
+   Every computer tht belongs to the OU will have the security group policy assigned.
 
-  [![50]][50]
+   [![50]][50]
 
 ## <a name="checktraffic"></a>Check traffic encryption
 

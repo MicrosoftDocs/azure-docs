@@ -28,7 +28,9 @@
     href: https://azure.microsoft.com/resources/videos/index/?services=cognitive-services
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=cognitive-services
+  - name: Provide Product Feedback
+    href: https://cognitive.uservoice.com/
   - name: Code of conduct
-    href: http://go.microsoft.com/fwlink/?LinkId=698895
+    href: https://go.microsoft.com/fwlink/?LinkId=698895
   - name: Knowledge Base
     href: https://cognitive.uservoice.com/knowledgebase

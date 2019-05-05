@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a cloud service container with PowerShell | Microsoft Docs
 description: This article explains how to create a cloud service container with PowerShell. The container hosts web and worker roles.
 services: cloud-services
@@ -18,6 +18,7 @@ ms.author: cawa
 
 ---
 # Use an Azure PowerShell command to create an empty cloud service container
+
 This article explains how to quickly create a Cloud Services container using Azure PowerShell cmdlets. Please follow the steps below:
 
 1. Install the Microsoft Azure PowerShell cmdlet from the [Azure PowerShell downloads](https://aka.ms/webpi-azps) page.
@@ -30,10 +31,11 @@ This article explains how to quickly create a Cloud Services container using Azu
    >
 4. Use the **New-AzureService** cmdlet to create an empty Azure cloud service container.
 
-   ```powershell
+   ```
    New-AzureService [-ServiceName] <String> [-AffinityGroup] <String> [[-Label] <String>] [[-Description] <String>] [[-ReverseDnsFqdn] <String>] [<CommonParameters>]
    New-AzureService [-ServiceName] <String> [-Location] <String> [[-Label] <String>] [[-Description] <String>] [[-ReverseDnsFqdn] <String>] [<CommonParameters>]
    ```
+
 5. Follow this example to invoke the cmdlet:
 
    ```powershell
@@ -42,10 +44,11 @@ This article explains how to quickly create a Cloud Services container using Azu
 
 For more information about creating the Azure cloud service, run:
 
-```
+```powershell
 Get-help New-AzureService
 ```
 
 ### Next steps
+
 * To manage the cloud service deployment, refer to the [Get-AzureService](/powershell/module/servicemanagement/azure/Get-AzureService?view=azuresmps-4.0.0), [Remove-AzureService](/powershell/module/servicemanagement/azure/Remove-AzureService?view=azuresmps-4.0.0), and [Set-AzureService](/powershell/module/servicemanagement/azure/set-azureservice?view=azuresmps-4.0.0) commands. You may also refer to [How to configure cloud services](cloud-services-how-to-configure-portal.md) for further information.
 * To publish your cloud service project to Azure, refer to the  **PublishCloudService.ps1** code sample from [archived cloud services repository](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Scripts/cloud-services-continuous-delivery).

@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Application Management Documentation
 metadata:
-  title: Azure Active Directory application management documentation
-  meta.description: Learn how to manage and deploy applications with Azure Active Directory.
+  title: Azure AD application management documentation - Azure Active Directory 
+  description: Learn how to manage and deploy applications with Azure Active Directory.
   services: active-directory
   author: barbkess
   manager: daveba

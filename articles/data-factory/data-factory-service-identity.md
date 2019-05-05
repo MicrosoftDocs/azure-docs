@@ -11,13 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/08/2019
 ms.author: jingwang
 ---
 
 # Managed identity for Data Factory
 
 This article helps you understand what is managed identity for Data Factory (formerly known as Managed Service Identity/MSI) and how it works.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Overview
 
@@ -41,7 +43,7 @@ If you find your data factory doesn't have a managed identity associated followi
 
 - [Generate managed identity using PowerShell](#generate-managed-identity-using-powershell)
 - [Generate managed identity using REST API](#generate-managed-identity-using-rest-api)
-- Generate managed identity using an Azure Resource Manager template
+- [Generate managed identity using an Azure Resource Manager template](#generate-managed-identity-using-an-azure-resource-manager-template)
 - [Generate managed identity using SDK](#generate-managed-identity-using-sdk)
 
 >[!NOTE]
@@ -51,10 +53,10 @@ If you find your data factory doesn't have a managed identity associated followi
 
 ### Generate managed identity using PowerShell
 
-Call **Set-AzureRmDataFactoryV2** command again, then you see "Identity" fields being newly generated:
+Call **Set-AzDataFactoryV2** command again, then you see "Identity" fields being newly generated:
 
 ```powershell
-PS C:\WINDOWS\system32> Set-AzureRmDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
+PS C:\WINDOWS\system32> Set-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
 
 DataFactoryName   : ADFV2DemoFactory
 DataFactoryId     : /subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/ADFV2DemoFactory
@@ -116,7 +118,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 ```json
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "resources": [{
         "name": "<dataFactoryName>",
         "apiVersion": "2018-06-01",
@@ -151,11 +153,11 @@ You can retrieve the managed identity from Azure portal or programmatically. The
 
 ### Retrieve managed identity using Azure portal
 
-You can find the managed identity information from Azure portal -> your data factory -> Settings -> Properties:
+You can find the managed identity information from Azure portal -> your data factory -> Properties:
 
-- SERVICE IDENTITY ID
-- SERVICE IDENTITY TENANT
-- **SERVICE IDENTITY APPLICATION ID** > copy this value
+- Managed Identity Object ID
+- Managed Identity Tenant
+- **Managed Identity Application ID** > copy this value
 
 ![Retrieve managed identity](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 
@@ -164,7 +166,7 @@ You can find the managed identity information from Azure portal -> your data fac
 The managed identity principal ID and tenant ID will be returned when you get a specific data factory as follows:
 
 ```powershell
-PS C:\WINDOWS\system32> (Get-AzureRmDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
+PS C:\WINDOWS\system32> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
 
 PrincipalId                          TenantId
 -----------                          --------
@@ -174,7 +176,7 @@ PrincipalId                          TenantId
 Copy the principal ID, then run below Azure Active Directory command with principal ID as parameter to get the **ApplicationId**, which you use to grant access:
 
 ```powershell
-PS C:\WINDOWS\system32> Get-AzureRmADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
+PS C:\WINDOWS\system32> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 
 ServicePrincipalNames : {76f668b3-XXXX-XXXX-XXXX-1b3348c75e02, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
 ApplicationId         : 76f668b3-XXXX-XXXX-XXXX-1b3348c75e02

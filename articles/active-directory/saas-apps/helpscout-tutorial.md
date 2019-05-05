@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 0aad9910-0bc1-4394-9f73-267cf39973ab
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -107,7 +107,7 @@ To configure Azure AD single sign-on with Help Scout, perform the following step
 	b. **Reply URL** is the **Post-back URL (Assertion Consumer Service URL)** from Help Scout, starts with `https://` 
 
 	> [!NOTE]
-	> The values in these URLs are for demonstration only. You need to update these values from actual Reply URL and Identifier. You get these values from the **Single Sign-On** tab under Authentication section, which is explained later in the tutorial.
+	> The values in these URLs are for demonstration only. You need to update these values from actual Reply URL and Identifier. You get these values from the **Single Sign-On** tab under Authentication section, which is explained later in the tutorial.
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -153,7 +153,7 @@ To configure Azure AD single sign-on with Help Scout, perform the following step
 
 	![Configure Single Sign-On](./media/helpscout-tutorial/settings4.png)
 
-	a. In **Single Sign-On URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+	a. In **Single Sign-On URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
 	b. Click **Upload Certificate** to upload the **Certificate(Base64)** downloaded from Azure portal.
 
@@ -181,7 +181,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

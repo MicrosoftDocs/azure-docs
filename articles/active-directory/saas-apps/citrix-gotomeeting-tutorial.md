@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: bcaf19f2-5809-4e1c-acbc-21a8d3498ccf
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -113,16 +113,16 @@ To configure Azure AD single sign-on with GoToMeeting, perform the following ste
 
     e. In the **RelayState** text box, type a URL using the following pattern:
 
-    - For GoToMeeting App, use `https://global.gotomeeting.com`
+   - For GoToMeeting App, use `https://global.gotomeeting.com`
 
-    - For GoToTraining, use `https://global.gototraining.com`
+   - For GoToTraining, use `https://global.gototraining.com`
 
-    - For GoToWebinar, use `https://global.gotowebinar.com` 
+   - For GoToWebinar, use `https://global.gotowebinar.com` 
 
-    - For GoToAssist, use `https://app.gotoassist.com`
+   - For GoToAssist, use `https://app.gotoassist.com`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [GoToMeeting Client support team](https://go.microsoft.com/fwlink/?linkid=845985) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+     > [!NOTE]
+     > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [GoToMeeting Client support team](https://go.microsoft.com/fwlink/?linkid=845985) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -162,7 +162,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

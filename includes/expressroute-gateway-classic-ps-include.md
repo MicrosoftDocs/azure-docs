@@ -23,8 +23,8 @@ When you add a gateway to a virtual network using the classic resource model, yo
 1. Download the network configuration file using the steps in [network configuration file](../articles/virtual-network/virtual-networks-using-network-configuration-file.md) article. Open the file using a text editor.
 2. Add a local network site to the file. You can use any valid address prefix. You can add any valid IP address for the VPN gateway. The address values in this section are not used for ExpressRoute operations, but are required for file validation. In the example, "branch1" is the name of the site. You may use a different name, but be sure to use the same value in the Gateway section of the file.
 
-  ```
-  <VirtualNetworkConfiguration>
+   ```
+   <VirtualNetworkConfiguration>
     <Dns />
     <LocalNetworkSites>
       <LocalNetworkSite name="branch1">
@@ -33,15 +33,15 @@ When you add a gateway to a virtual network using the classic resource model, yo
         </AddressSpace>
         <VPNGatewayAddress>3.2.1.4</VPNGatewayAddress>
     </LocalNetworkSite>
-  ```
+   ```
 3. Navigate to the VirtualNetworkSites and modify the fields.
 
-  * Verify that the Gateway Subnet exists for your virtual network. If it does not, you can add one at this time. The name must be "GatewaySubnet".
-  * Verify the  Gateway section of the file exists. If it doesn't, add it. This is required to associate the virtual network with the local network site (which represents the network to which you are connecting).
-  * Verify that the connection type = Dedicated. This is required for ExpressRoute connections.
+   * Verify that the Gateway Subnet exists for your virtual network. If it does not, you can add one at this time. The name must be "GatewaySubnet".
+   * Verify the  Gateway section of the file exists. If it doesn't, add it. This is required to associate the virtual network with the local network site (which represents the network to which you are connecting).
+   * Verify that the connection type = Dedicated. This is required for ExpressRoute connections.
 
-  ```
-  </LocalNetworkSites>
+   ```
+   </LocalNetworkSites>
     <VirtualNetworkSites>
       <VirtualNetworkSite name="myAzureVNET" Location="East US">
         <AddressSpace>
@@ -64,9 +64,9 @@ When you add a gateway to a virtual network using the classic resource model, yo
         </Gateway>
       </VirtualNetworkSite>
     </VirtualNetworkSites>
-  </VirtualNetworkConfiguration>
-  </NetworkConfiguration>
-  ```
+   </VirtualNetworkConfiguration>
+   </NetworkConfiguration>
+   ```
 4. Save the file and upload it to Azure.
 
 ### Create the gateway

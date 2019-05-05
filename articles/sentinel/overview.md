@@ -4,7 +4,7 @@ description: Learn about Azure Sentinel, its key capabilities, and how it works.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 10cce91a-421b-4959-acdf-7177d261f6f2

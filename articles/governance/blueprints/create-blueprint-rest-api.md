@@ -1,14 +1,12 @@
 ---
 title: Create a blueprint with REST API
 description: Use Azure Blueprints to create, define, and deploy artifacts using the REST API.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
 ms.custom: seodec18
 ---
 # Define and Assign an Azure Blueprint with REST API
@@ -28,6 +26,9 @@ tasks related to creating, publishing, and assigning a blueprint within your org
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Getting started with REST API
 
 If you're unfamiliar with REST API, start by reviewing [Azure REST API Reference](/rest/api/azure/)
@@ -45,10 +46,10 @@ instructions. Following is a sample header for authenticating with Azure. Genera
 authentication header, sometimes called a **Bearer token**, and provide the REST API URI to connect
 to with any parameters or a **Request Body**:
 
-```powershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
@@ -83,6 +84,10 @@ In each REST API URI, there are variables that are used that you need to replace
 
 - `{YourMG}` - Replace with the ID of your management group
 - `{subscriptionId}` - Replace with your subscription ID
+
+> [!NOTE]
+> Blueprints may also be created at the subscription level. To see an example, see
+> [create blueprint at subscription example](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
 
 1. Create the initial _blueprint_ object. The **Request Body** includes properties about the
 blueprint, any resource groups to create, and all of the blueprint level parameters. The parameters
@@ -297,7 +302,7 @@ artifact.
                      "tags": {
                         "[parameters('tagNameFromBP')]": "[parameters('tagValueFromBP')]"
                      },
-                     "location": "[resourceGroup().location]",
+                     "location": "[resourceGroups('storageRG').location]",
                      "sku": {
                          "name": "[parameters('storageAccountTypeFromBP')]"
                      },
@@ -381,7 +386,7 @@ In each REST API URI, there are variables that are used that you need to replace
 - `{YourMG}` - Replace with the ID of your management group
 - `{subscriptionId}` - Replace with your subscription ID
 
-1. Provide the Azure Blueprint service principal the **Owner** role on the target subscription. The AppId is static (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), but the service principal ID various by tenant. Details can be requested for your tenant using the following REST API. It uses [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) which has different authorization.
+1. Provide the Azure Blueprint service principal the **Owner** role on the target subscription. The AppId is static (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), but the service principal ID varies by tenant. Details can be requested for your tenant using the following REST API. It uses [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) which has different authorization.
 
    - REST API URI
 
@@ -485,9 +490,9 @@ To remove the blueprint itself, use the following REST API operation:
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](./concepts/lifecycle.md)
-- Understand how to use [static and dynamic parameters](./concepts/parameters.md)
-- Learn to customize the [blueprint sequencing order](./concepts/sequencing-order.md)
-- Find out how to make use of [blueprint resource locking](./concepts/resource-locking.md)
-- Learn how to [update existing assignments](./how-to/update-existing-assignments.md)
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](./troubleshoot/general.md)
+- Learn about the [blueprint life-cycle](./concepts/lifecycle.md).
+- Understand how to use [static and dynamic parameters](./concepts/parameters.md).
+- Learn to customize the [blueprint sequencing order](./concepts/sequencing-order.md).
+- Find out how to make use of [blueprint resource locking](./concepts/resource-locking.md).
+- Learn how to [update existing assignments](./how-to/update-existing-assignments.md).
+- Resolve issues during the assignment of a blueprint with [general troubleshooting](./troubleshoot/general.md).

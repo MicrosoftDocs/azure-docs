@@ -1,6 +1,6 @@
 ---
 title: Azure Blockchain Workbench troubleshooting
-description: How to troubleshoot a Azure Blockchain Workbench application.
+description: How to troubleshoot an Azure Blockchain Workbench application.
 services: azure-blockchain
 keywords: 
 author: PatAltimore

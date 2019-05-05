@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 12/04/2018
 ---

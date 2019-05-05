@@ -2,11 +2,11 @@
 title: Planning for an Azure File Sync deployment | Microsoft Docs
 description: Learn what to consider when planning for an Azure Files deployment.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 2/7/2019
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
 ---
 
@@ -70,7 +70,7 @@ Before deploying Azure File Sync, you should evaluate whether it is compatible w
 #### Download Instructions
 1. Make sure that you have the latest version of PackageManagement and PowerShellGet installed (this allows you to install preview modules)
     
-    ```PowerShell
+    ```powershell
         Install-Module -Name PackageManagement -Repository PSGallery -Force
         Install-Module -Name PowerShellGet -Repository PSGallery -Force
     ```
@@ -78,29 +78,29 @@ Before deploying Azure File Sync, you should evaluate whether it is compatible w
 2. Restart PowerShell
 3. Install the modules
     
-    ```PowerShell
+    ```powershell
         Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
     ```
 
 #### Usage  
 You can invoke the evaluation tool in a few different ways: you can perform the system checks, the dataset checks, or both. To perform both the system and dataset checks: 
 
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -Path <path>
 ```
 
 To test only your dataset:
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
 ```
  
 To test system requirements only:
-```PowerShell
+```powershell
     Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
 ```
  
 To display the results in CSV:
-```PowerShell
+```powershell
     $errors = Invoke-AzStorageSyncCompatibilityCheck […]
     $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
 ```
@@ -127,6 +127,7 @@ To display the results in CSV:
 - A locally attached volume formatted with the NTFS file system.
 
 ### File system features
+
 | Feature | Support status | Notes |
 |---------|----------------|-------|
 | Access control lists (ACLs) | Fully supported | Windows ACLs are preserved by Azure File Sync, and are enforced by Windows Server on server endpoints. Windows ACLs are not (yet) supported by Azure Files if files are accessed directly in the cloud. |
@@ -143,6 +144,7 @@ To display the results in CSV:
 > Only NTFS volumes are supported. ReFS, FAT, FAT32, and other file systems are not supported.
 
 ### Files skipped
+
 | File/folder | Note |
 |-|-|
 | Desktop.ini | File specific to system |
@@ -230,13 +232,18 @@ Azure File Sync is available only in the following regions:
 |--------|---------------------|
 | Australia East | New South Wales |
 | Australia Southeast | Victoria |
+| Brazil South | Sao Paolo State |
 | Canada Central | Toronto |
 | Canada East | Quebec City |
 | Central India | Pune |
 | Central US | Iowa |
-| East Asia | Hong Kong |
+| East Asia | Hong Kong SAR |
 | East US | Virginia |
 | East US2 | Virginia |
+| Korea Central| Seoul |
+| Korea South| Busan |
+| Japan East | Tokyo, Saitama |
+| Japan West | Osaka |
 | North Central US | Illinois |
 | North Europe | Ireland |
 | South Central US | Texas |
@@ -268,6 +275,8 @@ To support the failover integration between geo-redundant storage and Azure File
 | East Asia           | Southeast Asia     |
 | East US             | West US            |
 | East US 2           | Central US         |
+| Korea Central       | Korea South        |
+| Korea South         | Korea Central      |
 | North Europe        | West Europe        |
 | North Central US    | South Central US   |
 | South India         | Central India      |

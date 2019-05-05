@@ -3,7 +3,7 @@ title: Manage authentication in Azure Maps | Microsoft Docs
 description: You can use the Azure portal to manage authentication in Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2018
+ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -27,7 +27,7 @@ You can view your authentication details on the Azure portal. Go to your account
 
 After you create an Azure Maps account, you need to establish a link between your Azure AD tenant and the Azure Maps resource.
 
-1. Go to the Azure AD blade and create an app registration. Provide a name for the registration. In the **Sign-on URL** box, provide the home page of the web app / API (for example, https://localhost/). If you already have a registered app, go to step 2.
+1. Go to the Azure AD blade and create an app registration. Provide a name for the registration. In the **Sign-on URL** box, provide the home page of the web app / API (for example, https:\//localhost/). If you already have a registered app, go to step 2.
 
     ![App registration](./media/how-to-manage-authentication/app-registration.png)
 

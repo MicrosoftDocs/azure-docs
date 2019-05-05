@@ -20,7 +20,7 @@ You can manage the Data Box Disk via the Azure portal. This article focuses on t
 
 You may need to cancel an order for various reasons after you have placed the order. You can only cancel the order before the disk preparation starts. Once the disks are prepared and order processed, it is not possible to cancel the order. 
 
-Perform the following steps to cancel a order.
+Perform the following steps to cancel an order.
 
 1.	Go to **Overview > Cancel**. 
 
