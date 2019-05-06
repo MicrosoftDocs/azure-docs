@@ -1,7 +1,7 @@
 ---
 title: How licenses work for Office and SharePoint Add-ins
 description: The types of licenses that are available, how users acquire licenses, and how licenses work in terms of duration and scope.
-ms.date: 3/6/2019
+ms.date: 4/29/2019
 localization_priority: Normal
 ---
 
@@ -183,6 +183,9 @@ Seller Dashboard now supports moving from paid to free add-ins. You can choose w
 |One-time purchase|The user will receive a free entitlement. The add-in will no longer be available to purchase but can be acquired for free; this will be returned in the token for the add-in entitlement.|The user’s original purchase will still be valid. If the license was previously seat based, it will be modified to resemble a site license for the user. This will be returned in the token to the add-in. All active trial licenses will be converted to free entitlements.|For existing users that return a valid paid token, those users should continue to work. If the original token was seat based, the new token will contain the originally purchased seat count. For new users, or users where the original seat count has been exceeded, you should take the opportunity to upsell the user to the new license. For most users, the license token returned to the add-in will not change. The license tokens will change when an add-in moves from paid to free for seat-based tokens:</br></br>Update to all seat-based tokens: sl="true"</br>For seat-based tokens, where the customer previously purchased a site-license: ts="0"</br>For seat-based tokens, where the customer purchased 3 seats: ts="3"|
 
 For the license token schema, see [Add-in license schema](add-in-license-schema.md).
+
+> [!NOTE]
+> For Outlook add-ins offered for free or as unlimited trials, no license is generated or stored by AppSource, and no license token is downloaded to Exchange.
 
 For information about using licensing to upsell your add-in services, see [Implement licensing to upsell your Office Add-in services](implement-licensing-for-add-in-services.md). 
 
