@@ -53,4 +53,4 @@ You can reach us directly on [GitHub](https://github.com/Azure/AppConfiguration/
 
 ## Next steps
 
-* [Azure App Configuration overview](./overview.md)
+* [About Azure App Configuration](./overview.md)
