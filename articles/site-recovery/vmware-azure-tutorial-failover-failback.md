@@ -70,7 +70,7 @@ Verify properties as follows:
 1. In **Settings** > **Replicated items**, click the VM > **Failover**.
 2. In **Failover**, select a **Recovery Point** to fail over to. You can use one of the following options:
    - **Latest**: This option first processes all the data sent to Site Recovery. It provides the lowest RPO (Recovery Point Objective) because the Azure VM created after failover has all the data that was replicated to Site Recovery when the failover was triggered.
-   - **Latest processed**: This option fails the VM over to the latest recovery point processed by Site Recovery. This option provides a low RTO (Recovery Time Objective), because no time is
+   - **Latest processed**: This option fails the VM over to the latest recovery point processed by Site Recovery. This option provides a low RTO (Recovery Time Objective) because no time is
      spent processing unprocessed data.
    - **Latest app-consistent**: This option fails over the VM to the latest app-consistent recovery point processed by Site Recovery.
    - **Custom**: Specify a recovery point.

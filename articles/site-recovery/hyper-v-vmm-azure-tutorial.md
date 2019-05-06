@@ -58,7 +58,7 @@ This is the third tutorial in a series. This tutorial assumes that you have alre
 
 ## Set up the source environment
 
-When you set up the source environment, you install the Azure Site Recovery Provider on the VMM server, and register the server in the vault. You install the Azure Recovery Services agent on each Hyper-V host. 
+When you set up the source environment, you install the Azure Site Recovery Provider on the VMM server and register the server in the vault. You install the Azure Recovery Services agent on each Hyper-V host. 
 
 1. In **Prepare Infrastructure**, click **Source**.
 2. In **Prepare source**, click **+ VMM** to add a VMM server. In **Add Server**, check that **System Center VMM server** appears in **Server type**.

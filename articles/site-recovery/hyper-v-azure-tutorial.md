@@ -55,7 +55,7 @@ To set up the source environment, you create a Hyper-V site, and add Hyper-V hos
 
 1. Under **Prepare Infrastructure**, click **Source**.
 2. In **Prepare source**, click **+Hyper-V Site**.
-3. In **Create Hyper-V site**, and specify site name. We're using **ContosoHyperVSite**.
+3. In **Create Hyper-V site**, specify the site name. We're using **ContosoHyperVSite**.
 
     ![Hyper-V site](./media/hyper-v-azure-tutorial/hyperv-site.png)
 
