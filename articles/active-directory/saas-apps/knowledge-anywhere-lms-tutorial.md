@@ -164,13 +164,13 @@ To configure Azure AD single sign-on with Knowledge Anywhere LMS, perform the fo
 
     a. Enter the IDP Name as per your organization. For ex:- `Azure`.
 
-    b. In the **IDP Entity ID** textbox, paste **Azure AD Identifier** value which you have copied from Azure portal.
+    b. In the **IDP Entity ID** textbox, paste **Azure AD Identifier** value ,which you have copied from Azure portal.
 
-    c. In the **IDP URL** textbox, paste **Login URL** value which you have copied from Azure portal.
+    c. In the **IDP URL** textbox, paste **Login URL** value, which you have copied from Azure portal.
 
     d. Open the downloaded certificate file from the Azure portal into notepad, copy the content of the certificate and paste it into **Certificate** textbox.
 
-    e. In the **Logout URL** textbox, paste **Logout URL** value which you have copied from Azure portal.
+    e. In the **Logout URL** textbox, paste **Logout URL** value, which you have copied from Azure portal.
 
     f. Select **Main Site** from the dropdown for the **Domain**.
 
@@ -196,9 +196,9 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The User dialog box](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
+    b. In the **User name** field, type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
@@ -228,7 +228,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+7. In the **Add Assignment** dialog, click the **Assign** button.
 
 ### Create Knowledge Anywhere LMS test user
 
