@@ -9,6 +9,7 @@ ms.date: 5/7/2019
 ms.author: victorh
 ms.custom: mvc
 ---
+
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure portal
 
 This quickstart shows you how to use the Azure portal to create an application gateway.  After creating the application gateway, you test it to make sure it's working correctly. With Azure Application Gateway, you direct your application web traffic to specific resources by assigning listeners to ports, creating rules, and adding resources to a backend pool. For the sake of simplicity, this article uses a simple setup with a public front-end IP, a basic listener to host a single site on this application gateway, two virtual machines used for the backend pool, and a basic request routing rule.
