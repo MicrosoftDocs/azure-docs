@@ -40,7 +40,7 @@ Here is a quick overview of the steps:
 
 To protect an API with Azure AD, the first step is to register an application in Azure AD that represents the API. 
 
-1. Browse to your Azure AD tenant, and then browse to **App registrations**.
+1. Browse to your Azure AD tenant, and then browse to **App registrations (Legacy)**.
 
 2. Select **New application registration**. 
 
@@ -58,7 +58,7 @@ When the application is created, make a note of the **Application ID**, for use 
 
 Every client application that calls the API needs to be registered as an application in Azure AD as well. For this example, the sample client application is the Developer Console in the API Management developer portal. Here's how to register another application in Azure AD to represent the Developer Console.
 
-1. Select **New application registration**. 
+1. While in **App registrations (Legacy)**, select **New application registration**. 
 
 2. Provide a name of the application. (For this example, the name is `client-app`.)
 
@@ -82,7 +82,7 @@ Make a note of the key value.
 
 Now that you have registered two applications to represent the API and the Developer Console, you need to grant permissions to allow the client-app to call the backend-app.  
 
-1. Browse to **Application registrations**. 
+1. Browse to **Application registrations (Legacy)**. 
 
 2. Select `client-app`, and go to **Settings**.
 
