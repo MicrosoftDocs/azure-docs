@@ -69,6 +69,8 @@ sections:
     - title: SDKs
       html: <p><a href="https://aka.ms/anomaly-detector-dotnet-ref">.NET</a></p>
             <p><a href="https://go.microsoft.com/fwlink/?linkid=2089915">Go</a></p>
+            <p><a href="https://go.microsoft.com/fwlink/?linkid=2090370">Python</a></p>
+            <p><a href="https://go.microsoft.com/fwlink/?linkid=2090788">Node.js</a></p>
     - title: PowerShell
       html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI

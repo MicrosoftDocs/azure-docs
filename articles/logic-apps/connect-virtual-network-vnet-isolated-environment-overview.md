@@ -8,14 +8,10 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 05/06/2019
 ---
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
-
-> [!NOTE]
-> This capability is in 
-> [*public preview*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Sometimes, your logic apps and integration accounts need access to 
 secured resources, such as virtual machines (VMs) and other systems 
@@ -109,11 +105,6 @@ accounts must use the *same ISE* as the linked logic apps.
 Logic apps in an ISE can reference only those integration accounts 
 that are in the same ISE. When you create an integration account, 
 you can select your ISE as the location for your integration account.
-
-## Get support
-
-* For questions, visit the <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps forum</a>.
-* To submit or vote on feature ideas, visit the <a href="https://aka.ms/logicapps-wish" target="_blank">Logic Apps user feedback site</a>.
 
 ## Next steps
 
