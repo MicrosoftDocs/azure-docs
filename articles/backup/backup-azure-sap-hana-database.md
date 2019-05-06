@@ -142,7 +142,7 @@ Specify the policy settings as follows:
     > Log backups only begin to flow after a successful full backup is completed.
 
 9. Select **OK** to save the policy and return to the main **Backup policy** menu.
-10. After you finishing defining the backup policy, select **OK**.
+10. After you finish defining the backup policy, select **OK**.
 
 
 ## Run an on-demand backup
