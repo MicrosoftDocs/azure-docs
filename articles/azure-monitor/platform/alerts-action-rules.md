@@ -137,11 +137,11 @@ From here, you can enable/disable/delete action rules at scale by selecting the 
 
 ## Best practices
 
-Log alerts created with the ['number of results'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option generate **a single alert instance** using the whole search result (which could be across multiple computers for example). In this scenario, if an action rule uses the 'Alert Context (payload)' filter, it will act on the alert instance as long as there is a match. In scenario 2 as described previously, if the search results for the log alert generated contain both 'Computer-01' and 'Computer-02', the entire notification is suppressed (that is, there is no notification generated for 'Computer-02' at all).
+Log alerts created with the ['number of results'](alerts-unified-log.md) option generate **a single alert instance** using the whole search result (which could be across multiple computers for example). In this scenario, if an action rule uses the 'Alert Context (payload)' filter, it will act on the alert instance as long as there is a match. In scenario 2 as described previously, if the search results for the log alert generated contain both 'Computer-01' and 'Computer-02', the entire notification is suppressed (that is, there is no notification generated for 'Computer-02' at all).
 
 ![Action rules and log alerts (number of results)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-To best leverage log alerts with action rules, we advise you to create log alerts with the ['metric measurement'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option. Using this option, separate alert instances are generated based on the Group Field defined. Then in scenario 2, separate alert instances are generated for 'Computer-01' and 'Computer-02'. With the action rule described in the scenario, only the notification for 'Computer-01' would be suppressed while the notification for 'Computer-02' would continue to fire as normal.
+To best leverage log alerts with action rules, we advise you to create log alerts with the ['metric measurement'](alerts-unified-log.md) option. Using this option, separate alert instances are generated based on the Group Field defined. Then in scenario 2, separate alert instances are generated for 'Computer-01' and 'Computer-02'. With the action rule described in the scenario, only the notification for 'Computer-01' would be suppressed while the notification for 'Computer-02' would continue to fire as normal.
 
 ![Action rules and log alerts (number of results)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 

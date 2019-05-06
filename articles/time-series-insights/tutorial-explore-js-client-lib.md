@@ -58,8 +58,6 @@ Throughout this tutorial, a free, hosted, Time Series Insights sample app is use
 
 ### Page source and structure
 
-<div id="page-source-and-structure"></div>
-
 First, let's view the [HTML and JavaScript source code](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) of the rendered web paged:
 
 1. Open **Developer Tools** in your browser. Inspect the HTML elements that make up the current page (also known as the HTML or DOM tree).
@@ -116,6 +114,9 @@ The [Time Series Insights sample application](https://insights.timeseries.azure.
 
    [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=3-7,34-37)]
 
+> [!TIP]
+> To learn more about Microsoft-supported ADAL libraries, see the [ADAL reference documentation](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries#microsoft-supported-client-libraries).
+
 ### Control identification
 
 In the provided example, `<div>` elements are arranged in the parent `<body>` element to provide a sensible layout for all of the chart controls rendered on the page.
@@ -160,7 +161,7 @@ Populating and rendering chart controls follows a general pattern. This general 
    | `splitByObject`   | The string property that you wish to split by (optional – can be null). | `{property: 'Station', type: 'String'}` |
    | `color`         | The color of the objects that you wish to render. | `'pink'` |
    | `alias`           | A friendly name for the aggregate expression. | `'Factory3Temperature'` |
-   | `contextMenuActions` | An array of actions to be bound to the time series objects in a visualization (optional). | For more information, see the section [Pop-up context menus](#contextMenu) |
+   | `contextMenuActions` | An array of actions to be bound to the time series objects in a visualization (optional). | For more information, see the section [Pop-up context menus](#pop-up-context-menus) |
 
 1. Call a TSI query by using the `TsiClient.Server` APIs to request the aggregate data:
 
@@ -251,8 +252,6 @@ Visually, the diamond markers/pop-up windows that are used to indicate incidents
 [![Line Charts with Multiple Series Types](media/tutorial-explore-js-client-lib/tcs-line-charts-with-multiple-series-types.png)](media/tutorial-explore-js-client-lib/tcs-line-charts-with-multiple-series-types.png#lightbox)
 
 ### Pop-up context menus
-
-<div id="contextMenu"></div>
 
 Another advanced functionality is the ability to create custom context menus (right-click pop-up menus). Custom context menus are useful for enabling actions and logical next steps within the scope of your application.
 

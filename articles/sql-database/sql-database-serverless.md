@@ -66,7 +66,7 @@ The following table compares serverless compute tier with the provisioned comput
 
 ## Purchasing model and service tier
 
-SQL Database serverless is currently only supported in the General Purpose tier on Generation 5 hardware in the vcore purchasing model.
+SQL Database serverless is currently only supported in the General Purpose tier on Generation 5 hardware in the vCore purchasing model.
 
 ## Autoscaling
 
@@ -105,7 +105,7 @@ Autoresume is triggered if any of the following conditions are true at any time:
 |Autotuning|Application and verification of autotuning recommendations such as auto-indexing|
 |Database copying|Create database as copy<br>Export to a BACPAC file|
 |SQL data sync|Synchronization between hub and member databases that run on a configurable schedule or are performed manually|
-|Modifying certain database metadata|Adding new database tags<br>Changing max vcores, min vcores, autopause delay|
+|Modifying certain database metadata|Adding new database tags<br>Changing max vCores, min vCores, autopause delay|
 |SQL Server Management Studio (SSMS)|Using SSMS version 18 and opening a new query window for any database in the server will resume any auto-paused database in the same server. This behavior does not occur if using SSMS version 17.9.1 with IntelliSense turned-off.|
 
 ### Connectivity

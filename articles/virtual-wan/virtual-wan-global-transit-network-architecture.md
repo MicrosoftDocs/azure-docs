@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 05/06/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
 ---
@@ -15,7 +15,7 @@ Customer intent: As someone with a networking background, I want to understand g
 
 Global transit network architecture is being adopted by enterprises to consolidate, connect, and control the cloud-centric modern enterprise IT footprint. In a modern cloud-centric enterprise, network traffic does not need to be backhauled to HQ. Global transit network architecture is based on both familiar networking concepts, and new concepts that are unique to cloud and cloud-based architectures.
 
-![architecture](./media/virtual-wan-global-transit/architecture2.png)
+![architecture](./media/virtual-wan-global-transit-network-architecture/architecture2.png)
 
 **Figure 1: Global transit network with Virtual WAN**
 
@@ -36,7 +36,7 @@ In this model, a spoke can be:
 * Remote user
 * Internet
 
-![hub and spoke global transit diagram](./media/virtual-wan-global-transit/architecture.png)
+![hub and spoke global transit diagram](./media/virtual-wan-global-transit-network-architecture/architecture.png)
 
 **Figure 2: Hub-and-spoke**
 
@@ -52,7 +52,7 @@ Global transit network architecture enables *any-to-any connectivity* via a cent
 
 Any-to-any connectivity, in the context of a global architecture, allows an enterprise with globally distributed users, branches, datacenters, VNets, and applications to connect to each other through the transit hub. The transit hub acts as the global transit system.
 
-![traffic paths](./media/virtual-wan-global-transit/trafficpath.png)
+![traffic paths](./media/virtual-wan-global-transit-network-architecture/trafficpath.png)
 
 **Figure 3: Virtual WAN traffic paths**
 
@@ -60,10 +60,10 @@ Azure Virtual WAN supports the following global transit connectivity paths. The 
 
 * Branch-to-VNet (a)  
 * Branch-to-branch (b)
+* Remote User-to-VNet (c)
+* Remote User-to-branch (d)
+* VNet-to-VNet using VNet peering (e)
 * ExpressRoute Global Reach 
-    * Remote User-to-VNet (c)
-    * Remote User-to-branch (d)
-    * VNet-to-VNet using VNet peering (e) 
 
 ### <a name="branchvnet"></a>Branch-to-VNet
 
@@ -75,23 +75,23 @@ Branches can be connected to an Azure Virtual WAN hub using ExpressRoute circuit
 
 This option lets enterprises leverage the Azure backbone to connect branches. However, even though this capability is available, you should weigh the benefits of connecting branches over Azure Virtual WAN vs. using a private WAN.
 
+### <a name="usertovnet"></a>Remote User-to-VNet
+
+You can enable direct, secure remote access to Azure using point-to-site connections from a remote user client to a virtual WAN. Enterprise remote users no longer have to hairpin to the cloud using a corporate VPN.
+
+### <a name="usertobranch"></a>Remote User-to-branch
+
+The Remote User-to-branch path lets remote users who are using a point-to-site connection to Azure access on-premises workloads and applications by transiting through the cloud. This path gives remote users the flexibility to access workloads that are both deployed in Azure and on-premises. Enterprises can enable central cloud-based secure remote access service in Azure Virtual WAN.
+
+### <a name="vnetvnet"></a>VNet-to-VNet transit using VNet peering
+
+To connect VNets to each other in order to support multi-tier applications that are implemented across multiple VNets, use VNet peering. A VNet-to-VNet transit scenario via Azure Virtual WAN is currently not supported, but is on the Azure roadmap. Connecting VNets through VNet Peering is the recommend solution for VNets that need to be connected to each other. For more information about VNet peering, see [VNet Peering Overview ](../virtual-network/virtual-network-peering-overview.md).
+
 ### <a name="globalreach"></a>ExpressRoute Global Reach
 
 ExpressRoute is a private and resilient way to connect your on-premises networks to the Microsoft Cloud. ExpressRoute Global Reach is an add-on feature for ExpressRoute. With Global Reach, you can link ExpressRoute circuits together to make a private network between your on-premises networks. Branches that are connected to Azure Virtual WAN using ExpressRoute require the ExpressRoute Global Reach to communicate with each other.
 
 In this model, each branch that is connected to the Virtual WAN hub using ExpressRoute can connect to VNets using the branch-to-VNet path. Branch-to-branch traffic won't transit the hub because ExpressRoute Global Reach enables a more optimal path over Azure WAN.
-
-#### <a name="usertovnet"></a>Remote User-to-VNet
-
-You can enable direct, secure remote access to Azure using point-to-site connections from a remote user client to a virtual WAN. Enterprise remote users no longer have to hairpin to the cloud using a corporate VPN.
-
-#### <a name="usertobranch"></a>Remote User-to-branch
-
-The Remote User-to-branch path lets remote users who are using a point-to-site connection to Azure access on-premises workloads and applications by transiting through the cloud. This path gives remote users the flexibility to access workloads that are both deployed in Azure and on-premises. Enterprises can enable central cloud-based secure remote access service in Azure Virtual WAN.
-
-#### <a name="vnetvnet"></a>VNet-to-VNet transit using VNet peering
-
-To connect VNets to each other in order to support multi-tier applications that are implemented across multiple VNets, use VNet peering. A VNet-to-VNet transit scenario via Azure Virtual WAN is currently not supported, but is on the Azure roadmap. For more information about VNet peering, see [Configure VPN gateway transit for virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
 
 ## <a name="security"></a>Security and policy control
 

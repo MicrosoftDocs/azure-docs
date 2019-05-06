@@ -30,12 +30,6 @@
     href: protect-with-aes128.md       
   - name: Encrypt dynamically with DRM - .NET
     href: protect-with-drm.md    
-- name: Samples
-  items:
-  - name: Azure code samples
-    href: https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3 
-  - name: Azure CLI
-    href: cli-samples.md        
 - name: Concepts
   href: concepts-overview.md
   items:
@@ -106,8 +100,8 @@
       href: streaming-policy-concept.md  
     - name: Content Key Policies
       href: content-key-policy-concept.md      
-    - name: Origin error codes  
-      href: origin-error-codes.md         
+    - name: Streaming Endpoint error codes  
+      href: streaming-endpoint-error-codes.md       
   - name: Live streaming 
     items:
     - name: Overview
@@ -148,8 +142,8 @@
       href: rbac-overview.md
     - name: Error codes
       items:
-      - name: Origin error codes  
-        href: origin-error-codes.md
+      - name: Streaming Endpoint error codes  
+        href: streaming-endpoint-error-codes.md
       - name: Job error codes
         href: job-error-codes.md
   - name: Migration guidance from v2 to v3
@@ -160,10 +154,14 @@
     items:
     - name: Create an account - CLI
       href: create-account-cli-how-to.md  
+    - name: Reset the account credentials - CLI
+      href: cli-reset-account-credentials.md      
     - name: Access APIs - CLI
       href: access-api-cli-how-to.md
     - name: Scale Media Reserved Units - CLI
       href: media-reserved-units-cli-how-to.md   
+    - name: Create an Asset - CLI
+      href: cli-create-asset.md      
     - name: Develop with REST
       items:
       - name: Connect with Postman
@@ -190,6 +188,14 @@
     - name: From a local file - REST
       displayName: upload
       href: upload-files-rest-how-to.md
+    - name: From a local file - CLI
+      href: cli-upload-file-asset.md     
+  - name: Create transforms and jobs
+    items:
+    - name: Create transforms - CLI
+      href: cli-create-transform.md
+    - name: Crate jobs - CLI
+      href: cli-create-jobs.md
   - name: Encode content
     items:
     - name: HTTPS as Job input - .NET
@@ -230,6 +236,10 @@
       href: filters-dynamic-manifest-rest-howto.md
     - name: With CLI
       href: filters-dynamic-manifest-cli-howto.md  
+  - name: Deliver content
+    items:
+    - name: Publish an asset - CLI
+      href: cli-publish-asset.md
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
@@ -254,8 +264,8 @@
     href: /azure/templates/microsoft.media/allversions
   - name: Error codes
     items:
-    - name: Origin error codes  
-      href: origin-error-codes.md
+    - name: Streaming Endpoint error codes  
+      href: streaming-endpoint-error-codes.md
     - name: Job error codes
       href: job-error-codes.md   
 - name: Resources
@@ -285,7 +295,7 @@
       href: https://aka.ms/ams-v3-nodejs-sdk   
     - name: Ruby
       href: https://aka.ms/ams-v3-ruby-sdk
-  - name: AMSE
+  - name: Azure Media Services Explorer
     href: https://github.com/Azure/Azure-Media-Services-Explorer
   - name: Release notes
     href: release-notes.md

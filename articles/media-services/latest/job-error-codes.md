@@ -31,7 +31,7 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## See also
 
-- [Origin error codes](origin-error-codes.md)
+- [Streaming Endpoint error codes](streaming-endpoint-error-codes.md)
 - [Azure Media Services concepts](concepts-overview.md)
 - [Quotas and Limitations](limits-quotas-constraints.md)
 

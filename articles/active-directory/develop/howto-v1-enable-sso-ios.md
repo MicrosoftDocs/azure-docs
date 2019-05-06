@@ -160,7 +160,7 @@ For non-broker assisted SSO across applications, the SDKs manage much of the com
 
 To enable SSO across applications you own you need to do the following:
 
-1. Ensure all your applications user the same Client ID or Application ID.
+1. Ensure all your applications use the same Client ID or Application ID.
 2. Ensure that all of your applications share the same signing certificate from Apple so that you can share keychains.
 3. Request the same keychain entitlement for each of your applications.
 4. Tell the SDKs about the shared keychain you want us to use.

@@ -15126,6 +15126,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/stream-analytics/stream-analytics-dotnet-management-sdk-v1.md",
+      "redirect_url": "/azure/stream-analytics/stream-analytics-dotnet-management-sdk",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/stream-analytics/stream-analytics-out-of-order-and-late-events.md",
       "redirect_url": "/azure/stream-analytics/stream-analytics-time-handling",
       "redirect_document_id": false
@@ -38777,6 +38782,71 @@
       "source_path": "articles/active-directory/develop/app-registration-portal-content.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-v2-register-an-app",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/origin-error-codes.md",
+      "redirect_url": "/azure/media-services/latest/streaming-endpoint-error-codes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-create-account.md",
+      "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-create-asset.md",
+      "redirect_url": "/azure/media-services/latest/cli-create-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-create-event-grid.md",
+      "redirect_url": "/azure/media-services/latest/job-state-events-cli-how-to",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-create-jobs.md",
+      "redirect_url": "/azure/media-services/latest/cli-create-jobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-create-transform.md",
+      "redirect_url": "/azure/media-services/latest/cli-create-transform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-publish-asset.md",
+      "redirect_url": "/azure/media-services/latest/cli-publish-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-reset-account-credentials.md",
+      "redirect_url": "/azure/media-services/latest/cli-reset-account-credentials",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-upload-file-asset.md",
+      "redirect_url": "/azure/media-services/latest/cli-upload-file-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/rdp.md",
+      "redirect_url": "https://cloudblogs.microsoft.com/opensource/2019/03/25/windows-server-containers-now-supported-kubernetes/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/windows-container-cli.md",
+      "redirect_url": "https://cloudblogs.microsoft.com/opensource/2019/03/25/windows-server-containers-now-supported-kubernetes/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/windows-node-limitations.md",
+      "redirect_url": "https://cloudblogs.microsoft.com/opensource/2019/03/25/windows-server-containers-now-supported-kubernetes/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-samples.md",
+      "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
+      "redirect_document_id": true
     }
   ]
 }

@@ -189,7 +189,7 @@ inference_config = InferenceConfig(source_directory="C:/abc",
 
 In this example, the configuration contains the following items:
 
-* A directory that contains assets needed to perform inferencing
+* A directory that contains assets needed to inference
 * That this model requires Python
 * The [entry script](#script), which is used to handle web requests sent to the deployed service
 * The conda file that describes the Python packages needed to run inferencing

@@ -89,7 +89,7 @@ Premium file shares (preview) are provisioned based on a fixed GiB/IOPS/throughp
 
 On a best effort basis, all shares can burst up to three IOPS per GiB of provisioned storage for 60 minutes or longer depending on the size of the share. New shares start with the full burst credit based on the provisioned capacity.
 
-Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next size is 101 GIB and so on.
+Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next size is 101 GiB and so on.
 
 > [!TIP]
 > Baseline IOPS = 1 * provisioned GiB. (Up to a max of 100,000 IOPS).
