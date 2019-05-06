@@ -27,13 +27,13 @@ This article describes the different authentication flows provided by Microsoft 
 
 | Flow | Description | Used in|  
 | ---- | ----------- | ------- | 
-| [Implicit grant](#implicit-grant) | Allows the app to get tokens without performing a backend server credential exchange. This allows the app to sign in the user, maintain session, and get tokens to other web APIs all within the client JavaScript code.| Single-page applications (SPA) |
-| [Authorization code](#authorization-code) | Used in apps that are installed on a device to gain access to protected resources, such as web APIs. This allows you to add sign in and API access to your mobile and desktop apps. | Web Apps / Web APIs / daemon apps | 
-| [On-behalf-of](#on-behalf-of) | An application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. | Web Apps / Web APIs / daemon apps |
-| [Confidential client](#confidential-client) | Allows you to access web-hosted resources by using the identity of an application. Commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. | Web Apps / Web APIs / daemon apps |
-| [Device code](#device-code) | Allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer. | Desktop/Mobile apps |
-| [Integrated Windows Authentication](#integrated-windows-authentication) | Allows applications on domain or Azure AD joined computers to acquire a token silently (without any UI interaction from the user).| Desktop/Mobile apps|
-| [Username/password](#usernamepassword) | Allows an application to sign in the user by directly handling their password. This flow is not recommended. | Desktop/mobile apps | 
+| [Implicit grant](#implicit-grant) | Allows the app to get tokens without performing a backend server credential exchange. This allows the app to sign in the user, maintain session, and get tokens to other web APIs all within the client JavaScript code.| [Single-page applications (SPA)](scenario-spa-overview.md) |
+| [Authorization code](#authorization-code) | Used in apps that are installed on a device to gain access to protected resources, such as web APIs. This allows you to add sign in and API access to your mobile and desktop apps. | [Desktop apps](scenario-desktop-overview.md), [Mobile apps](scenario-mobile-overview.md), [Web Apps](scenario-web-app-call-api-overview.md) | 
+| [On-behalf-of](#on-behalf-of) | An application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. | [Web APIs](scenario-web-api-call-api-overview.md) |
+| [Client credentials](#client-credentials) | Allows you to access web-hosted resources by using the identity of an application. Commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. | [daemon apps](scenario-daemon-overview.md) |
+| [Device code](#device-code) | Allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer. | [Desktop/Mobile apps](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
+| [Integrated Windows Authentication](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Allows applications on domain or Azure AD joined computers to acquire a token silently (without any UI interaction from the user).| [Desktop/Mobile apps](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
+| [Username/password](scenario-desktop-acquire-token.md#username--password) | Allows an application to sign in the user by directly handling their password. This flow is not recommended. | [Desktop/mobile apps](scenario-desktop-acquire-token.md#username--password) | 
 
 
 ## Implicit grant
@@ -71,7 +71,7 @@ MSAL supports the [OAuth 2 on-behalf-of authentication flow](v2-oauth2-on-behalf
 3. When the client calls the Web API, the Web API requests another token on-behalf-of the user.  
 4. The protected Web API uses this token to call a downstream Web API on-behalf-of the user.  The Web API can also later request tokens for other downstream APIs (but still on behalf of the same user).
 
-## Confidential client
+## Client credentials
 
 MSAL supports the [OAuth 2 client credentials flow](v2-oauth2-client-creds-grant-flow.md). This flow allows you to access web-hosted resources by using the identity of an application. This type of grant is commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications are often referred to as daemons or service accounts. 
 
@@ -89,7 +89,7 @@ MSAL.NET supports three types of client credentials:
 These client credentials need to be:
 
 - Registered with Azure AD.
-- Passed in to the constructors of the confidential client application in your code.
+- Passed in at the construction of the confidential client application in your code.
 
 
 ## Device code
@@ -122,7 +122,7 @@ IWA supports **Federated** users only.  Users created in an Active Directory and
 
 IWA is for apps written for .NET Framework, .NET Core, and Universal Windows Platform platforms.
 
-IWA does NOT bypass MFA (multi factor authentication). If MFA is configured, IWA might fail if a MFA challenge is required because MFA requires user interaction. This one is tricky. IWA is non-interactive, but two-factor authorization (2FA) requires user interactivity. You do not control when the identity provider requests 2FA to be performed, the tenant admin does. From our observations, 2FA is required when you login from a different country, when not connected via VPN to a corporate network, and sometimes even when connected via VPN. Don’t expect a deterministic set of rules, Azure Active Directory uses AI to continuously learn if 2FA is required. You should fallback to a user prompt (https://aka.ms/msal-net-interactive) if IWA fails.
+IWA does NOT bypass MFA (multi factor authentication). If MFA is configured, IWA might fail if an MFA challenge is required because MFA requires user interaction. This one is tricky. IWA is non-interactive, but two-factor authorization (2FA) requires user interactivity. You do not control when the identity provider requests 2FA to be performed, the tenant admin does. From our observations, 2FA is required when you login from a different country, when not connected via VPN to a corporate network, and sometimes even when connected via VPN. Don’t expect a deterministic set of rules, Azure Active Directory uses AI to continuously learn if 2FA is required. You should fallback to a user prompt (https://aka.ms/msal-net-interactive) if IWA fails.
 
 The authority passed in when constructing the public client application must be:
 - tenanted (of the form `https://login.microsoftonline.com/{tenant}/` where `tenant` is either the guid representing the tenant ID or a domain associated with the tenant.

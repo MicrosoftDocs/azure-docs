@@ -62,7 +62,7 @@ Application code should try to get a token silently (from the cache), first.  If
 
 However, there are two flows before which you **should not** attempt to silently acquire a token:
 
-- [client credentials flow](msal-authentication-flows.md#confidential-client), which does not use the user token cache, but an application token cache. This method takes care of verifying this application token cache before sending a request to the STS.
+- [client credentials flow](msal-authentication-flows.md#client-credentials), which does not use the user token cache, but an application token cache. This method takes care of verifying this application token cache before sending a request to the STS.
 - [authorization code flow](msal-authentication-flows.md#authorization-code) in Web Apps, as it redeems a code that the application got by signing-in the user, and having them consent for more scopes. Since a code is passed as a parameter, and not an account, the method cannot look in the cache before redeeming the code, which requires, anyway, a call to the service.
 
 ### Recommended call pattern in Web Apps using the Authorization Code flow 
@@ -83,7 +83,7 @@ For public client applications (desktop or mobile app), you:
 
 ### Confidential client applications 
 For confidential client applications (Web App, Web API, or daemon application like a Windows service), you:
-- Acquire tokens **for the application itself** and not for a user, using the [client credentials flow](msal-authentication-flows.md#confidential-client). This can be used for syncing tools, or tools that process users in general and not a specific user. 
+- Acquire tokens **for the application itself** and not for a user, using the [client credentials flow](msal-authentication-flows.md#client-credentials). This can be used for syncing tools, or tools that process users in general and not a specific user. 
 - Use the [On-behalf-of flow](msal-authentication-flows.md#on-behalf-of) for a web API to call an API on behalf of the user. The application is identified with client credentials in order to acquire a token based on a user assertion (SAML for example, or a JWT token). This flow is used by applications that need to access resources of a particular user in service-to-service calls.
 - Acquire tokens using the [authorization code flow](msal-authentication-flows.md#authorization-code) in web apps after the user signs in through the authorization request URL. OpenID Connect application typically use this mechanism, which lets the user sign in using Open ID connect and then access web APIs on behalf of the user.
 
