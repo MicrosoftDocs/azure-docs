@@ -59,7 +59,7 @@ Using entity linking in various languages requires using a corresponding knowled
 | URL           | N/A\*         | "https:\//www.bing.com"    |
 | Email         | N/A\*         | "support@contoso.com" |
 
-\* Depending on the input and extracted entities, certain entities may omit the `SubType`.
+\* Depending on the input and extracted entities, certain entities may omit the `SubType`.  All the supported entity types listed are available only for the English, Chinese-Simplified, French, German and Spanish languages.
 
 
 
