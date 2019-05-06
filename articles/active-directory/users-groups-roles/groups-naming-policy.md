@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/24/2019
+ms.date: 05/06/2019
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -73,14 +73,14 @@ Selected administrators can be exempted from these policies, across all group wo
 - User administrator
 - Directory writers
 
-## Set policy in Azure portal (preview)
+## Configure naming policy in Azure portal (preview)
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a User administrator account.
 1. Select **Groups**, then select **Naming policy** to open the Naming policy page.
 
     ![open the Naming policy page in the admin center](./media/groups-naming-policy/policy-preview.png)
 
-### Edit the naming policy
+### View or edit the prefix-suffix naming policy
 
 1. On the **Naming policy** page, select **Group naming policy**.
 1. You can view or edit the current prefix or suffix naming policies individually by selecting the attributes or strings you want to enforce as part of the naming policy.
@@ -116,7 +116,7 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
 
    If you are prompted about accessing an untrusted repository, enter **Y**. It might take few minutes for the new module to install.
 
-## Set naming policy in PowerShell
+## Configure naming policy in PowerShell
 
 1. Open a Windows PowerShell window on your computer. You can open it without elevated privileges.
 
@@ -145,7 +145,7 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
    $Setting.Values
    ```
   
-### Set the policy and block list
+### Set the naming policy and custom blocked words
 
 1. Set the group name prefixes and suffixes in Azure AD PowerShell. For the feature to work properly, [GroupName] must be included in the setting.
   
@@ -167,7 +167,7 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
   
 That's it. You've set your naming policy and added your blocked words.
 
-## Export custom blocked words
+## Export or import custom blocked words
 
 For more information, see the article [Azure Active Directory cmdlets for configuring group settings](groups-settings-cmdlets.md).
 
@@ -220,7 +220,7 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-## Naming policy for Office 365 apps
+## Experience across Office 365 apps
 
 After you set a group naming policy in Azure AD, when a user creates a group in an Office 365 app, they see:
 

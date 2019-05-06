@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 04/24/2019
+ms.date: 05/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -28,6 +28,10 @@ Expiration policy is simple:
 * A deleted Office 365 group can be restored within 30 days by a group owner or by an Azure AD administrator
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+
+## Prerequisite
+
+ The least-privileged role required to set up group expiration is User administrator in the organization.
 
 ## Turn on user creation for groups
 
