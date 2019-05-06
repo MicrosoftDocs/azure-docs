@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/29/2019
+ms.date: 05/06/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -135,13 +135,21 @@ To configure Azure AD single sign-on with Freedcamp, perform the following steps
 
 ### Configure Freedcamp Single Sign-On
 
-1. In a different web browser window, sign in to Freedcamp as a Security Administrator.
+1. To automate the configuration within Freedcamp, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-2. On the top-right corner of the page, click on **profile** and then navigate to **My Account**.
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Setup Freedcamp** will direct you to the Freedcamp application. From there, provide the admin credentials to sign into Freedcamp. The browser extension will automatically configure the application for you and automate steps 3-5.
+
+	![Setup configuration](common/setup-sso.png)
+
+3. If you want to setup Freedcamp manually, open a new web browser window and sign into your Freedcamp company site as an administrator and perform the following steps:
+
+4. On the top-right corner of the page, click on **profile** and then navigate to **My Account**.
 
 	![Freedcamp configuration](./media/freedcamp-tutorial/config01.png)
 
-3. From the left side of the menu bar, click on **SSO** and on the **Your SSO connections** page perform the following steps:
+5. From the left side of the menu bar, click on **SSO** and on the **Your SSO connections** page perform the following steps:
 
 	![Freedcamp configuration](./media/freedcamp-tutorial/config02.png)
 
@@ -173,7 +181,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field, type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
+    b. In the **User name** field, type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
