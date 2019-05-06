@@ -50,15 +50,15 @@ To add Everbridge from the Azure Marketplace, follow these steps.
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, select **Azure Active Directory**.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+	![Azure Active Directory button](common/select-azuread.png)
 
 2. Go to **Enterprise applications**, and then select **All applications**.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+	![Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add a new application, select **New application** at the top of the dialog box.
 
-	![The New application button](common/add-new-app.png)
+	![New application button](common/add-new-app.png)
 
 4. In the search box, enter **Everbridge**. Select **Everbridge** from the result panel, and select **Add**.
 
@@ -117,7 +117,7 @@ To configure Azure AD single sign-on with Everbridge, follow these steps.
 
   * If you want to configure the application in IDP-initiated mode, follow these steps:
 
-	 ![Everbridge domain and URLs single sign-on information](common/idp-intiated.png)
+	 ![Everbridge domain and URLs single sign-on information for IDP-initiated mode](common/idp-intiated.png)
 
     a. In the **Identifier** box, enter a URL that follows the pattern `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
 
@@ -125,7 +125,7 @@ To configure Azure AD single sign-on with Everbridge, follow these steps.
 
    * If you want to configure the application in SP-initiated mode, select **Set additional URLs** and follow this step:
 
-     ![Everbridge domain and URLs single sign-on information](common/both-signonurl.png)
+     ![Everbridge domain and URLs single sign-on information for SP-initiated mode](common/both-signonurl.png)
 
      a. In the **Sign on URL** box, enter a URL that follows the pattern `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
 
@@ -134,7 +134,7 @@ To configure Azure AD single sign-on with Everbridge, follow these steps.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the **Federation Metadata XML**. Save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+	![Certificate download link](common/metadataxml.png)
 
 7. In the **Set up Everbridge** section, copy the URLs you need for your requirements:
 
@@ -178,7 +178,7 @@ To create the test user Britta Simon in the Azure portal, follow these steps.
 
 1. In the Azure portal, in the left pane, select **Azure Active Directory** > **Users** > **All users**.
 
-    ![The Users and All users links](common/users.png)
+    ![Users and All users links](common/users.png)
 
 2. Select **New user** at the top of the screen.
 
@@ -186,7 +186,7 @@ To create the test user Britta Simon in the Azure portal, follow these steps.
 
 3. In the **User** dialog box, follow these steps.
 
-    ![The User dialog box](common/user-properties.png)
+    ![User dialog box](common/user-properties.png)
 
     a. In the **Name** box, enter **BrittaSimon**.
   
@@ -206,15 +206,15 @@ Enable Britta Simon to use Azure single sign-on by granting access to Everbridge
 
 2. In the applications list, select **Everbridge**.
 
-	![The Everbridge link in the applications list](common/all-applications.png)
+	![Everbridge link in the applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
-    ![The "Users and groups" link](common/users-groups-blade.png)
+    ![Users and groups link](common/users-groups-blade.png)
 
 4. Select **Add user**. In the **Add Assignment** dialog box, select **Users and groups**.
 
-    ![The Add Assignment dialog box](common/add-assign-user.png)
+    ![Add Assignment dialog box](common/add-assign-user.png)
 
 5. In the **Users and groups** dialog box, select **Britta Simon** in the users list. Choose **Select** at the bottom of the screen.
 

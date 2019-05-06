@@ -53,15 +53,15 @@ To add Zscaler Beta from the Azure Marketplace, follow these steps.
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation pane, select **Azure Active Directory**.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+	![Azure Active Directory button](common/select-azuread.png)
 
 2. Go to **Enterprise applications**, and then select **All applications**.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+	![Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add a new application, select **New application** at the top of the dialog box.
 
-	![The New application button](common/add-new-app.png)
+	![New application button](common/add-new-app.png)
 
 4. In the search box, enter **Zscaler Beta**. Select **Zscaler Beta** from the result panel, and then select **Add**.
 
@@ -141,7 +141,7 @@ To configure Azure AD single sign-on with Zscaler Beta, follow these steps.
 
 7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the **Certificate (Base64)**. Save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+	![Certificate download link](common/certificatebase64.png)
 
 8. In the **Set up Zscaler Beta** section, copy the URLs you need for your requirements:
 
@@ -155,7 +155,7 @@ To configure Azure AD single sign-on with Zscaler Beta, follow these steps.
 
 1. To automate the configuration within Zscaler Beta, install **My Apps Secure Sign-in browser extension** by selecting **Install the extension**.
 
-	![My apps extension](common/install-myappssecure-extension.png)
+	![My Apps extension](common/install-myappssecure-extension.png)
 
 2. After you add the extension to the browser, selecting **Set up Zscaler Beta** directs you to the Zscaler Beta application. From there, provide the admin credentials to sign in to Zscaler Beta. The browser extension automatically configures the application for you and automates steps 3 through 6.
 
@@ -171,7 +171,7 @@ To configure Azure AD single sign-on with Zscaler Beta, follow these steps.
 
 	b. Select **Configure SAML**.
 
-5. In the **Edit SAML** window, follow these steps:  
+5. In the **Edit SAML** window, follow these steps: 
    			
 	![Manage Users & Authentication](./media/zscaler-beta-tutorial/ic800208.png "Manage Users & Authentication")
 	
@@ -183,17 +183,17 @@ To configure Azure AD single sign-on with Zscaler Beta, follow these steps.
 
 	d. Toggle **Enable SAML Auto-Provisioning**.
 
-	e. In the **User Display Name Attribute** box, enter **displayName** if you want to enable SAML auto-provisioning for displayName attributes.
+	e. In the **User Display Name Attribute** box, enter **displayName** if you want to enable SAML autoprovisioning for displayName attributes.
 
-	f. In the **Group Name Attribute** box, enter **memberOf** if you want to enable SAML auto-provisioning for memberOf attributes.
+	f. In the **Group Name Attribute** box, enter **memberOf** if you want to enable SAML autoprovisioning for memberOf attributes.
 
-	g. In the **Department Name Attribute** box, enter **department** if you want to enable SAML auto-provisioning for department attributes.
+	g. In the **Department Name Attribute** box, enter **department** if you want to enable SAML autoprovisioning for department attributes.
 
 	h. Select **Save**.
 
 6. On the **Configure User Authentication** dialog page, follow these steps:
 
-    ![Administration](./media/zscaler-beta-tutorial/ic800207.png)
+    ![Activation menu and Activate button](./media/zscaler-beta-tutorial/ic800207.png)
 
 	a. Hover over the **Activation** menu at the bottom left.
 
@@ -206,17 +206,17 @@ To configure the proxy settings in Internet Explorer, follow these steps.
 
 2. Select **Internet options** from the **Tools** menu to open the **Internet Options** dialog box. 
   	
-	 ![Internet options](./media/zscaler-beta-tutorial/ic769492.png "Internet Options")
+	 ![Internet Options dialog box](./media/zscaler-beta-tutorial/ic769492.png "Internet Options")
 
 3. Select the **Connections** tab. 
   
-	 ![Connections](./media/zscaler-beta-tutorial/ic769493.png "Connections")
+	 ![Connections tab](./media/zscaler-beta-tutorial/ic769493.png "Connections")
 
 4. Select **LAN settings** to open the **Local Area Network (LAN) Settings** dialog box.
 
 5. In the **Proxy server** section, follow these steps: 
    
-	![Proxy server](./media/zscaler-beta-tutorial/ic769494.png "Proxy server")
+	![Proxy server section](./media/zscaler-beta-tutorial/ic769494.png "Proxy server")
 
     a. Select the **Use a proxy server for your LAN** check box.
 
@@ -236,7 +236,7 @@ Create a test user in the Azure portal called Britta Simon.
 
 1. In the Azure portal, in the left pane, select **Azure Active Directory** > **Users** > **All users**.
 
-    ![The Users and groups and All users links](common/users.png)
+    ![Users and All users links](common/users.png)
 
 2. Select **New user** at the top of the screen.
 
@@ -264,7 +264,7 @@ Enable Britta Simon to use Azure single sign-on by granting access to Zscaler Be
 
 2. In the applications list, enter and select **Zscaler Beta**.
 
-	![The Zscaler Beta link in the Applications list](common/all-applications.png)
+	![Zscaler Beta link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
@@ -288,7 +288,7 @@ Enable Britta Simon to use Azure single sign-on by granting access to Zscaler Be
 
 ### Create a Zscaler Beta test user
 
-In this section, the user Britta Simon is created in Zscaler Beta. Zscaler Beta supports **just-in-time user provisioning**, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in Zscaler Beta, a new one is created after authentication.
+In this section, the user Britta Simon is created in Zscaler Beta. Zscaler Beta supports **just-in-time user provisioning**, which is enabled by default. There's nothing for you to do in this section. If a user doesn't already exist in Zscaler Beta, a new one is created after authentication.
 
 >[!Note]
 >To create a user manually, contact the [Zscaler Beta support team](https://www.zscaler.com/company/contact).
