@@ -42,7 +42,7 @@ This section contains the following examples:
 > * Upload a folder
 > * Upload files by using wildcard characters
 
-### Upload a file to a blob
+### Upload a file
 
 |    |     |
 |--------|-----------|
@@ -211,6 +211,10 @@ If you set the `--delete-destination` flag to `true` AzCopy deletes files withou
 
 See these articles:
 
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+
 - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 
 - [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
+
+- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
