@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
-ms.author: ryanwi
+ms.date: 05/06/2019
+ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about web browsers MSAL.NET so I can decide if this platform meets my application development needs and requirements.
@@ -37,7 +37,7 @@ It is important to understand that when acquiring a token interactively, the con
 
 ## System web browser on Xamarin.iOS and Xamarin.Android
 
-By default, MSAL.NET supports the system web browser on Xamarin.iOS and Xamarin.Android. To host the interaction with the STS, ADAL.NET only uses the **embedded** web browser. For all the platforms that provide UI (that is, not .NET Core), a dialog is provided by the library embedding a Web browser control. MSAL.NET also uses an embedded web view for the .NET Desktop and WAB for the UWP platform. However, it leverages by default the **system web browser** for Xamarin iOS and Xamarin Android applications. On iOS, it even chooses the web view to use depending on the version of the Operating System (iOS12, iOS11, and earlier).
+By default, MSAL.NET supports the system web browser on Xamarin.iOS and Xamarin.Android. To host the interaction with the STS, ADAL.NET only used the **embedded** web browser. For all the platforms that provide UI (that is, not .NET Core), a dialog is provided by the library embedding a Web browser control. MSAL.NET also uses an embedded web view for the .NET Desktop and WAB for the UWP platform. However, it leverages by default the **system web browser** for Xamarin iOS and Xamarin Android applications. On iOS, it even chooses the web view to use depending on the version of the Operating System (iOS12, iOS11, and earlier).
 
 Using the system browser has the significant advantage of sharing the SSO state with other applications and with web applications without needing a broker (Company portal / Authenticator). The system browser was used, by default, in the MSAL.NET for the Xamarin iOS and Xamarin Android platforms because, on these platforms, the system web browser occupies the whole screen, and the user experience is better. The system web view is not distinguishable from a dialog. On iOS, though, the user might have to give consent for the browser to call back the application, which can be annoying.
 
@@ -67,49 +67,55 @@ There are some visual differences between embedded webview and system browser in
 
 As a developer using MSAL.NET, you have several options for displaying the interactive dialog from STS:
 
-- **System browser.** The system browser is set by default in the library. If using Android, read [system browsers](msal-net-system-browser-android-considerations.md) for specific information about which browsers are supported for authentication. When using the system browser in Android, we recommend the device has a browser that supports Chrome custom tabs.  Otherwise, authentication may fail. 
-- **Embedded webview.** To use only embedded webview in MSAL.NET, there are overloads of the `UIParent()` constructor available for Android and iOS.
+- **System browser.** The system browser is set by default in the library. If using Android, read [system browsers](msal-net-system-browser-android-considerations.md) for specific information about which browsers are supported for authentication. When using the system browser in Android, we recommend the device has a browser that supports Chrome custom tabs.  Otherwise, authentication may fail.
+- **Embedded webview.** To use only embedded webview in MSAL.NET, the `AcquireTokenInteractively` parameters builder contains a `WithUseEmbeddedWebView()` method.
 
-    iOS:
+    iOS
 
     ```csharp
-    public UIParent(bool useEmbeddedWebview)
+    AuthenticationResult authResult;
+    authResult = app.AcquireTokenInteractively(scopes)
+                    .WithUseEmbeddedWebView(useEmbeddedWebview)
+                    .ExecuteAsync();
     ```
 
     Android:
 
     ```csharp
-    public UIParent(Activity activity, bool useEmbeddedWebview)
+    authResult = app.AcquireTokenInteractively(scopes)
+                .WithParentActivityOrWindow(activity)
+                .WithUseEmbeddedWebView(useEmbeddedWebview)
+                .ExecuteAsync();
     ```
 
 #### Choosing between embedded web browser or system browser on Xamarin.iOS
 
-In your iOS app, in `AppDelegate.cs` you can use either system browser or embedded webview.
+In your iOS app, in `AppDelegate.cs` you can can initialize the `ParentWindow` to `null`. It's not used in iOS
 
 ```csharp
-// Use only embedded webview
-App.UIParent = new UIParent(true);
-
-// Use only system browser
-App.UIParent = new UIParent();
+App.ParentWindow = null; // no UI parent on iOS
 ```
 
 #### Choosing between embedded web browser or system browser on Xamarin.Android
 
-In your Android app, in `MainActivity.cs` you can decide how to implement the webview options.
+In your Android app, in `MainActivity.cs` you can set the parent activity, so that the authentication results gets back to it:
 
 ```csharp
-// Use only embedded webview
-App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity, true);
+ App.ParentWindow = this;
+```
 
-// or
-// Use only system browser
-App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity);
+Then in the `MainPage.xaml.cs`:
+
+```csharp
+authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
+                      .WithParentActivityOrWindow(App.ParentWindow)
+                      .WithUseEmbeddedWebView(true)
+                      .ExecuteAsync();
 ```
 
 #### Detecting the presence of custom tabs on Xamarin.Android
 
-If you want to use the system web browser to enable SSO with the apps running in the browser, but are worried about the user experience for Android devices not having a browser with custom tab support, you have the option to decide by calling the `IsSystemWebViewAvailable()` method in `UIParent`. This method returns `true` if the PackageManager detects custom tabs and `false` if they are not detected on the device.
+If you want to use the system web browser to enable SSO with the apps running in the browser, but are worried about the user experience for Android devices not having a browser with custom tab support, you have the option to decide by calling the `IsSystemWebViewAvailable()` method in `IPublicClientApplication`. This method returns `true` if the PackageManager detects custom tabs and `false` if they are not detected on the device.
 
 Based on the value returned by this method, and your requirements, you can make a decision:
 
@@ -119,23 +125,16 @@ Based on the value returned by this method, and your requirements, you can make 
 The code below shows the embedded webview option:
 
 ```csharp
-bool useSystemBrowser = UIParent.IsSystemWebviewAvailable();
-if (useSystemBrowser)
-{
-    // A browser with custom tabs is present on device, use system browser
-    App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity);
-}
-else
-{
-    // A browser with custom tabs is not present on device, use embedded webview
-    App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity, true);
-}
+bool useSystemBrowser = app.IsSystemWebviewAvailable();
 
-// Alternative:
-App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity, !useSystemBrowser);
-
+authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
+                      .WithParentActivityOrWindow(App.ParentWindow)
+                      .WithUseEmbeddedWebView(!useSystemBrowser)
+                      .ExecuteAsync();
 ```
 
-## .NET Core does not support interactive authentication
+## .NET Core does not support interactive authentication out of the box
 
 For .NET Core, acquisition of tokens interactively is not available. Indeed, .NET Core does not provide UI yet. If you want to provide interactive sign-in for a .NET Core application, you could let the application present to the user a code and a URL to go to sign in interactively (See [Device Code Flow](msal-authentication-flows.md#device-code)).
+
+Alternatively you can implement the [IWithCustomUI](scenario-desktop-acquire-token.md#withcustomwebui) interface and provide your own browser
