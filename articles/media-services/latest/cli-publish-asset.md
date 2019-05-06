@@ -23,14 +23,14 @@ The Azure CLI script in this article shows how to create a Streaming Locator and
 
 ## Prerequisites 
 
-[Create a Media Services account](../create-account-cli-how-to.md).
+[Create a Media Services account](create-account-cli-how-to.md).
 
-[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
+[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 ## Example script
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/media-services/publish-asset/Publish-Asset.sh "Publish an asset")]
+[!code-azurecli-interactive[main](../../../cli_scripts/media-services/publish-asset/Publish-Asset.sh "Publish an asset")]
 
 ## Next steps
 
-For more examples, see [Azure CLI samples](../cli-samples.md).
+[Media Services overview](media-services-overview.md)
