@@ -272,7 +272,7 @@ As a workaround, you should explicitly assign (or otherwise [scope in](https://d
 
 ### Is provisioning between Azure AD and a target application using an encrypted channel?
 
-Yes. We user HTTPS SSL encryption for the server target. 
+Yes. We use HTTPS SSL encryption for the server target. 
 
 ## Related articles
 
