@@ -18,7 +18,7 @@ ms.author: pepogors
 
 # Azure Service Fabric application and cluster best practices
 
-To manage Azure Service Fabric applications and clusters successfully, there are operations that we highly recommend you perform, to optimize for the reliability of your production environment; please perform operations defined in this document, and select one of our [Azure Samples Service Fabric Cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates) to begin designing your production solution or modify your existing template to incorporate these practices.
+To manage Azure Service Fabric applications and clusters successfully, there are operations that we highly recommend you perform to optimize for the reliability of your production environment; please perform operations defined in this document and select one of our [Azure Samples Service Fabric Cluster templates](https://github.com/Azure-Samples/service-fabric-cluster-templates) to begin designing your production solution or modify your existing template to incorporate these practices.
 
 ## Security 
 
