@@ -2,11 +2,12 @@
 title: Using Azure PowerShell with Azure Storage | Microsoft Docs
 description: Learn how to use the Azure PowerShell cmdlets for Azure Storage.
 services: storage
-author: roygara
+author: tamram
+
 ms.service: storage
 ms.topic: article
 ms.date: 08/16/2018
-ms.author: rogarana
+ms.author: tamram
 ms.subservice: common
 ---
 

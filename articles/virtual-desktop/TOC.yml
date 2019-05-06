@@ -18,9 +18,9 @@
   items:
   - name: Connect to Windows Virtual Desktop resources
     items:
-      - name: Connect with Windows 7 and Windows 10
+      - name: Connect from Windows 10 or Windows 7
         href: connect-windows-7-and-10.md
-      - name: Connect with the web client
+      - name: Connect from a web browser
         href: connect-web.md
   - name: Create a host pool with an Azure Resource Manager template
     href: create-host-pools-arm-template.md
@@ -34,6 +34,8 @@
     href: diagnostics-role-service.md
   - name: Prepare and customize a master VHD image
     href: set-up-customize-master-image.md
+  - name: Configure GPU for Windows Virtual Desktop 
+    href: configure-vm-gpu.md
   - name: Automatically scale session hosts
     href: set-up-scaling-script.md
 - name: Concepts
