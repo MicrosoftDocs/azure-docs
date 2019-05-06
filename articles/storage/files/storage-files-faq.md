@@ -140,7 +140,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="afs-os-support"></a>
   **Can I use Azure File Sync with either Windows Server 2008 R2, Linux, or my network-attached storage (NAS) device?**  
-    Currently, Azure File Sync supports only Windows Server 2016 and Windows Server 2012 R2. At this time, we don't have any other plans we can share, but we're open to supporting additional platforms based on customer demand. Let us know at [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) what platforms you would like us to support.
+    Currently, Azure File Sync supports only Windows Server 2019, Windows Server 2016, and Windows Server 2012 R2. At this time, we don't have any other plans we can share, but we're open to supporting additional platforms based on customer demand. Let us know at [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) what platforms you would like us to support.
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
   **Why do tiered files exist outside of the server endpoint namespace?**  
