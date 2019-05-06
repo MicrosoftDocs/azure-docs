@@ -14,14 +14,14 @@ From NoSQL migration to application development, you can choose from a variety o
 
 ## Migration tools
 
-|**Partner**  |**Capabilities & experience**  |**Supported countries**  |**Contact**  |
+|**Partner**  |**Capabilities & experience**  |**Supported countries/regions**  |**Contact**  |
 |---------|---------|---------|---------|
 |![ImanisData][1]   | [Data migration](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) from MongoDB to Azure Cosmos DB. <br/> Imanis Data enables global enterprises to quickly and easily migrate their on-premises or cloud MongoDB databases to Azure Cosmos DB. Imanis Data provides an agentless, incremental-forever cloud migration approach for MongoDB data stores that simplifies migration and significantly reduces downtime.|  USA  |   [Website](http://www.imanisdata.com/)      |
 |![Striim][2]    |  [Move real-time data to Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) from a wide variety of data sources. <br/> Striim simplifies the real-time collection and movement of data from a wide variety of on-premises sources, including enterprise document and relational databases, sensors, and log files into Azure Cosmos DB. |   USA   |  [Website](https://www.striim.com/)       |
 
 ## Systems Integrator partners
 
-|**Partner**  |**Capabilities & experience**  |**Supported countries**  |**Contact**  |
+|**Partner**  |**Capabilities & experience**  |**Supported countries/regions**  |**Contact**  |
 |---------|---------|---------|---------|
 | ![10thMagnitude][13] | NoSQL migration; New app development | USA | [Website](https://www.10thmagnitude.com/)|
 |![Altoros Development LLC][3]    |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development |   US, Norway, Finland, Belarus, Argentina |  [Website](https://www.altoros.com/)     |

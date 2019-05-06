@@ -28,7 +28,7 @@ Given the security, privacy, transparency, and compliance concerns, choosing the
 
 ## Secure infrastructure from the ground up
 
-The [Microsoft Cloud](https://azure.microsoft.com) infrastructure supports more than one billion customers in 127 countries. Drawing on Microsoft's decades-long experience building enterprise software and running some of the largest online services in the world, the Microsoft Cloud provides higher levels of enhanced security, privacy, compliance, and threat mitigation practices than most customers could achieve on their own.
+The [Microsoft Cloud](https://azure.microsoft.com) infrastructure supports more than one billion customers in 127 countries/regions. Drawing on Microsoft's decades-long experience building enterprise software and running some of the largest online services in the world, the Microsoft Cloud provides higher levels of enhanced security, privacy, compliance, and threat mitigation practices than most customers could achieve on their own.
 
 The [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/) provides a mandatory company-wide development process that embeds security requirements into the entire software lifecycle. To help ensure that operational activities follow the same level of security practices, SDL uses rigorous security guidelines laid out in Microsoft's Operational Security Assurance (OSA) process. Microsoft also works with third-party audit firms for ongoing verification that it meets its compliance obligations, and Microsoft engages in broad security efforts through the creation of centers of excellence, including the Microsoft Digital Crimes Unit, Microsoft Security Response Center, and Microsoft Malware Protection Center.
 

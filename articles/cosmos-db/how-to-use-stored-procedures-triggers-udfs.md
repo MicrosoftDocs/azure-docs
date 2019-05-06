@@ -303,7 +303,7 @@ string triggerId = "trgPostUpdateMetadata";
 Trigger trigger = new Trigger
 {
     Id = triggerId,
-    Body = File.ReadAllText($@"..\js\{triggerId}.js");,
+    Body = File.ReadAllText($@"..\js\{triggerId}.js"),
     TriggerOperation = TriggerOperation.Create,
     TriggerType = TriggerType.Post
 };

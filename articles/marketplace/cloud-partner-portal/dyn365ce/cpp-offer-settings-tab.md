@@ -1,20 +1,12 @@
 ---
-title: Dynamics 365 for Customer Engagement Offer Settings tab - Azure Marketplace | Microsoft Docs
+title: Dynamics 365 for Customer Engagement Offer Settings tab | Azure Marketplace 
 description: Configure the offer settings for an Dynamics 365 for Customer Engagement application offer on the AppSource Marketplace.
 services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Dynamics 365 for Customer Engagement Offer Settings tab

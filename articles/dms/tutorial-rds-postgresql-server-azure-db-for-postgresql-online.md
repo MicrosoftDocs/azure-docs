@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/01/2019
 ---
 
 # Tutorial: Migrate RDS PostgreSQL to Azure Database for PostgreSQL online using DMS
@@ -47,7 +47,7 @@ To complete this tutorial, you need to:
     > [!NOTE]
     > For PostgreSQL version 10, currently DMS only supports migration of version 10.3 to Azure Database for PostgreSQL. We plan to support newer versions of PostgreSQL very soon.
 
-* Create an instance of [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal). Please refer to this [section](https://docs.microsoft.com/en-us/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin) of the document for detail on how to connect to the PostgreSQL Server using pgAdmin.
+* Create an instance of [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal). Please refer to this [section](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin) of the document for detail on how to connect to the PostgreSQL Server using pgAdmin.
 * Create an Azure Virtual Network (VNet) for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 * Ensure that your VNet Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, and 12000. For more detail on Azure VNet NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
@@ -164,9 +164,7 @@ To complete this tutorial, you need to:
 
 6. Select a pricing tier; for this online migration, be sure to select the Premium: 4vCores pricing tier.
 
-    For more information on costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing). If you need help with choosing the right Azure Database Migration Service pricing tier, refer to the recommendations in the posting [here](https://go.microsoft.com/fwlink/?linkid=861067).
-
-     ![Configure Azure Database Migration Service instance settings](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-settings4.png)
+    ![Configure Azure Database Migration Service instance settings](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/dms-settings4.png)
 
 7. Select **Create** to create the service.
 
