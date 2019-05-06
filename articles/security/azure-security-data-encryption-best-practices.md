@@ -1,10 +1,10 @@
 ---
-title: Data Security and Encryption Best Practices | Microsoft Docs
+title: Data security and encryption best practices - Microsoft Azure
 description: This article provides a set of best practices for data security and encryption using built in Azure capabilities.
 services: security
 documentationcenter: na
-author: barclayn
-manager: mbalwin
+author: TerryLanfear
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
@@ -13,28 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
-ms.author: barclayn
+ms.date: 05/06/2019
+ms.author: terrylan
 
 ---
-# Azure Data Security and Encryption Best Practices
+# Azure data security and encryption best practices
+This article describes best practices for data security and encryption.
 
+The best practices are based on a consensus of opinion, and they work with current Azure platform capabilities and feature sets. Opinions and technologies change over time and this article is updated on a regular basis to reflect those changes.
+
+## Protect data
 To help protect data in the cloud, you need to account for the possible states in which your data can occur, and what controls are available for that state. Best practices for Azure data security and encryption relate to the following data states:
 
 - At rest: This includes all information storage objects, containers, and types that exist statically on physical media, whether magnetic or optical disk.
 - In transit: When data is being transferred between components, locations, or programs, it’s in transit. Examples are transfer over the network, across a service bus (from on-premises to cloud and vice-versa, including hybrid connections such as ExpressRoute), or during an input/output process.
-
-In this article we will discuss a collection of Azure data security and encryption best practices. These best practices are derived from our experience with Azure data security and encryption and the experiences of customers like yourself.
-
-For each best practice, we’ll explain:
-
-* What the best practice is
-* Why you want to enable that best practice
-* What might be the result if you fail to enable the best practice
-* Possible alternatives to the best practice
-* How you can learn to enable the best practice
-
-This Azure Data Security and Encryption Best Practices article is based on a consensus opinion, and Azure platform capabilities and feature sets, as they exist at the time this article was written. Opinions and technologies change over time and this article will be updated on a regular basis to reflect those changes.
 
 ## Choose a key management solution
 
@@ -114,7 +106,7 @@ Following are best practices specific to using Azure VPN Gateway, SSL/TLS, and H
 **Detail**: Use [ExpressRoute](../expressroute/expressroute-introduction.md). If you choose to use ExpressRoute, you can also encrypt the data at the application level by using [SSL/TLS](https://support.microsoft.com/kb/257591) or other protocols for added protection.
 
 **Best practice**: Interact with Azure Storage through the Azure portal.   
-**Detail**: All transactions occur via HTTPS. You can also use [Storage REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) over HTTPS to interact with [Azure Storage](https://azure.microsoft.com/services/storage/) and [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
+**Detail**: All transactions occur via HTTPS. You can also use [Storage REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) over HTTPS to interact with [Azure Storage](https://azure.microsoft.com/services/storage/).
 
 Organizations that fail to protect data in transit are more susceptible to [man-in-the-middle attacks](https://technet.microsoft.com/library/gg195821.aspx), [eavesdropping](https://technet.microsoft.com/library/gg195641.aspx), and session hijacking. These attacks can be the first step in gaining access to confidential data.
 
