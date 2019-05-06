@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/08/2019
+ms.date: 05/06/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To configure Azure AD integration with AlertOps, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
 * AlertOps single sign-on enabled subscription
 
 ## Scenario description
@@ -97,7 +97,7 @@ To configure Azure AD single sign-on with AlertOps, perform the following steps:
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     ![AlertOps Domain and URLs single sign-on information](common/idp-intiated.png)
 
@@ -127,19 +127,27 @@ To configure Azure AD single sign-on with AlertOps, perform the following steps:
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
 ### Configure AlertOps Single Sign-On
 
-1. In a different browser window, sign-on to your AlertOps company site as administrator.
+1. To automate the configuration within AlertOps, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-2. Click on the **Account settings** from the left navigation panel.
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Setup AlertOps** will direct you to the AlertOps application. From there, provide the admin credentials to sign into AlertOps. The browser extension will automatically configure the application for you and automate steps 3-5.
+
+	![Setup configuration](common/setup-sso.png)
+
+3. If you want to setup AlertOps manually, open a new web browser window and sign into your AlertOps company site as an administrator and perform the following steps:
+
+4. Click on the **Account settings** from the left navigation panel.
 
     ![AlertOps configuration](./media/alertops-tutorial/configure1.png)
 
-3. On the **Subscription Settings** page select **SSO** and perform the following steps:
+5. On the **Subscription Settings** page select **SSO** and perform the following steps:
 
     ![AlertOps configuration](./media/alertops-tutorial/configure2.png)
 
@@ -175,8 +183,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
