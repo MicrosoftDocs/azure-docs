@@ -15,13 +15,13 @@ ms.author: cshoe
 
 # Register Azure Functions binding extensions
 
-As of Azure Functions version 2.x, [bindings](./functions-triggers-bindings.md) are available as separate packages from the functions runtime. While .NET functions access bindings through NuGet packages, extension bundles allow other functions access to all bindings through a configuration setting.
+In Azure Functions version 2.x, [bindings](./functions-triggers-bindings.md) are available as separate packages from the functions runtime. While .NET functions access bindings through NuGet packages, extension bundles allow other functions access to all bindings through a configuration setting.
 
-Consider the following items pertaining to binding extensions:
+Consider the following items related to binding extensions:
 
 - Binding extensions aren't explicitly registered in Functions 1.x except when [creating a C# class library using Visual Studio 2019](#local-csharp).
 
-- HTTP and timer triggers are supported by default and do not require an extension.
+- HTTP and timer triggers are supported by default and don'st require an extension.
 
 The following table indicates when and how you register bindings.
 
