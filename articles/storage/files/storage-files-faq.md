@@ -217,7 +217,7 @@ This article answers common questions about Azure Files features and functionali
 * <a id="encryption-at-rest"></a>
 **How can I ensure that my Azure file share is encrypted at rest?**  
 
-    Azure Storage Service Encryption is in the process of being enabled by default in all regions. For these regions, you don't need to take any actions to enable encryption. For other regions, see [Server-side encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    Yes. For more information see [Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="access-via-browser"></a>
 **How can I provide access to a specific file by using a web browser?**  
