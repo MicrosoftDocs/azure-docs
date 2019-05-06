@@ -4,7 +4,7 @@ description: Learn how to connect Palo Alto Networks data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: a4b21d67-1a72-40ec-bfce-d79a8707b4e1
