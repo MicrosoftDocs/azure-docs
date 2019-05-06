@@ -56,7 +56,7 @@ The reset will erase the data off the device data disks. The process takes about
 
 Alternatively, you can connect to the PowerShell interface of the device and use the `Reset-HcsAppliance` cmdlet to erase the data from the data disks. For more information, see [Reset your device](data-box-edge-connect-powershell-interface.md#reset-your-device).
 
-> ![NOTE]
+> [!NOTE]
 > - If you're exchanging or upgrading to a new device, we recommend that you reset your device only after you've received the new device.
 > - The device reset only deletes all the local data off the device. The data that is in the cloud isn't deleted and collects charges. This data needs to be deleted separately using a cloud storage management tool like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
  
