@@ -59,7 +59,7 @@ Test your workflow using the **Execute Workflow** button.
 
 ## Create Azure Functions
 
-Sign in to the [Azure Portal](https://portal.azure.com/) and follow these steps:
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps:
 
 1. Create an Azure Function App as shown on the [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) page.
 1. Go to the newly created Function App.
