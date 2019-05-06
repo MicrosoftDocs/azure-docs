@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: overview
-ms.date: 03/01/2019
+ms.date: 04/26/2019
 ms.author: danlep
 ---
 # Resource availability for Azure Container Instances in Azure regions
@@ -22,6 +22,8 @@ For information about quotas and other limits in your deployments, see [Quotas a
 
 ## Availability - General
 
+The following regions and resources are available to container groups with Linux and [supported](container-instances-faq.md#what-windows-base-os-images-are-supported) Windows Server 2016-based containers.
+
 | Location | OS | CPU | Memory (GB) |
 | -------- | -- | :---: | :-----------: |
 | Canada Central, Central US, East US 2, South Central US | Linux | 4 | 16 |
@@ -32,15 +34,24 @@ For information about quotas and other limits in your deployments, see [Quotas a
 | East US, West Europe, West US | Windows | 4 | 14 |
 | Australia East, Canada Central, Central India, Central US, East Asia, East US 2, Japan East, North Central US, North Europe, South Central US, South India, Southeast Asia, West US 2 | Windows | 2 | 3.5 |
 
+## Availability - Windows Server 2019 LTSC, 1809 deployments (preview)
+
+The following regions and resources are available to container groups with Windows Server 2019-based containers (preview).
+
+| Location | OS | CPU | Memory (GB) |
+| -------- | -- | :---: | :-----------: |
+| East US, West Europe, West US | Windows | 4 | 14 |
+| Central US, West US 2, North Europe, Southeast Asia | Windows | 2 | 3.5 |
+
 ## Availability - Virtual network deployment (preview)
 
-The following regions and resources are available to a container group deployed in an [Azure virtual network](container-instances-vnet.md) (preview),
+The following regions and resources are available to a container group deployed in an [Azure virtual network](container-instances-vnet.md) (preview).
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 ## Availability - GPU resources (preview)
 
-The following regions and resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview),
+The following regions and resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview).
 
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
