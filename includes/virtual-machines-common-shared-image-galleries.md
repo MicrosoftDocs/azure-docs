@@ -5,7 +5,7 @@
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/25/2019
+ ms.date: 05/06/2019
  ms.author: akjosh; cynthn
  ms.custom: include file
 ---
@@ -14,7 +14,6 @@ Shared Image Gallery is a service that helps you build structure and organizatio
 
 - Managed global replication of images.
 - Versioning and grouping of images for easier management.
-- Higher scaling limits. Custom images allow for 600 concurrent VMs, while Shared Image Galleries allow for 1000 concurrent VMs.
 - Highly available images using Zone Redundant Storage. Even if a data center goes down, you’ll have access to the images in that region.
 - Sharing across subscriptions, and even between tenants, using RBAC.
 
@@ -90,9 +89,9 @@ Source regions are listed in the table below. All public regions can be target r
 With Managed Images, you can only have 600 concurrent VMs per image, with Shared Image Galleries, this is increased to 1000 concurrent VMs per image version.
 
 There are limits, per subscription, for deploying resources using Shared Image Galleries:
-- 10 shared image galleries, per subscription, per region
-- 200 image definitions, per subscription, per region
-- 2000 image versions, per subscription, per region
+- 100 shared image galleries, per subscription, per region
+- 1,000 image definitions, per subscription, per region
+- 10,000 image versions, per subscription, per region
 
 For more information, see [Check resource usage against limits](https://docs.microsoft.com/azure/networking/check-usage-against-limits) for examples on how to check your current usage.
  

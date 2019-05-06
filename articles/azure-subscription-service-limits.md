@@ -122,9 +122,9 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 #### Shared Image Gallery limits
 
 There are limits, per subscription, for deploying resources using Shared Image Galleries:
-- 10 shared image galleries, per subscription, per region
-- 200 image definitions, per subscription, per region
-- 2000 image versions, per subscription, per region
+- 100 shared image galleries, per subscription, per region
+- 1,000 image definitions, per subscription, per region
+- 10,000 image versions, per subscription, per region
 
 ### Virtual machine scale sets limits
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]

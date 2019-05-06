@@ -13,7 +13,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/25/2019
+ms.date: 05/01/2019
 ms.author: juliako
 ---
 
@@ -23,14 +23,14 @@ The Azure CLI script in this article shows how to create a Media Services Asset 
 
 ## Prerequisites 
 
-[Create a Media Services account](../create-account-cli-how-to.md).
+[Create a Media Services account](create-account-cli-how-to.md).
 
-[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
+[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 ## Example script
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/media-services/create-asset/Create-Asset.sh "Create an asset")]
+[!code-azurecli-interactive[main](../../../cli_scripts/media-services/create-asset/Create-Asset.sh "Create an asset")]
 
 ## Next steps
 
-For more examples, see [Azure CLI samples](../cli-samples.md).
+[Media Services overview](media-services-overview.md)

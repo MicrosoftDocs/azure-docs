@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 05/06/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
 ---
@@ -61,9 +61,9 @@ Azure Virtual WAN supports the following global transit connectivity paths. The 
 * Branch-to-VNet (a)  
 * Branch-to-branch (b)
 * ExpressRoute Global Reach 
-    * Remote User-to-VNet (c)
-    * Remote User-to-branch (d)
-    * VNet-to-VNet using VNet peering (e) 
+* Remote User-to-VNet (c)
+* Remote User-to-branch (d)
+* VNet-to-VNet using VNet peering (e) 
 
 ### <a name="branchvnet"></a>Branch-to-VNet
 
@@ -81,17 +81,17 @@ ExpressRoute is a private and resilient way to connect your on-premises networks
 
 In this model, each branch that is connected to the Virtual WAN hub using ExpressRoute can connect to VNets using the branch-to-VNet path. Branch-to-branch traffic won't transit the hub because ExpressRoute Global Reach enables a more optimal path over Azure WAN.
 
-#### <a name="usertovnet"></a>Remote User-to-VNet
+### <a name="usertovnet"></a>Remote User-to-VNet
 
 You can enable direct, secure remote access to Azure using point-to-site connections from a remote user client to a virtual WAN. Enterprise remote users no longer have to hairpin to the cloud using a corporate VPN.
 
-#### <a name="usertobranch"></a>Remote User-to-branch
+### <a name="usertobranch"></a>Remote User-to-branch
 
 The Remote User-to-branch path lets remote users who are using a point-to-site connection to Azure access on-premises workloads and applications by transiting through the cloud. This path gives remote users the flexibility to access workloads that are both deployed in Azure and on-premises. Enterprises can enable central cloud-based secure remote access service in Azure Virtual WAN.
 
-#### <a name="vnetvnet"></a>VNet-to-VNet transit using VNet peering
+### <a name="vnetvnet"></a>VNet-to-VNet transit using VNet peering
 
-To connect VNets to each other in order to support multi-tier applications that are implemented across multiple VNets, use VNet peering. A VNet-to-VNet transit scenario via Azure Virtual WAN is currently not supported, but is on the Azure roadmap. For more information about VNet peering, see [Configure VPN gateway transit for virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
+To connect VNets to each other in order to support multi-tier applications that are implemented across multiple VNets, use VNet peering. A VNet-to-VNet transit scenario via Azure Virtual WAN is currently not supported, but is on the Azure roadmap. Connecting VNets through VNet Peering is the recommend solution for VNETs that need to be connected to each other For more information about VNet peering, see [VNet Peering Overview ](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="security"></a>Security and policy control
 
