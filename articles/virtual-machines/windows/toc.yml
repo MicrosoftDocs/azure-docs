@@ -243,16 +243,20 @@
       href: reserved-vm-instance-size-flexibility.md
   - name: Use Images
     items:
-    - name: Shared images (preview)
+    - name: Shared images 
       items: 
       - name: Overview
         href: shared-image-galleries.md
-      - name: Create shared images using PowerShell
+      - name: PowerShell
         href: shared-images.md
-      - name: Create shared images using CLI
+      - name: Portal
+        href: shared-images-portal.md
+      - name: CLI
         href: ../linux/shared-images.md
       - name: Portal
         href: shared-images-portal.md
+      - name: Share images across tenants
+        href: share-images-across-tenants.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
     - name: Find and use images
