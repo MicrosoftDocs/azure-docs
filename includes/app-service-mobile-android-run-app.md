@@ -7,7 +7,7 @@ ms.author: crdun
 ---
 1. Open the project using **Android Studio**, using **Import project (Eclipse ADT, Gradle, etc.)**. Make sure you make this import selection to avoid any JDK errors.
 
-2. Open the file `ToDoActivity.java` in this folder - ZUMOAPPNAME/app/src/main/java/com/example/zumoappname. The applciation name is `ZUMOAPPNAME`.
+2. Open the file `ToDoActivity.java` in this folder - ZUMOAPPNAME/app/src/main/java/com/example/zumoappname. The application name is `ZUMOAPPNAME`.
 
 3. Go to the [Azure portal](https://portal.azure.com/) and navigate to the mobile app that you created. On the `Overview` blade, look for the URL which is the public endpoint for your mobile app. Example - the sitename for my app name "test123" will be https://test123.azurewebsites.net.
 
