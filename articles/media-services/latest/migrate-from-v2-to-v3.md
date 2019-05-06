@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/27/2019
+ms.date: 05/01/2019
 ms.author: juliako
 ---
 
@@ -67,7 +67,7 @@ If you have a video service developed today on top of the [legacy Media Services
     * Streaming Locator replaces Locator.
     * Live Event replaces Channel.<br/>Live Events billing is based on Live Channel meters. For more information, see [billing](live-event-states-billing.md) and [pricing](https://azure.microsoft.com/pricing/details/media-services/).
     * Live Output replaces Program.
-* Live Outputs do not need to be started explicitly, they start on creation and stop when deleted. Programs worked differently in the v2 APIs, they had to be started after creation.
+* Live Outputs start on creation and stop when deleted. Programs worked differently in the v2 APIs, they had to be started after creation.
 *  To get information about a job, you need to know the Transform name under which the job was created. 
 
 ## Feature gaps with respect to v2 APIs

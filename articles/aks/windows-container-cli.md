@@ -83,6 +83,7 @@ While this feature is in preview, the following additional limitations apply:
 * The AKS cluster can have a maximum of eight node pools.
 * The AKS cluster can have a maximum of 400 nodes across those eight node pools.
 * The Windows Server node pool name has a limit of 6 characters.
+* Windows Server node pools are not available in Canada regions at this time.
 
 ## Create a resource group
 
