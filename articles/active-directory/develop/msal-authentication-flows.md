@@ -32,8 +32,8 @@ This article describes the different authentication flows provided by Microsoft 
 | [On-behalf-of](#on-behalf-of) | An application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. | [Web APIs](scenario-web-api-call-api-overview.md) |
 | [Client credentials](#client-credentials) | Allows you to access web-hosted resources by using the identity of an application. Commonly used for server-to-server interactions that must run in the background, without immediate interaction with a user. | [daemon apps](scenario-daemon-overview.md) |
 | [Device code](#device-code) | Allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer. | [Desktop/Mobile apps](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
-| [Integrated Windows Authentication](#integrated-windows-authentication) | Allows applications on domain or Azure AD joined computers to acquire a token silently (without any UI interaction from the user).| [Desktop/Mobile apps](scenario-desktop-acquire-token#integrated-windows-authentication) |
-| [Username/password](#usernamepassword) | Allows an application to sign in the user by directly handling their password. This flow is not recommended. | [Desktop/mobile apps](scenario-desktop-acquire-token#username--password) | 
+| [Integrated Windows Authentication](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Allows applications on domain or Azure AD joined computers to acquire a token silently (without any UI interaction from the user).| [Desktop/Mobile apps](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
+| [Username/password](scenario-desktop-acquire-token.md#usernamepassword) | Allows an application to sign in the user by directly handling their password. This flow is not recommended. | [Desktop/mobile apps](scenario-desktop-acquire-token.md#username--password) | 
 
 
 ## Implicit grant
