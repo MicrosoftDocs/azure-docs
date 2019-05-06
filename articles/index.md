@@ -1037,7 +1037,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/open-datasets">
-                                                <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                <img src="media/index/open-data.svg" alt="" />
                                                 <p>Open Datasets</p>
                                             </a>
                                         </li>
@@ -1280,7 +1280,7 @@ featureFlags:
                                         </li>
                                         <li>
                                         <a href="/azure/open-datasets">
-                                            <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                            <img src="media/index/open-data.svg" alt="" />
                                             <p>Open Datasets</p>
                                         </a>
                                         </li>
@@ -3705,7 +3705,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                        <img src="media/index/open-data.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -3903,7 +3903,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                        <img src="media/index/open-data.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">

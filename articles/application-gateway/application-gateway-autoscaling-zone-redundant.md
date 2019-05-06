@@ -5,18 +5,18 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 5/7/2019
 ms.author: victorh
 ---
 
 # Autoscaling and Zone-redundant Application Gateway 
 
-Application Gateway and Web Application Firewall (WAF) are also available under a Standard_v2 and WAF_v2 SKU that offers performance enhancements and adds support for critical new features like autoscaling, zone redundancy, and support for static VIPs. Existing features under the Standard and WAF SKU continue to be supported in the new v2 SKU, with a few exceptions listed in comparison section. 
+Application Gateway and Web Application Firewall (WAF) are also available under a Standard_v2 and WAF_v2 SKU. The v2 SKU offers performance enhancements and adds support for critical new features like autoscaling, zone redundancy, and support for static VIPs. Existing features under the Standard and WAF SKU continue to be supported in the new v2 SKU, with a few exceptions listed in [comparison](#differences-with-v1-sku) section.
 
 The new v2 SKU includes the following enhancements:
 
 - **Autoscaling**: Application Gateway or WAF deployments under the autoscaling SKU can scale up or down based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. This SKU offers true elasticity. In the Standard_v2 and WAF_v2 SKU, Application Gateway can operate both in fixed capacity (autoscaling disabled) and in autoscaling enabled mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Autoscaling mode is beneficial in applications that see variance in application traffic.
-- **Zone redundancy**: An Application Gateway or WAF deployment can span multiple Availability Zones, removing the need to provision separate Application Gateway instances in each zone with a Traffic Manager. You can choose a single zone or multiple zones where Application Gateway instances are deployed, thus ensuring zone failure resiliency. The backend pool for applications can be similarly distributed across availability zones.
+- **Zone redundancy**: An Application Gateway or WAF deployment can span multiple Availability Zones, removing the need to provision separate Application Gateway instances in each zone with a Traffic Manager. You can choose a single zone or multiple zones where Application Gateway instances are deployed, which makes it more resilient to zone failure. The backend pool for applications can be similarly distributed across availability zones.
 - **Static VIP**: Application gateway v2 SKU supports the static VIP type exclusively. This ensures that the VIP associated with application gateway doesn't change for the lifecycle of the deployment, even after a restart.
 - **Header Rewrite**: Application Gateway allows you to add, remove, or update HTTP request and response headers with v2 SKU. For more information, see [Rewrite HTTP headers with Application Gateway](rewrite-http-headers.md)
 - **Key Vault Integration (preview)**: Application Gateway v2 supports integration with Key Vault (in public preview) for server certificates that are attached to HTTPS enabled listeners. For more information, see [SSL termination with Key Vault certificates](key-vault-certs.md).
@@ -28,7 +28,7 @@ The new v2 SKU includes the following enhancements:
 
 ## Supported regions
 
-The Standard_v2 and WAF_v2 SKU is available in the following regions: North Central US, South Central US, West US, West US 2, East US, East US 2, Central US, North Europe, West Europe, Southeast Asia, France Central, UK West, Japan East, Japan West. Support for additional regions is upcoming.
+The Standard_v2 and WAF_v2 SKU is available in the following regions: North Central US, South Central US, West US, West US 2, East US, East US 2, Central US, North Europe, West Europe, Southeast Asia, France Central, UK West, Japan East, Japan West. Additional regions will be added in the future.
 
 ## Pricing
 
@@ -37,12 +37,12 @@ With the v2 SKU, the pricing model is driven by consumption and is no longer att
 - **Fixed price** - This is hourly (or partial hour) price to provision a Standard_v2 or WAF_v2 Gateway.
 - **Capacity Unit price** - This is consumption-based cost that is charged in addition to the fixed cost. Capacity unit charge is also computed hourly or partial hourly. There are three dimensions to capacity unit - compute unit, persistent connections, and throughput. Compute unit is a measure of processor capacity consumed. Factors affecting compute unit are TLS connections/sec, URL Rewrite computations, and WAF rule processing. Persistent connection is a measure of established TCP connections to the application gateway in a given billing interval. Throughput is average Megabits/sec processed by the system in a given billing interval.
 
-Each capacity unit is comprised of at most: 1 compute unit, or 2500 persistent connections, or 2.22 Mbps throughput.
+Each capacity unit is composed of at most: 1 compute unit, or 2500 persistent connections, or 2.22-Mbps throughput.
 
 Compute unit guidance:
 
 - **Standard_v2** - Each compute unit is capable of approximately 50 connections per second with RSA 2048-bit key TLS certificate.
-- **WAF_v2** - Each compute unit is capable of approximately 10 concurrent requests per second for 70-30% mix of traffic with 70% requests less than 2 KB GET/POST and remaining higher. WAF performance is not affected by response size currently.
+- **WAF_v2** - Each compute unit can support approximately 10 concurrent requests per second for 70-30% mix of traffic with 70% requests less than 2 KB GET/POST and remaining higher. WAF performance is not affected by response size currently.
 
 > [!NOTE]
 > Each instance can currently support approximately 10 capacity units.
@@ -68,7 +68,7 @@ Total price = $148.8 + $297.6 = $446.4
 
 **Example 2**
 
-An Application Gateway standard_v2 is provisioned for a month and during this time it receives 25 new SSL connections/sec, average of 8.88 Mbps data transfer. Assuming connections are short lived, your price would be:
+An Application Gateway standard_v2 is provisioned for a month and during this time it receives 25 new SSL connections/sec, average of 8.88-Mbps data transfer. Assuming connections are short lived, your price would be:
 
 Fixed price = 744(hours) * $0.20 = $148.8
 
@@ -78,7 +78,7 @@ Total price = $148.8+23.81 = $172.61
 
 **Example 3**
 
-An Application Gateway WAF_v2 is provisioned for a month and during this time it receives 25 new SSL connections/sec, average of 8.88 Mbps data transfer and does 80 request per second. Assuming connections are short lived, and that compute unit calculation for the application supports 10 RPS per compute unit, your price would be:
+An Application Gateway WAF_v2 is provisioned for a month. During this time, it receives 25 new SSL connections/sec, average of 8.88-Mbps data transfer and does 80 request per second. Assuming connections are short lived, and that compute unit calculation for the application supports 10 RPS per compute unit, your price would be:
 
 Fixed price = 744(hours) * $0.36 = $267.84
 
@@ -92,8 +92,8 @@ The [pricing page](https://azure.microsoft.com/en-us/pricing/details/application
 
 Application Gateway and WAF can be configured to scale in two modes:
 
-- **Autoscaling** - With autoscaling enabled the Application Gateway and WAF v2 SKUs will scale up or  down based on application traffic requirements. This mode offers better elasticity to your application and eliminates the need to guess the application gateway size or instance count. This mode also allows you to save cost by not requiring to run gateways at peak provisioned capacity for anticipated maximum traffic load. Customers must specify a minimum and optionally maximum instance count. Minimum capacity ensures that Application Gateway and WAF v2 do not fall below the minimum instance count specified even in absence of traffic. You will be billed for this minimum capacity even in absence of any traffic. You can also optionally specify maximum instance count that ensures that the Application Gateway does not scale beyond the specified number of instances. You will continue to be billed for the amount of traffic served by the Gateway. The instance counts can range from 0 to 125. Default value for maximum instance count is 20 if not specified.
-- **Manual** - You can alternatively choose Manual mode where the gateway will not autoscale. In this mode, if more traffic is sent than what Application Gateway or WAF is capable of handling, it could result in traffic loss. With manual mode specifying instance count is mandatory. Instance count can vary from 1 to 125 instances.
+- **Autoscaling** - With autoscaling enabled, the Application Gateway and WAF v2 SKUs scale up or  down based on application traffic requirements. This mode offers better elasticity to your application and eliminates the need to guess the application gateway size or instance count. This mode also allows you to save cost by not requiring to run gateways at peak provisioned capacity for anticipated maximum traffic load. Customers must specify a minimum and optionally maximum instance count. Minimum capacity ensures that Application Gateway and WAF v2 do not fall below the minimum instance count specified, even in the absence of traffic. You'll be billed for this minimum capacity even in the absence of any traffic. You can also optionally specify a maximum instance count, which ensures that the Application Gateway doesn't scale beyond the specified number of instances. You'll continue to be billed for the amount of traffic served by the Gateway. The instance counts can range from 0 to 125. The default value for maximum instance count is 20 if not specified.
+- **Manual** - You can alternatively choose Manual mode where the gateway won't autoscale. In this mode, if there is more traffic than what Application Gateway or WAF is capable of handling, it could result in traffic loss. With manual mode, specifying instance count is mandatory. Instance count can vary from 1 to 125 instances.
 
 ## Feature comparison between v1 SKU and v2 SKU
 
@@ -120,7 +120,7 @@ The following table compares the features available with each SKU.
 | Connection draining                               | &#x2713; | &#x2713; |
 
 > [!NOTE]
-> The autoscaling and zone-redundant application gateway SKU now supports [default health probes](application-gateway-probe-overview.md#default-health-probe) to automatically monitor the health of all resources in its back-end pool and highlight those backend members that are considered unhealthy. The default health probe wil be automatically configured for all those backends for which you haven't set up any custom probe configuration. To learn more, see [health probes in application gateway](application-gateway-probe-overview.md).
+> The autoscaling v2 SKU now supports [default health probes](application-gateway-probe-overview.md#default-health-probe) to automatically monitor the health of all resources in its back-end pool and highlight those backend members that are considered unhealthy. The default health probe is automatically configured for backends that don't have any custom probe configuration. To learn more, see [health probes in application gateway](application-gateway-probe-overview.md).
 
 ## Differences with v1 SKU
 
@@ -135,6 +135,7 @@ The following table compares the features available with each SKU.
 |FIPS mode|These are currently not supported.|
 |ILB only mode|This is currently not supported. Public and ILB mode together is supported.|
 |Netwatcher integration|Not supported.|
+|Azure Support Center integration|Not yet available.
 
 ## Next steps
 

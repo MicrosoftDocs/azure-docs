@@ -267,6 +267,20 @@
         href: share-images-across-tenants.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
+    - name: Image builder (preview)
+      items:
+      - name: Overview
+        href: image-builder-overview.md
+      - name: Use CLI
+        href: image-builder.md
+      - name: Template reference
+        href: image-builder-json.md
+      - name: Use with galleries
+        href: image-builder-gallery.md
+      - name: Update an image version
+        href: image-builder-gallery-update-image-version.md
+      - name: Troubleshoot
+        href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md
     - name: Find and use images
       href: cli-ps-findimage.md
     - name: Create custom image

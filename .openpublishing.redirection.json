@@ -36999,11 +36999,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/hdinsight/hbase/apache-hbase-enhanced-writes.md",
-      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/spatial-anchors/concepts/create-locate-anchors-unity.md",
       "redirect_url": "/azure/spatial-anchors/how-tos/create-locate-anchors-unity",
       "redirect_document_id": false
