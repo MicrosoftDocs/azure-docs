@@ -2,11 +2,13 @@
 title: Monitor, diagnose, and troubleshoot Azure Storage | Microsoft Docs
 description: Use features like storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues.
 services: storage
-author: fhryo-msft
+author: normesta
+
 ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: fhryo-msft
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
 ---
 # Monitor, diagnose, and troubleshoot Microsoft Azure Storage
