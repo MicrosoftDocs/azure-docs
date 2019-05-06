@@ -100,14 +100,14 @@ for example:
    ![Create Azure Resource Group project](./media/quickstart-create-logic-apps-with-visual-studio/create-azure-cloud-service-project.png)
 
    > [!NOTE]
-   > If the **Cloud** category or **Azure Resource Group** project doesn't appear, 
+   > If **Cloud** or **Azure Resource Group** doesn't appear, 
    > make sure you install the Azure SDK for Visual Studio.
 
    If you're using Visual Studio 2019, follow these steps:
 
    1. In the **Create a new project** box, select the 
    **Azure Resource Group** project template for 
-   Visual C# or Visual Basic, and choose **Next**.
+   Visual C# or Visual Basic. Choose **Next**.
 
    1. Provide a name for the Azure resource group you want to use 
    and other project information. Choose **Create**.
