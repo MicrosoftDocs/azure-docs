@@ -1,6 +1,6 @@
 ---
 title: Overview of dedicated event hubs - Azure Event Hubs | Microsoft Docs
-description: This article provides an overview of dedicated Azure Event Hubs, which offers single-tenant deployments of event hubs.
+description: This article provides an overview of dedicated Azure Event Hubs, which offers single-tenant deployments of event hubs.  
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -20,70 +20,97 @@ ms.author: shvija
 ---
 # Overview of Event Hubs Dedicated
 
-Azure Event Hubs clusters offer single-tenant deployments for customers with the most demanding streaming needs. This single-tenant offering has a guaranteed 99.99% SLA. It's available only on the Dedicated pricing tier.
+*Event Hubs clusters* offer single-tenant deployments for customers with the most demanding streaming needs. This single-tenant offering has a guaranteed 99.99% SLA and is available only on our Dedicated pricing tier. An Event Hubs cluster can ingress millions of events per second with guaranteed capacity and sub-second latency. Namespaces and event hubs created within the Dedicated cluster include all features of the Standard offering and more, but without any ingress limits. It also includes the popular [Event Hubs Capture](event-hubs-capture-overview.md) feature at no additional cost, allowing you to automatically batch and log data streams to Azure Storage or Azure Data Lake. 
 
-An Event Hubs cluster can ingress millions of events per second with guaranteed capacity and subsecond latency. Namespaces and event hubs created within the dedicated cluster include all the features of the Standard offering and more, but without any ingress limits. It also includes the [Event Hubs Capture](event-hubs-capture-overview.md) feature at no additional cost. You can use it to automatically batch and log data streams to Azure Storage or Azure Data Lake.
+Clusters are provisioned and billed by **Capacity Units (CUs)**, a pre-allocated amount of CPU and memory resources. You can purchase 1, 2, 4, 8, 12, 16 or 20 CUs for each cluster. How much you can ingest and stream per CU depends on a variety of factors, such as the number of producers and consumers, payload shape, egress rate (see benchmark results below for more details). 
 
-Dedicated clusters are provisioned and billed by capacity units (CUs). CUs are a preallocated amount of CPU and memory resources. You can purchase 1, 2, 4, 8, 12, 16, or 20 CUs for each cluster. How much you can ingest and stream per CU depends on factors such as the number of producers and consumers, the payload shape, and the egress rate.
+> [!NOTE]
+> All Event Hubs clusters are Kafka-enabled by default and support Kafka endpoints that can be used by your existing Kafka based applications. Having Kafka enabled on your cluster does not affect your non-Kafka use cases; there is no option or need to disable Kafka on a cluster.
 
-For more information, see the table with the benchmark results.
+## Why Dedicated?
 
-## Why use Event Hubs Dedicated?
-
-Event Hubs Dedicated offers three benefits for customers who need enterprise-level capacity.
+Dedicated Event Hubs offers three compelling benefits for customers who need enterprise-level capacity:
 
 #### Single-tenancy guarantees capacity for better performance
 
-A dedicated cluster guarantees capacity at full scale. It can ingress up to gigabytes of streaming data with fully durable storage and subsecond latency to accommodate bursts in traffic.
+A Dedicated cluster guarantees capacity at full scale, and can ingress up to gigabytes of streaming data with fully durable storage and sub-second latency to accommodate any burst in traffic. 
 
 #### Inclusive and exclusive access to features 
-The Dedicated offering includes features like Capture at no additional cost. It also offers exclusive access to upcoming features like BYOK. The service also manages load balancing, OS updates, security patches, and partitioning. With these capabilities, you can spend less time on infrastructure maintenance and more time on building client-side features.
+The Dedicated offering includes features like Capture at no additional cost, as well as exclusive access to upcoming features like BYOK. The service also manages load balancing, OS updates, security patches and partitioning for the customer, so that you can spend less time on infrastructure maintenance and more time on building client-side features.  
 
-#### Cost savings
-At high ingress volumes, a cluster costs significantly less per hour than if you purchase a comparable quantity of throughput units (TUs) in the Standard offering. A high volume is >100 TUs.
+#### Cost Savings
+At high ingress volumes (>100 TUs), a cluster costs significantly less per hour than purchasing a comparable quantity of throughput units in the Standard offering.
 
 
-## Event Hubs Standard vs. Dedicated
+## Event Hubs Dedicated Quotas and Limits
 
-The following table compares the available service tiers of Event Hubs. The Event Hubs Dedicated offering is billed by a fixed monthly price compared to usage pricing for most features of Standard. The Dedicated tier offers all the features of the Standard plan, but with enterprise-scale capacity for customers with demanding workloads.
+The Event Hubs Dedicated offering is billed at a fixed monthly price, with a minimum of 4 hours of usage. The Dedicated tier offers all the features of the Standard plan, but with enterprise scale capacity and limits for customers with demanding workloads. 
 
 | Feature | Standard | Dedicated |
 | --- |:---:|:---:|
+| Bandwidth | 20 TUs (up to 40 TUs)	| 20 CUs |
+| Namespaces |  1 | 50 per CU |
+| Event Hubs |  10 | No limit |
 | Ingress events | Pay per million events | Included |
-| Throughput unit (1 MB/sec ingress, 2 MB/sec egress) | Pay per hour | Included |
-| Message size | 1 MB | 1 MB |
-| Partitions | 40 per namespace | 2,000 per CU |
-| Consumer groups | 20 per event hub | 1,000 per event hub |
-| Maximum bandwidth | 20 TUs (up to 40 TUs)	| 20 CUs |
-| Brokered connections | 1,000 included | 100,000 included |
-| Message retention | One day included | Up to seven days included |
+| Message Size | 1 Million Bytes | 1 Million Bytes |
+| Partitions | 40 per namespace | 2000 per CU, 1024 per event hub |
+| Consumer groups | 20 per Event Hub | No limit per CU, 1000 per event hub |
+| Brokered connections | 1,000 included | 100 K included |
+| Message Retention | 7 days, 84 GB included per TU | 90 days, 10 TB included per CU |
 | Capture | Pay per hour | Included |
 
-## What can I achieve with a cluster?
+## How to onboard
 
-For an Event Hubs cluster, how much you can ingest and stream depends on your producers, your consumers, the rate at which you ingest and process, and much more.
+The self-serve experience for onboarding to Dedicated is in Preview, through which you can create 1 CU clusters in the following regions:
+  - Canada Central
+  - West Europe
+  - US Central
+  - US East
+  - US East 2
+  - US North Central
+  - US West
 
-The following table shows the benchmark results that were achieved during testing.
+We are actively adding new regions, but in the meantime if your preferred region is not on the list, please submit a support request to the [Event Hubs team](https://ms.portal.azure.com/#create/Microsoft.Support) under *Technical > Event Hubs > Quota > Request for Dedicated SKU*. The Dedicated plan is unique in that you will experience a more hands-on onboarding from the Event Hubs product team to get the flexible deployment that is right for you. 
+
+## FAQs
+
+#### What can I achieve with a cluster?
+
+For an Event Hubs cluster, how much you can ingest and stream depends on various factors such as your producers, consumers, the rate at which you are ingesting and processing, and much more. 
+
+Following table shows the benchmark results that we achieved during our testing:
 
 | Payload shape | Receivers | Ingress bandwidth| Ingress messages | Egress bandwidth | Egress messages | Total TUs | TUs per CU |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Batches of 100x1KB | 2 | 400 MB/sec | 400,000 messages/sec | 800 MB/sec | 800,000 messages/sec | 400 TUs | 100 TUs | 
-| Batches of 10x10KB | 2 | 666 MB/sec | 66,600 messages/sec | 1.33 GB/sec | 133,000 messages/sec | 666 TUs | 166 TUs |
-| Batches of 6x32KB | 1 | 1.05 GB/sec | 34,000 messages/sec | 1.05 GB/sec | 34,000 messages/sec | 1,000 TUs | 250 TUs |
+| Batches of 100x1KB | 2 | 400 MB/sec | 400k msgs/sec | 800 MB/sec | 800k msgs/sec | 400 TUs | 100 TUs | 
+| Batches of 10x10KB | 2 | 666 MB/sec | 66.6k msgs/sec | 1.33 GB/sec | 133k msgs/sec | 666 TUs | 166 TUs |
+| Batches of 6x32KB | 1 | 1.05 GB/sec | 34k msgs / sec | 1.05 GB/sec | 34k msgs/sec | 1000 TUs | 250 TUs |
 
-In the testing, the following criteria were used:
+In the testing, the following criteria was used:
 
-- A Dedicated-tier Event Hubs cluster with four capacity units was used.
-- The event hub used for ingestion had 200 partitions.
-- The data that was ingested was received by two receiver applications. They received data from all partitions.
+- A dedicated-tier Event Hubs cluster with four capacity units (CUs) was used. 
+- The event hub used for ingestion had 200 partitions. 
+- The data that was ingested was received by two receiver applications receiving from all partitions.
 
-## Use Event Hubs Dedicated
+#### How do I create a cluster larger than 1 CU?
 
-To use Event Hubs Dedicated, [contact billing support](https://ms.portal.azure.com/#create/Microsoft.Support) or your Microsoft representative. You can scale your capacity up or down throughout the month to meet your needs by adding or removing CUs. The Event Hubs product team helps you to get the flexible deployment that's right for you.
+In the Preview release of the self-serve experience, you can request to scale up your cluster after you create the cluster. After creating a 1 CU cluster, please reach out to Event Hubs support by filing a [support request](https://ms.portal.azure.com/#create/Microsoft.Support) under *Technical > Quota > Request to Scale Up or Scale Down Dedicated Cluster*. In our GA release, you will be able to scale up your cluster directly through the portal. 
+
+#### Can I scale down my cluster?
+
+After creation, clusters are billed for a minimum of 4 hours of usage. In the Preview release of the self-serve experience, you can submit a [support request](https://ms.portal.azure.com/#create/Microsoft.Support) to the Event Hubs team under *Technical > Quota > Request to Scale Up or Scale Down Dedicated Cluster*. It may take up to 7 days to complete the request to scale down your cluster. 
+
+#### How will Geo-DR work with my cluster?
+
+You can geo-pair a namespace under a Dedicated-tier cluster with another namespace under a Dedicated-tier cluster. We do not encourage pairing a Dedicated-tier namespace with a namespace in our Standard offering, since the throughput limit will be incompatible which will result in errors. 
+
+
+#### Can I migrate my Standard namespaces to belong to a Dedicated-tier cluster?
+We do not currently support an automated migration process for migrating your event hubs data from a Standard namespace to a Dedicated one. To migrate to a Dedicated-tier cluster, we recommend draining any messages left in your Standard-tier event hubs and replacing the connection endpoints with that of your Dedicated namespace.
 
 ## Next steps
 
-Contact your Microsoft sales representative or Microsoft Support to get additional information about Event Hubs Dedicated capacity. To learn more about Event Hubs pricing tiers, use the following links:
+Contact your Microsoft sales representative or Microsoft Support to get additional details about Event Hubs Dedicated Capacity. You can also learn more about Event Hubs pricing tiers by visiting the following links:
 
-- [Event Hubs Dedicated pricing](https://azure.microsoft.com/pricing/details/event-hubs/). You can also contact your Microsoft sales representative or Microsoft Support to get additional information about Event Hubs Dedicated capacity.
+- [Event Hubs Dedicated pricing](https://azure.microsoft.com/pricing/details/event-hubs/). You can also contact your Microsoft sales representative or Microsoft Support to get additional details about Event Hubs Dedicated capacity.
 - The [Event Hubs FAQ](event-hubs-faq.md) contains pricing information and answers some frequently asked questions about Event Hubs.
