@@ -56,10 +56,9 @@
       displayName: containers, codecs    
       href: media-encoder-standard-formats.md
     - name: Autogen adaptive bitrate ladder
-      href: autogen-bitrate-ladder.md      
+      href: autogen-bitrate-ladder.md       
     - name: Content-aware encoding
-      displayName: content, aware, cae
-      href: cae-experimental.md
+      href: cae-experimental.md          
     - name: Job error codes
       href: job-error-codes.md     
   - name: Media analytics 
