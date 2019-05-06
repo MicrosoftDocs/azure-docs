@@ -38,7 +38,7 @@ The following LUIS features are **not supported** in the V3 API:
 
 * Bing Spell Check V7
 
-[Reference documentation](https://aka.ms/luis-preview-api-v3) is available for V3.
+[Reference documentation](https://aka.ms/luis-api-v3) is available for V3.
 
 ## Prebuilt domains with new models and language coverage
 
@@ -46,21 +46,7 @@ Review the [V3 API list of prebuilt domains](luis-reference-prebuilt-domains.md)
 
 ## Prebuilt entities with new JSON
 
-The following prebuilt entities have JSON schema changes for the V3 API:
-
-* [Age](luis-reference-prebuilt-age.md#preview-api-version-3x)
-* [Currency (Money)](luis-reference-prebuilt-currency.md#preview-api-version-3x)
-* [DateTimeV2](luis-reference-prebuilt-datetimev2.md#preview-api-version-3x)
-* [Dimension](luis-reference-prebuilt-dimension.md#preview-api-version-3x)
-* [Email](luis-reference-prebuilt-email.md#preview-api-version-3x)
-* [GeographyV2](luis-reference-prebuilt-geographyv2.md#preview-api-version-3x)
-* [Number](luis-reference-prebuilt-number.md#preview-api-version-3x)
-* [Ordinal](luis-reference-prebuilt-ordinal.md#preview-api-version-3x)
-* [Percentage](luis-reference-prebuilt-percentage.md#preview-api-version-3x)
-* [PersonName](luis-reference-prebuilt-person.md#preview-api-version-3x)
-* [Phonenumber](luis-reference-prebuilt-phonenumber.md#preview-api-version-3x)
-* [Temperature](luis-reference-prebuilt-temperature.md#preview-api-version-3x)
-* [URL](luis-reference-prebuilt-url.md#preview-api-version-3x)
+The V3 response object changes include [prebuilt entities](luis-reference-prebuilt-entities.md). 
 
 ## Request changes 
 
@@ -237,48 +223,57 @@ External entities are the mechanism for extending any entity type while still be
 
 This is useful for an entity that has data available only at query prediction runtime. Examples of this type of data are constantly changing data or specific per user. You can extend a LUIS contact entity with external information from a user’s contact list. 
 
-`Send Hazem a new message`, where `Hazem` is directly matched as one of the user’s contacts.
+### Entity already exists in app
 
-<!--
+The value of `entityName` for the external entity, passed in the endpoint request POST body, must already exist in the trained and published app at the time the request is made. The type of entity doesn't matter, all types are supported.
 
-In a [multi-intent](#detect-multiple-intents-within-single-utterance) utterance, you can use the external entity data to help with secondary references. For example, in the utterance `Send Hazem a new message, and let him know about the party.`, two segments of the utterance are predicted:
+### First turn in conversation
 
-* `Send Hazem a new message, and`
-* `let him know about the party.`
+Consider a first utterance in a chat bot conversation where a user enters the following incomplete information:
 
-The first segment can correctly predict Hazem when the external entity is sent with the prediction request. The second segment won't know that `him` is a secondary reference to the same data unless you send it with the request and mark it as the same entity.
+`Send Hazem a new message`
 
--->
+The request from the chat bot to LUIS can pass in information in the POST body about `Hazem` so it is directly matched as one of the user’s contacts.
 
-### External entities JSON request body 
-
-Send in the following JSON body to mark the person's name, `Hazem`, as an external entity with the `POST` query prediction request:
-
-```JSON
-{
-    "query": "Send Hazem a new message.",
-    "options":{
-        "timezoneOffset": "-8:00"
-    },
+```json
     "externalEntities": [
         {
-            "entityName":"my-entity-name-already-in-LUIS-app",
+            "entityName":"contacts",
             "startIndex": 5,
             "entityLength": 5,
             "resolution": {
-                "employee": "program manager",
-                "type": "individual contributor"
+                "employeeID": "05013",
+                "preferredContactType": "TeamsChat"
             }
         }
     ]
-}
 ```
 
 The prediction response includes that external entity, with all the other predicted entities, because it is defined in the request.  
 
-#### Entity already exists in app
+### Second turn in conversation
 
-The entity name, `my-entity-name-already-in-LUIS-app`, exists in the trained and published app at the time the request is made. The type of entity doesn't matter, all types are supported.
+The next user utterance into the chat bot uses a more vague term:
+
+`Send him a calendar reminder for the party.`
+
+In the previous utterance, the utterance uses `him` as a reference to `Hazem`. The conversational chat bot, in the POST body, can map `him` to the entity value extracted from the first utterance, `Hazem`.
+
+```json
+    "externalEntities": [
+        {
+            "entityName":"contacts",
+            "startIndex": 5,
+            "entityLength": 3,
+            "resolution": {
+                "employeeID": "05013",
+                "preferredContactType": "TeamsChat"
+            }
+        }
+    ]
+```
+
+The prediction response includes that external entity, with all the other predicted entities, because it is defined in the request.  
 
 #### Resolution
 
@@ -293,24 +288,17 @@ The `resolution` property can be a number, a string, an object, or an array:
 * 12345 
 * ["a", "b", "c"]
 
-<!--
-Returned JSON response is:
-
-```JSON
-not sure what to do here
-```
--->
 
 ## Dynamic lists passed in at prediction time
 
-Dynamic lists allow you to update and extend an existing trained and published list entity, already in the LUIS app. 
+Dynamic lists allow you to extend an existing trained and published list entity, already in the LUIS app. 
 
-Use this feature when your list entity values need to change periodically. This feature allows you to update an already trained and published list entity:
+Use this feature when your list entity values need to change periodically. This feature allows you to extend an already trained and published list entity:
 
 * At the time of the query prediction endpoint request.
 * For a single request.
 
-The list entity can be empty in the LUIS app but it has to exist. 
+The list entity can be empty in the LUIS app but it has to exist. The list entity in the LUIS app isn't changed, but the prediction ability at the endpoint is extended to include up to 2 lists with about 1,000 items.
 
 ### Dynamic list JSON request body
 
@@ -343,100 +331,11 @@ Send in the following JSON body to add a new sublist with synonyms to the list, 
 
 The prediction response includes that list entity, with all the other predicted entities, because it is defined in the request. 
 
-<!--
+## TimezoneOffset renamed to datetimeReference
 
+**In V2**, the `timezoneOffset` [parameter](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) is sent in the prediction request as a query string parameter, regardless if the request is sent as a GET or POST request. 
 
-## Detect multiple intents within single utterance
-
-This feature identifies multiple intents from an utterance, enabling better understanding of complex and compound utterances that include more than one action. There is not prerequisite, or change needed to support this, in the LUIS app for this feature to work. It happens at the query prediction runtime if the associated query string parameter is passed in. 
-
-The V3 query prediction endpoint supports multi-intent query predictions if `multiple-segments=true` is passed in the query string. This means each sentence can have its own intent prediction.
-
-You can use `multiple-segments=true` with `verbose=true` to get the entity metadata for each individual segment.
-
-If multiple segments are not identified, value of the `MultipleSegments` property in the response is `none`.
-
-In **Review endpoint utterances**, the segments are displayed and not the whole query.
-
-In the endpoint logs, an additional boolean column indicates if the query is a multi-intent prediction.
-
-In the V2 endpoint success response, the entire utterance is predicted to a single intent.
-
-### Multiple intents JSON response
-
-In the V3 endpoint success response, each segment is predicted including entities:
-
-```json
-{
-    "query": "Carol goes to Cairo and Mohamed attends the meeting",
-    "prediction": {
-        "normalizedQuery": "carol goes to cairo and mohamed attends the meeting",
-        "topIntent": "Meetings",
-        "intents": {
-            "Travel": {
-                "score": 0.6123635
-            },
-            "MultipleSegments": {
-                "segments": [
-                    {
-                        "normalizedQuery": "Carol goes to Cairo and",
-                        "topIntent": "Travel",
-                        "intents": {
-                            "Travel": {
-                                "score": 0.6826963
-                            }
-                        },
-                        "entities": {
-                            "geographyV2": [
-                                "Cairo"
-                            ],
-                            "personName": [
-                                "Carol"
-                            ]
-                        }
-                    },
-                    {
-                        "normalizedQuery": "and Mohamed attends the meeting",
-                        "topIntent": "Meetings",
-                        "intents": {
-                            "Meetings": {
-                                "score": 0.7100854
-                            }
-                        },
-                        "entities": {
-                            "personName": [
-                                "Mohamed"
-                            ]
-                        }
-                    }
-                ]
-            }
-        },
-        "entities": {
-            "geographyV2": [
-                "Cairo"
-            ],
-            "personName": [
-                "Carol",
-                "Mohamed"
-            ]
-        }
-    }
-}
-```
-
-### Segment splitting tokens
-
-Segments are split based on tokens such as:
-
-Verbs are the primary splitting tokens. For example, where N represents a noun and V represents a verb, and you have an utterance schema that can be defined as `N V N N V N N`, the two segments will be `N V N N`, and `V N N`. 
-
-LUIS doesn't split into segments when:
-
-* Utterance has consecutive verbs. 
-* Entity is at the end of the utterance.
-
---->
+**In V3**, the same functionality is provided with the POST body parameter, `datetimeReference`. 
 
 ## Marking placement of entities in utterances
 

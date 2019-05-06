@@ -43,7 +43,7 @@ User-Agent: <sdk-name>/<sdk-version>
 
 {
     "jobId": "<jobId>",
-    "type": "scheduleDirectMethod",
+    "type": "scheduleDeviceMethod",
     "cloudToDeviceMethod": {
         "methodName": "<methodName>",
         "payload": <payload>,

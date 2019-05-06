@@ -77,6 +77,7 @@ The NuGet package downloads and adds the required assembly references and adds t
          host=""
          accessKey=""
          ssl="true" />
+  </providers>
 </sessionState>
 ```
 

@@ -78,21 +78,18 @@ The following error types are available:
 
 * *InteractionRequiredAuthError:* Error class extending ServerError to represent server errors which require an interactive call. This is thrown by `acquireTokenSilent` if the user is required to interact with the server to provide credentials or consent for authentication/authorization. Error codes include "interaction_required", "login_required", "consent_required".
 
-For error handling in authentication flows with redirect methods (`loginRedirect`, `acquireTokenRedirect`), you will need to register the success and failure callbacks to be called after the redirect using `handleRedirectCallbacks()` method as follows:
+For error handling in authentication flows with redirect methods (`loginRedirect`, `acquireTokenRedirect`), you will need to register the callback which is called with success or failure after the redirect using `handleRedirectCallback()` method as follows:
 
 ```javascript
-function acquireTokenRedirectCallBack(response) {
-    // success response
+function authCallback(error, response) {
+    //handle redirect response
 }
 
-function  acquireTokenErrorRedirectCallBack(error) {
-    console.log(error);
-}
 
 var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 
 // Register Callbacks for redirect flow
-myMSALObj.handleRedirectCallbacks(acquireTokenRedirectCallBack, acquireTokenErrorRedirectCallBack);
+myMSALObj.handleRedirectCallback(authCallback);
 
 myMSALObj.acquireTokenRedirect(request);
 ```
@@ -139,7 +136,7 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 ```
 
 ## Conditional access and claims challenges
-When getting tokens silently, your application may receive errors when a [conditional access claims challenge](conditional-access-dev-guide.md#scenario-single-page-app-spa-using-adaljs) such as MFA policy is required by an API you are trying to access.
+When getting tokens silently, your application may receive errors when a [conditional access claims challenge](conditional-access-dev-guide.md) such as MFA policy is required by an API you are trying to access.
 
 The pattern to handle this error is to interactively acquire a token using MSAL. Interactively acquiring a token prompts the user and gives them the opportunity to satisfy the required conditional access policy.
 
@@ -151,7 +148,7 @@ When calling an API requiring conditional access from MSAL.NET, your application
 To handle the claim challenge, you will need to use the `.WithClaim()` method of the `PublicClientApplicationBuilder` class.
 
 ### JavaScript
-When getting tokens silently (using `acquireTokenSilent`) using MSAL.js, your application may receive errors when a [conditional access claims challenge](conditional-access-dev-guide.md#scenario-single-page-app-spa-using-adaljs) such as MFA policy is required by an API you are trying to access.
+When getting tokens silently (using `acquireTokenSilent`) using MSAL.js, your application may receive errors when a [conditional access claims challenge](conditional-access-dev-guide.md) such as MFA policy is required by an API you are trying to access.
 
 The pattern to handle this error is to make an interactive call to acquire token in MSAL.js such as `acquireTokenPopup` or `acquireTokenRedirect` as in the following example:
 

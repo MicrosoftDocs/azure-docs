@@ -200,11 +200,11 @@ The value of a **Job** entity, provided in the test utterances, is usually one o
 
 ## Review entity batch results
 
-The chart opens with all the intents correctly predicted. Scroll down in the right-side filter to find the erroring entity predictions. 
+The chart opens with all the intents correctly predicted. Scroll down in the right-side filter to find the entity predictions with errors. 
 
 1. Select the **Job** entity in the filter.
 
-    ![Erroring entity predictions in filter](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+    ![Error entity predictions in filter](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
     The chart changes to display the entity predictions. 
 

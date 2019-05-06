@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/28/2019
+ms.date: 05/01/2019
 ms.author: jowargo
 ---
 
@@ -210,7 +210,6 @@ Your notification hub is configured to work with FCM, and you have the connectio
 9. Add the following using statements to `MyFirebaseIIDService.cs`:
 
     ```csharp
-    using Android.App;
     using Android.Util;
     using WindowsAzure.Messaging;
     using Firebase.Iid;
@@ -252,10 +251,8 @@ Your notification hub is configured to work with FCM, and you have the connectio
 13. Add the following using statements to `MyFirebaseMessagingService.cs`.
 
     ```csharp
-    using Android.App;
     using Android.Util;
     using Firebase.Messaging;
-    using Android.OS;
     using Android.Support.V4.App;
     using Build = Android.OS.Build;
     ```

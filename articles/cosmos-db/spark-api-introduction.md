@@ -15,7 +15,7 @@ The Spark API in Azure Cosmos DB allows you to run analytics from Apache Spark a
 The Spark API in Azure Cosmos DB provides the native support for Apache Spark jobs to execute directly on your globally distributed Cosmos databases. With these capabilities, developers, data engineers, and data scientists can use Azure Cosmos DB as a flexible, scalable, and performant data platform to run both **OLTP and OLAP/HTAP** workloads. 
 
 > [!NOTE]
-> Azure Cosmos DB Spark API is currently in limited preview. To sign-up for the preview, navigate to [sign-up for the preview](https://aka.ms/cosmos-spark-preview) page. 
+> Azure Cosmos DB Spark API is currently in limited preview. To sign-up for the preview, navigate to [sign-up for the preview](https://portal.azure.com/?feature.customportal=false#create/Microsoft.DocumentDB) page. 
 
 The Spark API in Azure Cosmos DB offers the following benefits:
 
