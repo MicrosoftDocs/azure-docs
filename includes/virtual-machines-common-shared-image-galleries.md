@@ -14,7 +14,7 @@ Shared Image Gallery is a service that helps you build structure and organizatio
 
 - Managed global replication of images.
 - Versioning and grouping of images for easier management.
-- Highly available images using Zone Redundant Storage. Even if a data center goes down, you’ll have access to the images in that region.
+- Make your images highly available with Zone Redundant Storage (ZRS) accounts in regions that support Availability Zones. ZRS offers better resilience against zonal failures.
 - Sharing across subscriptions, and even between tenants, using RBAC.
 
 Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within your organization. Shared images can be replicated to multiple regions, for quicker scaling of your deployments.
