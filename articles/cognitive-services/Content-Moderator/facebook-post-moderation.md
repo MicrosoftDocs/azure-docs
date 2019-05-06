@@ -25,11 +25,14 @@ This tutorial shows you how to:
 > * Create Azure Functions that listen for HTTP events from Content Moderator and Facebook.
 > * Link a Facebook page to Content Moderator using a Facebook application.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 This diagram illustrates each component of this scenario:
 
 ![Diagram of Content Moderator receiving information from Facebook through "FBListener" and sending information through "CMListener"](images/tutorial-facebook-moderation.png)
+
+> [!IMPORTANT]
+> In 2018, Facebook implemented a more strict vetting of Facebook Apps. You will not be able to complete the steps of this tutorial if your app has not been reviewed and approved by the Facebook review team.
 
 ## Prerequisites
 
@@ -111,7 +114,7 @@ Sign in to the [Azure Portal](https://portal.azure.com/) and follow these steps:
 1. Create a Facebook Page.
 
     > [!IMPORTANT]
-    > In 2018, Facebook implemented a more strict vetting of FB Apps and now you cannot execute sections 2, 3 and 4 if you app has not been reviewed and approved by the FB review team.
+    > In 2018, Facebook implemented a more strict vetting of Facebook apps. You will not be able to execute sections 2, 3 and 4 if you app has not been reviewed and approved by the Facebook review team.
 
     1. Navigate to [Facebook](https://www.facebook.com/bookmarks/pages) and create a **new Facebook Page**.
     1. Allow the Facebook App to access this page by following these steps:
