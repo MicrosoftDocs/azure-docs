@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 10/01/2016
+ms.date: 5/6/2019
 ms.author: crdun
 
 ---
@@ -35,10 +35,10 @@ To complete this tutorial, you need the following:
 ## Create a new Azure mobile app backend
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## Configure the server project
+## Create a database connection and configure the client and server project
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Download and run the Android app
+## Run the Android app
 [!INCLUDE [app-service-mobile-android-run-app](../../includes/app-service-mobile-android-run-app.md)]
 
 <!-- URLs -->
