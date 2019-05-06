@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/24/2019
+ms.date: 05/06/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -19,11 +19,13 @@ ms.custom: seodec18
 
 # Encoding with Media Services
 
-In Microsoft Azure Media Services, you use a **Streaming Endpoint**/Origin to deliver your content using [adaptive bitrate streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) or [progressive download](https://en.wikipedia.org/wiki/Progressive_download). In order to prepare content for delivery by adaptive bitrate streaming, video needs to be encoded at multiple bit-rates (high to low). In order to ensure graceful degradation of quality, as the bitrate is lowered so is the resolution of the video. This results in a so-called encoding ladder – a table of resolutions and bitrates (see [auto-generated adaptive bitrate ladder](autogen-bitrate-ladder.md)). 
+The concept of encoding involves converting a high-quality digital media file (mezzanine) into files (like adaptive bitrate MP4 files) that can be streamed using [adaptive bitrate streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming). To prepare content for delivery by adaptive bitrate streaming, video needs to be encoded at multiple bit-rates (high to low). To ensure graceful degradation of quality, as the bitrate is lowered so is the resolution of the video. This results in a so-called encoding ladder – a table of resolutions and bitrates (see [auto-generated adaptive bitrate ladder](autogen-bitrate-ladder.md)). 
+ 
+Packaging is taking previously encoded MP4s and converting them to adaptive bitrate output format (for example, HLS or DASH). In Microsoft Azure Media Services, you use a **Streaming Endpoint** (Origin) to package and deliver your content using **adaptive bitrate streaming** or [progressive download](https://en.wikipedia.org/wiki/Progressive_download).
 
-Azure Media Services enables you to encode your high-quality digital media files into adaptive bitrate MP4 files. A successful Media Services encoding job creates an output Asset with a set of adaptive bitrate MP4s and streaming configuration files. The configuration files include .ism, .ismc, .mpi, and other files that you should not modify. Once the encoding job is done, you can take advantage of [Dynamic Packaging](dynamic-packaging-overview.md) and start streaming.
+You can use Media Services to encode your mezzanine file into adaptive bitrate MP4 files. A successful Media Services encoding job creates an output Asset with a set of adaptive bitrate MP4s and streaming configuration files. The configuration files include .ism, .ismc, .mpi, and other files that you should not modify. Once the encoding job is done, you can take advantage of [Dynamic Packaging](dynamic-packaging-overview.md) and start streaming.
 
-To make videos in the output Asset available to clients for playback, you have to create a **Streaming Locator** and build streaming URLs. Then, based on the specified format in the manifest, your clients receive the stream in the protocol they have chosen.
+To make videos in the output Asset available to clients for playback, you create a **Streaming Locator** and build streaming URLs. Then, based on the specified format in the manifest, your clients receive the stream in the protocol they have chosen.
 
 The following diagram shows the on-demand streaming with dynamic packaging workflow.
 
