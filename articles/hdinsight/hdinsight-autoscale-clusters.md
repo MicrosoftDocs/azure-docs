@@ -19,10 +19,10 @@ The following table describes the cluster types and versions that are compatible
 
 | Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 without ESP | Yes | Yes | Soon | No | No | No | No |
-| HDInsight 4.0 without ESP | Yes | Yes | Soon | No | No | No | No |
-| HDInsight 3.6 with ESP | Yes | Yes | Soon | No | No | No | No |
-| HDInsight 3.6 with ESP | Yes | Yes | Soon | No | No | No | No |
+| HDInsight 3.6 without ESP | Yes | Yes | No | No | No | No | No |
+| HDInsight 4.0 without ESP | Yes | Yes | No | No | No | No | No |
+| HDInsight 3.6 with ESP | Yes | Yes | No | No | No | No | No |
+| HDInsight 3.6 with ESP | Yes | Yes | No | No | No | No | No |
 
 ## How it works
 
@@ -34,12 +34,12 @@ Schedule-based scaling changes the number of nodes in your cluster based on cond
 
 Autoscale continuously monitors the cluster and collects the following metrics:
 
-1. **Total Pending CPU**: The total number of cores required to start execution of all pending containers.
-2. **Total Pending Memory**: The total memory (in MB) required to start execution of all pending containers.
-3. **Total Free CPU**: The sum of all unused cores on the active worker nodes.
-4. **Total Free Memory**: The sum of unused memory (in MB) on the active worker nodes.
-5. **Used Memory per Node**: The load on a worker node. A worker node on which 10 GB of memory is used, is considered under more load than a worker with 2 GB of used memory.
-6. **Number of Application Masters per Node**: The number of Application Master (AM) containers running on a worker node. A worker node that is hosting two AM containers, is considered more important than a worker node that is hosting zero AM containers.
+* **Total Pending CPU**: The total number of cores required to start execution of all pending containers.
+* **Total Pending Memory**: The total memory (in MB) required to start execution of all pending containers.
+* **Total Free CPU**: The sum of all unused cores on the active worker nodes.
+* **Total Free Memory**: The sum of unused memory (in MB) on the active worker nodes.
+* **Used Memory per Node**: The load on a worker node. A worker node on which 10 GB of memory is used, is considered under more load than a worker with 2 GB of used memory.
+* **Number of Application Masters per Node**: The number of Application Master (AM) containers running on a worker node. A worker node that is hosting two AM containers, is considered more important than a worker node that is hosting zero AM containers.
 
 The above metrics are checked every 60 seconds. Autoscale makes scale-up and scale-down decisions based on these metrics.
 
@@ -61,7 +61,7 @@ When the following conditions are detected, Autoscale will issue a scale-down re
 
 Based on the number of AM containers per node and the current CPU and memory requirements, Autoscale issues a request to remove a certain number of nodes. The service also detects which nodes are candidates for removal based on current job execution. The scale down operation first decommissions the nodes, and then removes them from the cluster.
 
-## Getting started
+## Get started
 
 ### Create a cluster with load-based Autoscaling
 
