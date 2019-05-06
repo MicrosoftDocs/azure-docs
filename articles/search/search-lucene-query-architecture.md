@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 ms.author: jlembicz
 ms.custom: seodec2018
 ---
@@ -49,7 +49,7 @@ A search request is a complete specification of what should be returned in a res
 The following example is a search request you might send to Azure Search using the [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
 
 ~~~~
-POST /indexes/hotels/docs/search?api-version=2017-11-11 
+POST /indexes/hotels/docs/search?api-version=2019-05-06
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
     "searchFields": "description, title",
