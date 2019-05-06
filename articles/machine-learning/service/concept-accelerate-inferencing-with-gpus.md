@@ -1,7 +1,7 @@
 ---
 title: How to deploy a deep learning model for inferencing with GPU 
 titleSuffix: Azure Machine Learning service
-description: earn how to deploy a deep learning model as a web service that uses a GPU for inferencing. In this article, a Tensorflow model is deployed to an Azure Kubernetes Service cluster. The AKS cluster uses a GPU-enabled VM to host the web service and score inferencing requests.
+description: Learn how to deploy a deep learning model as a web service that uses a GPU for inferencing. In this article, a Tensorflow model is deployed to an Azure Kubernetes Service cluster. The cluster uses a GPU-enabled VM to host the web service and score inferencing requests.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -80,10 +80,8 @@ def init():
     model = tf.saved_model.loader.load(session, ['serve'], model_path)
     if len(model.signature_def['serving_default'].inputs) > 1:
         raise ValueError("This score.py only supports one input")
-    if len(model.signature_def['serving_default'].outputs) > 1:
-        raise ValueError("This score.py only supports one input")
     input_name = [tensor.name for tensor in model.signature_def['serving_default'].inputs.values()][0]
-    output_name = [tensor.name for tensor in model.signature_def['serving_default'].outputs.values()][0]
+    output_name = [tensor.name for tensor in model.signature_def['serving_default'].outputs.values()]
     
 
 @rawhttp
@@ -99,7 +97,7 @@ def run(request):
 
 def score(data):
     result = session.run(output_name, {input_name: [data]})
-    return ujson.dumps(result[0])
+    return ujson.dumps(result[1])
 
 if __name__ == "__main__":
     init()
