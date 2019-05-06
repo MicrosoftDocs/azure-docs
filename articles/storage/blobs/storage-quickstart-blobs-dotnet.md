@@ -2,13 +2,14 @@
 title: "Quickstart: Use .NET to create a blob in object storage - Azure Storage"
 description: In this quickstart, you learn how to use the Azure Storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 services: storage
-author: tamram
+author: mhopkins-msft
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.author: tamram
+ms.author: mhopkins
+ms.reviewer: seguler
 ---
 
 # Quickstart: Use .NET to create a blob in object storage

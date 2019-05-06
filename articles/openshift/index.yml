@@ -35,8 +35,8 @@ sections:
     className: cardsD
     items:
     - title: Command line
-      html: <p><a href="https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create">Azure CLI</a></p>
+      html: <p><a href="/cli/azure/openshift">Azure CLI</a></p>
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/en-us/rest/api/?view=Azure">REST API</a></p>
+      html: <p><a href="/rest/api/openshift">REST API</a></p>
     - title: Red Hat documentation
       html: <p><a href="https://access.redhat.com/documentation/openshift_dedicated/3/">Red Hat OpenShift docs</a></p>
