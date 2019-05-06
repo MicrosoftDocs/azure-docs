@@ -2,12 +2,13 @@
 title: Overview of Azure page blobs | Microsoft Docs
 description: An overview of Azure page blobs and their advantages, including use cases with sample scripts. 
 services: storage
-author: anasouma
+author: tamram
 
 ms.service: storage
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: wielriac
+ms.author: tamram
+ms.reviewer: wielriac
 ms.subservice: blobs
 ---
 

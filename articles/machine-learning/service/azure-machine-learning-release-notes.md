@@ -20,11 +20,19 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
-## 2019-05-02
+## 2019-05-06
 
 ### Azure portal
 
-+ Create automated ML experiments in the portal.
++ Brand new Authoring section (Preview) in the Machine Learning service workspace, which includes Automated Machine Learning, Visual Interface and Hosted Notebook VMs
+	+ Automatically create a model using Automated machine learning 
+	+ Use a drag and drop Visual Interface to run experiments
+	+ Create a Notebook VM to explore data, create models, and deploy services.
++ Live chart and metric updating in run reports and run details pages
++ Updated file viewer for logs, outputs, and snapshots in Run details pages.
++ New and improved report creation experience in the Experiments tab. 
++ Added ability to download the config.json file from the Overview page of the Azure Machine Learning service workspace.
++ Support Machine Learning service workspace creation from Azure Databricks workspace 
 
 
 ## 2019-04-22

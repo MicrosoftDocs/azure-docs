@@ -188,28 +188,32 @@ This step is optional. In this quickstart, you created a database and a collecti
 * The following code creates the new collection by using the `CreateDocumentCollectionAsync` method:
 
     ```csharp
-    private static async Task CreateCollectionIfNotExistsAsync()
+    private static async Task CreateCollectionIfNotExistsAsync(string partitionkey)
     {
-        try
-        {
-           await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId));
-        }
+       try
+       {       
+        await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), new RequestOptions { PartitionKey = new PartitionKey(partitionkey) });
+       }
         catch (DocumentClientException e)
         {
            if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
-           {
-              await client.CreateDocumentCollectionAsync(
-              UriFactory.CreateDatabaseUri(DatabaseId),
-              new DocumentCollection
-              {
-                  Id = CollectionId
-              },
-              new RequestOptions { OfferThroughput = 400 });
-           }
-           else
-           {
-             throw;
-           }
+            {
+                await client.CreateDocumentCollectionAsync(
+                  UriFactory.CreateDatabaseUri(DatabaseId),
+                   new DocumentCollection
+                    {
+                      Id = CollectionId,
+                      PartitionKey = new PartitionKeyDefinition
+                       {
+                           Paths = new System.Collections.ObjectModel.Collection<string>(new List<string>() { partitionkey })
+                        }
+                    },
+                      new RequestOptions { OfferThroughput = 400 });
+            }
+            else
+            {
+                throw;
+            }
         }
     }
     ```
