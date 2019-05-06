@@ -274,7 +274,7 @@ To copy data from ADLS Gen1 in **Parquet or delimited text format**, refer to [P
 | maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No                                            |
 
 > [!NOTE]
-> For Parquet/delimited text format, **AzureDataLakeStoreSource** type copy activity source mentioned in next section is still supported as-is for for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
+> For Parquet/delimited text format, **AzureDataLakeStoreSource** type copy activity source mentioned in next section is still supported as-is for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
@@ -375,7 +375,7 @@ To copy data to ADLS Gen1 in **Parquet or delimited text format**, refer to [Par
 | maxConcurrentConnections | The number of the connections to connect to the data store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
 
 > [!NOTE]
-> For Parquet/delimited text format, **AzureDataLakeStoreSink** type copy activity sink mentioned in next section is still supported as-is for for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
+> For Parquet/delimited text format, **AzureDataLakeStoreSink** type copy activity sink mentioned in next section is still supported as-is for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
