@@ -55,17 +55,11 @@ Use this command to upload a file from your local computer to a blob in a contai
 > [!NOTE]
 > AzCopy by default uploads data into block blobs. To upload files as Append Blobs, or Page Blobs use the flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
 
-```
-azcopy cp "<local-file-path>" "https://<storage-account-name>.<uri-suffix>/<container-name>/<blob-name>"
-```
-
-**Example**
-
-`azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt"`
-
-**Example (hierarchical namespace)**
-
-`azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.dfs.core.windows/mycontainer/myTextFile.txt"`
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy cp "<local-file-path>" "https://<storage-account-name>.<uri-suffix>/<container-name>/<blob-name>"` |
+| **Example** | `azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt"` |
+| **Example (hierarchical namespace)** | `azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.dfs.core.windows/mycontainer/myTextFile.txt"` |
 
 > [!NOTE]
 > If you append the `--put-md5` flag to this command, AzCopy will calculate the file's md5 hash code, and then store that code in the `Content-md5` property of the corresponding blob for later use.
