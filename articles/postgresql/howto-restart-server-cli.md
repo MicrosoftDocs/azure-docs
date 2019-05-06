@@ -1,14 +1,14 @@
 ---
-title: Restart Azure Database for PostgreSQL server using Azure CLI
-description: This article describes how you can restart an Azure Database for PostgreSQL server using the Azure CLI
+title: Restart Azure Database for PostgreSQL - Single Server using Azure CLI
+description: This article describes how you can restart an Azure Database for PostgreSQL - Single Server using the Azure CLI
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 3/28/2019
+ms.date: 5/6/2019
 ---
 
-# Restart Azure Database for PostgreSQL server using the Azure CLI
+# Restart Azure Database for PostgreSQL - Single Server using the Azure CLI
 This topic describes how you can restart an Azure Database for PostgreSQL server. You may need to restart your server for maintenance reasons, which causes a short outage as the server performs the operation.
 
 The server restart will be blocked if the service is busy. For example, the service may be processing a previously requested operation such as scaling vCores.

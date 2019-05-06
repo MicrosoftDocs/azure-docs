@@ -5,6 +5,7 @@ services: databox
 author: alkohli
 
 ms.service: databox
+ms.subservice: gateway
 ms.topic: overview
 ms.date: 04/08/2019
 ms.author: alkohli
