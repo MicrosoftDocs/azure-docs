@@ -156,21 +156,21 @@ The Azure SQL Database Hyperscale tier is currently available in the following r
 - China East 2
 - China North 2
 - East Asia
-- North Europe
-- West Europe
+- East US
+- East Us 2
 - France Central
 - Japan East
 - Japan West
 - Korea Central
 - Korea South
+- North Central US
+- North Europe
 - South Africa North
+- South Central US
 - Southeast Asia
 - UK South
 - UK West
-- East US
-- East Us 2
-- North Central US
-- South Central US
+- West Europe
 - West US
 - West US 2
 
