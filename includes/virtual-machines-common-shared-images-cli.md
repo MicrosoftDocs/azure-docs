@@ -18,7 +18,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 ## Before you begin
 
-To complete the example in this article, you must have an existing managed image of a generalized VM. For more information, see [Tutorial: Create a custom image of an Azure VM with the Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). 
+To complete the example in this article, you must have an existing managed image of a generalized VM. For more information, see [Tutorial: Create a custom image of an Azure VM with the Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). If the managed image contains a data disk, the data disk size cannot be more than 1 TB.
 
 
 ## Create an image gallery 
