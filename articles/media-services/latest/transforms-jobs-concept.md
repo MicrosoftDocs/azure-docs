@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ---
 
@@ -91,5 +91,8 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## Next steps
 
-- [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
-- [Tutorial: Analyze videos with Media Services v3 using .NET](analyze-videos-tutorial-with-api.md)
+- Before you start developing, review [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, etc.)
+- Check out these tutorials:
+
+    - [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
+    - [Tutorial: Analyze videos with Media Services v3 using .NET](analyze-videos-tutorial-with-api.md)
