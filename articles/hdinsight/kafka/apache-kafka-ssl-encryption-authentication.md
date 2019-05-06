@@ -30,12 +30,12 @@ The summary of the broker setup process is as follows:
 
 1. The following steps are repeated on each of the three worker nodes:
 
-    * Generate a certificate.
-    * Create a cert signing request.
-    * Send the cert signing request to the Certificate Authority (CA).
-    * Sign in to the CA and sign the request.
-    * SCP the signed certificate back to the worker node.
-    * SCP the public certificate of the CA to the worker node.
+    1. Generate a certificate.
+    1. Create a cert signing request.
+    1. Send the cert signing request to the Certificate Authority (CA).
+    1. Sign in to the CA and sign the request.
+    1. SCP the signed certificate back to the worker node.
+    1. SCP the public certificate of the CA to the worker node.
 
 1. Once you have all of the certificates, put the certs into the cert store.
 1. Go to Ambari and change the configurations.
