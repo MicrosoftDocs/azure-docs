@@ -3,8 +3,8 @@ title: View relative latencies to Azure regions from specific locations | Micros
 description: Learn how to view relative latencies across Internet providers to Azure regions from specific locations.
 services: network-watcher
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
-ms.author: jdial
+ms.author: kumud
 ms.custom: 
 
 ---
@@ -56,7 +56,7 @@ Get-AzNetworkWatcherReachabilityReport `
 ```
 
 > [!NOTE]
-> The region you specify in the previous command doesn't need to be the same as the region you specified when you retrieved the network watcher. The previous command simply requires that you specify an existing network watcher. The network watcher can be in any region. If you specify values for `-Country` and `-State`, they must be valid. The values are case-sensitive. Data is available for a limited number of countries, states, and cities. Run the commands in [View available countries, states, cities, and providers](#view-available) to view a list of available countries, cities, and states to use with the previous command. 
+> The region you specify in the previous command doesn't need to be the same as the region you specified when you retrieved the network watcher. The previous command simply requires that you specify an existing network watcher. The network watcher can be in any region. If you specify values for `-Country` and `-State`, they must be valid. The values are case-sensitive. Data is available for a limited number of countries/regions, states, and cities. Run the commands in [View available countries/regions, states, cities, and providers](#view-available) to view a list of available countries/regions, cities, and states to use with the previous command. 
 
 > [!WARNING]
 > You must specify a date within the past 30 days for `-StartTime` and `-EndTime`. Specifying a prior date will result in no data being returned.
@@ -121,15 +121,15 @@ Get-AzNetworkWatcherReachabilityReport `
 > [!NOTE]
 > Unlike when you specify a single location, if you don't specify a location, or specify multiple locations, such as "West US2", "West US", you must specify an Internet service provider when running the command. 
 
-## <a name="view-available"></a>View available countries, states, cities, and providers
+## <a name="view-available"></a>View available countries/regions, states, cities, and providers
 
-Data is available for specific Internet service providers, countries, states, and cities. To view a list of all available Internet service providers, countries, states, and cities, that you can view data for, enter the following command:
+Data is available for specific Internet service providers, countries/regions, states, and cities. To view a list of all available Internet service providers, countries/regions, states, and cities, that you can view data for, enter the following command:
 
 ```powershell
 Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
-Data is only available for the countries, states, and cities returned by the previous command. The previous command requires you to specify an existing network watcher. The example specified the *NetworkWatcher_eastus* network watcher in a resource group named *NetworkWatcherRG*, but you can specify any existing network watcher. If you don't have an existing network watcher, create one by completing the tasks in [Create a network watcher](#create-a-network-watcher). 
+Data is only available for the countries/regions, states, and cities returned by the previous command. The previous command requires you to specify an existing network watcher. The example specified the *NetworkWatcher_eastus* network watcher in a resource group named *NetworkWatcherRG*, but you can specify any existing network watcher. If you don't have an existing network watcher, create one by completing the tasks in [Create a network watcher](#create-a-network-watcher). 
 
 After running the previous command, you can filter the output returned by specifying valid values for **Country**, **State**, and **City**, if desired.  For example, to view the list of Internet service providers available in Seattle, Washington, in the United States, enter the following command:
 

@@ -318,8 +318,8 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 
 This section helps you create, get, update, and delete the Azure public peering configuration for an ExpressRoute circuit.
 
-> [!NOTE]
-> Azure public peering is deprecated for new circuits.
+> [!Note]
+> Azure public peering is deprecated for new circuits. For more information, see [ExpressRoute peering](expressroute-circuit-peerings.md).
 >
 
 ### To create Azure public peering
