@@ -89,6 +89,8 @@
   - name: Model interpretability
     displayName: explainability
     href: machine-learning-interpretability-explainability.md
+  - name: Accelerate with GPUs
+    href: concept-accelerate-inferencing-with-gpus.md
   - name: Accelerate with FPGAs
     href: concept-accelerate-with-fpgas.md
   - name: Optimize with ONNX and ONNX Runtime

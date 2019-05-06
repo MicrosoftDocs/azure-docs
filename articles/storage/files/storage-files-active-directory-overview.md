@@ -48,7 +48,7 @@ Azure AD over SMB for Azure Files offers several benefits over using Shared Key 
     You can use Azure Files to back up your existing on-premises file shares. Azure Files preserves your ACLs along with your data when you back up a file share to Azure Files over SMB.
 
 ## How it works
-Azure Files uses Azure AD Domain Services to support Kerberos authentication with Azure AD credentials from domain-joined VMs. Before you can use Azure AD with Azure Files, you must first enable Azure AD Domain Services and join the domain from the VMs from which you plan to access file data. Your domain-joined VM must reside in same virtual network (VNET) as Azure AD Domain Services. 
+Azure Files uses Azure AD Domain Services to support Kerberos authentication with Azure AD credentials from domain-joined VMs. Before you can use Azure AD with Azure Files, you must first enable Azure AD Domain Services and join the domain from the VMs from which you plan to access file data. Your domain-joined VM must reside in the same virtual network (VNET) as Azure AD Domain Services. 
 
 When an identity associated with an application running on a VM attempts to access data in Azure Files, the request is sent to Azure AD Domain Services to authenticate the identity. If authentication is successful, Azure AD Domain Services returns a Kerberos token. The application sends a request that includes the Kerberos token, and Azure Files uses that token to authorize the request. Azure Files receives the token only and does not persist Azure AD credentials.
 

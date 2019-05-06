@@ -93,7 +93,7 @@ With `Wait-Debugger` in place, you can now debug the functions using either Visu
 
 To debug your PowerShell functions in Visual Studio Code, you must have the following extensions for Visual Studio Code:
 
-* [PowerShell](/powershell/scripting/components/Visual Studio Code/using-Visual Studio Code)
+* [PowerShell](/powershell/scripting/components/vscode/using-vscode)
 * [Azure Functions](functions-create-first-function-vs-code.md)
 
 After installing the PowerShell and Azure Functions extensions, load an existing function app project. You can also [create a Functions project](functions-create-first-function-vs-code.md).
@@ -185,7 +185,7 @@ Make note of the `ProcessId` for the item in the table with the `ProcessName` as
 Next, run the following snippet:
 
 ```powershell
-# This enters into the the Azure Functions PowerShell process.
+# This enters into the Azure Functions PowerShell process.
 # Put your value of `ProcessId` here.
 Enter-PSHostProcess -Id $ProcessId
 
