@@ -16,8 +16,8 @@
   items:
   - name: Locations and partners
     href: virtual-wan-locations-partners.md
-  - name: Global network transit architecture
-    href: virtual-wan-global-transit-architecture.md
+  - name: Global transit network architecture
+    href: virtual-wan-global-transit-network-architecture.md
   - name: Office 365 control plane in Virtual WAN
     href: virtual-wan-office365-overview.md
 - name: How-to guides
