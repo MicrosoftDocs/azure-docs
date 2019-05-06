@@ -95,7 +95,7 @@ To configure Azure AD single sign-on with Freedcamp, perform the following steps
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click the **Edit** icon to open the **Basic SAML Configuration** dialog.
+3. On the **Set-up Single Sign-On with SAML** page, click the **Edit** icon to open the **Basic SAML Configuration** dialog.
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -119,7 +119,7 @@ To configure Azure AD single sign-on with Freedcamp, perform the following steps
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Users can also enter the url values with respect to their own customer domain and they may not be necessarily of the pattern `freedcamp.com`, they can enter any customer domain specific value, specific to their application instance. Also you can contact [Freedcamp Client support team](mailto:devops@freedcamp.com) for further information on url patterns.
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+4. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
@@ -215,7 +215,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Freedcamp test user
 
-To enable Azure AD users to sign in to Freedcamp, they must be provisioned into Freedcamp. In Freedcamp, provisioning is a manual task.
+To enable Azure AD users, sign in to Freedcamp, they must be provisioned into Freedcamp. In Freedcamp, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
