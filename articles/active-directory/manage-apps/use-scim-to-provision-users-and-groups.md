@@ -457,7 +457,6 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 {
 	"schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group", "http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/2.0/Group"],
 	"externalId": "8aa1a0c0-c4c3-4bc0-b4a5-2ef676900159",
-	"id": "c4d56c3c-bf3b-4e96-9b64-837018d6060e",
 	"displayName": "displayName",
 	"members": [],
 	"meta": {
