@@ -3,6 +3,7 @@ title: Deciding when to use Azure Blobs, Azure Files, or Azure Disks
 description: Learn about the different ways to store and access data in Azure to help you decide which technology to use.
 services: storage
 author: tamram
+
 ms.service: storage
 ms.topic: article
 ms.date: 11/28/2018
