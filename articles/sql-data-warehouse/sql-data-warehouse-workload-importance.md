@@ -7,17 +7,14 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ---
 
-# SQL Data Warehouse workload importance (Preview)
+# SQL Data Warehouse workload importance
 
 This article explains how workload importance can influence the order of execution for SQL Data Warehouse requests.
-
-> [!Note]
-> Workload classification is available for preview on SQL Data Warehouse Gen2. Workload Management Classification and Importance preview is for builds with a release date of April 9th, 2019 or later.  Users should avoid using builds earlier than this date for workload management testing.  To determine if your build is workload management capable, run select @@version when connected to your SQL Data Warehouse instance.
 
 ## Importance
 
@@ -59,4 +56,4 @@ Because Q5 is mediumrc, it requires two concurrency slots.  Q5 needs to wait for
 
 ## Next steps
 
-For more information about SQL Data Warehouse workload classification, see [SQL Data Warehouse Workload Classification](sql-data-warehouse-workload-classification.md) and [Create a workload classifier](quickstart-create-a-workload-classifier-tsql.md). See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.
+To get started with creating a classifier, see the [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  For more information about SQL Data Warehouse workload classification, see [SQL Data Warehouse Workload Classification](sql-data-warehouse-workload-classification.md).  See the Quickstart on how to create a workload classifier [Create a workload classifier](quickstart-create-a-workload-classifier-tsql.md). See [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) to view queries and the importance assigned.

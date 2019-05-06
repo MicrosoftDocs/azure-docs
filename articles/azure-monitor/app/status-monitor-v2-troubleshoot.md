@@ -197,3 +197,9 @@ If monitoring is working, at least 12 DLLS should be loaded.
 4. Try to browse to your app.
 5. After your app finishes loading, return to PerfView and click "Stop Collection"
 
+
+
+## Next steps
+
+- Review our [API Reference](status-monitor-v2-overview.md#powershell-api-reference) to find a parameter you might have missed.
+- If you come across an issue not listed here, you may contact us [here](https://github.com/Microsoft/ApplicationInsights-Home/issues).
