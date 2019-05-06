@@ -62,15 +62,13 @@ At this point Azure Deployment Manager knows how to query for the health of your
 
 In order to make health integration as easy as possible, Microsoft has been working with some of the top service health monitoring companies to provide you with a simple copy/paste solution to integrate health checks with your deployments. If you’re not already using a health monitor, these are great solutions to start with. 
 
-|-----|------|------|
 |c1|c2|c3|
 |-----|------|------|
-|![azure deployment manager health monitor provider datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg)|![azure deployment manager health monitor provider site24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg)|![azure deployment manager health monitor provider wavefront](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg)|
 |Datadog, the leading monitoring and analytics platform for modern cloud environments. See [how Datadog integrates with Azure Deployment Manager]().|The All-in-One Monitoring Solution. See [how Site24x7 integrates with Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| bla, bla, bla. See [how Wavefront integrates with Azure Deployment Manager]().|
 
 ## Next steps
 
-In this article, you learned about Deployment Manager. Proceed to the next article to learn how to deploy with Deployment Manager.
+In this article, you learned about how to integrate health check in Azure Deployment Manager. Proceed to the next article to learn how to deploy with Deployment Manager.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md)
+> [Tutorial: integrate health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md)
