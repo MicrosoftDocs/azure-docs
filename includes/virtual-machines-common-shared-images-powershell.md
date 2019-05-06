@@ -64,6 +64,7 @@ $galleryImage = New-AzGalleryImageDefinition `
    -Sku 'mySKU'
 ```
 
+You can also store your image version in [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
 
 ## Create an image version
 
