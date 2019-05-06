@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/19
+ms.date: 05/06/19
 ms.author: jgao
 
 ---
@@ -37,7 +37,7 @@ The flow to getting setup with Azure Deployment Manager health checks:
     a. [HTTP status codes](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) or regular expressions that define a healthy response.	Note that you may provide regular expressions which ALL must match for the response to be considered healthy, or you may provide expressions of which ANY must match for the response to be considered healthy. Both methods are supported.
 1. Invoke the healthCheck steps at the appropriate time in your Azure Deployment Manager rollout.
 
-To walk through an example, see []().
+To walk through an example, see [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-health-check.md).
 
 ## Phases of a health check
 
