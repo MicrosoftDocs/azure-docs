@@ -313,65 +313,68 @@ Get-AzDeploymentManagerRollout `
 
 The Deployment Manager PowerShell cmdlets must be installed before you can run this cmdlet. See Prerequisites. The -Verbose switch can be used to see the whole output.
 
-The following sample shows the running status:
+The following sample shows the health check failed error message:
 
 ```output
-VERBOSE:
+Service: myhc0506ServiceWUSrg
+    TargetLocation: WestUS
+    TargetSubscriptionId: <Subscription ID>
 
-Status: Succeeded
-ArtifactSourceId: /subscriptions/<AzureSubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout
-BuildVersion: 1.0.0.0
+    ServiceUnit: myhc0506ServiceWUSWeb
+        TargetResourceGroup: myhc0506ServiceWUSrg
 
-Operation Info:
-    Retry Attempt: 0
-    Skip Succeeded: False
-    Start Time: 03/05/2019 15:26:13
-    End Time: 03/05/2019 15:31:26
-    Total Duration: 00:05:12
-
-Service: adm0925ServiceEUS
-    TargetLocation: EastUS
-    TargetSubscriptionId: <AzureSubscriptionID>
-
-    ServiceUnit: adm0925ServiceEUSStorage
-        TargetResourceGroup: adm0925ServiceEUSrg
-
-        Step: Deploy
-            Status: Succeeded
-            StepGroup: stepGroup3
+        Step: RestHealthCheck/healthCheckStep.PostDeploy
+            Status: Failed
+            StepGroup: stepGroup2
             Operation Info:
-                DeploymentName: 2F535084871E43E7A7A4CE7B45BE06510adm0925ServiceEUSStorage
-                CorrelationId: 0b6f030d-7348-48ae-a578-bcd6bcafe78d
-                Start Time: 03/05/2019 15:26:32
-                End Time: 03/05/2019 15:27:41
-                Total Duration: 00:01:08
-            Resource Operations:
+                Start Time: 05/06/2019 17:58:31
+                End Time: 05/06/2019 17:58:32
+                Total Duration: 00:00:01
+                Error:
+                    Code: ResourceReportedUnhealthy
+                    Message: Health checks failed as the following resources were unhealthy: '05/06/2019 17:58:32 UTC: Health check 'appHealth' failed with the following errors: Response from endpoint 'https://myhc0506webapp.azurewebsites.net/api/healthStatus/unhealthy' does not match the regex pattern(s): 'Status: healthy, Status: warning.'. Response content: "Status: unhealthy"..'.
+Get-AzDeploymentManagerRollout :
+Service: myhc0506ServiceWUSrg
+    ServiceUnit: myhc0506ServiceWUSWeb
+        Step: RestHealthCheck/healthCheckStep.PostDeploy
+            Status: Failed
+            StepGroup: stepGroup2
+            Operation Info:
+                Start Time: 05/06/2019 17:58:31
+                End Time: 05/06/2019 17:58:32
+                Total Duration: 00:00:01
+                Error:
+                    Code: ResourceReportedUnhealthy
+                    Message: Health checks failed as the following resources were unhealthy: '05/06/2019 17:58:32 UTC: Health check 'appHealth' failed with the following errors: Response from endpoint 'https://myhc0506webapp.azurewebsites.net/api/healthStatus/unhealthy' does not match the regex pattern(s): 'Status: healthy, Status: warning.'. Response content: "Status: unhealthy"..'.
+At line:1 char:1
++ Get-AzDeploymentManagerRollout `
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo          : NotSpecified: (:) [Get-AzDeploymentManagerRollout], Exception
++ FullyQualifiedErrorId : RolloutFailed,Microsoft.Azure.Commands.DeploymentManager.Commands.GetRollout
 
-                Resource Operation 1:
-                Name: txq6iwnyq5xle
-                Type: Microsoft.Storage/storageAccounts
-                ProvisioningState: Succeeded
-                StatusCode: OK
-                OperationId: 64A6E6EFEF1F7755
 
-...
-
-ResourceGroupName       : adm0925rg
+ResourceGroupName       : myhc0506rg
 BuildVersion            : 1.0.0.0
-ArtifactSourceId        : /subscriptions/<SubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout
-TargetServiceTopologyId : /subscriptions/<SubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/serviceTopologies/adm0925ServiceTopology
-Status                  : Running
+ArtifactSourceId        : /subscriptions/<Subscription ID>/resourceGroups/myhc0506rg/providers/Mi
+                          crosoft.DeploymentManager/artifactSources/myhc0506ArtifactSourceRollout
+TargetServiceTopologyId : /subscriptions/<Subscription ID>/resourceGroups/myhc0506rg/providers/Mi
+                          crosoft.DeploymentManager/serviceTopologies/myhc0506ServiceTopology
+Status                  : Failed
 TotalRetryAttempts      : 0
+Identity                : Microsoft.Azure.Commands.DeploymentManager.Models.PSIdentity
 OperationInfo           : Microsoft.Azure.Commands.DeploymentManager.Models.PSRolloutOperationInfo
-Services                : {adm0925ServiceEUS, adm0925ServiceWUS}
-Name                    : adm0925Rollout
+Services                : {myhc0506ServiceWUS, myhc0506ServiceWUSrg}
+Name                    : myhc0506Rollout
 Type                    : Microsoft.DeploymentManager/rollouts
 Location                : centralus
-Id                      : /subscriptions/<SubscriptionID>/resourcegroups/adm0925rg/providers/Microsoft.DeploymentManager/rollouts/adm0925Rollout
+Id                      : /subscriptions/<Subscription ID>/resourcegroups/myhc0506rg/providers/Mi
+                          crosoft.DeploymentManager/rollouts/myhc0506Rollout
 Tags                    :
 ```
 
 After the rollout is completed, you shall see one additional resource group created for West US.
+
+## Deploy the rollout with the healthy status
 
 Repeat this section to redeploy the rollout with the health status URL.  After the rollout is completed, you shall see one additional resource group created for East US.
 
