@@ -25,8 +25,6 @@ This tutorial shows you how to use Azure Functions to connect to resources in an
 > [!NOTE]  
 > This tutorial creates a function app in the Premium plan. This hosting plan is currently in preview. For more information, see [Premium plan].
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 ## Topology
 
 The following diagram shows the architecture of the solution that you create:
@@ -34,6 +32,12 @@ The following diagram shows the architecture of the solution that you create:
  ![UI for virtual network integration](./media/functions-create-vnet/topology.png)
 
 Functions running in the Premium plan have the same hosting capabilities as web apps in Azure App Service, which includes the VNet Integration feature. To learn more about VNet Integration, including troubleshooting and advanced configuration, see [Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md).
+
+## Prerequisites
+
+For this tutorial, it's important that you understand IP addressing and subnetting. You can start with [this article that covers the basics of addressing and subnetting](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Many more articles and videos are available online.
+
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a function app in a Premium plan
 
@@ -45,7 +49,7 @@ You can pin the function app to the dashboard by selecting the pin icon in the u
 
 ## Create a VM inside a virtual network
 
-Next, create a preconfigured VM that runs WordPress inside a virtual network ([WordPress LEMP7 Max Performance](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure) by jetware). A WordPress VM is used because of its low cost and convenience. This same scenario works with any resource in a virtual network, such as REST APIs, App Service Environments, and other Azure services.
+Next, create a preconfigured VM that runs WordPress inside a virtual network ([WordPress LEMP7 Max Performance](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure) by jetware). A WordPress VM is used because of its low cost and convenience. This same scenario works with any resource in a virtual network, such as REST APIs, App Service Environments, and other Azure services. 
 
 1. Go to the [Azure portal](https://portal.azure.com), choose **+ Create a resource** on the left navigation pane, in the search field type **WordPress LEMP7 Max Performance**, and press Enter.
 
@@ -76,9 +80,6 @@ Next, create a preconfigured VM that runs WordPress inside a virtual network ([W
     | **Address range** | 10.10.0.0/16 | Use a single address range for the virtual network. |
     | **Subnet name** | Tutorial-Net | Name of the subnet. |
     | **Address range** | 10.10.1.0/24   | The subnet size determines how many VMs can be used by the App Service plan. A `/24` subnet, which provides 254 host addresses, is used to make it easier to calculate which subnets are available in the 10.10.0.0/16 network.  |
-
-    > [!NOTE]  
-    > For this tutorial, it's important that you understand IP addressing and subnetting. You can start with [this article that covers the basics of addressing and subnetting](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Many more articles and videos are available online.
 
 1. Select **OK** to create the virtual network.
 
