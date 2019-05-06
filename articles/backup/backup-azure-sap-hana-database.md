@@ -124,7 +124,7 @@ Specify the policy settings as follows:
     - The backup for a specific day is tagged and retained based on the weekly retention range and setting.
     - The monthly and yearly retention ranges behave in a similar way.
 
-4. In the **Full Backup policy** menu, select **OK** to accept the settings.
+4. In the **Full Backup policy** menu, click **OK** to accept the settings.
 5. Select **Differential Backup** to add a differential policy.
 6. In **Differential Backup policy**, select **Enable** to open the frequency and retention controls.
     - At most, you can trigger one differential backup per day.
@@ -133,7 +133,7 @@ Specify the policy settings as follows:
     > [!NOTE]
     > Incremental backups aren't currently supported. 
 
-7. Select **OK** to save the policy and return to the main **Backup policy** menu.
+7. Click **OK** to save the policy and return to the main **Backup policy** menu.
 8. Select **Log Backup** to add a transactional log backup policy,
     - In **Log Backup**, select **Enable**.
     - Set the frequency and retention controls.
@@ -141,8 +141,8 @@ Specify the policy settings as follows:
     > [!NOTE]
     > Log backups only begin to flow after a successful full backup is completed.
 
-9. Select **OK** to save the policy and return to the main **Backup policy** menu.
-10. After you finish defining the backup policy, select **OK**.
+9. Click **OK** to save the policy and return to the main **Backup policy** menu.
+10. After you finish defining the backup policy, click **OK**.
 
 
 ## Run an on-demand backup
