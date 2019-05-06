@@ -70,7 +70,7 @@ workspace = Workspace.from_config()
 dstore = Datastore.get(workspace, datastore_name)
 ```
 
-Use the `from_delimited_files()` method to read in delimited files, and create in-memory Datasets.
+Use the `from_delimited_files()` method to read in delimited files, and create an unregistered Dataset.
 
 ```Python
 # create an in-memory Dataset on your local machine
@@ -94,7 +94,7 @@ dataset.head(5)
 Use the [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) method to register Datasets to your workspace for sharing and reuse within your organization and across various experiments.
 
 ```Python
-dataset = dataset.register(workspace = 'workspace_name',
+dataset = dataset.register(workspace = workspace,
                            name = "dataset_crime",
                            description = 'Training data',
                            exist_ok = False
@@ -104,10 +104,10 @@ dataset = dataset.register(workspace = 'workspace_name',
 >[!NOTE]
 > The default parameter setting for `register()` is `exist_ok = False'. If you try to register a Dataset with the same name without changing this setting an error results.
 
-The `register()` method updates the definition of an already registered Dataset with the parameter setting, `exist_ok = True`.
+The `register()` method returns the already registered Dataset with the parameter setting, `exist_ok = True`.
 
 ```Python
-dataset = dataset.register(workspace = workspace_name,
+dataset = dataset.register(workspace = workspace,
                            name = "dataset_crime",
                            description = 'Training data',
                            exist_ok = True)
@@ -133,7 +133,7 @@ Registered Datasets are accessible and consumable locally, remotely and on compu
 ```Python
 workspace = Workspace.from_config()
 
-dataset = workspace.Datasets['dataset_crime']
+dataset = workspace.datasets['dataset_crime']
 ```
 
 ## Next steps

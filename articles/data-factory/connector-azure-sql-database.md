@@ -225,7 +225,7 @@ To use managed identity authentication, follow these steps:
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) article. This section provides a list of properties supported by the Azure SQL Database dataset.
 
-To copy data from or to Azure SQL Database, set the **type** property of the dataset to **AzureSqlTable**. The following properties are supported:
+To copy data from or to Azure SQL Database, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -244,6 +244,7 @@ To copy data from or to Azure SQL Database, set the **type** property of the dat
             "referenceName": "<Azure SQL Database linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -365,7 +366,7 @@ To copy data to Azure SQL Database, set the **type** property in the Copy Activi
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the Copy Activity sink must be set to **SqlSink**. | Yes |
-| writeBatchSize | Number of rows to inserts into the SQL table **per batch**.<br/> The allowed value is **integer** (number of rows). | No. The default is 10000. |
+| writeBatchSize | Number of rows to inserts into the SQL table **per batch**.<br/> The allowed value is **integer** (number of rows). By default, Data Factory dynamically determine the appropriate batch size based on the row size. | No |
 | writeBatchTimeout | The wait time for the batch insert operation to finish before it times out.<br/> The allowed value is **timespan**. Example: “00:30:00” (30 minutes). | No |
 | preCopyScript | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Database. It's only invoked once per copy run. Use this property to clean up the preloaded data. | No |
 | sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. An example is to do upserts or transform by using your own business logic. <br/><br/>This stored procedure is **invoked per batch**. For operations that only run once and have nothing to do with source data, use the `preCopyScript` property. Example operations are delete and truncate. | No |

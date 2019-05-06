@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: jingwang
 
 ---
@@ -173,12 +173,14 @@ Copy activity execution details and performance characteristics are also returne
 | dataRead | Data size read from source | Int64 value in **bytes** |
 | dataWritten | Data size written to sink | Int64 value in **bytes** |
 | filesRead | Number of files being copied when copying data from file storage. | Int64 value (no unit) |
-| fileScanned | Number of files being scanned from the source file storage. | Int64 value (no unit) |
 | filesWritten | Number of files being copied when copying data to file storage. | Int64 value (no unit) |
-| rowsCopied | Number of rows being copied (not applicable for binary copy). | Int64 value (no unit) |
+| rowsRead | Number of rows being read from source (not applicable for binary copy). | Int64 value (no unit) |
+| rowsCopied | Number of rows being copied to sink (not applicable for binary copy). | Int64 value (no unit) |
 | rowsSkipped | Number of incompatible rows being skipped. You can turn on the feature by set "enableSkipIncompatibleRow" to true. | Int64 value (no unit) |
-| throughput | Ratio at which data are transferred | Floating point number in **KB/s** |
-| copyDuration | The duration of the copy | Int32 value in seconds |
+| throughput | Ratio at which data are transferred. | Floating point number in **KB/s** |
+| copyDuration | The duration of the copy. | Int32 value in seconds |
+| sourcePeakConnections | Peak number of concurrent connections established to the source data store during copy. | Int32 value |
+| sinkPeakConnections| Peak number of concurrent connections established to the sink data store during copy.| Int32 value |
 | sqlDwPolyBase | If PolyBase is used when copying data into SQL Data Warehouse. | Boolean |
 | redshiftUnload | If UNLOAD is used when copying data from Redshift. | Boolean |
 | hdfsDistcp | If DistCp is used when copying data from HDFS. | Boolean |

@@ -191,7 +191,7 @@ The server is currently unable to receive requests. This error may be caused by 
 |---|---|---|
 |MPE_STORAGE_SERVER_BUSY|0x808900E8|Storage Operation error, received HTTP server busy error 503.|
 
-## Provide feedback
+## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 

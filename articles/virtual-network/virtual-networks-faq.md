@@ -169,7 +169,7 @@ Yes. You can find more information in the [How to move a VM or role instance to 
 No. A MAC address cannot be statically configured.
 
 ### Will the MAC address remain the same for my VM once it's created?
-Yes, the MAC address remains the same for a VM deployed through both the Resource Manager and classic deployment models until it's deleted. Previously, the MAC address was released if the VM was stopped (deallocated), but now the MAC address is retained even when the VM is in the deallocated state.
+Yes, the MAC address remains the same for a VM deployed through both the Resource Manager and classic deployment models until it's deleted. Previously, the MAC address was released if the VM was stopped (deallocated), but now the MAC address is retained even when the VM is in the deallocated state. The MAC address remains assigned to the network interface until the network interface is deleted or the private IP address assigned to the primary IP configuration of the primary network interface is changed. 
 
 ### Can I connect to the internet from a VM in a VNet?
 Yes. All VMs and Cloud Services role instances deployed within a VNet can connect to the Internet.
@@ -230,7 +230,7 @@ Yes. Learn more about using:
 VNet peering (or virtual network peering) enables you to connect virtual networks. A VNet peering connection between virtual networks enables you to route traffic between them privately through IPv4 addresses. Virtual machines in the peered VNets can communicate with each other as if they are within the same network. These virtual networks can be in the same region or in different regions (also known as Global VNet Peering). VNet peering connections can also be created across Azure subscriptions.
 
 ### Can I create a peering connection to a VNet in a different region?
-Yes. Global VNet peering enables you to peer VNets in different regions. Global VNet peering is available in all Azure public regions and China cloud regions. You cannot globally peer from Azure public regions to National cloud regions. Global peering is not currently available in Government cloud.
+Yes. Global VNet peering enables you to peer VNets in different regions. Global VNet peering is available in all Azure public regions, China cloud regions, and Government cloud regions. You cannot globally peer from Azure public regions to national cloud regions.
 
 ### What are the constraints related to Global VNet Peering and Load Balancers?
 If the two virtual networks are in different region (Global VNet Peering), you cannot connect to resources that use Basic Load Balancer. You can connect to resources that use Standard Load Balancer.
