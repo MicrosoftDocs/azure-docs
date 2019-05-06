@@ -17,6 +17,9 @@ ms.author: shlo
 
 This article explains and demonstrates the Azure Data Factory pricing model with detailed examples.
 
+> [!NOTE]
+> The prices used in these examples below are hypothetical and are not intended to imply actual pricing.
+
 ## Copy data from AWS S3 to Azure Blob storage hourly
 
 In this scenario, you want to copy data from AWS S3 to Azure Blob storage on an hourly schedule.
