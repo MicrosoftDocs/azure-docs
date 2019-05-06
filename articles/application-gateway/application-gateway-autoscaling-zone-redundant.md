@@ -135,7 +135,7 @@ The following table compares the features available with each SKU.
 |FIPS mode|These are currently not supported.|
 |ILB only mode|This is currently not supported. Public and ILB mode together is supported.|
 |Netwatcher integration|Not supported.|
-|Azure Support Center Integration|Not yet available. 
+|Azure Support Center integration|Not yet available.
 
 ## Next steps
 
