@@ -21,11 +21,11 @@ This quickstart shows how to create a cloud resource in your Azure Machine Learn
  
 In this quickstart, you take the following actions:
 
-* Create a new cloud-based notebook server in your workspace
-* Launch the Jupyter web interface
+* Create a new cloud-based notebook server in your workspace.
+* Launch the Jupyter web interface.
 * Open a notebook that contains code to estimate pi and logs errors at each iteration.
 * Run the notebook.
-* View the logged error values in your workspace.  This example shows how the workspace can help you keep track of information generated in a script. 
+* View the logged error values in your workspace. This example shows how the workspace can help you keep track of information generated in a script. 
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
@@ -45,13 +45,15 @@ If you don’t have an Azure subscription, create a free account before you begi
 
      ![Select New VM](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
-1. Provide a name for your VM. Then select **Create**. 
+1. Provide a name for your VM. Then select **Create**.
+
+    > [!NOTE]
+    > Your Notebook VM name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character.  The name must also be unique across your Azure subscription.
 
     ![Create a new VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
-1. Wait approximately 4-5 minutes, then select **Refresh**.  Try refreshing every 30 seconds or so until the status is **Running**.
+1. Wait approximately 4-5 minutes, until the status changes to **Running**.
 
-    ![Refresh](media/quickstart-run-cloud-notebook/refresh.png)
 
 ## Launch Jupyter web interface
 
@@ -63,7 +65,11 @@ After your VM is running, use the **Notebook VMs** section to launch the Jupyter
 
     The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM.
 
-1. On the Jupyter notebook webpage, select the **samples/quickstart** folder to see the quickstart notebook.
+1. On the Jupyter notebook webpage, the top foldername is your username.  Select this folder.
+
+1. The samples foldername includes a version number, for example **samples-1.0.33.1**.  Select the samples folder.
+
+1. Select the **quickstart** notebook.
 
 ## Run the notebook
 
@@ -71,15 +77,7 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
 1. Select **01.run-experiment.ipynb** to open the notebook.
 
-1. You may see a message that the kernel has not been set.  Select **Python 3.6 - AzureML**, then select **Set Kernel**.
-
-   ![Set the kernel](./media/quickstart-run-cloud-notebook/set-kernel.png)
-
-1. The status area tells you to wait until the kernel has started. The message disappears once the kernel is ready.
-
-    ![Wait for kernel to start](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
-
-1.  Click into the first code cell and select **Run**.
+1. Click into the first code cell and select **Run**.
 
     > [!NOTE]
     > Code cells have brackets before them. If the brackets are empty (__[  ]__), the code has not been run. While the code is running, you see an asterisk(__[*]__). After the code completes, a number **[1]** appears.  The number tells you the order in which the cells ran.
@@ -90,16 +88,15 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
 1. Run the second code cell. If you see instructions to authenticate, copy the code and follow the link to sign in. Once you sign in, your browser will remember this setting.  
 
-    > [!TIP]
-    > Be sure not to copy the space after the code.  
-
     ![Authenticate](media/quickstart-run-cloud-notebook/authenticate.png)
 
-1. When you are done, the cell number __[2]__ appears.  If you had to sign in, you will see a successful authentication status message.   If you didn't have to sign in, you won't see any output for this cell, only the number appears to show that the cell ran successfully.
+1. When complete, the cell number __[2]__ appears.  If you had to sign in, you will see a successful authentication status message.   If you didn't have to sign in, you won't see any output for this cell, only the number appears to show that the cell ran successfully.
 
     ![Success message](media/quickstart-run-cloud-notebook/success.png)
 
-1. Run the rest of the code cells.  As each cell finishes running, you will see its cell number appear. Only the last cell displays any other output.  In the largest code cell, you see `run.log`  used in multiple places. Each `run.log` adds its value to your workspace.
+1. Run the rest of the code cells.  As each cell finishes running, you will see its cell number appear. Only the last cell displays any other output.  
+
+    In the largest code cell, you see `run.log`  used in multiple places. Each `run.log` adds its value to your workspace.
 
 
 ## View logged values
@@ -142,11 +139,13 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 In this quickstart, you completed these tasks:
 
-* Create a notebook VM
-* Start a Jupyter Notebook server on your notebook VM
+* Create a notebook VM.
+* Launch the Jupyter web interface.
 * Open a notebook that contains code to estimate pi and logs errors at each iteration.
 * Run the notebook.
 * View the logged error values in your workspace.  This example shows how the workspace can help you keep track of information generated in a script. 
+
+On the Jupyter Notebook webpage, browse through other notebooks in the samples folder to learn more about Azure Machine Learning service.
 
 For an in-depth workflow experience, follow Machine Learning tutorials to train and deploy a model:  
 
