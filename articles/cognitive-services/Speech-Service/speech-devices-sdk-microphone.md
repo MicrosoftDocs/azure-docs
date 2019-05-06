@@ -27,7 +27,7 @@ device form factor.
 
 |          | Circular Array    |       |  Linear Array              |                |
 |----------|-------------------|-------------------|----------------|----------------|
-|          |<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="400"/>|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="400"/>|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="400"/>|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="400"/>|
+|          |<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/>|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/>|
 | \# Mics  | 7                 | 4                 | 4              | 2              |
 | Geometry | 6 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced| 3 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced | Length = 120 mm, Spacing = 40 mm | Spacing = 40 mm |
 
