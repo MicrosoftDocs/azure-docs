@@ -118,7 +118,7 @@ Although this is the basic design of a perimeter network, there are many differe
 Based on the Zero Trust concept mentioned earlier, we recommend that you consider using a perimeter network for all high security deployments to enhance the level of network security and access control for your Azure resources. You can use Azure or a third-party solution to provide an additional layer of security between your assets and the internet:
 
 - Azure native controls. [Azure Firewall](../firewall/overview.md) and the [web application firewall in Application Gateway](../application-gateway/overview.md#web-application-firewall) offer basic security with a fully stateful firewall as a service, built-in high availability, unrestricted cloud scalability, FQDN filtering, support for OWASP core rule sets, and simple setup and configuration.
-- Third-party offerings. Search the [Azure Marketplace](https://azuremarketplace.microsoft.com/) for next-generation firewall (NGFW) and other third-party offerings that provide familiar security tools and significantly enhanced levels of network security. Configuration might be more complex, but a third-party offering might allow you to use existing capabilities and skill sets.
+- Third-party offerings. Search the [Azure Marketplace](https://azuremarketplace.microsoft.com/) for next-generation firewall (NGFW) and other third-party offerings that provide familiar security tools and significantly enhanced levels of network security. Configuration might be more complex, but a third-party offering might allow you to use existing capabilities and skillsets.
 
 ## Avoid exposure to the internet with dedicated WAN links
 Many organizations have chosen the hybrid IT route. With hybrid IT, some of the company’s information assets are in Azure, and others remain on-premises. In many cases, some components of a service are running in Azure while other components remain on-premises.
@@ -130,8 +130,8 @@ In a hybrid IT scenario, there is usually some type of cross-premises connectivi
 
 The location of your ExpressRoute connection can affect firewall capacity, scalability, reliability, and network traffic visibility. You’ll need to identify where to terminate ExpressRoute in existing (on-premises) networks. You can:
 
-    - Terminate outside the firewall (the perimeter network paradigm) if you require visibility into the traffic, if you need to continue an existing practice of isolating datacenters, or if you’re solely putting extranet resources on Azure.
-    - Terminate inside the firewall (the network extension paradigm). This is the default recommendation. In all other cases, we recommend treating Azure as an nth datacenter.
+- Terminate outside the firewall (the perimeter network paradigm) if you require visibility into the traffic, if you need to continue an existing practice of isolating datacenters, or if you’re solely putting extranet resources on Azure.
+- Terminate inside the firewall (the network extension paradigm). This is the default recommendation. In all other cases, we recommend treating Azure as an nth datacenter.
 
 ## Optimize uptime and performance
 If a service is down, information can’t be accessed. If performance is so poor that the data is unusable, you can consider the data to be inaccessible. From a security perspective, you need to do whatever you can to make sure that your services have optimal uptime and performance.
@@ -204,5 +204,5 @@ Service endpoints provide the following benefits:
 
 To learn more about service endpoints and the Azure services and regions that service endpoints are available for, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## Next step
+## Next steps
 See [Azure security best practices and patterns](security-best-practices-and-patterns.md) for more security best practices to use when you’re designing, deploying, and managing your cloud solutions by using Azure.
