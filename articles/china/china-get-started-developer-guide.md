@@ -56,6 +56,7 @@ See also:
 | Azure (in general) | \*.windows.net | \*.chinacloudapi.cn |
 | Azure compute | \*.cloudapp.net | \*.chinacloudapp.cn |
 | Azure storage | \*.blob.core.windows.net \*.queue.core.windows.net \*.table.core.windows.net | \*.blob.core.chinacloudapi.cn \*.queue.core.chinacloudapi.cn \*.table.core.chinacloudapi.cn |
+| Traffic Manager DNS Suffix | \*.trafficmanager.net | \*.trafficmanager.cn |
 | Azure service management | https://management.core.windows.net | [https://management.core.chinacloudapi.cn](https://management.core.chinacloudapi.cn/) |
 | Azure Resource Manager | [https://management.azure.com](https://management.azure.com/) | [https://management.chinacloudapi.cn](https://management.chinacloudapi.cn/) |
 | Azure management portal | [https://portal.azure.com](https://portal.azure.com/) | [https://portal.azure.cn](https://portal.azure.cn/) |
@@ -66,7 +67,7 @@ See also:
 | Azure HDInsight | \*.azurehdinsight.net | \*.azurehdinsight.cn |
 | SQL DB import/export service endpoint | |  1. China East [https://sh1prod-dacsvc.chinacloudapp.cn/dacwebservice.svc](https://sh1prod-dacsvc.chinacloudapp.cn/dacwebservice.svc) <br>2. China North [https://bj1prod-dacsvc.chinacloudapp.cn/dacwebservice.svc](https://bj1prod-dacsvc.chinacloudapp.cn/dacwebservice.svc) |
 | MySQL PaaS | | \*.mysqldb.chinacloudapi.cn |
-| Azure Service Fabric cluster | \*.cloudapp.azure.com | \*.chinaeast.chinacloudapp.cn |
+| Azure Service Fabric cluster | \*.cloudapp.azure.com | \*.cloudapp.chinacloudapi.cn |
 | Azure Active Directory (AD) | \*.onmicrosoft.com | \*.partner.onmschina.cn |
 | Azure AD logon | [https://login.microsoftonline.com](https://login.windows.net/) | [https://login.partner.microsoftonline.cn](https://login.chinacloudapi.cn/) |
 | Azure AD Graph API | [https://graph.windows.net](https://graph.windows.net/) | [https://graph.chinacloudapi.cn](https://graph.chinacloudapi.cn/) |
