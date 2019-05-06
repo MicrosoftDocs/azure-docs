@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 05/01/2019
 ---
 
 # Tutorial: Migrate SQL Server to a single database or pooled database in Azure SQL Database offline using DMS
@@ -174,9 +174,7 @@ To migrate the **AdventureWorks2012** schema to a single database or pooled data
 
     For more information on costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
 
-    If you need help with choosing the right Azure Database Migration Service tier, refer to the recommendations in the posting [here](https://go.microsoft.com/fwlink/?linkid=861067).  
-
-     ![Configure Azure Database Migration Service instance settings](media/tutorial-sql-server-to-azure-sql/dms-settings2.png)
+    ![Configure Azure Database Migration Service instance settings](media/tutorial-sql-server-to-azure-sql/dms-settings2.png)
 
 7. Select **Create** to create the service.
 
