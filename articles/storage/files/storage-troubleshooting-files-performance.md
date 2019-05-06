@@ -23,7 +23,7 @@ The default quota on a share is 100 GiB, which provides 100 baseline IOPS (with 
 
 To confirm if your share is being throttled, you can leverage Azure Metrics in the portal.
 
-1. Log in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **All services** and then search for **Metrics**.
 
@@ -133,7 +133,7 @@ Client application consistently exceeds baseline IOPS. Currently, there is no se
 
 ### Cause
 
-If the number of DirectoryOpen/DirectoryClose calls is among the top API calls and you don't expect the client to be making that many calls, it may be an issue with the antivirus installed on the Azue client VM.
+If the number of DirectoryOpen/DirectoryClose calls is among the top API calls and you don't expect the client to be making that many calls, it may be an issue with the antivirus installed on the Azure client VM.
 
 ### Workaround
 
