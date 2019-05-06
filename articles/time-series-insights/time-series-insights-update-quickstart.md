@@ -66,18 +66,18 @@ The Time Series Insights Preview explorer demonstrates historical data and root 
 
       [![Look for historical patterns](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
 
-Using Azure Time Series Insights and our sensor telemetry, we've discovered a long-term and problematic trend hidden in our historical data. With these new insights, we can explain:
+Using Azure Time Series Insights and our sensor telemetry, we've discovered a long-term and problematic trend hidden in our historical data. With these new insights, we can:
 
 > [!div class="checklist"]
-> * What actually occurred
-> * Correct the problem
+> * Explain what actually occurred.
+> * Correct the problem.
 > * Put superior alert notification systems into place.
 
 ## Root-cause analysis
 
 1. Some scenarios require sophisticated analysis to uncover subtle clues in data. Select the windmill **W6** on date **6/25**
 
-    * Update the view range to **6/1/17 20:00 to 7/1/17 20:00 (UTC)**
+    * Update the view range to **6/1/17 20:00 to 7/1/17 20:00 (UTC)**.
     * Then select the **Contoso Plant 1** > **W6** > **Safety System** > **VoltageActuatorSwitchWarning** sensor.
 
       [![Update the view range and select W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
