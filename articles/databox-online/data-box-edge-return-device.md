@@ -87,7 +87,7 @@ You can delete the device in the Azure portal:
 -	After you have placed the order and before the device is prepared by Microsoft.
 -	After you’ve returned the device to Microsoft and it passes the physical inspection at the Azure datacenter.
 
-If you’ve activated the device against another subscription or location, Microsoft will move your order to the new subscription or location within 1 business day. After the order is moved, you can delete this resource.
+If you’ve activated the device against another subscription or location, Microsoft will move your order to the new subscription or location within one business day. After the order is moved, you can delete this resource.
 
 
 Take the following steps to delete the device and the resource in Azure portal.
