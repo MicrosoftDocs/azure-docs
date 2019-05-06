@@ -4,7 +4,7 @@ description: Learn how to connect Symantec ICDX data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: d068223f-395e-46d6-bb94-7ca1afd3503c

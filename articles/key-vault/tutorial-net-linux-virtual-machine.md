@@ -2,7 +2,7 @@
 title: Tutorial - How to use Azure Key Vault with an Azure Linux Virtual Machine in .NET - Azure Key Vault | Microsoft Docs
 description: Tutorial Configure an ASP.NET core application to read a secret from Key vault
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 
 ms.service: key-vault
