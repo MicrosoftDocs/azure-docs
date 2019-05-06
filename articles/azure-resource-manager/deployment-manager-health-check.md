@@ -64,6 +64,7 @@ In order to make health integration as easy as possible, Microsoft has been work
 
 |c1|c2|c3|
 |-----|------|------|
+| ![azure deployment manager health monitor provider datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![azure deployment manager health monitor provider site24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![azure deployment manager health monitor provider wavefront](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
 |Datadog, the leading monitoring and analytics platform for modern cloud environments. See [how Datadog integrates with Azure Deployment Manager]().|The All-in-One Monitoring Solution. See [how Site24x7 integrates with Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| bla, bla, bla. See [how Wavefront integrates with Azure Deployment Manager]().|
 
 ## Next steps

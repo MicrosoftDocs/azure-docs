@@ -222,6 +222,10 @@ This section is optional for this tutorial.  The purpose of this section is to s
 
     The health check step is used after rolling out stepGroup1 and stepGroup2. stepGroup3 and stepGroup4 are only deployed if the healthy status is either *healthy* or *warning*. 
 
+    The following screenshot illustrates the areas modified, and how the health check step is used:
+
+    ![Azure Deployment Manager health check template](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-rollout-template.png)
+
 ## Deploy the topology
 
 To simplify the tutorial, the topology template and artifacts are shared at:
