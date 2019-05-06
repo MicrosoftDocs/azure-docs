@@ -74,7 +74,7 @@ The following steps show the logic that is used to calculate **ageGroup** from t
 
 4. If neither calculation returns true, the calculation returns **Adult**.
 
-If an application has reliably gathered DOB or country/country data by other methods, the application may use the Graph API to update the user record with this information. For example:
+If an application has reliably gathered DOB or country/region data by other methods, the application may use the Graph API to update the user record with this information. For example:
 
 - If a user is known to be an adult, update the directory attribute **ageGroup** with a value of **Adult**.
 - If a user is known to be a minor, update the directory attribute **ageGroup** with a  value of **Minor** and set **consentProvidedForMinor**, as appropriate.
