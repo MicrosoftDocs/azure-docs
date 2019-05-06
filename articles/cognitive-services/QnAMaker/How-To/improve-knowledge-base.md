@@ -70,7 +70,7 @@ Active learning is off by default. Turn it on to see suggested questions.
 
 ## Add active learning suggestion to knowledge base
 
-1. In order to see the suggested questions, on the **Edit** knowledge base page, select **Show Suggestions**. 
+1. In order to see the suggested questions, on the **Edit** knowledge base page, select **View Options**, then select **Show active learning suggestions**. 
 
     [![On the Edit section of the portal, select Show Suggestions in order to see the active learning's new question alternatives.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
