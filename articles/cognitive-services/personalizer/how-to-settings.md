@@ -17,26 +17,19 @@ ms.author: edjez
 
 Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
 
-## Create a Personalizer resource
+## Create Personalizer resource
 
 Create a Personalizer resource for each feedback loop. 
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/)
-1. Select the green **+** sign in the upper-left panel. Search for `Personalizer` and select it.
-1. Set the following:
+1. Sign in to [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). The previous link takes you to the **Create** page for the Personlizer service. 
+1. Enter your service name, select a subscription, location, pricing tier, and resource group.
+1. Select the confirmation and select **Create**.
 
-    | Property|Purpose|
-    |--|--|
-    |Resource name| The name of your resource as it appears in the portal.|
-    Subscription|The name of the billing subscription.|
-    |Location|The Azure region of the service.|
-    |Pricing tier|The pricing tier controls throughput.|
-    |Resource group|The logical grouping of services. If you are using this service in combination with other services, place all the resources in the same resource group.|
-    | | |
+## Configure service settings in the Azure portal
 
-1. Select **Create** to create the resource.
-
-    Once your resource is created, it is ready to use. You don't have to configure it before it will work. 
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
+1. Find your Personalizer resource. 
+1. In the **Resource management** section, select **Settings**.
 
     Before leaving the Azure portal, copy one of your resource keys from the **Keys** page. You will need this to use the [Personalizer SDK](https://aka.ms/personalizer-dotnet-sdk-docs).
 

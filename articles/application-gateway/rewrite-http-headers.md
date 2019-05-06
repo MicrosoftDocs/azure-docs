@@ -2,10 +2,10 @@
 title: Rewrite HTTP headers with Azure Application Gateway | Microsoft Docs
 description: This article provides an overview of rewriting HTTP headers in Azure Application Gateway
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 04/29/2019
 ms.author: absha
 ---
 
@@ -20,7 +20,8 @@ Application Gateway allows you to add, remove, or update HTTP request and respon
 Application Gateway also supports several [server variables](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) that help you store additional information about requests and responses. This makes it easier for you to create powerful rewrite rules.
 
 > [!NOTE]
-> HTTP header rewrite is available only in the [new SKU Standard_v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+>
+> The HTTP header rewrite support is only available for the [Standard_V2 and WAF_v2 SKU](application-gateway-autoscaling-zone-redundant.md).
 
 ![Rewriting headers](media/rewrite-http-headers/rewrite-headers.png)
 
@@ -159,5 +160,5 @@ Contact us at [AGHeaderRewriteHelp@microsoft.com](mailto:AGHeaderRewriteHelp@mic
 
 To learn how to rewrite HTTP headers, see:
 
--  [Rewrite HTTP headers using Azure portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
--  [Rewrite HTTP headers using Azure PowerShell](add-http-header-rewrite-rule-powershell.md)
+- [Rewrite HTTP headers using Azure portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Rewrite HTTP headers using Azure PowerShell](add-http-header-rewrite-rule-powershell.md)

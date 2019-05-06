@@ -37,7 +37,7 @@
       displayName: learning policy, Counterfactual, features
 - name: How-to guides
   items:
-  - name: Configure Personalizer
+  - name: Create and configure Personalizer
     href: how-to-settings.md
     displayName: azure, portal, settings, evaluation, offline, policy
   - name: Analyze
@@ -51,7 +51,7 @@
       href: personalizer-container-howto.md
     - name: Configure containers
       href: personalizer-container-configuration.md
-      displayName: docker, run, apikey
+      displayName: docker, run, apikey      
 - name: Reference
   items:
   - name: Samples
