@@ -45,15 +45,15 @@ Learn what's new with the Azure Speech Services.
 
 We offer quickstarts in most popular programming languages, each designed to have you running code in less than 10 minutes. This table contains the most popular quickstarts for each feature. Use the left-hand navigation to explore additional languages and platforms.
 
-| Speech-to-text (SDK) | Text-to-Speech (SDK)* | Translation (SDK) |
-|----------------------|-----------------------|-------------------|
+| Speech-to-text (SDK) | Text-to-Speech (SDK) | Translation (SDK) |
+|----------------------|----------------------|-------------------|
 | [C#, .NET Core (Windows)](quickstart-csharp-dotnet-windows.md) | [C#, .NET Framework (Windows)](quickstart-text-to-speech-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) |
 | [JavaScript (Browser)](quickstart-js-browser.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) | [C#, .NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) |
 | [Python (Windows, Linux, macOS)](quickstart-python.md) | [C++ (Linux)](quickstart-text-to-speech-cpp-linux.md) | [C#, .NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) |
 | [Java (Windows, Linux)](quickstart-java-jre.md) | | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) |
 
 > [!NOTE]
-> \* Additional quickstarts are available for REST.
+> Speech-to-text and text-to-speech also have REST endpoints and associated quickstarts.
 
 After you've had a chance to use the Speech Services, try our tutorial that teaches you how to recognize intents from speech using the Speech SDK and LUIS.
 
