@@ -14,18 +14,15 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 05/01/2019
 ms.author: jowargo
 ---
 
-# Tutorial: Push notification to specific Android application users by using Azure Notification Hubs and Google Cloud Messaging (deprecated)
-
-> [!WARNING]
-> As of April 10, 2018, Google has deprecated Google Cloud Messaging (GCM). The GCM server and client APIs are deprecated and will be removed as soon as May 29, 2019. For more information, see [GCM and FCM Frequently Asked Questions](https://developers.google.com/cloud-messaging/faq).
+# Tutorial: Push notification to specific Android application users by using Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance article [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). This tutorial builds on the notification hub that you created in the [Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md).
+This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance article [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). This tutorial builds on the notification hub that you created in the [Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 In this tutorial, you take the following steps:
 
@@ -36,13 +33,13 @@ In this tutorial, you take the following steps:
 
 ## Prerequisites
 
-Complete the [Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md) before doing this tutorial.
+Complete the [Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md) before doing this tutorial.
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Create the Android Project
 
-The next step is to update the Android application created in the [Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md).
+The next step is to update the Android application created in the [Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 1. Open your `res/layout/activity_main.xml` file, replace the following content definitions:
 
@@ -50,9 +47,9 @@ The next step is to update the Android application created in the [Tutorial: Pus
 
     ```xml
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/usernameText"
@@ -77,7 +74,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
         android:layout_height="wrap_content"
         android:text="@string/loginButton"
         android:onClick="login"
-        android:layout_above="@+id/toggleButtonGCM"
+        android:layout_above="@+id/toggleButtonFCM"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="24dp" />
     <ToggleButton
@@ -86,14 +83,14 @@ The next step is to update the Android application created in the [Tutorial: Pus
         android:textOn="WNS on"
         android:textOff="WNS off"
         android:id="@+id/toggleButtonWNS"
-        android:layout_toLeftOf="@id/toggleButtonGCM"
+        android:layout_toLeftOf="@id/toggleButtonFCM"
         android:layout_centerVertical="true" />
     <ToggleButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textOn="GCM on"
-        android:textOff="GCM off"
-        android:id="@+id/toggleButtonGCM"
+        android:textOn="FCM on"
+        android:textOff="FCM off"
+        android:id="@+id/toggleButtonFCM"
         android:checked="true"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true" />
@@ -103,13 +100,13 @@ The next step is to update the Android application created in the [Tutorial: Pus
         android:textOn="APNS on"
         android:textOff="APNS off"
         android:id="@+id/toggleButtonAPNS"
-        android:layout_toRightOf="@id/toggleButtonGCM"
+        android:layout_toRightOf="@id/toggleButtonFCM"
         android:layout_centerVertical="true" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editTextNotificationMessageTag"
-        android:layout_below="@id/toggleButtonGCM"
+        android:layout_below="@id/toggleButtonFCM"
         android:layout_centerHorizontal="true"
         android:hint="@string/notification_message_tag_hint" />
     <EditText
@@ -132,7 +129,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
         android:layout_height="wrap_content"
         android:text="Hello World!"
         android:id="@+id/text_hello"
-    />  
+        />
     </RelativeLayout>
     ```
 2. Open your `res/values/strings.xml` file and replace the `send_button` definition with the following lines that redefine the string for the `send_button` and add strings for the other controls:
@@ -152,10 +149,11 @@ The next step is to update the Android application created in the [Tutorial: Pus
 3. Create a new class named `RegisterClient` in the same package as your `MainActivity` class. Use the code below for the new class file.
 
     ```java
+  
     import java.io.IOException;
     import java.io.UnsupportedEncodingException;
     import java.util.Set;
-
+    
     import org.apache.http.HttpResponse;
     import org.apache.http.HttpStatus;
     import org.apache.http.client.ClientProtocolException;
@@ -169,11 +167,11 @@ The next step is to update the Android application created in the [Tutorial: Pus
     import org.json.JSONArray;
     import org.json.JSONException;
     import org.json.JSONObject;
-
+    
     import android.content.Context;
     import android.content.SharedPreferences;
     import android.util.Log;
-
+    
     public class RegisterClient {
         private static final String PREFS_NAME = "ANHSettings";
         private static final String REGID_SETTING_NAME = "ANHRegistrationId";
@@ -181,32 +179,32 @@ The next step is to update the Android application created in the [Tutorial: Pus
         SharedPreferences settings;
         protected HttpClient httpClient;
         private String authorizationHeader;
-
+    
         public RegisterClient(Context context, String backendEndpoint) {
             super();
             this.settings = context.getSharedPreferences(PREFS_NAME, 0);
             httpClient =  new DefaultHttpClient();
             Backend_Endpoint = backendEndpoint + "/api/register";
         }
-
+    
         public String getAuthorizationHeader() {
             return authorizationHeader;
         }
-
+    
         public void setAuthorizationHeader(String authorizationHeader) {
             this.authorizationHeader = authorizationHeader;
         }
-
+    
         public void register(String handle, Set<String> tags) throws ClientProtocolException, IOException, JSONException {
             String registrationId = retrieveRegistrationIdOrRequestNewOne(handle);
-
+    
             JSONObject deviceInfo = new JSONObject();
-            deviceInfo.put("Platform", "gcm");
+            deviceInfo.put("Platform", "fcm");
             deviceInfo.put("Handle", handle);
             deviceInfo.put("Tags", new JSONArray(tags));
-
+    
             int statusCode = upsertRegistration(registrationId, deviceInfo);
-
+    
             if (statusCode == HttpStatus.SC_OK) {
                 return;
             } else if (statusCode == HttpStatus.SC_GONE){
@@ -222,7 +220,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
                 throw new RuntimeException("Error upserting registration");
             }
         }
-
+    
         private int upsertRegistration(String registrationId, JSONObject deviceInfo)
                 throws UnsupportedEncodingException, IOException,
                 ClientProtocolException {
@@ -234,11 +232,11 @@ The next step is to update the Android application created in the [Tutorial: Pus
             int statusCode = response.getStatusLine().getStatusCode();
             return statusCode;
         }
-
+    
         private String retrieveRegistrationIdOrRequestNewOne(String handle) throws ClientProtocolException, IOException {
             if (settings.contains(REGID_SETTING_NAME))
                 return settings.getString(REGID_SETTING_NAME, null);
-
+    
             HttpUriRequest request = new HttpPost(Backend_Endpoint+"?handle="+handle);
             request.addHeader("Authorization", "Basic "+authorizationHeader);
             HttpResponse response = httpClient.execute(request);
@@ -248,21 +246,22 @@ The next step is to update the Android application created in the [Tutorial: Pus
             }
             String registrationId = EntityUtils.toString(response.getEntity());
             registrationId = registrationId.substring(1, registrationId.length()-1);
-
+    
             settings.edit().putString(REGID_SETTING_NAME, registrationId).commit();
-
+    
             return registrationId;
         }
     }
     ```
 
-    This component implements the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). It uses an authorization token stored in local storage when you click the **Sign in** button.
-4. In your  class, remove or comment out your private field for `NotificationHub`, and add a field for the `RegisterClient` class and a string for your ASP.NET backend's endpoint. Be sure to replace `<Enter Your Backend Endpoint>` with your actual backend endpoint obtained previously. For example, `http://mybackend.azurewebsites.net`.
+    This component implements the REST calls required to contact the app backend to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). It uses an authorization token stored in local storage when you click the **Sign in** button.
+4. In your `MainActivity` class, and add a field for the `RegisterClient` class and a string for your ASP.NET backend's endpoint. Be sure to replace `<Enter Your Backend Endpoint>` with your actual backend endpoint obtained previously. For example, `http://mybackend.azurewebsites.net`.
 
     ```java
-    //private NotificationHub hub;
     private RegisterClient registerClient;
     private static final String BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
+    FirebaseInstanceId fcm;
+    String FCM_token = null;
     ```
 
 5. In your `MainActivity` class, in the `onCreate` method, remove, or comment out the initialization of the `hub` field and the call to the `registerWithNotificationHubs` method. Then add code to initialize an instance of the `RegisterClient` class. The method should contain the following lines:
@@ -273,25 +272,19 @@ The next step is to update the Android application created in the [Tutorial: Pus
         super.onCreate(savedInstanceState);
 
         mainActivity = this;
-        NotificationsManager.handleNotifications(this, NotificationSettings.SenderId, MyHandler.class);
-        gcm = GoogleCloudMessaging.getInstance(this);
-
-        //hub = new NotificationHub(HubName, HubListenConnectionString, this);
-        //registerWithNotificationHubs();
-
+        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
+        fcm = FirebaseInstanceId.getInstance();
         registerClient = new RegisterClient(this, BACKEND_ENDPOINT);
-
         setContentView(R.layout.activity_main);
     }
     ```
-6. In your `MainActivity` class, delete or comment out the entire `registerWithNotificationHubs` method. It will not be used in this tutorial.
 7. Add the following `import` statements to your `MainActivity.java` file.
 
     ```java
     import android.util.Base64;
     import android.view.View;
     import android.widget.EditText;
-
+    
     import android.widget.Button;
     import android.widget.ToggleButton;
     import java.io.UnsupportedEncodingException;
@@ -301,15 +294,20 @@ The next step is to update the Android application created in the [Tutorial: Pus
     import org.apache.http.client.ClientProtocolException;
     import java.io.IOException;
     import org.apache.http.HttpStatus;
-
+    
     import android.os.AsyncTask;
     import org.apache.http.HttpResponse;
     import org.apache.http.client.methods.HttpPost;
     import org.apache.http.entity.StringEntity;
     import org.apache.http.impl.client.DefaultHttpClient;
-
+    
     import android.app.AlertDialog;
     import android.content.DialogInterface;
+    
+    import com.google.firebase.iid.FirebaseInstanceId;
+    import com.google.firebase.iid.InstanceIdResult;
+    import com.google.android.gms.tasks.OnSuccessListener;
+    import java.util.concurrent.TimeUnit;
     ```
 8. Replace code on the onStart method with the following code:
 
@@ -329,8 +327,16 @@ The next step is to update the Android application created in the [Tutorial: Pus
             @Override
             protected Object doInBackground(Object... params) {
                 try {
-                    String regid = gcm.register(NotificationSettings.SenderId);
-                    registerClient.register(regid, new HashSet<String>());
+
+                    FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
+                        @Override
+                        public void onSuccess(InstanceIdResult instanceIdResult) {
+                            FCM_token = instanceIdResult.getToken();
+                            Log.d(TAG, "FCM Registration Token: " + FCM_token);
+                        }
+                    });
+                    TimeUnit.SECONDS.sleep(1);
+                    registerClient.register(FCM_token, new HashSet<String>());
                 } catch (Exception e) {
                     DialogNotify("MainActivity - Failed to register", e.getMessage());
                     return e;
@@ -341,7 +347,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
             protected void onPostExecute(Object result) {
                 Button sendPush = (Button) findViewById(R.id.sendbutton);
                 sendPush.setEnabled(true);
-                Toast.makeText(context, "Logged in and registered.",
+                Toast.makeText(context, "Signed in and registered.",
                         Toast.LENGTH_LONG).show();
             }
         }.execute(null, null, null);
@@ -360,7 +366,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
         * to the platform notification service based on the pns parameter.
         *
         * @param pns     The platform notification service to send the notification message to. Must
-        *                be one of the following ("wns", "gcm", "apns").
+        *                be one of the following ("wns", "fcm", "apns").
         * @param userTag The tag for the user who will receive the notification message. This string
         *                must not contain spaces or special characters.
         * @param message The notification message string. This string must include the double quotes
@@ -386,7 +392,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
 
                     if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
                         DialogNotify("MainActivity - Error sending " + pns + " notification",
-                            response.getStatusLine().toString());
+                                response.getStatusLine().toString());
                         throw new RuntimeException("Error sending notification");
                     }
                 } catch (Exception e) {
@@ -445,9 +451,9 @@ The next step is to update the Android application created in the [Tutorial: Pus
         {
             sendPush("wns", nhMessageTag, nhMessage);
         }
-        if (((ToggleButton)findViewById(R.id.toggleButtonGCM)).isChecked())
+        if (((ToggleButton)findViewById(R.id.toggleButtonFCM)).isChecked())
         {
-            sendPush("gcm", nhMessageTag, nhMessage);
+            sendPush("fcm", nhMessageTag, nhMessage);
         }
         if (((ToggleButton)findViewById(R.id.toggleButtonAPNS)).isChecked())
         {
@@ -466,7 +472,7 @@ The next step is to update the Android application created in the [Tutorial: Pus
 
 1. Run the application on a device or an emulator using Android Studio.
 2. In the Android app, enter a username and password. They must both be the same string value and they must not contain spaces or special characters.
-3. In the Android app, click **Sign in**. Wait for a toast message that states **Logged in and registered**. It enables the **Send Notification** button.
+3. In the Android app, click **Sign in**. Wait for a toast message that states **Signed in and registered**. It enables the **Send Notification** button.
 
     ![][A2]
 4. Click the toggle buttons to enable all platforms where you ran the app and registered a user.
