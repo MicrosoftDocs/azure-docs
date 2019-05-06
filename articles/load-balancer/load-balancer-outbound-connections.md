@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 05/02/2019
 ms.author: kumud
 ---
 
@@ -171,13 +171,13 @@ SNAT ports allocations are IP transport protocol specific (TCP and UDP are maint
 
 ### TCP SNAT port release
 
-- If both server/client sends FIN/ACK, SNAT port will be released after 240 seconds.
+- If either server/client sends FINACK, SNAT port will be released after 240 seconds.
 - If a RST is seen, SNAT port will be released after 15 seconds.
-- idle timeout has been reached
+- If idle timeout has been reached, port is released.
 
 ### UDP SNAT port release
 
-- idle timeout has been reached
+- If idle timeout has been reached, port is released.
 
 ## <a name="problemsolving"></a> Problem solving 
 

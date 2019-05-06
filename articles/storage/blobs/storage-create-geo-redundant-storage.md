@@ -8,6 +8,7 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram
+ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
 
@@ -54,8 +55,8 @@ To complete this tutorial:
 
 # [Java V10 SDK](#tab/java-v10)
 
-* Install and configure [Maven](http://maven.apache.org/download.cgi) to work from the command line
-* Install and configure a [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* Install and configure [Maven](https://maven.apache.org/download.cgi) to work from the command line
+* Install and configure a [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 ---
 

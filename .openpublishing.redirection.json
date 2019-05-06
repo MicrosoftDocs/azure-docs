@@ -1096,6 +1096,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-qsg.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices-sdk-android-quickstart",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-licensing-ps-examples.md",
       "redirect_url": "/azure/active-directory/users-groups-roles/licensing-ps-examples",
       "redirect_document_id": true
@@ -1278,6 +1283,41 @@
     {
       "source_path": "articles/cosmos-db/multi-master-conflict-resolution.md",
       "redirect_url": "/azure/cosmos-db/conflict-resolution-policies",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/create-firewall-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-firewall-create",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/ha-failover-policy-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-failover-priority-update",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/scale-multiregion-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-create",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/secure-get-account-key-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-key-get",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/secure-mongo-connection-string-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-connection-string-get",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/secure-regenerate-key-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-key-regenerate",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/manage-account-with-powershell.md",
+      "redirect_url": "/azure/cosmos-db/manage-with-powershell",
       "redirect_document_id": true
     },
     {
@@ -2366,11 +2406,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/iot-edge/how-to-install-iot-edge-windows-with-linux.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/iot-edge/how-to-install-iot-core.md",
       "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows",
       "redirect_document_id": false
@@ -2584,6 +2619,16 @@
       "source_path": "articles/virtual-machines/linux/expand-disks-nodejs.md",
       "redirect_url": "/azure/virtual-machines/linux/expand-disks",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md",
+      "redirect_url": "/azure/virtual-machines/linux/managed-disks-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md",
+      "redirect_url": "/azure/virtual-machines/windows/managed-disks-overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/install-mongodb-nodejs.md",
@@ -13526,6 +13571,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-security-threat-detection.md",
+      "redirect_url": "/sql-database/sql-database-threat-detection-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-overview.md",
+      "redirect_url": "/sql-database/sql-database-auditing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-auditing-get-started.md",
       "redirect_url": "/azure/sql-database/sql-database-auditing",
       "redirect_document_id": false
@@ -15068,6 +15123,11 @@
     {
       "source_path": "articles/stream-analytics/stream-analytics-tools-for-visual-studio.md",
       "redirect_url": "/azure/stream-analytics/stream-analytics-quick-create-vs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/stream-analytics/stream-analytics-dotnet-management-sdk-v1.md",
+      "redirect_url": "/azure/stream-analytics/stream-analytics-dotnet-management-sdk",
       "redirect_document_id": false
     },
     {
@@ -17660,22 +17720,22 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/quickstart-v1-add-azure-ad-app.md",
+      "source_path": "articles/active-directory/develop/quickstart-v1-add-azure-ad-app.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/active-directory/quickstart-v2-register-an-app.md",
+      "source_path": "articles/active-directory/develop/quickstart-v2-register-an-app.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/quickstart-v1-update-azure-ad-app.md",
+      "source_path": "articles/active-directory/develop/quickstart-v1-update-azure-ad-app.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-configure-app-access-web-apis",
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/active-directory/quickstart-v1-remove-azure-ad-app.md",
+      "source_path": "articles/active-directory/develop/quickstart-v1-remove-azure-ad-app.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-remove-app",
       "redirect_document_id": true
     },
@@ -32474,6 +32534,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/speech-service/how-to-customize-voice-font.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/speech-service/supported-languages.md",
       "redirect_url": "/azure/cognitive-services/speech-service/language-support",
       "redirect_document_id": true
@@ -33282,6 +33347,11 @@
       "source_path": "articles/machine-learning/service/quickstart-installation.md",
       "redirect_url": "/azure/machine-learning/desktop-workbench/quickstart-installation",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/service/how-to-build-deploy-onnx.md",
+      "redirect_url": "/azure/machine-learning/service/concept-onnx",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-hub/iot-hub-raspberry-pi-kit-python-get-started.md",
@@ -36939,11 +37009,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/hdinsight/hbase/apache-hbase-enhanced-writes.md",
-      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/spatial-anchors/concepts/create-locate-anchors-unity.md",
       "redirect_url": "/azure/spatial-anchors/how-tos/create-locate-anchors-unity",
       "redirect_document_id": false
@@ -37071,6 +37136,31 @@
     {
       "source_path": "articles/cognitive-services/QnAMaker/How-To/publish-knowledge-base.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-publish-knowledge-base",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/prepare-transcription.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-human-labeled-transcriptions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-acoustic-models.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-language-model.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-pronunciation.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-create-custom-endpoint.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-deploy-model",
       "redirect_document_id": true
     },
     {
@@ -38692,6 +38782,56 @@
       "source_path": "articles/active-directory/develop/app-registration-portal-content.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-v2-register-an-app",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/origin-error-codes.md",
+      "redirect_url": "/azure/media-services/latest/streaming-endpoint-error-codes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-create-account.md",
+      "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-create-asset.md",
+      "redirect_url": "/azure/media-services/latest/cli-create-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-create-event-grid.md",
+      "redirect_url": "/azure/media-services/latest/job-state-events-cli-how-to",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-create-jobs.md",
+      "redirect_url": "/azure/media-services/latest/cli-create-jobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-create-transform.md",
+      "redirect_url": "/azure/media-services/latest/cli-create-transform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-publish-asset.md",
+      "redirect_url": "/azure/media-services/latest/cli-publish-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-reset-account-credentials.md",
+      "redirect_url": "/azure/media-services/latest/cli-reset-account-credentials",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-upload-file-asset.md",
+      "redirect_url": "/azure/media-services/latest/cli-upload-file-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-samples.md",
+      "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
+      "redirect_document_id": true
     }
   ]
 }
