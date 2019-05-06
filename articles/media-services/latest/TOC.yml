@@ -106,8 +106,8 @@
       href: streaming-policy-concept.md  
     - name: Content Key Policies
       href: content-key-policy-concept.md      
-    - name: Origin error codes  
-      href: origin-error-codes.md         
+    - name: Streaming Endpoint error codes  
+      href: streaming-endpoint-error-codes.md       
   - name: Live streaming 
     items:
     - name: Overview
@@ -148,8 +148,8 @@
       href: rbac-overview.md
     - name: Error codes
       items:
-      - name: Origin error codes  
-        href: origin-error-codes.md
+      - name: Streaming Endpoint error codes  
+        href: streaming-endpoint-error-codes.md
       - name: Job error codes
         href: job-error-codes.md
   - name: Migration guidance from v2 to v3
@@ -254,8 +254,8 @@
     href: /azure/templates/microsoft.media/allversions
   - name: Error codes
     items:
-    - name: Origin error codes  
-      href: origin-error-codes.md
+    - name: Streaming Endpoint error codes  
+      href: streaming-endpoint-error-codes.md
     - name: Job error codes
       href: job-error-codes.md   
 - name: Resources
