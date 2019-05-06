@@ -1,6 +1,6 @@
 ---
-title: Conditional cognitive search skill (Azure Search) | Microsoft Docs
-description: Conditional skill that allows filtering, creating defaults, and merging values.
+title: The conditional cognitive search skill in Azure Search | Microsoft Docs
+description: The conditional skill that enables filtering, creating defaults, and merging values.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -16,9 +16,9 @@ ms.author: luisca
 
 #	Conditional skill
 
-The *conditional skill* enables a variety of scenarios that require a boolean operation to determine the data to assign to an output. These scenarios include: filtering, assigning a default value, and merging data based on a condition.
+The *conditional skill* enables scenarios that require a boolean operation to determine the data to assign to an output. These scenarios include: filtering, assigning a default value, and merging data based on a condition.
 
-The following pseudocode explains what the conditional skill accomplishes:
+The following pseudocode demonstrates what the conditional skill accomplishes:
 
 ```
 if (condition) 
@@ -38,7 +38,7 @@ Microsoft.Skills.Util.ConditionalSkill
 
 This skill is special because its inputs are evaluated fields.
 
-The following are valid values of an expression:
+The following items are valid values of an expression:
 
 -	Annotation paths (paths in expressions must be delimited by "$(" and ")")
  <br/>
@@ -71,7 +71,7 @@ The following are valid values of an expression:
         "= !true"
     ```
 
--	Expressions that use a numeric operator (+, -, \*, /, %) <br/>
+-	Expressions that use numeric operators (+, -, \*, /, %) <br/>
     Examples: 
     ```
         "= $(/document/sentiment) + 0.5"         // addition
@@ -79,25 +79,25 @@ The following are valid values of an expression:
         "= $(/document/lengthInMeters) / 0.3049" // division
     ```
 
-Because it supports evaluation, you can use the conditional skill for minor transformation scenarios. See example, see [skill definition 4](#transformation-examples).
+Because the conditional skill supports evaluation, you can use it in minor-transformation scenarios. See example, see [skill definition 4](#transformation-examples).
 
 ## Skill inputs
 Inputs are case-sensitive.
 
-| Inputs	  | Description |
+| Input	  | Description |
 |-------------|-------------|
 | condition   | This input is an [evaluated field](#evaluated-fields) that represents the condition to evaluate. This condition should evaluate to a boolean value (true or false).   <br/>  Examples: <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
 | whenTrue    | This input is an [evaluated field](#evaluated-fields) that represents the value to return if the condition is evaluated to true. Constants strings should be returned in single quotation marks (' and '). <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/> |
 | whenFalse   | This input is an [evaluated field](#evaluated-fields) that represents the value to return if the condition is evaluated to false.  <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
 
 ## Skill outputs
-There's a single output called "output." It returns the value of *whenFalse* if the condition is false or *whenTrue* if the condition is true.
+There's a single output that'; called "output." It returns the value *whenFalse* if the condition is false or *whenTrue* if the condition is true.
 
 ## Examples
 
 ###	Sample skill definition 1: Filter documents to return only French documents
 
-The following output returns an array of sentences ("/document/frenchSentences") if the language of the document is French. If the language is not French, that value will be set to null.
+The following output returns an array of sentences ("/document/frenchSentences") if the language of the document is French. If the language isn't French, that value is set to null.
 
 ```json
 {
@@ -111,12 +111,12 @@ The following output returns an array of sentences ("/document/frenchSentences")
     "outputs": [ { "name": "output", "targetName": "frenchSentences" } ]
 }
 ```
-If "/document/frenchSentences" is used as the *context* of another skill, that skill will only run if "/document/frenchSentences" isn't set to null.
+If "/document/frenchSentences" is used as the *context* of another skill, that skill only runs if "/document/frenchSentences" isn't set to null.
 
 
 ###	Sample skill definition 2: Setting a default value when it doesn't exist
 
-The following output creates an annotation ("/document/languageWithDefault") that's set to either the language of the document or to "es" if the language is not set.
+The following output creates an annotation ("/document/languageWithDefault") that's set to the language of the document or to "es" if the language isn't set.
 
 ```json
 {
@@ -131,9 +131,9 @@ The following output creates an annotation ("/document/languageWithDefault") tha
 }
 ```
 
-###	Sample skill definition 3: Merge values from two  fields into one
+###	Sample skill definition 3: Merge values from two fields into one
 
-In this example, some sentences have a **frenchSentiment** property. Whenever the **frenchSentiment** property is null, we want to use the *englishSentiment* value. We assign the output to a member that's called simply *sentiment* ("/document/sentiment/*/sentiment").
+In this example, some sentences have a **frenchSentiment** property. Whenever the **frenchSentiment** property is null, we want to use the *englishSentiment* value. We assign the output to a member that's called *sentiment* ("/document/sentiment/*/sentiment").
 
 ```json
 {
@@ -149,11 +149,11 @@ In this example, some sentences have a **frenchSentiment** property. Whenever th
 ```
 
 ## Transformation examples
-###	Sample skill definition 4: Perform data transformations on a single field
+###	Sample skill definition 4: Data transformation on a single field
 
-In this example, we receive a *sentiment* that's between 0 and 1. We want to transform it so that it's between -1 and 1. We can use the conditional skill to do this minor transfrormation.
+In this example, we receive a *sentiment* that's between 0 and 1. We want to transform it so that it's between -1 and 1. We can use the conditional skill to do this minor transformation.
 
-In this example, we don't use the conditional aspect of the skill because the condition is always *true*. 
+In this example, we don't use the conditional aspect of the skill because the condition is always *true*.
 
 ```json
 {
@@ -169,7 +169,7 @@ In this example, we don't use the conditional aspect of the skill because the co
 ```
 
 ## Special considerations
-Some parameters are evaluated, so you need to be especially careful to follow the documented pattern. Expressions must start with an equals sign ("="), a path must be delimited by "$(" and ")". Make sure to put your strings in single quotation marks. That helps the evaluator distinguish between strings and actual paths and operators. Also, make sure to put white space around operators (for instance, a "*" in a path means something different than multiply).
+Some parameters are evaluated, so you need to be especially careful to follow the documented pattern. Expressions must start with an equals sign. A path must be delimited by "$(" and ")". Make sure to put strings in single quotation marks. That helps the evaluator distinguish between strings and actual paths and operators. Also, make sure to put white space around operators (for instance, a "*" in a path means something different than multiply).
 
 
 ## Next steps
