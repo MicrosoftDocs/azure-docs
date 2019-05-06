@@ -638,6 +638,8 @@ openssl x509 -noout -issuer -in intermediate.pem
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
+In cases where the intermediate certificate cannot be downloaded due to network constraints during validation, the intermediate certificate can be pinned. However, Azure will roll over the certificates as per standard PKI practice. The pinned certificates would need to be updated when roll over happens. Whenever a change to update the intermediate certificate is planned, the Azure blog will be updated and Azure customers will be notified. The intermediate certificates can be found [here](https://www.microsoft.com/pki/mscorp/cps/default.htm). The intermediate certificates for each of the regions can be different.
+
 ### Failover Clustering in Windows Server
 
 For certain scenarios, when querying Instance Metadata Service with Failover Clustering, it is necessary to add a route to the routing table.
@@ -684,13 +686,15 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
 ### Custom Data
-Instance Metadata Service provides the ability for the VM to have access to its custom data. The binary data must be less than 64KB and is provided to the VM in base64 encoded form. For details on how to create a VM with custom data, see [Deploy a Virtual Machine with CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+Instance Metadata Service provides the ability for the VM to have access to its custom data. The binary data must be less than 64 KB and is provided to the VM in base64 encoded form. For details on how to create a VM with custom data, see [Deploy a Virtual Machine with CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+
+Custom data is available to all processes running in the VM. It is suggested that customers do not insert secret information into custom data.
 
 #### Retrieving custom data in Virtual Machine
 Instance Metadata Service provides custom data to the VM in base64 encoded form. The following example decodes the base64 encoded string.
 
 > [!NOTE]
-> The custom data in this example is interpreted as an ASCII string that reads, "My super secret data.".
+> The custom data in this example is interpreted as an ASCII string that reads, "My custom data.".
 
 **Request**
 
@@ -701,7 +705,7 @@ curl -H "Metadata:true" "http://169.254.169.254/metadata/instance/compute/custom
 **Response**
 
 ```text
-My super secret data.
+My custom data.
 ```
 
 ### Examples of calling metadata service using different languages inside the VM 
