@@ -87,7 +87,7 @@ the overall steps are the same, but your UI might slightly differ.
 To get started, create an [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
 Learn more about [Azure resource groups and resources](../azure-resource-manager/resource-group-overview.md).
 
-1. Start Visual Studio, and sign in with your Azure account.
+1. Start Visual Studio. Sign in with your Azure account.
 
 1. On the **File** menu, select **New** > **Project**. (Keyboard: Ctrl+Shift+N)
 
@@ -101,7 +101,7 @@ for example:
 
    > [!NOTE]
    > If the **Cloud** category or **Azure Resource Group** project doesn't appear, 
-   > make sure you installed the Azure SDK for Visual Studio.
+   > make sure you install the Azure SDK for Visual Studio.
 
    If you're using Visual Studio 2019, follow these steps:
 
@@ -110,9 +110,9 @@ for example:
    Visual C# or Visual Basic, and choose **Next**.
 
    1. Provide a name for the Azure resource group you want to use 
-   and other project information. When you're done, choose **Create**.
+   and other project information. Choose **Create**.
 
-1. From the template list, select the **Logic App** template, and choose **OK**.
+1. From the template list, select the **Logic App** template. Choose **OK**.
 
    ![Select Logic App template](./media/quickstart-create-logic-apps-with-visual-studio/select-logic-app-template.png)
 
@@ -129,7 +129,7 @@ for example:
 When you have your Azure Resource Group project, 
 create your logic app with the **Blank Logic App** template.
 
-1. In Solution Explorer, open the shortcut menu for the **LogicApp.json** file. 
+1. In Solution Explorer, open the **LogicApp.json** file's shortcut menu. 
 Select **Open With Logic App Designer**. (Keyboard: Ctrl+L)
 
    ![Open logic app .json file with Logic App Designer](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
@@ -139,8 +139,7 @@ Select **Open With Logic App Designer**. (Keyboard: Ctrl+L)
    resources for your logic app and connections.
 
 1. For **Subscription**, select your Azure subscription. 
-For **Resource group**, select **Create New** so you can 
-create a new Azure resource group.
+For **Resource group**, select **Create New** to create a new Azure resource group.
 
    ![Select Azure subscription, resource group, and resource location](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
@@ -195,9 +194,8 @@ resource group, and other settings. Choose **Deploy**.
 
    ![Deploy logic app to Azure resource group](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-deployment.png)
 
-1. If the **Edit Parameters** box appears, provide the 
-resource name to use for your logic app deployment, 
-and save your settings. For example:
+1. If the **Edit Parameters** box appears, provide a 
+resource name for your logic app. Save your settings.
 
    ![Provide deployment name for logic app](./media/quickstart-create-logic-apps-with-visual-studio/edit-parameters-deployment.png)
 
