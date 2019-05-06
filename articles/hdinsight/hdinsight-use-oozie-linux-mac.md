@@ -2,12 +2,11 @@
 title: Use Hadoop Oozie workflows in Linux-based Azure HDInsight 
 description: Use Hadoop Oozie in Linux-based HDInsight. Learn how to define an Oozie workflow and submit an Oozie job.
 ms.service: hdinsight
-ms.custom: hdinsightactive
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 05/06/2019
 ---
 # Use Apache Oozie with Apache Hadoop to define and run a workflow on Linux-based Azure HDInsight
 
@@ -32,13 +31,8 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 
 * **An Azure SQL Database**.  See [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started.md).  This article uses a database named `oozietest`.
 
-* **Possible change to storage configuration.**  See [Storage configuration](#storage-configuration) if using storage account kind `BlobStorage`.
+* The [URI scheme](./hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage or Data Lake Storage Gen2, the URI would be `wasbs://` or `abfss://`, respectively  See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
 
-## Storage configuration
-No action is required if the storage account used is of kind `Storage (general purpose v1)` or `StorageV2 (general purpose v2)`.  The process in the article will produce output to at least `/mapreducestaging`.  A default hadoop configuration will contain `/mapreducestaging` in the `fs.azure.page.blob.dir` configuration variable in `core-site.xml` for service `HDFS`.  This configuration will cause output to the directory to be page blobs, which is not supported for storage account kind `BlobStorage`.  To use `BlobStorage` for this article, remove `/mapreducestaging` from the `fs.azure.page.blob.dir` configuration variable.  The configuration can be accessed from the [Ambari UI](hdinsight-hadoop-manage-ambari.md).  Otherwise, you will receive the error message: `Page blob is not supported for this account type.`
-
-> [!NOTE]  
-> The storage account used in this article has [secure transfer](../storage/common/storage-require-secure-transfer.md) enabled and thus `wasbs` rather than `wasb` is used throughout the article.
 
 ## Example workflow
 
@@ -445,7 +439,7 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 5. Edit the code below to replace `<JOBID>` with the ID returned previously.  To start the job, use the following command:
 
     ```bash
-    oozie job -start JOBID
+    oozie job -start <JOBID>
     ```
 
     If you check the status after this command, it's in a running state, and information is returned for the actions within the job.  The job will take a few minutes to complete.
