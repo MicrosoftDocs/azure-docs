@@ -14,7 +14,7 @@ ms.author: iainfou
 
 # Connect with SSH to Azure Kubernetes Service (AKS) cluster nodes for maintenance or troubleshooting
 
-Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you may need to access an AKS node. This access could be for maintenance, log collection, or other troubleshooting operations. The AKS nodes are Linux VMs, so you can access them using SSH. For security purposes, the AKS nodes are not exposed to the internet.
+Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you may need to access an AKS node. This access could be for maintenance, log collection, or other troubleshooting operations. You can access AKS nodes using SSH, including Windows Server nodes (currently in preview in AKS). You can also [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp]. For security purposes, the AKS nodes are not exposed to the internet.
 
 This article shows you how to create an SSH connection with an AKS node using their private IP addresses.
 
@@ -26,9 +26,12 @@ You also need the Azure CLI version 2.0.59 or later installed and configured. Ru
 
 ## Add your public SSH key
 
-By default, SSH keys are generated when you create an AKS cluster. If you did not specify your own SSH keys when you created your AKS cluster, add your public SSH keys to the AKS nodes.
+By default, SSH keys are obtained, or generated, then added to nodes when you create an AKS cluster. If you need to specify different SSH keys than those used when you created your AKS cluster, add your public SSH key to the Linux AKS nodes.
 
-To add your SSH key to an AKS node, complete the following steps:
+> [!NOTE]
+> SSH keys can currently only be added to Linux nodes using the Azure CLI. If you use Windows Server nodes, use the SSH keys provided when you created the AKS cluster and skip to the step on [how to get the AKS node address](#get-the-aks-node-address). Or, [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp].
+
+To add your SSH key to a Linux AKS node, complete the following steps:
 
 1. Get the resource group name for your AKS cluster resources using [az aks show][az-aks-show]. Provide your own core resource group and AKS cluster name:
 
@@ -62,7 +65,12 @@ To add your SSH key to an AKS node, complete the following steps:
 
 ## Get the AKS node address
 
-The AKS nodes are not publicly exposed to the internet. To SSH to the AKS nodes, you use the private IP address. In the next step, you create a helper pod in your AKS cluster that lets you SSH to this private IP address of the node.
+The AKS nodes are not publicly exposed to the internet. To SSH to the AKS nodes, you use the private IP address. In the next step, you create a helper pod in your AKS cluster that lets you SSH to this private IP address of the node. The steps to get the private IP address of the AKS nodes is different based on the type of AKS cluster you run:
+
+* For most AKS clusters, follow the steps to [get the IP address for regular AKS clusters](#regular-aks-clusters).
+* If you use any preview features in AKS that use virtual machine scale sets, such as multiple node pools or Windows Server container support, [follow the steps for virtual machine scale set-based AKS clusters](#virtual-machine-scale-set-based-aks-clusters).
+
+### Regular AKS clusters
 
 View the private IP address of an AKS cluster node using the [az vm list-ip-addresses][az-vm-list-ip-addresses] command. Provide your own AKS cluster resource group name obtained in a previous [az-aks-show][az-aks-show] step:
 
@@ -78,6 +86,26 @@ VirtualMachine            PrivateIPAddresses
 aks-nodepool1-79590246-0  10.240.0.4
 ```
 
+### Virtual machine scale set-based AKS clusters
+
+List the internal IP address of the nodes using the [kubectl get command][kubectl-get]:
+
+```console
+kubectl get nodes -o wide
+```
+
+The follow example output shows the internal IP addresses of all the nodes in the cluster, including a Windows Server node.
+
+```console
+$ kubectl get nodes -o wide
+
+NAME                                STATUS   ROLES   AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                    KERNEL-VERSION      CONTAINER-RUNTIME
+aks-nodepool1-42485177-vmss000000   Ready    agent   18h   v1.12.7   10.240.0.4    <none>        Ubuntu 16.04.6 LTS          4.15.0-1040-azure   docker://3.0.4
+aksnpwin000000                      Ready    agent   13h   v1.12.7   10.240.0.67   <none>        Windows Server Datacenter   10.0.17763.437
+```
+
+Record the internal IP address of the node you wish to troubleshoot. You will use this address in a later step.
+
 ## Create the SSH connection
 
 To create an SSH connection to an AKS node, you run a helper pod in your AKS cluster. This helper pod provides you with SSH access into the cluster and then additional SSH node access. To create and use this helper pod, complete the following steps:
@@ -87,6 +115,11 @@ To create an SSH connection to an AKS node, you run a helper pod in your AKS clu
     ```console
     kubectl run -it --rm aks-ssh --image=debian
     ```
+
+    > [!TIP]
+    > If you use Windows Server nodes (currently in preview in AKS), add a node selector to the command to schedule the Debian container on a Linux node as follows:
+    >
+    > `kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"apps/v1","spec":{"template":{"spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}}}'`
 
 1. The base Debian image doesn't include SSH components. Once the terminal session is connected to the container, install an SSH client using `apt-get` as follows:
 
@@ -161,3 +194,4 @@ If you need additional troubleshooting data, you can [view the kubelet logs][vie
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[aks-windows-rdp]: rdp.md

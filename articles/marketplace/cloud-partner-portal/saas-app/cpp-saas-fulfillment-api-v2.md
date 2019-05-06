@@ -1,20 +1,12 @@
 ---
-title: SaaS Fulfillment API V2 - Azure Marketplace | Microsoft Docs
+title: SaaS Fulfillment API V2 | Azure Marketplace 
 description: Explains how to create a SaaS offer on the Azure Marketplace using the associated fulfillment V2 APIs.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # SaaS Fulfillment APIs Version 2 
