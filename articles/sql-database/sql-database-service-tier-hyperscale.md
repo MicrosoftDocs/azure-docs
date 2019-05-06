@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 10/17/2018
+ms.date: 05/06/2019
 ---
 
 # Hyperscale service tier for up to 100 TB
@@ -144,12 +144,37 @@ If you need to restore an Azure SQL Database Hyperscale DB to a region other tha
 #### Notes on geo-restores of a Hyperscale database
 Because the source and target are in separate regions, the database cannot share snapshot storage with the source database as in non-geo restores, which complete extremely quickly.  In the case of a geo-restore of a Hyperscale database, it will be a size-of-data operation, even if the target is in the paired region of the geo-replicated storage.  That means that doing a geo-restore will take time proportional to the size of the database being restored.  If the target is in the paired region, the copy will be within a datacenter, which will be significantly faster than a long distance copy over the internet, but it will still copy all of the bits.
 
-## Available regions
+## <a name=regions></a>Available regions
+
 The Azure SQL Database Hyperscale tier is currently available in the following regions:
 
-Australia East, Australia Southeast, Brazil South, Canada Central, Central US, East Asia, East US, East Us 2, France Central, Japan East, Japan West, North Central US, North Europe, South Africa North, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2
+- Australia East
+- Australia Southeast
+- Brazil South
+- Canada Central
+- Central US
+- China East 2
+- China North 2
+- East Asia
+- North Europe
+- West Europe
+- France Central
+- Japan East
+- Japan West
+- Korea Central
+- Korea South
+- South Africa North
+- Southeast Asia
+- UK South
+- UK West
+- East US
+- East Us 2
+- North Central US
+- South Central US
+- West US
+- West US 2
 
-If you want to create Hyperscale database in a region that is not listed as supported, you can send an onboarding request via Azure portal.  We are working to expand the list of supported regions so please check back for latest region list.
+If you want to create Hyperscale database in a region that is not listed as supported, you can send an onboarding request via Azure portal. We are working to expand the list of supported regions so please check back for latest region list.
 
 To request the ability to create Hyperscale databases in regions not listed:
 
