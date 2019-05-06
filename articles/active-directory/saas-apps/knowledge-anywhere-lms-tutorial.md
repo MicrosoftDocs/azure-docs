@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/14/2019
+ms.date: 05/06/2019
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To configure Azure AD integration with Knowledge Anywhere LMS, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
 * Knowledge Anywhere LMS single sign-on enabled subscription
 
 ## Scenario description
@@ -97,7 +97,7 @@ To configure Azure AD single sign-on with Knowledge Anywhere LMS, perform the fo
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     ![Knowledge Anywhere LMS Domain and URLs single sign-on information](common/idp-intiated.png)
 
@@ -130,33 +130,41 @@ To configure Azure AD single sign-on with Knowledge Anywhere LMS, perform the fo
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
 ### Configure Knowledge Anywhere LMS Single Sign-On
 
-1. In another browser window, open the Knowledge Anywhere LMS admin portal.
+1. To automate the configuration within Knowledge Anywhere LMS, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-2. Select on the **Site** tab.
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Setup Knowledge Anywhere LMS** will direct you to the Knowledge Anywhere LMS application. From there, provide the admin credentials to sign into Knowledge Anywhere LMS. The browser extension will automatically configure the application for you and automate steps 3-7.
+
+	![Setup configuration](common/setup-sso.png)
+
+3. If you want to setup Knowledge Anywhere LMS manually, open a new web browser window and sign into your Knowledge Anywhere LMS company site as an administrator and perform the following steps:
+
+4. Select on the **Site** tab.
 
     ![Knowledge Anywhere LMS Configuration](./media/knowledge-anywhere-lms-tutorial/configure1.png)
 
-3. Select on the **SAML Settings** tab.
+5. Select on the **SAML Settings** tab.
 
     ![Knowledge Anywhere LMS Configuration](./media/knowledge-anywhere-lms-tutorial/configure2.png)
 
-4. Click on the **Add New**.
+6. Click on the **Add New**.
 
     ![Knowledge Anywhere LMS Configuration](./media/knowledge-anywhere-lms-tutorial/configure3.png)
 
-5. On the **Add/Update SAML Settings** page, perform the following steps:
+7. On the **Add/Update SAML Settings** page, perform the following steps:
 
     ![Knowledge Anywhere LMS Configuration](./media/knowledge-anywhere-lms-tutorial/configure4.png)
 
     a. Enter the IDP Name as per your organization. For ex:- `Azure`.
 
-    b. In the **IDP Entity ID** textbox, paste **Azure Ad Identifier** value which you have copied from Azure portal.
+    b. In the **IDP Entity ID** textbox, paste **Azure AD Identifier** value which you have copied from Azure portal.
 
     c. In the **IDP URL** textbox, paste **Login URL** value which you have copied from Azure portal.
 
@@ -190,8 +198,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
