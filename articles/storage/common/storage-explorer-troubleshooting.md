@@ -230,7 +230,7 @@ If you accidentally attached using an invalid SAS URL and are unable to detach, 
 
 In general, the following packages are required to run Storage Explorer on Linux:
 
-* [.NET Core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) Note: Storage Explorer version 1.7.0 and earlier require .NET Core 2.0. If you have a newer version of .NET Core installed then you will need to patch Storage Explorer (see below). If you are running Storage Explorer 1.8.0 or greater then you should be able to use up to .NET Core 2.2. Versions beyond 2.2 have not been verified to work at this time.
 * `libgnome-keyring-common` and `libgnome-keyring-dev`
 * `libgconf-2-4`
 
