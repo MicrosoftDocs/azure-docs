@@ -45,7 +45,7 @@ looks like this high-level workflow:
 * Download and install these tools, if you don't have them already:
 
   * [Visual Studio 2019, 2017, or 2015 - Community edition or greater](https://aka.ms/download-visual-studio). 
-  This quickstart uses Visual Studio Community 2017, which is free.
+  This quickstart uses Visual Studio Community 2017.
 
     > [!IMPORTANT]
     > When you install Visual Studio 2019 or 2017, make sure 
@@ -73,7 +73,7 @@ looks like this high-level workflow:
 
   The designer needs an internet connection to create resources in Azure 
   and to read properties and data from connectors in your logic app. 
-  For example, if you use the Dynamics CRM Online connector, the designer 
+  For example, for Dynamics CRM Online connections, the designer 
   checks your CRM instance for default and custom properties.
 
 * An email account that's supported by Logic Apps, such as 
@@ -106,8 +106,8 @@ for example:
    If you're using Visual Studio 2019, follow these steps:
 
    1. In the **Create a new project** box, select the 
-   **Azure Resource Group** project template for 
-   Visual C# or Visual Basic. Choose **Next**.
+   **Azure Resource Group** project for Visual C# 
+   or Visual Basic. Choose **Next**.
 
    1. Provide a name for the Azure resource group you want to use 
    and other project information. Choose **Create**.
