@@ -38784,6 +38784,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/media-services/latest/origin-error-codes.md",
+      "redirect_url": "/azure/media-services/latest/streaming-endpoint-error-codes",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/media-services/latest/scripts/cli-create-account.md",
       "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
       "redirect_document_id": false
