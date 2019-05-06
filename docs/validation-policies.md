@@ -1,7 +1,7 @@
 ---
 title: Validation policies for apps and add-ins submitted to AppSource (version 2.2)
 description: Criteria that are used to validate Office Add-ins, SharePoint Add-ins, Microsoft Teams apps, and Power BI custom visuals for listing in the AppSource.
-ms.date: 04/19/2019
+ms.date: 05/06/2019
 localization_priority: Priority
 ---
 
@@ -243,6 +243,19 @@ This document describes the criteria that are used to validate that Office Add-i
 |14.18| To help to ensure the security of your app and users, domains outside of your organization's control (including wildcards) and tunneling services cannot be included in the valid domains in your manifest.
 |14.19| The policies outlined in [Section 2](https://docs.microsoft.com/en-us/office/dev/store/validation-policies#2-apps-or-add-ins-can-display-certain-ads) do not apply to Microsoft Teams apps. Microsoft Teams apps may not display ads.
 
+## 15. Add-ins with Excel custom functions
+<a name="bk_15"> </a>
+
+|Policy number|Description|
+|:-----|:-----|
+|15.1| Add-ins that contain custom functions must support add-in commands. This is to ensure that users can easily discover your add-in. |
+|15.2| Your custom functions metadata must have the **helpUrl** property set. For an example, see [Custom functions metdata](https://docs.microsoft.com/en-us/office/dev/add-ins/excel/custom-functions-json).|
+|15.3| To help to ensure the security of your app and users, your custom functions HTML, Javascript, and JSON metadata files must be hosted on the same domain. |
+|15.4| Your add-in must work across all platforms that support custom functions. Your add-in must also define in the **Requirements** element the following requirement set `<Set Name="CustomFunctionsRuntime" MinVersion="1.1"/>`. |
+|15.5| After an add-in is approved using the **EquivalentAddins** tag in the manifest, all future updates to the add-in must include this tag. This tag ensures that your custom functions save in XLL-compatible mode. |
+|15.6| To help ensure an efficient validation process, if your add-in contains custom functions, you must provide test notes to validate them on submission. |
+
+
 ## Conclusion
 <a name="bk_conclusion"> </a>
 
@@ -255,8 +268,11 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
+|2.2|May 6, 2019|Added section 15.|
 |2.2|April 19, 2019|Updated policy 14.10.|
 |2.2|April 04, 2019|Added policy 14.19.|
+|2.2|December 03,2018|Updated policy 13.1.|
+|2.2|November 19,2018|Updated policy 7.4.5.|
 |2.2|December 03, 2018|Updated policy 13.1.|
 |2.2|November 19, 2018|Updated policy 7.4.5.|
 |2.2|September 11, 2018|Updated policy 4.12.3.|
