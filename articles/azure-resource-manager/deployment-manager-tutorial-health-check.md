@@ -48,7 +48,7 @@ To complete this article, you need:
 
 ## Create a health check service simulator
 
-In production, you typically use one or more monitoring providers. For a list of existing monitoring providers, see [Health monitoring providers](./deployment-manager-health-check.md#health-monitoring-providers). For the purpose of this tutorial, you create an [Azure Function](/azure/azure-functions/) to simulate a health monitoring service. This function takes a status code, and returns the same code. Your Azure Deployment Manager template uses the status code to determine the actions. The knowledge of Azure Function is not required to complete this tutorial.
+In production, you typically use one or more monitoring providers. In order to make health integration as easy as possible, Microsoft has been working with some of the top service health monitoring companies to provide you with a simple copy/paste solution to integrate health checks with your deployments. For a list of these companies, see [Health monitoring providers](./deployment-manager-health-check.md#health-monitoring-providers). For the purpose of this tutorial, you create an [Azure Function](/azure/azure-functions/) to simulate a health monitoring service. This function takes a status code, and returns the same code. Your Azure Deployment Manager template uses the status code to determine how to proceed with the deployment. Knowledge of Azure Function is not required to complete this tutorial.
 
 The following two files are used for deploying the Azure Function. You don't need to download these files to go through the tutorial.
 
@@ -58,8 +58,8 @@ The following two files are used for deploying the Azure Function. You don't nee
 To deploy the Azure function, select **Try it** to open the Azure Cloud shell, and then paste the following script into the shell window.  To paste the code, right-click the shell window and then select **Paste**. 
 
 > [!IMPORTANT]
-> **projectName** in the PowerShell script is used to generate names for the Azure services that are deployed in this tutorial. Different Azure services have different requirements on the names. To ensure the deployment is successful, choose a name with less than 12 characters with lower case letters and numbers.
-> Make a copy of the project name, and use the same projectName through the tutorial.
+> **projectName** in the PowerShell script is used to generate names for the Azure services that are deployed in this tutorial. Different Azure services have different requirements on the names. To ensure the deployment is successful, choose a name with less than 12 characters with only lower case letters and numbers.
+> Save a copy of the project name. You use the same projectName through the tutorial.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -68,7 +68,6 @@ $resourceGroupName = "${projectName}rg"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json" -projectName $projectName
-
 ```
 
 To verify and test the Azure function:
@@ -87,7 +86,7 @@ To verify and test the Azure function:
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/{healthStatus}?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-    Notice `{healthStatus}` in the URL, replace it with a status code. In this tutorial, use either **healthy** or **warning** to test the healthy scenario, and use **unhealth** to test the unhealthy scenario. Create two URLs, one with the unhealthy status, and the other with healthy status. For examples:
+    Notice `{healthStatus}` in the URL, replace it with a status code. In this tutorial, use either **healthy** or **warning** to test the healthy scenario, and use **unhealthy** to test the unhealthy scenario. Create two URLs, one with the unhealthy status, and the other with healthy status. For examples:
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/unhealthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
@@ -103,7 +102,7 @@ To verify and test the Azure function:
 
 ## Revise the rollout template
 
-This section is optional for this tutorial.  The purpose of this section is to show you how to implement a health check step in the rollout template.
+This section is optional for this tutorial. The purpose of this section is to show you how to include a health check step in the rollout template. The revised rollout template is shared in a storage account that can be used in the subsequent sections. 
 
 1. Open **CreateADMRollout.json**. This JSON file is a part of the download.  See [Prerequisites](#prerequisites).
 1. Add two more parameters:
@@ -228,12 +227,12 @@ This section is optional for this tutorial.  The purpose of this section is to s
 
 ## Deploy the topology
 
-To simplify the tutorial, the topology template and artifacts are shared at:
+To simplify the tutorial, the topology template and artifacts are shared at the following locations so that you don't need to prepare your own copy:
 
 * Topology template: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
 * Artifacts store: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
 
-If you want to use your own, see [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
+If you want to use your own, follow the instructions in [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
 
 To deploy the topology, select **Try it** to open the Cloud shell, and then paste the PowerShell script.
 
@@ -250,7 +249,6 @@ New-AzResourceGroupDeployment `
     -namePrefix $projectName `
     -azureResourceLocation $location `
     -artifactSourceSASLocation $artifactLocation
-
 ```
 
 Verify the service topology and the underlined resources have been created successfully using the Azure portal:
@@ -261,12 +259,12 @@ Verify the service topology and the underlined resources have been created succe
 
 ## Deploy the rollout with the unhealthy status
 
-To simplify the tutorial, the revised rollout template is shared at:
+To simplify the tutorial, the revised rollout template is shared at the following location so that you don't need to prepare your own copy:
 
 * Topology template: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
 * Artifacts store: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
 
-If you want to use your own, see [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
+If you want to use your own, follow the instructions in [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
 
 Use the unhealthy status URL you created in [Create a health check service simulator](#create-a-health-check-service-simulator). For **managedIdentityID**, see [Create the user-assigned managed identity](./deployment-manager-tutorial.md#create-the-user-assigned-managed-identity).
 
@@ -291,7 +289,6 @@ New-AzResourceGroupDeployment `
     -managedIdentityID $managedIdentityID `
     -healthCheckUrl $healthCheckUrl `
     -healthCheckAuthAPIKey $healthCheckAuthAPIKey
-
 ```
 
 > [!NOTE]
@@ -311,9 +308,7 @@ Get-AzDeploymentManagerRollout `
     -Verbose
 ```
 
-The Deployment Manager PowerShell cmdlets must be installed before you can run this cmdlet. See Prerequisites. The -Verbose switch can be used to see the whole output.
-
-The following sample shows the health check failed error message:
+The following sample output shows the deployment failed due to the unhealthy status:
 
 ```output
 Service: myhc0506ServiceWUSrg
@@ -376,7 +371,7 @@ After the rollout is completed, you shall see one additional resource group crea
 
 ## Deploy the rollout with the healthy status
 
-Repeat this section to redeploy the rollout with the health status URL.  After the rollout is completed, you shall see one additional resource group created for East US.
+Repeat this section to redeploy the rollout with the healthy status URL.  After the rollout is completed, you shall see one additional resource group created for East US.
 
 ## Verify the deployment
 
