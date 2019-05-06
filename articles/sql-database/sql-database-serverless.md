@@ -144,6 +144,9 @@ Creating a new database or moving an existing database into a serverless compute
    |Minimum vCores|Any of {0.5, 1, 2, 4} not exceeding max vCores|0.5 vCores|
    |Autopause delay|Min: 360 minutes (6 hours)<br>Max: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable autopause: -1|360 minutes|
 
+> [!NOTE]
+> Using T-SQL to move an existing database into serverless or change its compute size is not currently supported but can be done via the Azure portal or PowerShell.
+
 ### Create new database using the Azure portal
 
 See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md).
@@ -151,6 +154,8 @@ See [Quickstart: Create a single database in Azure SQL Database using the Azure 
 ### Create new database using PowerShell
 
 The following example creates a new database in the serverless compute tier defined by service objective named GP_S_Gen5_4 with default values for the min vCores and autopause delay.
+
+Serverless requires a newer version of PowerShell than is currently in the gallery, so run `Update-Module Az.Sql` to get the latest serverless-enabled cmdlets.
 
 ```powershell
 New-AzSqlDatabase `
@@ -282,7 +287,7 @@ Suppose the compute unit price is $0.2609/vCore/hour. Then the compute billed fo
 
 ## Available regions
 
-The serverless compute tier is available in all regions except the following regions: China East, China North, Germany Central, Germany Northeast, UK North, UK South, and West Central US
+The serverless compute tier is available in all regions except the following regions: Australia Central, China East, China North, France South, Germany Central, Germany Northeast, India West, Korea South, South Africa West, UK North, UK South, UK West, and West Central US
 
 ## Next steps
 
