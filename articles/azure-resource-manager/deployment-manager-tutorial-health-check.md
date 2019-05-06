@@ -19,14 +19,13 @@ ms.author: jgao
 
 # Tutorial: Use Azure Deployment Manager health check (Private preview)
 
-Learn how to use health check steps in [Azure Deployment Manager](./deployment-manager-overview.md). This tutorial is based of the [Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md) tutorial.  You must complete that tutorial before you proceed with this one.
+Learn how to use health check steps in [Azure Deployment Manager](./deployment-manager-overview.md). This tutorial is based of the [Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md) tutorial. You must complete that tutorial before you proceed with this one.
 
 In the rollout template used in [Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md), you defined and used a wait step. In this tutorial, you replace the wait step with a health check step.
 
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Prepare the artifacts
 > * Create the user-defined managed identity
 > * Create the service topology template
 > * Create the rollout template
@@ -48,20 +47,20 @@ To complete this article, you need:
 * Complete [Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
 * Download [the templates and the artifacts](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) that is used by this tutorial.
 
-## Create a health check service
+## Create a health check service simulator
 
-To test the health check function, you need a health check service. An easy solution is to create an [Azure Function](/azure/azure-functions/). The function takes a status, and returns the value. Your Azure Deployment Manager template uses the status value to determine the action. The knowledge of Azure Function is not required to complete this tutorial.
+In production, you typically use one or more monitoring providers. For a list of existing monitoring providers, see [Health monitoring providers](./deployment-manager-health-check.md/#health-monitoring-providers). For the purpose of this tutorial, you create an [Azure Function](/azure/azure-functions/) to mimic a health monitoring service. The function takes a status code, and returns the code. Your Azure Deployment Manager template uses the status code to determine the action. The knowledge of Azure Function is not required to complete this tutorial.
 
 The following two files are used for deploying the Azure Function. You don't need to download these files to go through the tutorial.
 
 * A resource manager template located at [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). You deploy this template to create an Azure Function.  
 * A zip file of the Azure Function source code, [https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](https://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). This zip called is called by the resource manager template.
 
-To deploy the Azure function, select **Try it** to open the Azure Cloud shell, and then paste the following script into the shell window.  To paste the code, right-click the shell window. The project name is used as a prefix to generate unique resource names.
+To deploy the Azure function, select **Try it** to open the Azure Cloud shell, and then paste the following script into the shell window.  To paste the code, right-click the shell window. 
 
 > [!IMPORTANT]
-> **projectName** in the script is used to generate names for the Azure services that are used in this tutorial. Different Azure services have different requirements on the names. To ensure the deployment is successful, choose a name with less than 12 lower case letters and numbers. 
-> Make a copy of the project name, and make sure to use the same projectName through the tutorial.
+> **projectName** in the script is used to generate names for the Azure services that are used in this tutorial. Different Azure services have different requirements on the names. To ensure the deployment is successful, choose a name with less than 12 characters with lower case letters and numbers.
+> Make a copy of the project name, and use the same projectName through the tutorial.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -89,9 +88,9 @@ To verify and test the Azure function:
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/{healthStatus}?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-    Notice `{healthStatus}` in the URL, replace it with the actual status code. 
+    Notice `{healthStatus}` in the URL, replace it with a status code. In this tutorial, use either **healthy** or **warning** to test the successful scenario, and use **unhealth** to test the failure scenario.
 
-1. Open the URL with a health status populated, such as:
+1. To test the health monitoring simulator, open the URL with a health status populated, such as:
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/healthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
@@ -112,7 +111,7 @@ To verify and test the Azure function:
 
 ## Revise the rollout template
 
-This section is optional for this tutorial.  The purpose of this section is to show you to implement a health check step in the rollout template.
+This section is optional for this tutorial.  The purpose of this section is to show you how to implement a health check step in the rollout template.
 
 1. Open **CreateADMRollout.json**. This JSON file is a part of the download.  See [Prerequisites](#prerequisites).
 1. Add two more parameters:
@@ -229,7 +228,7 @@ This section is optional for this tutorial.  The purpose of this section is to s
     ]
     ```
 
-    The health check step is used after rolling out stepGroup1 and stepGroup2. stepGroup3 and stepGroup4 are only deployed if the healthy status is either *healthy* or *warning*.
+    The health check step is used after rolling out stepGroup1 and stepGroup2. stepGroup3 and stepGroup4 are only deployed if the healthy status is either *healthy* or *warning*. 
 
 ## Deploy the topology
 
@@ -247,7 +246,7 @@ To deploy the topology, select **Try it** to open the Cloud shell, and then past
 $projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $resourceGroupName = "${projectName}rg"
-$artifactLocation = "https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore" | ConvertTo-SecureString -AsPlainText -Force
+$artifactLocation = "https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore?st=2019-05-06T03%3A57%3A31Z&se=2020-05-07T03%3A57%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=gOh%2Bkhi693rmdxiZFQ9xbKZMU1kbLJDqXw7EP4TaGlI%3D" | ConvertTo-SecureString -AsPlainText -Force
 
 # Create the service topology
 New-AzResourceGroupDeployment `
@@ -273,7 +272,7 @@ To simplify the tutorial, the revised rollout template is shared at:
 
 If you want to use your own, see [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
 
-To test both the healthy and non-healthy scenario, you can first give an error status in **healthCheckUrl**.  After you verify that only the west U.S. resources are deployed, give a healthy status in **healthCheckUrl**. This time, both the west U.S. resource, and the east U.S. resource shall be deployed.
+To test both the healthy and non-healthy scenarios, you can first give an error status in **healthCheckUrl**.  After you verify that only the west U.S. resources are deployed, give a healthy status in **healthCheckUrl**. This time, both the west U.S. resource, and the east U.S. resource shall be deployed.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
