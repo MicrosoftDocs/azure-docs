@@ -1,5 +1,5 @@
 ---
-title: Designing highly available Aaplications using read-access geo-redundant storage (RA-GRS) | Microsoft Docs
+title: Designing highly available Applications using read-access geo-redundant storage (RA-GRS) | Microsoft Docs
 description: How to use Azure RA-GRS storage to architect a highly available application flexible enough to handle outages.
 services: storage
 author: tamram
