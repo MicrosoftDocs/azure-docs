@@ -50,7 +50,10 @@ This tutorial assumes that you are familiar with:
 -  [How to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
 
 -  [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
-  
+
+> [!NOTE]
+> Azure AD does not support smartcards or certificates in managed domains.
+
 
 To configure the scenario in this article, you need:
 
