@@ -82,7 +82,7 @@ On the **Add network rule collection** screen, do the following:
 1. Set **Destination Ports** to 123.
 1. Click **Add**.
 
-![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection-details.png)
+![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 ### Create a route table
 
