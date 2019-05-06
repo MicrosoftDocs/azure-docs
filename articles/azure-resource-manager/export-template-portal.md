@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: tomfitz
 ---
-# Single and multi-resource export to template - Portal
+# Single and multi-resource export to template in Azure portal
 
 To assist with creating Azure Resource Manager templates, you can export a template from existing resources. The exported template helps you understand the JSON syntax and properties that deploy your resources. To automate future deployments, start with the exported template and modify it for your scenario.
 
 You can export a template for an entire resource group or for specific resources within that resource group. The exported template is a "snapshot" of the current state of the resource group. You also can export a template for a resource. The template includes only the selected resource.
 
-## Export template from resource group
+## Export from resource group
 
 To export one or more resources from a resource group:
 
@@ -31,7 +31,7 @@ To export one or more resources from a resource group:
 
    ![Show template](./media/export-template-portal/show-template.png)
 
-## Export template from resource
+## Export from resource
 
 To export one resource:
 
