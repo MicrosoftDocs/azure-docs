@@ -11,7 +11,7 @@ ms.date: 05/06/2019
 ---
 # Configure outbound traffic restriction for Azure HDInsight clusters
 
-The HDInsight clusters have several external dependencies that it requires access, to function properly. The cluster usually lives in the customer specified virtual network.
+Azure HDInsight clusters have several external dependencies that it requires network access to function properly. The cluster usually lives in the customer specified virtual network.
 
 There are several inbound dependencies. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published in this document. You can also create Network Security Group(NSG) rules with this information to secure inbound traffic to the clusters.
 
@@ -23,36 +23,75 @@ The solution to securing outbound addresses lies in use of a firewall device tha
 
 ## Configuring Azure Firewall with HDInsight
 
-The steps to lock down egress from your existing HDInsight with Azure Firewall are:
+A summary of the steps to lock down egress from your existing HDInsight with Azure Firewall are:
+1. Enable service endpoints.
+1. Create a firewall.
+1. Add application rules to the firewall for ???
+1. Add network rules to the firewall to allow clock sync with NTP.
+1. Create a routing table.
 
-1. Enable service endpoints for SQL and storage on your HDInsight subnet. When you have service endpoints enabled to Azure SQL, any Azure SQL dependencies that your cluster has must be configured with service endpoints as well. To enable the correct service endpoints, complete the following steps:
-    1. Sign in to the Azure portal and select the virtual network that your HDInsight cluster is deployed in.
-    1. Select **Subnets** under **Settings**.
-    1. Select the subnet where your cluster is deployed.
-    1. On the screen to edit the subnet settings, click **Microsoft.SQL** and **Microsoft.Storage** from the **Service endpoints** > **Services** dropdown box.
-    1. If you are using an ESP cluster, then you must also select the **Microsoft.AzureActiveDirectory** service endpoint.
-    1. Click **Save**.
+### Enable service endpoints
 
-        ![Title: Add service endpoints](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-service-endpoint.png)
+Enable service endpoints for SQL and storage on your HDInsight subnet. When you have service endpoints enabled to Azure SQL, any Azure SQL dependencies that your cluster has must be configured with service endpoints as well.
+
+To enable the correct service endpoints, complete the following steps:
+
+1. Sign in to the Azure portal and select the virtual network that your HDInsight cluster is deployed in.
+1. Select **Subnets** under **Settings**.
+1. Select the subnet where your cluster is deployed.
+1. On the screen to edit the subnet settings, click **Microsoft.SQL** and **Microsoft.Storage** from the **Service endpoints** > **Services** dropdown box.
+1. If you are using an ESP cluster, then you must also select the **Microsoft.AzureActiveDirectory** service endpoint.
+1. Click **Save**.
+
+    ![Title: Add service endpoints](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-service-endpoint.png)
+
+### Create a new firewall for your cluster
 
 1. Create a subnet named **AzureFirewallSubnet** in the virtual network where your cluster exists. 
-1. Create a new firewall using the steps in [Tutorial: Deploy and configure Azure Firewall using the Azure portal](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall).
+1. Create a new firewall **Test-FW01** using the steps in [Tutorial: Deploy and configure Azure Firewall using the Azure portal](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall).
 1. Select the new firewall from the Azure portal. Click **Rules** under **Settings** > **Application rule collection** > **Add application rule collection**.
 
     ![Title: Add application rule collection](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
-1. On the **Add application rule collection** screen, enter a **Name**, **Priority**, and click **Allow** from the **Action** dropdown menu. 
-1. In the FQDN tags section, provide a **Name**, set **Source addresses** to `*` and select **HDInsight** and the **WindowsUpdate** from the **FQDN Tags** dropdown menu.
+### Configure the firewall with application rules
 
-    ![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
+Create an Application rule that allows the cluster to <TODO: Add explanation>.
 
-1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority and set Allow. In the Rules section, provide a name, select Any, set * to Source and Destination addresses, and set the ports to 123. This rule allows the system to perform clock sync using NTP. 
+Select the new firewall **Test-FW01** from the Azure portal. Click **Rules** under **Settings** > **Application rule collection** > **Add application rule collection**.
 
-    ![Title: Add NTP network rule](./media/hdinsight-restrict-outbound-traffic/image008.png)]
+On the **Add application rule collection** screen, do the following:
 
-1. Create a route table with the management addresses from this document with a next hop of Internet. The route table entries are required to avoid asymmetric routing problems. Add routes for these IP address dependencies in the IP address dependencies with a next hop of Internet. Add a Virtual Appliance route to your route table for 0.0.0.0/0 with the next hop being your Azure Firewall private IP address.
+1. Enter a **Name**, **Priority**, and click **Allow** from the **Action** dropdown menu.
+1. In the FQDN tags section, provide a **Name**, set **Source addresses** to `*`.
+1. Select **HDInsight** and the **WindowsUpdate** from the **FQDN Tags** dropdown menu.
+1. Click **Add**.
 
-    ![Title: Creating a route table](./media/hdinsight-restrict-outbound-traffic/image010.png)]
+![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
+
+### Configure the firewall with network rules
+
+Create a network rule that allows the cluster to perform clock sync using NTP.
+
+Select the new firewall **Test-FW01** from the Azure portal. Click **Rules** under **Settings** > **Network rule collection** > **Add network rule collection**.
+
+On the **Add network rule collection** screen, do the following:
+
+1. Enter a **Name**, **Priority**, and click **Allow** from the **Action** dropdown menu.
+1. In the Rules section, provide a **Name** and select **Any** from the **Protocol** dropdown.
+1. Set **Source Addresses** and **Destination addresses** to `*`.
+1. Set **Destination Ports** to 123.
+1. Click **Add**.
+
+![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection-details.png)
+
+### Create a route table
+
+> [!Important]
+> This section is unclear. Once they create a route table and go to **Add route**: What is the address prefix? Where do the IP addresses in the image come from?
+
+Create a route table with the management addresses from this document with a next hop of Internet. The route table entries are required to avoid asymmetric routing problems. Add routes for these IP address dependencies in the IP address dependencies with a next hop of Internet. Add a Virtual Appliance route to your route table for 0.0.0.0/0 with the next hop being your Azure Firewall private IP address.
+
+![Title: Creating a route table](./media/hdinsight-restrict-outbound-traffic/image010.png)]
 
 Assign the route table you created to your HDInsight subnet.
 
@@ -108,7 +147,7 @@ The following information is only required if you wish to configure a firewall a
 | **Endpoint** | **Details** |
 |---|---|
 | \*:123 | NTP clock check. Traffic is checked at multiple endpoints on port 123 |
-| IPs published [here](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip) | These are HDInsight service |
+| IPs published [here](hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) | These are HDInsight service |
 
 With an Azure Firewall, you automatically get everything below configured with the FQDN tags.
 
