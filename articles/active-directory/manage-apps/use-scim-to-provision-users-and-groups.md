@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/03/2019
+ms.date: 5/06/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
@@ -28,7 +28,7 @@ SCIM is standardized protocol and schema that aims to drive greater consistency 
 
 Many of the applications for which Azure AD supports [pre-integrated automatic user provisioning](../saas-apps/tutorial-list.md) implement SCIM as the means to receive user change notifications.  In addition to these, customers can connect applications that support a specific profile of the [SCIM 2.0 protocol specification](https://tools.ietf.org/html/rfc7644) using the generic "non-gallery" integration option in the Azure portal. 
 
-The main focus of this article is on the profile of SCIM 2.0 that Azure AD implements as part of its generic SCIM connector for non-gallery apps. However, successful testing of an application that supports SCIM with the generic Azure AD connector is a step to getting an app listed in the Azure AD gallery as supporting user provisioning. For more information on getting your application listed in the Azure AD application gallery, see the [Microsoft Application Network](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx).
+The main focus of this article is on the profile of SCIM 2.0 that Azure AD implements as part of its generic SCIM connector for non-gallery apps. However, successful testing of an application that supports SCIM with the generic Azure AD connector is a step to getting an app listed in the Azure AD gallery as supporting user provisioning. For more information on getting your application listed in the Azure AD application gallery, see [How to: List your application in the Azure AD application gallery](../develop/howto-app-gallery-listing).
  
 
 >[!IMPORTANT]
