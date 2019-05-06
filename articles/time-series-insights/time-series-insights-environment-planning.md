@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 # Plan your Azure Time Series Insights GA environment
 
-This article describes how to plan your Azure Time Series Insights general availabiity (GA) environment based on your expected ingress rate and your data retention requirements.
+This article describes how to plan your Azure Time Series Insights general availability (GA) environment based on your expected ingress rate and your data retention requirements.
 
 ## Video
 
