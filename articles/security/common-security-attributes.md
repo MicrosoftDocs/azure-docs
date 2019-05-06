@@ -17,7 +17,7 @@ This article collects the common security attributes for selected Azure services
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-## [Azure API Management](../api-management-security-attributes.md)
+## [Azure API Management](../api=management/api-management-security-attributes.md)
 
 ### Preventative
 
