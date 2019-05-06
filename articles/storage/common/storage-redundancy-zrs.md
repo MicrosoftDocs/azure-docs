@@ -2,11 +2,13 @@
 title: Build highly available Azure Storage applications on zone-redundant storage (ZRS) | Microsoft Docs
 description: Zone-redundant storage (ZRS) offers a simple way to build highly available applications. ZRS protects against hardware failures in the datacenter, and against some regional disasters.
 services: storage
-author: tolandmike
+author: tamram
+
 ms.service: storage
 ms.topic: article
 ms.date: 10/24/2018
-ms.author: jeking
+ms.author: tamram
+ms.reviewer: artek
 ms.subservice: common
 ---
 

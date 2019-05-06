@@ -8,6 +8,7 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram
+ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
 

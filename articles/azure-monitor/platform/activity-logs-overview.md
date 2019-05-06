@@ -57,6 +57,7 @@ Here are some of the things you can do with the Activity Log:
 * Analyze it in Power BI using the [**Power BI content pack**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Save it to a **Storage Account** for archival or manual inspection](../../azure-monitor/platform/archive-activity-log.md). You can specify the retention time (in days) using the **Log Profile**.
 * Query it via PowerShell Cmdlet, CLI, or REST API.
+* View the [Change history](#view-change-history) for certain events
 
 ## Query the Activity Log in the Azure portal
 
@@ -177,6 +178,20 @@ For the full documentation for creating a monitor profile with the CLI, see the 
 ```azurecli
 az monitor log-profiles delete --name <profile name>
 ```
+
+## View change history
+
+When reviewing the Activity Log, it can help to see what changes happened during that event time. You can view this information with Change history.
+
+Navigate to Activity Log using the menu on the left side of the portal. Select an event from the Activity Log you want to look deeper into. Select the **Change history (Preview)** tab to view any associated changes with the event.
+
+![Change history list for an event](./media/activity-logs-overview/change-history-event.png)
+
+If there are any associated changes with the event, you'll see a list of changes that you can select. This opens up the **Change history (Preview)** page. On this page you see the changes to the resource. As you can see from the following example, we are able to see not only that the VM changed sizes, but what the previous VM size was before the change and what it was changed to.
+
+![Change history page showing differences](./media/activity-logs-overview/change-history-event-details.png)
+
+To learn more about Change history, see [Get resource changes](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## Next Steps
 

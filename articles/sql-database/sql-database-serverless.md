@@ -66,7 +66,7 @@ The following table compares serverless compute tier with the provisioned comput
 
 ## Purchasing model and service tier
 
-SQL Database serverless is currently only supported in the General Purpose tier on Generation 5 hardware in the vcore purchasing model.
+SQL Database serverless is currently only supported in the General Purpose tier on Generation 5 hardware in the vCore purchasing model.
 
 ## Autoscaling
 
@@ -105,7 +105,7 @@ Autoresume is triggered if any of the following conditions are true at any time:
 |Autotuning|Application and verification of autotuning recommendations such as auto-indexing|
 |Database copying|Create database as copy<br>Export to a BACPAC file|
 |SQL data sync|Synchronization between hub and member databases that run on a configurable schedule or are performed manually|
-|Modifying certain database metadata|Adding new database tags<br>Changing max vcores, min vcores, autopause delay|
+|Modifying certain database metadata|Adding new database tags<br>Changing max vCores, min vCores, autopause delay|
 |SQL Server Management Studio (SSMS)|Using SSMS version 18 and opening a new query window for any database in the server will resume any auto-paused database in the same server. This behavior does not occur if using SSMS version 17.9.1 with IntelliSense turned-off.|
 
 ### Connectivity
@@ -144,6 +144,9 @@ Creating a new database or moving an existing database into a serverless compute
    |Minimum vCores|Any of {0.5, 1, 2, 4} not exceeding max vCores|0.5 vCores|
    |Autopause delay|Min: 360 minutes (6 hours)<br>Max: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable autopause: -1|360 minutes|
 
+> [!NOTE]
+> Using T-SQL to move an existing database into serverless or change its compute size is not currently supported but can be done via the Azure portal or PowerShell.
+
 ### Create new database using the Azure portal
 
 See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md).
@@ -151,6 +154,8 @@ See [Quickstart: Create a single database in Azure SQL Database using the Azure 
 ### Create new database using PowerShell
 
 The following example creates a new database in the serverless compute tier defined by service objective named GP_S_Gen5_4 with default values for the min vCores and autopause delay.
+
+Serverless requires a newer version of PowerShell than is currently in the gallery, so run `Update-Module Az.Sql` to get the latest serverless-enabled cmdlets.
 
 ```powershell
 New-AzSqlDatabase `
@@ -282,7 +287,7 @@ Suppose the compute unit price is $0.2609/vCore/hour. Then the compute billed fo
 
 ## Available regions
 
-The serverless compute tier is available in all regions except the following regions: China East, China North, Germany Central, Germany Northeast, UK North, UK South, and West Central US
+The serverless compute tier is available in all regions except the following regions: Australia Central, China East, China North, France South, Germany Central, Germany Northeast, India West, Korea South, South Africa West, UK North, UK South, UK West, and West Central US
 
 ## Next steps
 
