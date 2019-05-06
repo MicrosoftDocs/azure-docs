@@ -237,6 +237,8 @@
           href: msal-js-prompt-behavior.md
         - name: Provide your own HttpClient (.NET)
           href: msal-net-provide-httpclient.md
+        - name: Integrate with Azure AD B2C
+          href: msal-b2c-overview.md
         - name: Platform-specific considerations (.NET)
           items:
           - name: Web browsers
