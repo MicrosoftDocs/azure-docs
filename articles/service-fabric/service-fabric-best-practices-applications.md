@@ -67,7 +67,7 @@ Reliable Actors enables you to easily create stateful, virtual actors. Read the 
 
 - Strongly consider using pub/sub messaging between your actors for scaling the application. For example, the [open sourced SoCreate pub/sub](https://service-fabric-pub-sub.socreate.it/) or [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
 - Make the actor state as [granular as possible](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices).
-- Manage the [actor's life-cycle](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices). Delete actors if your not going to use them ever again. This is especially true when using the [VolatileState provider](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#state-persistence-and-replication) as all the state is stored in memory.
+- Manage the [actor's life-cycle](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices). Delete actors if you're not going to use them ever again. This is especially true when using the [VolatileState provider](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#state-persistence-and-replication) as all the state is stored in memory.
 - Due to their [turn based concurrency](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#concurrency) actors are best used as independent objects. Don't create graphs of multi-actor, synchronous method calls (each of which most likely becomes a separate network call) or have circular actor requests; these will significantly affect performance and scale.
 - Don’t mix sync code with async code; it needs to be async all the way, to prevent performance issues.
 - Don’t make long running calls in actors, it will block other calls to the same actor, due to the turn-based concurrency.
@@ -77,11 +77,9 @@ Reliable Actors enables you to easily create stateful, virtual actors. Read the 
 ## Application diagnostics
 - Be thorough in adding [application logging](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) in service calls. It helps in diagnostics of scenarios where services call each other. For example, when A->B->C->D the call could fail anywhere; if there is not enough logging, it is hard to diagnose. If the services are logging too much because of call volumes, at least be sure to log errors and warnings.
 
-## IoT and Messaging Applications
+## IoT and messaging applications
 When reading messages from [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) or [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) use  [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor) that integrates with Service Fabric Reliable Services to maintain the state of reading from the Event Hub partitions and pushes new messages to your services via the `IEventProcessor::ProcessEventsAsync()` method.
 
-## Workflows Applications
-We are working on integrating [Durable Task framework](https://github.com/Azure/durabletask) and Service Fabric Reliable Services with state persisted to Reliable Collections to enable you to create long running, persistent workflows. This is  useful if you need to call a number of different Azure services and remember those that had been successfully called if the service fails over to another machine. 
 
 ## Design guidance on Azure
 * Visit the [Azure architecture center](https://docs.microsoft.com/azure/architecture/microservices/) for design guidance on [building microservices on Azure](https://docs.microsoft.com/azure/architecture/microservices/)
