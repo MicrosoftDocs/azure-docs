@@ -26,8 +26,10 @@
   - name: Analyze your video - .NET
     displayName: job, transform
     href: analyze-videos-tutorial-with-api.md
-  - name: AES-128 dynamic encryption - .NET
+  - name: Encrypt dynamically with AES-128 - .NET
     href: protect-with-aes128.md       
+  - name: Encrypt dynamically with DRM - .NET
+    href: protect-with-drm.md    
 - name: Samples
   items:
   - name: Azure code samples
@@ -214,9 +216,7 @@
   - name: Protect content
     items:
     - name: Get content key policy - .NET
-      href: get-content-key-policy-dotnet-howto.md
-    - name: DRM dynamic encryption - .NET
-      href: protect-with-drm.md      
+      href: get-content-key-policy-dotnet-howto.md   
     - name: Offline FairPlay for iOS 
       href: offline-fairplay-for-ios.md
     - name: Offline Widevine for Android
