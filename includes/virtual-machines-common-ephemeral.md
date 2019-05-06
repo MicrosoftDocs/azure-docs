@@ -55,7 +55,7 @@ Get-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
 ### CLI
 
 ```azurecli-interactive
-az provider register –namespace Microsoft.Compute
+az provider register --namespace Microsoft.Compute
 az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
 ```
 

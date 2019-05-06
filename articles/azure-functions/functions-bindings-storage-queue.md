@@ -269,7 +269,7 @@ In JavaScript, use `context.bindings.<name>` to access the queue item payload. I
 
 ## Trigger - message metadata
 
-The queue trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These are properties of the [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) class.
+The queue trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These are properties of the [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) class.
 
 |Property|Type|Description|
 |--------|----|-----------|
@@ -522,7 +522,7 @@ If you try to bind to `CloudQueueMessage` and get an error message, make sure th
 In C# and C# script, write multiple queue messages by using one of the following types: 
 
 * `ICollector<T>` or `IAsyncCollector<T>`
-* [CloudQueue](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
+* [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
 In JavaScript functions, use `context.bindings.<name>` to access the output queue message. You can use a string or a JSON-serializable object for the queue item payload.
 
@@ -582,4 +582,4 @@ This section describes the global configuration settings available for this bind
 
 <!-- LINKS -->
 
-[CloudQueueMessage]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
+[CloudQueueMessage]: /dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage
