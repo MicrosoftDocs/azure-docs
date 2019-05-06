@@ -4,7 +4,7 @@ description: Learn how to connect Cisco data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: 62029b5c-29d3-4336-8a22-a9db8214eb7e

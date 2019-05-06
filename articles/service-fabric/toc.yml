@@ -97,6 +97,8 @@
     href: service-fabric-best-practices-infrastructure-as-code.md
   - name: Monitoring and diagnostics
     href: service-fabric-best-practices-monitoring.md
+  - name: Application design
+    href: service-fabric-best-practices-applications.md
   - name: Production readiness checklist
     href: service-fabric-production-readiness-checklist.md  
 - name: Samples
