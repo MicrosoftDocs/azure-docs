@@ -12,94 +12,96 @@ ms.subservice: common
 
 # Configure, optimize, and troubleshoot AzCopy
 
-## Advanced configuration
+AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you configure AzCopy and find and fix issues that can occur when you use AzCopy.
 
-### Configure proxy settings
+If you're looking for content to help you get started with AzCopy, see any of the following articles:
 
-To configure the proxy settings for AzCopy v10, set the environment variable https_proxy by using the following command:
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
 
-```cmd
-# For Windows:
-set https_proxy=<proxy IP>:<proxy port>
-# For Linux:
-export https_proxy=<proxy IP>:<proxy port>
-# For MacOS
-export https_proxy=<proxy IP>:<proxy port>
-```
+- [Transfer data with AzCopy and blob storage](storage-use-azcopy-blobs.md)
 
-### Optimize throughput
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 
-Set the environment variable AZCOPY_CONCURRENCY_VALUE to configure the number of concurrent requests, and to control the throughput performance and resource consumption. The value is set to 300 by default. Reducing the value will limit the bandwidth and CPU used by AzCopy v10.
+- [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
 
-```cmd
-# For Windows:
-set AZCOPY_CONCURRENCY_VALUE=<value>
-# For Linux:
-export AZCOPY_CONCURRENCY_VALUE=<value>
-# For MacOS
-export AZCOPY_CONCURRENCY_VALUE=<value>
-# To check the current value of the variable on all the platforms
-.\azcopy env
-# If the value is blank then the default value is currently in use
-```
+## Configure proxy settings
 
-### Change the location of the log files
+To configure the proxy settings for AzCopy, set the `https_proxy` environment variable by using the following command:
+
+| Operating system | Command  |
+|--------|-----------|
+| **Windows** | `set https_proxy=<proxy IP>:<proxy port>` |
+| **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
+| **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
+
+## Optimize throughput
+
+Set the environment variable `AZCOPY_CONCURRENCY_VALUE` to configure the number of concurrent requests, and to control the throughput performance and resource consumption. The value is set to `300` by default. Reducing the value will limit the bandwidth and CPU used by AzCopy.
+
+| Operating system | Command  |
+|--------|-----------|
+| **Windows** | `set AZCOPY_CONCURRENCY_VALUE=<value>` |
+| **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
+| **MacOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
+
+To check the current value of the variable on all the platforms, use `azcopy env`.  If the value is blank then the default value is currently in use.
+
+## Change the location of the log files
 
 You can change the location of the log files if needed or to avoid filling up the OS disk.
 
-```cmd
-# For Windows:
-set AZCOPY_LOG_LOCATION=<value>
-# For Linux:
-export AZCOPY_LOG_LOCATION=<value>
-# For MacOS
-export AZCOPY_LOG_LOCATION=<value>
-# To check the current value of the variable on all the platforms
-.\azcopy env
-# If the value is blank, then the default value is currently in use
-```
-### Change the default log level 
+| Operating system | Command  |
+|--------|-----------|
+| **Windows** | `set AZCOPY_LOG_LOCATION=<value>` |
+| **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
+| **MacOS** | `export AZCOPY_LOG_LOCATION=<value>` |
 
-By default, AzCopy log level is set to INFO. If you would like to reduce the log verbosity to save disk space, overwrite the setting using ``--log-level`` option. Available log levels are: DEBUG, INFO, WARNING, ERROR, PANIC, and FATAL.
+To check the current value of the variable on all the platforms, use `azcopy env`. If the value is blank, then the default value is currently in use
 
-### Review the logs for errors
+## Change the default log level
 
-The following command will get all errors with UPLOADFAILED status from the 04dc9ca9-158f-7945-5933-564021086c79 log:
+By default, AzCopy log level is set to `INFO`. If you would like to reduce the log verbosity to save disk space, overwrite the setting using ``--log-level`` option. Available log levels are: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`, and `FATAL`.
 
-```azcopy
-cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
-```
+## Troubleshoot issues
 
-## Troubleshooting
+AzCopy creates log files and plan files for every job. You can use the logs to investigate and troubleshoot any potential problems. The logs will contain the status of failure (`UPLOADFAILED`, `COPYFAILED`, and `DOWNLOADFAILED`), the full path, and the reason of the failure. 
 
-AzCopy creates log files and plan files for every job. You can use the logs to investigate and troubleshoot any potential problems. The logs will contain the status of failure (UPLOADFAILED, COPYFAILED, and DOWNLOADFAILED), the full path, and the reason of the failure. The job logs and plan files are located in the %USERPROFILE\\.azcopy folder on Windows or $HOME\\.azcopy folder on Mac and Linux.
+The job logs and plan files are located in the `%USERPROFILE\\.azcopy` folder on Windows or `$HOME\\.azcopy` folder on Mac and Linux.
 
 > [!IMPORTANT]
 > When submitting a request to Microsoft Support (or troubleshooting the issue involving any third party), share the redacted version of the command you want to execute. This ensures the SAS isn't accidentally shared with anybody. You can find the redacted version at the start of the log file.
+
+### Review the logs for errors
+
+The following command will get all errors with `UPLOADFAILED` status from the `04dc9ca9-158f-7945-5933-564021086c79` log:
+
+```
+cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
+```
 
 ### View and resume jobs
 
 Each transfer operation will create an AzCopy job. Use the following command to view the history of jobs:
 
-```azcopy
-.\azcopy jobs list
+```
+azcopy jobs list
 ```
 
 To view the job statistics, use the following command:
 
-```azcopy
-.\azcopy jobs show <job-id>
+```
+azcopy jobs show <job-id>
 ```
 
 To filter the transfers by status, use the following command:
 
-```azcopy
-.\azcopy jobs show <job-id> --with-status=Failed
+```
+azcopy jobs show <job-id> --with-status=Failed
 ```
 
 Use the following command to resume a failed/canceled job. This command uses its identifier along with the SAS token as it isn't persistent for security reasons:
 
-```azcopy
-.\azcopy jobs resume <jobid> --source-sas="<sastokenhere>"
-.\azcopy jobs resume <jobid> --destination-sas="<sastokenhere>"
+```
+azcopy jobs resume <jobid> --source-sas="<sastokenhere>"
+azcopy jobs resume <jobid> --destination-sas="<sastokenhere>"
 ```
