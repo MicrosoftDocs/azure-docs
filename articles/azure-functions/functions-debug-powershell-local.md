@@ -185,7 +185,7 @@ Make note of the `ProcessId` for the item in the table with the `ProcessName` as
 Next, run the following snippet:
 
 ```powershell
-# This enters into the the Azure Functions PowerShell process.
+# This enters into the Azure Functions PowerShell process.
 # Put your value of `ProcessId` here.
 Enter-PSHostProcess -Id $ProcessId
 

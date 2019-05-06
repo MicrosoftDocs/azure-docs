@@ -206,7 +206,7 @@ await cloudBlobContainer.SetPermissionsAsync(permissions);
 
 ### Upload blobs to the container
 
-Next, the sample uploads a local file to a block blob. The code example gets a reference to a **CloudBlockBlob** object by calling the [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference) method on the container created in the previous section. It then uploads the selected file to the blob by calling the [​Upload​From​FileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
+Next, the sample uploads a local file to a block blob. The code example gets a reference to a **CloudBlockBlob** object by calling the [GetBlockBlobReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getblockblobreference) method on the container created in the previous section. It then uploads the selected file to the blob by calling the [​Upload​From​FileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromfileasync) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
 
 ```csharp
 // Create a file in your local MyDocuments folder to upload to a blob.
@@ -227,7 +227,7 @@ await cloudBlockBlob.UploadFromFileAsync(sourceFile);
 
 ### List the blobs in a container
 
-The sample lists the blobs in the container using the [​List​BlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync) method. In the case of the sample, only one blob has been added to the container, so the listing operation returns just that one blob.
+The sample lists the blobs in the container using the [​List​BlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync) method. In the case of the sample, only one blob has been added to the container, so the listing operation returns just that one blob.
 
 If there are too many blobs to return in one call (by default, more than 5000), then the **​List​BlobsSegmentedAsync** method returns a segment of the total result set and a continuation token. To retrieve the next segment of blobs, you provide in the continuation token returned by the previous call, and so on, until the continuation token is null. A null continuation token indicates that all of the blobs have been retrieved. The sample code shows how to use the continuation token for the sake of best practices.
 
@@ -250,7 +250,7 @@ do
 
 ### Download blobs
 
-Next, the sample downloads the blob created previously to your local file system using the [​Download​To​FileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync) method. The sample code adds a suffix of "_DOWNLOADED" to the blob name so that you can see both files in local file system.
+Next, the sample downloads the blob created previously to your local file system using the [​Download​To​FileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) method. The sample code adds a suffix of "_DOWNLOADED" to the blob name so that you can see both files in local file system.
 
 ```csharp
 // Download the blob to a local file, using the reference created earlier.
@@ -262,7 +262,7 @@ await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);
 
 ### Clean up resources
 
-The sample cleans up the resources that it created by deleting the entire container using [Cloud​Blob​Container.​DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). You can also delete the local files if you like.
+The sample cleans up the resources that it created by deleting the entire container using [Cloud​Blob​Container.​DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). You can also delete the local files if you like.
 
 ```csharp
 Console.WriteLine("Press the 'Enter' key to delete the sample files, example container, and exit the application.");
