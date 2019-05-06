@@ -1,20 +1,19 @@
 ---
-title: Common security attributes for Azure SQL Database
-description: A checklist of common security attributes for evaluating Azure SQL Database
-services: load-balancer
-documentationcenter: ''
+title: Security attributes for Azure SQL Database
+description: A checklist of security attributes for evaluating Azure SQL Database
+services: sql-database
 author: msmbaldwin
 manager: barbkess
 ms.service: load-balancer
 
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/06/2019
 ms.author: mbaldwin
 
 ---
-# Common security attributes for Azure SQL Database
+# Security attributes for Azure SQL Database
 
-Security is integrated into every aspect of an Azure service. This article documents the common security attributes built into Azure SQL Database
+This article documents the common security attributes built into Azure SQL Database
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -30,7 +29,7 @@ Azure SQL Database includes both [single database](sql-database-single-index.yml
 | Column Level Encryption (Azure Data Services)| Yes | Through [Always Encrypted](sql-database-always-encrypted.md). |
 | API calls encrypted| Yes | Using HTTPS/SSL. |
 
-## Network Segmentation
+## Network segmentation
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -45,7 +44,7 @@ Azure SQL Database includes both [single database](sql-database-single-index.yml
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | The third-party SIEM solution from Imperva (SecureSphere) is also supported, through [Azure Event Hubs](../event-hubs/index.yml) integration via [SQL audit](sql-database-auditing.md). |
 
-## IAM Support
+## Identity and access management
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
@@ -53,23 +52,23 @@ Azure SQL Database includes both [single database](sql-database-single-index.yml
 | Access management - Authorization| Yes |  |
 
 
-## Audit Trail
+## Audit trail
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Control/Management Plan Logging and Audit| Yes | Yes for some events only. |
 | Data plane Logging and Audit | Yes | Via [SQL audit](sql-database-auditing.md). |
 
-## Configuration Management
+## Configuration management
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| No  | | 
 
-## Additional Security Attributes for SQL Database
+## Additional security attributes for SQL Database
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Preventative: vulnerability assessment | Yes | See [SQL Vulnerability Assessment service helps you identify database vulnerabilities](sql-vulnerability-assessment.md) |
-| Preventative: data discovery and classification  | Yes | See [Azure SQL Database and SQL Data Warehouse data discovery & classification](sql-database-data-discovery-and-classification.md) |
-| Detection: threat detection | Yes | See [Advanced Threat Protection for Azure SQL Database](sql-database-threat-detection-overview.md) |
+| Preventative: vulnerability assessment | Yes | See [SQL Vulnerability Assessment service helps you identify database vulnerabilities](sql-vulnerability-assessment.md). |
+| Preventative: data discovery and classification  | Yes | See [Azure SQL Database and SQL Data Warehouse data discovery & classification](sql-database-data-discovery-and-classification.md). |
+| Detection: threat detection | Yes | See [Advanced Threat Protection for Azure SQL Database](sql-database-threat-detection-overview.md). |
