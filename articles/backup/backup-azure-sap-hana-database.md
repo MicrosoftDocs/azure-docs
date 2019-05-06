@@ -1,6 +1,6 @@
 ---
-title: Back up a SAP HANA database to Azure with Azure Backup | Microsoft Docs
-description: This tutorial explains how to back up a SAP HANA database to Azure with the Azure Backup service.
+title: Back up an SAP HANA database to Azure with Azure Backup | Microsoft Docs
+description: This tutorial explains how to back up an SAP HANA database to Azure with the Azure Backup service.
 services: backup
 author: rayne-wiselman
 manager: carmonm
@@ -11,7 +11,7 @@ ms.author: raynew
 
 
 ---
-# Back up a SAP HANA database
+# Back up an SAP HANA database
 
 [Azure Backup](backup-overview.md) supports the backup of SAP HANA databases to Azure.
 
@@ -111,9 +111,11 @@ Specify the policy settings as follows:
 1. In **Policy name**, enter a name for the new policy.
 2. In **Full Backup policy**, select a **Backup Frequency**, choose **Daily** or **Weekly**.
    - **Daily**: Select the hour and time zone in which the backup job begins.
+   
        - You must run a full backup. You can't turn off this option.
        - Click **Full Backup** to view the policy.
        - You can't create differential backups for daily full backups.
+       
    - **Weekly**: Select the day of the week, hour, and time zone in which the backup job runs.
 3. In **Retention Range**, configure retention settings for the full backup.
     - By default all options are selected. Clear any retention range limits you don't want to use, and set those that you do.
@@ -145,7 +147,7 @@ Specify the policy settings as follows:
 
 ## Run an on-demand backup
 
-Backups runs in accordance with the policy schedule. You can run a backup on-demand as follows:
+Backups run in accordance with the policy schedule. You can run a backup on-demand as follows:
 
 
 1. In the vault menu, click **Backup items**.
@@ -157,7 +159,7 @@ Backups runs in accordance with the policy schedule. You can run a backup on-dem
 
 If you want to take a local backup (using HANA Studio) of a database that's being backed up with Azure Backup, do the following:
 
-1. Wait for any full or log backups for the database to finish. Checkk the status in SAP HANA Studio.
+1. Wait for any full or log backups for the database to finish. Check the status in SAP HANA Studio.
 2. Disable log backups, and set the backup catalog to the file system for relevant database.
 3. To do this, double-click **systemdb** > **Configuration** > **Select Database** > **Filter (Log)**.
 4. Set **enable_auto_log_backup** to **No**.
