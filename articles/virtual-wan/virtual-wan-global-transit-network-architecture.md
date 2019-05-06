@@ -15,7 +15,7 @@ Customer intent: As someone with a networking background, I want to understand g
 
 Global transit network architecture is being adopted by enterprises to consolidate, connect, and control the cloud-centric modern enterprise IT footprint. In a modern cloud-centric enterprise, network traffic does not need to be backhauled to HQ. Global transit network architecture is based on both familiar networking concepts, and new concepts that are unique to cloud and cloud-based architectures.
 
-![architecture](./media/virtual-wan-global-transit/architecture2.png)
+![architecture](./media/virtual-wan-global-transit-network-architecture/architecture2.png)
 
 **Figure 1: Global transit network with Virtual WAN**
 
@@ -36,7 +36,7 @@ In this model, a spoke can be:
 * Remote user
 * Internet
 
-![hub and spoke global transit diagram](./media/virtual-wan-global-transit/architecture.png)
+![hub and spoke global transit diagram](./media/virtual-wan-global-transit-network-architecture/architecture.png)
 
 **Figure 2: Hub-and-spoke**
 
@@ -52,7 +52,7 @@ Global transit network architecture enables *any-to-any connectivity* via a cent
 
 Any-to-any connectivity, in the context of a global architecture, allows an enterprise with globally distributed users, branches, datacenters, VNets, and applications to connect to each other through the transit hub. The transit hub acts as the global transit system.
 
-![traffic paths](./media/virtual-wan-global-transit/trafficpath.png)
+![traffic paths](./media/virtual-wan-global-transit-network-architecture/trafficpath.png)
 
 **Figure 3: Virtual WAN traffic paths**
 
