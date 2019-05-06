@@ -19,11 +19,7 @@ AzCopy is a command-line utility that you can use to copy data to, from, or betw
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and authenticate your identity.
 
 > [!NOTE]
-> The examples in this article assume that you authenticate your identity by using the `AzCopy login` command. None of these examples contain a SAS token.
->
-> If you choose to authenticate your identity by using a SAS token, then for each AzCopy command, append that token to url of the container resource.
->
-> For example: `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>")`.
+> The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command. If you'd rather use a SAS token, then append that token to the resource url in each command (For example: `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>"`).
 
 ## Create containers
 
@@ -267,10 +263,6 @@ If you set the `--delete-destination` flag to `true` AzCopy deletes files withou
 > [!NOTE]
 > To prevent accidental deletions, make sure to enable the [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) feature before you use the `--delete-destination=prompt|true` flag.
 
-> [!div class="checklist"]
-> * Synchronize a local file system with a container
-> * Synchronize a container with a local file system
-
 ### Synchronize a local file system with a container
 
 ```
@@ -298,6 +290,10 @@ azcopy sync "https://<storage-account-name>.<uri-suffix>/<container-name>" "C:\m
 **Example (hierarchical namespace)**
 
 `\azcopy sync "https://mystorageaccount.dfs.core.windows/mycontainer" "C:\myFolder" --recursive=true`
+
+### Safety tips when using the sync command
+
+
 
 ## More examples
 
