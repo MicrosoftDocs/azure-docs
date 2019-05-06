@@ -7,7 +7,7 @@ ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 05/06/2019
 ---
 
 # Schedule jobs on multiple devices
@@ -66,14 +66,14 @@ The query condition can also be on a single device ID or on a list of device IDs
 The following snippet shows the request and response for a job scheduled to call a direct method named testMethod on all devices on contoso-hub-1:
 
 ```
-PUT https://contoso-hub-1.azure-devices.net/jobs/v2/12345?api-version=2018-06-30 HTTP/1.1
-Authorization: SharedAccessSignature sr=contoso-hub-1.azure-devices.net&sig=68ivcHktSc0NDPdksPnKUeVHFI%2FGHgfAhmJ%2Bv8Hxalg%3D&se=1556849884&skn=iothubowner
+PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job01?api-version=2018-06-30 HTTP/1.1
+Authorization: SharedAccessSignature sr=contoso-hub-1.azure-devices.net&sig=68iv------------------------------------v8Hxalg%3D&se=1556849884&skn=iothubowner
 Content-Type: application/json; charset=utf-8
 Host: contoso-hub-1.azure-devices.net
 Content-Length: 317
 
 {
-    "jobId": "12345",
+    "jobId": "job01",
     "type": "scheduleDeviceMethod",
     "cloudToDeviceMethod": {
         "methodName": "testMethod",
@@ -92,7 +92,7 @@ Vary: Origin
 Server: Microsoft-HTTPAPI/2.0
 Date: Fri, 03 May 2019 01:46:18 GMT
 
-{"jobId":"12345","type":"scheduleDeviceMethod","status":"queued"}
+{"jobId":"job01","type":"scheduleDeviceMethod","status":"queued"}
 ```
 
 ## Jobs to update device twin properties
@@ -121,14 +121,14 @@ Content-Type: application/json; charset=utf-8
 The following snippet shows the request and response for a job scheduled to update device twin properties for test-device on contoso-hub-1:
 
 ```
-PUT https://contoso-hub-1.azure-devices.net/jobs/v2/123456789?api-version=2018-06-30 HTTP/1.1
-Authorization: SharedAccessSignature sr=contoso-hub-1.azure-devices.net&sig=BN0USX10kqBIMDMz21eg8kHWcVwaW4bjq3Pm6iKzRuA%3D&se=1556925787&skn=iothubowner
+PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job02?api-version=2018-06-30 HTTP/1.1
+Authorization: SharedAccessSignature sr=contoso-hub-1.azure-devices.net&sig=BN0U-------------------------------------RuA%3D&se=1556925787&skn=iothubowner
 Content-Type: application/json; charset=utf-8
 Host: contoso-hub-1.azure-devices.net
-Content-Length: 343
+Content-Length: 339
 
 {
-    "jobId": "123456789",
+    "jobId": "job02",
     "type": "scheduleUpdateTwin",
     "updateTwin": {
       "properties": {
@@ -144,13 +144,13 @@ Content-Length: 343
 }
 
 HTTP/1.1 200 OK
-Content-Length: 67
+Content-Length: 63
 Content-Type: application/json; charset=utf-8
 Vary: Origin
 Server: Microsoft-HTTPAPI/2.0
 Date: Fri, 03 May 2019 22:45:13 GMT
 
-{"jobId":"123456789","type":"scheduleUpdateTwin","status":"queued"}
+{"jobId":"job02","type":"scheduleUpdateTwin","status":"queued"}
 ```
 
 ## Querying for progress on jobs
