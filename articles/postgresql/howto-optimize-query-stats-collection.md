@@ -1,14 +1,14 @@
 ---
-title: Optimize query stats collection on an Azure Database for PostgreSQL server
-description: This article describes how you can optimize query stats collection on an Azure Database for PostgreSQL server.
+title: Optimize query stats collection on an Azure Database for PostgreSQL - Single Server
+description: This article describes how you can optimize query stats collection on an Azure Database for PostgreSQL - Single Server
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 5/6/2019
 ---
 
-# Optimize query statistics collection on an Azure Database for PostgreSQL server 
+# Optimize query statistics collection on an Azure Database for PostgreSQL - Single Server
 This article describes how to optimize query statistics collection on an Azure Database for PostgreSQL server.
 
 ## Use pg_stats_statements

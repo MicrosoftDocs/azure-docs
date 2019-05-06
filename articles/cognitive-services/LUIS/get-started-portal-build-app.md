@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 05/07/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to quickly get a LUIS app created in the LUIS portal so I can understand the different models of intent, entity, and example utterances. 
 ---
@@ -52,7 +52,7 @@ The app's two different _intentions_ align to the following intents:
 |ApplyForJob|`I want to apply for the new software engineering position in Cairo.`|
 |FindForm|`Where is the job transfer form hrf-123456?`|
 
-To create intents, do the following steps:
+To create intents, complete the following steps:
 
 1. After the app is created, you are on the **Intents** page of the **Build** section. Select **Create new intent**.
 
@@ -67,6 +67,8 @@ To create intents, do the following steps:
 You add example utterances after you create intents. Example utterances are text that a user enters in a chat bot or other client application. They map the intention of the user's text to a LUIS intent.
 
 For this example application's `FindForm` intent, example utterances will include the form number. The client application needs the form number to fulfill the user's request, so it's important to include it in the utterance.
+
+[![Enter example utterances for the FindForm intent](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
 
 Add the following 15 example utterances to the `FindForm` intent.
 
@@ -96,11 +98,11 @@ By design, these example utterances vary in the following ways:
 * verb tense (is, was, will be)
 * word order
 
-[![Enter example utterances for the FindForm intent](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+
 
 ## Create a regular expression entity
 
-To get the form number returned as part of the runtime prediction response, the form must be marked as an entity. Because the form number text is highly structured, it can be marked using a regular expression entity. Create the entity with the following steps:
+To return the form number in the runtime prediction response, the form must be marked as an entity. Because the form number text is highly structured, you can mark it using a regular expression entity. Create the entity with the following steps:
 
 1. Select **Entities** from the menu on the left.
 

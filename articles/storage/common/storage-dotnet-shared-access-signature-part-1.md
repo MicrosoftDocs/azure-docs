@@ -3,10 +3,12 @@ title: Using shared access signatures (SAS) in Azure Storage | Microsoft Docs
 description: Learn to use shared access signatures (SAS) to delegate access to Azure Storage resources, including blobs, queues, tables, and files.
 services: storage
 author: tamram
+
 ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
 ---
 # Using shared access signatures (SAS)

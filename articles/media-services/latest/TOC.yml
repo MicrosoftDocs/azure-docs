@@ -26,8 +26,10 @@
   - name: Analyze your video - .NET
     displayName: job, transform
     href: analyze-videos-tutorial-with-api.md
-  - name: AES-128 dynamic encryption - .NET
+  - name: Encrypt dynamically with AES-128 - .NET
     href: protect-with-aes128.md       
+  - name: Encrypt dynamically with DRM - .NET
+    href: protect-with-drm.md    
 - name: Samples
   items:
   - name: Azure code samples
@@ -54,12 +56,11 @@
       displayName: containers, codecs    
       href: media-encoder-standard-formats.md
     - name: Autogen adaptive bitrate ladder
-      href: autogen-bitrate-ladder.md      
+      href: autogen-bitrate-ladder.md       
     - name: Content-aware encoding
-      displayName: content, aware, cae
-      href: cae-experimental.md
+      href: cae-experimental.md          
     - name: Job error codes
-      href: https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode         
+      href: job-error-codes.md     
   - name: Media analytics 
     items:
     - name: Overview
@@ -68,7 +69,7 @@
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md 
     - name: Job error codes
-      href: https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode         
+      href: job-error-codes.md     
   - name: Packaging, delivery, protection
     items:
     - name: Packaging
@@ -150,7 +151,7 @@
       - name: Origin error codes  
         href: origin-error-codes.md
       - name: Job error codes
-        href: https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode
+        href: job-error-codes.md
   - name: Migration guidance from v2 to v3
     href: migrate-from-v2-to-v3.md      
 - name: How-to guides
@@ -214,9 +215,7 @@
   - name: Protect content
     items:
     - name: Get content key policy - .NET
-      href: get-content-key-policy-dotnet-howto.md
-    - name: DRM dynamic encryption - .NET
-      href: protect-with-drm.md      
+      href: get-content-key-policy-dotnet-howto.md   
     - name: Offline FairPlay for iOS 
       href: offline-fairplay-for-ios.md
     - name: Offline Widevine for Android
@@ -258,7 +257,7 @@
     - name: Origin error codes  
       href: origin-error-codes.md
     - name: Job error codes
-      href: https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode    
+      href: job-error-codes.md   
 - name: Resources
   items:
   - name: Azure Media Services community

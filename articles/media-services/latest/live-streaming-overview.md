@@ -89,7 +89,7 @@ To understand the live streaming workflow in Media Services v3, you have to firs
 - [States and billing](live-event-states-billing.md)
 - [Latency](live-event-latency.md)
 
-## Provide feedback
+## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
