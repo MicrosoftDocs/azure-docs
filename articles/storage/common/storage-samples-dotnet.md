@@ -2,14 +2,17 @@
 title: Azure Storage samples using .NET | Microsoft Docs
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET storage client libraries.
 services: storage
-author: seguler
+author: mhopkins-msft
+
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/12/2017
-ms.author: seguler
+ms.author: mhopkins
+ms.reviewer: seguler
 ms.subservice: common
 ---
+
 # Azure Storage samples using .NET
 
 ## .NET sample index
