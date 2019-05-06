@@ -555,6 +555,8 @@
           href: app/usage-workbooks.md
       - name: Web App Analytics solution
         href: insights/azure-web-apps-analytics.md
+      - name: Kubernetes hosted apps
+        href: app/kubernetes.md
     - name: Monitor containers
       items:
       - name: Azure Monitor for containers 
@@ -563,13 +565,19 @@
           href: insights/container-insights-overview.md
         - name: FAQ
           href: insights/container-insights-faq.md
-        - name: Onboard 
-          href: insights/container-insights-onboard.md
+        - name: Enable monitoring
+          items:
+          - name: Enable monitoring overview 
+            href: insights/container-insights-onboard.md
+          - name: Enable for new cluster
+            href: insights/container-insights-enable-new-cluster.md
+          - name: Enable for existing cluster
+            href: insights/container-insights-enable-existing-clusters.md
         - name: Analyze 
           href: insights/container-insights-analyze.md
         - name: Disable monitoring
           href: insights/container-insights-optout.md
-        - name: View container live logs
+        - name: View live logs
           href: insights/container-insights-live-logs.md
         - name: Analyze data with log queries
           href: insights/container-insights-log-search.md
@@ -585,8 +593,6 @@
         href: insights/containers.md
       - name: Monitor Docker applications
         href: app/docker.md
-      - name: Application Insights for Kubernetes
-        href: app/kubernetes.md
     - name: Monitor resource groups
       href: insights/resource-group-insights.md
     - name: Monitor databases
