@@ -19,8 +19,6 @@ This article is designed to help you troubleshoot and resolve issues that you mi
 2. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 3. Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## I'm having an issue with Azure File Sync on my server (sync, cloud tiering, etc.). Should I remove and recreate my server endpoint?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
 
@@ -109,10 +107,8 @@ This issue occurs if the server is offline or doesn't have network connectivity.
 This issue can occur if a management operation on the server endpoint fails. If the server endpoint properties page does not open in the Azure portal, updating server endpoint using PowerShell commands from the server may fix this issue. 
 
 ```powershell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 # Get the server endpoint id based on the server endpoint DisplayName property
 Get-AzStorageSyncServerEndpoint `
-    -SubscriptionId mysubguid `
     -ResourceGroupName myrgname `
     -StorageSyncServiceName storagesvcname `
     -SyncGroupName mysyncgroup
@@ -499,9 +495,7 @@ If the server time is correct, perform the following steps to resolve the issue:
 2. Run the following PowerShell commands on the server:
 
     ```powershell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
-    Login-AzStorageSync -SubscriptionID <guid> -TenantID <guid>
-    Reset-AzStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
+    Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**The volume where the server endpoint is located is low on disk space.**  
@@ -613,26 +607,13 @@ This error occurs because of an internal problem with the sync database. This er
 # [PowerShell](#tab/azure-powershell)
 ```powershell
 # Variables for you to populate based on your configuration
-$agentPath = "C:\Program Files\Azure\StorageSyncAgent"
 $region = "<Az_Region>"
 $resourceGroup = "<RG_Name>"
 $syncService = "<storage-sync-service>"
 $syncGroup = "<sync-group>"
 
-# Import the Azure File Sync management cmdlets
-Import-Module "$agentPath\StorageSync.Management.PowerShell.Cmdlets.dll"
-
-# Log into the Azure account and put the returned account information
-# in a reference variable.
-$acctInfo = Connect-AzAccount
-
-# this variable stores your subscription ID 
-# get the subscription ID by logging onto the Azure portal
-$subID = $acctInfo.Context.Subscription.Id
-
-# this variable holds your Azure Active Directory tenant ID
-# use Login-AzAccount to get the ID from that context
-$tenantID = $acctInfo.Context.Tenant.Id
+# Log into the Azure account
+Connect-AzAccount
 
 # Check to ensure Azure File Sync is available in the selected Azure
 # region.
@@ -658,21 +639,12 @@ if ($resourceGroups -notcontains $resourceGroup) {
     throw [System.Exception]::new("The provided resource group $resourceGroup does not exist.")
 }
 
-# the following command creates an AFS context 
-# it enables subsequent AFS cmdlets to be executed with minimal 
-# repetition of parameters or separate authentication 
-Login-AzStorageSync `
-    –SubscriptionId $subID `
-    -ResourceGroupName $resourceGroup `
-    -TenantId $tenantID `
-    -Location $region
-
 # Check to make sure the provided Storage Sync Service
 # exists.
 $syncServices = [System.String[]]@()
 
 Get-AzStorageSyncService -ResourceGroupName $resourceGroup | ForEach-Object {
-    $syncServices += $_.DisplayName
+    $syncServices += $_.StorageSyncServiceName
 }
 
 if ($storageSyncServices -notcontains $syncService) {
@@ -683,7 +655,7 @@ if ($storageSyncServices -notcontains $syncService) {
 $syncGroups = [System.String[]]@()
 
 Get-AzStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName $syncService | ForEach-Object {
-    $syncGroups += $_.DisplayName
+    $syncGroups += $_.SyncGroupName
 }
 
 if ($syncGroups -notcontains $syncGroup) {
@@ -697,7 +669,7 @@ $cloudEndpoint = Get-AzStorageSyncCloudEndpoint `
     -SyncGroupName $syncGroup
 
 # Get reference to storage account
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup | Where-Object { 
+$storageAccount = Get-AzStorageAccount | Where-Object { 
     $_.Id -eq $cloudEndpoint.StorageAccountResourceId
 }
 
