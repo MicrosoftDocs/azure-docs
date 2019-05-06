@@ -34,14 +34,14 @@ This how-to article requires the Azure PowerShell module Az version 0.7 or later
 
 # [Azure CLI](#tab/azure-cli)
 
-You can log in to Azure and run Azure CLI commands in one of two ways:
+You can sign in to Azure and run Azure CLI commands in one of two ways:
 
 - You can run CLI commands from within the Azure portal, in Azure Cloud Shell.
 - You can install the CLI and run CLI commands locally.
 
 ### Use Azure Cloud Shell
 
-Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. The Azure CLI is pre-installed and configured to use with your account. Click the **Cloud Shell** button on the menu in the upper-right of the Azure portal:
+Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. The Azure CLI is pre-installed and configured to use with your account. Click the **Cloud Shell** button on the menu in the upper-right section of the Azure portal:
 
 [![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
@@ -59,15 +59,15 @@ None.
 
 ---
 
-## Log in to Azure
+## Sign in to Azure
 
 # [Portal](#tab/azure-portal)
 
-Log in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 # [PowerShell](#tab/azure-powershell)
 
-Log in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions to authenticate.
+Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions to authenticate.
 
 ```powershell
 Connect-AzAccount
@@ -75,9 +75,9 @@ Connect-AzAccount
 
 # [Azure CLI](#tab/azure-cli)
 
-To launch Azure Cloud Shell, log in to the [Azure portal](https://portal.azure.com).
+To launch Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
 
-To log into your local installation of the CLI, run the login command:
+To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az-login) command:
 
 ```cli
 az login
@@ -133,7 +133,7 @@ To create a general-purpose v2 storage account with a different replication opti
 
 |Replication option  |SkuName parameter  |
 |---------|---------|
-|Locally-redundant storage (LRS)     |Standard_LRS         |
+|Locally redundant storage (LRS)     |Standard_LRS         |
 |Zone-redundant storage (ZRS)     |Standard_ZRS         |
 |Geo-redundant storage (GRS)     |Standard_GRS         |
 |Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
@@ -171,7 +171,7 @@ To create a general-purpose v2 storage account with a different replication opti
 
 |Replication option  |sku parameter  |
 |---------|---------|
-|Locally-redundant storage (LRS)     |Standard_LRS         |
+|Locally redundant storage (LRS)     |Standard_LRS         |
 |Zone-redundant storage (ZRS)     |Standard_ZRS         |
 |Geo-redundant storage (GRS)     |Standard_GRS         |
 |Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
@@ -209,7 +209,7 @@ For more information about available replication options, see [Storage replicati
 
 ## Clean up resources
 
-If you wish to clean up the resources created by this how-to article, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account, and any other resources associated with the resource group.
+If you wish to clean up the resources created by this how-to article, you can delete the resource group. Deleting the resource group also deletes the associated storage account, and any other resources associated with the resource group.
 
 # [Portal](#tab/azure-portal)
 
