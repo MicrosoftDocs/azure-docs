@@ -267,6 +267,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
+|2.2|May 6, 2019|Added section 15.|
 |2.2|December 03,2018|Updated policy 13.1.|
 |2.2|November 19,2018|Updated policy 7.4.5.|
 |2.2|September 11, 2018|Updated policy 4.12.3.|
