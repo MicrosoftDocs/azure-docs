@@ -98,7 +98,7 @@ To configure Azure AD single sign-on with webMethods Integration Suite, perform 
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. To configure the **webMethods Integration Cloud**, on the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
+4. To configure the **webMethods Integration Cloud**, on the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     ![webMethods Integration Suite Domain and URLs single sign-on information](common/idp-intiated.png)
 
@@ -133,7 +133,7 @@ To configure Azure AD single sign-on with webMethods Integration Suite, perform 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [webMethods Integration Suite Client support team](https://empower.softwareag.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. To configure the **webMethods API Cloud**, on the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
+5. To configure the **webMethods API Cloud**, on the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
 	![webMethods Integration Suite Domain and URLs single sign-on information](common/idp-intiated.png)
 
@@ -202,9 +202,9 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The User dialog box](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -231,7 +231,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
     ![The Add Assignment pane](common/add-assign-user.png)
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+5. In the **Users and groups** dialog, select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
 6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
