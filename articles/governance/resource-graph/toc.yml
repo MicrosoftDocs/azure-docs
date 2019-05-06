@@ -56,6 +56,8 @@
     href: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
   - name: Azure SDK for Java (Maven)
     href: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar
+  - name: Azure SDK for Node
+    href: /javascript/api/@azure/arm-resourcegraph
   - name: Azure SDK for Python
     href: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
   - name: Azure SDK for Ruby (Gem)
