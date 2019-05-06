@@ -2,7 +2,7 @@
 title: 'Quickstart: Set and retrieve a secret from Azure Key Vault by using a .NET web app - Azure Key Vault | Microsoft Docs'
 description: In this quickstart, you set and retrieve a secret from Azure Key Vault by using a .NET web app
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
