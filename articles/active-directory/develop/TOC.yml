@@ -334,6 +334,18 @@
         href: howto-configure-publisher-domain.md
       - name: Terms of Service and Privacy Statement
         href: howto-add-terms-of-service-privacy-statement.md
+    - name: Work with Microsoft Authentication Library
+      items:
+        - name: MSAL.NET
+          items:
+            - name: Acquire a token from the cache
+              href: msal-net-acquire-token-silently.md
+            - name: Instantiate a public client with options
+              href: msal-net-instantiate-public-client-config-options.md
+            - name: Instantiate a confidential client with options
+              href: msal-net-instantiate-confidential-client-config-options.md
+            - name: Get consent for several resources
+              href: msal-net-user-gets-consent-for-multiple-resources.md
     - name: Work with Visual Studio
       items:
       - name: Use the Active Directory connected service

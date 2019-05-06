@@ -2,11 +2,11 @@
 title: Azure Files performance troubleshooting guide
 description: Known performance issues with Azure premium file shares (preview) and associated workarounds.
 services: storage
-author: jeffpatt24
+author: gunjanj
 ms.service: storage
 ms.topic: article
 ms.date: 04/25/2019
-ms.author: jeffpatt
+ms.author: gunjanj
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---

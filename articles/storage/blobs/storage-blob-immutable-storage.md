@@ -2,12 +2,13 @@
 title: Immutable storage for Azure Storage Blobs | Microsoft Docs
 description: Azure Storage offers WORM (Write Once, Read Many) support for Blob (object) storage that enables users to store data in a non-erasable, non-modifiable state for a specified interval.
 services: storage
-author: xyh1
+author: tamram
 
 ms.service: storage
 ms.topic: article
 ms.date: 04/18/2019
-ms.author: hux
+ms.author: tamram
+ms.reviewer: hux
 ms.subservice: blobs
 ---
 
