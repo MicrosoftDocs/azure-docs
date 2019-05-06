@@ -74,7 +74,7 @@ For all operations, the SAP HANA VM needs connectivity to Azure public IP addres
 Onboard to the public preview as follows:
 
 - In the portal, register your subscription ID to the Recovery Services service provider by [following this article](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal). 
-- If you want to use PowerShell, run this cmdlet. It should complete as "Registered".
+- For PowerShell, run this cmdlet. It should complete as "Registered".
 
     ```
     PS C:>  Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
