@@ -23,10 +23,9 @@ The Assign Data to Clusters module returns a dataset that contains the probable 
   
 1. In the Azure Machine Learning visual interface, locate a previously trained clustering model. You can create and train a clustering model by using either of the following methods:  
   
-    - Configure the K-means clustering algorithm using the [K-Means Clustering](k-means-clustering.md) module.
-    - Train the model by using a dataset and the Train Clustering Model module (this article).  
+    - Configure the K-means clustering algorithm by using the [K-Means Clustering](k-means-clustering.md) module, and train the model by using a dataset and the Train Clustering Model module (this article).  
   
-    You can also add an existing trained clustering model from the **Saved Models** group in your workspace.
+    - You can also add an existing trained clustering model from the **Saved Models** group in your workspace.
 
 2. Attach the trained model to the left input port of **Assign Data to Clusters**.  
 
