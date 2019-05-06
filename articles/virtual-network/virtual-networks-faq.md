@@ -240,7 +240,6 @@ The following resources use Basic Load Balancers which means you cannot communic
 - Redis Cache 
 - Application Gateway (v1) SKU
 - Service Fabric
-- SQL Always-on
 - SQL MI
 - API Managemenet
 - Active Directory Domain Service (ADDS)
