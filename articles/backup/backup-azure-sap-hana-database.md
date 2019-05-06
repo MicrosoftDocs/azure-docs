@@ -155,9 +155,9 @@ Backups runs in accordance with the policy schedule. You can run a backup on-dem
 
 ## Run SAP HANA Studio backup on a database with Azure Backup enabled
 
-If you want to back up a database with Azure Backup, and backup up locally using HANA Studio, on the VM from which Azure Backup is backing up the database, do the following:
+If you want to take a local backup (using HANA Studio) of a database that's being backed up with Azure Backup, do the following:
 
-1. Wait for any full or log backups for the database to finish. Check the status in SAP HANA Studio.
+1. Wait for any full or log backups for the database to finish. Checkk the status in SAP HANA Studio.
 2. Disable log backups, and set the backup catalog to the file system for relevant database.
 3. To do this, double-click **systemdb** > **Configuration** > **Select Database** > **Filter (Log)**.
 4. Set **enable_auto_log_backup** to **No**.
