@@ -37,13 +37,21 @@
       displayName: learning policy, Counterfactual, features
 - name: How-to guides
   items:
-  - name: Configure Personalizer
+  - name: Create and configure Personalizer
     href: how-to-settings.md
     displayName: azure, portal, settings, evaluation, offline, policy
   - name: Analyze
     items: 
     - name: Offline evaluation
       href: how-to-offline-evaluation.md
+  - name: Use containers
+    items:
+    - name: Install and run containers
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, run, apikey
+      href: personalizer-container-howto.md
+    - name: Configure containers
+      href: personalizer-container-configuration.md
+      displayName: docker, run, apikey      
 - name: Reference
   items:
   - name: Samples

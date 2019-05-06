@@ -27,12 +27,6 @@
     href: pim-deployment-plan.md
   - name: Start using PIM
     href: pim-getting-started.md
-  - name: Activate my roles
-    items:
-    - name: Activate my Azure AD roles
-      href: pim-how-to-activate-role.md
-    - name: Activate my Azure resource roles
-      href: pim-resource-roles-activate-your-roles.md
   - name: Configure PIM
     items:
     - name: Security wizard
@@ -43,6 +37,12 @@
       href: pim-how-to-give-access-to-pim.md
     - name: Elevate access to manage all subscriptions
       href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+  - name: Activate my roles
+    items:
+    - name: Activate my Azure AD roles
+      href: pim-how-to-activate-role.md
+    - name: Activate my Azure resource roles
+      href: pim-resource-roles-activate-your-roles.md
   - name: Manage Azure AD roles
     items:
     - name: Assign roles
@@ -73,21 +73,21 @@
       href: azure-pim-resource-rbac.md
     - name: Use custom roles
       href: pim-resource-roles-custom-role-policy.md
-  - name: Review access
+  - name: Access reviews
     items:
     - name: Azure AD roles
       items:
-      - name: Review my Azure AD roles
-        href: pim-how-to-perform-security-review.md
-      - name: Start an access review
+      - name: Create an access review
         href: pim-how-to-start-security-review.md
+      - name: Review access
+        href: pim-how-to-perform-security-review.md
       - name: Complete an access review
         href: pim-how-to-complete-review.md
     - name: Azure resource roles
       items:
-      - name: Review my Azure resource roles
-        href: pim-resource-roles-perform-access-review.md
-      - name: Start an access review
+      - name: Create an access review
         href: pim-resource-roles-start-access-review.md
+      - name: Review access
+        href: pim-resource-roles-perform-access-review.md
       - name: Complete an access review
         href: pim-resource-roles-complete-access-review.md

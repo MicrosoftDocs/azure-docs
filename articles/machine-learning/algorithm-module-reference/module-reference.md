@@ -13,94 +13,32 @@ ms.date: 05/02/2019
 ---
 # Algorithm & module reference overview
 
-This reference content provides the technical background on each of the machine learning algorithms and modules available in the visual interface (preview) of Azure Machine Learning service. 
+This reference content provides the technical background on each of the machine learning algorithms and modules available in the visual interface (preview) of Azure Machine Learning service.
 
-Each module represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis. 
+Each module represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis.
 
 > [!TIP]
 > In any experiment in the visual interface, you can get information about a specific module. Select the module, then select the **more help** link in the **Quick Help** pane.
 
+## Modules
+
 Modules are organized by functionality:
 
-**Data format conversions**
+| Functionality | Description | Module |
+| --- |--- | ---- |
+| Data format conversions | Convert data among various file formats used in machine learning, | [Convert to CSV](convert-to-csv.md) |
+| Data input and output | Move data from cloud sources into your experiment. Write your results or intermediate data to Azure Storage, a SQL database, or Hive, while running an experiment, or use cloud storage to exchange data between experiments.  | [Import Data](import-data.md)<br/>[Export Data](export-data.md)<br/>[Enter Data Manually](enter-data-manually.md) |
+| Data transformation | Operations on data that are unique to machine learning, such as normalizing or binning data, feature selection, and dimensionality reduction.| [Select Columns in Dataset](select-columns-in-dataset.md) <br/> [Edit Metadata](edit-metadata.md) <br/> [Clean Missing Data](clean-missing-data.md) <br/> [Add Columns](add-columns.md) <br/> [Add Rows](add-rows.md) <br/> [Remove Duplicate Rows](remove-duplicate-rows.md) <br/> [Split Data](split-data.md) <br/> [Normalize Data](normalize-data.md) <br/> [Partition and Sample](partition-and-sample.md) |
+| Python module | Write code and embed it in a module to integrate Python with your experiment. | [Execute Python Script](execute-python-script.md)   <br/> [Create Python Model](create-python-model.md)
+|  | **Machine learning algorithms**: | |
+| Classification | Predict a class.  Choose from binary (two-class) or multiclass algorithms.| [Multiclass Decision Forest](multiclass-decision-forest.md) <br/> [Multiclass Logistic Regression](multiclass-logistic-regression.md)  <br/> [Multiclass Neural Network](multiclass-neural-network.md)  <br/>  [Two-Class Logistic Regression](two-class-logistic-regression.md)  <br/>[Two-Class Averaged Perceptron](two-class-averaged-perceptron.md) <br/> [Two-Class&nbsp;Boosted&nbsp;Decision&nbsp;Tree](two-class-boosted-decision-tree.md)  <br/> [Two-Class Decision Forest](two-class-decision-forest.md)  <br/> [Two-Class Neural Network](two-class-neural-network.md)  <br/> [Two&#8209;Class&nbsp;Support&nbsp;Vector&nbsp;Machine](two-class-support-vector-machine.md) 
+| Clustering | Group data together.| [K-Means Clustering](k-means-clustering.md)
+| Regression | Predict a value. | [Linear Regression](linear-regression.md)  <br/> [Neural Network Regression](neural-network-regression.md)  <br/> [Decision Forest Regression](decision-forest-regression.md)  <br/> [Boosted&nbsp;Decision&nbsp;Tree&nbsp;Regression](boosted-decision-tree-regression.md)
+|  | **Build and evaluate models**: | |
+| Train   | Run data through the algorithm. | [Train Model](train-model.md)  <br/> [Train Clustering Model](train-clustering-model.md)    |
+| Evaluate Model | Measure the accuracy of the trained model. |  [Evaluate Model](evaluate-model.md)
+| Score | Get predictions from the model you've just trained. | [Apply Transformation](apply-transformation.md)<br/>[Assign&nbsp;Data&nbsp;to&nbsp;Clusters](assign-data-to-clusters.md) <br/>[Score Model](score-model.md)
 
-  + [Convert to CSV ](convert-to-csv.md)
+## Error messages
 
-**Data input and output modules**  do the work of moving data from cloud sources into your experiment. You can write your results or intermediate data to Azure Storage, a SQL database, or Hive, while running an experiment, or use cloud storage to exchange data between experiments.  
-
-  + [Import Data](import-data.md)
-
-  + [Export Data](export-data.md)
-
-  + [Enter Data Manually](enter-data-manually.md)
-
-
-**Data transformation modules** support operations on data that are unique to machine learning, such as normalizing or binning data, feature selection, and dimensionality reduction.
-
-  + [Select Columns in Dataset](select-columns-in-dataset.md)
-
-  + [Edit Metadata](edit-metadata.md)
-
-  + [Clean Missing Data](clean-missing-data.md)
-
-  + [Add Columns](add-columns.md)
-
-  + [Add Rows](add-rows.md)
-
-  + [Remove Duplicate Rows](remove-duplicate-rows.md)
-
-  + [Split Data](split-data.md)
-
-  + [Normalize Data](normalize-data.md)
-
-  + [Partition and Sample](partition-and-sample.md)
-
-
-**Machine learning algorithms** such as clustering, support vector machine, or neural networks, are available within individual modules that let you customize the machine learning task with appropriate parameters.  
-  + [Score Model](score-model.md)
-
-  + [Assign Data to Clusters ](assign-data-to-clusters.md)
-
-  + [Train Model](train-model.md)
-
-  + [Train Clustering Model](train-clustering-model.md)
-
-  + [Evaluate Model](evaluate-model.md)
-
-  + [Apply Transformation](apply-transformation.md)
-
-  + [Linear Regression](linear-regression.md)
-
-  + [Neural Network Regression](neural-network-regression.md)
-
-  + [Decision Forest Regression](decision-forest-regression.md)
-
-  + [Boosted Decision Tree Regression](boosted-decision-tree-regression.md)
-
-  + [Two-Class Boosted Decision Tree](two-class-boosted-decision-tree.md)
-
-  + [Two-Class Logistic Regression](two-class-logistic-regression.md)
-
-  + [Multiclass Logistic Regression](multiclass-logistic-regression.md)
-
-  + [Multiclass Neural Network](multiclass-neural-network.md)
-
-  + [Multiclass Decision Forest](multiclass-decision-forest.md)
-
-  + [Two-Class Averaged Perceptron](two-class-averaged-perceptron.md)
-
-  + [Two-Class Decision Forest](two-class-decision-forest.md)
-
-  + [Two-Class Neural Network](two-class-neural-network.md)
-
-  + [Two-Class Support Vector Machine](two-class-support-vector-machine.md)
-  
-  + [K-Means Clustering](k-means-clustering.md)
-
-
-**Python module** makes it easy to run a custom function. You write the code, and embed it in a module, to integrate Python with an experiment service.
-  + [Execute Python Script](execute-python-script.md)
-
-  + [Create Python Model](create-python-model.md)
-
-
+Learn about the [error messages and exception codes](machine-learning-module-error-codes.md)  you might encounter using modules in the visual interface of Azure Machine Learning service.

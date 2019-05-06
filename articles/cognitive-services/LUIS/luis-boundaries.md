@@ -25,9 +25,11 @@ If your app exceeds the LUIS model limits and boundaries, consider using a [LUIS
 | [App name][luis-get-started-create-app] | *Default character max |
 | [Batch testing][batch-testing]| 10 datasets, 1000 utterances per dataset|
 | Explicit list | 50 per application|
+| External entities | no limits |
 | [Intents][intents]|500 per application: 499 custom intents, and the required _None_ intent.<br>[Dispatch-based](https://aka.ms/dispatch-tool) application has corresponding 500 dispatch sources.|
 | [List entities](./luis-concept-entity-types.md) | Parent: 50, child: 20,000 items. Canonical name is *default character max. Synonym values have no length restriction. |
-| [Machine-learned entities](./luis-concept-entity-types.md):<br> Composite,<br>  Hierarchical<br> Simple|A limit of either 100 parent entities (not including hierarchical children) or 330 entities (including hierarchical children), whichever limit the user hits first.<br><br>An example of with hierarchy would be 30 hierarchies each with 10 children.  The children will consume 300 total, and the hierarchy elements will consume the remaining 30. |
+| [Machine-learned entities + roles](./luis-concept-entity-types.md):<br> composite,<br>simple,<br>entity role|A limit of either 100 parent entities or 330 entities, whichever limit the user hits first. A role counts as an entity for the purpose of this boundary. An example is a composite with a simple entity which has 2 roles is: 1 composite + 1 simple + 2 roles = 4 of the 330 entities.|
+| [Preview - Dynamic list entities](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 lists of ~1k per query prediction endpoint request|
 | [Patterns](luis-concept-patterns.md)|500 patterns per application.<br>Maximum length of pattern is 400 characters.<br>3 Pattern.any entities per pattern<br>Maximum of 2 nested optional texts in pattern|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per application, 3 pattern.any entities per pattern |
 | [Phrase list][phrase-list]|10 phrase lists, 5,000 items per list|

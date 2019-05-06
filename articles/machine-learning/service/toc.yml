@@ -6,9 +6,6 @@
   - name: What is Azure Machine Learning service?
     displayName: AML services overview
     href: overview-what-is-azure-ml.md
-  - name: What happened to Workbench
-    displayName: desktop ui Workbench upgrade update transfer
-    href: overview-what-happened-to-workbench.md
 - name: Setup
   items:
   - name: Create a workspace
@@ -92,6 +89,8 @@
   - name: Model interpretability
     displayName: explainability
     href: machine-learning-interpretability-explainability.md
+  - name: Accelerate with GPUs
+    href: concept-accelerate-inferencing-with-gpus.md
   - name: Accelerate with FPGAs
     href: concept-accelerate-with-fpgas.md
   - name: Optimize with ONNX and ONNX Runtime
@@ -352,3 +351,6 @@
   - name: Compare our ML products
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
     maintainContext: true
+  - name: What happened to Workbench
+    displayName: desktop ui Workbench upgrade update transfer
+    href: overview-what-happened-to-workbench.md
