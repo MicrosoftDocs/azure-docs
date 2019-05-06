@@ -311,8 +311,31 @@
         items:
         - name: Web apps
           href: app/asp-net.md
-        - name: Status Monitor
+        - name: Status Monitor 
           href: app/monitor-performance-live-website-now.md
+        - name: Status Monitor v2
+          href: app/status-monitor-v2-overview.md
+          items:
+          - name: Getting started
+            href: app/status-monitor-v2-get-started.md
+          - name: Detailed instructions
+            href: app/status-monitor-v2-detailed-instructions.md
+          - name: Troubleshooting and known issues
+            href: app/status-monitor-v2-troubleshoot.md
+          - name: API Disable-InstrumentationEngine
+            href: app/status-monitor-v2-api-disable-instrumentation-engine.md
+          - name: API Disable-ApplicationInsightsMonitoring
+            href: app/status-monitor-v2-api-disable-monitoring.md
+          - name: API Enable-InstrumentationEngine
+            href: app/status-monitor-v2-api-enable-instrumentation-engine.md
+          - name: API Enable-ApplicationInsightsMonitoring
+            href: app/status-monitor-v2-api-enable-monitoring.md
+          - name: API Get-ApplicationInsightsMonitoringConfig
+            href: app/status-monitor-v2-api-get-config.md
+          - name: API Get-ApplicationInsightsMonitoringStatus
+            href: app/status-monitor-v2-api-get-status.md
+          - name: API Set-ApplicationInsightsMonitoringConfig
+            href: app/status-monitor-v2-api-set-config.md
         - name: Windows services
           href: app/windows-services.md
         - name: Windows desktop
@@ -534,6 +557,8 @@
           href: app/usage-workbooks.md
       - name: Web App Analytics solution
         href: insights/azure-web-apps-analytics.md
+      - name: Kubernetes hosted apps
+        href: app/kubernetes.md
     - name: Monitor containers
       items:
       - name: Azure Monitor for containers 
@@ -542,13 +567,19 @@
           href: insights/container-insights-overview.md
         - name: FAQ
           href: insights/container-insights-faq.md
-        - name: Onboard 
-          href: insights/container-insights-onboard.md
+        - name: Enable monitoring
+          items:
+          - name: Enable monitoring overview 
+            href: insights/container-insights-onboard.md
+          - name: Enable for new cluster
+            href: insights/container-insights-enable-new-cluster.md
+          - name: Enable for existing cluster
+            href: insights/container-insights-enable-existing-clusters.md
         - name: Analyze 
           href: insights/container-insights-analyze.md
         - name: Disable monitoring
           href: insights/container-insights-optout.md
-        - name: View container live logs
+        - name: View live logs
           href: insights/container-insights-live-logs.md
         - name: Analyze data with log queries
           href: insights/container-insights-log-search.md

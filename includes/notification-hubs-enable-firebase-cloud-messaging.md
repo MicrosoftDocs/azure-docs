@@ -34,11 +34,12 @@
         implementation 'com.google.firebase:firebase-core:16.0.1'
         ```
 
-    3. Add the following line to the end of the **app-level build.gradle** file after the dependenices section. 
+    3. Add the following line to the end of the **app-level build.gradle** file after the dependencies section. 
 
         ```
         apply plugin: 'com.google.gms.google-services'
         ```        
+    4. Select **Sync now*** on the toolbar. 
  
         ![build.gradle configuration changes](./media/notification-hubs-enable-firebase-cloud-messaging/build-gradle-configurations.png)
 6. Select **Next** on the page. 
