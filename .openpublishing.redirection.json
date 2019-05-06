@@ -1286,6 +1286,41 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/scripts/create-firewall-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-firewall-create",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/ha-failover-policy-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-failover-priority-update",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/scale-multiregion-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-create",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/secure-get-account-key-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-key-get",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/secure-mongo-connection-string-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-connection-string-get",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/secure-regenerate-key-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-key-regenerate",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/manage-account-with-powershell.md",
+      "redirect_url": "/azure/cosmos-db/manage-with-powershell",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cosmos-db/programming.md",
       "redirect_url": "/azure/cosmos-db/storedprocedures-triggers-udfs",
       "redirect_document_id": true
