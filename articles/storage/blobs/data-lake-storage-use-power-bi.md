@@ -11,7 +11,7 @@ ms.author: normesta
 
 # Analyze data in Azure Data Lake Storage Gen2 by using Power BI
 
-In this article you will learn how to use Power BI Desktop to analyze and visualize data stored in Azure Data Lake Storage Gen2.
+In this article you'll learn how to use Power BI Desktop to analyze and visualize data that is stored in a storage account that has a hierarchical namespace (Azure Data Lake Storage Gen2).
 
 ## Prerequisites
 
@@ -19,11 +19,10 @@ Before you begin this tutorial, you must have the following:
 
 > [!div class="checklist"]
 > * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-> * A storage account that has a hierarchical namespace. Follow [these](data-lake-storage-quickstart-create-account) instructions to create one.
+> * A storage account that has a hierarchical namespace. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
 > This article assumes that you've created an account named `myadlsg2`.
 > * A sample data file named `Drivers.txt` located in your storage account.
-> You can download this sample from [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData
-Drivers.txt), and then upload that file to your storage account.
+> You can download this sample from [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceDataDrivers.txt), and then upload that file to your storage account.
 
 ## Install the preview version of Power BI Desktop
 
@@ -38,30 +37,30 @@ This version contains the Azure Data Lake Storage Gen2 (Beta) Connector. This ve
 ## Create a report in Power BI Desktop
 
 1. Launch Power BI Desktop on your computer.
-2. From the **Home** ribbon, click **Get Data**, and then click **More**.
+2. From the **Home** tab of the Ribbon, click **Get Data**, and then click **More**.
 3. In the **Get Data** dialog box, click **Azure**, click **Azure Data Lake Store Gen2 (Beta)**, and then click **Connect**.
 
     ![Get data page](media/data-lake-storage-use-power-bi/get-data-page.png)
 
 4. If you see a dialog box about the connector being in a development phase, opt to continue.
 
-5. In the **Azure Data Lake Store** dialog box, provide the URL to your Data Lake Storage Gen2 account file system endpoint, and then click **OK**.
+5. In the **Azure Data Lake Storage Gen2** dialog box, provide the URL to your primary Azure Data Lake Storage Gen2 file system endpoint, and then click **OK**.
 
     ![URL](media/data-lake-storage-use-power-bi/adls-url.png)
 
-6. In the next dialog box, click **Sign** in to sign into your storage account. You will be redirected to your organization's sign in page. Follow the prompts to sign into the account.
+6. In the next dialog box, click **Sign in** to sign into your storage account. You'll be redirected to your organization's sign in page. Follow the prompts to sign into the account.
 
     ![Sign in page](media/data-lake-storage-use-power-bi/sign-in.png)
 
-7. After you have successfully signed in, click **Connect**.
+7. After you've successfully signed in, click **Connect**.
 
     ![Signed in page](media/data-lake-storage-use-power-bi/signed-in.png)
 
-8. The next dialog box shows the available file systems and the file that you uploaded to your storage account. Verify the information, and then click **Load**.
+8. The next dialog box shows the available file systems, and the file that you uploaded to your storage account. Verify the information, and then click **Load**.
 
     ![File systems](media/data-lake-storage-use-power-bi/file-systems.png)
 
-9. After the data has been successfully loaded into Power BI, you will see the following fields in the **Fields** tab.
+9. After the data has been successfully loaded into Power BI, you'll see the following fields in the **Fields** tab.
 
     ![Fields tab](media/data-lake-storage-use-power-bi/fields.png)
 
@@ -71,7 +70,7 @@ This version contains the Azure Data Lake Storage Gen2 (Beta) Connector. This ve
 
     In the next steps, we will update the query to convert the imported data in the desired format.
 
-10. From the **Home** ribbon, click **Edit Queries**.
+10. From the **Home** tab on the ribbon, click **Edit Queries**.
 
     ![Queries](media/data-lake-storage-use-power-bi/queries.png)
 
@@ -79,7 +78,7 @@ This version contains the Azure Data Lake Storage Gen2 (Beta) Connector. This ve
 
     ![Output](media/data-lake-storage-use-power-bi/binary.png)
 
-12. From the **Home** ribbon, click **Close** and **Apply**, and then click **Close** and **Apply**.
+12. From the **Home** tab on the ribbon, click **Close** and **Apply**, and then click **Close** and **Apply**.
 
     ![Close and apply](media/data-lake-storage-use-power-bi/close-apply.png)
 
@@ -113,8 +112,4 @@ This version contains the Azure Data Lake Storage Gen2 (Beta) Connector. This ve
 
 ## Publish report to Power BI service
 
-Once you have created the visualizations in Power BI Desktop, you can share it with others by publishing it to the Power BI service. For instructions on how to do that, see [Publish from Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
-
-## See also
-
-* [Analyze data in Data Lake Storage Gen1 using Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+After you've created the visualizations in Power BI Desktop, you can share it with others by publishing it to the Power BI service. For instructions on how to do that, see [Publish from Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
