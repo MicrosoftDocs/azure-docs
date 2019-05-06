@@ -10,13 +10,13 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 05/06/2019
 ms.custom: seodec18
 ---
 
 # Send events to a Time Series Insights environment by using an event hub
 
-This article explains how to create and configure an event hub in Azure Event Hubs, and then run a sample application to push events. If you have an existing event hub that has events in JSON format, skip this tutorial and view your environment in [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+This article explains how to create and configure an event hub in Azure Event Hubs. It also describes how to run a sample application to push events to Azure Time Series Insights from Event Hubs. If you have an existing event hub with events in JSON format, skip this tutorial and view your environment in [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 
 ## Configure an event hub
 
