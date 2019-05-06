@@ -31,7 +31,7 @@ Getting started with Personalization involves the following steps:
 
 ## Prerequisites
 
-* You need a subscription key and token issuing service url.
+* You need a [Personalizer service](how-to-settings.md) to get your subscription key and token issuing service url. 
 * [Visual Studio 2015 or 2017](https://visualstudio.microsoft.com/downloads/).
 * The Microsoft.Azure.CognitiveServices.Personalization SDK NuGet package. Installation instructions are provided below.
 

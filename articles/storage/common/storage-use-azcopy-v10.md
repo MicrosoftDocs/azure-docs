@@ -72,7 +72,7 @@ A sign-in window will appear. In that window, sign into your Azure account by us
 
 An alternative way to authenticate yourself is to obtain a SAS token, and then append that token to each AzCopy command that you execute.
 
-This example command recursively copies data from a local directory to a blob container. A fictitious SAS token is appended to the end of the of the container path. 
+This example command recursively copies data from a local directory to a blob container. A fictitious SAS token is appended to the end of the of the container path.
 
 ```azcopy
 azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true

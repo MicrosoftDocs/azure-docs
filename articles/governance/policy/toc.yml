@@ -118,7 +118,7 @@
       href: samples/enforce-data-lake-store-encryption.md
   - name: Guest Configuration
     items:
-    - name: Audit applications installed on Linux
+    - name: Audit applications aren't installed on Linux
       displayName: audit, vm
       href: samples/guest-configuration-applications-installed-linux.md
   - name: Key Vaults

@@ -5,7 +5,7 @@
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/20/2018
+ ms.date: 04/25/2019
  ms.author: akjosh; cynthn
  ms.custom: include file
 ---
@@ -20,7 +20,7 @@ Possible causes:
 
 *The gallery name is invalid.*
 
-Allowed characters for Gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot have dashes in it. Change the gallery name and try again. 
+Allowed characters for Gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes. Change the gallery name and try again. 
 
 *The gallery name is not unique within your subscription.*
 
@@ -33,7 +33,7 @@ Possible causes:
 
 *image definition name is invalid.*
 
-Allowed characters for image definition are uppercase or lowercase letters, digits, dots, dashes and periods. Change the image definition name and try again.
+Allowed characters for image definition are uppercase or lowercase letters, digits, dots, dashes, and periods. Change the image definition name and try again.
 
 *The mandatory properties for creating an image definition are not populated.*
 
@@ -58,20 +58,7 @@ Check if the source image exists and is in the same region as the image version.
 
 Make sure the provisioning state of the source managed image is **Succeeded**.
 
-*The source region is not supported yet.*
-
-Use the table below to see if the intended source region is supported:
-<br>
-
-| Create gallery in or “source region”   | Replicate version to or “target region” |
-|----------------------------------------|-------------------------------------------|
-| West Central US                        | All Azure Public Cloud regions            |
-| South Central US                       |                                           |
-| East US 2                              |                                           |
-| Southeast Asia                         |                                           |
-| West Europe                            |                                           |
-
-<br>
+*The target region list does not include the source region.*
 
 The target region list must include the source region of the image version. Make sure you have included the source region in the list of target regions where you want Azure to replicate your image version to.
 
@@ -97,7 +84,7 @@ Verify that the **OSType** of the image version that you are trying to create th
 
 ## Unable to share resources
 
-The sharing of shared image gallery, image definition, and image version resources across subscriptions is enabled using [Role Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+The sharing of shared image gallery, image definition, and image version resources across subscriptions is enabled using [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
 
 ## Replication is slow
 
