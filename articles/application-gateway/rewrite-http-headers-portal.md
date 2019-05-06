@@ -13,9 +13,6 @@ ms.custom: mvc
 
 This article describes how to use the Azure portal to configure an [Application Gateway v2 SKU](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) instance to rewrite the HTTP headers in requests and responses.
 
-> [!IMPORTANT]
-> The autoscaling and zone-redundant Application Gateway SKU is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Some features might not be supported or might have reduced capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Before you begin

@@ -88,6 +88,8 @@
     href: security-storage-overview.md
   - name: Storage security guide
     href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Customer Lockbox
+    href: azure-customer-lockbox-overview.md
 - name: Platform and infrastructure
   items:
   - name: Infrastructure security

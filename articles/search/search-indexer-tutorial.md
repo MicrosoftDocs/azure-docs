@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/09/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 #Customer intent: As a developer, I want an introduction the indexing Azure SQL data for Azure Search.
@@ -263,7 +263,7 @@ The fastest way to clean up after a tutorial is by deleting the resource group c
 
 ## Next steps
 
-You can attach AI-powered algorithms to an indexer pipeline. As a next step, continue on with the following tutorial.
+You can attach AI enrichment algorithms to an indexer pipeline. As a next step, continue on with the following tutorial.
 
 > [!div class="nextstepaction"]
 > [Indexing Documents in Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)

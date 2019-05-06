@@ -4,11 +4,11 @@ description: Use SAS tokens, encryption and HTTPS to secure your application's d
 services: storage
 author: tamram
 
-
 ms.service: storage
 ms.topic: tutorial
 ms.date: 05/30/2018
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.custom: mvc
 ---
 

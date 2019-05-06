@@ -99,6 +99,10 @@ Finally, submit your distributed PyTorch job:
 run = exp.submit(pt_est)
 ```
 
+## Export to ONNX
+
+To get optimized inferencing with the [ONNX Runtime](concept-onnx.md), you can convert your trained PyTorch model to the ONNX format. See the [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) for an example.
+
 ## Examples
 
 For notebooks on distributed deep learning, see:
