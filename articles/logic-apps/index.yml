@@ -19,7 +19,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: Learn how to create a logic app in Azure.
+    text: Learn how to create a logic app that runs in Azure.
   - type: list
     style: icon48
     items: 
