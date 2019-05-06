@@ -35,10 +35,16 @@ The steps to lock down egress from your existing HDInsight with Azure Firewall a
 
         ![Title: Add service endpoints](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-service-endpoint.png)
 
-1. Create a subnet named **AzureFirewallSubnet** in the virtual network where your cluster exists. For more information, see [Tutorial: Deploy and configure Azure Firewall using the Azure portal](../firewall/tutorial-firewall-deploy-portal.md).
-1. From the Azure Firewall UI > Rules > Application rule collection, select Add application rule collection. Provide a name, priority, and set Allow. In the FQDN tags section, provide a name, set the source addresses to * and select the HDInsight and the Windows Update FQDN Tags.
+1. Create a subnet named **AzureFirewallSubnet** in the virtual network where your cluster exists. 
+1. Create a new firewall using the steps in [Tutorial: Deploy and configure Azure Firewall using the Azure portal](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall).
+1. Select the new firewall from the Azure portal. Click **Rules** under **Settings** > **Application rule collection** > **Add application rule collection**.
 
-    ![Title: Add application rule](./media/hdinsight-restrict-outbound-traffic/image006.png)
+    ![Title: Add application rule collection](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
+
+1. On the **Add application rule collection** screen, enter a **Name**, **Priority**, and click **Allow** from the **Action** dropdown menu. 
+1. In the FQDN tags section, provide a **Name**, set **Source addresses** to `*` and select **HDInsight** and the **WindowsUpdate** from the **FQDN Tags** dropdown menu.
+
+    ![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
 1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority and set Allow. In the Rules section, provide a name, select Any, set * to Source and Destination addresses, and set the ports to 123. This rule allows the system to perform clock sync using NTP. 
 
