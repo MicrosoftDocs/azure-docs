@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 04/18/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: mvc
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
@@ -45,7 +45,8 @@ Media Services enables you to build a variety of media workflows in the cloud, t
 
 Learn how to encode and package content, stream videos on-demand, broadcast live, analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users.
 
-Before you start developing, review [Fundamental concepts](concepts-overview.md)<br/>
+> [!TIP]
+> Before you start developing, review:<br/>* [Fundamental concepts](concepts-overview.md) (incudes important concepts: packaging, encoding, protecting, etc.)<br/>* [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, etc.)
 
 ### Quickstarts  
 
