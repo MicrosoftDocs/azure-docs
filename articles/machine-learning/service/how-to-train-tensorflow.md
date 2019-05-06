@@ -15,19 +15,21 @@ ms.custom: seodec18
 
 # Train TensorFlow and Keras models with Azure Machine Learning service
 
-You can easily run TensorFlow training jobs on Azure compute by using the [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) estimator class. The `TensorFlow` estimator directs Azure Machine Learning service to run your job on a TensorFlow-enabled container for Deep Neural Network (DNN) training.
+You can easily run TensorFlow training jobs on Azure compute by using the [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) estimator class in the Azure Machine Learning SDK. The `TensorFlow` estimator directs Azure Machine Learning service to run your job on a TensorFlow-enabled container for Deep Neural Network (DNN) training.
 
 The `TensorFlow` estimator also provides a layer of abstraction over execution, which means that you can easily configure parameterized runs on different compute targets without altering your training scripts.
 
-Submitting jobs with the `TensorFlow` estimator is similar to using the [base `Estimator`](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py). So, read through the [base estimator how-to article](how-to-train-ml-models.md) and make sure you understand the concepts introduced there.
+Submitting jobs with the `TensorFlow` estimator is similar to using the base [`Estimator`](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py). So, read through the [base estimator how-to article](how-to-train-ml-models.md) and make sure you understand the concepts introduced there.
 
 ## Getting started
 
-If you want to get started with Azure Machine Learning service, [complete the quickstart](quickstart-run-cloud-notebook.md) for a working environment loaded with all of our [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml).
+If you want to get started with Azure Machine Learning service, [complete the quickstart](quickstart-run-cloud-notebook.md). You'll have a working environment loaded with all of our [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml).
 
 ## Single-node training
 
-The following sample instantiates a [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) estimator and submits it as an experiment. The estimator runs the training script `train.py` with the given script parameters. The job will be run on a gpu-enabled [compute target](how-to-set-up-training-targets.md) with scikit-learn installed as a dependency for `train.py`.
+To run a TensorFlow job, instantiate a [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) object and submit it as an experiment.
+
+The following code instantiates a TensorFlow estimator and submits it as an experiment. The training script `train.py` will be run using the given script parameters. The job will be run on a gpu-enabled [compute target](how-to-set-up-training-targets.md), and scikit-learn will be installed as a dependency for `train.py`.
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -82,7 +84,7 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 run = exp.submit(tf_est)
 ```
 
-Horovod and its dependencies will be installed for you, so you can import it in your training script `train.py` as follows:
+Horovod and its dependencies will be installed for you, so you can import it in your training script as follows:
 
 ```Python
 import tensorflow as tf
@@ -93,7 +95,7 @@ import horovod
 
 You can also run [native distributed TensorFlow](https://www.tensorflow.org/deploy/distributed), which uses the parameter server model. In this method, you train across a cluster of parameter servers and workers. The workers calculate the gradients during training, while the parameter servers aggregate the gradients.
 
-The following sample runs a distributed training job using the parameter server method, with four workers distributed across two nodes.
+The following sample runs a distributed training job using the parameter server method with four workers distributed across two nodes.
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -148,9 +150,9 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ## Keras support
 
-[Keras](https://keras.io/) is a popular, high-level DNN Python API that supports TensorFlow, CNTK, and Theano as backends. Adding Keras is as simple as including a `pip_package` parameter, if you're using TensorFlow as backend.
+[Keras](https://keras.io/) is a popular, high-level DNN Python API that supports TensorFlow, CNTK, and Theano as backends. If you're using TensorFlow as backend, adding Keras is as simple as including a `pip_package` constructor parameter.
 
-The following sample instantiates a [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) estimator and submits it as an experiment. The estimator runs the Keras training script `keras_train.py`. The job will be run on a gpu-enabled [compute target](how-to-set-up-training-targets.md) with Keras installed as a dependency for `keras_train.py` via pip.
+The following sample instantiates a [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) estimator and submits it as an experiment. The estimator runs the Keras training script `keras_train.py`. The job will be run on a gpu-enabled [compute target](how-to-set-up-training-targets.md) with Keras installed as a dependency via pip.
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -169,7 +171,7 @@ To get optimized inferencing with the [ONNX Runtime](concept-onnx.md), you can c
 
 ## Examples
 
-You can find working code samples for both single-node and distributed TensorFlow executions on [our GitHub page](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning).
+You can find working code samples for both single-node and distributed TensorFlow executions using various frameworks on [our GitHub page](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning).
 
 ## Next steps
 
