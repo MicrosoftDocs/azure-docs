@@ -18,7 +18,7 @@ This article describes how to wipe the data and then return your Azure Data Box 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Open a Support case to return your device
+> * Open a Support ticket to return your device
 > * Wipe the data off the data disks on the device
 > * Pack up the device and schedule a pickup
 > * Delete the resource in Azure portal
@@ -29,6 +29,9 @@ In this article, you learn how to:
 To begin the return process, take the following steps.
 
 1. Open a Support ticket with Microsoft Support indicating that you wish to return the device. Select the problem type as **Data Box Edge Hardware**.
+
+    ![Open Support ticket](media/data-box-edge-return-device/open-support-ticket-1.png)  
+
 2. A Microsoft Support engineer will contact you. Provide the shipping details.
 3. If you need a return shipping box, you can request it. Answer **Yes** to the question **Need an empty box to return**.
 
