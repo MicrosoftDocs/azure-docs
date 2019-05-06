@@ -30,9 +30,9 @@ App Service Diagnostics works for not only your app on Windows, but also apps on
 
 To access App Service Diagnostics, navigate to your App Service web app or App Service Environment in the [Azure portal](https://portal.azure.com). In the left navigation, click on **Diagnose and solve problems**.
 
-For Azure Functions, navigate to your function app, and in the top navigation, click on **Platform features** and select **Diagnose and solve problems** from the **Resource management** section.
+For Azure Functions, navigate to your function app, and in the top navigation, click on **Platform features**, and select **Diagnose and solve problems** from the **Resource management** section.
 
-In the App Service Diagnostics homepage, you can choose the category that best describes the issue with your app by using the keywords in each homepage tile. This is also where you will find **Diagnostic Tools** for Windows apps. [See more details below](##Diagnostic-Tools-(Only-for-Windows-app))
+In the App Service Diagnostics homepage, you can choose the category that best describes the issue with your app by using the keywords in each homepage tile. Also, this page is where you will find **Diagnostic Tools** for Windows apps. [See more details below](##diagnostic-tools-only-for-windows-app)
 
 ![Homepage](./media/app-service-diagnostics/appservicediagnosticshomepage1.png)
 
@@ -50,7 +50,7 @@ After clicking on these tiles, you will see a list of topics related to the issu
 
 ## Diagnostic report
 
-After you choose to investigate the issue further by clicking on the list of topics, you can view more details about the topic often supplemented with graphs and markdowns. Diagnostic report can be a powerful tool for pinpointing the problem with your app. If you have found the information you need or you want to look at other detectors, you can simply close the detector tab and go back to the Genie interface to further investigate other problem areas.
+After you choose to investigate the issue further by clicking on a topic, you can view more details about the topic often supplemented with graphs and markdowns. Diagnostic report can be a powerful tool for pinpointing the problem with your app. If you have found the information you need or you want to look at other detectors, you can close the detector tab and go back to the Genie interface to further investigate other problem areas.
 
 ![Diagnostic report](./media/app-service-diagnostics/fulldiagnosticreport5.png)
 
@@ -69,19 +69,19 @@ If you don't know what’s wrong with your web app or don’t know where to star
 
 ### Investigating application code issues (Only for Windows app)
 
-Because many app issues are related to issues in your application code, App Service diagnostics integrates with [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) to highlight exceptions and dependency issues to correlate with the selected downtime. Application Insights does have to be enabled separately.
+Because many app issues are related to issues in your application code, App Service diagnostics integrates with [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) to highlight exceptions and dependency issues to correlate with the selected downtime. Application Insights has to be enabled separately.
 
 To view Application Insights exceptions and dependencies, select the **Web App Down** or **Web App Slow** tile shortcuts.
 
 ### Troubleshooting steps (Only for Windows app)
 
-If an issue is detected with a specific problem category within the last 24 hours, you can view the full diagnostic report and App Service Diagnostics may prompt you to view more troubleshooting advice and next steps for a more guided experience.
+If an issue is detected with a specific problem category within the last 24 hours, you can view the full diagnostic report, and App Service Diagnostics may prompt you to view more troubleshooting advice and next steps for a more guided experience.
 
 ![Application Insights and Troubleshooting and Next Steps](./media/app-service-diagnostics/applicationinsightsandhealthchecknextsteps7.png)
 
 ## Diagnostic Tools (Only for Windows app)
 
-Diagnostics Tools include more advanced diagnostic tools that will help you investigate issues related to application code issues, slowness, and connection strings and proactive tools that will help you mitigate issues with CPU usage, requests and memory.
+Diagnostics Tools include more advanced diagnostic tools that will help you investigate issues related to application code issues, slowness, and connection strings and proactive tools that will help you mitigate issues with CPU usage, requests, and memory.
 
 ### Proactive CPU Monitoring
 
@@ -100,7 +100,7 @@ Like Proactive CPU monitoring, Proactive Auto-Healing offers an easy, proactive 
 
 - **Recycling Process:** Whenever defined auto-healing condition is met, the worker process will be recycled in an overlapping manner.
 - **Log an Event:** Whenever defined auto-healing condition is met, an event will be logged in eventlog.xml file. (Found inside your web app’s Log Files folder)
-- **Custom Action:** Whenever defined auto-healing condition is met, configured diagnostic action or executable will be performed. See the diagram below for more details.
+- **Custom Action:** Whenever defined auto-healing condition is met, configured diagnostic action or executable will be performed. For more details, see the diagram below.
 
 ![Proactive Auto-Healing](./media/app-service-diagnostics/proactiveautohealing9.png)
 
@@ -118,7 +118,7 @@ Upon opening a detector page, you will see a message to enable Change Analysis. 
 
 ![Enable Now](./media/app-service-diagnostics/enablenow10.png)
 
-Enable Change Analysis for your main web app by toggling on the Change Analysis. This will enable you to get property changes. Once Change Analysis is enabled, turn on **Scan code for changes** which will enable you to get code changes. By enabling **Scan code for changes**, your app’s Kudu will trigger a snapshot every 4 hours to capture the changes made between those time intervals. It’s best practice to enable **Always on** along with **Scan code for changes** to prevent waking up Kudu for snapshots and to minimize the impact on your application. To disable Change Analysis, you can access the **Change Analysis Settings** in the Change Analysis information in the detector page.
+Enable Change Analysis for your main web app by toggling on the Change Analysis. This setting will enable you to get property changes. Once Change Analysis is enabled, turn on **Scan code for changes**, which will enable you to get code changes. By enabling **Scan code for changes**, your app’s Kudu will trigger a snapshot every 4 hours to capture the changes made between those time intervals. It’s best practice to enable **Always on** along with **Scan code for changes** to prevent waking up Kudu for snapshots and to minimize the impact on your application. To disable Change Analysis, you can access the **Change Analysis Settings** in the Change Analysis information in the detector page.
 
 ![Change Analysis Settings](./media/app-service-diagnostics/changeanalysissettings11.png)
 
@@ -132,7 +132,7 @@ You can also expand each row of change to view the difference between the old va
 
 ![Diff view](./media/app-service-diagnostics/diffview13.png)
 
-Above the timeline group is the **last scanned time stamp** that shows the last time the timeline was updated. If you wish to find out about changes made after the last scanned time, click **Scan changes now**. (This may take a few minutes) 
+Above the timeline group is the **last scanned time stamp** that shows the last time the timeline was updated. If you wish to find out about changes made after the last scanned time, click **Scan changes now**. (This process may take few minutes)
 
 ![Last scanned stamp and Scan changes now](./media/app-service-diagnostics/lastscannedstampandscanchangesnow14.png)
 
