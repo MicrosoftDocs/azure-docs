@@ -16,7 +16,7 @@ Large partition keys are supported by using the functionality of an enhanced ver
 
 ## Create a large partition key (.Net SDK V2)
 
-When using the .Net SDK to create a container with large partition key, you should specify the `PartitionKeyDefinitionVersion.V2` property. The following example shows how to specify the Version property within the PartitionKeyDefinition object and set it to PartitionKeyDefinitionVersion.V2:
+When using the .Net SDK to create a container with large partition key, you should specify the `PartitionKeyDefinitionVersion.V2` property. Large partition keys are supported with the 1.18 version of .Net SDK V2. The following example shows how to specify the Version property within the PartitionKeyDefinition object and set it to PartitionKeyDefinitionVersion.V2:
 
 ```csharp
 DocumentCollection collection = await newClient.CreateDocumentCollectionAsync(
@@ -38,6 +38,17 @@ database,
 To create a large partition key, while you create a new container using the Azure portal, check the **My partition key is larger than 100-bytes** option. By default, all the new containers are opted into using the large partition keys. Unselect the checkbox if you don’t need large partition keys or if you have applications running on SDKs version older than 1.18.
 
 ![Create large partition keys using Azure portal](./media/large-partition-keys/large-partition-key-with-portal.png)
+
+
+## Supported SDK versions
+
+The Large partition keys are supported with the following minimum versions of SDKs:
+
+|SDK type  | Minimum version   |
+|---------|---------|
+|.Net     |    1.18     |
+|Java sync     |   2.4.0      |
+|Java Async   |  2.5.0        |
  
 ## Next steps
 
