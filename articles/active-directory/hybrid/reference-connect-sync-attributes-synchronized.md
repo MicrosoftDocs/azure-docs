@@ -376,6 +376,7 @@ This group is a set of attributes that can be used if the Azure AD directory is 
 | accountEnabled |X | | |Defines if an account is enabled. |
 | cn |X | |X | |
 | displayName |X |X |X | |
+| employeeID |X |  |  | |
 | givenName |X |X | | |
 | mail |X | |X | |
 | managedBy | | |X | |
