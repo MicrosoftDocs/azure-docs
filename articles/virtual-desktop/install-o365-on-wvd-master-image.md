@@ -1,65 +1,25 @@
 ---
-title: Prepare and customize a master VHD image - Azure
-description: How to prepare, customize and upload a Windows Virtual Desktop preview master image to Azure.
+title: Install Office 365 on a master VHD image - Azure
+description: How to install and customize Office 365 on a Windows Virtual Desktop preview master image to Azure.
 services: virtual-desktop
-author: Heidilohr
+author: ChJenk
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/03/2019
-ms.author: helohr
+ms.date: 05/02/2019
+ms.author: v-chjenk
 ---
-# Prepare and customize a master VHD image
+# Install Office 365 on a master VHD image
 
-This article will tell you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install and configure software on them. These instructions are for a Windows Virtual Desktop Preview-specific configuration that can be used with your organization's existing processes.
-
-## Create a VM
-
-Windows 10 Enterprise multi-session is available in the Azure Image Gallery. There are two options for customizing this image.
-
-The first option is to provision a virtual machine (VM) in Azure by following the instructions in [Create a VM from a managed image](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed), and then skip ahead to [Software preparation and installation](set-up-customize-master-image.md#software-preparation-and-installation).
-
-The second option is to create the image locally by downloading the image, provisioning a Hyper-V VM, and customizing it to suit your needs, which we cover in the following section.
-
-### Local image creation
-
-Once you've downloaded the image to a local location, open **Hyper-V Manager** to create a VM with the VHD you just copied. The following is the simple version, but you can find more detailed instructions in [Create a virtual machine in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).
-
-To create a VM with the copied VHD:
-
-1. Open the **New Virtual Machine Wizard**.
-
-2. On the Specify Generation page, select **Generation 1**.
-
-    ![A screenshot of the Specify Generation page. The "Generation 1" option is selected.](media/a41174fd41302a181e46385e1e701975.png)
-
-3. Under Checkpoint Type, disable checkpoints by unchecking the check box.
-
-    ![A screenshot of the Checkpoint Type section of the Checkpoints page.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
-
-You can also run the following cmdlet in PowerShell to disable checkpoints.
-
-```powershell
-Set-VM -Name <VMNAME> -CheckpointType Disabled
-```
-
-### Fixed disk
-
-If you create a VM from an existing VHD, it creates a dynamic disk by default. It can be changed to a fixed disk by selecting **Edit Disk...** as shown in the following image. For more detailed instructions, see [Prepare a Windows VHD or VHDX to upload to Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
-
-![A screenshot of the Edit Disk option.](media/35772414b5a0f81f06f54065561d1414.png)
-
-You can also run the following PowerShell cmdlet to change the disk to a fixed disk.
-
-```powershell
-Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.vhd -VHDType Fixed
-```
+This article tells you how to install and configure Office 365 on a master virtual hard disk (VHD) image for upload to Azure. These instructions are for a Windows Virtual Desktop Preview-specific configuration that can be used with your organization's existing processes.
 
 ## Software preparation and installation
 
-This section covers how to prepare and install Office365 ProPlus, OneDrive, FSLogix, Windows Defender, and other common applications. If your users need to access certain LOB applications, we recommend you install them after completing this section’s instructions.
+This section covers how to prepare and install Office 365 ProPlus, OneDrive, and other common applications. If your users need to access certain line of business (LOB) applications, we recommend you install them after completing the instructions in this article.
 
-This section assumes you have elevated access on the VM, whether it's provisioned in Azure or Hyper-V Manager.
+This article assumes you have elevated access on the VM, whether it's provisioned in Azure or Hyper-V Manager. If not, go to [Elevate access to manage all Azure subscription and management groups](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
+
+This article also assumes you've already created a virtual machine (VM). If not, go to the Create a VM section of [Prepare and customize a master VHD image](set-up-customize-master-image#create-a-vm)
 
 ### Install Office in shared computer activation mode
 
@@ -153,7 +113,7 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
 ```
 
-### Disable Automatic Updates
+## Disable Automatic Updates
 
 To disable Automatic Updates via local Group Policy:
 
@@ -166,7 +126,7 @@ You can also run the following command on a command prompt to disable Automatic 
 reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
 
-### Specify Start layout for Windows 10 PCs (optional)
+## Specify Start layout for Windows 10 PCs (optional)
 
 Run this command to specify a Start layout for Windows 10 PCs.
 
@@ -174,7 +134,7 @@ Run this command to specify a Start layout for Windows 10 PCs.
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
 
-### Install OneDrive in per-machine mode
+## Install OneDrive in per-machine mode
 
 OneDrive is normally installed per-user. In this environment, it should be installed per-machine.
 
@@ -220,7 +180,7 @@ Here's how to install OneDrive in per-machine mode:
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 
-### Teams and Skype
+## Teams and Skype
 
 Windows Virtual Desktop does not officially support Skype for Business and Teams.
 
@@ -360,10 +320,4 @@ The following instructions will tell you how to upload your master image into an
 
 ## Next steps
 
-Now that you have an image, you can create or update host pools. To learn more about how to create and update host pools, see the following articles:
-
-- [Create a host pool with an Azure Resource Manager template](create-host-pools-arm-template.md)
-- [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md)
-- [Create a host pool with PowerShell](create-host-pools-powershell.md)
-- [Set up a user profile share for a host pool](create-host-pools-user-profile.md)
-- [Configure the Windows Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md)
+Now that you've added Office 365 to the image, you can continue customizing your master VHD image. See [Prepare and customize a master VHD image](set-up-customize-master-image.md).
