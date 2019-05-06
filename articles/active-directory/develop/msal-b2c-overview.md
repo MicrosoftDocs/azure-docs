@@ -104,7 +104,8 @@ const msalConfig = {
 const myMSALObj = new UserAgentApplication(msalConfig);
 ```
 
->Note: Your Azure AD B2C application probably refers to login.microsoftonline.com in several places, such as your user flow references and token endpoints. Make sure that your authorization endpoint, token endpoint, and issuer have been updated to use your-tenant-name.b2clogin.com.
+> [!NOTE]
+> Your Azure AD B2C application probably refers to login.microsoftonline.com in several places, such as your user flow references and token endpoints. Make sure that your authorization endpoint, token endpoint, and issuer have been updated to use your-tenant-name.b2clogin.com.
 
 Follow this [MSAL JS sample](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp#single-page-application-built-on-msaljs-with-azure-ad-b2c) on how to use the Microsoft Authentication Library Preview for JavaScript (msal.js) to get an access token and call an API secured by Azure AD B2C.
 
