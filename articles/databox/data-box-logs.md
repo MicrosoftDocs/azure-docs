@@ -64,7 +64,7 @@ Make sure that the copy jobs have finished with no errors. If there are errors d
 	
 Resolve the errors before you proceed to the next step.
 
-## Inspect BOM or manifest during prepare to ship
+## Inspect BOM during prepare to ship
 
 During prepare to ship, a list of files known as the BOM or manifest file is created.
 
