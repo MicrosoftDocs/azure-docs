@@ -343,7 +343,7 @@ The following device attributes can be used.
  Device attribute  | Values | Example
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
- displayName | any string value |(device.displayName -eq "Rob Iphone")
+ displayName | any string value |(device.displayName -eq "Rob iPhone")
  deviceOSType | any string value | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")
   | || (device.deviceOSType -contains "AndroidEnterprise")
   | || (device.deviceOSType -eq "AndroidForWork")
