@@ -2,7 +2,7 @@
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: jingwang
 ---
 
@@ -72,7 +72,7 @@ ms.author: jingwang
 | &nbsp; |[Jira (Preview)](../articles/data-factory/connector-jira.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Magento (Preview)](../articles/data-factory/connector-magento.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Marketo (Preview)](../articles/data-factory/connector-marketo.md) |✓ | |✓ |✓  ||
-| &nbsp; |[Office 365 (Preview)](../articles/data-factory/connector-office-365.md) |✓ | |✓ |✓  ||
+| &nbsp; |[Office 365](../articles/data-factory/connector-office-365.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Oracle Eloqua (Preview)](../articles/data-factory/connector-oracle-eloqua.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Oracle Responsys (Preview)](../articles/data-factory/connector-oracle-responsys.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Oracle Service Cloud (Preview)](../articles/data-factory/connector-oracle-service-cloud.md) |✓ | |✓ |✓  ||
