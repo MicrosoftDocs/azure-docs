@@ -22,8 +22,10 @@ This tutorial describes how to fail over an Azure virtual machine (VM) to a seco
 > [!NOTE]
 > This tutorial contains the simplest path with default settings and minimum customization. For more complex scenarios, use the articles under 'How To' for Azure VMs.
 
+
 ## Prerequisites
 
+- Before you start, review [frequently asked questions](site-recovery-faq.md#failover) about failover.
 - Make sure that you've completed a [disaster recovery drill](azure-to-azure-tutorial-dr-drill.md) to check everything is working as expected.
 - Verify the VM properties before you run the test failover. The VM must comply with [Azure requirements](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 

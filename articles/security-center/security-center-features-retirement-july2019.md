@@ -151,7 +151,7 @@ This feature has been in preview and will be retired.
 
 ### Edit security configurations - New experience
 
-Security Center will support the [in-guest agent](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) in the near future, allowing a much richer feature set - including support for additional operating systems and integration with guest configuration with Azure policies (in-guest policies). This will also provide the ability to control at scale and apply on new resources automatically.
+Security Center will support the [Guest configuration agent](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) in the near future, allowing a much richer feature set - including support for additional operating systems and integration with guest configuration with Azure policies (in-guest policies). This will also provide the ability to control at scale and apply on new resources automatically.
 
 ## Security & audit dashboard (originally used in OMS portal) for Log Analytics workspaces<a name="menu_securityomsdashboard"></a>
 

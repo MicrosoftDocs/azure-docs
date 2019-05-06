@@ -1096,6 +1096,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-qsg.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices-sdk-android-quickstart",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-licensing-ps-examples.md",
       "redirect_url": "/azure/active-directory/users-groups-roles/licensing-ps-examples",
       "redirect_document_id": true
@@ -1278,6 +1283,41 @@
     {
       "source_path": "articles/cosmos-db/multi-master-conflict-resolution.md",
       "redirect_url": "/azure/cosmos-db/conflict-resolution-policies",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/create-firewall-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-firewall-create",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/ha-failover-policy-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-failover-priority-update",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/scale-multiregion-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-create",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/secure-get-account-key-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-key-get",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/secure-mongo-connection-string-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-connection-string-get",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/secure-regenerate-key-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-key-regenerate",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/manage-account-with-powershell.md",
+      "redirect_url": "/azure/cosmos-db/manage-with-powershell",
       "redirect_document_id": true
     },
     {
@@ -2366,11 +2406,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/iot-edge/how-to-install-iot-edge-windows-with-linux.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/iot-edge/how-to-install-iot-core.md",
       "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows",
       "redirect_document_id": false
@@ -2584,6 +2619,16 @@
       "source_path": "articles/virtual-machines/linux/expand-disks-nodejs.md",
       "redirect_url": "/azure/virtual-machines/linux/expand-disks",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md",
+      "redirect_url": "/azure/virtual-machines/linux/managed-disks-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md",
+      "redirect_url": "/azure/virtual-machines/windows/managed-disks-overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/install-mongodb-nodejs.md",
@@ -13523,6 +13568,16 @@
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md",
       "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-load-with-data-factory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-security-threat-detection.md",
+      "redirect_url": "/sql-database/sql-database-threat-detection-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-overview.md",
+      "redirect_url": "/sql-database/sql-database-auditing",
       "redirect_document_id": false
     },
     {
@@ -33284,6 +33339,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/service/how-to-build-deploy-onnx.md",
+      "redirect_url": "/azure/machine-learning/service/concept-onnx",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-hub/iot-hub-raspberry-pi-kit-python-get-started.md",
       "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
       "redirect_document_id": true
@@ -36939,11 +36999,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/hdinsight/hbase/apache-hbase-enhanced-writes.md",
-      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/spatial-anchors/concepts/create-locate-anchors-unity.md",
       "redirect_url": "/azure/spatial-anchors/how-tos/create-locate-anchors-unity",
       "redirect_document_id": false
@@ -37071,6 +37126,31 @@
     {
       "source_path": "articles/cognitive-services/QnAMaker/How-To/publish-knowledge-base.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-publish-knowledge-base",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/prepare-transcription.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-human-labeled-transcriptions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-acoustic-models.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-language-model.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-pronunciation.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-create-custom-endpoint.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-deploy-model",
       "redirect_document_id": true
     },
     {
