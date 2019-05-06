@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # Azure App Configuration FAQ
 
-This article address frequent questions about Azure App Configuration.
+This article addresses frequent questions about Azure App Configuration.
 
 ## How is App Configuration different from Key Vault?
 
