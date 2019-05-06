@@ -28,7 +28,7 @@ else
 ```
 
 > [!NOTE]
-> This skill is not bound to an Azure Cognitive Services API, and you are not charged for using it. However, you should still [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to override the "Free" resource option that limits you to a small number of enrichments per day.
+> This skill isn't bound to an Azure Cognitive Services API, and you aren't charged for using it. However, you should still [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to override the "Free" resource option that limits you to a small number of enrichments per day.
 
 ## @odata.type  
 Microsoft.Skills.Util.ConditionalSkill
@@ -57,7 +57,7 @@ The following items are valid values of an expression:
        "= null"                 // null value
     ```
 
--  Expressions that use a comparison operator (==, !=, >=, >, <=, <) <br/>
+-  Expressions that use comparison operators (==, !=, >=, >, <=, <) <br/>
     Examples:
     ```
         "= $(/document/language) == 'en'"
@@ -86,18 +86,18 @@ Inputs are case-sensitive.
 
 | Input	  | Description |
 |-------------|-------------|
-| condition   | This input is an [evaluated field](#evaluated-fields) that represents the condition to evaluate. This condition should evaluate to a boolean value (true or false).   <br/>  Examples: <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
-| whenTrue    | This input is an [evaluated field](#evaluated-fields) that represents the value to return if the condition is evaluated to true. Constants strings should be returned in single quotation marks (' and '). <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/> |
-| whenFalse   | This input is an [evaluated field](#evaluated-fields) that represents the value to return if the condition is evaluated to false.  <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
+| condition   | This input is an [evaluated field](#evaluated-fields) that represents the condition to evaluate. This condition should evaluate to a boolean value (*true* or *false*).   <br/>  Examples: <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
+| whenTrue    | This input is an [evaluated field](#evaluated-fields) that represents the value to return if the condition is evaluated to *true*. Constants strings should be returned in single quotation marks (' and '). <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/> |
+| whenFalse   | This input is an [evaluated field](#evaluated-fields) that represents the value to return if the condition is evaluated to false.* <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
 
 ## Skill outputs
-There's a single output that'; called "output." It returns the value *whenFalse* if the condition is false or *whenTrue* if the condition is true.
+There's a single output that's called "output." It returns the value *whenFalse* if the condition is false or *whenTrue* if the condition is true.
 
 ## Examples
 
 ###	Sample skill definition 1: Filter documents to return only French documents
 
-The following output returns an array of sentences ("/document/frenchSentences") if the language of the document is French. If the language isn't French, that value is set to null.
+The following output returns an array of sentences ("/document/frenchSentences") if the language of the document is French. If the language isn't French, the value is set to *null*.
 
 ```json
 {
@@ -111,10 +111,10 @@ The following output returns an array of sentences ("/document/frenchSentences")
     "outputs": [ { "name": "output", "targetName": "frenchSentences" } ]
 }
 ```
-If "/document/frenchSentences" is used as the *context* of another skill, that skill only runs if "/document/frenchSentences" isn't set to null.
+If "/document/frenchSentences" is used as the *context* of another skill, that skill only runs if "/document/frenchSentences" isn't set to *null*.
 
 
-###	Sample skill definition 2: Setting a default value when it doesn't exist
+###	Sample skill definition 2: Set a default value for a value that doesn't exist
 
 The following output creates an annotation ("/document/languageWithDefault") that's set to the language of the document or to "es" if the language isn't set.
 
@@ -133,7 +133,7 @@ The following output creates an annotation ("/document/languageWithDefault") tha
 
 ###	Sample skill definition 3: Merge values from two fields into one
 
-In this example, some sentences have a **frenchSentiment** property. Whenever the **frenchSentiment** property is null, we want to use the *englishSentiment* value. We assign the output to a member that's called *sentiment* ("/document/sentiment/*/sentiment").
+In this example, some sentences have a **frenchSentiment** property. Whenever the **frenchSentiment** property is null, we want to use the **englishSentiment** value. We assign the output to a member that's called *sentiment* ("/document/sentiment/*/sentiment").
 
 ```json
 {
@@ -151,7 +151,7 @@ In this example, some sentences have a **frenchSentiment** property. Whenever th
 ## Transformation examples
 ###	Sample skill definition 4: Data transformation on a single field
 
-In this example, we receive a *sentiment* that's between 0 and 1. We want to transform it so that it's between -1 and 1. We can use the conditional skill to do this minor transformation.
+In this example, we receive a *sentiment* that's between 0 and 1. We want to transform it to between -1 and 1. We can use the conditional skill to do this minor transformation.
 
 In this example, we don't use the conditional aspect of the skill because the condition is always *true*.
 
