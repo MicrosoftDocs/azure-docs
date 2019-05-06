@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory Mapping Data Flow Exists Transformation
+title: Azure Data Factory Mapping Data Flow Exists transformation
 description: How to check for existing rows using data factory mapping data flows with Exists transformation
 author: kromerm
 ms.author: makromer
@@ -32,4 +32,4 @@ You can click "Custom Expression" to instead create a free-form expression as yo
 
 ## Next steps
 
-Similar transformations are [Lookup](data-flow-lookup.md) and [Join](data-flow-join.md)
+Similar transformations are [Lookup](data-flow-lookup.md) and [Join](data-flow-join.md).
