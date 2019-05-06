@@ -52,7 +52,7 @@ There are several parameters and properties you need to pass. Replace the follow
 | **skuName** | Tier type. Use S0 for Standard and B0 for Basic.
 
 ```azurecli-interactive
-az resource create --resource-group myResourceGroup --name myblockchainmember --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties '{ "location": "eastus", "properties": {"password": "strongMemberAccountPassword@1", "protocol": "Quorum", "consortium": "myConsortiumName", "consortiumManagementAccountPassword": "strongConsortiumManagementPassword@1" }, "sku": { "name": "S0" } }'
+az resource create --resource-group myResourceGroup --name myblockchainmember --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties "{ \"location\": \"eastus\", \"properties\": {\"password\": \"strongMemberAccountPassword@1\", \"protocol\": \"Quorum\", \"consortium\": \"myConsortiumName\", \"consortiumManagementAccountPassword\": \"strongConsortiumManagementPassword@1\" }, \"sku\": { \"name\": \"S0\" } }"
 ```
 
 It takes about 10 minutes to create the blockchain member and supporting resources.

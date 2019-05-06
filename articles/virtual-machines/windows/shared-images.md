@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/11/2018
+ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: 
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
 
-# Preview: Create a shared image gallery with Azure PowerShell 
+# Create a shared image gallery with Azure PowerShell 
 
 A [Shared Image Gallery](shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployment tasks like preloading applications, application configurations, and other OS configurations. 
 
@@ -44,7 +44,7 @@ The Shared Image Gallery feature has multiple resource types. We will be using o
 
 To complete the example in this article, you must have an existing managed image. You can follow [Tutorial: Create a custom image of an Azure VM with Azure PowerShell](tutorial-custom-images.md) to create one if needed. When working through this article, replace the resource group and VM names where needed.
 
-[!INCLUDE [virtual-machines-common-shared-images-ps](../../../includes/virtual-machines-common-shared-images-powershell.md)]
+[!INCLUDE [virtual-machines-common-shared-images-powershell](../../../includes/virtual-machines-common-shared-images-powershell.md)]
  
 ## Create VMs from an image
 
@@ -67,13 +67,7 @@ New-AzVm `
 
 [!INCLUDE [virtual-machines-common-gallery-list-ps](../../../includes/virtual-machines-common-gallery-list-ps.md)]
 
-## Clean up resources
-
-When no longer needed, you can use the [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) cmdlet to remove the resource group, VM, and all related resources:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myGalleryRG
-```
+[!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 ## Next steps
 

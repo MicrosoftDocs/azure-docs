@@ -49,7 +49,7 @@ Maximum values allowed for various components of Azure SQL Data Warehouse.
 ## Loads
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| Polybase Loads |MB per row |1<br/><br/>Polybase loads only to rows that are smaller than 1 MB, and cannot load to VARCHAR(MAX), NVARCHAR(MAX) or VARBINARY(MAX).<br/><br/> |
+| Polybase Loads |MB per row |1<br/><br/>Polybase loads rows that are smaller than 1 MB.<br/><br/> |
 
 ## Queries
 | Category | Description | Maximum |

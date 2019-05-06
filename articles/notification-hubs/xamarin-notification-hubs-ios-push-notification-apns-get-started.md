@@ -86,7 +86,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
     ![Visual Studio- iOS App Config][32]
 
-4. From the Solution view, double-click the `Entitlements.plist` and ensure that **Enable Push Notifications**"** is checked.
+4. From the Solution view, double-click the `Entitlements.plist` and ensure that **Enable Push Notifications** is checked.
 
     ![Visual Studio- iOS Entitlements Config][33]
 
