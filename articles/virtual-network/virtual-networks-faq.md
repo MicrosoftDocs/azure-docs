@@ -169,7 +169,7 @@ Yes. You can find more information in the [How to move a VM or role instance to 
 No. A MAC address cannot be statically configured.
 
 ### Will the MAC address remain the same for my VM once it's created?
-Yes, the MAC address remains the same for a VM deployed through both the Resource Manager and classic deployment models until it's deleted. Previously, the MAC address was released if the VM was stopped (deallocated), but now the MAC address is retained even when the VM is in the deallocated state.
+Yes, the MAC address remains the same for a VM deployed through both the Resource Manager and classic deployment models until it's deleted. Previously, the MAC address was released if the VM was stopped (deallocated), but now the MAC address is retained even when the VM is in the deallocated state. The MAC address remains assigned to the network interface until the network interface is deleted or the private IP address assigned to the primary IP configuration of the primary network interface is changed. 
 
 ### Can I connect to the internet from a VM in a VNet?
 Yes. All VMs and Cloud Services role instances deployed within a VNet can connect to the Internet.
