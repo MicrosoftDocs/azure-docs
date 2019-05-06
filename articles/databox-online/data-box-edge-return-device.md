@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/23/2019
+ms.date: 05/06/2019
 ms.author: alkohli
 ---
 
@@ -22,20 +22,19 @@ In this article, you learn how to:
 > * Wipe the data off the data disks on the device
 > * Pack up the device and schedule a pickup
 > * Delete the resource in Azure portal
-> * Reset device at the factory and reimaged for future use
 
 
 ## Open a Support ticket
 
 To begin the return process, take the following steps.
 
-1. Open a Support ticket with customer indicating that you wish to return the device. Select the problem type as **Data Box Edge Hardware**. 
+1. Open a Support ticket with Microsoft Support indicating that you wish to return the device. Select the problem type as **Data Box Edge Hardware**.
 2. A Microsoft Support engineer will contact you. Provide the shipping details.
 3. If you need a return shipping box, you can request it. Answer **Yes** to the question **Need an empty box to return**.
 
-## Securely wipe the device
+## Erase data from the device
 
-To securely wipe the data off the data disks of your device, you need to reset your device. You can reset your device using the local web UI or the PowerShell interface.
+To wipe the data off the data disks of your device, you need to reset your device. You can reset your device using the local web UI or the PowerShell interface.
 
 Before you reset, make sure to back up the local data on the device if needed.
 
@@ -50,7 +49,7 @@ To reset your device using the local web UI, take the following steps.
 
     ![Confirm reset](media/data-box-edge-return-device/device-reset-2.png)  
 
-The reset will securely erase the data off the device data disks. The process takes about 30-40 minutes depending on the amount of data on your device.
+The reset will erase the data off the device data disks. The process takes about 30-40 minutes depending on the amount of data on your device.
 
 Alternatively, you can connect to the PowerShell interface of the device and use the `Reset-HcsAppliance` cmdlet to erase the data from the data disks. For more information, see [Reset your device](data-box-edge-connect-powershell-interface.md#reset-your-device).
 
