@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
 ---
 # Tutorial: Create a host pool with Azure Marketplace
@@ -65,7 +65,7 @@ For the Windows Virtual Desktop tenant information blade:
 
 1. Enter the **Windows Virtual Desktop tenant group name** for the tenant group that contains your tenant. If you don't have a specific tenant group name planned, leave it as the default.
 2. Enter the **Windows Virtual Desktop tenant name** for the tenant you'll be creating this host pool in.
-3. Specify the type of credentials you want to use to authenticate as the Windows Virtual Desktop tenant RDS Owner. If you select **Service principal**, you must also provide the **Azure AD tenant ID** associated with the service principal.
+3. Specify the type of credentials you want to use to authenticate as the Windows Virtual Desktop tenant RDS Owner. If you completed the [Create service principals and role assignments with PowerShell tutorial](./create-service-principal-role-powershell.md), select **Service principal**. You will now need to enter the **Azure AD tenant ID** of the Azure Active Directory that contains the service principal.
 4. Enter either the credentials for the tenant admin account. Only service principals with a password credential are supported.
 5. Select **OK**.
 
@@ -111,6 +111,9 @@ Here are the current supported clients:
 
 - [Remote Desktop client for Windows 7 and Windows 10](connect-windows-7-and-10.md)
 - [Windows Virtual Desktop web client](connect-web.md)
+
+>[!IMPORTANT]
+>To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your VMs. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's VMs. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
 
 ## Next steps
 

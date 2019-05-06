@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: List text-to-speech voices, Python - Speech Services"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to get the full list of standard and neural voices for a region/endpoint using Python. The list is returned as JSON, and voice availability varies by region. 
+description: In this quickstart, you'll learn how to get the full list of standard and neural voices for a region/endpoint using Python. The list is returned as JSON, and voice availability varies by region.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -77,7 +77,7 @@ def get_token(self):
 
 Here you're going to build the request and save the list of returned voices. First, you need to set the `base_url` and `path`. This sample assumes you're using the West US endpoint. If your resource is registered to a different region, make sure you update the `base_url`. For more information, see [Speech Services regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Next, add required headers for the request. Finally, you'll make a request to the service. If the request is successful, and a 200 status code is returned, the speech response is written to a timestamped file.
+Next, add required headers for the request. Finally, you'll make a request to the service. If the request is successful, and a 200 status code is returned, the response is written to file.
 
 Copy this code into the `GetVoices` class:
 

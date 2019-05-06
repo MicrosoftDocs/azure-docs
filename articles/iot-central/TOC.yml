@@ -35,6 +35,8 @@
   items:
   - name : Connect devices
     items:
+      - name: Generate a device connection string
+        href: howto-generate-connection-string.md
       - name: Prepare and connect a Node.js (generic) application 
         href: howto-connect-nodejs.md
       - name: Prepare and connect an MXChip IoT DevKit
@@ -45,6 +47,8 @@
         href: howto-connect-raspberry-pi-csharp.md
       - name: Prepare and connect a Windows IoT Core device
         href: howto-connect-windowsiotcore.md
+      - name: Prepare and connect a SensorTile.box device
+        href: howto-connect-sensortile.md
       - name: Monitor device connectivity using command line
         href: howto-use-iotc-explorer.md
   - name: Manage devices
@@ -112,6 +116,8 @@
         href: howto-personalize-dashboard.md
       - name: Manage your preferences
         href: howto-manage-preferences.md
+      - name: Toggle live chat
+        href: howto-show-hide-chat.md
 - name: Related
   items:
   - name: Solutions

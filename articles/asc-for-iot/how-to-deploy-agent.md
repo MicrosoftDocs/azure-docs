@@ -1,10 +1,11 @@
 ---
-title: Select and deploy an ASC for IoT agent Preview| Microsoft Docs
-description: Learn about how select and deploy ASC for IoT security agents on IoT devices.
-services: ascforiot
+title: Select and deploy Azure Security Center for IoT agent Preview| Microsoft Docs
+description: Learn about how select and deploy Azure Security Center for IoT security agents on IoT devices.
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: 32a9564d-16fd-4b0d-9618-7d78d614ce76
@@ -21,11 +22,11 @@ ms.author: mlottner
 # Select and deploy a security agent on your IoT device
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC for IoT provides reference architectures for security agents that monitor and collect data from IoT devices.
+Azure Security Center (ASC) for IoT provides reference architectures for security agents that monitor and collect data from IoT devices.
 See [Security agent reference architecture](security-agent-architecture.md) to learn more.
 
 Agents are developed as open source projects, and are available in two flavors: <br> [C](https://aka.ms/iot-security-github-c), and [C#](https://aka.ms/iot-security-github-cs).
@@ -47,7 +48,7 @@ The C-based security agent has a lower memory footprint, and is the ideal choice
 | Open source | Available under [MIT license](https://en.wikipedia.org/wiki/MIT_License) in [Github](https://aka.ms/iot-security-github-cs) | Available under [MIT license](https://en.wikipedia.org/wiki/MIT_License) in [Github](https://aka.ms/iot-security-github-c) |
 | Development language    | C | C# |
 | Supported Windows platforms? | No | Yes |
-| Windows prerequisites | --- | [WMI](https://docs.microsoft.com/en-us/windows/desktop/wmisdk/) |
+| Windows prerequisites | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
 | Supported Linux platforms? | Yes, x64 and x86 | Yes, x64 only |
 | Linux prerequisites | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plugins | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plugins, sudo, netstat, iptables |
 | Disk footprint | 10.5MB | 90MB |

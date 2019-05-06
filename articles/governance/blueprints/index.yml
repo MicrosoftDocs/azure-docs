@@ -1,10 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Blueprints Documentation
+title: Documentation for the Azure Blueprints service
 metadata:
   title: Azure Blueprints Documentation - Tutorials, API Reference
   description: Azure Blueprints is a service in Azure, that you use to create, define, and deploy artifacts in your Azure environment.
-  services: blueprints
   author: DCtheGeek
   manager: carmonm
   ms.service: blueprints

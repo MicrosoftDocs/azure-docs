@@ -51,18 +51,18 @@ Once the health reporting design is clear, health reports can be sent easily. Yo
 > 
 
 ## Health client
-The health reports are sent to the health store through a health client, which lives inside the fabric client. The health client can be configured with the following settings:
+The health reports are sent to the health manager through a health client, which lives inside the fabric client. The health manager saves reports in the health store. The health client can be configured with the following settings:
 
-* **HealthReportSendInterval**: The delay between the time the report is added to the client and the time it is sent to the health store. Used to batch reports into a single message, rather than sending one message for each report. The batching improves performance. Default: 30 seconds.
-* **HealthReportRetrySendInterval**: The interval at which the health client resends accumulated health reports to the health store. Default: 30 seconds.
-* **HealthOperationTimeout**: The timeout period for a report message sent to the health store. If a message times out, the health client retries it until the health store confirms that the report has been processed. Default: two minutes.
+* **HealthReportSendInterval**: The delay between the time the report is added to the client and the time it is sent to the health manager. Used to batch reports into a single message, rather than sending one message for each report. The batching improves performance. Default: 30 seconds.
+* **HealthReportRetrySendInterval**: The interval at which the health client resends accumulated health reports to the health manager. Default: 30 seconds, minimum: 1 second.
+* **HealthOperationTimeout**: The timeout period for a report message sent to the health manager. If a message times out, the health client retries it until the health manager confirms that the report has been processed. Default: two minutes.
 
 > [!NOTE]
-> When the reports are batched, the fabric client must be kept alive for at least the HealthReportSendInterval to ensure that they are sent. If the message is lost or the health store cannot apply them due to transient errors, the fabric client must be kept alive longer to give it a chance to retry.
+> When the reports are batched, the fabric client must be kept alive for at least the HealthReportSendInterval to ensure that they are sent. If the message is lost or the health manager cannot apply them due to transient errors, the fabric client must be kept alive longer to give it a chance to retry.
 > 
 > 
 
-The buffering on the client takes the uniqueness of the reports into consideration. For example, if a particular bad reporter is reporting 100 reports per second on the same property of the same entity, the reports are replaced with the last version. At most one such report exists in the client queue. If batching is configured, the number of reports sent to the health store is just one per send interval. This report is the last added report, which reflects the most current state of the entity.
+The buffering on the client takes the uniqueness of the reports into consideration. For example, if a particular bad reporter is reporting 100 reports per second on the same property of the same entity, the reports are replaced with the last version. At most one such report exists in the client queue. If batching is configured, the number of reports sent to the health manager is just one per send interval. This report is the last added report, which reflects the most current state of the entity.
 Specify configuration parameters when `FabricClient` is created by passing [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) with the desired values for health-related entries.
 
 The following example creates a fabric client and specifies that the reports should be sent when they are added. On timeouts and errors that can be retried, retries happen every 40 seconds.

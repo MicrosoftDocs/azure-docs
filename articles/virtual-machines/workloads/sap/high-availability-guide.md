@@ -359,7 +359,6 @@ ms.custom: H1Hack27Feb2017
 
 [sap-ha-guide-figure-6003]:media/virtual-machines-shared-sap-high-availability-guide/6003-sap-multi-sid-full-landscape.png
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -561,7 +560,7 @@ You need cluster shared storage for a high-availability SAP ASCS/SCS instance. A
 2. Run SIOS DataKeeper Cluster Edition on both virtual machine nodes.
 3. Configure SIOS DataKeeper Cluster Edition so that it mirrors the content of the additional VHD attached volume from the source virtual machine to the additional VHD attached volume of the target virtual machine. SIOS DataKeeper abstracts the source and target local volumes, and then presents them to Windows Server Failover Clustering as one shared disk.
 
-Get more information about [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
+Get more information about [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/).
 
 ![Figure 3: Windows Server Failover Clustering configuration in Azure with SIOS DataKeeper][sap-ha-guide-figure-1002]
 

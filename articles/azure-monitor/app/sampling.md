@@ -56,7 +56,7 @@ Metric counts such as request rate and exception rate are adjusted to compensate
 
 ## Configuring adaptive sampling for ASP.NET Applications
 
-[Learn](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) about configuring adaptive sampling for For ASP.NET Core Applications. 
+[Learn](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) about configuring adaptive sampling for ASP.NET Core Applications. 
 
 In [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), you can adjust several parameters in the `AdaptiveSamplingTelemetryProcessor` node. The figures shown are the default values:
 
@@ -145,7 +145,7 @@ Adaptive sampling is enabled by default for all ASP.NET Core applications. You c
 
 ### Turning off Adaptive Sampling
 
-The default sampling feature can be disabled while adding Application Insights service, in the method ```ConfigureServices```, using ```ApplicationInsightsServiceOptions```:
+The default sampling feature can be disabled while adding Application Insights service, in the method ```ConfigureServices```, using ```ApplicationInsightsServiceOptions``` within the `Startup.cs` file:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

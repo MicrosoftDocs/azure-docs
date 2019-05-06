@@ -1,7 +1,7 @@
 ---
 title: Manage Azure Reservations | Microsoft Docs
 description: Learn how you can change subscription scope and manage access for Azure Reservations.
-services: billing
+ms.service: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 04/13/2019
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -20,7 +20,22 @@ After you buy an reservation for Azure, you may need to apply the reservation to
 
 If you bought Azure Reserved Virtual Machine Instances, you can change the optimize setting for the reservation. The reservation discount can apply to VMs in the same series or you can reserve data center capacity for a specific VM size.
 
-## Change the scope for a reservation
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## Reservation Order and Reservation
+
+When you purchase of a reservation, two objects are created: **Reservation Order** and **Reservation**.
+
+At the time of purchase, a Reservation Order has one Reservation under it. Actions such as split, merge, partial refund, or exchange create new reservations under the **Reservation Order**.
+
+To view a Reservation Order, go to **Reservations** > select the reservation, and then click the **Reservation order ID**.
+
+![Example of reservation order details showing Reservation order ID ](./media/billing-manage-reserved-vm-instance/reservation-order-details.png)
+
+A reservation inherits permissions from its reservation order.
+
+## Change the reservation scope
 
  Your reservation discount applies to virtual machines, SQL databases, Azure Cosmos DB, or other resources that match your reservation and run in the reservation scope. The billing context is dependent on the subscription used to buy the reservation.
 
@@ -38,9 +53,12 @@ The scope only applies to Pay-As-You-Go offer MS-AZR-0003P or MS-AZR-0023P, Ente
 
 ## Add or change users who can manage a reservation
 
-You can delegate management of a reservation by adding people to roles on the reservation. By default, the person that bought the reservation and the account administrator have the Owner role on the reservation.
+You can delegate reservation management by adding people to roles on the reservation order or the reservation. By default, the person that places the reservation order and the account administrator have the Owner role on the reservation order and the reservation.
 
-You can manage access to reservations independently from the subscriptions that get the reservation discount. When you give someone permissions to manage a reservation, that doesn't give them rights to manage the subscription. And if you give someone permissions to manage a subscription within the reservation's scope, that doesn't give them rights to manage the reservation.
+You can manage access to reservations orders and reservations independently from the subscriptions that get the reservation discount. When you give someone permissions to manage a reservation order or the reservation, it doesn't give them permission to manage the subscription. Similarly, if you give someone permissions to manage a subscription in the reservation's scope, it doesn't give them rights to manage the reservation order or the reservation.
+
+To perform an exchange or refund, the user must have access to the reservation order. When granting someone permissions, it’s best to grant permissions to the reservation order, not the reservation.
+
 
 To delegate access management for a reservation:
 
@@ -64,25 +82,25 @@ To delegate access management for a reservation:
 
     ```powershell
     # Get the reservation orders you have access to
-    Get-AzureRmReservationOrder
+    Get-AzReservationOrder
     ```
 
 2. Get the details of a reservation:
 
     ```powershell
-    Get-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a
+    Get-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a
     ```
 
 3. Split the reservation into two and distribute the instances:
 
     ```powershell
     # Split the reservation. The sum of the reservations, the quantity, must equal the total number of instances in the reservation that you're splitting.
-    Split-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
+    Split-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
     ```
 4. You can update the scope by running the following command:
 
     ```powershell
-    Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
+    Update-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
 
 ## Cancellations and exchanges

@@ -2,13 +2,14 @@
 title: "Quickstart: Use .NET to create a queue in Azure Storage"
 description: In this quickstart, you learn how to use the Azure Storage client library for .NET to create a queue and add messages to it. Next, you learn how to read and process messages from the queue.
 services: storage
-author: tamram
+author: mhopkins-msft
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/06/2018
-ms.author: tamram
+ms.author: mhopkins
+ms.reviewer: cbrooks
 ---
 
 # Quickstart: Use .NET to create a queue in Azure Storage
@@ -159,7 +160,7 @@ else
 {
     Console.WriteLine(
         "A connection string has not been defined in the system environment variables. " +
-        "Add a environment variable named 'storageconnectionstring' with your storage " +
+        "Add an environment variable named 'storageconnectionstring' with your storage " +
         "connection string as a value.");
 }
 ```

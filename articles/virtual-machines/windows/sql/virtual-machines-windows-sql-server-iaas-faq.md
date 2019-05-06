@@ -51,7 +51,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Can I create a VHD image from a SQL Server VM?**
 
-   Yes, but there are a few considerations. If you deploy this VHD to a new VM in Azure, you do not ge the SQL Server Configuration section in the portal. You must then manage the SQL Server configuration options through PowerShell. Also, you will be charged for at the rate of the SQL VM your image was originally based on. This is true even if you remove SQL Server from the VHD before deploying. 
+   Yes, but there are a few considerations. If you deploy this VHD to a new VM in Azure, you do not get the SQL Server Configuration section in the portal. You must then manage the SQL Server configuration options through PowerShell. Also, you will be charged for at the rate of the SQL VM your image was originally based on. This is true even if you remove SQL Server from the VHD before deploying. 
 
 1. **Is it possible to set up configurations not shown in the virtual machine gallery (For example Windows 2008 R2 + SQL Server 2012)?**
 
@@ -134,12 +134,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Can I use a named instance of SQL Server with the IaaS extension**?
    
-   Yes, if the named instance is the only instance on the SQL Server, and if the original default instance was uninstalled properly. To use a named instance, do the following:
-    1. Deploy a SQL Server VM from the marketplace. 
-    1. Uninstall the IaaS extension.
-    1. Uninstall SQL Server completely.
-    1. Install SQL Server with a named instance. 
-    1. Install the IaaS extension. 
+   Yes, if the named instance is the only instance on the SQL Server, and if the original default instance was [uninstalled properly](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md#installation). If there is no default instance and there are multiple named instances on a single SQL Server VM, the IaaS extension will fail to install. 
 
 1. **Can I remove SQL Server completely from a SQL VM?**
 
@@ -171,6 +166,10 @@ This article provides answers to some of the most common questions about running
 1. **How do I install SQL Data tools on my Azure VM?**
 
     Download and install the SQL Data tools from [Microsoft SQL Server Data Tools - Business Intelligence for Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=42313).
+
+1. **Are distributed transactions with MSDTC supported on SQL Server VMs?**
+   
+    Yes. Local DTC is supported for SQL Server 2016 SP2 and greater. However, applications must be tested when utilizing Always On availability groups, as transactions in-flight during a failover will fail and must be retried. Clustered DTC is available starting with Windows Server 2019. 
 
 ## Resources
 

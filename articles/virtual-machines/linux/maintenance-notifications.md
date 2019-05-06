@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 04/30/2019
 ms.author: shants
 
 ---
@@ -31,7 +31,7 @@ Azure periodically performs updates to improve the reliability, performance, and
 Planned maintenance that requires a reboot is scheduled in waves. Each wave has different scope (regions).
 
 - A wave starts with a notification to customers. By default, notification is sent to subscription owner and co-owners. You can add more recipients and messaging options like email, SMS, and webhooks, to the notifications using Azure [Activity Log Alerts](../../azure-monitor/platform/activity-logs-overview.md).  
-- At the time of the notification, a *self-service window* is made available. During this window, you can find which of your virtual machines are included in this wave and proactively start maintenance according to your own scheduling needs.
+- At the time of the notification, a *self-service window* is made available. During this window that is typically four weeks, you can find which of your virtual machines are included in this wave and proactively start maintenance according to your own scheduling needs.
 - After the self-service window, a *scheduled maintenance window* begins. At some point during this window, Azure schedules and applies the required maintenance to your virtual machine. 
 
 The goal in having two windows is to give you enough time to start maintenance and reboot your virtual machine while knowing when Azure will automatically start maintenance.

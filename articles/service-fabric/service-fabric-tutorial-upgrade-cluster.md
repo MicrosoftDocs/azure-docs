@@ -40,12 +40,15 @@ In this tutorial series you learn how to:
 > * Upgrade the runtime of a cluster
 > * [Delete a cluster](service-fabric-tutorial-delete-cluster.md)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+* Install [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) on Azure
 * Set up a Windows development environment. Install [Visual Studio 2017](https://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then set up a [.NET development environment](service-fabric-get-started.md).
 
@@ -54,9 +57,9 @@ Before you begin this tutorial:
 Sign in to your Azure account select your subscription before you execute Azure commands.
 
 ```powershell
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Get-AzSubscription
+Set-AzContext -SubscriptionId <guid>
 ```
 
 ## Get the runtime version
@@ -64,14 +67,14 @@ Set-AzureRmContext -SubscriptionId <guid>
 After you have connected to Azure, selected the subscription containing the Service Fabric cluster, you can get the runtime version of the cluster.
 
 ```powershell
-Get-AzureRmServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
+Get-AzServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
     | Select-Object ClusterCodeVersion
 ```
 
 Or, just get a list of all clusters in your subscription with the following:
 
 ```powershell
-Get-AzureRmServiceFabricCluster | Select-Object Name, ClusterCodeVersion
+Get-AzServiceFabricCluster | Select-Object Name, ClusterCodeVersion
 ```
 
 Note the **ClusterCodeVersion** value. This value will be used in the next section.
@@ -87,7 +90,7 @@ Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion "5.7.198.9494"
 With a list of versions, you can tell the Azure Service Fabric cluster to upgrade to a newer runtime. For example, if version `6.0.219.9494` is available to upgrade to, use the following command to upgrade your cluster.
 
 ```powershell
-Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
+Set-AzServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
                                     -Name aztestcluster `
                                     -UpgradeMode Manual `
                                     -Version "6.0.219.9494"
@@ -195,6 +198,11 @@ sfctl cluster upgrade-status
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
+> * Get the version of the cluster runtime
+> * Upgrade the cluster runtime
+> * Monitor the upgrade
+
+[!div class="checklist"]
 > * Get the version of the cluster runtime
 > * Upgrade the cluster runtime
 > * Monitor the upgrade

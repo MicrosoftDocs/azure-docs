@@ -1,16 +1,18 @@
 ---
-title: Managing the Azure Storage Lifecycle
+title: Managing the Azure Storage lifecycle
 description: Learn how to create lifecycle policy rules to transition aging data from Hot to Cool and Archive tiers.
 services: storage
-author: yzheng-msft
+author: mhopkins-msft
+
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/20/2019
-ms.author: yzheng
+ms.date: 4/29/2019
+ms.author: mhopkins
+ms.reviewer: yzheng
 ms.subservice: common
 ---
 
-# Manage the Azure Blob storage Lifecycle
+# Manage the Azure Blob storage lifecycle
 
 Data sets have unique lifecycles. Early in the lifecycle, people access some data often. But the need for access drops drastically as the data ages. Some data stays idle in the cloud and is rarely accessed once stored. Some data expires days or months after creation, while other data sets are actively read and modified throughout their lifetimes. Azure Blob storage lifecycle management offers a rich, rule-based policy for GPv2 and Blob storage accounts. Use the policy to transition your data to the appropriate access tiers or expire at the end of the data's lifecycle.
 
@@ -31,16 +33,16 @@ The lifecycle management policy is available with both General Purpose v2 (GPv2)
 
 The lifecycle management feature is free of charge. Customers are charged the regular operation cost for the [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) and [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API calls. Delete operation is free. For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## Regional Availability 
+## Regional availability 
 The lifecycle management feature is available in all public Azure regions. 
 
 
 ## Add or remove a policy 
 
-You can add, edit, or remove a policy by using the Azure portal, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), the Azure CLI, REST APIs, or a client tool. This article shows how to manage policy by using the portal and PowerShell methods.  
+You can add, edit, or remove a policy by using the Azure portal, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), the Azure CLI, [REST APIs](https://docs.microsoft.com/rest/api/storagerp/managementpolicies), or a client tool. This article shows how to manage policy by using the portal and PowerShell methods.  
 
 > [!NOTE]
-> If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions. The required bypass are: `Logging,  Metrics,  AzureServices`. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ### Azure portal
 
@@ -75,7 +77,47 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 
 ```
+## ARM template with lifecycle management policy
 
+You can define and deploy lifecycle management as part of your Azure solution deployment using ARM templates. The follow is a sample template to deploy a RA-GRS GPv2 storage account with a lifecycle management policy. 
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "storageAccountName": "[uniqueString(resourceGroup().id)]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2019-04-01",
+      "sku": {
+        "name": "Standard_RAGRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "networkAcls": {}
+      }
+    },
+    {
+      "name": "[concat(variables('storageAccountName'), '/default')]",
+      "type": "Microsoft.Storage/storageAccounts/managementPolicies",
+      "apiVersion": "2019-04-01",
+      "dependsOn": [
+        "[variables('storageAccountName')]"
+      ],
+      "properties": {
+        "policy": {...}
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
 
 ## Policy
 
@@ -300,8 +342,8 @@ For data that is modified and accessed regularly throughout its lifetime, snapsh
   ]
 }
 ```
-## FAQ - I created a new policy, why are the actions not run immediately? 
-
+## FAQ 
+**I created a new policy, why are the actions not run immediately?**  
 The platform runs the lifecycle policy once a day. Once you configure a policy, it can take up to 24 hours for some actions (such as tiering and deletion) to run for the first time.  
 
 ## Next steps

@@ -118,7 +118,7 @@ To configure Azure AD single sign-on with Promapp, perform the following steps:
 	> Presently Azure AD integration with Promapp has only been configured for service initiated authentication e.g. going to a Promapp URL initiates the authentication process. However the Reply URL is a required field.
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<DOMAINNAME>.promapp.com/azuread/saml/authenticate.aspx`
+    `https://<DOMAINNAME>.promapp.com/TENANTNAME/saml/authenticate.aspx`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -231,9 +231,9 @@ When you click the Promapp tile in the Access Panel, you should be automatically
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

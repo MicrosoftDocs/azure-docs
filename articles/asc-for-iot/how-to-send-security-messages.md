@@ -1,10 +1,11 @@
 ---
-title: Send your security messages to ASC for IoT Preview| Microsoft Docs
-description: Learn how to send your security messages using ASC for IoT.
-services: ascforiot
+title: Send your security messages to Azure Security Center for IoT Preview| Microsoft Docs
+description: Learn how to send your security messages using Azure Security Center for IoT.
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: c611bb5c-b503-487f-bef4-25d8a243803d
@@ -21,11 +22,11 @@ ms.author: mlottner
 # Send security messages SDK
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This how-to guide explains ASC for IoT service capabilities when you choose to collect and send your device security messages without using an ASC for IoT agent, and explains how to do so.  
+This how-to guide explains Azure Security Center (ASC) for IoT service capabilities when you choose to collect and send your device security messages without using an ASC for IoT agent, and explains how to do so.  
 
 In this guide, you learn how to: 
 > [!div class="checklist"]
@@ -86,7 +87,7 @@ Once set as a security message and sent, this message will be processed by ASC f
 
 ## Send security messages 
 
-Send security messages without using the ASC for IoT agent, by using the [Azure IoT C# device SDK](https://github.com/Azure/azure-iot-sdk-csharp) or [Azure IoT C device SDK](https://github.com/Azure/azure-iot-sdk-c).
+Send security messages without using the ASC for IoT agent, by using the [Azure IoT C# device SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) or [Azure IoT C device SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview).
 
 To send the device data from your devices for processing by ASC for IoT, use one of the following APIs to mark messages for correct routing to ASC for IoT processing pipeline. Messages sent this way will be processed and displayed as security insights within ASC for IoT within both IoT Hub or within Azure Security Center. 
 

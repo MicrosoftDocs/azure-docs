@@ -1,6 +1,6 @@
 ---
 title: Secure a single or pooled database in Azure SQL Database | Microsoft Docs
-description: Learn about techniques and features to secure a single or pooled database in Azure SQL Database.
+description: A tutorial that teaches you the about techniques and features to secure a single or pooled database in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,8 +10,17 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
+ms.custom: seoapril2019
 ---
 # Tutorial: Secure a single or pooled database
+
+In this tutorial you learn how to:
+
+> [!div class="checklist"]
+> - Create server-level and database-level firewall rules
+> - Configure an Azure Active Directory (AD) administrator
+> - Manage user access with SQL authentication, Azure AD authentication, and secure connection strings
+> - Enable security features, such as advanced data security, auditing, data masking, and encryption
 
 Azure SQL Database secures data in a single or pooled database by allowing you to:
 
@@ -22,14 +31,6 @@ Azure SQL Database secures data in a single or pooled database by allowing you t
 
 > [!NOTE]
 > An Azure SQL database on a managed instance is secured using network security rules and private endpoints as described in [Azure SQL database managed instance](sql-database-managed-instance-index.yml) and [connectivity architecture](sql-database-managed-instance-connectivity-architecture.md).
-
-You can improve your database security with just a few simple steps. In this tutorial you learn how to:
-
-> [!div class="checklist"]
-> - Create server-level and database-level firewall rules
-> - Configure an Azure Active Directory (AD) administrator
-> - Manage user access with SQL authentication, Azure AD authentication, and secure connection strings
-> - Enable security features, such as advanced data security, auditing, data masking, and encryption
 
 To learn more, see the [Azure SQL Database security overview](/azure/sql-database/sql-database-security-index) and [capabilities](sql-database-security-overview.md) articles.
 

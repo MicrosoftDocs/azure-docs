@@ -1,25 +1,28 @@
 ---
-title: 'Machine learning in the cloud: Terms and architecture'
+title: 'Architecture & key concepts'
 titleSuffix: Azure Machine Learning service
-description: Learn about the architecture, terminology, and concepts that make up Azure Machine Learning service. You also learn about the general workflow of using the service, and the Azure services that are used by Azure Machine Learning service.
+description: Learn about the architecture, terms, concepts and workflow that make up Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 12/04/2018
+ms.date: 04/15/2019
+ms.custom: seoapril2019
 # As a data scientist, I want to understand the big picture about how Azure Machine Learning service works.
 ms.custom: seodec18
 ---
 
 # How Azure Machine Learning service works: Architecture and concepts
 
-This article describes the architecture and concepts for Azure Machine Learning service. The major components of the service and the general workflow for using the service are shown in the following diagram:
+Learn about the architecture, concepts, and workflow for Azure Machine Learning service. The major components of the service and the general workflow for using the service are shown in the following diagram:
 
 [![Azure Machine Learning service architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
-The workflow generally follows this sequence:
+## Workflow
+
+The machine learning workflow generally follows this sequence:
 
 1. Develop machine learning training scripts in **Python**.
 1. Create and configure a **compute target**.
@@ -62,7 +65,7 @@ When you create a new workspace, it automatically creates several Azure resource
 
 A taxonomy of the workspace is illustrated in the following diagram:
 
-[![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## Experiment
 
@@ -76,7 +79,7 @@ At its simplest, a model is a piece of code that takes an input and produces out
 
 A model is produced by a run in Azure Machine Learning. You can also use a model that's trained outside of Azure Machine Learning. You can register a model in an Azure Machine Learning service workspace.
 
-Azure Machine Learning service is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, Chainer, and Microsoft Cognitive Toolkit (formerly known as CNTK).
+Azure Machine Learning service is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
 
 For an example of training a model, see [Tutorial: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
 
@@ -100,6 +103,16 @@ A run configuration can be persisted into a file inside the directory that conta
 
 For example run configurations, see [Select and use a compute target to train your model](how-to-set-up-training-targets.md).
 
+## Dataset
+
+Azure Machine Learning Datasets (preview) make it easier to access and work with your data. Datasets manage data in various scenarios such as model training and pipeline creation. Using the Azure Machine Learning SDK, you can access underlying storage, explore and prepare data, manage the life cycle of different Dataset definitions, and compare between Datasets used in training and in production.
+
+Datasets provides methods for working with data in popular formats, such as using `from_delimited_files()` or `to_pandas_dataframe()`.
+
+For more information, see [Create and register Azure Machine Learning Datasets](how-to-create-register-datasets.md).
+
+For an example of using Datasets, see the [sample notebooks](https://aka.ms/dataset-tutorial).
+
 ## Datastore
 
 A datastore is a storage abstraction over an Azure storage account. The datastore can use either an Azure blob container or an Azure file share as the back-end storage. Each workspace has a default datastore, and you can register additional datastores.
@@ -121,7 +134,7 @@ A compute target is the compute resource that you use to run your training scrip
 | Azure Container Instances | &nbsp; | ✓ |
 | Azure Kubernetes Service | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
-| Project Brainwave</br>(Field-programmable gate array) | &nbsp; | ✓ |
+| Field-programmable gate array (FPGA) | &nbsp; | ✓ |
 
 Compute targets are attached to a workspace. Compute targets other than the local machine are shared by users of the workspace.
 
@@ -181,6 +194,8 @@ Azure Machine Learning can create two types of images:
 
 * **FPGA image**: Used when you deploy to a field-programmable gate array in Azure.
 * **Docker image**: Used when you deploy to compute targets other than FPGA. Examples are Azure Container Instances and Azure Kubernetes Service.
+
+The Azure Machine Learning service provides a base image, which is used by default. You can also provide your own custom images.
 
 For an example of creating an image, see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 

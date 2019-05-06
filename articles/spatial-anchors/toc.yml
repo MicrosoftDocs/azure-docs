@@ -28,6 +28,8 @@
     href: tutorials/tutorial-share-anchors-across-devices.md
   - name: Sharing in Unity with Azure Cosmos DB
     href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+  - name: Starting a new Android app
+    href: tutorials/tutorial-new-android-app.md
 - name: How-to
   items:
   - name: Create and locate anchors

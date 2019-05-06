@@ -41,4 +41,5 @@ For detailed information to better understand these settings, review [Understand
 7. Select **Save** to configure the changes.
 
 ## Next steps
-For more information, review [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md).
+
+- For more information, review [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md).

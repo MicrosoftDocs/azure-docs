@@ -24,6 +24,9 @@ Cluster security is configured when the cluster is first set up and cannot be ch
 
 Before deploying a production cluster to run production workloads, be sure to first read the [Production readiness checklist](service-fabric-production-readiness-checklist.md).
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Create the Resource Manager template
 Sample Resource Manager templates are available in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template.
 
@@ -237,13 +240,13 @@ The RM modules do not have the ability to generate the Azure AD configuration fo
 Use the following PowerShell command to test your Resource Manager template with a parameter file:
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
+Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
 In case you run into issues and get cryptic messages, then use "-Debug" as an option.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
+Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
 The following diagram illustrates where your key vault and Azure AD configuration fit into your Resource Manager template.
