@@ -385,13 +385,13 @@ If the blob is named *{20140101}-soundfile.mp3*, the `name` variable value in th
 
 ## Trigger - metadata
 
-The blob trigger provides several metadata properties. These properties can be used as part of binding expressions in other bindings or as parameters in your code. These values have the same semantics as the [Cloud​Blob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) type.
+The blob trigger provides several metadata properties. These properties can be used as part of binding expressions in other bindings or as parameters in your code. These values have the same semantics as the [Cloud​Blob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob?view=azure-dotnet) type.
 
 |Property  |Type  |Description  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|The path to the triggering blob.|
 |`Uri`|`System.Uri`|The blob's URI for the primary location.|
-|`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties)|The blob's system properties. |
+|`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobproperties)|The blob's system properties. |
 |`Metadata` |`IDictionary<string,string>`|The user-defined metadata for the blob.|
 
 For example, the following C# script and JavaScript examples log the path to the triggering blob, including the container:

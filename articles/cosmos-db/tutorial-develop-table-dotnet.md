@@ -162,7 +162,7 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
 
 ## Define the entity 
 
-Entities map to C# objects by using a custom class derived from [TableEntity](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableentity.aspx). To add an entity to a table, create a class that defines the properties of your entity.
+Entities map to C# objects by using a custom class derived from [TableEntity](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_entity). To add an entity to a table, create a class that defines the properties of your entity.
 
 Right click on your project **CosmosTableSamples**. Select **Add**, **New Folder** and name it as **Model**. Within the Model folder add a class named **CustomerEntity.cs** and add the following code to it.
 
@@ -188,7 +188,7 @@ namespace CosmosTableSamples.Model
 }
 ```
 
-This code defines an entity class that uses the customer's first name as the row key and last name as the partition key. Together, an entity's partition and row key uniquely identify it in the table. Entities with the same partition key can be queried faster than entities with different partition keys but using diverse partition keys allows for greater scalability of parallel operations. Entities to be stored in tables must be of a supported type, for example derived from the [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableentity?redirectedfrom=MSDN&view=azure-dotnet) class. Entity properties you'd like to store in a table must be public properties of the type, and support both getting and setting of values. Also, your entity type must expose a parameter-less constructor.
+This code defines an entity class that uses the customer's first name as the row key and last name as the partition key. Together, an entity's partition and row key uniquely identify it in the table. Entities with the same partition key can be queried faster than entities with different partition keys but using diverse partition keys allows for greater scalability of parallel operations. Entities to be stored in tables must be of a supported type, for example derived from the [TableEntity](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_entity) class. Entity properties you'd like to store in a table must be public properties of the type, and support both getting and setting of values. Also, your entity type must expose a parameter-less constructor.
 
 ## Insert or merge an entity
 
