@@ -205,7 +205,7 @@ resource name for your logic app. Save your settings.
 
    ![Deployment status output](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-output-window.png)
 
-   If your selected connectors need any input from you, a PowerShell 
+   If your selected connectors need input from you, a PowerShell 
    window opens in the background and prompts for any necessary 
    passwords or secret keys. After you enter this information, 
    deployment continues.
@@ -213,20 +213,19 @@ resource name for your logic app. Save your settings.
    ![PowerShell window](./media/quickstart-create-logic-apps-with-visual-studio/logic-apps-powershell-window.png)
 
    After deployment finishes, your logic app is live in the 
-   Azure portal and runs based on your specified schedule 
-   (every minute). If the RSS feed has new items, your logic 
-   app sends an email for each new item. Otherwise, your logic 
-   app waits until the next interval before checking.
+   Azure portal and runs on your specified schedule 
+   (every minute). If the trigger finds new feed items, 
+   the trigger fires, which creates a workflow instance 
+   that runs your logic app's actions. Your logic app sends 
+   email for each new item. Otherwise, if the trigger 
+   doesn't find new items, the trigger doesn't fire and 
+   "skips" instantiating the workflow. Your logic app 
+   waits until the next interval before checking.
 
-   For example, here are sample emails that this logic app sends. 
+   Here are sample emails that this logic app sends. 
    If you don't get any emails, check your junk email folder.
 
    ![Outlook sends email for each new RSS item](./media/quickstart-create-logic-apps-with-visual-studio/outlook-email.png)
-
-   When the trigger fires, the Logic Apps engine creates an instance 
-   for your logic app workflow that runs the workflow's actions. 
-   If the trigger doesn't find new items, the trigger doesn't fire 
-   and "skips" instantiating the workflow.
 
 Congratulations, you've successfully built and deployed your logic app with 
 Visual Studio. To manage your logic app and review its run history, see 
