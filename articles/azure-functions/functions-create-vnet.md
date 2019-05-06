@@ -167,7 +167,7 @@ Your function app is connected to both the internet and your virtual network. Th
 
 In this tutorial, the WordPress site serves as an API that is called by using a proxy in the function app. This scenario makes a good tutorial because it's easy to set up and visualize. You could use any other API deployed within a virtual network. You could also have created a function with code that calls APIs deployed within the virtual network. A more realistic scenario is a function that uses data client APIs to call a SQL Server instance deployed in the virtual network.
 
-Functions running in a Premium plan share the same underlying App Service infrastructure as web apps on PremiumV2 plans. All the documentation for [web apps in Azure App Service](../app-service/) applies to your Premium plan functions.
+Functions running in a Premium plan share the same underlying App Service infrastructure as web apps on PremiumV2 plans. All the documentation for [web apps in Azure App Service](../app-service/overview.md) applies to your Premium plan functions.
 
 > [!div class="nextstepaction"]
 > [Learn more about the networking options in Functions](./functions-networking-options.md)

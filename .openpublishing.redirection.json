@@ -4704,6 +4704,11 @@
       "source_path": "articles/azure-functions/functions-bindings-external-file.md",
       "redirect_url": "/azure/azure-functions/functions-triggers-bindings#supported-bindings",
       "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/azure-functions/functions-create-vnet-old.md",
+      "redirect_url": "/azure/azure-functions/functions-create-vnet",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/automation-source-control-integration.md",
