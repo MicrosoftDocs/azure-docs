@@ -91,7 +91,6 @@ Once the entity is extracted, the entity data can be represented as a single uni
 |Machine-learned|Can Mark|Tutorial|Example<br>Response|Entity type|Purpose|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Composite**](#composite-entity)|Grouping of entities, regardless of entity type.|
-|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hierarchical**](#hierarchical-entity)|Grouping of simple entities.|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**List**](#list-entity)|List of items and their synonyms extracted with exact text match.|
 |Mixed||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Entity where end of entity is difficult to determine.|
 |||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prebuilt**](#prebuilt-entity)|Already trained to extract various kinds of data.|
@@ -106,7 +105,7 @@ Mixed entities use a combination of entity detection methods.
 
 ## Composite entity
 
-A composite entity is made up of other entities, such as prebuilt entities, simple, regular expression, list, and hierarchical entities. The separate entities form a whole entity. 
+A composite entity is made up of other entities, such as prebuilt entities, simple, regular expression, and list entities. The separate entities form a whole entity. 
 
 This entity is a good fit when the data:
 
@@ -120,18 +119,6 @@ This entity is a good fit when the data:
 
 [Tutorial](luis-tutorial-composite-entity.md)<br>
 [Example JSON response for entity](luis-concept-data-extraction.md#composite-entity-data)<br>
-
-## Hierarchical entity
-
-**Hierarchical entities will eventually be deprecated. Use [entity roles](luis-concept-roles.md) to determine entity subtypes, instead of hierarchical entities.**
-
-A hierarchical entity is a category of contextually learned simple entities called children.
-
-![hierarchical entity](./media/luis-concept-entities/hierarchical-entity.png)
-
-### Roles versus hierarchical entities
-
-[Roles](luis-concept-roles.md) solve the same problem as hierarchical entities but apply to all entity types.  
 
 ## List entity
 
