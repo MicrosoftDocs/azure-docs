@@ -18,8 +18,7 @@ ms.custom: "include file"
     [Xamarin.Forms](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/xamarin.forms)
     [Cordova](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/cordova)
     [Windows (C#)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/windows-uwp-cs)
-    [Windows 8.1 (C#)](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/client/windows-universal-cs)
-
+        
 2. Azure Mobile Apps support .NET and Node backend SDK. Depending on your app type, download the [.NET](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/backend/dotnet) or [Node](https://github.com/Azure/azure-mobile-apps-quickstarts/tree/master/backend/node) project for open source repository.
 
 3. You will have to add a database connection or connect to an existing connection. First, determine whether you’ll create a data store or use an existing one.
