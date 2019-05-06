@@ -46,7 +46,7 @@ The **Feature Manager** in the Azure portal for App Configuration provides a UI 
 
 5. When the state is *On*, optionally specify any additional condition to qualify it with **Add filter**. Enter a built-in or custom filter key and associate parameter(s). Built-in filters include:
 
-    | Key | JSON Parameters |
+    | Key | JSON parameters |
     |---|---|
     | Microsoft.Percentage | {"Value": 0-100 percent} |
     | Microsoft.TimeWindow | {"Start": UTC time, "End": UTC time} |

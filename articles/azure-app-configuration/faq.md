@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions about Azure App Configuration | Microsoft Docs
+title: Azure App Configuration FAQ | Microsoft Docs
 description: Frequently asked questions about Azure App Configuration
 services: azure-app-configuration
 documentationcenter: ''
@@ -15,36 +15,42 @@ ms.author: yegu
 ms.custom: mvc
 ---
 
-# Frequently asked questions about Azure App Configuration
+# Azure App Configuration FAQ
 
-### How is App Configuration different from Key Vault?
+This article address frequent questions about Azure App Configuration.
+
+## How is App Configuration different from Key Vault?
 
 App Configuration is designed for a distinct set of use cases: it helps developers manage application settings and control feature availability. It aims to simplify many of the tasks of working with complex configuration data. It supports hierarchical namespace, labeling, extensive queries, batch retrieval, and specialized management operations and user-interfaces. App Configuration is complementary to Key Vault and the two should be used side by side in most application deployments.
 
-### Should I store secrets in App Configuration?
+## Should I store secrets in App Configuration?
 
 While App Configuration provides hardened security, Key Vault is still the best place for storing application secrets. It provides hardware-level encryption, granular access policies, and management operations such as certificate rotation.
 
-### Does App Configuration encrypt my data?
+## Does App Configuration encrypt my data?
 
 Yes. App Configuration encrypts all key values it holds and network communication. Key names are used as indices for retrieving configuration data and are not encrypted.
 
-### Does App Configuration support Azure Virtual Network (VNET)?
+## Does App Configuration support Azure Virtual Network (VNET)?
 
 Not yet. VNET support is planned for general availability.
 
-### How should I store configurations for multiple environments (test, staging, production, and so on)?
+## How should I store configurations for multiple environments (test, staging, production, and so on)?
 
 Currently you can control who has access to App Configuration at a per-store level. You should use a separate store for each environment that requires different permissions. This approach gives you the best security isolation.
 
-### What are the recommended ways to use App Configuration?
+## What are the recommended ways to use App Configuration?
 
 See [best practices](./howto-best-practices.md).
 
-### How much does App Configuration cost?
+## How much does App Configuration cost?
 
 The service is free to use during the public preview.
 
-### How can I report an issue or give a suggestion?
+## How can I report an issue or give a suggestion?
 
 You can reach us directly on [GitHub](https://github.com/Azure/AppConfiguration/issues).
+
+## Next steps
+
+* [Azure App Configuration overview](./overview.md)

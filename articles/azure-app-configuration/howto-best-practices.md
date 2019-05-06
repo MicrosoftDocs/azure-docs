@@ -1,5 +1,5 @@
 ---
-title: Azure App Configuration Best practices | Microsoft Docs
+title: Azure App Configuration best practices | Microsoft Docs
 description: Learn how to best use Azure App Configuration
 services: azure-app-configuration
 documentationcenter: ''
@@ -15,9 +15,11 @@ ms.author: yegu
 ms.custom: mvc
 ---
 
-# Azure App Configuration Best Practices
+# Azure App Configuration best practices
 
-### Organizing keys
+This article discusses common patterns and practices when using Azure App Configuration.
+
+## Key groupings
 
 App Configuration provides two options for organizing keys: key prefixes or labels. You can use either one or both.
 
@@ -25,7 +27,7 @@ Key prefixes are the beginning parts of keys. You can logically group a set of k
 
 Labels is an attribute on keys. They are used to create variants of a key. For example, you can assign labels to multiple versions of a key. A version can be an iteration, environment or some other contextual information. Your application can request an entirely different set of key-values just by specifying another label. All key references can stay unchanged.
 
-### Key-value compositions
+## Key-value compositions
 
 App Configuration treats all keys stored with it as independent entities. It does not attempt to infer any relationship between keys or inherit key values based on their hierarchy. You can aggregate multiple sets of keys, however, using labels coupled with proper configuration stacking in your application code.
 
@@ -41,12 +43,16 @@ Let's look at an example. You have a setting **Asset1** whose value may vary for
     });
     ```
 
-### Bootstrapping to App Configuration
+## App Configuration bootstrap
 
 To access an App Configuration store, you can use its connection string, which is available in the Azure portal. Connection strings contain credential information and are considered as secrets. They need to be stored in a Key Vault. A better option is to use Azure managed identity. With this method, you only need App Configuration endpoint URL to bootstrap access to your configuration store. You can embed the URL in your application code (for example, in the *appsettings.json* file). See [Integrate with Azure managed identities](howto-integrate-azure-managed-service-identity.md) for more details.
 
-### Accessing App Configuration from a Web App or Function
+## Web App or Function access to App Configuration
 
 You can enter the connection string to your App Configuration store into the Application settings of App Service through the Azure portal. You can also store it in Key Vault and [reference it from App Service](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references). You can also use Azure managed identity to access the configuration store. See [Integrate with Azure managed identities](howto-integrate-azure-managed-service-identity.md) for more details.
 
 Alternatively, you can push configuration from App Configuration to App Service. App Configuration provides an export function (in Azure portal and CLI) that sends data directly into App Service. With this method, you do not need to change the application code at all.
+
+## Next steps
+
+* [Keys and values](./concept-key-value.md)

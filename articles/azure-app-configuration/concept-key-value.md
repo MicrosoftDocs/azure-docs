@@ -100,5 +100,5 @@ Configuration data stored in an app configuration store, which includes all keys
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Point-in-time snapshot](./concept-point-time-snapshot.md)  
+* [Point-in-time snapshot](./concept-point-time-snapshot.md)  
+* [Feature management](./concept-feature-management.md)  
