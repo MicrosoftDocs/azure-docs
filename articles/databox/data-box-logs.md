@@ -36,7 +36,7 @@ To restrict access to an order, you can:
 - Assign a role at an order level. The user only has those permissions as defined by the roles to interact with that specific Data Box order only and nothing else.
 - Assign a role at the resource group level, the user has access to all the Data Box orders within a resource group.
 
- For more information on suggested RBAC use, see [Best practices for RBAC]().
+ For more information on suggested RBAC use, see [Best practices for RBAC](../role-based-access-control/overview.md#best-practice-for-using-rbac).
 
 ## Track the order
 
@@ -44,12 +44,12 @@ You can track your order through the Azure portal and through the shipping carri
 
 - To track the order while the device is in transit, go to the regional carrier website, for example, UPS  website in US. Provide the tracking number associated with your order.
 - To track the order when the device is in Azure datacenter or your premises, go to your **Data Box order > Overview** in Azure portal.
-- Data Box also sends email notifications anytime the order status changes based on the emails provided when the order was created. For a list of all the Data Box order statuses, see [View order status]().
+- Data Box also sends email notifications anytime the order status changes based on the emails provided when the order was created. For a list of all the Data Box order statuses, see [View order status](data-box-portal-admin.md#view-order-status).
 
 ## Query activity logs during setup
 
-- Your Data Box arrives on your premises in a locked state. You can use the device credentials available in the Azure portal for your order.  When a Data Box is set up, you may need to know who all accessed the device credentials. To figure out who accessed the device credentials blade, you can query the Activity logs.  Any action that involves accessing **Device details > Credentials** blade is logged into the activity logs as ListCredentials action.
-- Each sign into the Data Box is logged real-time. However, this information is only available in the Audit logs (link to the Audit log section) after the order is successfully completed.
+- Your Data Box arrives on your premises in a locked state. You can use the device credentials available in the Azure portal for your order.  When a Data Box is set up, you may need to know who all accessed the device credentials. To figure out who accessed the device credentials blade, you can query the Activity logs.  Any action that involves accessing **Device details > Credentials** blade is logged into the activity logs as `ListCredentials` action.
+- Each sign into the Data Box is logged real-time. However, this information is only available in the [Audit logs](#audit-logs) after the order is successfully completed.
 
 ## View error log during data copy to Data Box
 
@@ -70,9 +70,9 @@ During prepare to ship, a list of files known as the BOM or manifest file is cre
 
 - Use this file to verify against the actual names and the number of files that were copied to the Data Box.
 - Use this file to verify against the actual sizes of the files.
-- Verify that the crc64 corresponds to a non-zero string. A null value for crc64 indicates that there was an error in -- (reparse point error)
+- Verify that the crc64 corresponds to a non-zero string. <!--A null value for crc64 indicates that there was an error in -- (reparse point error)-->
 
-For more information on the errors received during prepare to ship, go to [Troubleshoot Data Box issues]().
+For more information on the errors received during prepare to ship, go to [Troubleshoot Data Box issues](data-box-troubleshoot.md).
 
 ### BOM or manifest file
 
@@ -198,7 +198,7 @@ The authentication information fields provide detailed information about this sp
 
 ## Order history
 
-Order history is available in Azure portal. If the order is complete and the device cleanup (data erasure from the disks) is complete, then go to **Data Box order > Order details**. **Download order history** option is available. For more information, see [Download order history](). 
+Order history is available in Azure portal. If the order is complete and the device cleanup (data erasure from the disks) is complete, then go to **Data Box order > Order details**. **Download order history** option is available. For more information, see [Download order history](data-box-portal-admin.md#download-order-history). 
 
 Here is a sample of the order history log from Azure portal:
 
