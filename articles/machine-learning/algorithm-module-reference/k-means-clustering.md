@@ -16,9 +16,19 @@ ROBOTS: NOINDEX
 
 This article describes how to use the *K-Means Clustering* module in Azure Machine Learning Studio to create an untrained K-means clustering model. 
  
-K-means is one of the simplest and the best known *unsupervised* learning algorithms. You can use the algorithm for a variety of machine learning tasks, such as [detecting abnormal data](https://msdn.microsoft.com/magazine/jj891054.aspx), clustering text documents, and analyzing datasets prior to using other classification or regression methods. To create a clustering model, you add this module to your experiment, connect a dataset, and set parameters, such as the number of clusters you expect, the distance metric to use in creating the clusters, and so forth. 
+K-means is one of the simplest and the best known *unsupervised* learning algorithms. You can use the algorithm for a variety of machine learning tasks, such as: 
+
+* [Detecting abnormal data](https://msdn.microsoft.com/magazine/jj891054.aspx).
+* Clustering text documents.
+* Analyzing datasets before you use other classification or regression methods. 
+
+To create a clustering model, you:
+
+* Add this module to your experiment.
+* Connect a dataset.
+* Set parameters, such as the number of clusters you expect, the distance metric to use in creating the clusters, and so forth. 
   
-After you've configured the module hyperparameters, connect the untrained model to the [Train Clustering Model](train-clustering-model.md). Because the K-means algorithm is an unsupervised learning method, a labeled column is optional. 
+After you've configured the module hyperparameters, you connect the untrained model to the [Train Clustering Model](train-clustering-model.md). Because the K-means algorithm is an unsupervised learning method, a labeled column is optional. 
 
 + If your data includes a label, you can use the label values to guide selection of the clusters and optimize the model. 
 
@@ -30,7 +40,7 @@ In general, clustering uses iterative techniques to group cases in a dataset int
   
  When you configure a clustering model by using the K-means method, you must specify a target number *k* that indicates the number of *centroids* you want in the model. The centroid is a point that's representative of each cluster. The K-means algorithm assigns each incoming data point to one of the clusters by minimizing the within-cluster sum of squares. 
  
-When it processes the training data, the K-means algorithm begins with an initial set of randomly chosen centroids. Centroid serve as starting points for the clusters, and they apply Lloyd's algorithm to iteratively refine their locations. The K-means algorithm stops building and refining clusters when it meets one or more of these conditions:  
+When it processes the training data, the K-means algorithm begins with an initial set of randomly chosen centroids. Centroids serve as starting points for the clusters, and they apply Lloyd's algorithm to iteratively refine their locations. The K-means algorithm stops building and refining clusters when it meets one or more of these conditions:  
   
 -   The centroids stabilize, meaning that the cluster assignments for individual points no longer change and the algorithm has converged on a solution.  
   
@@ -54,15 +64,15 @@ When it processes the training data, the K-means algorithm begins with an initia
   
     -   **First N**: Some initial number of data points are chosen from the data set and used as the initial means. 
     
-         This is also called the *Forgy method*.  
+         This method is also called the *Forgy method*.  
   
     -   **Random**: The algorithm randomly places a data point in a cluster and then computes the initial mean to be the centroid of the cluster's randomly assigned points. 
 
-         This is also called the *random partition* method.  
+         This method is also called the *random partition* method.  
   
     -   **K-Means++**: This is the default method for initializing clusters.  
   
-         The **K-means ++** algorithm was proposed in 2007 by David Arthur and Sergei Vassilvitskii to avoid poor clustering by the standard K-means algorithm. **K-means ++** improves upon standard K-means by using a different method for choosing the initial cluster centers.  
+         The **K-means++** algorithm was proposed in 2007 by David Arthur and Sergei Vassilvitskii to avoid poor clustering by the standard K-means algorithm. **K-means++** improves upon standard K-means by using a different method for choosing the initial cluster centers.  
   
     
 5.  For **Random number seed**, optionally type a value to use as the seed for the cluster initialization. This value can have a significant effect on cluster selection.  
@@ -119,13 +129,12 @@ If you used the [Train Clustering Model](train-clustering-model.md) module:
 
 It is known that the *seeding* process that's used during clustering can significantly affect the model. Seeding means the initial placement of points into potential centroids.
  
-For example, if the dataset contains many outliers, and an outlier is chosen to seed the clusters, no other data points would fit well with that cluster, and the cluster could be a singleton: that is, a cluster with only one point.  
+For example, if the dataset contains many outliers, and an outlier is chosen to seed the clusters, no other data points would fit well with that cluster, and the cluster could be a singleton. That is, it might have only one point.  
   
-There are various ways to avoid this problem:  
+You can avoid this problem in a couple of ways:  
   
 -   Change the number of centroids and try multiple seed values.  
   
 -   Create multiple models, varying the metric or iterating more.  
   
-  
-In general, with clustering models, it's possible that any given configuration will result in a locally optimized set of clusters. In other words, the set of clusters that's returned by the model suits only the current data points, and it's not generalizable to other data. If you used a different initial configuration, the K-means method might find a different, perhaps superior, configuration. 
+In general, with clustering models, it's possible that any given configuration will result in a locally optimized set of clusters. In other words, the set of clusters that's returned by the model suits only the current data points and isn't generalizable to other data. If you use a different initial configuration, the K-means method might find a different, perhaps superior, configuration. 
