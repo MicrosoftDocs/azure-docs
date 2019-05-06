@@ -223,7 +223,7 @@ The following table lists the property names and their descriptions for creating
 | Table name |The name of the table. The table gets created if it doesn't exist. |
 | Partition key |The name of the output column that contains the partition key. The partition key is a unique identifier for the partition within a table that forms the first part of an entity's primary key. It's a string value that can be up to 1 KB in size. |
 | Row key |The name of the output column that contains the row key. The row key is a unique identifier for an entity within a partition. It forms the second part of an entity’s primary key. The row key is a string value that can be up to 1 KB in size. |
-| Batch size |The number of records for a batch operation. The default (100) is sufficient for most jobs. See the [Table Batch Operation spec](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) for more details on modifying this setting. |
+| Batch size |The number of records for a batch operation. The default (100) is sufficient for most jobs. See the [Table Batch Operation spec](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) for more details on modifying this setting. |
 
 ## Service Bus queues
 [Service Bus queues](https://msdn.microsoft.com/library/azure/hh367516.aspx) offer a FIFO message delivery to one or more competing consumers. Typically, messages are received and processed by the receivers in the temporal order in which they were added to the queue. Each message is received and processed by only one message consumer.
