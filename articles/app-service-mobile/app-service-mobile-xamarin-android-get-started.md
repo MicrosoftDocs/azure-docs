@@ -48,15 +48,14 @@ project for a simple "todo list" backend and publish it to Azure.
 ## Create a database connection and configure the client and server project
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Download and run the Xamarin.Android app
-
+## Run the Xamarin.Android app
 1. Open the Xamarin.Android project.
 
 2. Go to the [Azure portal](https://portal.azure.com/) and navigate to the mobile app that you created. On the `Overview` blade, look for the URL which is the public endpoint for your mobile app. Example - the sitename for my app name "test123" will be https://test123.azurewebsites.net.
 
 3. Open the file `ToDoActivity.cs` in this folder - xamarin.android/ZUMOAPPNAME/ToDoActivity.cs. The application name is `ZUMOAPPNAME`.
 
-4. In `ToDoActivity` class, replace `ZUMOAPPURL` parameter with public endpoint above.
+4. In `ToDoActivity` class, replace `ZUMOAPPURL` variable with public endpoint above.
 
     const string applicationURL = @"ZUMOAPPURL";
 
