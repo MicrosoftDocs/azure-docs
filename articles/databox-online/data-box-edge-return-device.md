@@ -18,22 +18,10 @@ This article describes how to wipe the data and then return your Azure Data Box 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Open a Support ticket to return your device
 > * Wipe the data off the data disks on the device
+> * Open a Support ticket to return your device
 > * Pack up the device and schedule a pickup
 > * Delete the resource in Azure portal
-
-
-## Open a Support ticket
-
-To begin the return process, take the following steps.
-
-1. Open a Support ticket with Microsoft Support indicating that you wish to return the device. Select the problem type as **Data Box Edge Hardware**.
-
-    ![Open Support ticket](media/data-box-edge-return-device/open-support-ticket-1.png)  
-
-2. A Microsoft Support engineer will contact you. Provide the shipping details.
-3. If you need a return shipping box, you can request it. Answer **Yes** to the question **Need an empty box to return**.
 
 ## Erase data from the device
 
@@ -59,7 +47,19 @@ Alternatively, you can connect to the PowerShell interface of the device and use
 > [!NOTE]
 > - If you're exchanging or upgrading to a new device, we recommend that you reset your device only after you've received the new device.
 > - The device reset only deletes all the local data off the device. The data that is in the cloud isn't deleted and collects charges. This data needs to be deleted separately using a cloud storage management tool like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
- 
+
+## Open a Support ticket
+
+To begin the return process, take the following steps.
+
+1. Open a Support ticket with Microsoft Support indicating that you wish to return the device. Select the problem type as **Data Box Edge Hardware**.
+
+    ![Open Support ticket](media/data-box-edge-return-device/open-support-ticket-1.png)  
+
+2. A Microsoft Support engineer will contact you. Provide the shipping details.
+3. If you need a return shipping box, you can request it. Answer **Yes** to the question **Need an empty box to return**.
+
+
 ## Schedule a pickup
 
 1. Shut down the device. In the local web UI, go to **Maintenance > Power settings**.
@@ -73,7 +73,7 @@ Alternatively, you can connect to the PowerShell interface of the device and use
     2. In your call, quote the reverse shipment tracking number as shown on your printed label.
     3. If the tracking number isn't quoted, UPS will require you to pay an additional charge during pickup.
 
-    Instead of scheduling the pickup, you can also drop off the Data Box at the nearest drop-off location.
+    Instead of scheduling the pickup, you can also drop off the Data Box Edge at the nearest drop-off location.
 
 ## Delete the resource
 
