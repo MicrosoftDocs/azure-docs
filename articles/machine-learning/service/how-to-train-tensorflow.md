@@ -19,9 +19,9 @@ You can easily run TensorFlow training jobs on Azure compute by using the [`Tens
 
 The `TensorFlow` estimator also provides a layer of abstraction over execution, which means that you can easily configure parameterized runs on different compute targets without altering your training scripts.
 
-Submitting jobs with the `TensorFlow` estimator is similar to using the base [`Estimator`](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py). So, read through the [base estimator how-to article](how-to-train-ml-models.md) and make sure you understand the concepts introduced there.
-
 ## Getting started
+
+Submitting jobs with the `TensorFlow` estimator is similar to using the base [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py). So, read through the [base estimator how-to article](how-to-train-ml-models.md) and make sure you understand the concepts introduced there.
 
 If you want to get started with Azure Machine Learning service, [complete the quickstart](quickstart-run-cloud-notebook.md). You'll have a working environment loaded with all of our [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml).
 
@@ -29,7 +29,7 @@ If you want to get started with Azure Machine Learning service, [complete the qu
 
 To run a TensorFlow job, instantiate a [`TensorFlow`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) object and submit it as an experiment.
 
-The following code instantiates a TensorFlow estimator and submits it as an experiment. The training script `train.py` will be run using the given script parameters. The job will be run on a gpu-enabled [compute target](how-to-set-up-training-targets.md), and scikit-learn will be installed as a dependency for `train.py`.
+The following code instantiates a TensorFlow estimator and submits it as an experiment. The training script `train.py` will be run using the given script parameters. The job will be run on a GPU-enabled [compute target](how-to-set-up-training-targets.md), and scikit-learn will be installed as a dependency for `train.py`.
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -84,7 +84,7 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 run = exp.submit(tf_est)
 ```
 
-Horovod and its dependencies will be installed for you, so you can import it in your training script as follows:
+Horovod and its dependencies will be installed for you, so you can import it in your training script.
 
 ```Python
 import tensorflow as tf
