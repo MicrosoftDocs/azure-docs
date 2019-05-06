@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # Get started with Custom Voice
 
-Custom Voice is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. Follow the links below to start creating a custom speech-to-text experience.
+Custom Voice is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. Follow the links below to start creating a custom text-to-speech experience.
 
 ## What's in Custom Voice?
 
@@ -39,7 +39,7 @@ A Speech Services subscription is required before you can use the Custom Speech 
 Once you've created an Azure account and a Speech Services subscription, you'll need to sign in to the Custom Voice portal and connect your subscription.
 
 1. Get your Speech Services subscription key from the Azure portal.
-2. Sign in to the [Custom Voice portal](https://portal.cris.ai/customvoice.html).
+2. Sign in to the [Custom Voice portal](https://aka.ms/custom-voice).
 3. Select your subscription and create a speech project.
 4. If you'd like to switch to another Speech subscription, use the cog icon located in the top navigation.
 
@@ -50,7 +50,7 @@ Once you've created an Azure account and a Speech Services subscription, you'll 
 
 Content like data, models, tests, and endpoints are organized into **Projects** in the Custom Voice portal. Each project is specific to a country/language and the gender of the voice you want to create. For example, you may create a project for a female voice for your call center’s chat bots that use English in the United States (en-US).
 
-To create your first project, select the **Text-to-Speech/Custom Voice**, then click **New Project**. Follow the instructions provided by the wizard to create your project. After you've created a project, you will see four tabs: **Data**, **Training**, **Testing**, and **Deployment**. Use the links provided in [Next steps](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice?branch=release-build-cogserv-speech-services#next-steps) to learn how to use each tab.
+To create your first project, select the **Text-to-Speech/Custom Voice** tab, then click **New Project**. Follow the instructions provided by the wizard to create your project. After you've created a project, you will see four tabs: **Data**, **Training**, **Testing**, and **Deployment**. Use the links provided in [Next steps](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice?branch=release-build-cogserv-speech-services#next-steps) to learn how to use each tab.
 
 ## Next steps
 

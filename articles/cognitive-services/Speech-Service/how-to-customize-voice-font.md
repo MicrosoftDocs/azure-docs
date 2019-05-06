@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/28/2019
-ms.author: panosper
+ms.author: erhopf
 ---
 # Creating custom voice fonts
 
