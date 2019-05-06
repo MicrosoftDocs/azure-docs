@@ -153,13 +153,13 @@ To configure Azure AD single sign-on with AlertOps, perform the following steps:
 
     a. Select **Use Single Sign-On(SSO)** checkbox.
 
-    b. Select **Azure Active Directory** as a **SSO Provider** from the dropdown.
+    b. Select **Azure Active Directory** as an **SSO Provider** from the dropdown.
 
-    c. In the **Issuer URL** textbox, use the identifier value which you have used in the **Basic SAML Configuration** section in the Azure portal.
+    c. In the **Issuer URL** textbox, use the identifier value, which you have used in the **Basic SAML Configuration** section in the Azure portal.
 
-    d. In the **SAML endpoint URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    d. In the **SAML endpoint URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
-    e. In the **SLO endpoint URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    e. In the **SLO endpoint URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
     f. Select **SHA256** as a **SAML Signature Algorithm** from the dropdown.
 
@@ -181,9 +181,9 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The User dialog box](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
+    b. In the **User name** field, type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
@@ -213,11 +213,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+7. In the **Add Assignment** dialog, click the **Assign** button.
 
 ### Create AlertOps test user
 
-1. In a different browser window, sign-on to your AlertOps company site as administrator.
+1. In a different browser window, sign in to your AlertOps company site as administrator.
 
 2. Click on the **Users** from the left navigation panel.
 
