@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2019
+ms.date: 05/01/2019
 ms.author: tomfitz
 
 ---
@@ -144,6 +144,8 @@ For example, to serially deploy storage accounts two at a time, use:
 ```
 
 The mode property also accepts **parallel**, which is the default value.
+
+For information about using copy with nested templates, see [Using copy](resource-group-linked-templates.md#using-copy).
 
 ## Property iteration
 

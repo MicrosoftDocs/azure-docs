@@ -115,7 +115,7 @@ The following command starts the function app, which runs locally using the same
 func host start
 ```
 
-When the Functions host starts, it write something like the following output, which has been truncated for readability:
+When the Functions host starts, it writes something like the following output, which has been truncated for readability:
 
 ```output
 

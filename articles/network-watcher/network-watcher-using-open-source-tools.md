@@ -72,7 +72,7 @@ CapAnalysis offers various options to visualize your packet capture, each provid
 
 1. Geomap
 
-    This pane provides you with a map view of your network traffic, with colors scaling to the volume of traffic from each country. You can select highlighted countries to view additional flow statistics such as the proportion of data sent and received from IPs in that country.
+    This pane provides you with a map view of your network traffic, with colors scaling to the volume of traffic from each country/region. You can select highlighted countries/regions to view additional flow statistics such as the proportion of data sent and received from IPs in that country/region.
 
     ![geomap][8]
 
