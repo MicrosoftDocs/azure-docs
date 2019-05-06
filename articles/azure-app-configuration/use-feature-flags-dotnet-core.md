@@ -35,29 +35,48 @@ In this tutorial, you learn how to:
 The .NET Core feature manager `IFeatureManager` gets feature flags from the framework's native configuration system. As a result, you can define your application's feature flags using any configuration source that .NET Core supports, including the local *appsettings.json* file or environment variables. Feature manager relies on .NET Core dependency injection. You can register the feature management services using standard conventions.
 
     ```csharp
+    using Microsoft.FeatureManagement;
+
     IConfiguration Configuration { get; set;}
 
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddFeatureFlags();
+        services.AddFeatureManagement();
     }
     ```
 
 The feature manager retrieves feature flags from the "FeatureManagement" section of the .NET Core configuration data by default. The following example tells it to read from a different section called "MyFeatureFlags" instead.
 
     ```csharp
+    using Microsoft.FeatureManagement;
+
     IConfiguration Configuration { get; set;}
 
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddFeatureFlags(options =>
+        services.AddFeatureManagement(options =>
         {
             options.UseConfiguration(Configuration.GetSection("MyFeatureFlags"));
         });
     }
     ```
 
-To use them effectively, you should keep feature flags outside of the application and manage them separately. Doing so allows you to modify flag states at any time and have those changes taking effect in the application right away. App Configuration provides a centralized place for organizing and controlling all your feature flags through a dedicated portal UI and delivers the flags to your application directly through its .NET Core client libraries. The easiest way to connect your ASP.NET Core application to App Configuration is through the configuration provider `Microsoft.Extensions.Configuration.AzureAppConfiguration`. You can use this NuGet package in your code by adding the following to the *Program.cs* file:
+If you use filter in your feature flags, you need to include an additional library and register it. The following example shows how to use a built-in feature filter called **PercentageFilter"**.
+
+    ```csharp
+    using Microsoft.FeatureManagement;
+    using Microsoft.FeatureManagement.FeatureFilters;
+
+    IConfiguration Configuration { get; set;}
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddFeatureManagement()
+                .AddFeatureFilter<PercentageFilter>();
+    }
+    ```
+
+To operate effectively, you should keep feature flags outside of the application and manage them separately. Doing so allows you to modify flag states at any time and have those changes taking effect in the application right away. App Configuration provides a centralized place for organizing and controlling all your feature flags through a dedicated portal UI and delivers the flags to your application directly through its .NET Core client libraries. The easiest way to connect your ASP.NET Core application to App Configuration is through the configuration provider `Microsoft.Extensions.Configuration.AzureAppConfiguration`. You can use this NuGet package in your code by adding the following to the *Program.cs* file:
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -196,9 +215,16 @@ In MVC views, a `<feature>` tag can be used to render content based on whether a
 MVC filters can be set up such that they are activated based on the state of a feature flag. The following adds an MVC filter named `SomeMvcFilter`. This filter is triggered within the MVC pipeline only if *FeatureA* is enabled.
 
     ```csharp
-    services.AddMvc(options => {
-        options.Filters.AddForFeature<SomeMvcFilter>(nameof(MyFeatureFlags.FeatureA));
-    });
+    using Microsoft.FeatureManagement.FeatureFilters;
+
+    IConfiguration Configuration { get; set;}
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddMvc(options => {
+            options.Filters.AddForFeature<SomeMvcFilter>(nameof(MyFeatureFlags.FeatureA));
+        });
+    }
     ```
 
 ## Route

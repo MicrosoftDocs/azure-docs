@@ -80,7 +80,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
         dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
 
-        dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-008520001-199
+        dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-008560001-910
 
 2. Run the following command to restore packages for your project:
 
@@ -126,12 +126,12 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     using Microsoft.FeatureManagement.AspNetCore;
     ```
 
-7. Update the `ConfigureServices` method to add the feature flag support by calling the `services.AddFeatureFlags()` method and optionally include any filter to be used with feature flags by calling `services.AddFeatureFilter<FilterType>()`:
+7. Update the `ConfigureServices` method to add the feature flag support by calling the `services.AddFeatureManagement()` method and optionally include any filter to be used with feature flags by calling `services.AddFeatureFilter<FilterType>()`:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddFeatureFlags();
+        services.AddFeatureManagement();
     }
     ```
 
@@ -176,7 +176,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 10. Open *_ViewImports.cshtml* in the Views directory, and add the feature manager tag helper:
 
     ```html
-    @addTagHelper *, Microsoft.FeatureManagement
+    @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
     ```
 
 11. Open *_Layout.cshtml* in the Views > Shared directory, and replace to the `<nav>` bar under `<body>` > `<header>` with the following code:
