@@ -58,7 +58,7 @@ Next, create a preconfigured VM that runs WordPress inside a virtual network ([W
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Subscription** | Your subscription | The subscription under which your resources are created. | 
-    | **[Resource group](../articles/azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | Choose myResourceGroup, which you created with your function app. Using the same resource group for the function app, WordPress VM, and hosting plan makes it easier to clean up resources when you are done with this tutorial. |
+    | **[Resource group](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | Choose myResourceGroup, which you created with your function app. Using the same resource group for the function app, WordPress VM, and hosting plan makes it easier to clean up resources when you are done with this tutorial. |
     | **Virtual machine name** | VNET-Wordpress | The VM name needs to be unique in the resource group |
     | **[Region](https://azure.microsoft.com/regions/)** | (Europe) West Europe | Choose a region near you or near the functions that access the VM. |
     | **Size** | B1s | Choose **Change size** and then select the B1s standard image, which has 1 vCPU and 1 GB of memory. |
@@ -167,7 +167,7 @@ Your function app is connected to both the internet and your virtual network. Th
 
 In this tutorial, the WordPress site serves as an API that is called by using a proxy in the function app. This scenario makes a good tutorial because it's easy to set up and visualize. You could use any other API deployed within a virtual network. You could also have created a function with code that calls APIs deployed within the virtual network. A more realistic scenario is a function that uses data client APIs to call a SQL Server instance deployed in the virtual network.
 
-Functions running in a Premium plan share the same underlying App Service infrastructure as web apps on PremiumV2 plans. All the documentation for [web apps in Azure App Service](../app-service/index.md) applies to your Premium plan functions.
+Functions running in a Premium plan share the same underlying App Service infrastructure as web apps on PremiumV2 plans. All the documentation for [web apps in Azure App Service](../app-service/) applies to your Premium plan functions.
 
 > [!div class="nextstepaction"]
 > [Learn more about the networking options in Functions](./functions-networking-options.md)
