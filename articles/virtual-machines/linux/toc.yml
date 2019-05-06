@@ -112,6 +112,8 @@
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+    - name: Ephemeral OS disks
+      href: ephemeral-os-disks.md
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -253,14 +255,16 @@
       href: reserved-vm-instance-size-flexibility.md
   - name: Use Images
     items:
-    - name: Shared image galleries (preview)
+    - name: Shared image galleries 
       items:
       - name: Overview
         href: shared-image-galleries.md
-      - name: Create shared images using CLI
+      - name: CLI
         href: shared-images.md
       - name: Portal
         href: shared-images-portal.md
+      - name: Share images across tenants
+        href: share-images-across-tenants.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
     - name: Find and use images
