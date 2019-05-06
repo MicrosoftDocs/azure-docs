@@ -17,7 +17,7 @@ ms.date: 04/25/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to learn about the types authentication flows so I can decide if this platform meets my application development needs and requirements.
+#Customer intent: As an application developer, I want to learn about the types of authentication flows so I can decide if this platform meets my application development needs and requirements.
 ms.collection: M365-identity-device-management
 ---
 
