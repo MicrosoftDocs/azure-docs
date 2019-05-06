@@ -1,7 +1,7 @@
 ---
 title: How licenses work for Office and SharePoint Add-ins
 description: The types of licenses that are available, how users acquire licenses, and how licenses work in terms of duration and scope.
-ms.date: 1/11/2018
+ms.date: 4/29/2019
 localization_priority: Normal
 ---
 
@@ -38,10 +38,10 @@ SharePoint maps the license categories used by AppSource to add-in license types
 
 |**SharePoint license type**|**AppSource license category**|**License applies to**|**Duration**|**Users**|**Cost**|
 |:-----|:-----|:-----|:-----|:-----|:-----|
-|Perpetual all user|Free PaidSite|All users of a SharePoint deployment,<br/>with no expiration.|Perpetual|Unlimited|Free or paid|
+|Perpetual all user|Free PaidSite|All users of a SharePoint deployment, with no expiration.|Perpetual|Unlimited|Free or paid|
 |Perpetual multiuser|Paid|Per user, with no expiration.|Perpetual|N (per user)|Paid|
-|Trial all user|Trial|All users of a SharePoint deployment.<br/>Can have a set expiration date.|15, 30, 60 days,<br/>or unlimited|Unlimited|Free|
-|Trial multiuser|Trial|Per user. Can have a set expiration date.|15, 30, 60 days,<br/>or unlimited|N (per user)|Free|
+|Trial all user|Trial|All users of a SharePoint deployment. Can have a set expiration date.|15, 30, 60 days, or unlimited|Unlimited|Free|
+|Trial multiuser|Trial|Per user. Can have a set expiration date.|15, 30, 60 days, or unlimited|N (per user)|Free|
 
 <a name="bk_users"> </a>
 ## How users acquire add-in licenses
@@ -172,6 +172,31 @@ Apply the following best practices when you create and enforce add-in licenses a
 <td>For add-ins with a perpetual unlimited user license, cache until the license token expires. For add-ins with a multiuser license, either trial or perpetual, cache per session because user assignment can change.<br /><br />Make sure the production version of your add-in does not accept test licenses.<br /><br />When you finish testing your add-in and are ready to move it to production, make sure you add code to the license checks in your add-in so that the add-in no longer accepts test licenses. After you pass the add-in license token to the verification service&#39;s <a href="https://msdn.microsoft.com/en-us/library/office/verificationsvc.verificationserviceclient.verifyentitlementtoken.aspx">VerifyEntitlementToken</a> method, you can use the <a href="https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.aspx">VerifyEntitlementTokenResponse</a> object returned by that method to access the add-in license properties. For test add-in licenses, the <a href="https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.istest.aspx">IsTest</a> property returns <strong>true</strong> and the <a href="https://msdn.microsoft.com/en-us/library/office/verificationsvc.verifyentitlementtokenresponse.isvalid.aspx">IsValid</a> property returns <strong>false</strong>.</td>
 </tr>
 </table>
+
+## Moving from paid add-ins to free add-ins
+
+Seller Dashboard now supports moving from paid to free add-ins. You can choose within Seller Dahboard to move your paid add-ins to free. This changes what the add-in receives in the license token. The add-in will still be sent licensing tokens that contain the information about the user’s license, and those will still need to be parsed. The experience will depend on whether the license is for a new or existing user and whether the payment option was previously a subscription or a one-time purchase, as described in the following table.
+
+|Purchase type|New user|Existing user|Action|
+|:------------|:-------|:------------|:-----|
+|Subscription |The user will receive a free entitlement. The add-in will no longer be available to purchase but can be acquired for free; this will be returned in the token for the add-in entitlement.|The user will no longer be charged after their currently billed month ends. At the end of the period they have paid for, the subscription license will be extended indefinitely to avoid any user disruption.|Where a token in a free or extended subscription state is returned, you should take the opportunity to upsell the user to the new license. Some information to inform upsell decisions is maintained in the token. The license tokens will change when an add-in moves from paid to free as follows:</br></br>Update to all migrated tokens: ed="8999-12-31T23:59:59Z"</br>Update to all seat-based tokens: sl="true"</br>For seat-based tokens, where the customer previously purchased a site-license: ts="0"</br>For seat-based tokens, where the customer purchased 3 seats: ts="3"|
+|One-time purchase|The user will receive a free entitlement. The add-in will no longer be available to purchase but can be acquired for free; this will be returned in the token for the add-in entitlement.|The user’s original purchase will still be valid. If the license was previously seat based, it will be modified to resemble a site license for the user. This will be returned in the token to the add-in. All active trial licenses will be converted to free entitlements.|For existing users that return a valid paid token, those users should continue to work. If the original token was seat based, the new token will contain the originally purchased seat count. For new users, or users where the original seat count has been exceeded, you should take the opportunity to upsell the user to the new license. For most users, the license token returned to the add-in will not change. The license tokens will change when an add-in moves from paid to free for seat-based tokens:</br></br>Update to all seat-based tokens: sl="true"</br>For seat-based tokens, where the customer previously purchased a site-license: ts="0"</br>For seat-based tokens, where the customer purchased 3 seats: ts="3"|
+
+For the license token schema, see [Add-in license schema](add-in-license-schema.md).
+
+> [!NOTE]
+> For Outlook add-ins offered for free or as unlimited trials, no license is generated or stored by AppSource, and no license token is downloaded to Exchange.
+
+For information about using licensing to upsell your add-in services, see [Implement licensing to upsell your Office Add-in services](implement-licensing-for-add-in-services.md). 
+
+The following examples describe the experience after an add-in switches from paid to free:
+- **Word user, purchased add-in via one-time purchase**<br/>Because this user had purchased the add-in prior to the switch to free, the license token will still return an active paid entitlement for that user in the *et* parameter. 
+- **Word user, acquires free version of same add-in**<br/>This user had not acquired the add-in when it was paid. The license token will return a free entitlement for that user in the et parameter.
+- **Outlook user, purchases add-in via subscription**<br/>In this case, the user will continue to use the subscription they paid for until the end of that billing period. The expiry date for the subscription will extend and they will no longer be charged for the add-in going forward. 
+- **Outlook user, acquires free version of same subscription add-in**<br/>The user had not acquired the add-in when it was paid so the license token will return a free entitlement for that user in the *et* parameter.
+- **SharePoint user, purchased Seat based license for three seats via one-time purchase**<br/>In this case, the token will effectively come back as a site license but will also include the number of seats that had been purchased. 
+- **SharePoint user, purchased seat-based license for three seats via subscription**<br/>In this case, the token will come back with an expiration date that will be extended. It will come back as a site license but will also include the number of seats that were acquired previously. 
+- **Excel user, acquired add-in as a trial**<br/>Because this add-in was acquired prior to the trial expiration date, the trial will  now return a free entitlement.<br/>**Note:** This applies for subscription or one-time purchase add-ins.
 
 
 ## See also

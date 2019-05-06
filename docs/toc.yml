@@ -3,8 +3,9 @@
 - name: Optimize add-in placement and ranking in AppSource
   href: optimize-for-store-discovery.md
 - name: License your add-ins
-  href: license-your-add-ins.md
   items:
+  - name: Overview
+    href: license-your-add-ins.md
   - name: How add-in licenses work
     href: how-licenses-work.md
   - name: Add license checks to Office and SharePoint Add-ins
@@ -14,15 +15,17 @@
   - name: Add-in license schema
     href: add-in-license-schema.md
 - name: Create effective AppSource listings
-  href: create-effective-office-store-listings.md
   items:
+  - name: Overview
+    href: create-effective-office-store-listings.md
   - name: Craft effective AppSource store images
     href: craft-effective-appsource-store-images.md
 - name: Prepare localized apps and add-ins
   href: prepare-localized-apps-and-add-ins.md
 - name: Submit to the Seller Dashboard
-  href: use-the-seller-dashboard-to-submit-to-the-office-store.md
   items: 
+  - name: Overview
+    href: use-the-seller-dashboard-to-submit-to-the-office-store.md
   - name: Upload your package
     href: upload-package.md
   - name: Create your Store listing

@@ -90,7 +90,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |5.9.3|If the full-control app meets the AppSource validation policies, the SharePoint Add-in submitted to AppSource can function only to install the full-control app.|
 |5.10|You must specify an icon for your app or add-in in your add-in package or manifest, and that the icon must be correctly sized and formatted. For more information, see *How can I avoid errors when submitting my app or add-in to AppSource?* in [AppSource submission FAQ](office-store-submission-faq.md).|
 |5.11|Content add-ins for PowerPoint which use restricted permissions are required to clearly display links to their Privacy Policy and Terms of Use information on the first screen of the add-in. If your add-in does not collect or transmit user information, you must link to a statement that states this fact.|
-|5.12|Content add-ins for PowerPoint may not activate their content (e.g. play audio or video) until after [Office.initialize event (JavaScript API for Office)](/javascript/api/office#initialize-reason-) has been called. This ensures that content display will synchronize with presentations correctly.|
+|5.12|Content add-ins for PowerPoint may not activate their content (e.g. play audio or video) until after [Office.initialize event (JavaScript API for Office)](/javascript/api/office#office-initialize) has been called. This ensures that content display will synchronize with presentations correctly.|
 
 <a name="bk_6"> </a>
 ## 6. Apps and add-ins are appropriate for a global audience
@@ -210,7 +210,7 @@ This document describes the criteria that are used to validate that Office Add-i
 
 |Policy number|Description|
 |:-----|:-----|
-|13.1|Power BI custom visuals must be free. Power BI custom visuals can offer additional purchases. If your Power BI custom visual offers an additional purchase, it must comply with the IAP guidelines. For details, see [Guidelines for Power BI visuals with additional purchases](/power-bi/developer/office-store-in-app-purchase-visual-guidelines). |
+|13.1|Power BI custom visuals must be free. Power BI custom visuals can offer additional purchases. If your Power BI custom visual offers an additional purchase, it must comply with the IAP guidelines. For details, see [Guidelines for Power BI visuals with additional purchases](https://docs.microsoft.com/power-bi/developer/guidelines-powerbi-visuals). |
 |13.2|Power BI custom visuals submitted to AppSource must be accompanied by a sample file included in the same location as the pbviz file, with the .pbix format. For the best user experience, consider adding Hints and Tips for using the Visual to the sample file. |
 |13.3|Your custom visual must support Power BI Desktop, Power BI Online, Power BI mobile apps, and Power BI Windows universal apps. It must be compatible with Windows 10 and the latest versions of Microsoft Edge, Chrome, Firefox, and Safari (Mac OS). |
 |13.4|Your custom visual must support the core functions of Power BI for that visual type, including, but not limited to:<br/><br/>Pinning to dashboard<br/>Filtering<br/>Focus mode<br/>Formatting<br/>Various data types|
@@ -232,7 +232,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |14.7|You must submit a Terms of Service link.|
 |14.8|For bots and compose extensions, you will need to ensure that you follow the privacy notice requirements as communicated in the [Developer Code of Conduct for the Microsoft Bot Framework](https://aka.ms/bf-conduct).|
 |14.9|Your bot and compose extension must operate in accordance with the requirements set forth in the [Microsoft Bot Framework Online Services Agreement](https://www.botframework.com/Content/Microsoft-Bot-Framework-Preview-Online-Services-Agreement.htm) and [Developer Code of Conduct for the Microsoft Bot Framework](https://aka.ms/bf-conduct).|
-|14.10|Your Microsoft Team app’s package must be correctly formatted and conform to the latest manifest schema. This is currently manifest schema version 1.2.|
+|14.10|Your Microsoft Team app’s package must be correctly formatted and conform to the latest manifest schema. This is currently manifest schema version 1.4.|
 |14.11|For bots, all manifest information must be consistent with your bot’s Bot Framework metadata: bot name, logo, privacy link, and terms of service link.|
 |14.12|Your Microsoft Teams app name may not include "app", "plug-in", or derivatives.|
 |14.13|The UI (buttons, links, text fields) of your Microsoft Teams app must be intuitive and obvious in their purpose. Users must not be required to read support content to perform basic operations.|
@@ -241,6 +241,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |14.16|Microsoft Teams apps must focus on the Microsoft Teams experience and should not include names, icons, or imagery of other similar chat-based collaboration platforms or services unless the apps provide specific interoperability.|
 |14.17|Apps that depend on external accounts or services must provide a clear and simple sign-in/sign-out and sign-up experience. Microsoft Teams apps that depend on authentication to an external service to allow content sharing in channels must clearly state in their help documentation (or similar location) how a user can disconnect or unshare any shared content (if the same feature is supported on the external service). The ability to unshare this content does not have to be present in the Microsoft Teams app, but the process should be clearly documented, and the documentation should be accessible from within the app.|
 |14.18| To help to ensure the security of your app and users, domains outside of your organization's control (including wildcards) and tunneling services cannot be included in the valid domains in your manifest.
+|14.19| The policies outlined in [Section 2](https://docs.microsoft.com/en-us/office/dev/store/validation-policies#2-apps-or-add-ins-can-display-certain-ads) do not apply to Microsoft Teams apps. Microsoft Teams apps may not display ads.
 
 ## 15. Add-ins with Excel custom functions
 <a name="bk_15"> </a>
@@ -268,8 +269,12 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
 |2.2|May 6, 2019|Added section 15.|
+|2.2|April 19, 2019|Updated policy 14.10.|
+|2.2|April 04, 2019|Added policy 14.19.|
 |2.2|December 03,2018|Updated policy 13.1.|
 |2.2|November 19,2018|Updated policy 7.4.5.|
+|2.2|December 03, 2018|Updated policy 13.1.|
+|2.2|November 19, 2018|Updated policy 7.4.5.|
 |2.2|September 11, 2018|Updated policy 4.12.3.|
 |2.2|August 20, 2018|Updated policy 6.13.|
 |2.2|August 20, 2018|Removed policy 7.18.|
