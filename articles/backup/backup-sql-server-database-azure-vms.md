@@ -32,7 +32,7 @@ Before you back up a SQL Server database, check the following criteria:
 1. Identify or create a [Recovery Services vault](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) in the same region or locale as the VM hosting the SQL Server instance.
 2. Check the [VM permissions needed](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) to back up SQL databases.
 3. Verify that the VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
-4. Make sure that the SQL Server databases follow the [naming guidelines](#verify-database-naming-guidelines-for-azure-backup) for Azure Backup.
+4. Make sure that the SQL Server databases follow the [naming guidelines for Azure Backup](verify-database-naming-guidelines-for-azure-backup).
 5. Check that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you back up.
 
 > [!NOTE]
@@ -183,7 +183,7 @@ To create a backup policy:
 
    - For **Daily**, select the hour and time zone when the backup job begins.
    - For **Weekly**, select the day of the week, hour, and time zone when the backup job begins
-   - Run a full backup as you can't turn off the **Full Backup** option.
+   - Run a full backup, as you can't turn off the **Full Backup** option.
    - Select **Full Backup** to view the policy.
    - You can't create differential backups for daily full backups.
 
