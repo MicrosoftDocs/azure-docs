@@ -680,7 +680,7 @@ Copy and paste the following **OcrImage** method to just underneath the **ocrIma
     }
 ```
 
-#### Run the OCR fuction
+#### Run the OCR function
 
 Press **F6** to run the application. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Click the **OCR** tab, enter a URL to an image of printed text, then click the **Read Image** button to analyze an image and see the result.
 
