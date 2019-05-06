@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 04/30/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
 ---
 
@@ -78,7 +78,6 @@ The following commands demonstrate how to use the CLI to manage resources used b
     For more information, see [az ml workspace create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create).
 
 + Attach a workspace configuration to a folder to enable CLI contextual awareness.
-
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
@@ -93,10 +92,11 @@ The following commands demonstrate how to use the CLI to manage resources used b
 
     For more information, see [az ml datastore attach-blob](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/datastore?view=azure-cli-latest#ext-azure-cli-ml-az-ml-datastore-attach-blob).
 
+    
 + Attach an AKS cluster as a Compute Target.
 
     ```azurecli-interactive
-    az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
+    az ml computetarget attach aks -n myaks -i myaksresourceid -g myresourcegroup -w myworkspace
     ```
 
     For more information, see [az ml computetarget attach aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks)
@@ -108,21 +108,13 @@ The following commands demonstrate how to use the CLI to manage resources used b
     ```
 
     For more information, see [az ml computetarget create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)
-    
+
 ## <a id="experiments"></a>Run experiments
-
-+ Attach a workspace configuration to a folder to enable CLI contextual awareness.
-
-    ```azurecli-interactive
-    az ml folder attach -w myworkspace -g myresourcegroup
-    ```
-
-    For more information, see [az ml folder attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
 
 * Start a run of your experiment. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you are looking at your file system) against the -c parameter.
 
     ```azurecli-interactive
-    az ml run submit-script -c local -e testexperiment train.py
+    az ml run submit-script -c sklearn -e testexperiment train.py
     ```
 
     For more information, see [az ml run submit-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
@@ -146,6 +138,13 @@ The following commands demonstrate how to register a trained model, and then dep
     ```
 
     For more information, see [az ml model register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register).
+
++ **OPTIONAL** Profile your model to get optimal CPU and memory values for deployment.
+    ```azurecli-interactive
+    az ml model profile -n myprofile -m mymodel:1 --ic inferenceconfig.json -d "{\"data\": [[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]]}" -t myprofileresult.json
+    ```
+
+    For more information, see [az ml model profile](https://docs.microsoft.com/en-us/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
 
 + Deploy your model to AKS
 
