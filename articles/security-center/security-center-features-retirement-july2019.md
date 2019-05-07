@@ -77,6 +77,7 @@ A click on the workspace opens the “Identity and access” log analytics dashb
 ![Identity page - dashboard][8]
 
 Going forward all the three screens above will be retired. Your data will remain available in the log analytics security solution and will not be modified or removed.
+The original Log Analytics queries used to populate the Identity and Access dashboard are available in Security Center's [GitHub repository](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### Classic Identity & Access (Preview) - New experience
 While the Log analytics dashboard has provided insights on a given workspace only, the native Security Center capabilities provide visibility into all subscriptions and all workspaces associated with them, in an easy-to use view that lets you focus on what’s important, according to the secure score of your Identity & access recommendation(s).
@@ -99,6 +100,7 @@ When you choose a workspace to view its threat intelligence dashboard, the secur
 ![Security alerts map in Log Analytics][12]
 
 Your existing data will remain available in the log analytics security solution and will not be modified nor removed.
+The original Log Analytics queries used to populate the Threat Intelligence dashboard are available in Security Center's [GitHub repository](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### Security events map - New experience
 We encourage our customers to use the alerts map functionality built into Security Center - “Security alerts map (Preview)”. This provides an optimized experience and works across all subscriptions and associated workspaces, allowing a macro view across your environment, and not focus on a single workspace.
@@ -161,6 +163,8 @@ The Security dashboard in Log analytics provides a per-workspace overview of not
 
 ### Security & audit dashboard - New experience
 Our customers are advised to use Azure Security Center, which provides the same security overview across multiple subscriptions and workspaces associated with them, along with a richer feature set.
+
+The original Log Analytics queries used to populate the Security & audit dashboard are available in Security Center's [GitHub repository](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ## Next steps
 - Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/)
