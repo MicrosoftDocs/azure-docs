@@ -4,7 +4,7 @@ description: Learn how to connect Barracuda data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: 3b33b4aa-7286-4d79-b461-8e1812edc2e1
