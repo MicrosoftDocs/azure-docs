@@ -4,7 +4,7 @@ description: Learn how to connect Check Point data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: 3229233d-400d-4971-8d76-eaa0d6591d75

@@ -45,6 +45,8 @@
     href: container-instances-region-availability.md
   - name: Relationship to orchestrators
     href: container-instances-orchestrator-relationship.md
+  - name: Security considerations
+    href: container-instances-image-security.md
 - name: How-to guides
   items:
   - name: Deploy
@@ -69,6 +71,8 @@
       href: container-instances-managed-identity.md
     - name: Use GPU resources (preview)
       href: container-instances-gpu.md
+    - name: Enable SSL endpoint
+      href: container-instances-container-group-ssl.md     
   - name: Mount data volumes
     items:
     - name: Azure file share
@@ -133,3 +137,5 @@
     href: https://stackoverflow.com/questions/tagged/azure-container-instances
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
+  - name: FAQ
+    href: container-instances-faq.md

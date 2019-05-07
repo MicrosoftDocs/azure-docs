@@ -20,8 +20,8 @@ Most of the retired features can be replaced with new features in Azure Security
 
 The list of features being retired from the Security Center includes:
 
-- [Events](#menu_events)
-- [Search](#menu_search)
+- [Events dashboard](#menu_events)
+- [Search menu entry](#menu_search)
 - [View classic Identity & Access link on Identity and access (preview)](#menu_classicidentity)
 - [Security events map button on Security alerts map (preview)](#menu_securityeventsmap)
 - [Custom alert rules (preview)](#menu_customalerts)
@@ -32,7 +32,7 @@ The list of features being retired from the Security Center includes:
 
 The below provides detailed information for each retired feature and the steps you can take using the replacement features.
 
-## Events<a name="menu_events"></a>
+## Events dashboard<a name="menu_events"></a>
 Security Center uses the Microsoft Monitoring Agent to collect various security related configurations and events from your machines and stores these events in your workspace(s). The [Events dashboard](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) allows viewing this data, and essentially provides another entry point to Log Analytics.
 
 Going forward the events dashboard will be retired:
@@ -43,19 +43,19 @@ The events dashboard that appears once a user clicks on a workspace, will also b
 
 ![Events dashboard][2]
 
-### Events - New experience
+### Events dashboard - New experience
 
 Customers are encouraged to use Log Analytics’ native capabilities to view notable events on their workspace(s).
 If you have already created custom notable events from Security Center, these will be accessible via Log analytics -> select workspace -> Saved Searches. Your data will not be lost nor modified. Native Notable events are also available from the same screen.
 
 ![Workspace saved searches][3]
 
-## Search<a name="menu_search"></a>
+## Search menu entry<a name="menu_search"></a>
 Azure Security Center currently uses Azure Monitor logs search to retrieve and analyze your security data. This screen essentially serves as a façade to Log Analytics “[Search](https://docs.microsoft.com/azure/security-center/security-center-search)” page – allowing users to run Search queries on their selected workspace. Going forward this search window will be retired:
 
 ![Search page][4]
 
-### Search - New experience
+### Search menu entry - New experience
 
 Customers are encouraged to use **Log Analytics** native capabilities to perform Search queries on their workspaces. To do so, they can go to Log analytics in Azure, and select: “Logs”:
 
@@ -77,6 +77,7 @@ A click on the workspace opens the “Identity and access” log analytics dashb
 ![Identity page - dashboard][8]
 
 Going forward all the three screens above will be retired. Your data will remain available in the log analytics security solution and will not be modified or removed.
+The original Log Analytics queries used to populate the Identity and Access dashboard are available in Security Center's [GitHub repository](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### Classic Identity & Access (Preview) - New experience
 While the Log analytics dashboard has provided insights on a given workspace only, the native Security Center capabilities provide visibility into all subscriptions and all workspaces associated with them, in an easy-to use view that lets you focus on what’s important, according to the secure score of your Identity & access recommendation(s).
@@ -99,12 +100,13 @@ When you choose a workspace to view its threat intelligence dashboard, the secur
 ![Security alerts map in Log Analytics][12]
 
 Your existing data will remain available in the log analytics security solution and will not be modified nor removed.
+The original Log Analytics queries used to populate the Threat Intelligence dashboard are available in Security Center's [GitHub repository](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### Security events map - New experience
 We encourage our customers to use the alerts map functionality built into Security Center - “Security alerts map (Preview)”. This provides an optimized experience and works across all subscriptions and associated workspaces, allowing a macro view across your environment, and not focus on a single workspace.
 
 ## Custom alert rules (Preview)<a name="menu_customalerts"></a>
-The custom alerts experience will be [retired](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) June 30th, 2019, due to retirement of the Azure Monitor classic alerts service. In the timeframe until deprecation, users will be able to edit existing custom alert rules but will not be able to add new ones. Users are advised to enable [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) with one-click onboarding to automatically migrate their existing alerts and create new ones, or alternatively re-create their alerts with Azure Monitor log alerts.
+The custom alerts experience will be [retired](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) June 30th, 2019, due to retirement of the underlying infrastructure it is built on. In the timeframe until deprecation, users will be able to edit existing custom alert rules but will not be able to add new ones. Users are advised to enable [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) with one-click onboarding to automatically migrate their existing alerts and create new ones, or alternatively re-create their alerts with Azure Monitor log alerts.
 
 To keep your existing alerts and migrate them to Azure Sentinel, please launch Azure Sentinel. As first step, select the workspace where your custom alerts are stored, and then select the ‘Analytics’ menu item to automatically migrate your alerts.
 
@@ -151,7 +153,7 @@ This feature has been in preview and will be retired.
 
 ### Edit security configurations - New experience
 
-Security Center will support the [in-guest agent](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) in the near future, allowing a much richer feature set - including support for additional operating systems and integration with guest configuration with Azure policies (in-guest policies). This will also provide the ability to control at scale and apply on new resources automatically.
+Security Center will support the [Guest configuration agent](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) in the near future, allowing a much richer feature set - including support for additional operating systems and integration with guest configuration with Azure policies (in-guest policies). This will also provide the ability to control at scale and apply on new resources automatically.
 
 ## Security & audit dashboard (originally used in OMS portal) for Log Analytics workspaces<a name="menu_securityomsdashboard"></a>
 
@@ -161,6 +163,8 @@ The Security dashboard in Log analytics provides a per-workspace overview of not
 
 ### Security & audit dashboard - New experience
 Our customers are advised to use Azure Security Center, which provides the same security overview across multiple subscriptions and workspaces associated with them, along with a richer feature set.
+
+The original Log Analytics queries used to populate the Security & audit dashboard are available in Security Center's [GitHub repository](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ## Next steps
 - Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/)
@@ -185,7 +189,7 @@ Our customers are advised to use Azure Security Center, which provides the same 
 <!--Image references - custom alerts-->
 [13]: ./media/security-center-features-retirement-july2019/asc_custom_alerts.png
 <!--Image references - Investigation-->
-[14]: ./media/security-center-features-retirement-july2019/asc_security_incident.png
+[14]: ./media/security-center-features-retirement-july2019/asc-security-incident.png
 [15]: ./media/security-center-features-retirement-july2019/loganalytics_investigation_dashboard.png
 <!--Image references - Solutions-->
 [16]: ./media/security-center-features-retirement-july2019/asc_security_solutions.png
