@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/07/2019
 ms.author: jhakulin
 ---
 
@@ -20,7 +20,8 @@ The Speech SDK's **ConversationTranscriber** API allows you to transcribe meetin
 
 * Conversation transcriber is supported for C++, C#, and Java on Windows, Linux, and Android.
 * The ROOBO DevKit is the supported hardware environment for creating conversations as that provides circular multi-microphone array that can be utilized efficiently by the Conversation Transcription service for the speaker identification. [For more information, see Speech Devices SDK](speech-devices-sdk.md).
-* Speech SDK support is limited to use of audio pull and push mode streams with eight channels of PCM audio.
+* Speech SDK support is limited to use of audio pull and push mode streams with eight channels of 16-bit 16kHz PCM audio.
+* Conversation Transcription is currently available in "en-US" and "zh-CN" languages in the following regions: centralus and eastasia.
 
 ## Prerequisites
 
@@ -30,9 +31,14 @@ The Speech SDK's **ConversationTranscriber** API allows you to transcribe meetin
 ## Create voice signatures for participants
 
 The first step is to create voice signatures for the conversation participants. Creating voice signatures is required for efficient speaker identification.
-In the following sample, we'll [use the REST API to get the voice signature.](https://aka.ms/cts/signaturegenservice)
 
-The example below shows two different ways to create voice signatures:
+### Requirements for input wave file
+
+* The input audio wave file for creating voice signatures (see speakerVoice.wav in the example below) shall be in 16-bit samples, 16 kHz sample rate, and a single channel (Mono) format.
+* The wav file should contain at least 10 words.
+
+Following example shows two different ways to create voice signature by [using the REST API.](https://aka.ms/cts/signaturegenservice)
+
 ```csharp
 class Program
 {
@@ -82,13 +88,11 @@ using Microsoft.CognitiveServices.Speech.Conversation;
 
 public class MyConversationTranscriber
 {
-    private static string endpoint = "YourOwnEndpoint";
-
     public static async Task ConversationWithPullAudioStreamAsync()
     {
         // Creates an instance of a speech config with specified subscription key and service region.
-        // Replace with your own endpoint and subscription key.
-        var config = SpeechConfig.FromEndpoint(new Uri(endpoint), "YourSubScriptionKey");
+        // Replace with your own subscription key and region.
+        var config = SpeechConfig.FromSubscription("YourSubscriptionKey","YourRegion");
         var stopTranscription = new TaskCompletionSource<int>();
 
         // Create an audio stream from a wav file.
@@ -108,7 +112,7 @@ public class MyConversationTranscriber
                 {
                     if (e.Result.Reason == ResultReason.RecognizedSpeech)
                     {
-                        Console.WriteLine($"RECOGNIZED: Text={e.Result.Text}, SpeakerID={e.Result.SpeakerId}");
+                        Console.WriteLine($"RECOGNIZED: Text={e.Result.Text}, UserID={e.Result.UserId}");
                     }
                     else if (e.Result.Reason == ResultReason.NoMatch)
                     {
