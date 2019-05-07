@@ -33,7 +33,7 @@ Use the **Reports**  page of the Billing and Cost Management console in AWS to c
 7. For **Enable support for**, no selection is required.
 8. For **Data refresh settings**, select **Automatically refresh your Cost &amp; Usage Report when charges are detected for previous months with closed bills**.
 9. Click **Next**.
-10. For **Amazon S3 bucket**, type the name of the Amazon S3 bucket where you want reports delivered to and click **Verify**. The bucket must have appropriate permissions to be valid. For more information about adding permissions to the bucket, see [Setting Bucket and Object Access Permissions](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
+10. For **Amazon S3 bucket**, type the name of the Amazon S3 bucket where you want reports delivered to and click **Verify**. The bucket must have appropriate permissions to be valid. For more information about adding permissions to the bucket, see [Setting Bucket and Object Access Permissions](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
 11. For **Report path prefix**, type the report path prefix that you want to be added to the name of your report.
 12. For **Compression**, select **GZIP**.
 13. Click **Next**.
