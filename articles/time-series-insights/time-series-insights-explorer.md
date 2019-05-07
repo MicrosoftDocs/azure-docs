@@ -10,19 +10,19 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/30/2017
+ms.date: 05/07/2019
 ms.custom: seodec18
 ---
 
 # Azure Time Series Insights explorer
-This article explores the various features and options available within the Time Series Insights explorer web app. 
-You use Time Series Insights explorer in your web browser to create visualizations of your data.
- 
+
+This article describes the features and options available in the Azure Time Series Insights [explorer web app](https://insights.timeseries.azure.com/demo). The Azure Time Series Insights explorer demonstrates the powerful data visualization capabilities provided by the service.
+
 Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, which lets you quickly validate your IoT solution and avoid costly downtime to mission-critical devices. You can discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time. The Time Series Insights explorer is currently in public preview.
 
 ## Video
 
-### In this video, we cover querying data using the Time Series Insights explorer. </br>
+### Learn about querying data using the Time Series Insights explorer. </br>
 
 > [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
@@ -33,15 +33,15 @@ Azure Time Series Insights is a fully managed analytics, storage, and visualizat
 
 Before you can use Time Series Insights explorer, you must:
 
-- Create a Time Series Insights environment
-- Provide access to your account in the environment
-- Add an event source to ingest data and store it
+- Create a Time Series Insights environment. For more information, see [How to get started with Time Series Insights](./time-series-insights-get-started.md).
+- [Provide access](time-series-insights-data-access.md) to your account in the environment.
+- Add an [IoT Hub](time-series-insights-how-to-add-an-event-source-iothub.md) or [Event Hub](time-series-insights-how-to-add-an-event-source-eventhub.md) event source to it.
 
 ## Explore and query data
 
 Within minutes of connecting your event source to your Time Series Insights environment, you can explore and query your time series data.
 
-1. To start, open the [Time Series Insights explorer](https://insights.timeseries.azure.com/) in your web browser, and select an environment on the left side of the window. All environments that you have access to are listed in alphabetical order.
+1. To start, open the [Time Series Insights explorer](https://insights.timeseries.azure.com/demo) in your web browser, and select an environment on the left side of the window. All environments that you have access to are listed in alphabetical order.
 
 1. Once you select an environment, either use the **FROM** and **TO** configurations at the top, or click and drag over your desired time span.  Click the magnifying glass at the top right, or right-click over the selected timespan and select **Search**.  
 
