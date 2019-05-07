@@ -29,7 +29,9 @@
 #    href: azure-netapp-files-faq-for-networking-security.md
 - name: How-to guides
   items:
-  - name: Register for Azure NetApp Files
+  - name: Submit a waitlist request
+    href: azure-netapp-files-waitlist.md
+  - name: Register the NetApp Resource Provider
     href: azure-netapp-files-register.md
   - name: Create a NetApp account
     href: azure-netapp-files-create-netapp-account.md
