@@ -23,7 +23,7 @@ This article explains how to enable Azure Monitor for VMs (preview) for Azure vi
 
 ## Set up a Log Analytics workspace 
 
-If you don't have a Log Analytics workspace, create one by reviewing the methods that are suggested in the [Prerequisites](vminsights-enable-overview#log-analytics) section before proceeding with the steps to configure it in order to complete the deployment of Azure Monitor for VMs using the Azure Resource Manager template method.
+If you don't have a Log Analytics workspace, create one by reviewing the methods that are suggested in the [Prerequisites](vminsights-enable-overview.md#log-analytics) section before proceeding with the steps to configure it in order to complete the deployment of Azure Monitor for VMs using the Azure Resource Manager template method.
 
 ### Enable performance counters
 
