@@ -14,7 +14,7 @@ ms.author: hrasheed
 # Install and use Presto on Hadoop-based HDInsight clusters
 
 > [!IMPORTANT]  
-> PLEASE READ : The below instructions are now deprecated. Please refer to the latest guidance from [Starburst Data](http://docs.starburstdata.com/latest/azure.html) to install and run Presto on Azure HDInsight.  
+> PLEASE READ : The below instructions are now deprecated. Please refer to the latest guidance from [Starburst Data](https://docs.starburstdata.com/latest/azure.html) to install and run Presto on Azure HDInsight.  
 
 This article explains how to install Presto on Hadoop-based Azure HDInsight clusters by using script actions. You also learn how to install Airpal on an existing Presto HDInsight cluster.
 
