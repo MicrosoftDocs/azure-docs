@@ -88,7 +88,7 @@
         href: classroom-labs/how-to-create-schedules.md
       - name: Create an environment with multiple VMs inside a template VM
         href: classroom-labs/how-to-enable-multi-vm-environment.md
-      - name: Attach and use a shared image gallery
+      - name: Use a shared image gallery
         href: classroom-labs/how-to-use-shared-image-gallery.md            
       - name: Enable remote desktop connection for Linux
         href: classroom-labs/how-to-enable-remote-desktop-linux.md
