@@ -37,7 +37,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum assigned quota of a single volume*   |   92 TiB   |    No   |
 |  Maximum size of a single volume*     |    100 TiB    |    No       |
 
-*A volume can be manually created or resized to maximally 92 TiB. However, a volume can grow up to 100 TiB in an overage scenario. See [Cost Model for Azure NetApp Files] for more details on capacity overage. 
+*A volume can be manually created or resized to maximally 92 TiB. However, a volume can grow up to 100 TiB in an overage scenario. See [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md) for details on capacity overage. 
 
 ## Request limit increase 
 
@@ -68,4 +68,5 @@ From Azure portal navigation plane:
 
 ## Next steps  
 
-[Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+- [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+- [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md)
