@@ -48,8 +48,13 @@ You can track your order through the Azure portal and through the shipping carri
 
 ## Query activity logs during setup
 
-- Your Data Box arrives on your premises in a locked state. You can use the device credentials available in the Azure portal for your order.  When a Data Box is set up, you may need to know who all accessed the device credentials. To figure out who accessed the device credentials blade, you can query the Activity logs.  Any action that involves accessing **Device details > Credentials** blade is logged into the activity logs as `ListCredentials` action.
-- Each sign into the Data Box is logged real-time. However, this information is only available in the [Audit logs](#audit-logs) after the order is successfully completed.
+- Your Data Box arrives on your premises in a locked state. You can use the device credentials available in the Azure portal for your order.  
+
+    When a Data Box is set up, you may need to know who all accessed the device credentials. To figure out who accessed the device credentials blade, you can query the Activity logs.  Any action that involves accessing **Device details > Credentials** blade is logged into the activity logs as `ListCredentials` action.
+
+    ![Query Activity logs](media/data-box-logs/query-activity-log-1.png)
+
+- Each sign into the Data Box is logged real time. However, this information is only available in the [Audit logs](#audit-logs) after the order is successfully completed.
 
 ## View error log during data copy to Data Box
 
