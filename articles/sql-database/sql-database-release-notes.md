@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 05/07/2019
 ms.author: carlrab
 ---
 # SQL Database release notes
@@ -19,6 +19,7 @@ This article lists the new features and improvements in the SQL Database service
 
 | Feature | Details |
 | ---| --- |
+| Serverless compute tier | For information, see [SQL Database serverless (preview)](sql-database-serverless.md).|
 | Elastic database jobs | For information, see [Create, configure, and manage elastic jobs](elastic-jobs-overview.md) |
 | Elastic transactions | [Distributed transactions across cloud databases](sql-database-elastic-transactions-overview.md) |
 | Elastic queries | For information, see [Elastic query overview](sql-database-elastic-query-overview.md) |
@@ -39,6 +40,16 @@ This article lists the new features and improvements in the SQL Database service
 |SQL Analytics|For information, see [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)|
 | Time zone support for managed instances|For more information, see [Time Zone in Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
 |||
+
+## May 2019
+
+### Service improvements
+
+| Service improvements | Details |
+| --- | --- |
+|Hyperscale service tier| For more information, see [Hyperscale service tier for up to 100 TB](sql-database-service-tier-hyperscale.md).|
+|Serverless compute tier| For more information, see [SQL Database serverless (preview)](sql-database-serverless.md).|
+
 
 ## April 2019
 
