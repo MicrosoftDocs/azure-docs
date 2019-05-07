@@ -33,6 +33,7 @@ ms.custom: H1Hack27Feb2017
 [arm-sofs-s2d-managed-disks]:https://github.com/robotechredmond/301-storage-spaces-direct-md
 [arm-sofs-s2d-non-managed-disks]:https://github.com/Azure/azure-quickstart-templates/tree/master/301-storage-spaces-direct
 [deploy-cloud-witness]:https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -338,6 +339,16 @@ The Azure Resource Manager template for deploying Scale-Out File Server with Sto
 _**Figure 2**: UI screen for the Scale-Out File Server Azure Resource Manager template without managed disks_
 
 In the **Storage Account Type** box, select **Premium Storage**. All other settings are the same as the settings for managed disks.
+
+## Adjust cluster timeout settings
+
+After you successfully install the Windows Scale-Out File Server cluster, you need to change some thresholds so they adapt failover detection to conditions in Azure. The parameters to be changed are documented in [Tuning failover cluster network thresholds][tuning-failover-cluster-network-thresholds]. Assuming that your VMs that make up the Windows cluster configuration are in the same subnet, change the following parameters to these values:
+
+- SameSubNetDelay = 2000
+- SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
+
+These settings were tested with customers, and offer a good compromise. They are resilient enough, but they also provide failover that is fast enough in real error conditions or in a case of a node or VM failure.
 
 ## Next steps
 
