@@ -16,9 +16,12 @@ ms.custom: seodec18
 
 # Azure Time Series Insights explorer
 
-This article describes the features and options available in the Azure Time Series Insights [explorer web app](https://insights.timeseries.azure.com/demo). The Azure Time Series Insights explorer demonstrates the powerful data visualization capabilities provided by the service.
+This article describes the features and options in General Availability for the Azure Time Series Insights [explorer web app](https://insights.timeseries.azure.com/). The Time Series Insights explorer demonstrates the powerful data visualization capabilities provided by the service and can be accessed within your own environment.
 
 Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, which lets you quickly validate your IoT solution and avoid costly downtime to mission-critical devices. You can discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time. The Time Series Insights explorer is currently in public preview.
+
+> [!TIP]
+> For a guided tour through the demonstration environment, read the [Azure Time Series Insights Quickstart](time-series-quickstart.md).
 
 ## Video
 
@@ -41,7 +44,7 @@ Before you can use Time Series Insights explorer, you must:
 
 Within minutes of connecting your event source to your Time Series Insights environment, you can explore and query your time series data.
 
-1. To start, open the [Time Series Insights explorer](https://insights.timeseries.azure.com/demo) in your web browser, and select an environment on the left side of the window. All environments that you have access to are listed in alphabetical order.
+1. To start, open the [Time Series Insights explorer](https://insights.timeseries.azure.com/) in your web browser, and select an environment on the left side of the window. All environments that you have access to are listed in alphabetical order.
 
 1. Once you select an environment, either use the **FROM** and **TO** configurations at the top, or click and drag over your desired time span.  Click the magnifying glass at the top right, or right-click over the selected timespan and select **Search**.  
 
@@ -81,6 +84,8 @@ Within minutes of connecting your event source to your Time Series Insights envi
 1. The **Save** command lets you save your current query and enable it for sharing with other users of the environment. Using **Open**, you can see all of your saved queries and any shared queries of other users in environments you have access to.
 
    [![Queries](media/time-series-insights-explorer/explorer3.png)](media/time-series-insights-explorer/explorer3.png#lightbox)
+   
+## Visualize data
 
 1. The **Perspective View** tool provides a simultaneous view of up to four unique queries. You can find the perspective view button in the upper right corner of the chart.  
 
@@ -117,3 +122,5 @@ Now you have seen the various features and options available within the Time Ser
 ## Next steps
 
 - Learn about [diagnosing and solving problems](time-series-insights-diagnose-and-solve-problems.md) in your Time Series Insights environment.
+
+- Take the guided [Azure Time Series Insights Quickstart](time-series-quickstart.md) tour.
