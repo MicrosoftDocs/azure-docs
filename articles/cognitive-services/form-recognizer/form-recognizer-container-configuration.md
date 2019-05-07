@@ -1,7 +1,7 @@
 ---
 title: Configure container - Form Recognizer
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Form Recognizer container to parse form and table data.
+description: Learn how to configure the Form Recognizer container to parse form and table data.
 author: PatrickFarley
 manager: nitinme
 
@@ -65,7 +65,7 @@ This setting can be found in the following place:
 
 Use bind mounts to read and write data to and from the container. You can specify an input mount or output mount by specifying the `--mount` option in the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
 
-The Form Recognizer containers requires an  input and output mount. The input mount can be read-only and is required to access the data that will be used for training and scoring. The output mount has to be writable and will be used to store the models and temporary data.
+The Form Recognizer container requires an input and output mount. The input mount can be read-only and is required to access the data that will be used for training and scoring. The output mount has to be writable and will be used to store the models and temporary data.
 
 The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](form-recognizer-container-howto.md#the-host-computer)'s mount location may not be accessible due to a conflict between permissions used by the Docker service account and the host mount location permissions.
 

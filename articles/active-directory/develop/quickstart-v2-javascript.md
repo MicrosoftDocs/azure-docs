@@ -145,16 +145,16 @@ After the browser loads the application, click **Sign In**.  The first time that
 MSAL is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. The quickstart's *index.html* contains a reference to the library:
 
 ```html
-<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview.4/js/msal.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.min.js"></script>
 ```
 > [!TIP]
 > You can replace the version above with the latest released version under [MSAL.js releases](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
 
-Alternatively, if you have Node installed, you can download the latest preview version through npm:
+Alternatively, if you have Node installed, you can download the latest version through npm:
 
 ```batch
-npm install msal@preview
+npm install msal
 ```
 
 ### MSAL initialization
@@ -190,11 +190,11 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 The following code snippet shows how to sign in users:
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.loginPopup(request).then(function (loginResponse) {
+myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
     //Login Success callback code here
 }).catch(function (error) {
     console.log(error);
@@ -217,11 +217,11 @@ MSAL has three methods used to acquire tokens: `acquireTokenRedirect`, `acquireT
 The `acquireTokenSilent` method handles token acquisitions and renewal without any user interaction. After the `loginRedirect` or `loginPopup` method is executed for the first time, `acquireTokenSilent` is the method commonly used to obtain tokens that are used to access protected resources for subsequent calls. Calls to request or renew tokens are made silently.
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
+myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {
@@ -245,11 +245,11 @@ The usual recommended pattern for most applications is to call `acquireTokenSile
 Calling the `acquireTokenPopup` results in a popup window to sign in (or `acquireTokenRedirect` results in redirecting users to the Microsoft identity platform endpoint) where users need to interact by either confirming their credentials, giving the consent to the required resource, or completing the two factor authentication.
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.acquireTokenPopup(request).then(function (tokenResponse) {
+myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {

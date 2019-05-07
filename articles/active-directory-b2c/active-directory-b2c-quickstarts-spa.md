@@ -60,7 +60,7 @@ Azure Active Directory (Azure AD) B2C provides cloud identity management to keep
 
     ![Sign In or Sign Up provider](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-    You authenticate (sign-in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
+    You authenticate (sign in) using your social account credentials and authorize the application to read information from your social account. By granting access, the application can retrieve profile information from the social account such as your name and city. 
 
 3. Finish the sign-in process for the identity provider.
 
@@ -78,7 +78,12 @@ You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quick
 
 ## Next steps
 
-In this quickstart, you used a sample single-page application to sign in with a custom login page, sign in with a social identity provider, create an Azure AD B2C account, and call a web API protected by Azure AD B2C. 
+In this quickstart, you used a sample single-page application to:
+
+* Sign in with a custom login page
+* Sign in with a social identity provider
+* Create an Azure AD B2C account
+* Call a web API protected by Azure AD B2C
 
 Get started creating your own Azure AD B2C tenant.
 
