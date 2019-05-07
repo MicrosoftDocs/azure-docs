@@ -82,7 +82,7 @@ This article lists the steps to run the Azure IoT Edge runtime on a Windows Serv
    * This command will prompt you for a password, but you can add the option `--admin-password` to set it more easily in a script
    * The Windows Server Core image has command line support only with remote desktop, so if you'd like the full desktop experience, specify `MicrosoftWindowsServer:WindowsServer:2019-Datacenter-with-Containers:latest` as the image
 
-1. Set the device connection string (You can follow the [Register a new Azure IoT Edge device with Azure CLI](how-to-register-device-cli.md) how-to guide if you’re not familiar with this process):
+1. Install the IoT Edge runtime and set the device connection string (You can follow the [Register a new Azure IoT Edge device with Azure CLI](how-to-register-device-cli.md) how-to guide if you’re not familiar with this process):
 
    ```azurecli-interactive
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunPowerShellScript --script ". {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `Install-IoTEdge -Manual -DeviceConnectionString '<connection-string>'"
