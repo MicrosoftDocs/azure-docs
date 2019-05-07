@@ -348,7 +348,7 @@ After you successfully install the Windows Scale-Out File Server cluster, adapt 
 - SameSubNetThreshold = 15
 - RoutingHistoryLength = 30
 
-These settings were tested with customers, and offer a good compromise. They are resilient enough, but they also provide fast enough failover in real error conditions or in a case of a node or VM failure.
+These settings were tested with customers, and offer a good compromise. They are resilient enough, but they also provide fast enough failover in real error conditions or VM failure.
 
 ## Next steps
 
