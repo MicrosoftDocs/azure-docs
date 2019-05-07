@@ -21,7 +21,7 @@ The environment where you run the script must have the following things:
 
 - A Windows Virtual Desktop tenant and account or a service principal with permissions to query that tenant (such as RDS Contributor).
 - Session host pool VMs configured and registered with the Windows Virtual Desktop service.
-- An additional virtual machine that runs the scheduled task via Task Scheduler and that has network access to session hosts. This will be reffered to later in the document as **scaler VM**.
+- An additional virtual machine that runs the scheduled task via Task Scheduler and has network access to session hosts. This will be reffered to later in the document as scaler VM.
 - The [Microsoft Azure Resource Manager PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) installed on the VM running the scheduled task.
 - The [Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) installed on the VM running the scheduled task.
 
@@ -32,7 +32,7 @@ When running the scaling script, keep the following things in mind:
 - This scaling script can only handle one host pool per instance of the scheduled task that is running the scaling script.
 - The scheduled tasks that run scaling scripts must be on a VM that is always on.
 - Create a separate folder for each instance of the scaling script and its configuration.
-- This script doesn't support logging in as an admin to Windows Virtual Desktop with Azure AD user accounts that require multi-factor authentication. We recommend you use service principals to access the Windows Virtual Desktop service and Azure. Follow this tutorial to [create service principals and role assignments with PowerShell](create-service-principal-role-powershell.md).
+- This script doesn't support signing in as an admin to Windows Virtual Desktop with Azure AD user accounts that require multi-factor authentication. We recommend you use service principals to access the Windows Virtual Desktop service and Azure. Follow this [tutorial](create-service-principal-role-powershell.md) to create a service principal and a role assignment with PowerShell.
 - Azure's SLA guarantee applies only to VMs in an availability set. The current version of the document describes an environment with a single VM doing the scaling, which may not meet availability requirements.
 
 ## Deploy the scaling script
@@ -43,11 +43,11 @@ The following procedures will tell you how to deploy the scaling script.
 
 First, prepare your environment for the scaling script:
 
-1. Sign in to the VM (**scaler VM**) that will run the scheduled task with a domain administrative account.
+1. Sign in to the VM (scaler VM) that will run the scheduled task with a domain administrative account.
 2. Create a folder on the scaler VM to hold the scaling script and its configuration (for example, **C:\\scaling-HostPool1**).
 3. Download the **basicScale.ps1**, **Config.xml**, and **Functions-PSStoredCredentials.ps1** files, and the **PowershellModules** folder from the [scaling script repository](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) and copy them to the folder you created in step 2. There are two primary ways to obtain the files before copying them to the scaler VM:
-    1. Clone the git repository to your local machine.
-    2. View the **Raw** version of each file, copy and paste the content of each file to a text editor, then save the files with the corresponding file name and file type. 
+    - Clone the git repository to your local machine.
+    - View the **Raw** version of each file, copy and paste the content of each file to a text editor, then save the files with the corresponding file name and file type. 
 
 ### Create securely stored credentials
 
