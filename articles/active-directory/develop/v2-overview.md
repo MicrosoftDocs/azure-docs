@@ -53,7 +53,7 @@ Working with identity doesn’t have to be hard. Choose a scenario that applies 
 
 The following chart outlines common authentication app scenarios – use it as a reference when integrating the Microsoft identity platform with your app.
 
-[![Application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.png#lightbox)
+[![Application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
 ## Next steps
 
