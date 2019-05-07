@@ -12,12 +12,9 @@ ms.subservice: common
 
 # Copy data from Amazon S3 buckets by using AzCopy
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you use AzCopy to copy files, folders, and buckets from Amazon Web Services (AWS) S3 to Azure blob storage.
+AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you copy objects, folders, and buckets from Amazon Web Services (AWS) S3 to Azure blob storage by using AzCopy.
 
-> [!NOTE]
-> AzCopy uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, so data is copied directly between AWS S3 and storage servers. These copy operations don't use the network bandwidth of your computer.
-
-## First, set up authentication
+## Set up authentication
 
 You'll need to authenticate with both Azure Storage and AWS to perform copy operations.
 
@@ -44,9 +41,13 @@ Gather your AWS access key and secret access key, and then set the these environ
 | **Linux** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>` |
 | **MacOS** | `export AWS_ACCESS_KEY_ID=<access-key>`<br>`export AWS_SECRET_ACCESS_KEY=<secret-access-key>`|
 
-The next several sections give you example AzCopy commands that you can use to copy data from your AWS S3 buckets.
+## Copy objects, folders, and buckets
 
-## Copy an object
+This section contains example AzCopy commands that you can use to copy data from your AWS S3 buckets. 
+
+AzCopy uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, so data is copied directly between AWS S3 and storage servers. These copy operations don't use the network bandwidth of your computer.
+
+### Copy an object
 
 |    |     |
 |--------|-----------|
@@ -56,34 +57,33 @@ The next several sections give you example AzCopy commands that you can use to c
 > [!NOTE]
 > Examples in this article use path-style URLs for AWS S3 buckets (For example: `http://s3.amazonaws.com/<bucket-name>`). You can also use virtual hosted-style URLs as well (For example: `http://bucket.s3.amazonaws.com`). To learn more about virtual hosting of buckets, see [Virtual Hosting of Buckets]](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html).
 
-## Copy a folder
+### Copy a folder
 
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy cp "https://s3.amazonaws.com/<bucket-name>/<folder-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>/<folder-name>" --recursive=true` |
 | **Example** | `azcopy cp "https://s3.amazonaws.com/mybucket/myfolder" "https://mystorageaccount.blob.core.windows.net/mycontainer/myfolder" --recursive=true` |
 
-## Copy a bucket
+### Copy a bucket
 
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy cp "https://s3.amazonaws.com/<bucket-name>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true` |
 | **Example** | `azcopy cp "https://s3.amazonaws.com/mybucket" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true` |
 
-## Copy all buckets
+### Copy all buckets
 
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy cp "https://s3.amazonaws.com/" "https://<storage-account-name>.blob.core.windows.net" --recursive=true` |
 | **Example** | `azcopy cp "https://s3.amazonaws.com" "https://mystorageaccount.blob.core.windows.net" --recursive=true` |
 
-## Copy all buckets in an S3 region
+### Copy all buckets in an S3 region
 
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy cp "https://s3-<region-name>.amazonaws.com/" "https://<storage-account-name>.blob.core.windows.net" --recursive=true` |
 | **Example** | `azcopy cp "https://s3-rds.eu-north-1.amazonaws.com" "https://mystorageaccount.blob.core.windows.net" --recursive=true` |
-
 
 ## Handle differences in object naming rules
 
