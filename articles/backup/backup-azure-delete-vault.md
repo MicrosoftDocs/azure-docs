@@ -44,7 +44,7 @@ If you receive an error, remove [backup items](#remove-backup-items), [infrastru
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Use PowerShell command to install ARM client:
+### Use PowerShell command to install ARM client:
 
 1. Sign in to your Azure subscription with the `Connect-AzAccount` command, and follow the on-screen directions.
 
@@ -76,11 +76,12 @@ Use PowerShell command to install ARM client:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-2. If the vault's not empty, you receive the error "Vault cannot be deleted as there are existing resources within this vault". To remove a contained within a vault, do the following:
+2. If the vault's not empty, you receive the error "Vault cannot be deleted as there are existing resources within this vault". To remove a protected items / container within a vault, do the following:
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
+   
 3. In the Azure portal, verify that the vault is deleted.
 
 
@@ -128,18 +129,9 @@ This procedure provides an example that shows you how to remove backup data from
 
     ![select the backup type](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
-3. . In **Stop Backup** > **Choose an option**, select **Delete Backup Data**.
-4. Type the name of the item, and click **Stop backup**.
-   - This verifies that you want to delete the item.
-   - The **Stop Backup** button activates after you verify.
-   - If you retain and don't delete the data, you won't be able to delete the vault.
-
-     ![delete backup data](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
-
-5. Optionally provide a reason why you're deleting the data, and add comments.
-6. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
-7. After the job completes, the service sends a message: **the backup process was stopped and the backup data was deleted**.
-8. After deleting an item in the list, on the **Backup Items** menu, click **Refresh** to see the items in the vault.
+3. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
+4. After the job completes, the service sends a message: **the backup process was stopped and the backup data was deleted**.
+5. After deleting an item in the list, on the **Backup Infrastructure** menu, click **Refresh** to see the items in the vault.
 
 
 ### Remove Azure Backup agent recovery points
@@ -162,14 +154,12 @@ This procedure provides an example that shows you how to remove backup data from
     ![delete the selected server](./media/backup-azure-delete-vault/selected-protected-server-click-delete.png)
 
 6. On the **Delete** menu, type the name of the item, and click **Delete**.
-   - This verifies that you want to delete the item.
-   - The **Stop Backup** button activates after you verify.
-   - If you retain and don't delete the data, you won't be able to delete the vault.
 
      ![delete backup data](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
 
-7. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
-8. After deleting an item in the list, on the **Backup Infrastructure** menu, click **Refresh** to see the items in the vault.
+7. Optionally provide a reason why you're deleting the data, and add comments.
+8. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
+9. After deleting an item in the list, on the **Backup Infrastructure** menu, click **Refresh** to see the items in the vault.
 
 ### Delete the vault after removing dependencies
 
