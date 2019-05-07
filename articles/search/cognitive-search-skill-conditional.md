@@ -51,7 +51,7 @@ The following items are valid values of an expression:
 -  Literals (strings, numbers, true, false, null) <br/>
     Examples:
     ```
-       "= 'this is a string'"   // string, note the single quotes
+       "= 'this is a string'"   // string (note the single quotation marks)
        "= 34"                   // number
        "= true"                 // boolean
        "= null"                 // null value
@@ -88,7 +88,7 @@ Inputs are case-sensitive.
 |-------------|-------------|
 | condition   | This input is an [evaluated field](#evaluated-fields) that represents the condition to evaluate. This condition should evaluate to a boolean value (*true* or *false*).   <br/>  Examples: <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
 | whenTrue    | This input is an [evaluated field](#evaluated-fields) that represents the value to return if the condition is evaluated to *true*. Constants strings should be returned in single quotation marks (' and '). <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/> |
-| whenFalse   | This input is an [evaluated field](#evaluated-fields) that represents the value to return if the condition is evaluated to false.* <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
+| whenFalse   | This input is an [evaluated field](#evaluated-fields) that represents the value to return if the condition is evaluated to false. <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
 
 ## Skill outputs
 There's a single output that's called "output." It returns the value *whenFalse* if the condition is false or *whenTrue* if the condition is true.
