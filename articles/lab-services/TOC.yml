@@ -73,7 +73,7 @@
       - name: Connect your labs to a peer virtual network
         href: classroom-labs/how-to-connect-peer-virtual-network.md
       - name: Attach or detach a shared image gallery
-        href: classroom-labs/how-to-attach-dettach-shared-image-gallery.md
+        href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
     - name: Classroom Labs
       items:        
       - name: Manage classroom labs
