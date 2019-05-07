@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/19/2019
+ms.date: 05/06/2019
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -39,11 +39,11 @@ To achieve real business continuity, adding database redundancy between datacent
 
   A failover group is a group of databases managed by a single SQL Database server or within a single managed instance that can fail over as a unit to another region in case all or some primary databases become unavailable due to an outage in the primary region.
 
-  - **SQL Database servers**
+- **SQL Database servers**
 
      With SQL Database servers, some or all of the user databases on a single SQL Database server can be placed in a failover group. Also, a SQL Database server supports multiple failover groups on a single SQL Database server.
 
-  - **Managed Instances**
+- **Managed Instances**
   
      With managed instance, a failover group contains all user databases in the Managed Instance and therefore a Managed Instance only supports a single failover group.
 
@@ -59,22 +59,22 @@ To achieve real business continuity, adding database redundancy between datacent
 
   You can put several single databases on the same SQL Database server into the same failover group. If you add a single database to the failover group, it automatically creates a secondary database using the same edition and compute size on secondary server.  You specified that server when the failover group was created. If you add a database that already has a secondary database in the secondary server, that geo-replication link is inherited by the group. When you add a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary server.
   
-> [!IMPORTANT]
+  > [!IMPORTANT]
   > In a Managed Instance, all user databases are replicated. You cannot pick a subset of user databases for replication in the failover group.
 
 - **Adding databases in elastic pool to failover group**
 
   You can put all or several databases within an elastic pool into the same failover group. If the primary database is in an elastic pool, the secondary is automatically created in the elastic pool with the same name (secondary pool). You must ensure that the secondary server contains an elastic pool with the same exact name and enough free capacity to host the secondary databases that will be created by the failover group. If you add a database in the pool that already has a secondary database in the secondary pool, that geo-replication link is inherited by the group. When you add a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary pool.
   
-  - **Failover group read-write listener**
+- **Failover group read-write listener**
 
   A DNS CNAME record formed that points to the current primary's URL. It allows the read-write SQL applications to transparently reconnect to the primary database when the primary changes after failover.
 
-  - **SQL Database server DNS CNAME record for read-write listener**
+- **SQL Database server DNS CNAME record for read-write listener**
 
      On a SQL Database server, the DNS CNAME record for the failover group that points to the current primary's URL is formed as `<fog-name>.database.windows.net`.
 
-  - **Managed Instance DNS CNAME record for read-write listener**
+- **Managed Instance DNS CNAME record for read-write listener**
 
      On a Managed Instance, the DNS CNAME record for the failover group that points to the current primary's URL is formed as `<fog-name>.zone_id.database.windows.net`.
 
@@ -82,13 +82,13 @@ To achieve real business continuity, adding database redundancy between datacent
 
   A DNS CNAME record formed that points to the read-only listener that points to the secondary's URL. It allows the read-only SQL applications to transparently connect to the secondary using the specified load-balancing rules.
 
-  - **SQL Database server DNS CNAME record for read-only listener**
+- **SQL Database server DNS CNAME record for read-only listener**
 
-     On a SQL Database server, the DNS CNAME record for the read-only listener that points to the secondary's URL is formed as `'.secondary.database.windows.net`.
+     On a SQL Database server, the DNS CNAME record for the read-only listener that points to the secondary's URL is formed as `<fog-name>.secondary.database.windows.net`.
 
-  - **Managed Instance DNS CNAME record for read-only listener**
+- **Managed Instance DNS CNAME record for read-only listener**
 
-     On a Managed Instance, the DNS CNAME record for the read-only listener that points to the secondary's URL is formed as `<fog-name>.zone_id.database.windows.net`.
+     On a Managed Instance, the DNS CNAME record for the read-only listener that points to the secondary's URL is formed as `<fog-name>.zone_id.secondary.database.windows.net`.
 
 - **Automatic failover policy**
 
@@ -168,8 +168,8 @@ When designing a service with business continuity in mind, follow these general 
 
   If an outage is detected, SQL waits for the period you specified by **GracePeriodWithDataLossHours**. The default value is 1 hour. If you cannot afford data loss, make sure to set **GracePeriodWithDataLossHours** to a sufficiently large number, such as 24 hours. Use manual group failover to fail back from the secondary to the primary.
 
-> [!IMPORTANT]
-> Elastic pools with 800 or fewer DTUs and more than 250 databases using geo-replication may encounter issues including longer planned failovers and degraded performance.  These issues are more likely to occur for write intensive workloads, when geo-replication endpoints are widely separated by geography, or when multiple secondary endpoints are used for each database.  Symptoms of these issues are indicated when the geo-replication lag increases over time.  This lag can be monitored using [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  If these issues occur, then mitigations include increasing the number of pool DTUs, or reducing the number of geo-replicated databases in the same pool.
+  > [!IMPORTANT]
+  > Elastic pools with 800 or fewer DTUs and more than 250 databases using geo-replication may encounter issues including longer planned failovers and degraded performance.  These issues are more likely to occur for write intensive workloads, when geo-replication endpoints are widely separated by geography, or when multiple secondary endpoints are used for each database.  Symptoms of these issues are indicated when the geo-replication lag increases over time.  This lag can be monitored using [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  If these issues occur, then mitigations include increasing the number of pool DTUs, or reducing the number of geo-replicated databases in the same pool.
 
 ## Best practices of using failover groups with Managed Instances
 
@@ -270,8 +270,8 @@ When you set up a failover groups between primary and secondary managed instance
 5. The two Managed Instance VNets cannot have overlapping IP addresses.
 6. You need to setup your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open inbound and outbound for connections from the other Managed Instanced subnet. This is to allow replication traffic between the instances
 
-    > [!IMPORTANT]
-    > Misconfigured NSG security rules leads to stuck database copy operations.
+  > [!IMPORTANT]
+  > Misconfigured NSG security rules leads to stuck database copy operations.
 
 7. You need to configure DNS zone partner on secondary instance. A DNS zone is a property of a Managed Instance. It represents the part of host name that follows Managed Instance name and precedes the `.database.windows.net` prefix. It is generated as random string during the creation of the first Managed Instance in each VNet. The DNS zone cannot be modified after the creation of managed instance, and all Managed Instances within the same subnet share the same DNS zone value. For Managed Instance failover group setup, the primary Managed Instance and the secondary Managed Instance must share the same DNS zone value. You accomplish this by specifying the DnsZonePartner parameter when creating the secondary Managed Instance. The DNS zone partner property defines the Managed Instance to share an instance failover group with. By passing into the resource id of another managed instance as the input of DnsZonePartner, the Managed Instance currently being created inherits the same DNS zone value of the partner Managed Instance.
 
