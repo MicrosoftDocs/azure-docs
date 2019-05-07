@@ -27,7 +27,7 @@ You need the Azure CLI version 2.0.61 or later installed and configured. Run `a
 >
 > As a security best practice, [review the contents of this YAML manifest][calico-aks-cleanup] to understand what is deployed into the AKS cluster.
 >
-> `kubectl apply -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
+> `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
 ## Overview of network policy
 
