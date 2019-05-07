@@ -129,19 +129,6 @@ wordpress:
   - ${WEBAPP_STORAGE_HOME}/LogFiles:/var/log
 ```
 
-### Use custom storage in Docker Compose
-
-Azure Storage (Azure Files or Azure Blob) can be mounted with multi-container apps using the custom-id. To view the custom-id name, run [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
-
-In your *docker-compose.yml* file, map the `volumes` option to `custom-id`. For example:
-
-```yaml
-wordpress:
-  image: wordpress:latest
-  volumes:
-  - <custom-id>:<path_in_container>
-```
-
 ### Preview limitations
 
 Multi-container is currently in preview. The following App Service platform features are not supported:

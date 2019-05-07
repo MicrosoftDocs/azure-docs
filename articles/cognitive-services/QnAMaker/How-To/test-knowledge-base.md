@@ -61,12 +61,16 @@ You can add alternate forms of a question to a given answer. Type the alternate 
 
 You can add a new answer if any of the existing answers that were matched are incorrect or the answer does not exist in the knowledge base (no good match found in the KB). Enter the new answer to current question in the text box and press enter to add it. 
 
-Select **Save and Train** to persist this answer. A new question-answer pair has now been added to your knowledge base.
+Select **Save and Train** to persist this answer. A new question-answer pair has now been added to your knowledge base. 
 
 ![Add new question and answer pair](../media/qnamaker-how-to-test-kb/add-answer.png)
 
 > [!NOTE]
 > All edits to your knowledge base only get saved when you press the **Save and Train** button.
+
+## Test the published knowledge base
+
+You can test the published version of knowledge base in the test pane. Once you have published the KB, check the "published" box and send a query to get results from the published KB.
 
 ## Next steps
 

@@ -106,7 +106,7 @@ The main process continues to run and serve traffic to users with little interru
 
 ## Limitations
 
-The default data retention period is 7 days. For each Application Insights instance, a maximum number of 50 snapshots is allowed per day.
+The default data retention period is 15 days. For each Application Insights instance, a maximum number of 50 snapshots is allowed per day.
 
 ### Publish symbols
 The Snapshot Debugger requires symbol files on the production server to decode variables and to provide a debugging experience in Visual Studio.

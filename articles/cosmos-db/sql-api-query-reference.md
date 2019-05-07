@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
 ms.custom: seodec18
 
@@ -27,7 +27,8 @@ Every query consists of a SELECT clause and optional FROM and WHERE clauses per 
 SELECT <select_specification>   
     [ FROM <from_specification>]   
     [ WHERE <filter_condition> ]  
-    [ ORDER BY <sort_specification> ]  
+    [ ORDER BY <sort_specification> ] 
+    [ OFFSET <offset_amount> LIMIT <limit_amount>]
 ```  
   
  **Remarks**  
@@ -38,6 +39,8 @@ SELECT <select_specification>
 -   [FROM clause](#bk_from_clause)    
 -   [WHERE clause](#bk_where_clause)    
 -   [ORDER BY clause](#bk_orderby_clause)  
+-   [OFFSET LIMIT clause](#bk_offsetlimit_clause)
+
   
 The clauses in the SELECT statement must be ordered as shown above. Any one of the optional clauses can be omitted. But when optional clauses are used, they must appear in the right order.  
   
@@ -48,7 +51,8 @@ The order in which clauses are processed is:
 1.  [FROM clause](#bk_from_clause)  
 2.  [WHERE clause](#bk_where_clause)  
 3.  [ORDER BY clause](#bk_orderby_clause)  
-4.  [SELECT clause](#bk_select_query)  
+4.  [SELECT clause](#bk_select_query)
+5.  [OFFSET LIMIT clause](#bk_offsetlimit_clause)
 
 Note that this is different from the order in which they appear in the syntax. The ordering is such that all new symbols introduced by a processed clause are visible and can be used in clauses processed later. For instance, aliases declared in a FROM clause are accessible in WHERE and SELECT clauses.  
 
@@ -72,8 +76,8 @@ SELECT <select_specification>
 
 <select_specification> ::=   
       '*'   
-      | <object_property_list>   
-      | VALUE <scalar_expression> [[ AS ] value_alias]  
+      | [DISTINCT] <object_property_list>   
+      | [DISTINCT] VALUE <scalar_expression> [[ AS ] value_alias]  
   
 <object_property_list> ::=   
 { <scalar_expression> [ [ AS ] property_alias ] } [ ,...n ]  
@@ -97,7 +101,11 @@ SELECT <select_specification>
 - `VALUE`  
 
   Specifies that the JSON value should be retrieved instead of the complete JSON object. This, unlike `<property_list>` does not wrap the projected value in an object.  
+ 
+- `DISTINCT`
   
+  Specifies that duplicates of projected properties should be removed.  
+
 - `<scalar_expression>`  
 
   Expression representing the value to be computed. See [Scalar expressions](#bk_scalar_expressions) section for details.  
@@ -337,23 +345,23 @@ WHERE <filter_condition>
 ```sql  
 ORDER BY <sort_specification>  
 <sort_specification> ::= <sort_expression> [, <sort_expression>]  
-<sort_expression> ::= <scalar_expression> [ASC | DESC]  
+<sort_expression> ::= {<scalar_expression> [ASC | DESC]} [ ,...n ]  
   
 ```  
-  
+
  **Arguments**  
   
 - `<sort_specification>`  
   
-   Specifies a property or expression on which to sort the query result set. A sort column can be specified as a name or column alias.  
+   Specifies a property or expression on which to sort the query result set. A sort column can be specified as a name or property alias.  
   
-   Multiple sort columns can be specified. Column names must be unique. The sequence of the sort columns in the ORDER BY clause defines the organization of the sorted result set. That is, the result set is sorted by the first property and then that ordered list is sorted by the second property, and so on.  
+   Multiple properties can be specified. Property names must be unique. The sequence of the sort properties in the ORDER BY clause defines the organization of the sorted result set. That is, the result set is sorted by the first property and then that ordered list is sorted by the second property, and so on.  
   
-   The column names referenced in the ORDER BY clause must correspond to either a column in the select list or to a column defined in a table specified in the FROM clause without any ambiguities.  
+   The property names referenced in the ORDER BY clause must correspond to either a property in the select list or to a property defined in the collection specified in the FROM clause without any ambiguities.  
   
 - `<sort_expression>`  
   
-   Specifies a single property or expression on which to sort the query result set.  
+   Specifies one or more properties or expressions on which to sort the query result set.  
   
 - `<scalar_expression>`  
   
@@ -365,8 +373,34 @@ ORDER BY <sort_specification>
   
   **Remarks**  
   
-  While the query grammar supports multiple order by properties, the Cosmos DB query runtime supports sorting only against a single property, and only against property names (not against computed properties). Sorting also requires that the indexing policy includes a range index for the property and the specified type, with the maximum precision. Refer to the indexing policy documentation for more details.  
+   The ORDER BY clause requires that the indexing policy include an index for the fields being sorted. The Azure Cosmos DB query runtime supports sorting against a property name and not against computed properties. Azure Cosmos DB supports multiple ORDER BY properties. In order to run a query with multiple ORDER BY properties, you should define a [composite index](index-policy.md#composite-indexes) on the fields being sorted.
+
+
+##  <a name=bk_offsetlimit_clause></a> OFFSET LIMIT clause
+
+Specifies the number of items skipped and number of items returned. For examples, see [OFFSET LIMIT clause examples](how-to-sql-query.md#OffsetLimitClause)
   
+ **Syntax**  
+  
+```sql  
+OFFSET <offset_amount> LIMIT <limit_amount>
+```  
+  
+ **Arguments**  
+ 
+- `<offset_amount>`
+
+   Specifies the integer number of items that the query results should skip.
+
+
+- `<limit_amount>`
+  
+   Specifies the integer number of items that the query results should include
+
+  **Remarks**  
+  
+  Both the OFFSET count and the LIMIT count are required in the OFFSET LIMIT clause. If an optional `ORDER BY` clause is used, the result set is produced by doing the skip over the ordered values. Otherwise, the query will return a fixed order of values.
+
 ##  <a name="bk_scalar_expressions"></a> Scalar expressions  
  A scalar expression is a combination of symbols and operators that can be evaluated to obtain a single value. Simple expressions can be constants, property references, array element references, alias references, or function calls. Simple expressions can be combined into complex expressions using operators. For examples, see [scalar expressions examples](how-to-sql-query.md#scalar-expressions)
   
@@ -677,7 +711,8 @@ ORDER BY <sort_specification>
 |[Mathematical functions](#bk_mathematical_functions)|The mathematical functions each perform a calculation, usually based on input values that are provided as arguments, and return a numeric value.|  
 |[Type checking functions](#bk_type_checking_functions)|The type checking functions allow you to check the type of an expression within SQL queries.|  
 |[String functions](#bk_string_functions)|The string functions perform an operation on a string input value and return a string, numeric or Boolean value.|  
-|[Array functions](#bk_array_functions)|The array functions perform an operation on an array input value and return numeric, Boolean, or array value.|  
+|[Array functions](#bk_array_functions)|The array functions perform an operation on an array input value and return numeric, Boolean, or array value.|
+|[Date and Time functions](#bk_date_and_time_functions)|The date and time functions allow you to get the current UTC date and time in two forms; a numeric timestamp whose value is the Unix epoch in milliseconds or as a string which conforms to the ISO 8601 format.|
 |[Spatial functions](#bk_spatial_functions)|The spatial functions perform an operation on a spatial object input value and return a numeric or Boolean value.|  
   
 ###  <a name="bk_mathematical_functions"></a> Mathematical functions  
@@ -2359,16 +2394,16 @@ SELECT
     StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
 ```
 
- Here is the result set.
+Here is the result set.
 
 ```
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
- The following is an example of invalid input. 
+The following is an example of invalid input. 
    
  Single quotes within the array are not valid JSON.
- Even though they are valid within a query, they will not parse to valid arrays. 
+Even though they are valid within a query, they will not parse to valid arrays. 
  Strings within the array string must either be escaped "[\\"\\"]" or the surrounding quote must be single '[""]'.
 
 ```
@@ -2376,13 +2411,13 @@ SELECT
     StringToArray("['5','6','7']")
 ```
 
- Here is the result set.
+Here is the result set.
 
 ```
 [{}]
 ```
 
- The following are examples of invalid input.
+The following are examples of invalid input.
    
  The expression passed will be parsed as a JSON array; the following do not evaluate to type array and thus return undefined.
    
@@ -2395,7 +2430,7 @@ SELECT
     StringToArray(undefined)
 ```
 
- Here is the result set.
+Here is the result set.
 
 ```
 [{}]
@@ -2426,7 +2461,7 @@ StringToBoolean(<expr>)
  
  The following are examples with valid input.
 
- Whitespace is allowed only before or after "true"/"false".
+Whitespace is allowed only before or after "true"/"false".
 
 ```  
 SELECT 
@@ -2441,8 +2476,8 @@ SELECT
 [{"b1": true, "b2": false, "b3": false}]
 ```  
 
- The following are examples with invalid input.
- 
+The following are examples with invalid input.
+
  Booleans are case sensitive and must be written with all lowercase characters i.e. "true" and "false".
 
 ```  
@@ -2451,15 +2486,15 @@ SELECT
     StringToBoolean("False")
 ```  
 
- Here is the result set.  
+Here is the result set.  
   
 ```  
 [{}]
 ``` 
 
- The expression passed will be parsed as a Boolean expression; these inputs do not evaluate to type Boolean and thus return undefined.
+The expression passed will be parsed as a Boolean expression; these inputs do not evaluate to type Boolean and thus return undefined.
 
- ```  
+```  
 SELECT 
     StringToBoolean("null"),
     StringToBoolean(undefined),
@@ -2468,7 +2503,7 @@ SELECT
     StringToBoolean(true)
 ```  
 
- Here is the result set.  
+Here is the result set.  
   
 ```  
 [{}]
@@ -2497,8 +2532,8 @@ StringToNull(<expr>)
   
   The following example shows how StringToNull behaves across different types. 
 
- The following are examples with valid input.
- 
+The following are examples with valid input.
+
  Whitespace is allowed only before or after "null".
 
 ```  
@@ -2514,9 +2549,9 @@ SELECT
 [{"n1": null, "n2": null, "n3": true}]
 ```  
 
- The following are examples with invalid input.
+The following are examples with invalid input.
 
- Null is case sensitive and must be written with all lowercase characters i.e. "null".
+Null is case sensitive and must be written with all lowercase characters i.e. "null".
 
 ```  
 SELECT    
@@ -2530,7 +2565,7 @@ SELECT
 [{}]
 ```  
 
- The expression passed will be parsed as a null expression; these inputs do not evaluate to type null and thus return undefined.
+The expression passed will be parsed as a null expression; these inputs do not evaluate to type null and thus return undefined.
 
 ```  
 SELECT    
@@ -2569,8 +2604,8 @@ StringToNumber(<expr>)
   
   The following example shows how StringToNumber behaves across different types. 
 
- Whitespace is allowed only before or after the Number.
- 
+Whitespace is allowed only before or after the Number.
+
 ```  
 SELECT 
     StringToNumber("1.000000") AS num1, 
@@ -2585,8 +2620,8 @@ SELECT
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
- In JSON a valid Number must be either be an integer or a floating point number.
- 
+In JSON a valid Number must be either be an integer or a floating point number.
+
 ```  
 SELECT   
     StringToNumber("0xF")
@@ -2598,7 +2633,7 @@ SELECT
 {{}}
 ```  
 
- The expression passed will be parsed as a Number expression; these inputs do not evaluate to type Number and thus return undefined. 
+The expression passed will be parsed as a Number expression; these inputs do not evaluate to type Number and thus return undefined. 
 
 ```  
 SELECT 
@@ -2640,7 +2675,7 @@ StringToObject(<expr>)
   The following example shows how StringToObject behaves across different types. 
   
  The following are examples with valid input.
- 
+
 ``` 
 SELECT 
     StringToObject("{}") AS obj1, 
@@ -2649,7 +2684,7 @@ SELECT
     StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
 ``` 
 
- Here is the result set.
+Here is the result set.
 
 ```
 [{"obj1": {}, 
@@ -2657,42 +2692,42 @@ SELECT
   "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
   "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
 ```
- 
+
  The following are examples with invalid input.
- Even though they are valid within a query, they will not parse to valid objects. 
+Even though they are valid within a query, they will not parse to valid objects. 
  Strings within the string of object must either be escaped "{\\"a\\":\\"str\\"}" or the surrounding quote must be single 
  '{"a": "str"}'.
 
- Single quotes surrounding property names are not valid JSON.
+Single quotes surrounding property names are not valid JSON.
 
 ``` 
 SELECT 
     StringToObject("{'a':[1,2,3]}")
 ```
 
- Here is the result set.
+Here is the result set.
 
 ```  
 [{}]
 ```  
 
- Property names without surrounding quotes are not valid JSON.
+Property names without surrounding quotes are not valid JSON.
 
 ``` 
 SELECT 
     StringToObject("{a:[1,2,3]}")
 ```
 
- Here is the result set.
+Here is the result set.
 
 ```  
 [{}]
 ``` 
 
- The following are examples with invalid input.
- 
+The following are examples with invalid input.
+
  The expression passed will be parsed as a JSON object; these inputs do not evaluate to type object and thus return undefined.
- 
+
 ``` 
 SELECT 
     StringToObject("}"),
@@ -2797,20 +2832,20 @@ CONCAT(ToString(p.Weight), p.WeightUnits)
 FROM p in c.Products 
 ```  
 
- Here is the result set.  
+Here is the result set.  
   
 ```  
 [{"$1":"4lb" },
- {"$1":"32kg"},
- {"$1":"400g" },
- {"$1":"8999mg" }]
+{"$1":"32kg"},
+{"$1":"400g" },
+{"$1":"8999mg" }]
 
 ```  
 Given the following input.
 ```
 {"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
 ```
- The following example shows how ToString can be used with other string functions like REPLACE.   
+The following example shows how ToString can be used with other string functions like REPLACE.   
 ```
 SELECT 
     n.id AS nutrientID,
@@ -2818,14 +2853,14 @@ SELECT
 FROM food 
 JOIN n IN food.nutrients
 ```
- Here is the result set.  
+Here is the result set.  
  ```
 [{"nutrientID":"305"},
 {"nutrientID":"306","nutritionVal":"30"},
 {"nutrientID":"307","nutritionVal":"912"},
 {"nutrientID":"308","nutritionVal":"90"},
 {"nutrientID":"309","nutritionVal":"null"}]
- ``` 
+``` 
  
 ####  <a name="bk_trim"></a> TRIM  
  Returns a string expression after it removes leading and trailing blanks.  
@@ -2936,7 +2971,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
 Returns a Boolean indicating whether the array contains the specified value. You can check for a partial or full match of an object by using a boolean expression within the command. 
 
- **Syntax**  
+**Syntax**  
   
 ```  
 ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
@@ -2976,7 +3011,7 @@ SELECT
 [{"b1": true, "b2": false}]  
 ```  
 
- The following example how to check for a partial match of a JSON in an array using ARRAY_CONTAINS.  
+The following example how to check for a partial match of a JSON in an array using ARRAY_CONTAINS.  
   
 ```  
 SELECT  
@@ -3084,7 +3119,100 @@ SELECT
            "s7": [] 
 }]  
 ```  
- 
+
+###  <a name="bk_date_and_time_functions"></a> Date and Time functions
+ The following scalar functions allow you to get the current UTC date and time in two forms; a numeric timestamp whose value is the Unix epoch in milliseconds or as a string which conforms to the ISO 8601 format. 
+
+|||
+|-|-|
+|[GetCurrentDateTime](#bk_get_current_date_time)|[GetCurrentTimestamp](#bk_get_current_timestamp)||
+
+####  <a name="bk_get_current_date_time"></a> GetCurrentDateTime
+ Returns the current UTC date and time as an ISO 8601 string.
+  
+ **Syntax**
+  
+```
+GetCurrentDateTime ()
+```
+  
+  **Return Types**
+  
+  Returns the current UTC date and time ISO 8601 string value. 
+
+  This is expressed in the format YYYY-MM-DDThh:mm:ss.sssZ where:
+  
+  |||
+  |-|-|
+  |YYYY|four-digit year|
+  |MM|two-digit month (01 = January, etc.)|
+  |DD|two-digit day of month (01 through 31)|
+  |T|signifier for beginning of time elements|
+  |hh|two digit hour (00 through 23)|
+  |mm|two digit minutes (00 through 59)|
+  |ss|two digit seconds (00 through 59)|
+  |.sss|three digits of decimal fractions of a second|
+  |Z|UTC (Coordinated Universal Time) designator||
+  
+  For more details on the ISO 8601 format, see [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+
+  **Remarks**
+
+  GetCurrentDateTime is a nondeterministic function. 
+  
+  The result returned is UTC (Coordinated Universal Time).
+
+  **Examples**  
+  
+  The following example shows how to get the current UTC Date Time using the GetCurrentDateTime built-in function.
+  
+```  
+SELECT GetCurrentDateTime() AS currentUtcDateTime
+```  
+  
+ Here is an example result set.
+  
+```  
+[{
+  "currentUtcDateTime": "2019-05-03T20:36:17.784Z"
+}]  
+```  
+
+####  <a name="bk_get_current_timestamp"></a> GetCurrentTimestamp
+ Returns the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970. 
+  
+ **Syntax**  
+  
+```  
+GetCurrentTimestamp ()  
+```  
+  
+  **Return Types**  
+  
+  Returns a numeric value, the current number of milliseconds that have elapsed since the Unix epoch i.e. the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
+
+  **Remarks**
+
+  GetCurrentTimestamp is a nondeterministic function. 
+  
+  The result returned is UTC (Coordinated Universal Time).
+
+  **Examples**  
+  
+  The following example shows how to get the current timestamp using the GetCurrentTimestamp built-in function.
+  
+```  
+SELECT GetCurrentTimestamp() AS currentUtcTimestamp
+```  
+  
+ Here is an example result set.
+  
+```  
+[{
+  "currentUtcTimestamp": 1556916469065
+}]  
+```  
+
 ###  <a name="bk_spatial_functions"></a> Spatial functions  
  The following scalar functions perform an operation on a spatial object input value and return a numeric or Boolean value.  
   
@@ -3291,7 +3419,7 @@ SELECT ST_ISVALIDDETAILED({
   }  
 }]  
 ```  
-  
+ 
 ## Next steps  
 
 - [SQL syntax and SQL query for Cosmos DB](how-to-sql-query.md)
