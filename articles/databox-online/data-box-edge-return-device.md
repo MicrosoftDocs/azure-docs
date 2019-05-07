@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/07/2019
 ms.author: alkohli
 ---
 
 # Return your Azure Data Box Edge device
 
-This article describes how to wipe the data and then return your Azure Data Box Edge device. After you've returned the device, you can also delete the resource or the order associated with the device.
+This article describes how to wipe the data and then return your Azure Data Box Edge device. After you've returned the device, you can also delete the resource associated with the device.
 
 In this article, you learn how to:
 
@@ -27,7 +27,7 @@ In this article, you learn how to:
 
 To wipe the data off the data disks of your device, you need to reset your device. You can reset your device using the local web UI or the PowerShell interface.
 
-Before you reset, make sure to back up the local data on the device if needed.
+Before you reset, create a copy of the local data on the device if needed. You can copy the data from the device to an Azure Storage container.
 
 To reset your device using the local web UI, take the following steps.
 
@@ -40,13 +40,13 @@ To reset your device using the local web UI, take the following steps.
 
     ![Confirm reset](media/data-box-edge-return-device/device-reset-2.png)  
 
-The reset will erase the data off the device data disks. The process takes about 30-40 minutes depending on the amount of data on your device.
+The reset erases the data off the device data disks. Depending on the amount of data on your device, this process takes about 30-40 minutes.
 
-Alternatively, you can connect to the PowerShell interface of the device and use the `Reset-HcsAppliance` cmdlet to erase the data from the data disks. For more information, see [Reset your device](data-box-edge-connect-powershell-interface.md#reset-your-device).
+Alternatively, connect to the PowerShell interface of the device and use the `Reset-HcsAppliance` cmdlet to erase the data from the data disks. For more information, see [Reset your device](data-box-edge-connect-powershell-interface.md#reset-your-device).
 
 > [!NOTE]
 > - If you're exchanging or upgrading to a new device, we recommend that you reset your device only after you've received the new device.
-> - The device reset only deletes all the local data off the device. The data that is in the cloud isn't deleted and collects charges. This data needs to be deleted separately using a cloud storage management tool like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+> - The device reset only deletes all the local data off the device. The data that is in the cloud isn't deleted and collects [charges](https://azure.microsoft.com/pricing/details/storage/). This data needs to be deleted separately using a cloud storage management tool like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 ## Open a Support ticket
 
@@ -67,7 +67,7 @@ To begin the return process, take the following steps.
 3. Unplug the power cables and remove all the network cables from the device.
 4. Prepare the shipment package by using your own box or the empty box you received from Azure. Place the device and the power cords that were shipped with the device in the box.
 5. Affix the shipping label that you received from Azure on the package.
-6. Schedule a pickup with UPS. To schedule a pickup:
+6. Schedule a pickup with your regional carrier. If returning the device in US, your carrier is UPS. To schedule a pickup:
 
     1. Call the local UPS (country-specific toll free number).
     2. In your call, quote the reverse shipment tracking number as shown on your printed label.
@@ -79,13 +79,13 @@ To begin the return process, take the following steps.
 
 After the device is received at the Azure datacenter, the device is inspected for damage or any signs of tampering.
 
-- If the device arrives intact and in good shape, the billing meter stops for that resource. The resource associated with the device can now be deleted from the Azure portal.
+- If the device arrives intact and in good shape, the billing meter stops for that resource. Microsoft Support will contact you to confirm that the device was returned. You can then delete the resource associated with the device in the Azure portal.
 - If the device arrives significantly damaged, fines may apply. For details, see the [FAQ on lost or damaged device](https://azure.microsoft.com/pricing/details/databox/edge/) and [Product Terms of Service](https://www.microsoft.com/licensing/product-licensing/products).  
 
 
 You can delete the device in the Azure portal:
 -	After you have placed the order and before the device is prepared by Microsoft.
--	After you’ve returned the device to Microsoft and it passes the physical inspection at the Azure datacenter.
+-	After you’ve returned the device to Microsoft, it passes the physical inspection at the Azure datacenter, and Microsoft Support calls to confirm that the device was returned.
 
 If you’ve activated the device against another subscription or location, Microsoft will move your order to the new subscription or location within one business day. After the order is moved, you can delete this resource.
 
