@@ -43,7 +43,7 @@ We've updated the portal endpoints for Microsoft Azure Government, Microsoft 365
 
 Previously customers could sign in using the worldwide Azure (portal.azure.com) and Office 365 (portal.office.com) portals. With this update, your users must now sign in using the specific Microsoft Azure Government, Microsoft 365 Government - GCC High, and Microsoft 365 Government - DoD portals.
 
-### Endpoint mapping
+## Endpoint mapping
 The following table shows the endpoints for all customers:
 
 | Name | Endpoint details |
