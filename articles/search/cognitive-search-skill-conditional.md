@@ -79,7 +79,7 @@ The following items are valid values of an expression:
         "= $(/document/lengthInMeters) / 0.3049" // division
     ```
 
-Because the conditional skill supports evaluation, you can use it in minor-transformation scenarios. See example, see [skill definition 4](#transformation-examples).
+Because the conditional skill supports evaluation, you can use it in minor-transformation scenarios. See example, see [skill definition 4](#transformation-example).
 
 ## Skill inputs
 Inputs are case-sensitive.
