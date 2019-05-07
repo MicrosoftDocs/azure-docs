@@ -9,7 +9,7 @@ ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/26/2019
-ms.author: cawa@microsoft.com
+ms.author: cawa
 ---
 
 # Azure Monitor application change analysis (public preview)
@@ -43,7 +43,7 @@ Azure Monitor application change analysis is currently built into the self-servi
 
 4. To take advantage of the full change analysis functionality set **Change Analysis**, **Scan for code changes**, and **Always on** to **On** and select **Save**.
 
-    ![Screenshot of the Azure App Service enable change analysis user inerface](./media/change-analysis/change-analysis-on.png)
+    ![Screenshot of the Azure App Service enable change analysis user interface](./media/change-analysis/change-analysis-on.png)
 
     If **Change Analysis** is enabled, you will be able to detect resource level changes. If **Scan for code changes** is enabled, you will also see deployment files and site configuration changes. Enabling **Always on** will optimize the change scanning performance, but may incur additional costs from a billing perspective.
 
@@ -54,7 +54,7 @@ Azure Monitor application change analysis is currently built into the self-servi
      > [!NOTE]
      > After enabling change analysis you mayT receive a message stating "Unable to fetch Change Analysis information. Please try again later." This is expected, you may need to wait up to 4 hours for the initial collection of application change data to occur.
     `
-## Next Steps
+## Next steps
 
 - Improve your monitoring of Azure App Services [by enabling the Application Insights features](azure-web-apps.md) of Azure Monitor.
 - Enhance your understanding of the [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) which helps power Azure Monitor application change analysis. 
