@@ -51,9 +51,9 @@ You can pin the function app to the dashboard by selecting the pin icon in the u
 
 Next, create a preconfigured VM that runs WordPress inside a virtual network ([WordPress LEMP7 Max Performance](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure) by jetware). A WordPress VM is used because of its low cost and convenience. This same scenario works with any resource in a virtual network, such as REST APIs, App Service Environments, and other Azure services. 
 
-1. Go to the [Azure portal](https://portal.azure.com), choose **+ Create a resource** on the left navigation pane, in the search field type **WordPress LEMP7 Max Performance**, and press Enter.
+1. Go to the [Azure portal](https://portal.azure.com), choose **+ Create a resource** on the left navigation pane, in the search field type `WordPress LEMP7 Max Performance`, and press Enter.
 
-1. Choose **Wordpress LEMP Max Performance** in the search results. Select a software plan of **Wordpress LEMP Max Performance for CentOS** as the **Software Plan** and choose **Create**.
+1. Choose **Wordpress LEMP Max Performance** in the search results. Select a software plan of **Wordpress LEMP Max Performance for CentOS** as the **Software Plan** and select **Create**.
 
 1. In the **Basics** tab, use the VM settings as specified in the table below the image:
 
@@ -62,7 +62,7 @@ Next, create a preconfigured VM that runs WordPress inside a virtual network ([W
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Subscription** | Your subscription | The subscription under which your resources are created. | 
-    | **[Resource group](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | Choose myResourceGroup, which you created with your function app. Using the same resource group for the function app, WordPress VM, and hosting plan makes it easier to clean up resources when you are done with this tutorial. |
+    | **[Resource group](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | Choose `myResourceGroup`, or the resource group you created with your function app. Using the same resource group for the function app, WordPress VM, and hosting plan makes it easier to clean up resources when you are done with this tutorial. |
     | **Virtual machine name** | VNET-Wordpress | The VM name needs to be unique in the resource group |
     | **[Region](https://azure.microsoft.com/regions/)** | (Europe) West Europe | Choose a region near you or near the functions that access the VM. |
     | **Size** | B1s | Choose **Change size** and then select the B1s standard image, which has 1 vCPU and 1 GB of memory. |
