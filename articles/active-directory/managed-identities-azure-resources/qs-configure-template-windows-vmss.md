@@ -56,7 +56,7 @@ Regardless of the option you choose, template syntax is the same during initial 
 
 In this section, you will enable and disable the system-assigned managed identity using an Azure Resource Manager template.
 
-### Enable system-assigned managed identity during creation the creation of a virtual machines scale set or a existing virtual machine scale set
+### Enable system-assigned managed identity during creation the creation of a virtual machines scale set or an existing virtual machine scale set
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the virtual machine scale set.
 2. To enable the system-assigned managed identity, load the template into an editor, locate the `Microsoft.Compute/virtualMachinesScaleSets` resource of interest within the resources section and add the `identity` property at the same level as the `"type": "Microsoft.Compute/virtualMachinesScaleSets"` property. Use the following syntax:

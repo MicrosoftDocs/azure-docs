@@ -7,13 +7,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
 ---
 
 # Example: How to detect language with Text Analytics
 
-The [Language Detection API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) evaluates text input and for each document and returns language identifiers with a score indicating the strength of the analysis. Text Analytics recognizes up to 120 languages.
+The [Language Detection API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) evaluates text input and for each document and returns language identifiers with a score indicating the strength of the analysis. Text Analytics recognizes up to 120 languages.
 
 This capability is useful for content stores that collect arbitrary text, where language is unknown. You can parse the results of this analysis to determine which language is used in the input document. The response also returns a score which reflects the confidence of the model (a value between 0 and 1).
 
@@ -22,7 +22,7 @@ This capability is useful for content stores that collect arbitrary text, where 
 
 ## Preparation
 
-You must have JSON documents in this format: id, text
+You must have JSON documents in this format: ID, text
 
 Document size must be under 5,120 characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following is an example of content you might submit for language detection.
 
@@ -57,16 +57,16 @@ Document size must be under 5,120 characters per document, and you can have up t
 
 Details on request definition can be found in [How to call the Text Analytics API](text-analytics-how-to-call-api.md). The following points are restated for convenience:
 
-+ Create a **POST** request. Review the API documentation for this request: [Language Detection API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
++ Create a **POST** request. Review the API documentation for this request: [Language Detection API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 
-+ Set the HTTP endpoint for language detection, using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). It must include the `/languages` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
++ Set the HTTP endpoint for language detection, using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). It must include the `/languages` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
 
 + Set a request header to include the access key for Text Analytics operations. For more information, see [How to find endpoints and access keys](text-analytics-how-to-access-key.md).
 
 + In the request body, provide the JSON documents collection you prepared for this analysis
 
 > [!Tip]
-> Use [Postman](text-analytics-how-to-call-api.md) or open the **API testing console** in the [documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) to structure a request and POST it to the service.
+> Use [Postman](text-analytics-how-to-call-api.md) or open the **API testing console** in the [documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) to structure a request and POST it to the service.
 
 ## Step 2: Post the request
 
@@ -201,8 +201,8 @@ Resulting output consists of the predominant language, with a score of less than
 
 In this article, you learned concepts and workflow for language detection using Text Analytics in Cognitive Services. The following are a quick reminder of the main points previously explained and demonstrated:
 
-+ [Language detection API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) is available for 120 languages.
-+ JSON documents in the request body include an id and text.
++ [Language detection API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) is available for 120 languages.
++ JSON documents in the request body include an ID and text.
 + POST request is to a `/languages` endpoint, using a personalized [access key and an endpoint](text-analytics-how-to-access-key.md) that is valid for your subscription.
 + Response output, which consists of language identifiers for each document ID, can be streamed to any app that accepts JSON, including Excel and Power BI, to name a few.
 

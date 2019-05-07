@@ -10,11 +10,11 @@
  ms.custom: include file
 ---
 
-The following table describes default limits for Azure Storage. The *ingress* limit refers to all data from requests that are sent to a storage account. The *egress* limit refers to all data from responses that are received from a storage account.
+The following table describes default limits for Azure general-purpose v1, v2, and Blob storage accounts. The *ingress* limit refers to all data from requests that are sent to a storage account. The *egress* limit refers to all data from responses that are received from a storage account.
 
 | Resource | Default limit |
 | --- | --- |
-| Number of storage accounts per region per subscription, which includes Standard and Premium accounts | 250 |
+| Number of storage accounts per region per subscription, including both standard and premium accounts | 250 |
 | Maximum storage account capacity | 2 PB for US and Europe, 500 TB for all other regions, which includes the UK |
 | Maximum number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account | No limit |
 | Maximum request rate<sup>1</sup> per storage account | 20,000 requests per second |

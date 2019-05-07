@@ -29,6 +29,7 @@ This feature is available for the following Azure services and regions:
 - **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Generally available in all Azure regions.
 - **[Azure Database for PostgreSQL server](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Generally available in Azure regions where database service is available.
 - **[Azure Database for MySQL server](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Generally available in Azure regions where database service is available.
+- **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: Generally available in Azure regions where database service is available.
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Generally available in all Azure regions.
 - **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)**: Generally available in all Azure regions.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Generally available in all Azure regions.
@@ -37,7 +38,6 @@ This feature is available for the following Azure services and regions:
 
 **Public Preview**
 
-- **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: Preview available in all Azure regions where Azure Database for MariaDB is available.
 - **[Azure Container Registry](../container-registry/container-registry-vnet.md)**: Preview available in all Azure regions where Azure Container Registry is available.
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
@@ -128,7 +128,7 @@ There is no additional charge for using service endpoints. The current pricing m
 
 There is no limit on the total number of service endpoints in a virtual network.
 
-For an Azure service resource (such as, an Azure Storage account), services may enforce limits on the number of subnets used for securing the resource. Refer to the documentation for various services in [Next steps](#next-steps) for details.
+Certain Azure services, such as Azure Storage Accounts, may enforce limits on the number of subnets used for securing the resource. Refer to the documentation for various services in [Next steps](#next-steps) for details.
 
 ## Virtual Network Service Endpoint Policies 
 

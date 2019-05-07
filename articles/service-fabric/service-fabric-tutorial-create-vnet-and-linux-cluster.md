@@ -4,7 +4,7 @@ description: Learn how to deploy a Linux Service Fabric cluster into an existing
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/17/2018
+ms.date: 04/03/2019
 ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
@@ -77,7 +77,7 @@ From the Solution Explorer, open **Dockerfile**.
 You need to use a [supported parent image](app-service-web-get-started-windows-container.md#use-a-different-parent-image). Change the parent image by replacing the `FROM` line with the following code:
 
 ```Dockerfile
-FROM microsoft/aspnet:4.7.1
+FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
 ```
 
 At the end of the file, add the following line and save the file:

@@ -4,7 +4,7 @@ description: Learn how to configure node-to-node and client-to-node security on 
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: ce3bf686-ffc4-452f-b15a-3c812aa9e672

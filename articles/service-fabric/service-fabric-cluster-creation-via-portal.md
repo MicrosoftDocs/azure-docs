@@ -4,7 +4,7 @@ description: Learn how to set up a secure Service Fabric cluster in Azure using 
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: vturecek
 
 ms.assetid: 426c3d13-127a-49eb-a54c-6bde7c87a83b

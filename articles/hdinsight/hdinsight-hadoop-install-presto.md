@@ -1,7 +1,6 @@
 ---
 title: Install Presto on Azure HDInsight Linux clusters 
 description: Learn how to install Presto and Airpal on Linux-based HDInsight Hadoop clusters by using script actions.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -14,6 +13,9 @@ ms.author: hrasheed
 ---
 # Install and use Presto on Hadoop-based HDInsight clusters
 
+> [!IMPORTANT]  
+> PLEASE READ : The below instructions are now deprecated. Please refer to the latest guidance from [Starburst Data](http://docs.starburstdata.com/latest/azure.html) to install and run Presto on Azure HDInsight.  
+
 This article explains how to install Presto on Hadoop-based Azure HDInsight clusters by using script actions. You also learn how to install Airpal on an existing Presto HDInsight cluster.
 
 HDInsight also offers the Starburst Presto application for Apache Hadoop clusters. For more information, see [Install third-party Apache Hadoop applications on Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications).
@@ -22,7 +24,7 @@ HDInsight also offers the Starburst Presto application for Apache Hadoop cluster
 > The steps in this article require an HDInsight 3.5 Hadoop cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or later. For more information, see [HDInsight versions](hdinsight-component-versioning.md).
 
 ## What is Presto?
-[Presto](https://prestodb.io/overview.html) is a fast-distributed SQL query engine for big data. Presto is suitable for interactive querying of petabytes of data. For more information on the components of Presto and how they work together, see [Presto concepts](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst).
+[Presto](https://prestosql.io) is a fast-distributed SQL query engine for big data. Presto is suitable for interactive querying of petabytes of data. For more information on the components of Presto and how they work together, see [Presto concepts](https://prestosql.io/docs/current/overview/concepts.html).
 
 > [!WARNING]  
 > Components provided with the HDInsight cluster are fully supported. Microsoft Support will help to isolate and resolve issues related to these components.
@@ -82,9 +84,9 @@ To work with Presto in an HDInsight cluster, take the following steps:
    
 	`select count (*) from hivesampletable;`
    
-	By default, [Apache Hive](https://prestodb.io/docs/current/connector/hive.html) and [TPCH](https://prestodb.io/docs/current/connector/tpch.html) connectors for Presto are already configured. The Hive connector is configured to use the default Hive installation. So all the tables from Hive are automatically visible in Presto.
+	By default, [Apache Hive](https://prestosql.io/docs/current/connector/hive.html) and [TPCH](https://prestosql.io/docs/current/connector/tpch.html) connectors for Presto are already configured. The Hive connector is configured to use the default Hive installation. So all the tables from Hive are automatically visible in Presto.
 
-	For more information, see [Presto documentation](https://prestodb.io/docs/current/index.html).
+	For more information, see [Presto documentation](https://prestosql.io/docs/current/index.html).
 
 ## Use Airpal with Presto
 
@@ -147,7 +149,7 @@ To customize the installation, take the following steps:
    
     For more information, see [Connect to HDInsight (Apache Hadoop) by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Make your configuration changes in the file `/var/lib/presto/presto-hdinsight-master/appConfig-default.json`. For more information on Presto configuration, see [Presto configuration options for YARN-based clusters](https://prestodb.io/presto-yarn/installation-yarn-configuration-options.html).
+2. Make your configuration changes in the file `/var/lib/presto/presto-hdinsight-master/appConfig-default.json`. For more information on Presto configuration, see [Presto configuration options for YARN-based clusters](https://prestosql.github.io/presto-yarn/installation-yarn-configuration-options.html).
 
 3. Stop and kill the current running instance of Presto:
 

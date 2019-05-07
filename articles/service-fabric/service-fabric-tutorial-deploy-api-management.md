@@ -3,8 +3,8 @@ title: Integrate API Management with Service Fabric in Azure | Microsoft Docs
 description: Learn how to quickly get started with Azure API Management and route traffic to a back-end service in Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/26/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
 ---
 # Integrate API Management with Service Fabric in Azure
@@ -22,6 +22,9 @@ ms.custom: mvc
 Deploying Azure API Management with Service Fabric is an advanced scenario.  API Management is useful when you need to publish APIs with a rich set of routing rules for your back-end Service Fabric services. Cloud applications typically need a front-end gateway to provide a single point of ingress for users, devices, or other applications. In Service Fabric, a gateway can be any stateless service designed for traffic ingress such as an ASP.NET Core application, Event Hubs, IoT Hub, or Azure API Management.
 
 This article shows you how to set up [Azure API Management](../api-management/api-management-key-concepts.md) with Service Fabric to route traffic to a back-end service in Service Fabric.  When you're finished, you have deployed API Management to a VNET, configured an API operation to send traffic to back-end stateless services. To learn more about Azure API Management scenarios with Service Fabric, see the [overview](service-fabric-api-management-overview.md) article.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Availability
 
@@ -33,7 +36,7 @@ This article shows you how to set up [Azure API Management](../api-management/ap
 Before you begin:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+* Install [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) in a network security group.
 * If you deploy a Windows cluster, set up a Windows development environment. Install [Visual Studio 2017](https://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then set up a [.NET development environment](service-fabric-get-started.md).
 
@@ -48,9 +51,9 @@ Now that you have a secure [Windows cluster](service-fabric-tutorial-create-vnet
 Sign in to your Azure account select your subscription before you execute Azure commands.
 
 ```powershell
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Get-AzSubscription
+Set-AzContext -SubscriptionId <guid>
 ```
 
 ```azurecli
@@ -240,9 +243,9 @@ $groupname = "sfclustertutorialgroup"
 $clusterloc="southcentralus"
 $templatepath="C:\clustertemplates"
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$templatepath\network-apim.json" -TemplateParameterFile "$templatepath\network-apim.parameters.json" -Verbose
+New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$templatepath\network-apim.json" -TemplateParameterFile "$templatepath\network-apim.parameters.json" -Verbose
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$templatepath\apim.json" -TemplateParameterFile "$templatepath\apim.parameters.json" -Verbose
+New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile "$templatepath\apim.json" -TemplateParameterFile "$templatepath\apim.parameters.json" -Verbose
 ```
 
 ```azurecli
@@ -281,11 +284,11 @@ You can now try sending a request to your back-end service in Service Fabric thr
 
 A cluster is made up of other Azure resources in addition to the cluster resource itself. The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
 
-Log in to Azure and select the subscription ID with which you want to remove the cluster.  You can find your subscription ID by logging in to the [Azure portal](https://portal.azure.com). Delete the resource group and all the cluster resources using the [Remove-AzureRMResourceGroup cmdlet](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+Log in to Azure and select the subscription ID with which you want to remove the cluster.  You can find your subscription ID by logging in to the [Azure portal](https://portal.azure.com). Delete the resource group and all the cluster resources using the [Remove-AzResourceGroup cmdlet](/en-us/powershell/module/az.resources/remove-azresourcegroup).
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"
-Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
+Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ```azurecli
@@ -304,6 +307,10 @@ Learn more about using [API Management](/azure/api-management/import-and-publish
 
 [network-arm]: https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.json
 [network-parameters-arm]: https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.parameters.json
+
+<!-- pics -->
+[sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png
+vice-fabric-scripts-and-templates/blob/master/templates/service-integration/network-apim.parameters.json
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

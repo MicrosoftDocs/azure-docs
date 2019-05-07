@@ -80,7 +80,12 @@ When you clone configuration from another deployment slot, the cloned configurat
 * Monitoring and diagnostic settings
 * Public certificates
 * WebJobs content
-* Hybrid connections
+* Hybrid connections *
+* VNet integration *
+* Service Endpoints *
+* Azure CDN *
+
+Features marked with a * are planned to be made sticky to the slot. 
 
 **Settings that aren't swapped**:
 
@@ -89,10 +94,15 @@ When you clone configuration from another deployment slot, the cloned configurat
 * Private certificates and SSL bindings
 * Scale settings
 * WebJobs schedulers
+* IP restrictions
+* Always On
+* Protocol Settings (HTTP**S**, TLS version, client certificates)
+* Diagnostic log settings
+* CORS
 
-<!-- VNET, IP restrictions, CORS, hybrid connections? -->
+<!-- VNET and hybrid connections not yet sticky to slot -->
 
-To configure an app setting or connection string to stick to a specific slot (not swapped), navigate to the **Application settings** page for that slot, then select the **Slot Setting** box for the configuration elements that should stick to the slot. Marking a configuration element as slot specific tells App Service that it's not swappable.
+To configure an app setting or connection string to stick to a specific slot (not swapped), navigate to the **Application settings** page for that slot, then select the **Slot Setting** box for the configuration elements that should stick to the slot. Marking a configuration element as slot specific tells App Service that it's not swappable. 
 
 ![Slot setting](./media/web-sites-staged-publishing/SlotSetting.png)
 
@@ -251,6 +261,8 @@ To let users opt in to your beta app, set the same query parameter to the name o
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
+
+By default, new slots are given a routing rule of `0%`, shown in grey. By explicitly setting this value to `0%` (shown in black text), your users can access the staging slot manually by using the `x-ms-routing-name` query parameter, but they will not be routed to the slot automatically since the routing percentage is set to 0. This is an advanced scenario where you can "hide" your staging slot from the public while allowing internal teams to test changes on the slot.
 
 <a name="Delete"></a>
 

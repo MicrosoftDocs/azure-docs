@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 05/01/2019
 ---
 
 # Tutorial: Migrate SQL Server to a single database or pooled database in Azure SQL Database online using DMS
@@ -29,6 +29,7 @@ In this tutorial, you learn how to:
 
 > [!NOTE]
 > Using the Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium pricing tier. For more information, see the Azure Database Migration Service [pricing](https://azure.microsoft.com/pricing/details/database-migration/) page.
+
 > [!IMPORTANT]
 > For an optimal migration experience, Microsoft recommends creating an instance of the Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
 
@@ -58,7 +59,7 @@ To complete this tutorial, you need to:
     >
     > This configuration is necessary because the Azure Database Migration Service lacks internet connectivity.
 
-- Ensure that your VNET Network Security Group rules don't block the following communication ports 443, 53, 9354, 445, 12000. For more detail on Azure VNET NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Ensure that your VNET Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on Azure VNET NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Open your Windows firewall to allow the Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
 - If you're running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that the Azure Database Migration Service can connect to a named instance on your source server.
@@ -228,9 +229,7 @@ To migrate the **AdventureWorks2012** schema to a single database or pooled data
 
     For more information on costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
 
-    If you need help with choosing the right Azure Database Migration Service tier, refer to the recommendations in the posting [here](https://go.microsoft.com/fwlink/?linkid=861067).  
-
-     ![Configure Azure Database Migration Service instance settings](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
+    ![Configure Azure Database Migration Service instance settings](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
 
 7.Select **Create** to create the service.
 
@@ -253,7 +252,7 @@ After the service is created, locate it within the Azure portal, open it, and th
     ![Create Database Migration Service Project](media/tutorial-sql-server-to-azure-sql-online/dms-create-project3.png)
 
     > [!NOTE]
-    > Alternately, you can chose **Create project only** to create the migration project now and execute the migration later.
+    > Alternately, you can choose **Create project only** to create the migration project now and execute the migration later.
 
 6. Select **Save**.
 

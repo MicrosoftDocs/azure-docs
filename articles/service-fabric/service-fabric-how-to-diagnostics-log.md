@@ -4,7 +4,7 @@ description: Learn about how to add logging to your .NET Service Fabric applicat
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

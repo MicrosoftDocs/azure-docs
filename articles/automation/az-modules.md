@@ -64,7 +64,7 @@ One way to test your runbooks before modifying your runbook to use the new cmdle
 
 ## After migration details
 
-After the migration is complete, don’t start runbooks using `AzureRM` modules on the account any longer. It's also recommended don’t import or update `AzureRM` modules on this account. Starting from this moment, consider this account migrated to `Az`, and operate with `Az` modules only. When a new Automation Account is created the existing `AzureRM` modules will still be installed and the tutorial runbooks will still be authored with `AzureRM` cmdlets. These runbooks should not be ran.
+After the migration is complete, don’t start runbooks using `AzureRM` modules on the account any longer. It's also recommended don’t import or update `AzureRM` modules on this account. Starting from this moment, consider this account migrated to `Az`, and operate with `Az` modules only. When a new Automation Account is created the existing `AzureRM` modules will still be installed and the tutorial runbooks will still be authored with `AzureRM` cmdlets. These runbooks should not be run.
 
 ## Next steps
 

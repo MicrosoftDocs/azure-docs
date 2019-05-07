@@ -2,11 +2,11 @@
 title: Planning for an Azure File Sync deployment | Microsoft Docs
 description: Learn what to consider when planning for an Azure Files deployment.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 2/7/2019
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
 ---
 
@@ -237,9 +237,11 @@ Azure File Sync is available only in the following regions:
 | Canada East | Quebec City |
 | Central India | Pune |
 | Central US | Iowa |
-| East Asia | Hong Kong |
+| East Asia | Hong Kong SAR |
 | East US | Virginia |
 | East US2 | Virginia |
+| Korea Central| Seoul |
+| Korea South| Busan |
 | Japan East | Tokyo, Saitama |
 | Japan West | Osaka |
 | North Central US | Illinois |
@@ -273,6 +275,8 @@ To support the failover integration between geo-redundant storage and Azure File
 | East Asia           | Southeast Asia     |
 | East US             | West US            |
 | East US 2           | Central US         |
+| Korea Central       | Korea South        |
+| Korea South         | Korea Central      |
 | North Europe        | West Europe        |
 | North Central US    | South Central US   |
 | South India         | Central India      |

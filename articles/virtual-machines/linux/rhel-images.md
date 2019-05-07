@@ -62,7 +62,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 ### Current naming convention
 All currently published RHEL images use the Pay-As-You-Go model and are connected to [Red Hat Update Infrastructure (RHUI) in Azure](https://aka.ms/rhui-update). Due to a design limitation of RHUI, a new naming convention has been adopted for RHEL 7 family images. The RHEL 6 family naming hasn't been changed at this time.
 
-The limitation is in the fact that when a non-selective `yum update` is run against a VM connected to RHUI, the RHEL version gets updated to the latest in the current family. For more information, see [this link](https://aka.ms/rhui-udate). This may result in confusion when a provisioned RHEL 7.2 image becomes RHEL 7.6 after an update. You can still provision from an older image as illustrated in the examples above by specifying the required version explicitly. If the required version is not specified while provisioning a new RHEL 7 image, then the latest image will be provisioned.
+The limitation is in the fact that when a non-selective `yum update` is run against a VM connected to RHUI, the RHEL version gets updated to the latest in the current family. For more information, see [this link](https://aka.ms/rhui-update). This may result in confusion when a provisioned RHEL 7.2 image becomes RHEL 7.6 after an update. You can still provision from an older image as illustrated in the examples above by specifying the required version explicitly. If the required version is not specified while provisioning a new RHEL 7 image, then the latest image will be provisioned.
 
 >[!NOTE]
 > In the RHEL for SAP set of images, the RHEL version remains fixed. As such, their naming convention includes a particular version in the SKU.

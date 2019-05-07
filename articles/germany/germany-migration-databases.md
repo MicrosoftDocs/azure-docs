@@ -34,6 +34,8 @@ For more information:
 - Learn how to [import a BACPAC file to a database](../sql-database/sql-database-import.md).
 - Review the [Azure SQL Database documentation](https://docs.microsoft.com/azure/sql-database/).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## SQL Data Warehouse
 
 To migrate Azure SQL Data Warehouse resources from Azure Germany to global Azure, follow the steps that are described in Azure SQL Database.
@@ -101,13 +103,13 @@ This approach takes advantage of features that are available only in the Premium
 To export from the source instance and import to the destination instance:
 
 1. Create a new Premium tier Azure Cache for Redis instance in the target region. Use the same size as the source Azure Cache for Redis instance.
-1. [Export data from the source cache](../redis-cache/cache-how-to-import-export-data.md) or use the [Export-AzureRmRedisCache PowerShell cmdlet](/powershell/module/azurerm.rediscache/export-azurermrediscache).
+1. [Export data from the source cache](../redis-cache/cache-how-to-import-export-data.md) or use the [Export-AzRedisCache PowerShell cmdlet](/powershell/module/az.rediscache/export-azrediscache).
 
    > [!NOTE]
    > The export Azure Storage account must be in the same region as the cache instance.
 
 1. Copy the exported blobs to a storage account in destination region (for example, by using AzCopy).
-1. [Import data to the destination cache](../redis-cache/cache-how-to-import-export-data.md) or use the [Import-AzureRmRedisCAche PowerShell cmdlet](/powershell/module/azurerm.rediscache/import-azurermrediscache).
+1. [Import data to the destination cache](../redis-cache/cache-how-to-import-export-data.md) or use the [Import-AzRedisCAche PowerShell cmdlet](/powershell/module/az.rediscache/import-azrediscache).
 1. Reconfigure your application to use the target Azure Cache for Redis instance.
 
 ### Option 4: Write data to two Azure Cache for Redis instances, read from one instance
