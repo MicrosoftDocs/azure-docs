@@ -43,7 +43,7 @@ Before creating a volume in Azure NetApp Files, you must purchase and set up a p
 - A volume's capacity consumption counts against its pool's provisioned capacity.
 - Each volume belongs to only one pool, but a pool can contain multiple volumes. 
 - A volume cannot be moved across capacity pools. <!--Within the same NetApp account, you can move a volume across pools.  -->   
-  <!-- For example, in the [Conceptual diagram of storage hierarchy](#conceptual_diagram_of_storage_hierarchy) below, you can move the volumes from Capacity Pool 1 to Capacity Pool 2. -->
+  For example, in the [Conceptual diagram of storage hierarchy](#conceptual_diagram_of_storage_hierarchy) below, you cannot move the volumes from Capacity Pool 1 to Capacity Pool 2.
 - A volume cannot be deleted until all its snapshots have been deleted.
 
 ## <a name="conceptual_diagram_of_storage_hierarchy"></a>Conceptual diagram of storage hierarchy 
