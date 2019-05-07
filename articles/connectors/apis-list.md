@@ -8,7 +8,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
-ms.date: 08/23/2018
+ms.date: 05/07/2019
 ---
 
 # Connectors for Azure Logic Apps
@@ -34,13 +34,17 @@ Also, learn more about [triggers and actions](#triggers-actions).
 
 Connectors are available either as built-in triggers and actions or as managed connectors:
 
-* [**Built-ins**](#built-ins): These built-in actions and triggers are "native" 
+* [**Built-ins**](#built-ins): These built-in triggers and actions are "native" 
 to Azure Logic Apps and help you create logic apps that run on custom schedules, 
 communicate with other endpoints, receive and respond to requests, and call 
 Azure functions, Azure API Apps (Web Apps), your own APIs managed and published 
 with Azure API Management, and nested logic apps that can receive requests. 
 You can also use built-in actions that help you organize and control your 
 logic app's workflow, and also work with data.
+
+  > [!NOTE]
+  > Within an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-environment-overview.md),
+  > built-in triggers and actions display the "Core" label.
 
 * **Managed connectors**: Deployed and managed by Microsoft, 
 these connectors provide triggers and actions for accessing 
@@ -87,11 +91,14 @@ you might have to first create connections, which are managed by Azure Logic App
 
 ## Built-ins
 
-Logic Apps provides built-in triggers and actions 
-so you can create schedule-based workflows, 
-help your logic apps communicate with other apps and services, 
-control the workflow through your logic apps, 
+Logic Apps provides built-in triggers and actions so you can create 
+schedule-based workflows, help your logic apps communicate with other 
+apps and services, control the workflow through your logic apps, 
 and manage or manipulate data.
+
+> [!NOTE]
+> Within an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-environment-overview.md),
+> built-in triggers and actions display the "Core" label.
 
 |   |   |   |   | 
 |---|---|---|---| 

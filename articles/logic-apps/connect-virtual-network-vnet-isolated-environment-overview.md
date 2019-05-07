@@ -38,7 +38,7 @@ Your logic app can now directly access systems that are inside
 or connected to your virtual network by using any of these items:
 
 * An ISE-versioned connector for that system, for example, SQL Server
-* A built-in trigger or action, such as the HTTP trigger or action
+* A built-in or "Core" trigger or action, such as the HTTP trigger or action
 * A custom connector
 
 This overview describes more details about how an ISE gives your logic apps 
@@ -81,10 +81,14 @@ The difference between ISE and non-ISE connectors is
 in the locations where the triggers and actions run:
 
 * In your ISE, built-in triggers and actions such as 
-HTTP always run in the same ISE as your logic app.
+HTTP always run in the same ISE as your logic app 
+and display the "Core" label.
 
-* For connectors that offer two versions, one version runs in an ISE, 
-while the other version runs in the global Logic Apps service.  
+  ![Select "core" built-in triggers and actions](./media/connect-virtual-network-vnet-isolated-environment-overview/select-core-built-in-actions-triggers.png)
+
+* For connectors that offer two versions, 
+one version runs in an ISE, while the other 
+version runs in the global Logic Apps service.  
 
   Connectors that have the **ISE** label always run 
   in the same ISE as your logic app. Connectors without 

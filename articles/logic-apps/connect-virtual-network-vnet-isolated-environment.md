@@ -287,9 +287,12 @@ for example:
   ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
 * You can use the same built-in triggers and actions such as HTTP, 
-which run in the same ISE as your logic app. Connectors with 
-the **ISE** label also run in the same ISE as your logic app. 
-Connectors without the **ISE** label run in the global Logic Apps service.
+which run in the same ISE as your logic app and display the "Core" label.
+
+  ![Select "core" built-in triggers and actions](./media/connect-virtual-network-vnet-isolated-environment/select-core-built-in-actions-triggers.png)
+
+* Standard connectors with the **ISE** label also run in the same ISE as your logic app. 
+Standard connectors without the **ISE** label run in the global Logic Apps service.
 
   ![Select ISE connectors](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
 
@@ -301,7 +304,7 @@ access those systems by using any of these items:
 
   * ISE connector for that system, for example, SQL Server
   
-  * HTTP action 
+  * HTTP action
   
   * Custom connector
 
