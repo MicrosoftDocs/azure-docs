@@ -59,7 +59,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: Learn how to download, install, and use the SDK by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.<br/><br/>All of the arrow links <img src="media/index/link.jpg" height="15" width="15"></img> default to an <i>speech-to-text</i> quickstart -- from there, other scenarios (<a href="scenario-availability.md">where available</a>) like <i>text-to-speech</i> or <i>voice-first-virtual-assistant</i> quickstarts can also be selected. 
+    text: Learn how to download, install, and use the SDK by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.<br/><br/>All of the arrow links <img src="media/index/link.jpg" height="15" width="15"></img> default to an <i>speech-to-text</i> quickstart -- from there, other scenario quickstarts (<a href="scenario-availability.md">where available</a>) like <i>text-to-speech</i> or <i>voice-first-virtual-assistant</i> can also be selected. 
   - type: table
     style: dataMatrix
     columns:
