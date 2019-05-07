@@ -196,14 +196,14 @@ The following table provides coverage information for Azure Maps routing.
 | +Aruba                         |        ✓       |                      |             | 
 | +Caribbean Netherlands         |        ✓       |                      |             |
 | +Curaçao                       |        ✓       |                      |             |
-| +Saint Maarten                  |        ✓       |                      |             |
+| +Sint Maarten                  |        ✓       |                      |             |
 | Norway                         |        ✓       |         ✓            |     ✓      | 
 | Poland                         |        ✓       |         ✓            |     ✓      | 
 | Portugal                       |        ✓       |         ✓            |     ✓      |  
 | Romania                        |        ✓       |         ✓            |     ✓      | 
 | Russian Federation             |        ✓       |         ✓            |     ✓      | 
 | San Marino                     |        ✓       |         ✓            |             |
-| +Saint Maarten                  |        ✓       |                      |             |
+| +Sint Maarten                  |        ✓       |                      |             |
 | Serbia                         |        ✓       |                      |     ✓      | 
 | Slovakia                       |        ✓       |         ✓            |     ✓      | 
 | Slovenia                       |        ✓       |         ✓            |     ✓      |
@@ -217,9 +217,9 @@ The following table provides coverage information for Azure Maps routing.
 | +Bermuda                       |        ✓       |                      |             |
 | +British Virgin Islands        |        ✓       |                      |             |
 | +Cayman Islands                |        ✓       |                      |             |
-| +Gibraltar                      |        ✓       |         ✓            |             | 
+| +Gibraltar                     |        ✓       |         ✓            |             | 
 | +Montserrat                    |        ✓       |                      |             |
-| +Turks & Caicos islands        |        ✓       |                      |             |
+| +Turks and Caicos Islands      |        ✓       |                      |             |
 | Vatican City                   |        ✓       |         ✓            |             |
 | Isle of Man                    |        ✓       |                      |             |
 
