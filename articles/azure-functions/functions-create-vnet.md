@@ -19,7 +19,7 @@ This tutorial shows you how to use Azure Functions to connect to resources in an
 > * Create a function app in the Premium plan
 > * Deploy a WordPress site to VM in a virtual network
 > * Connect the function app to the virtual network
-> * Create a function proxy that accesses WordPress resources
+> * Create a function proxy to access WordPress resources
 > * Request a WordPress file from inside the virtual network
 
 > [!NOTE]  
@@ -51,7 +51,7 @@ You can pin the function app to the dashboard by selecting the pin icon in the u
 
 Next, create a preconfigured VM that runs WordPress inside a virtual network ([WordPress LEMP7 Max Performance](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure) by jetware). A WordPress VM is used because of its low cost and convenience. This same scenario works with any resource in a virtual network, such as REST APIs, App Service Environments, and other Azure services. 
 
-1. Go to the [Azure portal](https://portal.azure.com), choose **+ Create a resource** on the left navigation pane, in the search field type `WordPress LEMP7 Max Performance`, and press Enter.
+1. In the portal, choose **+ Create a resource** on the left navigation pane, in the search field type `WordPress LEMP7 Max Performance`, and press Enter.
 
 1. Choose **Wordpress LEMP Max Performance** in the search results. Select a software plan of **Wordpress LEMP Max Performance for CentOS** as the **Software Plan** and select **Create**.
 
@@ -76,7 +76,7 @@ Next, create a preconfigured VM that runs WordPress inside a virtual network ([W
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
-    | **Name** | MyResourceGroup-vnet | You can use the default name generated for your virtual network. |
+    | **Name** | myResourceGroup-vnet | You can use the default name generated for your virtual network. |
     | **Address range** | 10.10.0.0/16 | Use a single address range for the virtual network. |
     | **Subnet name** | Tutorial-Net | Name of the subnet. |
     | **Address range** | 10.10.1.0/24   | The subnet size determines how many VMs can be used by the App Service plan. A `/24` subnet, which provides 254 host addresses, is used to make it easier to calculate which subnets are available in the 10.10.0.0/16 network.  |
@@ -120,11 +120,10 @@ With a WordPress site running in a VM in a virtual network, you can now connect 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Virtual Network** | MyResourceGroup-vnet | This virtual network is the one you created earlier. |
-    | **Subnet** | Create New Subnet | Create a subnet in the virtual network for your function app to use. |
+    | **Subnet** | Create New Subnet | Create a subnet in the virtual network for your function app to use. It doesn't matter that your function uses a different subnet than your VM. The virtual network automatically routes traffic between the two subnets. |
     | **Subnet name** | Function-Net | Name of the new subnet. |
     | **Virtual network address block** | 10.10.0.0/16 | This address block is the default; there is only one defined. | 
-    | **Address range** | 10.10.2.0/24   | The subnet size restricts the total number of VMs that you can add to your App Service plan. It doesn't matter that your function uses a different subnet than your VM. The virtual network automatically routes traffic between the two subnets. |
-
+    | **Address range** | 10.10.2.0/24   | The subnet size restricts the total number of VMs that you can add to your App Service plan. |
 
 1. Select **OK** to add the subnet. Close the VNet Integration and Network Feature Status pages to return to your function app page.
 
@@ -134,11 +133,7 @@ The function app can now access the virtual network where the WordPress site is 
 
 With VNet Integration enabled, you can create a proxy in your function app to forward requests to the VM running in the virtual network.
 
-1. In your function app, select  **Proxies** > **+**.
-
-    ![Add a proxy to your function app](./media/functions-create-vnet/new-proxy.png)
-
-1. Use the settings in the table below the image:
+1. In your function app, select  **Proxies** > **+**, then use the proxy settings in the table below the image:
 
     ![Define the proxy settings](./media/functions-create-vnet/create-proxy.png)
 
@@ -152,7 +147,7 @@ With VNet Integration enabled, you can create a proxy in your function app to fo
 
 ## Try it out
 
-1. In your browser, try to access the URL you used as the **Backend URL**. As expected, the request times out. A timeout occurs because your WordPress site is connected to only your virtual network and not the internet.
+1. In your browser, try to access the URL you used as the **Backend URL**. As expected, the request times out. A timeout occurs because your WordPress site is connected only to your virtual network and not the internet.
 
 1. Go to the **Overview** tab of your function app and copy the URL value, which looks like.
 
