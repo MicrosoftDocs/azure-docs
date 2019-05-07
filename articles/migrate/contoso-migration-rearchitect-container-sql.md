@@ -73,11 +73,11 @@ After pinning down goals and requirements, Contoso designs and review a deployme
 - For the database tier of the app, Contoso compared Azure SQL Database with SQL Server using [this article](https://docs.microsoft.com/azure/sql-database/sql-database-features). It decided to go with Azure SQL Database for a few reasons:
     - Azure SQL Database is a relational-database managed service. It delivers predictable performance at multiple service levels, with near-zero administration. Advantages include dynamic scalability with no downtime, built-in intelligent optimization, and global scalability and availability.
     - Contoso leverages the lightweight Data Migration Assistant (DMA) to assess and migrate the on-premises database to Azure SQL.
-    - With Software Assurance, Contoso can exchange its existing licenses for discounted rates on a SQL Database, using the Azure Hybrid Benefit for SQL Server. This could provide savings of up to 30%.
+    - With Software Assurance, Contoso can exchange its existing licenses for discounted rates on a SQL Database, using the Azure Hybrid Benefit for SQL Server. Software Assurance could provide savings of up to 30%.
     - SQL Database provides a number of security features including always encrypted, dynamic data masking, and row-level security/threat detection.
 - For the app web tier, Contoso has decided convert it to the Windows Container using Azure DevOps services.
     - Contoso will deploy the app using Azure Service Fabric, and pull the Windows container image from the Azure Container Registry (ACR).
-    - A prototype for extending the app to include sentiment analysis will be implemented as another service in Service Fabric, connected to Cosmos DB.  This will read information from Tweets, and display on the app.
+    - A prototype for extending the app to include sentiment analysis will be implemented as another service in Service Fabric, connected to Cosmos DB.  This prototype will read information from Tweets, and display on the app.
 - To implement a DevOps pipeline, Contoso will use Azure DevOps for source code management (SCM), with Git repos.  Automated builds and releases will be used to build code, and deploy it to the Azure Container Registry and Azure Service Fabric.
 
     ![Scenario architecture](./media/contoso-migration-rearchitect-container-sql/architecture.png) 
@@ -88,8 +88,8 @@ Contoso evaluates the proposed design by putting together a pros and cons list.
 
 **Consideration** | **Details**
 --- | ---
-**Pros** | The SmartHotel360 app code will need to be altered for migration to Azure Service Fabric. However, the effort is minimal, using the Service Fabric SDK tools for the changes.<br/><br/> With the move to Service Fabric, Contoso can start to develop microservices to add to the application quickly over time, without risk to the original code base.<br/><br/> Windows Containers offer the same benefits as containers in general. They improve agility, portability, and control.<br/><br/> Contoso can leverage its investment in Software Assurance using the Azure Hybrid Benefit for both SQL Server and Windows Server.<br/><br/> After the migration it will no longer need to support Windows Server 2008 R2. [Learn more](https://support.microsoft.com/lifecycle).<br/><br/> Contoso can configure the web tier of the app with multiple instances, so that it's no longer a single point of failure.<br/><br/> It will no longer be dependent on the aging SQL Server 2008 R2.<br/><br/> SQL Database supports Contoso's technical requirements. Contoso admins assessed the on-premises database using the Database Migration Assistant and found it compatible.<br/><br/> SQL Database has built-in fault tolerance that Contoso doesn't need to set up. This ensures that the data tier is no longer a single point of failover.
-**Cons** | Containers are more complex than other migration options. The learning curve on containers could be an issue for Contoso.  They introduce a new level of complexity that provides a lot of value in spite of the curve.<br/><br/> The operations team at Contoso will need to ramp up to understand and support Azure, containers and microservices for the app.<br/><br/> If Contoso uses the Data Migration Assistant instead of Data Migration Service to migrate the database, It won’t have the infrastructure ready for migrating databases at scale.
+**Pros** | The SmartHotel360 app code will need to be altered for migration to Azure Service Fabric. However, the effort is minimal, using the Service Fabric SDK tools for the changes.<br/><br/> With the move to Service Fabric, Contoso can start to develop microservices to add to the application quickly over time, without risk to the original code base.<br/><br/> Windows Containers offer the same benefits as containers in general. They improve agility, portability, and control.<br/><br/> Contoso can leverage its investment in Software Assurance using the Azure Hybrid Benefit for both SQL Server and Windows Server.<br/><br/> After the migration it will no longer need to support Windows Server 2008 R2. [Learn more](https://support.microsoft.com/lifecycle).<br/><br/> Contoso can configure the web tier of the app with multiple instances, so that it's no longer a single point of failure.<br/><br/> It will no longer be dependent on the aging SQL Server 2008 R2.<br/><br/> SQL Database supports Contoso's technical requirements. Contoso admins assessed the on-premises database using the Database Migration Assistant and found it compatible.<br/><br/> SQL Database has built-in fault tolerance that Contoso doesn't need to set up. This fault tolerance ensures that the data tier is no longer a single point of failover.
+**Cons** | Containers are more complex than other migration options. The learning curve on containers could be an issue for Contoso.  They introduce a new level of complexity that provides much value in spite of the curve.<br/><br/> The operations team at Contoso will need to ramp up to understand and support Azure, containers and microservices for the app.<br/><br/> If Contoso uses the Data Migration Assistant instead of Data Migration Service to migrate the database, It won’t have the infrastructure ready for migrating databases at scale.
 
 
 
@@ -107,7 +107,7 @@ Contoso evaluates the proposed design by putting together a pros and cons list.
 **Service** | **Description** | **Cost**
 --- | --- | ---
 [Database Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Assesses and detect compatibility issues that might impact database functionality in Azure. DMA assesses feature parity between SQL sources and targets, and recommends performance and reliability improvements. | It's a downloadable tool free of charge.
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | Provides an intelligent, fully managed relational cloud database service. | Cost based on features, throughput and size. [Learn more](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | Provides an intelligent, fully managed relational cloud database service. | Cost based on features, throughput, and size. [Learn more](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | Stores images for all types of container deployments. | Cost based on features, storage, and usage duration. [Learn more](https://azure.microsoft.com/pricing/details/container-registry/).
 [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | Builds and operate always-on, scalable and distributed apps | Cost based on size, location, and duration of the compute nodes. [Learn more](https://azure.microsoft.com/pricing/details/service-fabric/).
 [Azure DevOps](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | Provides a continuous integration and continuous deployment (CI/CD) pipeline for app development. The pipeline starts with a Git repository for managing app code, a build system for producing packages and other build artifacts, and a Release Management system to deploy changes in dev, test, and production environments.
@@ -120,7 +120,7 @@ Here's what Contoso needs to run this scenario:
 --- | ---
 **Azure subscription** | Contoso created subscriptions earlier in this article series. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> If you create a free account, you're the administrator of your subscription and can perform all actions.<br/><br/> If you use an existing subscription and you're not the administrator, you need to work with the admin to assign you Owner or Contributor permissions.
 **Azure infrastructure** | [Learn how](contoso-migration-infrastructure.md) Contoso previously set up an Azure infrastructure.
-**Developer prerequisites** | Contoso needs the following tools on a developer workstation:<br/><br/> - [Visual Studio 2017 Community Edition: Version 15.5](https://www.visualstudio.com/)<br/><br/> - .NET workload enabled.<br/><br/> - [Git](https://git-scm.com/)<br/><br/> - [Service Fabric SDK v 3.0 or later](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)<br/><br/> - [Docker CE (Windows 10) or Docker EE (Windows Server)](https://docs.docker.com/docker-for-windows/install/) set to use Windows Containers.
+**Developer prerequisites** | Contoso needs the following tools on a developer workstation:<br/><br/> - [Visual Studio 2019 Community Edition: Version 15.5](https://www.visualstudio.com/)<br/><br/> - .NET workload enabled.<br/><br/> - [Git](https://git-scm.com/)<br/><br/> - [Service Fabric SDK v 3.0 or later](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)<br/><br/> - [Docker CE (Windows 10) or Docker EE (Windows Server)](https://docs.docker.com/docker-for-windows/install/) set to use Windows Containers.
 
 
 
@@ -149,7 +149,7 @@ Contoso admins provision an Azure SQL database.
 
     ![Provision SQL](./media/contoso-migration-rearchitect-container-sql/provision-sql1.png)
 
-2. They specify a database  name to match the database running on the on-premises VM (**SmartHotel.Registration**). They place the database in the ContosoRG resource group. This is the resource group they use for production resources in Azure.
+2. They specify a database  name to match the database running on the on-premises VM (**SmartHotel.Registration**). They place the database in the ContosoRG resource group. This group is the resource group they use for production resources in Azure.
 
     ![Provision SQL](./media/contoso-migration-rearchitect-container-sql/provision-sql2.png)
 
@@ -158,7 +158,7 @@ Contoso admins provision an Azure SQL database.
     ![Provision SQL](./media/contoso-migration-rearchitect-container-sql/provision-sql3.png)
 
 4. They set the pricing tier to match server and database needs. And they select to save money with Azure Hybrid Benefit because they already have a SQL Server license.
-5. For sizing they use v-Core-based purchasing, and set the limits for the expected requirements.
+5. For sizing, they use v-Core-based purchasing, and set the limits for the expected requirements.
 
     ![Provision SQL](./media/contoso-migration-rearchitect-container-sql/provision-sql4.png)
 
@@ -214,7 +214,7 @@ The SmartHotel360 container will run in the Azure Service Fabric Cluster. Contos
     ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric4.png) 
 
 
-5. In **Access Policies** they enable access to virtual machines to deploy the key vault.
+5. In **Access Policies**, they enable access to virtual machines to deploy the key vault.
 
     ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric5.png) 
 
@@ -222,7 +222,7 @@ The SmartHotel360 container will run in the Azure Service Fabric Cluster. Contos
 
     ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric6.png) 
 
-7. In the summary page, they copy the link that's used to download the certificate. They need this to connect to the Service Fabric Cluster.
+7. In the summary page, they copy the link that's used to download the certificate. They need this certificate to connect to the Service Fabric Cluster.
 
     ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric7.png) 
 
@@ -259,7 +259,7 @@ Contoso needs cluster certificates to allow Azure DevOps Services access to the 
     ![Copy thumbprint](./media/contoso-migration-rearchitect-container-sql/cert1.png)
  
 3. They copy it to a text file for later reference.
-4. Now, they add a client certificate that will become an Admin client certificate on the cluster. This allows Azure DevOps Services to connect to the cluster for the app deployment in the release pipeline. To do they, they open KeyVault in the portal, and select **Certificates** > **Generate/Import**.
+4. Now, they add a client certificate that will become an Admin client certificate on the cluster. This certificate allows Azure DevOps Services to connect to the cluster for the app deployment in the release pipeline. To do they, they open KeyVault in the portal, and select **Certificates** > **Generate/Import**.
 
     ![Generate client cert](./media/contoso-migration-rearchitect-container-sql/cert2.png)
 
@@ -271,11 +271,11 @@ Contoso needs cluster certificates to allow Azure DevOps Services access to the 
 
      ![Download cert](./media/contoso-migration-rearchitect-container-sql/cert4.png)
 
-7. Now, they go back to the certificates list in the KeyVault, and copy the thumbprint of the client certificate that's just been created. They save it in the text file.
+7. Now, they go back to the certificates list in the KeyVault, and copy the thumbprint of the client certificate that's been created. They save it in the text file.
 
      ![Client cert thumbprint](./media/contoso-migration-rearchitect-container-sql/cert5.png)
 
-8. For Azure DevOps Services deployment, they need to determine the Base64 value of the certificate. They do this on the local developer workstation using PowerShell. They paste the output into a text file for later use.
+8. For Azure DevOps Services deployment, they need to determine the Base64 value of the certificate. They make this determination on the local developer workstation using PowerShell. They paste the output into a text file for later use.
 
     ```powershell
     	[System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("C:\path\to\certificate.pfx")) 
@@ -481,7 +481,7 @@ Contoso admins now configure Azure DevOps Services to perform build and release 
 
      ![Artifact status](./media/contoso-migration-rearchitect-container-sql/pipeline13.png)
 
-16. In addition, note that the continuous deployment trigger is enabled.
+16. In addition, the continuous deployment trigger is enabled.
 
     ![Continuous deployment enabled](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
 
@@ -501,7 +501,7 @@ Contoso admins now configure Azure DevOps Services to perform build and release 
 
 After the SmartHotel360 app and database are running in Azure, Contoso wants to extend the app.
 
-- Contoso’s developers are prototyping a new .NET Core application which will run on the Service Fabric cluster.
+- Contoso’s developers are prototyping a new .NET Core application that will run on the Service Fabric cluster.
 - The app will be used to pull sentiment data from CosmosDB.
 - This data will be in the form of Tweets that are processed using a Serverless Azure Function, and the Cognitive Services Text Analysis API.
 
@@ -518,12 +518,12 @@ As a first step, Contoso admins provision an Azure Cosmos database.
     ![Extend](./media/contoso-migration-rearchitect-container-sql/extend2.png)
 
 3. In **Getting Started**, they select **Data Explorer**, and add a new collection.
-4. In **Add Collection** they provide IDs and set storage capacity and throughput.
+4. In **Add Collection**, they provide IDs and set storage capacity and throughput.
 
     ![Extend](./media/contoso-migration-rearchitect-container-sql/extend3.png)
 
 5. In the portal, they open the new database > **Collection** > **Documents** and click **New Document**.
-6. They paste the following JSON code into the document window. This is sample data in the form of a single tweet.
+6. They paste the following JSON code into the document window. This sample data is in the form of a single tweet.
 
     ```json
     {
@@ -546,7 +546,7 @@ As a first step, Contoso admins provision an Azure Cosmos database.
 
     ![Extend](./media/contoso-migration-rearchitect-container-sql/extend4.png)
 
-7. They locate the Cosmos DB endpoint, and the authentication key. These are used in the app to connect to the collection. In the database, they click **Keys**, and copy the URI and primary key to Notepad.
+7. They locate the Cosmos DB endpoint, and the authentication key. The endpoint and key are used in the app to connect to the collection. In the database, they click **Keys**, and copy the URI and primary key to Notepad.
 
     ![Extend](./media/contoso-migration-rearchitect-container-sql/extend5.png)
 

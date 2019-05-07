@@ -55,10 +55,10 @@ The Contoso cloud team has pinned down app requirements for this migration. Thes
  - The app shouldn't use IaaS components. Everything should be built to use PaaS or serverless services.
  - The app builds should run in cloud services, and containers should reside in a private Enterprise-wide container registry in the cloud.
  - The API service used for pet photos should be accurate and reliable in the real world, since decisions made by the app must be honored in their hotels. Any pet granted access is allowed to stay at the hotels.
- - To meet requirements for a DevOps pipeline, Contoso will use Azure DevOps for Source Code Management (SCM), with Git Repos.  Automated builds and releases will be used to build code, and deploy it to the Azure Web Apps, Azure Functions and AKS.
+ - To meet requirements for a DevOps pipeline, Contoso will use Azure DevOps for Source Code Management (SCM), with Git Repos.  Automated builds and releases will be used to build code, and deploy it to the Azure Web Apps, Azure Functions, and AKS.
  - Different CI/CD pipelines are needed for microservices on the backend, and for the web site on the frontend.
  - The backend services have a different release cycle from the frontend web app.  To meet this requirement, they will deploy two different DevOps pipelines.
- - Contoso needs management approval for all front end website deployment, and the CI/CD pipeline must provide this.
+ - Contoso needs management approval for all front end website deployment, and the CI/CD pipeline must provide this approval.
 
 
 ## Solution design
@@ -79,7 +79,7 @@ After pinning down goals and requirements, Contoso designs and review a deployme
 - The frontend of the app is deployed as an Azure App Services Web app, in the primary Azure region.
 - An Azure function provides uploads of pet photos, and the site interacts with this functionality.
 - The pet photo function leverages Cognitive Services Vision API, and CosmosDB.
-- The back end of the site is built using microservices. These will be deployed to containers managed on the Azure Kubernetes service (AKS).
+- The back end of the site is built using microservices. These microservices will be deployed to containers managed on the Azure Kubernetes service (AKS).
 - Containers will be built using Azure DevOps, and pushed to the Azure Container Registry (ACR).
 - For now, Contoso will manually deploy the Web app and function code using Visual Studio
 - Microservices will be deployed using a PowerShell script that calls Kubernetes command-line tools.
@@ -93,8 +93,8 @@ Contoso evaluates the proposed design by putting together a pros and cons list.
 
 **Consideration** | **Details**
 --- | ---
-**Pros** | Using PaaS and serverless solutions for the end-to-end deployment significantly reduces management time that Contoso must provide.<br/><br/> Moving to a microservice architecture allows Contoso to easily extend the solution over time.<br/><br/> New functionality can be brought online without disrupting any of the existing solutions code bases.<br/><br/> The Web App will be configured with multiple instances with no single point of failure.<br/><br/> Autoscaling will be enabled so that the app can handle differing traffic volumes.<br/><br/> With the move to PaaS services Contoso can retire out-of-date solutions running on Windows Server 2008 R2 operating system.<br/><br/> CosmosDB has built-in fault tolerance, which requires no configuration by Contoso. This means that the data tier is no longer a single point of failover.
-**Cons** | Containers are more complex than other migration options. The learning curve could be an issue for Contoso.  They introduce a new level of complexity that provides a lot of value in spite of the curve.<br/><br/> The operations team at Contoso needs to ramp up to understand and support Azure, containers and microservices for the app.<br/><br/> Contoso hasn't fully implemented DevOps for the entire solution. Contoso needs to think about that for the deployment of services to AKS, functions, and App Services.
+**Pros** | Using PaaS and serverless solutions for the end-to-end deployment significantly reduces management time that Contoso must provide.<br/><br/> Moving to a microservice architecture allows Contoso to easily extend the solution over time.<br/><br/> New functionality can be brought online without disrupting any of the existing solutions code bases.<br/><br/> The Web App will be configured with multiple instances with no single point of failure.<br/><br/> Autoscaling will be enabled so that the app can handle differing traffic volumes.<br/><br/> With the move to PaaS services, Contoso can retire out-of-date solutions running on Windows Server 2008 R2 operating system.<br/><br/> CosmosDB has built-in fault tolerance, which requires no configuration by Contoso. This fault tolerance means that the data tier is no longer a single point of failover.
+**Cons** | Containers are more complex than other migration options. The learning curve could be an issue for Contoso.  They introduce a new level of complexity that provides much value in spite of the curve.<br/><br/> The operations team at Contoso needs to ramp up to understand and support Azure, containers and microservices for the app.<br/><br/> Contoso hasn't fully implemented DevOps for the entire solution. Contoso needs to think about that for the deployment of services to AKS, functions, and App Services.
 
 
 
@@ -125,7 +125,7 @@ Here's what Contoso needs for this scenario:
 --- | ---
 **Azure subscription** | Contoso created subscriptions during an earlier article. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> If you create a free account, you're the administrator of your subscription and can perform all actions.<br/><br/> If you use an existing subscription and you're not the administrator, you need to work with the admin to assign you Owner or Contributor permissions.
 **Azure infrastructure** | [Learn how](contoso-migration-infrastructure.md) Contoso set up an Azure infrastructure.
-**Developer prerequisites** | Contoso needs the following tools on a developer workstation:<br/><br/> - [Visual Studio 2017 Community Edition: Version 15.5](https://www.visualstudio.com/)<br/><br/> .NET workload enabled.<br/><br/> [Git](https://git-scm.com/)<br/><br/> [Azure PowerShell](https://azure.microsoft.com/downloads/)<br/><br/> [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)<br/><br/> [Docker CE (Windows 10) or Docker EE (Windows Server)](https://docs.docker.com/docker-for-windows/install/) set to use Windows Containers.
+**Developer prerequisites** | Contoso needs the following tools on a developer workstation:<br/><br/> - [Visual Studio 2019 Community Edition: Version 15.5](https://www.visualstudio.com/)<br/><br/> .NET workload enabled.<br/><br/> [Git](https://git-scm.com/)<br/><br/> [Azure PowerShell](https://azure.microsoft.com/downloads/)<br/><br/> [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)<br/><br/> [Docker CE (Windows 10) or Docker EE (Windows Server)](https://docs.docker.com/docker-for-windows/install/) set to use Windows Containers.
 
 
 
@@ -244,7 +244,7 @@ Contoso creates an Azure DevOps project, and configures a CI Build to create the
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts6.png) 
 
-9. They repeat and add another **Docker Compose** task. This one pushes the containers to ACR.
+9. They repeat and add another **Docker Compose** task. This Docker compose pushes the containers to ACR.
 
      ![Azure DevOps](./media/contoso-migration-rebuild/vsts7.png) 
 
@@ -299,13 +299,13 @@ They deploy as follows:
 
 ### Create the back-end release pipeline
 
-Now, Contoso admins do the following:
+Now, Contoso admins do the following tasks:
 
 - Deploy the NGINX ingress controller to allow inbound traffic to the services.
 - Deploy the microservices to the AKS cluster.
 - As a first step they update the connection strings to the microservices using Azure DevOps. They then configure a new Azure DevOps Release pipeline to deploy the microservices.
 - The instructions in this section use the [SmartHotel360-Azure-Backend](https://github.com/Microsoft/SmartHotel360-Azure-backend) repo.
-- Note that Some of the configuration settings (for example Active Directory B2C) aren’t covered in this article. Read more information about these settings in the repo.
+- Some of the configuration settings (for example Active Directory B2C) aren’t covered in this article. Read more information about these settings in the repo.
 
 They create the pipeline:
 
@@ -436,7 +436,7 @@ Contoso admins provision the web app using the Azure portal.
 
 3. After they're done, they browse to the address of the app to check it's been created successfully.
 
-4. Now, in the Azure portal they create a staging slot for the code. the pipeline will deploy to this slot. This ensures that code isn't put into production until admins perform a release.
+4. Now, in the Azure portal they create a staging slot for the code. The pipeline will deploy to this slot. This staging slot ensures that code isn't put into production until admins perform a release.
 
     ![Web app staging slot](media/contoso-migration-rebuild/web-app3.png)
 
@@ -486,7 +486,7 @@ Now Contoso admins configure the Web App to use Contoso resources.
 
 4.	They update the /config-sample.json/sample.json file.
 
-    - This is the configuration file for the web when using the public endpoint.
+    - This configuration file is for the web when using the public endpoint.
     - They edit the **urls** and **pets_config** sections with the values for the AKS API endpoints, storage accounts, and Cosmos database.
     - The URLs should match the DNS name of the new web app that Contoso will create.
     - For Contoso, this is **smarthotelcontoso.eastus2.cloudapp.azure.com**.
@@ -517,7 +517,7 @@ Contoso admins can now publish the website.
 
     ![Pipeline settings](./media/contoso-migration-rebuild/vsts-publishfront2.png)
 
-5. In **Triggers**, they enable continuous integration, and add the master branch. This ensures that each time the solution has new code committed to the master branch, the build pipeline starts.
+5. In **Triggers**, they enable continuous integration, and add the master branch. This continuous integration ensures that each time the solution has new code committed to the master branch, the build pipeline starts.
 
     ![Continuous integration](./media/contoso-migration-rebuild/vsts-publishfront3.png)
 
@@ -527,7 +527,7 @@ Contoso admins can now publish the website.
 
     ![Environment name](./media/contoso-migration-rebuild/vsts-publishfront4.png)
 
-9. They add an artifact and select the build they just configured.
+9. They add an artifact and select the build they configured.
 
      ![Add artifact](./media/contoso-migration-rebuild/vsts-publishfront5.png)
 
@@ -560,7 +560,7 @@ Contoso admins can now publish the website.
 
     ![Post-deployment approval](./media/contoso-migration-rebuild/vsts-publishfront13.png)
 
-15. In the Build pipeline, they manually kick off a build. This triggers the new release pipeline, which deploys the site to the staging slot. For Contoso, the URL for the slot is **https://smarthotelcontoso-staging.azurewebsites.net/**.
+15. In the Build pipeline, they manually kick off a build. This build triggers the new release pipeline, which deploys the site to the staging slot. For Contoso, the URL for the slot is **https://smarthotelcontoso-staging.azurewebsites.net/**.
 16. After the build finishes, and the release deploys to the slot, Azure DevOps emails the dev lead for approval.
 17. The dev lead clicks **View approval**, and can approve or reject the request in the Azure DevOps portal.
 
