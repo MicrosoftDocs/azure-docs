@@ -20,7 +20,7 @@ metadata:
   ms.custom: seodec18
 
 abstract:
-  description: Learn how to use the Speech Services and the Speech SDK to add speech-enabled features to your apps. You can use the Speech SDK to add <b><i>speech-to-text</i></b> (speech-recognition/SR), <b><i>wake-word</i></b> (keyword-spotter/KWS), <b><i>intent</i></b>, <b><i>translation</i></b>, <b><i>text-to-speech</i></b> (TTS), <b><i>conversation-transcription</i></b> (CTS), <b><i>personalization/adaptation</i></b> (phrase list, customization), <b><i>voice-first-virtual-assistant</i></b> and <b><i>on-prem container</i></b> capabilities to your apps. The Speech Services also have REST APIs that work with any programming language that can make HTTP requests. 
+  description: Learn how to use the Speech Services and the REST APIs or the Speech SDK to add speech-enabled features to your apps. You can use the Speech SDK to add the following capabilities to your apps: <ul><li><b><i>speech-to-text</i></b> (speech-recognition/SR)</li>, <li><b><i>wake-word</i></b> (keyword-spotter/KWS)</li>, <li><b><i>intent</i></b></li>, <li><b><i>translation</i></b></li>, <li><b><i>text-to-speech</i></b> (TTS)</li>, <li><b><i>conversation-transcription</i></b> (CTS)</li>, <li><b><i>personalization/adaptation</i></b> (phrase list, customization)</li>, <li><b><i>voice-first-virtual-assistant</i></b></li> and <li><b><i>on-prem container</i></b></li> 
 sections:
 - items:
     - type: list
