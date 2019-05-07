@@ -288,7 +288,7 @@ The following features were released at the Build 2019 Conference:
 
 * [Preview of V3 API migration guide](luis-migration-api-v3.md)
 * [Improved analytics dashboard](luis-how-to-use-dashboard.md)
-* [Improved prebuilt domains](luis-reference-prebuilt-domains.md) work with V2 and V3 APIs
+* [Improved prebuilt domains](luis-reference-prebuilt-domains.md) 
 
 ## Next steps
 
