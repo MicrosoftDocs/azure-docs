@@ -22,7 +22,7 @@ The Speech service SDK features many scenarios across a wide variety of programm
   - C++/Windows & Linux
   - C#/Windows
   - REST can be used in every other situation.
-- **Wake Word (Keyword Spotter)**
+- **Wake Word (Keyword Spotter/KWS)**
   - C++/Windows & Linux
   - C#/Windows & Linux
   - Python/Windows & Linux
@@ -35,6 +35,8 @@ The Speech service SDK features many scenarios across a wide variety of programm
   - C++/Windows & Linux
   - C# (Framework & .NET Core)/Windows & UWP & Linux
   - Java/Windows & Linux & Android (Speech Devices SDK)
+ - **Call Center Transcription**
+  - REST API and can be used in any situation
 - **Codec Compressed Audio Input**
   - C++/Linux
   - C#/Linux
