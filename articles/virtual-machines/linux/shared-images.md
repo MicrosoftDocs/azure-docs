@@ -58,7 +58,9 @@ az vm create\
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-cli](../../../includes/virtual-machines-common-shared-images-update-delete-cli.md)]
 
 ## Next steps
-You can also create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
+[Azure Image Builder (preview)](image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](image-builder-gallery-update-image-version.md). 
+
+You can also create Shared Image Gallery resources using templates. There are several Azure Quickstart Templates available: 
 
 - [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
