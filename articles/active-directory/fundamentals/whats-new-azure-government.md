@@ -1,6 +1,6 @@
 ---
 title: What's New in Microsoft 365 Government - Azure Active Directory | Microsoft Docs
-description: Learn about some changes to the Azure Government cloud instance, which might impact you.
+description: Learn about some changes to the Microsoft 365 Government cloud instance, which might impact you.
 services: active-directory
 author: eross-msft
 manager: daveba
