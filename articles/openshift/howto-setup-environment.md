@@ -52,7 +52,7 @@ Alternately, you can use the [Azure Cloud Shell](https://docs.microsoft.com/azur
 The `Microsoft.ContainerService openshiftmanagedcluster` feature, `Microsoft.Solutions`, and `Microsoft.Network` providers must be registered to your subscription manually before deploying your first Azure Red Hat OpenShift cluster.
 
 To register these providers and features manually, use the following instructions from a Bash shell if you've installed the CLI, or from the Azure Cloud Shell (Bash) session in your Azure portal:
-.
+
 1. If you have multiple Azure subscriptions, specify the relevant subscription ID:
 
     ```bash

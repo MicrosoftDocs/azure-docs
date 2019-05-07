@@ -32,8 +32,9 @@ Before you begin this tutorial:
 
 Make sure that you've [set up your development environment](howto-setup-environment.md), which includes:
 - Installing the latest CLI
-- Creating a tenant
-- Creating an Azure Application object
+- Creating a tenant if you don't already have one
+- Creating an Azure Application object if you don't already have one
+- Creating a security group
 - Creating an Active Directory user used to sign in to apps running on the cluster.
 
 ## Step 1: Sign in to Azure
@@ -64,12 +65,6 @@ LOCATION=<location>
 ```
 
 Choose a location to create your cluster. For a list of azure regions that supports OpenShift on Azure, see [Supported Regions](supported-resources.md#azure-regions). For example: `LOCATION=eastus`.
-
-Set `FQDN` to the fully qualified name of your cluster. This name is composed of the cluster name, the location, and `.cloudapp.azure.com` appended to the end. This is the same as the Sign-On URL you created in step 6 of [Create new app registration](howto-aad-app-configuration.md#create-a-new-app-registration). For example:  
-
-```bash
-FQDN=$CLUSTER_NAME.$LOCATION.cloudapp.azure.com
-```
 
 Set  `APPID` to the value you saved in step 9 of [Create a new app registration](howto-aad-app-configuration.md#create-a-new-app-registration).  
 
@@ -116,21 +111,25 @@ For example: `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResourceGr
 
 You're now ready to create a cluster.
 
- If you are not connecting the virtual network of the cluster to an existing virtual network, omit the trailing `--vnet-peer-id $VNET_ID` parameter in the following example.
+ If you are not connecting the virtual network of the cluster to an existing virtual network, omit the `--vnet-peer-id $VNET_ID` parameter in the following example.
 
 ```bash
-az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --fqdn $FQDN --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --vnet-peer-id $VNET_ID
+az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT $(az ad group list  --display-name $CLUSTER_NAME --query '[*].objectId' -o tsv) --vnet-peer-id $VNET_ID --customer-admin-group-id
 ```
-
-After a few minutes, `az openshift create` will complete successfully and return a JSON response containing your cluster details.
 
 > [!NOTE]
 > If you get an error that the host name is not available, it may be because your
 > cluster name is not unique. Try deleting your original app registration and
-> redoing the steps in [Create a new app registration]
-> (howto-aad-app-configuration.md#create-a-new-app-registration) (omitting the final
-> step of creating a new user, since you already created one) with a different
-> cluster name.
+> redoing the steps with a different cluster name in [Create a new app registration]
+> (howto-aad-app-configuration.md#create-a-new-app-registration), omitting the
+> step of creating a new user, since you already created one.
+
+After a few minutes, `az openshift create` will complete successfully and return a JSON response containing your cluster details. The `publicHostname` attribute has the value of the internet-accessible OpenShift cluster.  For example:
+
+```BASH
+...
+  "publicHostname": "openshift.a9c735c0da8e4afabc1f.westus.azmosa.io",
+```
 
 ## Step 3: Sign in to the OpenShift console
 
