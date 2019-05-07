@@ -68,7 +68,7 @@ Before you begin, [download and import the Windows Virtual Desktop PowerShell mo
 
 ## Next steps
 
-Once you've created your app groups, you create service principals and assign roles to your users. To learn how to do this, see the tutorial for how to create service principals and role assignments with PowerShell.
+In this tutorial, you learned how to create app groups, populate it with RemoteApps, and assign users to the app group. To learn more about how to sign in to Windows Virtual Desktop, continue to the Connect to Windows Virtual Desktop How-tos.
 
-> [!div class="nextstepaction"]
-> [Create service principals and role assignments with PowerShell](create-service-principal-role-powershell.md)
+- [Connect to the Remote Desktop client on Windows 7 and Windows 10](connect-windows-7-and-10.md)
+- [Connect to the Windows Virtual Desktop Preview web client](connect-web.md)

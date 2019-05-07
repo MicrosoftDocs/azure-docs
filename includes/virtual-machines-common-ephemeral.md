@@ -43,26 +43,26 @@ Self-register for the preview of Ephemeral OS Disks using the latest version of 
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-Register-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Register-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 To check if you are registered for the preview:
 
 ```azurepowershell-interactive
-Get-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Get-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 ### CLI
 
 ```azurecli-interactive
-az provider register –namespace Microsoft.Compute
+az provider register --namespace Microsoft.Compute
 az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
 ```
 
 To check if you are registered for the preview:
  
 ```azurecli-interactive
-az provider show –namespace ‘Microsoft.Compute’
+az provider show --namespace Microsoft.Compute
 ```
 
 
