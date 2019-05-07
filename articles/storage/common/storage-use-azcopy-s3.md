@@ -129,6 +129,8 @@ See these articles:
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
 
+- [Transfer data with AzCopy and blob storage](storage-use-azcopy-blobs.md)
+
 - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 
 - [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
