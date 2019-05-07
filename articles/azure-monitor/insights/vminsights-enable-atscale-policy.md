@@ -55,9 +55,9 @@ The following table provides a breakdown of what information is presented in the
 
 | Function | Description | 
 |----------|-------------| 
-| Scope | Management group and subscriptions that you have or inherited access to. From here you can drill down through the Management group hierarchy.|
+| Scope | Management group and subscriptions that you have or inherited access to with ability to drill down through the Management group hierarchy.|
 | Role | Your role to the scope, could be reader owner, or contributor. In some cases, it may appear blank to indicate that you may have access to subscription but not to the management group it belongs. Information in other columns will vary depending on your role as it is key in determining what data you can see and actions you can perform in terms of assigning initiative/ policy (owner), editing them or view compliance. |
-| Total VMs | Number of VMs under that scope. For Management group (MG) it is a sum of VMs nested under the subscriptions and/or child MG. |
+| Total VMs | Number of VMs under that scope. For a management group, it is a sum of VMs nested under the subscriptions and/or child management group. |
 | Assignment Coverage | Percent of VMs that are covered by initiative/policy. |
 | Assignment Status | Under this column you can find information on the status of your policy/ initiative assignment. |
 | Compliant VMs | Number of VMs that are compliant under the policy/initiative. For  the initiative **Enable Azure Monitor for VMs** this is the number of VMs that have both Log Analytics agent and Dependency agent. In some cases, it may appear blank due to either no assignment, or no VMs, or not enough permissions. Information is provided under Compliance State. |
@@ -94,8 +94,8 @@ The policy definitions for an Azure virtual machine scale set are listed in the 
 |Name |Description |Type |
 |-----|------------|-----|
 |[Preview]: Enable Azure Monitor for VM Scale Sets (VMSS) |Enable Azure Monitor for the virtual machine scale sets in the specified scope (Management group, Subscription or resource group). Takes Log Analytics workspace as parameter. Note: if your scale set upgradePolicy is set to Manual, you need to apply the extension to the all VMs in the set by calling upgrade on them. In CLI this would be az vmss update-instances. |Initiative |
-|[Preview]: Audit Dependency Agent Deployment in VMSS – VM Image (OS) unlisted |Reports VMSS as non-compliant if the VM Image (OS) isn't defined in the list and the agent isn't installed. |Policy |
-|[Preview]: Audit Log Analytics Agent Deployment in VMSS – VM Image (OS) unlisted |Reports VMSS as non-compliant if the VM Image (OS) isn't defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Audit Dependency Agent Deployment in VMSS – VM Image (OS) unlisted |Reports virtual machine scale set as non-compliant if the VM Image (OS) isn't defined in the list and the agent isn't installed. |Policy |
+|[Preview]: Audit Log Analytics Agent Deployment in VMSS – VM Image (OS) unlisted |Reports virtual machine scale set as non-compliant if the VM Image (OS) isn't defined in the list and the agent isn't installed. |Policy |
 |[Preview]: Deploy Dependency Agent for Linux VM Scale Sets (VMSS) |Deploy Dependency Agent for Linux virtual machine scale sets if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
 |[Preview]: Deploy Dependency Agent for Windows VM Scale Sets (VMSS) |Deploy Dependency Agent for Windows virtual machine scale sets if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
 |[Preview]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS) |Deploy Log Analytics Agent for Linux virtual machine scale sets if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
