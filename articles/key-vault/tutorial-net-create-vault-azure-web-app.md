@@ -187,7 +187,7 @@ You can also watch this video:
 
 ## Run the web app
 
-1. On the main menu of Visual Studio 2017, select **Debug** > **Start**, with or without debugging. 
+1. On the main menu of Visual Studio 2019, select **Debug** > **Start**, with or without debugging. 
 1. In the browser, go to the **About** page.  
     The value for **AppSecret** is displayed.
 
