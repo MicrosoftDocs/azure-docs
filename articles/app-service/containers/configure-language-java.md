@@ -161,9 +161,9 @@ This section shows how to connect Java applications deployed on Azure App Servic
 
 ### Starting JAR Apps
 
-By default, App Service expects your JAR application to be named `app.jar`. If it has this name, it will be run automatically. For Maven users, you can set the JAR name by including `<finalName>app</finalName>` in the `<build>` section of your `pom.xml`.
+By default, App Service expects your JAR application to be named `app.jar`. If it has this name, it will be run automatically. For Maven users, you can set the JAR name by including `<finalName>app</finalName>` in the `<build>` section of your `pom.xml`. [You can do the same in Gradle](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) by setting the `archiveFileName` property.
 
-If you want to use a different name for your JAR, you must also provide the [Startup Command](app-service-linux-faq.md#built-in-images) that executes your JAR file. For example, `java -jar my-jar-app.jar`. The Startup Command is set in the Portal, under Configuration > General Settings, or with an Application Setting named `STARTUP_COMMAND`.
+If you want to use a different name for your JAR, you must also provide the [Startup Command](app-service-linux-faq.md#built-in-images) that executes your JAR file. For example, `java -jar my-jar-app.jar`. You can set the value for your Startup Command in the Portal, under Configuration > General Settings, or with an Application Setting named `STARTUP_COMMAND`.
 
 ### Server Port
 
