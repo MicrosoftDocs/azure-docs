@@ -39,12 +39,10 @@ Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 1. Select **Azure CDN** under the **Blob Service** menu to configure Azure CDN.
 1. In the **CDN profile** section, specify a new or existing CDN profile. For more information, see [Quickstart: Create an Azure CDN profile and endpoint](../../cdn/cdn-create-new-endpoint.md).
 1. Specify a pricing tier for the CDN endpoint. This tutorial uses the **Standard Akamai** pricing tier, because it propagates quickly, typically within a minute. Other pricing tiers may take longer to propagate, but may also offer other advantages. See [Compare Azure CDN product features](../../cdn/cdn-features.md).
-1. Provide a name for the new CDN endpoint.
-1. For the origin hostname, enter your the static website endpoint. To find your static website endpoint, navigate to the **Static website** section for your storage account and copy the endpoint.
+1. In the **CDN endpoint name** field, specify a name for your CDN endpoint. The CDN endpoint must be unique across Azure.
+1. Specify your the static website endpoint in the **Origin hostname** field. To find your static website endpoint, navigate to the **Static website** settings for your storage account. Copy the primary endpoint and paste it into the CDN configuration.
 1. Create the CDN endpoint and wait for it to propagate.
 1. Test your CDN endpoint by navigating to it in your browser.
-
-The following image shows 
 
 ## Enable custom domain and SSL
 
