@@ -195,7 +195,9 @@ In the rollout template, you create an artifact source for the binaries you need
 
 ### Steps
 
-You can define a step to perform either before or after your deployment operation. Currently, only the `wait` step is available. The wait step pauses the deployment before continuing. It allows you to verify that your service is running as expected before deploying the next service unit. The following example shows the general format of a wait step.
+You can define a step to perform either before or after your deployment operation. Currently, only the `wait` step and the 'healthCheck' step are available. 
+
+The wait step pauses the deployment before continuing. It allows you to verify that your service is running as expected before deploying the next service unit. The following example shows the general format of a wait step.
 
 ```json
 {
@@ -214,6 +216,7 @@ You can define a step to perform either before or after your deployment operatio
 
 The duration property uses [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601#Durations). The preceding example specifies a one-minute wait.
 
+For more information about the health check step, see []() and []()
 For more information, see [steps template reference](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### Rollouts

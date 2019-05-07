@@ -23,8 +23,9 @@ ms.author: jgao
 
 In order to make health integration as easy as possible, Microsoft has been working with some of the top service health monitoring companies to provide you with a simple copy/paste solution to integrate health checks with your deployments. If you’re not already using a health monitor, these are great solutions to start with. 
 
+|a|b|c|
 |-----|------|------|
-|<img src="./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg" /> | <img src="./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg" /> | <img src="./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg" /> |
+|a | ![azure deployment manager health monitor provider datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | c |
 |Datadog, the leading monitoring and analytics platform for modern cloud environments. See [how Datadog integrates with Azure Deployment Manager]().|The All-in-One Monitoring Solution. See [how Site24x7 integrates with Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| bla, bla, bla. See [how Wavefront integrates with Azure Deployment Manager]().|
 
 ## How service health is determined
@@ -44,6 +45,55 @@ The flow to getting setup with Azure Deployment Manager health checks:
     1. The URI for the REST API for your health monitors (as defined by your health service provider).
     1. Authentication information. Currently only API-key style authentication is supported.
     1. [HTTP status codes](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) or regular expressions that define a healthy response.	Note that you may provide regular expressions which ALL must match for the response to be considered healthy, or you may provide expressions of which ANY must match for the response to be considered healthy. Both methods are supported.
+
+    The following Json is an example:
+
+    ```json
+    {
+      "type": "Microsoft.DeploymentManager/steps",
+      "apiVersion": "2018-09-01-preview",
+      "name": "healthCheckStep",
+	  "location": "[parameters('azureResourceLocation')]",
+      "properties": {
+        "stepType": "healthCheck",
+        "attributes": {
+          "waitDuration": "PT0M",
+          "maxElasticDuration": "PT0M",
+          "healthyStateDuration": "PT1M",
+          "type": "REST",
+          "properties": {
+            "healthChecks": [
+              {
+                "name": "appHealth",
+                "request": {
+                  "method": "GET",
+                  "uri": "[parameters('healthCheckUrl')]",
+                  "authentication": {
+                    "type": "ApiKey",
+                    "name": "code",
+                    "in": "Query",
+                    "value": "[parameters('healthCheckAuthAPIKey')]"
+                  }
+                },
+                "response": {
+                  "successStatusCodes": [
+                    "200"
+                  ],
+                  "regex": {
+                    "matches": [
+                      "Status: healthy",
+                      "Status: warning"
+                    ],
+                    "matchQuantifier": "Any"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    ```
 
 1. Invoke the healthCheck steps at the appropriate time in your Azure Deployment Manager rollout.
 

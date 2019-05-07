@@ -48,7 +48,7 @@ To complete this article, you need:
 
 ## Create a health check service simulator
 
-In production, you typically use one or more monitoring providers. In order to make health integration as easy as possible, Microsoft has been working with some of the top service health monitoring companies to provide you with a simple copy/paste solution to integrate health checks with your deployments. For a list of these companies, see [Health monitoring providers](./deployment-manager-health-check.md#health-monitoring-providers). For the purpose of this tutorial, you create an [Azure Function](/azure/azure-functions/) to simulate a health monitoring service. This function takes a status code, and returns the same code. Your Azure Deployment Manager template uses the status code to determine how to proceed with the deployment. Knowledge of Azure Function is not required to complete this tutorial.
+In production, you typically use one or more monitoring providers. In order to make health integration as easy as possible, Microsoft has been working with some of the top service health monitoring companies to provide you with a simple copy/paste solution to integrate health checks with your deployments. For a list of these companies, see [Health monitoring providers](./deployment-manager-health-check.md#health-monitoring-providers). For the purpose of this tutorial, you create an [Azure Function](/azure/azure-functions/) to simulate a health monitoring service. This function takes a status code, and returns the same code. Your Azure Deployment Manager template uses the status code to determine how to proceed with the deployment. 
 
 The following two files are used for deploying the Azure Function. You don't need to download these files to go through the tutorial.
 
@@ -86,12 +86,13 @@ To verify and test the Azure function:
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/{healthStatus}?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-    Notice `{healthStatus}` in the URL, replace it with a status code. In this tutorial, use either **healthy** or **warning** to test the healthy scenario, and use **unhealthy** to test the unhealthy scenario. Create two URLs, one with the unhealthy status, and the other with healthy status. For examples:
+    Replace `{healthStatus}` in the URL with a status code. In this tutorial, use **unhealthy** to test the unhealthy scenario, and use either **healthy** or **warning** to test the healthy scenario. Create two URLs, one with the unhealthy status, and the other with healthy status. For examples:
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/unhealthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/healthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
+
     You need both URLs to completed this tutorial.
 
 1. To test the health monitoring simulator, open the URLs that you created in the last step.  The results for the unhealthy status shall be similar to:
@@ -102,7 +103,7 @@ To verify and test the Azure function:
 
 ## Revise the rollout template
 
-This section is optional for this tutorial. The purpose of this section is to show you how to include a health check step in the rollout template. The revised rollout template is shared in a storage account that can be used in the subsequent sections. 
+The purpose of this section is to show you how to include a health check step in the rollout template. You don't have to create your own CreateADMRollout.json file to complete this tutorial. The revised rollout template is shared in a storage account that is used in the subsequent sections.
 
 1. Open **CreateADMRollout.json**. This JSON file is a part of the download.  See [Prerequisites](#prerequisites).
 1. Add two more parameters:
@@ -121,14 +122,15 @@ This section is optional for this tutorial. The purpose of this section is to sh
         }
     }
     ```
-1. Replace the wait step resource definition with the following JSON:
+
+1. Replace the wait step resource definition with a health check step resource definition:
 
     ```json
     {
       "type": "Microsoft.DeploymentManager/steps",
       "apiVersion": "2018-09-01-preview",
       "name": "healthCheckStep",
-			"location": "[parameters('azureResourceLocation')]",
+	  "location": "[parameters('azureResourceLocation')]",
       "properties": {
         "stepType": "healthCheck",
         "attributes": {
@@ -172,7 +174,7 @@ This section is optional for this tutorial. The purpose of this section is to sh
 
     Based on the definition, the rollout proceeds if the health status is either *healthy* or *warning*. 
 
-1. Update the **dependsON** of the rollout definition to:
+1. Update the **dependsON** of the rollout definition to include the newly defined health check step:
 
     ```json
     "dependsOn": [
@@ -181,7 +183,7 @@ This section is optional for this tutorial. The purpose of this section is to sh
     ],
     ```
 
-1. Update **stepGroups** with the following JSON.
+1. Update **stepGroups** to include the health check step. The **healthCheckStep** is called in **postDeploymentSteps** of **stepGroup2**. **stepGroup3** and **stepGroup4** are only deployed if the healthy status is either *healthy* or *warning*. 
 
     ```json
     "stepGroups": [
@@ -219,7 +221,7 @@ This section is optional for this tutorial. The purpose of this section is to sh
     ]
     ```
 
-    The health check step is used after rolling out stepGroup1 and stepGroup2. stepGroup3 and stepGroup4 are only deployed if the healthy status is either *healthy* or *warning*. 
+    If you compare the **stepGroup3** section before and after it is revised, this section now depends on **stepGroup2**.  This is necessary when **stepGroup3** and the subsequent step groups depend on the results of health monitoring.
 
     The following screenshot illustrates the areas modified, and how the health check step is used:
 
@@ -227,12 +229,10 @@ This section is optional for this tutorial. The purpose of this section is to sh
 
 ## Deploy the topology
 
-To simplify the tutorial, the topology template and artifacts are shared at the following locations so that you don't need to prepare your own copy:
+To simplify the tutorial, the topology template and artifacts are shared at the following locations so that you don't need to prepare your own copy. If you want to use your own, follow the instructions in [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
 
 * Topology template: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
 * Artifacts store: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
-
-If you want to use your own, follow the instructions in [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
 
 To deploy the topology, select **Try it** to open the Cloud shell, and then paste the PowerShell script.
 
@@ -259,12 +259,10 @@ Verify the service topology and the underlined resources have been created succe
 
 ## Deploy the rollout with the unhealthy status
 
-To simplify the tutorial, the revised rollout template is shared at the following location so that you don't need to prepare your own copy:
+To simplify the tutorial, the revised rollout template is shared at the following location so that you don't need to prepare your own copy. If you want to use your own, follow the instructions in [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
 
 * Topology template: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
 * Artifacts store: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
-
-If you want to use your own, follow the instructions in [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
 
 Use the unhealthy status URL you created in [Create a health check service simulator](#create-a-health-check-service-simulator). For **managedIdentityID**, see [Create the user-assigned managed identity](./deployment-manager-tutorial.md#create-the-user-assigned-managed-identity).
 
@@ -311,12 +309,12 @@ Get-AzDeploymentManagerRollout `
 The following sample output shows the deployment failed due to the unhealthy status:
 
 ```output
-Service: myhc0506ServiceWUSrg
+Service: myhc0417ServiceWUSrg
     TargetLocation: WestUS
     TargetSubscriptionId: <Subscription ID>
 
-    ServiceUnit: myhc0506ServiceWUSWeb
-        TargetResourceGroup: myhc0506ServiceWUSrg
+    ServiceUnit: myhc0417ServiceWUSWeb
+        TargetResourceGroup: myhc0417ServiceWUSrg
 
         Step: RestHealthCheck/healthCheckStep.PostDeploy
             Status: Failed
@@ -327,10 +325,10 @@ Service: myhc0506ServiceWUSrg
                 Total Duration: 00:00:01
                 Error:
                     Code: ResourceReportedUnhealthy
-                    Message: Health checks failed as the following resources were unhealthy: '05/06/2019 17:58:32 UTC: Health check 'appHealth' failed with the following errors: Response from endpoint 'https://myhc0506webapp.azurewebsites.net/api/healthStatus/unhealthy' does not match the regex pattern(s): 'Status: healthy, Status: warning.'. Response content: "Status: unhealthy"..'.
+                    Message: Health checks failed as the following resources were unhealthy: '05/06/2019 17:58:32 UTC: Health check 'appHealth' failed with the following errors: Response from endpoint 'https://myhc0417webapp.azurewebsites.net/api/healthStatus/unhealthy' does not match the regex pattern(s): 'Status: healthy, Status: warning.'. Response content: "Status: unhealthy"..'.
 Get-AzDeploymentManagerRollout :
-Service: myhc0506ServiceWUSrg
-    ServiceUnit: myhc0506ServiceWUSWeb
+Service: myhc0417ServiceWUSrg
+    ServiceUnit: myhc0417ServiceWUSWeb
         Step: RestHealthCheck/healthCheckStep.PostDeploy
             Status: Failed
             StepGroup: stepGroup2
@@ -340,7 +338,7 @@ Service: myhc0506ServiceWUSrg
                 Total Duration: 00:00:01
                 Error:
                     Code: ResourceReportedUnhealthy
-                    Message: Health checks failed as the following resources were unhealthy: '05/06/2019 17:58:32 UTC: Health check 'appHealth' failed with the following errors: Response from endpoint 'https://myhc0506webapp.azurewebsites.net/api/healthStatus/unhealthy' does not match the regex pattern(s): 'Status: healthy, Status: warning.'. Response content: "Status: unhealthy"..'.
+                    Message: Health checks failed as the following resources were unhealthy: '05/06/2019 17:58:32 UTC: Health check 'appHealth' failed with the following errors: Response from endpoint 'https://myhc0417webapp.azurewebsites.net/api/healthStatus/unhealthy' does not match the regex pattern(s): 'Status: healthy, Status: warning.'. Response content: "Status: unhealthy"..'.
 At line:1 char:1
 + Get-AzDeploymentManagerRollout `
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -348,22 +346,22 @@ At line:1 char:1
 + FullyQualifiedErrorId : RolloutFailed,Microsoft.Azure.Commands.DeploymentManager.Commands.GetRollout
 
 
-ResourceGroupName       : myhc0506rg
+ResourceGroupName       : myhc0417rg
 BuildVersion            : 1.0.0.0
-ArtifactSourceId        : /subscriptions/<Subscription ID>/resourceGroups/myhc0506rg/providers/Mi
-                          crosoft.DeploymentManager/artifactSources/myhc0506ArtifactSourceRollout
-TargetServiceTopologyId : /subscriptions/<Subscription ID>/resourceGroups/myhc0506rg/providers/Mi
-                          crosoft.DeploymentManager/serviceTopologies/myhc0506ServiceTopology
+ArtifactSourceId        : /subscriptions/<Subscription ID>/resourceGroups/myhc0417rg/providers/Mi
+                          crosoft.DeploymentManager/artifactSources/myhc0417ArtifactSourceRollout
+TargetServiceTopologyId : /subscriptions/<Subscription ID>/resourceGroups/myhc0417rg/providers/Mi
+                          crosoft.DeploymentManager/serviceTopologies/myhc0417ServiceTopology
 Status                  : Failed
 TotalRetryAttempts      : 0
 Identity                : Microsoft.Azure.Commands.DeploymentManager.Models.PSIdentity
 OperationInfo           : Microsoft.Azure.Commands.DeploymentManager.Models.PSRolloutOperationInfo
-Services                : {myhc0506ServiceWUS, myhc0506ServiceWUSrg}
-Name                    : myhc0506Rollout
+Services                : {myhc0417ServiceWUS, myhc0417ServiceWUSrg}
+Name                    : myhc0417Rollout
 Type                    : Microsoft.DeploymentManager/rollouts
 Location                : centralus
-Id                      : /subscriptions/<Subscription ID>/resourcegroups/myhc0506rg/providers/Mi
-                          crosoft.DeploymentManager/rollouts/myhc0506Rollout
+Id                      : /subscriptions/<Subscription ID>/resourcegroups/myhc0417rg/providers/Mi
+                          crosoft.DeploymentManager/rollouts/myhc0417Rollout
 Tags                    :
 ```
 
@@ -371,7 +369,7 @@ After the rollout is completed, you shall see one additional resource group crea
 
 ## Deploy the rollout with the healthy status
 
-Repeat this section to redeploy the rollout with the healthy status URL.  After the rollout is completed, you shall see one additional resource group created for East US.
+Repeat this section to redeploy the rollout with the healthy status URL.  After the rollout is completed, you shall see one more resource group created for East US.
 
 ## Verify the deployment
 
