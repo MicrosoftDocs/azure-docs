@@ -22,7 +22,7 @@ This article details information on how through the different stages of your Dat
 
 ## Set up access control on the order
 
-You can control who can access your order when the order is first created. You can set up Role-based Access Control (RBAC) roles at various scopes to control the access to the Data Box order. An RBAC role determines the type of access – read/write, read only, read/write to a subset of operations.
+You can control who can access your order when the order is first created. Set up Role-based Access Control (RBAC) roles at various scopes to control the access to the Data Box order. An RBAC role determines the type of access – read/write, read only, read/write to a subset of operations.
 
 Scope determines the extent of access of a given role within the Azure hierarchy. For example, a role granted access at a subscription level has access to *all* resources within that subscription. The type of access itself is defined by the role definition.
 
@@ -75,7 +75,7 @@ During prepare to ship, a list of files known as the BOM or manifest file is cre
 
 - Use this file to verify against the actual names and the number of files that were copied to the Data Box.
 - Use this file to verify against the actual sizes of the files.
-- Verify that the crc64 corresponds to a non-zero string. <!--A null value for crc64 indicates that there was an error in -- (reparse point error)-->
+- Verify that the crc64 corresponds to a non-zero string. <!--A null value for crc64 indicates that there was a reparse point error)-->
 
 For more information on the errors received during prepare to ship, go to [Troubleshoot Data Box issues](data-box-troubleshoot.md).
 
@@ -87,7 +87,7 @@ These files also reside on the Data Box device and are uploaded to the associate
 
 ### BOM file format
 
-The following describes the general format of a BOM or manifest file:
+BOM or manifest file has the following general format:
 
 `<file size = "file-size-in-bytes" crc64="cyclic-redundancy-check-string">\folder-path-on-data-box\name-of-file-copied.md</file>`
 
@@ -125,7 +125,7 @@ By default, logs are written to a container named copylog. The logs are stored 
 
 The copylog path is also displayed on the overview blade for the portal.
 
-The following describes the general format of a copylog file for a Data Box upload that completed successfully:
+The following sample describes the general format of a copylog file for a Data Box upload that completed successfully:
 
 ```
 <?xml version="1.0"?>
@@ -142,11 +142,11 @@ Here is an example of a copylog where the upload completed with errors:
 
 ## Get chain of custody logs after data erasure
 
-After the data is erased from the Data Box disks as per the NIST SP 800-88 Revision 1 guidelines, the chain of custody logs are available. These include the Audit logs and the order history. The BOM or manifest files are also copied with the audit logs.
+After the data is erased from the Data Box disks as per the NIST SP 800-88 Revision 1 guidelines, the chain of custody logs are available. These logs include the audit logs and the order history. The BOM or manifest files are also copied with the audit logs.
 
 ### Audit logs
 
-Audit logs contain information on power on and share access on the Data Box when it is outside of Azure datacenter. These logs are located at: `storage-account/azuredatabox-chainofcustodylogs`
+Audit logs contain information on power-on and share access on the Data Box when it is outside of Azure datacenter. These logs are located at: `storage-account/azuredatabox-chainofcustodylogs`
 
 Here is a sample of the audit log from a Data Box:
 
