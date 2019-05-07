@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Monitor for VMs (preview) overview | Microsoft Docs
+title: Enable Azure Monitor for VMs (preview) overview | Microsoft Docs
 description: This article describes how you deploy and configure Azure Monitor for VMs and the required system requirements.
 services: azure-monitor
 documentationcenter: ''
@@ -27,6 +27,7 @@ You enable Azure Monitor for VMs by using one of the following methods:
 * Enable to monitor virtual machines or physical computers hosted in your corporate network or other cloud environment.
 
 ## Prerequisites
+
 Before you start, make sure that you understand the information in the following sections.
 
 ### Log Analytics
@@ -54,12 +55,12 @@ If you don't have a workspace, you can create one with one of the following meth
 
 If you're enabling monitoring for a single Azure VM or VM scale set in the Azure portal, you can create a workspace during this process.
 
-To enable the Azure Monitor for VMs for the at-scale scenario, first configure the following in your Log Analytics workspace:
+For the at-scale scenario using Azure Policy, Azure PowerShell, or Azure Resource Manager templates your Log Analytics workspace first needs the following configured:
 
-* Install the ServiceMap and InfrastructureInsights solutions. You can complete this installation only by using an Azure Resource Manager template that's provided in this article.
+* Install the ServiceMap and InfrastructureInsights solutions. You can complete this installation by using an Azure Resource Manager template that's provided or by using the **Configure Workspace** option found on the **Get Started** tab.
 * Configure the Log Analytics workspace to collect performance counters.
 
-To configure your workspace for the at-scale scenario, see Set up Log Analytics workspace for an at-scale deployment.
+To configure your workspace for the at-scale scenario using Azure PowerShell, see [Set up Log Analytics workspace for an at-scale deployment](vminsights-enable-atscale-posh.md#set-up-a-log-analytics-workspace).
 
 ### Supported operating systems
 
@@ -132,6 +133,7 @@ The following table lists the Windows and Linux operating systems that are suppo
 |12 SP3 | 4.4.* |
 
 ### The Microsoft Dependency agent
+
 The Azure Monitor for VMs Map feature gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics. Therefore, your system must have the Log Analytics agent installed and configured with the Dependency agent.
 
 Whether you enable Azure Monitor for VMs for a single Azure VM or you use the at-scale deployment method, you need to use the Azure VM Dependency agent extension to install the agent as part of the experience.
@@ -154,6 +156,7 @@ The Dependency agent can be downloaded from the following locations:
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.8.1 | 3037934A5D3FB7911D5840A9744AE9F980F87F620A7F7B407F05E276FE7AE4A8 |
 
 ## Role-based access control
+
 To enable and access the features in Azure Monitor for VMs, you need to be assigned the following access roles:
 
 - To enable it, you must have the *Log Analytics contributor* role.
@@ -174,6 +177,7 @@ You enable Azure Monitor for VMs by using one of the following methods described
 | Hybrid cloud | [Enable for Hybrid environment](vminsights-enable-hybrid-cloud.md) | You can deploy to virtual machines or physical computers that are hosted in your datacenter or other cloud environments. |
 
 ## Performance counters enabled
+
 Azure Monitor for VMs configures a Log Analytics workspace to collect the performance counters that it uses. The following table lists the objects and counters that are collected every 60 seconds.
 
 ### Windows performance counters
@@ -214,6 +218,7 @@ Azure Monitor for VMs configures a Log Analytics workspace to collect the perfor
 |Processor |% Processor Time |
 
 ## Diagnostic and usage data
+
 Microsoft automatically collects usage and performance data through your use of the Azure Monitor service. Microsoft uses this data to provide and improve the quality, security, and integrity of the service. To provide accurate and efficient troubleshooting capabilities, data from the Map feature includes information about the configuration of your software, such as the operating system and version, IP address, DNS name, and workstation name. Microsoft doesn't collect names, addresses, or other contact information.
 
 For more information about data collection and usage, see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).

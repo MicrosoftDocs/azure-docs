@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Monitor for VMs (preview) using Azure PowerShell | Microsoft Docs
+title: Enable Azure Monitor for VMs (preview) using Azure PowerShell | Microsoft Docs
 description: This article describes how you enable Azure Monitor for VMs for one or more Azure virtual machines or virtual machine scale sets using Azure PowerShell or Azure Resource Manager templates.
 services: azure-monitor
 documentationcenter: ''
@@ -15,11 +15,125 @@ ms.date: 05/07/2019
 ms.author: magoedte
 ---
 
-## Enable using Azure PowerShell or with an Azure Resource Manager template
+# Enable using Azure PowerShell or with an Azure Resource Manager template
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 This article explains how to enable Azure Monitor for VMs (preview) for Azure virtual machines or virtual machine scale sets using Azure PowerShell or Azure Resource Manager templates. At the end of this process you will have successfully begun monitoring all of your virtual machines and learn if any are experiencing performance or availability issues. 
+
+## Set up a Log Analytics workspace 
+
+If you don't have a Log Analytics workspace, create one by reviewing the methods that are suggested in the [Prerequisites](vminsights-enable-overview#log-analytics) section before proceeding with the steps to configure it in order to complete the deployment of Azure Monitor for VMs using the Azure Resource Manager template method.
+
+### Enable performance counters
+
+If the Log Analytics workspace that's referenced by the solution isn't already configured to collect the performance counters required by the solution, you need to enable them. You can do so in either of two ways:
+* Manually, as described in [Windows and Linux performance data sources in Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
+* By downloading and running a PowerShell script that's available from [Azure PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
+
+### Install the ServiceMap and InfrastructureInsights solutions
+This method includes a JSON template that specifies the configuration for enabling the solution components in your Log Analytics workspace.
+
+If you're unfamiliar with deploying resources by using a template, see:
+* [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
+* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+
+If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+1. Copy and paste the following JSON syntax into your file:
+
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "WorkspaceName": {
+                "type": "string"
+            },
+            "WorkspaceLocation": {
+                "type": "string"
+            }
+        },
+        "resources": [
+            {
+                "apiVersion": "2017-03-15-preview",
+                "type": "Microsoft.OperationalInsights/workspaces",
+                "name": "[parameters('WorkspaceName')]",
+                "location": "[parameters('WorkspaceLocation')]",
+                "resources": [
+                    {
+                        "apiVersion": "2015-11-01-preview",
+                        "location": "[parameters('WorkspaceLocation')]",
+                        "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                        "type": "Microsoft.OperationsManagement/solutions",
+                        "dependsOn": [
+                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                        ],
+                        "properties": {
+                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                        },
+
+                        "plan": {
+                            "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                            "publisher": "Microsoft",
+                            "product": "[Concat('OMSGallery/', 'ServiceMap')]",
+                            "promotionCode": ""
+                        }
+                    },
+                    {
+                        "apiVersion": "2015-11-01-preview",
+                        "location": "[parameters('WorkspaceLocation')]",
+                        "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
+                        "type": "Microsoft.OperationsManagement/solutions",
+                        "dependsOn": [
+                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                        ],
+                        "properties": {
+                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                        },
+                        "plan": {
+                            "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
+                            "publisher": "Microsoft",
+                            "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
+                            "promotionCode": ""
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    ```
+
+1. Save this file as *installsolutionsforvminsights.json* to a local folder.
+
+1. Capture the values for *WorkspaceName*, *ResourceGroupName*, and *WorkspaceLocation*. The value for *WorkspaceName* is the name of your Log Analytics workspace. The value for *WorkspaceLocation* is the region the workspace is defined in.
+
+1. You're ready to deploy this template.
+ 
+    * Use the following PowerShell commands in the folder that contains the template:
+
+        ```powershell
+        New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+        ```
+
+        The configuration change can take a few minutes to complete. When it's complete, a message is displayed that's similar to the following and includes the result:
+
+        ```powershell
+        provisioningState       : Succeeded
+        ```
+
+    * To run the following command by using the Azure CLI:
+    
+        ```azurecli
+        az login
+        az account set --subscription "Subscription Name"
+        az group deployment create --name DeploySolutions --resource-group <ResourceGroupName> --template-file InstallSolutionsForVMInsights.json --parameters WorkspaceName=<workspaceName> WorkspaceLocation=<WorkspaceLocation - example: eastus>
+        ```
+
+        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
+
+        ```azurecli
+        provisioningState       : Succeeded
 
 ## Enable with Azure Resource Manager template
 We have created example Azure Resource Manager templates for onboarding your virtual machines and virtual machine scale sets. These templates include scenarios for enabling monitoring on an existing resource and for creating a new resource that will have monitoring enabled.
@@ -27,17 +141,17 @@ We have created example Azure Resource Manager templates for onboarding your vir
 >[!NOTE]
 >The template needs to be deployed in the same resource group as the resource to be onboarded.
 
-The Log Analytics workspace has to be created before you enable monitoring from the Azure portal, Azure PowerShell or CLI. Refer to the section in this document that coves this step.
-
 If you are unfamiliar with the concept of deploying resources by using a template, see:
 * [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-[Download the example templates](https://aka.ms/VmInsightsARMTemplates). 
+### Download templates
 
-The download file contains onboarding templates for different scenarios:
+The Azure Resource Manager templates are provided in a zip file that you can [download] (https://aka.ms/VmInsightsARMTemplates)from our GitHub repo. Contents of the zip file include folders representing each deployment scenario with a template and parameter file. Before running, modify the parameters file and specify the values required. Do not modify the template file unless you need to customize it to support your particular requirements. After you have modified the parameter file you can deploy them using the following methods below. 
+
+The download file contains the following templates for different scenarios:
 
 - **ExistingVmOnboarding** template enables Azure Monitor for VMs if the virtual machines already exists.
 - **NewVmOnboarding** template creates a virtual machine and enables Azure Monitor for VMs to monitor it.
@@ -48,12 +162,9 @@ The download file contains onboarding templates for different scenarios:
 >[!NOTE]
 >If virtual machine scale sets were already present and the upgrade policy is set to **Manual**, Azure Monitor for VMs will not be enabled for instances by default after running the **ExistingVmssOnboarding** Azure Resource Manager template. You have to manually upgrade the instances.
 
-## How to Deploy:
-
-Contained in the zip file is a folder representing each scenario listed earlier with a template and parameter file. Before running, modify the parameters file and specify the values required. Do not modify the template file unless you need to customize it to support your particular requirements. After you have modified the parameter file you can deploy them using the following methods below. 
-
 ### Deploy using Azure PowerShell
-Please run below command:
+
+The following steps enables monitoring using Azure PowerShell.
 
 ```powershell
 New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile <Template.json> -TemplateParameterFile <Parameters.json>
