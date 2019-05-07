@@ -25,7 +25,7 @@ Azure periodically performs updates to improve the reliability, performance, and
 
 - If the maintenance does not require a reboot, Azure uses in-place migration to pause the VM while the host is updated. These non-rebootful maintenance operations are applied fault domain by fault domain, and progress is stopped if any warning health signals are received. 
 
-- If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you are given a time window where you can start the maintenance yourself, when it works for you.
+- If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you are given a time window that is typically 30 days where you can start the maintenance yourself, when it works for you.
 
 
 Planned maintenance that requires a reboot, is scheduled in waves. Each wave has different scope (regions).
