@@ -61,13 +61,13 @@ Before you begin: You need a Log Analytics workspace to store the security logs 
 
 You can review and manage your current security alerts.
 
-1. Click **Security Center** > **Security Alerts**.
+1. Click **Security Center** > **Security Alerts**, and click on an alert.
 
     ![Find Alert](./media/security-center-advanced-iaas-data/find-alert.png)
 
-1. To view alert details and actions for investigating the current threat and addressing future threats, in the Remediation steps section, click on the alert.
+1. Click on an attacked resource.
 
-    ![General Information](./media/security-center-advanced-iaas-data/general-info.png)
+1. To view alert details and actions for investigating the current threat and addressing future threats, in the Remediation steps section, click on the **INVESTIGATION STEPS** link.
 
     ![Remediation Steps](./media/security-center-advanced-iaas-data/remediation-steps.png)
 
@@ -77,7 +77,8 @@ You can review and manage your current security alerts.
   > If **Log analytics workspaces** doesn’t appear at the left menu, click **All services**, and search for **Log analytics workspaces**.
 
    ![Edit Columns](./media/security-center-advanced-iaas-data/edit-columns.png)
-   To view the logs, in the Log Analytics workspace, in the **Logs** section, click on the eye next to **SQLAdvancedThreatProtection** table.
+
+1. In the Log Analytics workspace, in the **Logs** section, click on the eye next to **SQLAdvancedThreatProtection** table.
 
   ![VIew Logs](./media/security-center-advanced-iaas-data/view-logs.png)
 
