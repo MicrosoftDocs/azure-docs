@@ -85,7 +85,7 @@ How to discover databases running on a VM:
 
 1. In the [Azure portal](https://portal.azure.com), open the Recovery Services vault you use to back up the database.
 
-2. On the **Recovery Services vault** dashboard, select **Backup**.
+2. In the **Recovery Services vault** dashboard, select **Backup**.
 
    ![Select Backup to open the Backup Goal menu](./media/backup-azure-sql-database/open-backup-menu.png)
 
