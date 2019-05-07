@@ -204,7 +204,7 @@ If you want to run the custom script extension more than once, you can only do t
 * The extension **Name** parameter is the same as the previous deployment of the extension.
 * Update the configuration otherwise the command won't be re-executed. You can add in a dynamic property into the command, such as a timestamp.
 
-Alternatively, you can set the [ForceUpdateTag](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) property to **true**.
+Alternatively, you can set the [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) property to **true**.
 
 ### Using Invoke-WebRequest
 
