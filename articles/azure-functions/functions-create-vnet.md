@@ -83,7 +83,7 @@ Next, create a preconfigured VM that runs WordPress inside a virtual network ([W
 
 1. Select **OK** to create the virtual network.
 
-1. Back in the **Networking** tab, choose **None** for **Public IP** and select **Review + create**.
+1. Back in the **Networking** tab, choose **None** for **Public IP**.
 
 1. Choose the **Management** tab, then in **Diagnostics storage account**, choose the Storage account you created with your function app.
 
@@ -149,9 +149,7 @@ With VNet Integration enabled, you can create a proxy in your function app to fo
 
 1. In your browser, try to access the URL you used as the **Backend URL**. As expected, the request times out. A timeout occurs because your WordPress site is connected only to your virtual network and not the internet.
 
-1. Go to the **Overview** tab of your function app and copy the URL value, which looks like.
-
-1. Append the `/plant` route to the function app URL and paste it into the address bar of your browser. The returned image is from the WordPress site running inside your virtual network.
+1. Copy the **Proxy URL** value from your new proxy and paste it into the address bar of your browser. The returned image is from the WordPress site running inside your virtual network.
 
     ![Plant image file returned from the WordPress site](./media/functions-create-vnet/plant.png)
 
