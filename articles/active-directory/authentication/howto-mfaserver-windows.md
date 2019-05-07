@@ -15,7 +15,7 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Windows Authentication and Azure Multi-Factor Authentication Server
+# Windows Authentication and Azure Multi-Factor Authentication Server 
 
 Use the Windows Authentication section of the Azure Multi-Factor Authentication Server to enable and configure Windows authentication for applications. Before you set up Windows Authentication, keep the following list in mind:
 
