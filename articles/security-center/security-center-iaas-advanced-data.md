@@ -77,6 +77,7 @@ You can view and manage your current security alerts.
      > If **Log analytics workspaces** doesn’t appear at the left menu, click **All services**, and search for **Log analytics workspaces**.
 
     1. Be sure the columns are displaying the **Pricing tier** and **WorkspaceID** columns. (**Log analytics workspaces** > **Edit columns**, add **Pricing tier** and **WorkspaceID**.)
+
      ![Edit Columns](./media/security-center-advanced-iaas-data/edit-columns.png)
 
     1. Click on the workspace that has the alert logs.
@@ -96,12 +97,9 @@ You can set a list of recipients to receive an email notification when ASC alert
     ![Subscription Settings](./media/security-center-advanced-iaas-data/subscription-settings.png)
 
 1. From the **Settings** menu click **Email notifications**. 
-1. In the **Email address** text box, enter the email addresses to receive the notifications.
+1. In the **Email address** text box, enter the email addresses to receive the notifications. You can enter more than one email address by separating the email addresses with a comma (,).  For example   admin1@mycompany.com,admin2@mycompany.com,admin3@mycompany.com
 
-  > [!NOTE]
-  > You can enter more than one email address by separating the email addresses with a comma (,).  For example   admin1@mycompany.com,admin2@mycompany.com,admin3@mycompany.com
-
-  ![Email Settings](./media/security-center-advanced-iaas-data/email-settings.png)
+      ![Email Settings](./media/security-center-advanced-iaas-data/email-settings.png)
 
 1. In the **Email notification** settings, set the following options:
   
