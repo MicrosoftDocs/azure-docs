@@ -61,7 +61,7 @@ One of the configurable features of Azure Multi-Factor Authentication is giving 
 
 Users can opt out of two-step verification for a configurable number of days on their regular devices. If an account is compromised or a trusted device is lost, you need to be able to remove the trusted status and require two-step verification again.
 
-The **Restore multi-factor authentication on all remembered devices** setting means that the user will be challenged to perform two-step verification the next time they sign in, regardless of whether they chose to mark their device as trusted.
+The **Restore multi-factor authentication on all remembered devices** setting means that the user will be challenged to perform two-step verification the next time they sign in, regardless of whether they chose to mark their device as trusted.  
 
 ### How to restore MFA on all suspended devices for a user 
 
