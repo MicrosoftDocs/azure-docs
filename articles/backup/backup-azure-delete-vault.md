@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 05/07/2019
 ms.author: raynew
 ---
 # Delete a Recovery Services vault
@@ -40,14 +40,11 @@ If you receive an error, remove [backup items](#remove-backup-items), [infrastru
 ![delete vault error](./media/backup-azure-delete-vault/error.png)
 
 
-## Delete the Recovery Services vault by force
-
-You can delete a vault by force with PowerShell. Force delete means that the vault, and all associated backup data is permanently deleted.
+## Delete the Recovery Services vault using ARM client
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-
-To delete a vault by force:
+Use PowerShell command to install ARM client:
 
 1. Sign in to your Azure subscription with the `Connect-AzAccount` command, and follow the on-screen directions.
 
@@ -71,18 +68,20 @@ To delete a vault by force:
    `choco.exe install armclient`
 
 7. In the Azure portal, gather the subscription ID and resource group name for the vault you want to delete.
-8. In PowerShell, run the following command using your subscription ID, resource group name, and vault name. When you run the command, it deletes the vault and all dependencies.
+
+### Use ARM client to delete Recovery Services vault
+
+1. In PowerShell, run the following command using your subscription ID, resource group name, and vault name. When you run the command, it deletes the vault and all dependencies.
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-9. If the vault's not empty, you receive the error "Vault cannot be deleted as there are existing resources within this vault". To remove a contained within a vault, do the following:
+2. If the vault's not empty, you receive the error "Vault cannot be deleted as there are existing resources within this vault". To remove a contained within a vault, do the following:
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
-
-10. In the Azure portal, verify that the vault is deleted.
+3. In the Azure portal, verify that the vault is deleted.
 
 
 ## Remove vault items and delete the vault
@@ -169,15 +168,8 @@ This procedure provides an example that shows you how to remove backup data from
 
      ![delete backup data](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
 
-7. Optionally provide a reason why you're deleting the data, and add comments.
-8. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
-7. After the job completes, the service sends a message: **the backup process was stopped and the backup data was deleted**.
-8. After deleting an item in the list, on the **Backup Items** menu, click **Refresh** to see the items in the vault.
-
-
-
-
-
+7. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
+8. After deleting an item in the list, on the **Backup Infrastructure** menu, click **Refresh** to see the items in the vault.
 
 ### Delete the vault after removing dependencies
 
