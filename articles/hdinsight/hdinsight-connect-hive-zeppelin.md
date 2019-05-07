@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Execute Apache Hive queries - Apache Zeppelin
+title: Quickstart: Execute Apache Hive queries with Apache Zeppelin
 description: Learn how to use Apache Zeppelin to run Apache Hive queries.
 keywords: hdinsight,hadoop,hive,interactive query,LLAP 
 author: hrasheed-msft
