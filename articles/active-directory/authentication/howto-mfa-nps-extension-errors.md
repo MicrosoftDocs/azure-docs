@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 If you encounter errors with the NPS extension for Azure Multi-Factor Authentication, use this article to reach a resolution faster. NPS extension logs are found in Event Viewer under **Custom Views** > **Server Roles** > **Network Policy and Access Services** on the server where the NPS Extension is installed.
 
-## Troubleshooting steps for common errors
+## Troubleshooting steps for common errors 
 
 | Error code | Troubleshooting steps |
 | ---------- | --------------------- |
