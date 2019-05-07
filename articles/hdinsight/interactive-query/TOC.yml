@@ -41,9 +41,6 @@
       href: ../hadoop/hdinsight-use-hive.md
       maintainContext: true
       items:
-      - name: Use Apache Zeppelin
-        href: ../hdinsight-connect-hive-zeppelin.md
-        maintainContext: true
       - name: Tools for Visual Studio
         href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
         maintainContext: true
