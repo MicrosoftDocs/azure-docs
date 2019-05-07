@@ -86,8 +86,6 @@ Source regions are listed in the table below. All public regions can be target r
 
 ## Limits 
 
-With Managed Images, you can only have 600 concurrent VMs per image, with Shared Image Galleries, this is increased to 1000 concurrent VMs per image version.
-
 There are limits, per subscription, for deploying resources using Shared Image Galleries:
 - 100 shared image galleries, per subscription, per region
 - 1,000 image definitions, per subscription, per region
