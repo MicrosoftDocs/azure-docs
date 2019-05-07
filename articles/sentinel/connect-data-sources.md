@@ -4,7 +4,7 @@ description: Learn how to connect data sources to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: a3b63cfa-b5fe-4aff-b105-b22b424c418a

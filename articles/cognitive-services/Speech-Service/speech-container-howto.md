@@ -11,14 +11,17 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
 ---
-# Install and run containers
+
+# Install and run Speech Service containers
+
+Speech containers enable customers to build one speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. The two speech containers we support now are **speech-to-text** and **text-to-speech**. 
 
 The two speech containers are **speech-to-text** and **text-to-speech**. 
 
-|Function|Features|
-|-|-|
-|Speech-to-text| <li>Transcribes continuous real-time speech into text.<li>Can batch-transcribe speech from audio recordings. <li>Supports intermediate results, end-of-speech detection, automatic text formatting, and profanity masking. <li>Can call on [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from transcribed speech.\*|
-|Text-to-Speech| <li>Converts text to natural-sounding speech. <li>Offers multiple genders and/or dialects for many supported languages. <li>Supports plain text input or Speech Synthesis Markup Language (SSML). |
+|Function|Features|Lastest|
+|-|-|--|
+|Speech-to-text| <li>Transcribes continuous real-time speech into text.<li>Can batch-transcribe speech from audio recordings. <li>Supports intermediate results, end-of-speech detection, automatic text formatting, and profanity masking. <li>Can call on [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from transcribed speech.\*|1.1.1|
+|Text-to-Speech| <li>Converts text to natural-sounding speech. <li>Offers multiple genders and/or dialects for many supported languages. <li>Supports plain text input or Speech Synthesis Markup Language (SSML). |1.1.0|
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -58,11 +61,11 @@ The following table describes the minimum and recommended CPU cores and memory t
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-|cognitive-services-text-to-speech | 1 core, 0.5 GB memory | 2 core, 1 GB memory |
-|cognitive-services-speech-to-text | 2 core, 2 GB memory | 4 core, 4 GB memory |
+|cognitive-services-speech-to-text | 2 core<br>2 GB memory  | 4 core<br>4 GB memory  |
+|cognitive-services-text-to-speech | 1 core, 0.5 GB memory| 2 core, 1 GB memory |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
-* TPS - transactions per second
+
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
@@ -97,19 +100,19 @@ The following tag is an example of the format:
 1.0.0-amd64-en-us-preview
 ```
 
-The following table lists the supported locales for **speech-to-text**:
+The following table lists the supported locales for **speech-to-text** in the 1.1.1 version of the container:
 
 |Language locale|Tags|
 |--|--|
 |Chinese|`zh-cn`|
-|English |`en-us`<br>`en-gb`<br>`en-au`|
+|English |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
 |French |`fr-ca`<br>`fr-fr`|
 |German|`de-de`|
 |Italian|`it-it`|
-|Japense|`ja-jp`|
+|Japanese|`ja-jp`|
 |Korean|`ko-kr`|
 |Portuguese|`pt-br`|
-|Spanish|`es-es`<br>`en-in`<br>`es-mx`|
+|Spanish|`es-es`<br>`es-mx`|
 
 
 #### Text to speech locales
@@ -126,13 +129,24 @@ The following tag is an example of the format:
 1.0.0-amd64-en-us-jessarus-preview
 ```
 
-The following table lists the supported locales for **text-to-speech**:
+The following table lists the supported locales for **text-to-speech** in the 1.1.0 version of the container:
 
 |Language locale|Tags|Supported voices|
 |--|--|--|
-|English |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
 |Chinese|`zh-cn`|huihuirus<br>kangkang-apollo<br>yaoyao-apollo|
-
+|English |`en-au`|catherine<br>hayleyrus|
+|English |`en-gb`|george-apollo<br>hazelrus<br>susan-apollo|
+|English |`en-in`|heera-apollo<br>priyarus<br>ravi-apollo<br>|
+|English |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
+|French|`fr-ca`|caroline<br>harmonierus|
+|French|`fr-fr`|hortenserus<br>julie-apollo<br>paul-apollo|
+|German|`de-de`|hedda<br>heddarus<br>stefan-apollo|
+|Italian|`it-it`|cosimo-apollo<br>luciarus|
+|Japanese|`ja-jp`|ayumi-apollo<br>harukarus<br>ichiro-apollo|
+|Korean|`ko-kr`|heamirus|
+|Portuguese|`pt-br`|daniel-apollo<br>heloisarus|
+|Spanish|`es-es`|elenarus<br>laura-apollo<br>pablo-apollo<br>|
+|Spanish|`es-mx`|hildarus<br>raul-apollo|
 
 ### Docker pull for the speech containers
 
@@ -159,7 +173,7 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run any of the three containers. The command uses the following parameters:
 
-**During the private preview**, the billing settings must be valid to start the container but you are not billed for usage.
+**During the preview**, the billing settings must be valid to start the container, but you aren't billed for usage.
 
 | Placeholder | Value |
 |-------------|-------|
@@ -207,7 +221,7 @@ This command:
 
 ### Speech-to-text
 
-The container provides websocket-based query endpoint APIs, that are accessed through [Speech services SDK documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+The container provides websocket-based query endpoint APIs, that are accessed through the [Speech SDK](index.yml).
 
 By default, the Speech SDK uses online speech services. To use the container, you need to change the initialization method. See the examples below.
 

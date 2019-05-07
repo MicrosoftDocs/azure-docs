@@ -291,7 +291,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 A `coalesce` expression steps through a set of expressions until the first non-null value is obtained and returns that value. 
 
-The following pseudocode defines the structure of the ` coalesce` expression. 
+The following pseudocode defines the structure of the `coalesce` expression. 
 
 ```javascript
 [

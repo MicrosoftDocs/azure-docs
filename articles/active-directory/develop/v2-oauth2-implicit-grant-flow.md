@@ -48,7 +48,7 @@ The following diagram shows what the entire implicit sign-in flow looks like and
 
 ## Send the sign-in request
 
-To initially sign the user into your app, you can send an [OpenID Connect](v2-protocols-oidc.md) authorization request and get an `id_token` from the Microsoft identity platform endpoint.
+To initially sign the user into your app, you can send an [OpenID Connect](v2-protocols-oidc.md) authentication request and get an `id_token` from the Microsoft identity platform endpoint.
 
 > [!IMPORTANT]
 > To successfully request an ID token, the app registration in the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page must have the implicit grant flow enabled correctly, by selecting **Access tokens** and **ID tokens** under the **Implicit grant** section. If it's not enabled, an `unsupported_response` error will be returned: **The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'**

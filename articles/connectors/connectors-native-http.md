@@ -20,7 +20,7 @@ you can automate workflows that communicate with any HTTP or HTTPS endpoint
 by building logic apps. For example, you can monitor the service endpoint 
 for your website. When an event happens at that endpoint, such as your 
 website going down, the event triggers your logic app's workflow and runs 
-the specified actions. 
+the specified actions.
 
 You can use the HTTP trigger as the first step in your worklfow 
 for checking or *polling* an endpoint on a regular schedule. 
@@ -31,7 +31,14 @@ in your logic app.
 
 You can use the HTTP action as any other step in your workflow 
 for calling the endpoint when you want. The endpoint's response 
-determines how your workflow's remaining actions run.
+determines how your workflow's remaining actions run. 
+
+Based the target endpoint's capability, this connector supports 
+Transport Layer Security (TLS) versions 1.0, 1.1, and 1.2. 
+Logic Apps negotiates with the endpoint over using the highest 
+supported version possible. So, for example, if the endpoint 
+supports 1.2, the connector uses 1.2 first. Otherwise, the 
+connector uses the next highest supported version.
 
 If you're new to logic apps, review 
 [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
@@ -39,7 +46,7 @@ If you're new to logic apps, review
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
 * The URL for the target endpoint you want to call 
 

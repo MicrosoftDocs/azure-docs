@@ -68,6 +68,8 @@
     href: resource-group-delete.md
   - name: Resource Manager and classic deployment
     href: resource-manager-deployment-model.md
+  - name: Azure common security attributes
+    href: azure-resource-manager-security-attributes.md
 - name: How to
   items:
   - name: Create templates
@@ -200,8 +202,9 @@
   - name: Template reference
     href: subtoc/toc.yml
   - name: Template functions
-    href: resource-group-template-functions.md
     items:
+    - name: All functions
+      href: resource-group-template-functions.md
     - name: Array and object functions
       href: resource-group-template-functions-array.md
     - name: Comparison functions
@@ -224,6 +227,8 @@
       href: move-support-resources.md
     - name: Tag support
       href: tag-support.md
+  - name: Resource providers by service
+    href: azure-services-resource-providers.md
   - name: REST - Resource Manager
     href: /rest/api/resources/
   - name: REST - Deployment Manager

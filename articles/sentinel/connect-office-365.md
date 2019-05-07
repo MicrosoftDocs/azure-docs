@@ -4,7 +4,7 @@ description: Learn how to connect Office 365 data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: ff7c862e-2e23-4a28-bd18-f2924a30899d

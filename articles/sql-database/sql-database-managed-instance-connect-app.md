@@ -142,7 +142,8 @@ The following minimal versions of the tools and drivers are recommended if you w
 |JDBC driver| 6.4.0 |
 |Node.js driver| 2.1.1 |
 |OLEDB driver| 18.0.2.0 |
-|SSMS| 17.8.1 or [higher](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+|SSMS| 18.0 or [higher](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) or higher |
 
 ## Next steps
 

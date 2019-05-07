@@ -11,7 +11,10 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
 ---
-# Configure containers
+
+# Configure Speech Service containers
+
+Speech containers enable customers to build one speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. The two speech containers we support now are **speech-to-text** and **text-to-speech**. 
 
 The **Speech** container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
 
@@ -58,6 +61,18 @@ This setting can be found in the following place:
  
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
+## Mount settings
+
+Use bind mounts to read and write data to and from the container. You can specify an input mount or output mount by specifying the `--mount` option in the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command.
+
+The Speech containers don't use input or output mounts to store training or service data. 
+
+The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](speech-container-howto.md#the-host-computer)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions. 
+
+|Optional| Name | Data type | Description |
+|-------|------|-----------|-------------|
+|Not allowed| `Input` | String | Speech containers do not use this.|
+|Optional| `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## Example docker run commands 
 
@@ -109,7 +124,7 @@ containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY}   
-  Logging:Console:LogLevel=Information
+  Logging:Console:LogLevel:Default=Information
 ```
 
 ### Logging example for text to speech
@@ -120,7 +135,7 @@ containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY}  
-  Logging:Console:LogLevel=Information
+  Logging:Console:LogLevel:Default=Information
 ```
 
 ## Next steps

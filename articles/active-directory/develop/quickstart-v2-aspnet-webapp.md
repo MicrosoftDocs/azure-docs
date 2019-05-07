@@ -51,7 +51,7 @@ In this quickstart, you'll learn how an ASP.NET web app can sign in personal acc
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
 >      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `ASPNET-Quickstart`.
->      - Add `https://localhost:44368/` in **Reply URL**, and click **Register**.
+>      - Add `https://localhost:44368/` in **Redirect URI**, and click **Register**.
 Select **Authentication** menu, set **ID tokens** under **Implicit Grant**, and then select **Save**.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -65,12 +65,14 @@ Select **Authentication** menu, set **ID tokens** under **Implicit Grant**, and 
 
 #### Step 2: Download your project
 
-[Download the Visual Studio 2017 solution](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+[Download the Visual Studio 2019 solution](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 #### Step 3: Configure your Visual Studio project
 
 1. Extract the zip file to a local folder closer to the root folder - for example, **C:\Azure-Samples**
 1. Open the solution in Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
+1. Depending on the version of Visual Studio, you might need to right click on the project `AppModelv2-WebApp-OpenIDConnect-DotNet` and **Restore NuGet packages**
+1. Open the Package Manager Console (View -> Other Windows -> Package Manager Console) and run `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
 1. Edit **Web.config** and replace the parameters `ClientId` and `Tenant` with:
 
     ```xml
@@ -91,7 +93,7 @@ Select **Authentication** menu, set **ID tokens** under **Implicit Grant**, and 
 
 ## More information
 
-This section gives an overview of the code required to sign-in users. This can be useful to understand how the code works, main arguments, and also if you want to add sign-in to an existing ASP.NET application.
+This section gives an overview of the code required to sign-in users. This overview can be useful to understand how the code works, main arguments, and also if you want to add sign-in to an existing ASP.NET application.
 
 ### OWIN middleware NuGet packages
 
@@ -100,12 +102,12 @@ You can set up the authentication pipeline with cookie-based authentication usin
 ```powershell
 Install-Package Microsoft.Owin.Security.OpenIdConnect
 Install-Package Microsoft.Owin.Security.Cookies
-Install-Package Microsoft.Owin.Host.SystemWeb
+Install-Package Microsoft.Owin.Host.SystemWeb  
 ```
 
 ### OWIN Startup Class
 
-The OWIN middleware uses a *startup class* that is executed when the hosting process initializes (in the case of this quickstart, the *startup.cs* file located in root folder). The following code shows the parameter used by this quickstart:
+The OWIN middleware uses a *startup class* that runs when the hosting process initializes. In this quickstart, the *startup.cs* file located in root folder. The following code shows the parameter used by this quickstart:
 
 ```csharp
 public void Configuration(IAppBuilder app)
@@ -155,7 +157,7 @@ public void Configuration(IAppBuilder app)
 
 
 > [!NOTE]
-> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications you need to validate the issuer
+> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications you need to validate the issuer.
 > See the samples to understand how to do that.
 
 ### Initiate an authentication challenge

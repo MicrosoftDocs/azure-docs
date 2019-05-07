@@ -70,16 +70,15 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="sql-database-managed-instance#business-critical-service-tier">Business Critical service tier</a> is now in <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">General Availability (GA)</a>.
-    - html: (Preview) Create <a href="https://aka.ms/managed-instance-aadlogins">Instance-level Azure AD server principals (logins)</a> using <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> .
-    - html: (Preview) Create instances with <a href="https://aka.ms/managed-instance-collation">server-level collation of your choice</a>.
-    - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configure backup retention up to 35 days</a> for Point-in-time restore. Note that Long-term backup retention (up to 10 years) is still not enabled so you can use <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">Copy-only backups</a> as an alternative.
-    - html: (Preview) Use <a href="https://aka.ms/managed-instance-failover-groups">Geo-distributed failover groups</a> to keep a copy of the instance in the another region and ensure that your data will be available even in the regional disaster scenario.
-    - html: (Preview) <a href="https://aka.ms/managed-instance-tde-byok">Bring your own encryption keys</a> while migrating on-premises databases that already have enabled Transparent Data Encryption (TDE).
-    - html: Managed instances are protected with <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">built-in firewall</a>.
-    - html: (Preview) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Re-create dropped databases using PowerShell</a> 
-    - html: Geo-restore functionality enables you to <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restore your database to another data center using PowerShell</a>.
     - html: (Preview) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Configure time zone</a> during instance creation.
+    - html: Geo-restore functionality enables you to <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restore your database to another data center using PowerShell</a>.
+    - html: (Preview) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Re-create dropped databases using PowerShell</a> 
+    - html: Managed instances are protected with <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">built-in firewall</a>.
+    - html: (Preview) <a href="https://aka.ms/managed-instance-tde-byok">Bring your own encryption keys</a> while migrating on-premises databases that already have enabled Transparent Data Encryption (TDE).
+    - html: (Preview) Use <a href="https://aka.ms/managed-instance-failover-groups">Geo-distributed failover groups</a> to keep a copy of the instance in the another region and ensure that your data will be available even in the regional disaster scenario.
+    - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configure backup retention up to 35 days</a> for Point-in-time restore. Note that Long-term backup retention (up to 10 years) is still not enabled so you can use <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">Copy-only backups</a> as an alternative.
+    - html: (Preview) Create instances with <a href="https://aka.ms/managed-instance-collation">server-level collation of your choice</a>.
+    - html: (Preview) Create <a href="https://aka.ms/managed-instance-aadlogins">Instance-level Azure AD server principals (logins)</a> using <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> .
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
