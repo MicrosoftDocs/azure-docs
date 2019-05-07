@@ -102,7 +102,6 @@ Take the following steps to delete the device and the resource in Azure portal.
 
 You're notified after the device and the associated resource is successfully deleted.
 
-
 ## Next steps
 
 - Learn how to [Manage bandwidth](data-box-edge-manage-bandwidth-schedules.md).
