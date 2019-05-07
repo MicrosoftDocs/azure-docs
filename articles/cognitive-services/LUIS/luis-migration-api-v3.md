@@ -42,7 +42,7 @@ The following LUIS features are **not supported** in the V3 API:
 
 ## Prebuilt domains with new models and language coverage
 
-Review the [V3 API list of prebuilt domains](luis-reference-prebuilt-domains.md). These domains are more complete, both in the model, and the language coverage. 
+Review the [prebuilt domains](luis-reference-prebuilt-domains.md), which work with V2 and V3 APIs. These domains are more complete, both in the model, and the language coverage. 
 
 ## Prebuilt entities with new JSON
 
