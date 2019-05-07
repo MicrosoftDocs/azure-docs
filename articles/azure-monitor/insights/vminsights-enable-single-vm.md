@@ -11,13 +11,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/01/2019
+ms.date: 05/07/2019
 ms.author: magoedte
 ---
 
 # Enable Azure Monitor for VMs (preview) for a single Azure virtual machine or virtual machine scale set
 
-When evaluating Azure Monitor for VMs (preview) with a small number of Azure virtual machines, or a single virtual machine or virtual machine scale set, the easiest and most direct approach to enable monitoring is from the Azure portal. At the end of this process you will have successfully begun monitoring them and learn if they are experiencing any performance or availability issues. 
+When evaluating Azure Monitor for VMs (preview) for a small number of Azure virtual machines or a single virtual machine or virtual machine scale set, the easiest and most direct approach to enable monitoring is from the Azure portal. At the end of this process, you will have successfully begun monitoring them and learn if they are experiencing any performance or availability issues. 
 
 Before getting started, be sure to review the [prerequisites](vminsights-enable-overview.md) and verify your subscription and resources meet the requirements.  
 
@@ -35,7 +35,9 @@ To enable monitoring of your Azure VM in the Azure portal, do the following:
 1. On the **Insights (preview)** page, select **Try now**.
 
     ![Enable Azure Monitor for VMs for a VM](./media/vminsights-onboard/enable-vminsights-vm-portal-01.png)
+
 1. On the **Azure Monitor Insights Onboarding** page, if you have an existing Log Analytics workspace in the same subscription, select it in the drop-down list.  
+
     The list preselects the default workspace and location that the virtual machine is deployed to in the subscription. 
 
     >[!NOTE]
@@ -53,11 +55,12 @@ To enable monitoring of your Azure VM scale set in the Azure portal, do the foll
 
 2. Select **Virtual Machine Scale Sets**.
 
-3. From the list, select a VM scale set.
+3. From the list, select a virtual machine scale set.
 
-4. On the VM scale set page, in the **Monitoring** section, select **Insights (preview)**.
+4. On the virtual machine scale set page, in the **Monitoring** section, select **Insights (preview)**.
 
-5. On the **Insights (preview)** page, if you have an existing Log Analytics workspace you want to use, select it in the drop-down list.  
+5. On the **Insights (preview)** page, if you have an existing Log Analytics workspace you want to use, select it in the drop-down list.
+
     The list preselects the default workspace and location that the virtual machine is deployed to in the subscription. 
 
     ![Enable Azure Monitor for VMs for a VM scale set](./media/vminsights-onboard/enable-vmssinsights-vmss-portal-01.png)
