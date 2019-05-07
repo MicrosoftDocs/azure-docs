@@ -27,6 +27,7 @@ The Speech SDK's **ConversationTranscriber** API allows you to transcribe meetin
 
 * [Learn how to use Speech-to-text with the Speech SDK.](quickstart-csharp-dotnet-windows.md)
 * [Get your Speech trial subscription.](https://azure.microsoft.com/try/cognitive-services/)
+* Microsoft Cognitive Services Speech SDK version 1.5.1 or later is required.
 
 ## Create voice signatures for participants
 
