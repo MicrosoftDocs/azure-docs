@@ -1,6 +1,6 @@
 ---
 title: Choose a pricing tier or SKU for Azure Search service - Azure Search
-description: 'Azure Search can be provisioned at these SKUs: Free, Basic, and Standard, where Standard is available in various resource configurations and capacity levels.'
+description: 'Azure Search can be provisioned in these SKUs: Free, Basic, and Standard, and Standard is available in various resource configurations and capacity levels.'
 services: search
 author: HeidiSteen
 manager: cgronlun
@@ -14,134 +14,134 @@ ms.custom: seodec2018
 
 # Choose a pricing tier for Azure Search
 
-In Azure Search, a [resource is created](search-create-service-portal.md) at a pricing tier or SKU that is fixed for the lifetime of the service. Tiers include **Free**, **Basic**, **Standard**, or **Storage Optimized**.  **Standard** and **Storage Optimized** are available in several configurations and capacities. 
+When you create an Azure Search service, a [resource is created](search-create-service-portal.md) at a pricing tier or SKU that's fixed for the lifetime of the service. Tiers include Free, Basic, Standard, and Storage Optimized. Standard and Storage Optimized are available with several configurations and capacities.
 
-Most customers start with the **Free** tier for evaluation and then graduate to one of the higher paid tiers for development and production deployments. You can complete all quickstarts and tutorials on the **Free** tier, including those for resource-intensive cognitive search.
+Most customers start with the Free tier so they can evaluate the service and then upgrade to one of the higher tiers for development and production deployments. You can complete all quickstarts and tutorials by using the Free tier, including the ones for resource-intensive cognitive search.
 
 > [!NOTE]
-> The Storage Optimized service tiers are currently available as a preview at discounted pricing for testing and experimentation purposes with the goal of gathering feedback. Final pricing will be announced later when these tiers are generally available. We advise against using these tiers for production applications.
+> Microsoft is currently providing the Storage Optimized service tiers in a preview at discounted pricing for testing and experimentation, with the goal of gathering feedback. Final pricing will be announced later when these tiers are generally available. We advise against using these tiers for production applications.
 
 Tiers reflect the characteristics of the hardware hosting the service (rather than features) and are differentiated by:
 
-+ Number of indexes you can create
-+ Size and speed of partitions (physical storage)
++ The number of indexes you can create.
++ The size and speed of partitions (physical storage).
 
-Although all tiers, including the **Free** tier, generally offer feature parity, larger workloads can dictate requirements for higher tiers. For example, [AI-indexing with Cognitive Services](cognitive-search-concept-intro.md) has long-running skills that time out on a free service unless the data set happens to be small.
+Although all tiers, including the Free tier, generally offer feature parity, larger workloads can dictate requirements for higher tiers. For example, [AI indexing with Cognitive Services](cognitive-search-concept-intro.md) has long-running skills that time out on a free service unless the dataset is small.
 
 > [!NOTE] 
-> The exception to feature parity is [indexers](search-indexer-overview.md), which are not available on S3HD.
+> The exception to feature parity is [indexers](search-indexer-overview.md), which are not available on S3 HD.
 >
 
-Within a tier, you can [adjust replica and partition resources](search-capacity-planning.md) to increase or decrease scale. You could start with one or two of each, and then temporarily raise your computational power for a heavy indexing workload. The ability to tune resource levels within a tier adds flexibility, but also slightly complicates your analysis. You might have to experiment to see whether a lower tier with higher resources/replicas offers better value and performance than a higher tier with lower resourcing. To learn more about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md).
+Within a tier, you can [adjust replica and partition resources](search-capacity-planning.md) to increase or decrease scale. You could start with one or two of each, and then temporarily raise your computational power for a heavy indexing workload. The ability to tune resource levels within a tier adds flexibility, but also slightly complicates your analysis. You might have to experiment to see whether a lower tier with more resources/replicas offers better value and performance than a higher tier with fewer resources. To learn more about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md).
 
 ## Tiers for Azure Search
 
-The following table lists the available tiers. Other sources of tier information include the [pricing page](https://azure.microsoft.com/pricing/details/search/), [service and data limits](search-limits-quotas-capacity.md), and the portal page when provisioning a service.
+The following table lists the available tiers. You can find out more about the various tiers on the [pricing page](https://azure.microsoft.com/pricing/details/search/), in the [Service limits in Azure Search](search-limits-quotas-capacity.md) article, and on the portal page when you're provisioning a service.
 
 |Tier | Capacity |
 |-----|-------------|
-|Free | Shared with other subscribers. Non-scalable, limited to 3 indexes and 50 MB storage. |
-|Basic | Dedicated computing resources for production workloads at a smaller scale. One 2 GB partition and up to three replicas. |
-|Standard 1 (S1) | From S1 on up, dedicated machines with more storage and processing capacity at every level. Partition size is 25 GB/partition (max 300 GB per service) for S1. |
-|Standard 2 (S2) | Similar to S1 but with 100 GB/partitions (max 1.2 TB per service) |
-|Standard 3 (S3) | 200 GB/partition (max 2.4 TB per service) |
-|Standard 3 High-density (S3-HD) | High density is a *hosting mode* for S3. The underlying hardware is optimized for a large number of smaller indexes, intended for multitenancy scenarios. S3-HD has the same per-unit charge as S3 but the hardware is optimized for fast file reads on a large number of smaller indexes.|
-|Storage Optimized 1 (L1) | 1 TB/partition (max 12 TB per service) |
-|Storage Optimized 2 (L2) | 2 TB/partition (max 24 TB per service) |
+|Free | Shared with other subscribers. Non-scalable. Limited to three indexes and 50 MB of storage. |
+|Basic | Dedicated computing resources for production workloads at a smaller scale. One 2-GB partition and up to three replicas. |
+|Standard 1 (S1) | For S1 and higher, dedicated machines with more storage and processing capacity at every level. For S1, partition size is 25 GB/partition (with a maximum of 300 GB per service). |
+|Standard 2 (S2) | Similar to S1, but with 100-GB partitions (and a maximum of 1.2 TB per service). |
+|Standard 3 (S3) | 200-GB partitions (with a maximum of 2.4 TB per service). |
+|Standard 3 High Density (S3 HD) | High density is a *hosting mode* for S3. The underlying hardware is optimized for a large number of smaller indexes, and is intended for multitenancy scenarios. S3 HD has the same per-unit charge as S3, but the hardware is optimized for fast file reads on a large number of smaller indexes.|
+|Storage Optimized 1 (L1) | 1-TB partitions (with a maximum of 12 TB per service). |
+|Storage Optimized 2 (L2) | 2-TB partitions (with a maximum of 24 TB per service). |
 
 > [!NOTE] 
-> The Storage Optimized tiers offer larger storage capacity at a lower price per TB than the Standard tiers. The primary tradeoff is higher query latency, which you should validate for your specific application requirements.  To learn more about performance considerations of this tier, see [Performance and optimization considerations](search-performance-optimization.md).
+> The Storage Optimized tiers offer larger storage capacity at a lower price per TB than the Standard tiers. The primary tradeoff is higher query latency, which you should validate for your specific application requirements.  To learn more about the performance considerations of this tier, see [Performance and optimization considerations](search-performance-optimization.md).
 >
 
 ## How billing works
 
-In Azure Search, there are three ways to incur costs in Azure Search, and there are fixed and variable components. This section looks at each billing component in turn.
+There are three ways to incur costs in Azure Search, and there are fixed and variable components. This section describes each billing component.
 
 ### 1. Core service costs (fixed and variable)
 
-For the service itself, the minimum charge is the first search unit (1 replica x 1 partition), and this amount is fixed for the lifetime of the service because the service cannot run on anything less than this configuration. 
+For the service itself, the minimum charge is the first search unit (1 replica x 1 partition). This minimum is fixed for the lifetime of the service because the service can't run on anything less than this configuration.
 
 Beyond the minimum, you can add replicas and partitions independently. For example, you can add only replicas or only partitions. Incremental increases in capacity through replicas and partitions constitute the variable cost component. 
 
-Billing is based on a [formula (replicas x partitions x rate)](#search-units). The rate you are charged depends on the pricing tier you select.
+Billing is based on a [formula (replicas x partitions x rate)](#search-units). The rate you're charged depends on the pricing tier you select.
 
-In the following screenshot, per unit pricing is indicated for Free, Basic, and S1 (S2, S3, L1, and L2 are not shown). If you created a **Basic**, **Standard**, or **Storage Optimized** service, your monthly cost would average the value that appears for *price-1* and *price-2* respectively. Unit costs go up for each tier because the computational power and storage capacity is greater at each consecutive tier. The rates for Azure Search are published on the [Azure Search pricing page](https://azure.microsoft.com/pricing/details/search/).
+In the following screenshot, per-unit pricing is indicated for Free, Basic, and S1. (S2, S3, L1, and L2 aren't shown.) If you create a Basic service, your monthly cost will average the value that appears for  *price-1*. For a Standard service, your monthly cost will average the value that appears for *price-2*. Unit costs increase for each tier because the computational power and storage capacity is greater at each consecutive tier. The rates for Azure Search are available on the [Azure Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 
-![Per unit pricing](./media/search-sku-tier/per-unit-pricing.png "Per unit pricing")
+![Per-unit pricing](./media/search-sku-tier/per-unit-pricing.png "Per-unit pricing")
 
-When costing out a search solution, notice that pricing and capacity are not linear (doubling capacity more than doubles the cost). For an example of how of the formula works, see ["How to allocate replicas and partitions"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
+When you're estimating the cost of a search solution, keep in mind that pricing and capacity aren't linear. (Doubling capacity more than doubles the cost.) For an example of how of the formula works, see [How to allocate replicas and partitions](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
 
 ### 2. Data egress charges during indexing
 
-Use of [Azure Search indexers](search-indexer-overview.md) can result in billing impact depending on where the services are located. You can eliminate data egress charges entirely if you create the Azure Search service in the same region as your data. The following points are from the [bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/).
+Using [Azure Search indexers](search-indexer-overview.md) can affect billing, depending on the location of your services. You can eliminate data egress charges entirely if you create the Azure Search service in the same region as your data. Here's some information from the [bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/):
 
-+ Microsoft does not charge for any inbound data to any service on Azure, or for any outbound data from Azure Search.
++ Microsoft doesn't charge for any inbound data to any service on Azure, or for any outbound data from Azure Search.
 
-+ In multi-service solutions, there are no charges for data crossing the wire when all services are in the same region.
++ In multiservice solutions, there's no charge for data crossing the wire when all services are in the same region.
 
-Charges do apply for outbound data if services are in different regions. Such charges are not part of your Azure Search bill per se, but they are mentioned here because if you are using data or AI-enriched indexers to pull data from different regions, you'll see those costs reflected in your overall bill. 
+Charges do apply for outbound data if services are in different regions. These charges aren't actually part of your Azure Search bill. They're mentioned here because if you're using data or AI-enriched indexers to pull data from different regions, you'll see costs reflected in your overall bill.
 
-### 3. AI-enriched indexing using Cognitive Services
+### 3. AI-enriched indexing with Cognitive Services
 
-For [AI-indexing with Cognitive Services](cognitive-search-concept-intro.md), you should plan on attaching a billable Cognitive Services resource at the S0 pricing tier for pay-as-you-go processing. There is no "fixed cost" associated with attaching Cognitive Services. You pay only for the processing you need.
+For [AI indexing with Cognitive Services](cognitive-search-concept-intro.md), you should plan to attach a billable Azure Cognitive Services resource at the S0 pricing tier for pay-as-you-go processing. There's no fixed cost associated with attaching Cognitive Services. You pay only for the processing you need.
 
-Image extraction during document cracking is an Azure Search charge, billed based on the number of images extracted from your documents. Text extraction is currently free. 
+Image extraction during document cracking is an Azure Search charge, billed according to the number of images extracted from your documents. Text extraction is currently free.
 
-Other enrichments, such as natural language processing, are based on [built-in cognitive skills](cognitive-search-predefined-skills.md) are billed against a Cognitive Services resource, at the same rate as if you had performed the task using Cognitive Services directly. For more information, see [Attach a Cognitive Services resource with a skillset](cognitive-search-attach-cognitive-services.md).
+Other enrichments, like natural language processing, are based on [built-in cognitive skills](cognitive-search-predefined-skills.md) and billed against a Cognitive Services resource, at the same rate as if you had performed the task using Cognitive Services directly. For more information, see [Attach a Cognitive Services resource with a skillset](cognitive-search-attach-cognitive-services.md).
 
 <a name="search-units"></a>
 
 ### Billing based on search units
 
-For Azure Search operations, the most important billing concept to understand is a *search unit* (SU). Because Azure Search depends on both replicas and partitions for indexing and queries, it doesn't make sense to bill by just one or the other. Instead, billing is based on a composite of both. 
+The most important billing concept to understand for Azure Search operations is the *search unit* (SU). Because Azure Search depends on both replicas and partitions for indexing and queries, it doesn't make sense to bill by just one or the other. Instead, billing is based on a composite of both.
 
-SU is the product of *replica* and *partitions* used by a service: **`(R X P = SU)`**
+SU is the product of the *replicas* and *partitions* used by a service: **`(R x P = SU)`**.
 
-Every service starts with one SU (one replica multiplied by one partition) as the minimum. The maximum for any service is 36 SUs, which can be achieved in multiple ways: 6 partitions x 6 replicas, or 3 partitions x 12 replicas, to name a few. It's common to use less than total capacity. For example, a 3-replica, 3-partition service, billed as 9 SUs. You can review [this chart](search-capacity-planning.md#chart) to see valid combinations at a glance.
+Every service starts with one SU (one replica multiplied by one partition) as the minimum. The maximum for any service is 36 SUs. This maximum can reached in multiple ways: 6 partitions x 6 replicas, or 3 partitions x 12 replicas, to name a few. It's common to use less than total capacity (for example, a 3-replica, 3-partition service billed as 9 SUs). See the [Partition and replica combinations](search-capacity-planning.md#chart) chart for valid combinations.
 
-The billing rate is **hourly per SU**, with each tier having a progressively higher rate. Higher tiers come with larger and speedier partitions, contributing to an overall higher hourly rate for that tier. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/). 
+The billing rate is hourly per SU. Each tier has a progressively higher rate. Higher tiers come with larger and speedier partitions, which contributes to an overall higher hourly rate for that tier. You can view the rates for each tier on the [pricing details](https://azure.microsoft.com/pricing/details/search/) page.
 
-Most customers bring just a portion of total capacity online, holding the rest in reserve. In terms of billing, it's the number of partitions and replicas that you bring online, calculated using the SU formula, that determines what you actually pay on an hourly basis.
+Most customers bring just a portion of total capacity online, holding the rest in reserve. For billing, the number of partitions and replicas that you bring online, calculated by the SU formula, determines what you pay on an hourly basis.
 
 ### Billing for image extraction in cognitive search
 
-If you are extracting images from files in a cognitive search indexing pipeline, you are charged for that operation in your Azure Search bill. The parameter that triggers image extraction is **imageAction** in an [indexer configuration](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters). If **imageAction** is set to none (default), there are no charges for image extraction.
+If you extract images from files in a cognitive search indexing pipeline, you'll be charged for that operation in your Azure Search bill. In an [indexer configuration](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** is the parameter that triggers image extraction. If **imageAction** is set to "none" (the default), you won't be charged for image extraction.
 
-Pricing is subject to change, but is always documented on the [Pricing Details](https://azure.microsoft.com/pricing/details/search/) page for Azure Search. 
+Pricing is subject to change. It's documented on the [pricing details](https://azure.microsoft.com/pricing/details/search/) page for Azure Search.
 
 ### Billing for built-in skills in cognitive search
 
-When you set up an enrichment pipeline, any [built-in skills](cognitive-search-predefined-skills.md) used in the pipeline are based on machine learning models. Those models are provided by Cognitive Services. Usage of those models during indexing is billed at the same rate as if you had requested the resource directly.
+When you set up an enrichment pipeline, any [built-in skills](cognitive-search-predefined-skills.md) used in the pipeline are based on machine learning models. These models are provided by Cognitive Services. If you use these models during indexing, you'll be billed at the same rate as you would be if you requested the resource directly.
 
-For example, assume a pipeline consisting of optical character recognition (OCR) against scanned image JPEG files, where the resulting text is pushed into an Azure Search index for free-form search queries. Your indexing pipeline would include an indexer with the [OCR skill](cognitive-search-skill-ocr.md), and that skill would be [attached to a Cognitive Services resource](cognitive-search-attach-cognitive-services.md). When you run the indexer, charges appear on your Cognitive Resources bill for OCR execution.
+For example, say you have a pipeline that uses optical character recognition (OCR) against scanned JPEG files and the resulting text is pushed into an Azure Search index for free-form search queries. Your indexing pipeline would include an indexer with the [OCR skill](cognitive-search-skill-ocr.md), and that skill would be [attached to a Cognitive Services resource](cognitive-search-attach-cognitive-services.md). When you run the indexer, charges for OCR execution will appear on your Cognitive Resources bill.
 
 ## Tips for reducing costs
 
-You cannot shut down the service to lower the bill. Dedicated resources are operational 24-7, allocated for your exclusive use, for the lifetime of your service. The only way to lower a bill is by reducing replicas and partitions to a low level that still provides acceptable performance and [SLA compliance](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+You can't shut down the service to reduce your bill. Dedicated resources are always operational, allocated for your exclusive use for the lifetime of your service. The only way to lower your bill is to reduce replicas and partitions to a level that still provides acceptable performance and [SLA compliance](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-One lever for reducing costs is choosing a tier with a lower hourly rate. S1 hourly rates are lower than S2 or S3 rates. Assuming that you provision a service aimed at the lower end of your load projections, if you outgrow the service, you could create a second larger-tiered service, rebuild your indexes on that second service, and then delete the first one. 
+One way to reduce costs is to choose a tier with a lower hourly rate. S1 hourly rates are lower than S2 or S3 rates. Assuming you provision your service at the lower end of your load projections, if you outgrow the service, you can create a second larger-tiered service, rebuild your indexes on the second service, and then delete the first one.
 
-If you have done capacity planning for on premises servers, you know that it's common to "buy up" so that you can handle projected growth. But with a cloud service, you can pursue cost savings more aggressively because you are not locked in to a specific purchase. You can always switch to a higher-tiered service if the current one is insufficient.
+If you've done capacity planning for on-premises servers, you know it's common to "buy up" so you can handle projected growth. With a cloud service, you can pursue cost savings more aggressively because you're not locked in to a specific purchase. You can always switch to a higher-tiered service if the current one isn't sufficient.
 
 ### Capacity drill-down
 
-In Azure Search, capacity is structured as *replicas* and *partitions*. 
+In Azure Search, capacity is structured as *replicas* and *partitions*.
 
-+ Replicas are instances of the search service, where each replica hosts one load-balanced copy of an index. For example, a service with 6 replicas has 6 copies of every index loaded in the service. 
++ Replicas are instances of the search service. Each replica hosts one load-balanced copy of an index. For example, a service with six replicas has six copies of every index loaded in the service.
 
-+ Partitions store indexes and automatically split searchable data: two partitions split your index in half, three partitions into thirds, and so forth. In terms of capacity, *partition size* is the primary differentiating feature across tiers.
++ Partitions store indexes and automatically split searchable data. Two partitions split your index in half, three partitions split it into thirds, and so on. In terms of capacity, *partition size* is the primary differentiating feature among tiers.
 
 > [!NOTE]
-> All **Standard** and **Storage Optimized** tiers support [flexible combinations replica and partitions](search-capacity-planning.md#chart) so that you can [weight your system for speed or storage](search-performance-optimization.md) by changing the balance. **Basic** offers up three replicas for high availability but has only one partition. **Free** tiers do not provide dedicated resources: computing resources are shared by multiple subscribers.
+> All Standard and Storage Optimized tiers support [flexible combinations of replicas and partitions](search-capacity-planning.md#chart) so you can [optimize your system for speed or storage](search-performance-optimization.md) by changing the balance. The Basic tier offers up to three replicas for high availability but has only one partition. Free tiers don't provide dedicated resources: computing resources are shared by multiple subscribers.
 
 ### More about service limits
 
-Services host resources, such as indexes, indexers, and so forth. Each tier imposes [service limits](search-limits-quotas-capacity.md) on the quantity of resources you can create. As such, a cap on the number of indexes (and other objects) is the second differentiating feature across tiers. As you review each option in the portal, note the limits on number of indexes. Other resources, such as indexers, data sources, and skillsets, are pegged to index limits.
+Services host resources like indexes and indexers. Each tier imposes [service limits](search-limits-quotas-capacity.md) on the number of resources you can create. So a cap on the number of indexes (and other objects) is the second differentiating feature among tiers. As you review each option in the portal, note the limits on the number of indexes. Other resources, like indexers, data sources, and skillsets, are pegged to index limits.
 
 ## Consumption patterns
 
-Most customers start with the **Free** service, which they keep indefinitely, and then choose one of the **Standard** or **Storage Optimized** tiers for serious development or production workloads. 
+Most customers start with the Free service, which they keep indefinitely, and then choose one of the Standard or Storage Optimized tiers for serious development or production workloads.
 
 ![Azure search tiers](./media/search-sku-tier/tiers.png "Azure search pricing tiers")
 
