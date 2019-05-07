@@ -40,7 +40,7 @@
   - name: Use safe deployment practices
     displayName: adm
     href: deployment-manager-tutorial.md
-  - name: Use health check in Deployment manager
+  - name: Use health check in Deployment Manager
     displayName: adm
     href: deployment-manager-tutorial-health-check.md
   - name: Troubleshoot template deployment

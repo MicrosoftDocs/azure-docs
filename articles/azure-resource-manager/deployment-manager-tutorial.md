@@ -25,7 +25,7 @@ Learn how to use [Azure Deployment Manager](./deployment-manager-overview.md) to
 * **A rollout template**: describes the steps to take when deploying your applications.
 
 > [!IMPORTANT]
-> If your subscription is marked for Canary to test out new Azure features, you can only use Azure Deployment Manager to deploy to Canary regions. 
+> If your subscription is marked for Canary to test out new Azure features, you can only use Azure Deployment Manager to deploy to the Canary regions. 
 
 This tutorial covers the following tasks:
 
