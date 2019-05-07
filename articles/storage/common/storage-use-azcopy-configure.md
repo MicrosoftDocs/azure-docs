@@ -65,11 +65,11 @@ Available log levels are: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`, and `FAT
 
 ## Troubleshoot issues
 
-AzCopy creates log files and plan files for every job. You can use the logs to investigate and troubleshoot any potential problems. 
+AzCopy creates log and plan files for every job. You can use the logs to investigate and troubleshoot any potential problems. 
 
 The logs will contain the status of failure (`UPLOADFAILED`, `COPYFAILED`, and `DOWNLOADFAILED`), the full path, and the reason of the failure.
 
-By default, the job logs and plan files are located in the `%USERPROFILE\\.azcopy` folder on Windows or `$HOME\\.azcopy` folder on Mac and Linux.
+By default, the log and plan files are located in the `%USERPROFILE\\.azcopy` folder on Windows or `$HOME\\.azcopy` folder on Mac and Linux.
 
 > [!IMPORTANT]
 > When submitting a request to Microsoft Support (or troubleshooting the issue involving any third party), share the redacted version of the command you want to execute. This ensures the SAS isn't accidentally shared with anybody. You can find the redacted version at the start of the log file.
@@ -105,6 +105,6 @@ azcopy jobs show <job-id> --with-status=Failed
 Use the following command to resume a failed/canceled job. This command uses its identifier along with the SAS token as it isn't persistent for security reasons:
 
 ```
-azcopy jobs resume <jobid> --source-sas="<sastokenhere>"
-azcopy jobs resume <jobid> --destination-sas="<sastokenhere>"
+azcopy jobs resume <job-id> --source-sas="<sas-token>"
+azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
