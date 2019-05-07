@@ -44,7 +44,7 @@ You can track your order through the Azure portal and through the shipping carri
 
 - To track the order while the device is in transit, go to the regional carrier website, for example, UPS  website in US. Provide the tracking number associated with your order.
 - To track the order when the device is in Azure datacenter or your premises, go to your **Data Box order > Overview** in Azure portal.
-- Data Box also sends email notifications anytime the order status changes based on the emails provided when the order was created. For a list of all the Data Box order statuses, see [View order status](data-box-portal-admin.md#view-order-status).
+- Data Box also sends email notifications anytime the order status changes based on the emails provided when the order was created. For a list of all the Data Box order statuses, see [View order status](data-box-portal-admin.md#view-order-status). To change the notification settings associated with the order, see [Edit notification details](data-box-portal-admin.md#edit-notification-details).
 
 ## Query activity logs during setup
 
