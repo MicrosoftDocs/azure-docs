@@ -70,6 +70,7 @@ Contains properties that configure certain behaviors of the Immersive Reader.
     uiLang?: string;   // Language of the UI, e.g. en, es-ES (optional). Defaults to browser language if not specified.
     timeout?: number;  // Duration (in milliseconds) before launchAsync fails with a timeout error (default is 15000 ms).
     uiZIndex?: number; // Z-index of the iframe that will be created (default is 1000)
+    useWebview?: boolean; // Use a webview tag instead of an iframe, for compatibility with Chrome Apps (default is false).
 }
 ```
 
