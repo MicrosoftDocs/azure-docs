@@ -43,7 +43,7 @@ This concept is illustrated in the diagram below:
 
 In Example 1 above, a volume from a capacity pool with the Premium storage tier that is assigned 2 TiB of quota will be assigned a throughput limit of 128 MiB/s (2 TiB * 64 MiB/s). This remains the case regardless of the capacity pool size or the actual volume consumption.
 
-In Example 2 above 2, a volume from a capacity pool with the Premium storage tier that is assigned 100 GiB of quota will be assigned a throughput limit of 6.25 MiB/s (0.09765625 TiB * 64 MiB/s). This remains the case regardless of the capacity pool size or the actual volume consumption.
+In Example 2 above, a volume from a capacity pool with the Premium storage tier that is assigned 100 GiB of quota will be assigned a throughput limit of 6.25 MiB/s (0.09765625 TiB * 64 MiB/s). This remains the case regardless of the capacity pool size or the actual volume consumption.
 
 ## Next steps
 
