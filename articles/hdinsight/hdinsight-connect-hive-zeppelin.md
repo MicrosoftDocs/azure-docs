@@ -10,7 +10,7 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.author: hrasheed
-#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+#Customer intent: As a Hive user, I want learn Zeppelin so that I can run queries.
 ---
 
 # Quickstart: Execute Apache Hive queries with Apache Zeppelin
