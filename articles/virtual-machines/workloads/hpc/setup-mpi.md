@@ -3,7 +3,7 @@ title: Set up MPI for HPC on Azure | Microsoft Docs
 description: Learn how to set up MPI for HPC on Azure. 
 services: virtual-machines
 documentationcenter: ''
-author: githubname
+author: vermagit
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -11,10 +11,9 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 04/25/2019
-ms.author: msalias
+ms.date: 05/07/2019
+ms.author: amverma
 ---
-
 
 # Set up MPI
 
@@ -31,7 +30,6 @@ cd ucx-1.4.0
 ./configure --prefix=<ucx-install-path>
 make -j 8 && make install
 ```
-
 
 ## OpenMPI
 
@@ -51,14 +49,13 @@ cd openmpi-4.0.0
 make -j 8 && make install
 ```
 
-Run OpenMPI. 
+Run OpenMPI.
 
 ```bash
 <ompi-install-path>/bin/mpirun -np 2 --map-by node --hostfile ~/hostfile -mca pml ucx --mca btl ^vader,tcp,openib -x UCX_NET_DEVICES=mlx5_0:1  -x UCX_IB_PKEY=0x0003  ./osu_latency
 ```
 
 Check your partition key as mentioned above.
-
 
 ## MPICH
 Install UCX as previously described.
@@ -81,8 +78,8 @@ Running MPICH.
 
 Check your partition key as mentioned above.
 
-
 ## MVAPICH2
+
 Build MVAPICH2.
 
 ```bash
@@ -100,6 +97,7 @@ Running MVAPICH2.
 ```
 
 ## Platform MPI Community Edition
+
 Install required packages for Platform MPI.
 
 ```bash
@@ -111,16 +109,16 @@ sudo ./platform_mpi-09.01.04.03r-ce.bin
 
 Follow the installation process.
 
-
 ## Intel MPI
+
 [Download Intel MPI](https://software.intel.com/en-us/mpi-library/choose-download).
 
 Change the I_MPI_FABRICS environment variable depending on the version. For Intel MPI 2018, use `I_MPI_FABRICS=shm:ofa` and for 2019, use `I_MPI_FABRICS=shm:ofi`.
 
 Process pinning works correctly for 15, 30 and 60 PPN by default.
 
-
 ## OSU MPI Benchmarks
+
 [Download OSU MPI Benchmarks][http://mvapich.cse.ohio-state.edu/benchmarks/](http://mvapich.cse.ohio-state.edu/benchmarks/) and untar.
 
 ```bash
@@ -140,6 +138,7 @@ MPI Benchmarks are under `mpi/` folder.
 
 
 ## Discover partition keys
+
 Discover partition keys (pkeys) for communicating with other VMs.
 
 ```bash

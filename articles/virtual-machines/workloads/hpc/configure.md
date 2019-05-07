@@ -3,7 +3,7 @@ title: High Performance Computing on Azure | Microsoft Docs
 description: Learn about High Performance Computing on Azure.
 services: virtual-machines
 documentationcenter: ''
-author: githubname
+author: vermagit
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -11,12 +11,12 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 04/25/2019
-ms.author: msalias
+ms.date: 05/07/2019
+ms.author: amverma
 ---
 
 # Optimization for Linux
- 
+
 ## Update LIS
 
 If deploying using a custom image (e.g. for an older OS such as CentOS/RHEL 7.4 or 7.5), please update LIS on the VM.

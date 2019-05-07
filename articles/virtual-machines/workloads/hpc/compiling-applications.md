@@ -3,7 +3,7 @@ title: Compiling applications for HPC on Azure | Microsoft Docs
 description: Learn how to compile HPC applications on Azure VMs. 
 services: virtual-machines
 documentationcenter: ''
-author: githubname
+author: vermagit
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -11,8 +11,8 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 04/25/2019
-ms.author: msalias
+ms.date: 05/07/2019
+ms.author: amverma
 ---
 
 # Compiling applications

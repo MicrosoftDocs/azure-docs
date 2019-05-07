@@ -15,7 +15,7 @@ ms.date: 04/25/2019
 ms.author: msalias
 ---
 
-# Known issues with HB-series VM sizes
+# Known issues with HB and HC-series VM sizes
 
 <Intro>
 

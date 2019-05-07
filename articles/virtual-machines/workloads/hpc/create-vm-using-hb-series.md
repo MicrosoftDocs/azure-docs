@@ -3,7 +3,7 @@ title: Create a VM using the HB-series size in Azure | Microsoft Docs
 description: Learn how to create a VM using the HB-series size in Azure. 
 services: virtual-machines
 documentationcenter: ''
-author: githubname
+author: vermagit
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -11,8 +11,8 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 04/25/2019
-ms.author: msalias
+ms.date: 05/07/2019
+ms.author: amverma
 ---
 
 ## Create a VM using an HB-series size
@@ -24,9 +24,9 @@ We recommend CentOS/RHEL 7.6 if deploying VMs using a Standard Image. If deployi
 Sample PowerShell commands here; provide values and templates:
 
 ```azure-powershell
-Login-AzureRmAccount 
+Login-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName mySub 
-New-AzureRmResourceGroupDeployment -ResourceGroupName myRG -TemplateFile "template.json" -TemplateParameterFile "parameters.json" 
+New-AzureRmResourceGroupDeployment -ResourceGroupName myRG -TemplateFile "template.json" -TemplateParameterFile "parameters.json"
 Get-AzureRmPublicIpAddress -Name myVM-ip -ResourceGroupName myRG
 ```
 
