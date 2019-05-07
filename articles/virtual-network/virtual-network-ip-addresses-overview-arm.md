@@ -132,7 +132,7 @@ The following table shows the specific property through which a public IP addres
 | --- | --- | --- | --- |
 | Virtual machine |Network interface |Yes |Yes |
 | Internet-facing Load balancer |Front-end configuration |Yes |Yes |
-| VPN gateway |Gateway IP configuration |Yes |Yes |
+| VPN gateway |Gateway IP configuration |Yes |No |
 | Application gateway |Front-end configuration |Yes (V1 only) |Yes (V2 only) |
 
 ## Private IP addresses
