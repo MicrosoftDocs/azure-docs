@@ -39,7 +39,7 @@ This setting forces the user to complete the registration process again. Non-bro
 7. Click **save**.
 8. Click **close**.
 
-## Delete users existing app passwords
+## Delete users existing app passwords 
 
 This setting deletes all of the app passwords that a user has created. Non-browser apps that were associated with these app passwords stop working until a new app password is created.
 
