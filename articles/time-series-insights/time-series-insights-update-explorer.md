@@ -85,7 +85,7 @@ The well displays instance fields and other metadata associated with selected TS
 
   [![The Preview well](media/v2-update-explorer/explorer-five.png)](media/v2-update-explorer/explorer-five.png#lightbox)
 
-You can also reconfigure the layout of your **Analyze** chart page by selecting the ellipses icon in the rop-right:
+You can also reconfigure the layout of your **Analyze** chart page by selecting the ellipses icon in the top-right:
 
   [![Telemetry layout options](media/v2-update-explorer/explorer-six.png)](media/v2-update-explorer/explorer-six.png#lightbox)
 
