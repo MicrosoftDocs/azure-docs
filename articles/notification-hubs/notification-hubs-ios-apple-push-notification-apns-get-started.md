@@ -36,7 +36,7 @@ In this tutorial, you take the following steps:
 > * Send test push notifications
 > * Verify that your app receives notifications
 
-The completed code for this tutorial can be found [on GitHub](https://github.com/Azure/azure-notificationhubs-ios/tree/master). 
+The completed code for this tutorial can be found [on GitHub](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples). 
 
 ## Prerequisites
 
