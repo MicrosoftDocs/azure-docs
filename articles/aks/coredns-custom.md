@@ -31,24 +31,23 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 All built-in CoreDNS plugins are supported. No add-on/third party plugins are supported.
 
-## Change the DNS TTL
+## Rewrite DNS
 
-One scenario you may want to configure in CoreDNS is to lower or raise the Time to Live (TTL) setting for DNS name caching. In this example, let's alter the TTL value. By default, this value is 30 seconds. For more information about DNS cache options, see the [official CoreDNS docs][dnscache].
-
-In the following example ConfigMap, note the `name` value. By default, CoreDNS does not support this type of customization as you modify the CoreFile itself. AKS uses the *coredns-custom* ConfigMap to incorporate your own configurations and is loaded after the main CoreFile.
-
-The following example tells CoreDNS that for all domains (shown by the `.` in `.:53`), on port 53 (the default DNS port), set the cache TTL to 15 (`cache 15`). Create a file named `corednsms.json` and paste the following example configuration:
+One scenario you have is to perform on-the-fly DNS name rewrites. In the following example, replace `<domain to be written>` with your own fully qualified domain name. Create a file named `corednsms.json` and paste the following example configuration:
 
 ```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: coredns-custom # this is the name of the configmap you can overwrite with your changes
+  name: coredns-custom
   namespace: kube-system
 data:
-  test.server: | # you may select any name here, but it must end with the .server file extension
-    .:53 {
-        cache 15  # this is our new cache value
+  test.server: |
+    <domain to be rewritten>.com:53 {
+        errors
+        cache 30
+        rewrite name substring <domain to be rewritten>.com default.svc.cluster.local
+        proxy .  /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10
     }
 ```
 
@@ -71,33 +70,6 @@ kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
 ```
 
 *Note*: The command above is correct, while we're changing coredns, the deployment is under the kube-dns name.
-
-## Rewrite DNS
-
-One scenario you have is to perform on-the-fly DNS name rewrites. In the following example, replace `<domain to be written>` with your own fully qualified domain name. Create a file named `corednsms.json` and paste the following example configuration:
-
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: coredns-custom
-  namespace: kube-system
-data:
-  test.server: |
-    <domain to be rewritten>.com:53 {
-        errors
-        cache 30
-        rewrite name substring <domain to be rewritten>.com default.svc.cluster.local
-        proxy .  /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10
-    }
-```
-
-As in the previous example, create the ConfigMap using the [kubectl apply configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete] for the Kubernetes Scheduler to recreate them:
-
-```console
-kubectl apply -f corednsms.json
-kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
-```
 
 ## Custom proxy server
 
