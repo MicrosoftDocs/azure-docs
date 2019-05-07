@@ -30,7 +30,7 @@ ms.custom: H1Hack27Feb2017
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
-[tuning-failover-cluster-network-thresholds]:https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
