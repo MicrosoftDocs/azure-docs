@@ -21,7 +21,7 @@ The `TensorFlow` estimator also provides a layer of abstraction over execution, 
 
 ## Getting started
 
-Submitting jobs with the `TensorFlow` estimator is similar to using the base [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py). So, we recommend begin by reading the [base Estimator how-to article](how-to-train-ml-models.md) to understand the overarching concepts first.
+Submitting jobs with the `TensorFlow` estimator is similar to using the base [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py). So, we recommend beginning by reading the [base Estimator how-to article](how-to-train-ml-models.md) to understand the overarching concepts first.
 
 If you want to get started with Azure Machine Learning service, [complete the quickstart](quickstart-run-cloud-notebook.md). You'll have a working environment loaded with all of our [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml).
 
