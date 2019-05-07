@@ -41,9 +41,12 @@ This concept is illustrated in the diagram below:
 
 ![Service level illustration](../media/azure-netapp-files/azure-netapp-files-service-levels.png)
 
-In the example above, a volume from a capacity pool with the Premium storage tier that is assigned 2 TiB of quota will be assigned a throughput limit of 128 MiB/s.  This remains the case regardless of the capacity pool size or the actual volume consumption.
+In the first example above (E.g. 1), a volume from a capacity pool with the Premium storage tier that is assigned 2 TiB of quota will be assigned a throughput limit of 128 MiB/s (2 TiB * 64 MiB/s). This remains the case regardless of the capacity pool size or the actual volume consumption.
+
+In the second example above (E.g. 2), a volume from a capacity pool with the Premium storage tier that is assigned 100 GiB of quota will be assigned a throughput limit of 6.25 MiB/s (0.09765625TiB * 64 MiB/s). This remains the case regardless of the capacity pool size or the actual volume consumption.
 
 ## Next steps
 
 - See the [Azure NetApp Files pricing page](https://azure.microsoft.com/pricing/details/storage/netapp/) for the price of different service levels
+- See [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md) for the calculation of the capacity consumption in a capacity pool 
 - [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
