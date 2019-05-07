@@ -64,7 +64,7 @@
   items:
   - name: Classroom labs
     items: 
-    - name: Lab accounts
+    - name: Create, manage, and configure lab accounts
       items:
       - name: Manage lab accounts
         href: classroom-labs/how-to-manage-lab-accounts.md
@@ -74,7 +74,7 @@
         href: classroom-labs/how-to-connect-peer-virtual-network.md
       - name: Attach or detach a shared image gallery
         href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
-    - name: Classroom Labs
+    - name: Create, manage, configure, and use classroom labs
       items:        
       - name: Manage classroom labs
         href: classroom-labs/how-to-manage-classroom-labs.md
