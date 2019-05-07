@@ -62,7 +62,7 @@ Open the Availability blade and add a test.
 
     **HTTP response**: The returned status code that is counted as a success. 200 is the code that indicates that a normal web page has been returned.
 
-    **Content match**: a string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it.
+    **Content match**: a string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it. **Only English characters are currently supported with content match.** 
 
 * **Alert location threshold**: We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations** - 2, with a minimum of five test locations.
 
@@ -270,7 +270,7 @@ If your test must sign in using OAuth, the general approach is:
 
 ## Performance tests
 > [!NOTE]  
-> The cloud-based load testing service is deprecated. More information about the deprecation, the service availability, and alternative services can be found [here](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops).
+> The cloud-based load testing service is deprecated. More information about the deprecation, the service availability, and alternative services can be found [here](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
 
 You can run a load test on your website. Like the availability test, you can send either simple requests or multi-step requests from our points around the world. Unlike an availability test, many requests are sent, simulating multiple simultaneous users.
 

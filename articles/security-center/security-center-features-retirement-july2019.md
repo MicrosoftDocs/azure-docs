@@ -104,7 +104,7 @@ Your existing data will remain available in the log analytics security solution 
 We encourage our customers to use the alerts map functionality built into Security Center - “Security alerts map (Preview)”. This provides an optimized experience and works across all subscriptions and associated workspaces, allowing a macro view across your environment, and not focus on a single workspace.
 
 ## Custom alert rules (Preview)<a name="menu_customalerts"></a>
-The custom alerts experience will be [retired](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) June 30th, 2019, due to retirement of the Azure Monitor classic alerts service. In the timeframe until deprecation, users will be able to edit existing custom alert rules but will not be able to add new ones. Users are advised to enable [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) with one-click onboarding to automatically migrate their existing alerts and create new ones, or alternatively re-create their alerts with Azure Monitor log alerts.
+The custom alerts experience will be [retired](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) June 30th, 2019, due to retirement of the underlying infrastructure it is built on. In the timeframe until deprecation, users will be able to edit existing custom alert rules but will not be able to add new ones. Users are advised to enable [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) with one-click onboarding to automatically migrate their existing alerts and create new ones, or alternatively re-create their alerts with Azure Monitor log alerts.
 
 To keep your existing alerts and migrate them to Azure Sentinel, please launch Azure Sentinel. As first step, select the workspace where your custom alerts are stored, and then select the ‘Analytics’ menu item to automatically migrate your alerts.
 
@@ -151,7 +151,7 @@ This feature has been in preview and will be retired.
 
 ### Edit security configurations - New experience
 
-Security Center will support the [in-guest agent](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) in the near future, allowing a much richer feature set - including support for additional operating systems and integration with guest configuration with Azure policies (in-guest policies). This will also provide the ability to control at scale and apply on new resources automatically.
+Security Center will support the [Guest configuration agent](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) in the near future, allowing a much richer feature set - including support for additional operating systems and integration with guest configuration with Azure policies (in-guest policies). This will also provide the ability to control at scale and apply on new resources automatically.
 
 ## Security & audit dashboard (originally used in OMS portal) for Log Analytics workspaces<a name="menu_securityomsdashboard"></a>
 
@@ -185,7 +185,7 @@ Our customers are advised to use Azure Security Center, which provides the same 
 <!--Image references - custom alerts-->
 [13]: ./media/security-center-features-retirement-july2019/asc_custom_alerts.png
 <!--Image references - Investigation-->
-[14]: ./media/security-center-features-retirement-july2019/asc_security_incident.png
+[14]: ./media/security-center-features-retirement-july2019/asc-security-incident.png
 [15]: ./media/security-center-features-retirement-july2019/loganalytics_investigation_dashboard.png
 <!--Image references - Solutions-->
 [16]: ./media/security-center-features-retirement-july2019/asc_security_solutions.png

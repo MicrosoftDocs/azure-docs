@@ -59,7 +59,7 @@
   - name: Change Tracking
     items:
     - name: Change Tracking overview
-      href: automation-change-tracking.md
+      href: change-tracking.md
       displayName: wildcard, recursion, environment variables, registry
     - name: View file contents of tracked files
       href: change-tracking-file-contents.md
