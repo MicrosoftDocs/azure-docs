@@ -22,7 +22,7 @@ The virtual cluster that has contained the deleted managed instance will be kept
 Manually deleting the virtual cluster used by the subnet will release this network resource. Manual deletion of the virtual cluster can be achieved through Azure portal or [virtual cluster API](https://docs.microsoft.com/rest/api/sql/virtualclusters).
 
 > [!NOTE]
-> To be able to delete a virtual cluster, it must not contain any managed instances.
+> The virtual cluster should contain no managed instances for its deletion to be successful.
 
 ## Delete virtual cluster from Azure portal
 
