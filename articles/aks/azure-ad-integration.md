@@ -240,6 +240,7 @@ When complete, the authentication token is cached. You are only reprompted to si
 If you are seeing an authorization error message after signing in successfully, check whether:
 1. The user you are signing in as is not a Guest in the Azure AD instance (this scenario is often the case if you use a federated account from a different directory).
 2. The user is not a member of more than 200 groups.
+3. Secret defined in the application registration for server does not match the value configured using --aad-server-app-secret
 
 ```console
 error: You must be logged in to the server (Unauthorized)
