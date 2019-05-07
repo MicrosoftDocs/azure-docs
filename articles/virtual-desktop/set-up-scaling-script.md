@@ -32,7 +32,7 @@ When running the scaling script, keep the following things in mind:
 - This scaling script can only handle one host pool per instance of the scheduled task that is running the scaling script.
 - The scheduled tasks that run scaling scripts must be on a VM that is always on.
 - Create a separate folder for each instance of the scaling script and its configuration.
-- This script doesn't support signing in as an admin to Windows Virtual Desktop with Azure AD user accounts that require multi-factor authentication. We recommend you use service principals to access the Windows Virtual Desktop service and Azure. Follow this [tutorial](create-service-principal-role-powershell.md) to create a service principal and a role assignment with PowerShell.
+- This script doesn't support signing in as an admin to Windows Virtual Desktop with Azure AD user accounts that require multi-factor authentication. We recommend you use service principals to access the Windows Virtual Desktop service and Azure. Follow [this tutorial](create-service-principal-role-powershell.md) to create a service principal and a role assignment with PowerShell.
 - Azure's SLA guarantee applies only to VMs in an availability set. The current version of the document describes an environment with a single VM doing the scaling, which may not meet availability requirements.
 
 ## Deploy the scaling script
