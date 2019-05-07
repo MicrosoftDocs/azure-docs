@@ -130,10 +130,11 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
         az group deployment create --name DeploySolutions --resource-group <ResourceGroupName> --template-file InstallSolutionsForVMInsights.json --parameters WorkspaceName=<workspaceName> WorkspaceLocation=<WorkspaceLocation - example: eastus>
         ```
 
-        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
+The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
-        ```azurecli
-        provisioningState       : Succeeded
+```azurecli
+provisioningState       : Succeeded
+```
 
 ## Enable with Azure Resource Manager template
 We have created example Azure Resource Manager templates for onboarding your virtual machines and virtual machine scale sets. These templates include scenarios for enabling monitoring on an existing resource and for creating a new resource that will have monitoring enabled.
