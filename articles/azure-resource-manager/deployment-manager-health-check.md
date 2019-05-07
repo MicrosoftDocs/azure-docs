@@ -25,13 +25,13 @@ In order to make health integration as easy as possible, Microsoft has been work
 
 | ![azure deployment manager health monitor provider datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![azure deployment manager health monitor provider site24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![azure deployment manager health monitor provider wavefront](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
 |-----|------|------|
-|Datadog, the leading monitoring and analytics platform for modern cloud environments. See [how Datadog integrates with Azure Deployment Manager](https://docs.datadoghq.com/integrations/azure_deployment_manager/).|The All-in-One Monitoring Solution. See [how Site24x7 integrates with Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| bla, bla, bla. See [how Wavefront integrates with Azure Deployment Manager]().|
+|Datadog, the leading monitoring and analytics platform for modern cloud environments. See [how Datadog integrates with Azure Deployment Manager](https://docs.datadoghq.com/integrations/azure_deployment_manager/).|Site24x7, the all-in-one private and public cloud services monitoring solution.. See [how Site24x7 integrates with Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| Wavefront, the monitoring and analytics platform for multi-cloud application environments. See [how Wavefront integrates with Azure Deployment Manager]().|
 
 ## How service health is determined
 
-[Health monitoring providers](#health-monitoring-providers) offer several mechanisms for monitoring services and alerting you of any service health issues. [Azure Monitor](/services/monitor/) is an example of such offering. Azure Monitor can be used to create alerts when certain thresholds are exceeded. For example, your memory and CPU utilization spike beyond expected levels when you deploy a new update to your service. When notified, you can take corrective actions.
+[Health monitoring providers](#health-monitoring-providers) offer several mechanisms for monitoring services and alerting you of any service health issues. [Azure Monitor](/services/monitor/) is an example of one such offering. Azure Monitor can be used to create alerts when certain thresholds are exceeded. For example, your memory and CPU utilization spike beyond expected levels when you deploy a new update to your service. When notified, you can take corrective actions.
 
-These health providers typically offer REST APIs so that the status of your service’s monitors can be examined programmatically. The REST APIs can either come back with a simple healthy/unhealthy signal (usually determined by the HTTP response code), and or with detailed information about the signals it is receiving.
+These health providers typically offer REST APIs so that the status of your service’s monitors can be examined programmatically. The REST APIs can either come back with a simple healthy/unhealthy signal (usually determined by the HTTP response code), and/or with detailed information about the signals it is receiving.
 
 The new *healthCheck* step in Azure Deployment Manager allows you to declare HTTP codes that indicate a healthy service, or, for more complex REST results, you can even specify regular expressions that, if they match, indicate a healthy response.
 
@@ -145,7 +145,7 @@ At this point Azure Deployment Manager knows how to query for the health of your
 
     1. Since it is impossible to know in all cases how long resources will take to bake before they become stable, the Elastic phase allows for a flexible time period between when the resources are potentially unstable and when they are required to maintain a healthy steady state.
     1. When the Elastic phase begins, Azure Deployment Manager begins polling the provided REST endpoint for service health periodically. The polling interval is configurable. 
-    1. If the health monitor comes back signals indicating that the service is unhealthy, these signals are ignored, the Elastic phase continues, and polling continues. 
+    1. If the health monitor comes back with signals indicating that the service is unhealthy, these signals are ignored, the Elastic phase continues, and polling continues. 
     1. As soon as the health monitor comes back with signals indicating that the service is healthy, the Elastic phase ends and the HealthyState phase begins. 
     1. Thus, the duration specified for the Elastic phase is the maximum amount of time that can be spent polling for service health before a healthy response is considered mandatory. 
 1. HealthyState

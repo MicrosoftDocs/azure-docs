@@ -23,6 +23,9 @@ Learn how to integrate health check in [Azure Deployment Manager](./deployment-m
 
 In the rollout template used in [Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md), you used a wait step. In this tutorial, you replace the wait step with a health check step.
 
+> [!IMPORTANT]
+> If your subscription is marked for Canary to test out new Azure features, you can only use Azure Deployment Manager to deploy to Canary regions. 
+
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]

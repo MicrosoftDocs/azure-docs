@@ -24,6 +24,9 @@ Learn how to use [Azure Deployment Manager](./deployment-manager-overview.md) to
 * **A topology template**: describes the Azure resources the make up your applications and where to deploy them.
 * **A rollout template**: describes the steps to take when deploying your applications.
 
+> [!IMPORTANT]
+> If your subscription is marked for Canary to test out new Azure features, you can only use Azure Deployment Manager to deploy to Canary regions. 
+
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
