@@ -43,41 +43,41 @@ Here are the detailed steps:
 
 1. In the Azure portal, select **Azure Active Directory** > **App registrations** > **New application registration**.
 
-   ![New application registration in Azure Active Directory](media/authentication-and-authorization/active-directory-new-application-registration.png)  
+   [![New application registration in Azure Active Directory](media/authentication-and-authorization/active-directory-new-application-registration.png)](media/authentication-and-authorization/active-directory-new-application-registration.png#lightbox)
 
 1. Give the application a name, select the type to be **Web app / API**, select any valid URI for **Sign-on URL**, and click **Create**.
 
-   ![Create the application in Azure Active Directory](media/authentication-and-authorization/active-directory-create-web-api-application.png)
+   [![Create the application in Azure Active Directory](media/authentication-and-authorization/active-directory-create-web-api-application.png)](media/authentication-and-authorization/active-directory-create-web-api-application.png#lightbox)
 
 1. Select your newly created application and copy its application ID to your favorite text editor.
 
-   ![Copy the application ID](media/authentication-and-authorization/active-directory-copy-application-id.png)
+   [![Copy the application ID](media/authentication-and-authorization/active-directory-copy-application-id.png)](media/authentication-and-authorization/active-directory-copy-application-id.png#lightbox)
 
 1. Select **Keys**, enter the key name, select the expiration, and click **Save**.
 
-   ![Select application keys](media/authentication-and-authorization/active-directory-application-keys.png)
+   [![Select application keys](media/authentication-and-authorization/active-directory-application-keys.png)](media/authentication-and-authorization/active-directory-application-keys.png#lightbox)
 
-   ![Enter the key name and expiration and click Save](media/authentication-and-authorization/active-directory-application-keys-save.png)
+   [![Enter the key name and expiration and click Save](media/authentication-and-authorization/active-directory-application-keys-save.png)](media/authentication-and-authorization/active-directory-application-keys-save.png#lightbox)
 
 1. Copy the key to your favorite text editor.
 
-   ![Copy the application key](media/authentication-and-authorization/active-directory-copy-application-key.png)
+   [![Copy the application key](media/authentication-and-authorization/active-directory-copy-application-key.png)](media/authentication-and-authorization/active-directory-copy-application-key.png#lightbox)
 
 1. For the Time Series Insights environment, select **Data Access Policies** and click **Add**.
 
-   ![Add new data access policy to the Time Series Insights environment](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)
+   [![Add new data access policy to the Time Series Insights environment](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
 
-1. In the **Select User** dialog box, paste the application name (from step 2) or application ID (from step 3).
+1. In the **Select User** dialog box, paste the application name (from **step 2**) or application ID (from **step 3**).
 
-   ![Find an application in the Select User dialog box](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)
+  [![Find an application in the Select User dialog box](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
 
 1. Select the role (**Reader** for querying data, **Contributor** for querying data and changing reference data) and click **OK**.
 
-   ![Pick Reader or Contributor in the Select Role dialog box](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)
+   [![Pick Reader or Contributor in the Select Role dialog box](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
 
 1. Save the policy by clicking **OK**.
 
-1. Use the application ID (from step 3) and application key (from step 5) to acquire the token on behalf of the application. The token can then be passed in the `Authorization` header when the application calls the Time Series Insights API.
+1. Use the application ID (from **step 3**) and application key (from **step 5**) to acquire the token on behalf of the application. The token can then be passed in the `Authorization` header when the application calls the Time Series Insights API.
 
     If you're using C#, you can use the following code to acquire the token on behalf of the application. For a complete sample, see [Query data using C#](time-series-insights-query-data-csharp.md).
 
