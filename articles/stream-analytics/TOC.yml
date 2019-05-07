@@ -4,7 +4,7 @@
   items:
   - name: What is Stream Analytics?
     href: stream-analytics-introduction.md
-  - name: End to end solution patterns
+  - name: End-to-end solution patterns
     href: stream-analytics-solution-patterns.md
 - name: Quickstarts
   items:
