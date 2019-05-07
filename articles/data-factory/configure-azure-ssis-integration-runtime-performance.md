@@ -81,7 +81,7 @@ Data Factory, including the Azure-SSIS IR, supports the following options:
 -   Standard\_E8\_v3
 -   Standard\_E16\_v3
 -   Standard\_E32\_v3
--   Standard\_E64\_v3.
+-   Standard\_E64\_v3
 
 In the unofficial in-house testing by the SSIS engineering team, the D series appears to be more suitable for SSIS package execution than the A series.
 
