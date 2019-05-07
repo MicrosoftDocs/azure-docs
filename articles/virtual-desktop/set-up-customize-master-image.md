@@ -61,8 +61,6 @@ This section covers how to prepare and install FSLogix, Windows Defender, and ot
 
 If your users need to access certain LOB applications, we recommend you install them after completing this section’s instructions.
 
-This section assumes you have elevated access on the VM, whether it's provisioned in Azure or Hyper-V Manager.
-
 If you're preparing
 
 ### Disable Automatic Updates
