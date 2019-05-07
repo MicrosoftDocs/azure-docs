@@ -12,7 +12,7 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2018
+ms.date: 05/07/2019
 ms.author: kumud
 ---
 
@@ -25,7 +25,7 @@ Health probes support multiple protocols. The availability of a specific type of
 | | Standard SKU | Basic SKU |
 | --- | --- | --- |
 | [Probe types](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Probe down behavior](#probedown) | All probes down, all TCP flows continue. | All probes down, all TCP flows terminate. | 
+| [Probe down behavior](#probedown) | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
 
 > [!IMPORTANT]
 > Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark up your instance.  Review [probe source IP address](#probesource) for details.
@@ -173,7 +173,7 @@ Load Balancer uses a distributed probing service for its internal health model. 
 
 The AzureLoadBalancer service tag identifies this source IP address in your [network security groups](../virtual-network/security-overview.md) and permits health probe traffic by default.
 
-In addition to Load Balancer health probes, the following operations use this IP address:
+In addition to Load Balancer health probes, the [following operations use this IP address](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
 - Enables the VM Agent to communicating with the platform to signal it is in a “Ready” state
 - Enables communication with the DNS virtual server to provide filtered name resolution to customers that do not define custom DNS servers.  This filtering ensures that customers can only resolve the hostnames of their deployment.

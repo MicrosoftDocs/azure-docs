@@ -97,3 +97,4 @@ The following table lists the version names of Service Fabric and their correspo
 | 6.4 CU3 |	6.4.637.9590 | 6.4.634.1 |
 | 6.4 CU4 | 6.4.644.9590 | 6.4.639.1 |
 | 6.4 CU5 | 6.4.654.9590 | 6.4.649.1 |
+| 6.4 CU6 | 6.4.658.9590 | NA |
