@@ -1,6 +1,6 @@
 - name: Azure HDInsight Documentation
   href: /azure/hdinsight
-- name: Interactive Query on HDInsight
+- name: Overview
   items:
   - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
@@ -8,6 +8,10 @@
   - name: HDInsight 4.0
     href: ../hdinsight-version-release.md
     maintainContext: true
+- name: Quickstarts
+  items:
+  - name: Execute Apache Hive queries - Apache Zeppelin
+    href: ../hdinsight-connect-hive-zeppelin.md
 - name: Get started
   items:
   - name: Start with Interactive Query
