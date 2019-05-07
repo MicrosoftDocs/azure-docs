@@ -32,7 +32,7 @@ Before you back up a SQL Server database, check the following criteria:
 1. Identify or create a [Recovery Services vault](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) in the same region or locale as the VM hosting the SQL Server instance.
 2. Check the [VM permissions needed](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) to back up SQL databases.
 3. Verify that the VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
-4. Make sure that the SQL Server databases follow the [naming guidelines for Azure Backup](verify-database-naming-guidelines-for-azure-backup).
+4. Make sure that the SQL Server databases follow the [database naming guidelines for Azure Backup](#database-naming-guidelines-for-azure-backup).
 5. Check that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you back up.
 
 > [!NOTE]
@@ -74,7 +74,7 @@ Avoid using the following elements in database names:
   * Closed square brackets (])
   * F:\
 
-Aliasing is available for Azure table unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
+Aliasing is available for unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
