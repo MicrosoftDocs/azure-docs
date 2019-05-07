@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 05/07/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.custom: seodec18
@@ -34,14 +34,17 @@ Sign in to the [Azure portal](https://portal.azure.com/) to get started.
 
 ## Create a CDN endpoint on the static website endpoint
 
-1. Open the [Azure portal](https://portal.azure.com/) in your web browser. 
+1. Open the [Azure portal](https://portal.azure.com/) in your web browser.
 1. Locate your storage account and display the account overview.
 1. Select **Azure CDN** under the **Blob Service** menu to configure Azure CDN.
-1. In the **New Endpoint** section, fill out the fields to create a new CDN endpoint.
-1. Enter an endpoint name, such as *mystaticwebsiteCDN*.
-1. Enter your website domain as the hostname for your CDN endpoint.
-1. For the origin hostname, enter your the static website endpoint. To find your static website endpoint, navigate to the **Static website** section for your storage account and copy the endpoint. 
-1. Test your CDN endpoint by navigating to *mywebsitecdn.azureedge.net* in your browser.
+1. In the **CDN profile** section, specify a new or existing CDN profile. For more information, see [Quickstart: Create an Azure CDN profile and endpoint](../../cdn/cdn-create-new-endpoint.md).
+1. Specify a pricing tier for the CDN endpoint. This tutorial uses the **Standard Akamai** pricing tier, because it propagates quickly, typically within a minute. Other pricing tiers may take longer to propagate, but may also offer other advantages. See [Compare Azure CDN product features](../../cdn/cdn-features.md).
+1. Provide a name for the new CDN endpoint.
+1. For the origin hostname, enter your the static website endpoint. To find your static website endpoint, navigate to the **Static website** section for your storage account and copy the endpoint.
+1. Create the CDN endpoint and wait for it to propagate.
+1. Test your CDN endpoint by navigating to it in your browser.
+
+The following image shows 
 
 ## Enable custom domain and SSL
 
