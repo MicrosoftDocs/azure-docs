@@ -43,7 +43,7 @@ You can also use built-in actions that help you organize and control your
 logic app's workflow, and also work with data.
 
   > [!NOTE]
-  > Within an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-environment-overview.md),
+  > Within an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md),
   > built-in triggers and actions display the "Core" label.
 
 * **Managed connectors**: Deployed and managed by Microsoft, 
@@ -97,7 +97,7 @@ apps and services, control the workflow through your logic apps,
 and manage or manipulate data.
 
 > [!NOTE]
-> Within an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-environment-overview.md),
+> Within an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md),
 > built-in triggers and actions display the "Core" label.
 
 |   |   |   |   | 
