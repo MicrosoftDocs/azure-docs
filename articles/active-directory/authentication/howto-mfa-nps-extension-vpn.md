@@ -15,7 +15,7 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Integrate your VPN infrastructure with Azure MFA by using the Network Policy Server extension for Azure
+# Integrate your VPN infrastructure with Azure MFA by using the Network Policy Server extension for Azure 
 
 ## Overview
 
