@@ -55,7 +55,7 @@ If you don't have a workspace, you can create one with one of the following meth
 
 If you're enabling monitoring for a single Azure VM or VM scale set in the Azure portal, you can create a workspace during this process.
 
-For the at-scale scenario using Azure Policy, Azure PowerShell, or Azure Resource Manager templates your Log Analytics workspace first needs the following configured:
+For the at-scale scenario using Azure Policy, Azure PowerShell, or Azure Resource Manager templates, your Log Analytics workspace first needs the following configured:
 
 * Install the ServiceMap and InfrastructureInsights solutions. You can complete this installation by using an Azure Resource Manager template that's provided or by using the **Configure Workspace** option found on the **Get Started** tab.
 * Configure the Log Analytics workspace to collect performance counters.
