@@ -8,7 +8,7 @@ ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/07/2019
 ms.author: cawa
 ---
 
@@ -52,8 +52,8 @@ Azure Monitor application change analysis is currently built into the self-servi
      ![screenshot of change diff view](./media/change-analysis/change-view.png)
         
      > [!NOTE]
-     > After enabling change analysis you mayT receive a message stating "Unable to fetch Change Analysis information. Please try again later." This is expected, you may need to wait up to 4 hours for the initial collection of application change data to occur.
-    `
+     > After enabling change analysis you may receive a message stating "Unable to fetch Change Analysis information. Please try again later." This is expected, you may need to wait up to 4 hours for the initial collection of application change data to occur.
+
 ## Next steps
 
 - Improve your monitoring of Azure App Services [by enabling the Application Insights features](azure-web-apps.md) of Azure Monitor.
