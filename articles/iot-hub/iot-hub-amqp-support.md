@@ -17,16 +17,16 @@ IoT Hub supports [AMQP version 1.0](http://docs.oasis-open.org/amqp/core/v1.0/os
 # Service Client
 
 ## Connection and authenticating to IoT Hub (service client)
-To connect to IoT Hub using AMQP, a client can use the [Claims Based Security (CBS) auth](https://www.oasis-open.org/committees/download.php/60412/amqp-cbs-v1.0-wd03.doc) or [Simple Authentication and Security Layer (SASL) auth](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer).
+To connect to IoT Hub using AMQP, a client can use the [Claims Based Security (CBS)](https://www.oasis-open.org/committees/download.php/60412/amqp-cbs-v1.0-wd03.doc) or [Simple Authentication and Security Layer (SASL) authentication](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer).
 
-The following information is requiered for the service client:
+The following information is required for the service client:
 
 | Information | Value | 
 |-------------|--------------|
 | IoT Hub Hostname | `<iot-hub-name>.azure-devices.net` |
 | Key name | `service` |
 | Access key | Primary or secondary key associated with the service |
-| Shared Access Signature | Short-lived SAS in the following format: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}` (the code to generated this signature can be found [here](./iot-hub-devguide-security.md#security-token-structure)).
+| Shared Access Signature | Short-lived SAS in the following format: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}` (the code to generate this signature can be found [here](./iot-hub-devguide-security.md#security-token-structure)).
 
 
 The code snippet below uses [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python) to connect to IoT hub via a sender link.
@@ -55,7 +55,7 @@ receive_client = uamqp.ReceiveClient(uri, debug=True)
 ```
 
 ## Invoking cloud-to-device messages (service client)
-The cloud-to-device message exchange between service and IoT Hub as well as between device and IoT Hub is described [here](iot-hub-devguide-messages-c2d.md). The service client uses two links described below to send messages and receive feedback for previously-sent messages from devices.
+The cloud-to-device message exchange between service and IoT Hub as well as between device and IoT Hub is described [here](iot-hub-devguide-messages-c2d.md). The service client uses two links described below to send messages and receive feedback for previously sent messages from devices.
 
 | Created by | Link type | Link path | Description |
 |------------|-----------|-----------|-------------|
@@ -132,6 +132,6 @@ AMQP links used on the device side are as follows:
 | Created by | Link type | Link path | Description |
 |------------|-----------|-----------|-------------|
 | Devices | Receiver link | `/devices/<deviceID>/messages/devicebound` | C2D messages destined to devices are received on this link by each destination device. |
-| Devices | Sender link | `/messages/serviceBound/feedback` | C2D message feedbacks sent to service over this link by devices. |
+| Devices | Sender link | `/messages/serviceBound/feedback` | C2D message feedback sent to service over this link by devices. |
 | Modules | Receiver link | `/devices/<deviceID>/modules/<moduleID>/messages/devicebound` | C2D messages destined to modules are received on this link by each destination module. |
-| Modules | Sender link | `/messages/serviceBound/feedback` | C2D message feedbacks sent to service over this link by modules. |
+| Modules | Sender link | `/messages/serviceBound/feedback` | C2D message feedback sent to service over this link by modules. |
