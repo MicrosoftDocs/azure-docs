@@ -300,6 +300,8 @@ This error occurs due to one of the following issues:
 
 4. Your runbook attempted to call an executable or subprocess in a runbook that runs in an Azure sandbox. This scenario is not supported in Azure sandboxes.
 
+5. Unhandled returned objects. Some cmdlets return objects that may not usually be necessary to catch in a variable but happen to fail in the runbook context. Some reported examples: Add-PnPNavigationNode and Add-PnPListItem.
+
 #### Resolution
 
 Any of the following solutions fix the problem:
@@ -311,6 +313,8 @@ Any of the following solutions fix the problem:
 * Another solution is to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers aren't limited by the memory and network limits that Azure sandboxes are.
 
 * If you need to call a process (such as .exe or subprocess.call) in a runbook, you'll need to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+
+* Catch the returned object of a cmdlet in a variable. For example, instead of "Add-PnPListItem -blablbla", do "$addedItem = Add-PnPListItem -blablbla".
 
 ### <a name="fails-deserialized-object"></a>Scenario: Runbook fails because of deserialized object
 
