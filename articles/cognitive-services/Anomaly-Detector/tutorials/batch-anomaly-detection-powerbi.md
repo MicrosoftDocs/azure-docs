@@ -165,6 +165,5 @@ Apply colors to your chart by clicking on the **Format** tool and **Data colors*
 
 ## Next steps
 
-* [Finding anomalies in your data with the Anomaly Detector API](../how-to/identify-anomalies.md)
-
-* [REST API Reference](https://aka.ms/anomaly-detector-rest-api-ref)
+> [!div class="nextstepaction"]
+>[Anomaly detection on streaming data](anomaly-detection-on-streaming-data.md)
