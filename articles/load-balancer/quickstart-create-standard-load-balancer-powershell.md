@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2019
+ms.date: 05/07/2019
 ms.author: kumud
 ms:custom: seodec18
 ---
 
 # Quickstart: Create a Standard Load Balancer using Azure PowerShell
 
-This quickstart shows you how to create a Standard Load Balancer using Azure PowerShell. To test the load balancer, you deploy two virtual machines (VMs) running Windows server and load balance a web app between the VMs. To learn more about Standard Load Balancer, see [What is Standard Load Balancer](load-balancer-standard-overview.md).
+This quickstart shows you how to create a Standard Load Balancer using Azure PowerShell. To test the load balancer, you deploy three virtual machines (VMs) running Windows server and load balance a web app between the VMs. To learn more about Standard Load Balancer, see [What is Standard Load Balancer](load-balancer-standard-overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -30,7 +30,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ## Create a resource group
 
-Before you can create your load balancer, you must create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroupLB* in the *EastUS* location:
+Before you can create your load balancer, you must create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroupSLB* in the *EastUS* location:
 
 ```azurepowershell
 $rgName='MyResourceGroupSLB'
@@ -40,7 +40,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 
 ## Create a public IP address
 
-To access your app on the Internet, you need a public IP address for the load balancer. Create a public IP address with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). The following example creates a public IP address named *myPublicIP* in the *myResourceGroupLB* resource group:
+To access your app on the Internet, you need a public IP address for the load balancer. Create a public IP address with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). The following example creates a public IP address named *myPublicIP* in the *myResourceGroupSLB* resource group:
 
 ```azurepowershell
 $publicIp = New-AzPublicIpAddress `
@@ -78,7 +78,7 @@ The following example creates a TCP probe. You can also create custom HTTP probe
 
 To create a TCP health probe, you use [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig). The following example creates a health probe named *myHealthProbe* that monitors each VM on *HTTP* port *80*:
 
-```azurepowershell-interactive
+```azurepowershell
 $probe = New-AzLoadBalancerProbeConfig `
  -Name 'myHealthProbe' `
  -Protocol Http -Port 80 `
@@ -102,7 +102,7 @@ $rule = New-AzLoadBalancerRuleConfig `
 
 Create NAT rules with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig). The following example creates NAT rules named *myLoadBalancerRDP1* and *myLoadBalancerRDP2* to allow RDP connections to the back-end servers with port 4221 and 4222:
 
-```azurepowershell-interactive
+```azurepowershell
 $natrule1 = New-AzLoadBalancerInboundNatRuleConfig `
   -Name 'myLoadBalancerRDP1' `
   -FrontendIpConfiguration $feip `
@@ -128,7 +128,7 @@ $natrule3 = New-AzLoadBalancerInboundNatRuleConfig `
 
 Create the Standard Load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). The following example creates a public Standard Load Balancer named myLoadBalancer using the front-end IP configuration, back-end pool, health probe, load-balancing rule, and NAT rules that you created in the preceding steps:
 
-```azurepowershell-interactive
+```azurepowershell
 $lb = New-AzLoadBalancer `
   -ResourceGroupName $rgName `
   -Name 'MyLoadBalancer' `
@@ -147,7 +147,7 @@ Before you deploy some VMs and can test your balancer, you must create supportin
 ### Create a virtual network
 Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *myVnet* with *mySubnet*:
 
-```azurepowershell-interactive
+```azurepowershell
 # Create subnet config
 $subnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name "mySubnet" `
@@ -155,7 +155,7 @@ $subnetConfig = New-AzVirtualNetworkSubnetConfig `
 
 # Create the virtual network
 $vnet = New-AzVirtualNetwork `
-  -ResourceGroupName "myResourceGroupLB" `
+  -ResourceGroupName "myResourceGroupSLB" `
   -Location $location `
   -Name "myVnet" `
   -AddressPrefix 10.0.0.0/16 `
@@ -207,7 +207,7 @@ $rule1 = New-AzNetworkSecurityRuleConfig -Name 'myNetworkSecurityGroupRuleRDP' -
 #### Create a network security group rule for port 80
 Create a network security group rule to allow inbound connections through port 80 with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig).
 
-```azurepowershell-interactive
+```azurepowershell
 $rule2 = New-AzNetworkSecurityRuleConfig -Name 'myNetworkSecurityGroupRuleHTTP' -Description 'Allow HTTP' `
   -Access Allow -Protocol Tcp -Direction Inbound -Priority 2000 `
   -SourceAddressPrefix Internet -SourcePortRange * `
@@ -218,7 +218,7 @@ $rule2 = New-AzNetworkSecurityRuleConfig -Name 'myNetworkSecurityGroupRuleHTTP' 
 
 Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
-```azurepowershell-interactive
+```azurepowershell
 $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $RgName -Location $location `
 -Name 'myNetworkSecurityGroup' -SecurityRules $rule1,$rule2
 ```
@@ -226,7 +226,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $RgName -Location $location
 ### Create NICs
 Create virtual NICs and associate with public IP address and network security groups created in the earlier steps with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). The following example creates three virtual NICs. (One virtual NIC for each VM you create for your app in the following steps). You can create additional virtual NICs and VMs at any time and add them to the load balancer:
 
-```azurepowershell-interactive
+```azurepowershell
 # Create NIC for VM1
 $nicVM1 = New-AzNetworkInterface -ResourceGroupName $rgName -Location $location `
   -Name 'MyNic1' -PublicIpAddress $RdpPublicIP_1 -LoadBalancerBackendAddressPool $bepool -NetworkSecurityGroup $nsg `
@@ -245,18 +245,21 @@ $nicVM3 = New-AzNetworkInterface -ResourceGroupName $rgName -Location $location 
 
 Set an administrator username and password for the VMs with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
-```azurepowershell-interactive
+```azurepowershell
 $cred = Get-Credential
 ```
 
 Now you can create the VMs with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates two VMs and the required virtual network components if they do not already exist. In this example, the NICs (*MyNic1*, *MyNic2*, and *MyNic3*) created in the preceding step are assigned to virtual machines *myVM1*, *myVM2*, and *VM3*. In addition, since the NICs are associated to the load balancer's backend pool, the VMs are automatically added to the backend pool.
 
-```azurepowershell-interactive
+```azurepowershell
 
 # ############## VM1 ###############
 
 # Create a virtual machine configuration
-$vmConfig = New-AzVMConfig -VMName 'myVM1' -VMSize Standard_DS1_v2 | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM1' -Credential $cred | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2019-Datacenter -Version latest | Add-AzVMNetworkInterface -Id $nicVM1.Id
+$vmConfig = New-AzVMConfig -VMName 'myVM1' -VMSize Standard_DS1_v2 `
+ | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM1' -Credential $cred `
+ | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2019-Datacenter -Version latest `
+ | Add-AzVMNetworkInterface -Id $nicVM1.Id
 
 # Create a virtual machine
 $vm1 = New-AzVM -ResourceGroupName $rgName -Zone 1 -Location $location -VM $vmConfig
@@ -264,7 +267,10 @@ $vm1 = New-AzVM -ResourceGroupName $rgName -Zone 1 -Location $location -VM $vmCo
 # ############## VM2 ###############
 
 # Create a virtual machine configuration
-$vmConfig = New-AzVMConfig -VMName 'myVM2' -VMSize Standard_DS1_v2 | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM2' -Credential $cred | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2019-Datacenter -Version latest | Add-AzVMNetworkInterface -Id $nicVM2.Id
+$vmConfig = New-AzVMConfig -VMName 'myVM2' -VMSize Standard_DS1_v2 `
+ | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM2' -Credential $cred `
+ | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2019-Datacenter -Version latest `
+ | Add-AzVMNetworkInterface -Id $nicVM2.Id
 
 # Create a virtual machine
 $vm2 = New-AzVM -ResourceGroupName $rgName -Zone 2 -Location $location -VM $vmConfig
@@ -272,7 +278,10 @@ $vm2 = New-AzVM -ResourceGroupName $rgName -Zone 2 -Location $location -VM $vmCo
 # ############## VM3 ###############
 
 # Create a virtual machine configuration
-$vmConfig = New-AzVMConfig -VMName 'myVM3' -VMSize Standard_DS1_v2 | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM3' -Credential $cred | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2019-Datacenter -Version latest | Add-AzVMNetworkInterface -Id $nicVM3.Id
+$vmConfig = New-AzVMConfig -VMName 'myVM3' -VMSize Standard_DS1_v2 `
+ | Set-AzVMOperatingSystem -Windows -ComputerName 'myVM3' -Credential $cred `
+ | Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2019-Datacenter -Version latest `
+| Add-AzVMNetworkInterface -Id $nicVM3.Id
 
 # Create a virtual machine
 $vm3 = New-AzVM -ResourceGroupName $rgName -Zone 3 -Location $location -VM $vmConfig
@@ -286,26 +295,26 @@ Install IIS with a custom web page on both back-end VMs as follows:
 
 1. Get the public IP addresses of the three VMs using `Get-AzPublicIPAddress`.
 
-      ```azurepowershell
-       $vm1_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_1").IpAddress
-       $vm2_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_2").IpAddress
-       $vm3_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_3").IpAddress
-      ```
+   ```azurepowershell
+     $vm1_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_1").IpAddress
+     $vm2_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_2").IpAddress
+     $vm3_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_3").IpAddress
+    ```
 2. Create remote desktop connections with *myVM1*, *myVM2*, and *myVM3* using the public IP addresses of the VMs as follows: 
 
-      ```azurepowershell    
-       mstsc /v:$vm1_rdp_ip
-       mstsc /v:$vm2_rdp_ip
-       mstsc /v:$vm3_rdp_ip
+   ```azurepowershell    
+     mstsc /v:$vm1_rdp_ip
+     mstsc /v:$vm2_rdp_ip
+     mstsc /v:$vm3_rdp_ip
    
-      ```
+    ```
 
 3. Enter the credentials for each VM to start the RDP session.
 4. Launch Windows PowerShell on each VM and using the following commands to install IIS server and update the default htm file.
 
     ```azurepowershell
     # Install IIS
-      Install-WindowsFeature -name Web-Server -IncludeManagementTools
+     Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
     # Remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
@@ -320,9 +329,9 @@ Install IIS with a custom web page on both back-end VMs as follows:
 ## Test load balancer
 Obtain the public IP address of your load balancer with [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). The following example obtains the IP address for *myPublicIP* created earlier:
 
-```azurepowershell-interactive
+```azurepowershell
 Get-AzPublicIPAddress `
-  -ResourceGroupName "myResourceGroupLB" `
+  -ResourceGroupName "myResourceGroupSLB" `
   -Name "myPublicIP" | select IpAddress
 ```
 
@@ -336,8 +345,8 @@ To see the load balancer distribute traffic across all three VMs running your ap
 
 When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, VM, and all related resources.
 
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroupLB
+```azurepowershell
+Remove-AzResourceGroup -Name myResourceGroupSLB
 ```
 
 ## Next steps
