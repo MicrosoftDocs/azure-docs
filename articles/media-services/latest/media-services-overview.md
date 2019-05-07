@@ -84,6 +84,5 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## Next steps
 
-> [!div class="nextstepaction
-> [Learn about fundamental concepts](concepts-overview.md)
+[Learn about fundamental concepts](concepts-overview.md)
 
