@@ -32,7 +32,7 @@ abstract:
     <li><b><a href="text-to-speech.md">text-to-speech</a></b> (TTS)</li>
     <li><b><a href="conversation-transcription-service.md">conversation-transcription</a></b> (CTS)</li>
     <li><b><a href="how-to-phrase-lists.md">phrase list personalization</a>/<a href="how-to-custom-speech.md">custom speech adaptation</a></b></li>
-    <li><b><a href="voice-first-virtual-assistants.md">voice-first-virtual assistant</a></b></li>
+    <li><b><a href="voice-first-virtual-assistants.md">voice-first virtual assistant</a></b></li>
     <li><b><a href="call-center-transcription.md">call center transcription</a></b></li></ul></div></div>
 sections:
 - items:
@@ -59,7 +59,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: Learn how to download, install, and use the SDK by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.<br/><br/>All of the arrow links <img src="media/index/link.jpg" height="15" width="15"></img> default to a <i>speech-to-text</i> quickstart. From there, you can select other quickstarts (<a href="scenario-availability.md">where available</a>) like text-to-speech or voice-first-virtual assistant. 
+    text: Learn how to download, install, and use the SDK by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.<br/><br/>All of the arrow links <img src="media/index/link.jpg" height="15" width="15"></img> default to a <i>speech-to-text</i> quickstart. From there, you can select other quickstarts (<a href="scenario-availability.md">where available</a>) like text-to-speech or voice-first virtual assistant. 
   - type: table
     style: dataMatrix
     columns:
