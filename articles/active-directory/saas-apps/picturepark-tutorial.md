@@ -246,7 +246,7 @@ In order to enable Azure AD users to sign into Picturepark, they must be provisi
    
     e. In the **Company** textbox, type the **Company name** of the user. 
    
-    f. In the **Country** textbox, select the **Country** of the user.
+    f. In the **Country** textbox, select the **Country/Region** of the user.
   
     g. In the **ZIP** textbox, type the **ZIP code** of the city.
    

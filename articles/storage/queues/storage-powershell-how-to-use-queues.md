@@ -99,7 +99,7 @@ Get-AzStorageQueue -Context $ctx | select Name
 
 ## Add a message to a queue
 
-Operations that impact the actual messages in the queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, create a new instance of the message object, [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage.-ctor?redirectedfrom=MSDN&view=azure-dotnet#Microsoft_WindowsAzure_Storage_Queue_CloudQueueMessage__ctor_System_Byte___) class. Next, call the [AddMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) method. A CloudQueueMessage can be created from either a string (in UTF-8 format) or a byte array.
+Operations that impact the actual messages in the queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, create a new instance of the message object, [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) class. Next, call the [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) method. A CloudQueueMessage can be created from either a string (in UTF-8 format) or a byte array.
 
 The following example demonstrates how to add a message to your queue.
 
@@ -127,7 +127,7 @@ Messages are read in best-try first-in-first-out order. This is not guaranteed. 
 
 This **invisibility timeout** defines how long the message remains invisible before it is available again for processing. The default is 30 seconds. 
 
-Your code reads a message from the queue in two steps. When you call the [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?redirectedfrom=MSDN&view=azure-dotnet#Microsoft_WindowsAzure_Storage_Queue_CloudQueue_GetMessage_System_Nullable_System_TimeSpan__Microsoft_WindowsAzure_Storage_Queue_QueueRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) method, you get the next message in the queue. A message returned from **GetMessage** becomes invisible to any other code reading messages from this queue. To finish removing the message from the queue, you call the [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?redirectedfrom=MSDN&view=azure-dotnet#overloads) method. 
+Your code reads a message from the queue in two steps. When you call the [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) method, you get the next message in the queue. A message returned from **GetMessage** becomes invisible to any other code reading messages from this queue. To finish removing the message from the queue, you call the [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) method. 
 
 In the following example, you read through the three queue messages, then wait 10 seconds (the invisibility timeout). Then you read the three messages again, deleting the messages after reading them by calling **DeleteMessage**. If you try to read the queue after the messages are deleted, $queueMessage will be returned as NULL.
 

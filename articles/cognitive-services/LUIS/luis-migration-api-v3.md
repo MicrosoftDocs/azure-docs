@@ -40,10 +40,6 @@ The following LUIS features are **not supported** in the V3 API:
 
 [Reference documentation](https://aka.ms/luis-api-v3) is available for V3.
 
-## Prebuilt domains with new models and language coverage
-
-Review the [V3 API list of prebuilt domains](luis-reference-prebuilt-domains.md). These domains are more complete, both in the model, and the language coverage. 
-
 ## Prebuilt entities with new JSON
 
 The V3 response object changes include [prebuilt entities](luis-reference-prebuilt-entities.md). 
