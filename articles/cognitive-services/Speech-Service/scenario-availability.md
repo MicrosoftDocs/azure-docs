@@ -8,7 +8,7 @@ manager: xdh
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 05/07/2019
 ms.author: cbasoglu
 ---
 
@@ -16,13 +16,13 @@ ms.author: cbasoglu
 
 The Speech service SDK features many scenarios across a wide variety of programming languages and environments.  Not all scenarios are currently available in all programming languages or all environments yet.  Listed below is the availability of each scenario.
 
-- **Speech-Recognition (SR), Phrase List, Intent, and Translation**
+- **Speech-Recognition (SR), Phrase List, Intent, Translation, and On-prem containers**
   - All programming languages/environments where there is an an arrow link <img src="media/index/link.jpg" height="15" width="15"></img> in the quickstart table [here](https://aka.ms/csspeech).
 - **Text-to-Speech (TTS)**
   - C++/Windows & Linux
   - C#/Windows
   - REST can be used in every other situation.
-- **Keyword Spotter**
+- **Wake Word (Keyword Spotter)**
   - C++/Windows & Linux
   - C#/Windows & Linux
   - Python/Windows & Linux
@@ -31,7 +31,7 @@ The Speech service SDK features many scenarios across a wide variety of programm
 - **Voice-First Virtual Assistant**
   - C#/UWP
   - Java/Windows
-- **Conversation Transcriber**
+- **Conversation Transcription**
   - C++/Windows & Linux
   - C# (Framework & .NET Core)/Windows & UWP & Linux
   - Java/Windows & Linux & Android (Speech Devices SDK)

@@ -19,7 +19,7 @@ ms.custom: seodec18
 
 **New features**
 
-* Keyword spotting functionality (KWS) is available for Windows and Linux. KWS functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK.
+* Wake word (Keyword spotting/KWS) functionality is now available for Windows and Linux. KWS functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK.
 * Phrase hint functionality is available through the SDK. For more information, see [here](how-to-phrase-lists.md).
 * Conversation transcription functionality is available through the SDK. See [here](conversation-transcription-service.md).
 * Add support for voice-first virtual assistants using the Direct Line Speech channel.

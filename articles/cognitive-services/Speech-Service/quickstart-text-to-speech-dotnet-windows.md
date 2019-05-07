@@ -14,7 +14,7 @@ ms.author: yinhew
 
 # Quickstart: Synthesize speech with the Speech SDK for .NET Framework (Windows)
 
-If desired, choose a different scenario: [speech-recognition](quickstart-csharp-dotnet-windows.md), [**text-to-speech**](quickstart-text-to-speech-dotnet-windows.md)
+Quickstarts are also available for [speech-recognition](quickstart-csharp-dotnet-windows.md) and [**text-to-speech**](quickstart-text-to-speech-dotnet-windows.md).
 
 Use this guide to create a text-to-speech console application using the .NET framework for Windows and the Speech SDK. When finished, you can synthesize speech from text, and hear the speech on your speaker in real time.
 

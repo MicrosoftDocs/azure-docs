@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 05/07/2019
 ms.author: wolfma
 ---
 
 # Quickstart: Recognize speech in C++ on Linux by using the Speech SDK
 
-Click on scenario of choice: [**speech-recognition**](quickstart-cpp-linux.md), [text-to-speech](quickstart-text-to-speech-cpp-linux.md)
+Quickstarts are also available for [**speech-recognition**](quickstart-cpp-linux.md) and [text-to-speech](quickstart-text-to-speech-cpp-linux.md).
 
 If desired, switch to a different programming language and/or environment:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
