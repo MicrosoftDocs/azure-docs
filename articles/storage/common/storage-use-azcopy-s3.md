@@ -16,19 +16,19 @@ AzCopy is a command-line utility that you can use to copy data to, from, or betw
 
 ## Set up authentication
 
-You'll need to authenticate with both Azure Storage and AWS to perform copy operations.
+* To authenticate with the Azure Storage, use Azure Active Directory (AD) or a Shared Access Signature (SAS) token.
 
-* To authenticate with the Azure Storage, you can use Azure Active Directory (AD) or a Shared Access Signature (SAS) token.
-
-* To authenticate with AWS S3, you can use an AWS access key and a secret access key.
+* To authenticate with AWS S3, use an AWS access key and a secret access key.
 
 ### Authenticate with Azure Storage
 
-See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and authenticate your identity with the Azure storage service.
+See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy, and authenticate your identity with the Azure storage service.
 
 > [!NOTE]
 > The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command.
+>
 > If you'd rather use a SAS token, then you can append that token to the resource url in each command.
+>
 > For example: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`.
 
 ### Authenticate with AWS S3
@@ -43,8 +43,6 @@ Gather your AWS access key and secret access key, and then set the these environ
 
 ## Copy objects, folders, and buckets
 
-This section contains example AzCopy commands that you can use to copy data from your AWS S3 buckets. 
-
 AzCopy uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, so data is copied directly between AWS S3 and storage servers. These copy operations don't use the network bandwidth of your computer.
 
 ### Copy an object
@@ -55,7 +53,11 @@ AzCopy uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storage
 | **Example** | `azcopy cp "https://s3.amazonaws.com/mybucket/myobject" "https://mystorageaccount.blob.core.windows.net/mycontainer/myblob"` |
 
 > [!NOTE]
-> Examples in this article use path-style URLs for AWS S3 buckets (For example: `http://s3.amazonaws.com/<bucket-name>`). You can also use virtual hosted-style URLs as well (For example: `http://bucket.s3.amazonaws.com`). To learn more about virtual hosting of buckets, see [Virtual Hosting of Buckets]](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html).
+> Examples in this article use path-style URLs for AWS S3 buckets (For example: `http://s3.amazonaws.com/<bucket-name>`). 
+>
+> You can also use virtual hosted-style URLs as well (For example: `http://bucket.s3.amazonaws.com`). 
+>
+> To learn more about virtual hosting of buckets, see [Virtual Hosting of Buckets]](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html).
 
 ### Copy a folder
 
@@ -87,13 +89,13 @@ AzCopy uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storage
 
 ## Handle differences in object naming rules
 
-AWS S3 has a different set of naming conventions for bucket names as compared to Azure blob containers and file shares. You can read about them [here](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules). If you choose to copy a group of buckets to an Azure storage account, the copy operation might fail because of naming differences.
+AWS S3 has a different set of naming conventions for bucket names as compared to Azure blob containers. You can read about them [here](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules). If you choose to copy a group of buckets to an Azure storage account, the copy operation might fail because of naming differences.
 
-AzCopy handles two of the most popular issues that can arise; buckets that contain periods and buckets that contain consecutive hyphens. AWS S3 bucket names can contain periods and consecutive hyphens, but a container or file share in Azure can't. AzCopy replaces periods with hyphens and consecutive hyphens with a number that represents the number of consecutive hyphens (For example: a bucket named `my----bucket` becomes `my-4-bucket`. A
+AzCopy handles two of the most popular issues that can arise; buckets that contain periods and buckets that contain consecutive hyphens. AWS S3 bucket names can contain periods and consecutive hyphens, but a container in Azure can't. AzCopy replaces periods with hyphens and consecutive hyphens with a number that represents the number of consecutive hyphens (For example: a bucket named `my----bucket` becomes `my-4-bucket`. A
 
-Also, as AzCopy copies over files, it checks for naming collisions and attempts to resolve them. For example, if there are buckets with the name `bucket-name` and `bucket.name`, AzCopy resolves a bucket named `bucket.name` fist to `bucket-name` and then to `bucket-name-2`.
+Also, as AzCopy copies over files, it checks for naming collisions and attempts to resolve them. For example, if there are buckets with the name `bucket-name` and `bucket.name`, AzCopy resolves a bucket named `bucket.name` first to `bucket-name` and then to `bucket-name-2`.
 
-If you experience other issues not automatically handled by AzCopy, you can copy buckets individually and specify a name for the destination container or file share which conforms with Azure naming rules.
+If you experience other issues not automatically handled by AzCopy, you can copy buckets individually and specify a name for the destination container which conforms with Azure naming rules.
 
 ## Handle differences in object metadata
 
@@ -120,3 +122,13 @@ AzCopy performs these steps:
 3. Adds the string `rename_key_` to the beginning of a new valid key.
    This key will be used to save original metadata invalid **key**.
    You can use this key to try and recover the metadata in Azure side since metadata key is preserved as a value on the Blob storage service.
+
+## More examples
+
+See these articles:
+
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
+
+- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
