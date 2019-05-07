@@ -46,7 +46,7 @@ The environment dropdown displays all the Time Series Insights environments you 
 
 1. Simply click the the dropdown arrow next to your displayed environment:
 
-  [![The control panel](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
+   [![The control panel](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
 
 1. Then, select the desired environment.
 
