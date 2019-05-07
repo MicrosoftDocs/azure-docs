@@ -35,7 +35,7 @@ Azure Monitor application change analysis is currently built into the self-servi
 
 2. Click the **Application Crashes** tile.
 
-   ![screenshot of availability and performance troubleshooting options](./media/change-analysis/application-crashes-tile.png)
+   ![Screenshot with application crashes tile](./media/change-analysis/application-crashes-tile.png)
 
 3. To enable **Change Analysis** select **Enable now**.
 
@@ -43,11 +43,11 @@ Azure Monitor application change analysis is currently built into the self-servi
 
 4. To take advantage of the full change analysis functionality set **Change Analysis**, **Scan for code changes**, and **Always on** to **On** and select **Save**.
 
-    ![Screenshot of the Azure App Service enable change analysis screen](./media/change-analysis/change-analysis-on.png)
+    ![Screenshot of the Azure App Service enable change analysis user inerface](./media/change-analysis/change-analysis-on.png)
 
     If **Change Analysis** is enabled, you will be able to detect resource level changes. If **Scan for code changes** is enabled, you will also see deployment files and site configuration changes. Enabling **Always on** will optimize the change scanning performance, but may incur additional costs from a billing perspective.
 
-5.  Once *everything  is enabled, selecting **Diagnose and solve problems** > **Availability and Performance** > **Application Crashes** will allow you to access the change analysis experience. The graph will summerize the type of changes that happened over time along with details on those changes:
+5.  Once everything  is enabled, selecting **Diagnose and solve problems** > **Availability and Performance** > **Application Crashes** will allow you to access the change analysis experience. The graph will summerize the type of changes that happened over time along with details on those changes:
 
      ![screenshot of change diff view](./media/change-analysis/change-view.png)
         
