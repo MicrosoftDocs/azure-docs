@@ -1,6 +1,6 @@
 ---
 title: The conditional cognitive search skill in Azure Search | Microsoft Docs
-description: The conditional skill that enables filtering, creating defaults, and merging values.
+description: The conditional skill enables filtering, creating defaults, and merging values.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -16,7 +16,7 @@ ms.author: luisca
 
 #	Conditional skill
 
-The *conditional skill* enables scenarios that require a boolean operation to determine the data to assign to an output. These scenarios include: filtering, assigning a default value, and merging data based on a condition.
+The *conditional skill* enables Azure Search scenarios that require a Boolean operation to determine the data to assign to an output. These scenarios include: filtering, assigning a default value, and merging data based on a condition.
 
 The following pseudocode demonstrates what the conditional skill accomplishes:
 
@@ -53,7 +53,7 @@ The following items are valid values of an expression:
     ```
        "= 'this is a string'"   // string (note the single quotation marks)
        "= 34"                   // number
-       "= true"                 // boolean
+       "= true"                 // Boolean
        "= null"                 // null value
     ```
 
@@ -64,7 +64,7 @@ The following items are valid values of an expression:
         "= $(/document/sentiment) >= 0.5"
     ```
 
--	Expressions that use boolean operators  (&&, ||, !, ^) <br/>
+-	Expressions that use Boolean operators  (&&, ||, !, ^) <br/>
     Examples:
     ```
         "= $(/document/language) == 'en' && $(/document/sentiment) > 0.5"
@@ -86,9 +86,9 @@ Inputs are case-sensitive.
 
 | Input	  | Description |
 |-------------|-------------|
-| condition   | This input is an [evaluated field](#evaluated-fields) that represents the condition to evaluate. This condition should evaluate to a boolean value (*true* or *false*).   <br/>  Examples: <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
+| condition   | This input is an [evaluated field](#evaluated-fields) that represents the condition to evaluate. This condition should evaluate to a Boolean value (*true* or *false*).   <br/>  Examples: <br/> "= true" <br/> "= $(/document/language) =='fr'" <br/> "= $(/document/pages/\*/language) == $(/document/expectedLanguage)" <br/> |
 | whenTrue    | This input is an [evaluated field](#evaluated-fields) that represents the value to return if the condition is evaluated to *true*. Constants strings should be returned in single quotation marks (' and '). <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/> |
-| whenFalse   | This input is an [evaluated field](#evaluated-fields) that represents the value to return if the condition is evaluated to false. <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
+| whenFalse   | This input is an [evaluated field](#evaluated-fields) that represents the value to return if the condition is evaluated to *false*. <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
 
 ## Skill outputs
 There's a single output that's called "output." It returns the value *whenFalse* if the condition is false or *whenTrue* if the condition is true.
@@ -148,10 +148,10 @@ In this example, some sentences have a **frenchSentiment** property. Whenever th
 }
 ```
 
-## Transformation examples
+## Transformation example
 ###	Sample skill definition 4: Data transformation on a single field
 
-In this example, we receive a *sentiment* that's between 0 and 1. We want to transform it to between -1 and 1. We can use the conditional skill to do this minor transformation.
+In this example, we receive a *sentiment* that's between 0 and 1. We want to transform it to be between -1 and 1. We can use the conditional skill to do this minor transformation.
 
 In this example, we don't use the conditional aspect of the skill because the condition is always *true*.
 
