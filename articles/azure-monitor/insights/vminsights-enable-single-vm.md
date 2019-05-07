@@ -63,17 +63,17 @@ To enable monitoring of your Azure VM scale set in the Azure portal, do the foll
 
     The list preselects the default workspace and location that the virtual machine is deployed to in the subscription. 
 
-    ![Enable Azure Monitor for VMs for a VM scale set](./media/vminsights-enable-single-vm/enable-vmssinsights-vmss-portal-01.png)
+    ![Enable Azure Monitor for VMs for a VM scale set](./media/vminsights-enable-single-vm/enable-vminsights-vmss-portal-01.png)
 
     >[!NOTE]
     >If you want to create a new Log Analytics workspace for storing the monitoring data from the VM, follow the instructions in [Create a Log Analytics workspace](../learn/quick-create-workspace.md) in one of the supported regions listed earlier.
 
 After you've enabled monitoring, it might take about 10 minutes before you can view the monitoring data for the scale set.
 
-    >[!NOTE]
-    >If you are using a manual upgrade model for your scale set you will need to upgrade the instances to complete the setup.  This can be done from the Instances page under the **Settings** section.
+>[!NOTE]
+>If you are using a manual upgrade model for your scale set you will need to upgrade the instances to complete the setup.  This can be done from the Instances page under the **Settings** section.
 
-![Enable Azure Monitor for VMs monitoring deployment processing](./media/vminsights-enable-single-vm/onboard-vmssinsights-vmss-portal-status.png)
+![Enable Azure Monitor for VMs monitoring deployment processing](./media/vminsights-enable-single-vm/onboard-vminsights-vmss-portal-status-01.png)
 
 ## Next steps
 
