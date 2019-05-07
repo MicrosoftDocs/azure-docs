@@ -45,24 +45,7 @@ To complete this quickstart:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)]
-
-## Enable PowerShell in the extension
-
-Use the following steps to enable PowerShell in the Azure Functions Extension:
-
-1. In Visual Studio Code, choose one of the following menu commands:
-
-    * On Windows or Linux, choose **File** > **Preferences** > **Settings**.
-    * On macOS, choose **Code** > **Preferences** > **Settings**.
-
-1. In the Search settings field, type `powershell`.
-
-1. In the **User settings** tab, expand **Extensions** > **Azure Functions**, then **Enable preview support for PowerShell**.
-
-    ![Azure Functions code in a Visual Studio project](./media/functions-create-first-function-powershell/enable-powershell-support-vs-code.png)
-
-Close the settings. PowerShell is now enabled.  
+[!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)] 
 
 ## Create a function app project
 

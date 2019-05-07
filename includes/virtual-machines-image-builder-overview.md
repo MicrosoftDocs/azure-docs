@@ -91,7 +91,7 @@ During the image creation process, files are downloaded and stored in the `IT_<D
  
 Image Builder creates a VM using a D1v2 VM size, and the storage, and networking needed for the VM. These resources will last for the duration of the build process, and will be deleted once Image Builder has finished creating the image. 
  
-Azure Image Builder will distribute the image to your chosen regions, which which might incur network egress charges.
+Azure Image Builder will distribute the image to your chosen regions, which might incur network egress charges.
  
 ## Next steps 
  
