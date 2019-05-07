@@ -203,7 +203,7 @@ Add the connection string into the app so it can access the storage account.
 
 ## Insert messages into the queue
 
-Create a new method to send a message into the queue. Add the following method to your **Program** class. This method gets a queue reference, then creates a new queue if it doesn't already exist by calling [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). Then, it adds the message to the queue by calling [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
+Create a new method to send a message into the queue. Add the following method to your **Program** class. This method gets a queue reference, then creates a new queue if it doesn't already exist by calling [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). Then, it adds the message to the queue by calling [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
 
 1. Add the following **SendMessageAsync** method to your **Program** class.
 
@@ -226,7 +226,7 @@ Create a new method to send a message into the queue. Add the following method t
 
 ## Dequeue messages
 
-Create a new method called **ReceiveMessageAsync**. This method receives a message from the queue by calling [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). Once the message is successfully received, it's important to delete it from the queue so it isn't processed more than once. After the message is received, delete it from the queue by calling [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
+Create a new method called **ReceiveMessageAsync**. This method receives a message from the queue by calling [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). Once the message is successfully received, it's important to delete it from the queue so it isn't processed more than once. After the message is received, delete it from the queue by calling [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
 
 1. Add the following **ReceiveMessageAsync** method to your **Program** class.
 
