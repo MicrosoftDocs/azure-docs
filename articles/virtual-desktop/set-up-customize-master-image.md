@@ -61,9 +61,6 @@ This section covers how to prepare and install FSLogix, Windows Defender, and ot
 
 If your users need to access certain LOB applications, we recommend you install them after completing this section’s instructions.
 
-<<<<<<< HEAD
-This section assumes you have elevated access on the VM, whether it's provisioned in Azure or Hyper-V Manager.
-=======
 ```batch
 Setup.exe /configure configuration.xml
 ```
@@ -111,7 +108,6 @@ The following XML sample will install the Insiders release, also known as Inside
 >The Office team recommends using 64-bit install for the **OfficeClientEdition** parameter.
 
 After installing Office, you can update the default Office behavior. Run the following commands individually or in a batch file to update the behavior.
->>>>>>> 3783bb7167ce831297de10ee00eb7567a4f46c55
 
 If you're preparing
 
@@ -136,8 +132,6 @@ Run this command to specify a Start layout for Windows 10 PCs.
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
 
-<<<<<<< HEAD
-=======
 ### Install OneDrive in per-machine mode
 
 OneDrive is normally installed per-user. In this environment, it should be installed per-machine.
@@ -188,7 +182,6 @@ Here's how to install OneDrive in per-machine mode:
 
 Windows Virtual Desktop does not officially support Skype for Business and Teams.
 
->>>>>>> 083e27e3d6eb790df56d574f85d7bda60c33e137
 ### Set up user profile container (FSLogix)
 
 To include the FSLogix container as part of the image, follow the instructions in [Set up a user profile share for a host pool](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). You can test the functionality of the FSLogix container with [this quickstart](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
