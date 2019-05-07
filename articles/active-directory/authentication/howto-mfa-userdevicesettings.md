@@ -21,7 +21,7 @@ As an administrator, you can manage the following user and device settings:
 
 * Require users to provide contact methods again
 * Delete app passwords
-* Require MFA on all trusted devices
+* Require MFA on all trusted devices 
 
 ## Require users to provide contact methods again
 
