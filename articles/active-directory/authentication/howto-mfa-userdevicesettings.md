@@ -63,7 +63,7 @@ Users can opt out of two-step verification for a configurable number of days on 
 
 The **Restore multi-factor authentication on all remembered devices** setting means that the user will be challenged to perform two-step verification the next time they sign in, regardless of whether they chose to mark their device as trusted.
 
-### How to restore MFA on all suspended devices for a user
+### How to restore MFA on all suspended devices for a user 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the left, select **Azure Active Directory** > **Users** > **All users**.
