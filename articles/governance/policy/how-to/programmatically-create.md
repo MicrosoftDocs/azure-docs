@@ -1,7 +1,6 @@
 ---
 title: Programmatically create policies and view compliance data
 description: This article walks you through programmatically creating and managing policies for Azure Policy.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/31/2019

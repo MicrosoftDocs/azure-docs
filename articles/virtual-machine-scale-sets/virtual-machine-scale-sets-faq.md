@@ -26,13 +26,13 @@ Get answers to frequently asked questions about virtual machine scale sets in Az
 
 ## Top frequently asked questions for scale sets
 
-**Q.** How many VMs can I have in a scale set?
+### How many VMs can I have in a scale set?
 
-**A.** A scale set can have 0 to 1,000 VMs based on platform images, or 0 to 600 VMs based on custom images.
+A scale set can have 0 to 1,000 VMs based on platform images, or 0 to 600 VMs based on custom images.
 
-**Q.** Are data disks supported within scale sets?
+### Are data disks supported within scale sets?
 
-**A.** Yes. A scale set can define an attached data disks configuration that applies to all VMs in the set. For more information, see [Azure scale sets and attached data disks](virtual-machine-scale-sets-attached-disks.md). Other options for storing data include:
+Yes. A scale set can define an attached data disks configuration that applies to all VMs in the set. For more information, see [Azure scale sets and attached data disks](virtual-machine-scale-sets-attached-disks.md). Other options for storing data include:
 
 * Azure files (SMB shared drives)
 * OS drive
@@ -40,33 +40,33 @@ Get answers to frequently asked questions about virtual machine scale sets in Az
 * Azure data service (for example, Azure tables, Azure blobs)
 * External data service (for example, remote database)
 
-**Q.** Which Azure regions support scale sets?
+### Which Azure regions support scale sets?
 
-**A.** All regions support scale sets.
+All regions support scale sets.
 
-**Q.** How do I create a scale set by using a custom image?
+### How do I create a scale set by using a custom image?
 
-**A.** Create and capture a VM image, then use that as the source for your scale set. For a tutorial on how to create and use a custom VM image, you can use the [Azure CLI](tutorial-use-custom-image-cli.md) or [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+Create and capture a VM image, then use that as the source for your scale set. For a tutorial on how to create and use a custom VM image, you can use the [Azure CLI](tutorial-use-custom-image-cli.md) or [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
-**Q.** If I reduce my scale set capacity from 20 to 15, which VMs are removed?
+### If I reduce my scale set capacity from 20 to 15, which VMs are removed?
 
-**A.** Virtual machines are removed from the scale set evenly across update domains and fault domains to maximize availability. VMs with the highest IDs are removed first.
+Virtual machines are removed from the scale set evenly across update domains and fault domains to maximize availability. VMs with the highest IDs are removed first.
 
-**Q.** What if I then increase the capacity from 15 to 18?
+### What if I then increase the capacity from 15 to 18?
 
-**A.** If you increase capacity to 18, then 3 new VMs are created. Each time, the VM instance ID is incremented from the previous highest value (for example, 20, 21, 22). VMs are balanced across fault domains and update domains.
+If you increase capacity to 18, then 3 new VMs are created. Each time, the VM instance ID is incremented from the previous highest value (for example, 20, 21, 22). VMs are balanced across fault domains and update domains.
 
-**Q.** When I'm using multiple extensions in a scale set, can I enforce an execution sequence?
+### When I'm using multiple extensions in a scale set, can I enforce an execution sequence?
 
-**A.** Yes, you can use scale set [extension sequencing](virtual-machine-scale-sets-extension-sequencing.md).
+Yes, you can use scale set [extension sequencing](virtual-machine-scale-sets-extension-sequencing.md).
 
-**Q.** Do scale sets work with Azure availability sets?
+### Do scale sets work with Azure availability sets?
 
-**A.** A regional (non-zonal) scale set uses *placement groups*, which act as an implicit availability set with five fault domains and five update domains. Scale sets of more than 100 VMs span multiple placement groups. For more information about placement groups, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md). An availability set of VMs can exist in the same virtual network as a scale set of VMs. A common configuration is to put control node VMs (which often require unique configuration) in an availability set and put data nodes in the scale set.
+A regional (non-zonal) scale set uses *placement groups*, which act as an implicit availability set with five fault domains and five update domains. Scale sets of more than 100 VMs span multiple placement groups. For more information about placement groups, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md). An availability set of VMs can exist in the same virtual network as a scale set of VMs. A common configuration is to put control node VMs (which often require unique configuration) in an availability set and put data nodes in the scale set.
 
-**Q.** Do scale sets work with Azure availability zones?
+### Do scale sets work with Azure availability zones?
 
-**A.** Yes! For more information, see the [scale set zone doc](./virtual-machine-scale-sets-use-availability-zones.md).
+Yes! For more information, see the [scale set zone doc](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## Autoscale

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 3/17/2019
 ms.author: b-juche
 ---
@@ -52,7 +52,7 @@ A subnet must be delegated to Azure NetApp Files.
     * **Virtual network**  
         Specify the Azure virtual network (Vnet) from which you want to access the volume.  
 
-        The Vnet you specify must have a subnet delegated to Azure NetApp Files. The Azure NetApp Files service can be accessed only from the same Vnet or from a Vnet that is in the same region as the volume through Vnet peering. You can also access the volume from  your on-premise network through Express Route.   
+        The Vnet you specify must have a subnet delegated to Azure NetApp Files. The Azure NetApp Files service can be accessed only from the same Vnet or from a Vnet that is in the same region as the volume through Vnet peering. You can also access the volume from  your on-premises network through Express Route.   
 
     * **Subnet**  
         Specify the subnet that you want to use for the volume.  
@@ -147,7 +147,7 @@ Azure NetApp Files supports SMBv3 volumes. You need to create Active Directory c
     * **Virtual network**  
         Specify the Azure virtual network (Vnet) from which you want to access the volume.  
 
-        The Vnet you specify must have a subnet delegated to Azure NetApp Files. The Azure NetApp Files service can be accessed only from the same Vnet or from a Vnet that is in the same region as the volume through Vnet peering. You can also access the volume from  your on-premise network through Express Route.   
+        The Vnet you specify must have a subnet delegated to Azure NetApp Files. The Azure NetApp Files service can be accessed only from the same Vnet or from a Vnet that is in the same region as the volume through Vnet peering. You can also access the volume from  your on-premises network through Express Route.   
 
     * **Subnet**  
         Specify the subnet that you want to use for the volume.  

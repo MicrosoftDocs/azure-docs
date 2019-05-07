@@ -103,7 +103,7 @@ A progress window, like the one shown here, should appear. Keep in mind that the
 
 ![Restore progress](./media/hana-overview-high-availability-disaster-recovery/restore_progress_dr5.PNG)
 
-If the restore seems to hang at the **Finish** screen and does not show the progress screen, confirm that all the SAP HANA instances on the worker nodes are running. If necessary, start the SAP HANA instances manually.
+If the restore seems to stop responding at the **Finish** screen and does not show the progress screen, confirm that all the SAP HANA instances on the worker nodes are running. If necessary, start the SAP HANA instances manually.
 
 
 ## Failback from a DR to a production site

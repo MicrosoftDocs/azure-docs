@@ -44,7 +44,7 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 
 ## Create a client secret
 
-If you’re application exchanges a code for a token, you need to create an application secret.
+If your application exchanges a code for a token, you need to create an application secret.
 
 1. Select **Keys** and then click **Generate key**.
 2. Select **Save** to view the key. Make note of the **App key** value. You use the value as the application secret in your application's code.

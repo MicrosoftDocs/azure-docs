@@ -139,7 +139,7 @@ If your organization doesn't have legacy clients, you should not allow your user
 > [!NOTE]
 > Modern authentication for Office 2013 clients
 >
-> App passwords are only necessary for apps that don't support modern authentication. Office 2013 clients support modern authentication protocols, but need to be configured. Newer Office clients automatically support modern authentication protocols. For more information, see the [Office 2013 modern authentication public preview announcement](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> App passwords are only necessary for apps that don't support modern authentication. Office 2013 clients support modern authentication protocols, but need to be configured. Now modern authentication is available to any customer running the March 2015 or later update for Office 2013. For more information, see the [Office 2013 modern authentication public preview announced](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 **Q: My users say that sometimes they don't receive the text message, or they reply to two-way text messages but the verification times out.**
 

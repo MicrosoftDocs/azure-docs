@@ -26,11 +26,11 @@ Once a security group is assigned permissions, adding or removing users from the
 
 ### Security for groups
 
-When you or your users need access to data in a storage account with hierarchical namespace enabled, it’s best to use Azure Active Directory security groups. Some recommended groups to start with might be **ReadOnlyUsers**, **WriteAccessUsers**, and **FullAccessUsers** for the root of the filesystem, and even separate ones for key subdirectories. If there are any other anticipated groups of users that might be added later, but have not been identified yet, you might consider creating dummy security groups that have access to certain folders. Using security group ensures that you can avoid long processing time when assigning new permissions to thousands of files.
+When you or your users need access to data in a storage account with hierarchical namespace enabled, it’s best to use Azure Active Directory security groups. Some recommended groups to start with might be **ReadOnlyUsers**, **WriteAccessUsers**, and **FullAccessUsers** for the root of the file system, and even separate ones for key subdirectories. If there are any other anticipated groups of users that might be added later, but have not been identified yet, you might consider creating dummy security groups that have access to certain folders. Using security group ensures that you can avoid long processing time when assigning new permissions to thousands of files.
 
 ### Security for service principals
 
-Azure Active Directory service principals are typically used by services like Azure Databricks to access data in Data Lake Storage Gen2. For many customers, a single Azure Active Directory service principal might be adequate, and it can have full permissions at the root of the Data Lake Storage Gen2 Filesystem. Other customers might require multiple clusters with different service principals where one cluster has full access to the data, and another cluster with only read access. 
+Azure Active Directory service principals are typically used by services like Azure Databricks to access data in Data Lake Storage Gen2. For many customers, a single Azure Active Directory service principal might be adequate, and it can have full permissions at the root of the Data Lake Storage Gen2 file system. Other customers might require multiple clusters with different service principals where one cluster has full access to the data, and another cluster with only read access. 
 
 ### Enable the Data Lake Storage Gen2 firewall with Azure service access
 

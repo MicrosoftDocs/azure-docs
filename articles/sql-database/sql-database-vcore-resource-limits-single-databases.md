@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 03/19/2019
+ms.date: 04/17/2019
 ---
 # Azure SQL Database vCore-based purchasing model limits for a single database
 
@@ -90,7 +90,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Target IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
-|Log rate limits (MBps)|2.5|56|7.5|10|12.5|15|17.5|
+|Log rate limits (MBps)|2.5|5.6|7.5|10|12.5|15|17.5|
 |Max concurrent workers (requests)|200|400|600|800|1000|1200|1400|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
 |Number of replicas|1|1|1|1|1|1|1|

@@ -20,6 +20,9 @@ In this article, you will learn how to:
 - Create a private frontend IP configuration for an Application Gateway
 - Create an application gateway with private frontend IP configuration
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Log in to Azure
 
 Log in to the Azure portal at <https://portal.azure.com>
@@ -77,7 +80,7 @@ The backend pool is used to route requests to the backend servers which will be 
 2. Run the following command to install IIS on the virtual machine:
 
    ```azurepowershell
-   Set-AzureRmVMExtension `
+   Set-AzVMExtension `
    
      -ResourceGroupName myResourceGroupAG `
    
@@ -95,7 +98,7 @@ The backend pool is used to route requests to the backend servers which will be 
 
 
 
-3. Create a second virtual machine and install IIS using the steps that you just finished. Enter myVM2 for its name and for VMName in Set-AzureRmVMExtension.
+3. Create a second virtual machine and install IIS using the steps that you just finished. Enter myVM2 for its name and for VMName in Set-AzVMExtension.
 
 ### Add backend servers to backend pool
 

@@ -2,8 +2,8 @@
 title: Azure Data Catalog developer concepts
 description: Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.topic: conceptual

@@ -30,7 +30,7 @@ Updating the cluster to support these new capabilities can be performed from the
 Either process assigns the **Monitoring Metrics Publisher** role to the cluster’s service principal so that the data collected by the agent can be published to your clusters resource. Monitoring Metrics Publisher has permission only to push metrics to the resource, it cannot alter any state, update the resource, or read any data. For further information about the role, see [Monitoring Metrics Publisher role](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
 ## Prerequisites 
-Before you start, make sure that you are a member of the **[Owner](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.mds#owner)** role on the AKS cluster resource to enable collection of node and pod custom performance metrics. 
+Before you start, make sure that you are a member of the **[Owner](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.md#owner)** role on the AKS cluster resource to enable collection of node and pod custom performance metrics. 
 
 If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 

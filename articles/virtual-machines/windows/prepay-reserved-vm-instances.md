@@ -6,14 +6,12 @@ documentationcenter: ''
 author: yashar
 manager: yashar
 editor: ''
-
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-
-ms.date: 03/22/2019
+ms.date: 04/13/2019
 ms.author: banders
 
 ---

@@ -1,26 +1,22 @@
 ---
-title: Azure SQL Database Managed Instance T-SQL Differences | Microsoft Docs
+title: Azure SQL Database-Managed Instance T-SQL Differences | Microsoft Docs
 description: This article discusses the T-SQL differences between a Managed Instance in Azure SQL Database and SQL Server
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlrab, bonova 
+ms.reviewer: sstein, carlrab, bonova 
 manager: craigg
 ms.date: 03/13/2019
+ms.custom: seoapril2019
 ---
 
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server
 
-The Managed Instance deployment option provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server database engine features are supported in a Managed Instance.
-
-![migration](./media/sql-database-managed-instance/migration.png)
-
-Since there are still some differences in syntax and behavior, this article summarizes and explains these differences. <a name="Differences"></a>
+This article summarizes and explains the differences in syntax and behavior between Azure SQL Database Managed Instance and on-premises SQL Server Database Engine. <a name="Differences"></a>
 
 - [Availability](#availability) including the differences in [Always-On](#always-on-availability) and [Backups](#backup),
 - [Security](#security) including the differences in [Auditing](#auditing), [Certificates](#certificates), [Credentials](#credential), [Cryptographic providers](#cryptographic-providers), [Logins / users](#logins--users), [Service key and service master key](#service-key-and-service-master-key),
@@ -28,6 +24,10 @@ Since there are still some differences in syntax and behavior, this article summ
 - [Functionalities](#functionalities) including [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Distributed transactions](#distributed-transactions), [Extended events](#extended-events), [External libraries](#external-libraries), [Filestream and Filetable](#filestream-and-filetable), [Full-text Semantic Search](#full-text-semantic-search), [Linked servers](#linked-servers), [Polybase](#polybase), [Replication](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [Stored procedures, functions, and triggers](#stored-procedures-functions-triggers),
 - [Features that have different behavior in Managed Instances](#Changes)
 - [Temporary limitations and known issues](#Issues)
+
+The Managed Instance deployment option provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server database engine features are supported in a Managed Instance.
+
+![migration](./media/sql-database-managed-instance/migration.png)
 
 ## Availability
 
@@ -212,7 +212,7 @@ For more information, see [ALTER DATABASE SET PARTNER and SET WITNESS](https://d
 
 - Multiple log files aren't supported.
 - In-memory objects aren't supported in the General Purpose service tier.  
-- There's a limit of 280 files per General Purpose instance implying max 280 files per database. Both data and log files in General Purpose tier are counted toward this limit. [Business Critical tier supports 32,767 files per database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+- There's a limit of 280 files per General Purpose instance implying max 280 files per database. Both data and log files in General Purpose tier are counted toward this limit. [Business Critical tier supports 32,767 files per database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 - Database can't contain filegroups containing filestream data.  Restore will fail if .bak contains `FILESTREAM` data.  
 - Every file is placed in Azure Blob storage. IO and throughput per file depend on the size of each individual file.  
 
@@ -283,10 +283,9 @@ For more information, see [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/
     - Queue Reader isn't supported.  
     - Command shell is not yet supported.
   - Managed Instances can't access external resources (for example, network shares via robocopy).  
-  - PowerShell is not yet supported.
   - Analysis Services aren't supported.
 - Notifications are partially supported.
-- Email notification is supported, requires configuring a Database Mail profile. There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile` in public preview (temporary limitation).  
+- Email notification is supported, requires configuring a Database Mail profile. SQL Agent can use only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile`.  
   - Pager isn't supported.  
   - NetSend isn't supported.
   - Alerts are not yet supported.
@@ -327,7 +326,7 @@ A Managed Instance can't access file shares and Windows folders, so the files mu
 A Managed Instance can't access file shares and Windows folders, so the following constraints apply:
 
 - Only `CREATE ASSEMBLY FROM BINARY` is supported. See [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
-- `CREATE ASSEMBLY FROM FILE` is't supported. See [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
+- `CREATE ASSEMBLY FROM FILE` isn't supported. See [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` can't reference files. See [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### DBCC
@@ -427,10 +426,7 @@ Limitations:
 - `.BAK` files containing multiple backup sets can't be restored.
 - `.BAK` files containing multiple log files can't be restored.
 - Restore will fail if .bak contains `FILESTREAM` data.
-- Backups containing databases that have active In-memory objects currently can't be restored.  
-- Backups containing databases where at some point In-Memory objects existed currently can't be restored.
-- Backups containing databases in read-only mode currently can't be restored. This limitation will be removed soon.
-
+- Backups containing databases that have active In-memory objects can't be restored on General Purpose instance.  
 For information about Restore statements, see [RESTORE Statements](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
 ### Service broker
@@ -466,19 +462,20 @@ The following variables, functions, and views return different results:
 - `@@SERVICENAME` returns NULL, because the concept of service as it exists for SQL Server doesn't apply to a Managed Instance. See [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
 - `SUSER_ID` is supported. Returns NULL if Azure AD login is not in sys.syslogins. See [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` isn't supported. Returns wrong data (temporary known issue). See [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql).
-- `GETDATE()` and other built-in date/time functions always returns time in UTC time zone. See [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
 
 ## <a name="Issues"></a> Known issues and limitations
 
 ### TEMPDB size
 
-Max file size of `tempdb` cannot be greather than 24GB/core on General Purpose tier. Max `tempdb` size on Business Critical tier is limited with the instance storage size. `tempdb` is always split into 12 data files. This maximum size per file can't be changed and new files can be added to `tempdb`. Some queries might return an error if  they need more than 24GB / core in `tempdb`.
+Max file size of `tempdb` cannot be greater than 24GB/core on General Purpose tier. Max `tempdb` size on Business Critical tier is limited with the instance storage size. `tempdb` is always split into 12 data files. This maximum size per file can't be changed and new files can be added to `tempdb`. Some queries might return an error if  they need more than 24GB / core in `tempdb`.
 
 ### Cannot restore contained database
 
 Managed Instance cannot restore [contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Point-in-time restore of the existing contained databases don't work on Managed Instance. This issue will be removed soon and in the meantime we recommend to remove containment option from your databases that are placed on Managed Instance, and do not use containment option for the production databases.
 
 ### Exceeding storage space with small database files
+
+`CREATE DATABASE`, `ALTER DATABASE ADD FILE`, and `RESTORE DATABASE` statements might fail because the instance can reach the Azure Storage limit.
 
 Each General Purpose Managed Instance has up to 35 TB storage reserved for Azure Premium Disk space, and each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on disk is not charged, but the total sum of Azure Premium Disk sizes cannot exceed 35 TB. In some cases, a Managed Instance that does not need 8 TB in total might exceed the 35 TB Azure limit on storage size, due to internal fragmentation.
 
@@ -491,7 +488,7 @@ This illustrates that under certain circumstance, due to a specific distribution
 
 In this example, existing databases will continue to work and can grow without any problem as long as new files are not added. However new databases could not be created or restored because there is not enough space for new disk drives, even if the total size of all databases does not reach the instance size limit. The error that is returned in that case is not clear.
 
-You can [identify number of remaining files](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) using system views. If you are reaching this limit try to [empty and delete some of the smaller files using DBCC SHRINKFILE statement](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) or shitch to [Business Critical tier that don't has this limit](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+You can [identify number of remaining files](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) using system views. If you are reaching this limit try to [empty and delete some of the smaller files using DBCC SHRINKFILE statement](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) or switch to [Business Critical tier that doesn't have this limit](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### Incorrect configuration of SAS key during database restore
 
@@ -509,9 +506,13 @@ SQL Server Management Studio (SSMS) and SQL Server Data Tools (SSDT) might have 
 
 Several system views, performance counters, error messages, XEvents, and error log entries display GUID database identifiers instead of the actual database names. Do not rely on these GUID identifiers because they would be replaced with actual database names in the future.
 
+### Database mail
+
+`@query` parameter in [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedure don't work.
+
 ### Database mail profile
 
-The database mail profile used by SQL Agent must be called `AzureManagedInstance_dbmail_profile`.
+The database mail profile used by SQL Agent must be called `AzureManagedInstance_dbmail_profile`. There are no restriction regarding other database mail profile names.
 
 ### Error logs are not-persisted
 
@@ -560,11 +561,11 @@ CLR modules placed in a Managed Instance and linked servers/distributed queries 
 
 **Workaround**: Use context connections in CLR module if possible.
 
-### TDE encrypted databases don't support user initiated backups
+### TDE encrypted databases with service-managed key don't support user-initiated backups
 
-You can't execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that is encrypted with Transparent Data Encryption (TDE). TDE forces backups to be encrypted with internal TDE keys, and the key can't be exported, so you won't be able to restore the backup.
+You can't execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that is encrypted with service-managed Transparent Data Encryption (TDE). Service-managed TDE forces backups to be encrypted with internal TDE key, and the key can't be exported, so you won't be able to restore the backup.
 
-**Workaround**: Use automatic backups and point-in-time restore, or disable encryption on database.
+**Workaround**: Use automatic backups and point-in-time restore, or use [customer-managed (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) instead, or disable encryption on database.
 
 ## Next steps
 

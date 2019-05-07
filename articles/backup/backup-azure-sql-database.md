@@ -51,7 +51,7 @@ Before you start, verify the following:
 
 - SQL Server backup can be configured in the Azure portal or **PowerShell**. We do not support CLI.
 - VM running SQL Server requires internet connectivity to access Azure public IP addresses.
-- SQL Server Always on **Failover Cluster Instances (FCIs)** aren't supported.
+- SQL Server **Failover Cluster Instance (FCI)** and SQL Server Always on Failover Cluster Instance are not supported.
 - Backup and restore operations for mirror databases and database snapshots aren't supported.
 - Using more than one backup solutions to backup your standalone SQL Server instance or SQL Always on availability group may lead to backup failure; refrain from doing so.
 - Backing up two nodes of an availability group individually with same or different solutions, may also lead to backup failure. Azure Backup can detect and protect all nodes that are in the same region as the vault. If your SQL Server Always on availability group spans multiple Azure regions, set up the backup from the region that has the primary node. Azure Backup can detect and protect all databases in the availability group according to your backup preference.  

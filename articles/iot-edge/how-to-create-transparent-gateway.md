@@ -256,6 +256,18 @@ You can check which modules are running on a device with the command `iotedge li
 
 6. In the **Review template** page, select **Submit**.
 
+## Open ports on gateway device
+
+Standard IoT Edge devices don't need any inbound connectivity to function, because all communication with IoT Hub is done through outbound connections. However, gateway devices are different because they need to be able to receive messages from their downstream devices.
+
+For a gateway scenario to work, at least one of the IoT Edge hub's supported protocols must be open for inbound traffic from downstream devices. The supported portocols are MQTT, AMQP, and HTTPS.
+
+| Port | Protocol |
+| ---- | -------- |
+| 8883 | MQTT |
+| 5671 | AMQP |
+| 443 | HTTPS <br> MQTT+WS <br> AMQP+WS | 
+
 ## Route messages from downstream devices
 The IoT Edge runtime can route messages sent from downstream devices just like messages sent by modules. This allows you to perform analytics in a module running on the gateway before sending any data to the cloud. 
 

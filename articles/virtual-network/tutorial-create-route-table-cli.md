@@ -204,7 +204,7 @@ Take note of the **publicIpAddress**. This address is used to access the VM from
 
 ## Route traffic through an NVA
 
-Use the following command to create an SSH session with the *myVmPrivate* VM. Replace *<publicIpAddress>* with the public IP address of your VM. In the example above, the IP address is *13.90.242.231*.
+Use the following command to create an SSH session with the *myVmPrivate* VM. Replace *\<publicIpAddress>* with the public IP address of your VM. In the example above, the IP address is *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>

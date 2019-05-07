@@ -28,13 +28,14 @@ To learn more about VM images, see the following blog posts:
 - [VM Image](https://azure.microsoft.com/blog/vm-image-blog-post/)
 - [VM Image PowerShell 'How To'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## Prerequisite: install the necessary tools
 
 If you have not already done so, install Azure PowerShell and the Azure CLI, using the following instructions:
 
-- [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
-- [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+- [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
 ## Deployment steps

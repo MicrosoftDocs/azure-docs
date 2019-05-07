@@ -6,7 +6,7 @@ ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
-ms.date: "03/04/2019"
+ms.date: 03/04/2019
 ms.topic: "conceptual"
 description: "Describes the processes that power Azure Dev Spaces and how they are configured in the azds.yaml configuration file"
 keywords: "azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
@@ -90,7 +90,11 @@ When Azure Dev Spaces is enabled on your AKS cluster, it installs the controller
 
 * Creates or designates a Kubernetes namespace to use as a dev space.
 * Removes any Kubernetes namespace named *azds*, if it exists, and creates a new one.
-* Deploys a Kubernetes initializer object.
+* Deploys a Kubernetes webhook configuration.
+* Deploys a webhook admission server.
+	
+
+It also uses the same service principal that your AKS cluster uses to make service calls to other Azure Dev Spaces components.
 
 ![Azure Dev Spaces prepare cluster](media/how-dev-spaces-works/prepare-cluster.svg)
 
@@ -98,9 +102,9 @@ In order to use Azure Dev Spaces, there must be at least one dev space. Azure De
 
 By default, the controller creates a dev space named *default* by upgrading the existing *default* Kubernetes namespace. You can use the client-side tooling to create new dev spaces and remove existing dev spaces. Due to a limitation in Kubernetes, the *default* dev space cannot be removed. The controller also removes any existing Kubernetes namespaces named *azds* to avoid conflicts with the `azds` command used by the client-side tooling.
 
-The Kubernetes initializer object is used to inject pods with three containers during deployment for instrumentation: a devspaces-proxy container, a devspaces-proxy-init container, and a devspaces-build container. **All three of these containers run with root access on your AKS cluster.**
+The Kubernetes webhook admission server is used to inject pods with three containers during deployment for instrumentation: a devspaces-proxy container, a devspaces-proxy-init container, and a devspaces-build container. **All three of these containers run with root access on your AKS cluster.** They also use the same service principal that your AKS cluster uses to make service calls to other Azure Dev Spaces components.
 
-![Azure Dev Spaces Kubernetes initializer](media/how-dev-spaces-works/kubernetes-initializer.svg)
+![Azure Dev Spaces Kubernetes webhook admission server](media/how-dev-spaces-works/kubernetes-webhook-admission-server.svg)
 
 The devspaces-proxy container is a sidecar container that handles all TCP traffic into and out of the application container and helps perform routing. The devspaces-proxy container reroutes HTTP messages if certain spaces are being used. For example, it can help route HTTP messages between applications in parent and child spaces. All non-HTTP traffic passes through devspaces-proxy unmodified. The devspaces-proxy container also logs all inbound and outbound HTTP messages and sends them to the client-side tooling as traces. These traces can then be viewed by the developer to inspect the behavior of the application.
 
@@ -111,7 +115,7 @@ The devspaces-build container is an init container and has the project source co
 > [!NOTE]
 > Azure Dev Spaces uses the same node to build your application's container and run it. As a result, Azure Dev Spaces does not need an external container registry for building and running your application.
 
-The Kubernetes initializer object listens for any new pod that's created in the AKS cluster. If that pod is deployed to any namespace with the *azds.io/space=true* label, it injects that pod with the additional containers. The devspaces-build container is only injected if the application's container is run using the client-side tooling.
+The Kubernetes webhook admission server listens for any new pod that's created in the AKS cluster. If that pod is deployed to any namespace with the *azds.io/space=true* label, it injects that pod with the additional containers. The devspaces-build container is only injected if the application's container is run using the client-side tooling.
 
 Once you have prepared your AKS cluster, you can use the client-side tooling to prepare and run your code in your dev space.
 
@@ -215,7 +219,7 @@ At a more granular level, here is what happens when you run `azds up`:
 1. Files are synchronized from the user’s machine to an Azure file storage that is unique to the user’s AKS cluster. The source code, Helm chart, and configuration files are uploaded. More details on the synchronization process are available in the next section.
 1. The controller creates a request to start a new session. This request contains several properties, including a unique ID, space name, path to source code, and a debugging flag.
 1. The controller replaces the *$(tag)* placeholder in the Helm chart with the unique session ID and installs the Helm chart for your service. Adding a reference to the unique session ID to the Helm chart allows the container deployed to the AKS cluster for this specific session to be tied back to the session request and associated information.
-1. During the installation of the Helm chart, the Kubernetes initializer object adds additional containers to your application's pod for instrumentation and access to your project's source code. The devspaces-proxy and devspaces-proxy-init containers are added to provide HTTP tracing and space routing. The devspaces-build container is added to provide the pod with access to the Docker instance and project source code for building your application's container.
+1. During the installation of the Helm chart, the Kubernetes webhook admission server adds additional containers to your application's pod for instrumentation and access to your project's source code. The devspaces-proxy and devspaces-proxy-init containers are added to provide HTTP tracing and space routing. The devspaces-build container is added to provide the pod with access to the Docker instance and project source code for building your application's container.
 1. When the application's pod is started, the devspaces-build container and devspaces-proxy-init container are used to build the application container. The application container and devspaces-proxy containers are then started.
 1. After the application container has started, the client-side functionality uses the Kubernetes *port-forward* functionality to provide HTTP access to your application over http://localhost. This port forwarding connects your development machine to the service in your dev space.
 1. When all containers in the pod have started, the service is running. At this point, the client-side functionality begins to stream the HTTP traces, stdout, and stderr. This information is displayed by the client-side functionality for the developer.

@@ -83,9 +83,9 @@ For more information, see the following articles:
 - [Create HDInsight clusters with Data Lake Storage by using the Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Use Data Lake Storage with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-store.md)
 
-### Azure Data Lake Storage Gen2 (preview)
+### Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 is the latest storage offering and is in Preview at the time of writing of this paper. It unifies the core capabilities from the first generation of Azure Data Lake Storage with a Hadoop compatible file system endpoint directly integrated into Azure Blob Storage. This enhancement combines the scale and cost benefits of object storage with the reliability and performance typically associated only with on-premises file systems.
+Azure Data Lake Storage Gen2 is the latest storage offering. It unifies the core capabilities from the first generation of Azure Data Lake Storage with a Hadoop compatible file system endpoint directly integrated into Azure Blob Storage. This enhancement combines the scale and cost benefits of object storage with the reliability and performance typically associated only with on-premises file systems.
 
 ADLS Gen 2 is built on top of [Azure Blob storage](../../storage/blobs/storage-blobs-introduction.md) and allows you to interface with data using both file system and object storage paradigms. Features from [Azure Data Lake Storage Gen1](../../data-lake-store/index.md), such as file system semantics, file-level security, and scale are combined with low-cost, tiered storage, high availability/disaster recovery capabilities, and a large SDK/tooling ecosystem from [Azure Blob storage](../../storage/blobs/storage-blobs-introduction.md). In Data Lake Storage Gen2, all the qualities of object storage remain while adding the advantages of a file system interface optimized for analytics workloads.
 
@@ -109,7 +109,7 @@ One of the following formats can be used to access data that is stored in ADLS G
 
 For more information, see the following articles:
 
-- [Introduction to Azure Data Lake Storage Gen2 Preview](../../storage/data-lake-storage/introduction.md)
+- [Introduction to Azure Data Lake Storage Gen2](../../storage/data-lake-storage/introduction.md)
 - [The Azure Blob Filesystem driver (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
 - [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 

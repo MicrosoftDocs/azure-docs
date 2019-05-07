@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 04/01/2019
 ms.author: iainfou
 ---
 # Quotas and region availability for Azure Kubernetes Service (AKS)
@@ -36,8 +36,11 @@ Azure Kubernetes Service (AKS) is available in the following regions:
 - East US2
 - France Central
 - Japan East
+- Korea Central
+- Korea South
 - North Europe
 - Southeast Asia
+- South Central US
 - South India
 - UK South
 - UK West

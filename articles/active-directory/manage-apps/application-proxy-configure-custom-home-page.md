@@ -18,7 +18,6 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
-
 # Set a custom home page for published apps by using Azure AD Application Proxy
 
 This article discusses how to configure apps to direct users to a custom home page. When you publish an application with Application Proxy, you set an internal URL but sometimes that's not the page your users should see first. Set a custom home page so that your users go to the right page when they access the apps. Your users will see the custom home page that you set, whether they access the app from the Azure Active Directory Access Panel or the Office 365 app launcher.
@@ -65,9 +64,10 @@ To install the package, follow these steps:
 
 1. Open a standard PowerShell window, and then run the following command:
 
-    ```
+    ```powershell
      Install-Module -Name AzureAD
     ```
+
     If you're running the command as a non-admin, use the `-scope currentuser` option.
 2. During the installation, select **Y** to install two packages from Nuget.org. Both packages are required. 
 
@@ -77,20 +77,22 @@ Obtain the ObjectID of the app, and then search for the app by its home page.
 
 1. In the same PowerShell window, import the Azure AD module.
 
-    ```
+    ```powershell
     Import-Module AzureAD
     ```
 
 2. Sign in to the Azure AD module as the tenant administrator.
 
-    ```
+    ```powershell
     Connect-AzureAD
     ```
+
 3. Find the app based on its home page URL. You can find the URL in the portal by going to **Azure Active Directory** > **Enterprise applications** > **All applications**. This example uses *sharepoint-iddemo*.
 
+    ```powershell
+    Get-AzureADApplication | Where-Object { $_.Homepage -like "sharepoint-iddemo" } | Format-List DisplayName, Homepage, ObjectID
     ```
-    Get-AzureADApplication | where { $_.Homepage -like "sharepoint-iddemo" } | fl DisplayName, Homepage, ObjectID
-    ```
+
 4. You should get a result that's similar to the one shown here. Copy the ObjectID GUID to use in the next section.
 
     ```
@@ -105,7 +107,7 @@ Create the home page URL, and update your application with that value. Continue 
 
 1. Confirm that you have the correct app, and replace *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* with the ObjectID that you copied in the preceding section.
 
-    ```
+    ```powershell
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
@@ -113,23 +115,25 @@ Create the home page URL, and update your application with that value. Continue 
 
 2. Create a blank application object to hold the changes that you want to make. This variable holds the values that you want to update. Nothing is created in this step.
 
-    ```
+    ```powershell
     $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
     ```
 
 3. Set the home page URL to the value that you want. The value must be a subdomain path of the published app. For example, if you change the home page URL from `https://sharepoint-iddemo.msappproxy.net/` to `https://sharepoint-iddemo.msappproxy.net/hybrid/`, app users go directly to the custom home page.
 
-    ```
+    ```powershell
     $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
     ```
+
 4. Make the update by using the GUID (ObjectID) that you copied in "Step 1: Find the ObjectID of the app."
 
-    ```
+    ```powershell
     Set-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 -Homepage $homepage
     ```
+
 5. To confirm that the change was successful, restart the app.
 
-    ```
+    ```powershell
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 

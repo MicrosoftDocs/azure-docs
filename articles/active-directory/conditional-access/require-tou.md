@@ -1,29 +1,24 @@
 ---
 title: Quickstart - Require terms of use to be accepted before accessing cloud apps that are protected by Azure Active Directory conditional access | Microsoft Docs
 description: In this quickstart, you learn how you can require that your terms of use are accepted before access to selected cloud apps is granted by Azure Active Directory conditional access.
+
 services: active-directory
-keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies, terms of use
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: quickstart 
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 12/14/2018
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: calebb
+
 #Customer intent: As an IT admin, I want to ensure that users have accepted my terms of use before accessing selected cloud apps, so that I have a consent from them.
 ms.collection: M365-identity-device-management
 ---
+# Quickstart: Require terms of use to be accepted before accessing cloud apps
 
-# Quickstart: Require terms of use to be accepted before accessing cloud apps 
-
-Before accessing certain cloud apps in your environment, you might want to get consent from users in form of accepting your terms of use (ToU). Azure Active Directory (Azure AD) conditional access provides you with: 
+Before accessing certain cloud apps in your environment, you might want to get consent from users in form of accepting your terms of use (ToU). Azure Active Directory (Azure AD) conditional access provides you with:
 
 - A simple method to configure ToU
 - The option to require accepting your terms of use through a conditional access policy  
@@ -32,19 +27,14 @@ This quickstart shows how to configure an [Azure AD conditional access policy](.
 
 ![Create policy](./media/require-tou/5555.png)
 
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-
-
-## Prerequisites 
+## Prerequisites
 
 To complete the scenario in this quickstart, you need:
 
-- **Access to an Azure AD Premium edition** - Azure AD conditional access is an Azure AD Premium capability. 
-
+- **Access to an Azure AD Premium edition** - Azure AD conditional access is an Azure AD Premium capability.
 - **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
-
 
 ## Test your sign-in
 
@@ -53,62 +43,55 @@ The goal of this step is to get an impression of the sign-in experience without 
 **To test your sign-in:**
 
 1. Sign in to your [Azure portal](https://portal.azure.com/) as Isabella Simonsen.
-
-2. Sign out.
-
-
-
+1. Sign out.
 
 ## Create your terms of use
 
 This section provides you with the steps to create a sample ToU. When you create a ToU, you select a value for **Enforce with conditional access policy templates**. Selecting **Custom policy** opens the dialog to create a new conditional access policy as soon as your ToU has been created.
 
-
 **To create your terms of use:**
 
 1. In Microsoft Word, create a new document.
 
-2. Type **My terms of use**, and then save the document on your computer as **mytou.pdf**.
+1. Type **My terms of use**, and then save the document on your computer as **mytou.pdf**.
 
-3. Sign in to your [Azure portal](https://portal.azure.com) as global administrator, security administrator, or a conditional access administrator.
+1. Sign in to your [Azure portal](https://portal.azure.com) as global administrator, security administrator, or a conditional access administrator.
 
-4. In the Azure portal, on the left navbar, click **Azure Active Directory**. 
+1. In the Azure portal, on the left navbar, click **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/require-tou/02.png)
+   ![Azure Active Directory](./media/require-tou/02.png)
 
-5. On the **Azure Active Directory** page, in the **Security** section, click **Conditional access**.
+1. On the **Azure Active Directory** page, in the **Security** section, click **Conditional access**.
 
-    ![Conditional access](./media/require-tou/03.png) 
+   ![Conditional access](./media/require-tou/03.png)
 
-6. In the **Manage** section, click **Terms of use**.
+1. In the **Manage** section, click **Terms of use**.
 
-    ![Terms of use](./media/require-tou/04.png) 
+   ![Terms of use](./media/require-tou/04.png)
 
-7. In the menu on the top, click **New terms**.
+1. In the menu on the top, click **New terms**.
 
-    ![Terms of use](./media/require-tou/05.png) 
+   ![Terms of use](./media/require-tou/05.png)
 
-8. On the **New terms of use** page:
+1. On the **New terms of use** page:
 
-    ![Terms of use](./media/require-tou/112.png) 
+   ![Terms of use](./media/require-tou/112.png)
 
-    a. In the **Name** textbox, type **My TOU**.
+   1. In the **Name** textbox, type **My TOU**.
 
-    b. In the **Display name** textbox, type **My TOU**.
+   1. In the **Display name** textbox, type **My TOU**.
 
-    c. Upload your terms of use PDF file.
+   1. Upload your terms of use PDF file.
 
-    d. As **Language**, select **English**.
+   1. As **Language**, select **English**.
 
-    e. As **Require users to expand the terms of use**, select **On**.
+   1. As **Require users to expand the terms of use**, select **On**.
 
-    f. As **Enforce with conditional access policy templates**, select **Custom policy**.
+   1. As **Enforce with conditional access policy templates**, select **Custom policy**.
 
-    g. Click **Create**.
- 
+   1. Click **Create**.
 
-
-## Create your conditional access policy 
+## Create your conditional access policy
 
 This section shows how to create the required conditional access policy. The scenario in this quickstart uses:
 
@@ -117,77 +100,71 @@ This section shows how to create the required conditional access policy. The sce
 
 In your policy, set:
 
-|Setting |Value|
-|---     | --- |
-|Users and groups | Isabella Simonsen |
-|Cloud apps | Microsoft Azure Management |
-|Grant access | My TOU |
- 
+| Setting | Value |
+| --- | --- |
+| Users and groups | Isabella Simonsen |
+| Cloud apps | Microsoft Azure Management |
+| Grant access | My TOU |
 
 ![Create policy](./media/require-tou/1234.png)
-
- 
-
 
 **To configure your conditional access policy:**
 
 1. On the **New** page, in the **Name** textbox, type **Require TOU for Isabella**.
 
-    ![Name](./media/require-tou/71.png)
+   ![Name](./media/require-tou/71.png)
 
-2. In the **Assignment** section, click **Users and groups**.
+1. In the **Assignment** section, click **Users and groups**.
 
-    ![Users and groups](./media/require-tou/06.png)
+   ![Users and groups](./media/require-tou/06.png)
 
-3. On the **Users and groups** page:
+1. On the **Users and groups** page:
 
-    ![Users and groups](./media/require-tou/24.png)
+   ![Users and groups](./media/require-tou/24.png)
 
-    a. Click **Select users and groups**, and then select **Users and groups**.
+   1. Click **Select users and groups**, and then select **Users and groups**.
 
-    b. Click **Select**.
+   1. Click **Select**.
 
-    c. On the **Select** page, select **Isabella Simonsen**, and then click **Select**.
+   1. On the **Select** page, select **Isabella Simonsen**, and then click **Select**.
 
-    d. On the **Users and groups** page, click **Done**.
+   1. On the **Users and groups** page, click **Done**.
 
-4. Click **Cloud apps**.
+1. Click **Cloud apps**.
 
-    ![Cloud apps](./media/require-tou/08.png)
+   ![Cloud apps](./media/require-tou/08.png)
 
-5. On the **Cloud apps** page:
+1. On the **Cloud apps** page:
 
-    ![Select cloud apps](./media/require-tou/26.png)
+   ![Select cloud apps](./media/require-tou/26.png)
 
-    a. Click **Select apps**.
+   1. Click **Select apps**.
 
-    b. Click **Select**.
+   1. Click **Select**.
 
-    c. On the **Select** page, select **Microsoft Azure Management**, and then click **Select**.
+   1. On the **Select** page, select **Microsoft Azure Management**, and then click **Select**.
 
-    d. On the **Cloud apps** page, click **Done**.
+   1. On the **Cloud apps** page, click **Done**.
 
+1. In the **Access controls** section, click **Grant**.
 
-6. In the **Access controls** section, click **Grant**.
+   ![Access controls](./media/require-tou/10.png)
 
-    ![Access controls](./media/require-tou/10.png)
+1. On the **Grant** page:
 
-7. On the **Grant** page:
+   ![Grant](./media/require-tou/111.png)
 
-    ![Grant](./media/require-tou/111.png)
+   1. Select **Grant access**.
 
-    a. Select **Grant access**.
+   1. Select **My TOU**.
 
-    a. Select **My TOU**.
+   1. Click **Select**.
 
-    b. Click **Select**.
+1. In the **Enable policy** section, click **On**.
 
-8. In the **Enable policy** section, click **On**.
+   ![Enable policy](./media/require-tou/18.png)
 
-    ![Enable policy](./media/require-tou/18.png)
-
-9. Click **Create**.
-
+1. Click **Create**.
 
 ## Evaluate a simulated sign-in
 
@@ -195,54 +172,49 @@ Now that you have configured your conditional access policy, you probably want t
 
 To initialize the what if policy evaluation tool, set:
 
-- **Isabella Simonsen** as user 
+- **Isabella Simonsen** as user
 - **Microsoft Azure Management** as cloud app
-
 
 Clicking **What If** creates a simulation report that shows:
 
-- **Require TOU for Isabella** under **Policies that will apply** 
+- **Require TOU for Isabella** under **Policies that will apply**
 - **My TOU** as **Grant Controls**.
 
 ![What if policy tool](./media/require-tou/79.png)
 
-
-
 **To evaluate your conditional access policy:**
 
 1. On the [Conditional access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) page, in the menu on the top, click **What If**.  
- 
-    ![What If](./media/require-tou/14.png)
 
-2. Click **Users**, select **Isabella Simonsen**, and then click **Select**.
+   ![What If](./media/require-tou/14.png)
 
-    ![User](./media/require-tou/15.png)
+1. Click **Users**, select **Isabella Simonsen**, and then click **Select**.
 
-2. To select a cloud app:
+   ![User](./media/require-tou/15.png)
 
-    ![Cloud apps](./media/require-tou/16.png)
+1. To select a cloud app:
 
-    a. Click **Cloud apps**.
+   ![Cloud apps](./media/require-tou/16.png)
 
-    b. On the **Cloud apps page**, click **Select apps**.
+   1. Click **Cloud apps**.
 
-    c. Click **Select**.
+   1. On the **Cloud apps page**, click **Select apps**.
 
-    d. On the **Select** page, select **Microsoft Azure Management**, and then click **Select**.
+   1. Click **Select**.
 
-    e. On the cloud apps page, click **Done**.
+   1. On the **Select** page, select **Microsoft Azure Management**, and then click **Select**.
 
-3. Click **What If**.
+   1. On the cloud apps page, click **Done**.
 
+1. Click **What If**.
 
 ## Test your conditional access policy
 
-In the previous section, you have learned how to evaluate a simulated sign-in. In addition to a simulation, you should also test your conditional access policy to ensure that it works as expected. 
+In the previous section, you have learned how to evaluate a simulated sign-in. In addition to a simulation, you should also test your conditional access policy to ensure that it works as expected.
 
 To test your policy, try to sign-in to your [Azure portal](https://portal.azure.com) using your **Isabella Simonsen** test account. You should see a dialog that requires you to accept your terms of use.
 
 ![Terms of use](./media/require-tou/57.png)
-
 
 ## Clean up resources
 
@@ -254,7 +226,7 @@ When no longer needed, delete the test user and the conditional access policy:
 
     ![Multi-factor authentication](./media/require-tou/33.png)
 
-- To delete your terms of use, select it, and then click **Delete terms** in the toolbar on top. 
+- To delete your terms of use, select it, and then click **Delete terms** in the toolbar on top.
 
     ![Multi-factor authentication](./media/require-tou/29.png)
 
@@ -263,4 +235,3 @@ When no longer needed, delete the test user and the conditional access policy:
 > [!div class="nextstepaction"]
 > [Require MFA for specific apps](app-based-mfa.md)
 > [Block access when a session risk is detected](app-sign-in-risk.md)
-

@@ -62,7 +62,7 @@ Here are all the supported public configuration parameters:
 * `ConfigurationModeFrequencyMins`: (optional, int) Specifies how often (in minutes) DSC ensures that the configuration is in the desired state.
 
 > [!NOTE]
-> If you are using a version < 2.3, mode parameter is same as ExtensionAction. Mode seems to be a overloaded term. Therefore to avoid the confusion, ExtensionAction is being used from 2.3 version onwards. For backward compatibility, the extension supports both mode and ExtensionAction. 
+> If you are using a version < 2.3, mode parameter is same as ExtensionAction. Mode seems to be an overloaded term. Therefore to avoid the confusion, ExtensionAction is being used from 2.3 version onwards. For backward compatibility, the extension supports both mode and ExtensionAction. 
 >
 
 ### 1.2 Protected configuration

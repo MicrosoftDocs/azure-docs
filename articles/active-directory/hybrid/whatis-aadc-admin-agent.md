@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 03/26/2019
+ms.date: 04/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: conceptual
@@ -35,18 +35,20 @@ The Microsoft Support Engineer cannot change any data in your system and cannot 
 
 ## What if I don’t want the Microsoft support engineer to access my data? 
  
-If, you do not want the Microsoft service engineer to access your data for a support call you can indicate this when you open a support call in the portal: 
+If you do not want the Microsoft service engineer to access your data for a support call you can disable  this by modifying the service config file as described below: 
 
-  1.	Open **C:\Program Files\Microsoft Azure AD Connect Administration Agent\AzureADConnectAdministrationAgentService.exe.config** in notepad.
-  2.	Disable **UserDataEnabled** setting as shown below. If **UserDataEnabled** setting exists and is set to true, then set it to false. If the setting does not exist, then add the setting as shown below.    
-  `
- <appSettings>
-   <add key="TraceFilename" value="ADAdministrationAgent.log" />
-   <add key="UserDataEnabled" value="false" />
-  </appSettings>
-  `
-  3.	Save the config file.
-  4.	Restart Azure AD Connect Administration Agent service as shown below
+1.	Open **C:\Program Files\Microsoft Azure AD Connect Administration Agent\AzureADConnectAdministrationAgentService.exe.config** in notepad.
+2.	Disable **UserDataEnabled** setting as shown below. If **UserDataEnabled** setting exists and is set to true, then set it to false. If the setting does not exist, then add the setting as shown below.    
+
+    ```xml
+    <appSettings>
+      <add key="TraceFilename" value="ADAdministrationAgent.log" />
+      <add key="UserDataEnabled" value="false" />
+    </appSettings>
+    ```
+
+3.	Save the config file.
+4.	Restart Azure AD Connect Administration Agent service as shown below
 
 ![admin agent](media/whatis-aadc-admin-agent/adminagent2.png)
 

@@ -51,8 +51,8 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/azure-app-configuration/integrate-azure-managed-service-identity">Integrate with Azure Managed Service Identity</a>
     - html: <a href="/azure/azure-app-configuration/enable-dynamic-configuration-aspnet-core">Enable dynamic configuration in ASP.NET Core</a>
+    - html: <a href="/azure/azure-app-configuration/integrate-ci-cd-pipeline">Integrate with a CI/CD pipeline</a>
 - title: Samples
   items:
   - type: list

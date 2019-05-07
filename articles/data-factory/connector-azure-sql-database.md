@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/16/2019
 ms.author: jingwang
 
 ---
@@ -129,21 +129,21 @@ To use a service principal-based Azure AD application token authentication, foll
     - Application key
     - Tenant ID
 
-1. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator must be an Azure AD user or Azure AD group, but it can't be a service principal. This step is done so that, in the next step, you can use an Azure AD identity to create a contained database user for the service principal.
+2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator must be an Azure AD user or Azure AD group, but it can't be a service principal. This step is done so that, in the next step, you can use an Azure AD identity to create a contained database user for the service principal.
 
-1. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the service principal. Connect to the database from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL: 
+3. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the service principal. Connect to the database from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL: 
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-1. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code:
+4. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code, or refer to more options [here](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-1. **Configure an Azure SQL Database linked service** in Azure Data Factory.
+5. **Configure an Azure SQL Database linked service** in Azure Data Factory.
 
 
 #### Linked service example that uses service principal authentication
@@ -179,31 +179,21 @@ A data factory can be associated with a [managed identity for Azure resources](d
 
 To use managed identity authentication, follow these steps:
 
-1. **Create a group in Azure AD.** Make the managed identity a member of the group.
-    
-   1. Find the data factory managed identity from the Azure portal. Go to your data factory's **Properties**. Copy the SERVICE IDENTITY ID.
-    
-   1. Install the [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module. Sign in by using the `Connect-AzureAD` command. Run the following commands to create a group and add the managed identity as a member.
-      ```powershell
-      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
-      ```
-    
 1. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
-1. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the Azure AD group. Connect to the database from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL: 
+2. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the Data Factory Managed Identity. Connect to the database from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL: 
     
     ```sql
-    CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
+    CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-1. **Grant the Azure AD group needed permissions** as you normally do for SQL users and others. For example, run the following code:
+3. **Grant the Data Factory Managed Identity needed permissions** as you normally do for SQL users and others. Run the following code, or refer to more options [here](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your AAD group name];
+    EXEC sp_addrolemember [role name], [your Data Factory name];
     ```
 
-1. **Configure an Azure SQL Database linked service** in Azure Data Factory.
+4. **Configure an Azure SQL Database linked service** in Azure Data Factory.
 
 **Example:**
 
@@ -370,7 +360,7 @@ To copy data to Azure SQL Database, set the **type** property in the Copy Activi
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the Copy Activity sink must be set to **SqlSink**. | Yes |
-| writeBatchSize | Inserts data into the SQL table when the buffer size reaches **writeBatchSize**.<br/> The allowed value is **integer** (number of rows). | No. The default is 10000. |
+| writeBatchSize | Number of rows to inserts into the SQL table **per batch**.<br/> The allowed value is **integer** (number of rows). | No. The default is 10000. |
 | writeBatchTimeout | The wait time for the batch insert operation to finish before it times out.<br/> The allowed value is **timespan**. Example: “00:30:00” (30 minutes). | No |
 | preCopyScript | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Database. It's only invoked once per copy run. Use this property to clean up the preloaded data. | No |
 | sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. An example is to do upserts or transform by using your own business logic. <br/><br/>This stored procedure is **invoked per batch**. For operations that only run once and have nothing to do with source data, use the `preCopyScript` property. Example operations are delete and truncate. | No |
@@ -532,7 +522,7 @@ You can use a stored procedure when built-in copy mechanisms don't serve the pur
 
 The following sample shows how to use a stored procedure to do an upsert into a table in Azure SQL Database. Assume that input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column, and only apply it for a specific category.
 
-#### Output dataset
+**Output dataset:** the "tableName" should be the same table type parameter name in your stored procedure (see below stored procedure script).
 
 ```json
 {
@@ -551,7 +541,7 @@ The following sample shows how to use a stored procedure to do an upsert into a 
 }
 ```
 
-Define the **SqlSink** section in Copy Activity:
+Define the **SQL sink** section in copy activity as follows.
 
 ```json
 "sink": {

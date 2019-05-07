@@ -29,7 +29,7 @@ The following table lists some of the common issues encountered when working wit
 | “sp=rl” not in SAS URL | `Failure: Copying Images. Not able to download blob using provided SAS Uri` | Update the SAS URL with permissions set as `Read` and `List`. | 
 | SAS URL has white spaces in VHD name | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Update the SAS URL to remove white spaces. |
 | SAS URL Authorization error | `Failure: Copying Images. Not able to download blob due to authorization error` | Review and correct the SAS URI format. Regenerate if necessary. |
-| SAS URL "st" and "se" parameters do not have full date-time specification | `Failure: Copying Images. Not able to download blob due to incorrect SAS URL` | SAS URL **Start Date** and **End Date** parameters (`st` and` se` substrings) are required to have full datetime format, such as `11-02-2017T00:00:00Z`. Shortened versions are not valid. (Some commands in Azure CLI may generate shortened values by default.) | 
+| SAS URL "st" and "se" parameters do not have full date-time specification | `Failure: Copying Images. Not able to download blob due to incorrect SAS URL` | SAS URL **Start Date** and **End Date** parameters (`st` and `se` substrings) are required to have full datetime format, such as `11-02-2017T00:00:00Z`. Shortened versions are not valid. (Some commands in Azure CLI may generate shortened values by default.) | 
 |  |  |  |
 
 For more information, see [Using shared access signatures (SAS)](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/).

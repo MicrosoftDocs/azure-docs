@@ -92,7 +92,7 @@ To create a public container in Blob storage, do the following:
 Configure Blob storage for Cross-Origin Resource Sharing by doing the following:
 
 1. In the menu, select **CORS**.
-2. For **Allowed origins**, enter `your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `fabrikam.b2clogin.com`. You need to use all lowercase letters when entering your tenant name.
+2. For **Allowed origins**, enter `https://your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `https://fabrikam.b2clogin.com`. You need to use all lowercase letters when entering your tenant name.
 3. For **Allowed Methods**, select both `GET` and `OPTIONS`.
 4. For **Allowed Headers**, enter an asterisk (*).
 5. For **Exposed Headers**, enter an asterisk (*).

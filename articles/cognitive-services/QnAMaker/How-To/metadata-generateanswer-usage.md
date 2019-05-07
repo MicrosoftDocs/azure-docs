@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/16/2019
 ms.author: tulasim
 ---
 
@@ -41,7 +41,7 @@ You use the GenerateAnswer API in your Bot or application to query your knowledg
 Once you publish your knowledge base, either from the [QnA Maker portal](https://www.qnamaker.ai), or using the [API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff), you can get the details of your GenerateAnswer endpoint.
 
 To get your endpoint details:
-1. Log in to [https://www.qnamaker.ai](https://www.qnamaker.ai).
+1. Sign in to [https://www.qnamaker.ai](https://www.qnamaker.ai).
 1. In **My knowledge bases**, click on **View Code** for your knowledge base.
     ![my knowledge bases](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Get your GenerateAnswer endpoint details.
@@ -59,7 +59,7 @@ You call GenerateAnswer with an HTTP POST request. For sample code that shows ho
 The **request URL** has the following format: 
 
 ```
-https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?isTest=true
+https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
 |HTTP request property|Name|Type|Purpose|
@@ -69,7 +69,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?i
 |Header|Content-Type|string|The media type of the body sent to the API. Default value is: ``|
 |Header|Authorization|string|Your endpoint key (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Post Body|JSON object|JSON|The question with settings|
-|Query string parameter (optional)|`isTest`|boolean|If set to true, returns results from `testkb` Search index instead of published index.|
+
 
 The JSON body has several settings:
 
@@ -78,7 +78,8 @@ The JSON body has several settings:
 |`question`|required|string|A user question to be sent to your knowledge base.|
 |`top`|optional|integer|The number of ranked results to include in the output. The default value is 1.|
 |`userId`|optional|string|A unique ID to identify the user. This ID will be recorded in the chat logs.|
-|`strictFilters`|optional|string|If specified, tells QnA Maker to return only answers that have the specified metadata.|
+|`isTest`|optional|boolean|If set to true, returns results from `testkb` Search index instead of published index.|
+|`strictFilters`|optional|string|If specified, tells QnA Maker to return only answers that have the specified metadata. Use `none` to indicate response should have no metadata filters. |
 
 An example JSON body looks like:
 
@@ -86,6 +87,7 @@ An example JSON body looks like:
 {
     "question": "qna maker and luis",
     "top": 6,
+    "isTest": true,
     "strictFilters": [
     {
         "name": "category",

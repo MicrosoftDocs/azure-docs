@@ -7,13 +7,13 @@ metadata:
   meta.description:  
   services: Azure-government
   author: juliako
-  manager: carolz
+  manager: femila
   ms.service: Azure-government
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/19/2018
-  ms.author: carolz
+  ms.author: juliako
 abstract:
   description: Microsoft Azure Government delivers a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. Public Sector entities receive a physically isolated instance of Microsoft Azure that employs world-class security and compliance services critical to U.S. government for all systems and applications built on its architecture. 
   aside:

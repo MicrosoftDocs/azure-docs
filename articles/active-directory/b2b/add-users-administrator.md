@@ -7,11 +7,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 2/6/2019
+ms.date: 04/10/2019
 
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celested
 ms.reviewer: mal
 
 ms.collection: M365-identity-device-management
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Add Azure Active Directory B2B collaboration users in the Azure portal
 
-As a global administrator, or a user who is assigned any of the limited administrator directory roles, you can use the Azure portal to invite B2B collaboration users. You can invite guest users to the directory, to a group, or to an application. After you invite a user through any of these methods, the invited user's account is added to Azure Active Directory (Azure AD), with a user type of *Guest*. The guest user must then redeem their invitation to access resources.
+As a user who is assigned any of the limited administrator directory roles, you can use the Azure portal to invite B2B collaboration users. You can invite guest users to the directory, to a group, or to an application. After you invite a user through any of these methods, the invited user's account is added to Azure Active Directory (Azure AD), with a user type of *Guest*. The guest user must then redeem their invitation to access resources.
 
 After you add a guest user to the directory, you can either send the guest user a direct link to a shared app, or the guest user can click the redemption URL in the invitation email. For more information about the redemption process, see [B2B collaboration invitation redemption](redemption-experience.md).
 
@@ -30,7 +30,7 @@ After you add a guest user to the directory, you can either send the guest user 
 
 To add B2B collaboration users to the directory, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a user who is assigned any of the limited administrator directory roles.
 2. In the navigation pane, select **Azure Active Directory**.
 3. Under **Manage**, select **Users**.
 4. Select **New guest user**.

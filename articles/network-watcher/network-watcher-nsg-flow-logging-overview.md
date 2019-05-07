@@ -92,6 +92,8 @@ The text that follows is an example of a flow log. As you can see, there are mul
 
 **Flow Logging Costs**: NSG flow logging is billed on the volume of logs produced. High traffic volume can result in large flow log volume and the associated costs. NSG Flow log pricing does not include the underlying costs of storage. Using the retention policy feature with NSG Flow Logging may result in a high volume of storage operations and the associated costs. If you do not require the retention policy feature, we recommend that you set this value to 0. See [Network Watcher Pricing](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) and [Azure Storage Pricing](https://azure.microsoft.com/en-us/pricing/details/storage/) for additional details.
 
+**Inbound flows logged from internet IPs to VMs without public IPs**: VMs that don't have a public IP address assigned via a public IP address associated with the NIC as an instance-level public IP, or that are part of a basic load balancer back-end pool, use [default SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) and have an IP address assigned by Azure to facilitate outbound connectivity. As a result, you might see flow log entries for flows from internet IP addresses, if the flow is destined to a port in the range of ports assigned for SNAT. While Azure won't allow these flows to the VM, the attempt is logged and appears in Network Watcher's NSG flow log by design. We recommend that unwanted inbound internet traffic be explicitly blocked with NSG.
+
 ## Sample log records
 
 The text that follows is an example of a flow log. As you can see, there are multiple records that follow the property list described in the preceding section.

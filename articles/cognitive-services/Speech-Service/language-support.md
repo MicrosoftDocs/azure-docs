@@ -50,7 +50,7 @@ The Microsoft speech recognition API supports the following languages. Different
  ru-RU | Russian (Russia) | Yes | Yes | No
  sv-SE | Swedish (Sweden) | No | No | No
  zh-CN | Chinese (Mandarin, simplified) | Yes | Yes | No
- zh-HK | Chinese (Mandarin, Traditional) | No | Yes | No
+ zh-HK | Chinese (Cantonese, Traditional) | No | Yes | No
  zh-TW | Chinese (Taiwanese Mandarin) | No | Yes | No
  th-TH | Thai (Thailand) | No | No | No
 

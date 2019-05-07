@@ -6,7 +6,7 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.subservice: azds-kubernetes
 ms.author: zarhoads
-ms.date: "03/22/2019"
+ms.date: 03/22/2019
 ms.topic: "quickstart"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"

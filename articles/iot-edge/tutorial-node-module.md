@@ -32,8 +32,8 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 An Azure IoT Edge device:
 
-* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
-* If you're running IoT Edge on Windows, IoT Edge version 1.0.5 does not support Node.js modules. For more information, see [1.0.5 release notes](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). For steps on how to install a specific version, see [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md).
+* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md).
+* Node.js modules for IoT Edge do not support Windows containers. 
 
 Cloud resources:
 
@@ -44,6 +44,7 @@ Development resources:
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code. 
 * [Docker CE](https://docs.docker.com/engine/installation/). 
+   * If you're developing on a Windows device, make sure Docker is [configured to use Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
 * [Node.js and npm](https://nodejs.org). The npm package is distributed with Node.js, which means that when you download Node.js, you automatically get npm installed on your computer.
 
 ## Create a container registry
@@ -181,7 +182,7 @@ Each template comes with sample code included, which takes simulated sensor data
 
 10. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the IoT Edge agent which modules to deploy, in this case **tempSensor** and **NodeModule**, and tells the IoT Edge hub how to route messages between them. The Visual Studio Code extension automatically populates most of the information that you need in the deployment template, but verify that everything is accurate for your solution: 
 
-   1. The default platform of your IoT Edge is set to **amd64** in your VS Code status bar, which means your **NodeModule** is set to Linux amd64 version of the image. Change the default platform in status bar from **amd64** to **arm32v7** or **windows-amd64** if that is your IoT Edge device's architecture. 
+   1. The default platform of your IoT Edge is set to **amd64** in your VS Code status bar, which means your **NodeModule** is set to Linux amd64 version of the image. Change the default platform in status bar from **amd64** to **arm32v7** if that is your IoT Edge device's architecture. 
 
       ![Update module image platform](./media/tutorial-node-module/image-platform.png)
 
@@ -226,8 +227,9 @@ You can see the full container image address with tag in the `docker build` comm
 >[!TIP]
 >If you receive an error trying to build and push your module, make the following checks:
 >* Did you sign in to Docker in Visual Studio Code using the credentials from your container registry? These credentials are different than the ones you use to sign in to the Azure portal.
->* Is your container repository correct? Open **modules** > **cmodule** > **module.json** and find the **repository** field. The image repository should look like **\<registryname\>.azurecr.io/nodemodule**. 
->* Are you building the same type of containers that your development machine is running? Visual Studio Code defaults to Linux amd64 containers. If your development machine is running Windows containers or Linux arm32v7 containers, update the platform on the blue status bar at the bottom of your VS Code window to match your container platform.
+>* Is your container repository correct? Open **modules** > **nodemodule** > **module.json** and find the **repository** field. The image repository should look like **\<registryname\>.azurecr.io/nodemodule**. 
+>* Are you building the same type of containers that your development machine is running? Visual Studio Code defaults to Linux amd64 containers. If your development machine is running Linux arm32v7 containers, update the platform on the blue status bar at the bottom of your VS Code window to match your container platform.
+>* Node.js modules for IoT Edge do not support Windows containers.
 
 ## Deploy and run the solution
 

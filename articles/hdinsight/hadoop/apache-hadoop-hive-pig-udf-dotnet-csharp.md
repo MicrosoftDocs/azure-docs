@@ -42,8 +42,6 @@ Both Hive and Pig can pass data to external applications for processing. This pr
 
     For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](https://www.mono-project.com/docs/about-mono/compatibility/).
 
-    To use a specific version of Mono, see the [Install or update Mono](../hdinsight-hadoop-install-mono.md) document.
-
 * __Windows-based HDInsight__ clusters use the Microsoft .NET CLR to run .NET applications.
 
 For more information on the version of the .NET framework and Mono included with HDInsight versions, see [HDInsight component versions](../hdinsight-component-versioning.md).

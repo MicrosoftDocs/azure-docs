@@ -35,6 +35,9 @@ You can use Azure file shares on a Windows installation that is running either i
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Prerequisites 
 * **Storage account name**: To mount an Azure file share, you will need the name of the storage account.
 
@@ -42,13 +45,13 @@ You can use Azure file shares on a Windows installation that is running either i
 
 * **Ensure port 445 is open**: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check to see if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet. You can learn about [various ways to workaround blocked port 445 here](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
-    The following PowerShell code assumes you have the AzureRM PowerShell module installed, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) for more information. Remember to replace `<your-storage-account-name>` and `<your-resource-group-name>` with the relevant names for your storage account.
+    The following PowerShell code assumes you have the Azure PowerShell module installed, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) for more information. Remember to replace `<your-storage-account-name>` and `<your-resource-group-name>` with the relevant names for your storage account.
 
     ```powershell
     $resourceGroupName = "<your-resource-group-name>"
     $storageAccountName = "<your-storage-account-name>"
 
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
     # already logged in.
     $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 

@@ -6,13 +6,16 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/26/2019
+ms.date: 03/31/2019
 ms.topic: conceptual
 manager: carmonm
 ---
 # Start/Stop VMs during off-hours solution in Azure Automation
 
 The Start/Stop VMs during off-hours solution starts and stops your Azure virtual machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/platform/action-groups.md). It supports both Azure Resource Manager and classic VMs for most scenarios.
+
+> [!NOTE]
+> The Start/Stop VMs during off-hours solution has been tested with the Azure modules that are imported into your Automation Account when you deploy the solution. The solution does currently not work with newer versions of the Azure module. This only affects the Automation Account that you use to run the Start/Stop VMs during off-hours solution. You can still use newer versions of the Azure module in your other Automation Accounts, as described in [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md)
 
 This solution provides a decentralized low-cost automation option for users who want to optimize their VM costs. With this solution, you can:
 

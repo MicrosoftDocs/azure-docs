@@ -488,6 +488,9 @@
   - name: Key Vault
     tocHref: /azure/key-vault/
     topicHref: /azure/key-vault/
+  - name: Lab Services
+    tocHref: /azure/lab-services/
+    topicHref: /azure/lab-services/    
   - name: Load Balancer
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/

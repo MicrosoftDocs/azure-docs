@@ -131,7 +131,7 @@ For a managed application you must configure Authorization and Policy Settings.
 
 #### Authorization
 
-Add the Azure Active Directory Identifier of user, group or application to which you want to grant the permission to the managed resource group. The permission that is granted is indicated by the role definition Id. It could be a Owner, Contributor or any custom role.
+Add the Azure Active Directory Identifier of user, group or application to which you want to grant the permission to the managed resource group. The permission that is granted is indicated by the role definition Id. It could be an Owner, Contributor or any custom role.
 
 #### Policy Settings
 

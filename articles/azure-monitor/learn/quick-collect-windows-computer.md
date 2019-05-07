@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 02/05/2019
+ms.date: 04/09/2019
 ms.author: magoedte
 ms.custom: mvc
 ---
@@ -23,11 +23,14 @@ To understand the supported configuration, review [supported Windows operating s
  
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure portal
-Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
+## Sign in to Azure portal
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
 
 ## Create a workspace
-1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/quick-collect-windows-computer/azure-portal-01.png)<br><br>  
+1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
+
+    ![Azure portal](media/quick-collect-windows-computer/azure-portal-01.png)
+  
 2. Click **Create**, and then select choices for the following items:
 
    * Provide a name for the new **Log Analytics Workspace**, such as *DefaultLAWorkspace*. 
@@ -47,14 +50,17 @@ Before installing the Microsoft Monitoring Agent for Windows, you need the works
 
 1. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 2. In your list of Log Analytics workspaces, select *DefaultLAWorkspace* created earlier.
-3. Select **Advanced settings**.<br><br> ![Log Analytics Advance Settings](media/quick-collect-windows-computer/log-analytics-advanced-settings-01.png)<br><br>  
+3. Select **Advanced settings**.
+
+    ![Log Analytics Advance Settings](media/quick-collect-windows-computer/log-analytics-advanced-settings-01.png)
+  
 4. Select **Connected Sources**, and then select **Windows Servers**.   
 5. The value to the right of **Workspace ID** and **Primary Key**. Copy and paste both into your favorite editor.   
 
 ## Install the agent for Windows
 The following steps install and configure the agent for Log Analytics in Azure and Azure Government cloud using setup for the Microsoft Monitoring Agent on your computer.  
 
-1. On the **Windows Servers** page, select the appropriate **Download Windows Agent** version to download depending on the processor architecture of the Windows operating system.
+1. Continuing from the previous set of steps, on the **Windows Servers** page, select the appropriate **Download Windows Agent** version to download depending on the processor architecture of your Windows operating system.
 2. Run Setup to install the agent on your computer.
 2. On the **Welcome** page, click **Next**.
 3. On the **License Terms** page, read the license and then click **I Agree**.
@@ -63,7 +69,10 @@ The following steps install and configure the agent for Log Analytics in Azure a
 6. On the **Azure Log Analytics** page, perform the following:
    1. Paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied earlier.  If the computer should report to a Log Analytics workspace in Azure Government cloud, select **Azure US Government** from the **Azure Cloud** drop-down list.  
    2. If the computer needs to communicate through a proxy server to the Log Analytics service, click **Advanced** and provide the URL and port number of the proxy server.  If your proxy server requires authentication, type the username and password to authenticate with the proxy server and then click **Next**.  
-7. Click **Next** once you have completed providing the necessary configuration settings.<br><br> ![paste Workspace ID and Primary Key](media/quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)<br><br>
+7. Click **Next** once you have completed providing the necessary configuration settings.
+
+    ![paste Workspace ID and Primary Key](media/quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)
+
 8. On the **Ready to Install** page, review your choices and then click **Install**.
 9. On the **Configuration completed successfully** page, click **Finish**.
 
@@ -73,20 +82,34 @@ When complete, the **Microsoft Monitoring Agent** appears in **Control Panel**. 
 Log Analytics can collect events from the Windows event log and performance counters that you specify for longer term analysis and reporting, and take action when a particular condition is detected.  Follow these steps to configure collection of events from the Windows event log, and several common performance counters to start with.  
 
 1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
-2. Select **Advanced settings**.<br><br> ![Log Analytics Advance Settings](media/quick-collect-windows-computer/log-analytics-advanced-settings-01.png)<br><br> 
+2. Select **Advanced settings**.
+
+    ![Log Analytics Advance Settings](media/quick-collect-windows-computer/log-analytics-advanced-settings-01.png)
+ 
 3. Select **Data**, and then select **Windows Event Logs**.  
 4. You add an event log by typing in the name of the log.  Type **System** and then click the plus sign **+**.  
 5. In the table, check the severities **Error** and **Warning**.   
 6. Click **Save** at the top of the page to save the configuration.
 7. Select **Windows Performance Counters** to enable collection of performance counters on a Windows computer. 
-8. When you first configure Windows Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.<br> ![Default Windows performance counters selected](media/quick-collect-windows-computer/windows-perfcounters-default.png).<br> Click **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.  
+8. When you first configure Windows Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.
+
+    ![Default Windows performance counters selected](media/quick-collect-windows-computer/windows-perfcounters-default.png).
+    
+    Click **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval. 
+
 9. Click **Save** at the top of the page to save the configuration.
 
 ## View data collected
 Now that you have enabled data collection, lets run a simple log search example to see some data from the target computer.  
 
 1. In the Azure portal, under the selected workspace, click the **Log Search** tile.  
-2. On the Log Search pane, in the query field type `Perf` and then hit enter or click the search button to the right of the query field.<br><br> ![Log Analytics log search query example](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)<br><br> For example, the query in the following image returned 735 Performance records.<br><br> ![Log Analytics log search result](media/quick-collect-windows-computer/log-analytics-search-perf.png)
+2. On the Log Search pane, in the query field type `Perf` and then hit enter or click the search button to the right of the query field.
+ 
+    ![Log Analytics log search query example](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
+
+    For example, the query in the following image returned 735 Performance records.
+
+    ![Log Analytics log search result](media/quick-collect-windows-computer/log-analytics-search-perf.png)
 
 ## Clean up resources
 When no longer needed, you can remove the agent from the Windows computer and delete the Log Analytics workspace.  
@@ -97,7 +120,9 @@ To remove the agent, perform the following steps.
 2. Open **Programs and Features**.
 3. In **Programs and Features**, select **Microsoft Monitoring Agent** and click **Uninstall**.
 
-To delete the workspace, select the Log Analytics workspace you created earlier and on the resource page click **Delete**.<br><br> ![Delete Log Analytics resource](media/quick-collect-windows-computer/log-analytics-portal-delete-resource.png)
+To delete the workspace, select the Log Analytics workspace you created earlier and on the resource page click **Delete**.
+
+![Delete Log Analytics resource](media/quick-collect-windows-computer/log-analytics-portal-delete-resource.png)
 
 ## Next steps
 Now that you are collecting operational and performance data from your on-premises Linux computer, you can easily begin exploring, analyzing, and taking action on data that you collect for *free*.  

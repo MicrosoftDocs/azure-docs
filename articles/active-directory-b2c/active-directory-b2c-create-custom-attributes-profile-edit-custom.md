@@ -291,7 +291,7 @@ The ID token sent back to your application includes the new extension property a
 
 ## Reference
 
-For more information on extension properties, see the article [Directory schema extensions | Graph API concepts](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
+For more information on extension properties, see the article [Directory schema extensions | Graph API concepts](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
 > [!NOTE]
 > * A **TechnicalProfile** is an element type, or function, that defines an endpoint’s name, metadata, and protocol. The **TechnicalProfile** details the exchange of claims that the Identity Experience Framework performs. When this function is called in an orchestration step or from another **TechnicalProfile**, the **InputClaims** and **OutputClaims** are provided as parameters by the caller.  

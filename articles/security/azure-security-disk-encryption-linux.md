@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 04/05/2019
 
 ms.custom: seodec18
 
@@ -146,7 +146,7 @@ The following table lists Resource Manager template parameters for existing or r
 
 
 ## Encrypt virtual machine scale sets
-[Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md) let you create and manage a group of identical, load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Use the CLI or Azure PowerShell  to encrypt virtual machine scale sets.
+[Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md) let you create and manage a group of identical, load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Use the CLI or Azure PowerShell to encrypt virtual machine scale sets. Only encryption of data disks is supported on Linux scale set virtual machines.
 
 A batch file example for Linux scale set data disk encryption can be found [here](https://github.com/Azure-Samples/azure-cli-samples/tree/master/disk-encryption/vmss). This example creates a resource group, Linux scale set, mounts a 5-GB data disk, and encrypts the virtual machine scale set.
 
@@ -156,12 +156,12 @@ Use the [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryptio
 
 -  **Encrypt a running virtual machine scale set**
     ```azurecli-interactive
-    az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" 
+    az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --volume-type DATA --disk-encryption-keyvault "MySecureVault"
     ```
 
 -  **Encrypt a running virtual machine scale set using KEK to wrap the key**
      ```azurecli-interactive
-     az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault" 
+     az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --volume-type DATA --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault"
      ```
 
     >[!NOTE]
@@ -194,7 +194,7 @@ Use the [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-az
       $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
       $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
       $KeyVaultResourceId = $KeyVault.ResourceId;
-      Set-AzVmssDiskEncryptionExtension -ResourceGroupName $VMSSRGname -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
+      Set-AzVmssDiskEncryptionExtension -ResourceGroupName $VMSSRGname -VMScaleSetName $VmssName -VolumeType Data -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
       ```
 
 -  **Encrypt a running virtual machine scale set using KEK to wrap the key**:
@@ -208,7 +208,7 @@ Use the [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-az
       $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
       $KeyVaultResourceId = $KeyVault.ResourceId;
       $KeyEncryptionKeyUrl = (Get-AzKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
-      Set-AzVmssDiskEncryptionExtension -ResourceGroupName $VMSSRGname -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl  -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $KeyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+      Set-AzVmssDiskEncryptionExtension -ResourceGroupName $VMSSRGname -VMScaleSetName $VmssName -VolumeType Data -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl  -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $KeyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
       ```
 
     >[!NOTE]
@@ -234,8 +234,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 To encrypt or decrypt Linux virtual machine scale sets, use the Azure Resource Manager templates and instructions below:
 
 - [Enable encryption on a Linux virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
-- [Deploy a VM scale set of Linux VMs with a jumpbox and enable encryption on the Linux VM scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
-- [Disable encryption on a Linux VM scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+- [Disable encryption on a Linux virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
      1. Click **Deploy to Azure**.
      2. Fill in the required fields then agree to the terms and conditions.

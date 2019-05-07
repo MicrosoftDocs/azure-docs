@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/18/2019
+ms.date: 03/29/2019
 ms.author: spelluru
 
 ---
@@ -28,14 +28,14 @@ In this tutorial, you do the following actions:
 > * Send registration link to students
 
 ## Prerequisites
-To set up a classroom lab in a lab account, you must a member of one of these roles in the lab account: Owner, Lab Creator, or Contributor. The account you used to create a lab account is automatically added to the owner role.
+To set up a classroom lab in a lab account, you must be a member of one of these roles in the lab account: Owner, Lab Creator, or Contributor. The account you used to create a lab account is automatically added to the owner role.
 
 A lab owner can add other users to the **Lab Creator** role. For example, a lab owner adds professors to the Lab Creator role. Then, the professors create labs with VMs for their classes. Students use the registration link that they receive from professors to register to the lab. Once they are registered, they can use VMs in the labs to do the class work and home work. For detailed steps for adding users to the Lab Creator role, see [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 
 ## Create a classroom lab
 
-1. Navigate to [Azure Lab Services website](https://labs.azure.com). 
+1. Navigate to [Azure Lab Services website](https://labs.azure.com). Note that Internet Explorer 11 is not supported yet. 
 2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts. 
 3. In the **New Lab** window, do the following actions: 
     1. Specify a **name** for your lab. 
@@ -44,8 +44,8 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 
         ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. On the **Select virtual machine specifications** page, do the following steps:
-    1. Select a **size** for virtual machines (VMs) created in the lab. 
-    3. Select the **VM image** to be used to create VMs in the lab. 
+    1. Select a **size** for virtual machines (VMs) created in the lab. Currently, **small**, **medium**, **large**, and **GPU** sizes are allowed.
+    3. Select the **VM image** to be used to create VMs in the lab. If you select a Linux image, you see an option to enable remote desktop connection for it. For details, see [Enable remote desktop connection for Linux](how-to-enable-remote-desktop-linux.md).
     4. Select **Next**.
 
         ![Specify VM specifications](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -65,16 +65,16 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 
     ![Configure template page after it's done](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. On the **Configure template** page, do the following steps: These steps are **optional** for the tutorial.
-    1. Connect to the template VM by selecting **Connect**. 
+    1. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
     2. Install and configure software on your template VM.     
     3. Enter a **description** for the template
 9. Select **Next** on the template page. 
 10. On **Publish the template** page, do the following actions. 
-    1. To publish the template immediately, and select **Publish**.  
+    1. To publish the template immediately, select **Publish**.  
 
         > [!WARNING]
         > Once you publish, you can't unpublish. 
-    2. To publish later, select **Save for later**. You can publish the template VM after the wizard completes. For details on how to configure and publish after the wizard completes, see [Publish the template](how-to-create-manage-template.md#publish-the-template-vm) section in the [How to manage classroom labs](how-to-manage-classroom-labs.md) article.
+    2. To publish later, select **Save for later**. You can publish the template VM after the wizard finishes. For details on how to configure and publish after the wizard finishes, see [Publish the template](how-to-create-manage-template.md#publish-the-template-vm) section in the [How to manage classroom labs](how-to-manage-classroom-labs.md) article.
 
         ![Publish template](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. You see the **progress of publishing** the template. This process can take up to an hour. 
@@ -105,14 +105,19 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 
 
 ## Send an email with the registration link
+
 1. Switch to the **Users** view if you are not on the page already. 
-2. Select specific or all users in the list. To select specific users, select check boxes in the first column of the list. To select all users, select the check box in front of the title of the first column (**Name**) or select all check boxes for all users in the list.
-3. Select **Send invitation** on the toolbar. You can also hover the mouse over a student name in the list and send the email icon. 
+2. Select specific or all users in the list. To select specific users, select check boxes in the first column of the list. To select all users, select the check box in front of the title of the first column (**Name**) or select all check boxes for all users in the list. You can see the status of the **invitation state** in this list.  In the following image, the invitation state for all students is set to **Invitation not sent**. 
+
+    ![Select students](../media/tutorial-setup-classroom-lab/select-students.png)
+1. Select the **email icon (envelope)** in one of the rows (or) select **Send invitation** on the toolbar. You can also hover the mouse over a student name in the list to see the email icon. 
 
     ![Send registration link by email](../media/tutorial-setup-classroom-lab/send-email.png)
 4. On the **Send registration link by email** page, follow these steps: 
     1. Type an **optional message** that you want to send to the students. The email automatically includes the registration link. 
-    2. On the **Send registration link by email** page, select **Send**. 
+    2. On the **Send registration link by email** page, select **Send**. You see the status of invitation changing to **Sending invitation** and then to **Invitation sent**. 
+        
+        ![Invitations sent](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
 ## Next steps
 In this tutorial, you created a classroom lab, and configured the lab. To learn how a student can access a VM in the lab using the registration link, advance to the next tutorial:

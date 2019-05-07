@@ -6,7 +6,7 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 3/29/2019
 ms.author: sujayt
 
 ---
@@ -43,10 +43,10 @@ If you are using a URL-based firewall proxy to control outbound connectivity, al
 
 **URL** | **Details**  
 --- | ---
-*.blob.core.windows.net | Required so that data can be written to the cache storage account in the source region from the VM.
+*.blob.core.windows.net | Required so that data can be written to the cache storage account in the source region from the VM. If you know all the cache storage accounts for your VMs, you can whitelist the specifc storage account URLs (Ex: cache1.blob.core.windows.net and cache2.blob.core.windows.net) instead of *.blob.core.windows.net
 login.microsoftonline.com | Required for authorization and authentication to the Site Recovery service URLs.
-*.hypervrecoverymanager.windowsazure.com | Required so that the Site Recovery service communication can occur from the VM.
-*.servicebus.windows.net | Required so that the Site Recovery monitoring and diagnostics data can be written from the VM.
+*.hypervrecoverymanager.windowsazure.com | Required so that the Site Recovery service communication can occur from the VM. You can use the corresponding 'Site Recovery IP' if your firewall proxy supports IPs.
+*.servicebus.windows.net | Required so that the Site Recovery monitoring and diagnostics data can be written from the VM. You can use the corresponding 'Site Recovery Monitoring IP' if your firewall proxy supports IPs.
 
 ## Outbound connectivity for IP address ranges
 
@@ -91,7 +91,7 @@ Site Recovery IP address ranges are as follows:
    UK South 2 | 13.87.37.4| 13.87.34.139
    UK North | 51.142.209.167 | 13.87.102.68
    Korea Central | 52.231.28.253 | 52.231.32.85
-   Korea South | 52.231.298.185 | 52.231.200.144
+   Korea South | 52.231.198.185 | 52.231.200.144
    France Central | 52.143.138.106 | 52.143.136.55
    France South | 52.136.139.227 |52.136.136.62
    Australia central| 20.36.34.70 | 20.36.46.142

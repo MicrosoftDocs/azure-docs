@@ -101,14 +101,14 @@ The ability to geocode in a country is dependent upon the road data coverage and
 | Fiji                                                |                  |                |              |      ✓     |          ✓         |
 | French Polynesia                                    |                 |                |              |      ✓     |          ✓         |
 | Heard Island and McDonald Islands                   |                 |                |              |      ✓     |          ✓         |
-| Hong Kong                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Hong Kong SAR                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonesia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | India                                               |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japan                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Korea                                         |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
-| Macao                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Macao SAR                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malaysia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Micronesia                                          |                 |                |              |      ✓     |          ✓         |
 | Mongolia                                            |                 |                |              |      ✓     |          ✓         |
@@ -184,7 +184,7 @@ The ability to geocode in a country is dependent upon the road data coverage and
 | Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Lithuania                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Luxembourg                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Macedonia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| North Macedonia                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Moldova                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Monaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |

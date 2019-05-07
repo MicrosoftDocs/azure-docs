@@ -1,5 +1,5 @@
 - name: Azure NetApp Files Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: Introduction to Azure NetApp Files
@@ -7,6 +7,7 @@
   - name: Understand the storage hierarchy
     href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Quickstarts
+  expanded: true 
   items:
   - name: Set up Azure NetApp Files and create a volume
     href: azure-netapp-files-quickstart-set-up-account-create-volumes.md

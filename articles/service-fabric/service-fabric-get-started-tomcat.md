@@ -4,7 +4,7 @@ description: Create Linux container to expose an application running on Apache T
 services: service-fabric
 documentationcenter: .net
 author: JimacoMS2
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 

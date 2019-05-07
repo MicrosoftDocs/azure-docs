@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 04/16/2019
 ms.custom: seodec18
 ---
 
@@ -32,10 +32,15 @@ Azure Disk Encryption is available on standard tier VMs including [A, D, DS, G, 
 
 ## <a name="bkmk_LinuxOSSupport"></a> What Linux distributions does Azure Disk Encryption support?
 
-Azure Disk Encryption is supported on the following Linux server distributions and versions:
+Azure Disk Encryption is supported on a subset of the [Azure-endorsed Linux distributions](../virtual-machines/linux/endorsed-distros.md), which is itself a subset of all Linux server possible distributions.
+
+ ![Venn Diagram of Linux server distributions that support Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
+
+Linux server distributions that are not endorsed by Azure do not support Azure Disk Encryption and, of those that are endorsed, only the following distributions and versions support Azure Disk Encryption:
 
 | Linux distribution | Version | Volume type supported for encryption|
 | --- | --- |--- |
+| Ubuntu | 18.04| OS and data disk |
 | Ubuntu | 16.04| OS and data disk |
 | Ubuntu | 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS and data disk |
 | RHEL | 7.6 | OS and data disk* |
@@ -59,7 +64,8 @@ Azure Disk Encryption is supported on the following Linux server distributions a
 | SLES | 12-SP4 | Data disk |
 | SLES | 12-SP3 | Data disk |
 
-*__New ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. Please also refer to the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article for more information.__
+> [!NOTE]
+> New ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. Please also refer to the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article for more information.__
 
 ## How can I start using Azure Disk Encryption?
 
@@ -67,7 +73,7 @@ To get started, read the [Azure Disk Encryption overview](azure-security-disk-en
 
 ## Can I encrypt both boot and data volumes with Azure Disk Encryption?
 
-Yes, you can encrypt boot and data volumes for Windows and Linux IaaS VMs. For Windows VMs, you can't encrypt the data without first encrypting the OS volume. For Linux VMs, it's possible to encrypt the data volume without having to encrypt the OS volume first. After you've encrypted the OS volume for Linux, disabling encryption on an OS volume for Linux IaaS VMs isn't supported.
+Yes, you can encrypt boot and data volumes for Windows and Linux IaaS VMs. For Windows VMs, you can't encrypt the data without first encrypting the OS volume. For Linux VMs, it's possible to encrypt the data volume without having to encrypt the OS volume first. After you've encrypted the OS volume for Linux, disabling encryption on an OS volume for Linux IaaS VMs isn't supported. For Linux VMs in a scale set, only the data volume can be encrypted.
 
 ## Can I encrypt an unmounted volume with Azure Disk Encryption?
 
@@ -120,7 +126,7 @@ You can't apply Azure Disk Encryption on your custom Linux image. Only the galle
 
 ## Can I apply updates to a Linux Red Hat VM that uses the yum update?
 
-Yes, you can perform an update or patch a Red Hat Linux VM. For more information, see [Applying updates to an encrypted Azure IaaS Red Hat VM by using the yum update](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/13/applying-updates-to-a-encrypted-azure-iaas-red-hat-vm-using-yum-update/).
+Yes, you can perform a yum update on a Red Hat Linux VM.  For more information, see [Linux package management behind a firewall](azure-security-disk-encryption-tsg.md#linux-package-management-behind-a-firewall).
 
 ## What is the recommended Azure disk encryption workflow for Linux?
 

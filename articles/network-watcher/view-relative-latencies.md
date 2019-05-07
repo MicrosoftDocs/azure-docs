@@ -23,18 +23,21 @@ ms.custom:
 
 In this tutorial, learn how to use the Azure [Network Watcher](network-watcher-monitoring-overview.md) service to help you decide what Azure region to deploy your application or service in, based on your user demographic. Additionally, you can use it to help evaluate service providers’ connections to Azure.  
         
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Create a network watcher
 
 If you already have a network watcher in at least one Azure [region](https://azure.microsoft.com/regions), you can skip the tasks in this section. Create a resource group for the network watcher. In this example, the resource group is created in the East US region, but you can create the resource group in any Azure region.
 
 ```powershell
-New-AzureRmResourceGroup -Name NetworkWatcherRG -Location eastus
+New-AzResourceGroup -Name NetworkWatcherRG -Location eastus
 ```
 
 Create a network watcher. You must have a network watcher created in at least one Azure region. In this example, a network watcher is created in the East US Azure region.
 
 ```powershell
-New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Location eastus
+New-AzNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Location eastus
 ```
 
 ## Compare relative network latencies to a single Azure region from a specific location
@@ -42,7 +45,7 @@ New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName Network
 Evaluate service providers, or troubleshoot a user reporting an issue such as “the site was slow,” from a specific location to the azure region where a service is deployed. For example, the following command returns the average relative Internet service provider latencies between the state of Washington in the United States and the West US 2 Azure region between December 13-15, 2017:
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityReport `
+Get-AzNetworkWatcherReachabilityReport `
   -NetworkWatcherName NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG `
   -Location "West US 2" `
@@ -105,7 +108,7 @@ In the returned output, the value for **Score** is the relative latency across r
 If, instead of specifying the relative latencies between a specific location and a specific Azure region using `-Location`, you wanted to determine the relative latencies to all Azure regions from a specific physical location, you can do that too. For example, the following command helps you evaluate what azure region to deploy a service in if your primary users are Comcast users located in Washington state:
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityReport `
+Get-AzNetworkWatcherReachabilityReport `
   -NetworkWatcherName NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG `
   -Provider "Comcast Cable Communications, LLC - ASN 7922" `
@@ -123,7 +126,7 @@ Get-AzureRmNetworkWatcherReachabilityReport `
 Data is available for specific Internet service providers, countries, states, and cities. To view a list of all available Internet service providers, countries, states, and cities, that you can view data for, enter the following command:
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
+Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
 Data is only available for the countries, states, and cities returned by the previous command. The previous command requires you to specify an existing network watcher. The example specified the *NetworkWatcher_eastus* network watcher in a resource group named *NetworkWatcherRG*, but you can specify any existing network watcher. If you don't have an existing network watcher, create one by completing the tasks in [Create a network watcher](#create-a-network-watcher). 
@@ -131,7 +134,7 @@ Data is only available for the countries, states, and cities returned by the pre
 After running the previous command, you can filter the output returned by specifying valid values for **Country**, **State**, and **City**, if desired.  For example, to view the list of Internet service providers available in Seattle, Washington, in the United States, enter the following command:
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityProvidersList `
+Get-AzNetworkWatcherReachabilityProvidersList `
   -NetworkWatcherName NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG `
   -City Seattle `

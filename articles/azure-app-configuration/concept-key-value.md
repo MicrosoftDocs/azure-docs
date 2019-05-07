@@ -102,4 +102,5 @@ Configuration data stored in an app configuration store, which includes all keys
 
 ## Next steps
 
-* [Concept: Point-in-time snapshot](concept-point-time-snapshot.md)  
+> [!div class="nextstepaction"]
+> [Point-in-time snapshot](./concept-point-time-snapshot.md)  

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 03/28/2018
 ---
 # Performance Recommendations in Azure Database for PostgreSQL
 
 **Applies to:** Azure Database for PostgreSQL 9.6 and 10
 
-The Performance Recommendations feature identifies the top indexes which can be created in your Azure Database for PostgreSQL server to improve performance. To produce index recommendations, the feature takes into consideration various database characteristics, including its schema and the workload as reported by Query Store. After implementing any performance recommendation, customers should test performance to evaluate the impact of those changes. 
+The Performance Recommendations feature analyses your databases to create customized suggestions for improved performance. To produce the recommendations, the analysis looks at various database characteristics including schema. Enable [Query Store](concepts-query-store.md) on your server to fully utilize the Performance Recommendations feature. After implementing any performance recommendation, you should test performance to evaluate the impact of those changes. 
 
 ## Permissions
 **Owner** or **Contributor** permissions required to run analysis using the Performance Recommendations feature.
@@ -19,17 +19,28 @@ The Performance Recommendations feature identifies the top indexes which can be 
 ## Performance recommendations
 The [Performance Recommendations](concepts-performance-recommendations.md) feature analyzes workloads across your server to identify indexes with the potential to improve performance.
 
-Open **Performance Recommendations** from the **Support + troubleshooting** section of the menu bar on the Azure portal page for your PostgreSQL server.
+Open **Performance Recommendations** from the **Intelligent Performance** section of the menu bar on the Azure portal page for your PostgreSQL server.
 
-![Performance Recommendations landing page](./media/concepts-performance-recommendations/performance-recommendations-landing-page.png)
+![Performance Recommendations landing page](./media/concepts-performance-recommendations/performance-recommendations-page.png)
 
-Select **Analyze** and choose a database. This will begin the analysis. Depending on your workload this may take several minutes to complete. Once the analysis is done, there will be a notification in the portal.
+Select **Analyze** and choose a database, which will begin the analysis. Depending on your workload, th analysis may take several minutes to complete. Once the analysis is done, there will be a notification in the portal. Analysis performs a deep examination of your database. We recommend you perform analysis during off-peak periods. 
 
-The **Performance Recommendations** window will show a list of recommendations if any were found. A recommendation will show information about the relevant **Database**, **Table**, **Column**, and **Index Size**.
+The **Recommendations** window will show a list of recommendations if any were found.
 
 ![Performance Recommendations new page](./media/concepts-performance-recommendations/performance-recommendations-result.png)
 
-To implement the recommendation, copy the query text and run it from your client of choice.
+Recommendations are not automatically applied. To apply the recommendation, copy the query text and run it from your client of choice. Remember to test and monitor to evaluate the recommendation. 
+
+## Recommendation types
+
+Currently, two types of recommendations are supported: *Create Index* and *Drop Index*.
+
+### Create Index recommendations
+*Create Index* recommendations suggest new indexes to speed up the most frequently run or time-consuming queries in the workload. This recommendation type requires [Query Store](concepts-query-store.md) to be enabled. Query Store collects query information and provides the detailed query runtime and frequency statistics that the analysis uses to make the recommendation.
+
+### Drop Index recommendations
+Besides detecting missing indexes, Azure Database for PostgreSQL analyzes the performance of existing indexes. If an index is either rarely used or redundant, the analyzer recommends dropping it.
+
 
 ## Next steps
 - Learn more about [monitoring and tuning](concepts-monitoring.md) in Azure Database for PostgreSQL.

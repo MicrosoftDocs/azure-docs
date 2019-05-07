@@ -2,7 +2,7 @@
 title: Durable Functions patterns and technical concepts in Azure Functions
 description: Learn how the Durable Functions extension in Azure Functions gives you the benefits of stateful code execution in the cloud.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
@@ -411,7 +411,7 @@ Because of the replay behavior of the Durable Task Framework dispatcher, you can
 
 The Durable Functions extension uses queues, tables, and blobs in Azure Storage to persist execution history state and trigger function execution. You can use the default storage account for the function app, or you can configure a separate storage account. You might want a separate account based on storage throughput limits. The orchestrator code you write doesn't interact with the entities in these storage accounts. The Durable Task Framework manages the entities directly as an implementation detail.
 
-Orchestrator functions schedule activity functions and receive their responses via internal queue messages. When a function app runs in the Azure Functions consumption plan, the [Azure Functions scale controller](../functions-scale.md#how-the-consumption-plan-works) monitors these queues. New compute instances are added as needed. When scaled out to multiple VMs, an orchestrator function might run on one VM, while activity functions that the orchestrator function calls might run on several different VMs. For more information about the scale behavior of Durable Functions, see [Performance and scale](durable-functions-perf-and-scale.md).
+Orchestrator functions schedule activity functions and receive their responses via internal queue messages. When a function app runs in the Azure Functions consumption plan, the [Azure Functions scale controller](../functions-scale.md#how-the-consumption-and-premium-plans-work) monitors these queues. New compute instances are added as needed. When scaled out to multiple VMs, an orchestrator function might run on one VM, while activity functions that the orchestrator function calls might run on several different VMs. For more information about the scale behavior of Durable Functions, see [Performance and scale](durable-functions-perf-and-scale.md).
 
 The execution history for orchestrator accounts is stored in table storage. Whenever an instance rehydrates on a particular VM, the orchestrator fetches its execution history from table storage so it can rebuild its local state. A convenient aspect of having the history available in table storage is that you can use tools like [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to see the history of your orchestrations.
 

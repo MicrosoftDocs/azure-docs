@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/19/2019
 ms.author: tomfitz
 
 ---
 # Move resources to new resource group or subscription
 
-This article shows you how to move Azure resources to either another Azure subscription or another resource group under the same subscription. You can use the Azure portal, Azure PowerShell, Azure CLI, or the REST API to move resources. To go through a tutorial, see [Tutorial: Move Azure resources to another resource group or subscription](./resource-manager-tutorial-move-resources.md).
+This article shows you how to move Azure resources to either another Azure subscription or another resource group under the same subscription. You can use the Azure portal, Azure PowerShell, Azure CLI, or the REST API to move resources.
 
 Both the source group and the target group are locked during the move operation. Write and delete operations are blocked on the resource groups until the move completes. This lock means you can't add, update, or delete resources in the resource groups, but it doesn't mean the resources are frozen. For example, if you move a SQL Server and its database to a new resource group, an application that uses the database experiences no downtime. It can still read and write to the database.
 
@@ -59,7 +59,7 @@ The following list provides a general summary of Azure services that can be move
 * Azure Database for MariaDB
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
-* Azure DevOps - Azure DevOps organizations with non-Microsoft extension purchases must [cancel their purchases](https://go.microsoft.com/fwlink/?linkid=871160) before they can move the account across subscriptions.
+* Azure DevOps - follow steps to [change the Azure subscription used for billing](/azure/devops/organizations/billing/change-azure-subscription?view=azure-devops).
 * Azure Maps
 * Azure Monitor logs
 * Azure Relay
@@ -70,7 +70,7 @@ The following list provides a general summary of Azure services that can be move
 * CDN
 * Cloud Services - see [Classic deployment limitations](#classic-deployment-limitations)
 * Cognitive Services
-* Container Registry - A container registry can't be moved when geo-replication is enabled.
+* Container Registry
 * Content Moderator
 * Cost Management
 * Customer Insights
@@ -129,6 +129,7 @@ The following list provides a general summary of Azure services that can't be mo
 * Azure Database Migration
 * Azure Databricks
 * Azure Firewall
+* Azure Kubernetes Service (AKS)
 * Azure Migrate
 * Azure NetApp Files
 * Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
@@ -139,7 +140,6 @@ The following list provides a general summary of Azure services that can't be mo
 * Dev Spaces
 * Dynamics LCS
 * ExpressRoute
-* Kubernetes Service
 * Lab Services - Classroom Labs can't be moved to a new resource group or subscription. DevTest Labs can be moved to a new resource group in the same subscription, but not across subscriptions.
 * Managed Applications
 * Microsoft Genomics

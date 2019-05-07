@@ -117,7 +117,7 @@ Listed below are the fields in the schema and what they signify
 1. ExternalPublic - One of the IP addresses belongs to Azure Virtual Network while the other IP address is a public IP that is not in Azure, is not reported as malicious in the ASC feeds that Traffic Analytics consumes for the processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. 
 1. MaliciousFlow - One of the IP addresses belong to azure virtual network while the other IP address is a public IP that is not in Azure and  is reported as malicious in the ASC feeds that Traffic Analytics consumes for the processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. 
 1. UnknownPrivate - One of the IP addresses belong to Azure Virtual Network while the other IP address belongs to private IP range as defined in RFC 1918 and could not be mapped by Traffic Analytics to a customer owned site or Azure Virtual Network.
-1. Unknown – Unable to map the either of the IP addresses in the flows with the customer topology in Azure as well as on-premise (site).
+1. Unknown – Unable to map the either of the IP addresses in the flows with the customer topology in Azure as well as on-premises (site).
 
 ### Next Steps
 To get answers to frequently asked questions, see [Traffic analytics FAQ](traffic-analytics-faq.md)

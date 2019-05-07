@@ -50,7 +50,7 @@ Probes are configured in a two-step process through the portal. The first step i
    |**Name**|customProbe|This value is a friendly name to the probe that is accessible in the portal.|
    |**Protocol**|HTTP or HTTPS | The protocol that the health probe uses.|
    |**Host**|i.e contoso.com|This value is the host name that is used for the probe. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This value is different from the VM host name.|
-   |**Path**|/ or another path|The remainder of the full url for the custom probe. A valid path starts with '/'. For the default path of http://contoso.com just use '/' |
+   |**Path**|/ or another path|The remainder of the full url for the custom probe. A valid path starts with '/'. For the default path of http:\//contoso.com just use '/' |
    |**Interval (secs)**|30|How often the probe is run to check for health. It is not recommended to set the lower than 30 seconds.|
    |**Timeout (secs)**|30|The amount of time the probe waits before timing out. The timeout interval needs to be high enough that an http call can be made to ensure the backend health page is available.|
    |**Unhealthy threshold**|3|Number of failed attempts to be considered unhealthy. A threshold of 0 means that if a health check fails the back-end is determined unhealthy immediately.|

@@ -210,7 +210,7 @@ No. In public preview, you can’t move a Hyperscale database to another service
 
 ### Do I lose any functionality or capabilities after migration to the Hyperscale service tier
 
-Yes. Some of Azure SQL Database features are not supported in Hyperscale during public preview, including but not limited to long term retention backup. After you migrate your databases to Hyperscale, those features stop working.
+Yes. Long-term retention backups in Azure SQL Database is not supported in Hyperscale during public preview. After you migrate your databases to Hyperscale, this feature stops working.
 
 ### Can I move my  on-premises SQL Server database or my SQL Server virtual machine database to Hyperscale
 
@@ -289,7 +289,7 @@ No. The storage format for Hyperscale databases is different from traditional SQ
 
 ### Do I lose any functionality or capabilities after migration to the Hyperscale service tier
 
-Yes. Some of Azure SQL Database features are not supported in Hyperscale during public preview, including but not limited to TDE and long term retention backup. After you migrate your databases to Hyperscale, those features stop working.
+Yes. Long-term retention backups in Azure SQL Database is not supported in Hyperscale during public preview. After you migrate your databases to Hyperscale, this feature stops working.
 
 ### Will Polybase work with SQL Database Hyperscale
 

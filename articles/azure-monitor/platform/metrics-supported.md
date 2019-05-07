@@ -1602,7 +1602,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |MemoryPercentage|Memory Percentage|Percent|Average|Memory Percentage|Instance|
 
 ## Next steps
-
-* [Read about metrics in Azure Monitor](../../azure-monitor/platform/data-collection.md)
-* [Create alerts on metrics](../../azure-monitor/platform/alerts-overview.md)
-* [Export metrics to storage, Event Hub, or Log Analytics](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Read about metrics in Azure Monitor](data-platform.md)
+* [Create alerts on metrics](alerts-overview.md)
+* [Export metrics to storage, Event Hub, or Log Analytics](diagnostic-logs-overview.md)

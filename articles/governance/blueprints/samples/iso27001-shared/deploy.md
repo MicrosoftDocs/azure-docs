@@ -1,15 +1,14 @@
 ---
 title: Sample - ISO 27001 Shared Services blueprint - Deploy steps
 description: Deploy steps of the ISO 27001 Shared Services blueprint sample.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
-ms.topic: conceptual
+ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ---
-# Deploy the Azure Blueprints ISO 27001 Shared Services blueprint sample
+# Deploy the ISO 27001 Shared Services blueprint sample
 
 To deploy the Azure Blueprints ISO 27001 Shared Services blueprint sample, the following steps must
 be taken:

@@ -119,7 +119,7 @@ To redeploy cloud services by using the REST API:
     https://management.core.windows.net/<subscription-id>/services/hostedservices
     ```
 
-1. Create a new deployment by using the [Create Deployment API](https://msdn.microsoft.com/library/azure/ee460813.aspx). To find your `.cspkg` and `.cscfg` definitions, you can call the [Get Package API](https://msdn.microsoft.com/library/azure/jj154121.aspx).
+1. Create a new deployment by using the [Create Deployment API](/previous-versions/azure/reference/ee460813(v=azure.100)). To find your `.cspkg` and `.cscfg` definitions, you can call the [Get Package API](/previous-versions/azure/reference/jj154121(v=azure.100)).
 
     ```http
     https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deploymentslots/production
