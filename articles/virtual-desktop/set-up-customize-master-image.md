@@ -61,7 +61,57 @@ This section covers how to prepare and install FSLogix, Windows Defender, and ot
 
 If your users need to access certain LOB applications, we recommend you install them after completing this section’s instructions.
 
+<<<<<<< HEAD
 This section assumes you have elevated access on the VM, whether it's provisioned in Azure or Hyper-V Manager.
+=======
+```batch
+Setup.exe /configure configuration.xml
+```
+
+#### Sample configuration.xml
+
+The following XML sample will install the Insiders release, also known as Insiders Fast or Insiders Main.
+
+```xml
+<Configuration>
+    <Add OfficeClientEdition="64" SourcePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f">
+        <Product ID="O365ProPlusRetail">
+            <Language ID="en-US" />
+            <Language ID="MatchOS" Fallback = "en-US"/>
+            <Language ID="MatchPreviousMSI" />
+            <ExcludeApp ID="Groove" />
+            <ExcludeApp ID="Lync" />
+            <ExcludeApp ID="OneDrive" />
+            <ExcludeApp ID="Teams" />
+        </Product>
+        <Product ID="VisioProRetail">
+            <Language ID="en-US" />
+            <Language ID="MatchOS" Fallback = "en-US"/>
+            <Language ID="MatchPreviousMSI" />
+            <ExcludeApp ID="Teams" /> 
+        </Product>
+        <Product ID="ProjectProRetail">
+            <Language ID="en-US" />
+            <Language ID="MatchOS" Fallback = "en-US"/>
+            <Language ID="MatchPreviousMSI" />
+            <ExcludeApp ID="Teams" />
+        </Product>
+    </Add>
+    <RemoveMSI All="True" />
+    <Updates Enabled="FALSE" UpdatePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f" />
+    <Display Level="None" AcceptEULA="TRUE" />
+    <Logging Level="Verbose" Path="%temp%\WVDOfficeInstall" />
+    <Property Value="TRUE" Name="FORCEAPPSHUTDOWN"/>
+    <Property Value="1" Name="SharedComputerLicensing"/>
+    <Property Value="TRUE" Name="PinIconsToTaskbar"/>
+</Configuration>
+```
+
+>[!NOTE]
+>The Office team recommends using 64-bit install for the **OfficeClientEdition** parameter.
+
+After installing Office, you can update the default Office behavior. Run the following commands individually or in a batch file to update the behavior.
+>>>>>>> 3783bb7167ce831297de10ee00eb7567a4f46c55
 
 If you're preparing
 
