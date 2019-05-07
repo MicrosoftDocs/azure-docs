@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2019
+ms.date: 05/07/2019
 ms.author: monhaber
 
 ---
@@ -67,21 +67,25 @@ You can review and manage your current security alerts.
 
 1. Click on an attacked resource.
 
-1. To view alert details and actions for investigating the current threat and addressing future threats, in the Remediation steps section, click on the **INVESTIGATION STEPS** link.
+1. To view alert details and actions for investigating the current threat and addressing future threats, in the **Remediation steps** section, click on the **INVESTIGATION STEPS** link.
 
     ![Remediation Steps](./media/security-center-advanced-iaas-data/remediation-steps.png)
 
-1. To investigate the logs that are associated with the triggering of the alert, navigate to your Log Analytics workspace with the ADS solution. (**Log analytics workspaces** > **Edit columns**) and add **Pricing tier** and **WorkspaceID**,  The workspaceID provided in the alert is displayed in the Log Analytics workspace columns.
+1. To view the logs that are associated with the triggering of the alert, go to **Log analytics workspaces** and do the following steps:
 
-  > [!NOTE]
-  > If **Log analytics workspaces** doesn’t appear at the left menu, click **All services**, and search for **Log analytics workspaces**.
+     > [!NOTE]
+     > If **Log analytics workspaces** doesn’t appear at the left menu, click **All services**, and search for **Log analytics workspaces**.
 
-   ![Edit Columns](./media/security-center-advanced-iaas-data/edit-columns.png)
+    1. Be sure the columns are displaying the **Pricing tier** and **WorkspaceID** columns. (**Log analytics workspaces** > **Edit columns**, add **Pricing tier** and **WorkspaceID**. 
+     ![Edit Columns](./media/security-center-advanced-iaas-data/edit-columns.png)
 
-1. In the Log Analytics workspace, in the **Logs** section, click on the eye next to **SQLAdvancedThreatProtection** table.
+    1. Click on the workspace that has the alert logs.
 
-  ![VIew Logs](./media/security-center-advanced-iaas-data/view-logs.png)
+    1. In the Log Analytics workspace, in the **General** section, click **Logs**
 
+    1. Click the eye next to **SQLAdvancedThreatProtection** table.
+
+     ![View Logs](./media/security-center-advanced-iaas-data/view-logs.png)
 
 ## Set Up Email Notification for ATP Alerts 
 
