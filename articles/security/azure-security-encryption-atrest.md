@@ -252,7 +252,20 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 |                                  |                    | **Encryption Model and Key Management** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Server-Side Using Service-Managed Key**     | **Server-Side Using Customer-Managed in Key Vault**             | **Client-Side Using Client-Managed**      |
-| **Compute**        |                    |                    |                    |
+| **AI and Machine Learning**      |                    |                    |                    |
+| Azure Search                     | Yes                | -                  | -                  |
+| Azure Machine Learning Service   | Yes                | -                  | -                  |
+| Azure Machine Learning Studio    | Yes                | Preview, RSA 2048-bit | -               |
+| Power BI                         | Yes                | -                  | -                  |
+| **Analytics**                    |                    |                    |                    |
+| Azure Stream Analytics           | Yes                | -                  | -                  |
+| Event Hubs                       | Yes                | -                  | -                  |
+| Azure Analysis Services          | Yes                | -                  | -                  |
+| Azure Data Catalog               | Yes                | -                  | -                  |
+| HDInsight                        | Yes                | Preview for Apache Kafka, All RSA Lengths | -                  |
+| Azure Data Factory               | Yes                | -                  | -                  |
+| Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
+| **Compute**                      |                    |                    |                    |
 | Virtual Machines                 | -                  | Yes, RSA 2048-bit  | -                  |
 | Virtual Machine Scale Set        | -                  | Yes, RSA 2048-bit  | -                  |
 | **Databases**                    |                    |                    |                    |
@@ -262,6 +275,22 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | SQL Server Stretch Database      | Yes                | Yes, RSA 2048-bit  | Yes                |
 | Table Storage                    | Yes                | -                  | Yes                |
 | Azure Cosmos DB                  | Yes                | -                  | -                  |
+| **DevOps**                       |                    |                    |                    |
+| Azure DevOps                     | Yes                | -                  | Yes                |
+| Azure Repos                      | Yes                | -                  | Yes                |
+| **Identity**                     |                    |                    |                    |
+| Azure Active Directory           | Yes                | -                  | -                  |
+| Azure Active Directory Domain Services | Yes          | Yes, RSA 2048-bit  | -                  |
+| **Integration**                  |                    |                    |                    |
+| Service Bus                      | Yes                | -                  | Yes                |
+| Event Grid                       | Yes                | -                  | -                  |
+| API Management                   | Yes                | -                  | -                  |
+| **IoT Services**                 |                    |                    |                    |
+| IoT Hub                          | -                  | -                  | Yes                |
+| **Management and Governance**    |                    |                    |                    |
+| Azure Site Recovery              | Yes                | Yes, RSA 2048-bit  | Yes                |
+| **Media**                        |                    |                    |                    |
+| Media Services                   | Yes                | -                  | Yes                |
 | **Storage**                      |                    |                    |                    |
 | Blob Storage                     | Yes                | Yes, RSA 2048-bit  | Yes                |
 | Disk Storage                     | Yes                | -                  | -                  |
@@ -273,24 +302,6 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | StorSimple                       | Yes                | -                  | Yes                |
 | Azure Backup                     | Yes                | -                  | Yes                |
 | Data Box                         | Yes                | -                  | Yes                |
-| **AI and Machine Learning**      |                    |                    |                    |
-| Azure Search                     | Yes                | -                  | -                  |
-| Azure Machine Learning Service   | Yes                | -                  | -               |
-| Azure Machine Learning Studio    | Yes                | Preview, RSA 2048-bit | -               |
-| Power BI                         | Yes                | -                  | -                  |
-| **Analytics**                    |                    |                    |                    |
-| Azure Stream Analytics           | Yes                | -                  | -                  |
-| Event Hubs                       | Yes                | -                  | -                  |
-| Azure Analysis Services          | Yes                | -                  | -                  |
-| Azure Data Catalog               | Yes                | -                  | -                  |
-| HDInsight                        | Yes                | Preview for Apache Kafka, All RSA Lengths | -                  |
-| Azure Data Factory               | Yes                | -                  | -                  |
-| Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
-| **Integration**                 |                    |                    |                    |
-| Service Bus                      | Yes                | -                  | Yes                |
-| Event Grid                       | Yes                | -                  | -                  |
-| **IoT Services**                 |                    |                    |                    |
-| IoT Hub                          | -                  | -                  | Yes                |
 
 ## Conclusion
 
