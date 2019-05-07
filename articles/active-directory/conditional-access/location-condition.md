@@ -30,7 +30,7 @@ Azure AD enables single sign-on to devices, apps, and services from anywhere on 
 - Requiring multi-factor authentication for users accessing a service when they are off the corporate network.
 - Blocking access for users accessing a service from specific countries or regions.
 
-A location is a label for a network location that either represents a named location or multi-factor authentication trusted IPs.
+A location is a label for a network location that either represents a named location or multi-factor authentication Trusted IPs.
 
 ## Named locations
 
@@ -68,9 +68,9 @@ If a policy is configured to apply to “Any location”, it will apply to IPv4 
 
 ## Trusted IPs
 
-You can also configure IP address ranges representing your organization's local intranet in the [multi-factor authentication service settings](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). This feature enables you to configure up to 50 IP address ranges. The IP address ranges are in CIDR format. For more information, see [trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
+You can also configure IP address ranges representing your organization's local intranet in the [multi-factor authentication service settings](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). This feature enables you to configure up to 50 IP address ranges. The IP address ranges are in CIDR format. For more information, see [Trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
-If you have trusted IPs configured, they show up as **MFA Trusted IPS** in the list of locations for the location condition.
+If you have Trusted IPs configured, they show up as **MFA Trusted IPS** in the list of locations for the location condition.
 
 ### Skipping multi-factor authentication
 
