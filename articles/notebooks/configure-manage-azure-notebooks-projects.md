@@ -37,13 +37,13 @@ The **Run** drop-down list on the project dashboard is where you select the comp
 
 ![Compute tier drop-down list on the project dashboard](media/project-compute-tier-list.png)
 
-You can bypass these limitations by using a different virtual machine that you've provisioned in an Azure subscription. You must  install and run JupyterHub on that virtual machine. The Data Science Virtual Machine images (any operating system) are good choices because they include JupyterHub by default.
+You can bypass these limitations by using a different virtual machine that you've provisioned in an Azure subscription. You must install and run JupyterHub on that virtual machine. The Data Science Virtual Machine for Linux (Ubuntu) image is a good choice because it is supported, it has a compatible JupyterHub by default, and it will be automatically discovered.
 
 Once you have a suitably configured Azure virtual machine, select the **Direct Compute** option in the drop-down list, which prompts you for a name (to show in the list), the VM's IP address and port (typically 8000, the default port to which JupyterHub listens), and the VM credentials:
 
 ![Prompt to collect server information for the Direct Compute option](media/project-compute-tier-direct.png)
 
-If the following conditions are true, the drop-down list also shows [Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine) instances. (If any of these conditions aren't met, you can still connect to the DSVM using the Direct Compute option and entering the values obtained from the Azure portal.)
+If the following conditions are true, the drop-down list also shows [Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine) instances. (If any of these conditions aren't met, you can still connect to the DSVM using the Direct Compute option and enter the values obtained from the Azure portal.)
 
 - You're signed into Azure Notebooks with an account that uses Azure Active Directory (AAD), such as a company account.
 - Your account is connected to an Azure subscription.
@@ -53,18 +53,17 @@ If the following conditions are true, the drop-down list also shows [Data Scienc
 
 When you select a DSVM instance, Azure Notebooks may prompt you for the specific machine credentials used when you created the VM.
 
-To create a new DSVM instance, follow the instructions on [Create an Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Use the **Data Science Virtual Machine for Linux (Ubuntu)** image if you want the DSVM to appear in the drop-down list in Azure Notebooks.  If for other reasons you need to use the Windows or CentOS image, you can use the **Direct Compute** option to connect to the DSVM manually.
+To create a new DSVM instance, follow the instructions on [Create an Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Use the **Data Science Virtual Machine for Linux (Ubuntu)** image if you want the DSVM to appear in the drop-down list in Azure Notebooks. 
 
-> [!IMPORTANT]
-> When using Direct Compute or Data Science virtual machines, the notebooks you run on them must be entirely self-contained. At present, Azure Notebooks copies only the *.ipynb* file to the VM but doesn't copy any other files in the project. As a result, notebooks running on other VMs fail to find other project files.
+> When a project is run on a VM the files will be mounted on the root directory of the Jupyter Server replacing the default Azure Notebooks files.
 >
-> You can work around this behavior in two ways:
+> If you would like to get the default files back then you will need to shutdown the compute.
 >
-> 1. Copy project files manually to the VM.
+> ![Shutdown compute](media/shutdown.png)
 >
-> 2. Embed the files within a setup notebook that you run first before the primary notebook. In the setup notebook, create a code cell for each file where the cell contains the file contents. Then at the top of each cell, insert the command `%%writefile <filename>`, where `<filename>` is the name of the file to receive the contents. When you run the notebook, it creates all those files on the VM. For an example, see the [setup.ipynb file in the Microsoft Pet Detector demo](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
+> Then the default files will reappear if you go to JupyterHub directly.
 >
->     ![Using a %%writefile command at the beginning of a code cell](media/setup-notebook-writefile-command.png)
+> ![Default Azure Notebooks files](media/juptyerhub-files.png)
 
 ## Edit project metadata
 
