@@ -21,26 +21,24 @@ ms.author: jgao
 
 ## Health monitoring providers
 
-In order to make health integration as easy as possible, Microsoft has been working with some of the top service health monitoring companies to provide you with a simple copy/paste solution to integrate health checks with your deployments. If you’re not already using a health monitor, these are great solutions to start with. 
+In order to make health integration as easy as possible, Microsoft has been working with some of the top service health monitoring companies to provide you with a simple copy/paste solution to integrate health checks with your deployments. If you’re not already using a health monitor, these are great solutions to start with:
 
-||||
-|-----|------|------|
 | ![azure deployment manager health monitor provider datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![azure deployment manager health monitor provider site24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![azure deployment manager health monitor provider wavefront](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
-|Datadog, the leading monitoring and analytics platform for modern cloud environments. See [how Datadog integrates with Azure Deployment Manager]().|The All-in-One Monitoring Solution. See [how Site24x7 integrates with Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| bla, bla, bla. See [how Wavefront integrates with Azure Deployment Manager]().|
+|-----|------|------|
+|Datadog, the leading monitoring and analytics platform for modern cloud environments. See [how Datadog integrates with Azure Deployment Manager](https://docs.datadoghq.com/integrations/azure_deployment_manager/).|The All-in-One Monitoring Solution. See [how Site24x7 integrates with Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| bla, bla, bla. See [how Wavefront integrates with Azure Deployment Manager]().|
 
 ## How service health is determined
 
-Health monitoring providers offer several mechanisms for monitoring services and alerting you of any service health issues. [Azure Monitor](/services/monitor/) is an example of such offering. Azure Monitor can be used to create alerts when certain thresholds are exceeded. For example, your memory and CPU utilization spike beyond expected levels when you deploy a new update to your service. When notified, you can take corrective actions.
+[Health monitoring providers](#health-monitoring-providers) offer several mechanisms for monitoring services and alerting you of any service health issues. [Azure Monitor](/services/monitor/) is an example of such offering. Azure Monitor can be used to create alerts when certain thresholds are exceeded. For example, your memory and CPU utilization spike beyond expected levels when you deploy a new update to your service. When notified, you can take corrective actions.
 
 These health providers typically offer REST APIs so that the status of your service’s monitors can be examined programmatically. The REST APIs can either come back with a simple healthy/unhealthy signal (usually determined by the HTTP response code), and or with detailed information about the signals it is receiving.
 
-The new *healthCheck* step in Azure Deployment Manager allows you to declare HTTP codes that indicate a healthy service, or, for more complex REST results, you can even specify regular expressions that, if they match, indicate a healthy response. To make this even easier to use, Microsoft is working closely with the top health monitoring providers to pre-author these HTTP codes and regular expressions, so that if you use one of these providers you can simply copy/paste this part of the healthCheck step.
+The new *healthCheck* step in Azure Deployment Manager allows you to declare HTTP codes that indicate a healthy service, or, for more complex REST results, you can even specify regular expressions that, if they match, indicate a healthy response.
 
 The flow to getting setup with Azure Deployment Manager health checks:
 
 1. Create your health monitors via a health service provider of your choice.
-1. Create one or more healthCheck steps as part of your Azure Deployment Manager rollout.
-1. Fill out the healthCheck steps with the following information:
+1. Create one or more healthCheck steps as part of your Azure Deployment Manager rollout. Fill out the healthCheck steps with the following information:
 
     1. The URI for the REST API for your health monitors (as defined by your health service provider).
     1. Authentication information. Currently only API-key style authentication is supported.
