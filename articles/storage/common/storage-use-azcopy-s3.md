@@ -84,21 +84,6 @@ The next several sections give you example AzCopy commands that you can use to c
 | **Syntax** | `azcopy cp "https://s3-<region-name>.amazonaws.com/" "https://<storage-account-name>.blob.core.windows.net" --recursive=true` |
 | **Example** | `azcopy cp "https://s3-rds.eu-north-1.amazonaws.com" "https://mystorageaccount.blob.core.windows.net" --recursive=true` |
 
-## Use Virtual hosted style
-
-AzCopy supports virtual-hosted-style and path-style URL:
-
-virtual-hosted-style
-
-The bucket name is part of the domain name in the URL, examples:
-_a._ `http://bucket.s3.amazonaws.com`
-_b._ `http://bucket.s3-aws-region.amazonaws.com`
-
-path-style URL
-
-Examples:
-_a._ `http://s3.amazonaws.com/bucket` (US East (N. Virginia) Region endpoint)
-_b._ `http://s3-aws-region.amazonaws.com/bucket` (Region-specific endpoint)
 
 ## Handle differences in object naming rules
 
