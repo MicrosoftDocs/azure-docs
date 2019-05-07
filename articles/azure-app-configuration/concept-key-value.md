@@ -15,7 +15,7 @@ ms.date: 04/19/2019
 ms.author: yegu
 ---
 
-# Key-value store
+# Keys and values
 
 Azure App Configuration stores configuration data as key-value pairs. Key-value pairs are a simple yet flexible way to represent various kinds of application settings that developers are familiar with.
 
@@ -100,5 +100,5 @@ Configuration data stored in an app configuration store, which includes all keys
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Point-in-time snapshot](./concept-point-time-snapshot.md)  
+* [Point-in-time snapshot](./concept-point-time-snapshot.md)  
+* [Feature management](./concept-feature-management.md)  

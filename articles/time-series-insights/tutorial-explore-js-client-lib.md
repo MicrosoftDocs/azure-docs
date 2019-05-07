@@ -6,7 +6,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 05/06/2019
 ms.author: anshan
 ms.custom: seodec18
 # Customer intent: As a developer, I want to learn about the TSI JavaScript client library, so I can use the APIs in my own applications.
@@ -28,6 +28,7 @@ Specifically, you'll learn about:
 > [!NOTE]
 > * The Tutorial uses a free, hosted, [Time Series Insights web demo](https://insights.timeseries.azure.com/clientsample).
 > * The Time Series Insights sample app source files are provided in the [GitHub sample repository](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
+> * Read the [TSI client reference documentation](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
 
 ## Video
 
@@ -57,8 +58,6 @@ Throughout this tutorial, a free, hosted, Time Series Insights sample app is use
    [![TSI Client sample main page after sign-in](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png)](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png#lightbox)
 
 ### Page source and structure
-
-<div id="page-source-and-structure"></div>
 
 First, let's view the [HTML and JavaScript source code](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) of the rendered web paged:
 
@@ -116,6 +115,9 @@ The [Time Series Insights sample application](https://insights.timeseries.azure.
 
    [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=3-7,34-37)]
 
+> [!TIP]
+> To learn more about Microsoft-supported ADAL libraries, see the [ADAL reference documentation](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries#microsoft-supported-client-libraries).
+
 ### Control identification
 
 In the provided example, `<div>` elements are arranged in the parent `<body>` element to provide a sensible layout for all of the chart controls rendered on the page.
@@ -160,7 +162,7 @@ Populating and rendering chart controls follows a general pattern. This general 
    | `splitByObject`   | The string property that you wish to split by (optional – can be null). | `{property: 'Station', type: 'String'}` |
    | `color`         | The color of the objects that you wish to render. | `'pink'` |
    | `alias`           | A friendly name for the aggregate expression. | `'Factory3Temperature'` |
-   | `contextMenuActions` | An array of actions to be bound to the time series objects in a visualization (optional). | For more information, see the section [Pop-up context menus](#contextMenu) |
+   | `contextMenuActions` | An array of actions to be bound to the time series objects in a visualization (optional). | For more information, see the section [Pop-up context menus](#pop-up-context-menus) |
 
 1. Call a TSI query by using the `TsiClient.Server` APIs to request the aggregate data:
 
@@ -252,8 +254,6 @@ Visually, the diamond markers/pop-up windows that are used to indicate incidents
 
 ### Pop-up context menus
 
-<div id="contextMenu"></div>
-
 Another advanced functionality is the ability to create custom context menus (right-click pop-up menus). Custom context menus are useful for enabling actions and logical next steps within the scope of your application.
 
 Look code around the `// Example 13/14/15` comment. This code initially renders a line chart under the title `"Line Chart with Context Menu to Create Pie/Bar Chart"` and the chart is bound to the `<div>` element with the HTML `id` value `chart13`.
@@ -318,3 +318,8 @@ Or view the TSI sample application source files:
 
 > [!div class="nextstepaction"]
 > [TSI sample app repository](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)
+
+Read the TSI client API reference documentation:
+
+> [!div class="nextstepaction"]
+> [TSI API reference documentation](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)

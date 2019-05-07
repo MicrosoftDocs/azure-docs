@@ -270,6 +270,10 @@ This is a limitation of "group-based assignments to applications", which also af
 
 As a workaround, you should explicitly assign (or otherwise [scope in](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) the groups that contain the users who need to be provisioned.
 
+### Is provisioning between Azure AD and a target application using an encrypted channel?
+
+Yes. We use HTTPS SSL encryption for the server target. 
+
 ## Related articles
 
 - [List of Tutorials on How to Integrate SaaS Apps](../saas-apps/tutorial-list.md)
