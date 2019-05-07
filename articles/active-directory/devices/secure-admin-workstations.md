@@ -83,14 +83,7 @@ Throughout the guidance, multiple scenarios will be addressed to achieve a more 
 ![SECCON Levels](./media/secure-admin-workstations/SECCON-levels.png)
 
 * Standard – A managed standard workstation provides a good starting point for most home, and simple business use.
-   * Azure AD registered
-   * Intune managed
-   * User in Azure AD
-* Enhanced – Is an entry level solution for basics of securing a Windows 10 workstation. All controls from the standard workstation are built on and the [Intune security baselines](https://docs.microsoft.com/Intune/security-baselines) provided as an OOB experience that reduces the risk of the device being compromised.  The Enhanced workstation provides a secure means to ensure that users that require to work with customer data, and must actively do email and web browsing are performed is effectively on the front line and faces high exposure to many common cyberattacks. This workstation profile requires both uninterrupted productivity as well as strong security for common phishing and web-based attack vectors, as detailed with the [highly secure Windows 10 device](http://aka.ms/HighSecWin10).
-   * Azure AD joined
-   * Intune managed
-   * Intune security baseline applied
-   * Hardware meets highly secure Windows 10 device standards
+* Enhanced – Is an entry level solution for basics of securing a Windows 10 workstation. The Enhanced workstation provides a secure means to ensure that users that require to work with customer data, and must actively do email and web browsing are performed is effectively on the front line and faces high exposure to many common cyberattacks. This workstation profile requires both uninterrupted productivity as well as strong security for common phishing and web-based attack vectors, as detailed with the [highly secure Windows 10 device](http://aka.ms/HighSecWin10).
 * VIP – Organizational VIPs reflect the next high-risk user in an organization. VIPs can reflect executives, as well as high profile users that may occasionally have contact with sensitive data such as payroll, or approval of services, and processes. The user profile demands a higher controlled environment while still being able to perform their productivity activity, such as mail, and web browsing while maintaining a simple to use experience. The users expect features such as cookies, favorites, and other shortcuts available to operate. However these users do not require the ability to modify their device, and will not install drivers, develop code, or write scripts. All controls from the enhanced workstation are built on top of.
    * Enhanced Intune security baseline applied
    * Removal of local administrator rights
@@ -120,7 +113,7 @@ The concepts covered in this guide will assume Microsoft 365 Enterprise E5 or an
 
 You may want to configure [group-based licensing](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-groups-assign) for your users to automate provisioning of licenses.
 
-### Azure Active Directory
+### Azure Active Directory configuration
 
 Configuring your Azure Active Directory (Azure AD) directory, which will manage your users, groups, and devices for your administrator workstations requires that you enable identity services and features with an [administrator account](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
@@ -128,7 +121,7 @@ When you create the secured workstation administrator account, you are exposing 
 
 Organizations should require multi-factor authentication, at least for their administrators. See [Deploy cloud-based MFA](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted) for implementation guidance.
 
-#### Azure AD user and group configuration
+#### Azure AD users and groups
 
 From the Azure portal, browse to **Azure Active Directory** > **Users** > **New user**. [Create your Secure Workstation user](https://docs.microsoft.com/Intune/quickstart-create-user), who will be your device administrator.
 
@@ -157,7 +150,7 @@ Second group for workstation devices.
 * **Membership type** - Assigned
 * **Create**
 
-#### Azure AD device configuration settings
+#### Azure AD device configuration
 
 ##### Specify who can join devices to Azure AD
 
@@ -171,11 +164,11 @@ As part of the rollout workstations users of the VIP, DevOps, and Secure level w
 
 To further strengthen the process of joining devices to Azure AD, browse to **Azure Active Directory** > **Devices** > **Device settings** choose **Yes** under **Require Multi-Factor Auth to join devices** then choose **Save**.
 
-#### Configure MDM
+##### Configure MDM
 
 From the Azure portal, browse to **Azure Active Directory** > **Mobility (MDM and MAM)** > **Microsoft Intune**. Change the setting **MDM user scope** to **All** and choose **Save** as we will allow any device to be managed by Intune in this scenario. More information can be found in the article [Intune Quickstart: Set up automatic enrollment for Windows 10 devices](https://docs.microsoft.com/Intune/quickstart-setup-auto-enrollment). We will create Intune configuration and compliance policies in a future step.
 
-#### Azure AD conditional access
+##### Azure AD conditional access
 
 Azure AD conditional access can help keep these privileged administrative tasks on compliant devices. Users we have defined as members of the **Secure Workstation Users** group will be required to perform multi-factor authentication when signing in to cloud applications. We will follow the best practice guidance and exclude our emergency access accounts from the policy. Additional information can be found in the article [Manage emergency access accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 
@@ -198,6 +191,10 @@ To configure conditional access from the Azure portal, browse to **Azure Active 
 Organizations can optionally create policies to block countries where users would not access company resources. More information about IP location-based conditional access policies can be found in the article [What is the location condition in Azure Active Directory conditional access?](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition)
 
 ### Intune configuration
+
+#### Configure Windows Update
+
+
 
 #### Configure enrollment status
 
@@ -287,6 +284,7 @@ Windows Defender Advanced Threat Protection (ATP) - https://docs.microsoft.com/W
 Enable Windows Defender ATP - https://docs.microsoft.com/Windows/security/threat-protection/Windows-defender-atp/Windows-defender-advanced-threat-protection
 
 ### Completing hardening of the workstation profile
+
 
 To successfully harden the secured workstation we will configure the installation by implementing the PowerShell SDK, and device configuration from JSON scripts to import configurations based on the SECCON 3 controls.
 
