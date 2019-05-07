@@ -50,7 +50,7 @@ Before you begin: You need a Log Analytics workspace to store the security logs 
 ## Setting up the 
 1. You need a Log Analytics workspace to store the security logs being analyzed. If you do not have one, then create one. For intstructions, see [Create a Log Analyitcs workspace in the Azure portal](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/quick-create-workspace).
 1. Connect the VM hosting the SQL server to the Log Analytics workspace. For instructions, see [Connect Windows computers to Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/agent-windows).
-1. Go to **Marketplace** > **Get Started**.
+1. Go to **Marketplace** > **Get Started**.  
 1. Search for SQL Advanced Data Security. 
     ![Advanced Data Security for IaaS](./media/security-center-iaas-data/sql-advanced-data-security.png)
 1. Click **SQL Advanced Data Security**. The **SQL Advanced Data Security** page open.
