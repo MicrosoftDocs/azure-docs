@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/04/2019
+ms.date: 04/05/2019
 ms.author: tomfitz
 
 ---
@@ -49,7 +49,7 @@ Resource Manager provides several benefits:
 
 ## Understand management scope
 
-Azure provides four levels of management scope: management groups, subscriptions, resource groups, and resources. [Management groups](../governance/management-groups/index.md) are in a preview release. The following image shows an example of these layers.
+Azure provides four levels of management scope: [management groups](../governance/management-groups/index.md), subscriptions, [resource groups](#resource-groups), and resources. The following image shows an example of these layers.
 
 ![Scope](./media/resource-group-overview/scope-levels.png)
 
@@ -80,6 +80,8 @@ There are some important factors to consider when defining your resource group:
 * A resource can interact with resources in other resource groups. This interaction is common when the two resources are related but don't share the same lifecycle (for example, web apps connecting to a database).
 
 When creating a resource group, you need to provide a location for that resource group. You may be wondering, "Why does a resource group need a location? And, if the resources can have different locations than the resource group, why does the resource group location matter at all?" The resource group stores metadata about the resources. Therefore, when you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
+
+If the resource group's region is temporarily unavailable, you can't update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you can't update them. To minimize risk, locate your resource group and resources in the same region.
 
 ## Resource providers
 

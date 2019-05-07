@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2019
+ms.date: 05/01/2019
 ms.author: tomfitz
 
 ---
@@ -20,6 +20,9 @@ ms.author: tomfitz
 This article shows you how to iterate in your Azure Resource Manager template to create more than one instance of a resource. If you need to specify whether a resource is deployed at all, see [condition element](resource-group-authoring-templates.md#condition).
 
 For a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Resource iteration
 
@@ -141,6 +144,8 @@ For example, to serially deploy storage accounts two at a time, use:
 ```
 
 The mode property also accepts **parallel**, which is the default value.
+
+For information about using copy with nested templates, see [Using copy](resource-group-linked-templates.md#using-copy).
 
 ## Property iteration
 

@@ -12,7 +12,7 @@ ms.custom: mvc
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. I want to be able to set up the resources and the routing using Azure PowerShell.
 ---
 
-# Tutorial: Configure IoT Hub message routing using Azure PowerShell
+# Tutorial: Use Azure PowerShell to configure IoT Hub message routing
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
@@ -28,7 +28,7 @@ If you want to view the finished script, download the [Azure IoT C# Samples](htt
 
 Start by creating the resources with PowerShell.
 
-### Create your resources using PowerShell
+### Use PowerShell to create your base resources
 
 There are several resource names that must be globally unique, such as the IoT Hub name and the storage account name. To make this easier, those resource names are appended with a random alphanumeric value called *randomValue*. The randomValue is generated once at the top of the script and appended to the resource names as needed throughout the script. If you don't want it to be random, you can set it to an empty string or to a specific value. 
 

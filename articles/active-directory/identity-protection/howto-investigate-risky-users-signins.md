@@ -148,7 +148,7 @@ The **Status** filter enables you to select:
 
 ### Download risky users data
 
-You can download the risky users data if you want work with it outside the Azure portal. Clicking Download creates a CSV file of the most recent 5K records. 
+You can download the risky users data if you want to work with it outside the Azure portal. Clicking Download creates a CSV file of the most recent 2,500 records. 
 
 ![Risky users report](./media/howto-investigate-risky-users-signins/07.png)
 
@@ -317,7 +317,7 @@ Possible values are:
 
 ### Download risky sign-ins data
 
-You can download the risky sign-ins data if you want work with it outside the Azure portal. Clicking Download creates a CSV file of the most recent 5K records. 
+You can download the risky sign-ins data if you want to work with it outside the Azure portal. Clicking Download creates a CSV file of the most recent 2,500 records. 
 
 ![Risky users report](./media/howto-investigate-risky-users-signins/15.png)
 

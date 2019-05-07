@@ -3,7 +3,7 @@ title: Trigger Azure Functions using webhooks in Azure IoT Central
 description: Create a function app that runs each time a rule is triggered in Azure IoT Central.
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2018
+ms.date: 03/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central

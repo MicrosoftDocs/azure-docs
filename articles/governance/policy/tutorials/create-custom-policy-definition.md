@@ -1,10 +1,9 @@
 ---
 title: Create a custom policy definition
 description: Craft a custom policy definition for Azure Policy to enforce custom business rules.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/12/2019
+ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
@@ -82,10 +81,10 @@ that includes the property you're looking to manage.
 
 The simplest way to find properties is to look at an existing resource of the same type. Resources
 already configured with the setting you want to enforce also provide the value to compare against.
-Look at the **Automation script** page (under **Settings**) in the Azure portal for that specific
+Look at the **Export template** page (under **Settings**) in the Azure portal for that specific
 resource.
 
-![Automation script page](../media/create-custom-policy-definition/automation-script.png)
+![Export template page on existing resource](../media/create-custom-policy-definition/export-template.png)
 
 Doing so for a storage account reveals a template similar to this example:
 
@@ -243,8 +242,9 @@ Like Azure CLI, the results show an alias supported by the storage accounts name
 another method to find properties of Azure resources. Here is a sample query for looking at a
 single storage account with Resource Graph:
 
-```Query
-where type=~'microsoft.storage/storageaccounts' | limit 1
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
 ```
 
 ```azurecli-interactive
@@ -255,10 +255,25 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-The results look similar to what we see in the Resource Manager templates and through the
-Azure Resource Explorer. However, Azure Resource Graph results also include
-[alias](../concepts/definition-structure.md#aliases) details. Here is example output from a
-storage account for aliases:
+The results look similar to what we see in the Resource Manager templates and through the Azure
+Resource Explorer. However, Azure Resource Graph results can also include [alias](../concepts/definition-structure.md#aliases)
+details by _projecting_ the _aliases_ array:
+
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
+| project aliases
+```
+
+```azurecli-interactive
+az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+Here is example output from a storage account for aliases:
 
 ```json
 "aliases": {

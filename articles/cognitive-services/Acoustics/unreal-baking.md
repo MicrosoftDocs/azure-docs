@@ -35,6 +35,8 @@ The objects tab is the first tab that gets displayed when you open the Acoustics
 
 Select one or more objects in the World Outliner, or use the **Bulk Selection** section to help select all objects of a specific category. Once objects are selected, use the **Tagging** section to apply the desired tag to the selected objects.
 
+If something has neither **AcousticsGeometry** nor **AcousticsNavigation** tag, it will be ignored in the simulation. Only static meshes, nav meshes and landscapes are supported. If you tag anything else, it will be ignored.
+
 ### For reference: The Objects tab parts
 
 ![Screenshot of Acoustics Objects tab in Unreal](media/unreal-objects-tab-details.png)
@@ -58,9 +60,23 @@ Don't include things that shouldn't affect the acoustics, such as invisible coll
 
 An object's transform at the time of the probe calculation (via the Probes tab, below) is fixed in the bake results. Moving any of the marked objects in the scene will require redoing the probe calculation and rebaking the scene.
 
-## Create or tag a navigation mesh
+### Create or tag a navigation mesh
 
-A navigation mesh is used to place probe points for simulation. You can use Unreal's [Nav Mesh Bounds Volume](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html), or you can specify your own navigation mesh. You must tag at least one object as **Acoustics Navigation**.
+A navigation mesh is used to place probe points for simulation. You can use Unreal's [Nav Mesh Bounds Volume](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html), or you can specify your own navigation mesh. You must tag at least one object as **Acoustics Navigation**. If you use Unreal's Navigation mesh, make sure you have it built first.
+
+### Acoustics Volumes ###
+
+There is further, advanced customization you can make on your navigation areas with **Acoustics Volumes**. **Acoustics Volumes** are actors you can add to your scene that allow you to select areas to include and ignore from the navigation mesh. The actor exposes a property that can be switched between "Include" and "Exclude". "Include" volumes ensure only areas of the navigation mesh inside them are considered and "Exclude" volumes mark those areas to be ignored. "Exclude" volumes are always applied after "Include" volumes. Make sure to tag **Acoustics Volumes** as **Acoustics Navigation** through the usual process in the Objects tab. These actors are ***not*** automatically tagged.
+
+![Screenshot of Acoustics Volume properties in Unreal](media/unreal-acoustics-volume-properties.png)
+
+"Exclude" volumes are mainly meant to give fine-grained control on where not to place probes for tightening resource usage.
+
+![Screenshot of Exclude Acoustics Volume in Unreal](media/unreal-acoustics-volume-exclude.png)
+
+"Include" volumes are useful for creating manual sections of a scene, such as if you want to break up your scene into multiple acoustic zones. For example, if you have a large scene, many kilometers squared, and you have two areas of interest you want to bake acoustics on. You can draw two big "Include" volumes in the scene and produce ACE files for each of them one at a time. Then in game, you can use trigger volumes combined with blueprint calls to load the appropriate ACE file when the player approaches each tile.
+
+**Acoustics Volumes** only restrict the navigation and ***not*** the geometry. Each probe inside an "Include" **Acoustics Volume** will still pull in all the necessary geometry outside of the volume when performing wave simulations. Therefore, there shouldn't be any discontinuities in occlusion or other acoustics resulting from the player crossing from one section to another.
 
 ## Select acoustic materials
 
@@ -82,6 +98,7 @@ The reverberation time of a given material in a room is inversely related to its
 4. Shows the acoustic material that the scene material has been assigned to. Click a dropdown to reassign a scene material to a different acoustic material.
 5. Shows the acoustic absorption coefficient of the material selected in the previous column. A value of zero means perfectly reflective (no absorption), while a value of 1 means perfectly absorptive (no reflection). Changing this value will update the Acoustics Material (step #4) to **Custom**.
 
+If you make changes to the materials in your scene, you will need to switch tabs in the Project Acoustics plugin to see those changes reflected in the **Materials** tab.
 
 ## Calculate and review listener probe locations
 
@@ -93,7 +110,7 @@ After assigning the materials, switch to the **Probes** tab.
 
 1. The **Probes** tab button used to bring up this page
 2. A brief description of what you need to do using this page
-3. Use this to choose a coarse or fine simulation resolution. Coarse is faster, but has certain tradeoffs. See [Coarse vs fine resolution](#Coarse-vs-Fine-Resolution) below for details.
+3. Use this to choose a coarse or fine simulation resolution. Coarse is faster, but has certain tradeoffs. See [Bake Resolution](bake-resolution.md) below for details.
 4. Choose the location where the acoustics data files should be placed using this field. Click the button with "..." to use a folder picker. For more information about data files, see [Data Files](#Data-Files) below.
 5. The data files for this scene will be named using the prefix provided here. The default is "[Level Name]_AcousticsData".
 6. Click the **Calculate** button to voxelize the scene and calculate the probe point locations. This is done locally on your machine, and must be done prior to doing a bake. After the probes have been calculated, the controls above will be disabled, and this button will change to say **Clear**. Click the **Clear** button to erase the calculations and enable the controls so that you can recalculate using new settings.
@@ -140,23 +157,9 @@ Probe points are synonymous with possible player (listener) locations. When baki
 
 It's important to check that probe points exist anywhere the player is expected to travel in the scene. Probe points are placed on the navigation mesh by the Project Acoustics engine and can't be moved or edited, so ensure the navigation mesh covers all possible player locations by inspecting the probe points.
 
-![SCreenshot of Acoustics probes preview in Unreal](media/unreal-probes-preview.png)
+![Screenshot of Acoustics probes preview in Unreal](media/unreal-probes-preview.png)
 
-### <a name="Coarse-vs-Fine-Resolution"></a>Coarse vs fine resolution
-
-The only difference between the coarse and fine resolution settings is the frequency at which the simulation is performed. Fine uses a frequency twice as high as coarse.
-While this may seem simple, it has a number of implications on the acoustic simulation:
-
-* The wavelength for coarse is twice as long as fine, and therefore the voxels are twice as large.
-* The simulation time is directly related to the voxel size, making a coarse bake about 16 times faster than a fine bake.
-* Portals (for example, doors or windows) smaller than the voxel size cannot be simulated. The coarse setting may cause some of these smaller portals to not be simulated; therefore, they will not pass sound through at runtime. You can see if this is happening by viewing the voxels.
-* The lower simulation frequency results in less diffraction around corners and edges.
-* Sound sources cannot be located inside "filled" voxels, that is voxels that contain geometry - this results in no sound. It is more difficult to place sound sources so they are not inside the larger voxels of coarse than it is when using the fine setting.
-* The larger voxels will intrude more into portals, as shown below. The first image was created using coarse, while the second is the same doorway using fine resolution. As indicated by the red markings, there is much less intrusion into the doorway using the fine setting. The blue line is the doorway as defined by the geometry, while the red line is the effective acoustic portal defined by the voxel size. How this intrusion plays out in a given situation depends completely on how the voxels line up with the geometry of the portal, which is determined by the size and locations of your objects in the scene.
-
-![Screenshot of coarse voxels filling a doorway in Unreal](media/unreal-coarse-bake.png)
-
-![Screenshot of fine voxels in a doorway in Unreal](media/unreal-fine-bake.png)
+See [Bake Resolution](bake-resolution.md) for more details on coarse vs fine resolution.
 
 ## Bake your level using Azure Batch
 

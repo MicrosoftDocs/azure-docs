@@ -1,9 +1,9 @@
 ---
 title: Manage user access in Azure Active Directory B2C | Microsoft Docs
-description: Learn how to identify minors, collect date of birth and country data, and get acceptance of terms of use in your application by using Azure AD B2C.
+description: Learn how to identify minors, collect date of birth and country/region data, and get acceptance of terms of use in your application by using Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
@@ -19,7 +19,7 @@ This article discusses how to manage user access to your applications by using A
 
 - Identifying minors and controlling user access to your application.
 - Requiring parental consent for minors to use your applications.
-- Gathering birth and country data from users.
+- Gathering birth and country/region data from users.
 - Capturing a terms-of-use agreement and gating access.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -42,7 +42,7 @@ Depending on application regulation, parental consent might need to be granted b
 
 The following is an example of a user flow for gathering parental consent:
 
-1. An [Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog) operation identifies the user as a minor and returns the user data to the application in the form of an unsigned JSON token.
+1. An [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog) operation identifies the user as a minor and returns the user data to the application in the form of an unsigned JSON token.
 
 2. The application processes the JSON token and shows a screen to the minor, notifying him or her that parental consent is required and requesting the consent of a parent online. 
 
@@ -54,11 +54,11 @@ The following is an example of a user flow for gathering parental consent:
 
 For more information about **legalAgeGroupClassification**, **consentProvidedForMinor**, and **ageGroup**, see [User resource type](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). For more information about custom attributes, see [Use custom attributes to collect information about your consumers](active-directory-b2c-reference-custom-attr.md). When you address extended attributes by using the Azure AD Graph API, you must use the long version of the attribute, such as *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
-## Gather date of birth and country data
+## Gather date of birth and country/region data
 
-Applications may rely on Azure AD B2C to gather the date of birth (DOB) and country information from all users during registration. If this information does not already exist, the application can request it from the user during the next authentication (sign-in) journey. Users cannot proceed without providing their DOB and country information. Azure AD B2C uses the information to determine whether the individual is considered a minor according to the regulatory standards of that country. 
+Applications may rely on Azure AD B2C to gather the date of birth (DOB) and country/region information from all users during registration. If this information does not already exist, the application can request it from the user during the next authentication (sign-in) journey. Users cannot proceed without providing their DOB and country/region information. Azure AD B2C uses the information to determine whether the individual is considered a minor according to the regulatory standards of that country/region. 
 
-A customized user flow can gather DOB and country information and use Azure AD B2C claims transformation to determine the **ageGroup** and persist the result (or persist the DOB and country information directly) in the directory.
+A customized user flow can gather DOB and country/region information and use Azure AD B2C claims transformation to determine the **ageGroup** and persist the result (or persist the DOB and country/region information directly) in the directory.
 
 The following steps show the logic that is used to calculate **ageGroup** from the user's date of birth:
 
@@ -74,7 +74,7 @@ The following steps show the logic that is used to calculate **ageGroup** from t
 
 4. If neither calculation returns true, the calculation returns **Adult**.
 
-If an application has reliably gathered DOB or country data by other methods, the application may use the Graph API to update the user record with this information. For example:
+If an application has reliably gathered DOB or country/region data by other methods, the application may use the Graph API to update the user record with this information. For example:
 
 - If a user is known to be an adult, update the directory attribute **ageGroup** with a value of **Adult**.
 - If a user is known to be a minor, update the directory attribute **ageGroup** with a  value of **Minor** and set **consentProvidedForMinor**, as appropriate.

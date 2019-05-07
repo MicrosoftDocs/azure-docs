@@ -9,14 +9,14 @@ ms.reviewer: barbkess
 
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/07/2019
+ms.date: 04/10/2019
 ms.author: jeedes
 
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Evernote
 
@@ -49,7 +49,7 @@ To configure the integration of Evernote into Azure AD, you need to add Evernote
 
 **To add Evernote from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click the **Azure Active Directory** icon.
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
@@ -57,11 +57,11 @@ To configure the integration of Evernote into Azure AD, you need to add Evernote
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add new application, click **New application** button on the top of dialog.
+3. To add a new application, click the **New application** button at the top of the dialog.
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Evernote**, select **Evernote** from result panel then click **Add** button to add the application.
+4. In the search box, type **Evernote**, select **Evernote** from the result panel then click the **Add** button to add the application.
 
 	 ![Evernote in the results list](common/search-new-app.png)
 
@@ -93,11 +93,11 @@ To configure Azure AD single sign-on with Evernote, perform the following steps:
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. On the **Set up Single Sign-On with SAML** page, click the **Edit** icon to open the **Basic SAML Configuration** dialog.
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following step:
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
 
     ![Evernote Domain and URLs single sign-on information](common/idp-identifier.png)
 
@@ -115,13 +115,23 @@ To configure Azure AD single sign-on with Evernote, perform the following steps:
 
 	![The Certificate download link](common/certificatebase64.png)
 
-7. On the **Set up Evernote** section, copy the appropriate URL(s) as per your requirement.
+7. To modify the **Signing** options, click the **Edit** button to open the **SAML Signing Certificate** dialog.
+
+	![image](common/edit-certificate.png) 
+
+	![image](./media/evernote-tutorial/samlassertion.png)
+
+	a. Select the **Sign SAML response and assertion** option for **Signing Option**.
+
+	b. Click **Save**
+
+8. On the **Set up Evernote** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
@@ -167,8 +177,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
@@ -229,7 +238,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Evernote tile in the Access Panel, you should be automatically signed in to the Evernote for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ---
 
-# Set up a device template (New UI design)
+# Set up a device template
 
 A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an Azure IoT Central application.
 
@@ -276,3 +276,5 @@ Now that you've learned how to set up a device template in your Azure IoT Centra
 
 > [!div class="nextstepaction"]
 > [Create a new device template version](howto-version-devicetemplate.md)
+> [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit.md)
+> [Connect a generic client application to your Azure IoT Central application (Node.js)](howto-connect-nodejs.md)

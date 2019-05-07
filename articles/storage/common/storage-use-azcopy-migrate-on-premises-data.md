@@ -2,12 +2,13 @@
 title: 'Tutorial: Migrate on-premises data to Azure Storage by using AzCopy| Microsoft Docs'
 description: In this tutorial, you use AzCopy to migrate data or copy data to or from blob, table, and file content. Easily migrate data from your local storage to Azure Storage.
 services: storage
-author: roygara
+author: normesta
 
 ms.service: storage
 ms.topic: tutorial
 ms.date: 12/14/2017
-ms.author: rogarana
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: common
 #Customer intent: As a customer with data, I want to move my data from its existing location so that I can have access to that data in my storage account.
 ---
@@ -123,7 +124,7 @@ crontab -e
 */5 * * * * sh /path/to/script.sh
 ```
 
-Specifying the cron expression `*/5 * * * * ` in the command indicates that the shell script `script.sh` should run every five minutes. You can schedule the script to run at a specific time daily, monthly, or yearly. To learn more about setting the date and time for job execution, see [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+Specifying the cron expression `*/5 * * * *` in the command indicates that the shell script `script.sh` should run every five minutes. You can schedule the script to run at a specific time daily, monthly, or yearly. To learn more about setting the date and time for job execution, see [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
 # [Windows](#tab/windows)
 

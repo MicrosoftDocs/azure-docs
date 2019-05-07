@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 3/27/2019
+ms.date: 4/15/2019
 ms.author: barclayn
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
@@ -152,6 +152,10 @@ Yes. Each HSM appliance is fully dedicated to one single customer and no one els
 
 Microsoft does not have any administrative or cryptographic control over the HSM. Microsoft does have monitor level access via serial port connection to retrieve basic telemetry such as temperature and component health. This allows Microsoft to provide proactive notification of health issues. If required, the customer can disable this account.
 
+### Q: What is the "tenantadmin" account Microsoft uses, I am used to the admin user being "admin" on SafeNet HSMs?
+
+The HSM device ships with a default user of admin with its usual default password. Microsoft did not want to have default passwords in use while any device is in a pool waiting to be provisioned by customers. This would not meet our strict security requirements. For this reason, we set a strong password which is discarded at provisioning time. Also, at provisioning time we create a new user in the admin role called "tenantadmin". This user has the default password and customers change this as the first action when first logging into the newly provisioned device. This process ensures high degrees of security and maintains our promise of sole administrative control for our customers. It should be noted that the "tenantadmin" user can be used to reset the admin user password if a customer prefers to use that account. 
+
 ### Q: Can Microsoft or anyone at Microsoft access keys in my Dedicated HSM?
 
 No. Microsoft does not have any access to the keys stored in customer allocated Dedicated HSM.
@@ -178,7 +182,7 @@ Yes. You can send logs from the HSM appliance to a syslog server
 
 ## High availability
 
-### Q: Is it possible to configure high-availability in the same region or across multiple regions?
+### Q: Is it possible to configure high availability in the same region or across multiple regions?
 
 Yes. High availability configuration and setup are performed in the HSM client software provided by Gemalto. HSMs from the same VNET or other VNETs in the same region or across regions, or on premises HSMs connected to a VNET using site-to-site or point-to-point VPN can be added to same high availability configuration. It should be noted that this synchronizes key material only and not specific configuration items such as roles.
 
@@ -198,7 +202,7 @@ No.
 
 ### Q: What is the SLA for Dedicated HSM service?
 
-There is no specific uptime guarentee provided for the Dedicated HSM service. Microsoft will ensure network level access to the device, and hence standard Azure networking SLAs apply.
+There is no specific uptime guarantee provided for the Dedicated HSM service. Microsoft will ensure network level access to the device, and hence standard Azure networking SLAs apply.
 
 ### Q: How are the HSMs used in Azure Dedicated HSM protected?
 
@@ -214,7 +218,7 @@ It is highly recommended to use an on-premises HSM backup device to perform regu
 
 ### Q: How do I get support for Dedicated HSM?
 
-Support is provided by both Microsoft and Gemalto.  If you have an issue with the hardware or network access, raise a support request with Microsoft and if you have an issue with HSM configuration, software and application development please rasie a support request with Gemalto. If you have an undetermined issue, raise a support request withg Microsoft and then Gemalto can be engaged as required. 
+Support is provided by both Microsoft and Gemalto.  If you have an issue with the hardware or network access, raise a support request with Microsoft and if you have an issue with HSM configuration, software and application development please raise a support request with Gemalto. If you have an undetermined issue, raise a support request with Microsoft and then Gemalto can be engaged as required. 
 
 ### Q: How do I get the client software, documentation and access to integration guidance for the SafeNet Luna 7 HSM?
 

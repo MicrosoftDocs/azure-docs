@@ -70,7 +70,7 @@ The Azure portal shows only features that currently work for Web App for Contain
 
 App Service on Linux is only supported with [Basic, Standard, and Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) app service plans and does not have a [Free or Shared](https://azure.microsoft.com/pricing/details/app-service/plans/) tier. You cannot create Web App for Containers in an App Service plan already hosting non-Linux Web Apps.  
 
-Also, based on a current limitation, don't mix Windows and Linux apps in the same resource group.
+Based on a current limitation, you cannot mix Windows and Linux apps in the same resource group.
 
 ## Troubleshooting
 
