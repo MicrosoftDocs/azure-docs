@@ -342,13 +342,13 @@ In the **Storage Account Type** box, select **Premium Storage**. All other setti
 
 ## Adjust cluster timeout settings
 
-After you successfully install the Windows Scale-Out File Server cluster, you need to change some thresholds so they adapt failover detection to conditions in Azure. The parameters to be changed are documented in [Tuning failover cluster network thresholds][tuning-failover-cluster-network-thresholds]. Assuming that your VMs that make up the Windows cluster configuration are in the same subnet, change the following parameters to these values:
+After you successfully install the Windows Scale-Out File Server cluster, adapt timeout thresholds for failover detection to conditions in Azure. The parameters to be changed are documented in [Tuning failover cluster network thresholds][tuning-failover-cluster-network-thresholds]. Assuming that your clustered VMs are in the same subnet, change the following parameters to these values:
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
 - RoutingHistoryLength = 30
 
-These settings were tested with customers, and offer a good compromise. They are resilient enough, but they also provide failover that is fast enough in real error conditions or in a case of a node or VM failure.
+These settings were tested with customers, and offer a good compromise. They are resilient enough, but they also provide fast enough failover in real error conditions or in a case of a node or VM failure.
 
 ## Next steps
 
