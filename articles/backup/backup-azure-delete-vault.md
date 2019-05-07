@@ -44,7 +44,7 @@ If you receive an error, remove [backup items](#remove-backup-items), [infrastru
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-### Use PowerShell command to install ARM client:
+Install ARMClient as detailed [here](https://github.com/projectkudu/ARMClient/blob/master/README.md).
 
 1. Sign in to your Azure subscription with the `Connect-AzAccount` command, and follow the on-screen directions.
 
@@ -81,7 +81,7 @@ If you receive an error, remove [backup items](#remove-backup-items), [infrastru
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
-   
+
 3. In the Azure portal, verify that the vault is deleted.
 
 
