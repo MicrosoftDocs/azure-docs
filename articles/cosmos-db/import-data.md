@@ -85,12 +85,12 @@ The connection string is in the following format:
 
 `AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>`
 
-The `<CosmosDB Endpoint>` is the "Host" in [Azure Cosmos DB account] > [Connection Strings] with port number 443 and 'https://'.  
-The `<AccountKey>` is the "Password" in [Azure Cosmos DB account] > [Connection Strings].  
-The `<CosmosDB Database>` is the Cosmos DB database name. 
+* The `<CosmosDB Endpoint>` is the "Host" URI. You can get this value from the Azure Portal. Navigate to your Azure Cosmos account, and open the **Connection Strings** or **Keys** pane, and copy the URI/Host field value.
+* The `<AccountKey>` is the "Password" or **PRIMARY KEY**. You can get this value from the Azure Portal. Navigate to your Azure Cosmos account, and open the **Connection Strings** or **Keys** pane, and copy the "Password" or **PRIMARY KEY** value.
+* The `<CosmosDB Database>` is the Cosmos DB database name.
   
 Example: 
-`AccountEndpoint=https://myCosmosDbName.documents.azure.com:443;AccountKey=wJmFRYna6ttQ79ATmrTMKql8vPri84QBiHTt6oinFkZRvoe7Vv81x9sn6zlVlBY10bEPMgGM982wfYXpWXWB9w==;Database=ToDoList`
+`AccountEndpoint=https://myCosmosDbName.documents.azure.com;AccountKey=wJmFRYna6ttQ79ATmrTMKql8vPri84QBiHTt6oinFkZRvoe7Vv81x9sn6zlVlBY10bEPMgGM982wfYXpWXWB9w==;Database=myDBName`
   
 > [!NOTE] Use the Verify command to ensure that the Cosmos DB account specified in the connection string field can be accessed.
 
