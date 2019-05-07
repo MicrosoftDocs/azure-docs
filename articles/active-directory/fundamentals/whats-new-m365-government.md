@@ -30,9 +30,9 @@ This article doesn't apply to Microsoft 365 Government – GCC customers.
 
 ## Changes to the initial domain name
 
-During your organization's initial sign up for a Microsoft 365 Government online service, you were asked to choose your organization's domain name, &lt;_your-domain-name_&gt;.onmicrosoft.com. If you already have a domain name with the .com suffix, nothing will change.
+During your organization's initial sign-up for a Microsoft 365 Government online service, you were asked to choose your organization's domain name, &lt;_your-domain-name_&gt;.onmicrosoft.com. If you already have a domain name with the .com suffix, nothing will change.
 
-However, if you're signing up for a new Microsoft 365 Government service, you'll be asked to choose a domain name using the .us suffix. So it will be &lt;_your-domain-name_&gt;.onmicrosoft.us.
+However, if you're signing up for a new Microsoft 365 Government service, you'll be asked to choose a domain name using the .us suffix. So, it will be &lt;_your-domain-name_&gt;.onmicrosoft.us.
 
 >[!Note]
 >This change doesn't apply to any customers who are managed by cloud service providers (CSPs).
@@ -41,7 +41,7 @@ However, if you're signing up for a new Microsoft 365 Government service, you'll
 
 We've updated the portal endpoints for Microsoft Azure Government, Microsoft 365 Government – GCC High, and Microsoft 365 Government – DoD, as shown in the [Endpoint mapping table](#endpoint-mapping).
 
-Previously customers could sign in using the worldwide Azure (portal.azure.com) and Office 365 (portal.office.com) portals. With this update, your users must now sign in using the specific Microsoft Azure Government, Microsoft 365 Government - GCC High, and Microsoft 365 Government - DoD portals.
+Previously customers could sign in using the worldwide Azure (portal.azure.com) and Office 365 (portal.office.com) portals. With this update, customers must now sign in using the specific Microsoft Azure Government, Microsoft 365 Government - GCC High, and Microsoft 365 Government - DoD portals.
 
 ## Endpoint mapping
 The following table shows the endpoints for all customers:
@@ -52,13 +52,13 @@ The following table shows the endpoints for all customers:
 | Azure Active Directory Authority Endpoint | https://login.microsoftonline.us |
 | Azure Active Directory Graph API | https://graph.microsoftazure.us |
 | Microsoft Graph API for Microsoft 365 Government - GCC High | https://graph.microsoft.us |
-| Azure government services endpoints | For details, see [Azure Government developer guide](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
+| Azure Government services endpoints | For details, see [Azure Government developer guide](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
 | Microsoft 365 Government - GCC High endpoints | For details, see [Office 365 U.S. Government GCC High endpoints](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
 | Microsoft 365 Government - DoD | For details, see [Office 365 U.S. Government DoD endpoints](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) |
 
 ## Learn more
 
-For more information see these articles:
+For more information, see these articles:
 
 - [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
 
