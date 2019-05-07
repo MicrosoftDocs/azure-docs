@@ -18,13 +18,16 @@ IoT Central provides the flexibility to customize your applications to fit your 
 
 ## Changing language
 
-IoT Central is supported in multiple languages. You can switch your preferred language by using the **language picker** on the settings icon on the top navigation bar. Once you've changed your language, IoT Central remembers your selection and applies it across all your applications. Note that customization within the application such dashboard images aren't localized.
+IoT Central is supported in multiple languages. You can switch your preferred language by using the **language picker** on the settings icon on the top navigation bar. Once you've changed your language, IoT Central remembers your selection and applies it across all your applications. Customization within the application such dashboard images aren't localized.
 
 ## Changing theme
 
-We have support for both dark theme and light theme. While the light theme is the default, you can change this by selecting the settings icon on the top navigation bar.
+We have support for both dark theme and light theme. While the light theme is the default, you can change the theme by selecting the settings icon on the top navigation bar.
 
 ![IoT Central theme picker](media/howto-manage-preferences/settings.png)
+
+> [!NOTE]
+> The option to choose between light and dark themes isn't available if your administrator has configured a custom theme for the application.
 
 ## Next steps
 
