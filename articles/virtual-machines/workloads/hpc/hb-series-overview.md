@@ -17,9 +17,9 @@ ms.author: amverma
 
 # HB-Series overview
 
-Maximizing HPC application performance on AMD EPYC requires a thoughtful approach memory locality and process placement. Below, we outline the AMD EPYC architecture and our implementation of it on Azure for HPC applications. We will use the term “pNUMA” to refer to a physical NUMA domain, and “vNUMA” to refer to a virtualized NUMA domain.
+Maximizing high performance compute (HPC) application performance on AMD EPYC requires a thoughtful approach memory locality and process placement. Below we outline the AMD EPYC architecture and our implementation of it on Azure for HPC applications. We will use the term “pNUMA” to refer to a physical NUMA domain, and “vNUMA” to refer to a virtualized NUMA domain.
 
-Physically, a HB-series is 2 * 32-core EPYC 7551 CPUs for a total of 64 physical cores. These 64 cores are divided into 16 pNUMA domains (8 per socket), each of which is 4 cores and known as a “CPU Complex” (or “CCX”). Each CCX has its own L3 cache, which is how an OS will see a pNUMA/vNUMA boundary. A pair of adjacent CCXs shares access to 2-channels of physical DRAM (32 GB of DRAM in HB-series servers).
+Physically, a HB-series is 2 * 32-core EPYC 7551 CPUs for a total of 64 physical cores. These 64 cores are divided into 16 pNUMA domains (8 per socket), each of which is four cores and known as a “CPU Complex” (or “CCX”). Each CCX has its own L3 cache, which is how an OS will see a pNUMA/vNUMA boundary. A pair of adjacent CCXs shares access to two channels of physical DRAM (32 GB of DRAM in HB-series servers).
 
 To provide room for the Azure hypervisor to operate without interfering with the VM, we reserve physical pNUMA domain 0 (the first CCX). We then assign pNUMA domains 1-15 (the remaining CCX units) for the VM. The VM will see:
 
@@ -29,14 +29,15 @@ The VM, itself, doesn't know that pNUMA 0 wasn't given to it. The VM understands
 
 Process pinning will work on HB-series VMs because we expose the underlying silicon as-is to the guest VM. We strongly recommend process pinning for optimal performance and consistency.
 
-More on AMD EPYC architecture at: https://bit.ly/2GpQIMb and https://bit.ly/2Epv3kC, and an HPC Tuning Guide for AMD EPYC Processors at: https://bit.ly/2T3AWZ9
+See more on [AMD EPYC architecture](https://bit.ly/2Epv3kC) and [multi-chip architectures](https://bit.ly/2GpQIMb) on LinkedIn. For more detailed information, see the [HPC Tuning Guide for AMD EPYC Processors](https://bit.ly/2T3AWZ9).
 
 Topology of EPYC 2P Server
 
 ![Topology of EPYC 2P Server](./media/hb-series-overview/dual-socket.png)
 
 Segregation of cores reserved for Azure Hypervisor and HB-series VM
-![Segregation of cores reserved for Azure Hypervisor and HB-series VM](./media/hb-series-overview/segregation-of-cores.png)
+
+![Segregation of cores reserved for Azure Hypervisor and HB-series VM](./media/hb-series-overview/segregation-cores.png)
 
 ## Hardware specifications
 
@@ -48,13 +49,13 @@ Segregation of cores reserved for Azure Hypervisor and HB-series VM
 | Memory                           | 4 GB/core (240 total)            |
 | Local Disk                       | 700 GB NVMe                      |
 | Infiniband                       | 100 Gb EDR Mellanox ConnectX-5** |
-| Network                          | 50 Gb Ethernet (40 Gb usable) Azure 2nd Gen SmartNIC*** |
+| Network                          | 50 Gb Ethernet (40 Gb usable) Azure second Gen SmartNIC*** |
 
 ## Software specifications
 
 | SW Specifications           |HB-series VM           |
 |-----------------------------|-----------------------|
-| Max MPI Job Size            | 6000 cores  (100 VMSS) 12000 cores (200 VMSS)  |
+| Max MPI Job Size            | 6000 cores  (100 virtual machine scale sets) 12000 cores (200 virtual machine scale sets)  |
 | MPI Support                 | MVAPICH2, OpenMPI, MPICH, Platform MPI, Intel MPI  |
 | Additional Frameworks       | Unified Communication X, libfabric, PGAS |
 | Azure Storage Support       | Std + Premium (max 4 disks) |
@@ -64,4 +65,6 @@ Segregation of cores reserved for Azure Hypervisor and HB-series VM
 
 ## Next steps
 
-Learn more about [high-performance computing](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
+* Learn more about [high-performance computing](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
+
+* See more on [AMD EPYC architecture](https://bit.ly/2Epv3kC) and the [HPC Tuning Guide for AMD EPYC Processors](https://bit.ly/2T3AWZ9).
