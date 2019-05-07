@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -154,7 +154,7 @@ When you ship drives to Azure, you pay the shipping cost to the shipping carrier
 
 **Transaction costs**
 
-There are no transaction costs in addition to standard storage transaction costs when importing data into Azure Storage. The standard egress charges are applicable when data is exported from Blob storage. For more information on transaction costs, see [Data transfer pricing.](https://azure.microsoft.com/pricing/details/data-transfers/)
+[Standard storage transaction charge](https://azure.microsoft.com/pricing/details/storage/) apply during import as well as export of data. Standard egress charges are also applicable along with storage transaction charges when data is exported from Azure Storage. For more information on egress costs, see [Data transfer pricing.](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 
 

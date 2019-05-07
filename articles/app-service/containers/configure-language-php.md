@@ -184,7 +184,7 @@ Create a directory in `/home/site` called `ini`, then create an *.ini* file in t
 > In the built-in Linux containers in App Service, */home* is used as persisted shared storage. 
 >
 
-For example, to change the value of [expose_php](http://php.net/manual/ini.core.php#ini.expose-php) run the following commands:
+For example, to change the value of [expose_php](https://php.net/manual/ini.core.php#ini.expose-php) run the following commands:
 
 ```bash
 cd /home/site
