@@ -67,7 +67,7 @@ Yes. See [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fv
 
 ### Are there any restrictions on using IP addresses within these subnets?
 Yes. Azure reserves 5 IP addresses within each subnet. These are x.x.x.0-x.x.x.3 and the last address of the subnet.    
-- x.x.x.0 and the last address is reserved for protocol conformance.
+- x.x.x.0 and the last address of the subnet is reserved for protocol conformance.
 - x.x.x.1-x.x.x.3 is reserved in each subnet for Azure services.
 
 ### How small and how large can VNets and subnets be?
