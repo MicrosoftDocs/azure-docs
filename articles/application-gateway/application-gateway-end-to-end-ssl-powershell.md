@@ -169,7 +169,7 @@ All configuration items are set before creating the application gateway. The fol
    ```
 
    > [!NOTE]
-   > The certificate provided in this step should be the public key of the .pfx certificate present on the back end. Export the certificate (not the root certificate) installed on the back-end server in Claim, Evidence, and Reasoning (CER) format and use it in this step. This step whitelists the back end with the application gateway.
+   > The certificate provided in the previous step should be the public key of the .pfx certificate present on the back end. Export the certificate (not the root certificate) installed on the back-end server in Claim, Evidence, and Reasoning (CER) format and use it in this step. This step whitelists the back end with the application gateway.
 
    If you are using the Application Gateway v2 SKU, then create a trusted root certificate instead of an authentication certificate. For more information, see [Overview of end to end SSL with Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku):
 
