@@ -25,7 +25,7 @@ This article describes two settings that impact data retention in your Time Seri
 
 Each of your Azure Time Series environments has a setting that controls **Data retention time**. The value spans from 1 to 400 days. The data is deleted based on the environment storage capacity or retention duration, whichever comes first.
 
-Additionally, your Azure Time Series environment has a **Storage limit exceeded behavior** setting. Itcontrols ingress and purge behavior when the max capacity of an environment is reached. There are two behaviors to choose from when configuring it:
+Additionally, your Azure Time Series environment has a **Storage limit exceeded behavior** setting. It controls ingress and purge behavior when the max capacity of an environment is reached. There are two behaviors to choose from when configuring it:
 
 - **Purge old data** (default)  
 - **Pause ingress**
