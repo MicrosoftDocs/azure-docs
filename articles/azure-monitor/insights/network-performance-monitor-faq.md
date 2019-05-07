@@ -143,6 +143,17 @@ A hop may not respond to a traceroute in one or more of the below scenarios:
 * The network devices are not allowing ICMP_TTL_EXCEEDED traffic.
 * A firewall is blocking the ICMP_TTL_EXCEEDED response from the network device.
 
+### Why does my link show unhealthy but the topology does not 
+NPM monitors end-to-end loss , latency and topology at different intervals. Loss and latency is measured once every 5 seconds and aggregated every 3 minutes (for Performance Monitor and Express Route Monitor) while topology is calculated using traceroute once every 10 minutes. For example, between 3:44 and 4:04 , topology may be updated 3 times (3:44, 3:54 , 4:04) , but loss and latency is updated about 7 times (3:44, 3:47 , 3:50 , 3:53 , 3:56 , 3:59, 4:02). The topology generated at 3:54 will continue to show up for the loss and latency calculated at 3:56, 3:59 and 4:02. Suppose you get an alert that your ER circuit was unhealthy at 3:59,  you come to NPM and try to set the topology time to 3:59.  NPM will render the topology generated at 3:54. To understand the last known topology of your network compare the fields TimeProcessed (time at which loss and latency was calculated) and TracerouteCompletedTime(time at which topology was calculated). 
+
+### What is the differrence between the fields E2EMedianLatency and AvgHopLatencyList in the NetworkMonitoring table
+E2EMedianLatency is the latency updated every 3 minutes after aggregating the results of ping based tests, whereas AvgHopLatencyList is updated every 10 mins based on traceroute. To understand the exact time at which E2EMedianLatency was calculated, use the field TimeProcessed. To understand the exact time at which traceroute completed and updated AvgHopLatencyList, use the field TracerouteCompletedTime
+
+### Why does hop-by-hop latency numbers differ from HopLatencyValues 
+HopLatencyValues are source to endpoint.
+For Example : Hops : A,B,C .  AvgHopLatency : 10,15,20 . This means source to A latency =10, source to B latency = 15  and source to C latency is 20. 
+UI will calculate A-B hop latency as 5 in the toplogy
+
 ### The solution shows 100% loss but there is connectivity between the source and destination
 This can happen if either the host firewall or the intermediate firewall (network firewall or Azure NSG) is blocking the communication between the source agent and the destination over the port being used for monitoring by NPM (by default the port is 8084, unless the customer has changed this).
 
