@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Manage user settings with Azure Multi-Factor Authentication in the cloud
 
-As an administrator, you can manage the following user and device settings: 
+As an administrator, you can manage the following user and device  settings: 
 
 * Require users to provide contact methods again
 * Delete app passwords
