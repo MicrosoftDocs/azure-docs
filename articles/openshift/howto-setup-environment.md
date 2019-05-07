@@ -77,7 +77,13 @@ To register these providers and features manually, use the following instruction
     az provider register -n Microsoft.Network --wait
     ```
 
-5. Refresh the registration of the Microsoft.ContainerService resource provider:
+5. Register the Microsoft.KeyVault provider:
+
+    ```bash
+    az provider register -n Microsoft.KeyVault --wait
+    ```
+
+6. Refresh the registration of the Microsoft.ContainerService resource provider:
 
     ```bash
     az provider register -n Microsoft.ContainerService --wait
