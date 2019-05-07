@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 04/30/2019
+ms.date: 05/07/2019
 ms.custom: seodec18
 ---
 
@@ -80,7 +80,7 @@ To fix the lag, increase the SKU capacity of your environment. For more informat
 
 ### Cause B: initial ingestion of historical data slows ingress
 
-If you connect an existing event source, it's likely that your IoT hub or event hub already contains data. The environment starts pulling data from the beginning of the event source's message retention period. This is the default processing and can't be overridden. You can engage throttling. Throttling might take a while to catch up as it ingests historical data.
+If you connect an existing event source, it's likely that your IoT hub or event hub already contains data. The environment starts pulling data from the beginning of the event source's message retention period. This default processing can't be overridden. You can engage throttling. Throttling might take a while to catch up as it ingests historical data.
 
 #### Recommended resolutions for large initial ingestion
 
