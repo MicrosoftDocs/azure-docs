@@ -23,23 +23,32 @@ This article explains how to configure the authentication and authorization used
 
 ## Service principal
 
-This section explains how to configure an application to access the Time Series Insights API on behalf of the application. The application can then query data or publish reference data in the Time Series Insights environment with application credentials rather than user credentials.
+This and following sections describe how to configure an application to access the Time Series Insights API on behalf of the application. The application can then query or publish reference data in the Time Series Insights environment with application credentials rather than user credentials.
 
-When you have an application that must access Time Series Insights, you must set up an Azure Active Directory application and assign the data access policies in the Time Series Insights environment. This approach is preferable to running the app under your own credentials because:
+## Best Practices
 
-* You can assign permissions to the app identity that are different from your own permissions. Typically, these permissions are restricted to only what the app requires. For example, you can allow the app to only read data in a particular Time Series Insights environment.
+When you have an application that must access Time Series Insights:
+
+1. Set up an Azure Active Directory app.
+1. Assign data access policies in the Time Series Insights environment.
+
+Using application rather than your own, user, creditionals is desireable since:
+
+* You can assign permissions to the app identity that are distinct from your own permissions. Typically, these permissions are restricted to only what the app requires. For example, you can allow the app to only read data in a particular Time Series Insights environment.
 * You don't have to change the app's credentials, if your responsibilities change.
 * You can use a certificate or an application key to automate authentication when you're running an unattended script.
 
-This article shows how to perform those steps through the Azure portal. It focuses on a single-tenant application where the application is intended to run in only one organization. You typically use single-tenant applications for line-of-business applications that run in your organization.
+The following sections demonstrate how to perform those steps through the Azure portal. The article focuses on a single-tenant application where the application is intended to run in only one organization. You'll typically use single-tenant applications for line-of-business applications that run in your organization.
 
-The setup flow consists of three high-level steps:
+## Set up summary
+
+The setup flow consists of three steps:
 
 1. Create an application in Azure Active Directory.
 1. Authorize this application to access the Time Series Insights environment.
-1. Use the application ID and key to acquire a token to the `https://api.timeseries.azure.com/` audience or resource. The token can then be used to call the Time Series Insights API.
+1. Use the application ID and key to acquire a token from `https://api.timeseries.azure.com/`. The token can then be used to call the Time Series Insights API.
 
-Here are the detailed steps:
+## Detailed setup
 
 1. In the Azure portal, select **Azure Active Directory** > **App registrations** > **New application registration**.
 
@@ -69,7 +78,7 @@ Here are the detailed steps:
 
 1. In the **Select User** dialog box, paste the application name (from **step 2**) or application ID (from **step 3**).
 
-  [![Find an application in the Select User dialog box](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
+   [![Find an application in the Select User dialog box](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
 
 1. Select the role (**Reader** for querying data, **Contributor** for querying data and changing reference data) and click **OK**.
 
