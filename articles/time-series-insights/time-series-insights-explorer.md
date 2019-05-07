@@ -48,7 +48,7 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
 1. Once you select an environment, either use the **FROM** and **TO** configurations at the top, or click and drag over your desired time span.  Click the magnifying glass at the top right, or right-click over the selected timespan and select **Search**.  
 
-1. You can also refresh availability automatically every minute, by selecting the **Auto On** button.  Note, the 'Auto-On' button only applies to the availability chart, not the content of the main visualization.
+1. You can also refresh availability automatically every minute, by selecting the **Auto On** button. The **Auto-On** button only applies to the availability chart, not the content of the main visualization.
 
 1. Notice, the Azure cloud icon takes you to your environment in the Azure portal.
 
@@ -56,7 +56,7 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
 1. Next, you see a chart that shows a count of all events during the selected timespan.  Here you have a number of controls:
 
-    **Terms Editor Panel**:  The term space is where you query your environment.  It’s found on the left-hand side of the screen, enables 
+    **Terms Editor Panel**:  The term space is where you query your environment.  It’s found on the left-hand side of the screen:
       - **Measure**:  This drop down shows all numeric columns (**Doubles**)
       - **Split By**: This drop down shows categorical columns (**Strings**)
       - You can enable step interpolation, show minimum and maximum, and adjust the Y-axis from the control panel next to measure.  Additionally, you can adjust whether data shown is a count, average, or sum of the data.
@@ -64,12 +64,12 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
         [![Terms Editor panel](media/time-series-insights-explorer/explorer2.png)](media/time-series-insights-explorer/explorer2.png#lightbox)
 
-      - **Predicate**:  The predicate enables you to quickly filter your events using the set of operands listed below. If you conduct a search by selecting/clicking, the predicate will automatically update based on that search.      Supported operand types include:
+      - **Predicate**:  The predicate enables you to quickly filter your events using the set of operands listed below. If you conduct a search by selecting/clicking, the predicate will automatically update based on that search. Supported operand types include:
 
          |Operation  |Supported types  |Notes  |
          |---------|---------|---------|
-         |<, >, <=, >=     |  Double, DateTime, TimeSpan       |         |
-         |=, !=, <>     | String, Bool, Double, DateTime, TimeSpan, NULL        |         |
+         |`<`, `>`, `<=`, `>=`     |  Double, DateTime, TimeSpan       |         |
+         |`=`, `!=`, `<>`     | String, Bool, Double, DateTime, TimeSpan, NULL        |         |
          |IN     | String, Bool, Double, DateTime, TimeSpan, NULL        |  All operands should be of the same type or be NULL constant.        |
          |HAS     | String        |  Only constant string literals are allowed at right-hand side. Empty string and NULL are not allowed.       |
 
@@ -84,7 +84,7 @@ Within minutes of connecting your event source to your Time Series Insights envi
 1. The **Save** command lets you save your current query and enable it for sharing with other users of the environment. Using **Open**, you can see all of your saved queries and any shared queries of other users in environments you have access to.
 
    [![Queries](media/time-series-insights-explorer/explorer3.png)](media/time-series-insights-explorer/explorer3.png#lightbox)
-   
+
 ## Visualize data
 
 1. The **Perspective View** tool provides a simultaneous view of up to four unique queries. You can find the perspective view button in the upper right corner of the chart.  
@@ -93,10 +93,10 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
 1. The **Chart** lets you visually explore your data. Chart tools include:
 
-    - Select/click, which enables a selection of a specific timespan or of a single data series.  
+    - **Select/click**, which enables a selection of a specific timespan or of a single data series.  
     - Within a time span selection, you can zoom or explore events.  
     - Within a data series, you can split the series by another column, add the series as a new term, show only the selected series, exclude the selected series, ping that series, or explore events from the selected series.
-    - In the filter area to the left of the chart, you can see all displayed data series and reorder by value or name, view all data series or specifically pinned or unpinned series.  You can also select a single data series and split the series by another column, add the series as a new term, show only the selected series, exclude the selected series, pin that series, or explore events from the selected series.
+    - In the filter area to the left of the chart, you can see all displayed data series and reorder by value or name, view all data series, or any pinned or unpinned series.  You can also select a single data series and split the series by another column, add the series as a new term, show only the selected series, exclude the selected series, pin that series, or explore events from the selected series.
     - When viewing multiple terms simultaneously, you can stack, unstack, see additional data about a data series, and use the same Y-axis across all terms with the buttons in the top right-hand corner of the chart.
 
     [![Chart tool](media/time-series-insights-explorer/explorer5.png)](media/time-series-insights-explorer/explorer5.png#lightbox)
@@ -105,13 +105,13 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
     [![Heatmap](media/time-series-insights-explorer/explorer6.png)](media/time-series-insights-explorer/explorer6.png#lightbox)
 
-1. **Events**:  When you choose explore events when selecting or right-clicking above, the events panel is made available.  Here, you can see all of your raw events and export your events as JSON or CSV files. Note that Time Series Insights stores all raw data.
+1. **Events**:  When you choose explore events when selecting or right-clicking above, the events panel is made available.  Here, you can see all of your raw events and export your events as JSON or CSV files. Time Series Insights stores all raw data.
 
     [![Events](media/time-series-insights-explorer/explorer7.png)](media/time-series-insights-explorer/explorer7.png#lightbox)
 
 1. Click the **STATS** tab after exploring events to expose patterns and column stats.  
 
-    - **Patterns**: this feature proactively surfaces the most statistically significant patterns in a selected data region. This relieves you from having to look at thousands of events to understand what patterns most warrant time and energy. Further, Time Series Insights enables you to jump directly into these statistically significant patterns to continue conducting an analysis. This feature is also helpful for post-mortem investigations into historical data. 
+    - **Patterns**: this feature proactively surfaces the most statistically significant patterns in a selected data region. This relieves you from having to look at thousands of events to understand what patterns most warrant time and energy. Further, Time Series Insights enables you to jump directly into these statistically significant patterns to continue conducting an analysis. This feature is also helpful for post-mortem investigations into historical data.
 
     - **Column Stats**:  Column stats provide charting and tables that break down data from each column of the selected data series over the selected time span.  
 
