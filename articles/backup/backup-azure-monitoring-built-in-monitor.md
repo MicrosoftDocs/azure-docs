@@ -44,9 +44,8 @@ Alerts are primarily scenarios where users are notified so that they can take re
 The following scenarios are defined by service as alertable scenarios.
 
   - Backup/Restore failures
-  - Backup succeeded with warnings
+  - Backup succeeded with warnings for Azure Backup Agent (MAB)
   - Stop protection with retain data/Stop protection with delete data
-  - Backup succeeded with warnings as **Backup succeeded with warnings for Azure Backup Agent (MAB)**.
 
 ### Exceptions when an alert is not raised
 There are few exceptions when an alert is not raised on a failure, they are:
