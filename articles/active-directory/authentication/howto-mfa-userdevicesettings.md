@@ -46,7 +46,7 @@ This setting deletes all of the app passwords that a user has created. Non-brows
 ### How to delete users existing app passwords
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. On the left, select **Azure Active Directory** > **Users** > **All users**.
+2. On the left, select **Azure Active Directory** > **Users** > **All users**. 
 3. On the right, select **Multi-Factor Authentication** on the toolbar. The multi-factor authentication page opens.
 4. Check the box next to the user or users that you wish to manage. A list of quick step options appear on the right.
 5. Select **Manage user settings**.
