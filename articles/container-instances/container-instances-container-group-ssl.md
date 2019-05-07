@@ -62,7 +62,7 @@ In `location`, be sure to set `proxy_pass` with the correct port for app. In thi
 
 ```console
 # nginx Configuration File
-# http://wiki.nginx.org/Configuration
+# https://wiki.nginx.org/Configuration
 
 # Run as a less privileged user for security reasons.
 user nginx;
