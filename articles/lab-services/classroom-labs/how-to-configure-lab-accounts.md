@@ -32,7 +32,7 @@ To connect a virtual network as a peer network to the lab's virtual network, fol
 
 Labs created in this account are connected to the selected virtual network. They can access to the resources in the selected virtual network. For more information, see [Connect your lab's network with a peer virtual network in Azure Lab Services](how-to-connect-peer-virtual-network.md).
 
-When you select a virtual network for the **Peer virtual network** field, the **Allow lab creator to pick lab location** option is disabled. It's because labs in the lab account must be in the same region as the lab account for them to access resources in the peer virtual network. 
+When you select a virtual network for the **Peer virtual network** field, the **Allow lab creator to pick lab location** option is disabled. It's because labs in the lab account must be in the same region as the lab account for them to connect with resources in the peer virtual network. 
 
 ## Allow lab creator to pick location for the lab
 You can allow lab creator to create labs in a different location than the location of the lab account by following these steps: 

@@ -44,7 +44,7 @@ The same property can be enabled from the **Labs configuration** tab of the **La
 
 ![Enable or disable VNet peering after the lab is created](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer-existing-lab.png) 
 
-When you select a virtual network for the **Peer virtual network** field, the **Allow lab creator to pick lab location** option is disabled. It's because labs in the lab account must be in the same region as the lab account for them to access resources in the peer virtual network. 
+When you select a virtual network for the **Peer virtual network** field, the **Allow lab creator to pick lab location** option is disabled. It's because labs in the lab account must be in the same region as the lab account for them to connect with resources in the peer virtual network. 
 
 > [!IMPORTANT]
 > This setting change applies only to labs that are created after the change is made, not to the existing labs. 
