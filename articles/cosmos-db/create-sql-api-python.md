@@ -23,7 +23,7 @@ ms.author: sngun
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query documents, key/value, and graph databases. All of these operations benefit from the distribution and scale of Azure Cosmos DB.
 
-This quickstart demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, document database, and container using the Azure portal. You then build and run a console app built with the Python SDK for [SQL API](sql-api-sdk-python.md). This quickstart uses version 3.0 of the [Python SDK].(https://pypi.org/project/azure-cosmos)
+This quickstart demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, document database, and container using the Azure portal. You then build and run a console app built with the Python SDK for [SQL API](sql-api-sdk-python.md). This quickstart uses version 3.0 of the [Python SDK](https://pypi.org/project/azure-cosmos).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 

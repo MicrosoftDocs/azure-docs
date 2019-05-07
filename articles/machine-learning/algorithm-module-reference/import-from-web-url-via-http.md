@@ -51,7 +51,7 @@ The following steps describe how to manually configure the import source.
 
     For example, the following page contains the Iris data set from the machine learning repository of the University of California, Irvine:
 
-    `http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data`
+    `https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data`
 
 4. For **Data format**, select one of the supported data formats from the list.
 
