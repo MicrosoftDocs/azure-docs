@@ -11,11 +11,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/01/2019
+ms.date: 05/07/2019
 ms.author: magoedte
 ---
 
 ## Enable Azure Monitor for VMs (preview) for a hybrid environment
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 This article explains how to enable Azure Monitor for VMs (preview) for virtual machines or physical computers hosted in your datacenter or other cloud environment. At the end of this process you will have successfully begun monitoring your virtual machines in your environment and learn if they are experiencing any performance or availability issues. 
 

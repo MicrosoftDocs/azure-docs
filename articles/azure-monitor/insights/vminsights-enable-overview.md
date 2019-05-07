@@ -17,8 +17,6 @@ ms.author: magoedte
 
 # Enable Azure Monitor for VMs (preview) overview
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 This article describes how to set up Azure Monitor for VMs, which monitors the operating system health of your Azure virtual machines (VMs) and virtual machine scale sets, and the virtual machines in your environment. This monitoring includes the discovery and mapping of application dependencies that might be hosted on them. 
 
 You enable Azure Monitor for VMs by using one of the following methods:
