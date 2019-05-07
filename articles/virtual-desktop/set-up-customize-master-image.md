@@ -86,6 +86,59 @@ Run this command to specify a Start layout for Windows 10 PCs.
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
 
+<<<<<<< HEAD
+=======
+### Install OneDrive in per-machine mode
+
+OneDrive is normally installed per-user. In this environment, it should be installed per-machine.
+
+Here's how to install OneDrive in per-machine mode:
+
+1. First, create a location to stage the OneDrive installer. A local disk folder or [\\\\unc](file://unc) location is fine.
+
+2. Download OneDriveSetup.exe to your staged location with this link: <https://aka.ms/OneDriveWVD-Installer>
+
+3. If you installed office with OneDrive by omitting **\<ExcludeApp ID="OneDrive" /\>**, uninstall any existing OneDrive per-user installations from an elevated command prompt by running the following command:
+    
+    ```batch
+    "[staged location]\OneDriveSetup.exe" /uninstall
+    ```
+
+4. Run this command from an elevated command prompt to set the **AllUsersInstall** registry value:
+
+    ```batch
+    REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
+    ```
+
+5. Run this command to install OneDrive in per-machine mode:
+
+    ```batch
+    Run "[staged location]\OneDriveSetup.exe" /allusers
+    ```
+
+6. Run this command to configure OneDrive to start at sign in for all users:
+
+    ```batch
+    REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
+    ```
+
+7. Enable **Silently configure user account** by running the following command.
+
+    ```batch
+    REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
+    ```
+
+8. Redirect and move Windows known folders to OneDrive by running the following command.
+
+    ```batch
+    REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
+    ```
+
+### Teams and Skype
+
+Windows Virtual Desktop does not officially support Skype for Business and Teams.
+
+>>>>>>> 083e27e3d6eb790df56d574f85d7bda60c33e137
 ### Set up user profile container (FSLogix)
 
 To include the FSLogix container as part of the image, follow the instructions in [Set up a user profile share for a host pool](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). You can test the functionality of the FSLogix container with [this quickstart](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
