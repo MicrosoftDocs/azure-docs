@@ -25,7 +25,7 @@ In order to make health integration as easy as possible, Microsoft has been work
 
 |a|b|c|
 |-----|------|------|
-|a | ![azure deployment manager health monitor provider datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | c |
+| ![azure deployment manager health monitor provider datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![azure deployment manager health monitor provider site24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![azure deployment manager health monitor provider wavefront](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
 |Datadog, the leading monitoring and analytics platform for modern cloud environments. See [how Datadog integrates with Azure Deployment Manager]().|The All-in-One Monitoring Solution. See [how Site24x7 integrates with Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| bla, bla, bla. See [how Wavefront integrates with Azure Deployment Manager]().|
 
 ## How service health is determined
@@ -95,7 +95,43 @@ The flow to getting setup with Azure Deployment Manager health checks:
     },
     ```
 
-1. Invoke the healthCheck steps at the appropriate time in your Azure Deployment Manager rollout.
+1. Invoke the healthCheck steps at the appropriate time in your Azure Deployment Manager rollout. In the following example, a health check step is invoked in **postDeploymentSteps** of **stepGroup2**.
+
+    ```json
+    "stepGroups": [
+        {
+            "name": "stepGroup1",
+            "preDeploymentSteps": [],
+            "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceWUS.name,  variables('serviceTopology').serviceWUS.serviceUnit2.name)]",
+            "postDeploymentSteps": []
+        },
+        {
+            "name": "stepGroup2",
+            "dependsOnStepGroups": ["stepGroup1"],
+            "preDeploymentSteps": [],
+            "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceWUS.name,  variables('serviceTopology').serviceWUS.serviceUnit1.name)]",
+            "postDeploymentSteps": [
+                {
+                    "stepId": "[resourceId('Microsoft.DeploymentManager/steps/', 'healthCheckStep')]"
+                }
+            ]
+        },
+        {
+            "name": "stepGroup3",
+            "dependsOnStepGroups": ["stepGroup2"],
+            "preDeploymentSteps": [],
+            "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceEUS.name,  variables('serviceTopology').serviceEUS.serviceUnit2.name)]",
+            "postDeploymentSteps": []
+        },
+        {
+            "name": "stepGroup4",
+            "dependsOnStepGroups": ["stepGroup3"],
+            "preDeploymentSteps": [],
+            "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceEUS.name,  variables('serviceTopology').serviceEUS.serviceUnit1.name)]",
+            "postDeploymentSteps": []
+        }
+    ]
+    ```
 
 To walk through an example, see [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-health-check.md).
 
