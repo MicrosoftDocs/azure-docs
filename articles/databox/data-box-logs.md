@@ -36,7 +36,7 @@ To restrict access to an order, you can:
 - Assign a role at an order level. The user only has those permissions as defined by the roles to interact with that specific Data Box order only and nothing else.
 - Assign a role at the resource group level, the user has access to all the Data Box orders within a resource group.
 
- For more information on suggested RBAC use, see [Best practices for RBAC](../role-based-access-control/overview.md#best-practice-for-using-rbac).
+For more information on suggested RBAC use, see [Best practices for RBAC](../role-based-access-control/overview.md#best-practice-for-using-rbac).
 
 ## Track the order
 
@@ -44,6 +44,9 @@ You can track your order through the Azure portal and through the shipping carri
 
 - To track the order while the device is in transit, go to the regional carrier website, for example, UPS  website in US. Provide the tracking number associated with your order.
 - To track the order when the device is in Azure datacenter or your premises, go to your **Data Box order > Overview** in Azure portal.
+
+    ![View order status and tracking no](media/data-box-logs/overview-view-status-1.png)
+
 - Data Box also sends email notifications anytime the order status changes based on the emails provided when the order was created. For a list of all the Data Box order statuses, see [View order status](data-box-portal-admin.md#view-order-status). To change the notification settings associated with the order, see [Edit notification details](data-box-portal-admin.md#edit-notification-details).
 
 ## Query activity logs during setup
@@ -65,9 +68,20 @@ During the data copy to Data Box, an error file is generated if there are any is
 Make sure that the copy jobs have finished with no errors. If there are errors during the copy process, download the logs from the **Connect and copy** page.
 
 - If you copied a file that is not 512 bytes aligned to a managed disk folder on your Data Box, the file isn't uploaded as page blob to your staging storage account. You will see an error in the logs. Remove the file and copy a file that is 512 bytes aligned.
-- If you copied a VHDX (these files are not supported) with a long name, you will see an error in the logs.
-	
+- If you copied a VHDX, or a dynamic VHD, or a differencing VHD (these files are not supported), you will see an error in the logs.
+
+Here is a sample of the *error.xml* that shows the above error types.
+
+```
+<file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\differencing-vhd-022019.vhd</file>
+<file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\dynamic-vhd-022019.vhd</file>
+<file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\insidefixedvhdx-022019.vhdx</file>
+<file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\insidediffvhd-022019.vhd</file>
+```
+
 Resolve the errors before you proceed to the next step.
+
+<!--Insert snippet from Santosh-->
 
 ## Inspect BOM during prepare to ship
 
@@ -75,7 +89,7 @@ During prepare to ship, a list of files known as the BOM or manifest file is cre
 
 - Use this file to verify against the actual names and the number of files that were copied to the Data Box.
 - Use this file to verify against the actual sizes of the files.
-- Verify that the crc64 corresponds to a non-zero string. <!--A null value for crc64 indicates that there was a reparse point error)-->
+- Verify that the *crc64* corresponds to a non-zero string. <!--A null value for crc64 indicates that there was a reparse point error)-->
 
 For more information on the errors received during prepare to ship, go to [Troubleshoot Data Box issues](data-box-troubleshoot.md).
 
@@ -119,7 +133,9 @@ During the data upload to Azure, a copylog is created.
 
 ### Copylog
 
-For each order that is processed, the Data Box service creates copylog in the associated storage account. The copylog has the total number of files that were uploaded and the number of files that errored out during the data copy from Data Box to your Azure storage account. A CRC computation is done during the upload to Azure. A CRC mismatch indicates that the corresponding files failed to upload.
+For each order that is processed, the Data Box service creates copylog in the associated storage account. The copylog has the total number of files that were uploaded and the number of files that errored out during the data copy from Data Box to your Azure storage account. 
+
+A Cyclic Redundancy Check (crc) computation is done during the upload to Azure. The CRCs from the data copy and after the data upload are compared. A CRC mismatch indicates that the corresponding files failed to upload.
 
 By default, logs are written to a container named copylog. The logs are stored as block blobs with the following naming convention: `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
