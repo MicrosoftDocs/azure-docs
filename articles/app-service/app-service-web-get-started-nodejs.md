@@ -152,7 +152,7 @@ Using a text editor, open the `index.js` file in the Node.js app, and make a sma
 response.end("Hello Azure!");
 ```
 
-In the local terminal window, navigate to your application's root directory, create a new ZIP file for your updated project.
+In the local terminal window, navigate to your application's **root directory** (the directory that contains _index.js_), create a new ZIP file for your updated project.
 
 ```azurecli-interactive
 # Bash
