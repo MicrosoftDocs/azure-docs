@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/03/2019
+ms.date: 05/07/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -66,6 +66,10 @@ To configure the integration of Displayr into Azure AD, you need to add Displayr
 
 	![Displayr in the results list](common/search-new-app.png)
 
+5. On the **Displayr** page, click **Properties** in the left-side navigation pane, and copy the **Application ID** and save it on your computer for subsequent use.
+
+	![image](./media/displayr-tutorial/properties.png)
+
 ## Configure and test Azure AD single sign-on
 
 In this section, you configure and test Azure AD single sign-on with Displayr based on a test user called **Britta Simon**.
@@ -100,14 +104,16 @@ To configure Azure AD single sign-on with Displayr, perform the following steps:
 
 4. On the **Basic SAML Configuration** section, perform the following step:
 
-    ![Displayr Domain and URLs single sign-on information](common/sp-intiated.png)
+    ![Displayr Domain and URLs single sign-on information](common/sp-identifier.png)
 
-	In the **Sign-on URL** text box, type a URL:
-    `https://app.displayr.com/Login`
+	a. In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<YOURDOMAIN>.displayr.com`
 
-5. In the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
+	b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:`<YOURDOMAIN>.displayr.com`
 
-	![The Certificate download link](common/certificateraw.png)
+5. In the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+
+	![The Certificate download link](common/certificatebase64.png)
 
 6. Displayr application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
@@ -159,13 +165,13 @@ To configure Azure AD single sign-on with Displayr, perform the following steps:
 
 	a. Check the **Enable Single Sign On (SAML)** box.
 
-	b. In the **Issuer** text box, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
+	b. In the **Issuer** text box, paste the value of **Application ID**, which you have copied from the **Properties** tab of Azure portal.
 
 	c. In the **Login URL** text box, paste the value of **Login URL**, which you have copied from Azure portal.
 
 	d. In the **Logout URL** text box, paste the value of **Logout URL**, which you have copied from Azure portal.
 
-	e. Open the Certificate (Raw) in Notepad, copy its content and paste it into the **Certificate** text box.
+	e. Open the Certificate (Base64) in Notepad, copy its content and paste it into the **Certificate** text box.
 
 	f. **Group mappings** are optional.
 
