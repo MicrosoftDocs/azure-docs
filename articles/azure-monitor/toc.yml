@@ -631,8 +631,18 @@
           href: insights/vminsights-known-issues.md
         - name: FAQ
           href: insights/vminsights-faq.md
-        - name: Onboard
-          href: insights/vminsights-onboard.md
+        - name: Enable monitoring
+          items:
+          - name: Enable monitoring overview
+            href: insights/vminsights-enable-overview.md
+          - name: Enable for single Azure VM
+            href: insights/vminsights-enable-single-vm.md
+          - name: Enable using Azure Policy
+            href: insights/vminsights-enable-atscale-policy.md
+          - name: Enable at scale using Azure PowerShell
+            href: insights/vminsights-enable-atscale-posh.md
+          - name: Enable for Hybrid cloud
+            href: insights/vminsights-enable-hybrid-cloud.md
         - name: Monitor health
           href: insights/vminsights-health.md
         - name: Map dependencies
