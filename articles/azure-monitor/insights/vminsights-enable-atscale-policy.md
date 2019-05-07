@@ -25,17 +25,17 @@ To discover, manage, and enable Azure Monitor for VMs for all of your Azure virt
 * Report on compliance results.
 * Remediate for non-compliant VMs.
 
-If you are interested in accomplishing this with Azure PowerShell or Azure Resource Manager template, see [Enable using Azure PowerShell or Resource Manager template](vminsights-enable-atscale-azure-posh.md). 
+If you are interested in accomplishing this with Azure PowerShell or Azure Resource Manager template, see [Enable using Azure PowerShell or Resource Manager template](vminsights-enable-atscale-posh.md). 
 
 ## Azure Policy integrated experience overview
 
 Originally the experience with Azure Policy for managing and deploying the policy definitions for Azure Monitor for VMs was performed exclusively from Azure Policy. Now the experience is integrated with Azure Policy to make it simple and easy to discover, manage, and enable at scale the **Enable Azure Monitor for VMs** initiative, which includes the policy definitions mentioned earlier. From the **Get started** tab in Azure Monitor for VMs, when you select **Manage Policy Coverage** the Azure Monitor for VMs Policy Coverage page opens. 
 
-![Azure Monitor from VMs Get Started tab](./media/vminsights-enable-atscale/get-started-page-01.png)
+![Azure Monitor from VMs Get Started tab](./media/vminsights-enable-atscale-policy/get-started-page-01.png)
 
 From here you can check and manage coverage for the initiative across your management groups and subscriptions, as well as understand how many VMs exist in each of the management groups and subscriptions and their compliance status.   
 
-![Azure Monitor for VMs Manage Policy page](./media/vminsights-enable-atscale/manage-policy-page-01.png)
+![Azure Monitor for VMs Manage Policy page](./media/vminsights-enable-atscale-policy/manage-policy-page-01.png)
 
 You can assign or provision the initiative for Azure Monitor for VMs to the desired scope, review compliance state for an initiative, and edit an assignment if necessary.  
 
@@ -46,9 +46,9 @@ From this page you can also configure your Log Analytics workspace for Azure Mon
 - Installs the Installing Service Map and Infrastructure Insights solutions
 - Enables the operating system performance counters used by the performance charts, workbooks, and your custom log queries and alerts.
 
-![Azure Monitor for VMs configure workspace](./media/vminsights-enable-atscale/manage-policy-page-02.png)
+![Azure Monitor for VMs configure workspace](./media/vminsights-enable-atscale-policy/manage-policy-page-02.png)
 
-This option isn't related to any policy actions and is available to provide an easy way to satisfy the [prerequisites](vminsights-onboard-overview.md) required for enabling Azure Monitor for VMs.  
+This option isn't related to any policy actions and is available to provide an easy way to satisfy the [prerequisites](vminsights-enable-overview.md) required for enabling Azure Monitor for VMs.  
 
 ### What information is available on this page?
 The following table provides a breakdown of what information is presented in the policy coverage page and how to interpret it.
@@ -59,7 +59,7 @@ The following table provides a breakdown of what information is presented in the
 | Role | Your role to the scope, could be reader owner, or contributor. In some cases, it may appear blank to indicate that you may have access to subscription but not to the management group it belongs. Information in other columns will vary depending on your role as it is key in determining what data you can see and actions you can perform in terms of assigning initiative/ policy (owner), editing them or view compliance. |
 | Total VMs | Number of VMs under that scope. For a management group, it is a sum of VMs nested under the subscriptions and/or child management group. |
 | Assignment Coverage | Percent of VMs that are covered by initiative/policy. |
-| Assignment Status | Under this column you can find information on the status of your policy/ initiative assignment. |
+| Assignment Status | Under this column, you can find information on the status of your policy/ initiative assignment. |
 | Compliant VMs | Number of VMs that are compliant under the policy/initiative. For  the initiative **Enable Azure Monitor for VMs** this is the number of VMs that have both Log Analytics agent and Dependency agent. In some cases, it may appear blank due to either no assignment, or no VMs, or not enough permissions. Information is provided under Compliance State. |
 | Compliance | The overall compliance number is the sum of distinct resources that are Compliant divided by the sum of all distinct resources. |
 | Compliance State | Information on Compliance state for your policy/ initiative assignment.|
@@ -156,7 +156,7 @@ The following matrix maps each possible compliance state for the initiative.
 
 The following example is for an Azure VM, but also applies to virtual machine scale sets. You can learn how to review compliance results by reading [identify non-compliance results](../../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). On the Azure Monitor for VMs Policy Coverage page, select either a management group or subscription from the table, and select **View Compliance** by clicking the ellipse (...).   
 
-![Policy compliance for Azure VMs](./media/vminsights-onboard/policy-view-compliance-01.png)
+![Policy compliance for Azure VMs](./media/vminsights-enable-atscale-policy/policy-view-compliance-01.png)
 
 Based on the results of the policies included with the initiative, VMs are reported as non-compliant in the following scenarios:
 
