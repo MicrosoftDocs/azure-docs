@@ -28,7 +28,7 @@ This security offering for IaaS SQL servers is based on the same fundamental tec
 
 Advanced data security (ADS) provides a set of advanced SQL security capabilities,  consisting of Vulnerability assessment and Advanced Threat Protection.
 
-* [Vulnerability assessment](https://docs.microsoft.com/en-us/azure/sql-database/sql-vulnerability-assessment) is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security state, and includes the steps to implement to resolve security issues and enhance your database fortifications.
+* [Vulnerability assessment](https://docs.microsoft.com/en-us/azure/sql-database/sql-vulnerability-assessment) is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security state, and includes the steps to resolve security issues and enhance your database fortifications.
 * [Advanced Threat Protection](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection-overview) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit your SQL server. It continuously monitors your database for suspicious activities and provides action-oriented security alerts on anomalous database access patterns. These alerts provide the suspicious activity details and recommended actions to investigate and mitigate the threat.
 
 ## Getting Started with ADS for IaaS
@@ -37,16 +37,16 @@ The following steps get you started with ADS for IaaS.
 
 ### Set up ADS for IaaS
 
-Before you begin: You need a Log Analytics workspace to store the security logs being analyzed. If you do not have one, then you can create one easily, as explained in [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/quick-create-workspace).
+**Before you begin**: You need a Log Analytics workspace to store the security logs being analyzed. If you do not have one, then you can create one easily, as explained in [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/quick-create-workspace).
 
 1. Connect the VM hosting the SQL server to the Log Analytics workspace. For instructions, see [Connect Windows computers to Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/agent-windows).
 
 1. From Azure Marketplace, go to the [SQL Advanced Data Security solution](https://ms.portal.azure.com/#create/Microsoft.SQLAdvancedDataSecurity).
-(You can find it using the marketplace search option, as see in the following image.)
+(You can find it using the marketplace search option, as see in the following image.) The **SQL Advanced Data Security** page opens.
 
     ![Advanced Data Security for IaaS](./media/security-center-advanced-iaas-data/sql-advanced-data-security.png)
 
-1. Click **SQL Advanced Data Security**. The **SQL Advanced Data Security** page open.
+1. Click **Create**. The workplaces are displayed.
 
     ![Advanced Data Security Create](./media/security-center-advanced-iaas-data/sql-advanced-data-create.png)
 
@@ -59,15 +59,15 @@ Before you begin: You need a Log Analytics workspace to store the security logs 
 
 ## Explore and Investigate Security Alerts
 
-You can review and manage your current security alerts.
+You can view and manage your current security alerts.
 
 1. Click **Security Center** > **Security Alerts**, and click on an alert.
 
     ![Find Alert](./media/security-center-advanced-iaas-data/find-alert.png)
 
-1. Click on an attacked resource.
+1. From the **Attacked Resource** column, click on a resource that has been attacked.
 
-1. To view alert details and actions for investigating the current threat and addressing future threats, in the **Remediation steps** section, click on the **INVESTIGATION STEPS** link.
+1. To view alert details and actions for investigating the current threat and addressing future threats, scroll down the **General information** page, and in the **Remediation steps** section, click on the **INVESTIGATION STEPS** link.
 
     ![Remediation Steps](./media/security-center-advanced-iaas-data/remediation-steps.png)
 
@@ -76,26 +76,27 @@ You can review and manage your current security alerts.
      > [!NOTE]
      > If **Log analytics workspaces** doesn’t appear at the left menu, click **All services**, and search for **Log analytics workspaces**.
 
-    1. Be sure the columns are displaying the **Pricing tier** and **WorkspaceID** columns. (**Log analytics workspaces** > **Edit columns**, add **Pricing tier** and **WorkspaceID**. 
+    1. Be sure the columns are displaying the **Pricing tier** and **WorkspaceID** columns. (**Log analytics workspaces** > **Edit columns**, add **Pricing tier** and **WorkspaceID**.)
      ![Edit Columns](./media/security-center-advanced-iaas-data/edit-columns.png)
 
     1. Click on the workspace that has the alert logs.
 
-    1. In the Log Analytics workspace, in the **General** section, click **Logs**
+    1. Under the **General** menu, click **Logs**
 
-    1. Click the eye next to **SQLAdvancedThreatProtection** table.
+    1. Click the eye next to **SQLAdvancedThreatProtection** table. The logs are listed.
 
      ![View Logs](./media/security-center-advanced-iaas-data/view-logs.png)
 
 ## Set Up Email Notification for ATP Alerts 
 
-You can set up a list of recipients to receive an email notification when ASC alerts are fired, an email will be sent to this list of recipients. The email contains a direct link to the alert in Azure Security Center with all the relevant details. 
+You can set a list of recipients to receive an email notification when ASC alerts are generated. The email contains a direct link to the alert in Azure Security Center with all the relevant details. 
 
-1. Go to Security Center > Security policy and in the row of the relevant subscription click **Edit settings>**.
+1. Go to **Security Center** > **Security policy** and in the row of the relevant subscription click **Edit settings>**.
 
     ![Subscription Settings](./media/security-center-advanced-iaas-data/subscription-settings.png)
 
-1. Click Email notifications, and in the Email address text box, enter the email addresses to receive the notifications.
+1. From the **Settings** menu click **Email notifications**. 
+1. In the **Email address** text box, enter the email addresses to receive the notifications.
 
   > [!NOTE]
   > You can enter more than one email address by separating the email addresses with a comma (,).  For example   admin1@mycompany.com,admin2@mycompany.com,admin3@mycompany.com
@@ -105,7 +106,7 @@ You can set up a list of recipients to receive an email notification when ASC al
 1. In the **Email notification** settings, set the following options:
   
     * **Send email notification for high severity alerts**: Instead of sending emails for all alerts, send only for high severity alerts.
-    * **Also send email notifications to subscription owners**:  Send notifications for the subscriptions owners too.
+    * **Also send email notifications to subscription owners**:  Send notifications to the subscriptions owners too.
 
 1. In the top of the **Email notifications** screen, click **Save**.
 
@@ -120,20 +121,19 @@ You can view your Vulnerability assessment results and reports directly from Log
 
 1. Navigate to your Log Analytics workspace with the ADS solution.
 1. Navigate to **Solutions** and select the **SQL Vulnerability Assessment** solution.
-1. In the Summary pane, click View Summary and select your **SQL Vulnerability Assessment Report**.
+1. In the **Summary** pane, click **View Summary** and select your **SQL Vulnerability Assessment Report**.
 
     ![SQL Assessment Report](./media/security-center-advanced-iaas-data/ads_sql_server_1.png)
 
-    Your report dashboard should now load. Make sure the time window is set to at least the **Last 7 days**. Vulnerability assessment scans are run on your databases on a fixed schedule of once per 7 days.
+    The report dashboard loads. Make sure the time window is set to at least the **Last 7 days** since vulnerability assessment scans are run on your databases on a fixed schedule of once per 7 days.
 
     ![Set Last 7 Days](./media/security-center-advanced-iaas-data/ads_sql_server_2.png)
 
-1. To drill down for more details, click on any of the dashboard elements to drill down for more details.
-For example, clicking on a Vulnerability check in the Failed checks table will lead to a Log Analytics table with the results for this check across all databases, beginning with those that have Findings for this check.
+1. To drill down for more details, click on any of the dashboard elements. For example:
 
-    You can click through to view details for each vulnerability, including the vulnerability description and impact,status, associated risk, and actual result on this database.
+   1. Click on a Vulnerability check in the **Failed checks summary** section to view a Log Analytics table with the results for this check across all databases. The ones that have results are listed first.
 
-    You can also view the actual Query that was run to perform this check, and remediation information for resolving this vulnerability.
+   1. Then, click through to view details for each vulnerability, including the vulnerability description and impact, status, associated risk, and actual results on this database. You can also see the actual Query that was run to perform this check, and remediation information for resolving this vulnerability.
 
     ![Select workspace](./media/security-center-advanced-iaas-data/ads_sql_server_3.png)
 
