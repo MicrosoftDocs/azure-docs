@@ -47,7 +47,7 @@ You can allow lab creator to create labs in a different location than the locati
 
 
 ## Specify an address range for VMs in the lab
-The following procedure has steps to specifying an address range for VMs in the lab. If you update the range that you previously specified, the modified address range applies only to VMs that are created after the change was made. 
+The following procedure has steps to specify an address range for VMs in the lab. If you update the range that you previously specified, the modified address range applies only to VMs that are created after the change was made. 
 
 Here are some restrictions when specifying the address range that you should keep in mind. 
 
