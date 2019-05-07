@@ -24,7 +24,7 @@ For "how-to" information on managing planned maintenance, see "Handling planned 
 
 ## Maintenance not requiring a reboot
 
-As stated above, most platform updates are done with zero impact to customer VMs. When zero impact update is not possible Azure chooses the update mechanism that is least impactful to customer VMs. Majority of these non-zero impact maintenance causes less than 10 seconds pause for the VM. In certain cases, memory preserving maintenance mechanisms are used, which pauses the VM for up to 30 seconds and preserves the memory in RAM. The VM is then resumed and its clock is automatically synchronized. Memory preserving maintenance works for more than 95% Azure VMs except G, M, N, and H series. Azure is increasingly using live migration technologies and improving memory preserving maintenance mechanism to reduce the pause duration.  
+As stated above, most platform updates are done with zero impact to customer VMs. When zero impact update is not possible Azure chooses the update mechanism that is least impactful to customer VMs. Majority of these non-zero impact maintenance causes less than 10 seconds pause for the VM. In certain cases, memory preserving maintenance mechanisms are used, which pauses the VM for up to 30 seconds and preserves the memory in RAM. The VM is then resumed and its clock is automatically synchronized. Memory preserving maintenance works for more than 90% Azure VMs except G, M, N, and H series. Azure is increasingly using live migration technologies and improving memory preserving maintenance mechanism to reduce the pause duration.  
 
 These non-rebootful maintenance operations are applied fault domain by fault domain, and progress is stopped if any warning health signals are received. 
 
