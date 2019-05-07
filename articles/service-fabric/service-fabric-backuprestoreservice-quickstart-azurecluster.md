@@ -72,14 +72,14 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 
 ## Enabling backup and restore service
 
-### Using Azure Portal
+### Using Azure portal
 
 Enable `Include backup restore service` check box under `+ Show optional settings` in `Cluster Configuration` tab.
 
 ![Enable Backup Restore Service With Portal][1]
 
 
-### Using Azure Resource Manager (ARM) Template
+### Using Azure Resource Manager Template
 First you need to enable the _backup and restore service_ in your cluster. Get the template for the cluster that you want to deploy. You can either use the [sample templates](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) or create a Resource Manager template. Enable the _backup and restore service_ with the following steps:
 
 1. Check that the `apiversion` is set to **`2018-02-01`** for the `Microsoft.ServiceFabric/clusters` resource, and if not, update it as shown in the following snippet:
@@ -136,7 +136,7 @@ First step is to create backup policy describing backup schedule, target storage
 
 For backup storage, use the Azure Storage account created above. Container `backup-container` is configured to store backups. A container with this name is created, if it does not already exist, during backup upload. Populate `ConnectionString` with a valid connection string for the Azure Storage account, replacing `account-name` with your storage account name, and `account-key` with your storage account key.
 
-#### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
+#### PowerShell using Microsoft.ServiceFabric.Powershell.Http Module
 
 Execute following PowerShell cmdlets for creating new backup policy. Replace `account-name` with your storage account name, and `account-key` with your storage account key.
 
@@ -146,7 +146,7 @@ New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrem
 
 ```
 
-#### Rest Call using Powershell
+#### Rest Call using PowerShell
 
 Execute following PowerShell script for invoking required REST API to create new policy. Replace `account-name` with your storage account name, and `account-key` with your storage account key.
 
@@ -188,14 +188,14 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ### Enable periodic backup
 After defining backup policy to fulfill data protection requirements of the application, the backup policy should be associated with the application. Depending on requirement, the backup policy can be associated with an application, service, or a partition.
 
-#### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
+#### PowerShell using Microsoft.ServiceFabric.Powershell.Http Module
 
 ```powershell
 
 Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
 
 ```
-#### Rest Call using Powershell
+#### Rest Call using PowerShell
 
 Execute following PowerShell script for invoking required REST API to associate backup policy with name `BackupPolicy1` created in above step with application `SampleApp`.
 
@@ -220,14 +220,14 @@ After enabling backup at the application level, all partitions belonging to Reli
 
 Backups associated with all partitions belonging to Reliable Stateful services and Reliable Actors of the application can be enumerated using _GetBackups_ API. Backups can be enumerated for an application, service, or a partition.
 
-#### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
+#### PowerShell using Microsoft.ServiceFabric.Powershell.Http Module
 
 ```powershell
     
 Get-SFApplicationBackupList -ApplicationId WordCount
 ```
 
-#### Rest Call using Powershell
+#### Rest Call using PowerShell
 
 Execute following PowerShell script to invoke the HTTP API to enumerate the backups created for all partitions inside the `SampleApp` application.
 
