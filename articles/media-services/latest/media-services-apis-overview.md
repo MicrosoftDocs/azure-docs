@@ -56,6 +56,16 @@ see [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.m
 4. The middle tier sends request to the Azure Media REST API with the Azure AD token.
 5. The middle tier gets back the data from Media Services.
 
+### Samples
+
+See the following samples that show how to connect with Azure AD service principal:
+
+* [Connect with REST](media-rest-apis-with-postman.md)  
+* [Connect with Java](configure-connect-java-howto.md)
+* [Connect with .NET](configure-connect-dotnet-howto.md)
+* [Connect with Node.js](configure-connect-nodejs-howto.md)
+* [Connect with Python](configure-connect-python-howto.md)
+
 ## Naming conventions
 
 Azure Media Services v3 resource names (for example, Assets, Jobs, Transforms) are subject to Azure Resource Manager naming constraints. In accordance with Azure Resource Manager, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 

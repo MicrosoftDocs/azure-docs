@@ -49,7 +49,7 @@ For more information about the theoretical framework for this algorithm and its 
 
     - **Replicate**: In replication, each tree is trained on exactly the same input data. The determination of which split predicate is used for each tree node remains random and the trees will be diverse.
 
-         For more information about the training process with the **Replicate** option, see [Decision Forests for Computer Vision and Medical Image Analysis. Criminisi and J. Shotton. Springer 2013.](http://research.microsoft.com/projects/decisionforests/).
+         For more information about the training process with the **Replicate** option, see [Decision Forests for Computer Vision and Medical Image Analysis. Criminisi and J. Shotton. Springer 2013.](https://research.microsoft.com/projects/decisionforests/).
 
 3. Specify how you want the model to be trained, by setting the **Create trainer mode** option.
 
