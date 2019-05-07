@@ -96,7 +96,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Read-only failover policy**
 
-  By default, the failover of the read-only listener is disabled. It ensures that the performance of the primary is not impacted when the secondary is offline. However, it also means the read-only sessions will not be able to connect until the secondary is recovered. If you cannot tolerate downtime for the read-only sessions and are OK to temporarily use the primary for both read-only and read-write traffic at the expense of the potential performance degradation of the primary, you can enable failover for the read-only listener. In that case the read-only traffic will be automatically redirected to the primary if the secondary is not available.
+  By default, the failover of the read-only listener is disabled. It ensures that the performance of the primary is not impacted when the secondary is offline. However, it also means the read-only sessions will not be able to connect until the secondary is recovered. If you cannot tolerate downtime for the read-only sessions and are OK to temporarily use the primary for both read-only and read-write traffic at the expense of the potential performance degradation of the primary, you can enable failover for the read-only listener. In that case, the read-only traffic will be automatically redirected to the primary if the secondary is not available.
 
 - **Planned failover**
 
@@ -108,7 +108,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Unplanned failover**
 
-   Unplanned or forced failover immediately switches the secondary to the primary role without any synchronization with the primary. This operation will result in data loss. Unplanned failover is used as a recovery method during outages when the primary is not accessible. When the original primary is back online, it will automatically re-connect without synchronization and become a new secondary.
+   Unplanned or forced failover immediately switches the secondary to the primary role without any synchronization with the primary. This operation will result in data loss. Unplanned failover is used as a recovery method during outages when the primary is not accessible. When the original primary is back online, it will automatically reconnect without synchronization and become a new secondary.
 
 - **Manual failover**
 
@@ -184,7 +184,7 @@ If your application uses Managed Instance as the data tier, follow these general
 
 - **Create the secondary instance in the same DNS zone as the primary instance**
 
-  When a new instance is created, a unique id is automatically generated as the DNS Zone and included in the instance DNS name. A multi-domain (SAN) certificate for this instance is provisioned with the SAN field in the form of `zone_id.database.windows.net`. This certificate can be used to authenticate the client connections to an  instance in the same DNS zone. To ensure non-interrupted connectivity to the primary instance after failover both the primary and secondary instances must be in the same DNS zone. When your application is ready for production deployment, create a secondary instance in a different region and make sure it shares the DNS zone with the primary instance. This is done by specifying a `DNS Zone Partner` optional parameter using the Azure portal, PowerShell, or the REST API.
+  When a new instance is created, a unique id is automatically generated as the DNS Zone and included in the instance DNS name. A multi-domain (SAN) certificate for this instance is provisioned with the SAN field in the form of `zone_id.database.windows.net`. This certificate can be used to authenticate the client connections to an  instance in the same DNS zone. To ensure non-interrupted connectivity to the primary instance after failover both the primary and secondary instances must be in the same DNS zone. When your application is ready for production deployment, create a secondary instance in a different region and make sure it shares the DNS zone with the primary instance. You can do it by specifying a `DNS Zone Partner` optional parameter using the Azure portal, PowerShell, or the REST API.
 
   For more information about creating the secondary instance in the same DNS zone as the primary instance, see [Managing failover groups with Managed Instances (preview)](#powershell-managing-failover-groups-with-managed-instances-preview).
 
@@ -220,7 +220,7 @@ If your application uses Managed Instance as the data tier, follow these general
 
   If an outage is detected, SQL automatically triggers read-write failover if there is zero data loss to the best of our knowledge. Otherwise, it waits for the period you specified by `GracePeriodWithDataLossHours`. If you specified `GracePeriodWithDataLossHours`, be prepared for data loss. In general, during outages, Azure favors availability. If you cannot afford data loss, make sure to set GracePeriodWithDataLossHours to a sufficiently large number, such as 24 hours.
 
-  The DNS update of the read-write listener will happen immediately after the failover is initiated. This operation will not result in data loss. However, the process of switching database roles can take up to 5 minutes under normal conditions. Until it is completed, some databases in the new primary instance will still be read-only. If failover is initiated using PowerShell then the entire operation is synchronous. If it is initiated using the Azure portal then the UI will indicate completion status. If it is initiated using the REST API, use standard Azure Resource Manager’s polling mechanism to monitor for completion.
+  The DNS update of the read-write listener will happen immediately after the failover is initiated. This operation will not result in data loss. However, the process of switching database roles can take up to 5 minutes under normal conditions. Until it is completed, some databases in the new primary instance will still be read-only. If failover is initiated using PowerShell, the entire operation is synchronous. If it is initiated using the Azure portal, the UI will indicate completion status. If it is initiated using the REST API, use standard Azure Resource Manager’s polling mechanism to monitor for completion.
 
   > [!IMPORTANT]
   > Use manual group failover to move primaries back to the original location. When the outage that caused the failover is mitigated, you can move your primary databases to the original location. To do that you should initiate the manual failover of the group.
@@ -261,14 +261,14 @@ The above configuration will ensure that the automatic failover will not block c
 
 ## Enabling geo-replication between Managed Instances and their VNets
 
-When you set up a failover groups between primary and secondary managed instances in two different regions, each instance is isolated using an independent VNet. To allow replication traffic between these VNets follow ensure these prerequisites are met:
+When you set up a failover group between primary and secondary managed instances in two different regions, each instance is isolated using an independent VNet. To allow replication traffic between these VNets ensure these prerequisites are met:
 
 1. The two Managed Instances need to be in different Azure regions.
 2. Your secondary must be empty (no user databases).
 3. The primary and secondary Managed Instances need to be in the same Resource Group.
 4. The VNets that the Managed Instances are part of need to be connected through a [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Global VNet Peering is not supported.
 5. The two Managed Instance VNets cannot have overlapping IP addresses.
-6. You need to setup your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open inbound and outbound for connections from the other Managed Instanced subnet. This is to allow replication traffic between the instances
+6. You need to set up your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open inbound and outbound for connections from the other Managed Instanced subnet. This is to allow replication traffic between the instances
 
   > [!IMPORTANT]
   > Misconfigured NSG security rules leads to stuck database copy operations.
