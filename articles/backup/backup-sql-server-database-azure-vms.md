@@ -36,7 +36,7 @@ Before you back up a SQL Server database, check the following criteria:
 5. Check that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you back up.
 
 > [!NOTE]
-You can enable Azure Backup for an Azure VM and also for a SQL Server database running on the VM without conflict.
+> You can enable Azure Backup for an Azure VM and also for a SQL Server database running on the VM without conflict.
 
 
 ### Establish network connectivity
@@ -52,8 +52,8 @@ Both connectivity options include the following advantages and disadvantages:
 
 **Option** | **Advantages** | **Disadvantages**
 --- | --- | ---
-Allow IP ranges | No additional costs. | Complex to manage because the IP address ranges change over time. <br/><br/> Provides access to the whole of Azure, not just Azure Storage.
-Use an HTTP proxy   | Granular control in the proxy over the storage URLs is allowed. <br/><br/> Single point of internet access to VMs. <br/><br/> Not subject to Azure IP address changes. | Additional costs to run a VM with the proxy software.
+Allow IP ranges | No additional costs | Complex to manage because the IP address ranges change over time <br/><br/> Provides access to the whole of Azure, not just Azure Storage
+Use an HTTP proxy   | Granular control in the proxy over the storage URLs is allowed <br/><br/> Single point of internet access to VMs <br/><br/> Not subject to Azure IP address changes | Additional costs to run a VM with the proxy software
 
 ### Set VM permissions
 
@@ -61,7 +61,7 @@ Azure Backup does the following when you configure a backup for a SQL Server dat
 
 - It adds the AzureBackupWindowsWorkload extension.
 - It creates an NT SERVICE\AzureWLBackupPluginSvc account to discover databases on the virtual machine. This account is used for a backup and restore and requires SQL sysadmin permissions.
-- Azure Backup uses the NT AUTHORITY\SYSTEM account for database discovery/inquiry. The account must be a public sign in on SQL.
+- Azure Backup uses the NT AUTHORITY\SYSTEM account for database discovery/inquiry. The account must be a public sign-in on SQL.
 
 If you didn't create the SQL Server VM in Azure Marketplace, you might receive a UserErrorSQLNoSysadminMembership error. For more information, see the Feature consideration and limitations section found in [About SQL Server Backup in Azure VMs](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
@@ -91,7 +91,7 @@ How to discover databases running on a VM:
 
 3. In **Backup Goal**, set **Where is your workload running?** to **Azure**.
 
-4. In **What do you want to backup, select **SQL Server in Azure VM**.
+4. In **What do you want to backup**, select **SQL Server in Azure VM**.
 
     ![Select SQL Server in Azure VM for the backup](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
@@ -122,11 +122,11 @@ How to discover databases running on a VM:
 
 ## Configure backup  
 
-1. In **Backup Goal**, under **Step 2: Configure Backup**, select **Configure Backup**.
+1. In **Backup Goal** > **Step 2: Configure Backup**, select **Configure Backup**.
 
    ![Select Configure Backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-2. In **Select items to backup**, you'll see all the registered availability groups and standalone SQL Servers. Select the chevron to the left of a row to expand the list of all the unprotected databases in that instance or Always On availability group (AG).  
+2. In **Select items to backup**, you'll see all the registered availability groups and standalone SQL Servers. Select the arrow to the left of a row to expand the list of all the unprotected databases in that instance or Always On availability group (AG).  
 
     ![Displaying all SQL Server instances with standalone databases](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
@@ -170,7 +170,7 @@ A backup policy defines when backups are taken and how long they're retained.
 - Multiple vaults can use the same backup policy, but you must apply the backup policy to each vault.
 - When you create a backup policy, a daily full backup is the default.
 - You can add a differential backup, but only if you configure full backups to occur weekly.
-- [Learn about](backup-architecture.md#sql-server-backup-types) different types of backup policies.
+- Learn about [different types of backup policies](backup-architecture.md#sql-server-backup-types).
 
 To create a backup policy:
 
@@ -183,16 +183,16 @@ To create a backup policy:
 4. In **Full Backup policy**, select a **Backup Frequency**. Choose either **Daily** or **Weekly**.
 
    - For **Daily**, select the hour and time zone when the backup job begins.
-   - For **Weekly**, select the day of the week, hour, and time zone when the backup job begins
+   - For **Weekly**, select the day of the week, hour, and time zone when the backup job begins.
    - Run a full backup, as you can't turn off the **Full Backup** option.
    - Select **Full Backup** to view the policy.
-   - You can't create differential backups for daily full backups.
+   - Note that you can't create differential backups for daily full backups.
 
      ![New backup policy fields](./media/backup-azure-sql-database/full-backup-policy.png)  
 
 5. In **RETENTION RANGE**, all options are selected by default. Clear any retention range limits that you don't want, and then set the intervals to use.
 
-    - Minimum retention period for any type of backup (full/differential/log) is seven days.
+    - Minimum retention period for any type of backup (full, differential, and log) is seven days.
     - Recovery points are tagged for retention based on their retention range. For example, if you select a daily full backup, only one full backup is triggered each day.
     - The backup for a specific day is tagged and retained based on the weekly retention range and the weekly retention setting.
     - Monthly and yearly retention ranges behave in a similar way.
@@ -247,7 +247,7 @@ You can enable auto-protection to automatically back up all existing and future 
 To enable auto-protection:
 
   1. In **Items to backup**, select the instance for which you want to enable auto-protection.
-  2. Select the dropdown under **Autoprotect**, select **On**, and then select **OK**.
+  2. Select the dropdown under **Autoprotect**, choose **On**, and then select **OK**.
 
       ![Enable auto-protection on the AG](./media/backup-azure-sql-database/enable-auto-protection.png)
 
