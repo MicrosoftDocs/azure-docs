@@ -64,7 +64,7 @@ To achieve real business continuity, adding database redundancy between datacent
   
 - **DNS zone**
 
-  A unique id that is automatically generated When a new instance is created. A multi-domain (SAN) certificate for this instance is provisioned to authenticate the client connections to any instance in the same DNS zone. The two managed instances in the same failover group must share the DNS zone. 
+  A unique id that is automatically generated when a new instance is created. A multi-domain (SAN) certificate for this instance is provisioned to authenticate the client connections to any instance in the same DNS zone. The two managed instances in the same failover group must share the DNS zone. 
   
   > [!NOTE]
   > DNS zone id is not required for failover groups created for SQL Database servers.
@@ -188,7 +188,7 @@ If your application uses managed instance as the data tier, follow these general
 
 - **Use read-write listener for OLTP workload**
 
-  When performing OLTP operations, use `<fog-name>.zone_id.database.windows.net` as the server URL and the connections are automatically directed to the primary. This URL does not change after the failover. The failover involves updating the DNS record, so the client connections are redirected to the new primary only after the client DNS cache is refreshed. Because the secondary instance shares the DNS zone with the primary, the client application will be able to re-connect to it using the same SAN certificate.
+  When performing OLTP operations, use `<fog-name>.zone_id.database.windows.net` as the server URL and the connections are automatically directed to the primary. This URL does not change after the failover. The failover involves updating the DNS record, so the client connections are redirected to the new primary only after the client DNS cache is refreshed. Because the secondary instance shares the DNS zone with the primary, the client application will be able to reconnect to it using the same SAN certificate.
 
 - **Connect directly to geo-replicated secondary for read-only queries**
 
@@ -214,7 +214,7 @@ If your application uses managed instance as the data tier, follow these general
 
 ## Failover groups and network security
 
-For some applications the security rules require that the network access to the data tier is restricted to a specific component or components such as a VM, web service etc. This requirement presents some challenges for business continuity design and the use of the failover groups. You should consider the following options when implementing such restricted access.
+For some applications the security rules require that the network access to the data tier is restricted to a specific component or components such as a VM, web service etc. This requirement presents some challenges for business continuity design and the use of the failover groups. Consider the following options when implementing such restricted access.
 
 ### Using failover groups and virtual network rules
 
