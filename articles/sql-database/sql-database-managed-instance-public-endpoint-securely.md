@@ -46,6 +46,6 @@ When clients need to initiate a connection from an on-premises network, make sur
 
 If connections are started from Azure, we recommend that traffic come from a well-known assigned [virtual IP address](../virtual-network/virtual-networks-reserved-public-ip.md) (for example, a virtual machine). To make managing virtual IP (VIP) addresses easier, you might want to use [public IP address prefixes](../virtual-network/public-ip-address-prefix.md).
 
-## Next Steps
+## Next steps
 
 - Learn how to configure public endpoint for manage instances: [Configure public endpoint](sql-database-managed-instance-public-endpoint-configure.md)
