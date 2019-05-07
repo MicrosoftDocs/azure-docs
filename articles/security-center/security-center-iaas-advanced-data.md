@@ -40,10 +40,22 @@ The following steps get you started with ADS for IaaS.
 Before you begin: You need a Log Analytics workspace to store the security logs being analyzed. If you do not have one, then you can create one easily, as explained in [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/quick-create-workspace).
 
 1. Connect the VM hosting the SQL server to the Log Analytics workspace. For instructions, see [Connect Windows computers to Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/agent-windows).
+
 1. From Azure Marketplace, go to the [SQL Advanced Data Security solution](https://ms.portal.azure.com/#create/Microsoft.SQLAdvancedDataSecurity).
 (You can find it using the marketplace search option, as see in the following image.)
-1. Select the workspace to use and click Create.
+
+    ![Advanced Data Security for IaaS](./media/security-center-advanced-iaas-data/sql-advanced-data-security.png)
+
+1. Click **SQL Advanced Data Security**. The **SQL Advanced Data Security** page open.
+
+    ![Advanced Data Security Create](./media/security-center-advanced-iaas-data/sql-advanced-data-create.png)
+
+1. Select the workspace to use and click **Create**.
+
+   ![Select workspace](./media/security-center-advanced-iaas-data/sql-workspace.png)
+
 1. Restart the [VM's SQL server](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services?view=sql-server-2017).
+
 
 ## Explore and Investigate Security Alerts
 
@@ -70,21 +82,30 @@ You can review and manage your current security alerts.
   ![VIew Logs](./media/security-center-advanced-iaas-data/view-logs.png)
 
 
-## Setting up the 
-1. You need a Log Analytics workspace to store the security logs being analyzed. If you do not have one, then create one. For intstructions, see [Create a Log Analyitcs workspace in the Azure portal](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/quick-create-workspace).
-1. Connect the VM hosting the SQL server to the Log Analytics workspace. For instructions, see [Connect Windows computers to Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/agent-windows).
-1. Go to **Marketplace** > **Get Started**.  
-1. Search for SQL Advanced Data Security. 
-    ![Advanced Data Security for IaaS](./media/security-center-advanced-iaas-data/sql-advanced-data-security.png)
-1. Click **SQL Advanced Data Security**. The **SQL Advanced Data Security** page open.
-   ![Advanced Data Security Create](./media/security-center-advanced-iaas-data/sql-advanced-data-create.png)
-1. Click **Create**.
-1. Select the workspace to use and click **Create**.
-   ![Select workspace](./media/security-center-advanced-iaas-data/sql-workspace.png)
+## Set Up Email Notification for ATP Alerts 
 
-1. Restart the [VM's SQL server](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services?view=sql-server-2017).
+You can set up a list of recipients to receive an email notification when ASC alerts are fired, an email will be sent to this list of recipients. The email contains a direct link to the alert in Azure Security Center with all the relevant details. 
 
+1. Go to Security Center > Security policy and in the row of the relevant subscription click **Edit settings>**.
 
+    ![Subscription Settings](./media/security-center-advanced-iaas-data/subscription-settings.png)
+
+1. Click Email notifications, and in the Email address text box, enter the email addresses to receive the notifications.
+
+  > [!NOTE]
+  > You can enter more than one email address by separating the email addresses with a comma (,).  For example   admin1@mycompany.com,admin2@mycompany.com,admin3@mycompany.com
+
+  ![Email Settings](./media/security-center-advanced-iaas-data/email-settings.png)
+
+1. In the **Email notification** settings, set the following options:
+  
+    * **Send email notification for high severity alerts**: Instead of sending emails for all alerts, send only for high severity alerts.
+    * **Also send email notifications to subscription owners**:  Send notifications for the subscriptions owners too.
+
+1. In the top of the **Email notifications** screen, click **Save**.
+
+  > [!NOTE]
+  > Be sure to click **Save** before closing the window, or the new **Email notification** settings will not be saved.
 
 ## Explore Vulnerability Assessment Reports
 
