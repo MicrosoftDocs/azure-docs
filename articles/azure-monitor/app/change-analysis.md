@@ -50,9 +50,6 @@ Azure Monitor application change analysis is currently built into the self-servi
 5.  Once everything  is enabled, selecting **Diagnose and solve problems** > **Availability and Performance** > **Application Crashes** will allow you to access the change analysis experience. The graph will summerize the type of changes that happened over time along with details on those changes:
 
      ![Screenshot of change diff view](./media/change-analysis/change-view.png)
-        
-     > [!NOTE]
-     > After enabling change analysis you may receive a message stating "Unable to fetch Change Analysis information. Please try again later." This is expected, you may need to wait up to 4 hours for the initial collection of application change data to occur.
 
 ## Troubleshooting
 
