@@ -66,7 +66,7 @@ A common way to take advantage of message expiration and avoid sending messages 
 
 ## Message feedback
 
-When you send a cloud-to-device message, the service can request the delivery of per-message feedback regarding the final state of that message. This is done by setting the `iothub-ack` application property in the C2D message being sent. to either of the following values:
+When you send a cloud-to-device message, the service can request the delivery of per-message feedback regarding the final state of that message. This is done by setting the `iothub-ack` application property in the C2D message being sent to either of the following values:
 
 | Ack property value | Behavior |
 | ------------ | -------- |

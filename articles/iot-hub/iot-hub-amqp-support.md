@@ -1,6 +1,6 @@
 ---
 title: Understand Azure IoT Hub AMQP support | Microsoft Docs
-description: Developer guide - support for devices connecting to an IoT Hub device-facing and service-facing endpoints using the AMQP protocol. Includes information about built-in AMQP support in the Azure IoT device SDKs.
+description: Developer guide - support for devices connecting to IoT Hub device-facing and service-facing endpoints using the AMQP protocol. Includes information about built-in AMQP support in the Azure IoT device SDKs.
 author: rezasherafat
 manager: 
 ms.service: iot-hub
@@ -14,9 +14,9 @@ ms.author: rezas
 
 IoT Hub supports [AMQP version 1.0](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf) to deliver a variety of functionalities through device-facing and service-facing endpoints. This document describes the use of AMQP clients to connect to IoT Hub in order to use IoT Hub functionality.
 
-# Service Client
+## Service client
 
-## Connection and authenticating to IoT Hub (service client)
+### Connection and authenticating to IoT Hub (service client)
 To connect to IoT Hub using AMQP, a client can use the [Claims Based Security (CBS)](https://www.oasis-open.org/committees/download.php/60412/amqp-cbs-v1.0-wd03.doc) or [Simple Authentication and Security Layer (SASL) authentication](https://en.wikipedia.org/wiki/Simple_Authentication_and_Security_Layer).
 
 The following information is required for the service client:
@@ -36,7 +36,7 @@ import uamqp
 import urllib
 import time
 
-# Use generate_sas_token implementation available here: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security#security-token-structure
+# Use generate_sas_token implementation available here: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security#security-token-structure
 from helper import generate_sas_token
 
 iot_hub_name = '<iot-hub-name>'
@@ -54,12 +54,12 @@ send_client = uamqp.SendClient(uri, debug=True)
 receive_client = uamqp.ReceiveClient(uri, debug=True)
 ```
 
-## Invoking cloud-to-device messages (service client)
+### Invoking cloud-to-device messages (service client)
 The cloud-to-device message exchange between service and IoT Hub as well as between device and IoT Hub is described [here](iot-hub-devguide-messages-c2d.md). The service client uses two links described below to send messages and receive feedback for previously sent messages from devices.
 
 | Created by | Link type | Link path | Description |
 |------------|-----------|-----------|-------------|
-| Service | Sender link | `/messages/devicebound` | C2D messages destined to devices are sent to this link by the service. Messages send over this link have their `To` property set to the target device's receiver link path: i.e., `/devices/<deviceID>/messages/devicebound`. |
+| Service | Sender link | `/messages/devicebound` | C2D messages destined to devices are sent to this link by the service. Messages sent over this link have their `To` property set to the target device's receiver link path: i.e., `/devices/<deviceID>/messages/devicebound`. |
 | Service | Receiver link | `/messages/serviceBound/feedback` | Completion, rejection, and abandonment feedback messages coming from devices received on this link by service. See [here](./iot-hub-devguide-messages-c2d.md#message-feedback) for more information about feedback messages. |
 
 The code snippet below demonstrates how to create a C2D message and send it to a device using [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python).
@@ -73,8 +73,8 @@ device_id = '<device-id>'
 to = '/devices/{device_id}/messages/devicebound'.format(device_id=device_id)
 ack = 'full' # Alternative values are 'positive', 'negative', and 'none'
 app_props = { 'iothub-ack': ack }
-msg_props = uamqp.message.MessageProperties(message_id=msg_id, to=to, application_properties=app_props)
-msg = uamqp.Message(msg_content, properties=msg_props)
+msg_props = uamqp.message.MessageProperties(message_id=msg_id, to=to)
+msg = uamqp.Message(msg_content, properties=msg_props, application_properties=app_props)
 
 # Send the message using the send client created and connected IoT Hub earlier
 send_client.queue_message(msg)
@@ -87,6 +87,8 @@ send_client.close()
 To receive feedback, service client creates a receiver link. The code snippet below demonstrates how to do this using [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python).
 
 ```python
+import json
+
 operation = '/messages/serviceBound/feedback'
 
 # ...
@@ -105,10 +107,10 @@ for msg in batch:
     print(json.dumps(msg_body, indent=2))
     print('******************')
     for feedback in msg_body:
-      print('feedback received:')
+      print('feedback received')
       print('\tstatusCode: ' + str(feedback['statusCode']))
-      print('\toriginalMessageId' + str(feedback['originalMessageId']))
-      print('\tdeviceId:' + str(feedback['deviceId']))
+      print('\toriginalMessageId: ' + str(feedback['originalMessageId']))
+      print('\tdeviceId: ' + str(feedback['deviceId']))
       print
   else:
     print('unknown message:', msg.properties.content_type)
@@ -119,14 +121,14 @@ As shown above, a C2D feedback message has content type of `application/vnd.micr
 * Key `deviceId` in feedback body has the ID of target device.
 * Key `originalMessageId` in feedback body has the ID of the original C2D message sent by the service. This can be used to correlate feedback to C2D messages.
 
-## Receive telemetry messages (service client)
+### Receive telemetry messages (service client)
 
 
-## Additional notes
+### Additional notes
 * The AMQP connections may be disrupted due to network glitch, or expiry of the authentication token (generated in the code). The service client must handle these circumstances and re-establish the connection and links if needed. For the case of authentication token expiry, the client can also proactively renew the token prior to its expiry to avoid a connection drop.
-* In some cases, your client must be able to correctly handle link redictions. Refer to your AMQP client documentation on how to do this.
+* In some cases, your client must be able to correctly handle link redirections. Refer to your AMQP client documentation on how to do this.
 
-## Receive cloud-to-device messages (device and module client)
+### Receive cloud-to-device messages (device and module client)
 AMQP links used on the device side are as follows:
 
 | Created by | Link type | Link path | Description |
@@ -135,3 +137,14 @@ AMQP links used on the device side are as follows:
 | Devices | Sender link | `/messages/serviceBound/feedback` | C2D message feedback sent to service over this link by devices. |
 | Modules | Receiver link | `/devices/<deviceID>/modules/<moduleID>/messages/devicebound` | C2D messages destined to modules are received on this link by each destination module. |
 | Modules | Sender link | `/messages/serviceBound/feedback` | C2D message feedback sent to service over this link by modules. |
+
+
+## Next steps
+
+To learn more about the AMQP protocol, see the [AMQP v1.0 specification](http://www.amqp.org/sites/amqp.org/files/amqp.pdf).
+
+To learn more about IoT Hub messaging, see:
+
+* [Cloud-to-device messages](./iot-hub-devguide-messages-c2d.md)
+* [Support additional protocols](iot-hub-protocol-gateway.md)
+* [Support for MQTT protocol](./iot-hub-mqtt-support.md)
