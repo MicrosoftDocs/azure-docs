@@ -40,6 +40,9 @@
   - name: Use safe deployment practices
     displayName: adm
     href: deployment-manager-tutorial.md
+  - name: Use health check in Deployment Manager
+    displayName: adm
+    href: deployment-manager-tutorial-health-check.md
   - name: Troubleshoot template deployment
     href: resource-manager-tutorial-troubleshoot.md
 - name: Samples
@@ -62,6 +65,9 @@
   - name: Deployment Manager
     displayName: adm
     href: deployment-manager-overview.md
+  - name: Deployment Manager health check
+    displayName: adm
+    href: deployment-manager-health-check.md
   - name: Deployment modes
     href: deployment-modes.md
   - name: Resource deletion
