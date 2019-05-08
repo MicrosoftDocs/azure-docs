@@ -24,7 +24,7 @@ This article shows how teachers/lab admin can save a template virtual machine im
 - You have attached the shared image gallery to the lab account. For step-by-step instructions, see [How to attach or detach shared image gallery](how-to-attach-detach-shared-image-gallery.md).
 
 
-## Save or an image to the shared image gallery
+## Save an image to the shared image gallery
 After a shared image gallery is attached, a teacher can save or upload an  image to the shared image gallery so that it can be reused by other teachers. For instructions for uploading an image to the shared image gallery, see [Shared Image Gallery overview](../../virtual-machines/windows/shared-images.md). 
 
 > [!NOTE]

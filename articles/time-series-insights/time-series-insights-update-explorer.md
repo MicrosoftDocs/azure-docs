@@ -44,7 +44,7 @@ The Azure Time Series Insights Preview explorer consists of the following elemen
 
 The environment dropdown displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go environments (Preview) and S1/S2 environments (general availability or GA). 
 
-1. Simply click the the dropdown arrow next to your displayed environment:
+1. Simply click the dropdown arrow next to your displayed environment:
 
    [![The control panel](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
 
