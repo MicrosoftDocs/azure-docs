@@ -278,7 +278,7 @@ For more information about creating subnets, see
 To create logic apps that use your integration 
 service environment (ISE), follow the steps in 
 [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
-but with these differences: 
+but with these differences:
 
 * When you create your logic app, under the **Location** property, 
 select your ISE from the **Integration service environments** section, 
@@ -297,10 +297,10 @@ Standard connectors without the **ISE** label run in the global Logic Apps servi
   ![Select ISE connectors](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
 
 * After you inject your ISE into an Azure virtual network, 
-the logic apps in your ISE can directly access resources in that virtual network. 
-For on-premises systems that are connected to a virtual network, 
-inject an ISE into that network so your logic apps can directly 
-access those systems by using any of these items: 
+the logic apps in your ISE can directly access resources in that 
+virtual network. For on-premises systems that are connected to a 
+virtual network, inject an ISE into that network so your logic apps 
+can directly access those systems by using any of these items:
 
   * ISE connector for that system, for example, SQL Server
   
@@ -308,8 +308,16 @@ access those systems by using any of these items:
   
   * Custom connector
 
-  For on-premises systems that aren't in a virtual 
-  network or don't have ISE connectors, first 
+    * Logic apps in an ISE can use custom connectors that require 
+    the on-premises data gateway and are created outside an ISE.
+  
+    * Custom connectors created in an ISE don't work with the 
+    on-premises data gateway. However, you might not need the 
+    gateway to connect logic apps in an ISE with on-premises 
+    data sources that are connected to the virtual network hosting the ISE.
+
+  For on-premises systems that aren't connected to a 
+  virtual network or don't have ISE connectors, first 
   [set up the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md).
 
 <a name="create-integration-account-environment"></a>
