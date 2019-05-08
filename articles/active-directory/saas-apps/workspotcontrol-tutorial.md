@@ -77,7 +77,7 @@ To configure and test Azure AD single sign-on with Workspot Control, you must co
 2. **[Configure Workspot Control single sign-on](#configure-workspot-control-single-sign-on)** to configure the single sign-on settings on the application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on for Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create a Workspot Control test user](#create-a-workspot-control-test-user)** to have a counterpart of Britta Simon in Workspot Control that's linked to the Azure AD representation of the user.
+5. **[Create a Workspot Control test user](#create-a-workspot-control-test-user)** to establish a counterpart of Britta Simon in Workspot Control that's linked to the Azure AD representation of the user.
 6. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -94,7 +94,7 @@ To configure Azure AD single sign-on with Workspot Control, follow these steps:
 
     ![Select a single sign-on select method window](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, select the **Edit** (pencil) icon to open the **Basic SAML Configuration** window.
+3. On the **Set up Single Sign-On with SAML** page, select the **Edit** (pencil) icon to access **Basic SAML Configuration**.
 
 	!["Edit" icon highlighted in Basic SAML Configuration](common/edit-urls.png)
 
@@ -103,9 +103,11 @@ To configure Azure AD single sign-on with Workspot Control, follow these steps:
     ![Workspot Control domain and URLs single sign-on information](common/idp-intiated.png)
 
     1. In the **identifier** text box, type a URL in the following pattern:
+
     ***https://<INSTANCENAME>-saml.workspot.com/saml/metadata***
 
     1. In the **reply URL** text box, type a URL in the following pattern:
+
     ***https://<INSTANCENAME>-saml.workspot.com/saml/assertion***
 
 5. If you want to configure the application in SP-initiated mode, select **Set additional URLs**.
@@ -113,10 +115,11 @@ To configure Azure AD single sign-on with Workspot Control, follow these steps:
     ![Workspot Control domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL in the following pattern:
-    ***https://<INSTANCENAME>-saml.workspot.com/***
+
+    ***https://INSTANCENAME-saml.workspot.com/***
 
 	> [!NOTE]
-	> These values are not real. Replace these values with the actual identifier, reply URL, and sign-on URL. Contact the [Workspot Control Client support team](mailto:support@workspot.com) to get these values. You can also refer to the patterns in the **Basic SAML Configuration** section of the Azure portal.
+	> These values are not real. Replace these values with the actual identifier, reply URL, and sign-on URL. Contact the [Workspot Control Client support team](mailto:support@workspot.com) to get these values. Or you can also refer to the patterns in the **Basic SAML Configuration** section of the Azure portal.
 
 6. On the **Set Up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download **Certificate (Base64)** from the available options as per your requirements. Save it to your computer.
 
@@ -172,7 +175,7 @@ In this section, you create a test user in the Azure portal.
 
     1. In the **Name** field,  enter **BrittaSimon**.
   
-    1. In the **User name** field, type brittasimon@*yourcompanydomain.extension*. For example, type **BrittaSimon@contoso.com**.
+    1. In the **User name** field, type **brittasimon@*yourcompanydomain.extension***. For example, type **BrittaSimon@contoso.com**.
 
     1. Select the **Show password** check box. Then write down the value that's displayed in the **Password** box.
 
@@ -198,9 +201,9 @@ In this section, you grant Britta Simon access to Workspot Control to enable her
 
     ![The "Add Assignment" window](common/add-assign-user.png)
 
-5. In the **Users and groups** window, select **Britta Simon** from the **Users** list. Then click the **Select** button.
+5. In the **Users and groups** window, select **Britta Simon** from the **Users** list. Then click **Select**.
 
-6. If you expect any role value in the SAML assertion, select the appropriate role for the user from the list in the **Select Role** window. Then click **Select** at the bottom of the window.
+6. If you expect any role value in the SAML assertion, select the appropriate role for the user from the list in the **Select Role** window. Then click **Select** at the bottom.
 
 7. In the **Add Assignment** window, select **Assign**.
 
