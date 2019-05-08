@@ -49,7 +49,7 @@ If you receive an error, remove [backup items](#remove-backup-items), [infrastru
    ` choco install armclient --source=https://chocolatey.org/api/v2/ `
 2. Login to Azure account, running the below command
 
-  `  ARMClient.exe login [environment name]   `
+    ` ARMClient.exe login [environment name] `
 
 3. In the Azure portal, gather the subscription ID and resource group name for the vault you want to delete.
 
