@@ -131,7 +131,7 @@ To configure Azure AD single sign-on with SAP Fiori, perform the following steps
 6. Replace **Provider Name** from T01122 to `http://T01122` and click on **Save**.
 
 	> [!NOTE]
-	> By default provider name come as <sid><client> format but Azure AD expects name in the format of <protocol>://<name>, recommending to maintain provider name as https://<sid><client> to allow multiple SAP Fiori ABAP engines to configure in Azure AD.
+	> By default provider name come as \<sid>\<client> format but Azure AD expects name in the format of \<protocol>://\<name>, recommending to maintain provider name as https\://\<sid>\<client> to allow multiple SAP Fiori ABAP engines to configure in Azure AD.
 
 	![The Certificate download link](./media/sapfiori-tutorial/tutorial-sapnetweaver-providername.png)
 
@@ -372,8 +372,8 @@ In this section, you create a user called Britta Simon in SAP Fiori. Please work
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

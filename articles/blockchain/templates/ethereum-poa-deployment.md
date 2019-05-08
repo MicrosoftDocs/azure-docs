@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords:
 author: CodyBorn
 ms.author: coborn
-ms.date: 8/2/2018
+ms.date: 04/08/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
@@ -402,7 +402,7 @@ Network ID|The network ID for the consortium Ethereum network being deployed.  E
 Admin Ethereum Address|Ethereum account address that is used for participating in PoA governance.  We recommend using MetaMask for generating an Ethereum address.|42 alphanumeric characters starting with 0x|NA
 Advanced Options|Advanced options for Ethereum settings|Enable or Disable|Disable
 Public IP (Advanced Options = Enable)|Deploys the network behind a VNet Gateway and removes peering access. If this option is selected, all members must use a VNet Gateway for the connection to be compatible.|Public IP Private VNet|Public IP
-Block Gas Limit (Advanced Options = Enable)|The starting block gas limit of the network|Any numeric|50,000,00
+Block Gas Limit (Advanced Options = Enable)|The starting block gas limit of the network|Any numeric|50000000
 Block Reseal Period (sec)|The frequency at which empty blocks will be created when there are no transactions on the network. A higher frequency will have faster finality but increased storage costs.|Any numeric|15
 Transaction Permission Contract (Advanced Options = Enable)|Bytecode for the Transaction Permissioning contract. Restricts smart contract deployment and execution to a permitted list of Ethereum accounts.|Contract bytecode|NA
 

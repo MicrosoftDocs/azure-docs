@@ -1,12 +1,11 @@
-﻿---
+---
 title: Link an Azure account to a partner ID | Microsoft Docs
-description: Track engagements with Azure customers by linking a partner ID to the user account that you use to manage the customer's resources. 
+description: Track engagements with Azure customers by linking a partner ID to the user account that you use to manage the customer's resources.
 services: billing
 author: dhirajgandhi
 manager: dhgandhi
-
 ms.author: banders
-ms.date: 03/12/2018
+ms.date: 03/12/2019
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
@@ -53,29 +52,29 @@ When you have access to the customer's resources, use the Azure portal, PowerShe
 1. Install the [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) PowerShell module.
 
 2. Sign in to the customer's tenant with either the user account or the service principal. For more information, see [Sign in with PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
- 
+
    ```azurepowershell-interactive
-    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    ```
 
 3. Link to the new partner ID. The partner ID is the [Microsoft Partner Network](https://partner.microsoft.com/) ID for your organization.
 
     ```azurepowershell-interactive
-    C:\> new-AzureRmManagementPartner -PartnerId 12345 
+    C:\> new-AzManagementPartner -PartnerId 12345
     ```
 
 #### Get the linked partner ID
 ```azurepowershell-interactive
-C:\> get-AzureRmManagementPartner 
+C:\> get-AzManagementPartner
 ```
 
 #### Update the linked partner ID
 ```azurepowershell-interactive
-C:\> Update-AzureRmManagementPartner -PartnerId 12345 
+C:\> Update-AzManagementPartner -PartnerId 12345
 ```
 #### Delete the linked partner ID
 ```azurepowershell-interactive
-C:\> remove-AzureRmManagementPartner -PartnerId 12345 
+C:\> remove-AzManagementPartner -PartnerId 12345
 ```
 
 ### Use the Azure CLI to link to a new partner ID
@@ -83,13 +82,13 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
 
     ```azurecli-interactive
     C:\ az extension add --name managementpartner
-    ``` 
+    ```
 
 2. Sign in to the customer's tenant with either the user account or the service principal. For more information, see [Sign in with the Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
-    ``` 
+    ```
 
 3. Link to the new partner ID. The partner ID is the [Microsoft Partner Network](https://partner.microsoft.com/) ID for your organization.
 
@@ -100,17 +99,17 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
 #### Get the linked partner ID
 ```azurecli-interactive
 C:\ az managementpartner show
-``` 
+```
 
 #### Update the linked partner ID
 ```azurecli-interactive
 C:\ az managementpartner update --partner-id 12345
-``` 
+```
 
 #### Delete the linked partner ID
 ```azurecli-interactive
 C:\ az managementpartner delete --partner-id 12345
-``` 
+```
 
 ## Next steps
 
@@ -132,12 +131,12 @@ The link between the partner ID and the account is done for each customer tenant
 
 **Can other partners or customers edit or remove the link to the partner ID?**
 
-The link is associated at the user account level. Only you can edit or remove the link to the partner ID. The customer and other partners can't change the link to the partner ID. 
+The link is associated at the user account level. Only you can edit or remove the link to the partner ID. The customer and other partners can't change the link to the partner ID.
 
 
 **Which MPN ID should I use if my company has multiple?**
 
-You can use any valid MPN ID except virual orgnization(v-org) MPN ID. Most partners choose to use the MPN ID for the geography where the customer is based or services are being delivered.
+You can use any valid MPN ID except virtual organization(v-org) MPN ID. Most partners choose to use the MPN ID for the geography where the customer is based or services are being delivered.
 
 **Where can I find influenced revenue reporting for linked partner ID?**
 
@@ -147,11 +146,10 @@ You can find influenced revenue reporting at [My Insights dashboard](https://par
 
 You can't see the customer in the reports due to following reasons
 
-1. The linked user account doesn't have [Role Based Access ](https://docs.microsoft.com/azure/role-based-access-control/overview) on any customer Azure subscription or resource.
+1. The linked user account doesn't have [Role Based Access](https://docs.microsoft.com/azure/role-based-access-control/overview) on any customer Azure subscription or resource.
 
-2. The Azure subscription where the user has [Role Based Access ](https://docs.microsoft.com/azure/role-based-access-control/overview) access doesn't have any usage.
+2. The Azure subscription where the user has [Role Based Access](https://docs.microsoft.com/azure/role-based-access-control/overview) access doesn't have any usage.
 
 **Does link partner ID works with Azure Stack?**
 
 Yes, You can link your partner ID for Azure Stack.
-

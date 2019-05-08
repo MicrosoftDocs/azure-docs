@@ -4,11 +4,11 @@ description: Simulate an error in accessing read access geo-redundant storage
 services: storage 
 author: tamram
 
-
 ms.service: storage 
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram 
+ms.reviewer: artek
 ---
 
 # Tutorial: Simulate a failure in accessing read-access redundant storage

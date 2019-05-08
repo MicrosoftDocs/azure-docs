@@ -6,20 +6,24 @@
     href: about-azure-maps.md
 - name: Quickstarts
   items:
-  - name: Create a map app
+  - name: Create a web app
     href: quick-demo-map-app.md
 - name: Tutorials
   items:
-  - name: 1 - Search for point of interest
-    href: tutorial-search-location.md
-  - name: 2 - Route to a destination
-    href: tutorial-route-location.md
-  - name: 3 - Multiple routes by mode of travel
-    href: tutorial-prioritized-routes.md
-  - name: 4 - Create a store locator
-    href: tutorial-create-store-locator.md
-  - name: 5 - Set up a geofence
-    href: tutorial-geofence.md
+  - name: Web SDK Tutorials
+    items:
+    - name: Search for point of interest
+      href: tutorial-search-location.md
+    - name: Route to a destination
+      href: tutorial-route-location.md
+    - name: Multiple routes by mode of travel
+      href: tutorial-prioritized-routes.md
+    - name: Create a store locator
+      href: tutorial-create-store-locator.md
+  - name: REST API Tutorials
+    items:
+    - name: Set up a geofence
+      href: tutorial-geofence.md
 - name: Concepts
   items:
   - name: Authentication with Azure Maps
@@ -38,7 +42,7 @@
       href: render-coverage.md
     - name: Routing coverage
       href: routing-coverage.md
-  - name: Supported languages
+  - name: Localization support
     href: supported-languages.md
   - name: Supported map styles
     href: supported-map-styles.md
@@ -62,17 +66,19 @@
     items:
     - name: Search for an address
       href: how-to-search-for-address.md
+    - name: Best practices for search
+      href: how-to-use-best-practices-for-search.md
     - name: Render custom data on static map
       href: how-to-render-custom-data.md
   - name: Develop with the Web SDK
     items:
     - name: Map control
       items:
-      - name: Use the map control
+      - name: Getting started with web map control
         href: how-to-use-map-control.md
       - name: Create a map
         href: map-create.md
-      - name: Choose a map style
+      - name: Change style of the map
         href: choose-map-style.md
       - name: Add controls to the map
         href: map-add-controls.md
@@ -88,6 +94,8 @@
         href: map-add-heat-map-layer.md   
       - name: Cluster point data
         href: clustering-point-data-web-sdk.md
+      - name: Use data-driven style expressions
+        href: data-driven-style-expressions-web-sdk.md
       - name: Overlay an image
         href: map-add-image-layer.md
       - name: Add tile layers
@@ -112,8 +120,14 @@
         href: map-route.md
   - name: Develop with the Android SDK
     items:
-    - name: How to use Android map control
+    - name: Getting started with Android map control
       href: how-to-use-android-map-control-library.md
+    - name: Add a symbol layer
+      href: how-to-add-symbol-to-android-map.md
+    - name: Add shapes
+      href: how-to-add-shapes-to-android-map.md
+    - name: Change the style of the map
+      href: set-android-map-styles.md
 - name: Reference
   items:
   - name: API and parameter extensions

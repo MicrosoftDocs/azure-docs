@@ -22,7 +22,7 @@ ms.custom: H1Hack27Feb2017
 Azure Functions runs in two different plans: Consumption plan and Premium plan (public preview). The Consumption plan automatically adds compute power when your code is running. Your app is scaled out when needed to handle load, and scaled down when code stops running. You don't have to pay for idle VMs or reserve capacity in advance.  The Premium plan will also automatically scale and add additional compute power when your code is running.  The Premium plan comes with additional features like premium compute instances, the ability to keep instances warm indefinitely, and VNet connectivity.  If you have an existing App Service Plan, you can also run your function apps within them.
 
 > [!NOTE]  
-> Both [Premium plan](https://azure.microsoft.com/blog/uncompromised-serverless-scale-for-enterprise-workloads-with-the-azure-functions-premium-plan/preview/) and [Consumption plan for Linux](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) are currently in preview.
+> Both [Premium plan](https://aka.ms/functions-premiumplan) and [Consumption plan for Linux](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/) are currently in preview.
 
 If you aren't familiar with Azure Functions, see the [Azure Functions overview](functions-overview.md).
 

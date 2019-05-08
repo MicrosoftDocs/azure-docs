@@ -44,7 +44,7 @@ Azure Data Explorer is a fast, fully managed data analytics service for real-tim
     AzureSku sku = new AzureSku("D13_v2", 5);
     Cluster cluster = new Cluster(location, sku);
 	
-	ar authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantName}");
+	var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantName}");
     var credential = new ClientCredential(clientId: "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx", clientSecret: "xxxxxxxxxxxxxx");
 	var result = authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential).Result;
 	

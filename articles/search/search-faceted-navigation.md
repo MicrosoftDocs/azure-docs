@@ -15,7 +15,7 @@ Faceted navigation is a filtering mechanism that provides self-directed drilldow
 
  ![Azure Search Job Portal Demo][1]
 
-Faceted navigation is an alternative entry point to search. It offers a convenient alternative to typing complex search expressions by hand. Facets can help you find what you're looking for, while ensuring that you don’t get zero results. As a developer, facets let you expose the most useful search criteria for navigating your search corpus. In online retail applications, faceted navigation is often built over brands, departments (kid’s shoes), size, price, popularity, and ratings. 
+Faceted navigation is an alternative entry point to search. It offers a convenient alternative to typing complex search expressions by hand. Facets can help you find what you're looking for, while ensuring that you don’t get zero results. As a developer, facets let you expose the most useful search criteria for navigating your search index. In online retail applications, faceted navigation is often built over brands, departments (kid’s shoes), size, price, popularity, and ratings. 
 
 Implementing faceted navigation differs across search technologies. In Azure Search, faceted navigation is built at query time, using fields that you previously attributed in your schema.
 
@@ -28,7 +28,7 @@ In your application development, writing code that constructs queries constitute
 ## Sample code and demo
 This article uses a job search portal as an example. The example is implemented as an ASP.NET MVC application.
 
--   See and test the working demo online at [Azure Search Job Portal Demo](http://azjobsdemo.azurewebsites.net/).
+-   See and test the working demo online at [Azure Search Job Portal Demo](https://azjobsdemo.azurewebsites.net/).
 
 -   Download the code from the [Azure-Samples repo on GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -316,7 +316,7 @@ Under certain circumstances, you might find that facet counts do not match the r
 
 Facet counts can be inaccurate due to the sharding architecture. Every search index has multiple shards, and each shard reports the top N facets by document count, which is then combined into a single result. If some shards have many matching values, while others have fewer, you may find that some facet values are missing or under-counted in the results.
 
-Although this behavior could change at any time, if you encounter this behavior today, you can work around it by artificially inflating the count:<number> to a large number to enforce full reporting from each shard. If the value of count: is greater than or equal to the number of unique values in the field, you are guaranteed accurate results. However, when document counts are high, there is a performance penalty, so use this option judiciously.
+Although this behavior could change at any time, if you encounter this behavior today, you can work around it by artificially inflating the count:\<number> to a large number to enforce full reporting from each shard. If the value of count: is greater than or equal to the number of unique values in the field, you are guaranteed accurate results. However, when document counts are high, there is a performance penalty, so use this option judiciously.
 
 ### User interface tips
 **Add labels for each field in facet navigation**

@@ -31,7 +31,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ```
 
 The request must use the HTTPS protocol and include following query parameter:
--  q=<URL> - The query that identifies the object of search
+-  `q=<URL>` - The query that identifies the object of search
 
 For examples that show how to make requests, see [C# quickstart](c-sharp-quickstart.md) or [Java quickstart](java-quickstart.md). 
 

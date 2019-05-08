@@ -129,7 +129,7 @@ To configure Azure AD single sign-on with RealtimeBoard, perform the following s
 
 ### Configure RealtimeBoard Single Sign-On
 
-To configure single sign-on on **RealtimeBoard** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [RealtimeBoard support team](). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **RealtimeBoard** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to RealtimeBoard support team. They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -193,9 +193,9 @@ When you click the RealtimeBoard tile in the Access Panel, you should be automat
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

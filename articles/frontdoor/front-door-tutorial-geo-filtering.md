@@ -16,7 +16,7 @@ ms.author: kumud;tyao
 
 ---
 # How to set up a geo-filtering WAF policy for your Front Door
-This tutorial shows how to use Azure PowerShell to create a sample geo-filtering policy and associate the policy with your existing Front Door frontend host. This sample geo-filtering policy will block requests from all other countries except United States.
+This tutorial shows how to use Azure PowerShell to create a sample geo-filtering policy and associate the policy with your existing Front Door frontend host. This sample geo-filtering policy will block requests from all other countries/regions except United States.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
@@ -40,7 +40,7 @@ Install-Module PowerShellGet -Force -AllowClobber
 #### Install Az.FrontDoor module 
 
 ```
-Install-Module -Name Az.FrontDoor -AllowPrerelease
+Install-Module -Name Az.FrontDoor
 ```
 
 ### Create a Front Door profile

@@ -65,7 +65,7 @@ These PowerShell cmdlets are supported with Azure SQL Data Warehouse.
 
 * [Get-AzSqlDatabase][Get-AzSqlDatabase]
 * [Get-AzSqlDeletedDatabaseBackup][Get-AzSqlDeletedDatabaseBackup]
-* [Get-AzSqlDatabaseRestorePoints][Get-AzSqlDatabaseRestorePoints]
+* [Get-AzSqlDatabaseRestorePoint][Get-AzSqlDatabaseRestorePoint]
 * [New-AzSqlDatabase][New-AzSqlDatabase]
 * [Remove-AzSqlDatabase][Remove-AzSqlDatabase]
 * [Restore-AzSqlDatabase][Restore-AzSqlDatabase]
@@ -95,7 +95,7 @@ For other tasks which can be automated with PowerShell, see [Azure SQL Database 
 [Operations for Azure SQL Database]: https://msdn.microsoft.com/library/azure/dn505719.aspx
 [Get-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase
 [Get-AzSqlDeletedDatabaseBackup]: https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup
-[Get-AzSqlDatabaseRestorePoints]: https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserestorepoints
+[Get-AzSqlDatabaseRestorePoint]: https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserestorepoint
 [New-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase
 [Remove-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabase
 [Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase

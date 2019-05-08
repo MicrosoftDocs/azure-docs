@@ -46,7 +46,7 @@ Confirm creation and await FHIR API deployment.
 Click **Next: Additional settings** to configure the authority, audience, identity object IDs that should be allowed to access this Azure API for FHIR and enable SMART on FHIR if needed:
 
 - **Authority:** You can specify different Azure AD tenant from the one that you are logged into as authentication authority for the service.
-- **Audience:** You can specify audience, that is different from [https://azurehealthcareapis.com](https://azurehealthcareapis.com)
+- **Audience:** You can specify audience, that is different from https:\//azurehealthcareapis.com.
 - **Allowed object IDs:** You can specify identity object IDs that should be allowed to access this Azure API for FHIR  
 - **Smart On FHIR proxy:** You can enable SMART on FHIR proxy. For details on how to configure SMART on FHIR proxy see tutorial [Azure API for FHIR SMART on FHIR proxy](https://docs.microsoft.com/azure/healthcare-apis/use-smart-on-fhir-proxy)  
 

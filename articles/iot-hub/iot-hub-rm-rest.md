@@ -15,18 +15,17 @@ ms.date: 08/08/2017
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-You can use the [IoT Hub resource provider REST API][lnk-rest-api] to create and manage Azure IoT hubs programmatically. This tutorial shows you how to use the IoT Hub resource provider REST API to create an IoT hub from a C# program.
-
-> [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Azure Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Azure Resource Manager deployment model.
+You can use the [IoT Hub resource provider REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) to create and manage Azure IoT hubs programmatically. This tutorial shows you how to use the IoT Hub resource provider REST API to create an IoT hub from a C# program.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 To complete this tutorial, you need the following:
 
 * Visual Studio 2015 or Visual Studio 2017.
-* An active Azure account. <br/>If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
-* [Azure PowerShell 1.0][lnk-powershell-install] or later.
+
+* An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
+
+* [Azure PowerShell 1.0](https://docs.microsoft.com/powershell/azure/install-Az-ps) or later.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -67,13 +66,14 @@ To complete this tutorial, you need the following:
     static string rgName = "{Resource group name}";
     static string iotHubName = "{IoT Hub name including your initials}";
     ```
-   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+   
+    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
 ## Use the resource provider REST API to create an IoT hub
 
-Use the [IoT Hub resource provider REST API][lnk-rest-api] to create an IoT hub in your resource group. You can also use the resource provider REST API to make changes to an existing IoT hub.
+Use the [IoT Hub resource provider REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) to create an IoT hub in your resource group. You can also use the resource provider REST API to make changes to an existing IoT hub.
 
 1. Add the following method to Program.cs:
 
@@ -91,7 +91,7 @@ Use the [IoT Hub resource provider REST API][lnk-rest-api] to create an IoT hub 
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
 
-3. Add the following code to the **CreateIoTHub** method. This code describes the IoT hub to create and generates a JSON representation. For the current list of locations that support IoT Hub see [Azure Status][lnk-status]:
+3. Add the following code to the **CreateIoTHub** method. This code describes the IoT hub to create and generates a JSON representation. For the current list of locations that support IoT Hub see [Azure Status](https://azure.microsoft.com/status/):
 
     ```csharp
     var description = new
@@ -161,35 +161,25 @@ You can now complete the application by calling the **CreateIoTHub** method befo
 
 3. Click **Debug** and then **Start Debugging** to run the application. It may take several minutes for the deployment to run.
 
-4. To verify that your application added the new IoT hub, visit the [Azure portal][lnk-azure-portal] and view your list of resources. Alternatively, use the **Get-AzResource** PowerShell cmdlet.
+4. To verify that your application added the new IoT hub, visit the [Azure portal](https://portal.azure.com/) and view your list of resources. Alternatively, use the **Get-AzResource** PowerShell cmdlet.
 
 > [!NOTE]
-> This example application adds an S1 Standard IoT Hub for which you are billed. When you are finished, you can delete the IoT hub through the [Azure portal][lnk-azure-portal] or by using the **Remove-AzResource** PowerShell cmdlet when you are finished.
+> This example application adds an S1 Standard IoT Hub for which you are billed. When you are finished, you can delete the IoT hub through the [Azure portal](https://portal.azure.com/) or by using the **Remove-AzResource** PowerShell cmdlet when you are finished.
 
 ## Next steps
+
 Now you have deployed an IoT hub using the resource provider REST API, you may want to explore further:
 
-* Read about the capabilities of the [IoT Hub resource provider REST API][lnk-rest-api].
-* Read [Azure Resource Manager overview][lnk-azure-rm-overview] to learn more about the capabilities of Azure Resource Manager.
+* Read about the capabilities of the [IoT Hub resource provider REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource).
+
+* Read [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md) to learn more about the capabilities of Azure Resource Manager.
 
 To learn more about developing for IoT Hub, see the following articles:
 
-* [Introduction to C SDK][lnk-c-sdk]
-* [Azure IoT SDKs][lnk-sdks]
+* [Introduction to C SDK](iot-hub-device-sdk-c-intro.md)
+
+* [Azure IoT SDKs](iot-hub-devguide-sdks.md)
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
-
-<!-- Links -->
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-azure-portal]: https://portal.azure.com/
-[lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-Az-ps
-[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
-
-[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

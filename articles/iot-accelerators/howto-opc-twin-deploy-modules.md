@@ -1,5 +1,5 @@
 ---
-title: How to deploy Azure IoT OPC UA device management module from scratch | Microsoft Docs
+title: How to deploy OPC Twin module for Azure from scratch | Microsoft Docs
 description: How to deploy OPC Twin from scratch.
 author: dominicbetts
 ms.author: dobett
@@ -10,9 +10,9 @@ services: iot-industrialiot
 manager: philmea
 ---
 
-# Deploy OPC Twin Module and dependencies from scratch
+# Deploy OPC Twin module and dependencies from scratch
 
-The OPC Device Twin module runs on IoT Edge and provides several edge services to the OPC Device Twin and Registry services. 
+The OPC Twin module runs on IoT Edge and provides several edge services to the OPC device twin and registry services. 
 
 There are several options to deploy modules to your [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) Gateway, among them
 
@@ -104,7 +104,7 @@ The easiest way to deploy the modules to an Azure IoT Edge gateway device is thr
 
 ### Prerequisites
 
-1. Deploy the OPC UA Device management [dependencies](howto-opc-twin-deploy-dependencies.md) and obtained the resulting `.env` file. Note the deployed `hub name` of the `PCS_IOTHUBREACT_HUB_NAME` variable in the resulting `.env` file.
+1. Deploy the OPC Twin [dependencies](howto-opc-twin-deploy-dependencies.md) and obtained the resulting `.env` file. Note the deployed `hub name` of the `PCS_IOTHUBREACT_HUB_NAME` variable in the resulting `.env` file.
 
 2. Register and start a [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) or [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) IoT Edge gateway and note its `device id`.
 
@@ -200,7 +200,7 @@ For trouble shooting and debugging it is useful to run the Edge modules locally 
 
 ### Prerequisites
 
-1. Deploy the OPC UA Device management [dependencies](howto-opc-twin-deploy-dependencies.md).
+1. Deploy the OPC Twin [dependencies](howto-opc-twin-deploy-dependencies.md).
 
 2. Install [Docker CE (18.02.0+)](https://www.docker.com/community-edition) on [Windows](https://docs.docker.com/docker-for-windows/install/), [macOS](https://docs.docker.com/docker-for-mac/install/) or [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce).
 

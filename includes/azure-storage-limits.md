@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-The following table describes default limits for Azure Storage. The *ingress* limit refers to all data from requests that are sent to a storage account. The *egress* limit refers to all data from responses that are received from a storage account.
+The following table describes default limits for Azure general-purpose v1, v2, and Blob storage accounts. The *ingress* limit refers to all data from requests that are sent to a storage account. The *egress* limit refers to all data from responses that are received from a storage account.
 
 | Resource | Default limit |
 | --- | --- |

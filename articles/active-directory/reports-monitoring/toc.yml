@@ -77,6 +77,8 @@
       href: howto-power-bi-content-pack.md
     - name: Configure prerequisites for Reporting API
       href: howto-configure-prerequisites-for-reporting-api.md
+    - name: How to use Azure Monitor workbooks
+      href: howto-use-azure-monitor-workbooks.md
 
   - name: Monitoring
     items:
