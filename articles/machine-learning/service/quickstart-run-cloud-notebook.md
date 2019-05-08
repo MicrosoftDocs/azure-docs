@@ -55,7 +55,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 1. Wait approximately 4-5 minutes, until the status changes to **Running**.
 
 
-## Launch Jupyter web interface
+## <a name="launch"></a> Launch Jupyter web interface
 
 After your VM is running, use the **Notebook VMs** section to launch the Jupyter web interface.
 
