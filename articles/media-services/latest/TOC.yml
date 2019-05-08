@@ -29,6 +29,7 @@
   - name: Encrypt dynamically with AES-128 - .NET
     href: protect-with-aes128.md       
   - name: Encrypt dynamically with DRM - .NET
+    displayName: PlayReady, Widevine
     href: protect-with-drm.md    
 - name: Concepts
   href: concepts-overview.md
