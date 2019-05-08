@@ -131,7 +131,7 @@
       items:
       - name: Create a suggester
         href: index-add-suggesters.md
-      - name: Add suggestions or autocomplete)
+      - name: Add suggestions or autocomplete
         href: search-autocomplete-tutorial.md
     - name: Synonyms
       items:
