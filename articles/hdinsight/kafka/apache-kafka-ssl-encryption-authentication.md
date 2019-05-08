@@ -130,10 +130,10 @@ To complete the configuration modification, do the following steps:
     sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
     echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092,SSL://$IP_ADDRESS:9093" >> /usr/hdp/current/kafka-broker/conf/server.properties
     echo "ssl.keystore.location=/home/sshuser/ssl/kafka.server.keystore.jks" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.keystore.password=<server_password>" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.key.password=<server_password>" >> /usr/hdp/current/kafka-broker/conf/server.properties
+    echo "ssl.keystore.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
+    echo "ssl.key.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
     echo "ssl.truststore.location=/home/sshuser/ssl/kafka.server.truststore.jks" >> /usr/hdp/current/kafka-broker/conf/server.properties
-    echo "ssl.truststore.password=<server_password>" >> /usr/hdp/current/kafka-broker/conf/server.properties
+    echo "ssl.truststore.password=MyServerPassword123" >> /usr/hdp/current/kafka-broker/conf/server.properties
     ```
 
 1. To verify that the previous changes have been made correctly, you can optionally check that the following lines are present in the Kafka `server.properties` file.
@@ -141,10 +141,10 @@ To complete the configuration modification, do the following steps:
     ```bash
     advertised.listeners=PLAINTEXT://10.0.0.11:9092,SSL://10.0.0.11:9093
     ssl.keystore.location=/home/sshuser/ssl/kafka.server.keystore.jks
-    ssl.keystore.password=<server_password>
-    ssl.key.password=<server_password>
+    ssl.keystore.password=MyServerPassword123
+    ssl.key.password=MyServerPassword123
     ssl.truststore.location=/home/sshuser/ssl/kafka.server.truststore.jks
-    ssl.truststore.password=<server_password>
+    ssl.truststore.password=MyServerPassword123
     ```
 
 1. Restart all Kafka brokers.
@@ -158,7 +158,6 @@ To complete the configuration modification, do the following steps:
 Complete the following steps to finish the client setup:
 
 1. Sign in to the client machine (hn1).
-1. Export the client password. Replace `<client_password>` with the actual administrator password on the Kafka client machine.
 1. Create a java keystore and get a signed certificate for the broker. Then copy the certificate to the VM where the CA is running.
 1. Switch to the CA machine (hn0) to sign the client certificate.
 1. Go to the client machine (hn1) and navigate to the `~/ssl` folder. Copy the signed cert to client machine.
@@ -177,7 +176,7 @@ scp client-cert-sign-request3 sshuser@HeadNode0_Name:~/tmp1/client-cert-sign-req
 
 # Switch to the CA machine (hn0) to sign the client certificate.
 cd ssl
-openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:<server_password>
+openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:MyServerPassword123
 
 # Return to the client machine (hn1), navigate to ~/ssl folder and copy signed cert from the CA (hn0) to client machine
 scp -i ~/kafka-security.pem sshuser@HeadNode0_Name:/tmp1/client-cert-signed
@@ -197,10 +196,10 @@ Lastly, view the file `client-ssl-auth.properties` with the command `cat client-
 ```bash
 security.protocol=SSL
 ssl.truststore.location=/home/sshuser/ssl/kafka.client.truststore.jks
-ssl.truststore.password=<client_password>
+ssl.truststore.password=MyClientPassword123
 ssl.keystore.location=/home/sshuser/ssl/kafka.client.keystore.jks
-ssl.keystore.password=<client_password>
-ssl.key.password=<client_password>
+ssl.keystore.password=MyClientPassword123
+ssl.key.password=MyClientPassword123
 ```
 
 ## Client setup (without authentication)
@@ -208,7 +207,6 @@ ssl.key.password=<client_password>
 If you don't need authentication, the steps to set up only SSL encryption are:
 
 1. Sign in to the client machine (hn1) and navigate to the `~/ssl` folder
-1. Export the client password. Replace `<client_password>` with the actual administrator password on the Kafka client machine.
 1. Copy the signed cert to client machine from the CA machine (wn0).
 1. Import the CA cert to the truststore
 1. Import the CA cert to the keystore
@@ -233,7 +231,7 @@ Finally, view the file `client-ssl-auth.properties` with the command `cat client
 ```bash
 security.protocol=SSL
 ssl.truststore.location=/home/sshuser/ssl/kafka.client.truststore.jks
-ssl.truststore.password=<client_password>
+ssl.truststore.password=MyClientPassword123
 ```
 
 ## Next steps
