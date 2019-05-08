@@ -58,9 +58,9 @@ Developers can now implement custom deserializers in C# to deserialize events re
 Parquet is a columnar format enabling efficient big data processing. By outputting data in Parquet format in a data lake, you can take advantage of Azure Stream Analytics to power large scale streaming ETL and run batch processing, train machine learning algorithms or run interactive queries on your historical data. Sign up for this preview [here](https://aka.ms/asapreview1).
 
 ### One-click integration with Event Hubs (New!) 
-With this new integration, you will now be able to visualize incoming data and start to write a Stream Analytics query with one click from the Event Hub portal. Once your query is ready, you will be able to productize it in few clicks and start to get real time insights. This will significantly reduce the time and cost to develop real-time analytics solutions. Sign up for this preview [here](https://aka.ms/asapreview1).
+With this new integration, you will now be able to visualize incoming data and start to write a Stream Analytics query with one click from the Event Hub portal. Once your query is ready, you will be able to productize it in few clicks and start to get real-time insights. This will significantly reduce the time and cost to develop real-time analytics solutions. Sign up for this preview [here](https://aka.ms/asapreview1).
 
 ### Support for Azure Stack (New!)
-This feature enabled on the Azure IoT Edge runtime, leverages custom Azure Stack features, such as native support for local inputs and outputs running on Azure Stack (e.g. Event Hubs, IoT Hub, Blob Storage). This enables to build hybrid architectures that can analyze your data close to where it is generated, lowering latency and maximizing insights.
+This feature enabled on the Azure IoT Edge runtime, leverages custom Azure Stack features, such as native support for local inputs and outputs running on Azure Stack (for example Event Hubs, IoT Hub, Blob Storage). This new integration enables to build hybrid architectures that can analyze your data close to where it is generated, lowering latency and maximizing insights.
 Sign up for this preview [here](https://aka.ms/asapreview1).
 
