@@ -349,8 +349,8 @@ case class AnomalyBatchResponse(var expectedValues: Array[Double], var upperMarg
 object AnomalyDetector extends Serializable {
 
   // Cognitive Services API connection settings
-  val subscriptionKey = "[Your Anomaly Detector resource access key]"
-  val endpoint = "[Your Anomaly Detector resource endpoint]"
+  val subscriptionKey = "[Placeholder: Your Anomaly Detector resource access key]"
+  val endpoint = "[Placeholder: Your Anomaly Detector resource endpoint]"
   val latestPointDetectionPath = "/anomalydetector/v1.0/timeseries/last/detect"
   val batchDetectionPath = "/anomalydetector/v1.0/timeseries/entire/detect";
   val latestPointDetectionUrl = new URL(endpoint + latestPointDetectionPath)
