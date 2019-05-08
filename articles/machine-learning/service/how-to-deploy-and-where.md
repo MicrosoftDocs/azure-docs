@@ -38,7 +38,7 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 ## Prerequisites for deployment
 
-- A model. If you do not have a trained model, you can use the model & dependency files provided in [this tutorial](http://aka.ms/azml-deploy-cloud).
+- A model. If you do not have a trained model, you can use the model & dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
 
 - The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), or the [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk).
 
@@ -189,7 +189,7 @@ inference_config = InferenceConfig(source_directory="C:/abc",
 
 In this example, the configuration contains the following items:
 
-* A directory that contains assets needed to perform inferencing
+* A directory that contains assets needed to inference
 * That this model requires Python
 * The [entry script](#script), which is used to handle web requests sent to the deployed service
 * The conda file that describes the Python packages needed to run inferencing
