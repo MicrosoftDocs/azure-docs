@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # What is Azure Active Directory?
 
-Azure Active Directory (Azure AD) is Microsoft’s cloud-based identity and access management service, which helps your employees sign in and access resources in:
+Azure Active Directory (Azure AD) is Microsoft’s cloud-based identity and access management service, which helps your employees' sign in and access resources in:
 
 - External resources, such as Microsoft Office 365, the Azure portal, and thousands of other SaaS applications.
 
@@ -74,12 +74,12 @@ To better understand Azure AD and its documentation, we recommend reviewing the 
 |Account Administrator|This classic subscription administrator role is conceptually the billing owner of a subscription. This role has access to the [Azure Account Center](https://account.azure.com/Subscriptions) and enables you to manage all subscriptions in an account. For more information, see [Classic subscription administrator roles, Azure Role-based access control (RBAC) roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Service Administrator|This classic subscription administrator role enables you to manage all Azure resources, including access. This role has the equivalent access of a user who is assigned the Owner role at the subscription scope. For more information, see [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Owner|This role helps you manage all Azure resources, including access. This role is built on a newer authorization system called role-base access control (RBAC) that provides fine-grained access management to Azure resources. For more information, see [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Azure AD Global administrator|This administrator role is automatically assigned to whomever created the Azure AD tenant. Global administrators can perform all of the administrative functions for Azure AD and any services that federate to Azure AD, such as Exchange Online, SharePoint Online, and Skype for Business Online. You can have multiple Global administrators, but only Global administrators can assign administrator roles (including assigning other Global administrators) to users.<br><br>**Note**<br>This administrator role is called Global administrator in the Azure portal, but it's called **Company administrator** in Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell.<br><br>For more information about the various administrator roles, see [Administrator role permissions in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
+|Azure AD Global administrator|This administrator role is automatically assigned to whomever created the Azure AD tenant. Global administrators can do all of the administrative functions for Azure AD and any services that federate to Azure AD, such as Exchange Online, SharePoint Online, and Skype for Business Online. You can have multiple Global administrators, but only Global administrators can assign administrator roles (including assigning other Global administrators) to users.<br><br>**Note**<br>This administrator role is called Global administrator in the Azure portal, but it's called **Company administrator** in Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell.<br><br>For more information about the various administrator roles, see [Administrator role permissions in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
 |Microsoft account (also called, MSA)|Personal accounts that provide access to your consumer-oriented Microsoft products and cloud services, such as Outlook, OneDrive, Xbox LIVE, or Office 365. Your Microsoft account is created and stored in the Microsoft consumer identity account system that's run by Microsoft.|
 
 ## Which features work in Azure AD?
 
-After you choose your Azure AD license, you will get access to some or all of the following features for your organization:
+After you choose your Azure AD license, you'll get access to some or all of the following features for your organization:
 
 |Category|Description|
 |-------|-----------|
