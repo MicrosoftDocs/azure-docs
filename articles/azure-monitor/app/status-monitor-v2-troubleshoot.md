@@ -112,7 +112,7 @@ If the Module hasn't been loaded into a PowerShell session, can manually load us
     - Application Insights SDK version
     - File paths of PowerShell module
     
-Review our [API Reference](status-monitor-v2-api-get-status) for a detailed description of how to use this cmdlet.
+Review our [API Reference](status-monitor-v2-api-get-status.md) for a detailed description of how to use this cmdlet.
 
 
 
@@ -123,7 +123,7 @@ If monitoring is working, at least 12 DLLS should be loaded.
 
 - Cmd: `Get-ApplicationInsightsMonitoringStatus -InspectProcess`
 
-Review our [API Reference](status-monitor-v2-api-get-status) for a detailed description of how to use this cmdlet.
+Review our [API Reference](status-monitor-v2-api-get-status.md) for a detailed description of how to use this cmdlet.
 
 
 ### Collect ETW logs with PerfView
