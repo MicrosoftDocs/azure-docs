@@ -72,8 +72,8 @@ nohup service nfs-kernel-server restart
 ```
 The server will restart (because of the script) and you can mount the NFS Server to AKS
 
-[!IMPORTANT]  
-Make sure to replace the **AKS_SUBNET** with the correct one from your cluster or else "*" will open your NFS Server to all ports and connections.
+>[!IMPORTANT]  
+>Make sure to replace the **AKS_SUBNET** with the correct one from your cluster or else "*" will open your NFS Server to all ports and connections.
 
 After you've created your VM, copy the script above into a file. Then, you can move it from your local machine, or wherever the script is, into the VM using: 
 ```console
@@ -116,8 +116,8 @@ Replace **NFS_INTERNAL_IP**, **NFS_NAME** and **NFS_EXPORT_FILE_PATH** with NFS 
 
 You'll also need a persistent volume claim file. Here is an example of what to include:
 
-[!IMPORTANT]  
-**"storageClassName"** needs to remain an empty string or the claim won't work.
+>[!IMPORTANT]  
+>**"storageClassName"** needs to remain an empty string or the claim won't work.
 
 ```yaml
 apiVersion: v1
