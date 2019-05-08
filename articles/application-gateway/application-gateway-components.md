@@ -11,7 +11,7 @@ ms.author: absha
 
 # Application gateway components
 
- An application gateway serves as the single point of contact for clients. It distributes incoming application traffic across multiple backend pools, which include Azure VMs, virtual machine scale sets, Azure App Service, and on-premises/external servers. To distribute traffic, an application gateway uses several components described in this article.
+ An application gateway serves as the single point of contact for clients. It distributes incoming application traffic across multiple backend pools, which include Azure VMs, virtual machine scale sets, Azure App Service, and on-premises/external servers. To distribute traffic, an application gateway uses several components described in this article.This is important.
 
 ![The components used in an application gateway](./media/application-gateway-components/application-gateway-components.png)
 
