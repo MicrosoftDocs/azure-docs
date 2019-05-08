@@ -14,7 +14,7 @@ ms.author: wolfma
 
 # Quickstart: Recognize speech in C++ on Windows by using the Speech SDK
 
-Quickstarts are also available for [text-to-speech](quickstart-text-to-speech-cpp-windows.md) and [speech-to-speech-translation](quickstart-translate-speech-cpp-windows.md).
+Quickstarts are also available for [text-to-speech](quickstart-text-to-speech-cpp-windows.md) and [speech-translation](quickstart-translate-speech-cpp-windows.md).
 
 If desired, choose a different programming language and/or environment:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
