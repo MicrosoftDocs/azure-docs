@@ -10,6 +10,11 @@
   - name: HDInsight 4.0
     href: ../hdinsight-version-release.md
     maintainContext: true
+- name: Quickstarts
+  items:
+  - name: Query Apache HBase - HBase Shell
+    href: ./query-hbase-with-hbase-shell.md
+    maintainContext: true  
 - name: Get started
   items:
   - name: Start with Apache HBase & NoSQL
