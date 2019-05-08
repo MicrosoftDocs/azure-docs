@@ -22,9 +22,9 @@ To begin, go to the [Azure portal](https://portal.azure.com) and sign in to your
 
 ![Function app overview in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-You can navigate to everything you need to manage your function app from the overview page, in particular the **[Application settings](#manage-app-service-settings)** and **[Platform features](#platform-features)**.
+You can navigate to everything you need to manage your function app from the overview page, in particular the **[Application settings](#settings)** and **[Platform features](#platform-features)**.
 
-## <a name="manage-app-service-settings"></a>Application settings
+## <a name="settings"></a>Application settings
 
 The **Application Settings** tab maintains settings that are used by your function app.
 
@@ -50,7 +50,6 @@ Function apps run in, and are maintained, by the Azure App Service platform. As 
 The rest of this topic focuses on the following App Service features in the Azure portal that are useful for Functions:
 
 + [App Service editor](#editor)
-+ [Application settings](#settings) 
 + [Console](#console)
 + [Advanced tools (Kudu)](#kudu)
 + [Deployment options](#deployment)
