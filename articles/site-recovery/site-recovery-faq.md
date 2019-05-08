@@ -15,7 +15,7 @@ This article summarizes frequently asked questions about Azure Site Recovery.</b
 For specific queries on different ASR scenarios please refer scenario specific FAQs.<br>
 
 - [Azure VM Disaster Recovery to Azure](azure-to-azure-common-questions.md)
-- [VMWare VM Disaster Recovery to Azure](vmware-azure-common-questions.md)
+- [VMware VM Disaster Recovery to Azure](vmware-azure-common-questions.md)
 - [Hyper-V VM Disaster Recovery to Azure](hyper-v-azure-common-questions.md)
  
 ## General
