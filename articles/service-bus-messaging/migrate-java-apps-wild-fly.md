@@ -27,17 +27,17 @@ This article walks you through the process of migrating existing Java EE workloa
 ## In this article
 
 * [What you will migrate to cloud](#what-you-will-migrate-to-cloud)
-* [What you will need](#what-you-will-need)
-* [Getting Started](#getting-started)
-    * [Step ONE - Clone and Prep](#step-one---clone-and-prep)
+* [Prerequisites](#prerequisites)
+* [Get started](#get-started)
+    * [Step ONE - Clone and Prep](#step-one---clone-and-prepare-the-git-repository)
 * [Build Sample Archive](#build-sample-archive)
-* [Build Console App - send and receive messages to Service Bus using Java Message Service (JMS)](#build-console-app---send-and-receive-messages-to-service-bus-using-jms)
+* [Build Console App - send and receive messages to Service Bus using Java Message Service (JMS)](##build-console-app---send-and-receive-messages-to-service-bus-using-jms)
     * [Create and Configure Azure Service Bus](#create-and-configure-azure-service-bus)
-    * [Build and Run Console App](#build-and-run-console-app)
+    * [Build and Run Console App](#build-and-run-the-console-app)
 * [Migrate a message driven enterprise bean to Azure](#migrate-a-message-driven-enterprise-bean-to-azure)
     * [Prepare Environment](#prepare-environment)
     * [Deploy App to App Service Linux](#deploy-app-to-app-service-linux)
-    * [Configure JMS Resource Adapter ( JMS RA)](#configure-jms-resource-adapter--jms-ra)
+    * [Configure JMS Resource Adapter ( JMS RA)](#configure-jms-resource-adapter-jms-ra)
     * [Step 1: Understand How to configure WildFly](#step-1-understand-how-to-configure-wildfly)
     * [Step 2 - Upload Startup and Binary Artifacts to App through FTP](#step-2---upload-startup-and-binary-artifacts-to-app-through-ftp)
         * [Get FTP Deployment Credentials](#get-ftp-deployment-credentials)
@@ -47,12 +47,11 @@ This article walks you through the process of migrating existing Java EE workloa
     * [Step 5: Restart the remote WildFly app server](#step-5-restart-the-remote-wildfly-app-server)
     * [Step 6: Stream WildFly/JBoss logs to a dev machine](#step-6-stream-wildflyjboss-logs-to-a-dev-machine)
     * [Open the Message-Driven Enterprise Bean on Azure](#open-the-message-driven-enterprise-bean-on-azure)
-    * [Additional Info](#additional-info)
-* [Migrate Java Enterprise App that uses WebSockets](#migrate-java-enterprise-app-that-uses-websockets)
-    * [Deploy App to App Service Linux](#deploy-app-to-app-service-linux-1)
+    * [Additional Info](#additional-information)
+* [Migrate Java Enterprise App that uses WebSockets](#migrate-java-ee-app-that-uses-websockets)
+    * [Deploy App to App Service Linux](#deploy-app-to-app-service-linux)
     * [Open the Migrated App on App Service Linux](#open-the-migrated-app-on-app-service-linux)
-* [Congratulations!](#congratulations)
-* [Resources](#resources)
+* [Next steps](#next-steps)
 
 ## What you will migrate to cloud
 You'll migrate WildFly/JBoss sample apps to Azure. These apps use:
@@ -69,7 +68,7 @@ To deploy a Java web app to Azure, you need an Azure subscription. If you don't 
 
 In addition, you'll need the following prerequisites:
 
-- [Azure CLI](../cli/azure/overview.md) 
+- [Azure CLI](../cli/azure/get-started-with-azure-cli.md) 
 - [Java 8](https://www.azul.com/downloads/azure-only/zulu/) 
 - [Maven 3](http://maven.apache.org/) 
 - [Git](https://github.com/)
@@ -267,7 +266,7 @@ Here is the sample output:
 
 ```
 
-## Build Console App - send and receive messages to Service Bus using JMS
+## Build and run console app to send and receive messages
 
 ### Create and configure Azure Service Bus
 
@@ -501,7 +500,7 @@ the previous exercise `../helloworld-jms/.scripts/set-env-variables.sh` and add 
 
     ```
 
-### Configure JMS resource adapter (MS RA)
+### Configure JMS resource adapter (JMS RA)
 There are a few steps to configure a JMS RA that will enable Java EJBs to configure a remote JMS connection factory and queue. This remote setup will point to Azure Service Bus, using the [Apache Qpid JMS Provider](https://qpid.apache.org/components/jms/index.html) for the AMQP protocol. 
 
 #### Step 1: Understand How to configure WildFly
