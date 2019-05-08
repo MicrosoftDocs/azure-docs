@@ -151,7 +151,7 @@ When the **Permissions requested** dialog appears, select **Consent on behalf of
 
 You are now logged into the cluster console.
 
-[Screenshot of the OpenShift cluster console](./media/aro-console.png)
+![Screenshot of the OpenShift cluster console](./media/aro-console.png)
 
  Learn more about [using the OpenShift console](https://docs.openshift.com/aro/getting_started/developers_console.html) to create and built images in the [Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html) documentation.
 
