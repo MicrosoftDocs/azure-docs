@@ -247,7 +247,7 @@ You can enable auto-protection to automatically back up all existing and future 
 To enable auto-protection:
 
   1. In **Items to backup**, select the instance for which you want to enable auto-protection.
-  2. Select the dropdown under **Autoprotect**, choose **On**, and then select **OK**.
+  2. Select the drop-down list under **AUTOPROTECT**, choose **ON**, and then select **OK**.
 
       ![Enable auto-protection on the AG](./media/backup-azure-sql-database/enable-auto-protection.png)
 
