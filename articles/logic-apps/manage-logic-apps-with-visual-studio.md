@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/25/2019
+ms.date: 05/07/2019
 ---
 
 # Manage logic apps with Visual Studio
@@ -47,7 +47,10 @@ If you're new to working with Azure Logic Apps in Visual Studio, learn
 
     > [!IMPORTANT]
     > When you install Visual Studio 2019 or 2017, make sure that 
-    > you select the **Azure development** workload.
+    > you select the **Azure development** workload. 
+    > For Visual Studio 2019, Cloud Explorer can open 
+    > the Logic App Designer in the Azure portal, but can't 
+    > yet open the embedded Logic App Designer. 
     > For more information, see 
     > [Manage resources associated with your Azure accounts in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
 
@@ -153,6 +156,12 @@ which also use JavaScript Object Notation (JSON).
 1. In Visual Studio, open Cloud Explorer, 
 then find and select the logic app 
 that you want to download from Azure.
+
+   > [!NOTE]
+   > For Visual Studio 2019, Cloud Explorer can open 
+   > the Logic App Designer in the Azure portal, 
+   > but can't yet open the embedded Logic App Designer 
+   > for downloading your logic app.
 
 2. On that app's shortcut menu, 
 select **Open with Logic App Editor**.
