@@ -4,7 +4,7 @@ description: Learn how to connect F5 data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: 0001cad6-699c-4ca9-b66c-80c194e439a5

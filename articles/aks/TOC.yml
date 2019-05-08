@@ -113,7 +113,7 @@
     - name: Delete an AKS cluster
       href: /cli/azure/aks#az-aks-delete
       maintainContext: true
-    - name: Create virtual nodes (preview)
+    - name: Create virtual nodes
       items:
       - name: Azure CLI
         href: virtual-nodes-cli.md
@@ -123,9 +123,13 @@
       href: virtual-kubelet.md
     - name: Use Cluster Autoscaler (preview)
       href: cluster-autoscaler.md
+    - name: Use multiple node pools (preview)
+      href: use-multiple-node-pools.md
     - name: Deploy AKS with Terraform
       href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
       maintainContext: true
+    - name: Use the Kubernetes dashboard
+      href: kubernetes-dashboard.md
   - name: Configure data volumes
     items:
     - name: Azure Disk - Dynamic
@@ -173,12 +177,16 @@
       href: kubernetes-service-principal.md
     - name: Limit access to cluster configuration file
       href: control-kubeconfig-access.md
-    - name: Secure pod traffic with network policies (preview)
+    - name: Secure pod traffic with network policies
       href: use-network-policies.md
     - name: Use pod security policies (preview)
       href: use-pod-security-policies.md
+    - name: Define API server authorized IP ranges (preview)
+      href: api-server-authorized-ip-ranges.md
     - name: Update cluster service principal credentials
       href: update-credentials.md
+    - name: Restrict and control cluster egress traffic
+      href: limit-egress-traffic.md
     - name: Enable Azure Active Directory integration
       items:
         - name: Use the Azure CLI
@@ -285,10 +293,6 @@
     - name: Azure DevOps Project
       href: ../devops-project/azure-devops-project-aks.md
       maintainContext: true
-  - name: Kubernetes basics
-    items:
-    - name: Use Kubernetes dashboard
-      href: kubernetes-dashboard.md
   - name: Troubleshoot
     items:
     - name: Common issues

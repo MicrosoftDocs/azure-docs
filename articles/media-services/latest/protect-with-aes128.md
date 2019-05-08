@@ -155,7 +155,7 @@ Execute the following CLI command:
 az group delete --name amsResourceGroup
 ```
 
-## Provide feedback
+## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 

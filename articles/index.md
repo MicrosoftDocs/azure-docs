@@ -1037,7 +1037,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/open-datasets">
-                                                <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                <img src="media/index/open-data.svg" alt="" />
                                                 <p>Open Datasets</p>
                                             </a>
                                         </li>
@@ -1280,7 +1280,7 @@ featureFlags:
                                         </li>
                                         <li>
                                         <a href="/azure/open-datasets">
-                                            <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                            <img src="media/index/open-data.svg" alt="" />
                                             <p>Open Datasets</p>
                                         </a>
                                         </li>
@@ -2105,7 +2105,7 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
-<li>
+                            <li>
                                 <a href="/azure/vmware-cloudsimple/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2118,6 +2118,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure VMware Solution by CloudSimple</h3>
                                                     <p>Run the VMware platform in Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/openshift/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/openshift.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Red Hat OpenShift</h3>
+                                                    <p>Fully managed OpenShift service jointly operated with Red Hat</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3080,6 +3099,25 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/openshift/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/openshift.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Red Hat OpenShift</h3>
+                                                    <p>Fully managed OpenShift service jointly operated with Red Hat</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3667,7 +3705,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                        <img src="media/index/open-data.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -3865,7 +3903,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                        <img src="media/index/open-data.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
