@@ -31,7 +31,7 @@ This article provides details about how to use the Azure Functions Tools for Vis
 
 ## Prerequisites
 
-Azure Functions Tools is included in the Azure development workload of [Visual Studio 2019](https://www.visualstudio.com/vs/), or a later version. Make sure you include the **Azure development** workload in your Visual Studio 2019 installation:
+Azure Functions Tools is included in the Azure development workload of [Visual Studio 2017](https://www.visualstudio.com/vs/), or a later version. Make sure you include the **Azure development** workload in your Visual Studio 2019 installation:
 
 ![Install Visual Studio 2019 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
