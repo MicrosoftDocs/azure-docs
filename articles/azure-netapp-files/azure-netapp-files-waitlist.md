@@ -24,7 +24,7 @@ Before using Azure NetApp Files, you must submit a waitlist request. After you r
 
 1.	Submit a waitlist request through the [Azure NetApp Files waitlist submission page](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u). 
 
-    Waitlist signup does not guarantee immediate service access. You must wait for an official conformation email from the Azure NetApp Files team before creating any NetApp accounts.
+    Waitlist signup does not guarantee immediate service access. You must wait for an official confirmation email from the Azure NetApp Files team before creating any NetApp accounts.
 
 ## Next steps  
 
