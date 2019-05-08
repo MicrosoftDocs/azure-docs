@@ -324,7 +324,7 @@ This Step requires 3 Pre-requisites.
     Add-AzVirtualNetworkPeering -Name AADDSVNet-HDIVNet -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName HDIFabrikam-WestUS).Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName HDIFabrikam-CentralUS)
     ```
 
-1. Create a new Azure Data Lake Storage Gen2 account, **Hdigen2store**, that is configured with the user managed identity **HDIFabrikamManagedIdentity**. For more information on creating Data Lake Storage Gen2 accounts enabled with user managed identities, see [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+1. Create a new Azure Data Lake Storage Gen2 account, **Hdigen2store**, that is configured with the user managed identity **HDIFabrikamManagedIdentity**. For more information on creating Data Lake Storage Gen2 accounts enabled with user managed identities, see [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image119.png)
 
@@ -335,27 +335,39 @@ This Step requires 3 Pre-requisites.
 
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image123.png)
 
-1. Create a new HDInsight cluster.
+1. Create a new ESP-enabled HDInsight Spark cluster.
     1. Enter the desired details for section 1 **Basics**.
 
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image125.jpg)
 
     1. Under section 2 **Security + Networking**, click **Enabled** under **Enterprise Security Package**.
+    1. Click **Cluster admin user** and select the **HDIAdmin** account that you created earlier as the on-premises admin user. Click **Select**.
 
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image127.jpg)
+        ![select cluster admin user](./media/apache-domain-joined-create-configure-esp/image127.jpg)
 
-    1. Enter a **Cluster admin user**. Click **Cluster access group** and then select **HDIUserGroup**
- 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image129.jpg)
+    1. Click **Cluster access group** and then select **HDIUserGroup**. Any user that you add to this group in the future will be able to access HDInsight clusters.
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image131.jpg)
+        ![select cluster access group](./media/apache-domain-joined-create-configure-esp/image129.jpg)
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image133.jpg)
+    1. Complete the other steps of the cluster configuration and verify the details on the **Cluster summary**.
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image135.jpg)
+        ![alt-text](./media/apache-domain-joined-create-configure-esp/image133.jpg)
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image137.jpg)
+    1. Login to the Ambari UI for the newly created cluster using your admin user name and password.
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image139.jpg)
+        ![alt-text](./media/apache-domain-joined-create-configure-esp/image135.jpg)
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image141.jpg)
+    1. Click **Roles** from the cluster dashboard. 
+    1. On the **Roles** page, enter the group **hdiusergroup** to assign it to the **Cluster Administrator** role under **Assign roles to these**.
+
+        ![alt-text](./media/apache-domain-joined-create-configure-esp/image137.jpg)
+
+    1. Open your SSH client and login to the cluster using the **hdiuser** that you created previously in the on-premises Active Directory. 
+
+        ![alt-text](./media/apache-domain-joined-create-configure-esp/image139.jpg)
+
+If you are able to login with this account, then you have configured your ESP cluster correctly to sync with your on-premises active directory.
+
+## Next steps
+
+* [An introduction to Apache Hadoop security with Enterprise Security Package](apache-domain-joined-introduction.md)
