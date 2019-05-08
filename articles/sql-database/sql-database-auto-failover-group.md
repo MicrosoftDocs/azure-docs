@@ -64,10 +64,10 @@ To achieve real business continuity, adding database redundancy between datacent
   
 - **DNS zone**
 
-  A unique id that is automatically generated when a new instance is created. A multi-domain (SAN) certificate for this instance is provisioned to authenticate the client connections to any instance in the same DNS zone. The two managed instances in the same failover group must share the DNS zone. 
+  A unique ID that is automatically generated when a new instance is created. A multi-domain (SAN) certificate for this instance is provisioned to authenticate the client connections to any instance in the same DNS zone. The two managed instances in the same failover group must share the DNS zone. 
   
   > [!NOTE]
-  > DNS zone id is not required for failover groups created for SQL Database servers.
+  > A DNS zone ID is not required for failover groups created for SQL Database servers.
 
 - **Failover group read-write listener**
 
@@ -257,10 +257,10 @@ When you set up a failover group between primary and secondary managed instances
 5. The two managed instance VNets cannot have overlapping IP addresses.
 6. You need to set up your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open inbound and outbound for connections from the other managed instanced subnet. This is to allow replication traffic between the instances
 
-  > [!IMPORTANT]
-  > Misconfigured NSG security rules leads to stuck database copy operations.
+   > [!IMPORTANT]
+   > Misconfigured NSG security rules leads to stuck database copy operations.
 
-7. The secondary instance is configured with the correct DNS zone id. DNS zone is a property of a managed instance and its id is included in the host name address. Zone id is generated as a random string when the first managed instance is ctreated in each VNet and the same id is assigned to all other instances in the same subnet. Once assigned, the DNS zone cannot be modified. Managed instances included in the same failover group must share the DNS zone. You accomplish this by passing the primary instance's zone id as the value of DnsZonePartner parameter when creating the secondary instance. 
+7. The secondary instance is configured with the correct DNS zone ID. DNS zone is a property of a managed instance and its ID is included in the host name address. The zone ID is generated as a random string when the first managed instance is created in each VNet and the same ID is assigned to all other instances in the same subnet. Once assigned, the DNS zone cannot be modified. Managed instances included in the same failover group must share the DNS zone. You accomplish this by passing the primary instance's zone ID as the value of DnsZonePartner parameter when creating the secondary instance. 
 
 ## Upgrading or downgrading a primary database
 
