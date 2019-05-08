@@ -21,6 +21,11 @@ You may be familiar with the **[Azure Status page](https://status.azure.com)**, 
 
 Together, these experiences provide you with a comprehensive view into the health of Azure, at the granularity that is most relevant to you.
 
+### Watch an overview of the Azure Status page, Azure Service Health, and Azure Resource Health
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6]
+
+
 <ul class="panelContent cardsFTitle">
     <li>
         <a href="/azure/service-health/azure-status-overview">
