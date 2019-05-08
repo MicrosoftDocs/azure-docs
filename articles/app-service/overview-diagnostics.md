@@ -56,7 +56,7 @@ After you choose to investigate the issue further by clicking on a topic, you ca
 
 ## Health checkup
 
-If you don't know what’s wrong with your web app or don’t know where to start troubleshooting your issues, the health checkup is a good place to start. The health checkup will analyze your web applications to give you a quick, interactive overview that points out what’s healthy and what’s wrong, telling you where to look to investigate the issue. Its intelligent and interactive interface provides you with guidance through the troubleshooting process. Health checkup is integrated with the Genie experience for Windows apps and web app down detector for Linux apps.
+If you don't know what’s wrong with your web app or don’t know where to start troubleshooting your issues, the health checkup is a good place to start. The health checkup will analyze your web applications to give you a quick, interactive overview that points out what’s healthy and what’s wrong, telling you where to look to investigate the issue. Its intelligent and interactive interface provides you with guidance through the troubleshooting process. Health checkup is integrated with the Genie experience for Windows apps and web app down diagnostic report for Linux apps.
 
 ### Health checkup graphs
 
@@ -97,7 +97,7 @@ Like Proactive CPU monitoring, Proactive Auto-Healing offers an easy, proactive 
 
 ## Change Analysis
 
-In a fast-paced development environment, sometimes it may be difficult to keep track of all the changes made to your app and let alone pinpoint on a change that caused an unhealthy behavior. Change Analysis can help you narrow down on the changes made to your app to facilitate trouble-shooting experience. Change Analysis is embedded in detectors such as **Application Crashes** so you can use it concurrently with other metrics.
+In a fast-paced development environment, sometimes it may be difficult to keep track of all the changes made to your app and let alone pinpoint on a change that caused an unhealthy behavior. Change Analysis can help you narrow down on the changes made to your app to facilitate trouble-shooting experience. Change Analysis is embedded in diagnostic report such as **Application Crashes** so you can use it concurrently with other metrics.
 
 ![Change Analysis default page](./media/app-service-diagnostics/changeanalysisdefaultpage10.png)
 
