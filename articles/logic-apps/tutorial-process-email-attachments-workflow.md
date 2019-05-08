@@ -811,7 +811,7 @@ Now, test your logic app, which now looks like this example:
    specified in the trigger's **Subject filter**: 
    ```Business Analyst 2 #423501```
 
-   * Your email has at one or more attachments. 
+   * Your email has one or more attachments. 
    You can reuse an empty text file from your previous test. 
    For a more realistic scenario, attach a resume file.
 
