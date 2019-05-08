@@ -70,7 +70,7 @@ You're charged only for skills that call the Cognitive Services APIs. You're not
 
    ![Select the Cognitive Services resource](./media/cognitive-search-attach-cognitive-services/attach2.png "Select the Cognitive Services resource")
 
-1. Expand the **Add Enrichments** section to select the specific cognitive skills that you want to run over your data, and complete the rest of the wizard. For a description of skills available in the portal, see [Step 2: Add cognitive skills](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) in the cognitive search quickstart.
+1. Expand the **Add Enrichments** section to select the specific cognitive skills that you want to run over your data. Complete the rest of the wizard. For a description of skills available in the portal, see [Step 2: Add cognitive skills](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) in the cognitive search quickstart.
 
 ## Attach an existing skillset to a Cognitive Services resource
 
@@ -143,7 +143,7 @@ In this exercise, we're using the most expensive price per transaction. Actual c
 
 2. For OCR of 6,000 images in English, the OCR cognitive skill uses the best algorithm (DescribeText). Assuming a cost of $2.50 per 1,000 images to be analyzed, you would pay $15.00 for this step.
 
-3. For entity extraction, you'd have a total of 3 text records per page. Each record is 1,000 characters. Three text records per page multiplied by 6,000 pages equals 18,000 text records. Assuming $2.00 per 1,000 text records, this step would cost $36.00.
+3. For entity extraction, you'd have a total of three text records per page. Each record is 1,000 characters. Three text records per page multiplied by 6,000 pages equals 18,000 text records. Assuming $2.00 per 1,000 text records, this step would cost $36.00.
 
 Putting it all together, you'd pay about $57.00 to ingest 1,000 PDF documents of this type with the described skillset.
 
