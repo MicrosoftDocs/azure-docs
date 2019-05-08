@@ -111,7 +111,7 @@
       - name: Manage from Azure PowerShell
         href: howto-manage-iot-central-from-powershell.md
       - name: As a CSP create and manage an application
-        href: howto-create-and-manage-applications-as-CSP.md
+        href: howto-create-and-manage-applications-csp.md
   - name : Personalization
     items:
       - name: Create personal dashboards
