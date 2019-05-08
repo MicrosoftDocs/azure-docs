@@ -37,7 +37,7 @@ However, Azure Time Series Insights captures and stores every new event as a row
 
 ### Learn more about Azure Time Series Insights, the cloud-based IoT analytics platform.</br>
 
-[![VIDEO](http://img.youtube.com/vi/GaARrFfjoss/0.jpg)](http://www.youtube.com/watch?v=GaARrFfjoss)
+[![VIDEO](https://img.youtube.com/vi/GaARrFfjoss/0.jpg)](https://www.youtube.com/watch?v=GaARrFfjoss)
 
 ## Primary scenarios
 
