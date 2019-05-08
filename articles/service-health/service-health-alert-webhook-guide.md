@@ -24,6 +24,10 @@ If you want to use a preconfigured integration, see how to:
 * [Configure alerts with PagerDuty](service-health-alert-webhook-pagerduty.md)
 * [Configure alerts with OpsGenie](service-health-alert-webhook-opsgenie.md)
 
+### Watch an introductory video
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUV]
+
 ## Configuring a custom notification using the service health webhook payload
 If you want to set up your own custom webhook integration, you need to parse the JSON payload that is sent during service health notifications.
 

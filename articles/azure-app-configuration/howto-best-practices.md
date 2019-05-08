@@ -33,15 +33,15 @@ App Configuration treats all keys stored with it as independent entities. It doe
 
 Let's look at an example. You have a setting **Asset1** whose value may vary for the "Development" environment. You can create a key named "Asset1" with an empty label and a label called "Development". You put the default value for **Asset1** in the former and any specific value for "Development" in the latter. In your code, you first retrieve the key values without any label and then those with a "Development" label to overwrite any previous values of the same keys. If you use a modern programming framework such as .NET Core, you can get this stacking capability for free if you use a native configuration provider to access App Configuration. The following code snippet shows how you can implement stacking in an .NET Core application.
 
-    ```csharp
-    // Augment the ConfigurationBuilder with Azure App Configuration
-    // Pull the connection string from an environment variable
-    configBuilder.AddAzureAppConfiguration(options => {
-        options.Connect(configuration["connection_string"])
-               .Use(KeyFilter.Any, LabelFilter.Null)
-               .Use(KeyFilter.Any, "Development");
-    });
-    ```
+```csharp
+// Augment the ConfigurationBuilder with Azure App Configuration
+// Pull the connection string from an environment variable
+configBuilder.AddAzureAppConfiguration(options => {
+    options.Connect(configuration["connection_string"])
+           .Use(KeyFilter.Any, LabelFilter.Null)
+           .Use(KeyFilter.Any, "Development");
+});
+```
 
 ## App Configuration bootstrap
 
