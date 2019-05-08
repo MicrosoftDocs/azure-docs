@@ -53,7 +53,7 @@ To get started, select **All resources** in the main navigation menu on the left
 
 To navigate to the application, select the IoT Central Application URL.
 
-![Management portal: resource management](media/howto-manage-iot-central-from-portal/image3a.png)
+![Management portal: resource management](media/howto-manage-iot-central-from-portal/image3.png)
 
 To move the application to a different resource group, select **change** beside the resource group. On the **Move resources** page, pick the resource group you'd like to migrate this application to.
 
