@@ -337,23 +337,26 @@ so Logic Apps can connect to your email account.
 
 3. Now provide the criteria the trigger uses to filter new email.
 
-   1. Specify the folder, interval, and frequency for checking emails.
+   1. Specify these settings for checking emails.
 
       ![Specify folder, interval, and frequency for checking mails](./media/tutorial-process-email-attachments-workflow/set-up-email-trigger.png)
 
       | Setting | Value | Description |
       | ------- | ----- | ----------- |
       | **Folder** | Inbox | The email folder to check |
+      | **Has Attachment** | Yes | Get only emails with attachments. <p>**Note:** The trigger doesn't remove any emails from your account, checking only new messages and processing only emails that match the subject filter. |
+      | **Include Attachments** | Yes | Get the attachments as input for your workflow, rather than just check for attachments. |
       | **Interval** | 1 | The number of intervals to wait between checks |
       | **Frequency** | Minute | The unit of time for each interval between checks |
       ||||
   
-   2. Choose **Show advanced options** and specify these settings:
+   1. From the **Add new parameter** list, select **Subject Filter**.
+
+   1. After the **Subject Filter** box appears in the action,
+   specify the subject as listed here:
 
       | Setting | Value | Description |
       | ------- | ----- | ----------- |
-      | **Has Attachment** | Yes | Get only emails with attachments. <p>**Note:** The trigger doesn't remove any emails from your account, checking only new messages and processing only emails that match the subject filter. |
-      | **Include Attachments** | Yes | Get the attachments as input for your workflow, rather than just check for attachments. |
       | **Subject Filter** | ```Business Analyst 2 #423501``` | The text to find in the email subject |
       ||||
 
@@ -634,14 +637,19 @@ To process each attachment in the email,
 add a **For each** loop to your logic app's workflow.
 
 1. Under the **Create blob for email body** shape, 
-select **More** > **Add a for each**.
+select **Add an action**.
 
    ![Add "for each" loop](./media/tutorial-process-email-attachments-workflow/add-for-each-loop.png)
 
-2. Rename your loop with this description: 
+1. Under **Choose an action**, in the search box, 
+enter "for each" as your filter. Select this action:
+
+   ![Select "For each"](./media/tutorial-process-email-attachments-workflow/select-for-each.png)
+
+1. Rename your loop with this description: 
 ```For each email attachment```
 
-3. Now specify the data for the loop to process. 
+1. Now specify the data for the loop to process. 
 Click inside the **Select an output from previous steps** box 
 so that the dynamic content list opens, and then select **Attachments**.
 
@@ -652,7 +660,7 @@ so that the dynamic content list opens, and then select **Attachments**.
    The **For each** loop repeats actions on each item 
    that's passed in with the array.
 
-4. Save your logic app.
+1. Save your logic app.
 
 Next, add the action that saves each attachment 
 as a blob in your **attachments** storage container.
@@ -746,7 +754,7 @@ and then select the "send email" action for your email provider.
    ![Select "send email" action for your email provider](./media/tutorial-process-email-attachments-workflow/add-action-select-send-email.png)
 
    * For Azure work or school accounts, 
-   select Office 365 Outlook. 
+   select Office 365 Outlook.
 
    * For personal Microsoft accounts, 
    select Outlook.com.
