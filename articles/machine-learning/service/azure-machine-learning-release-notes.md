@@ -41,7 +41,7 @@ In Azure portal, you can now:
 
 ### Azure Machine Learning SDK for Python v1.0.33
 + **New features**
-  + Default clusters "cpu-cluster" and "gpu-cluster" are created as part of Workspace provisioning.
+  + The _Workspace.create_ method now accepts default cluster configurations for CPU and GPU clusters.
   + If Workspace creation fails, depended resources are cleaned.
   + Default Azure Container Registry SKU was switched to basic.
   + Azure Container Registry is created lazily, when needed for run or image creation.
