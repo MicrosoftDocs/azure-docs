@@ -82,7 +82,7 @@ Now that you have a Storage destination to export data to, follow these steps to
 
 6. To turn on continuous data export, make sure **Data export** is **On**. Select **Save**.
 
-  ![Configure continuous data export](media/howto-export-data/export-list-blob.png)
+   ![Configure continuous data export](media/howto-export-data/export-list-blob.png)
 
 7. After a few minutes, your data will appear in your chosen destination.
 
