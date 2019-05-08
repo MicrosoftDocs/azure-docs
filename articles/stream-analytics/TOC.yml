@@ -442,6 +442,9 @@
             - name: Tumbling Window
               href: /stream-analytics-query/tumbling-window-azure-stream-analytics
               maintainContext: true
+            - name: Aggregate Windowing functions
+              href: /stream-analytics-query/windows-azure-stream-analytics
+              maintainContext: true
     - name: Data Types
       items:
         - name: Data Types Overview
