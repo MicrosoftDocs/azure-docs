@@ -4,11 +4,10 @@
     href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
   - name: Configuration
     items:
-      -name: Configuration for Linux
-       href: configure.md
-    items:
-    - name: Enable Infiniband with SRIOV
-      href: enable-infiniband-with-sriov.md  
+      - name: Configuration for Linux
+        href: configure.md
+      - name: Enable Infiniband with SRIOV
+        href: enable-infiniband-with-sriov.md  
   - name: Setup MPI
     href: setup-mpi.md 
   - name: Compiling and scaling applications
