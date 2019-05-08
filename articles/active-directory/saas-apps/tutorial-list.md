@@ -39,8 +39,17 @@ For a list of all SaaS apps that have been pre-integrated into Azure AD, see the
 | ![logo](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack - User Provisioning](slack-provisioning-tutorial.md)|
 
-To find more tutorials, use the table of contents on the left. 
+To find more tutorials, use the table of contents on the left.
+
+## Cloud Integrations
+
+| Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |
+| :---: | :--- | :--- |
+| ![logo](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [G Suite](google-apps-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Amazon Web Services (AWS)](amazon-web-service-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba](alibaba-cloud-service-role-based-sso-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP](saphana-tutorial.md)|
 
 ## Next steps
-To learn more about application management, see [What is application management](../manage-apps/what-is-application-management.md).
 
+To learn more about application management, see [What is application management](../manage-apps/what-is-application-management.md).
