@@ -69,7 +69,7 @@
     - name: Packaging
       items:
       - name: Dynamic packaging
-        displayName: packager      
+        displayName: origin, packager      
         href: dynamic-packaging-overview.md
       - name: Dynamic manifests
         href: filters-dynamic-manifest-overview.md 
@@ -91,7 +91,7 @@
         - name: FairPlay license requirements
           href: fairplay-license-overview.md      
     - name: Streaming Endpoints/Origin
-      displayName: origins, cdn 
+      displayName: origin, packager, cdn
       href: streaming-endpoint-concept.md
     - name: Streaming Locators
       displayName: URLs
