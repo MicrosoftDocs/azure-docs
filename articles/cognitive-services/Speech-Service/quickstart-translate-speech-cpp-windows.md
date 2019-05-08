@@ -14,6 +14,8 @@ ms.author: erhopf
 
 # Quickstart: Translate speech with the Speech SDK for C++
 
+Quickstarts are also available for [speech-recognition](quickstart-cpp-windows.md) and [text-to-speech](quickstart-text-to-speech-cpp-windows.md).
+
 In this quickstart, you'll create a simple C++ application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows, and is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
 
 For a complete list of languages available for speech translation, see [language support](language-support.md).

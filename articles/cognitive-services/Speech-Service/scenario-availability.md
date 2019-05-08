@@ -21,7 +21,7 @@ The Speech service SDK features many scenarios across a wide variety of programm
 - **Text-to-Speech (TTS)**
   - C++/Windows & Linux
   - C#/Windows
-  - REST can be used in every other situation.
+  - TTS REST API can be used in every other situation.
 - **Wake Word (Keyword Spotter/KWS)**
   - C++/Windows & Linux
   - C#/Windows & Linux

@@ -14,7 +14,7 @@ ms.author: wolfma
 
 # Quickstart: Recognize speech with the Speech SDK for .NET Framework (Windows)
 
-Quickstarts are also available for [**speech-recognition**](quickstart-csharp-dotnet-windows.md) and [text-to-speech](quickstart-text-to-speech-dotnet-windows.md).
+Quickstarts are also available for [text-to-speech](quickstart-text-to-speech-dotnet-windows.md) and [speech-to-speech-translation](quickstart-translate-dotnetframework-windows.md).
 
 If desired, choose a different programming language and/or environment:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
