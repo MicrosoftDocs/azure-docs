@@ -36,7 +36,7 @@ This sample configuration XML we've provided will do the following things:
 - Enable shared computer licensing for operation in a terminal server environment.
 
 >[!NOTE]
-Stencil search feature in Visio does not operate in Windows Virtual Desktop during preview configuration. We are working on fixing this issue.
+>Stencil search feature in Visio does not operate in Windows Virtual Desktop during preview configuration. We are working on fixing this issue.
 
 Here's what this sample configuration XML won't do:
 
