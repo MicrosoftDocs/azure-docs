@@ -48,8 +48,8 @@ For more information about integration service environments, see
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
   > [!IMPORTANT]
-  > Logic apps, built-in actions, and connectors that run in your ISE use 
-  > a different pricing plan, not the consumption-based pricing plan. 
+  > Logic apps, built-in triggers, built-in actions, and connectors that run in 
+  > your ISE use a pricing plan different from the consumption-based pricing plan. 
   > For more information, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
 * An [Azure virtual network](../virtual-network/virtual-networks-overview.md). 
@@ -287,7 +287,7 @@ for example:
   ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
 * You can use the same built-in triggers and actions such as HTTP, 
-which run in the same ISE as your logic app and display the "Core" label.
+which run in the same ISE as your logic app and display the **Core** label.
 
   ![Select "core" built-in triggers and actions](./media/connect-virtual-network-vnet-isolated-environment/select-core-built-in-actions-triggers.png)
 

@@ -49,8 +49,8 @@ don't have ISE-version connectors, you can connect to those systems
 by [setting up and using the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md).
 
 > [!IMPORTANT]
-> Logic apps, built-in actions, and connectors that run in your ISE use 
-> a different pricing plan, not the consumption-based pricing plan. 
+> Logic apps, built-in triggers, built-in actions, and connectors that run in 
+> your ISE use a pricing plan different from the consumption-based pricing plan. 
 > For more information, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
 <a name="difference"></a>

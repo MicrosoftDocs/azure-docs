@@ -47,12 +47,18 @@ An [*integration service environment* (ISE)](../logic-apps/connect-virtual-netwo
 provides a private, isolated, and dedicated way for you to create and 
 run logic apps that can access resources in an Azure virtual network. 
 For new logic apps that run inside an ISE, you pay a fixed monthly price 
-for built-in actions and triggers and also for Standard connectors. 
-Within an ISE, built-in triggers and actions display the "Core" label.
+for built-in actions and triggers and also for Standard connectors.
 
 Your ISE also includes one free Enterprise connector, which includes 
-as many connections as you want. Usage for additional Enterprise connectors 
-is charged based on the Enterprise consumption price.
+as many connections as you want. Usage for additional Enterprise 
+connectors is charged based on the Enterprise consumption price.
+
+> [!NOTE]
+> Within an ISE, built-in triggers and actions display the 
+> **Core** label and run in the same ISE as your logic apps. 
+> Standard and Enterprise connectors that display the **ISE** 
+> label run in the same ISE as your logic apps. Connectors 
+> that don't display the ISE label run in the global Logic Apps service.
 
 Your ISE base unit has fixed capacity, so if you need more throughput, 
 you can [add more scale units](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), 
