@@ -38889,7 +38889,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/iot-suite/howto-create-and-manage-applications-as-CSP.md",
+      "source_path": "articles/iot-central/howto-create-and-manage-applications-as-CSP.md",
       "redirect_url": "/azure/iot-central/howto-create-and-manage-applications-csp",
       "redirect_document_id": false
     },
