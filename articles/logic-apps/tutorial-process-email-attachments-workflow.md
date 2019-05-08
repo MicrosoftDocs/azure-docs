@@ -68,28 +68,34 @@ You can save incoming emails and attachments as blobs in
 an [Azure storage container](../storage/common/storage-introduction.md). 
 
 1. Before you can create a storage container, 
-[Create a storage account](../storage/common/storage-quickstart-create-account.md) 
-with these settings:
+[create a storage account](../storage/common/storage-quickstart-create-account.md) 
+with these settings on the **Basics** tab in the Azure portal:
 
    | Setting | Value | Description |
    |---------|-------|-------------|
-   | **Name** | attachmentstorageacct | The name for your storage account |
-   | **Deployment model** | Resource manager | The [deployment model](../azure-resource-manager/resource-manager-deployment-model.md) for managing resource deployment |
-   | **Account kind** | General purpose | The [storage account type](../storage/common/storage-introduction.md#types-of-storage-accounts) |
-   | **Location** | West US | The region where to store information about your storage account |
-   | **Replication** | Locally redundant storage (LRS) | This setting specifies how your data is copied, stored, managed, and synchronized. See [Locally redundant storage (LRS): Low-cost data redundancy for Azure Storage](../storage/common/storage-redundancy-lrs.md). |
-   | **Performance** | Standard | This setting specifies the data types supported and media for storing data. See [Types of storage accounts](../storage/common/storage-introduction.md#types-of-storage-accounts). |
-   | **Secure transfer required** | Disabled | This setting specifies the security required for requests from connections. See [Require secure transfer](../storage/common/storage-require-secure-transfer.md). |
-   | **Subscription** | <*your-Azure-subscription-name*> | The name for your Azure subscription |
+   | **Subscription** | <*Azure-subscription-name*> | The name for your Azure subscription |  
    | **Resource group** | LA-Tutorial-RG | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) used to organize and manage related resources. <p>**Note:** A resource group exists inside a specific region. Although the items in this tutorial might not be available in all regions, try to use the same region when possible. |
-   | **Configure virtual networks** | Disabled | For this tutorial, keep the **Disabled** setting. |
+   | **Storage account name** | attachmentstorageacct | The name for your storage account |
+   | **Location** | West US | The region where to store information about your storage account |
+   | **Performance** | Standard | This setting specifies the data types supported and media for storing data. See [Types of storage accounts](../storage/common/storage-introduction.md#types-of-storage-accounts). |
+   | **Account kind** | General purpose | The [storage account type](../storage/common/storage-introduction.md#types-of-storage-accounts) |
+   | **Replication** | Locally redundant storage (LRS) | This setting specifies how your data is copied, stored, managed, and synchronized. See [Locally redundant storage (LRS): Low-cost data redundancy for Azure Storage](../storage/common/storage-redundancy-lrs.md). |
+   ||||
+
+   On the **Advanced** tab, choose this setting:
+
+   | Setting | Value | Description |
+   |---------|-------|-------------|
+   | **Secure transfer required** | Disabled | This setting specifies the security required for requests from connections. See [Require secure transfer](../storage/common/storage-require-secure-transfer.md). |
    ||||
 
    To create your storage account, you can also use 
    [Azure PowerShell](../storage/common/storage-quickstart-create-storage-account-powershell.md) 
    or [Azure CLI](../storage/common/storage-quickstart-create-storage-account-cli.md).
 
-2. After Azure deploys your storage account, 
+1. When you're done, choose **Review + create**.
+
+1. After Azure deploys your storage account, 
 get your storage account's access key:
 
    1. On your storage account menu, under **Settings**, 
@@ -104,10 +110,10 @@ get your storage account's access key:
    [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) 
    or [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list).
 
-3. Create a blob storage container for your email attachments.
+1. Create a blob storage container for your email attachments.
 
    1. On your storage account menu, select **Overview**. 
-   Under **Services**, select **Blobs**.
+   Under **Services**, choose **Blobs**.
 
       ![Add blob storage container](./media/tutorial-process-email-attachments-workflow/create-storage-container.png)
 
