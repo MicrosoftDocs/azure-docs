@@ -83,7 +83,8 @@ Yes. The resource group name can be a maximum of 90 characters in length. See [N
 Usernames can be a maximum of 20 characters in length and cannot end in a period ("."). 
 
 The following usernames are not allowed:
-
+| |
+|-----------------|-----------|--------------------|----------|
 | `administrator` | `admin`   | `user`             | `user1`  |
 | `test`          | `user2`   | `test1`            | `user3`  |
 | `admin1`        | `1`       | `123`              | `a`      |
