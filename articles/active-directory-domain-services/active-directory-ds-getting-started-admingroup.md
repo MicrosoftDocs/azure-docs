@@ -79,7 +79,7 @@ The process of provisioning your managed domain can take up to an hour.
 
 3. The **Overview** tab shows that the managed domain is currently being provisioned. You cannot configure the managed domain until it is fully provisioned. It may take up to an hour for your managed domain to be fully provisioned.
 
-    ![Domain Services - Overview tab during the provisioning state ](./media/getting-started/domain-services-provisioning-state-details.png)
+    ![Domain Services - Overview tab during the provisioning state](./media/getting-started/domain-services-provisioning-state-details.png)
 
 4. When the managed domain is fully provisioned, the **Overview** tab shows the domain status as **Running**.
 

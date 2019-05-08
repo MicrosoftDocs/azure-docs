@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
-#  Manage speed and concurrency of your encoding (legacy)
+#  Manage speed and concurrency of your encoding  
 
 This article gives a brief overview of how you can manage speed and concurrency of your encoding jobs/tasks.
 

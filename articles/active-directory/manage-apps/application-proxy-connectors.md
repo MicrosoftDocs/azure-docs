@@ -24,7 +24,7 @@ Connectors are lightweight agents that sit on-premises and facilitate the outbou
 
 ## Requirements and deployment
 
-To deploy Application Proxy successfully, you need at least one connector, but we recommend two or more for greater resiliency. Install the connector on a Windows Server 2012 R2 or 2016 machine. The connector needs to communicate with the Application Proxy service and the on-premises applications that you publish. 
+To deploy Application Proxy successfully, you need at least one connector, but we recommend two or more for greater resiliency. Install the connector on a machine running Windows Server 2012 R2 or later. The connector needs to communicate with the Application Proxy service and the on-premises applications that you publish. 
 
 ### Windows server
 You need a server running Windows Server 2012 R2 or later on which you can install the Application Proxy connector. The server needs to connect to the Application Proxy services in Azure, and the on-premises applications that you're publishing.
@@ -70,6 +70,8 @@ You may experience downtime when your connector updates if:
 - You only have one connector we recommend you install a second connector and [create a connector group](application-proxy-connector-groups.md). This will avoid downtime and provide higher availability.  
 - A connector was in the middle of a transaction when the update began. Although the initial transaction is lost, your browser should automatically retry the operation or you can refresh your page. When the request is resent, the traffic is routed to a backup connector.
 
+To see information about previously released versions and what changes they include, see [Application Proxy- Version Release History](application-proxy-release-version-history.md).
+
 ## Creating connector groups
 
 Connector groups enable you to assign specific connectors to serve specific applications. You can group a number of connectors together, and then assign each application to a group. 
@@ -88,14 +90,15 @@ It is important to make sure you have planned enough capacity between connectors
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* This machine used a custom setting to raise some of the default connection limits beyond .Net recommended settings. We recommend running a test with the default settings before contacting support to get this limit changed for your tenant.
+
+\* This machine used a custom setting to raise some of the default connection limits beyond .NET recommended settings. We recommend running a test with the default settings before contacting support to get this limit changed for your tenant.
  
 >[!NOTE]
 >There is not much difference in the maximum TPS between 4, 8, and 16 core machines. The main difference between those is in the expected latency.  
 
 ## Security and networking
 
-Connectors can be installed anywhere on the network that allows them to send requests to the Application Proxy service. What's important is that the computer running the connector also has access to your apps. You can install connectors inside of your corporate network or on a virtual machine that runs in the cloud. Connectors can run within a demilitarized zone (DMZ), but it's not necessary because all traffic is outbound so your network stays secure.
+Connectors can be installed anywhere on the network that allows them to send requests to the Application Proxy service. What's important is that the computer running the connector also has access to your apps. You can install connectors inside of your corporate network or on a virtual machine that runs in the cloud. Connectors can run within a perimeter network, also known as a demilitarized zone (DMZ), but it's not necessary because all traffic is outbound so your network stays secure.
 
 Connectors only send outbound requests. The outbound traffic is sent to the Application Proxy service and to the published applications. You don't have to open inbound ports because traffic flows both ways once a session is established. You also don't have to configure inbound access through your firewalls. 
 

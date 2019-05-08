@@ -1,13 +1,14 @@
 ---
 title: Get started with Azure IoT Hub device twins (Java) | Microsoft Docs
 description: How to use Azure IoT Hub device twins to add tags and then use an IoT Hub query. You use the Azure IoT device SDK for Java to implement the device app and the Azure IoT service SDK for Java to implement a service app that adds the tags and runs the IoT Hub query.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
-ms.author: dobett
 ---
 
 # Get started with device twins (Java)
@@ -68,7 +69,7 @@ In this section, you create a Java app that adds location metadata as a tag to t
     ```
 
     > [!NOTE]
-    > You can check for the latest version of **iot-service-client** using [Maven search](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > You can check for the latest version of **iot-service-client** using [Maven search](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 5. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
 
@@ -228,7 +229,7 @@ In this section, you create a Java console app that sets a reported property val
     ```
 
     > [!NOTE]
-    > You can check for the latest version of **iot-device-client** using [Maven search](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > You can check for the latest version of **iot-device-client** using [Maven search](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 4. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
 
@@ -288,18 +289,18 @@ In this section, you create a Java console app that sets a reported property val
     * Create a device client to communicate with IoT Hub.
     * Create a **Device** object to store the device twin properties.
 
-    ```java
-    DeviceClient client = new DeviceClient(connString, protocol);
+      ```java
+      DeviceClient client = new DeviceClient(connString, protocol);
 
-    // Create a Device object to store the device twin properties
-    Device dataCollector = new Device() {
+      // Create a Device object to store the device twin properties
+      Device dataCollector = new Device() {
       // Print details when a property value changes
       @Override
       public void PropertyCall(String propertyKey, Object propertyValue, Object context) {
         System.out.println(propertyKey + " changed to " + propertyValue);
       }
-    };
-    ```
+      };
+      ```
 
 10. Add the following code to the **main** method to create a **connectivityType** reported property and send it to IoT Hub:
 
@@ -335,9 +336,9 @@ In this section, you create a Java console app that sets a reported property val
 
 1. Modify the signature of the **main** method to include the exceptions as follows:
 
-    ```java
-    public static void main(String[] args) throws URISyntaxException, IOException
-    ```
+     ```java
+     public static void main(String[] args) throws URISyntaxException, IOException
+     ```
 
 1. Save and close the `simulated-device\src\main\java\com\mycompany\app\App.java` file.
 

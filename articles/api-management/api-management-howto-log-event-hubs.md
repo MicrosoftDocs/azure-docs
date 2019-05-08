@@ -36,7 +36,7 @@ To create a logger, make an HTTP PUT request using the following URL template:
 `https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2017-03-01`
 
 * Replace `{your service}` with the name of your API Management service instance.
-* Replace `{new logger name}` with the desired name for your new logger. You reference this name when you configure the [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) policy
+* Replace `{new logger name}` with the desired name for your new logger. You reference this name when you configure the [log-to-eventhub](/azure/api-management/api-management-advanced-policies#log-to-eventhub) policy
 
 Add the following headers to the request:
 
@@ -115,7 +115,7 @@ Click **Save** to save the updated policy configuration. As soon as it is saved 
 * Learn more about API Management and Event Hubs integration
   * [Logger entity reference](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [log-to-eventhub policy reference](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
-  * [Monitor your APIs with Azure API Management, Event Hubs, and Runscope](api-management-log-to-eventhub-sample.md)  
+  * [Monitor your APIs with Azure API Management, Event Hubs, and Moesif](api-management-log-to-eventhub-sample.md)  
 * Learn more about [integration with Azure Application Insights](api-management-howto-app-insights.md)
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png

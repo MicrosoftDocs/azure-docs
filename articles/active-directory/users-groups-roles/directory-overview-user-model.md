@@ -10,6 +10,7 @@ ms.reviewer: vincesm
 ms.date: 01/28/2019
 ms.topic: overview
 ms.service: active-directory
+ms.subservice: users-groups-roles
 ms.workload: identity
 services: active-directory
 ms.custom: "it-pro;seo-update-azuread-jan"

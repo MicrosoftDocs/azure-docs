@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/04/2019
+ms.date: 05/01/2019
 ms.author: jowargo
 ---
 
@@ -24,7 +24,7 @@ ms.author: jowargo
 
 ## Overview
 
-This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Xamarin.Android application. You create a blank Xamarin.Android app that receives push notifications by using Firebase Cloud Messaging (FCM). You use your notification hub to broadcast push notifications to all the devices running your app. The finished code is available in the [NotificationHubs app][GitHub] sample.
+This tutorial shows you how to use Azure Notification Hubs to send push notifications to a Xamarin.Android application. You create a blank Xamarin.Android app that receives push notifications by using Firebase Cloud Messaging (FCM). You use your notification hub to broadcast push notifications to all the devices running your app. The finished code is available in the [NotificationHubs app](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/Xamarin/GetStartedXamarinAndroid) sample.
 
 In this tutorial, you take the following steps:
 
@@ -42,7 +42,7 @@ In this tutorial, you take the following steps:
 
 ## Create a Firebase project and enable Firebase Cloud Messaging
 
-[!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
+[!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging-xamarin.md)]
 
 ## Create a notification hub
 
@@ -62,10 +62,18 @@ Your notification hub is configured to work with FCM, and you have the connectio
 
 ### Create Visual Studio project and add NuGet packages
 
-1. In Visual Studio, open the **File** menu, select **New**, and then select **Project**.
+1. In Visual Studio, open the **File** menu, select **New**, and then select **Project**. In the **New Project** window, do these steps: 
+    1. Expand **Installed**, **Visual C#**, and then click **Android**.
+    2. Select **Android App (Xamarin)** from the list. 
+    3. Enter a **name** for the project. 
+    4. Select a **location** for the project. 
+    5. Select **OK** 
 
-    ![Visual Studio- Create new Android project](./media/partner-xamarin-notification-hubs-android-get-started/new-project-dialog.png)
-2. In the **Solution Explorer** window, expand **Properties**, and click **AndroidManifest.xml**. Update the package name to match the package name you entered when adding Firebase Cloud Messaging to your project in the Google Firebase Console.
+        ![New Project dialog](./media/partner-xamarin-notification-hubs-android-get-started/new-project-dialog-new.png)        
+2. On the **New Android App** dialog box, select **Blank App**, and select **OK**. 
+
+    ![New Project dialog](./media/partner-xamarin-notification-hubs-android-get-started/new-android-app-dialog.png)
+1. In the **Solution Explorer** window, expand **Properties**, and click **AndroidManifest.xml**. Update the package name to match the package name you entered when adding Firebase Cloud Messaging to your project in the Google Firebase Console.
 
     ![Package name in GCM](./media/partner-xamarin-notification-hubs-android-get-started/package-name-gcm.png)
 3. Right-click your project, and select **Manage NuGet Packages...**.
@@ -100,8 +108,15 @@ Your notification hub is configured to work with FCM, and you have the connectio
         </intent-filter>
     </receiver>
     ```
+2. Add the following statements **before the application** element. 
 
-2. Gather the following information for your Android app and notification hub:
+    ```xml
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    ```
+1. Gather the following information for your Android app and notification hub:
 
    * **Listen connection string**: On the dashboard in the [Azure portal], choose **View connection strings**. Copy the `DefaultListenSharedAccessSignature` connection string for this value.
    * **Hub name**: Name of your hub from the [Azure portal]. For example, *mynotificationhub2*.
@@ -119,13 +134,61 @@ Your notification hub is configured to work with FCM, and you have the connectio
 
     ```csharp
     using Android.Util;
+    using Android.Gms.Common;
     ```
-6. Add an instance variable to `MainActivity.cs*` that will be used to show an alert dialog when the app is running:
+6. Add the following properties to the MainActivity class. The TAG variable will be used to show an alert dialog when the app is running:
 
     ```csharp
     public const string TAG = "MainActivity";
+    internal static readonly string CHANNEL_ID = "my_notification_channel";
     ```
-7. In `MainActivity.cs`, add the following code to `OnCreate` after `base.OnCreate(savedInstanceState)`:
+7. Add the following method to the MainActivity class. It checks whether **Google Play Services** are available on the device. 
+
+    ```csharp
+    public bool IsPlayServicesAvailable()
+    {
+        int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.Success)
+        {
+            if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
+                Log.Debug(TAG, GoogleApiAvailability.Instance.GetErrorString(resultCode));
+            else
+            {
+                Log.Debug(TAG, "This device is not supported");
+                Finish();
+            }
+            return false;
+        }
+     
+        Log.Debug(TAG, "Google Play Services is available.");
+        return true;
+    }
+    ```
+1. Add the following method to the MainActivity class that creates a notification channel.
+
+    ```csharp
+    private void CreateNotificationChannel()
+    {
+        if (Build.VERSION.SdkInt < BuildVersionCodes.O)
+        {
+            // Notification channels are new in API 26 (and not a part of the
+            // support library). There is no need to create a notification
+            // channel on older versions of Android.
+            return;
+        }
+     
+        var channelName = CHANNEL_ID;
+        var channelDescription = string.Empty;
+        var channel = new NotificationChannel(CHANNEL_ID, channelName, NotificationImportance.Default)
+        {
+            Description = channelDescription
+        };
+     
+        var notificationManager = (NotificationManager)GetSystemService(NotificationService);
+        notificationManager.CreateNotificationChannel(channel);
+    }
+    ```
+1. In `MainActivity.cs`, add the following code to `OnCreate` after `base.OnCreate(savedInstanceState)`:
 
     ```csharp
     if (Intent.Extras != null)
@@ -139,12 +202,14 @@ Your notification hub is configured to work with FCM, and you have the connectio
             }
         }
     }
+    
+    IsPlayServicesAvailable();
+    CreateNotificationChannel();
     ```
 8. Create a new class, `MyFirebaseIIDService` like you created the `Constants` class.
 9. Add the following using statements to `MyFirebaseIIDService.cs`:
 
     ```csharp
-    using Android.App;
     using Android.Util;
     using WindowsAzure.Messaging;
     using Firebase.Iid;
@@ -186,9 +251,10 @@ Your notification hub is configured to work with FCM, and you have the connectio
 13. Add the following using statements to `MyFirebaseMessagingService.cs`.
 
     ```csharp
-    using Android.App;
     using Android.Util;
     using Firebase.Messaging;
+    using Android.Support.V4.App;
+    using Build = Android.OS.Build;
     ```
 14. Add the following above your class declaration, and have your class inherit from `FirebaseMessagingService`:
 
@@ -224,12 +290,18 @@ Your notification hub is configured to work with FCM, and you have the connectio
         intent.AddFlags(ActivityFlags.ClearTop);
         var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-        var notificationBuilder = new Notification.Builder(this)
+        var notificationBuilder = new NotificationCompat.Builder(this)
                     .SetContentTitle("FCM Message")
                     .SetSmallIcon(Resource.Drawable.ic_launcher)
                     .SetContentText(messageBody)
                     .SetAutoCancel(true)
+                    .SetShowWhen(false)
                     .SetContentIntent(pendingIntent);
+
+        if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
+        {
+            notificationBuilder.SetChannelId(MainActivity.CHANNEL_ID);
+        }
 
         var notificationManager = NotificationManager.FromContext(this);
 
@@ -277,17 +349,17 @@ In this tutorial, you sent broadcast notifications to all your Android devices r
 [30]: ./media/notification-hubs-android-get-started/notification-hubs-test-send.png
 
 <!-- URLs. -->
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Visual Studio with Xamarin]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Visual Studio for Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
 [Azure portal]: https://portal.azure.com/
-[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for Android]: http://msdn.microsoft.com/library/dn282661.aspx
+[wns object]: https://go.microsoft.com/fwlink/p/?LinkId=260591
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for Android]: https://msdn.microsoft.com/library/dn282661.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[GitHub]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid
+[GitHub]: https://github.com/Azure/azure-notificationhubs-android

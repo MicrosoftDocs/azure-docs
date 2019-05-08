@@ -23,12 +23,9 @@ ms.author: anavin
 
 A public IP address prefix is a reserved range of IP addresses for your public endpoints in Azure. Azure allocates a contiguous range of addresses to your subscription based on how many you specify. If you're not familiar with public addresses, see [Public IP addresses.](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 
-Public IP addresses are assigned from a pool of addresses in each Azure region. You can [download](https://www.microsoft.com/download/details.aspx?id=41653) the list of ranges Azure uses for each region. For example, 40.121.0.0/16 is one of over 100 ranges Azure uses in the East US region. The range includes the usable addresses of 40.121.0.1 - 40.121.255.254.
+Public IP addresses are assigned from a pool of addresses in each Azure region. You can [download](https://www.microsoft.com/download/details.aspx?id=56519) the list of ranges Azure uses for each region. For example, 40.121.0.0/16 is one of over 100 ranges Azure uses in the East US region. The range includes the usable addresses of 40.121.0.1 - 40.121.255.254.
 
 You create a public IP address prefix in an Azure region and subscription by specifying a name, and how many addresses you want the prefix to include. For example, If you create a public IP address prefix of /28, Azure allocates 16 addresses from one of its ranges for you. You don't know which range Azure will assign until you create the range, but the addresses are contiguous. Public IP address prefixes have a fee. For details, see [public IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses).
-
-> [!IMPORTANT]
-> Public IP Prefix is in a public preview in limited regions. You can [learn what it means to be in preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Public IP prefix is currently available in: West Central US, West US, West US 2, Central US, North Europe, West Europe, and Southeast Asia. For an updated list of regions, please visit [Azure updates](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## Why create a public IP address prefix?
 
@@ -55,6 +52,7 @@ You can associate the following resources to a static public IP address from a p
 ## Constraints
 
 - You can't specify the IP addresses for the prefix. Azure allocates the IP addresses for the prefix, based on the size that you specify.
+- The default size of a prefix is /28 or 16 public IP addresses.
 - You can't change the range, once you've created the prefix.
 - The range is for IPv4 addresses only. The range does not contain IPv6 addresses.
 - Only static public IP addresses created with the Standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).

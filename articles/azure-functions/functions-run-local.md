@@ -12,6 +12,8 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
+experimental: true
+experiment_id: 80e4ff38-5174-43
 ---
 
 # Work with Azure Functions Core Tools
@@ -37,6 +39,10 @@ Unless otherwise noted, the examples in this article are for version 2.x.
 ### <a name="v2"></a>Version 2.x
 
 Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core 2.x supports, including [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). You must first install the .NET Core 2.x SDK.
+
+> [!IMPORTANT]
+> When you enable extension bundles in the project's host.json file, you do not need to install the .NET Core 2.x SDK. For more information, see [Local development with Azure Functions Core Tools and extension bundles
+](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Extension bundles requires version 2.6.1071 of the Core Tools, or a later version.
 
 #### <a name="windows-npm"></a>Windows
 
@@ -89,8 +95,8 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
     | Linux distribution | Version |
     | --------------- | ----------- |
+    | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
-    | Ubuntu 17.10    | `artful`    |
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
@@ -152,7 +158,7 @@ In version 2.x of the Azure Functions runtime, you have to explicitly register t
 
 [!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
-For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md#register-binding-extensions).
+For more information, see [Azure Functions triggers and bindings concepts](./functions-bindings-expressions-patterns.md).
 
 ## Local settings file
 
@@ -179,22 +185,22 @@ The file local.settings.json stores app settings, connection strings, and settin
 
 | Setting      | Description                            |
 | ------------ | -------------------------------------- |
-| **IsEncrypted** | When set to **true**, all values are encrypted using a local machine key. Used with `func settings` commands. Default value is **false**. |
-| **Values** | Collection of application settings and connection strings used when running locally. These values correspond to app settings in your function app in Azure, such as **AzureWebJobsStorage** and **AzureWebJobsDashboard**. Many triggers and bindings have a property that refers to a connection string app setting, such as **Connection** for the [Blob storage trigger](functions-bindings-storage-blob.md#trigger---configuration). For such properties, you need an application setting defined in the **Values** array. <br/>**AzureWebJobsStorage** is a required app setting for triggers other than HTTP. When you have the [Azure storage emulator](../storage/common/storage-use-emulator.md) installed locally, you can set **AzureWebJobsStorage** to `UseDevelopmentStorage=true` and Core Tools uses the emulator. This is useful during development, but you should test with an actual storage connection before deployment. |
-| **Host** | Settings in this section customize the Functions host process when running locally. |
-| **LocalHttpPort** | Sets the default port used when running the local Functions host (`func host start` and `func run`). The `--port` command-line option takes precedence over this value. |
-| **CORS** | Defines the origins allowed for [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origins are supplied as a comma-separated list with no spaces. The wildcard value (\*) is supported, which allows requests from any origin. |
-| **ConnectionStrings** | Do not use this collection for the connection strings used by your function bindings. This collection is only used by frameworks that typically get connection strings from the **ConnectionStrings** section of a configuration file, such as [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Connection strings in this object are added to the environment with the provider type of [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Items in this collection are not published to Azure with other app settings. You must explicitly add these values to the **Connection strings** collection of your function app settings. If you are creating a [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) in your function code, you should store the connection string value in **Application settings** with your other connections. |
+| **`IsEncrypted`** | When set to `true`, all values are encrypted using a local machine key. Used with `func settings` commands. Default value is `true`. When `true`, all settings added by using `func settings add` are encrypted using the local machine key. This mirrors how function app settings are stored in application settings in Azure. Encrypting local settings values provides extra protection for valuable data should the local.settings.json be publicly exposed.  |
+| **`Values`** | Collection of application settings and connection strings used when running locally. These values correspond to app settings in your function app in Azure, such as [`AzureWebJobsStorage`]. Many triggers and bindings have a property that refers to a connection string app setting, such as `Connection` for the [Blob storage trigger](functions-bindings-storage-blob.md#trigger---configuration). For such properties, you need an application setting defined in the `Values` array. <br/>[`AzureWebJobsStorage`] is a required app setting for triggers other than HTTP. <br/>Version 2.x of the Functions runtime requires the [`FUNCTIONS_WORKER_RUNTIME`] setting, which is generated for your project by Core Tools. <br/> When you have the [Azure storage emulator](../storage/common/storage-use-emulator.md) installed locally, you can set [`AzureWebJobsStorage`] to `UseDevelopmentStorage=true` and Core Tools uses the emulator. This is useful during development, but you should test with an actual storage connection before deployment. |
+| **`Host`** | Settings in this section customize the Functions host process when running locally. |
+| **`LocalHttpPort`** | Sets the default port used when running the local Functions host (`func host start` and `func run`). The `--port` command-line option takes precedence over this value. |
+| **`CORS`** | Defines the origins allowed for [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origins are supplied as a comma-separated list with no spaces. The wildcard value (\*) is supported, which allows requests from any origin. |
+| **`ConnectionStrings`** | Do not use this collection for the connection strings used by your function bindings. This collection is only used by frameworks that typically get connection strings from the `ConnectionStrings` section of a configuration file, such as [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Connection strings in this object are added to the environment with the provider type of [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Items in this collection are not published to Azure with other app settings. You must explicitly add these values to the `Connection strings` collection of your function app settings. If you are creating a [`SqlConnection`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) in your function code, you should store the connection string value in **Application Settings** in the portal with your other connections. |
 
 The function app settings values can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference topics:
 
-+ [C# precompiled](functions-dotnet-class-library.md#environment-variables)
-+ [C# script (.csx)](functions-reference-csharp.md#environment-variables)
-+ [F# script (.fsx)](functions-reference-fsharp.md#environment-variables)
-+ [Java](functions-reference-java.md#environment-variables)
-+ [JavaScript](functions-reference-node.md#environment-variables)
+* [C# precompiled](functions-dotnet-class-library.md#environment-variables)
+* [C# script (.csx)](functions-reference-csharp.md#environment-variables)
+* [F# script (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [Java](functions-reference-java.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
 
-When no valid storage connection string is set for **AzureWebJobsStorage** and the emulator isn't being used, the following error message is shown:
+When no valid storage connection string is set for [`AzureWebJobsStorage`] and the emulator isn't being used, the following error message is shown:
 
 > Missing value for AzureWebJobsStorage in local.settings.json. This is required for all triggers other than HTTP. You can run 'func azure functionapp fetch-app-settings \<functionAppName\>' or specify a connection string in local.settings.json.
 
@@ -212,12 +218,12 @@ Even when using the storage emulator for development, you may want to test with 
 
 + Use Core Tools to download the connection string from Azure with one of the following commands:
 
-    + Download all settings from an existing function app:
+  + Download all settings from an existing function app:
 
     ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    + Get the Connection string for a specific storage account:
+  + Get the Connection string for a specific storage account:
 
     ```bash
     func azure storage fetch-connection-string <StorageAccountName>
@@ -306,6 +312,7 @@ The `host` command is only required in version 1.x.
 | **`--script-root --prefix`** | Used to specify the path to the root of the function app that is to be run or deployed. This is used for compiled projects that generate project files into a subfolder. For example, when you build a C# class library project, the host.json, local.settings.json, and function.json files are generated in a *root* subfolder with a path like `MyProject/bin/Debug/netstandard2.0`. In this case, set the prefix as `--script-root MyProject/bin/Debug/netstandard2.0`. This is the root of the function app when running in Azure. |
 | **`--timeout -t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
+| **`--enableAuth`** | Enable full authentication handling pipeline.|
 
 For a C# class library project (.csproj), you must include the `--build` option to generate the library .dll.
 
@@ -398,10 +405,6 @@ For example, to call an HTTP-triggered function and pass content body, run the f
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
-### Viewing log files locally
-
-[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
-
 ## <a name="publish"></a>Publish to Azure
 
 Core Tools supports two types of deployment, deploying function project files directly to your function app and deploying a custom Linux container, which is supported only in version 2.x. You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create).
@@ -467,6 +470,16 @@ The following custom container deployment options are available:
 | **`--min`**  | Optionally, sets the minimum number of function app instances to deploy to. |
 | **`--config`** | Sets an optional deployment configuration file. |
 
+## Monitoring functions
+
+The recommended way to monitor the execution of your functions is by integrating with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app by using the Azure CLI, the integration in your function app in Azure isn't done.
+
+To enable Application Insights for your function app:
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+To learn more, see [Monitor Azure Functions](functions-monitoring.md).
+
 ## Next steps
 
 Azure Functions Core Tools is [open source and hosted on GitHub](https://github.com/azure/azure-functions-cli).  
@@ -477,3 +490,5 @@ To file a bug or feature request, [open a GitHub issue](https://github.com/azure
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
+[`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
+[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage

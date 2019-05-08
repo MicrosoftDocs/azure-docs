@@ -1,20 +1,26 @@
 ---
 title: FAQ - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: The currated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
+description: The curated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/11/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
 # Frequently Asked Questions for QnA Maker
 
-The currated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
+The curated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
+
+## Use the Help bot in the QnA Maker portal
+
+QnA Maker provides a **Help** bot within the QnA Maker portal to help you. The help bot is available on every web page. The bot uses QnA Maker to provide answers and provides the [C# Bot Framework code project](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot) to the bot so you can quickly get up and running with your own answer bot. 
+
+![![QnA Maker provides a **Help** bot within the QnA Maker portal to help you.](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
 
 ## Manage the knowledge base
 
@@ -92,7 +98,7 @@ Refresh your endpoint keys if you suspect that they have been compromised.
 
 ### Can I use the same Azure Search resource for knowledge bases using multiple languages?
 
-To use multiple language and multiple knowledge bases, the user has to create an QnA Maker resource for each language. This will create a separate Azure search services per language. Mixing different language knowledge bases in a single Azure search service will result in degraded relevance of results.
+To use multiple language and multiple knowledge bases, the user has to create an QnA Maker resource for each language. This will create a separate Azure search service per language. Mixing different language knowledge bases in a single Azure search service will result in degraded relevance of results.
 
 ### How can I change the name of the Azure Search resource used by QnA Maker?
 

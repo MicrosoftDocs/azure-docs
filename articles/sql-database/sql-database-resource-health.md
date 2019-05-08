@@ -11,7 +11,7 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/03/2019
+ms.date: 02/26/2019
 
 ---
 # Use Resource Health to troubleshoot connectivity for Azure SQL Database
@@ -48,9 +48,9 @@ A status of **Unavailable** means that Resource Health has detected consistent l
 
 ### Unknown
 
-The health status of **Unknown** indicates that Resource Health hasn't received information about this resource for more than 10 minutes. Although this status isn't a definitive indication of the state of the resource, it is an important data point in the troubleshooting process.
-If the resource is running as expected, the status of the resource will change to Available after a few minutes.
-If you're experiencing problems with the resource, the Unknown health status might suggest that an event in the platform is affecting the resource.
+The health status of **Unknown** indicates that Resource Health hasn't received information about this resource for more than 10 minutes. Although this status isn't a definitive indication of the state of the resource, it is an important data point in the troubleshooting process. If the resource is running as expected, the status of the resource will change to Available after a few minutes. If you're experiencing problems with the resource, the Unknown health status might suggest that an event in the platform is affecting the resource.
+
+![Unknown](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 
 ## Historical information
 

@@ -1,6 +1,6 @@
 ---
-title: Container instance logging with Azure Log Analytics
-description: Learn how to send container output (STDOUT and STDERR) to Azure Log Analytics.
+title: Container instance logging with Azure Monitor logs
+description: Learn how to send container output (STDOUT and STDERR) to Azure Monitor logs.
 services: container-instances
 author: dlepow
 
@@ -9,11 +9,13 @@ ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
 ---
-# Container instance logging with Azure Log Analytics
+# Container instance logging with Azure Monitor logs
 
-Log Analytics workspaces provide a centralized location for storing and querying log data from not only Azure resources, but also on premises resources and resources in other clouds. Azure Container Instances includes built-in support for sending data to Log Analytics.
+Log Analytics workspaces provide a centralized location for storing and querying log data from not only Azure resources, but also on premises resources and resources in other clouds. Azure Container Instances includes built-in support for sending data to Azure Monitor logs.
 
-To send container instance data to Log Analytics, you must create a container group by using the Azure CLI (or Cloud Shell) and a YAML file. The following sections describe creating a logging-enabled container group and querying logs.
+To send container instance data to Azure Monitor logs, you must create a container group by using the Azure CLI (or Cloud Shell) and a YAML file. The following sections describe creating a logging-enabled container group and querying logs.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Prerequisites
 
@@ -26,7 +28,7 @@ To enable logging in your container instances, you need the following:
 
 Azure Container Instances needs permission to send data to your Log Analytics workspace. To grant this permission and enable logging, you must provide the Log Analytics workspace ID and one of its keys (either primary or secondary) when you create the container group.
 
-To obtain the Log Analytics workspace ID and primary key:
+To obtain the log analytics workspace ID and primary key:
 
 1. Navigate to your Log Analytics workspace in the Azure portal
 1. Under **SETTINGS**, select **Advanced settings**
@@ -37,7 +39,7 @@ To obtain the Log Analytics workspace ID and primary key:
 
 ## Create container group
 
-Now that you have the Log Analytics workspace ID and primary key, you're ready to create a logging-enabled container group.
+Now that you have the log analytics workspace ID and primary key, you're ready to create a logging-enabled container group.
 
 The following examples demonstrate two ways to create a container group with a single [fluentd][fluentd] container: Azure CLI, and Azure CLI with a YAML template. The Fluentd container produces several lines of output in its default configuration. Because this output is sent to your Log Analytics workspace, it works well for demonstrating the viewing and querying of logs.
 
@@ -91,7 +93,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 You should receive a response from Azure containing deployment details shortly after issuing the command.
 
-## View logs in Log Analytics
+## View logs in Azure Monitor logs
 
 After you've deployed the container group, it can take several minutes (up to 10) for the first log entries to appear in the Azure portal. To view the container group's logs, open your Log Analytics workspace, then:
 
@@ -104,7 +106,7 @@ You should see several results displayed by the `search *` query. If at first yo
 
 ## Query container logs
 
-Log Analytics includes an extensive [query language][query_lang] for pulling information from potentially thousands of lines of log output.
+Azure Monitor logs includes an extensive [query language][query_lang] for pulling information from potentially thousands of lines of log output.
 
 The Azure Container Instances logging agent sends entries to the `ContainerInstanceLog_CL` table in your Log Analytics workspace. The basic structure of a query is the source table (`ContainerInstanceLog_CL`) followed by a series of operators separated by the pipe character (`|`). You can chain several operators to refine the results and perform advanced functions.
 
@@ -125,11 +127,11 @@ ContainerInstanceLog_CL
 
 ## Next steps
 
-### Log Analytics
+### Azure Monitor logs
 
-For more information about querying logs and configuring alerts in Azure Log Analytics, see:
+For more information about querying logs and configuring alerts in Azure Monitor logs, see:
 
-* [Understanding log searches in Log Analytics](../log-analytics/log-analytics-log-search.md)
+* [Understanding log searches in Azure Monitor logs](../log-analytics/log-analytics-log-search.md)
 * [Unified alerts in Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 

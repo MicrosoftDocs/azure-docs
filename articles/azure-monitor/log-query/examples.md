@@ -34,7 +34,7 @@ Event
 ```
 
 ### Search events related to unmarshaling
-Search tables **Event** and **SecurityEvents** for records that mention _unmashaling_.
+Search tables **Event** and **SecurityEvents** for records that mention _unmarshaling_.
 
 ```Kusto
 search in (Event, SecurityEvent) "unmarshaling"

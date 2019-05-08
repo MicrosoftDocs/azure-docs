@@ -1,7 +1,6 @@
 ---
-title: How to update an existing assignment
-description: Learn about the mechanism for updating an existing assignment in Azure Blueprints.
-services: blueprints
+title: How to update an existing assignment from the portal
+description: Learn about the mechanism for updating an existing assignment from the portal in Azure Blueprints.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/25/2018
@@ -21,23 +20,23 @@ an existing assignment, including:
 
 ## Updating assignments
 
-1. Click on **All services** and searching for and selecting **Policy** in the left pane. On the **Policy** page, click on **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
-1. Select **Assigned Blueprints** from the page on the left.
+1. Select **Assigned blueprints** from the page on the left.
 
-1. In the list of blueprints, left-click the blueprint assignment. Then click the **Update Assignment** button OR right-click the blueprint assignment and select **Update Assignment**.
+1. In the list of blueprints, left-click the blueprint assignment. Then click the **Update assignment** button OR right-click the blueprint assignment and select **Update assignment**.
 
-   ![Update assignment](../media/update-existing-assignments/update-assignment.png)
+   ![Update an existing blueprint assignment](../media/update-existing-assignments/update-assignment.png)
 
-1. The **Assign Blueprint** page will load pre-filled with all values from the original assignment. You can change the **blueprint definition version**, the **Lock Assignment** state, and any of the dynamic parameters that exist on the blueprint definition. Click **Assign** when done making changes.
+1. The **Assign blueprint** page will load pre-filled with all values from the original assignment. You can change the **blueprint definition version**, the **Lock Assignment** state, and any of the dynamic parameters that exist on the blueprint definition. Click **Assign** when done making changes.
 
 1. On the updated assignment details page, see the new status. In this example, we added **Locking** to the assignment.
 
-   ![Updated assignment - locked](../media/update-existing-assignments/updated-assignment.png)
+   ![Updated an existing blueprint assignment - lock mode changed](../media/update-existing-assignments/updated-assignment.png)
 
-1. Explore details about other **Assignment Operations** using the drop-down. The table of **Managed Resources** updates by selected assignment operation.
+1. Explore details about other **Assignment operations** using the drop-down. The table of **Managed resources** updates by selected assignment operation.
 
-   ![Assignment operations](../media/update-existing-assignments/assignment-operations.png)
+   ![Assignment operations of a blueprint assignment](../media/update-existing-assignments/assignment-operations.png)
 
 ## Rules for updating assignments
 
@@ -71,8 +70,8 @@ error and make another update to the assignment.  Example error scenarios:
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](../concepts/lifecycle.md)
-- Understand how to use [static and dynamic parameters](../concepts/parameters.md)
-- Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md)
-- Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md)
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md)
+- Learn about the [blueprint life-cycle](../concepts/lifecycle.md).
+- Understand how to use [static and dynamic parameters](../concepts/parameters.md).
+- Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md).
+- Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md).
+- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).

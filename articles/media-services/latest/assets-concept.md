@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -32,6 +32,9 @@ The **Archive** storage tier is only recommended for very large source files tha
 
 One of the common Media Services workflows is to upload, encode, and stream a file. This section outlines the general steps.
 
+> [!TIP]
+> Before you start developing, review [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, etc.)
+
 1. Use the Media Services v3 API to create a new "input" Asset. This operation creates a container in the storage account associated with your Media Services account. The API returns the container name (for example, `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
    
     If you already have a blob container that you want to associate with an Asset, you can specify the container name when creating the Asset. Media Services currently only supports blobs in the container root and not with paths in the file name. Thus, a container with the "input.mp4" file name will work. However, a container with the "videos/inputs/input.mp4" file name, will not work.
@@ -46,8 +49,7 @@ One of the common Media Services workflows is to upload, encode, and stream a fi
 4. Use Media Services v3 APIs to create a Transform and a Job to process your "input" Asset. For more information, see [Transforms and Jobs](transform-concept.md).
 5. Stream the content from the "output" asset.
 
-> [!TIP]
-> For a full .NET example that shows how to: create the Asset, get a writable SAS URL to the Asset’s container in storage, upload the file into the container in storage using the SAS URL, see [Create a job input from a local file](job-input-from-local-file-how-to.md).
+For a full .NET example that shows how to: create the Asset, get a writable SAS URL to the Asset’s container in storage, upload the file into the container in storage using the SAS URL, see [Create a job input from a local file](job-input-from-local-file-how-to.md).
 
 ### Create a new asset
 

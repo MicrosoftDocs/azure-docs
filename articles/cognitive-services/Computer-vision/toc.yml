@@ -101,7 +101,7 @@
     href: quickstarts-sdk/python-sdk.md
 - name: Tutorials
   items:
-  - name: Get metadata for Azure images
+  - name: Generate metadata for images
     href: Tutorials/storage-lab-tutorial.md
 - name: Concepts
   items:
@@ -125,9 +125,7 @@
     href: concept-detecting-color-schemes.md
   - name: Generating thumbnails
     href: concept-generating-thumbnails.md
-  - name: Extracting text with OCR
-    href: concept-extracting-text-ocr.md
-  - name: Recognizing printed and handwritten text
+  - name: Recognize printed and handwritten text
     href: concept-recognizing-text.md
   - name: Detecting adult and racy content
     href: concept-detecting-adult-content.md
@@ -141,8 +139,6 @@
       href: Tutorials/javascript-tutorial.md
     - name: Python
       href: Tutorials/PythonTutorial.md
-  - name: Obtain subscription keys
-    href: Vision-API-How-to-Topics/HowToSubscribe.md
   - name: Call the Computer Vision API
     href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
   - name: Use containers
@@ -189,12 +185,14 @@
       href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: FAQ
     href: FAQ.md
+  - name: Category taxonomy
+    href: Category-Taxonomy.md
+  - name: Language support
+    href: language-support.md
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/430309-computer-vision-api
-  - name: Category taxonomy
-    href: Category-Taxonomy.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure roadmap

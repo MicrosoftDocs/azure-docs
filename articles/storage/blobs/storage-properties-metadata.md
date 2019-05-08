@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 04/03/2019
 ms.author: tamram
 ---
 
@@ -23,8 +23,7 @@ Retrieving property and metadata values for a storage resource is a two-step pro
 > [!IMPORTANT]
 > If you find that property or metadata values for a storage resource have not been populated, then check that your code calls the **FetchAttributes** or **FetchAttributesAsync** method.
 >
-> Metadata name/value pairs may contain only ASCII characters. Metadata name/value pairs are valid HTTP headers, and so must adhere to all restrictions governing HTTP headers. It's recommended that you use URL encoding or Base64 encoding for names and values containing non-ASCII characters.
->
+> Metadata name/value pairs are valid HTTP headers, and so should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. Metadata values containing non-ASCII characters should be Base64-encoded or URL-encoded.
 
 ## Setting and retrieving properties
 To retrieve property values, call the **FetchAttributesAsync** method on your blob or container to populate the properties, then read the values.

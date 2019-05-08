@@ -1,15 +1,15 @@
 ---
-title: 'How to backup and restore a server in Azure Database for PostgreSQL'
-description: Learn how to backup and restore a server in Azure Database for PostgreSQL by using the Azure CLI.
-author: jasonwhowell
-ms.author: jasonh
+title: How to backup and restore a server in Azure Database for PostgreSQL - Single Server
+description: Learn how to backup and restore a server in Azure Database for PostgreSQL - Single Server by using the Azure CLI.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 05/06/2019
 ---
 
-# How to back up and restore a server in Azure Database for PostgreSQL using the Azure CLI
+# How to back up and restore a server in Azure Database for PostgreSQL - Single Server using the Azure CLI
 
 ## Backup happens automatically
 Azure Database for PostgreSQL servers are backed up periodically to enable Restore features. Using this feature you may restore the server and all its databases to an earlier point-in-time, on a new server.
@@ -42,7 +42,7 @@ For more information about setting these values during create, see the [Azure Da
 The backup retention period of a server can be changed as follows:
 
 ```azurecli-interactive
-az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
 The preceding example changes the backup retention period of mydemoserver to 10 days.
@@ -63,6 +63,7 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 ```
 
 The `az postgres server restore` command requires the following parameters:
+
 | Setting | Suggested value | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  The resource group where the source server exists.  |
@@ -102,6 +103,7 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 ```
 
 The `az postgres server georestore` command requires the following parameters:
+
 | Setting | Suggested value | Description  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | The name of the resource group the new server will belong to.|

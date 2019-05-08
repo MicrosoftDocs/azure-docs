@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/27/18
+ms.date: 03/27/2018
 ms.author: cynthn
 ---
 

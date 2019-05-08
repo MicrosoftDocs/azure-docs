@@ -68,7 +68,7 @@ Azure AD sends a `LogoutResponse` in response to a `LogoutRequest` element. The 
 Azure AD sets the `ID`, `Version` and `IssueInstant` values in the `LogoutResponse` element. It also sets the `InResponseTo` element to the value of the `ID` attribute of the `LogoutRequest` that elicited the response.
 
 ### Issuer
-Azure AD sets this value to `https://login.microsoftonline.com/<TenantIdGUID>/` where <TenantIdGUID> is the tenant ID of the Azure AD tenant.
+Azure AD sets this value to `https://login.microsoftonline.com/<TenantIdGUID>/` where \<TenantIdGUID> is the tenant ID of the Azure AD tenant.
 
 To evaluate the value of the `Issuer` element, use the value of the **App ID URI** provided during application registration.
 

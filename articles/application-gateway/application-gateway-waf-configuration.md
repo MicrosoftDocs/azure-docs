@@ -7,7 +7,7 @@ ms.service: application-gateway
 ms.workload: infrastructure-services
 ms.date: 1/29/2019
 ms.author: victorh
-
+ms.topic: conceptual
 ---
 
 # Web application firewall request size limits and exclusion lists
@@ -49,10 +49,13 @@ The following are the supported match criteria operators:
 - **Starts with**: This operator matches all fields that start with the specified selector value.
 - **Ends with**:  This operator matches all request fields that end with the specified selector value.
 - **Contains**: This operator matches all request fields that contain the specified selector value.
+- **Equals any**: This operator matches all request fields. * will be the selector value.
 
 In all cases matching is case insensitive and regular expression aren't allowed as selectors.
 
 ### Examples
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 The following Azure PowerShell snippet demonstrates the use of exclusions:
 
@@ -60,13 +63,13 @@ The following Azure PowerShell snippet demonstrates the use of exclusions:
 // exclusion 1: exclude request head start with xyz
 // exclusion 2: exclude request args equals a
 
-$exclusion1 = New-AzureRmApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestHeaderNames" -SelectorMatchOperator "StartsWith" -Selector "xyz"
+$exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestHeaderNames" -SelectorMatchOperator "StartsWith" -Selector "xyz"
 
-$exclusion2 = New-AzureRmApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestArgNames" -SelectorMatchOperator "Equals" -Selector "a"
+$exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestArgNames" -SelectorMatchOperator "Equals" -Selector "a"
 
 // add exclusion lists to the firewall config
 
-$firewallConfig = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention -RuleSetType "OWASP" -RuleSetVersion "2.2.9" -DisabledRuleGroups $disabledRuleGroup1,$disabledRuleGroup2 -RequestBodyCheck $true -MaxRequestBodySizeInKb 80 -FileUploadLimitInMb 70 -Exclusions $exclusion1,$exclusion2
+$firewallConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention -RuleSetType "OWASP" -RuleSetVersion "2.2.9" -DisabledRuleGroups $disabledRuleGroup1,$disabledRuleGroup2 -RequestBodyCheck $true -MaxRequestBodySizeInKb 80 -FileUploadLimitInMb 70 -Exclusions $exclusion1,$exclusion2
 ```
 
 The following json snippet demonstrates the use of exclusions:

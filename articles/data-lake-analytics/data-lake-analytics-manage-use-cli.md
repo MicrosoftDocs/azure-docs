@@ -178,9 +178,9 @@ You must have a Data Lake Analytics account before you can create a job.  For mo
 > [!NOTE]
 > The default priority of a job is 1000, and the default degree of parallelism for a job is 1.
 > 
-   ```azurecli
-   az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"
-   ```
+>    ```azurecli
+>    az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"
+>    ```
 
 ### Cancel jobs
 Use the list command to find the job id, and then use cancel to cancel the job.

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Automation scenarios for Azure billing and cost management | Microsoft Docs
 description: Learn how common billing and cost management scenarios are mapped to different APIs.
 services: 'billing'
@@ -77,14 +77,14 @@ Web Direct and Enterprise customers can use all the following APIs, except where
 
 -	[Usage Details API](https://docs.microsoft.com/rest/api/consumption/usagedetails): Get charge and usage information on all Azure resources from Microsoft. Information is in the form of usage detail records, which are currently emitted once per meter per day. You can use the information to add up the costs across all resources or investigate costs/usage on specific resources.
 
--	[RateCard API](https://msdn.microsoft.com/library/azure/mt219005.aspx): Get meter rates if you're a Web Direct customer. You can then use the returned information with your resource usage information to manually calculate the expected bill. 
+-	[RateCard API](/previous-versions/azure/reference/mt219005(v=azure.100)): Get meter rates if you're a Web Direct customer. You can then use the returned information with your resource usage information to manually calculate the expected bill. 
 
--	[Unrated Usage API](https://msdn.microsoft.com/library/azure/mt219003.aspx): Get raw usage information before Azure does any metering/charging.
+-	[Unrated Usage API](/previous-versions/azure/reference/mt219003(v=azure.100)): Get raw usage information before Azure does any metering/charging.
 
 ### Billing
--	[Billing Periods API](https://docs.microsoft.com/rest/api/billing/billingperiods): Determine a billing period to analyze, along with the invoice IDs for that period. You can use invoice IDs with the Invoices API.
+-	[Billing Periods API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): Determine a billing period to analyze, along with the invoice IDs for that period. You can use invoice IDs with the Invoices API.
 
--	[Invoices API](https://docs.microsoft.com/rest/api/billing/invoices): Get the download URL for an invoice for a billing period in PDF form.
+-	[Invoices API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices): Get the download URL for an invoice for a billing period in PDF form.
 
 ### Enterprise consumption
 The following APIs are for Enterprise only:
@@ -118,12 +118,12 @@ These APIs provide fundamentally different data:
    - Changes to account for the use of prepaid monetary commitments
    - Changes to account for usage discrepancies discovered by Azure
 
-- The [Usage API](https://msdn.microsoft.com/library/Mt219003.aspx) provides raw Azure usage information before it passes through the cost metering system in Azure. This data might not have any correlation with the usage or charge amount that's seen after the Azure charge metering system.
+- The [Usage API](/previous-versions/azure/reference/mt219003(v=azure.100)) provides raw Azure usage information before it passes through the cost metering system in Azure. This data might not have any correlation with the usage or charge amount that's seen after the Azure charge metering system.
 
 ### What's the difference between the Invoice API and the Usage Details API?
 These APIs provide a different view of the same data:
 
-- The [Invoice API](https://docs.microsoft.com/rest/api/billing/invoices) is for Web Direct customers only. It provides a monthly rollup of your bill based on the aggregate charges for each meter type. 
+- The [Invoice API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices) is for Web Direct customers only. It provides a monthly rollup of your bill based on the aggregate charges for each meter type. 
 
 - The [Usage Details API](https://docs.microsoft.com/rest/api/consumption/usagedetails) provides a granular view of the usage/cost records for each day. Both Enterprise and Web Direct customers can use it.
 
@@ -132,7 +132,7 @@ These APIs provide similar sets of data but have different audiences:
 
 - The [Price Sheet API](https://docs.microsoft.com/rest/api/consumption/pricesheet) provides the custom pricing that was negotiated for an Enterprise customer.
 
-- The [RateCard API](https://msdn.microsoft.com/library/mt219005.aspx) provides the public-facing pricing that applies to Web Direct customers.
+- The [RateCard API](/previous-versions/azure/reference/mt219005(v=azure.100)) provides the public-facing pricing that applies to Web Direct customers.
 
 ## Next steps
 
@@ -140,4 +140,4 @@ These APIs provide similar sets of data but have different audiences:
 
 - To compare your invoice with the detailed daily usage file and the cost management reports in the Azure portal, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md).
 
-- If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+- If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

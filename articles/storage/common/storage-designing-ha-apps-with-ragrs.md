@@ -1,5 +1,5 @@
 ---
-title: Designing highly available Aaplications using read-access geo-redundant storage (RA-GRS) | Microsoft Docs
+title: Designing highly available Applications using read-access geo-redundant storage (RA-GRS) | Microsoft Docs
 description: How to use Azure RA-GRS storage to architect a highly available application flexible enough to handle outages.
 services: storage
 author: tamram
@@ -9,8 +9,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/17/2019
 ms.author: tamram
+ms.reviewer: artek
 ms.subservice: common
 ---
+
 # Designing highly available applications using RA-GRS
 
 A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available platform for hosting applications. Developers of cloud-based applications must consider carefully how to leverage this platform to deliver highly available applications to their users. This article focuses on how developers can use Read Access Geo-Redundant Storage (RA-GRS) to ensure that their Azure Storage applications are highly available.
@@ -118,7 +120,7 @@ There are basically two scenarios to consider when you are deciding how to respo
 
     In this scenario, there is a performance penalty because all your read requests will try the primary endpoint first, wait for the timeout to expire, then switch to the secondary endpoint.
 
-For these scenarios, you should identify that there is an ongoing issue with the primary endpoint and send all read requests directly to the secondary endpoint by setting the **LocationMode** property to **SecondaryOnly**. At this time, you should also change the application to run in read-only mode. This approach is known as the [Circuit Breaker Pattern](https://msdn.microsoft.com/library/dn589784.aspx).
+For these scenarios, you should identify that there is an ongoing issue with the primary endpoint and send all read requests directly to the secondary endpoint by setting the **LocationMode** property to **SecondaryOnly**. At this time, you should also change the application to run in read-only mode. This approach is known as the [Circuit Breaker Pattern](/azure/architecture/patterns/circuit-breaker).
 
 ### Update requests
 
@@ -142,7 +144,7 @@ Another consideration is how to handle multiple instances of an application, and
 
 You have three main options for monitoring the frequency of retries in the primary region in order to determine when to switch over to the secondary region and change the application to run in read-only mode.
 
-*   Add a handler for the [**Retrying**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) event on the [**OperationContext**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) object you pass to your storage requests – this is the method displayed in this article and used in the accompanying sample. These events fire whenever the client retries a request, enabling you to track how often the client encounters retryable errors on a primary endpoint.
+*   Add a handler for the [**Retrying**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) event on the [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) object you pass to your storage requests – this is the method displayed in this article and used in the accompanying sample. These events fire whenever the client retries a request, enabling you to track how often the client encounters retryable errors on a primary endpoint.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -153,7 +155,7 @@ You have three main options for monitoring the frequency of retries in the prima
     };
     ```
 
-*   In the [**Evaluate**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) method in a custom retry policy, you can run custom code whenever a retry takes place. In addition to recording when a retry happens, this also gives you the opportunity to modify your retry behavior.
+*   In the [**Evaluate**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) method in a custom retry policy, you can run custom code whenever a retry takes place. In addition to recording when a retry happens, this also gives you the opportunity to modify your retry behavior.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -211,7 +213,7 @@ To recognize that it has potentially inconsistent data, the client can use the v
 
 It's important to test that your application behaves as expected when it encounters retryable errors. For example, you need to test that the application switches to the secondary and into read-only mode when it detects a problem, and switches back when the primary region becomes available again. To do this, you need a way to simulate retryable errors and control how often they occur.
 
-You can use [Fiddler](http://www.telerik.com/fiddler) to intercept and modify HTTP responses in a script. This script can identify responses that come from your primary endpoint and change the HTTP status code to one that the Storage Client Library recognizes as a retryable error. This code snippet shows a simple example of a Fiddler script that intercepts responses to read requests against the **employeedata** table to return a 502 status:
+You can use [Fiddler](https://www.telerik.com/fiddler) to intercept and modify HTTP responses in a script. This script can identify responses that come from your primary endpoint and change the HTTP status code to one that the Storage Client Library recognizes as a retryable error. This code snippet shows a simple example of a Fiddler script that intercepts responses to read requests against the **employeedata** table to return a 502 status:
 
 ```java
 static function OnBeforeResponse(oSession: Session) {
@@ -223,7 +225,7 @@ static function OnBeforeResponse(oSession: Session) {
 }
 ```
 
-You could extend this example to intercept a wider range of requests and only change the **responseCode** on some of them to better simulate a real-world scenario. For more information about customizing Fiddler scripts, see [Modifying a Request or Response](http://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) in the Fiddler documentation.
+You could extend this example to intercept a wider range of requests and only change the **responseCode** on some of them to better simulate a real-world scenario. For more information about customizing Fiddler scripts, see [Modifying a Request or Response](https://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) in the Fiddler documentation.
 
 If you have made the thresholds for switching your application to read-only mode configurable, it will be easier to test the behavior with non-production transaction volumes.
 

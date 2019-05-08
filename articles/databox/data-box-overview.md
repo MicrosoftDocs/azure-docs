@@ -40,11 +40,11 @@ Data Box is designed to move large amounts of data to Azure with little to no im
 - **Speed** - Data Box uses 1 Gbps or 10 Gbps network interfaces to move up to 80 TB of data into Azure.
 
 - **Secure** - Data Box has built-in security protections for the device, data, and the service.
-    - The device has a rugged casing secured by tamper-resistant screws and tamper-evident stickers. 
-    - The data on the device is secured with an AES 256-bit encryption at all times.
-    - The device can only be unlocked with a password provided in the Azure portal.
-    - The service is protected by the Azure security features.
-    - Once your data is uploaded to Azure, the disks on the device are wiped clean, in accordance with NIST 800-88r1 standards.
+  - The device has a rugged casing secured by tamper-resistant screws and tamper-evident stickers. 
+  - The data on the device is secured with an AES 256-bit encryption at all times.
+  - The device can only be unlocked with a password provided in the Azure portal.
+  - The service is protected by the Azure security features.
+  - Once your data is uploaded to Azure, the disks on the device are wiped clean, in accordance with NIST 800-88r1 standards.
     
     For more information, go to [Azure Data Box security and data protection](data-box-security.md).
 
@@ -72,7 +72,7 @@ The Data Box includes the following components:
 
 * **Data Box device** - a physical device that provides primary storage, manages communication with cloud storage, and helps to ensure the security and confidentiality of all data that is stored on the device. The Data Box device has a usable storage capacity of 80 TB. 
 
-    ![Front and back plane of Data Box ](media/data-box-overview/data-box-combined3.png)
+    ![Front and back plane of Data Box](media/data-box-overview/data-box-combined3.png)
 
     
 * **Data Box service** – an extension of the Azure portal that lets you manage a Data Box device from a web interface that you can access from different geographical locations. Use the Data Box service to perform daily administration of your Data Box device. The service tasks include how to create and manage orders, view and manage alerts, and manage shares.  

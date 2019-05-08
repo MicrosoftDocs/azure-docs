@@ -74,6 +74,9 @@ Use *Azure CNI* when:
 - You don’t want to manage the UDRs.
 - You need advanced features such as virtual nodes or network policy.
 
+> [!NOTE]
+> Kuberouter makes it possible to enable network policy when using kubenet and can be installed as a daemonset in an AKS cluster. Please be aware kube-router is still in beta and no support is offered by Microsoft for the project.
+
 ## Create a virtual network and subnet
 
 To get started with using *kubenet* and your own virtual network subnet, first create a resource group using the [az group create][az-group-create] command. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
@@ -122,7 +125,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Now assign the service principal for your AKS cluster *Contributor* permissions on the virtual network using the [az role assignment create][az-role-assignment-create] command. Provide your own */<appId/>* as shown in the output from the previous command to create the service principal:
+Now assign the service principal for your AKS cluster *Contributor* permissions on the virtual network using the [az role assignment create][az-role-assignment-create] command. Provide your own *\<appId>* as shown in the output from the previous command to create the service principal:
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -130,7 +133,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## Create an AKS cluster in the virtual network
 
-You've now created a virtual network and subnet, and created and assigned permissions for a service principal to use those network resources. Now create an AKS cluster in your virtual network and subnet using the [az aks create][az-aks-create] command. Define your own service principal */<appId/>* and */<password/>*, as shown in the output from the previous command to create the service principal.
+You've now created a virtual network and subnet, and created and assigned permissions for a service principal to use those network resources. Now create an AKS cluster in your virtual network and subnet using the [az aks create][az-aks-create] command. Define your own service principal *\<appId>* and *\<password>*, as shown in the output from the previous command to create the service principal.
 
 The following IP address ranges are also defined as part of the cluster create process:
 
@@ -158,26 +161,7 @@ az aks create \
     --client-secret <password>
 ```
 
-## Associate network resources with the node subnet
-
-When you create an AKS cluster, a network security group and route table are created. These network resources are managed by the AKS control plane and updated as you create and expose services. Associate the network security group and route table with your virtual network subnet as follows:
-
-```azurecli-interactive
-# Get the MC_ resource group for the AKS cluster resources
-MC_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
-
-# Get the route table for the cluster
-ROUTE_TABLE=$(az network route-table list -g ${MC_RESOURCE_GROUP} --query "[].id | [0]" -o tsv)
-
-# Get the network security group
-NODE_NSG=$(az network nsg list -g ${MC_RESOURCE_GROUP} --query "[].id | [0]" -o tsv)
-
-# Update the subnet to associate the route table and network security group
-az network vnet subnet update \
-    --route-table $ROUTE_TABLE \
-    --network-security-group $NODE_NSG \
-    --ids $SUBNET_ID
-```
+When you create an AKS cluster, a network security group and route table are created. These network resources are managed by the AKS control plane. The network security group is automatically associated with the virtual NICs on your nodes. The route table is automatically associated with the virtual network subnet. Network security group rules and route tables and are automatically updated as you create and expose services.
 
 ## Next steps
 

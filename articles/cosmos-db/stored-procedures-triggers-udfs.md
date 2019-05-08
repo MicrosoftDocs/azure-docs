@@ -22,7 +22,7 @@ Writing stored procedures, triggers, and user-defined functions (UDFs) in JavaSc
 
 * **Atomic transactions:** Azure Cosmos DB guarantees that the database operations that are performed within a single stored procedure or a trigger are atomic. This atomic functionality lets an application combine related operations into a single batch, so that either all of the operations succeed or none of them succeed.
 
-- **Performance:** The JSON data is intrinsically mapped to the JavaScript language type system. This mapping allows for a number of optimizations like lazy materialization of JSON documents in the buffer pool and making them available on-demand to the executing code. There are other performance benefits associated with shipping business logic to the database, which includes:
+* **Performance:** The JSON data is intrinsically mapped to the JavaScript language type system. This mapping allows for a number of optimizations like lazy materialization of JSON documents in the buffer pool and making them available on-demand to the executing code. There are other performance benefits associated with shipping business logic to the database, which includes:
 
    * *Batching:* You can group operations like inserts and submit them in bulk. The network traffic latency costs and the store overhead to create separate transactions are reduced significantly.
 
@@ -30,7 +30,7 @@ Writing stored procedures, triggers, and user-defined functions (UDFs) in JavaSc
 
    * *Sequencing:* Sometimes operations need a triggering mechanism that may perform one or additional updates to the data. In addition to Atomicity, there are also performance benefits when executing on the server side.
 
-- **Encapsulation:** Stored procedures can be used to group logic in one place. Encapsulation adds an abstraction layer on top of the data, which enables you to evolve your applications independently from the data. This layer of abstraction is helpful when the data is schema-less and you don't have to manage adding additional logic directly into your application. The abstraction lets your keep the data secure by streamlining the access from the scripts.
+* **Encapsulation:** Stored procedures can be used to group logic in one place. Encapsulation adds an abstraction layer on top of the data, which enables you to evolve your applications independently from the data. This layer of abstraction is helpful when the data is schema-less and you don't have to manage adding additional logic directly into your application. The abstraction lets your keep the data secure by streamlining the access from the scripts.
 
 > [!TIP]
 > Stored procedures are best suited for operations that are write heavy. When deciding where to use stored procedures, optimize around encapsulating the maximum amount of writes possible. Generally speaking, stored procedures are not the most efficient means for doing large numbers of read operations so using stored procedures to batch large numbers of reads to return to the client will not yield the desired benefit.

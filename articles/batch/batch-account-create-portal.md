@@ -12,8 +12,8 @@ ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 01/25/2019
+ms.topic: conceptual
+ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 
@@ -39,19 +39,21 @@ For background about Batch accounts and scenarios, see the [feature overview](ba
 
     ![Create a Batch account][account_portal]
 
-    a. **Account name**: The name you choose must be unique within the Azure region where the account is created (see **Location** below). The account name can contain only lowercase characters or numbers, and must be 3-24 characters in length.
+    a. **Subscription**: The subscription in which to create the Batch account. If you have only one subscription, it is selected by default.
 
-    b. **Subscription**: The subscription in which to create the Batch account. If you have only one subscription, it is selected by default.
+    b. **Resource group**: Select an existing resource group for your new Batch account, or optionally create a new one.
 
-    c. **Resource group**: Select an existing resource group for your new Batch account, or optionally create a new one.
+    c. **Account name**: The name you choose must be unique within the Azure region where the account is created (see **Location** below). The account name can contain only lowercase characters or numbers, and must be 3-24 characters in length.
 
     d. **Location**: The Azure region in which to create the Batch account. Only the regions supported by your subscription and resource group are displayed as options.
 
-    e. **Storage account** (optional): An Azure Storage account that you associate with your Batch account. This is recommended for most Batch accounts. For storage account options in Batch, see the [Batch feature overview](batch-api-basics.md#azure-storage-account). In the portal, select an existing storage account, or optionally create a new one.
+    e. **Storage account**: An optional Azure Storage account that you associate with your Batch account. A general-purpose v2 storage account is recommended for the best performance. For all storage account options in Batch, see the [Batch feature overview](batch-api-basics.md#azure-storage-account). In the portal, select an existing storage account, or create a new one.
 
       ![Create a storage account][storage_account]
 
-    f. **Pool allocation mode**: For most scenarios, accept the default **Batch service**.
+    f. **Pool allocation mode**: In the **Advanced** settings tab you can specify pool allocation mode as **Batch service** or **User subscription**. For most scenarios, accept the default **Batch service**.
+
+      ![Batch pool allocation mode][pool_allocation]
 
 1. Select **Create** to create the account.
 
@@ -112,7 +114,7 @@ When creating the Batch account in user subscription mode, use the resource grou
 
 ### Configure subscription quotas
 
-Core quotas are not set by default on user subscription Batch accounts. Core quotas must be set manually because typical Batch core quotas do not apply to accounts in user subscription mode.
+Core quotas are not set by default on user subscription Batch accounts. Core quotas must be set manually because standard Batch core quotas do not apply to accounts in user subscription mode.
 
 1. In the [Azure portal][azure_portal], select your user subscription mode Batch account to display its settings and properties.
 
@@ -139,8 +141,8 @@ In addition to using the Azure portal, you can create and manage Batch accounts 
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace-batch.png
 [account_blade]: ./media/batch-account-create-portal/batch_blade.png
 [account_portal]: ./media/batch-account-create-portal/batch-account-portal.png
+[pool_allocation]: ./media/batch-account-create-portal/batch-pool-allocation.png
 [account_keys]: ./media/batch-account-create-portal/batch-account-keys.png
-[account_url]: ./media/batch-account-create-portal/account_url.png
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png

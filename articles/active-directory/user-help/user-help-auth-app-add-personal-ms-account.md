@@ -33,7 +33,7 @@ You can add your personal Microsoft account by first turning on two-factor verif
 
 ### Turn on two-factor verification
 
-1. On your PC, go to your [Security basics](https://account.microsoft.com/security) page and sign-in using your personal Microsoft account. For example, alain@outlook.com.
+1. On your computer, go to your [Security basics](https://account.microsoft.com/security) page and sign-in using your personal Microsoft account. For example, alain@outlook.com.
 
 2. At the bottom of the **Security basics** page, choose the **more security options** link.
 
@@ -63,5 +63,7 @@ You can add your personal Microsoft account by first turning on two-factor verif
 ## Next steps
 
 - After you add your accounts to the app, you can sign in using the Authenticator app on your device. For more information, see [Sign in using the app](user-help-auth-app-sign-in.md).
+
+- If you're having trouble getting your verification code for your personal Microsoft account, see the **Troubleshooting verification code issues** section of the [Microsoft account security info & verification codes](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) article.
 
 - For devices running iOS, you can also back up your account credentials and related app settings, such as the order of your accounts, to the cloud. For more information, see [Backup and recover with Microsoft Authenticator app](user-help-auth-app-backup-recovery.md).

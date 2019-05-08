@@ -1,5 +1,5 @@
 ---
-title: An internal error occurs when you make a RDP connection to Azure Virtual Machines | Microsoft Docs
+title: An internal error occurs when you make an RDP connection to Azure Virtual Machines | Microsoft Docs
 description: Learn how to troubleshoot RDP internal errors in Microsoft Azure.| Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
@@ -62,23 +62,25 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
     1. Stop the service for the application that is using the 3389 service:
 
-        Stop-Service -Name <ServiceName>
+            Stop-Service -Name <ServiceName> -Force
 
     2. Start the terminal service:
 
-        Start-Service -Name Termservice
+            Start-Service -Name Termservice
 
 2. If the application cannot be stopped, or if this method does not apply to you, change the port for RDP:
 
     1. Change the port:
 
-        Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
+            Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
 
-        Stop-Service -Name Termservice Start-Service -Name Termservice
+            Stop-Service -Name Termservice -Force
+            
+            Start-Service -Name Termservice 
 
     2. Set the firewall for the new port:
 
-        Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
+            Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
 
     3. [Update the network security group for the new port](../../virtual-network/security-overview.md) in the Azure portal RDP port.
 
@@ -86,7 +88,13 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
 1.	In a PowerShell instance, run the following commands one by one to renew the RDP self-signed certificate:
 
-        Import-Module PKI Set-Location Cert:\LocalMachine $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) Remove-Item -Path $RdpCertThumbprint
+        Import-Module PKI 
+    
+        Set-Location Cert:\LocalMachine 
+        
+        $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) 
+        
+        Remove-Item -Path $RdpCertThumbprint
 
         Stop-Service -Name "SessionEnv"
 
@@ -109,7 +117,9 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
         md c:\temp
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt 
+        
+        takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
         icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"
 
@@ -117,7 +127,9 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
         icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)"
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt Restart-Service TermService -Force
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt 
+        
+        Restart-Service TermService -Force
 
 4. Restart the VM, and then try Start a Remote Desktop connection to the VM. If the error still occurs, go to the next step.
 
@@ -158,7 +170,7 @@ To enable dump log and Serial Console, run the following script.
 
     In this script, we assume that the drive letter that is assigned to the attached OS disk is F. Replace this drive letter with the appropriate value for your VM.
 
-    ```powershell
+    ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
     REM Enable Serial Console
@@ -188,6 +200,7 @@ To enable dump log and Serial Console, run the following script.
         Md F:\temp
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt
+        
         takeown /f "F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"

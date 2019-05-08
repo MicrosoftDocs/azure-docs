@@ -95,9 +95,9 @@ The following steps show you how to run the Remote Monitoring microservices in I
     * WebService (services\iothub-manager)
     * WebService (services\storage-adapter)
 
-As an example the following image, shows adding configuration for a service:
+As an example, the following image shows adding configuration for a service:
 
-[![Add-Configuration](./media/deploy-locally-intelliJ/run-configurations.png)](./media/deploy-locally-intelliJ/run-configurations.png#lightbox)
+[![Add-Configuration](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 
 #### Create Compound Configuration
@@ -106,14 +106,11 @@ As an example the following image, shows adding configuration for a service:
 1. Enter the **Name** and **add sbt tasks**
 1. Click **Apply > Ok** to save your choices.
 
-As an example the following image, shows adding all sbt tasks to single configuration:
+As an example, the following image shows adding all sbt tasks to single configuration:
 
+[![Add-All-Services](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
-[![Add-All-Services](./media/deploy-locally-intelliJ/all-services.png)](./media/deploy-locally-intelliJ/all-services.png#lightbox)
-
-
-
-1. Click **Run** to build and run the web services on the local machine.
+Click **Run** to build and run the web services on the local machine.
 
 Each web service opens a command prompt and web browser window. At the command prompt, you see output from the running service, and the browser window lets you monitor the status. Don't close the command prompts or web pages, this action stops the web service.
 
@@ -130,7 +127,7 @@ To access the status of the services, you can navigate to the following URLs:
 Follow these steps to start the Stream Analytics job:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
-1. Navigate to the **Resource group** created for your solution. The name of the resource group is the name you chose for your solution when you ran the **start.cmd** script**.
+1. Navigate to the **Resource group** created for your solution. The name of the resource group is the name you chose for your solution when you ran the **start.cmd** script.
 1. Click the **Stream Analytics job** in the list of resources.
 1. On the Stream Analytics job **overview** page, click the **Start** button. Then click **Start** to start the job now.
 
@@ -143,7 +140,7 @@ npm install
 npm start
 ```
 
-When the start is complete, your browser displays the page **http://localhost:3000/dashboard**. The errors on this page are expected. To view the application without errors, complete the following step.
+When the start is complete, your browser displays the page **http:\//localhost:3000/dashboard**. The errors on this page are expected. To view the application without errors, complete the following step.
 
 ### Configure and run NGINX
 
@@ -156,7 +153,7 @@ For more information about running **nginx**, see [nginx for Windows](https://ng
 
 ### Connect to the dashboard
 
-To access the Remote Monitoring solution dashboard, navigate to [http://localhost:9000](http://localhost:9000) in your browser.
+To access the Remote Monitoring solution dashboard, navigate to http:\//localhost:9000 in your browser.
 
 ## Clean up
 

@@ -9,7 +9,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 05/07/2019
 ms.author: diberry
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
@@ -58,6 +58,14 @@ Cortana prebuilt apps were deprecated in 2017. They are no longer supported.
 ### How do I transfer ownership of a LUIS app?
 To transfer a LUIS app to a different Azure subscription, export the LUIS app and import it using a new account. Update the LUIS app ID in the client application that calls it. The new app may return slightly different LUIS scores from the original app.
 
+### A prebuilt entity is tagged in an example utterance instead of my custom entity. How do I fix this? 
+
+See [Troubleshooting prebuilt entities](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
+
+### I tried to import an app or version file but I got an error, what happened? 
+
+Read more about [version import errors](luis-how-to-manage-versions.md#import-errors) and [app import errors](luis-how-to-start-new-app.md#import-errors).
+
 <a name="luis-collaborating"></a>
 
 ## Collaborating
@@ -74,7 +82,7 @@ See [Azure Active Directory resources](luis-how-to-collaborate.md#azure-active-d
 
 Unexpected query prediction results are based on the state of the published model. To correct the model, you may need to change the model, train, and publish again. 
 
-Correcting the model starts with [active learning](luis-how-to-review-endoint-utt.md).
+Correcting the model starts with [active learning](luis-how-to-review-endpoint-utterances.md).
 
 You can remove non-deterministic training by updating the [application version settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) in order to use all training data.
 
@@ -96,10 +104,12 @@ If you don't see updated endpoint hits in the Dashboard, sign in to the Azure po
 
 ### Is there a PowerShell command get to the endpoint quota?
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 You can use a PowerShell command to see the endpoint quota:
 
 ```powershell
-Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
+Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
 ``` 
 
 ### My LUIS app was working yesterday but today I'm getting 403 errors. I didn't change the app. How do I fix it?
@@ -139,7 +149,7 @@ See the [Batch testing](luis-tutorial-batch-testing.md) tutorial.
 
 ### When an app is exported then reimported into a new app (with a new app ID), the LUIS prediction scores are different. Why does this happen?
 
-See [Prediction differences between copies of same app](luis-concept-prediction-score.md#differences-with-predictions).
+See [Prediction differences between copies of same app](luis-concept-prediction-score.md#review-intents-with-similar-scores).
 
 ### Some utterances go to the wrong intent after I made changes to my app. The issue seems to disappear at random. How do I fix it? 
 
@@ -242,7 +252,7 @@ If you are using the Azure Bot Service and the issue is that the **Test in Web C
 
 #### Resolve issue while debugging on local machine with Bot Framework. 
 
-To learn more about local debugging of a bot, see [Debug a bot](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
+To learn more about local debugging of a bot, see [Debug a bot](https://docs.microsoft.com/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
 
 ## Integrating LUIS
 
@@ -266,27 +276,19 @@ Use the LUIS sample to [find region](https://github.com/Azure-Samples/cognitive-
 
 Yes, you can use the LUIS [container](luis-container-howto.md) for these scenarios if you have the necessary connectivity to meter usage. 
 
-### At the Build 2018 Conference, I heard about a Language Understanding feature or demo but I don't remember what it was called?
+## Migrating to the next version
 
-The following features were released at the Build 2018 Conference:
+### How do I migrate to preview V3 API? 
 
-|Name|Content|
-|--|--|
-|Enhancements|[Regular expression](luis-concept-data-extraction.md##regular-expression-entity-data) entity and [Key phrase](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) entity
-|Patterns|Patterns [concept](luis-concept-patterns.md), [tutorial](luis-tutorial-pattern.md), [how-to](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) entity concept including [Explicit list](luis-concept-patterns.md#explicit-lists) for exceptions<br>[Roles](luis-concept-roles.md) concept|
-|Integrations|[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) integration of [sentiment analysis](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>[Speech](https://docs.microsoft.com/azure/cognitive-services/speech) integration of speech priming in conjunction with [Speech SDK](https://aka.ms/SpeechSDK)|
-|Dispatch tool|Part of [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), Dispatch command line [tool](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) to combine multiple LUIS and QnA Maker apps into single LUIS app for better intent recognition in a Bot
+See [API v2 to v3 Migration guide for LUIS apps](luis-migration-api-v3.md)
 
-Additional authoring [API routes](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) were included.
+## Build 2019 Conference announcements
 
-Videos:
-* [Azure Friday At Build 2018: Cognitive Services - Language (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
-* [Build 2018 AI Show - What’s New with Language Understanding Service](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [Build 2018 Session - Bot intelligence, Speech Capabilities, and NLU best practices](https://channel9.msdn.com/events/Build/2018/BRK3208)
-* [Build 2018 - LUIS Updates](https://channel9.msdn.com/events/Build/2018/THR3118/player)
+The following features were released at the Build 2019 Conference:
 
-Projects:
-* [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) demo - source code on GitHub
+* [Preview of V3 API migration guide](luis-migration-api-v3.md)
+* [Improved analytics dashboard](luis-how-to-use-dashboard.md)
+* [Improved prebuilt domains](luis-reference-prebuilt-domains.md) 
 
 ## Next steps
 

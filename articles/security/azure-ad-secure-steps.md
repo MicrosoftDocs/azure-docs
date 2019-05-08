@@ -14,7 +14,7 @@ ms.author: martincoetzer
 
 # Five steps to securing your identity infrastructure
 
-If you're reading this document, you're aware of the significance of security. You likely already carry the responsibility for securing your organization. If you need to convince others of the importance of security, send them to read the latest [Microsoft Security Intelligence report](https://www.microsoft.com/security/intelligence-report).
+If you're reading this document, you're aware of the significance of security. You likely already carry the responsibility for securing your organization. If you need to convince others of the importance of security, send them to read the latest [Microsoft Security Intelligence report](https://go.microsoft.com/fwlink/p/?linkid=2073747).
 
 This document will help you get a more secure posture using the capabilities of Azure Active Directory by using a five-step checklist to inoculate your organization against cyber-attacks.
 
@@ -54,12 +54,12 @@ Given the frequency of passwords being guessed, phished, stolen with malware, or
 
 Many organizations use the traditional complexity (requiring special characters, numbers, uppercase, and lowercase) and password expiration rules. [Microsoft's research](https://aka.ms/passwordguidance) has shown these policies cause users to choose passwords that are easier to guess.
 
-Azure AD's [dynamic banned password](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) feature uses current attacker behavior to prevent users from setting passwords that can easily be guessed. This capability is always on when users are created in the cloud, but is now also available for hybrid organizations when they deploy [Azure AD password protection for Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). Azure AD password protection blocks users from choosing these common passwords and can be extended to block password containing custom keywords you specify. For example, you can prevent your users from choosing passwords containing your company’s product names or a local sport team.
+Azure AD's [dynamic banned password](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad) feature uses current attacker behavior to prevent users from setting passwords that can easily be guessed. This capability is always on when users are created in the cloud, but is now also available for hybrid organizations when they deploy [Azure AD password protection for Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). Azure AD password protection blocks users from choosing these common passwords and can be extended to block password containing custom keywords you specify. For example, you can prevent your users from choosing passwords containing your company’s product names or a local sport team.
 
 Microsoft recommends adopting the following modern password policy based on [NIST guidance](https://pages.nist.gov/800-63-3/sp800-63b.html):
 
 1. Require passwords have at least 8 characters. Longer isn't necessarily better, as they cause users to choose predictable passwords, save passwords in files, or write them down.
-2. Disable expiration rules, which drive users to easily guessed passwords such as **Summer2018!**
+2. Disable expiration rules, which drive users to easily guessed passwords such as **Spring2019!**
 3. Disable character-composition requirements and prevent users from choosing commonly attacked passwords, as they cause users to choose predictable character substitutions in passwords.
 
 You can use [PowerShell to prevent passwords from expiring](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) for users if you create identities in Azure AD directly. Hybrid organizations should implement these policies using [domain group policy settings](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) or [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
@@ -161,7 +161,7 @@ Azure AD Identity Protection provides two important reports you should monitor d
 
 ### Audit apps and consented permissions
 
-Users can be tricked into navigating to a compromised web site or apps which will gain access to their profile information and user data, such as their email. A malicious actor can use the consented permissions it received to encrypt their mailbox content and demand a ransom to regain your mailbox data. [Administrators should review and audit](https://blogs.technet.microsoft.com/office365security/defending-against-illicit-consent-grants/) the permissions given by users.
+Users can be tricked into navigating to a compromised web site or apps which will gain access to their profile information and user data, such as their email. A malicious actor can use the consented permissions it received to encrypt their mailbox content and demand a ransom to regain your mailbox data. [Administrators should review and audit](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) the permissions given by users.
 
 ## Step 5 - Enable end-user self-help
 

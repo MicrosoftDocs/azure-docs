@@ -49,7 +49,7 @@ We will use Linux VM with Ubuntu from Azure here.
             #[root@mysqlnode ~]# apt-get update
             #[root@mysqlnode ~]# apt-get -y install mysql-server-5.6
   
-    During installation, you will see a dialog window poping up to ask you to set MySQL root password below, and you need set the password here.
+    During installation, you will see a dialog window appear to ask you to set MySQL root password below, and you need set the password here.
   
     ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
 
@@ -91,7 +91,7 @@ We will use Linux VM with CentOS or Oracle Linux here.
   
     Download and install the MySQL release package:
   
-            #[root@mysqlnode ~]# wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
+            #[root@mysqlnode ~]# wget https://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
             #[root@mysqlnode ~]# yum localinstall -y mysql-community-release-el6-5.noarch.rpm
 * Step 2: Edit below file to enable the MySQL repository for downloading the MySQL5.6 package.
   

@@ -119,5 +119,5 @@ This article describes how to develop user-defined operators to process data in 
 2. Expand Samples, expand Outputs, and then double-click **Drivers.csv**.
 
 ## See also
-* [Extending U-SQL Expressions with User-Code](https://msdn.microsoft.com/library/azure/mt621316.aspx)
+* [Extending U-SQL Expressions with User-Code](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
 * [Use Data Lake Tools for Visual Studio for developing U-SQL applications](data-lake-analytics-data-lake-tools-get-started.md)

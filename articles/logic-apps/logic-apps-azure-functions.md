@@ -1,26 +1,23 @@
 ---
-title: Add and run custom code in Azure Logic Apps with Azure Functions | Microsoft Docs
-description: Learn how to add and run custom code snippets in Azure Logic Apps with Azure Functions
+title: Add and run code in Azure Logic Apps with Azure Functions
+description: Add and run code in Azure Logic Apps with Azure Functions
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
 ---
 
-# Add and run custom code snippets in Azure Logic Apps with Azure Functions
+# Add and run code by using Azure Functions in Azure Logic Apps
 
-When you want to run only enough code that 
-performs a specific job in your logic apps, 
-you can create your own functions with 
-[Azure Functions](../azure-functions/functions-overview.md). 
-This service helps you create Node.js, C#, and F# code 
-snippets so you don't have to build a complete 
-app or the infrastructure for running your code. 
+When you want to run code that performs a specific job in your logic apps, 
+you can create your own functions with [Azure Functions](../azure-functions/functions-overview.md). 
+This service helps you create Node.js, C#, and F# code so you don't 
+have to build a complete app or the infrastructure for running your code. 
+You can also [call logic apps from inside Azure functions](#call-logic-app).
 Azure Functions provides serverless computing in the cloud 
 and is useful for performing tasks such as these examples:
 
@@ -28,14 +25,13 @@ and is useful for performing tasks such as these examples:
 * Perform calculations in your logic app workflow.
 * Apply advanced formatting or compute fields in your logic apps.
 
-You can also [call logic apps from inside Azure functions](#call-logic-app).
+To run code snippets without creating Azure functions, 
+learn how to [add and run inline code](../logic-apps/logic-apps-add-run-inline-code.md).
 
 ## Prerequisites
 
-To follow this article, you need these items:
-
-* If you don't have an Azure subscription yet, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+* An Azure subscription. If you don't have an Azure subscription, 
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * An Azure function app, which is a container for Azure functions, 
 and your Azure function. If you don't have a function app, 
@@ -59,7 +55,7 @@ or [from inside your logic app](#create-function-designer) in the Logic App Desi
 
   * Your function doesn't use custom routes unless you've defined an 
   [OpenAPI definition](../azure-functions/functions-openapi-definition.md), 
-  formerly known as a [Swagger file](http://swagger.io/). 
+  formerly known as a [Swagger file](https://swagger.io/). 
   
   * If you've defined an OpenAPI definition for your function, 
   the Logic Apps Designer gives you a richer experience for 
@@ -82,7 +78,7 @@ as the first step in your logic app
 
 ## Create functions outside logic apps
 
-In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+In the [Azure portal](https://portal.azure.com), 
 create your Azure function app, which must have the same Azure subscription 
 as your logic app, and then create your Azure function.
 If you're new to creating Azure functions, learn how to 
@@ -97,7 +93,7 @@ template for either **JavaScript** or **C#**.
 <a name="function-swagger"></a>
 
 * Optionally, if you [generate an API definition](../azure-functions/functions-openapi-definition.md), 
-formerly known as a [Swagger file](http://swagger.io/), for your function, 
+formerly known as a [Swagger file](https://swagger.io/), for your function, 
 you can get a richer experience when you work with function parameters 
 in the Logic Apps Designer. To set up your function app so your logic 
 app can find and use functions that have Swagger descriptions, 
@@ -174,7 +170,7 @@ If you don't have a function app,
 create that function app first. See 
 [Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md). 
 
-1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+1. In the [Azure portal](https://portal.azure.com), 
 open your logic app in the Logic App Designer. 
 
 2. To create and add your function, 
@@ -267,7 +263,7 @@ To call existing Azure functions from your logic apps,
 you can add Azure functions like any other action 
 in the Logic App Designer. 
 
-1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+1. In the [Azure portal](https://portal.azure.com), 
 open your logic app in the Logic App Designer. 
 
 2. Under the step where you want to add the function, 

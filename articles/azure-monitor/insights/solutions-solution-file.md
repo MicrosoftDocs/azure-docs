@@ -7,7 +7,7 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -207,7 +207,7 @@ The solution resource has the properties in the following table.  This includes 
 
 | Property | Description |
 |:--- |:--- |
-| workspaceResourceId |ID of the Log Analytics workspace in the form *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Workspace Name\>*. |
+| workspaceResourceId |ID of the Log Analytics workspace in the form *\<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Workspace Name\>*. |
 | referencedResources |List of resources in the solution that should not be removed when the solution is removed. |
 | containedResources |List of resources in the solution that should be removed when the solution is removed. |
 
@@ -223,13 +223,6 @@ The **plan** entity of the solution resource has the properties in the following
 | product |Unique string to identify the solution. |
 | publisher |Publisher of the solution. |
 
-
-
-## Sample
-You can view samples of solution files with a solution resource at the following locations.
-
-- [Automation resources](solutions-resources-automation.md#sample)
-- [Search and alert resources](solutions-resources-searches-alerts.md#sample)
 
 
 ## Next steps

@@ -3,7 +3,7 @@ title: Set up sign-in with an Azure Active Directory account in Azure Active Dir
 description: Set up sign in with an Azure Active Directory account in Azure Active Directory B2C using custom policies.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
@@ -94,7 +94,7 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
             <Key Id="client_secret" StorageReferenceId="B2C_1A_ContosoAppSecret"/>
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="oid"/>
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="oid"/>
             <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid"/>
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
             <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />

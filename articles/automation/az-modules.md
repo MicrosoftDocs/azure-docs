@@ -26,7 +26,7 @@ Importing an `Az` module in your Automation Account doesn't automatically import
 * When another module depending on the module is imported into a PowerShell session
 
 > [!IMPORTANT]
-> It is important to make sure that runbooks in an Automation Account either only import `Az` or `AzureRM` modules into the PowerShell sessions used by runbooks and not both. If `Az` is imported before `AzureRM` in a runbook, the runbook will complete, but an [error referencing the get_SerializationSettings method](/troubleshoot/runbooks.md#get-serializationsettings) will show in the job streams and cmdlets may have not been properly executed. If you import `AzureRM` and then `Az` your runbook will still complete, but you will see an error in the job streams stating that both `Az` and `AzureRM` cannot be imported in the same session or used in the same runbook.
+> It is important to make sure that runbooks in an Automation Account either only import `Az` or `AzureRM` modules into the PowerShell sessions used by runbooks and not both. If `Az` is imported before `AzureRM` in a runbook, the runbook will complete, but an [error referencing the get_SerializationSettings method](troubleshoot/runbooks.md#get-serializationsettings) will show in the job streams and cmdlets may have not been properly executed. If you import `AzureRM` and then `Az` your runbook will still complete, but you will see an error in the job streams stating that both `Az` and `AzureRM` cannot be imported in the same session or used in the same runbook.
 
 ## Migrating to Az modules
 
@@ -64,7 +64,7 @@ One way to test your runbooks before modifying your runbook to use the new cmdle
 
 ## After migration details
 
-After the migration is complete, don’t start runbooks using `AzureRM` modules on the account any longer. It's also recommended don’t import or update `AzureRM` modules on this account. Starting from this moment, consider this account migrated to `Az`, and operate with `Az` modules only. When a new Automation Account is created the existing `AzureRM` modules will still be installed and the tutorial runbooks will still be authored with `AzureRM` cmdlets. These runbooks should not be ran.
+After the migration is complete, don’t start runbooks using `AzureRM` modules on the account any longer. It's also recommended don’t import or update `AzureRM` modules on this account. Starting from this moment, consider this account migrated to `Az`, and operate with `Az` modules only. When a new Automation Account is created the existing `AzureRM` modules will still be installed and the tutorial runbooks will still be authored with `AzureRM` cmdlets. These runbooks should not be run.
 
 ## Next steps
 

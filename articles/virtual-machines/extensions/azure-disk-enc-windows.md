@@ -54,8 +54,14 @@ Azure Disk Encryption requires Internet connectivity for access to Active Direct
 	  "AADClientID": "[aadClientID]",
 	  "EncryptionOperation": "[encryptionOperation]",
 	  "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+	  
 	  "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+          "KekVaultResourceId": "[keyVaultResourceID]",
+	  
 	  "KeyVaultURL": "[keyVaultURL]",
+          "KeyVaultResourceId": "[keyVaultResourceID]",
+
+	  "EncryptionOperation": "[encryptionOperation]",
 	  "SequenceVersion": "sequenceVersion]",
 	  "VolumeType": "[volumeType]"
 	},
@@ -72,13 +78,15 @@ Azure Disk Encryption requires Internet connectivity for access to Active Direct
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForWindows| string |
-| typeHandlerVersion | 1.0, 2.2 (VMSS) | int |
+| typeHandlerVersion | 1.0, 1.1, 2.2 (VMSS) | int |
 | (optional) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
 | (optional) AADClientSecret | password | string |
 | (optional) AADClientCertificate | thumbprint | string |
 | EncryptionOperation | EnableEncryption | string | 
-| KeyEncryptionAlgorithm | RSA-OAEP | string |
+| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | string |
 | KeyEncryptionKeyURL | url | string |
+| KeyVaultResourceId | resource uri | string |
+| KekVaultResourceId | resource uri | string |
 | KeyVaultURL | url | string |
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | OS, Data, All | string |

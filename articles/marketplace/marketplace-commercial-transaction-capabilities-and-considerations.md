@@ -1,22 +1,22 @@
----  
+---
 title: Marketplace ‎Commercial Transaction Capabilities and Considerations | Azure
 description: This article describes the Transact pricing, billing, invoicing, and payout considerations for an offer type.
 services:  Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
-documentationcenter:
+
 author: yijenj
 manager: nuno costa
-editor:
 
-ms.assetid: 
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
 
----  
+---
 # Azure Marketplace ‎commercial transaction capabilities and considerations
 
 Azure Marketplace publishing options offer unique ways to connect cloud software and service providers with customers. This article covers the following commerce-related topics in the Azure Marketplace:
@@ -40,7 +40,7 @@ In addition to the list and trial publishing options, the transact publishing op
 
 ## Transact general overview
 
-When using the transact publishing option, Microsoft enables the sale and deployment of third-party software to the customer’s Azure subscription. The publisher must consider the billing of Azure infrastructure fees, and the publisher’s own software licensing fees, when selecting a billing model and offer type in Azure Marketplace. 
+When using the transact publishing option, Microsoft enables the sale of third-party software, and deployment of some offer types to the customer’s Azure subscription. The publisher must consider the billing of Azure infrastructure fees, and the publisher’s own software licensing fees, when selecting a billing model and offer type in Azure Marketplace.
 
 The Transact publishing option in Azure Marketplace is currently supported for the following offer types: Virtual Machines, Azure Applications, or SaaS Apps.
 
@@ -54,7 +54,7 @@ For Virtual Machines and Azure Applications, the Azure infrastructure usage fees
 
 **For SaaS apps**
 
-For SaaS Apps, the publisher must account for Azure infrastructure usage fees, and software licensing fees as a single cost item.  It is represented as a flat monthly fee to the customer. The Azure infrastructure usage is managed and billed to the partner directly.  Actual infrastructure usage fees are not seen by the customer.  Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing.  Software licensing fees aren't metered or consumption based.
+For SaaS Apps, the publisher must account for Azure infrastructure usage fees, and software licensing fees as a single cost item.  It is represented as a flat fee to the customer. The Azure infrastructure usage is managed and billed to the partner directly.  Actual infrastructure usage fees are not seen by the customer.  Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing.  Software licensing fees aren't metered or consumption based.
 
 ## Transact billing models
 
@@ -182,9 +182,9 @@ If the customer purchases using an Enterprise Agreement:
 |Billing Date | Oct 15, 2018 |
 |Escrow Period (credit cards only, 30 days) | n/a |
 |Collection Period Start | Oct 15, 2018 |
-|Collection Period End (maximum, 90 days) | Jan 15, 2018 |
+|Collection Period End (maximum, 90 days) | Jan 15, 2019 |
 |Customer Payment Date | Dec 30, 2018 |
-|Payout Calculation Date (monthly on the 15th) | Jan 15, 2018 |
+|Payout Calculation Date (monthly on the 15th) | Jan 15, 2019 |
 |Payout Date | Feb 15, 2019 |
 
 **Free credits and monetary commitment** 
@@ -222,7 +222,7 @@ The transact requirements for different offer types are covered in this section.
 
 * Both a Dev Center and a Microsoft account are required for the transact publishing option, regardless of the offer’s pricing model.
 * The Dev Center account holds all relevant financial details required for Microsoft to collect fees from the customer on the publisher’s behalf and pay out the publisher.
-* Although you may use the same organizational or Microsoft sign-in details across both accounts, Dev Center is a separate account from the Cloud Publisher Portal account. To use the transact publishing option, the publisher must complete the Dev Center account sign-up process, in addition to signing up for access to the Cloud Partner Portal.
+* Although you may use the same organizational or Microsoft sign-in details across both accounts, Dev Center is a separate account from the Cloud Partner Portal account. To use the transact publishing option, the publisher must complete the Dev Center account sign-up process, in addition to signing up for access to the Cloud Partner Portal.
 
 *For more information on setting up these accounts, see [Become a Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher).*
 
