@@ -113,7 +113,7 @@ In the knowledge base, when a question-and-answer pair is linked to follow-up pr
 
 ## Test the QnA set to get all the follow-up prompts
 
-When testing the question with follow-up prompts in the **Test** pane, the response includes the follow-up prompts.
+When testing the question with follow-up prompts in the **Test** pane, select **Enable multi-turn**, and enter your question. The response includes the follow-up prompts.
 
 ![When testing the question in the Test pane, the response includes the follow-up prompts.](../media/conversational-context/test-pane-with-question-having-follow-up-prompts.png)
 

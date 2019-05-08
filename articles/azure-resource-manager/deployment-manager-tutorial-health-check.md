@@ -17,7 +17,7 @@ ms.author: jgao
 
 ---
 
-# Tutorial: Use health check in Azure Deployment Manager (Gated public preview)
+# Tutorial: Use health check in Azure Deployment Manager (Public preview)
 
 Learn how to integrate health check in [Azure Deployment Manager](./deployment-manager-overview.md). This tutorial is based of the [Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md) tutorial. You must complete that tutorial before you proceed with this one.
 
