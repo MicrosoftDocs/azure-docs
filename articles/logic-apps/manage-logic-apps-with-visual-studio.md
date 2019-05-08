@@ -48,9 +48,9 @@ If you're new to working with Azure Logic Apps in Visual Studio, learn
     > [!IMPORTANT]
     > When you install Visual Studio 2019 or 2017, make sure that 
     > you select the **Azure development** workload. 
-    > For Visual Studio 2019, Cloud Explorer can open  
-    > the Logic App Designer in the Azure portal,  
-    > but can't yet open the embedded Logic App Designer.
+    > For Visual Studio 2019, Cloud Explorer can open 
+    > the Logic App Designer in the Azure portal, but can't 
+    > yet open the embedded Logic App Designer. 
     > For more information, see 
     > [Manage resources associated with your Azure accounts in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
 
@@ -158,8 +158,8 @@ then find and select the logic app
 that you want to download from Azure.
 
    > [!NOTE]
-   > For Visual Studio 2019, Cloud Explorer can open  
-   > the Logic App Designer in the Azure portal,  
+   > For Visual Studio 2019, Cloud Explorer can open 
+   > the Logic App Designer in the Azure portal, 
    > but can't yet open the embedded Logic App Designer 
    > for downloading your logic app.
 
