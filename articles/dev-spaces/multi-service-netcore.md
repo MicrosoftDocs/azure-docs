@@ -3,12 +3,12 @@ title: "Running multiple dependent services using .NET Core and VS Code"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-author: DrEsteban
-ms.author: stevenry
-ms.date: 11/21/2018
+author: zr-msft
+ms.author: zarhoads
+ms.date: 05/08/2019
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
 # Multi-service development with Azure Dev Spaces
 

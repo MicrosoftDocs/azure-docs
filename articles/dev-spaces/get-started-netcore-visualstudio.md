@@ -7,7 +7,7 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 author: zr-msft
 ms.author: zarhoads
-ms.date: 07/09/2018
+ms.date: 05/08/2019
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
@@ -122,7 +122,7 @@ Click on the **About** link at the top of the page to trigger the breakpoint. Yo
 Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
 
 ### Update a content file
-1. Locate the file `./Views/Home/Index.cshtml` and make an edit to the HTML. For example, change line 70 that reads `<h2>Application uses</h2>` to something like: `<h2>Hello k8s in Azure!</h2>`
+1. Locate the file `./Views/Home/Index.cshtml` and make an edit to the HTML. For example, change [line 73 that reads `<h2>Application uses</h2>`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) to something like: `<h2>Hello k8s in Azure!</h2>`
 1. Save the file.
 1. Go to your browser and refresh the page. You should see the web page display the updated HTML.
 
