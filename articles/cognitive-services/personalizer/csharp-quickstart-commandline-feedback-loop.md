@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 05/08/2019
 ms.author: edjez
 #Customer intent: 
 
@@ -31,9 +31,15 @@ Getting started with Personalization involves the following steps:
 
 ## Prerequisites
 
-* You need a [Personalizer service](how-to-settings.md) to get your subscription key and token issuing service url. 
+* You need a [Personalizer service](how-to-settings.md) to get your subscription key and endpoint service url. 
 * [Visual Studio 2015 or 2017](https://visualstudio.microsoft.com/downloads/).
-* The Microsoft.Azure.CognitiveServices.Personalization SDK NuGet package. Installation instructions are provided below.
+* The Microsoft.Azure.CognitiveServices.Personalizer SDK NuGet package. Installation instructions are provided below.
+
+## Change the model update frequency
+
+In the Personalizer resource in the Azure portal, change the **Model update frequency** to 10 seconds. This will train the service rapidly, allowing you to see how the top action changes for each iteration
+
+![Change model update frequency](./media/settings/configure-model-update-frequency-settings.png)
 
 ## Creating a new console app and referencing the Personalizer SDK 
 
