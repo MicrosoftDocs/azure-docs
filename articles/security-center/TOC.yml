@@ -60,9 +60,9 @@
     items:
     - name: Data collection
       href: security-center-enable-data-collection.md
-    - name: Data collection
-      href: security-center-iaas-advanced-data.md
     - name: Advanced data security for IaaS
+      href: security-center-iaas-advanced-data.md
+    - name: Built-in security policies
       href: security-center-policy-definitions.md
     - name: Email notifications
       href: security-center-provide-security-contact-details.md
