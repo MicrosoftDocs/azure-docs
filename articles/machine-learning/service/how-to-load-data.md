@@ -15,7 +15,7 @@ ms.custom: seodec18
 ---
 
 # Load and read data with the Azure Machine Learning Data Prep SDK
-In this article, you learn different methods of loading data using the Azure Machine Learning Data Prep SDK. To see reference documentation for the SDK, see the [overview](https://aka.ms/data-prep-sdk). The SDK supports multiple data ingestion features, including:
+In this article, you learn different methods of loading data using the Azure Machine Learning Data Prep SDK.  The SDK supports multiple data ingestion features, including:
 
 * Load from many file types with parsing parameter inference (encoding, separator, headers)
 * Type-conversion using inference during file loading
@@ -310,5 +310,4 @@ dflow.to_pandas_dataframe().head()
 
 ## Next steps
 
-* See the SDK [overview](https://aka.ms/data-prep-sdk) for design patterns and usage examples
 * See the Azure Machine Learning Data Prep SDK [tutorial](tutorial-data-prep.md) for an example of solving a specific scenario

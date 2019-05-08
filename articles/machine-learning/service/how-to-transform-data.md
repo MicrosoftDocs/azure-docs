@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 # Transform data with the Azure Machine Learning Data Prep SDK
 
-In this article, you learn different methods of transforming data using the Azure Machine Learning Data Prep SDK. The SDK offers functions that make it simple to add columns, filter out unwanted rows or columns, and impute missing values. To see reference documentation for the SDK, see the [overview](https://aka.ms/data-prep-sdk).
+In this article, you learn different methods of transforming data using the Azure Machine Learning Data Prep SDK. The SDK offers functions that make it simple to add columns, filter out unwanted rows or columns, and impute missing values. 
 
 > [!Important]
 > If you are building a new solution, try the [Azure Machine Learning Datasets](how-to-explore-prepare-data.md) (preview) to transform your data, snapshot data, and store versioned dataset definitions. Datasets is the next version of the data prep SDK, offering expanded functionality for managing datasets in AI solutions.
@@ -495,5 +495,4 @@ dflow.head(2)
 
 ## Next steps
 
-* See the SDK [overview](https://aka.ms/data-prep-sdk) for design patterns and usage examples
 * See the Azure Machine Learning Data Prep SDK [tutorial](tutorial-data-prep.md) for an example of solving a specific scenario
