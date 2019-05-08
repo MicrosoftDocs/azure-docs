@@ -1,5 +1,5 @@
 ---
-title: Tutorial walk through of Machine Learning and IoT Edge – train and deploy an ML model - Azure IoT Edge | Microsoft Docs 
+title: Train and deploy a model - Machine Learning on Azure IoT Edge | Microsoft Docs 
 description: This walk-through use Azure Notebooks first to train a machine learning model using Azure Machine Learning and then to package the model as a container image that can be deployed as an Azure IoT Edge Module.
 author: kgremban
 manager: philmea
@@ -10,47 +10,41 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Tutorial: Machine Learning and IoT Edge – train and deploy an ML model
-
-## 1 Train and deploy ML model
-
-### 1.1 Role
-
-The steps in this section might be typically performed by data scientists.
-
-### 1.2 Introduction
+# Tutorial: Train and deploy an Azure Machine Learning model
 
 In this section, we use Azure Notebooks first to train a machine learning model using Azure Machine Learning and then to package the model as a container image that can be deployed as an Azure IoT Edge Module. The Azure Notebooks takes advantage of an Azure Machine Learning service workspace, which is a foundational block used to experiment, train, and deploy machine learning models.
 
 The activities in this section are broken up across two notebooks.
 
-1. **01-turbofan\_regression.ipynb:** This notebook walks through the steps to train and publish an ML model using Azure ML. Broadly, the steps involved are:
+* **01-turbofan\_regression.ipynb:** This notebook walks through the steps to train and publish a model using Azure Machine Learning. Broadly, the steps involved are:
     
     1.  Download, prepare, and explore the training data
     2.  Use the service workspace to create and run an ML experiment
     3.  Evaluate the model results from the experiment
     4.  Publish the best model to the service workspace
 
-2. **02-turbofan\_deploy\_model.ipynb:** This notebook takes the model created in the previous notebook and uses it to create a container image ready to be deployed to an Azure IoT Edge.
+* **02-turbofan\_deploy\_model.ipynb:** This notebook takes the model created in the previous notebook and uses it to create a container image ready to be deployed to an Azure IoT Edge device.
     
     1.  Create a scoring script for the model
     2.  Create and publish the image
     3.  Deploy the image as a web service on Azure Container Instance
     4.  Use the web service to validate the model and the image work as expected
 
-### 1.3 Setup Azure Notebooks 
+The steps in this section might be typically performed by data scientists.
+
+## Set up Azure Notebooks 
 
 We use Azure Notebooks to host the two Jupyter Notebooks and supporting files. Here we create and configure an Azure Notebooks project. If you have not used Jupyter and/or Azure Notebooks here are a couple of introductory documents:
 
 * **Quickstart:** [Create and share a notebook](../notebooks/quickstart-create-share-jupyter-notebook.md)
 * **Tutorial:** [Create and run a Jupyter notebook with Python](../notebooks/tutorial-create-run-jupyter-notebook.md)
 
-As with the Dev VM before, we choose to use Azure notebooks to ensure a consistent environment for the exercise.
+As with the developer virtual machine before, using Azure notebooks ensures a consistent environment for the exercise.
 
 > [!NOTE]
 > Once set up, the Azure Notebooks service can be accessed from any machine. During setup, you should use the development virtual machine, which has all of the files that you will need.
 
-#### 1.3.1 Create an Azure Notebooks account
+### Create an Azure Notebooks account
 
 Azure Notebook accounts are independent from Azure subscriptions. To use Azure Notebooks, you need to create an account.
 
@@ -64,17 +58,11 @@ Azure Notebook accounts are independent from Azure subscriptions. To use Azure N
 
 5.  Create a user id for Azure Notebooks.
 
-    ![](media/tutorial-e2e-04-train/04-train-a.png)
+    ![Create a user ID](media/tutorial-e2e-04-train/04-train-a.png)
 
-#### 1.3.2 Create a project
+### Upload Jupyter notebooks files
 
-1.  Select **My Projects** from the top menu bar.
-
-2.  Select **+ New Project**. Provide a name and an ID. There is no need for the project to be public or have a readme.
-
-#### 1.3.3 Upload Jupyter notebooks files
-
-In this step, we upload files to the Azure Notebooks project we created in the last section. Specifically, the files that we upload are:
+In this step, we create a new Azure Notebooks project and upload files to it. Specifically, the files that we upload are:
 
 * **01-turbofan\_regression.ipynb**: Jupyter notebook file that walks through the process of downloading the device harness generated data from the Azure storage account; exploring and preparing the data for training the classifier; training the model; testing the data using the test dataset found in the Test\_FD003.txt file; and, finally saving the classifier model in the Machine Learning service workspace.
 
@@ -88,27 +76,32 @@ In this step, we upload files to the Azure Notebooks project we created in the l
 
 * **README.md:** Readme describing the use of the notebooks.
 
-Upload the files to your notebook.
+
+Create a new project and upload the files to your notebook.
+
+1.  Select **My Projects** from the top menu bar.
+
+1.  Select **+ New Project**. Provide a name and an ID. There is no need for the project to be public or to have a readme.
 
 1. Select **Upload** and choose **From Computer**.
 
-2. Select **Choose files**.
+1. Select **Choose files**.
 
-3. Navigate to **C:\\source\\IoTEdgeAndMlSample\\AzureNotebooks**. Select all files and click **Open**.
+1. Navigate to **C:\source\IoTEdgeAndMlSample\AzureNotebooks**. Select all files and click **Open**.
 
-4. Click on upload.
+1. Select on **Upload**.
 
-    ![](media/tutorial-e2e-04-train/04-train-b.png)
+    ![Upload Azure Notebooks files to project](media/tutorial-e2e-04-train/04-train-b.png)
 
-5. Select **Done**.
+1. Select **Done**.
 
-### 1.4 Run Azure Notebooks
+## Run Azure Notebooks
 
 Now that that project is created, run the **01-turbofan\_regression.ipynb** notebook.
 
 1. From the turbofan project page, select **01-turbofan\_regression.ipynb**.
 
-    ![](media/tutorial-e2e-04-train/04-train-c.png)
+    ![Select first notebook to run](media/tutorial-e2e-04-train/04-train-c.png)
 
 2. If prompted, choose the Python 3.6 Kernel from the dialog and select **Set Kernel**.
 
@@ -118,10 +111,17 @@ Now that that project is created, run the **01-turbofan\_regression.ipynb** note
     
     * `Ctrl + Enter` runs a cell.
     * `Shift + Enter` runs a cell and navigates to the next cell.
-    * When a cell is running, it has an asterisk between the square brackets, like **[*]**. When it is complete, the asterisk will be replaced with a number and relevant output may be appear below. Since cells often build on the work of the previous ones, only one cell can run at a time. 
+    * When a cell is running, it has an asterisk between the square brackets, like **[\*]**. When it is complete, the asterisk will be replaced with a number and relevant output may be appear below. Since cells often build on the work of the previous ones, only one cell can run at a time. 
 
-When you have finished running the **01-turbofan\_regression.ipynb** notebook, return to the project page. Open **02-turbofan\_deploy\_model.ipynb** to run the second notebook.
+5. When you have finished running the **01-turbofan\_regression.ipynb** notebook, return to the project page. 
 
-### 1.5 Summary
+6. Open **02-turbofan\_deploy\_model.ipynb** and repeat the steps in this section to run the second notebook.
 
-In this section, we used 2 Jupyter Notebooks running in Azure Notebooks to use the data from the turbofan devices to train a remaining useful life (RUL) classifier, to save the classifier as a model, to create a container image, and to deploy and test the image as a web service.
+## Next steps
+
+In this section, we used two Jupyter Notebooks running in Azure Notebooks to use the data from the turbofan devices to train a remaining useful life (RUL) classifier, to save the classifier as a model, to create a container image, and to deploy and test the image as a web service.
+
+Continue to the next section to create an IoT Edge device.
+
+> [!div class="nextstepaction"] 
+> [Configure an IoT Edge device](tutorial-e2e-02-setup.md)

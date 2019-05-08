@@ -1,5 +1,5 @@
 ---
-title: Tutorial walk through of Machine Learning and IoT Edge - configure IoT Edge device - Azure IoT Edge | Microsoft Docs 
+title: Configure IoT Edge device - Machine Learning on Azure IoT Edge | Microsoft Docs 
 description: In this walk-through we configure an Azure Virtual Machine running Linux as an Azure IoT Edge device.
 author: kgremban
 manager: philmea
@@ -10,17 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Tutorial: Machine Learning and IoT Edge – configure IoT Edge device
+# Tutorial: Configure an IoT Edge device
 
-## 1 Configure IoT Edge device
+In this section we configure an Azure Virtual Machine running Linux as an Azure IoT Edge device. We set up the device to act as a transparent gateway. The transparent gateway configuration allows devices to connect to Azure IoT Hub through the gateway without being aware that the gateway exists. At the same time, a user interacting with the devices in IoT Hub is unaware of the intermediate gateway device. Ultimately, we will use the transparent gateway to add edge analytics to our system by adding edge modules to the gateway.
 
-### 1.1 Role
-
-This step is typically performed by a cloud developer.
-
-### 1.2 Introduction
-
-In this section we will configure an Azure Virtual Machine running Linux as an Azure IoT Edge device. We will set up the edge device to act as a transparent gateway. The transparent gateway configuration allows devices to connect to that Azure IoT Hub through the gateway without being aware that the gateway exists. At the same time, a user interacting with the devices in IoT Hub is unaware of the intermediate gateway device. Ultimately, we will use the transparent gateway to add edge analytics to our system by adding edge modules to the gateway.
+The steps in this section are typically performed by a cloud developer.
 
 ### 1.3 Generate certificates
 
