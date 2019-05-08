@@ -139,8 +139,8 @@
     displayName: recognize speech, speech recognition, speech-to-text, stt
   - name: Consume audio input streams (SDK)
     href: how-to-use-audio-input-streams.md
-  - name: Consume compressed audio input streams (SDK)
-    href: how-to-use-compressed-audio-input-streams.md
+  - name: Consume codec compressed audio input streams (SDK)
+    href: how-to-use-codec-compressed-audio-input-streams.md
     displayName: mp3, opus, ogg, flac
   - name: Select an audio input device (SDK)
     href: how-to-select-audio-input-devices.md
@@ -184,7 +184,7 @@
         href: record-custom-voice-samples.md
       - name: Fine-tune text-to-speech output
         href: how-to-voice-tuning.md
-    - name: Create a custom wake word (Devices SDK)
+    - name: Create a custom wake word (keyword spotting)
       href: speech-devices-sdk-create-kws.md
       displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
   - name: Migration
@@ -195,9 +195,9 @@
       href: how-to-migrate-from-custom-speech-service.md
     - name: From the Translator Speech API
       href: how-to-migrate-from-translator-speech-api.md
-  - name: Use containers
+  - name: Use on-premises containers
     items:
-    - name: Install and run containers
+    - name: Install and run on-premises containers
       displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
       href: speech-container-howto.md
     - name: Configure containers
@@ -220,6 +220,8 @@
     - name: Overview
       href: speech-sdk.md
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
+    - name: Scenario availability
+      href: scenario-availability.md  
     - name: Release notes
       href: releasenotes.md
     - name: C++
