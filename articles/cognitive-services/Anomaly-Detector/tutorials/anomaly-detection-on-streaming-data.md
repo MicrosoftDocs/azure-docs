@@ -1,11 +1,19 @@
+---
+title: "Tutorial: Anomaly detection on streaming data using Azure Databricks"
+description: Use the Anomaly Detector API and Azure Databricks to monitor anomalies in your data.
+services: cognitive-services
+author: aahill
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: anomaly-detector
+ms.topic: article
+ms.date: 05/08/2019
+ms.author: aahi
+---
+
 # Tutorial: Anomaly detection on streaming data using Azure Databricks
 
-> [!Note]
-> This tutorial introduces an approach to implement the recommended solution architecture of Anomaly Detector on [Identifying problems with Anomaly Detector](https://azure.microsoft.com/en-us/solutions/architecture/anomaly-detector-process/).
-
-In this tutorial, you learn how to run anomaly detection on a stream of data using Azure Databricks in near real time. You set up data ingestion system using Azure Event Hubs. You consume the messages from Event Hubs into Azure Databricks using the Spark Event Hubs connector. Finally, you use Microsoft Cognitive Service APIs to run anomaly detection on the streamed data.
-
-By the end of this tutorial, you would have streamed tweets from Twitter that have the term "Azure" in them and ran anomaly detection on the tweets.
+Microsoft Power BI Desktop is a free application that lets you connect to, transform, and visualize your data. The Anomaly Detector API, part of Azure Cognitive Services, provides a way of monitoring your time series data. Use this tutorial to run anomaly detection on a stream of data in near real-time using Azure Databricks. You'll ingest twitter data using Azure Event Hubs, and import them into Azure Databricks using the Spark Event Hubs connector. Afterwards, you'll use the API to detect anomalies on the streamed data. 
 
 The following illustration shows the application flow:
 
@@ -24,29 +32,30 @@ This tutorial covers the following tasks:
 > * Read tweets from Event Hubs
 > * Run anomaly detection on tweets
 
+> [!Note]
+> This tutorial introduces an approach to implementing the recommended [solution architecture](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) for the Anomaly Detector API.
+
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 > [!Note]
-> This tutorial cannot be carried out using **Azure Free Trial Subscription**.
+> This tutorial cannot be completed with a free trial key for the Anomaly Detector API. 
 > To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
-Before you start with this tutorial, make sure to meet the following requirements:
-- An Azure Event Hubs namespace.
-- An Event Hub within the namespace.
-- Connection string to access the Event Hubs namespace. The connection string should have a format similar to `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`. You can find the connection string follow the article, [Get an Event Hubs connection string](../../../event-hubs/event-hubs-get-connection-string.md).
-- Shared access policy name and policy key for Event Hubs.
+- An [Azure Event Hubs namespace](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) and event hub.
 
-You can meet these requirements by completing the steps in the article, [Create an Azure Event Hubs namespace and event hub](../../../event-hubs/event-hubs-create.md).
+- The [connection string](../../../event-hubs/event-hubs-get-connection-string.md) to access the Event Hubs namespace. The connection string should have a similar format to:
 
-## Sign in to the Azure portal
+    `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`. 
 
-Sign in to the [Azure portal](https://portal.azure.com/).
+- The shared access policy name and policy key for Event Hubs.
+
+See the Azure Event Hubs [quickstart](../../../event-hubs/event-hubs-create.md) for information about creating a namespace and event hub.
 
 ## Create an Azure Databricks workspace
 
-In this section, you create an Azure Databricks workspace using the Azure portal.
+In this section, you create an Azure Databricks workspace using the [Azure portal](https://portal.azure.com/).
 
 1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**.
 
@@ -684,19 +693,8 @@ After you have finished running the tutorial, you can terminate the cluster. To 
 If you don't manually terminate the cluster it will automatically stop, provided you selected the **Terminate after \_\_ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster will automatically stop if it has been inactive for the specified time.
 
 ## Next steps
-In this tutorial, you learned how to use Azure Databricks to stream data into Azure Event Hubs and then read the streaming data from Event Hubs in real time. You learned how to:
-> [!div class="checklist"]
-> * Create an Azure Databricks workspace
-> * Create a Spark cluster in Azure Databricks
-> * Create a Twitter app to access streaming data
-> * Create notebooks in Azure Databricks
-> * Add and attach libraries for Event Hubs and Twitter API
-> * Create an Anomaly Detector resource and retrieve the access key
-> * Send tweets to Event Hubs
-> * Read tweets from Event Hubs
-> * Run anomaly detection on tweets
 
-Advance to the next tutorial to learn about performing machine learning tasks using Azure Databricks.
+In this tutorial, you learned how to use Azure Databricks to stream data into Azure Event Hubs and then read the streaming data from Event Hubs in real time. Advance to the next tutorial to learn how to call the Anomaly Detector API and visualize anomalies using Power BI desktop. 
 
 > [!div class="nextstepaction"]
->[Batch anomaly detection](batch-anomaly-detection-powerbi.md)
+>[Batch anomaly detection with Power BI desktop](batch-anomaly-detection-powerbi.md)
