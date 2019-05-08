@@ -63,7 +63,7 @@ For the at-scale scenario using Azure Policy, Azure PowerShell, or Azure Resourc
 To configure your workspace for the at-scale scenario, you can configure it using one of the following methods:
 
 * [Azure PowerShell](vminsights-enable-atscale-posh.md#set-up-a-log-analytics-workspace)
-* From the **Configure Workspace** option on the Azure Monitor for VMs [Policy Coverage](vminsights-enable-atscale-policy.md#azure-policy-integrated-experience-overview) page
+* From the **Configure Workspace** option on the Azure Monitor for VMs [Policy Coverage](vminsights-enable-atscale-policy.md#manage-policy-coverage-feature-overview) page
 
 ### Supported operating systems
 
