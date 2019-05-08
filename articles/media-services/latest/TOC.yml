@@ -24,7 +24,7 @@
   - name: Stream live - .NET
     href: stream-live-tutorial-with-api.md
   - name: Analyze your video - .NET
-    displayName: job, transform
+    displayName: job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset
     href: analyze-videos-tutorial-with-api.md
   - name: Encrypt dynamically with AES-128 - .NET
     href: protect-with-aes128.md       
