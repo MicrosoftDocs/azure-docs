@@ -96,6 +96,20 @@ the following port and URLs are required for State Configuration (DSC) to commun
 * Global URL of US Gov Virginia: *.azure-automation.us
 * Agent service: https://\<workspaceId\>.agentsvc.azure-automation.net
 
+#### Proxy Support
+
+Proxy support for the DSC agent is available in Windows version 1809 and later.
+To configure this option,
+set the value for **ProxyURL** and **ProxyCredential** in the
+[metaconfiguration script](automation-dsc-onboarding.md#generating-dsc-metaconfigurations)
+used to register nodes.
+Proxy is not available in DSC for previous versions of Windows.
+
+For Linux nodes,
+the DSC agent supports proxy and will utilize the http_proxy variable to determine the url.
+
+#### Azure State Configuration network ranges and namespace
+
 It's recommended to use the addresses listed when defining exceptions. For IP addresses you can download the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and has the currently deployed ranges and any upcoming changes to the IP ranges.
 
 If you have an Automation account that's defined for a specific region, you can restrict communication to that regional datacenter. The following table provides the DNS record for each region:
