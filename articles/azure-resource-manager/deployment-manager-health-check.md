@@ -15,7 +15,7 @@ ms.author: jgao
 
 ---
 
-# Introduce health integration rollout to Azure Deployment Manager (Gated public preview)
+# Introduce health integration rollout to Azure Deployment Manager (Public preview)
 
 [Azure Deployment Manager](./deployment-manager-overview.md) allows you to perform staged rollouts of Azure Resource Manager resources. The resources are deployed region by region in an ordered fashion. The integrated health check of Azure Deployment Manager can monitor rollouts, and automatically stop problematic rollouts, so that you can troubleshoot and reduce the scale of the impact. This feature can reduce service unavailability caused by regressions in updates.
 
