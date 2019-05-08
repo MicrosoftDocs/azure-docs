@@ -56,6 +56,11 @@ You must also have registered your subscription for using the NetApp Resource Pr
 5. Click **Create**.     
    The NetApp account you created now appears in the Azure NetApp Files blade. 
 
+> [!NOTE] 
+> If you have not been granted access to the Azure NetApp Files service, you will receive the following error when you create the first NetApp account:  
+
+  {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}
+
 ## Next steps  
 
 [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
