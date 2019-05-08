@@ -12,9 +12,9 @@ ms.date: 05/02/2019
 # Customer intent: As a beginner data scientist who does not want to write code, I want to visualize my data so that I can use it to create machine learning models.
 ---
 
-# Quickstart: Prepare and visualize data without writing code
+# Quickstart: Prepare and visualize data without writing code in Azure Machine Learning
 
-Prepare and visualize your data with a drag-and-drop user interface. The data you'll use includes entries for various individual automobiles, including information such as make, model, technical specifications, and price.  
+Prepare and visualize your data in the drag-and-drop visual interface (preview) for Azure Machine Learning. The data you'll use includes entries for various individual automobiles, including information such as make, model, technical specifications, and price.  
 
 In this quickstart you'll explore and prepare data:
 
