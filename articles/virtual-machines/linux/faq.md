@@ -32,7 +32,7 @@ Azure Managed Disks are the recommended disk storage offerings for use with Azur
 Azure storage accounts can also provide storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/).
 
 ## How can I access my virtual machine?
-Establish a remote connection to log on to the virtual machine, using Secure Shell (SSH). See the instructions on how to connect [from Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or
+Establish a remote connection to sign on to the virtual machine, using Secure Shell (SSH). See the instructions on how to connect [from Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or
 [from Linux and Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
 
 If you’re having problems, check out [Troubleshoot Secure Shell (SSH) connections](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -63,28 +63,28 @@ The following usernames are not allowed:
 
 <table>
     <tr>
-        <td style="text-align:center">administrator </td><td style="text-align:center"> admin </td><td style="text-align:center"> user </td><td style="text-align:center"> user1</td>
+        <td style="text-align:center">`administrator` </td><td style="text-align:center"> `admin` </td><td style="text-align:center"> `user` </td><td style="text-align:center"> `user1`</td>
     </tr>
     <tr>
-        <td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
+        <td style="text-align:center">`test` </td><td style="text-align:center"> `user2` </td><td style="text-align:center"> `test1` </td><td style="text-align:center"> `user3`</td>
     </tr>
     <tr>
-        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
+        <td style="text-align:center">`admin1` </td><td style="text-align:center"> `1` </td><td style="text-align:center"> `123` </td><td style="text-align:center"> `a`</td>
     </tr>
     <tr>
-        <td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
+        <td style="text-align:center">`actuser`  </td><td style="text-align:center"> `adm` </td><td style="text-align:center"> `admin2` </td><td style="text-align:center"> `aspnet`</td>
     </tr>
     <tr>
-        <td style="text-align:center">backup </td><td style="text-align:center"> console </td><td style="text-align:center"> david </td><td style="text-align:center"> guest</td>
+        <td style="text-align:center">`backup` </td><td style="text-align:center"> `console` </td><td style="text-align:center"> `david` </td><td style="text-align:center"> `guest`</td>
     </tr>
     <tr>
-        <td style="text-align:center">john </td><td style="text-align:center"> owner </td><td style="text-align:center"> root </td><td style="text-align:center"> server</td>
+        <td style="text-align:center">`john` </td><td style="text-align:center"> `owner` </td><td style="text-align:center"> `root` </td><td style="text-align:center"> `server`</td>
     </tr>
     <tr>
-        <td style="text-align:center">sql </td><td style="text-align:center"> support </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
+        <td style="text-align:center">`sql` </td><td style="text-align:center"> `support` </td><td style="text-align:center"> `support_388945a0` </td><td style="text-align:center"> `sys`</td>
     </tr>
     <tr>
-        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
+        <td style="text-align:center">`test2` </td><td style="text-align:center">`test3` </td><td style="text-align:center"> `user4` </td><td style="text-align:center"> `user5`</td>
     </tr>
 </table>
 
