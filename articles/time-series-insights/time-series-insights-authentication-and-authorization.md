@@ -25,14 +25,14 @@ This article explains how to configure the authentication and authorization used
 
 This and following sections describe how to configure an application to access the Time Series Insights API on behalf of the application. The application can then query or publish reference data in the Time Series Insights environment with application credentials rather than user credentials.
 
-## Best Practices
+## Best practices
 
 When you have an application that must access Time Series Insights:
 
 1. Set up an Azure Active Directory app.
 1. [Assign data access policies](./time-series-insights-data-access.md) in the Time Series Insights environment.
 
-Using application rather than your user creditionals is desireable since:
+Using application rather than your user credentials is desirable since:
 
 * You can assign permissions to the app identity that are distinct from your own permissions. Typically, these permissions are restricted to only what the app requires. For example, you can allow the app to only read data in a particular Time Series Insights environment.
 * You don't have to change the app's credentials, if your responsibilities change.
