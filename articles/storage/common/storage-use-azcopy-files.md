@@ -19,7 +19,9 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 
 > [!NOTE]
 > The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command.
+>
 > If you'd rather use a SAS token, then you can append that token to the resource url in each command.
+>
 > For example: `https://<storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>"`.
 
 ## Create file shares
