@@ -17,7 +17,7 @@ ms.author: jgao
 
 # Introduce health integration rollout to Azure Deployment Manager
 
-[Azure Deployment Manager](./deployment-manager-overview.md) allows you to perform staged rollouts of Azure Resource Manager resources. The resources are deployed region by region in an ordered fashion. The integrated health check of Azure Deployment Manager can monitor rollouts, and automatically stop problematic rollouts, that allows you to troubleshoot and reduce the scale of the impact. This feature can reduce service unavailability caused by regressions in updates.
+[Azure Deployment Manager](./deployment-manager-overview.md) allows you to perform staged rollouts of Azure Resource Manager resources. The resources are deployed region by region in an ordered fashion. The integrated health check of Azure Deployment Manager can monitor rollouts, and automatically stop problematic rollouts, so that you can troubleshoot and reduce the scale of the impact. This feature can reduce service unavailability caused by regressions in updates.
 
 ## Health monitoring providers
 
@@ -25,13 +25,13 @@ In order to make health integration as easy as possible, Microsoft has been work
 
 | ![azure deployment manager health monitor provider datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![azure deployment manager health monitor provider site24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![azure deployment manager health monitor provider wavefront](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
 |-----|------|------|
-|Datadog, the leading monitoring and analytics platform for modern cloud environments. See [how Datadog integrates with Azure Deployment Manager](https://docs.datadoghq.com/integrations/azure_deployment_manager/).|Site24x7, the all-in-one private and public cloud services monitoring solution.. See [how Site24x7 integrates with Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| Wavefront, the monitoring and analytics platform for multi-cloud application environments. See [how Wavefront integrates with Azure Deployment Manager](https://go.wavefront.com/wavefront-adm/).|
+|Datadog, the leading monitoring and analytics platform for modern cloud environments. See [how Datadog integrates with Azure Deployment Manager](https://docs.datadoghq.com/integrations/azure_deployment_manager/).|Site24x7, the all-in-one private and public cloud services monitoring solution. See [how Site24x7 integrates with Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| Wavefront, the monitoring and analytics platform for multi-cloud application environments. See [how Wavefront integrates with Azure Deployment Manager](https://go.wavefront.com/wavefront-adm/).|
 
 ## How service health is determined
 
 [Health monitoring providers](#health-monitoring-providers) offer several mechanisms for monitoring services and alerting you of any service health issues. [Azure Monitor](/services/monitor/) is an example of one such offering. Azure Monitor can be used to create alerts when certain thresholds are exceeded. For example, your memory and CPU utilization spike beyond expected levels when you deploy a new update to your service. When notified, you can take corrective actions.
 
-These health providers typically offer REST APIs so that the status of your service’s monitors can be examined programmatically. The REST APIs can either come back with a simple healthy/unhealthy signal (usually determined by the HTTP response code), and/or with detailed information about the signals it is receiving.
+These health providers typically offer REST APIs so that the status of your service’s monitors can be examined programmatically. The REST APIs can either come back with a simple healthy/unhealthy signal (determined by the HTTP response code), and/or with detailed information about the signals it is receiving.
 
 The new *healthCheck* step in Azure Deployment Manager allows you to declare HTTP codes that indicate a healthy service, or, for more complex REST results, you can even specify regular expressions that, if they match, indicate a healthy response.
 
@@ -42,7 +42,7 @@ The flow to getting setup with Azure Deployment Manager health checks:
 
     1. The URI for the REST API for your health monitors (as defined by your health service provider).
     1. Authentication information. Currently only API-key style authentication is supported.
-    1. [HTTP status codes](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) or regular expressions that define a healthy response.	Note that you may provide regular expressions which ALL must match for the response to be considered healthy, or you may provide expressions of which ANY must match for the response to be considered healthy. Both methods are supported.
+    1. [HTTP status codes](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) or regular expressions that define a healthy response.	Note that you may provide regular expressions, which ALL must match for the response to be considered healthy, or you may provide expressions of which ANY must match for the response to be considered healthy. Both methods are supported.
 
     The following Json is an example:
 
@@ -139,7 +139,7 @@ At this point Azure Deployment Manager knows how to query for the health of your
 
 1. Wait
 
-    1. After a deployment operation is completed, VMs may be rebooting, re-configuring based on new data, or even being started for the first time. It also takes time for services to start emitting health signals to be aggregated by the health monitoring provider into something useful. During this tumultuous process, it may not make sense to check for service health since the update has not yet reached a steady state. Indeed, the service may be oscillating between healthy and unhealthy states as the resources settle. 
+    1. After a deployment operation is completed, VMs may be rebooting, reconfiguring based on new data, or even being started for the first time. It also takes time for services to start emitting health signals to be aggregated by the health monitoring provider into something useful. During this tumultuous process, it may not make sense to check for service health since the update has not yet reached a steady state. Indeed, the service may be oscillating between healthy and unhealthy states as the resources settle. 
     1. During the Wait phase, service health is not monitored. This is used to allow the deployed resources the time to bake before beginning the health check process. 
 1. Elastic
 
@@ -157,7 +157,7 @@ At this point Azure Deployment Manager knows how to query for the health of your
 
 ## Next steps
 
-In this article, you learned about how to integrate health check in Azure Deployment Manager. Proceed to the next article to learn how to deploy with Deployment Manager.
+In this article, you learned about how to integrate health monitoring in Azure Deployment Manager. Proceed to the next article to learn how to deploy with Deployment Manager.
 
 > [!div class="nextstepaction"]
 > [Tutorial: integrate health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md)
