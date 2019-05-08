@@ -26,7 +26,7 @@ In the [Azure portal](https://portal.azure.com), ensure that your tenant appears
 
 Create a new user in Active Directory to use to sign in to your Azure Red Hat OpenShift cluster.
 
-1. Go to the [Users - All users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) blade.
+1. Go to the [Users-All users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) blade.
 2. Click **+New user** to open the **User** pane.
 3. Enter a **Name** for this user.
 4. Create a **User name** based on the name of the tenant you created, with  `.onmicrosoft.com` appended at the end. For example, `yourUserName@yourTenantName.onmicrosoft.com`. Write down this user name. You'll need it to sign in to your cluster. JTW
@@ -39,30 +39,36 @@ Create a new user in Active Directory to use to sign in to your Azure Red Hat Op
 Microsoft Azure Red Hat OpenShift needs permissions to perform tasks on behalf of your cluster. Follow these instructions to create an Azure AD security group.
 
 1. Open the [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) blade.
-2. Click **Groups** to open the **Groups - All groups** page, and then click **+New Group**
-3. Provide a group name and description.
-4. Fill out the following group attributes:
-**Group type**: **Security**
-**Membership type**: **Assigned**
+2. Click **Groups** to open the **Groups-All groups** page.
+3. Click **+New Group**
+4. Provide a group name and description.
+5. Set **Group type** to **Security**.
+6. Set **Membership type** to **Assigned**.
+
+Now add the Azure AD user that you created in an earlier step to the security group.
+
+1. Click **Members** to open the **Select members** pane.
+2. In the members list, click on the Azure AD user that you created above.
+3. At the bottom of the portal, click on **Select** and then **Create**.
 
 ## Create an Azure AD app registration
 
 If your organization doesn't already have an Azure Active Directory (Azure AD) app registration to use as the service principal, follow these instructions to create one.
 
 1. Open the [App registrations blade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) and click **+New  registration**.
-2. In the **Register an application** pane, enter a user-facing display name for your application object.
-3. For **Supported account types**, click **Accounts in this organizational directory only** to choose the most secure type.
-4. Ensure that **Redirect URI (optional)** dropdown is set to *Web*.
+2. In the **Register an application** pane, enter a name for your application object.
+3. For **Supported account types**, click **Accounts in this organizational directory only**. This is the most secure choice.
+4. Ensure that the **Redirect URI (optional)** dropdown is set to *Web*.
 5. Create a **Redirect URI** using the following pattern:
 
     ```
     https://openshift.<cluster-name>.<azure-region>.azmosa.io/oauth2callback/Azure%20AD
     ```
 
-    . . . where `<cluster-name>` is the intended name of your Azure Red Hat OpenShift cluster (or any unique, lower-case string) and `<azure-region>` is the [Azure region hosting your Azure Red Hat OpenShift cluster](supported-resources.md#azure-regions). For example, if your cluster name is to be `contoso`, and you will be creating it in the `eastus` region, the fully qualified domain name (FQDN) that you'll enter for the **Redirect URI** would be `https://contoso.eastus.azmosa.io/oath2callback/Azure%20AD`
+    . . . where `<cluster-name>` is the intended name of your Azure Red Hat OpenShift cluster (or any unique, lower-case string) and `<azure-region>` is the [Azure region hosting your Azure Red Hat OpenShift cluster](supported-resources.md#azure-regions). For example, if your cluster name is to be `contoso`, and you will be creating it in the `eastus` region, the URI that you'll enter for the **Redirect URI** would be `https://openshift.contoso.eastus.azmosa.io/oath2callback/Azure%20AD`
 
     > [!IMPORTANT]
-    > The cluster name must be all lowercase and be unique.
+    > The cluster name must be all lowercase, and be unique.
     
     Make note of your cluster name. We will refer to the cluster name as `CLUSTER_NAME` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
 
@@ -76,9 +82,12 @@ Now you're ready to generate a client secret for authenticating your app to Azur
 
 1. From the registered app page for the app registration you just made, click on **Certificates & secrets**.
 2. On the **Certificates & secrets** pane that appears, click **+New client secret**.  The **Add a client secret** pane appears.
-3. Provide a key **Description**.
+3. Provide a **Description**.
 4. Set **Expires** to the duration you prefer, for example *In 2 Years*.
 5. Click **Add** and the key value will appear in the **Client secrets** section of the page.
+
+![Screenshot of the certificates and secrets pane](./media/howto-create-tenant/create-key.png)
+ 
 6. Copy down the key value. We will refer to this value as `SECRET` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
 
 For more info on Azure Application Objects, see [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).

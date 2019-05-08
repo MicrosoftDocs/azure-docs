@@ -66,4 +66,4 @@ No. All resources, including the cluster master, run in your customer subscripti
 
 ## Is Open Service Broker for Azure (OSBA) supported?
 
-Yes. You can use OSBA with Azure Red Hat OpenShift.
+Yes. You can use OSBA with Azure Red Hat OpenShift. See [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) for more information.

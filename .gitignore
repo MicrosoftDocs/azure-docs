@@ -22,3 +22,4 @@ articles/directories.txt
 AzureMigration.ps1
 
 !/.vscode/extensions.json
+articles/openshift/howto-aad-app-configuration.md
