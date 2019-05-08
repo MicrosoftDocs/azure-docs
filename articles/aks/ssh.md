@@ -67,7 +67,7 @@ The AKS nodes are not publicly exposed to the internet. To SSH to the AKS nodes,
 View the private IP address of an AKS cluster node using the [az vm list-ip-addresses][az-vm-list-ip-addresses] command. Provide your own AKS cluster resource group name obtained in a previous [az-aks-show][az-aks-show] step:
 
 ```azurecli-interactive
-az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
+az vm list-ip-addresses --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
 ```
 
 The following example output shows the private IP addresses of the AKS nodes:
