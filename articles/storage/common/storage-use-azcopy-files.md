@@ -13,7 +13,7 @@ ms.subservice: common
 
 AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article contains example commands that work with file storage.
 
-## First, set up AzCopy
+## Get started
 
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and authenticate your identity.
 
