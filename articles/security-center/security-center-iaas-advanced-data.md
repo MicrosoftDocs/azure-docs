@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/07/2019
+ms.date: 05/08/2019
 ms.author: monhaber
 
 ---
@@ -21,25 +21,25 @@ ms.author: monhaber
 # Advanced data security for SQL servers on IaaS
 Advanced data security for SQL Servers on IaaS is a unified package for advanced SQL security capabilities. It currently includes functionality for surfacing and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate a threat to your database.
 
-This security offering for IaaS SQL servers is based on the same fundamental technology used in the [Azure SQL Database Advanced Data Security package](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-advanced-data-security).
+This security offering for IaaS SQL servers is based on the same fundamental technology used in the [Azure SQL Database Advanced Data Security package](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
 
 ## Overview
 
 Advanced data security (ADS) provides a set of advanced SQL security capabilities,  consisting of Vulnerability assessment and Advanced Threat Protection.
 
-* [Vulnerability assessment](https://docs.microsoft.com/en-us/azure/sql-database/sql-vulnerability-assessment) is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security state, and includes the steps to resolve security issues and enhance your database fortifications.
-* [Advanced Threat Protection](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection-overview) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit your SQL server. It continuously monitors your database for suspicious activities and provides action-oriented security alerts on anomalous database access patterns. These alerts provide the suspicious activity details and recommended actions to investigate and mitigate the threat.
+* [Vulnerability assessment](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security state, and includes the steps to resolve security issues and enhance your database fortifications.
+* [Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit your SQL server. It continuously monitors your database for suspicious activities and provides action-oriented security alerts on anomalous database access patterns. These alerts provide the suspicious activity details and recommended actions to investigate and mitigate the threat.
 
-## Getting Started with ADS for IaaS
+## Get started with ADS for IaaS
 
 The following steps get you started with ADS for IaaS.
 
 ### Set up ADS for IaaS
 
-**Before you begin**: You need a Log Analytics workspace to store the security logs being analyzed. If you do not have one, then you can create one easily, as explained in [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/quick-create-workspace).
+**Before you begin**: You need a Log Analytics workspace to store the security logs being analyzed. If you do not have one, then you can create one easily, as explained in [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-1. Connect the VM hosting the SQL server to the Log Analytics workspace. For instructions, see [Connect Windows computers to Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/agent-windows).
+1. Connect the VM hosting the SQL server to the Log Analytics workspace. For instructions, see [Connect Windows computers to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
 1. From Azure Marketplace, go to the [SQL Advanced Data Security solution](https://ms.portal.azure.com/#create/Microsoft.SQLAdvancedDataSecurity).
 (You can find it using the marketplace search option, as see in the following image.) The **SQL Advanced Data Security** page opens.
@@ -54,10 +54,10 @@ The following steps get you started with ADS for IaaS.
 
    ![Select workspace](./media/security-center-advanced-iaas-data/sql-workspace.png)
 
-1. Restart the [VM's SQL server](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services?view=sql-server-2017).
+1. Restart the [VM's SQL server](https://docs.microsoft.com/sql/database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services?view=sql-server-2017).
 
 
-## Explore and Investigate Security Alerts
+## Explore and investigate security alerts
 
 You can view and manage your current security alerts.
 
@@ -121,11 +121,11 @@ You can view your Vulnerability assessment results and reports directly from Log
 1. Navigate to **Solutions** and select the **SQL Vulnerability Assessment** solution.
 1. In the **Summary** pane, click **View Summary** and select your **SQL Vulnerability Assessment Report**.
 
-    ![SQL Assessment Report](./media/security-center-advanced-iaas-data/ads_sql_server_1.png)
+    ![SQL Assessment Report](./media/security-center-advanced-iaas-data/ads-sql-server-1.png)
 
     The report dashboard loads. Make sure the time window is set to at least the **Last 7 days** since vulnerability assessment scans are run on your databases on a fixed schedule of once per 7 days.
 
-    ![Set Last 7 Days](./media/security-center-advanced-iaas-data/ads_sql_server_2.png)
+    ![Set Last 7 Days](./media/security-center-advanced-iaas-data/ads-sql-server-2.png)
 
 1. To drill down for more details, click on any of the dashboard elements. For example:
 
@@ -133,9 +133,9 @@ You can view your Vulnerability assessment results and reports directly from Log
 
    1. Then, click through to view details for each vulnerability, including the vulnerability description and impact, status, associated risk, and actual results on this database. You can also see the actual Query that was run to perform this check, and remediation information for resolving this vulnerability.
 
-    ![Select workspace](./media/security-center-advanced-iaas-data/ads_sql_server_3.png)
+    ![Select workspace](./media/security-center-advanced-iaas-data/ads-sql-server-3.png)
 
-    ![Select workspace](./media/security-center-advanced-iaas-data/ads_sql_server_4.png)
+    ![Select workspace](./media/security-center-advanced-iaas-data/ads-sql-server-4.png)
 
 1. You can run any Log Analytics queries on your Vulnerability Assessment results data, to slice and dice the data according to your needs.
 
@@ -156,8 +156,6 @@ Alerts are generated by unusual and potentially harmful attempts to access or ex
 * **Brute force SQL credentials**: This alert is triggered when there is an abnormal high number of failed logins with different credentials. Potential causes:
      * An attacker trying to breach your SQL using brute force.
      * A legitimate penetration testing in action.
-
-While in preview there is only a subset of alerts in action, we are working to match the Advanced Threat Protection for Azure SQL Database alerts and more alerts are coming.
 
 ### Potential SQL Injection attacks (coming)
 
