@@ -59,15 +59,15 @@ From there, you can configure alerts using the following metrics:
 
 ![Latency](media/environment-mitigate-latency/latency.png)
 
-If you are being throttled, you will see a value for the *Ingress Received Message Time Lag*, informing you of how many seconds behind your TSI is from the actual time the message hits the event source (excluding indexing time of appx. 30-60 seconds).  *Ingress Received Message Count Lag* should also have a value, allowing you to determine how many messages behind you are.  The easiest way to get caught up is to increase your environment's capacity to a size that will enable you to overcome the difference.  
+* If you are being throttled, you will see a value for the *Ingress Received Message Time Lag*, informing you of how many seconds behind your TSI is from the actual time the message hits the event source (excluding indexing time of appx. 30-60 seconds).  *Ingress Received Message Count Lag* should also have a value, allowing you to determine how many messages behind you are.  The easiest way to get caught up is to increase your environment's capacity to a size that will enable you to overcome the difference.  
 
-For example, if you have a single unit S1 environment and see that there is a 5,000,000 message lag, you could increase the size of your environment to six units for around a day to get caught up.  You could increase even further to catch up faster. The catch-up period is a common occurrence when initially provisioning an environment, particularly when you connect it to an event source that already has events in it or when you bulk upload lots of historical data.
+  For example, if you have a single unit S1 environment and see that there is a 5,000,000 message lag, you could increase the size of your environment to six units for around a day to get caught up.  You could increase even further to catch up faster. The catch-up period is a common occurrence when initially provisioning an environment, particularly when you connect it to an event source that already has events in it or when you bulk upload lots of historical data.
 
-Another technique is to set an **Ingress Stored Events** alert >= a threshold slightly below your total environment capacity for a period of 2 hours.  This alert can help you understand if you are constantly at capacity, which indicates a high likelihood of latency.  
+* Another technique is to set an **Ingress Stored Events** alert >= a threshold slightly below your total environment capacity for a period of 2 hours.  This alert can help you understand if you are constantly at capacity, which indicates a high likelihood of latency. 
 
-For example, if you have three S1 units provisioned (or 2100 events per minute ingress capacity), you can set an **Ingress Stored Events** alert for >= 1900 events for 2 hours. If you are constantly exceeding this threshold, and therefore, triggering your alert, you are likely under-provisioned.  
+  For example, if you have three S1 units provisioned (or 2100 events per minute ingress capacity), you can set an **Ingress Stored Events** alert for >= 1900 events for 2 hours. If you are constantly exceeding this threshold, and therefore, triggering your alert, you are likely under-provisioned.  
 
-Also, if you suspect you are being throttled, you can compare your **Ingress Received Messages** with your event source’s egressed messages.  If ingress into your Event Hub is greater than your **Ingress Received Messages**, your Time Series Insights are likely being throttled.
+* If you suspect you are being throttled, you can compare your **Ingress Received Messages** with your event source’s egressed messages.  If ingress into your Event Hub is greater than your **Ingress Received Messages**, your Time Series Insights are likely being throttled.
 
 ## Improving performance
 
