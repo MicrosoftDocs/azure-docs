@@ -107,7 +107,7 @@ A datastore is a storage abstraction over an Azure storage account. The datastor
 
 Use the Python SDK API or the Azure Machine Learning CLI to store and retrieve files from the datastore.
 
-## <a name="compute"></a> Compute target
+## Compute target
 
 A compute target is the compute resource that you use to run your training script or host your service deployment. The supported compute targets are:
 

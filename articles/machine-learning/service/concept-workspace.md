@@ -70,7 +70,7 @@ A taxonomy of the workspace is illustrated in the following diagram:
 
 The diagram shows the following components of a workspace:
 + Assign different [user roles](#roles) to others who share your workspace.
-+ [Compute targets](concept-azure-machine-learning-architecture.md#compute) are used to run your experiments.
++ [Compute targets](concept-azure-machine-learning-architecture.md#compute-target) are used to run your experiments.
 + When you create the workspace, [associated resources](#resources) are also created for you.
 + [Experiments](concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  You create and run experiments with the SDK.  Or You can use the Azure portal to run automated machine learning experiments or launch the visual interface to create and run experiments.  
 + Use [pipelines](concept-azure-machine-learning-architecture.md#pipeline) to put together reusable workflows for training and retraining your model.
