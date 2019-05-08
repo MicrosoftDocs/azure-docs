@@ -162,7 +162,7 @@ This section contains the following examples:
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy cp "https://<source-storage-account-name>.file.core.windows.net/" "https://<destination-storage-account-name>.file.core.windows.net/" --recursive=true" --recursive=true` |
+| **Syntax** | `azcopy cp "https://<source-storage-account-name>.file.core.windows.net/" "https://<destination-storage-account-name>.file.core.windows.net/" --recursive=true"` |
 | **Example** | `azcopy cp "https://mysourceaccount.file.core.windows.net" "https://mydestinationaccount.file.core.windows.net" --recursive=true` |
 
 ## Synchronize files
