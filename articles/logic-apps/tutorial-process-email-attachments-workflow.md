@@ -648,7 +648,8 @@ select **Add an action**.
    ![Add "for each" loop](./media/tutorial-process-email-attachments-workflow/add-for-each-loop.png)
 
 1. Under **Choose an action**, in the search box, 
-enter "for each" as your filter. Select this action:
+enter "for each" as your filter. Select this action: 
+**For each - Control**
 
    ![Select "For each"](./media/tutorial-process-email-attachments-workflow/select-for-each.png)
 
