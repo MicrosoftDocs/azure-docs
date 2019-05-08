@@ -24,12 +24,12 @@ To learn more about how to use the update, read [Azure Time Series Insights Prev
 
 1. Go to the Time Series Models selector panel, and select **Types** from the menu. Collapse the panel to focus on the Time Series Models types.
 
-    [![Portal_one](media/v2-update-how-to-tsm/portal_one.png)](media/v2-update-how-to-tsm/portal_one.png#lightbox)
+    [![Create a single type](media/v2-update-how-to-tsm/portal_one.png)](media/v2-update-how-to-tsm/portal_one.png#lightbox)
 
 1. Select **Add**.
 1. Input all details that pertain to types, and select **Create**. This action creates types in the environment.
 
-    [![Portal_two](media/v2-update-how-to-tsm/portal_two.png)](media/v2-update-how-to-tsm/portal_two.png#lightbox)
+    [![Add a type](media/v2-update-how-to-tsm/portal_two.png)](media/v2-update-how-to-tsm/portal_two.png#lightbox)
 
 ### Bulk upload one or more types
 
@@ -37,19 +37,21 @@ To learn more about how to use the update, read [Azure Time Series Insights Prev
 1. Select the file that contains the type payload.
 1. Select **Upload**.
 
-    [![Portal_three](media/v2-update-how-to-tsm/portal_three.png)](media/v2-update-how-to-tsm/portal_three.png#lightbox)
+    [![Upload JSON](media/v2-update-how-to-tsm/portal_three.png)](media/v2-update-how-to-tsm/portal_three.png#lightbox)
 
 ### Edit a single type
 
-Select the type, and select **Edit**. Make the required changes, and select **Save**.
+1. Select the type, and select **Edit**. 
+1. Make the required changes, and select **Save**.
 
-[![Portal_four](media/v2-update-how-to-tsm/portal_four.png)](media/v2-update-how-to-tsm/portal_four.png#lightbox)
+    [![Edit a type](media/v2-update-how-to-tsm/portal_four.png)](media/v2-update-how-to-tsm/portal_four.png#lightbox)
 
 ### Delete a type
 
-Select the type, and select **Delete**. If no instances are associated with the types, it's deleted.
+1. Select the type, and select **Delete**.
+1. If no instances are associated with the types, it's deleted.
 
-[![Portal_five](media/v2-update-how-to-tsm/portal_five.png)](media/v2-update-how-to-tsm/portal_five.png#lightbox)
+    [![Delete a type](media/v2-update-how-to-tsm/portal_five.png)](media/v2-update-how-to-tsm/portal_five.png#lightbox)
 
 ## Hierarchies
 
@@ -57,19 +59,19 @@ Select the type, and select **Delete**. If no instances are associated with the 
 
 1. Go to the Time Series Models selector panel, and select **Hierarchies** from the menu. Collapse the panel to focus on the Time Series Models hierarchies.
 
-    [![Portal_six](media/v2-update-how-to-tsm/portal_six.png)](media/v2-update-how-to-tsm/portal_six.png#lightbox)
+    [![Select hierarchies](media/v2-update-how-to-tsm/portal_six.png)](media/v2-update-how-to-tsm/portal_six.png#lightbox)
 
 1. Select **Add**.
 
-    [![Portal_seven](media/v2-update-how-to-tsm/portal_seven.png)](media/v2-update-how-to-tsm/portal_seven.png#lightbox)
+    [![Add a hierarchy](media/v2-update-how-to-tsm/portal_seven.png)](media/v2-update-how-to-tsm/portal_seven.png#lightbox)
 
 1. Select **Add Level** in the right pane.
 
-    [![Portal_eight](media/v2-update-how-to-tsm/portal_eight.png)](media/v2-update-how-to-tsm/portal_eight.png#lightbox)
+    [![Add a level](media/v2-update-how-to-tsm/portal_eight.png)](media/v2-update-how-to-tsm/portal_eight.png#lightbox)
 
 1. Enter the hierarchy details, and select **Create**.
 
-    [![Portal_nine](media/v2-update-how-to-tsm/portal_nine.png)](media/v2-update-how-to-tsm/portal_nine.png#lightbox)
+    [![Create a level](media/v2-update-how-to-tsm/portal_nine.png)](media/v2-update-how-to-tsm/portal_nine.png#lightbox)
 
 ### Bulk upload one or more hierarchies
 
@@ -77,19 +79,21 @@ Select the type, and select **Delete**. If no instances are associated with the 
 1. Select the file that contains the hierarchy payload.
 1. Select **Upload**.
 
-    [![Portal_ten](media/v2-update-how-to-tsm/portal_ten.png)](media/v2-update-how-to-tsm/portal_ten.png#lightbox)
+    [![Bulk upload hierarchies](media/v2-update-how-to-tsm/portal_ten.png)](media/v2-update-how-to-tsm/portal_ten.png#lightbox)
 
 ### Edit a single hierarchy
 
-Select the hierarchy, and select **Edit**. Make the required changes, and select **Save**.
+1. Select the hierarchy, and select **Edit**.
+1. Make the required changes, and select **Save**.
 
-[![Portal_eleven](media/v2-update-how-to-tsm/portal_eleven.png)](media/v2-update-how-to-tsm/portal_eleven.png#lightbox)
+    [![Edit a single hierarchy](media/v2-update-how-to-tsm/portal_eleven.png)](media/v2-update-how-to-tsm/portal_eleven.png#lightbox)
 
 ### Delete a hierarchy
 
-Select the hierarchy, and Select **Delete**. If no instances are associated with the hierarchy, it's deleted.
+1. Select the hierarchy, and Select **Delete**. 
+1. If no instances are associated with the hierarchy, it's deleted.
 
-[![Portal_twelve](media/v2-update-how-to-tsm/portal_twelve.png)](media/v2-update-how-to-tsm/portal_twelve.png#lightbox)
+    [![Delete a hierarchy](media/v2-update-how-to-tsm/portal_twelve.png)](media/v2-update-how-to-tsm/portal_twelve.png#lightbox)
 
 ## Instances
 
@@ -97,11 +101,11 @@ Select the hierarchy, and Select **Delete**. If no instances are associated with
 
 1. Go to the Time Series Models selector panel, and select **Instances** from the menu. Collapse the panel to focus on the Time Series Models instances.
 
-    [![Portal_thirteen](media/v2-update-how-to-tsm/portal_thirteen.png)](media/v2-update-how-to-tsm/portal_thirteen.png#lightbox)
+    [![Create a single instance](media/v2-update-how-to-tsm/portal_thirteen.png)](media/v2-update-how-to-tsm/portal_thirteen.png#lightbox)
 
 1. Select **Add**.
 
-    [![Portal_fourteen](media/v2-update-how-to-tsm/portal_fourteen.png)](media/v2-update-how-to-tsm/portal_fourteen.png#lightbox)
+    [![Add an instance](media/v2-update-how-to-tsm/portal_fourteen.png)](media/v2-update-how-to-tsm/portal_fourteen.png#lightbox)
 
 1. Enter the instance details, select the type and hierarchy association, and select **Create**.
 
@@ -110,19 +114,16 @@ Select the hierarchy, and Select **Delete**. If no instances are associated with
 1. Select **Upload JSON**.
 1. Select the file that contains the instances payload.
 
-    [![Portal_fifteen](media/v2-update-how-to-tsm/portal_fifteen.png)](media/v2-update-how-to-tsm/portal_fifteen.png#lightobx)
+    [![Bulk upload one or more instances](media/v2-update-how-to-tsm/portal_fifteen.png)](media/v2-update-how-to-tsm/portal_fifteen.png#lightbox)
 
 1. Select **Upload**.
 
 ### Edit a single instance
 
-Select the instance, and select **Edit**. Make the required changes, and select **Save**.
+1. Select the instance, and select **Edit**. 
+1. Make the required changes, and select **Save**.
 
-[![Portal_sixteen](media/v2-update-how-to-tsm/portal_sixteen.png)](media/v2-update-how-to-tsm/portal_sixteen.png#lightbox)
-
-### Delete an instance
-
-Select the instance, and select **Delete**. If no events are associated with the instances, it's deleted.
+    [![Edit a single instance](media/v2-update-how-to-tsm/portal_sixteen.png)](media/v2-update-how-to-tsm/portal_sixteen.png#lightbox)
 
 ## Next steps
 
