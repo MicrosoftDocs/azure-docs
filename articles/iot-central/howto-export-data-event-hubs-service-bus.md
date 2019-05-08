@@ -90,7 +90,7 @@ Now that you have a Event Hubs/Service Bus destination to export data to, follow
 
 6. To turn on continuous data export, make sure **Data export** is **On**. Select **Save**.
 
-  ![Configure continuous data export](media/howto-export-data/export_list1.png)
+    ![Configure continuous data export](media/howto-export-data/export_list1.png)
 
 7. After a few minutes, your data will appear in your chosen destination.
 
