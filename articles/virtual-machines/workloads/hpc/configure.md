@@ -19,7 +19,7 @@ ms.author: amverma
 
 ## Update LIS
 
-If deploying using a custom image (e.g. for an older OS such as CentOS/RHEL 7.4 or 7.5), please update LIS on the VM.
+If deploying using a custom image (for example, an older OS such as CentOS/RHEL 7.4 or 7.5), update LIS on the VM.
 
 ```bash
 wget https://aka.ms/lis
@@ -30,7 +30,7 @@ pushd LISISO
 
 ## Reclaim memory
 
-Automatically reclaim memory to avoid remote memory access.
+Improve efficiency by automatically reclaiming memory to avoid remote memory access.
 
 ```bash
 echo 1 >/proc/sys/vm/zone_reclaim_mode

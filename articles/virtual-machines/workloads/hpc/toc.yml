@@ -9,14 +9,10 @@
       href: enable-infiniband-with-sriov.md  
   - name: Setup MPI
     href: setup-mpi.md 
-  - name: Compiling applications
-    href: compiling-applications.md  
-  - name: Scaling applications
-    href: scaling-applications.md 
+  - name: Compiling and scaling applications
+    href: compiling-scaling-applications.md  
   - name: Virtual machines
     items:
-    - name: Create a VM
-      href: create-vm-using-hb-series.md
     - name: HB-series 
       href: hb-series-overview.md
       items:
