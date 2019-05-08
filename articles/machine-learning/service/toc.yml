@@ -178,9 +178,6 @@
       href: how-to-manage-runs.md
     - name: Log metrics for training runs
       href: how-to-track-experiments.md
-    - name: Use MLflow with Azure Machine Learning
-      displayName: mlflow, track run
-      href: how-to-use-mlflow.md
   - name: Automate machine learning
     displayName: automl, auto ml
     items:
