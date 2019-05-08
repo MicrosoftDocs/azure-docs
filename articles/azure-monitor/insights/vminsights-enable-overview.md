@@ -60,7 +60,10 @@ For the at-scale scenario using Azure Policy, Azure PowerShell, or Azure Resourc
 * Install the ServiceMap and InfrastructureInsights solutions. You can complete this installation by using an Azure Resource Manager template that's provided or by using the **Configure Workspace** option found on the **Get Started** tab.
 * Configure the Log Analytics workspace to collect performance counters.
 
-To configure your workspace for the at-scale scenario using Azure PowerShell, see [Set up Log Analytics workspace for an at-scale deployment](vminsights-enable-atscale-posh.md#set-up-a-log-analytics-workspace).
+To configure your workspace for the at-scale scenario, you can configure it using one of the following methods:
+
+* [Azure PowerShell](vminsights-enable-atscale-posh.md#set-up-a-log-analytics-workspace)
+* From the **Configure Workspace** option on the Azure Monitor for VMs [Policy Coverage](vminsights-enable-atscale-policy.md#azure-policy-integrated-experience-overview) page
 
 ### Supported operating systems
 
