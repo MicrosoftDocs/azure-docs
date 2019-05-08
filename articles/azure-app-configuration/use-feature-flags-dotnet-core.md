@@ -37,11 +37,12 @@ The .NET Core feature manager `IFeatureManager` gets feature flags from the fram
     ```csharp
     using Microsoft.FeatureManagement;
 
-    IConfiguration Configuration { get; set;}
-
-    public void ConfigureServices(IServiceCollection services)
+    public class Startup
     {
-        services.AddFeatureManagement();
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddFeatureManagement();
+        }
     }
     ```
 
@@ -50,14 +51,15 @@ The feature manager retrieves feature flags from the "FeatureManagement" section
     ```csharp
     using Microsoft.FeatureManagement;
 
-    IConfiguration Configuration { get; set;}
-
-    public void ConfigureServices(IServiceCollection services)
+    public class Startup
     {
-        services.AddFeatureManagement(options =>
+        public void ConfigureServices(IServiceCollection services)
         {
-            options.UseConfiguration(Configuration.GetSection("MyFeatureFlags"));
-        });
+            services.AddFeatureManagement(options =>
+            {
+                options.UseConfiguration(Configuration.GetSection("MyFeatureFlags"));
+            });
+        }
     }
     ```
 
@@ -67,12 +69,13 @@ If you use filter in your feature flags, you need to include an additional libra
     using Microsoft.FeatureManagement;
     using Microsoft.FeatureManagement.FeatureFilters;
 
-    IConfiguration Configuration { get; set;}
-
-    public void ConfigureServices(IServiceCollection services)
+    public class Startup
     {
-        services.AddFeatureManagement()
-                .AddFeatureFilter<PercentageFilter>();
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddFeatureManagement()
+                    .AddFeatureFilter<PercentageFilter>();
+        }
     }
     ```
 
@@ -118,9 +121,9 @@ The feature manager supports *appsettings.json* as a configuration source for fe
         "FeatureC": {
             "EnabledFor": [
                 {
-                    "Name": "Browser"
+                    "Name": "Percentage",
                     "Parameters": {
-                        "AllowedBrowsers": [ "Edge", "Chrome" ]
+                        "Value": 50
                     }
                 }
             ]
@@ -132,7 +135,7 @@ By convention, the `FeatureManagement` section of this json document is used for
 
 * **FeatureA** is *on*.
 * **FeatureB** is *off*.
-* **FeatureC** specifies a filter named *Browser* with a *Parameters* property. *Browser* is an example of a configurable filter and it specifies the *Edge* and *Chrome* browsers as *AllowedBrowsers* for enabling the **FeatureC** flag.
+* **FeatureC** specifies a filter named *Percentage* with a *Parameters* property. *Percentage* is an example of a configurable filter and it specifies a 50% probability for the **FeatureC** flag to be *on*.
 
 ## Referencing
 
