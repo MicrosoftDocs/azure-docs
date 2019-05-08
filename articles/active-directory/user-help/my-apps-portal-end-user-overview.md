@@ -1,6 +1,6 @@
 ---
 title: My Apps portal overview - Azure Active Directory | Microsoft Docs
-description: Learn about the My Apps portal and troubleshoot potential problems.
+description: A high-level overview and links to more information about the My Apps portal and its features.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -24,7 +24,19 @@ You can use your work or school account with the web-based **My Apps** portal, t
 >[!Important]
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
-## In this section
+## Go to the My Apps portal
+
+You can get to the **My Apps** portal (https://myapps.microsoft.com), from the current version of any of the following browsers:
+
+- Chrome
+- Microsoft Edge
+- Safari
+- Firefox
+- Internet Explorer 11
+
+## My Apps portal articles
+
+For detailed information and instructions about what's available from the **My Apps** portal, see the following articles:
 
 |Article |Description |
 |------|------------|
@@ -33,6 +45,3 @@ You can use your work or school account with the web-based **My Apps** portal, t
 |[Update your Groups info](my-apps-portal-end-user-groups.md)|Learn how to view and manage your groups-related information on the **Groups** page of the **My Apps** portal.|
 |[Perform your own access reviews](my-apps-portal-end-user-access-reviews.md)|Learn how to view and perform **access reviews** to allow or deny user or group access to your organization's apps on the **Access Reviews** page of the **My Apps** portal.|
 |[Troubleshoot the My Apps portal](my-apps-portal-end-user-troubleshoot.md)|Review some troubleshooting tips for the **My Apps** portal before you contact your Helpdesk for assistance.|
-
-## Next steps
-After you've reviewed this overview content, you can continue on to [access and use apps on the My Apps portal](my-apps-portal-end-user-access.md).
