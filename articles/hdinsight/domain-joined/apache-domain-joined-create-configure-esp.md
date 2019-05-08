@@ -171,18 +171,6 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
 
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image064.png)
 
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image066.png)
-
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image068.png)
-
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image070.png)
-
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image072.png)
-
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image074.png)
-
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image076.png)
-
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image078.png)
 
     1. After the sync is complete confirm if the users that you created on the IAAS Active Directory are Synced to Azure Active Directory.
@@ -357,12 +345,12 @@ This Step requires 3 Pre-requisites.
 
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image135.jpg)
 
-    1. Click **Roles** from the cluster dashboard. 
+    1. Click **Roles** from the cluster dashboard.
     1. On the **Roles** page, enter the group **hdiusergroup** to assign it to the **Cluster Administrator** role under **Assign roles to these**.
 
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image137.jpg)
 
-    1. Open your SSH client and login to the cluster using the **hdiuser** that you created previously in the on-premises Active Directory. 
+    1. Open your SSH client and login to the cluster using the **hdiuser** that you created previously in the on-premises Active Directory.
 
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image139.jpg)
 
