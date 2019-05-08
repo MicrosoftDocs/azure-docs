@@ -2,14 +2,17 @@
 title: Client-Side Encryption with Python for Microsoft Azure Storage | Microsoft Docs
 description: The Azure Storage Client Library for Python supports client-side encryption for maximum security for your Azure Storage applications.
 services: storage
-author: lakasa
+author: tamram
+
 ms.service: storage
 ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
 ---
+
 # Client-Side Encryption with Python for Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
@@ -132,7 +135,7 @@ The key resolver must at least implement a method that, given a key id, returns 
   * The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier, an error is thrown.
   * If resolver is not specified but a key is specified, the key is used if its identifier matches the required key identifier. If the identifier does not match, an error is thrown.
 
-    The encryption samples in azure.storage.samples <fix URL>demonstrate a more detailed end-to-end scenario for blobs, queues and tables.
+    The encryption samples in azure.storage.samples demonstrate a more detailed end-to-end scenario for blobs, queues and tables.
       Sample implementations of the KEK and key resolver are provided in the sample files as KeyWrapper and KeyResolver respectively.
 
 ### RequireEncryption mode

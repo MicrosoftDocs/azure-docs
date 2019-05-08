@@ -56,10 +56,23 @@ Before you install Azure AD Connect, there are a few things that you need.
 * If Active Directory Federation Services is being deployed, you need [SSL Certificates](#ssl-certificate-requirements).
 * If Active Directory Federation Services is being deployed, then you need to configure [name resolution](#name-resolution-for-federation-servers).
 * If your global administrators have MFA enabled, then the URL **https://secure.aadcdn.microsoftonline-p.com** must be in the trusted sites list. You are prompted to add this site to the trusted sites list when you are prompted for an MFA challenge and it has not added before. You can use Internet Explorer to add it to your trusted sites.
+* Microsoft recommends hardening your Azure AD Connect server to decrease the security attack surface for this critical component of your IT environment.  Following the recommendations below will decrease the security risks to your organization.
+
+* Deploy Azure AD Connect on a domain joined server and restrict administrative access to domain administrators or other tightly controlled security groups.
+
+To learn more, see: 
+
+* [Securing administrators groups](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+
+* [Securing built-in administrator accounts](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+
+* [Security improvement and sustainment by reducing attack surfaces](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+
+* [Reducing the Active Directory attack surface](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 ### SQL Server used by Azure AD Connect
-* Azure AD Connect requires a SQL Server database to store identity data. By default a SQL Server 2012 Express LocalDB (a light version of SQL Server Express) is installed. SQL Server Express has a 10GB size limit that enables you to manage approximately 100,000 objects. If you need to manage a higher volume of directory objects, you need to point the installation wizard to a different installation of SQL Server.
-* If you use a separate SQL Server, then these requirements apply:
+* Azure AD Connect requires a SQL Server database to store identity data. By default a SQL Server 2012 Express LocalDB (a light version of SQL Server Express) is installed. SQL Server Express has a 10GB size limit that enables you to manage approximately 100,000 objects. If you need to manage a higher volume of directory objects, you need to point the installation wizard to a different installation of SQL Server. The type of SQL Server installation can impact the [performance of Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
+* If you use a different installation of SQL Server, then these requirements apply:
   * Azure AD Connect supports all versions of Microsoft SQL Server from 2008 R2 (with latest Service Pack) to SQL Server 2019. Microsoft Azure SQL Database is **not supported** as a database.
   * You must use a case-insensitive SQL collation. These collations are identified with a \_CI_ in their name. It is **not supported** to use a case-sensitive collation, identified by \_CS_ in their name.
   * You can only have one sync engine per SQL instance. It is **not supported** to share a SQL instance with FIM/MIM Sync, DirSync, or Azure AD Sync.

@@ -148,6 +148,8 @@
       - name: Use Apache Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
+    - name: Accelerated Writes
+      href: ../hbase/apache-hbase-accelerated-writes.md
     - name: Scale an HDInsight cluster
       href: ../hdinsight-scaling-best-practices.md
       maintainContext: true
@@ -305,8 +307,8 @@
     - name: Archived release notes
       href: ../hdinsight-release-notes-archive.md
       maintainContext: true
-  - name: Changes to cluster configuration access
-    href: ../hdinsight-migrate-granular-access-cluster-configurations.md
+    - name: Migrate to granular role-based access for cluster configurations
+      href: ../hdinsight-migrate-granular-access-cluster-configurations.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Get help on the forum

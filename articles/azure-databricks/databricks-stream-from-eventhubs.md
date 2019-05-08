@@ -15,6 +15,9 @@ ms.author: alehall
 
 # Tutorial: Stream data into Azure Databricks using Event Hubs
 
+> [!IMPORTANT]
+> Twitter application creation is no longer available through [apps.twitter.com](https://apps.twitter.com/). This tutorial is in the process of being updated to include the new Twitter API.
+
 In this tutorial, you connect a data ingestion system with Azure Databricks to stream data into an Apache Spark cluster in near real-time. You set up data ingestion system using Azure Event Hubs and then connect it to Azure Databricks to process the messages coming through. To access a stream of data, you use Twitter APIs to ingest tweets into Event Hubs. Once you have the data in Azure Databricks, you can run analytical jobs to further analyze the data. 
 
 By the end of this tutorial, you would have streamed tweets from Twitter (that have the term "Azure" in them) and read the tweets in Azure Databricks.

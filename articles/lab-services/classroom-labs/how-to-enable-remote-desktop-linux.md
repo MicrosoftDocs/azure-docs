@@ -32,6 +32,7 @@ During lab creation, teachers can enable **remote desktop connection** for **Lin
 > [!IMPORTANT] 
 > Enabling **remote desktop connection** only opens the **RDP** port on Linux machines. You, as a teacher, connect to the Linux machine using SSH for the first time, and install RDP and GUI packages so that you can connect to the Linux machine using RDP later. Then, you **publish** the image so that students can RDP in to the student Linux VMs. 
 
+## Supported operating systems
 Currently, the remote desktop connection is supported for the following operating systems:
 
 - openSUSE Leap 42.3
@@ -60,7 +61,7 @@ A lab owner (teacher/professor) can connect to a student VM by switching to the 
 ## Students connecting to the student VM
 Student can RDP in to their Linux VMs after the lab owner (teacher/professor) **publishes** the template VM with RDP and GUI packages installed on the machine. Here are the steps: 
 
-1. When a student signs in to the Labs portal directly (`http://labs.azure.com`) or by using a registration link (`http://labs.azure.com/register/<registrationCode>`), a tile for each lab the student has access to is displayed. 
+1. When a student signs in to the Labs portal directly (`https://labs.azure.com`) or by using a registration link (`https://labs.azure.com/register/<registrationCode>`), a tile for each lab the student has access to is displayed. 
 2. On the tile, select **Start** if the VM is stopped. 
 3. Select **Connect**. This action downloads the RDP file on to your machine. Save it and open to connect to the Linux machine via RDP. 
 

@@ -8,6 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: blobs
 ---
 # Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault

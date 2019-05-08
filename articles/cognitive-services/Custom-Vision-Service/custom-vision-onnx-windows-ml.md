@@ -81,4 +81,4 @@ To discover other ways to export and use a Custom Vision model, see the followin
 * [Use exported CoreML model in a Swift iOS application](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Use exported CoreML model in an iOS application with Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
 
-For more information on using ONNX models with Windows ML, see the [Integrate a model into your app with Windows ML](https://docs.microsoft.com/windows/uwp/machine-learning/integrate-model) document.
+For more information on using ONNX models with Windows ML, see the [Integrate a model into your app with Windows ML](/windows/ai/windows-ml/integrate-model) document.

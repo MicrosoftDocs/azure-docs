@@ -180,7 +180,7 @@ SecurityEvent
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated-8h
+| extend localtime = TimeGenerated -8h
 ```
 
 ## Summarize: aggregate groups of rows
@@ -220,7 +220,7 @@ Perf
 ### Summarize by a time column
 Grouping results can also be based on a time column, or another continuous value. Simply summarizing `by TimeGenerated` though would create groups for every single millisecond over the time range, since these are unique values. 
 
-To create groups based on continuous values, it is best to break the range into manageable units using **bin**. The following query analyzes *Perf* records that measure free memory (*Available MBytes*) on a specific computer. It calculates the average value for each period if 1 hour, over the last 7 days:
+To create groups based on continuous values, it is best to break the range into manageable units using **bin**. The following query analyzes *Perf* records that measure free memory (*Available MBytes*) on a specific computer. It calculates the average value of each 1 hour period over the last 7 days:
 
 ```Kusto
 Perf 

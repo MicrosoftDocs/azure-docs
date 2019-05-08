@@ -19,9 +19,12 @@ ms.date: 01/04/2019
 ms.author: jowargo
 ---
 
-# Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Google Cloud Messaging
+# Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Google Cloud Messaging (deprecated)
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
+
+> [!WARNING]
+> As of April 10, 2018, Google has deprecated Google Cloud Messaging (GCM). The GCM server and client APIs are deprecated and will be removed as soon as May 29, 2019. For more information, see [GCM and FCM Frequently Asked Questions](https://developers.google.com/cloud-messaging/faq).
 
 ## Overview
 

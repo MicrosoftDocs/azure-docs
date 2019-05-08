@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/17/2019
 ms.author: magoedte
 ---
 
@@ -119,9 +119,9 @@ or
 1. In your workspace blade, under **Settings**, select **Advanced settings**.
 1. Go to **Connected Sources** > **Windows Servers** and select **Download Log Analytics gateway**.
 
-## Install the Log Analytics gateway
+## Install Log Analytics gateway using setup wizard
 
-To install a gateway, follow these steps.  (If you installed a previous version called Log Analytics Forwarder, it will be upgraded to this release.)
+To install a gateway using the setup wizard, follow these steps. 
 
 1. From the destination folder, double-click **Log Analytics gateway.msi**.
 1. On the **Welcome** page, select **Next**.
@@ -147,6 +147,40 @@ To install a gateway, follow these steps.  (If you installed a previous version 
 
    ![Screenshot of local services, showing that OMS Gateway is running](./media/gateway/gateway-service.png)
 
+## Install the Log Analytics gateway using the command line
+The downloaded file for the gateway is a Windows Installer package that supports silent installation from the command line or other automated method. If you are not familiar with the standard command-line options for Windows Installer, see [Command-line options](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).   
+
+The following table highlights the parameters supported by setup.
+
+|Parameters| Notes|
+|----------|------| 
+|PORTNUMBER | TCP port number for gateway to listen on |
+|PROXY | IP address of proxy server |
+|INSTALLDIR | Fully qualified path to specify install directory of gateway software files |
+|USERNAME | User Id to authenticate with proxy server |
+|PASSWORD | Password of the user Id to authenticate with proxy |
+|LicenseAccepted | Specify a value of **1** to verify you accept license agreement |
+|HASAUTH | Specify a value of **1** when USERNAME/PASSWORD parameters are specified |
+|HASPROXY | Specify a value of **1** when specifying IP address for **PROXY** parameter |
+
+To silently install the gateway and configure it with a specific proxy address, port number, type the following:
+
+```dos
+Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 LicenseAccepted=1 
+```
+
+Using the /qn command-line option hides setup, /qb shows setup during silent install.  
+
+If you need to provide credentials to authenticate with the proxy, type the following:
+
+```dos
+Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 HASAUTH=1 USERNAME=”<username>” PASSWORD=”<password>” LicenseAccepted=1 
+```
+
+After installation, you can confirm the settings are accepted (exlcuding the username and password) using the following PowerShell cmdlets:
+
+- **Get-OMSGatewayConfig** – Returns the TCP Port the gateway is configured to listen on.
+- **Get-OMSGatewayRelayProxy** – Returns the IP address of the proxy server you configured it to communicate with.
 
 ## Configure network load balancing 
 You can configure the gateway for high availability using network load balancing (NLB) using either Microsoft [Network Load Balancing (NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), or hardware-based load balancers. The load balancer manages traffic by redirecting the requested connections from the Log Analytics agents or Operations Manager management servers across its nodes. If one Gateway server goes down, the traffic gets redirected to other nodes.

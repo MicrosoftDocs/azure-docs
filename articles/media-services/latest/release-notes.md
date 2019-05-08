@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 05/01/2019
 ms.author: juliako
 ---
 
@@ -30,6 +30,20 @@ To stay up-to-date with the most recent developments, this article provides you 
 > Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, or one of the supported SDKs.
 
 For more information, see [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md#known-issues).
+
+## May 2019
+
+### Performance improvements
+
+* The maximum file size supported for processing was updated. See, [Quotas and limitations](limits-quotas-constraints.md).
+* [Encoding speeds improvements](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
+
+## April 2019
+
+### New presets
+
+* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) was added to the built-in analyzer presets.
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) was added to the built-in encoder presets. For more information, see [Content-aware encoding](cae-experimental.md). 
 
 ## March 2019
 
@@ -197,6 +211,10 @@ The following features are present in the .NET SDK:
 ### Known issues
 
 * When submitting a job, you can specify to ingest your source video using HTTPS URLs, SAS URLs, or paths to files located in Azure Blob storage. Currently, AMS v3 does not support chunked transfer encoding over HTTPS URLs.
+
+## Ask questions, give feedback, get updates
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 
