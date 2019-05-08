@@ -14,7 +14,7 @@ ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
 ---
-# Enable safe deployment practices with Azure Deployment Manager (Gated public preview)
+# Enable safe deployment practices with Azure Deployment Manager (Public preview)
 
 To deploy your service across many regions and make sure it's running as expected in each region, you can use Azure Deployment Manager to coordinate a staged rollout of the service. Just as you would for any Azure deployment, you define the resources for your service in [Resource Manager templates](resource-group-authoring-templates.md). After creating the templates, you use Deployment Manager to describe the topology for your service and how it should be rolled out.
 

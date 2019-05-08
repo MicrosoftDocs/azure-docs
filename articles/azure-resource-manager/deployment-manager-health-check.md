@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/06/19
+ms.date: 05/08/19
 ms.author: jgao
 
 ---
 
-# Introduce health integration rollout to Azure Deployment Manager (Gated public preview)
+# Introduce health integration rollout to Azure Deployment Manager (Public preview)
 
 [Azure Deployment Manager](./deployment-manager-overview.md) allows you to perform staged rollouts of Azure Resource Manager resources. The resources are deployed region by region in an ordered fashion. The integrated health check of Azure Deployment Manager can monitor rollouts, and automatically stop problematic rollouts, so that you can troubleshoot and reduce the scale of the impact. This feature can reduce service unavailability caused by regressions in updates.
 
@@ -25,7 +25,7 @@ In order to make health integration as easy as possible, Microsoft has been work
 
 | ![azure deployment manager health monitor provider datadog](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-datadog.svg) | ![azure deployment manager health monitor provider site24x7](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-site24x7.svg) | ![azure deployment manager health monitor provider wavefront](./media/deployment-manager-health-check/azure-deployment-manager-health-monitor-provider-wavefront.svg) |
 |-----|------|------|
-|Datadog, the leading monitoring and analytics platform for modern cloud environments. See [how Datadog integrates with Azure Deployment Manager](https://docs.datadoghq.com/integrations/azure_deployment_manager/).|Site24x7, the all-in-one private and public cloud services monitoring solution. See [how Site24x7 integrates with Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| Wavefront, the monitoring and analytics platform for multi-cloud application environments. See [how Wavefront integrates with Azure Deployment Manager](https://go.wavefront.com/wavefront-adm/).|
+|Datadog, the leading monitoring and analytics platform for modern cloud environments. See [how Datadog integrates with Azure Deployment Manager](https://www.datadoghq.com/azure-deployment-manager/).|Site24x7, the all-in-one private and public cloud services monitoring solution. See [how Site24x7 integrates with Azure Deployment Manager](https://www.site24x7.com/azure/adm.html).| Wavefront, the monitoring and analytics platform for multi-cloud application environments. See [how Wavefront integrates with Azure Deployment Manager](https://go.wavefront.com/wavefront-adm/).|
 
 ## How service health is determined
 
