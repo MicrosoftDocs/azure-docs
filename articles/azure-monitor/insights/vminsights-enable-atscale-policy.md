@@ -17,9 +17,9 @@ ms.author: magoedte
 
 # Enable Azure Monitor for VMs (preview) using Azure Policy
 
-This article explains how to enable Azure Monitor for VMs (preview) for Azure virtual machines or virtual machine scale sets using Azure Policy. At the end of this process you will have successfully begun monitoring all of your virtual machines and learn if any are experiencing performance or availability issues. 
+This article explains how to enable Azure Monitor for VMs (preview) for Azure virtual machines or virtual machine scale sets using Azure Policy. At the end of this process you will have successfully configured enabling the Log Analytics and Dependency agents and identify virtual machines which are not compliant.
 
-To discover, manage, and enable Azure Monitor for VMs for all of your Azure virtual machines or virtual machine scale sets, you can use either Azure Policy or Azure PowerShell. Azure Policy is the recommended method because you can manage policy definitions to ensure consistent compliance and automatic enabling of newly provisioned VMs. These policy definitions:
+To discover, manage, and enable Azure Monitor for VMs for all of your Azure virtual machines or virtual machine scale sets, you can use either Azure Policy or Azure PowerShell. Azure Policy is the recommended method because you can manage policy definitions to effectively govern your subscrptions to ensure consistent compliance and automatic enabling of newly provisioned VMs. These policy definitions:
 
 * Deploy the Log Analytics agent and the Dependency agent.
 * Report on compliance results.
