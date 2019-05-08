@@ -114,7 +114,7 @@ Resolves the opaque token to a SaaS subscription.<br>
 ```json
 Response body:
 {
-    "subscriptionId": "<guid>",  
+    "id": "<guid>",  
     "subscriptionName": "Contoso Cloud Solution",
     "offerId": "offer1",
     "planId": "silver",
@@ -365,8 +365,7 @@ Internal Server Error<br>
 
 ```json
 {
-    "planId": "gold",
-    "quantity": ""
+    "planId": "gold"
 }
 ```
 
@@ -450,6 +449,9 @@ Bad request- Validation failures.
 Code: 403<br>
 Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
 
+Code: 409<br>
+Another operation is in progress on the resource. Wait for pending operations to complete then try again.
+
 Code: 500<br>
 Internal Server Error
 
@@ -515,6 +517,9 @@ Bad request- Validation failures.
 
 Code: 403<br>
 Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
+
+Code: 409<br>
+Another operation is in progress on the resource. Wait for pending operations to complete then try again.
 
 Code: 500<br>
 Internal Server Error
@@ -780,15 +785,16 @@ The publisher must implement a webhook in this SaaS service to proactively notif
 
 ```json
 {
-    "operationId": "<guid>",
-    "activityId": "<guid>",
-    "subscriptionId":"<guid>",
-    "offerId": "offer1",
-    "publisherId": "contoso",
-    "planId": "silver",
-    "quantity": "20"  ,
-    "action": "Subscribe",
-    "timeStamp": "2018-12-01T00:00:00"
+  "id": "<this is a Guid operation id, you can call operations API with this to get status>",
+  "activityId": "<this is a Guid correlation id>",
+  "subscriptionId": "<Guid to uniquely identify this resource>",
+  "publisherId": "<this is the publisher’s name>",
+  "offerId": "<this is the offer name>",
+  "planId": "<this is the plan id>",
+  "quantity": "<the number of seats, will be null if not per-seat saas offer>",
+  "timeStamp": "2019-04-15T20:17:31.7350641Z",
+  "action": "Unsubscribe",
+  "status": "NotStarted"  
 }
 
 Where action can be one of these: 
@@ -797,7 +803,16 @@ Where action can be one of these:
        ChangePlan, (When the change plan operation has completed)
        ChangeQuantity, (When the change quantity operation has completed),
        Suspend, (When resource has been suspended)
-       Reinstate, (When resource has been reinstated after suspension)
+	   Reinstate, (When resource has been reinstated after suspension),
+	   Renew (When a resource subscription is renewed)
+
+
+Where status can be one of these:
+        NotStarted,
+        InProgress,
+        Succeeded,
+        Failed,
+        Conflict
 ```
 
 
