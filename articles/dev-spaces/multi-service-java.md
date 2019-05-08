@@ -63,7 +63,7 @@ The preceding code example forwards the `azds-route-as` header from the incoming
 
 ### Debug across multiple services
 1. At this point, `mywebapi` should still be running with the debugger attached. If it is not, hit F5 in the `mywebapi` project.
-1. Set a breakpoint in the `index()` method of the `mywebapi` project, on [line 19 of `Application.java](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/mywebapi/src/main/java/com/ms/sample/mywebapi/Application.java#L19)
+1. Set a breakpoint in the `index()` method of the `mywebapi` project, on [line 19 of `Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/mywebapi/src/main/java/com/ms/sample/mywebapi/Application.java#L19)
 1. In the `webfrontend` project, set a breakpoint just before it sends a GET request to `mywebapi`, on the line starting with `try`.
 1. Hit F5 in the `webfrontend` project (or restart the debugger if currently running).
 1. Invoke the web app, and step through code in both services.

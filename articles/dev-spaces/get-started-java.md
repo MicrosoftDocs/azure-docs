@@ -205,7 +205,7 @@ public String greeting()
 
 Save the file, and in the **Debug actions pane**, click the **Restart** button.
 
-![](media/get-started-java/debug-action-refresh.png)
+![](media/common/debug-action-refresh.png)
 
 Instead of rebuilding and redeploying a new container image each time code edits are made, which will often take considerable time, Azure Dev Spaces will incrementally recompile code within the existing container to provide a faster edit/debug loop.
 
