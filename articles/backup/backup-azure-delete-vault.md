@@ -111,10 +111,10 @@ This procedure provides an example that shows you how to remove backup data from
 
     ![select your vault to open its dashboard](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
-2. Right-click the item > **Delete**.
-3. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
-4. After the job completes, the service sends a message: **the backup process was stopped and the backup data was deleted**.
-5. After deleting an item in the list, on the **Backup Infrastructure** menu, click **Refresh** to see the items in the vault.
+3. Right-click the item > **Delete**.
+4. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
+5. After the job completes, the service sends a message: **the backup process was stopped and the backup data was deleted**.
+6. After deleting an item in the list, on the **Backup Infrastructure** menu, click **Refresh** to see the items in the vault.
 
 
 ### Remove Azure Backup agent recovery points
@@ -149,11 +149,11 @@ This procedure provides an example that shows you how to remove backup data from
 1. When all dependencies have been removed, scroll to the **Essentials** pane in the vault menu.
 2. Verify that there aren't any **Backup items**, **Backup management servers**, or **Replicated items** listed. If items still appear in the vault, remove them.
 
-2. When there are no more items in the vault, on the vault dashboard click **Delete**.
+3. When there are no more items in the vault, on the vault dashboard click **Delete**.
 
     ![delete backup data](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 
-1. To verify that you want to delete the vault, click **Yes**. The vault is deleted and the portal returns to the **New** service menu.
+4. To verify that you want to delete the vault, click **Yes**. The vault is deleted and the portal returns to the **New** service menu.
 
 ## What if I stop the backup process but retain the data?
 
