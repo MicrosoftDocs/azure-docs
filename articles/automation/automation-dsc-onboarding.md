@@ -192,7 +192,7 @@ Automation State Configuration using the AWS DSC Toolkit. You can learn more abo
 
 Windows servers running on-premises or in other cloud environments
 can also be onboarded to Azure Automation State Configuration, as long as they have
-[outbound access to Azure](automation-dsc-overview.md#configure-private-networks):
+[outbound access to Azure](automation-dsc-overview.md#network-planning):
 
 1. Make sure the latest version of [WMF 5](https://aka.ms/wmf5latest) is installed on the machines you want to onboard to Azure Automation State Configuration.
 1. Follow the directions in following section [**Generating DSC metaconfigurations**](#generating-dsc-metaconfigurations) to generate a folder containing the needed DSC metaconfigurations.
@@ -209,7 +209,7 @@ can also be onboarded to Azure Automation State Configuration, as long as they h
 
 Linux servers running on-premises or in other cloud environments
 can also be onboarded to Azure Automation State Configuration, as long as they have
-[outbound access to Azure](automation-dsc-overview.md#configure-private-networks):
+[outbound access to Azure](automation-dsc-overview.md#network-planning):
 
 1. Make sure the latest version of [PowerShell Desired State Configuration for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) is installed on the machines you want to onboard to Azure Automation State Configuration.
 1. If the [PowerShell DSC Local Configuration Manager defaults](/powershell/dsc/metaconfig4) match your use case, and you want to onboard machines such that they **both** pull from and report to Azure Automation State Configuration:
