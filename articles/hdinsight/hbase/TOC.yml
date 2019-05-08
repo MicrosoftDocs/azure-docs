@@ -1,8 +1,8 @@
 - name: Azure HDInsight Documentation
   href: /azure/hdinsight
-- name: Apache HBase on HDInsight
+- name: Overview
   items:
-  - name: Overview
+  - name: Apache HBase in HDInsight
     href: apache-hbase-overview.md
   - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
