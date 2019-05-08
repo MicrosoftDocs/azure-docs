@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/10/2019
 abstract:
-  description: Learn how to use Azure NetApp Files to create and manage NetApp accounts, capacity pools, and volumes, configure export policy, mount a volume for a virtual machine, and manage snapshots. <p>Using Azure NetApp Files requires that you be granted access to the Azure NetApp Files service.  To request access to the service, see <a href="azure-netapp-files-waitlist">Submit a waitlist request</a>.</p>
+  description: Learn how to use Azure NetApp Files to create and manage NetApp accounts, capacity pools, and volumes, configure export policy, mount a volume for a virtual machine, and manage snapshots. <p>Using Azure NetApp Files requires that you are granted access to the Azure NetApp Files service.  To request access to the service, see <a href="azure-netapp-files-waitlist"> Submit a waitlist request</a>.</p>
 sections:
 - title: 5-minute quickstarts
   items:
