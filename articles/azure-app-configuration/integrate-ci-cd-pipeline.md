@@ -18,6 +18,14 @@ ms.custom: mvc
 ---
 # Integrate with a CI/CD pipeline
 
+This article describes various ways of using data from Azure App Configuration in a continuous integration and continuous deployment system.
+
+## Use App Configuration in your Azure DevOps Pipeline
+
+If you have an Azure DevOps Pipeline, you can fetch key-values from App Configuration and set them as task variables. The [Azure App Configuration DevOps extension](https://go.microsoft.com/fwlink/?linkid=2091063) is an add-on module that provides this functionality. Simply follow its instructions to use the extension in a build or release task sequence.
+
+## Deploy App Configuration data with your application
+
 Your application may fail to run if it depends on Azure App Configuration and cannot reach it. You can enhance the resiliency of your application to deal with such an event, however unlikely it is to happen. To do so, package the current configuration data into a file that's deployed with the application and loaded locally during its startup. This approach guarantees that your application has default setting values at least. These values are overwritten by any newer changes in an app configuration store when it's available.
 
 Using the [Export](./howto-import-export-data.md#export-data) function of Azure App Configuration, you can automate the process of retrieving current configuration data as a single file. Then embed this file in a build or deployment step in your continuous integration and continuous deployment (CI/CD) pipeline.
@@ -26,13 +34,13 @@ The following example shows how to include App Configuration data as a build ste
 
 You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
-## Prerequisites
+### Prerequisites
 
 If you build locally, download and install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) if you haven’t already.
 
 To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) is installed in your build system.
 
-## Export an app configuration store
+### Export an app configuration store
 
 1. Open your *.csproj* file, and add the following script:
 
@@ -61,7 +69,7 @@ To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](ht
             .UseStartup<Startup>();
     ```
 
-## Build and run the app locally
+### Build and run the app locally
 
 1. Set an environment variable named **ConnectionString**, and set it to the access key to your app configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
