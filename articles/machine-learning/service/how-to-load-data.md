@@ -23,6 +23,7 @@ In this article, you learn different methods of loading data using the Azure Mac
 
 > [!Important]
 > If you are building a new solution, try the [Azure Machine Learning Datasets](how-to-explore-prepare-data.md) (preview) for data exploration and preparation. Datasets is the next version of the data prep SDK, offering expanded functionality for managing data sets in AI solutions.
+> If you use the `azureml-dataprep` package to create a dataflow with your transformations instead of using the `azureml-datasets` package to create a dataset, you won't be able to use snapshots or versioned datasets later.
 
 The following table shows a selection of functions used for loading data from common file types.
 
