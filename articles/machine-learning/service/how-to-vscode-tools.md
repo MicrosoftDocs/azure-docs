@@ -94,9 +94,9 @@ To create a workspace and add your first experiment:
 
 1. In a workspace, you can right-click an experiment to set it as the **Active** experiment. The **Active** experiment is your current experiment. Your open folder in Visual Studio Code will be linked to this experiment in the cloud. This folder should contain your local Python scripts.
 
-   Now each of your experiments runs with your experiment, so all of your key metrics will be stored in the experiment history. The models you train will be automatically uploaded to Azure Machine Learning and stored with your experiment metrics and logs.
+Now your key metrics will be stored within the experiment history. Similarly, the models you train will be automatically uploaded to Azure Machine Learning and stored alongside your experiment metrics and logs. 
 
-   [![Attach a folder in Visual Studio Code](./media/vscode-tools-for-ai/CreateAnExperiment.gif)](./media/vscode-tools-for-ai/CreateAnExperiment.gif#lightbox)
+[![Attach a folder in Visual Studio Code](./media/vscode-tools-for-ai/CreateAnExperiment.gif)](./media/vscode-tools-for-ai/CreateAnExperiment.gif#lightbox)
 
 
 ## Create and manage compute targets
