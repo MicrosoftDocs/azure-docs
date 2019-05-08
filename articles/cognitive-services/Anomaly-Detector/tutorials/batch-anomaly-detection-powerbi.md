@@ -151,6 +151,7 @@ After adding the fields, click on the chart and resize it to show all of the dat
 ### Display anomaly data points
 
 On the right side of the Power BI window, below the **FIELDS** pane, right-click on **Value** under the Invoked Function query and click **New quick measure**.
+
 ![An image of the new quick measure screen](../media/tutorials/new-quick-measure.png)
 
 On the screen that appears, select **Filtered value** as the calculation. Set **Base value** to `Sum of Value`. Then drag `IsAnomaly` from the **Invoked Function** fields to **Filter**. Select `True` from the **Filter** drop-down menu.
