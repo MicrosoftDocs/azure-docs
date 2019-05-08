@@ -44,7 +44,7 @@ If you receive an error, remove [backup items](#remove-backup-items), [infrastru
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Install Chocolate from [here](https://chocolatey.org/) and to install ARMClient run the below command:
+1. Install chocolatey from [here](https://chocolatey.org/) and to install ARMClient run the below command:
 
    ` choco install armclient --source=https://chocolatey.org/api/v2/ `
 2. Login to Azure account, running the below command
