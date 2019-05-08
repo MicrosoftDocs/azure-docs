@@ -62,7 +62,7 @@ When it processes the training data, the K-means algorithm begins with an initia
   
 4.  The properties **Initialization** is used to specify the algorithm that's used to define the initial cluster configuration.  
   
-    -   **First N**: Some initial number of data points are chosen from the data set and used as the initial means. 
+    -   **First N**: Some initial number of data points are chosen from the dataset and used as the initial means. 
     
          This method is also called the *Forgy method*.  
   
