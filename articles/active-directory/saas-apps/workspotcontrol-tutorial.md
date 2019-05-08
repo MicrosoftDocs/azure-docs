@@ -103,17 +103,17 @@ To configure Azure AD single sign-on with Workspot Control, follow these steps:
     ![Workspot Control domain and URLs single sign-on information](common/idp-intiated.png)
 
     1. In the **identifier** text box, type a URL in the following pattern:<br/>
-    ***https://<INSTANCENAME>-saml.workspot.com/saml/metadata***
+    ***https://<<i></i>INSTANCENAME>-saml.workspot.com/saml/metadata***
 
     1. In the **reply URL** text box, type a URL in the following pattern:<br/>
-    ***https://<INSTANCENAME>-saml.workspot.com/saml/assertion***
+    ***https://<<i></i>INSTANCENAME>-saml.workspot.com/saml/assertion***
 
 5. If you want to configure the application in SP-initiated mode, select **Set additional URLs**.
 
     ![Workspot Control domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL in the following pattern:<br/>
-    ***https://INSTANCENAME-saml.workspot.com/***
+    ***https://<<i></i>INSTANCENAME>-saml.workspot.com/***
 
 	> [!NOTE]
 	> These values are not real. Replace these values with the actual identifier, reply URL, and sign-on URL. Contact the [Workspot Control Client support team](mailto:support@workspot.com) to get these values. Or you can also refer to the patterns in the **Basic SAML Configuration** section of the Azure portal.
