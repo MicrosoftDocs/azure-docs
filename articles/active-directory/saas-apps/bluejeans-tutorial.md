@@ -101,7 +101,7 @@ To configure Azure AD single sign-on with BlueJeans, perform the following steps
 
 4. In the **Basic SAML Configuration** dialog, enter the following values:
 
-    ![BlueJeans Domain and URLs single sign-on information](media/bluejeans-tutorial/sp-signonurl-bluejeans.png)
+    ![BlueJeans Domain and URLs single sign-on information](media/bluejeans-tutorial/tutorial_bluejeans-basic-configuration.png)
 
    - In the **Identifier** text box, type the following:
     `https://samlsp.bluejeans.com`
