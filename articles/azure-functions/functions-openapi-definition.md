@@ -167,12 +167,12 @@ Before you use the API definition, you should verify that it works.
 
 1. Enter values for **hours** and **capacity**
 
-```json
-{
-"hours": "6",
-"capacity": "2500"
-}
-```
+    ```json
+    {
+    "hours": "6",
+    "capacity": "2500"
+    }
+    ```
 
 1. Click **Send**, then view the HTTP response.
 
@@ -182,7 +182,5 @@ Before you use the API definition, you should verify that it works.
 
 ## Next steps
 
-Advance to the next topic to learn about API Management.
-
 > [!div class="nextstepaction"]
-> [API Management](../api-management/api-management-key-concepts.md)
+> [Learn more about API Management](../api-management/api-management-key-concepts.md)
