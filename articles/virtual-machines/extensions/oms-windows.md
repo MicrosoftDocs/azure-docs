@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 04/29/2019
 ms.author: roiyz
 
 ---
@@ -28,7 +28,10 @@ Azure Monitor logs provides monitoring capabilities across cloud and on-premises
 
 ### Operating system
 
-The Log Analytics agent extension for Windows can be run against Windows Server 2008 R2, 2012, 2012 R2, and 2016 releases.
+The Log Analytics agent extension for Windows supports following versions of the Windows operating system:
+
+- Windows Server 2019
+- Windows Server 2008 R2, 2012, 2012 R2, 2016, version 1709 and 1803
 
 ### Azure Security Center
 
@@ -39,7 +42,7 @@ The Log Analytics agent extension for Windows requires that the target virtual m
 
 ## Extension schema
 
-The following JSON shows the schema for the Log Analytics agent extension. The extension requires the workspace Id and workspace key from the target Log Analytics workspace. These can be found in the settings for the workspace in the Azure portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine. Note that **workspaceId** and **workspaceKey** are case-sensitive.
+The following JSON shows the schema for the Log Analytics agent extension. The extension requires the workspace ID and workspace key from the target Log Analytics workspace. These can be found in the settings for the workspace in the Azure portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine. Note that **workspaceId** and **workspaceKey** are case-sensitive.
 
 ```json
 {
@@ -80,6 +83,9 @@ The following JSON shows the schema for the Log Analytics agent extension. The e
 ## Template deployment
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Log Analytics agent extension during an Azure Resource Manager template deployment. A sample template that includes the Log Analytics agent VM extension can be found on the [Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+
+>[!NOTE]
+>The template does not support specifying more than one workspace ID and workspace key when you want to configure the agent to report to multiple workspaces. To configure the agent to report to multiple workspaces, see [Adding or removing a workspace](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
 
 The JSON for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
 

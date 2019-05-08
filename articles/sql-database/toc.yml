@@ -120,6 +120,8 @@
       href: sql-database-service-tiers-vcore.md
     - name: DTU service tiers
       href: sql-database-service-tiers-dtu.md
+    - name: Serverless compute tier
+      href: sql-database-serverless.md
     - name: Prepay for reserved capacity
       href: sql-database-reserved-capacity.md
     - name: Migrate from Premium RS service tier
@@ -282,6 +284,8 @@
         href: transparent-data-encryption-azure-sql.md
       - name: TDE with Bring Your Own Key
         href: transparent-data-encryption-byok-azure-sql.md
+    - name: Security attributes
+      href: sql-database-security-attributes.md
   - name: Scalability
     items:
     - name: Scalability overview
@@ -458,6 +462,8 @@
       href: sql-database-managed-instance-create-vnet-subnet.md
     - name: Configure existing VNet and subnet for managed instance
       href: sql-database-managed-instance-configure-vnet-subnet.md
+    - name: Delete subnet after deleting managed instance
+      href: sql-database-managed-instance-delete-virtual-cluster.md
     - name: Configure custom DNS
       href: sql-database-managed-instance-custom-dns.md
     - name: Sync network configuration

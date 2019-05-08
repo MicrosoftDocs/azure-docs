@@ -47,6 +47,8 @@
         href: howto-connect-raspberry-pi-csharp.md
       - name: Prepare and connect a Windows IoT Core device
         href: howto-connect-windowsiotcore.md
+      - name: Prepare and connect a SensorTile.box device
+        href: howto-connect-sensortile.md
       - name: Monitor device connectivity using command line
         href: howto-use-iotc-explorer.md
   - name: Manage devices
@@ -98,6 +100,10 @@
         href: howto-administer.md  
       - name: Prepare and upload image
         href: howto-prepare-images.md
+      - name: Configure application dashboard
+        href: howto-configure-homepage.md
+      - name: Customize application UI
+        href: howto-customize-ui.md
       - name: Manage from the Azure portal
         href: howto-manage-iot-central-from-portal.md
       - name: Manage from Azure CLI
@@ -106,8 +112,6 @@
         href: howto-manage-iot-central-from-powershell.md
       - name: As a CSP create and manage an application
         href: howto-create-and-manage-applications-as-CSP.md
-      - name: Configure application dashboard
-        href: howto-configure-homepage.md
   - name : Personalization
     items:
       - name: Create personal dashboards
