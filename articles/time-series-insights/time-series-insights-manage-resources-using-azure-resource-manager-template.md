@@ -9,7 +9,7 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/08/2019
 ms.custom: seodec18
 ---
 
@@ -48,7 +48,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 
      To create a parameters file, copy the [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json) file.
 
-      [!code-json[deployment-template](~/quickstart-templates/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json)]
+      [!code-json[deployment-parameters](~/quickstart-templates/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json)]
 
     <div id="required-parameters"></div>
 
@@ -81,7 +81,38 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 
    * As an example, the following parameters file would be used to create an environment and an event source that reads events from an existing event hub. It also creates two access policies that grant Contributor access to the environment.
 
-      [!code-json[deployment-parameters](~/quickstart-templates/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json)]
+     ```json
+     {
+         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+         "contentVersion": "1.0.0.0",
+         "parameters": {
+             "eventHubNamespaceName": {
+                 "value": "tsiTemplateTestNamespace"
+             },
+             "eventHubName": {
+                 "value": "tsiTemplateTestEventHub"
+             },
+             "consumerGroupName": {
+                 "value": "tsiTemplateTestConsumerGroup"
+             },
+             "environmentName": {
+                 "value": "tsiTemplateTestEnvironment"
+             },
+             "eventSourceName": {
+                 "value": "tsiTemplateTestEventSource"
+             },
+             "existingEventHubResourceId": {
+                 "value": "/subscriptions/{yourSubscription}/resourceGroups/MyDemoRG/providers/Microsoft.EventHub/namespaces/tsiTemplateTestNamespace/eventhubs/tsiTemplateTestEventHub"
+             },
+             "accessPolicyContributorObjectIds": {
+                 "value": [
+                     "AGUID001-0000-0000-0000-000000000000",
+                     "AGUID002-0000-0000-0000-000000000000"
+                 ]
+             }    
+         }
+     }
+     ```
   
     * For more information, see the [Parameters](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) article.
 
