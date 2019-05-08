@@ -155,7 +155,7 @@ On the screen that appears, select **Filtered value** as the calculation. Set **
 
 ![An image of the new quick measure screen](../media/tutorials/new-quick-measure-2.png)
 
-After clicking **Ok**, you will have a `Value for True` field, at the bottom of the list of your fields. Add it to the chart's **Values**. Then select the **Format** tool, and set the X-axis type to **Categorical**.
+After clicking **Ok**, you will have a `Value for True` field, at the bottom of the list of your fields. Right-click it and rename it to **Anomaly**. Add it to the chart's **Values**. Then select the **Format** tool, and set the X-axis type to **Categorical**.
 
 ![An image of the new quick measure screen](../media/tutorials/format-x-axis.png)
 
