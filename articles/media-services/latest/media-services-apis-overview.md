@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -23,7 +23,11 @@ This article discusses rules that apply to entities and APIs when developing wit
 
 ## Accessing the Azure Media Services API
 
-To access the Azure Media Services resources, you can use the Azure Active Directory (AD) service principal authentication.
+To be authorized to access Media Services resources and the Media Services API, you must first be authenticated. Media Services supports [Azure Active Directory (Azure AD)-based](../../active-directory/fundamentals/active-directory-whatis.md) authentication. Two common authentication options are:
+ 
+* **Service principal authentication** - Used to authenticate a service (for example: web apps, function apps, logic apps, API, and microservices). Applications that commonly use this authentication method are apps that run daemon services, middle-tier services, or scheduled jobs. For example, for Web applications there should always be a mid-tier that connects to Media Services with a Service Principal.
+* **User authentication** - Used to authenticate a person who is using the app to interact with Media Services resources. The interactive application should first prompt the user for the user's credentials. An example is a management console app used by authorized users to monitor encoding jobs or live streaming.
+
 The Media Services API requires that the user or application making the REST API requests have access to the Media Services account resource and use a **Contributor** or **Owner** role. The API can be accessed with the **Reader** role but only **Get** or **List**  operations will be available. For more information, see [Role-based access control for Media Services accounts](rbac-overview.md).
 
 Instead of creating a service principal, consider using managed identities for Azure resources to access the Media Services API through Azure Resource Manager. To learn more about managed identities for Azure resources, see [What is managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -51,6 +55,16 @@ see [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.m
 2. The Azure AD access token is sent to the middle tier.
 4. The middle tier sends request to the Azure Media REST API with the Azure AD token.
 5. The middle tier gets back the data from Media Services.
+
+### Samples
+
+See the following samples that show how to connect with Azure AD service principal:
+
+* [Connect with REST](media-rest-apis-with-postman.md)  
+* [Connect with Java](configure-connect-java-howto.md)
+* [Connect with .NET](configure-connect-dotnet-howto.md)
+* [Connect with Node.js](configure-connect-nodejs-howto.md)
+* [Connect with Python](configure-connect-python-howto.md)
 
 ## Naming conventions
 
@@ -87,7 +101,7 @@ Media Services has the following long-running operations:
 
 See [Filtering, ordering, paging of Azure Media Services entities](entities-overview.md)
 
-## Provide feedback
+## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 

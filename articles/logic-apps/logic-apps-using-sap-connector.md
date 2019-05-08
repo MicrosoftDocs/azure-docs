@@ -8,25 +8,29 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 04/19/2019
 tags: connectors
 ---
 
 # Connect to SAP systems from Azure Logic Apps
 
 This article shows how you can access your on-premises SAP resources from 
-inside a logic app by using the SAP ERP Central Component (ECC) connector. 
-The connector works with both ECC and S/4 HANA systems on-premises. 
-The SAP ECC connector supports message or data integration to and from 
+inside a logic app by using the SAP connector. 
+The connector works with SAP's classical releases such R/3, ECC systems on-premises. The connector also enables integration with the SAP's newer HANA based SAP systems such as S/4 HANA, wherever they are hosted - on premises or in cloud.
+The SAP connector supports message or data integration to and from 
 SAP Netweaver-based systems through Intermediate Document (IDoc) or 
 Business Application Programming Interface (BAPI) or Remote Function Call (RFC).
 
-The SAP ECC connector uses the 
+The SAP connector uses the 
 <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .NET Connector (NCo) library</a> and provides these operations or actions:
 
 - **Send to SAP**: Send IDoc or call BAPI functions over tRFC in SAP systems.
 - **Receive from SAP**: Receive IDoc or BAPI function calls over tRFC from SAP systems.
 - **Generate schemas**: Generate schemas for the SAP artifacts for IDoc or BAPI or RFC.
+
+For all the above operations, SAP connector supports basic authentication through username and password. 
+The connector also supports <a href="https://help.sap.com/doc/saphelp_nw70/7.0.31/en-US/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true"> Secure Network Communications (SNC)</a>, 
+which can be used for SAP Netweaver Single Sign-On or for additional security capabilities provided by an external security product. 
 
 The SAP connector integrates with on-premises SAP systems through the 
 [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127). 
@@ -37,6 +41,8 @@ that receives requests from SAP and forwards to the Logic App.
 
 This article shows how to create example logic apps that integrate 
 with SAP while covering the previously described integration scenarios.
+
+<a name="pre-reqs"></a>
 
 ## Prerequisites
 
@@ -61,6 +67,13 @@ your gateway in the Azure portal before you continue.
 The gateway helps you securely access data and 
 resources are on premises. For more information, see 
 [Install on-premises data gateway for Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
+
+* If you are using SNC with Single Sign-On (SSO), then make sure the gateway is running as a user that's mapped against the SAP user. To change the default account,
+select **Change account** and enter the user credentials.
+
+   ![Change gateway account](./media/logic-apps-using-sap-connector/gateway-account.png)
+
+* If you are enabling SNC with an external security product, copy the SNC library or files on the same machine where the gateway is installed. Some examples of SNC products include <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>, Kerberos, NTLM, and so on.
 
 * Download and install the latest SAP client library, which is currently 
 <a href="https://softwaredownloads.sap.com/file/0020000001865512018" target="_blank">SAP Connector (NCo) 3.0.21.0 for Microsoft .NET Framework 4.0 and Windows 64bit (x64)</a>, 
@@ -171,7 +184,7 @@ so you can set up your SAP action.
       these properties, which usually appear optional, are required: 
 
       ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
-
+      
    2. When you're done, choose **Create**. 
    
       Logic Apps sets up and tests your connection, 
@@ -510,9 +523,41 @@ For other fields, follow the example below.
 2. After a successful run, go to the integration account, 
 and check that the generated schemas generated exist.
 
+## Enable Secure Network Communications (SNC)
+
+Before you start, make sure you've met the previously listed [prerequisites](#pre-reqs):
+
+* The on-premises data gateway is installed on a machine that is in the same network as your SAP system.
+
+* For Single Sign-On, gateway is running as a user that's mapped to SAP user.
+
+* SNC library that provides the additional security functions has been installed on the same machine as data gateway. Some of the examples of these include <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>, Kerberos, NTLM, and so on.
+
+To enable SNC for your requests to or from SAP system, select the **Use SNC** checkbox in SAP connection and provide these properties:
+
+   ![Configure SAP SNC in connection](media/logic-apps-using-sap-connector/configure-sapsnc.png) 
+
+   | Property   | Description |
+   |------------| ------------|
+   | **SNC Library** | SNC library name or path relative to NCo installation location or absolute path. As an example sapsnc.dll or .\security\sapsnc.dll or c:\security\sapsnc.dll  | 
+   | **SNC SSO** | When connecting via SNC, the SNC identity is typically used for authenticating the caller. Another option is to override so that user/password information can be used for authenticating the caller, but the line is still encrypted.|
+   | **SNC My Name** | In most cases this can be omitted. The installed SNC solution usually knows its own SNC name. Only for solutions supporting “multiple identities”, you may need to specify the identity to be used for this particular destination/server |
+   | **SNC Partner Name** | The backend’s SNC name |
+   | **SNC Quality of Protection** | Quality of Service to be used for SNC communication of this particular destination/server. Default value is defined by the back-end system. Maximum value is defined by the security product used for SNC |
+   |||
+
+   > [!NOTE]
+   > Environment variables SNC_LIB and SNC_LIB_64 should not be set on the machine where you have data gateway and SNC library. If set, they would take precedence over the 
+   > SNC Library value passed via connector.
+   >
+
 ## Known issues and limitations
 
 Here are the currently known issues and limitations for the SAP connector:
+
+* Only a single Send to SAP call or message works with tRFC. 
+The Business Application Programming Interface (BAPI) commit pattern, 
+such as making multiple tRFC calls in the same session, isn't supported.
 
 * The SAP trigger doesn't support receiving batch IDOCs from SAP. 
 This action might result in RFC connection failure between your SAP system and the data gateway.
@@ -522,23 +567,10 @@ In some failover cases, the data gateway node that communicates
 with the SAP system might differ from the active node, resulting 
 in unexpected behavior. For Send scenarios, data gateway clusters are supported.
 
-* In Receive scenarios, returning a non-null response isn't supported. 
-A logic app with a trigger and a response action results in unexpected behavior. 
-
-* Only a single Send to SAP call or message works with tRFC. 
-The Business Application Programming Interface (BAPI) commit pattern, 
-such as making multiple tRFC calls in the same session, isn't supported.
-
-* RFCs with attachments aren't supported for both the Send to SAP 
-and Generate schemas actions.
-
 * The SAP connector currently doesn't support SAP router strings. 
 The on-premises data gateway must exist on the same LAN as the SAP 
 system you want to connect.
 
-* The conversion for absent (null), empty, minimum, and maximum values 
-for DATS and TIMS SAP fields is subject to change in later updates for 
-the on-premises data gateway.
 
 ## Get support
 
