@@ -7,7 +7,7 @@ ms.author: twhitney
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/08/2019
 ---
 
 # Azure Red Hat OpenShift FAQ
@@ -20,7 +20,7 @@ See [Supported resources](supported-resources.md#azure-regions) for a list of gl
 
 ## Can I deploy a cluster into an existing virtual network?
 
-Yes. You can deploy an Azure Red Hat OpenShift cluster into an existing virtual network when you create a cluster. See the [Connect a cluster's virtual network to an existing virtual network
+No. But you can connect an Azure Red Hat OpenShift cluster to an existing VNET via peering. See [Connect a cluster's virtual network to an existing virtual network
 ](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) for details.
 
 ## What cluster operations are available?
