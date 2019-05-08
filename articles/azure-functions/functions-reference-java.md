@@ -110,6 +110,19 @@ Download and use the [Azul Zulu Enterprise for Azure](https://assets.azul.com/fi
 
 [Azure support](https://azure.microsoft.com/support/) for issues with the JDKs and Function apps is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
 
+## Customize JVM
+
+Functions lets you customize the Java virtual machine (JVM) used to host your Java functions. The [following JVM arguments](https://github.com/Azure/azure-functions-java-worker/blob/master/worker.config.json#L7) are used by default: 
+
+* `-XX:+TieredCompilation`
+* `-XX:TieredStopAtLevel=1` 
+* `-noverify` 
+* `-Djava.net.preferIPv4Stack=true` 
+* `-jar`
+
+You can provide additional arguments in an app setting named `JAVA_OPTS`. You can add app settings in Azure from the portal or by  For example, the following adds the by using the 
+
+
 ## Third-party libraries 
 
 Azure Functions supports the use of third-party libraries. By default, all dependencies specified in your project `pom.xml` file will be automatically bundled during the [`mvn package`](https://github.com/Microsoft/azure-maven-plugins/blob/master/azure-functions-maven-plugin/README.md#azure-functionspackage) goal. For libraries not specified as dependencies in the `pom.xml` file, place them in a `lib` directory in the function's root directory. Dependencies placed in the `lib` directory will be added to the system class loader at runtime.
