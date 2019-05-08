@@ -38,9 +38,9 @@ Some details about storage accounts:
 
 - **Create VM**: When you create a new VM, the VM will be placed in the storage account you specify.
 - **Restore disk**: When you restore a disk, the disk is copied to the storage account you specify. The restore job generates a template that you can download and use to specify custom VM settings. This template is placed in the specified storage account.
-- **Replace disk**: When you replace a disk on an existing VM, Azure Backup takes a snapshot of the existing VM before replacing the disk. The snapshot is stored in the staging location (storage account) you specify. This storage account is used to temporarily how the snapshot during the restore process, and we recommend that you create a new account to do this, that can be easily removed afterwards.
-- **Storage account location** : The storage account must be in the same subscription and location as the vault. Only these accounts are displayed.
-- **Storage account type**: Zone redundant storage (ZRS) isn't supported.
+- **Replace disk**: When you replace a disk on an existing VM, Azure Backup takes a snapshot of the existing VM before replacing the disk. The snapshot is stored in the staging location (storage account) you specify. This storage account is used to temporarily store the snapshot during the restore process, and we recommend that you create a new account to do this, that can be easily removed afterwards.
+- **Storage account location** : The storage account must be in the same subscription and location as the vault. Only these accounts are displayed. If there are no storage accounts in the location, you need to create one.
+- **Storage account type**: Zone redundant storage (ZRS) isn't supported. The replication and redundancy information for the account is shown in parentheses after the account name. 
 
 
 ## Before you start
@@ -79,7 +79,7 @@ As one of the [restore options](#restore-options), you can create a VM quickly w
 2. In **Virtual machine name**, specify a VM which doesn’t exist in the subscription.
 3. In **Resource group**, select an existing resource group for the new VM, or create a new one with a globally unique name. If you assign a name that already exists, Azure assigns the group the same name as the VM.
 4. In **Virtual network**, select the VNet in which the VM will be placed. All VNets associated with the subscription are displayed. Select the subnet. The first subnet is selected by default.
-5. In **Storage Location**, specify the storage type for the VM.
+5. In **Storage Location**, specify the storage account for the VM. [Learn more](#storage-accounts).
 
     ![Restore configuration wizard](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
@@ -96,7 +96,7 @@ As one of the [restore options](#restore-options), you can create a disk from a 
 
 1. In **Restore configuration** > **Create new** > **Restore Type**, select **Restore disks**.
 2. In **Resource group**, select an existing resource group for the restored disks, or create a new one with a globally unique name.
-3. In **Storage account**, specify the account to which to copy the VHDs. Make sure the account is in the same region as the vault.
+3. In **Storage account**, specify the account to which to copy the VHDs. [Learn more](#storage-accounts).
 
     ![Recovery configuration completed](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
 
@@ -131,7 +131,7 @@ As one of the [restore options](#restore-options), you can replace an existing V
 
 1. In **Restore configuration**, click **Replace existing**.
 2. In **Restore Type**, select **Replace disk/s**. This is the restore point that will be used replace existing VM disks.
-3. In **Staging Location**, specify where snapshots of the current managed disks should be saved.
+3. In **Staging Location**, specify where snapshots of the current managed disks should be saved during the restore process. [Learn more](#storage-accounts).
 
    ![Restore configuration wizard Replace Existing](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
