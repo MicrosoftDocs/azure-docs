@@ -64,7 +64,7 @@ To configure integration of Workspot Control into Azure AD, you must add Workspo
 
 4. In the search box, type **Workspot Control**, select **Workspot Control** from the results panel, and then select **Add**.
 
-	 ![Add from the gallery window](common/search-new-app.png)
+	 !["Add from the gallery" window](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -96,7 +96,7 @@ To configure Azure AD single sign-on with Workspot Control, follow these steps:
 
 3. On the **Set up Single Sign-On with SAML** page, select the **Edit** (pencil) icon to access **Basic SAML Configuration**.
 
-	!["Edit" icon highlighted in Basic SAML Configuration](common/edit-urls.png)
+	![Edit icon highlighted in "Basic SAML Configuration"](common/edit-urls.png)
 
 4. In the **Basic SAML Configuration** section, if you want to configure the application in IDP-initiated mode, follow these steps:
 
@@ -214,7 +214,7 @@ To enable Azure AD users to sign in to Workspot Control, they must be provisione
 
 2. In the toolbar at the top of the page, select **Users** and then **Add User**.
 
-	![Users options](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_adduser.png)
+	!["Users" options](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_adduser.png)
 
 3. In the **Add a New User** window, follow these steps:
 
