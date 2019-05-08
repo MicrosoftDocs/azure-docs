@@ -113,7 +113,7 @@ you might have to first create connections, which are managed by Azure Logic App
   (formerly Swagger) description, plus any limits, you can find the full list 
   under the [Connectors overview](/connectors/). For pricing information, see 
   [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md), and 
-  and [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/). 
+  [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 <a name="built-ins"></a>
 
