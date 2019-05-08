@@ -11,7 +11,7 @@ ms.topic: article
 ---
 
 # Using Chef with Azure
-[Chef](http://www.chef.io) is a powerful automation platform that transforms virtual machine infrastructure on Azure into code. Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
+[Chef](https://www.chef.io) is a powerful automation platform that transforms virtual machine infrastructure on Azure into code. Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
 
 This article describes the benefits of using Chef to manage Azure infrastructure.
 

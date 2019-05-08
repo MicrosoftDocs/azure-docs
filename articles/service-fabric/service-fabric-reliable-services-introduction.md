@@ -4,11 +4,11 @@ description: Learn about Service Fabric's Reliable Service programming model, an
 services: Service-Fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: vturecek; mani-ramaswamy
 
 ms.assetid: 0c88a533-73f8-4ae1-a939-67d17456ac06
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA

@@ -12,7 +12,7 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 02/20/2019
 ms.author: juliako
 #Customer intent: As a developer, I want to create a Media Services account so that I can store, encrypt, encode, manage, and stream media content in Azure.
 ---
@@ -39,7 +39,7 @@ By the end of the quickstart you will be able to stream a video.
 Clone a GitHub repository that contains the streaming .NET sample to your machine using the following command:  
 
  ```bash
- git clone http://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
+ git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
 
 The sample is located in the [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles) folder.

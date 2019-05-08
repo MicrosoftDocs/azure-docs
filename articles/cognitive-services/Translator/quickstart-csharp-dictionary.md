@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
 
@@ -127,8 +127,16 @@ var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
 
 // Print the response
-Console.WriteLine(jsonResponse);
+Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
+```
+
+Add `PrettyPrint` to add formatting to your JSON response:
+```csharp
+static string PrettyPrint(string s)
+{
+    return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
+}
 ```
 
 ## Put it all together

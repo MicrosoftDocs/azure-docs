@@ -6,10 +6,7 @@ author: barclayn
 manager: barbkess
 tags: azure-resource-manager
 
-ms.assetid: 34af20ee-3fa7-4f28-9d98-6168b1759764
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
@@ -52,7 +49,7 @@ Once you have created a couple of Key Vaults, you will want to monitor how and w
 
 - Archive to a storage account.
 - Stream to an event hub.
-- Send the logs to Log Analytics.
+- Send the logs to Azure Monitor logs.
 
 You have control over your logs and you may secure them by restricting access and you may also delete logs that you no longer need.
 

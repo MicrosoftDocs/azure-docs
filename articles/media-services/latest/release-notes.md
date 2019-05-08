@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 05/01/2019
 ms.author: juliako
 ---
 
@@ -31,9 +31,29 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 For more information, see [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md#known-issues).
 
+## May 2019
+
+### Performance improvements
+
+* The maximum file size supported for processing was updated. See, [Quotas and limitations](limits-quotas-constraints.md).
+* [Encoding speeds improvements](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
+
+## April 2019
+
+### New presets
+
+* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) was added to the built-in analyzer presets.
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) was added to the built-in encoder presets. For more information, see [Content-aware encoding](cae-experimental.md). 
+
+## March 2019
+
+Dynamic Packaging now supports Dolby Atmos. For more information, see [Audio codecs supported by dynamic packaging](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
+
+You can now specify a list of asset or account filters, which would apply to your Streaming Locator. For more information, see [Associate filters with Streaming Locator](filters-concept.md#associate-filters-with-streaming-locator).
+
 ## February 2019
 
-Media Services v3 is now upported in Azure national clouds. Not all features are available in all clouds yet. For details, see [Clouds and regions in which Azure Media Services v3 exists](azure-clouds-regions.md).
+Media Services v3 is now supported in Azure national clouds. Not all features are available in all clouds yet. For details, see [Clouds and regions in which Azure Media Services v3 exists](azure-clouds-regions.md).
 
 [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) event was added to the Azure Event Grid schemas for Media Services.
 
@@ -177,9 +197,9 @@ If you created Assets or Account Filters between 09/28 and 10/12 with Media Serv
 
 ## May 2018 - Preview
 
-### .Net SDK
+### .NET SDK
 
-The following features are present in the .Net SDK:
+The following features are present in the .NET SDK:
 
 * **Transforms** and **Jobs** to encode or analyze media content. For examples, see [Stream files](stream-files-tutorial-with-api.md) and [Analyze](analyze-videos-tutorial-with-api.md).
 * **Streaming Locators** for publishing and streaming content to end-user devices
@@ -191,6 +211,10 @@ The following features are present in the .Net SDK:
 ### Known issues
 
 * When submitting a job, you can specify to ingest your source video using HTTPS URLs, SAS URLs, or paths to files located in Azure Blob storage. Currently, AMS v3 does not support chunked transfer encoding over HTTPS URLs.
+
+## Ask questions, give feedback, get updates
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 

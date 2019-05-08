@@ -7,11 +7,16 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 ms.author: brjohnst
-ms.custom: seodec2018
+
 ---
 # How to use Azure Search from a .NET Application
+
+> [!Important]
+> This content is still under construction. Version 9.0 of the Azure Search .NET SDK is available on NuGet. We are working on updating this migration guide to explain how to upgrade to the new version. Stay tuned.
+>
+
 This article is a walkthrough to get you up and running with the [Azure Search .NET SDK](https://aka.ms/search-sdk). You can use the .NET SDK to implement a rich search experience in your application using Azure Search.
 
 ## What's in the Azure Search SDK
@@ -32,7 +37,7 @@ The various client libraries define classes like `Index`, `Field`, and `Document
 
 The current version of the Azure Search .NET SDK is now generally available. If you would like to provide feedback for us to incorporate in the next version, please visit our [feedback page](https://feedback.azure.com/forums/263029-azure-search/).
 
-The .NET SDK supports version `2017-11-11` of the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/). This version now includes support for synonyms, as well as incremental improvements to indexers. Preview features that are *not* part of this version, such as support for indexing JSON arrays and CSV files, are in [preview](search-api-2016-09-01-preview.md) and available via [4.0-preview version of the .NET SDK](https://aka.ms/search-sdk-preview).
+The .NET SDK supports version `2017-11-11` of the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/). This version now includes support for synonyms, as well as incremental improvements to indexers. 
 
 This SDK does not support [Management Operations](https://docs.microsoft.com/rest/api/searchmanagement/) such as creating and scaling Search services and managing API keys. If you need to manage your Search resources from a .NET application, you can use the [Azure Search .NET Management SDK](https://aka.ms/search-mgmt-sdk).
 
@@ -53,7 +58,7 @@ There are several things you'll need to do in your search application. In this t
 * Populating the index with documents
 * Searching for documents using full-text search and filters
 
-The sample code that follows illustrates each of these. Feel free to use the code snippets in your own application.
+The following sample code illustrates each of these. Feel free to use the code snippets in your own application.
 
 ### Overview
 The sample application we'll be exploring creates a new index named "hotels", populates it with a few documents, then executes some search queries. Here is the main program, showing the overall flow:
@@ -196,7 +201,7 @@ The full source code of the application is provided at the end of this article.
 Next, we will take a closer look at each of the methods called by `Main`.
 
 ### Creating an index
-After creating a `SearchServiceClient`, the next thing `Main` does is delete the "hotels" index if it already exists. That is done by the following method:
+After creating a `SearchServiceClient`, `Main` deletes the "hotels" index if it already exists. That is done by the following method:
 
 ```csharp
 private static void DeleteHotelsIndexIfExists(SearchServiceClient serviceClient)
@@ -324,6 +329,8 @@ The third part of this method is a catch block that handles an important error c
 
 Finally, the `UploadDocuments` method delays for two seconds. Indexing happens asynchronously in your Azure Search service, so the sample application needs to wait a short time to ensure that the documents are available for searching. Delays like this are typically only necessary in demos, tests, and sample applications.
 
+<a name="how-dotnet-handles-documents"></a>
+
 #### How the .NET SDK handles documents
 You may be wondering how the Azure Search .NET SDK is able to upload instances of a user-defined class like `Hotel` to the index. To help answer that question, let's look at the `Hotel` class:
 
@@ -384,13 +391,13 @@ public partial class Hotel
 The first thing to notice is that each public property of `Hotel` corresponds to a field in the index definition, but with one crucial difference: The name of each field starts with a lower-case letter ("camel case"), while the name of each public property of `Hotel` starts with an upper-case letter ("Pascal case"). This is a common scenario in .NET applications that perform data-binding where the target schema is outside the control of the application developer. Rather than having to violate the .NET naming guidelines by making property names camel-case, you can tell the SDK to map the property names to camel-case automatically with the `[SerializePropertyNamesAsCamelCase]` attribute.
 
 > [!NOTE]
-> The Azure Search .NET SDK uses the [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) library to serialize and deserialize your custom model objects to and from JSON. You can customize this serialization if needed. For more details, see [Custom Serialization with JSON.NET](#JsonDotNet).
+> The Azure Search .NET SDK uses the [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) library to serialize and deserialize your custom model objects to and from JSON. You can customize this serialization if needed. For more information, see [Custom Serialization with JSON.NET](#JsonDotNet).
 > 
 > 
 
-The second thing to notice are the attributes such as `IsFilterable`, `IsSearchable`, `Key`, and `Analyzer` that decorate each public property. These attributes map directly to the [corresponding attributes of the Azure Search index](https://docs.microsoft.com/rest/api/searchservice/create-index#request). The `FieldBuilder` class uses these to construct field definitions for the index.
+The second thing to notice is the attributes that decorate each public property (such as `IsFilterable`, `IsSearchable`, `Key`, and `Analyzer`). These attributes map directly to the [corresponding attributes of the Azure Search index](https://docs.microsoft.com/rest/api/searchservice/create-index#request). The `FieldBuilder` class uses these to construct field definitions for the index.
 
-The third important thing about the `Hotel` class are the data types of the public properties. The .NET types of  these properties map to their equivalent field types in the index definition. For example, the `Category` string property maps to the `category` field, which is of type `Edm.String`. There are similar type mappings between `bool?` and `Edm.Boolean`, `DateTimeOffset?` and `Edm.DateTimeOffset`, etc. The specific rules for the type mapping are documented with the `Documents.Get` method in the [Azure Search .NET SDK reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). The `FieldBuilder` class takes care of this mapping for you, but it can still be helpful to understand in case you need to troubleshoot any serialization issues.
+The third important thing about the `Hotel` class is the data types of the public properties. The .NET types of  these properties map to their equivalent field types in the index definition. For example, the `Category` string property maps to the `category` field, which is of type `Edm.String`. There are similar type mappings between `bool?` and `Edm.Boolean`, `DateTimeOffset?` and `Edm.DateTimeOffset`, etc. The specific rules for the type mapping are documented with the `Documents.Get` method in the [Azure Search .NET SDK reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). The `FieldBuilder` class takes care of this mapping for you, but it can still be helpful to understand in case you need to troubleshoot any serialization issues.
 
 This ability to use your own classes as documents works in both directions; You can also retrieve search results and have the SDK automatically deserialize them to a type of your choice, as we will see in the next section.
 
@@ -579,7 +586,7 @@ And here are the results, which include all fields since we did not specify the 
 
 	ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
 
-This step completes the tutorial, but don't stop here. **Next steps** provides additional resources for learning more about Azure Search.
+This step completes the tutorial, but don't stop here. **Next steps provide additional resources for learning more about Azure Search.
 
 ## Next steps
 * Browse the references for the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) and [REST API](https://docs.microsoft.com/rest/api/searchservice/).

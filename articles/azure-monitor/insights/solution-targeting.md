@@ -7,7 +7,7 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -29,7 +29,7 @@ You specify the computers that you want to include in a scope by creating a [com
 Once you have the computer group created in your workspace, then you'll include it in a scope configuration that can be applied to one or more solutions.
  
  
- ### 2. Create a scope configuration
+### 2. Create a scope configuration
  A **Scope Configuration** includes one or more computer groups and can be applied to one or more solutions. 
  
  Create a scope configuration using the following process.  
@@ -43,7 +43,7 @@ Once you have the computer group created in your workspace, then you'll include 
  6. Click **OK** to create the scope configuration. 
 
 
- ### 3. Apply the scope configuration to a solution.
+### 3. Apply the scope configuration to a solution.
 Once you have a scope configuration, then you can apply it to one or more solutions.  Note that while a single scope configuration can be used with multiple solutions, each solution can only use one scope configuration.
 
 Apply a scope configuration using the following process.  

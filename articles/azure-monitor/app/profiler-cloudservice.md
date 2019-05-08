@@ -27,13 +27,15 @@ Application Insights Profiler is installed with the Azure Diagnostics extension.
 
 1. Add [Application Insights SDK to Azure Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
+    **The bug in the profiler that ships in the WAD for Cloud Services has been fixed.** The latest version of WAD (1.12.2.0) for Cloud Services works with all recent versions of the App Insights SDK. Cloud Service hosts will upgrade WAD automatically, but it isn't immediate. To force an upgrade, you can redeploy your service or reboot the node.
+
 1. Track requests with Application Insights:
 
     * For ASP.NET web roles, Application Insights can track the requests automatically.
 
     * For worker roles, [add code to track requests](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json).
 
-1. Configure the Azure Diagnostics extension to enable Profiler by doing the following:
+1. Configure the Azure Diagnostics extension to enable Profiler:
 
     a. Locate the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* file for your application role, as shown here:  
 

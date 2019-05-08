@@ -231,7 +231,7 @@ The full list of tenants and the corresponding database for each is available in
 - The tenant name is stored in the Tenants table.
 - The database name is stored in the Shard Management tables.
 
-1. In SQL Server Management Studio (SSMS), connect to the tenants server at **catalog-mt.\<USER\>.database.windows.net**, with Login = **developer**, and Password = **P@ssword1**
+1. In SQL Server Management Studio (SSMS), connect to the tenants server at **catalog-mt.\<USER\>.database.windows.net**, with Login = **developer**, and Password = **P\@ssword1**
 
     ![SSMS connection dialog](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 

@@ -3,8 +3,8 @@ title: Learn more about Azure Service Fabric | Microsoft Docs
 description: Learn about the core concepts and major areas of Azure Service Fabric. Provides an extended overview of Service Fabric and how to create microservices. 
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: 
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
-ms.author: ryanwi
+ms.author: atsenthi
 
 ---
 # So you want to learn about Service Fabric?
@@ -61,7 +61,7 @@ Within a partition, stateless named services have instances while stateful named
 ## Stateless and stateful microservices for Service Fabric
 Service Fabric enables you to build applications that consist of microservices or containers. Stateless microservices (such as protocol gateways and web proxies) do not maintain a mutable state outside a request and its response from the service. Azure Cloud Services worker roles are an example of a stateless service. Stateful microservices (such as user accounts, databases, devices, shopping carts, and queues) maintain a mutable, authoritative state beyond the request and its response. Today's Internet-scale applications consist of a combination of stateless and stateful microservices. 
 
-A key differentiation with Service Fabric is its strong focus on building stateful services, either with the [built in programming models ](service-fabric-choose-framework.md) or with containerized stateful services. The [application scenarios](service-fabric-application-scenarios.md) describe the scenarios where stateful services are used.
+A key differentiation with Service Fabric is its strong focus on building stateful services, either with the [built in programming models](service-fabric-choose-framework.md) or with containerized stateful services. The [application scenarios](service-fabric-application-scenarios.md) describe the scenarios where stateful services are used.
 
 Why have stateful microservices along with stateless ones? The two main reasons are:
 
@@ -115,7 +115,7 @@ A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-conne
 Service Fabric clusters can be created on virtual or physical machines running Windows Server or Linux. You are able to deploy and run Service Fabric applications in any environment where you have a set of Windows Server or Linux computers that are interconnected: on-premises, on Microsoft Azure, or on any cloud provider.
 
 ### Clusters on Azure
-Running Service Fabric clusters on Azure provides integration with other Azure features and services, which makes operations and management of the cluster easier and more reliable. A cluster is an Azure Resource Manager resource, so you can model clusters like any other resources in Azure. Resource Manager also provides easy management of all resources used by the cluster as a single unit. Clusters on Azure are integrated with Azure diagnostics and Log Analytics. Cluster node types are [virtual machine scale sets](/azure/virtual-machine-scale-sets/index), so autoscaling functionality is built in.
+Running Service Fabric clusters on Azure provides integration with other Azure features and services, which makes operations and management of the cluster easier and more reliable. A cluster is an Azure Resource Manager resource, so you can model clusters like any other resources in Azure. Resource Manager also provides easy management of all resources used by the cluster as a single unit. Clusters on Azure are integrated with Azure diagnostics and Azure Monitor logs. Cluster node types are [virtual machine scale sets](/azure/virtual-machine-scale-sets/index), so autoscaling functionality is built in.
 
 You can create a cluster on Azure through the [Azure portal](service-fabric-cluster-creation-via-portal.md), from a [template](service-fabric-cluster-creation-via-arm.md), or from [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 
@@ -161,7 +161,7 @@ Reporting can be done from:
 * Internal watchdogs that run on the Service Fabric nodes but are not implemented as Service Fabric services.
 * External watchdogs that probe the resource from outside the Service Fabric cluster (for example, monitoring service like Gomez).
 
-Out of the box, Service Fabric components report health on all entities in the cluster. [System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) provide visibility into cluster and application functionality and flag issues through health. For applications and services, system health reports verify that entities are implemented and are behaving correctly from the perspective of the Service Fabric runtime. The reports do not provide any health monitoring of the business logic of the service or detect hung processes. To add health information specific to your service's logic, [implement custom health reporting](service-fabric-report-health.md) in your services.
+Out of the box, Service Fabric components report health on all entities in the cluster. [System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) provide visibility into cluster and application functionality and flag issues through health. For applications and services, system health reports verify that entities are implemented and are behaving correctly from the perspective of the Service Fabric runtime. The reports do not provide any health monitoring of the business logic of the service or detect processes that have stopped responding. To add health information specific to your service's logic, [implement custom health reporting](service-fabric-report-health.md) in your services.
 
 Service Fabric provides multiple ways to [view health reports](service-fabric-view-entities-aggregated-health.md) aggregated in the health store:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) or other visualization tools.

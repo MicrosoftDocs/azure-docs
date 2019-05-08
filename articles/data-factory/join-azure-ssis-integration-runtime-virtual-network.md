@@ -22,7 +22,7 @@ Join your Azure-SSIS integration runtime (IR) to an Azure virtual network in the
 
 - You are hosting the SQL Server Integration Services (SSIS) catalog database in Azure SQL Database with virtual network service endpoints/Managed Instance. 
 
- Azure Data Factory lets you join your Azure-SSIS integration runtime to a virtual network created through the classic deployment model or the Azure Resource Manager deployment model. 
+  Azure Data Factory lets you join your Azure-SSIS integration runtime to a virtual network created through the classic deployment model or the Azure Resource Manager deployment model. 
 
 > [!IMPORTANT]
 > The classic virtual network is currently being deprecated, so please use the Azure Resource Manager virtual network instead.  If you already use the classic virtual network, please switch to use the Azure Resource Manager virtual network as soon as possible.
@@ -79,9 +79,9 @@ The user who creates the Azure-SSIS Integration Runtime must have the following 
 
 - If you're joining your SSIS IR to an Azure Resource Manager virtual network, you have two options:
 
-  - Use the built-in *Network Contributor* role. This role comes with the *Microsoft.Network/\** permission, which has a much larger scope than necessary.
+  - Use the built-in *Network Contributor* role. This role comes with the _Microsoft.Network/\*_ permission, which has a much larger scope than necessary.
 
-  - Create a custom role that includes only the necessary *Microsoft.Network/virtualNetworks/\*/join/action* permission. 
+  - Create a custom role that includes only the necessary _Microsoft.Network/virtualNetworks/\*/join/action_ permission. 
 
 - If you're joining your SSIS IR to a classic virtual network, we recommend that you use the built-in *Classic Virtual Machine Contributor* role. Otherwise you have to define a custom role that includes the permission to join the virtual network.
 
@@ -131,11 +131,11 @@ See [this PowerShell script](https://gallery.technet.microsoft.com/scriptcenter/
 
 ### <a name="resource-group"></a> Requirements for Resource Group
 -   The Azure-SSIS IR needs to create certain network resources under the same resource group as the virtual network. These resources include the following:
-    -   An Azure load balancer, with the name *<Guid>-azurebatch-cloudserviceloadbalancer*.
-    -   An Azure public IP address, with the name *<Guid>-azurebatch-cloudservicepublicip*.
-    -   A network work security group, with the name *<Guid>-azurebatch-cloudservicenetworksecuritygroup*. 
+    -   An Azure load balancer, with the name *\<Guid>-azurebatch-cloudserviceloadbalancer*.
+    -   An Azure public IP address, with the name *\<Guid>-azurebatch-cloudservicepublicip*.
+    -   A network work security group, with the name *\<Guid>-azurebatch-cloudservicenetworksecuritygroup*. 
 
--   Make sure that you don't have any resource lock on the Resource Group or Subscription to which the virtual network belongs. If you configure either a read-only lock or a delete lock, starting and stopping the IR may fail or hang. 
+-   Make sure that you don't have any resource lock on the Resource Group or Subscription to which the virtual network belongs. If you configure either a read-only lock or a delete lock, starting and stopping the IR may fail or stop responding. 
 
 -   Make sure that you don't have an Azure policy which prevents the following resources from being created under the Resource Group or Subscription to which the virtual network belongs: 
     -   Microsoft.Network/LoadBalancers 
@@ -276,6 +276,8 @@ You need to configure a virtual network before you can join an Azure-SSIS IR to 
 
 ## Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ### Configure a virtual network
 You need to configure a virtual network before you can join your Azure-SSIS IR to it. To automatically configure virtual network permissions/settings for your Azure-SSIS integration runtime to join the virtual network, add the following script:
 
@@ -285,16 +287,16 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     # Register to the Azure Batch resource provider
     $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
-    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    $BatchObjectId = (Get-AzADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+    Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
     Start-Sleep -s 10
     }
     if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
     {
         # Assign the VM contributor role to Microsoft.Batch
-        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+        New-AzRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
     }
 }
 ```
@@ -322,7 +324,7 @@ $SubnetName = "<the name of subnet in your virtual network>"
 Stop the Azure-SSIS integration runtime before you can join it to a virtual network. This command releases all of its nodes and stops billing:
 
 ```powershell
-Stop-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Stop-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                             -DataFactoryName $DataFactoryName `
                                             -Name $AzureSSISName `
                                             -Force 
@@ -335,25 +337,25 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     # Register to the Azure Batch resource provider
     $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
-    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    $BatchObjectId = (Get-AzADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+    Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
         Start-Sleep -s 10
     }
     if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
     {
         # Assign VM contributor role to Microsoft.Batch
-        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+        New-AzRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
     }
 }
 ```
 
 ### Configure the Azure-SSIS IR
-To configure the Azure-SSIS integration runtime to join the virtual network, run the `Set-AzureRmDataFactoryV2IntegrationRuntime` command: 
+To configure the Azure-SSIS integration runtime to join the virtual network, run the `Set-AzDataFactoryV2IntegrationRuntime` command: 
 
 ```powershell
-Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                            -DataFactoryName $DataFactoryName `
                                            -Name $AzureSSISName `
                                            -Type Managed `
@@ -365,7 +367,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName
 To start the Azure-SSIS integration runtime, run the following command: 
 
 ```powershell
-Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                              -DataFactoryName $DataFactoryName `
                                              -Name $AzureSSISName `
                                              -Force

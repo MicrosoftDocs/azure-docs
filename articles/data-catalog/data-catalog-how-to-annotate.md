@@ -2,8 +2,8 @@
 title: How to annotate data sources in Azure Data Catalog
 description: How-to article highlighting how to annotate data assets in Azure Data Catalog, including friendly names, tags, descriptions, and experts.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 5a7e6bb2-863c-4eca-b614-1c814920d9ed
 ms.service: data-catalog
 ms.topic: conceptual

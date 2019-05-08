@@ -27,8 +27,8 @@
     topicHref: /azure/key-vault/
     items:
     - name: Key Vault PowerShell cmdlets
-      tocHref: /powershell/module/azurerm.keyvault/
-      topicHref: /powershell/module/azurerm.keyvault/
+      tocHref: /powershell/module/az.keyvault/
+      topicHref: /powershell/module/az.keyvault/
 
 - name: Azure
   tocHref: /cli/

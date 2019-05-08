@@ -4,7 +4,7 @@ description: Best practices for managing Service Fabric as infrastructure as cod
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: jeanpaul.connock  
+manager: chackdan  
 editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
@@ -21,6 +21,8 @@ ms.author: pepogors
 In a production scenario, create Azure Service Fabric clusters using Resource Manager templates. Resource Manager templates provide greater control of resource properties and ensure that you have a consistent resource model.
 
 Sample Resource Manager templates are available for Windows and Linux in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template. Download `azuredeploy.json` and `azuredeploy.parameters.json` and edit them to meet your custom requirements.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 To deploy the `azuredeploy.json` and `azuredeploy.parameters.json` templates you downloaded above, use the following Azure CLI commands:
 
@@ -40,8 +42,8 @@ $Location="westus"
 $Template="azuredeploy.json"
 $Parameters="azuredeploy.parameters.json"
 
-New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
-New-AzureRmResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -TemplateParameterFile $Parameters
+New-AzResourceGroup -Name $ResourceGroupName -Location $Location
+New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -TemplateParameterFile $Parameters
 ```
 
 ## Azure Service Fabric resources

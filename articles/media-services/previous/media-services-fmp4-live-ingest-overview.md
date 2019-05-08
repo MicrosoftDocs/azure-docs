@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
 
 ---
-# Azure Media Services fragmented MP4 live ingest specification (legacy)
+# Azure Media Services fragmented MP4 live ingest specification 
 
 This specification describes the protocol and format for fragmented MP4-based live streaming ingestion for Azure Media Services. Media Services provides a live streaming service that customers can use to stream live events and broadcast content in real time by using Azure as the cloud platform. This document also discusses best practices for building highly redundant and robust live ingest mechanisms.
 

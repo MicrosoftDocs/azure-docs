@@ -7,10 +7,10 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 04/02/2019
 ms.author: alkohli
 ---
-# Azure Data Box Gateway system requirements (Preview)
+# Azure Data Box Gateway system requirements
 
 This article describes the important system requirements for your Microsoft Azure Data Box Gateway solution and for the clients connecting to Azure Data Box Gateway. We recommend that you review the information carefully before you deploy your Data Box Gateway, and then refer back to it as necessary during the deployment and subsequent operation.
 
@@ -19,8 +19,6 @@ The system requirements for the Data Box Gateway virtual device include:
 - **Software requirements for hosts** - describes the supported platforms, browsers for the local configuration UI, SMB clients, and any additional requirements for the hosts that connect to the device.
 - **Networking requirements for the device** - provides information about any networking requirements for the operation of the virtual device.
 
-> [!IMPORTANT]
-> Data Box Gateway is in Preview. Please review the [terms of use for the preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution. 
 
 ## Specifications for the virtual device
 
@@ -28,7 +26,7 @@ The underlying host system for the Data Box Gateway is able to dedicate the foll
 
 | Specifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
-| Virtual processors (cores)   | Minimum 4 |            
+| Virtual processors (cores)   | Minimum 4 |
 | Memory  | Minimum 8 GB|
 | Availability|Single node|
 | Disks| OS disk: 250 GB <br> Data disk: 2 TB minimum, thin provisioned, and must be backed by SSDs|
@@ -81,6 +79,10 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 > - The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 
 [!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
+
+### URL patterns for Azure Government
+
+[!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
 
 ## Internet bandwidth
 

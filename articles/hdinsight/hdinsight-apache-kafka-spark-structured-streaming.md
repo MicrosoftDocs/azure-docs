@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Apache Spark Structured Streaming with Apache Kafka - Azure HDInsight'
 description: Learn how to use Apache Spark streaming to get data into or out of Apache Kafka. In this tutorial, you stream data using a Jupyter notebook from Spark on HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -127,12 +126,12 @@ To create an Azure Virtual Network, and then create the Kafka and Spark clusters
 
     This template creates the following resources:
 
-    * A Kafka on HDInsight 3.6 cluster.
-    * A Spark 2.2.0 on HDInsight 3.6 cluster.
-    * An Azure Virtual Network, which contains the HDInsight clusters.
+   * A Kafka on HDInsight 3.6 cluster.
+   * A Spark 2.2.0 on HDInsight 3.6 cluster.
+   * An Azure Virtual Network, which contains the HDInsight clusters.
 
-    > [!IMPORTANT]  
-    > The structured streaming notebook used in this tutorial requires Spark 2.2.0 on HDInsight 3.6. If you use an earlier version of Spark on HDInsight, you receive errors when using the notebook.
+     > [!IMPORTANT]  
+     > The structured streaming notebook used in this tutorial requires Spark 2.2.0 on HDInsight 3.6. If you use an earlier version of Spark on HDInsight, you receive errors when using the notebook.
 
 2. Use the following information to populate the entries on the **Customized template** section:
 

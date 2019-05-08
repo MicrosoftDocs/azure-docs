@@ -18,7 +18,7 @@ ms.date: 12/04/2018
 The split-merge tool lets you move data between sharded databases. See [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md)
 
 ## Download the Split-Merge packages
-1. Download the latest NuGet version from [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
+1. Download the latest NuGet version from [NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
 2. Open a command prompt and navigate to the directory where you downloaded nuget.exe. The download includes PowerShell commands.
 3. Download the latest Split-Merge package into the current directory with the below command:
    ```

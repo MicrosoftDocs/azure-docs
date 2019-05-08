@@ -1,22 +1,22 @@
----  
+---
 title: Containers Offer Publishing Guide for Azure Marketplace
 description: This article describes the requirements to publish Containers in the Marketplace
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
+
 author: ellacroi
 manager: nunoc
-editor:
 
-ms.assetid: 
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
 
----  
+---
 
 # Containers Offer Publishing Guide
 
@@ -39,7 +39,6 @@ Microsoft currently supports free and bring-your-own-license (BYOL) licensing mo
 | Image built from Dockerfile | Container images must be based on the Docker image specification and must be built from a Dockerfile.<ul> <li>For more information about building docker images, visit the Usage section located at [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage).</li> </ul> |  
 | Hosting in ACR | Container images must be hosted in an Azure Container Registry (ACR) repository.<ul> <li>For more information about working with ACR, visit the Quickstart: Create a container registry using the Azure portal page located at [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
 | Image tagging | Container images must contain at least 1 tag (maximum tags: 16).<ul> <li>For more information about tagging an image, visit the docker tag page located at [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
-
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: 'Service-to-service authentication: .NET SDK with Azure Data Lake Storage
 description: Learn how to achieve service-to-service authentication with Azure Data Lake Storage Gen1 using Azure Active Directory using .NET SDK
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
+author: twooley
 manager: cgronlun
 editor: cgronlun
 
@@ -11,7 +11,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Service-to-service authentication with Azure Data Lake Storage Gen1 using .NET SDK
@@ -20,11 +20,10 @@ ms.author: nitinme
 > * [Using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Using Python](data-lake-store-service-to-service-authenticate-python.md)
 > * [Using REST API](data-lake-store-service-to-service-authenticate-rest-api.md)
-> 
->  
+>
+>
 
 In this article, you learn about how to use the .NET SDK to do service-to-service authentication with Azure Data Lake Storage Gen1. For end-user authentication with Data Lake Storage Gen1 using .NET SDK, see [End-user authentication with Data Lake Storage Gen1 using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
-
 
 ## Prerequisites
 * **Visual Studio 2013, 2015, or 2017**. The instructions below use Visual Studio 2017.
@@ -76,11 +75,11 @@ using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
 ## Service-to-service authentication with client secret
-Add this snippet in your .NET client application. Replace the placeholder values with the values retrieved from an Azure AD web application (listed as a prerequisite).  This snippet lets you authenticate your application **non-interactively** with Data Lake Storage Gen1 using the client secret/key for Azure AD web application. 
+Add this snippet in your .NET client application. Replace the placeholder values with the values retrieved from an Azure AD web application (listed as a prerequisite). This snippet lets you authenticate your application **non-interactively** with Data Lake Storage Gen1 using the client secret/key for Azure AD web application.
 
 ```csharp
 private static void Main(string[] args)
-{    
+{
     // Service principal / application authentication with client secret / key
     // Use the client ID of an existing AAD "Web App" application.
     string TENANT = "<AAD-directory-domain>";
@@ -121,5 +120,3 @@ In this article, you learned how to use service-to-service authentication to aut
 
 * [Account management operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Data operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-data-operations-net-sdk.md)
-
-

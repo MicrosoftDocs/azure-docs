@@ -7,7 +7,7 @@ author: kraigb
 manager: douge
 
 ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: notebooks
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -37,13 +37,13 @@ The **Run** drop-down list on the project dashboard is where you select the comp
 
 ![Compute tier drop-down list on the project dashboard](media/project-compute-tier-list.png)
 
-You can bypass these limitations by using a different virtual machine that you've provisioned in an Azure subscription. You must  install and run JupyterHub on that virtual machine. The Data Science Virtual Machine images (any operating system) are good choices because they include JupyterHub by default.
+You can bypass these limitations by using a different virtual machine that you've provisioned in an Azure subscription. You must install and run JupyterHub on that virtual machine. The Data Science Virtual Machine for Linux (Ubuntu) image is a good choice because it is supported, it has a compatible JupyterHub by default, and it will be automatically discovered.
 
 Once you have a suitably configured Azure virtual machine, select the **Direct Compute** option in the drop-down list, which prompts you for a name (to show in the list), the VM's IP address and port (typically 8000, the default port to which JupyterHub listens), and the VM credentials:
 
 ![Prompt to collect server information for the Direct Compute option](media/project-compute-tier-direct.png)
 
-If the following conditions are true, the drop-down list also shows [Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine) instances. (If any of these conditions aren't met, you can still connect to the DSVM using the Direct Compute option and entering the values obtained from the Azure portal.)
+If the following conditions are true, the drop-down list also shows [Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine) instances. (If any of these conditions aren't met, you can still connect to the DSVM using the Direct Compute option and enter the values obtained from the Azure portal.)
 
 - You're signed into Azure Notebooks with an account that uses Azure Active Directory (AAD), such as a company account.
 - Your account is connected to an Azure subscription.
@@ -53,7 +53,17 @@ If the following conditions are true, the drop-down list also shows [Data Scienc
 
 When you select a DSVM instance, Azure Notebooks may prompt you for the specific machine credentials used when you created the VM.
 
-To create a new DSVM instance, follow the instructions on [Create an Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Use the **Data Science Virtual Machine for Linux (Ubuntu)** image if you want the DSVM to appear in the drop-down list in Azure Notebooks.  If for other reasons you need to use the Windows or CentOS image, you can use the **Direct Compute** option to connect to the DSVM manually.
+To create a new DSVM instance, follow the instructions on [Create an Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Use the **Data Science Virtual Machine for Linux (Ubuntu)** image if you want the DSVM to appear in the drop-down list in Azure Notebooks. 
+
+> When a project is run on a VM the files will be mounted on the root directory of the Jupyter Server replacing the default Azure Notebooks files.
+>
+> If you would like to get the default files back then you will need to shutdown the compute.
+>
+> ![Shutdown compute](media/shutdown.png)
+>
+> Then the default files will reappear if you go to JupyterHub directly.
+>
+> ![Default Azure Notebooks files](media/juptyerhub-files.png)
 
 > [!IMPORTANT]
 > When using different virtual machines, the notebooks you run on them must be entirely self-contained. At present, Azure Notebooks copies only the *.ipynb* file to the VM but doesn't copy any other files in the project. As a result, notebooks running on other VMs fail to find other project files.
@@ -71,7 +81,7 @@ On the project dashboard, select **Project Settings**, then select the **Informa
 | Setting | Description |
 | --- | --- |
 | Project name | A friendly name for your project that Azure Notebooks uses for display purposes. For example, "Hello World in Python". |
-| Project ID | A custom identifier that becomes part of the URL you use to share a project (the form is `https://notebooks.azure.com/<user_id>/projects/<project_id>`). This ID can use only letters, numbers, and hyphens, and is limited to 30 characters. If you're unsure what to use, a common convention is to use a lowercase version of your project name where spaces are turned into hyphens, for example, "My Project Name" turns into "my-project-name". |
+| Project ID | A custom identifier that becomes part of the URL you use to share a project. This ID can use only letters, numbers, and hyphens, is limited to 30 characters, and cannot be a [reserved project ID](create-clone-jupyter-notebooks.md#reserved-project-ids). If you're unsure what to use, a common convention is to use a lowercase version of your project name where spaces are turned into hyphens, such as "my-notebook-project" (truncated if necessary to fit the length limit). |
 | Public project | If set, allows anyone with the link to access the project. When creating a private project, clear this option. |
 | Hide clones | If set, other users can't see a list of clones that have been made for this project. Hiding clones is useful for projects that are shared with many people who are not part of the same organization, such as when using a notebook for teaching a class. |
 

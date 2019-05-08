@@ -107,7 +107,7 @@ APP_ENDPOINT=https://$SITE_NAME.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \
     --name event-sub-acr \
-    --resource-id $ACR_REGISTRY_ID \
+    --source-resource-id $ACR_REGISTRY_ID \
     --endpoint $APP_ENDPOINT
 ```
 

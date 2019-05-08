@@ -52,7 +52,7 @@ There are some things that you can't do when you use an ILB ASE:
 
 To create an ILB ASE:
 
-1. In the Azure portal, select **Create a resource** > **Web** > **App Service Environment**.
+1. In the Azure portal, select **Create a resource** > **Web** > **App Service Environment**.
 
 2. Select your subscription.
 
@@ -62,7 +62,7 @@ To create an ILB ASE:
 
 5. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/24`, which has 256 addresses and can handle a maximum-sized ASE and any scaling needs. 
 
-6. Select **Virtual Network/Location** > **Virtual Network Configuration**. Set the **VIP Type** to **Internal**.
+6. Select **Virtual Network/Location** > **Virtual Network Configuration**. Set the **VIP Type** to **Internal**.
 
 7. Enter a domain name. This domain is the one used for apps created in this ASE. There are some restrictions. It can't be:
 
@@ -76,11 +76,11 @@ To create an ILB ASE:
 
    You can [map an existing DNS name to your app][customdomain]. The custom domain name used for apps and the domain name used by your ASE can't overlap. For an ILB ASE with the domain name _contoso.com_, you can't use custom domain names for your apps like:
 
-	* www.contoso.com
+   * www\.contoso.com
 
-	* abcd.def.contoso.com
+   * abcd.def.contoso.com
 
-	* abcd.contoso.com
+   * abcd.contoso.com
 
    If you know the custom domain names for your apps, choose a domain for the ILB ASE that won’t have a conflict with those custom domain names. In this example, you can use something like *contoso-internal.com* for the domain of your ASE because that won't conflict with custom domain names that end in *.contoso.com*.
 
@@ -92,14 +92,14 @@ On the **Virtual Network** blade, there is a **Virtual Network Configuration** o
 
 After you select **Internal**, the ability to add more IP addresses to your ASE is removed. Instead, you need to provide the domain of the ASE. In an ASE with an External VIP, the name of the ASE is used in the domain for apps created in that ASE.
 
-If you set **VIP Type** to **Internal**, your ASE name is not used in the domain for the ASE. You specify the domain explicitly. If your domain is *contoso.corp.net* and you create an app in that ASE named *timereporting*, the URL for that app is timereporting.contoso.corp.net.
+If you set **VIP Type** to **Internal**, your ASE name is not used in the domain for the ASE. You specify the domain explicitly. If your domain is *contoso.corp.net* and you create an app in that ASE named *timereporting*, the URL for that app is timereporting.contoso.corp.net.
 
 
 ## Create an app in an ILB ASE ##
 
 You create an app in an ILB ASE in the same way that you create an app in an ASE normally.
 
-1. In the Azure portal, select **Create a resource** > **Web + Mobile** > **Web App**.
+1. In the Azure portal, select **Create a resource** > **Web + Mobile** > **Web App**.
 
 1. Enter the name of the app.
 
@@ -113,7 +113,7 @@ You create an app in an ILB ASE in the same way that you create an app in an ASE
 
 1. Select or create an App Service plan. If you want to create a new App Service plan, select your ASE as the location. Select the worker pool where you want your App Service plan to be created. When you create the App Service plan, select your ASE as the location and the worker pool. When you specify the name of the app, the domain under your app name is replaced by the domain for your ASE.
 
-1. Select **Create**. If you want the app to appear on your dashboard, select the **Pin to dashboard** check box.
+1. Select **Create**. If you want the app to appear on your dashboard, select the **Pin to dashboard** check box.
 
 	![App Service plan creation][2]
 
@@ -123,14 +123,14 @@ You create an app in an ILB ASE in the same way that you create an app in an ASE
 
 An ILB ASE is slightly different than the non-ILB ASE. As already noted, you need to manage your own DNS. You also have to provide your own certificate for HTTPS connections.
 
-After you create your ASE, the domain name shows the domain you specified. A new item appears in the **Setting** menu called **ILB Certificate**. The ASE is created with a certificate that doesn't specify the ILB ASE domain. If you use the ASE with that certificate, your browser tells you that it's invalid. This certificate makes it easier to test HTTPS, but you need to upload your own certificate that's tied to your ILB ASE domain. This step is necessary regardless of whether your certificate is self-signed or acquired from a certificate authority.
+After you create your ASE, the domain name shows the domain you specified. A new item appears in the **Setting** menu called **ILB Certificate**. The ASE is created with a certificate that doesn't specify the ILB ASE domain. If you use the ASE with that certificate, your browser tells you that it's invalid. This certificate makes it easier to test HTTPS, but you need to upload your own certificate that's tied to your ILB ASE domain. This step is necessary regardless of whether your certificate is self-signed or acquired from a certificate authority.
 
 ![ILB ASE domain name][3]
 
 Your ILB ASE needs a valid SSL certificate. Use internal certificate authorities, purchase a certificate from an external issuer, or use a self-signed certificate. Regardless of the source of the SSL certificate, the following certificate attributes need to be configured properly:
 
-* **Subject**: This attribute must be set to *.your-root-domain-here.
-* **Subject Alternative Name**: This attribute must include both **.your-root-domain-here* and **.scm.your-root-domain-here*. SSL connections to the SCM/Kudu site associated with each app use an address of the form *your-app-name.scm.your-root-domain-here*.
+* **Subject**: This attribute must be set to *\.your-root-domain-here.
+* **Subject Alternative Name**: This attribute must include both *.your-root-domain-here* and *.scm.your-root-domain-here*. SSL connections to the SCM/Kudu site associated with each app use an address of the form *your-app-name.scm.your-root-domain-here*.
 
 Convert/save the SSL certificate as a .pfx file. The .pfx file must include all intermediate and root certificates. Secure it with a password.
 
@@ -150,7 +150,7 @@ The certificate that these PowerShell commands generate is flagged by browsers b
 
 To upload your own certificates and test access:
 
-1. After the ASE is created, go to the ASE UI. Select **ASE** > **Settings** > **ILB Certificate**.
+1. After the ASE is created, go to the ASE UI. Select **ASE** > **Settings** > **ILB Certificate**.
 
 1. To set the ILB certificate, select the certificate .pfx file and enter the password. This step takes some time to process. A message appears stating that an upload operation is in progress.
 
@@ -166,13 +166,13 @@ To upload your own certificates and test access:
 
 4. Set the DNS for your ASE domain. You can use a wildcard with your domain in your DNS. To do some simple tests, edit the hosts file on your VM to set the app name to the VIP IP address:
 
-	a. If your ASE has the domain name _.ilbase.com_ and you create the app named _mytestapp_, it's addressed at _mytestapp.ilbase.com_. You then set _mytestapp.ilbase.com_ to resolve to the ILB address. (On Windows, the hosts file is at _C:\Windows\System32\drivers\etc\_.)
+	a. If your ASE has the domain name _.ilbase.com_ and you create the app named _mytestapp_, it's addressed at _mytestapp.ilbase.com_. You then set _mytestapp.ilbase.com_ to resolve to the ILB address. (On Windows, the hosts file is at _C:\Windows\System32\drivers\etc\\_.)
 
 	b. To test web deployment publishing or access to the advanced console, create a record for _mytestapp.scm.ilbase.com_.
 
-5. Use a browser on that VM and go to https://mytestapp.ilbase.com. (Or go to whatever your app name is with your domain.)
+5. Use a browser on that VM and go to https://mytestapp.ilbase.com. (Or go to whatever your app name is with your domain.)
 
-6. Use a browser on that VM and go to https://mytestapp.ilbase.com. If you use a self-signed certificate, accept the lack of security.
+6. Use a browser on that VM and go to https://mytestapp.ilbase.com. If you use a self-signed certificate, accept the lack of security.
 
 	The IP address for your ILB is listed under **IP addresses**. This list also has the IP addresses used by the external VIP and for inbound management traffic.
 
@@ -219,7 +219,7 @@ To learn more about how to configure your ILB ASE with a WAF device, see [Config
 ## Get started ##
 
 * To get started with ASEs, see [Introduction to App Service environments][Intro].
- 
+ 
 
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png

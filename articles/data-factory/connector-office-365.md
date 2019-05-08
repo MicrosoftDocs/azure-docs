@@ -1,5 +1,5 @@
 ---
-title: Copy data from Office 365 using Azure Data Factory (Preview) | Microsoft Docs
+title: Copy data from Office 365 using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from Office 365 to supported sink data stores by using copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 05/06/2019
 ms.author: jingwang
 
 ---
@@ -24,7 +24,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 ## Supported capabilities
 
-For now, within a single copy activity you can only **copy data from Office 365 into [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), and [Azure Data Lake Storage Gen2 (Preview)](connector-azure-data-lake-storage.md) in JSON format** (type setOfObjects). If you want to load Office 365 into other types of data stores or in other formats, you can chain the first copy activity with a subsequent copy activity to further load data into any of the [supported ADF destination stores](copy-activity-overview.md#supported-data-stores-and-formats) (refer to "supported as a sink" column in the "Supported data stores and formats" table).
+For now, within a single copy activity you can only **copy data from Office 365 into [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) in JSON format** (type setOfObjects). If you want to load Office 365 into other types of data stores or in other formats, you can chain the first copy activity with a subsequent copy activity to further load data into any of the [supported ADF destination stores](copy-activity-overview.md#supported-data-stores-and-formats) (refer to "supported as a sink" column in the "Supported data stores and formats" table).
 
 >[!IMPORTANT]
 >- The Azure subscription containing the data factory and the sink data store must be under the same Azure Active Directory (Azure AD) tenant as Office 365 tenant.

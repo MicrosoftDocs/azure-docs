@@ -41,7 +41,7 @@ The following tools are included in a DSVM:
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) - a fast machine learning system that supports techniques like online hashing, allreduce, reductions, learning2search, and active and interactive learning
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/) - a tool that provides fast and accurate boosted tree implementation
   * [Rattle](https://togaware.com/rattle/) - the R analytical tool that gets you started with data analytics and machine learning in R. It includes GUI-based data exploration and modeling with automatic R code generation.
-  * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) - visual data mining and machine learning software in Java
+  * [Weka](https://www.cs.waikato.ac.nz/ml/weka/) - visual data mining and machine learning software in Java
   * [Apache Drill](https://drill.apache.org/) - a schema-free SQL query engine for Apache Hadoop, NoSQL, and cloud storage. It supports ODBC and JDBC interfaces for querying NoSQL and files from standard BI tools like Power BI, Microsoft Excel, and Tableau.
 * Libraries in R and Python for use in Azure Machine Learning and other Azure services
 * Git, including Git Bash, to work with source code repositories that include GitHub and Azure DevOps. Git provides several popular Linux command-line utilities that are accessible both on Git Bash and a command prompt. Examples are awk, sed, perl, grep, find, wget, and curl.
@@ -68,7 +68,7 @@ There are no software charges for this data science VM image. You pay only the A
 
 ## Prerequisite
 
-To create a Microsoft Data Science Virtual Machine, you must have an Azure subscription. See [Get Azure free trial](http://azure.com/free).
+To create a Microsoft Data Science Virtual Machine, you must have an Azure subscription. See [Get Azure free trial](https://azure.com/free).
 
 ## Create your DSVM
 
@@ -115,7 +115,7 @@ You can use Microsoft Enterprise Library for scalable R or Python for your analy
 
 Machine Learning Server supports various big data statistics, predictive modeling, and machine learning tasks. It supports the full range of analytics: exploration, analysis, visualization, and modeling. By using and extending open-source R and Python, Machine Learning Server is compatible with R and Python scripts and functions. It's also compatible with CRAN, pip, and Conda packages to analyze data at the enterprise scale.
 
-Machine Learning Server addresses the in-memory limitations of open-source R by adding parallel and chunked processing of data. This means you can run analytics on much bigger data than what fits in main memory. Visual Studio Community is included on the VM. It has the R tools for Visual Studio and Python Tools for Visual Studio (PTVS) extensions that provide a full IDE for working with R or Python. We also provide other IDEs like [RStudio](http://www.rstudio.com) and [PyCharm Community edition](https://www.jetbrains.com/pycharm/) on the VM.
+Machine Learning Server addresses the in-memory limitations of open-source R by adding parallel and chunked processing of data. This means you can run analytics on much bigger data than what fits in main memory. Visual Studio Community is included on the VM. It has the R tools for Visual Studio and Python Tools for Visual Studio (PTVS) extensions that provide a full IDE for working with R or Python. We also provide other IDEs like [RStudio](https://www.rstudio.com) and [PyCharm Community edition](https://www.jetbrains.com/pycharm/) on the VM.
 
 ### Python
 
@@ -228,4 +228,4 @@ You can use the [Microsoft Web Platform Installer](https://www.microsoft.com/web
 * In File Explorer, navigate to **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** for samples that use the RevoScaleR library in R that supports data analytics at the enterprise scale.  
 * Read the article [Ten things you can do on the Data science Virtual Machine](https://aka.ms/dsvmtenthings).
 * Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](../team-data-science-process/index.yml).
-* Visit the [Azure AI Gallery](http://gallery.cortanaintelligence.com) for machine learning and data analytics samples that use Azure Machine Learning and related data services on Azure. We've also provided an icon for this gallery on the **Start** menu and desktop of the virtual machine.
+* Visit the [Azure AI Gallery](https://gallery.cortanaintelligence.com) for machine learning and data analytics samples that use Azure Machine Learning and related data services on Azure. We've also provided an icon for this gallery on the **Start** menu and desktop of the virtual machine.

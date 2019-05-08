@@ -1,4 +1,4 @@
-﻿---
+---
 title: Quickstart - Create a Windows virtual machine scale set with an Azure template | Microsoft Docs
 description: Learn how to quickly create a Windows virtual machine scale with an Azure Resource Manager template that deploys a sample app and configures autoscale rules
 services: virtual-machine-scale-sets
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/27/18
+ms.date: 03/27/2018
 ms.author: cynthn
 
 ---
@@ -165,7 +165,7 @@ To see your scale set in action, access the sample web application in a web brow
 Get-AzPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-Enter the public IP address of the load balancer in to a web browser in the format *http://publicIpAddress/MyApp*. The load balancer distributes traffic to one of your VM instances, as shown in the following example:
+Enter the public IP address of the load balancer in to a web browser in the format *http:\//publicIpAddress/MyApp*. The load balancer distributes traffic to one of your VM instances, as shown in the following example:
 
 ![Running IIS site](./media/virtual-machine-scale-sets-create-powershell/running-iis-site.png)
 

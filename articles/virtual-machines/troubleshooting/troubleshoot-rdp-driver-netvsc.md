@@ -22,9 +22,9 @@ This article explains how to troubleshoot an issue in which there is no network 
 
 ## Symptoms
 
-You cannot connect to an Azure Windows 10 or Windows Server 2016 VM by using Rmote Desktop Protocol (RDP). In [Boot diagnostics](boot-diagnostics.md), the screen shows a red cross over the network interface card (NIC). This indicates that the VM has no connectivity after the operating system is fully loaded.
+You cannot connect to an Azure Windows 10 or Windows Server 2016 VM by using Remote Desktop Protocol (RDP). In [Boot diagnostics](boot-diagnostics.md), the screen shows a red cross over the network interface card (NIC). This indicates that the VM has no connectivity after the operating system is fully loaded.
 
-Typically, this issue occurs in Windows [build 14393](http://support.microsoft.com/help/4093120/) and [build 15063](http://support.microsoft.com/help/4015583/). If the version of your operating system is later than these versions, this article does not apply to your scenario. To check the version of the system, open a CMD session in [the Serial Access Console feature](serial-console-windows.md), and then run **Ver**.
+Typically, this issue occurs in Windows [build 14393](https://support.microsoft.com/help/4093120/) and [build 15063](https://support.microsoft.com/help/4015583/). If the version of your operating system is later than these versions, this article does not apply to your scenario. To check the version of the system, open a CMD session in [the Serial Access Console feature](serial-console-windows.md), and then run **Ver**.
 
 ## Cause
 
@@ -51,8 +51,8 @@ Connect to [the Serial Console, open a PowerShell instance](serial-console-windo
 
 2. Download the appropriate update to a new or existing data disk that is attached to a working VM from the same region:
 
-   - **10.0.14393.594**: [KB4073562](http://support.microsoft.com/help/4073562) or a later update
-   - **10.0.15063.0**: [KB4016240](http://support.microsoft.com/help/4016240) or a later update
+   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) or a later update
+   - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) or a later update
 
 3. Detach the utility disk from the working VM, and then attach it to the broken VM.
 
@@ -94,22 +94,22 @@ Connect to [the Serial Console, open a PowerShell instance](serial-console-windo
 
 12. Download the appropriate update:
 
-   - **10.0.14393.594**: [KB4073562](http://support.microsoft.com/help/4073562) or a later update
-   - **10.0.15063.0**: [KB4016240](http://support.microsoft.com/help/4016240) or a later update
+    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) or a later update
+    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) or a later update
 
 13. Attach the system disk as a data disk on a rescue VM on which you can download the update.
 
 14. Run the following command to install the update on the VM:
 
-   ```
-   dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
-   ```
+    ```
+    dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
+    ```
 
 15. Run the following command to unmount the hives:
 
-   ```
-   reg unload HKLM\BROKENSYSTEM
-   ```
+    ```
+    reg unload HKLM\BROKENSYSTEM
+    ```
 
 16. [Detach the system disk, and create the VM again](../windows/troubleshoot-recovery-disks-portal.md).
 

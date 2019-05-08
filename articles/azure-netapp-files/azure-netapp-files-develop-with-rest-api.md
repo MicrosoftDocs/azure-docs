@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: b-juche
 ---
@@ -24,23 +24,23 @@ The REST API for the Azure NetApp Files service defines HTTP operations against 
 
 1. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) if you haven't done so already.
 2. Create a service principal in your Azure Active Directory (Azure AD):
-    1. Verify that you have [sufficient permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+   1. Verify that you have [sufficient permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-    1. Enter the following command in the Azure CLI:  
+   1. Enter the following command in the Azure CLI:  
 
-            az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE--password $YOURGENERATEDPASSWORDGOESHERE
+           az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE--password $YOURGENERATEDPASSWORDGOESHERE
 
-    The command output is similar to the following example:  
+      The command output is similar to the following example:  
 
-            { 
-                "appId": "appIDgoeshere", 
-                "displayName": "APPNAME", 
-                "name": "http://APPNAME", 
-                "password": "supersecretpassword", 
-                "tenant": "tenantIDgoeshere" 
-            } 
+           { 
+               "appId": "appIDgoeshere", 
+               "displayName": "APPNAME", 
+               "name": "http://APPNAME", 
+               "password": "supersecretpassword", 
+               "tenant": "tenantIDgoeshere" 
+           } 
 
-    Keep the command output.  You will need the `appId`, `password`, and `tenant` values. 
+      Keep the command output.  You will need the `appId`, `password`, and `tenant` values. 
 
 3. Request an OAuth access token:
 

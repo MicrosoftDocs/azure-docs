@@ -1,7 +1,6 @@
 ---
 title: Remediate non-compliant resources
 description: This how-to walks you through the remediation of resources that are non-compliant to policies in Azure Policy.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
@@ -153,6 +152,8 @@ To add a role to the assignment's managed identity, follow these steps:
 
 ## Create a remediation task
 
+### Create a remediation task through portal
+
 During evaluation, the policy assignment with **deployIfNotExists** effect determines if there are
 non-compliant resources. When non-compliant resources are found, the details are provided on the
 **Remediation** page. Along with the list of policies that have non-compliant resources is the
@@ -163,11 +164,11 @@ To create a **remediation task**, follow these steps:
 
 1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching for and selecting **Policy**.
 
-   ![Search for policy](../media/remediate-resources/search-policy.png)
+   ![Search for Policy in All Services](../media/remediate-resources/search-policy.png)
 
 1. Select **Remediation** on the left side of the Azure Policy page.
 
-   ![Select remediation](../media/remediate-resources/select-remediation.png)
+   ![Select Remediation on the Policy page](../media/remediate-resources/select-remediation.png)
 
 1. All **deployIfNotExists** policy assignments with non-compliant resources are included on the **Policies to remediate** tab and data table. Click on a policy with resources that are non-compliant. The **New remediation task** page opens.
 
@@ -177,11 +178,11 @@ To create a **remediation task**, follow these steps:
 
 1. On the **New remediation task** page, filter the resources to remediate by using the **Scope** ellipses to pick child resources from where the policy is assigned (including down to the individual resource objects). Additionally, use the **Locations** drop-down to further filter the resources. Only resources listed in the table will be remediated.
 
-   ![Remediate - select resources](../media/remediate-resources/select-resources.png)
+   ![Remediate - select which resources to remediate](../media/remediate-resources/select-resources.png)
 
 1. Begin the remediation task once the resources have been filtered by clicking **Remediate**. The policy compliance page will open to the **Remediation tasks** tab to show the state of the tasks progress.
 
-   ![Remediate - task progress](../media/remediate-resources/task-progress.png)
+   ![Remediate - progress of remediation tasks](../media/remediate-resources/task-progress.png)
 
 1. Click on the **remediation task** from the policy compliance page to get details about the progress. The filtering used for the task is shown along with a list of the resources being remediated.
 
@@ -190,6 +191,37 @@ To create a **remediation task**, follow these steps:
    ![Remediate - resource task context menu](../media/remediate-resources/resource-task-context-menu.png)
 
 Resources deployed through a **remediation task** are added to the **Deployed Resources** tab on the policy compliance page.
+
+### Create a remediation task through Azure CLI
+
+To create a **remediation task** with Azure CLI, use the `az policy remediation` commands. Replace
+`{subscriptionId}` with your subscription ID and `{myAssignmentId}` with your **deployIfNotExists**
+policy assignment ID.
+
+```azurecli-interactive
+# Login first with az login if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+For other remediation commands and examples, see the [az policy
+remediation](/cli/azure/policy/remediation) commands.
+
+### Create a remediation task through Azure PowerShell
+
+To create a **remediation task** with Azure PowerShell, use the `Start-AzPolicyRemediation` commands. Replace
+`{subscriptionId}` with your subscription ID and `{myAssignmentId}` with your **deployIfNotExists**
+policy assignment ID.
+
+```azurepowershell-interactive
+# Login first with Connect-AzAccount if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+For other remediation cmdlets and examples, see the [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) module.
 
 ## Next steps
 

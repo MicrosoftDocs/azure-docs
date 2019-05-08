@@ -4,7 +4,7 @@ description: Service Fabric clusters run on Windows Server and Linux, which mean
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 

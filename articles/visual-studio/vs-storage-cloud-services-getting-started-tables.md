@@ -28,7 +28,7 @@ To get started, you first need to create a table in your storage account. We'll 
 * See [Get started with Azure Table storage using .NET](../storage/storage-dotnet-how-to-use-tables.md) for more information on programmatically manipulating tables.
 * See [Storage documentation](https://azure.microsoft.com/documentation/services/storage/) for general information about Azure Storage.
 * See [Cloud Services documentation](https://azure.microsoft.com/documentation/services/cloud-services/) for general information about Azure cloud services.
-* See [ASP.NET](http://www.asp.net) for more information about programming ASP.NET applications.
+* See [ASP.NET](https://www.asp.net) for more information about programming ASP.NET applications.
 
 ## Access tables in code
 To access tables in cloud service projects, you need to include the following items to any C# source files that access Azure table storage.

@@ -301,12 +301,8 @@ The signed runbook will have the name `<runbook name>.asc`.
 
 The signed runbook can now be uploaded to Azure Automation, and can be executed like a regular runbook.
 
-## Troubleshoot
-
-If your runbooks aren't completing successfully, review the troubleshooting guide on [runbook execution failures](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
-
 ## Next steps
 
 * To learn more about the different methods that can be used to start a runbook, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md).
 * To understand the different ways to work with PowerShell runbooks in Azure Automation using the textual editor, see [Editing a Runbook in Azure Automation](automation-edit-textual-runbook.md)
-
+* If your runbooks aren't completing successfully, review the troubleshooting guide on [runbook execution failures](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).

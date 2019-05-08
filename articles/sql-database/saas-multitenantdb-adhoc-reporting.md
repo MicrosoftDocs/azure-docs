@@ -21,7 +21,7 @@ In this tutorial, you run distributed queries across the entire set of tenant da
 In this tutorial you learn:
 
 > [!div class="checklist"]
-
+> 
 > * How to deploy an ad hoc reporting database
 > * How to run distributed queries across all tenant databases
 
@@ -141,7 +141,7 @@ When inspecting the execution plan, hover over the plan icons for details.
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
-
+> 
 > * Run distributed queries across all tenant databases
 > * Deploy an ad hoc reporting database and add schema to it to run distributed queries.
 

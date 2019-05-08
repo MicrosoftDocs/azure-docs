@@ -25,6 +25,7 @@ ms.author: gokuma
 The Data Science Virtual Machine (DSVM) provides a productive environment for your development by bundling several popular tools and IDE. Here are some tools that are provided on the DSVM. 
 
 ## Visual Studio 2017  
+
 |    |           |
 | ------------- | ------------- |
 | What is it?   | General Purpose IDE      |
@@ -35,6 +36,7 @@ The Data Science Virtual Machine (DSVM) provides a productive environment for yo
 | Related Tools on the DSVM      |     Visual Studio Code, RStudio, Juno  |
 
 ## Visual Studio Code 
+
 |    |           |
 | ------------- | ------------- |
 | What is it?   | General Purpose IDE      |
@@ -44,6 +46,7 @@ The Data Science Virtual Machine (DSVM) provides a productive environment for yo
 | Related Tools on the DSVM      |     Visual Studio 2017, RStudio, Juno  |
 
 ## RStudio  Desktop 
+
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Client IDE for R    |
@@ -53,15 +56,17 @@ The Data Science Virtual Machine (DSVM) provides a productive environment for yo
 | Related Tools on the DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
 
 ## RStudio  Server 
+
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Web-based IDE for R    |
 | Supported DSVM Versions      | Linux      |
 | Typical Uses      |  R development     |
-| How to use / run it?      | Enable the service with _systemctl enable rstudio-server_, then start the service with _systemctl start rstudio-server_. You can then log in to RStudio Server at http://your-vm-ip:8787.       |
+| How to use / run it?      | Enable the service with _systemctl enable rstudio-server_, then start the service with _systemctl start rstudio-server_. You can then log in to RStudio Server at http:\//your-vm-ip:8787.       |
 | Related Tools on the DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
 
 ## Juno 
+
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Client IDE for Julia language   |
@@ -71,6 +76,7 @@ The Data Science Virtual Machine (DSVM) provides a productive environment for yo
 | Related Tools on the DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 
 ## Pycharm
+
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Client IDE for Python language    |
@@ -82,6 +88,7 @@ The Data Science Virtual Machine (DSVM) provides a productive environment for yo
 
 
 ## PowerBI Desktop 
+
 |    |           |
 | ------------- | ------------- |
 | What is it?   | Interactive Data Visualization and BI Tool    |

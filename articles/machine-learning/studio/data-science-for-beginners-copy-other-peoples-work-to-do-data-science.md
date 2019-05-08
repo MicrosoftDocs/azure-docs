@@ -5,12 +5,12 @@ description: 'Trade secret of data science: Get others to do your work for you. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
-author: garyericson
-ms.author: garye
+author: sdgilley
+ms.author: sgilley
 ms.custom: seodec18
-ms.date: 01/05/2018
+ms.date: 03/22/2019
 ---
 # Copy other people's work to do data science
 ## Video 5: Data Science for Beginners series
@@ -87,4 +87,4 @@ Be sure to check out the other videos in "Data Science for Beginners" from Micro
 
 ## Next steps
 * [Try your first data science experiment with Azure Machine Learning Studio](create-experiment.md)
-* [Get an introduction to Machine Learning on Microsoft Azure](what-is-machine-learning.md)
+* [Get an introduction to Machine Learning on Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

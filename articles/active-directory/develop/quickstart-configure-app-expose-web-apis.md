@@ -1,5 +1,5 @@
 ---
-title: Configure an application to expose web APIs (Preview) | Azure
+title: Configure an application to expose web APIs - Microsoft identity platform
 description: Learn how to configure an application to expose a new permission/scope and role to make the application available to client applications.
 services: active-directory
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 04/30/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 #Customer intent: As an application developer, I need to know how to configure my application to expose new permissions (or scopes) and roles, to make my application available to client applications.
 ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Configure an application to expose web APIs (Preview)
+# Quickstart: Configure an application to expose web APIs
 
 You can develop a web API and make it available to client applications by exposing [permissions/scopes](developer-glossary.md#scopes) and [roles](developer-glossary.md#roles). A correctly configured web API is made available just like the other Microsoft web APIs, including the Graph API and the Office 365 APIs.
 
@@ -103,10 +103,10 @@ To expose a new scope through the application manifest:
       }
       ```
 
-  > [!NOTE]
-  > The `id` value must be generated programmatically or by using a GUID generation tool such as [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). The `id` represents a unique identifier for the scope as exposed by the web API. Once a client is appropriately configured with permissions to access your web API, it is issued an OAuth 2.0 access token by Azure AD. When the client calls the web API, it presents the access token that has the scope (scp) claim set to the permissions requested in its application registration.
-  >
-  > You can expose additional scopes later as necessary. Consider that your web API might expose multiple scopes associated with a variety of different functions. Your resource can control access to the web API at runtime by evaluating the scope (`scp`) claim(s) in the received OAuth 2.0 access token.
+   > [!NOTE]
+   > The `id` value must be generated programmatically or by using a GUID generation tool such as [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). The `id` represents a unique identifier for the scope as exposed by the web API. Once a client is appropriately configured with permissions to access your web API, it is issued an OAuth 2.0 access token by Azure AD. When the client calls the web API, it presents the access token that has the scope (scp) claim set to the permissions requested in its application registration.
+   >
+   > You can expose additional scopes later as necessary. Consider that your web API might expose multiple scopes associated with a variety of different functions. Your resource can control access to the web API at runtime by evaluating the scope (`scp`) claim(s) in the received OAuth 2.0 access token.
 
 1. When finished, click **Save**. Now your web API is configured for use by other applications in your directory.
 1. Follow the steps to [verify that the web API is exposed to other applications](#verify-the-web-api-is-exposed-to-other-applications).

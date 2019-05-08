@@ -3,17 +3,14 @@ title: Create an Azure data factory using Resource Manager template | Microsoft 
 description: In this tutorial, you create a sample Azure Data Factory pipeline using an Azure Resource Manager template.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: 
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: quickstart
 ms.date: 02/20/2019
-ms.author: douglasl
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
 ---
 # Tutorial: Create an Azure data factory using Azure Resource Manager template
 
@@ -30,7 +27,9 @@ This quickstart describes how to use an Azure Resource Manager template to creat
 
 ### Azure PowerShell
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## Resource Manager templates
 
@@ -47,7 +46,7 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder wi
 ```json
 {
 	"contentVersion": "1.0.0.0",
-	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 	"parameters": {
 		"dataFactoryName": {
 			"type": "string",
@@ -323,8 +322,8 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 
 In PowerShell, run the following command to deploy Data Factory entities using the Resource Manager template you created earlier in this quickstart.
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
+```powershell
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
 ```
 
 You see output similar to the following sample:
@@ -364,9 +363,9 @@ The template deploys the following Data Factory entities:
 - Pipeline with a copy activity
 - Trigger to trigger the pipeline
 
-The deployed trigger is in stopped state. One of the ways to start the trigger is to use the **Start-AzureRmDataFactoryV2Trigger** PowerShell cmdlet. The following procedure provides detailed steps:
+The deployed trigger is in stopped state. One of the ways to start the trigger is to use the **Start-AzDataFactoryV2Trigger** PowerShell cmdlet. The following procedure provides detailed steps:
 
-1. In the PowerShell window, create a variable to hold the name of the resource group. Copy the following command into the PowerShell window, and press ENTER. If you have specified a different resource group name for the New-AzureRmResourceGroupDeployment command, update the value here.
+1. In the PowerShell window, create a variable to hold the name of the resource group. Copy the following command into the PowerShell window, and press ENTER. If you have specified a different resource group name for the New-AzResourceGroupDeployment command, update the value here.
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -384,7 +383,7 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
 4. Get the **status of the trigger** by running the following PowerShell command after specifying the name of your data factory and trigger:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
     Here is the sample output:
@@ -401,7 +400,7 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
 5. **Start the trigger**. The trigger runs the pipeline defined in the template at the hour. That's, if you executed this command at 2:25 PM, the trigger runs the pipeline at 3 PM for the first time. Then, it runs the pipeline hourly until the end time you specified for the trigger.
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
     Here is the sample output:
@@ -412,10 +411,10 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
     True
     ```
-6. Confirm that the trigger has been started by running the Get-AzureRmDataFactoryV2Trigger command again.
+6. Confirm that the trigger has been started by running the Get-AzDataFactoryV2Trigger command again.
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
     Here is the sample output:
@@ -462,7 +461,7 @@ The deployed trigger is in stopped state. One of the ways to start the trigger i
 8. Stop the trigger once you see a successful/failure run. The trigger runs the pipeline once an hour. The pipeline copies the same file from the input folder to the output folder for each run. To stop the trigger, run the following command in the PowerShell window.
     
     ```powershell
-    Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    Stop-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
@@ -600,7 +599,7 @@ You define a pipeline that copies data from one Azure blob dataset to another Az
 
 #### Trigger
 
-You define a trigger that runs the pipeline once an hour. The deployed trigger is in stopped state. Start the trigger by using the **Start-AzureRmDataFactoryV2Trigger** cmdlet. For more information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers) article.
+You define a trigger that runs the pipeline once an hour. The deployed trigger is in stopped state. Start the trigger by using the **Start-AzDataFactoryV2Trigger** cmdlet. For more information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#triggers) article.
 
 ```json
 {
@@ -642,12 +641,12 @@ In the tutorial, you created a template for defining Data Factory entities and a
 
 Example:
 
-```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
+```powershell
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
 ```
 
 Notice that the first command uses parameter file for the development environment, second one for the test environment, and the third one for the production environment.

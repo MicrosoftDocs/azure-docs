@@ -50,7 +50,7 @@ All the above follow these naming conventions:
 
 * Adventure Works Cycles uses **[IT workload]-[location]-[Azure resource]** as a prefix
   * For this example, "**azos**" (Azure On-line Store) is the IT workload name and "**use**" (East US 2) is the location
-* Virtual networks use AZOS-USE-VN**[number]**
+* Virtual networks use AZOS-USE-VN<strong>[number]</strong>
 * Availability sets use azos-use-as-**[role]**
 * Virtual machine names use azos-use-vm-**[vmname]**
 

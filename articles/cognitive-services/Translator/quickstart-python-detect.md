@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 02/21/2019
 ms.author: erhopf
 ---
 
@@ -122,6 +122,8 @@ python detect.py
 If you'd like to compare your code against ours, the complete sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
 
 ## Sample response
+
+Find the country abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

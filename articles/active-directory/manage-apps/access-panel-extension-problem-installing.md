@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/4/18
+ms.date: 5/4/2018
 ms.author: celested
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
@@ -59,7 +59,8 @@ To install the access panel browser extension, do the following:
 You can also download the extension for Chrome and Microsoft Edge directly from following sites:
 
 - [Chrome extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Microsoft Edge extension](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
+- [Microsoft Edge extension](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Firefox extension](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
 
 ## Use the My Apps Secure Sign-in Extension
 * If you are using a My Apps URL other than `https://myapps.microsoft.com`, configure your default URL by doing the following:

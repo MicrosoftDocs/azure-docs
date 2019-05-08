@@ -5,18 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/30/2019
+ms.date: 04/30/2019
 ---
 
 # Read replicas in Azure Database for MySQL
 
-> [!IMPORTANT]
-> The read replica feature is in Public Preview.
-
 The read replica feature allows you to replicate data from an Azure Database for MySQL server (master) to up to five read-only servers (replicas) within the same Azure region. Read-only replicas are asynchronously updated using the MySQL engine's native binary log (binlog) file position-based replication technology. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-Replicas created in the Azure Database for MySQL service are new servers that can be managed in the same way as normal/standalone MySQL servers. For each read replica, you are billed for the provisioned compute in vCores and provisioned storage in GB/month. 
-
+Replicas created in the Azure Database for MySQL service are new servers that can be managed in the same way as normal/standalone MySQL servers. For each read replica, you are billed for the provisioned compute in vCores and provisioned storage in GB/month.
 
 To learn more about MySQL replication features and issues, please see the [MySQL replication documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
@@ -34,7 +30,7 @@ Read replicas are currently only available in the General Purpose and Memory Opt
 
 ### Master server restart
 
-During this preview, when you create a replica for a master that has no existing replicas, the master will first restart to prepare itself for replication. Please take this into consideration and perform these operations during an off-peak period.
+When you create a replica for a master that has no existing replicas, the master will first restart to prepare itself for replication. Please take this into consideration and perform these operations during an off-peak period.
 
 ### Stopping replication
 
@@ -75,15 +71,23 @@ When a master server is deleted, replication is stopped to all read replicas. Th
 
 Users on the master server are replicated to the read replicas. You can only connect to a read replica using the user accounts available on the master server.
 
+### Server parameters
+
+To prevent data from becoming out of sync and to avoid potential data loss or corruption, some server parameters are locked from being updated when using read replicas.
+
+The following server parameters are locked on both the master and replica servers:
+- [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) 
+- [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
+
+The [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parameter is locked on the replica servers. 
+
 ### Other
 
 - Global transaction identifiers (GTID) are not supported.
 - Creating a replica of a replica is not supported.
 - In-memory tables may cause replicas to become out of sync. This is a limitation of the MySQL replication technology. Read more in the [MySQL reference documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) for more information.
-- Tuning the [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) parameter on a master server after creating a replica server may cause the replica to become out of sync. The replica server is not aware of the different tablespaces.
 - Ensure the master server tables have primary keys. Lack of primary keys may result in replication latency between the master and replicas.
 - Review the full list of MySQL replication limitations in the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
-
 
 ## Next steps
 

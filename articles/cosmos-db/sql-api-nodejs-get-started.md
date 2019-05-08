@@ -333,7 +333,7 @@ Now that you have the code to initialize the Azure Cosmos DB client, let's take 
 Next create a container within the Azure Cosmos DB account, so that you can store and query the data. 
 
 > [!WARNING]
-Creating a container has pricing implications. Visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) so you know what to expect.
+> Creating a container has pricing implications. Visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) so you know what to expect.
 
 A container can be created by using either the `createIfNotExists` or create function from the **Containers** class.  A container consists of items (which in the case of the SQL API is JSON documents) and associated JavaScript application logic.
 
@@ -457,7 +457,7 @@ An item can be created by using the create function of the **Items** class. When
    /**
    * Create family item if it does not exist
    */
-  async function createFamilyItem(itemBody) {
+   async function createFamilyItem(itemBody) {
      try {
          // read the item to see if it exists
          const { item } = await client.database(databaseId).container(containerId).item(itemBody.id).read();
@@ -607,9 +607,9 @@ Azure Cosmos DB supports deleting JSON items.
 1. Copy and paste the **deleteFamilyItem** function underneath the **replaceFamilyItem** function.
 
    ```javascript
-  /**
-  * Delete the item by ID.
-  */
+   /**
+   * Delete the item by ID.
+   */
    async function deleteFamilyItem(itemBody) {
       await client.database(databaseId).container(containerId).item(itemBody.id).delete(itemBody);
       console.log(`Deleted item:\n${itemBody.id}\n`);

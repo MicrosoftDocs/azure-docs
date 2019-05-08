@@ -5,12 +5,12 @@ description: Four criteria your data needs to meet to be ready for data science.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
-author: garyericson
-ms.author: garye
+author: sdgilley
+ms.author: sgilleye
 ms.custom: seodec18
-ms.date: 01/03/2018
+ms.date: 03/22/2019
 ---
 # Is your data ready for data science?
 ## Video 2: Data Science for Beginners series
@@ -99,4 +99,4 @@ Be sure to check out the other four videos in *Data Science for Beginners* from 
 
 ## Next steps
 * [Try a first data science experiment with Machine Learning Studio](create-experiment.md)
-* [Get an introduction to Machine Learning on Microsoft Azure](what-is-machine-learning.md)
+* [Get an introduction to Machine Learning on Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

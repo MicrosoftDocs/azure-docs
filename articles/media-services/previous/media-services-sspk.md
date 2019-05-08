@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: xpouyat
 
 ---
@@ -121,8 +121,9 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Dongguan Digital AV Technology Corp., Ltd.
 * EchoStar Purchasing Corporation
 * Enseo, Inc.
-* Filmflex Movies Limited
+* FilmFlex Movies Limited
 * Fluendo S.A.
+* FUNAI ELECTRIC CO., LTD
 * Gibson Innovations Limited
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
@@ -154,7 +155,6 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * VIZIO, Inc.
 * Wistron Corporation
 * ZTE Corporation
-
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

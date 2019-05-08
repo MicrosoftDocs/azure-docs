@@ -25,7 +25,7 @@ robots: noindex
 ## Overview
 While using Azure Data Factory for your data integration needs, you may find yourself reusing the same pattern across different environments or implementing the same task repetitively within the same solution. Templates help you implement and manage these scenarios in an easy manner. Templates in Azure Data Factory are ideal for scenarios that involve reusability and repetition.
 
-Consider the situation where an organization has 10 manufacturing plants across the world. The logs from each plant are stored in a separate on-premises SQL Server database. The company wants to build a single data warehouse in the cloud for ad-hoc analytics. It also wants to have the same logic but different configurations for development, test, and production environments.
+Consider the situation where an organization has 10 manufacturing plants across the world. The logs from each plant are stored in a separate on-premises SQL Server database. The company wants to build a single data warehouse in the cloud for ad hoc analytics. It also wants to have the same logic but different configurations for development, test, and production environments.
 
 In this case, a task needs to be repeated within the same environment, but with different values across the 10 data factories for each manufacturing plant. In effect, **repetition** is present. Templating allows the abstraction of this generic flow (that is, pipelines having the same activities in each data factory), but uses a separate parameter file for each manufacturing plant.
 
@@ -56,7 +56,7 @@ The following sections provide details about defining Data Factory resources in 
 The top-level template for defining a data factory is:
 
 ```JSON
-"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 "contentVersion": "1.0.0.0",
 "parameters": { ...
 },

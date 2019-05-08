@@ -4,7 +4,7 @@ description: Learn how notifications support your investigation activities.
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: markvi
-ms.reviewer: nigu
+ms.author: joflore
+ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
 ---

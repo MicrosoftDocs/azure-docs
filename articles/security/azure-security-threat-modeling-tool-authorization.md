@@ -277,7 +277,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **Applicable Technologies** | Generic |
 | **Attributes**              | StorageType - Table |
 | **References**              | [How to delegate access to objects in your Azure storage account using SAS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
-| **Steps** | In certain business scenarios, Azure Table Storage may be required to store sensitive data that caters to different parties. E.g., sensitive data pertaining to different countries. In such cases, SAS signatures can be constructed by specifying the partition and row key ranges, such that a user can access data specific to a particular country.| 
+| **Steps** | In certain business scenarios, Azure Table Storage may be required to store sensitive data that caters to different parties. E.g., sensitive data pertaining to different countries/regions. In such cases, SAS signatures can be constructed by specifying the partition and row key ranges, such that a user can access data specific to a particular country/region.| 
 
 ## <a id="rbac-azure-manager"></a>Enable Role-Based Access Control (RBAC) to Azure storage account using Azure Resource Manager
 
@@ -394,7 +394,7 @@ return result;
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, MVC5 |
 | **Attributes**              | N/A, Identity Provider - ADFS, Identity Provider - Azure AD |
-| **References**              | [Authentication and Authorization in ASP.NET Web API](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
+| **References**              | [Authentication and Authorization in ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
 | **Steps** | <p>Role information for the application users can be derived from Azure AD or ADFS claims if the application relies on them as Identity provider or the application itself might provided it. In any of these cases, the custom authorization implementation should validate the user role information.</p><p>Role information for the application users can be derived from Azure AD or ADFS claims if the application relies on them as Identity provider or the application itself might provided it. In any of these cases, the custom authorization implementation should validate the user role information.</p>
 
 ### Example

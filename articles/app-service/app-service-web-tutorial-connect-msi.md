@@ -92,7 +92,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 In Visual Studio, open the Package Manager Console and add the NuGet package [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
 
-```PowerShell
+```powershell
 Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.1.0-preview
 ```
 

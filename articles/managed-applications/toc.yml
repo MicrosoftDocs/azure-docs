@@ -17,6 +17,8 @@
     href: publish-service-catalog-app.md
   - name: Publish marketplace application 
     href: publish-marketplace-app.md 
+  - name: Create custom resource provider
+    href: create-custom-provider.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -25,6 +27,10 @@
     href: powershell-samples.md
   - name: Managed application solutions
     href: sample-projects.md
+- name: Concepts
+  items:
+  - name: Custom Providers
+    href: custom-providers-overview.md
 - name: How-to guides
   items:
   - name: Publishers
@@ -102,5 +108,7 @@
     href: https://azure.microsoft.com/pricing/details/managed-applications/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Resource Manager template best practices
+    href: https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-managedapps

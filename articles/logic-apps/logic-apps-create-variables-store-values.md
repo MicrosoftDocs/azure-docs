@@ -504,13 +504,13 @@ You can follow the steps for [increasing a variable](#increment-value)
 except that you follow these steps instead: 
 
 1. Find and select one of these actions based on 
-whether your variable is a string or an array: 
+   whether your variable is a string or an array: 
 
-  * **Variables - Append to string variable**
-  * **Variables - Append to array variable** 
+   * **Variables - Append to string variable**
+   * **Variables - Append to array variable** 
 
 2. Provide the value to append as the last item in the string or array. 
-This value is required. 
+   This value is required. 
 
 Here are the properties for the **Append to...** actions:
 

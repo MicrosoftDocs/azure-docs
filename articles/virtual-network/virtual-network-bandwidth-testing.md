@@ -133,13 +133,13 @@ On this scenarios we should enable the no-sync mode so the test can run. This is
 
 #### From Linux to Windows:
 
-Receiver <Windows>:
+Receiver \<Windows>:
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Windows server IP>
 ```
 
-Sender <Linux> :
+Sender \<Linux> :
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
@@ -147,13 +147,13 @@ ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 
 #### From Windows to Linux:
 
-Receiver <Linux>:
+Receiver \<Linux>:
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
 ```
 
-Sender <Windows>:
+Sender \<Windows>:
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
