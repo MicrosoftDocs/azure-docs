@@ -29,23 +29,23 @@ This article walks you through the process of migrating existing Java EE workloa
 * [What you will migrate to cloud](#what-you-will-migrate-to-cloud)
 * [Prerequisites](#prerequisites)
 * [Get started](#get-started)
-    * [Step ONE - Clone and Prep](#step-one---clone-and-prepare-the-git-repository)
+    * [Clone the Git repository and Prep](#clone-and-prepare-the-git-repository)
 * [Build Sample Archive](#build-sample-archive)
-* [Build Console App - send and receive messages to Service Bus using Java Message Service (JMS)](##build-console-app---send-and-receive-messages-to-service-bus-using-jms)
+* [Build Console App - send and receive messages to Service Bus using Java Message Service (JMS)](#build-and-run-console-app-to-send-and-receive-messages)
     * [Create and Configure Azure Service Bus](#create-and-configure-azure-service-bus)
     * [Build and Run Console App](#build-and-run-the-console-app)
 * [Migrate a message driven enterprise bean to Azure](#migrate-a-message-driven-enterprise-bean-to-azure)
     * [Prepare Environment](#prepare-environment)
     * [Deploy App to App Service Linux](#deploy-app-to-app-service-linux)
     * [Configure JMS Resource Adapter ( JMS RA)](#configure-jms-resource-adapter-jms-ra)
-    * [Step 1: Understand How to configure WildFly](#step-1-understand-how-to-configure-wildfly)
-    * [Step 2 - Upload Startup and Binary Artifacts to App through FTP](#step-2---upload-startup-and-binary-artifacts-to-app-through-ftp)
+    * [Understand How to configure WildFly](#understand-how-to-configure-wildfly)
+    * [Upload Startup and Binary Artifacts to App through FTP](#upload-startup-and-binary-artifacts-to-app-through-ftp)
         * [Get FTP Deployment Credentials](#get-ftp-deployment-credentials)
         * [Upload Startup and Binary Artifacts to App through FTP](#upload-startup-and-binary-artifacts-to-app-through-ftp)
-    * [Step 4: Test the JBoss/WildFly Startup Script and CLI Commands to Configure JMS RA](#step-4-test-the-jbosswildfly-startup-script-and-cli-commands-to-configure-jms-ra)
+    * [Test the JBoss/WildFly Startup Script and CLI Commands to Configure JMS RA](#test-the-jbosswildfly-startup-script-and-cli-commands-to-configure-jms-ra)
         * [Test the startup.sh script](#test-the-startupsh-script)
-    * [Step 5: Restart the remote WildFly app server](#step-5-restart-the-remote-wildfly-app-server)
-    * [Step 6: Stream WildFly/JBoss logs to a dev machine](#step-6-stream-wildflyjboss-logs-to-a-dev-machine)
+    * [Restart the remote WildFly app server](#restart-the-remote-wildfly-app-server)
+    * [Stream WildFly/JBoss logs to a dev machine](#stream-wildflyjboss-logs-to-a-dev-machine)
     * [Open the Message-Driven Enterprise Bean on Azure](#open-the-message-driven-enterprise-bean-on-azure)
     * [Additional Info](#additional-information)
 * [Migrate Java Enterprise App that uses WebSockets](#migrate-java-ee-app-that-uses-websockets)
@@ -68,7 +68,7 @@ To deploy a Java web app to Azure, you need an Azure subscription. If you don't 
 
 In addition, you'll need the following prerequisites:
 
-- [Azure CLI](../cli/azure/get-started-with-azure-cli.md) 
+- [Azure CLI](/cli/azure/get-started-with-azure-cli) 
 - [Java 8](https://www.azul.com/downloads/azure-only/zulu/) 
 - [Maven 3](http://maven.apache.org/) 
 - [Git](https://github.com/)
@@ -76,7 +76,7 @@ In addition, you'll need the following prerequisites:
 ## Get started
 You can start from scratch and complete each step, or you can bypass basic setup steps that you're already familiar with. Either way, you'll end up with working code.
 
-### Step ONE - Clone and prepare the Git repository 
+### Clone and prepare the Git repository 
 
 ```bash
 git clone --recurse-submodules https://github.com/Azure-Samples/migrate-java-ee-app-to-azure-2
@@ -503,7 +503,7 @@ the previous exercise `../helloworld-jms/.scripts/set-env-variables.sh` and add 
 ### Configure JMS resource adapter (JMS RA)
 There are a few steps to configure a JMS RA that will enable Java EJBs to configure a remote JMS connection factory and queue. This remote setup will point to Azure Service Bus, using the [Apache Qpid JMS Provider](https://qpid.apache.org/components/jms/index.html) for the AMQP protocol. 
 
-#### Step 1: Understand How to configure WildFly
+#### Understand How to configure WildFly
 
 In App Service, each instance of an app server is stateless. Therefore, each instance must be configured on startup to support a Wildfly configuration needed by your application. You can configure at 
 startup by supplying a startup Bash script that calls [JBoss/WildFly CLI commands](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) to set up data sources, messaging providers, and any other dependencies. You'll create a startup.sh script and place it in the `/home`  directory of the Web app. The script will:
@@ -578,7 +578,7 @@ These JBoss CLI commands, WildFly/JBoss Generic JMS Provider Module description 
 
 Also, you can directly download `Qpid` and `Proton-j` libraries from [Apache Qpid JMS Provider](https://qpid.apache.org/components/jms/index.html) for the AMQP protocol.
 
-#### Step 2 - Upload startup and binary artifacts to app through FTP
+#### Upload startup and binary artifacts to app through FTP
 
 ##### Get FTP deployment credentials
 Use Azure CLI to get FTP deployment credentials:
@@ -770,7 +770,7 @@ Open an FTP connection to App Service on Linux to upload artifacts:
     12244 bytes sent in 00:00 (169.29 KiB/s)
     ```
 
-#### Step 4: Test the JBoss/WildFly startup script and CLI Commands to configure JMS RA
+#### Test the JBoss/WildFly startup script and CLI Commands to configure JMS RA
 
 You can test the Bash script for configuring data source by running them on App Service Linux by [opening an SSH connection from your development machine](../app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell):
 
@@ -869,7 +869,7 @@ Picked up _JAVA_OPTIONS: -Djava.net.preferIPv4Stack=true
     "response-headers" => {"process-state" => "reload-required"}
 }
 ```
-#### Step 5: Restart the remote WildFly app server
+#### Restart the remote WildFly app server
      
  Use Azure CLI to restart the remote WildFly app server:
     
@@ -878,7 +878,7 @@ Picked up _JAVA_OPTIONS: -Djava.net.preferIPv4Stack=true
  az webapp start -g ${RESOURCEGROUP_NAME} -n ${WEBAPP_NAME}
  ```
 
-#### Step 6: Stream WildFly/JBoss logs to a dev machine
+#### Stream WildFly/JBoss logs to a dev machine
 
 1. Configure logs for the deployed Java Web app in App Service Linux:
 
