@@ -135,6 +135,7 @@
       href: use-azure-media-player.md
   - name: Developing with v3 APIs
     href: media-services-apis-overview.md
+    displayName: accessing APIs, naming conventions, long-running operations
     items:
     - name: Page, filter, order entities
       href: entities-overview.md 
