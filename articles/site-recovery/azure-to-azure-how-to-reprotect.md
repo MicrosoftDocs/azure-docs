@@ -81,9 +81,12 @@ Below are the conditions that determines how much data would be replicated :
 1.	If the source VM data is deleted, corrupted or inaccessible due to some reason like resource group change/delete then during reprotection complete IR will happen as there is no data available on the source region to use.
 2.	If the source VM data is accessible then only  differentials are computed by comparing both the disks and then transferred. Check the below table to get the estimated time 
 
-**Example situation ** | **Time taken to Reprotect  ** |
---- | --- |
-Source region has 1 VM with 1 TB standard Disk<br/>- Only 127 GB data is used and rest of the disk is empty<br/>- Disk type is standard with 60 MiB/S throughput<br/>- No data change after failover| Approximate time range 45 minutes – 1.5 hours<br/> 1.During reprotection Site Recovery will populate the checksum of whole data  which will take 127 GB/ 45 MBs ~45 minutes<br/>Some overhead  time is required for Site Recovery to do auto scale that  is 20-30 minutes<br/>No Egress charges |
+|**Example situation ** | **Time taken to Reprotect  ** |
+|--- | --- |
+|Source region has 1 VM with 1 TB standard Disk<br/>- Only 127 GB data is used and rest of the disk is empty<br/>- Disk type is standard with 60 MiB/S throughput<br/>- No data change after failover| Approximate time range 45 minutes – 1.5 hours<br/> - During reprotection Site Recovery will populate the checksum of whole data  which will take 127 GB/ 45 MBs ~45 minutes<br/>- Some overhead  time is required for Site Recovery to do auto scale that  is 20-30 minutes<br/>- No Egress charges |
+|Source region has 1 VM with 1 TB standard Disk</br/>- Only 127 GB data is used and rest of the disk is empty<br/>- Disk type is standard with 60 MiB/S throughput<br/>- 45 GB data changes after failover| Approximate time 1 hours – 2 hours<br/>- During reprotection Site Recovery will populate the checksum of whole data  which will take 127 GB/ 45 MBs ~45 minutes<br/>- Transfer time to apply changes of 45 GB that is 45 GB/ 45 MBps ~ 17 minutes<br/>- Egress charges would be only for 45 GB data not for the checksum|
+ 
+
 
 
 ## Next steps
