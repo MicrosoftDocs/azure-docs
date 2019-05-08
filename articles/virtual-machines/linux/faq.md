@@ -61,7 +61,7 @@ Usernames should be 1 - 32 characters in length.
 
 The following usernames are not allowed:
 
-| |
+| | | | |
 |-----------------|-----------|--------------------|----------|
 | `administrator` | `admin`   | `user`             | `user1`  |
 | `test`          | `user2`   | `test1`            | `user3`  |

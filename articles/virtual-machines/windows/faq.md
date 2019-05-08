@@ -84,7 +84,7 @@ Usernames can be a maximum of 20 characters in length and cannot end in a period
 
 The following usernames are not allowed:
 
-| |
+| | | | |
 |-----------------|-----------|--------------------|----------|
 | `administrator` | `admin`   | `user`             | `user1`  |
 | `test`          | `user2`   | `test1`            | `user3`  |
