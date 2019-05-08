@@ -12,7 +12,7 @@ ms.author: zhanxia
 ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
-# The Assign Data to Clusters module
+# Module: Assign Data to Clusters
 
 This article describes how to use the *Assign Data to Clusters* module in the Azure Machine Learning visual interface. The module generates predictions through a clustering model that was trained with the *K-means clustering* algorithm.
 
