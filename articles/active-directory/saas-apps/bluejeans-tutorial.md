@@ -106,9 +106,10 @@ To configure Azure AD single sign-on with BlueJeans, perform the following steps
 
    - In the **Identifier** text box, type the following:
     `https://samlsp.bluejeans.com`
-
+    
    - In the **Sign-on URL** text box, type the landing page URL provided to you by BlueJeans (to get this value, you can contact the [BlueJeans Client support team](https://support.bluejeans.com/contact)):
     `https://<companyname>.BlueJeans.com`
+    
    - Click **Save**.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
@@ -157,9 +158,9 @@ To configure Azure AD single sign-on with BlueJeans, perform the following steps
 
 	![Save Changes](./media/bluejeans-tutorial/ic785874.png "Save Changes")
 
-	a. In the **User Id** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+	a. In the **User Id** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    b. In the **Email** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    b. In the **Email** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     c. Click **SAVE CHANGES**.
 

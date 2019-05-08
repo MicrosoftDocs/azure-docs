@@ -113,18 +113,14 @@ Alternatively, you can also explicitly acquire tokens using the acquire token me
 
 ### JavaScript
 
-The pattern is as described above but shown with a redirect method to acquire token interactively. Note that you will need to register the redirect callbacks as mentioned above.
+The pattern is as described above but shown with a redirect method to acquire token interactively. Note that you will need to register the redirect callback as mentioned above.
 
 ```javascript
-function tokenReceivedCallback(response) {
-    // use response in callback code
+function authCallback(error, response) {
+    //handle redirect response
 }
 
-function errorReceivedCallback(error) {
-    // handle error in callback code
-}
-
-userAgentApplication.handleRedirectCallbacks(tokenReceivedCallback, errorReceivedCallback);
+userAgentApplication.handleRedirectCallback(authCallback);
 
 const accessTokenRequest: AuthenticationParameters = {
     scopes: ["user.read"]

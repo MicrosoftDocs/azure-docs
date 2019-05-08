@@ -2,11 +2,13 @@
 title: Copy or move data to Azure Storage by using AzCopy v10 | Microsoft Docs
 description: Use the AzCopy command-line utility to move or copy data to or from blob, data lake, and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
 services: storage
-author: seguler
+author: normesta
+
 ms.service: storage
 ms.topic: article
 ms.date: 04/23/2019
-ms.author: seguler
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: common
 ---
 # Transfer data with AzCopy v10

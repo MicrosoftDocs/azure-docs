@@ -60,7 +60,7 @@ In a function app, a scoped service lifetime matches a function execution lifeti
 
 Singleton lifetime services are recommended for connections and clients, for example a `SqlConnection`, `CloudBlobClient`, or `HttpClient`.
 
-View or download a [sample of different service lifetimes](http://aka.ms/functions/di-sample).
+View or download a [sample of different service lifetimes](https://aka.ms/functions/di-sample).
 
 ## Logging services
 
