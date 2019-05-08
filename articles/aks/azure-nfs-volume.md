@@ -27,7 +27,7 @@ It also assumes you've created an Ubuntu Linux Virtual Machine (for example, 18.
 
 If you deploy your AKS Cluster first, Azure will automatically populate the virtual network field when deploying your Ubuntu machine, making them live within the same VNET. But if you want to work with peered networks instead, consult the documentation above.
 
-## Instructions for deploying the NFS Server onto a Virtual Machine
+## Deploying the NFS Server onto a Virtual Machine
 Here is the script to set up an NFS Server within your Ubuntu virtual machine:
 ```bash
 #!/bin/bash
@@ -72,7 +72,8 @@ nohup service nfs-kernel-server restart
 ```
 The server will restart (because of the script) and you can mount the NFS Server to AKS
 
-**IMPORTANT**: Make sure to replace the **AKS_SUBNET** with the correct one from your cluster or else "*" will open your NFS Server to all ports and connections.
+[!IMPORTANT]  
+Make sure to replace the **AKS_SUBNET** with the correct one from your cluster or else "*" will open your NFS Server to all ports and connections.
 
 After you've created your VM, copy the script above into a file. Then, you can move it from your local machine, or wherever the script is, into the VM using: 
 ```console
@@ -87,7 +88,7 @@ If its execution fails because of a permission denied error, set execution permi
 chmod +x ~/nfs-server-setup.sh
 ```
 
-## Instructions for connecting AKS Cluster to NFS Server
+## Connecting AKS Cluster to NFS Server
 We can connect the NFS Server to our cluster by provisioning a persistent volume and persistent volume claim that specifies how to access the volume.  
 Connecting the two services in the same or peered virtual networks is necessary. Instructions for setting up the cluster in the same VNET are here: [creating AKS Cluster in existing VNET][aks-virtual-network]
 
@@ -115,7 +116,8 @@ Replace **NFS_INTERNAL_IP**, **NFS_NAME** and **NFS_EXPORT_FILE_PATH** with NFS 
 
 You'll also need a persistent volume claim file. Here is an example of what to include:
 
-**IMPORTANT**: **"storageClassName"** needs to remain an empty string or the claim won't work.
+[!IMPORTANT]  
+**"storageClassName"** needs to remain an empty string or the claim won't work.
 
 ```yaml
 apiVersion: v1
@@ -144,17 +146,22 @@ You can check permissions by running the command below and the directories shoul
 ls -l
 ```
 
-## More Information
+## More information
 To get a full walkthrough or to help you debug your NFS Server setup, here is an in-depth tutorial:
   - [NFS Tutorial][nfs-tutorial]
 
+## Next steps
+
+For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
+
 <!-- LINKS - external -->
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
-[linux-create]: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm
+[linux-create]: https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm
 [nfs-tutorial]: https://help.ubuntu.com/community/SettingUpNFSHowTo#Pre-Installation_Setup
-[aks-virtual-network]: https://docs.microsoft.com/en-us/azure/aks/configure-kubenet#create-an-aks-cluster-in-the-virtual-network
-[peer-virtual-networks]: https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-connect-virtual-networks-portal
+[aks-virtual-network]: https://docs.microsoft.com/azure/aks/configure-kubenet#create-an-aks-cluster-in-the-virtual-network
+[peer-virtual-networks]: https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[operator-best-practices-storage]: operator-best-practices-storage.md
