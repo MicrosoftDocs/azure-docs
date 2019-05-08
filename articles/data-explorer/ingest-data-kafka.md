@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Ingest data from Kafka into Azure Data Explorer'
-description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer from Kafka.'
-services: data-explorer
+description: In this quickstart, you learn how to ingest (load) data into Azure Data Explorer from Kafka.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe

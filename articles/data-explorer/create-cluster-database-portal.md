@@ -1,13 +1,12 @@
 ---
 title: 'Quickstart: Create an Azure Data Explorer cluster and database'
 description: 'In this quickstart, you learn how to create an Azure Data Explorer cluster and database, and ingest (load) data.'
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 3/25/2019
+ms.date: 03/25/2019
 
 #Customer intent: As a database administrator, I want to create an Azure Data Explorer cluster and database so that I can understand whether Azure Data Explorer is suitable for my analytics projects.
 ---

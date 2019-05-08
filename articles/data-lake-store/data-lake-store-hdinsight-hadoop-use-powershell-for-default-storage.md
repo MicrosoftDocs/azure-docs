@@ -211,7 +211,7 @@ In this section, you create an HDInsight Hadoop Linux cluster with Data Lake Sto
     After the cmdlet has been successfully completed, you should see an output that lists the cluster details.
 
 ## Run test jobs on the HDInsight cluster to use Data Lake Storage Gen1
-After you have configured an HDInsight cluster, you can run test jobs on it to ensure that it can access Data Lake Storage Gen1. To do so, run a sample Hive job to create a table that uses the sample data that's already available in Data Lake Storage Gen1 at *<cluster root>/example/data/sample.log*.
+After you have configured an HDInsight cluster, you can run test jobs on it to ensure that it can access Data Lake Storage Gen1. To do so, run a sample Hive job to create a table that uses the sample data that's already available in Data Lake Storage Gen1 at *\<cluster root>/example/data/sample.log*.
 
 In this section, you make a Secure Shell (SSH) connection into the HDInsight Linux cluster that you created, and then you run a sample Hive query.
 

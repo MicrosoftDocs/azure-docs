@@ -32,7 +32,7 @@ sections:
     style: unordered
     items:
     - html: <a href="front-door-custom-domain.md">Add a custom domain to your Front Door</a>
-    - html: <a href="front-door-custom-domain-https.md">Enable HTTPS for a custom doman</a>
+    - html: <a href="front-door-custom-domain-https.md">Enable HTTPS for a custom domain</a>
 - title: Reference
   items:
   - type: list

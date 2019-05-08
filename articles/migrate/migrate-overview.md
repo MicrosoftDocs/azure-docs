@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 04/04/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -28,7 +28,7 @@ Azure Migrate helps you to:
 - You can only assess on-premises VMware virtual machines (VMs) for migration to Azure VMs. The VMware VMs must be managed by vCenter Server (version 5.5, 6.0, 6.5 or 6.7).
 - Support for Hyper-V is currently in preview with production support, if you are interested in trying it out, please sign up [here.](https://aka.ms/migratefuture)
 - For assessment of physical servers, you can leverage our [partner tools](https://azure.microsoft.com/migration/partners/).
-- You can discover up to 1500 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 1500 VMs in a single assessment.
+- You can discover up to 1500 VMs in a single discovery and in a single project. We have a preview release available that allows discovery of up to 10,000 VMware VMs in a single project using a single appliance, if you are interested in trying it out, please sign up [here.](https://aka.ms/migratefuture)
 - If you want to discover a larger environment, you can split the discovery and create multiple projects. [Learn more](how-to-scale-assessment.md). Azure Migrate supports up to 20 projects per subscription.
 - Azure Migrate only supports managed disks for migration assessment.
 -  You can only create an Azure Migrate project in the following geographies. However, this does not restrict your ability to create assessments for other target Azure locations.

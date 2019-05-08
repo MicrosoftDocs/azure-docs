@@ -1,7 +1,6 @@
 ---
 title: Ingest sample data into Azure Data Explorer
 description: Learn about how to ingest (load) weather-related sample data into Azure Data Explorer.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe

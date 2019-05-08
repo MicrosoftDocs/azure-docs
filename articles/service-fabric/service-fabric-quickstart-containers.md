@@ -32,6 +32,9 @@ In this quickstart you learn how to:
 * Build and package the Service Fabric application
 * Deploy the container application to Azure
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 * An Azure subscription (you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
@@ -90,7 +93,7 @@ The following sample script creates a five-node Service Fabric cluster secured w
 
 If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/overview).
 
-Before you run the following script, in PowerShell run `Connect-AzureRmAccount` to create a connection with Azure.
+Before you run the following script, in PowerShell run `Connect-AzAccount` to create a connection with Azure.
 
 Copy the following script to the clipboard and open **Windows PowerShell ISE**.  Paste the contents into the empty Untitled1.ps1 window. Then provide values for the variables in the script: `subscriptionId`, `certpwd`, `certfolder`, `adminuser`, `adminpwd`, etc.  The directory you specify for `certfolder` must exist before you run the script.
 

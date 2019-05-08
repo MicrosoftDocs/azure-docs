@@ -1,7 +1,6 @@
 ---
 title: Sample - Billing tags policy initiative
 description: This sample policy definition set requires specified tag values for cost center and product name.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy

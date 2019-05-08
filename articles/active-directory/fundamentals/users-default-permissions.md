@@ -45,6 +45,8 @@ Default permissions for member users can be restricted in the following ways.
 
 Permission | Setting explanation
 ---------- | ------------
+Users can register application | Setting this option to No prevents users from creating application registrations. The ability can then be granted back to specific individuals by adding them to the Application Developer role.
+Allow users to connect work or school account with LinkedIn | Setting this option to No prevents users from connecting their work or school account with their LinkedIn account.  See [LinkedIn account connections data sharing and consent](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/linkedin-user-consent) for more information.
 Ability to create security groups | Setting this option to No prevents users from creating security groups. Global administrators and User administrators can still create security groups. See [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md) to learn how.
 Ability to create Office 365 groups | Setting this option to No prevents users from creating Office 365 groups. Setting this option to Some allows a select set of users to create Office 365 groups. Global administrators and User administrators will still be able to create Office 365 groups. See [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md) to learn how.
 Restrict access to Azure AD administration portal | Setting this option to No prevents users from accessing Azure Active Directory.

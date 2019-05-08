@@ -28,6 +28,7 @@ The guidelines are organized as simple recommendations prefixed with the terms *
 * Do not use a transaction after it has been committed, aborted, or disposed.
 * Do not use an enumeration outside of the transaction scope it was created in.
 * Do not create a transaction within another transaction’s `using` statement because it can cause deadlocks.
+* Do not create reliable state with `IReliableStateManager.GetOrAddAsync` and use the reliable state in the same transaction. This results in an InvalidOperationException.
 * Do ensure that your `IComparable<TKey>` implementation is correct. The system takes dependency on `IComparable<TKey>` for merging checkpoints and rows.
 * Do use Update lock when reading an item with an intention to update it to prevent a certain class of deadlocks.
 * Consider keeping number of Reliable Collections per partition to be less than 1000. Prefer Reliable Collections with more items over more Reliable Collections with fewer items.

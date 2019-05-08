@@ -204,9 +204,6 @@
   items:
   - name: Azure Machine Learning
     href: ../service/
-  - name: Microsoft Cognitive Toolkit - CNTK
-    href: https://docs.microsoft.com/cognitive-toolkit/
-    maintainContext: true
   - name: Azure AI Gallery
     href: https://gallery.azure.ai
   - name: Cortana Analytics

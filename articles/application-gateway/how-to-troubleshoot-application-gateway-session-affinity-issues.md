@@ -91,7 +91,7 @@ This issue occurs because Internet Explorer and other browsers may not store or 
 
 #### Resolution
 
-To fix this issue, you should access the Application Gateway by using a FQDN. For example, use [http://website.com](http://website.com/) or [http://appgw.website.com](http://appgw.website.com/) .
+To fix this issue, you should access the Application Gateway by using a FQDN. For example, use [http://website.com](https://website.com/) or [http://appgw.website.com](http://appgw.website.com/) .
 
 ## Additional logs to troubleshoot
 

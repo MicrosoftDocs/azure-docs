@@ -1,7 +1,6 @@
 ---
 title: Sample - Not allowed resource types
 description: This sample policy definition prohibits the deployment of specified resource types.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy

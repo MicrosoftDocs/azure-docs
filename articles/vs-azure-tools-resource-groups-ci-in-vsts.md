@@ -25,6 +25,8 @@ To deploy an Azure template, you perform tasks in various stages: Build, Test, C
 
 This article demonstrates both options. The first option has the advantage of using the same script used by developers in Visual Studio and providing consistency throughout the lifecycle. The second option offers a convenient alternative to the built-in script. Both procedures assume you already have a Visual Studio deployment project checked into Azure DevOps Services.
 
+[!INCLUDE [updated-for-az](../includes/updated-for-az.md)]
+
 ## Copy artifacts to Azure
 Regardless of the scenario, if you have any artifacts that are needed for template deployment, you must give Azure Resource Manager access to them. These artifacts can include files such as:
 
@@ -83,7 +85,7 @@ The following procedures walk you through the steps necessary to configure conti
       
       For PowerShell scripts, use:
       
-      `Get-AzureRmSubscription`
+      `Get-AzSubscription`
       
       For Azure CLI, use:
       

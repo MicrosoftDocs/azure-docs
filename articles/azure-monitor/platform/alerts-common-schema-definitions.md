@@ -1,6 +1,6 @@
 ---
-title: Common alert schema definitions for Webhooks/Logic Apps/Azure Functions
-description: Understanding the common alert schema definitions for Webhooks/Logic Apps/Azure Functions
+title: Common alert schema definitions for Webhooks/Logic Apps/Azure Functions/Automation Runbooks
+description: Understanding the common alert schema definitions for Webhooks/Logic Apps/Azure Functions/Automation Runbooks
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -13,7 +13,7 @@ ms.component: alerts
 
 # Common alert schema definitions
 
-This article describes the [common alert schema definitions](https://aka.ms/commonAlertSchemaDocs) for Webhooks/Logic Apps/Azure Functions. 
+This article describes the [common alert schema definitions](https://aka.ms/commonAlertSchemaDocs) for Webhooks/Logic Apps/Azure Functions/Automation Runbooks. 
 
 ## Overview
 
@@ -148,6 +148,9 @@ Any alert instance describes **the resource that was affected** and **the cause 
 ```
 
 ### Log Alerts
+
+> [!NOTE]
+> If you use the custom JSON option for your existing log alerts, the customization is not preserved in the common schema.
 
 #### monitoringService = 'Log Analytics'
 

@@ -59,7 +59,7 @@
   - name: Change Tracking
     items:
     - name: Change Tracking overview
-      href: automation-change-tracking.md
+      href: change-tracking.md
       displayName: wildcard, recursion, environment variables, registry
     - name: View file contents of tracked files
       href: change-tracking-file-contents.md
@@ -181,7 +181,7 @@
     - name: Manage Python 2 packages
       href: python-packages.md
     - name: Credentials
-      href: automation-credentials.md
+      href: shared-resources/credentials.md
     - name: Connections
       href: automation-connections.md
     - name: Certificates
