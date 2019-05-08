@@ -59,35 +59,16 @@ Yes. The resource group name can be a maximum of 90 characters in length. See [N
 
 Usernames should be 1 - 32 characters in length.
 
-The following usernames are not allowed:
-
-<table>
-    <tr>
-        <td style="text-align:center">`administrator` </td><td style="text-align:center"> `admin` </td><td style="text-align:center"> `user` </td><td style="text-align:center"> `user1`</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">`test` </td><td style="text-align:center"> `user2` </td><td style="text-align:center"> `test1` </td><td style="text-align:center"> `user3`</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">`admin1` </td><td style="text-align:center"> `1` </td><td style="text-align:center"> `123` </td><td style="text-align:center"> `a`</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">`actuser`  </td><td style="text-align:center"> `adm` </td><td style="text-align:center"> `admin2` </td><td style="text-align:center"> `aspnet`</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">`backup` </td><td style="text-align:center"> `console` </td><td style="text-align:center"> `david` </td><td style="text-align:center"> `guest`</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">`john` </td><td style="text-align:center"> `owner` </td><td style="text-align:center"> `root` </td><td style="text-align:center"> `server`</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">`sql` </td><td style="text-align:center"> `support` </td><td style="text-align:center"> `support_388945a0` </td><td style="text-align:center"> `sys`</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">`test2` </td><td style="text-align:center">`test3` </td><td style="text-align:center"> `user4` </td><td style="text-align:center"> `user5`</td>
-    </tr>
-</table>
-
+|The following usernames are not allowed:|
+|-----------------|-----------|--------------------|----------|
+| `administrator` | `admin`   | `user`             | `user1`  |
+| `test`          | `user2`   | `test1`            | `user3`  |
+| `admin1`        | `1`       | `123`              | `a`      |
+| `actuser`       | `adm`     | `admin2`           | `aspnet` |
+| `backup`        | `console` | `david`            | `guest`  |
+| `john`          | `owner`   | `root`             | `server` |
+| `sql`           | `support` | `support_388945a0` | `sys`    |
+| `test2`         | `test3`   | `user4`            | `user5`  |
 
 ## What are the password requirements when creating a VM?
 
