@@ -63,8 +63,8 @@ The preceding code example forwards the `azds-route-as` header from the incoming
 
 ### Debug across multiple services
 1. At this point, `mywebapi` should still be running with the debugger attached. If it is not, hit F5 in the `mywebapi` project.
-1. Set a breakpoint inside the `Get(int id)` method that handles `api/values/{id}` GET requests. This is around line 23 in the *Controllers/ValuesController.cs* file.
-1. In the `webfrontend` project, set a breakpoint just before it sends a GET request to `mywebapi/api/values`. This is around line 32 in the *Controllers/HomeController.cs* file that you modified in the previous section.
+1. Set a breakpoint inside the `Get(int id)` method that handles `api/values/{id}` GET requests. This is around [line 23 in the *Controllers/ValuesController.cs* file](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/mywebapi/Controllers/ValuesController.cs#L23).
+1. In the `webfrontend` project, set a breakpoint just before it sends a GET request to `mywebapi/api/values`. This is around line 32 in the [*Controllers/HomeController.cs* file](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs) that you modified in the previous section.
 1. Hit F5 in the `webfrontend` project.
 1. Invoke the web app, and step through code in both services.
 1. In the web app, the About page will display a message concatenated by the two services: "Hello from webfrontend and Hello from mywebapi."
