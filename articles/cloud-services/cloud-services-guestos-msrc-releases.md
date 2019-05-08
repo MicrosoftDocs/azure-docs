@@ -12,12 +12,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/26/2019
+ms.date: 5/8/2019
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## April 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 19-04 | [4493509] | Windows 10 Security | 6.6 | April 9, 2019 |
+| Rel 19-04 | [4493470] | Windows 10 Security | 5.30 | April 9, 2019 |
+| Rel 19-04 | [4493467] | Windows Security | 4.65 | April 9, 2019 |
+| Rel 19-04 | [4493450] | Windows Security | 3.72 | April 9, 2019 |
+| Rel 19-04 | [4493448] | Windows Security | 2.85 | April 9, 2019 |
+| Rel 19-04 | [4493478] | Flash | 3.72, 4.65, 5.30, 6.6 | April 9, 2019 |
+| Rel 19-04 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | April 9, 2019 |
+| Rel 19-04 | [KB4490628] | Servicing Stack Update | 2.85 | March 12, 2019 |
+| Rel 19-04 | [KB4474419] | SHA2 Support | 2.85 | March 12, 2019 |
+| Rel 19-04 | [KB4489878] | March Non-Security Rollup | 2.85 | March 12, 2019 |
+| Rel 19-04 | [KB4489891] | March Non-Security Rollup | 3.72 | March 12, 2019 |
+| Rel 19-04 | [KB4489881] | March Non-Security Rollup | 4.65 | March 12, 2019 |
+
+[4493509]: https://support.microsoft.com/kb/4493509
+[4493470]: https://support.microsoft.com/kb/4493470
+[4493467]: https://support.microsoft.com/kb/4493467
+[4493450]: https://support.microsoft.com/kb/4493450
+[4493448]: https://support.microsoft.com/kb/4493448
+[4493478]: https://support.microsoft.com/kb/4493478
+[4493435]: https://support.microsoft.com/kb/4493435
+[KB4490628]: https://support.microsoft.com/kb/KB4490628
+[KB4474419]: https://support.microsoft.com/kb/KB4474419
+[KB4489878]: https://support.microsoft.com/kb/KB4489878
+[KB4489891]: https://support.microsoft.com/kb/KB4489891
+[KB4489881]: https://support.microsoft.com/kb/KB4489881
 
 ## March 2019 Guest OS
 
