@@ -12,7 +12,7 @@ ms.author: zhanxia
 ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
-# The K-Means Clustering module
+# Module: K-Means Clustering
 
 This article describes how to use the *K-Means Clustering* module in Azure Machine Learning Studio to create an untrained K-means clustering model. 
  
@@ -28,7 +28,7 @@ To create a clustering model, you:
 * Connect a dataset.
 * Set parameters, such as the number of clusters you expect, the distance metric to use in creating the clusters, and so forth. 
   
-After you've configured the module hyperparameters, you connect the untrained model to the [Train Clustering Model](train-clustering-model.md). Because the K-means algorithm is an unsupervised learning method, a labeled column is optional. 
+After you've configured the module hyperparameters, you connect the untrained model to the [Train Clustering Model](train-clustering-model.md). Because the K-means algorithm is an unsupervised learning method, a label column is optional. 
 
 + If your data includes a label, you can use the label values to guide selection of the clusters and optimize the model. 
 
