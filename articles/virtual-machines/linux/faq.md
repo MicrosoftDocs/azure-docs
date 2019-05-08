@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 05/08/2019
 ms.author: cynthn
 
 ---
@@ -90,7 +90,14 @@ The following usernames are not allowed:
 
 
 ## What are the password requirements when creating a VM?
-Passwords must be 6 - 72 characters in length and meet 3 out of the following 4 complexity requirements:
+
+There are varying password length requirements, depending on the tool you are using:
+ - Portal - between 12 - 72 characters
+ - PowerShell - between 8 - 123 characters
+ - CLI - between 12 - 123
+ 
+
+Passwords must also meet 3 out of the following 4 complexity requirements:
 
 * Have lower characters
 * Have upper characters
