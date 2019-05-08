@@ -15,30 +15,35 @@ ms.date: 05/07/2019
 
 If you haven't already created an Azure Active Directory (Azure AD) tenant, follow the directions in [Create an Azure AD tenant for Azure Red Hat OpenShift](howto-create-tenant.md) before continuing with these instructions.
 
-Microsoft Azure Red Hat OpenShift needs permissions to perform tasks on behalf of your cluster. This topic contains instructions for creating a new Azure AD security group, and user, that you'll need to access apps running on your Azure Red Hat OpenShift cluster.
-
-If your organization doesn't already have an Azure AD user that you'll use to access your cluster, or an Azure AD app registration to use as the service principal, follow these instructions to create them.
+Microsoft Azure Red Hat OpenShift needs permissions to perform tasks on behalf of your cluster. If your organization doesn't already have an Azure AD user that you'll use to access your cluster, or an Azure AD app registration to use as the service principal, follow these instructions to create them.
 
 ## Create a new Active Directory user
 
 In the [Azure portal](https://portal.azure.com), ensure that your tenant appears under your user name in the top right of the portal:
 
-    ![Screenshot of portal with tenant listed in top right][tenantcallout]
+    ![Screenshot of portal with tenant listed in top right](./media/howto-create-tenant/tenant-callout.png)
     If the wrong tenant is displayed, click on your user name in the top right, then click **Switch Directory**, and select the correct tenant from the **All Directories** list.
 
 Create a new user in Active Directory to use to sign in to your Azure Red Hat OpenShift cluster.
 
 1. Go to the [Users - All users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) blade.
-2. Click **+New user**. The **User** pane appears.
-3. Enter a **Name** that you'd like for this user.
-4. Create a **User name** based on the name of the tenant you created with  `.onmicrosoft.com` appended at the end. For example, `yourUserName@yourTenantName.onmicrosoft.com`. Write down this user name. You'll need it to sign in to your cluster.
+2. Click **+New user** to open the **User** pane.
+3. Enter a **Name** for this user.
+4. Create a **User name** based on the name of the tenant you created, with  `.onmicrosoft.com` appended at the end. For example, `yourUserName@yourTenantName.onmicrosoft.com`. Write down this user name. You'll need it to sign in to your cluster. JTW
 5. Click **Directory role** to open the directory role pane, and select **Global administrator** and then click **Ok** at the bottom of the pane.
-6. In the middle of the **User** pane, click **Show Password** and record the temporary password. After you sign in the first time, you'll be prompted to reset it.
+6. In the **User** pane, click **Show Password** and record the temporary password. After you sign in the first time, you'll be prompted to reset it.
 7. At the bottom of the pane, click **Create** to create the user.
 
 ## Create an Azure AD security group
 
 Microsoft Azure Red Hat OpenShift needs permissions to perform tasks on behalf of your cluster. Follow these instructions to create an Azure AD security group.
+
+1. Open the [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) blade.
+2. Click **Groups** to open the **Groups - All groups** page, and then click **+New Group**
+3. Provide a group name and description.
+4. Fill out the following group attributes:
+**Group type**: **Security**
+**Membership type**: **Assigned**
 
 ## Create an Azure AD app registration
 
@@ -84,10 +89,6 @@ For details on creating a new Azure AD application, see [Register an app with th
 
 * [Applications and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)  
 * [Quickstart: Register an app with the Azure Active Directory v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)  
-
-[appidimage]: ./media/howto-create-tenant/get-app-id.png
-[createkeyimage]: ./media/howto-create-tenant/create-key.png
-[tenantcallout]: ./media/howto-create-tenant/tenant-callout.png
 
 ## Next steps
 
