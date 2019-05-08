@@ -1,7 +1,6 @@
 ---
 title: Secure Apache Oozie workflows with Enterprise Security Package - Azure HDInsight
 description: Secure Apache Oozie workflows using the Azure HDInsight Enterprise Security Package. Learn how to define an Oozie workflow and submit an Oozie job.
-services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
@@ -326,5 +325,4 @@ The Oozie web UI provides a web-based view into the status of Oozie jobs on the 
 
 ## Next steps
 * [Use Apache Oozie with Apache Hadoop to define and run a workflow on Linux-based Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
-* [Use time-based Apache Oozie coordinator](../hdinsight-use-oozie-coordinator-time.md).
 * [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

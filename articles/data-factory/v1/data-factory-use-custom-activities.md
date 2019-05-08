@@ -107,12 +107,12 @@ The method returns a dictionary that can be used to chain custom activities toge
 
 3. In the Package Manager Console, execute the following command to import **Microsoft.Azure.Management.DataFactories**.
 
-	```PowerShell
+	```powershell
 	Install-Package Microsoft.Azure.Management.DataFactories
     ```
 4. Import the **Azure Storage** NuGet package in to the project.
 
-	```PowerShell
+	```powershell
 	Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 
@@ -703,7 +703,7 @@ Troubleshooting consists of a few basic techniques:
 
 	If you can use the 4.3.0 version of Azure Storage package, remove the existing reference to Azure Storage package of version > 4.3.0. Then, run the following command from NuGet Package Manager Console.
 
-	```PowerShell
+	```powershell
 	Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 

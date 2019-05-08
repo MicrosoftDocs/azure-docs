@@ -4,7 +4,7 @@ description: Reference for the full Lucene syntax, as used with Azure Search.
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/25/2019
 
 author: "brjohnstmsft"
 ms.author: "brjohnst"
@@ -37,13 +37,13 @@ The following example finds documents in the index using the Lucene query syntax
 The `searchMode=all` parameter is relevant in this example. Whenever operators are on the query, you should generally set `searchMode=all` to ensure that *all* of the criteria is matched.
 
 ```
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2019-05-06&querytype=full
 ```
 
  Alternatively, use POST:  
 
 ```
-POST /indexes/hotels/docs/search?api-version=2015-02-28
+POST /indexes/hotels/docs/search?api-version=2019-05-06
 {
   "search": "category:budget AND \"recently renovated\"^3",
   "queryType": "full",
@@ -80,7 +80,7 @@ The example above is the tilde (~), but the same principle applies to every oper
 
  Please ensure all unsafe and reserved characters are encoded in a URL. For example, '#' is an unsafe character because it is a fragement/anchor identifier in a URL. The character must be encoded to `%23` if used in a URL. '&' and '=' are examples of reserved characters as they delimit parameters and specify values in Azure Search. Please see [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt) for more details.
 
- Unsafe characters are ``" ` < > # % { } | \ ^ ~ [ ] ``. Reserved characters are `; / ? : @ = + &`.
+ Unsafe characters are ``" ` < > # % { } | \ ^ ~ [ ]``. Reserved characters are `; / ? : @ = + &`.
 
 ### Precedence operators: grouping and field grouping  
  You can use parentheses to create subqueries, including operators within the parenthetical statement. For example, `motel+(wifi||luxury)` will search for documents containing the "motel" term and either "wifi" or "luxury" (or both).

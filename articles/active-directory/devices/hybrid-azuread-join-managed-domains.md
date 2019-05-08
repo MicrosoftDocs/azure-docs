@@ -3,7 +3,7 @@ title: Configure hybrid Azure Active Directory join for managed domains | Micros
 description: Learn how to configure hybrid Azure Active Directory join for managed domains.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to setup hybrid Azure AD joined devices for managed domains so that I can automatically bring AD domain-joined devices under control
@@ -50,7 +50,10 @@ This tutorial assumes that you are familiar with:
 -  [How to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
 
 -  [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
-  
+
+> [!NOTE]
+> Azure AD does not support smartcards or certificates in managed domains.
+
 
 To configure the scenario in this article, you need:
 

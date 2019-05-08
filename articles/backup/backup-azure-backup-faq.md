@@ -35,7 +35,7 @@ No. A Recovery Services vault can only change storage options before any backups
 
 ### Can I do an Item Level Restore (ILR) for VMs backed up to a Recovery Services vault?
 - ILR is supported for Azure VMs backed up by Azure VM backup. For more information see, [article](backup-azure-restore-files-from-vm.md)
-- ILR is not supported for online recovery points of on-premise VMs backed up by Azure backup Server or System Center DPM.
+- ILR is not supported for online recovery points of on-premises VMs backed up by Azure backup Server or System Center DPM.
 
 
 ## Azure Backup agent

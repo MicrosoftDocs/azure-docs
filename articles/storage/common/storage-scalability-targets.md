@@ -18,7 +18,7 @@ Be sure to test your service to determine whether its performance meets your req
 
 When your application reaches the limit of what a partition can handle for your workload, Azure Storage begins to return error code 503 (Server Busy) or error code 500 (Operation Timeout) responses. If 503 errors are occurring, consider modifying your application to use an exponential backoff policy for retries. The exponential backoff allows the load on the partition to decrease, and to ease out spikes in traffic to that partition.
 
-## Standard performance storage account scale limits
+## Storage account scale limits
 
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
@@ -40,6 +40,36 @@ For more information on the scale and performance targets for Azure Files and Az
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
+### Premium files scale targets
+
+There are three categories of limitations to consider for premium files: storage accounts, shares, and files.
+
+For example: A single share can achieve 100,000 IOPS and a single file can scale up to 5,000 IOPS. So, for example, if you have three files in one share, the max IOPs you can get from that share is 15,000.
+
+#### Premium file share limits
+
+> [!IMPORTANT]
+> Storage account limits apply to all shares. Scaling up to the max for storage accounts is only achievable if there is only one share per storage account.
+
+|Area  |Target  |
+|---------|---------|
+|Min provisioned size                        |100 GiB      |
+|Max provisioned size                        |100 TiB      |
+|Minimum size increase/decrease    |1 GiB      |
+|Baseline IOPS    |1 IOPS per GiB up to 100,000|
+|IOPS bursting    |3x IOPS per GiB up to 100,000|
+|Egress rate         |60 MiB/s + 0.06 * provisioned GiB        |
+|Ingress rate| 40 MiB/s + 0.04 * provisioned GiB |
+|Maximum number of snapshots        |200       |
+
+#### Premium file limits
+
+|Area  |Target  |
+|---------|---------|
+|Size                  |1 TiB         |
+|Max IOPS per file     |5,000         |
+|Concurrent handles    |2,000         |
+
 ### Azure File Sync scale targets
 
 Azure File Sync has been designed with the goal of limitless usage, but limitless usage is not always possible. The following table indicates the boundaries of Microsoft's testing and also indicates which targets are hard limits:
@@ -54,7 +84,7 @@ Azure File Sync has been designed with the goal of limitless usage, but limitles
 
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
-## See Also
+## See also
 
 - [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/)
 - [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md)

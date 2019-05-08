@@ -22,7 +22,6 @@ Microsoft Azure IoT Hub currently supports device streams as a [preview feature]
 
 We first describe the setup for SSH (using port 22). We then describe how to modify the setup's port for RDP. Since device streams are application and protocol agnostic, the same sample can be modified to accommodate other types of application traffic. This usually only involves changing the communication port to the one used by the intended application.
 
-
 ## How it works?
 
 Figure below illustrates the setup of how the device- and service-local proxy programs in this sample will enable end-to-end connectivity between SSH client and SSH daemon. Here, we assume that the daemon is running on the same device as the device-local proxy.
@@ -61,8 +60,13 @@ You can verify the current version of C# on your development machine using the f
 dotnet --version
 ```
 
-Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive.
+Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
+Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive.
 
 ## Create an IoT hub
 
@@ -72,14 +76,13 @@ Download the sample C# project from https://github.com/Azure-Samples/azure-iot-s
 
 A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure Cloud Shell to register a simulated device.
 
-1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
+1. Run the following command in Azure Cloud Shell to create the device identity.
 
    **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
    **MyDevice**: This is the name given for the registered device. Use MyDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 

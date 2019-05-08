@@ -53,7 +53,7 @@ FunctionsProject
 
 There's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has its own code file (.csx) and binding configuration file (function.json).
 
-The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./functions-bindings-register.md#local-development-azure-functions-core-tools). When developing functions in the Azure portal, this registration is done for you.
+The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). When developing functions in the Azure portal, this registration is done for you.
 
 ## Binding to arguments
 
@@ -270,7 +270,7 @@ You can't use `out` parameters in async functions. For output bindings, use the 
 
 ## Cancellation tokens
 
-A function can accept a [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
+A function can accept a [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
 
 The following example shows how to check for impending function termination.
 
@@ -489,7 +489,7 @@ public static async Task Run(string input, Binder binder)
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)
 defines the [Storage blob](functions-bindings-storage-blob.md) input or output binding, and
-[TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) is a supported output binding type.
+[TextWriter](/dotnet/api/system.io.textwriter) is a supported output binding type.
 
 ### Multiple attribute example
 

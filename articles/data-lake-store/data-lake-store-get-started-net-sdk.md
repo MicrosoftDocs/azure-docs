@@ -3,8 +3,8 @@ title: '.NET SDK: Account management operations on Azure Data Lake Storage Gen1 
 description: Use Azure Data Lake Storage Gen1 .NET SDK to perform account management operations in Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: ea57d5a9-2929-4473-9d30-08227912aba7
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Account management operations on Azure Data Lake Storage Gen1 using .NET SDK

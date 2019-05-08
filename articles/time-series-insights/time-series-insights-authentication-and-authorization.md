@@ -100,8 +100,9 @@ Here are the detailed steps:
 Use the application ID and key in your application to authenticate with Azure Time Series Insight. 
 
 ## Next steps
+
 - For sample code that calls the Time Series Insights API, see [Query data using C#](time-series-insights-query-data-csharp.md).
+
 - For API reference information, see [Query API reference](/rest/api/time-series-insights/ga-query-api).
 
-> [!div class="nextstepaction"]
-> [Create a service principal](../active-directory/develop/howto-create-service-principal-portal.md)
+- Learn how to [create a service principal](../active-directory/develop/howto-create-service-principal-portal.md).

@@ -250,7 +250,7 @@ az webapp config set \
 
 The following command uploads an exported PFX file and adds an SNI-based SSL binding.
 
-```PowerShell
+```powershell
 New-AzWebAppSSLBinding `
     -WebAppName <app_name> `
     -ResourceGroupName <resource_group_name> `

@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 04/30/2019
 ---
 
 # Read replicas in Azure Database for MySQL
@@ -71,15 +71,23 @@ When a master server is deleted, replication is stopped to all read replicas. Th
 
 Users on the master server are replicated to the read replicas. You can only connect to a read replica using the user accounts available on the master server.
 
+### Server parameters
+
+To prevent data from becoming out of sync and to avoid potential data loss or corruption, some server parameters are locked from being updated when using read replicas.
+
+The following server parameters are locked on both the master and replica servers:
+- [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) 
+- [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
+
+The [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parameter is locked on the replica servers. 
+
 ### Other
 
 - Global transaction identifiers (GTID) are not supported.
 - Creating a replica of a replica is not supported.
 - In-memory tables may cause replicas to become out of sync. This is a limitation of the MySQL replication technology. Read more in the [MySQL reference documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) for more information.
-- Tuning the [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) parameter on a master server after creating a replica server may cause the replica to become out of sync. The replica server is not aware of the different tablespaces.
 - Ensure the master server tables have primary keys. Lack of primary keys may result in replication latency between the master and replicas.
 - Review the full list of MySQL replication limitations in the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
-
 
 ## Next steps
 

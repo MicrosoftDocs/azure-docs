@@ -1,7 +1,6 @@
 ---
 title: Get policy compliance data
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/01/2019
@@ -10,7 +9,7 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ---
-# Getting compliance data
+# Get compliance data of Azure resources
 
 One of the largest benefits of Azure Policy is the insight and controls it provides over resources
 in a subscription or [management group](../../management-groups/overview.md) of
@@ -33,7 +32,7 @@ updated and the frequency and events that trigger an evaluation cycle.
 > Resource Provider is registered and that the user has the appropriate role-based access control
 > (RBAC) permissions as described in [RBAC in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## Evaluation triggers
 
@@ -162,7 +161,7 @@ are **Compliant** divided by the sum of all distinct resources. In the image bel
 distinct resources that are applicable and only one is **Non-compliant**. The overall resource
 compliance is 95% (19 out of 20).
 
-![Simple compliance example](../media/getting-compliance-data/simple-compliance.png)
+![Example of policy compliance from Compliance page](../media/getting-compliance-data/simple-compliance.png)
 
 ## Portal
 
@@ -173,28 +172,28 @@ state and count per assignment, it contains a chart showing compliance over the 
 The **Compliance** page contains much of this same information (except the chart), but provide
 additional filtering and sorting options.
 
-![Policy Compliance Page](../media/getting-compliance-data/compliance-page.png)
+![Example of Policy Compliance page](../media/getting-compliance-data/compliance-page.png)
 
 Since a policy or initiative can be assigned to different scopes, the table includes the scope for
 each assignment and the type of definition that was assigned. The number of non-compliant resources
 and non-compliant policies for each assignment are also provided. Clicking on a policy or
 initiative in the table provides a deeper look at the compliance for that particular assignment.
 
-![Policy Compliance Details](../media/getting-compliance-data/compliance-details.png)
+![Example of Policy Compliance Details page](../media/getting-compliance-data/compliance-details.png)
 
 The list of resources on the **Resource compliance** tab shows the evaluation status of existing
 resources for the current assignment. The tab defaults to **Non-compliant**, but can be filtered.
 Events (append, audit, deny, deploy) triggered by the request to create a resource are shown under
 the **Events** tab.
 
-![Policy Compliance Events](../media/getting-compliance-data/compliance-events.png)
+![Example of Policy Compliance events](../media/getting-compliance-data/compliance-events.png)
 
 Right-click on the row of the event you would like to gather more details on and select **Show
 activity logs**. The activity log page opens and is pre-filtered to the search showing details for
 the assignment and the events. The activity log provides additional context and information about
 those events.
 
-![Policy Compliance Activity Log](../media/getting-compliance-data/compliance-activitylog.png)
+![Example of Policy Compliance Activity Log](../media/getting-compliance-data/compliance-activitylog.png)
 
 ### Understand non-compliance
 

@@ -1,11 +1,11 @@
 ---
 title: Introduction to Azure Cosmos DB
 description: Learn about Azure Cosmos DB. This globally-distributed multi-model database is built for low latency, elastic scalability, high availability, and offers native support for NoSQL data.
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 03/18/2019
-ms.author: sngun
+ms.date: 04/08/2019
+ms.author: rimman
 
 ---
 

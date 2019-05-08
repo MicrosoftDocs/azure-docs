@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/11/2019
+ms.date: 04/18/2019
 ms.author: tomfitz
 ---
 
@@ -488,10 +488,10 @@ You define resources with the following structure:
 
 | Element name | Required | Description |
 |:--- |:--- |:--- |
-| condition | No | Boolean value that indicates whether the resource will be provisioned during this deployment. When `true`, the resource is created during deployment. When `false`, the resource is skipped for this deployment. |
+| condition | No | Boolean value that indicates whether the resource will be provisioned during this deployment. When `true`, the resource is created during deployment. When `false`, the resource is skipped for this deployment. See [condition](#condition). |
 | apiVersion |Yes |Version of the REST API to use for creating the resource. To determine available values, see [template reference](/azure/templates/). |
-| type |Yes |Type of the resource. This value is a combination of the namespace of the resource provider and the resource type (such as **Microsoft.Storage/storageAccounts**). To determine available values, see [template reference](/azure/templates/). |
-| name |Yes |Name of the resource. The name must follow URI component restrictions defined in RFC3986. In addition, Azure services that expose the resource name to outside parties validate the name to make sure it isn't an attempt to spoof another identity. |
+| type |Yes |Type of the resource. This value is a combination of the namespace of the resource provider and the resource type (such as **Microsoft.Storage/storageAccounts**). To determine available values, see [template reference](/azure/templates/). For a child resource, the format of the type depends on whether it's nested within the parent resource or defined outside of the parent resource. See [child resources](#child-resources). |
+| name |Yes |Name of the resource. The name must follow URI component restrictions defined in RFC3986. In addition, Azure services that expose the resource name to outside parties validate the name to make sure it isn't an attempt to spoof another identity. For a child resource, the format of the name depends on whether it's nested within the parent resource or defined outside of the parent resource. See [child resources](#child-resources). |
 | location |Varies |Supported geo-locations of the provided resource. You can select any of the available locations, but typically it makes sense to pick one that is close to your users. Usually, it also makes sense to place resources that interact with each other in the same region. Most resource types require a location, but some types (such as a role assignment) don't require a location. |
 | tags |No |Tags that are associated with the resource. Apply tags to logically organize resources across your subscription. |
 | comments |No |Your notes for documenting the resources in your template. For more information, see [Comments in templates](resource-group-authoring-templates.md#comments). |
@@ -501,11 +501,11 @@ You define resources with the following structure:
 | sku | No | Some resources allow values that define the SKU to deploy. For example, you can specify the type of redundancy for a storage account. |
 | kind | No | Some resources allow a value that defines the type of resource you deploy. For example, you can specify the type of Cosmos DB to create. |
 | plan | No | Some resources allow values that define the plan to deploy. For example, you can specify the marketplace image for a virtual machine. | 
-| resources |No |Child resources that depend on the resource being defined. Only provide resource types that are permitted by the schema of the parent resource. The fully qualified type of the child resource includes the parent resource type, such as **Microsoft.Web/sites/extensions**. Dependency on the parent resource isn't implied. You must explicitly define that dependency. |
+| resources |No |Child resources that depend on the resource being defined. Only provide resource types that are permitted by the schema of the parent resource. Dependency on the parent resource isn't implied. You must explicitly define that dependency. See [child resources](#child-resources). |
 
 ### Condition
 
-When you must decide during deployment whether or not to create a resource, use the `condition` element. The value for this element resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource.
+When you must decide during deployment whether to create a resource, use the `condition` element. The value for this element resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource.
 
 Typically, you use this value when you want to create a new resource or use an existing one. For example, to specify whether a new storage account is deployed or an existing storage account is used, use:
 
@@ -525,6 +525,8 @@ Typically, you use this value when you want to create a new resource or use an e
 ```
 
 For a complete example template that uses the `condition` element, see [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
+
+If you use a [reference](resource-group-template-functions-resource.md#reference) or [list](resource-group-template-functions-resource.md#list) function with a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the function refers to a resource that doesn't exist. Use the [if](resource-group-template-functions-logical.md#if) function to make sure the function is only evaluated for conditions when the resource is deployed. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
 
 ### Resource names
 
@@ -645,45 +647,57 @@ Within some resource types, you can also define an array of child resources. Chi
 
 ```json
 {
-  "name": "exampleserver",
+  "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Sql/servers",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver",
   ...
   "resources": [
     {
-      "name": "exampledatabase",
+      "apiVersion": "2017-10-01-preview",
       "type": "databases",
-      "apiVersion": "2014-04-01",
+      "name": "exampledatabase",
       ...
     }
   ]
 }
 ```
 
-When nested, the type is set to `databases` but its full resource type is `Microsoft.Sql/servers/databases`. You don't provide `Microsoft.Sql/servers/` because it's assumed from the parent resource type. The child resource name is set to `exampledatabase` but the full name includes the parent name. You don't provide `exampleserver` because it's assumed from the parent resource.
-
-The format of the child resource type is: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
-
-The format of the child resource name is: `{parent-resource-name}/{child-resource-name}`
-
 But, you don't have to define the database within the server. You can define the child resource at the top level. You might use this approach if the parent resource isn't deployed in the same template, or if want to use `copy` to create more than one child resource. With this approach, you must provide the full resource type, and include the parent resource name in the child resource name.
 
 ```json
 {
-  "name": "exampleserver",
+  "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Sql/servers",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver",
   "resources": [ 
   ],
   ...
 },
 {
-  "name": "exampleserver/exampledatabase",
+  "apiVersion": "2017-10-01-preview",
   "type": "Microsoft.Sql/servers/databases",
-  "apiVersion": "2014-04-01",
+  "name": "exampleserver/exampledatabase",
   ...
 }
 ```
+
+The values you provide for type and name vary based on whether the child resource is defined within the parent resource or outside of the parent resource.
+
+When nested in the parent resource, use:
+
+```json
+"type": "{child-resource-type}",
+"name": "{child-resource-name}",
+```
+
+When defined outside of the parent resource, use:
+
+```json
+"type": "{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}",
+"name": "{parent-resource-name}/{child-resource-name}",
+```
+
+When nested, the type is set to `databases` but its full resource type is still `Microsoft.Sql/servers/databases`. You don't provide `Microsoft.Sql/servers/` because it's assumed from the parent resource type. The child resource name is set to `exampledatabase` but the full name includes the parent name. You don't provide `exampleserver` because it's assumed from the parent resource.
 
 When constructing a fully qualified reference to a resource, the order to combine segments from the type and name isn't simply a concatenation of the two. Instead, after the namespace, use a sequence of *type/name* pairs from least specific to most specific:
 
@@ -718,7 +732,7 @@ The following example shows the structure of an output definition:
 |:--- |:--- |:--- |
 | outputName |Yes |Name of the output value. Must be a valid JavaScript identifier. |
 | condition |No | Boolean value that indicates whether this output value is returned. When `true`, the value is included in the output for the deployment. When `false`, the output value is skipped for this deployment. When not specified, the default value is `true`. |
-| type |Yes |Type of the output value. Output values support the same types as template input parameters. |
+| type |Yes |Type of the output value. Output values support the same types as template input parameters. If you specify **securestring** for the output type, the value isn't displayed in the deployment history and can't be retrieved from another template. To use a secret value in more than one template, store the secret in a Key Vault and reference the secret in the parameter file. For more information, see [Use Azure Key Vault to pass secure parameter value during deployment](resource-manager-keyvault-parameter.md). |
 | value |Yes |Template language expression that is evaluated and returned as output value. |
 
 ### Define and use output values

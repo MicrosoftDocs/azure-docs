@@ -237,3 +237,5 @@ You view additional virtual network information in the [Virtual Network FAQ](../
 
 * For more information about VPN Gateway, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
 * For more information about VPN Gateway configuration settings, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
+
+**"OpenVPN" is a trademark of OpenVPN Inc.**

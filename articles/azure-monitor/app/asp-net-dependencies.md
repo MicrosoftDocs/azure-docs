@@ -1,6 +1,6 @@
 ---
 title: Dependency Tracking in Azure Application Insights | Microsoft Docs
-description: Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights.
+description: Analyze usage, availability, and performance of your on-premises or Microsoft Azure web application with Application Insights.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -46,7 +46,7 @@ Partial dependency information is collected automatically by the [Application In
 
 ## Where to find dependency data
 * [Application Map](#application-map) visualizes dependencies between your app and neighboring components.
-* [Performance, browser, and failure blades](#performance-and-failure-blades) show server dependency data.
+* [Performance, browser, and failure blades](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-performance) show server dependency data.
 * [Browsers blade](#ajax-calls) shows AJAX calls from your users' browsers.
 * Click through from slow or failed requests to check their dependency calls.
 * [Analytics](#analytics) can be used to query dependency data.
@@ -54,7 +54,7 @@ Partial dependency information is collected automatically by the [Application In
 ## Application Map
 Application Map acts as a visual aid to discovering dependencies between the components of your application. It is automatically generated from the telemetry from your app. This example shows AJAX calls from the browser scripts and REST calls from the server app to two external services.
 
-![Application Map](./media/asp-net-dependencies/08.png)
+![Application Map](./media/asp-net-dependencies/cloud-rolename.png)
 
 * **Navigate from the boxes** to relevant dependency and other charts.
 * **Pin the map** to the [dashboard](../../azure-monitor/app/app-insights-dashboards.md), where it will be fully functional.
@@ -62,13 +62,7 @@ Application Map acts as a visual aid to discovering dependencies between the com
 [Learn more](../../azure-monitor/app/app-map.md).
 
 ## Performance and failure blades
-The performance blade shows the duration of dependency calls made by the server app. There's a summary chart and a table segmented by call.
-
-![Performance blade dependency charts](./media/asp-net-dependencies/dependencies-in-performance-blade.png)
-
-Click through the summary charts or the table items to search raw occurrences of these calls.
-
-![Dependency call instances](./media/asp-net-dependencies/dependency-call-instance.png)
+The performance blade shows the duration of dependency calls made by the server app.
 
 **Failure counts** are shown on the **Failures** blade. A failure is any return code that is not in the range 200-399, or unknown.
 
@@ -81,52 +75,11 @@ Click through the summary charts or the table items to search raw occurrences of
 The Browsers blade shows the duration and failure rate of AJAX calls from [JavaScript in your web pages](../../azure-monitor/app/javascript.md). They are shown as Dependencies.
 
 ## <a name="diagnosis"></a> Diagnose slow requests
-Each request event is associated with the dependency calls, exceptions and other events that are tracked while your app is processing the request. So if some requests are performing badly, you can find out whether it's due to slow responses from a dependency.
-
-Let's walk through an example of that.
-
-### Tracing from requests to dependencies
-Open the Performance blade, and look at the grid of requests:
-
-![List of requests with averages and counts](./media/asp-net-dependencies/02-reqs.png)
-
-The top one is taking very long. Let's see if we can find out where the time is spent.
-
-Click that row to see individual request events:
-
-![List of request occurrences](./media/asp-net-dependencies/03-instances.png)
-
-Click any long-running instance to inspect it further, and scroll down to the remote dependency calls related to this request:
-
-![Find Calls to Remote Dependencies, identify unusual Duration](./media/asp-net-dependencies/04-dependencies.png)
-
-It looks like most of the time servicing this request was spent in a call to a local service.
-
-Select that row to get more information:
-
-![Click through that remote dependency to identify the culprit](./media/asp-net-dependencies/05-detail.png)
-
-Looks like this is where the problem is. We've pinpointed the problem, so now we just need to find out why that call is taking so long.
-
-### Request timeline
-In a different case, there is no dependency call that is particularly long. But by switching to the timeline view, we can see where the delay occurred in our internal processing:
-
-![Find Calls to Remote Dependencies, identify unusual Duration](./media/asp-net-dependencies/04-1.png)
-
-There seems to be a large gap after the first dependency call, so we should look at our code to see why that is.
+Each request event is associated with the dependency calls, exceptions, and other events that are tracked while your app is processing the request. So if some requests are performing badly, you can find out whether it's due to slow responses from a dependency.
 
 ### Profile your live site
 
-No idea where the time goes? The [Application Insights profiler](../../azure-monitor/app/profiler.md) traces HTTP calls to your live site and shows you which functions in your code took the longest time.
-
-## Failed requests
-Failed requests might also be associated with failed calls to dependencies. Again, we can click through to track down the problem.
-
-![Click the failed requests chart](./media/asp-net-dependencies/06-fail.png)
-
-Click through to an occurrence of a failed request, and look at its associated events.
-
-![Click a request type, click the instance to get to a different view of the same instance, click it to get exception details.](./media/asp-net-dependencies/07-faildetail.png)
+No idea where the time goes? The [Application Insights profiler](../../azure-monitor/app/profiler.md) traces HTTP calls to your live site and shows which functions in your code took the longest time.
 
 ## Analytics
 You can track dependencies in the [Kusto query language](/azure/kusto/query/). Here are some examples.
@@ -207,10 +160,6 @@ Consult the table below and insure you have chosen the correct configuration to 
 | IIS Express |Use IIS Server instead. |
 | Azure Web App |In your web app control panel, [open the Application Insights blade in your web app control panel](../../azure-monitor/app/azure-web-apps.md) and choose Install if prompted. |
 | Azure Cloud Service |[Use startup task](../../azure-monitor/app/cloudservices.md) or [Install .NET framework 4.6+](../../cloud-services/cloud-services-dotnet-install-dotnet.md). |
-
-## Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## Next steps
 * [Exceptions](../../azure-monitor/app/asp-net-exceptions.md)

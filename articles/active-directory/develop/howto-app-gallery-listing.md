@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2019
+ms.date: 04/08/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
-ms.custom: aaddev
+ms.custom: "aaddev, seoapril2019"
 
 ms.collection: M365-identity-device-management
 ---
 
 # How to: List your application in the Azure Active Directory application gallery
+
+This article shows how to list an application in the Azure AD application gallery, implement single sign-on (SSO), and manage the listing.
 
 ## What is the Azure AD application gallery?
 

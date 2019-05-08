@@ -68,25 +68,25 @@ Now that you have an app in Azure AD, you can install ADAL and write your identi
 
 1. Add ADAL to the DirectorySearcher project by using the Package Manager Console.
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirectorySearcherLib
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Android
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Desktop
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-iOS
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Universal
-    `
+    ```
 
     Note that two library references are added to each project: the PCL portion of ADAL and a platform-specific portion.
 2. In the DirectorySearcherLib project, open DirectorySearcher.cs.

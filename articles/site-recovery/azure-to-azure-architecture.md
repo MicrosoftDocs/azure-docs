@@ -140,7 +140,7 @@ To control outbound connectivity for VMs using IP addresses, allow these address
 
 **Rule** |  **Details** | **Service tag**
 --- | --- | --- 
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the source region | Storage.<region-name>.
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the source region | Storage.\<region-name>.
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Active Directory (Azure AD).<br/><br/> If Azure AD addresses are added in future you need to create new Network Security Group (NSG) rules.  | AzureActiveDirectory
 Allow HTTPS outbound: port 443 | Allow access to [Site Recovery endpoints](https://aka.ms/site-recovery-public-ips) that correspond to the target location. 
 
@@ -148,7 +148,7 @@ Allow HTTPS outbound: port 443 | Allow access to [Site Recovery endpoints](https
 
 **Rule** |  **Details** | **Service tag**
 --- | --- | --- 
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the target region. | Storage.<region-name>.
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the target region. | Storage.\<region-name>.
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure AD.<br/><br/> If Azure AD addresses are added in future you need to create new NSG rules.  | AzureActiveDirectory
 Allow HTTPS outbound: port 443 | Allow access to [Site Recovery endpoints](https://aka.ms/site-recovery-public-ips) that correspond to the source location. 
 

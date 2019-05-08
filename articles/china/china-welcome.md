@@ -1,6 +1,6 @@
 ---
 title: Welcome to Azure China 21Vianet | Microsoft Docs
-description: Microsoft Azure China 21Vianet is a physically separated instance of cloud services in mainland China. The services are based on the same Azure, Office 365, and Power BI technology that make up the Microsoft global cloud service with comparable service levels. 
+description: Microsoft Azure China 21Vianet is a physically separated instance of cloud services in China. The services are based on the same Azure, Office 365, and Power BI technology that make up the Microsoft global cloud service with comparable service levels. 
 services: china
 cloud: na
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.author: v-wimarc
 
 ---
 # Welcome to Azure China 21Vianet
-Microsoft Azure operated by 21Vianet (Azure China 21Vianet) is a physically separated instance of cloud services located in mainland China, independently operated and transacted by Shanghai Blue Cloud Technology Co., Ltd. ("21Vianet"), a wholly owned subsidiary of Beijing 21Vianet Broadband Data Center Co., Ltd. 
+Microsoft Azure operated by 21Vianet (Azure China 21Vianet) is a physically separated instance of cloud services located in China, independently operated and transacted by Shanghai Blue Cloud Technology Co., Ltd. ("21Vianet"), a wholly owned subsidiary of Beijing 21Vianet Broadband Data Center Co., Ltd. 
 
 The services are based on the same Azure, Microsoft Office 365, and Microsoft Power BI technologies that make up the Microsoft global cloud service with comparable service levels. Agreements and contracts for Microsoft Azure in China, where applicable, are signed between customers and 21Vianet.
 

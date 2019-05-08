@@ -4,7 +4,7 @@ description:  Get started with the Service Fabric plug-in for Eclipse.
 services: service-fabric
 documentationcenter: java
 author: rapatchi
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb

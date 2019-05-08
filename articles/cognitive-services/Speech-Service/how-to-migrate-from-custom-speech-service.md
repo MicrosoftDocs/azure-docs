@@ -42,7 +42,7 @@ Migrate your existing resource keys to the Speech Services on the Speech Service
 > [!NOTE]
 > Resource keys can only be migrated within the same region.
 
-1. Sign in to the [cris.ai](https://www.cris.ai) portal, and select the subscription in the top right menu.
+1. Sign in to the [cris.ai](https://cris.ai/Home/CustomSpeech) portal, and select the subscription in the top right menu.
 
 2. Select **Migrate selected subscription**.
 

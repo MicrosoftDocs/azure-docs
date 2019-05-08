@@ -113,10 +113,10 @@ To configure Azure AD single sign-on with TextMagic, perform the following steps
 
 	| Name |   Source Attribute| Namespace  |
 	| --------------- | --------------- | --------------- |
-	| company | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| firstName 			  | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| lastName 			  | user.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| phone 			  | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| company | user.companyname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| firstName 			  | user.givenname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| lastName 			  | user.surname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| phone 			  | user.telephonenumber |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 	| | |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
@@ -236,8 +236,8 @@ When you click the TextMagic tile in the Access Panel, you should be automatical
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

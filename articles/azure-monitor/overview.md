@@ -21,7 +21,7 @@ Azure Monitor maximizes the availability and performance of your applications by
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
 ## Overview
-The following diagram gives a high-level view of Azure Monitor. At the center of the diagram are the data stores for metrics and logs, which are the two fundamental types of data use by Azure Monitor. On the left are the [sources of monitoring data](platform/data-sources.md) that populate these [data stores](platform/data-collection.md). On the right are the different functions that Azure Monitor performs with this collected data such as analysis, alerting, and streaming to external systems.
+The following diagram gives a high-level view of Azure Monitor. At the center of the diagram are the data stores for metrics and logs, which are the two fundamental types of data use by Azure Monitor. On the left are the [sources of monitoring data](platform/data-sources.md) that populate these [data stores](platform/data-platform.md). On the right are the different functions that Azure Monitor performs with this collected data such as analysis, alerting, and streaming to external systems.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -29,7 +29,7 @@ The following diagram gives a high-level view of Azure Monitor. At the center of
 
 
 ## Monitoring data platform
-All data collected by Azure Monitor fits into one of two fundamental types, [metrics and logs](platform/data-collection.md). [Metrics](platform/data-collection.md#metrics) are numerical values that describe some aspect of a system at a particular point in time. They are lightweight and capable of supporting near real-time scenarios. [Logs](platform/data-collection.md#logs) contain different kinds of data organized into records with different sets of properties for each type. Telemetry such as events and traces are stored as logs in addition to performance data so that it can all be combined for analysis.
+All data collected by Azure Monitor fits into one of two fundamental types, [metrics and logs](platform/data-platform.md). [Metrics](platform/data-platform-metrics.md) are numerical values that describe some aspect of a system at a particular point in time. They are lightweight and capable of supporting near real-time scenarios. [Logs](platform/data-platform-logs.md) contain different kinds of data organized into records with different sets of properties for each type. Telemetry such as events and traces are stored as logs in addition to performance data so that it can all be combined for analysis.
 
 For many Azure resources, you'll see data collected by Azure Monitor right in their Overview page in the Azure portal. Have a look at any virtual machine for example, and you'll see several charts displaying performance metrics. Click on any of the graphs to open the data in [metrics explorer](platform/metrics-charts.md) in the Azure portal, which allows you to chart the values of multiple metrics over time.  You can view the charts interactively or pin them to a dashboard to view them with other visualizations.
 
@@ -50,7 +50,7 @@ Azure Monitor can collect data from a variety of sources. You can think of monit
 - **Azure subscription monitoring data**: Data about the operation and management of an Azure subscription, as well as data about the health and operation of Azure itself. 
 - **Azure tenant monitoring data**: Data about the operation of tenant-level Azure services, such as Azure Active Directory.
 
-As soon as you create an Azure subscription and start adding resources such as virtual machines and web apps, Azure Monitor starts collecting data.  [Activity Logs](platform/activity-logs-overview.md) record when resources are created or modified. [Metrics](platform/data-collection.md) tell you how the resource is performing and the resources that it's consuming. 
+As soon as you create an Azure subscription and start adding resources such as virtual machines and web apps, Azure Monitor starts collecting data.  [Activity Logs](platform/activity-logs-overview.md) record when resources are created or modified. [Metrics](platform/data-platform.md) tell you how the resource is performing and the resources that it's consuming. 
 
 Extend the data you're collecting into the actual operation of the resources by [enabling diagnostics](platform/diagnostic-logs-overview.md) and [adding an agent](platform/agent-windows.md) to compute resources. This will collect telemetry for the internal operation of the resource and allow you to configure different [data sources](platform/agent-data-sources.md) to collect logs and metrics from Windows and Linux guest operating system. 
 
@@ -138,6 +138,6 @@ Multiple APIs are available to read and write metrics and logs to and from Azure
 ## Next steps
 Learn more about:
 
-* [Metrics and logs](platform/data-collection.md) for the data collected by Azure Monitor.
+* [Metrics and logs](platform/data-platform.md) for the data collected by Azure Monitor.
 * [Data sources](platform/data-sources.md) for how the different components of your application send telemetry.
 * [Log queries](log-query/log-query-overview.md) for analyzing collected data.

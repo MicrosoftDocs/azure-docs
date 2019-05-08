@@ -3,8 +3,8 @@ title: Configure IP addresses for an Azure network interface | Microsoft Docs
 description: Learn how to add, change, and remove private and public IP addresses for a network interface.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Add, change, or remove IP addresses for an Azure network interface

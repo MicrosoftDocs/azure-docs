@@ -23,9 +23,8 @@ ms.author: jonbeck
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-storage.md)]
 
-
-
 ## Other sizes
+
 - [General purpose](sizes-general.md)
 - [Compute optimized](sizes-compute.md)
 - [Memory optimized](sizes-memory.md)
@@ -34,4 +33,7 @@ ms.author: jonbeck
 - [Previous generations](sizes-previous-gen.md)
 
 ## Next steps
+
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
+
+Learn how to [Optimize performance on the Lsv2-series virtual machines](storage-performance.md).

@@ -4,7 +4,7 @@ description: Learn how to create, debug, and deploy your first actor-based servi
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: d4aebe72-1551-4062-b1eb-54d83297f139

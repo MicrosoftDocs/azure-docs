@@ -23,13 +23,13 @@ Before you begin, [download and import the Windows Virtual Desktop PowerShell mo
 
 ## Create a RemoteApp group
 
-1. Run the following PowerShell cmdlet to create a new empty RemoteApp group.
+1. Run the following PowerShell cmdlet to create a new empty RemoteApp app group.
 
    ```powershell
    New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType "RemoteApp"
    ```
 
-2. (Optional) To verify the application group was created, you can run the following cmdlet to see a list of all application groups for the host pool.
+2. (Optional) To verify the app group was created, you can run the following cmdlet to see a list of all app groups for the host pool.
 
    ```powershell
    Get-RdsAppGroup <tenantname> <hostpoolname>
@@ -40,17 +40,17 @@ Before you begin, [download and import the Windows Virtual Desktop PowerShell mo
    ```powershell
    Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
    ```
-
-4. Run the following cmdlet to publish a new RemoteApp to the application group created in step 1.
+   
+4. Run the following cmdlet to install the application based on its appalias. appalias becomes visible when you run the output from step 3.
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>
    ```
 
-5. (Optional) Run the following cmdlet to install the application based on appalias. appalias becomes visible when you run the output from step 3.
+5. (Optional) Run the following cmdlet to publish a new RemoteApp to the application group created in step 1.
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -AppAlias <appalias>
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
    ```
 
 6. To verify that the app was published, run the following cmdlet.
@@ -68,7 +68,7 @@ Before you begin, [download and import the Windows Virtual Desktop PowerShell mo
 
 ## Next steps
 
-Once you've created your app groups, you create service principals and assign roles to your users. To learn how to do this, see the tutorial for how to create service principals and role assignments with PowerShell.
+In this tutorial, you learned how to create app groups, populate it with RemoteApps, and assign users to the app group. To learn more about how to sign in to Windows Virtual Desktop, continue to the Connect to Windows Virtual Desktop How-tos.
 
-> [!div class="nextstepaction"]
-> [Create service principals and role assignments with PowerShell](create-service-principal-role-powershell.md)
+- [Connect to the Remote Desktop client on Windows 7 and Windows 10](connect-windows-7-and-10.md)
+- [Connect to the Windows Virtual Desktop Preview web client](connect-web.md)

@@ -1,8 +1,8 @@
 ---
-title: 'Create, load, and query an index using PowerShell and the REST API - Azure Search'
-description: Create, load, and query an index using PowerShell, Invoke-RestMethod, and the Azure Search REST API.
+title: 'Quickstart: Create, load, and query an index using PowerShell and the REST API - Azure Search'
+description: Create, load, and query an index using PowerShell's Invoke-RestMethod and the Azure Search REST API.
 
-ms.date: 03/15/2019
+ms.date: 05/02/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -24,19 +24,23 @@ This article walks you through the process of creating, loading, and querying an
 
 ## Prerequisites
 
-[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. Other prerequisites include the following items.
+The following services and tools are used in this quickstart. 
+
+[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 [PowerShell 5.1 or later](https://github.com/PowerShell/PowerShell), using [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) for sequential and interactive steps.
 
-Get the URL endpoint and admin api-key of your search service. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
+## Get a key and URL
 
-1. In the Azure portal, in your search service **Overview** page, get the URL. An example endpoint might look like https:\//my-service-name.search.windows.net.
+REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
+
+1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
 2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-   ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
 
-   All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
+All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
 ## Connect to Azure Search
 
@@ -52,7 +56,7 @@ $headers = @{
 Create a **$url** object that specifies the service's indexes collection. The `mydemo` service name is intended as a placeholder. Replace it with a valid search service in a current subscription throughout this example.
 
 ```powershell
-$url = "https://mydemo.search.windows.net/indexes?api-version=2017-11-11"
+$url = "https://mydemo.search.windows.net/indexes?api-version=2019-05-06"
 ```
 
 Run **Invoke-RestMethod** to send a GET request to the service and verify the connection. Add **ConvertTo-Json** so that you can view the responses sent back from the service.
@@ -107,7 +111,7 @@ $body = @"
 Set the URI to the indexes collection on your service and the *hotels* index.
 
 ```powershell
-$url = "https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11"
+$url = "https://mydemo.search.windows.net/indexes/hotels?api-version=2019-05-06"
 ```
 
 Run the command with **$url**, **$headers**, and **$body** to create the index on the service. 
@@ -214,7 +218,7 @@ $body = @"
 Set the endpoint to the *hotels* docs collection and include the index operation (indexes/hotels/docs/index).
 
 ```powershell
-$url = "https://mydemo.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11"
+$url = "https://mydemo.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06"
 ```
 
 Run the command with **$url**, **$headers**, and **$body** to load documents into the hotels index.
@@ -257,7 +261,7 @@ This step shows you how to query an index using the [Search Documents API](https
 Set the endpoint to the *hotels* docs collection and add a **search** parameter to include query strings. This string is an empty search and it returns an unranked list of all documents.
 
 ```powershell
-$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*'
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2019-05-06&search=*'
 ```
 
 Run the command to send the **$url** to the service.
@@ -327,17 +331,17 @@ Try a few other query examples to get a feel for the syntax. You can do a string
 # Query example 1
 # Search the entire index for the term 'budget'
 # Return only the `hotelName` field, "Roach hotel"
-$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=budget&$select=hotelName'
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2019-05-06&search=budget&$select=hotelName'
 
 # Query example 2 
 # Apply a filter to the index to find hotels cheaper than $150 per night
 # Returns the `hotelId` and `description`. Two documents match.
-$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*&$filter=baseRate lt 150&$select=hotelId,description'
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2019-05-06&search=*&$filter=baseRate lt 150&$select=hotelId,description'
 
 # Query example 3
 # Search the entire index, order by a specific field (`lastRenovationDate`) in descending order
 # Take the top two results, and show only `hotelName` and `lastRenovationDate`
-$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate'
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2019-05-06&search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate'
 ```
 ## Clean up 
 
@@ -345,7 +349,7 @@ You should delete the index if you no longer need it. A free service is limited 
 
 ```powershell
 # Set the URI to the hotel index
-$url = 'https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11'
+$url = 'https://mydemo.search.windows.net/indexes/hotels?api-version=2019-05-06'
 
 # Delete the index
 Invoke-RestMethod -Uri $url -Headers $headers -Method Delete

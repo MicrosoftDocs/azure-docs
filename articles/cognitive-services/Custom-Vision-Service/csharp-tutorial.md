@@ -61,23 +61,55 @@ The images for this project are included. They are referenced in the **LoadImage
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=40-55)]
 
-### Train the classifier
+### Train the classifier and publish
 
-This code creates the first iteration in the project and marks it as the default iteration. The default iteration reflects the version of the model that will respond to prediction requests. You should update this each time you retrain the model.
+This code creates the first iteration in the project and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=57-73)]
+```csharp
+// The returned iteration will be in progress, and can be queried periodically to see when it has completed
+while (iteration.Status == "Training")
+{
+        Thread.Sleep(1000);
+
+        // Re-query the iteration to get it's updated status
+        iteration = trainingApi.GetIteration(project.Id, iteration.Id);
+}
+
+// The iteration is now trained. Publish it to the prediction end point.
+var publishedModelName = "treeClassModel";
+var predictionResourceId = "<target prediction resource ID>";
+trainingApi.PublishIteration(project.Id, iteration.Id, publishedModelName, predictionResourceId);
+Console.WriteLine("Done!\n");
+```
 
 ### Set the prediction endpoint
 
 The prediction endpoint is the reference that you can use to submit an image to the current model and get a classification prediction.
- 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=77-82)]
- 
+
+```csharp
+// Create a prediction endpoint, passing in obtained prediction key
+CustomVisionPredictionClient endpoint = new CustomVisionPredictionClient()
+{
+        ApiKey = predictionKey,
+        Endpoint = SouthCentralUsEndpoint
+};
+```
+
 ### Submit an image to the default prediction endpoint
 
 In this script, the test image is loaded in the **LoadImagesFromDisk** method, and the model's prediction output is to be displayed in the console.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=84-92)]
+```csharp
+// Make a prediction against the new project
+Console.WriteLine("Making a prediction:");
+var result = endpoint.ClassifyImage(project.Id, publishedModelName, testImage);
+
+// Loop over each prediction and write out the results
+foreach (var c in result.Predictions)
+{
+        Console.WriteLine($"\t{c.TagName}: {c.Probability:P1}");
+}
+```
 
 ## Run the application
 

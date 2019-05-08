@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 06/15/2018
+ms.date: 04/02/2019
 ms.author: kavithaj
 ms.reviewer: igorstan, carlrab
 ---

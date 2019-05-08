@@ -6,8 +6,8 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: overview
-ms.date: 03/20/2019
+ms.topic: article
+ms.date: 03/25/2019
 ms.author: alkohli
 ---
 # Use the Azure portal to manage shares on your Azure Data Box Edge
@@ -58,7 +58,7 @@ Do the following steps in the Azure portal to create a share.
 
         ![Add NFS share](media/data-box-edge-manage-shares/add-nfs-share.png)
 
-7. To easily access the shares from Edge compute modules, use the local mount point. Select **Use the share with Edge compute** so that the share is automatically mounted after it its created. When this option is selected, the Edge module can also use the compute with the local mount point.
+7. To easily access the shares from Edge compute modules, use the local mount point. Select **Use the share with Edge compute** so that the share is automatically mounted after it is created. When this option is selected, the Edge module can also use the compute with the local mount point.
 
 8. Click **Create** to create the share. You are notified that the share creation is in progress. After the share is created with the specified settings, the **Shares** blade updates to reflect the new share.
 
@@ -92,6 +92,30 @@ Do the following steps in the Azure portal to create a share.
 
     ![View local share details](media/data-box-edge-manage-shares/add-local-share-4.png)
 
+## Mount a share
+
+If you created a share before you configured compute on your Data Box Edge device, you will need to mount the share. Take the following steps to mount a share.
+
+
+1. In the Azure portal, go to your Data Box Edge resource and then go to **Gateway > Shares**. From the list of the shares, select the share you want to mount. The **Used for compute** column will show the status as **Disabled** for the selected share.
+
+    ![Select share](media/data-box-edge-manage-shares/select-share-mount.png)
+
+2. Select **Mount**.
+
+    ![Select mount](media/data-box-edge-manage-shares/select-mount.png)
+
+3. When prompted for confirmation, select **Yes**. This will mount the share.
+
+    ![Confirm mount](media/data-box-edge-manage-shares/confirm-mount.png)
+
+4. After the share is mounted, go to the list of shares. You'll see that the **Used for compute** column shows the share status as **Enabled**.
+
+    ![Share mounted](media/data-box-edge-manage-shares/share-mounted.png)
+
+5. Select the share again to view the local mountpoint for the share. Edge compute module uses this local mountpoint for the share.
+
+    ![Local mountpoint for the share](media/data-box-edge-manage-shares/share-mountpoint.png)
 
 ## Unmount a share
 
@@ -137,7 +161,8 @@ The list of shares updates to reflect the deletion.
 The refresh feature allows you to refresh the contents of a share. When you refresh a share, a search is initiated to find all the Azure objects including blobs and files that were added to the cloud since the last refresh. These additional files are then downloaded to refresh the contents of the share on the device.
 
 > [!IMPORTANT]
-> You can't refresh local shares.
+> - You can't refresh local shares.
+> - Permissions and access control lists (ACLs) are not preserved across a refresh operation. 
 
 Do the following steps in the Azure portal to refresh a share.
 

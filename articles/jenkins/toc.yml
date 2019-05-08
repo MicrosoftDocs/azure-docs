@@ -17,6 +17,9 @@
       href: install-jenkins-solution-template.md
   - name: 2. Configure
     items:
+    - name: Scale with Azure Container Instances
+      href: /azure/container-instances/container-instances-jenkins
+      maintainContext: true
     - name: Scale with Azure VM agents
       href: jenkins-azure-vm-agents.md
   - name: 3. Implement CI/CD
@@ -34,9 +37,6 @@
         href: execute-cli-jenkins-pipeline.md
       - name: Deploy an app from GitHub to App Service
         href: tutorial-jenkins-deploy-web-app-azure-app-service.md
-    - name: Build using Azure Container Instances
-      href: /azure/container-instances/container-instances-jenkins
-      maintainContext: true
     - name: Use Jenkins with Azure DevOps
       href: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins
       maintainContext: true

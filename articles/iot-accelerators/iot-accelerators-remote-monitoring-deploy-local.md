@@ -78,7 +78,7 @@ Each web service opens a command prompt and web browser window. At the command p
 Follow these steps to start the Stream Analytics job:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
-1. Navigate to the **Resource group** created for your solution. The name of the resource group is the name you chose for your solution when you ran the **start.cmd** script**.
+1. Navigate to the **Resource group** created for your solution. The name of the resource group is the name you chose for your solution when you ran the **start.cmd** script.
 1. Click the **Stream Analytics job** in the list of resources.
 1. On the Stream Analytics job **overview** page, click the **Start** button. Then click **Start** to start the job now.
 

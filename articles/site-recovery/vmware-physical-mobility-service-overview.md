@@ -38,7 +38,8 @@ During push installation of mobility agent, following steps are performed
 2. After agent is successfully copied on to the server prerequisite checks are performed on the server. Installation fails if one or more of the [prerequisites](vmware-physical-azure-support-matrix.md) are not met. If all prerequisites are met, installation is triggered.
 3. Azure Site Recovery VSS provider is installed on the server as part of Mobility agent installation. This provider is used to generate Application consistent points. If installation of VSS provider fails, this step will be skipped and agent installation will continue.
 4. If agent installation succeeds but VSS provider installation fails,then job status is marked as "Warning". This does not impact crash consistency points generation.
-    a. To generate application consistent points, refer to [our guidance](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) to complete installation of Site Recovery VSS provider manually.
+
+    a. To generate application consistent points, refer to [our guidance](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) to complete installation of Site Recovery VSS provider manually. </br>
     b.  If you do not wish application consistent points to be generated, [modify the replication policy](vmware-azure-set-up-replication.md#create-a-policy) to turn off application consistent points.
 
 ### Before 9.22 versions
@@ -95,13 +96,13 @@ During push installation of mobility agent, following steps are performed
 
 - Install as follows:
 
-    ``` 
+    ```
     UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
     ```
 
 - Register the agent with the configuration server.
 
-    ``` 
+    ```
     cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
     UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
     ```
@@ -109,17 +110,17 @@ During push installation of mobility agent, following steps are performed
 #### Installation settings
 **Setting** | **Details**
 --- | ---
-Usage | UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
+Usage | UnifiedAgent.exe /Role <MS/MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
 Setup logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Mandatory installation parameter. Specifies whether the Mobility service (MS) or master target (MT) should be installed.
 /InstallLocation| Optional parameter. Specifies the Mobility service installation location (any folder).
-/Platform | Mandatory. Specifies the platform on which Mobility Service is installed. **VMware** for VMware VMs/physical servers; **Azure** for Azure VMs. 
+/Platform | Mandatory. Specifies the platform on which Mobility Service is installed. **VMware** for VMware VMs/physical servers; **Azure** for Azure VMs.
 /Silent| Optional. Specifies whether to run the installer in silent mode.
 
 #### Registration settings
 **Setting** | **Details**
 --- | ---
-Usage | UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+Usage | UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>
 Agent configuration logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Mandatory parameter. Specifies the IP address of the configuration server. Use any valid IP address.
 /PassphraseFilePath |  Mandatory. Location of the passphrase. Use any valid UNC or local file path.
@@ -130,7 +131,7 @@ Agent configuration logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfi
 
     ```
     cd /tmp ;
-    tar -xvzf Microsoft-ASR_UA*release.tar.gz
+    tar -xvf Microsoft-ASR_UA*release.tar.gz
     ```
 
 2. Install as follows:
@@ -148,16 +149,16 @@ Agent configuration logs | Under %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfi
 #### Installation settings
 **Setting** | **Details**
 --- | ---
-Usage | ./install -d <Install Location> -r <MS|MT> -v VmWare -q
+Usage | ./install -d <Install Location> -r <MS/MT> -v VmWare -q
 -r | Mandatory installation parameter. Specifies whether the Mobility service (MS) or master target (MT) should be installed.
 -d | Optional parameter. Specifies the Mobility service installation location: /usr/local/ASR.
--v | Mandatory. Specifies the platform on which Mobility Service is installed. **VMware** for VMware VMs/physical servers; **Azure** for Azure VMs. 
+-v | Mandatory. Specifies the platform on which Mobility Service is installed. **VMware** for VMware VMs/physical servers; **Azure** for Azure VMs.
 -q | Optional. Specifies whether to run the installer in silent mode.
 
 #### Registration settings
 **Setting** | **Details**
 --- | ---
-Usage | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
+Usage | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>
 -i | Mandatory parameter. Specifies the IP address of the configuration server. Use any valid IP address.
 -P |  Mandatory. Full file path of the file in which the passphrase is saved. Use any valid folder.
 
@@ -170,18 +171,18 @@ Usage | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP>
 
 Go to %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository folder on configuration server. Check which installer you need based on operating system. The following table summarizes the installer files for each VMware VM and physical server operating system. You can review [supported operating systems](vmware-physical-azure-support-matrix.md#replicated-machines) before you start.
 
-**Installer file** | **Operating system (64-bit only)** 
+**Installer file** | **Operating system (64-bit only)**
 --- | ---
-Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2016; Windows Server 2012 R2; Windows Server 2012; Windows Server 2008 R2 SP1 
+Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2016; Windows Server 2012 R2; Windows Server 2012; Windows Server 2008 R2 SP1
 Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 6.* </br> CentOS 6.*
-Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.* </br> CentOS 7.* 
-Microsoft-ASR\_UA\*SLES12-64\*release.tar.gz | SUSE Linux Enterprise Server 12 SP1,SP2,SP3 
-Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 
-Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 
+Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.* </br> CentOS 7.*
+Microsoft-ASR\_UA\*SLES12-64\*release.tar.gz | SUSE Linux Enterprise Server 12 SP1,SP2,SP3
+Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3
+Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4
 Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5
 Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04
 Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS server
-Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 
+Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7
 Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
 ## Next steps

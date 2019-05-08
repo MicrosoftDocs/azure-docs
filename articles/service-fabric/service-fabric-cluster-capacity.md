@@ -4,7 +4,7 @@ description: Service Fabric cluster capacity planning considerations. Nodetypes,
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982

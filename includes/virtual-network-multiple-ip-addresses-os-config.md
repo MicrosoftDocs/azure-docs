@@ -46,7 +46,7 @@ ping -S 10.0.0.5 hotmail.com
 >[!NOTE]
 >For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
 
-### Linux (Ubuntu)
+### Linux (Ubuntu 14/16)
 
 1. Open a terminal window.
 2. Make sure you are the root user. If you are not, enter the following command:

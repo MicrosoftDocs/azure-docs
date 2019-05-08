@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
 ---
@@ -33,41 +33,47 @@ In this section, you use MSAL to get a token for the Microsoft Graph API.
     public partial class MainWindow : Window
     {
         //Set the API Endpoint to Graph 'me' endpoint
-        string _graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
+        string graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
 
         //Set the scope for API call to user.read
-        string[] _scopes = new string[] { "user.read" };
+        string[] scopes = new string[] { "user.read" };
+
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
+      /// <summary>
+        /// Call AcquireToken - to acquire a token requiring user to sign-in
         /// </summary>
         private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
         {
             AuthenticationResult authResult = null;
-
             var app = App.PublicClientApp;
             ResultText.Text = string.Empty;
             TokenInfoText.Text = string.Empty;
 
             var accounts = await app.GetAccountsAsync();
+            var firstAccount = accounts.FirstOrDefault();
 
             try
             {
-                authResult = await app.AcquireTokenSilentAsync(_scopes, accounts.FirstOrDefault());
+                authResult = await app.AcquireTokenSilent(scopes, firstAccount)
+                    .ExecuteAsync();
             }
             catch (MsalUiRequiredException ex)
             {
-                // A MsalUiRequiredException happened on AcquireTokenSilentAsync. This indicates you need to call AcquireTokenAsync to acquire a token
+                // A MsalUiRequiredException happened on AcquireTokenSilent.
+                // This indicates you need to call AcquireTokenInteractive to acquire a token
                 System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
 
                 try
                 {
-                    authResult = await App.PublicClientApp.AcquireTokenAsync(_scopes);
+                    authResult = await app.AcquireTokenInteractive(scopes)
+                        .WithAccount(accounts.FirstOrDefault())
+                        .WithPrompt(Prompt.SelectAccount)
+                        .ExecuteAsync();
                 }
                 catch (MsalException msalex)
                 {
@@ -82,12 +88,11 @@ In this section, you use MSAL to get a token for the Microsoft Graph API.
 
             if (authResult != null)
             {
-                ResultText.Text = await GetHttpContentWithToken(_graphAPIEndpoint, authResult.AccessToken);
+                ResultText.Text = await GetHttpContentWithToken(graphAPIEndpoint, authResult.AccessToken);
                 DisplayBasicTokenInfo(authResult);
                 this.SignOutButton.Visibility = Visibility.Visible;
             }
         }
-    }
     ```
 
 <!--start-collapse-->
@@ -95,21 +100,21 @@ In this section, you use MSAL to get a token for the Microsoft Graph API.
 
 #### Get a user token interactively
 
-Calling the `AcquireTokenAsync` method results in a window that prompts  users to sign in. Applications usually require users to sign in interactively the first time they need to access a protected resource. They might also need to sign in when a silent operation to acquire a token fails (for example, when a user’s password is expired).
+Calling the `AcquireTokenInteractive` method results in a window that prompts  users to sign in. Applications usually require users to sign in interactively the first time they need to access a protected resource. They might also need to sign in when a silent operation to acquire a token fails (for example, when a user’s password is expired).
 
 #### Get a user token silently
 
-The `AcquireTokenSilentAsync` method handles token acquisitions and renewals without any user interaction. After `AcquireTokenAsync` is executed for the first time, `AcquireTokenSilentAsync` is the usual method to use to obtain tokens that access protected resources for subsequent calls, because calls to request or renew tokens are made silently.
+The `AcquireTokenSilent` method handles token acquisitions and renewals without any user interaction. After `AcquireTokenInteractive` is executed for the first time, `AcquireTokenSilent` is the usual method to use to obtain tokens that access protected resources for subsequent calls, because calls to request or renew tokens are made silently.
 
-Eventually, the `AcquireTokenSilentAsync` method will fail. Reasons for failure might be that the user has either signed out or changed their password on another device. When MSAL detects that the issue can be resolved by requiring an interactive action, it fires an `MsalUiRequiredException` exception. Your application can handle this exception in two ways:
+Eventually, the `AcquireTokenSilent` method will fail. Reasons for failure might be that the user has either signed out or changed their password on another device. When MSAL detects that the issue can be resolved by requiring an interactive action, it fires an `MsalUiRequiredException` exception. Your application can handle this exception in two ways:
 
-* It can make a call against `AcquireTokenAsync` immediately. This call results in prompting the user to sign in. This pattern is usually used in online applications where there is no available offline content for the user. The sample generated by this guided setup follows this pattern, which you can see in action the first time you execute the sample. 
+* It can make a call against `AcquireTokenInteractive` immediately. This call results in prompting the user to sign in. This pattern is usually used in online applications where there is no available offline content for the user. The sample generated by this guided setup follows this pattern, which you can see in action the first time you execute the sample. 
 
 * Because no user has used the application, `PublicClientApp.Users.FirstOrDefault()` contains a null value, and an `MsalUiRequiredException` exception is thrown. 
 
-* The code in the sample then handles the exception by calling `AcquireTokenAsync`, which results in prompting the user to sign in.
+* The code in the sample then handles the exception by calling `AcquireTokenInteractive`, which results in prompting the user to sign in.
 
-* It can instead present a visual indication to users that an interactive sign-in is required, so that they can select the right time to sign in. Or the application can retry `AcquireTokenSilentAsync` later. This pattern is frequently used when users can use other application functionality without disruption--for example, when offline content is available in the application. In this case, users can decide when they want to sign in to either access the protected resource or refresh the outdated information. Alternatively, the application can decide to retry `AcquireTokenSilentAsync` when the network is restored after having been temporarily unavailable.
+* It can instead present a visual indication to users that an interactive sign-in is required, so that they can select the right time to sign in. Or the application can retry `AcquireTokenSilent` later. This pattern is frequently used when users can use other application functionality without disruption--for example, when offline content is available in the application. In this case, users can decide when they want to sign in to either access the protected resource or refresh the outdated information. Alternatively, the application can decide to retry `AcquireTokenSilent` when the network is restored after having been temporarily unavailable.
 <!--end-collapse-->
 
 ## Call the Microsoft Graph API by using the token you just obtained
@@ -165,7 +170,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
     {
         try
         {
-            await App.PublicClientApp.RemoveAsync(accounts.FirstOrDefault()); 
+            await App.PublicClientApp.RemoveAsync(accounts.FirstOrDefault());
             this.ResultText.Text = "User has signed-out";
             this.CallGraphButton.Visibility = Visibility.Visible;
             this.SignOutButton.Visibility = Visibility.Collapsed;
@@ -201,7 +206,6 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
     {
         TokenInfoText.Text += $"Username: {authResult.Account.Username}" + Environment.NewLine;
         TokenInfoText.Text += $"Token Expires: {authResult.ExpiresOn.ToLocalTime()}" + Environment.NewLine;
-        TokenInfoText.Text += $"Access Token: {authResult.AccessToken}" + Environment.NewLine;
     }
 }
 ```
