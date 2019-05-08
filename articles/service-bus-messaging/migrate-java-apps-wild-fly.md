@@ -22,7 +22,7 @@ This article walks you through the process of migrating existing Java EE workloa
  
 - Java enterprise apps (message driven enterprise beans) to [Azure App Service on Linux](../app-service/containers/app-service-linux-intro.md)
 - App's messaging subsystem to Azure Service Bus
-- Leverage Web Sockets for interactive Java workloads 
+- Use Web Sockets for interactive Java workloads 
 
 ## In this article
 
@@ -574,7 +574,7 @@ startup by supplying a startup Bash script that calls [JBoss/WildFly CLI command
     reload --use-current-server-config=true
     ```
 
-These JBoss CLI commands, WildFly/JBoss Generic JMS Provider Module description `module.xml` and JARs are available in [quickstart/helloworld-mdb/.scripts](https://github.com/Azure-Samples/migrate-Java-EE-app-to-azure-2/tree/master/quickstart/helloworldmdb/.scripts) 
+These JBoss CLI commands, WildFly/JBoss Generic JMS Provider Module description (`module.xml`), and JARs are available in [quickstart/helloworld-mdb/.scripts](https://github.com/Azure-Samples/migrate-Java-EE-app-to-azure-2/tree/master/quickstart/helloworldmdb/.scripts) 
 
 Also, you can directly download `Qpid` and `Proton-j` libraries from [Apache Qpid JMS Provider](https://qpid.apache.org/components/jms/index.html) for the AMQP protocol.
 
