@@ -157,10 +157,11 @@ which also use JavaScript Object Notation (JSON).
 then find and select the logic app 
 that you want to download from Azure.
 
-    > [!NOTE]
-    > For Visual Studio 2019, Cloud Explorer can open  
-    > the Logic App Designer in the Azure portal,  
-    > but can't yet open the embedded Logic App Designer.
+   > [!NOTE]
+   > For Visual Studio 2019, Cloud Explorer can open  
+   > the Logic App Designer in the Azure portal,  
+   > but can't yet open the embedded Logic App Designer 
+   > for downloading your logic app.
 
 2. On that app's shortcut menu, 
 select **Open with Logic App Editor**.
