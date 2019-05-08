@@ -24,24 +24,14 @@ You can use your work or school account with the web-based **My Apps** portal, t
 >[!Important]
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
-## Go to the My Apps portal
-
-You can get to the **My Apps** portal (https://myapps.microsoft.com), from the current version of any of the following browsers:
-
-- Chrome
-- Microsoft Edge
-- Safari
-- Firefox
-- Internet Explorer 11
-
 ## My Apps portal articles
 
 For detailed information and instructions about what's available from the **My Apps** portal, see the following articles:
 
 |Article |Description |
 |------|------------|
-|[Access and use the My Apps portal](my-apps-portal-end-user-access.md)|Learn how to access and use the **My Apps** web portal to view and start your organization’s cloud-based apps, based on device.|
-|[Update your profile and account info](my-apps-portal-end-user-update-profile.md)|Learn how to update the information included on the **Profile** page of the **My Apps** portal.|
-|[Update your Groups info](my-apps-portal-end-user-groups.md)|Learn how to view and manage your groups-related information on the **Groups** page of the **My Apps** portal.|
-|[Perform your own access reviews](my-apps-portal-end-user-access-reviews.md)|Learn how to view and perform **access reviews** to allow or deny user or group access to your organization's apps on the **Access Reviews** page of the **My Apps** portal.|
-|[Troubleshoot the My Apps portal](my-apps-portal-end-user-troubleshoot.md)|Review some troubleshooting tips for the **My Apps** portal before you contact your Helpdesk for assistance.|
+|[Access and use the My Apps portal](my-apps-portal-end-user-access.md)|Instructions about how to access and use the **My Apps** web portal to view and start your organization’s cloud-based apps, based on device.|
+|[Update your profile and account info](my-apps-portal-end-user-update-profile.md)|Instructions about how to update your personal information that appears on the **Profile** page of the **My Apps** portal.|
+|[Update your Groups info](my-apps-portal-end-user-groups.md)|Instructions about how to view and manage your groups-related information on the **Groups** page of the **My Apps** portal.|
+|[Perform your own access reviews](my-apps-portal-end-user-access-reviews.md)|Instructions about how to view and perform **access reviews** to allow or deny user or group access to your organization's apps on the **Access Reviews** page of the **My Apps** portal.|
+|[Troubleshoot the My Apps portal](my-apps-portal-end-user-troubleshoot.md)|Review some troubleshooting suggestions for problems with the **My Apps** portal, before you contact your Helpdesk for assistance.|
