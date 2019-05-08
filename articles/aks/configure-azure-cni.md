@@ -73,7 +73,7 @@ You're able to configure the maximum number of pods per node *only at cluster de
 
 > [!NOTE]
 > The minimum value in the table above is strictly enforced by the AKS service.
-  You can not set a maxPods value lower than than the minimum shown as doing so
+  You can not set a maxPods value lower than the minimum shown as doing so
   can prevent the cluster from starting.
 
 * **Azure CLI**: Specify the `--max-pods` argument when you deploy a cluster with the [az aks create][az-aks-create] command. The maximum value is 250.
