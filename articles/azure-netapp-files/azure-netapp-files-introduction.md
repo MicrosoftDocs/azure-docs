@@ -23,7 +23,7 @@ The Azure NetApp Files service is an enterprise-class, high-performance, metered
 The Azure NetApp Files documentation provides instructions on creating and managing volumes by using Azure NetApp Files. 
 
 > [!IMPORTANT] 
-> All tasks described in this documentation require that you be part of the Public Preview program and whitelisted for accessing the Microsoft.NetApp Azure Resource Provider. To request joining the Public Preview program, see [Register for Azure NetApp Files](azure-netapp-files-register.md). 
+> All tasks described in this documentation require that you be granted access to the Azure NetApp Files service.  To request access to the service, see the [Azure NetApp Files waitlist submission page](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u).
 
 **Next steps** 
 

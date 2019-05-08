@@ -21,7 +21,6 @@ ms.author: b-juche
 
 > [!IMPORTANT] 
 > Before registering the Azure NetApp Files resource provider, you must have received an email from the Azure NetApp Files team confirming that you have been granted access to the service. You will be able to successfully register the NetApp Resource Provider even without being granted access for service. However, without access authorization, any Azure portal or API request to create a NetApp account or any other Azure NetApp Files resource will be rejected. You can get on the waitlist for service access through the [Azure NetApp Files waitlist submission page](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u). Waitlist signup does not guarantee immediate service access. You must wait for an official confirmation email from the Azure NetApp Files team before creating any NetApp accounts. 
- --> 
 
 
 To use the service, you must register the Azure Resource Provider for Azure NetApp Files. 
