@@ -35,7 +35,7 @@ The [Azure IoT reference architecture](https://aka.ms/iotrefarchitecture) is a l
 
 The reference architecture identifies the core subsystems shown in the following diagram:
 
-![Core subsystems](media/iot-accelerators-architecture-overview/CoreSubsystems.png)
+![Core subsystems](media/iot-accelerators-architecture-overview/coresubsystems1.png)
 
 The following sections describe how the components of the Remote Monitoring solution accelerator map to the core subsystems.
 
