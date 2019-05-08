@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Automate processing emails and attachments - Azure Logic Apps | Microsoft Docs
+title: Tutorial - Automate processing emails and attachments - Azure Logic Apps
 description: Tutorial - Create automated workflows that handle emails and attachments with Azure Logic Apps, Azure Storage, and Azure Functions
 services: logic-apps
 ms.service: logic-apps
@@ -9,7 +9,7 @@ ms.reviewer: klam, LADocs
 manager: carmonm
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/20/2018
+ms.date: 05/07/2019
 ---
 
 # Tutorial: Automate handling emails and attachments with Azure Logic Apps
