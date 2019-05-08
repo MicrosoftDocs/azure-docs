@@ -24,11 +24,12 @@
   - name: Stream live - .NET
     href: stream-live-tutorial-with-api.md
   - name: Analyze your video - .NET
-    displayName: job, transform
+    displayName: job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset
     href: analyze-videos-tutorial-with-api.md
   - name: Encrypt dynamically with AES-128 - .NET
     href: protect-with-aes128.md       
   - name: Encrypt dynamically with DRM - .NET
+    displayName: PlayReady, Widevine
     href: protect-with-drm.md    
 - name: Concepts
   href: concepts-overview.md
@@ -69,7 +70,7 @@
     - name: Packaging
       items:
       - name: Dynamic packaging
-        displayName: packager      
+        displayName: origin, packager      
         href: dynamic-packaging-overview.md
       - name: Dynamic manifests
         href: filters-dynamic-manifest-overview.md 
@@ -91,7 +92,7 @@
         - name: FairPlay license requirements
           href: fairplay-license-overview.md      
     - name: Streaming Endpoints/Origin
-      displayName: origins, cdn 
+      displayName: origin, packager, cdn
       href: streaming-endpoint-concept.md
     - name: Streaming Locators
       displayName: URLs
@@ -135,6 +136,7 @@
       href: use-azure-media-player.md
   - name: Developing with v3 APIs
     href: media-services-apis-overview.md
+    displayName: accessing APIs, naming conventions, long-running operations
     items:
     - name: Page, filter, order entities
       href: entities-overview.md 
