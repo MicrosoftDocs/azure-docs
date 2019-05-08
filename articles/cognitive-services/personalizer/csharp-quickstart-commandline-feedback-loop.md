@@ -18,12 +18,12 @@ ms.author: edjez
 
 Display personalized content in this C# quickstart with the Personalizer service.
 
-This sample demonstrates how to use the Personalization client library for C# to perform the following actions: 
+This sample demonstrates how to use the Personalizer client library for C# to perform the following actions: 
 
  * Rank a list of actions for personalization.
  * Report reward to allocate to the top ranked action based on user selection for the specified event.
 
-Getting started with Personalization involves the following steps:
+Getting started with Personalizer involves the following steps:
 
 1. Referencing the SDK 
 1. Writing code to rank the actions you want to show to your users,
@@ -48,9 +48,9 @@ Get the latest code as a Visual Studio solution from [GitHub] (add link).
 -->
 
 1. Create a new Visual C# Console App in Visual Studio.
-1. Install the Personalization client library NuGet package. On the menu, select **Tools**, select **Nuget package Manager**, then **Manage NuGet Packages for Solution**.
-1. Select the **Browse** tab, and in the **Search** box type `Microsoft.Azure.CognitiveServices.Personalization`.
-1. Select **Microsoft.Azure.CognitiveServices.Personalization** when it displays.
+1. Install the Personalizer client library NuGet package. On the menu, select **Tools**, select **Nuget package Manager**, then **Manage NuGet Packages for Solution**.
+1. Select the **Browse** tab, and in the **Search** box type `Microsoft.Azure.CognitiveServices.Personalizer`.
+1. Select **Microsoft.Azure.CognitiveServices.Personalizer** when it displays.
 1. Select the checkbox next to your project name, and select **Install**.
 
 ## Add the code and put in your Personalizer and Azure keys
