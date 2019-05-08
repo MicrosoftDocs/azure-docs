@@ -112,16 +112,34 @@ Download and use the [Azul Zulu Enterprise for Azure](https://assets.azul.com/fi
 
 ## Customize JVM
 
-Functions lets you customize the Java virtual machine (JVM) used to host your Java functions. The [following JVM arguments](https://github.com/Azure/azure-functions-java-worker/blob/master/worker.config.json#L7) are used by default: 
+Functions lets you customize the Java virtual machine (JVM) used to host your Java functions. The [following JVM arguments](https://github.com/Azure/azure-functions-java-worker/blob/master/worker.config.json#L7) are used by default:
 
 * `-XX:+TieredCompilation`
-* `-XX:TieredStopAtLevel=1` 
+* `-XX:TieredStopAtLevel=1`
 * `-noverify` 
-* `-Djava.net.preferIPv4Stack=true` 
+* `-Djava.net.preferIPv4Stack=true`
 * `-jar`
 
-You can provide additional arguments in an app setting named `JAVA_OPTS`. You can add app settings in Azure from the portal or by  For example, the following adds the by using the 
+You can provide additional arguments in an app setting named `JAVA_OPTS`. You can add app settings to your function app deployed to Azure in one of these ways:
 
+### Azure portal
+
+In the [Azure portal](https://portal.azure.com), use the [Application Settings tab](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings) to add the `JAVA_OPTS` setting. 
+
+### Azure CLI
+
+The [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) command can be used to set `JAVA_OPTS`, as in the following example:
+
+    ```azurecli-interactive
+    az functionapp config appsettings set --name <APP_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --settings "JAVA_OPTS=-Djava.awt.headless=true"
+    ```
+This example enables headless mode. Replace `<APP_NAME>` with the name of your function app and `<RESOURCE_GROUP> ` with the resource group.
+
+> ![NOTE]
+> When running in a [Consumption plan](functions-scale.md#consumption-plan), you must add the  `WEBSITE_USE_PLACEHOLDER` setting with a value of `0`.  
+This setting does increase the cold start times for Java functions. 
 
 ## Third-party libraries 
 
