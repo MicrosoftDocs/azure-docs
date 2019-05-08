@@ -1,5 +1,5 @@
 ---
-title: Clear the token cache (Microsoft Authentication Library for .NET) | Azure
+title: Clear the token cache (Azure Microsoft Authentication Library for .NET)
 description: Learn how to clear the token cache using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -46,3 +46,5 @@ while (accounts.Any())
 }
 
 ```
+
+To learn more about acquiring and caching tokens, read [acquire an access token](msal-acquire-cache-tokens.md).
