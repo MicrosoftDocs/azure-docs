@@ -32,7 +32,7 @@ You interact with your workspace through the Azure portal, the Azure Machine Lea
 Use the [Azure portal](https://azure.portal.com) to create and interact with your workspace.  In the portal you can:
 
 + [Create a workspace](setup-create-workspace.md#portal).
-+ Build machine learning models without writing code:  
++ Build and deploy machine learning models without writing code:  
     + Create and explore [automated machine learning experiments (preview)](how-to-create-portal-experiments.md) with a point-and-click interface.
     + Launch the [visual interface (preview) for Azure Machine Learning service](ui-concept-visual-interface.md) to train and deploy models with a drag-and-drop interface.
 + Build and deploy machine learning models with Python notebooks:
