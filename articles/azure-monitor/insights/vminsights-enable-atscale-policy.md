@@ -29,7 +29,7 @@ If you are interested in accomplishing this with Azure PowerShell or Azure Resou
 
 ## Manage Policy Coverage feature overview
 
-Originally the experience with Azure Policy for managing and deploying the policy definitions for Azure Monitor for VMs was performed exclusively from Azure Policy. With the **Manage Policy Coverage** feature, it makes it simpler and easier to discover, manage, and enable at scale the **Enable Azure Monitor for VMs** initiative, which includes the policy definitions mentioned earlier. You can access this new feature from the **Get started** tab in Azure Monitor for VMs by selecting **Manage Policy Coverage**. This opens the VMs Policy Coverage page. 
+Originally the experience with Azure Policy for managing and deploying the policy definitions for Azure Monitor for VMs was performed exclusively from Azure Policy. With the **Manage Policy Coverage** feature, it makes it simpler and easier to discover, manage, and enable at scale the **Enable Azure Monitor for VMs** initiative, which includes the policy definitions mentioned earlier. You can access this new feature from the **Get started** tab in Azure Monitor for VMs by selecting **Manage Policy Coverage**. It opens the VMs Policy Coverage page. 
 
 ![Azure Monitor from VMs Get Started tab](./media/vminsights-enable-atscale-policy/get-started-page-01.png)
 
