@@ -178,14 +178,9 @@ Before you use the API definition, you should verify that it works.
 
     ![Test function API](media/functions-openapi-definition/test-function-api-openapi.png)
 
+[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
+
 ## Next steps
-
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create a function in Azure
-> * Generate an OpenAPI definition using Azure API Management
-> * Test the definition by calling the function
 
 Advance to the next topic to learn about API Management.
 
