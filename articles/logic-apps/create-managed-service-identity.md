@@ -160,8 +160,8 @@ app's system-assigned managed identity, follow these steps:
 1. In the Azure portal, go to the Azure resource where 
 you want to assign access for your managed identity. 
 
-1. From the resource's menu, select **Access control (IAM)**, 
-and choose **Add role assignment**. 
+1. From the resource's menu, select **Access control (IAM)**. 
+On the toolbar, choose **Add** > **Add role assignment**.
 
    ![Add role assignment](./media/create-managed-service-identity/add-permissions-logic-app.png)
 

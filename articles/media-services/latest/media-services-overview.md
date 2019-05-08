@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/02/2019
+ms.date: 05/07/2019
 ms.author: juliako
 ms.custom: mvc
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
@@ -84,9 +84,5 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## Next steps
 
-How can I get started with v3? 
-
-> [!div class="nextstepaction"]
-> [Learn about fundamental concepts](concepts-overview.md)<br/>
-> [Develop with the Media Services v3 API using SDKs](developers-guide.md) 
+[Learn about fundamental concepts](concepts-overview.md)
 

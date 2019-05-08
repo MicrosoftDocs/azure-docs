@@ -39,45 +39,45 @@ An effective implementation of feature management consists of at least two compo
 
 The basic pattern for implementing feature flags in an application is simple. You can conceptualize it as a Boolean state variable used with an `if` conditional statement in your code.
 
-    ```csharp
-    if (featureFlag) {
-        // Run the following code
-    }
-    ```
+```csharp
+if (featureFlag) {
+    // Run the following code
+}
+```
 
 In this case, if `featureFlag` is set to `True`, the enclosed code block is executed; otherwise it is skipped. The value of `featureFlag` can be set statically:
 
-    ```csharp
-    bool featureFlag = true;
-    ```
+```csharp
+bool featureFlag = true;
+```
 
 It also can be evaluated based on certain rules:
 
-    ```csharp
-    bool featureFlag = isBetaUser();
-    ```
+```csharp
+bool featureFlag = isBetaUser();
+```
 
 A slightly more complicated feature flag pattern includes an `else` statement as well.
 
-    ```csharp
-    if (featureFlag) {
-        // This following code will run if the featureFlag value is true
-    } else {
-        // This following code will run if the featureFlag value is false
-    }
-    ```
+```csharp
+if (featureFlag) {
+    // This following code will run if the featureFlag value is true
+} else {
+    // This following code will run if the featureFlag value is false
+}
+```
 
 This can be rewritten in the basic pattern, however. [Use feature flags in an ASP.NET Core app](./use-feature-flags-dotnet-core.md) shows the advantage of standardizing on a simple code pattern.
 
-    ```csharp
-    if (featureFlag) {
-        // This following code will run if the featureFlag value is true
-    }
+```csharp
+if (featureFlag) {
+    // This following code will run if the featureFlag value is true
+}
 
-    if (!featureFlag) {
-        // This following code will run if the featureFlag value is false
-    }
-    ```
+if (!featureFlag) {
+    // This following code will run if the featureFlag value is false
+}
+```
 
 ## Feature flag repository
 
