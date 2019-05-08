@@ -124,7 +124,7 @@ You can provide additional arguments in an app setting named `JAVA_OPTS`. You ca
 
 ### Azure portal
 
-In the [Azure portal](https://portal.azure.com), use the [Application Settings tab](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings) to add the `JAVA_OPTS` setting. 
+In the [Azure portal](https://portal.azure.com), use the [Application Settings tab](functions-how-to-use-azure-function-app-settings.md#settings) to add the `JAVA_OPTS` setting. 
 
 ### Azure CLI
 

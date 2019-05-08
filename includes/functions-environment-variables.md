@@ -18,4 +18,4 @@ The function app settings values can also be read in your code as environment va
 * [F# script (.fsx)](../articles/azure-functions/functions-reference-fsharp.md#environment-variables)
 * [Java](../articles/azure-functions/functions-reference-java.md#environment-variables)
 * [JavaScript](../articles/azure-functions/functions-reference-node.md#environment-variables)
-* [PowerShell](../azure/azure-functions/functions-reference-powershell.md#environment-variables)
+* [PowerShell](../articles/azure-functions/functions-reference-powershell.md#environment-variables)
