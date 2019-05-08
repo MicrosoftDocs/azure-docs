@@ -114,8 +114,8 @@ Use the table below as a reference to help you understand the available Identity
 |Subscription|30|Remove external accounts with owner permissions from your subscription|Remove external accounts with owner permissions from your subscription in order to prevent unmonitored access. |
 |Subscription|30|Enable MFA for Azure Management App accounts with read permissions on your subscription|Enable Multi-Factor Authentication (MFA) for all subscription accounts with read privileges to prevent a breach of accounts or resources.|
 |Subscription|25|Remove external accounts with write permissions from your subscription|Remove external accounts with write permissions from your subscription in order to prevent unmonitored access. |
-|Subscription|20|Remove  deprecated accounts with owner permissions from your subscription|Remove deprecated accounts with owner permissions from your subscriptions.|
-|Subscription|5|Remove deprecated accounts from your subscription|Remove deprecated accounts from your subscriptions to enable access to only current users. |
+|Subscription|20|Remove  deprecated accounts with owner permissions from your subscription|Remove deprecated accounts with owner permissions from your subscriptions. Deprecated accounts are the accounts for which sign-in has been blocked in Azure AD.|
+|Subscription|5|Remove deprecated accounts from your subscription|Remove deprecated accounts from your subscriptions to enable access to only current users. Deprecated accounts are the accounts for which sign-in has been blocked in Azure AD.|
 |Subscription|5|Designate more than one owner on your subscription|Designate more than one subscription owner in order to have administrator access redundancy.|
 |Subscription|5|Designate up to 3 owners on your subscription|Designate less than 3 subscription owners in order to reduce the potential for breach by a compromised owner.|
 |Key vault|5|Enable diagnostic logs in Key Vault|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
