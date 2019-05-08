@@ -102,20 +102,17 @@ To configure Azure AD single sign-on with Workspot Control, follow these steps:
 
     ![Workspot Control domain and URLs single sign-on information](common/idp-intiated.png)
 
-    1. In the **identifier** text box, type a URL in the following pattern:
-
+    1. In the **identifier** text box, type a URL in the following pattern:<br/>
     ***https://<INSTANCENAME>-saml.workspot.com/saml/metadata***
 
-    1. In the **reply URL** text box, type a URL in the following pattern:
-
+    1. In the **reply URL** text box, type a URL in the following pattern:<br/>
     ***https://<INSTANCENAME>-saml.workspot.com/saml/assertion***
 
 5. If you want to configure the application in SP-initiated mode, select **Set additional URLs**.
 
     ![Workspot Control domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
-    In the **Sign-on URL** text box, type a URL in the following pattern:
-
+    In the **Sign-on URL** text box, type a URL in the following pattern:<br/>
     ***https://INSTANCENAME-saml.workspot.com/***
 
 	> [!NOTE]
@@ -175,7 +172,7 @@ In this section, you create a test user in the Azure portal.
 
     1. In the **Name** field,  enter **BrittaSimon**.
   
-    1. In the **User name** field, type **brittasimon@*yourcompanydomain.extension***. For example, type **BrittaSimon@contoso.com**.
+    1. In the **User name** field, type **brittasimon@*yourcompanydomain.extension***. For example, type **BrittaSimon@contoso.<i></i>com**.
 
     1. Select the **Show password** check box. Then write down the value that's displayed in the **Password** box.
 
@@ -223,11 +220,11 @@ To enable Azure AD users to sign in to Workspot Control, they must be provisione
 
 	!["Add a New User" window](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addnewuser.png)
 
-	1. In **First Name** box, enter the first name of a user, such as ***Britta***.
+	1. In **First Name** box, enter the first name of a user, such as **Britta**.
 
-	1. In **Last Name** text box, enter the last name of the user, such as ***Simon***.
+	1. In **Last Name** text box, enter the last name of the user, such as **Simon**.
 
-	1. In **Email** box, enter the email address of the user, such as ***Brittasimon@contoso.<i></i>com***.
+	1. In **Email** box, enter the email address of the user, such as **Brittasimon@contoso.<i></i>com**.
 
 	1. Select the appropriate user role from the **Role** drop-down list.
 
