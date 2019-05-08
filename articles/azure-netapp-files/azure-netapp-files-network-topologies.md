@@ -20,7 +20,7 @@ ms.author: b-juche
 
 Network architecture planning is a key element of designing any application infrastructure. This article helps you design an effective network architecture for your workloads to benefit from the rich capabilities of Azure NetApp Files.
 
-Azure NetApp Files volume are designed to be contained in a special purpose subnet called [delegated subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) within your Azure Virtual Network. Therefore, you can access the volumes directly from your VNet, from peered VNets in the same region, or from on-prem over a Virtual Network Gateway (ExpressRoute or VPN Gateway) as desired. The subnet is dedicated to Azure NetApp Files and there is no connectivity to other Azure services or the internet.
+Azure NetApp Files volumes are designed to be contained in a special purpose subnet called [delegated subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) within your Azure Virtual Network. Therefore, you can access the volumes directly from your VNet, from peered VNets in the same region, or from on-prem over a Virtual Network Gateway (ExpressRoute or VPN Gateway) as necessary. The subnet is dedicated to Azure NetApp Files and there is no connectivity to other Azure services or the internet.
 
 ## Considerations  
 
@@ -37,7 +37,7 @@ The features below are currently unsupported for Azure NetApp Files:
 
 The following network restrictions apply to Azure NetApp Files:
 
-* The number of IPs from a VNet (includes peered VNets) connecting to a volume in a VNet cannot exceeding 1000.
+* The number of IPs from a VNet (includes peered VNets) connecting to a volume in a VNet cannot exceed 1000.
 * In each Azure Virtual Network (VNet), only one subnet can be delegated to Azure NetApp Files.
 
 
@@ -62,7 +62,7 @@ This section explains concepts that help you with virtual network planning.
 
 ### Azure virtual networks
 
-Before provisioning an Azure NetApp Files volume, you need to create an Azure virtual network (VNet) or use one that already exists in your subscription. The VNet defines the network boundary of the volume.  For more information on creating virtual networks see the [Azure Virtual Network documentation](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview).
+Before provisioning an Azure NetApp Files volume, you need to create an Azure virtual network (VNet) or use one that already exists in your subscription. The VNet defines the network boundary of the volume.  For more information on creating virtual networks, see the [Azure Virtual Network documentation](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview).
 
 ### Subnets
 
@@ -98,7 +98,7 @@ Consider VNet 2 and VNet 3 in the diagram above. If VM 1 needs to connect to VM 
 
 Additionally, consider a scenario where VNet 1 is peered with VNet 2, and VNet 2 is peered with VNet 3 in the same region. The resources from VNet 1 can connect to resources in VNet 2 but it cannot connect to resources in VNet 3, unless VNet 1 and VNet 3 are peered. 
 
-In the diagram above, although VM 3 can connect to Volume 1, VM 4 cannot connect to Volume 2.  This is the case because the spoke VNets are not peered, and _transit routing is not supported over VNet peering_.
+In the diagram above, although VM 3 can connect to Volume 1, VM 4 cannot connect to Volume 2.  The reason is that the spoke VNets are not peered, and _transit routing is not supported over VNet peering_.
 
 ## Hybrid environments
 
