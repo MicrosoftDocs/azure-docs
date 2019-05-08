@@ -158,7 +158,7 @@
   - name: Samples
     items: 
     - name: QnA Maker help bot
-      href: https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot
+      href: https://aka.ms/qnamakerhelpbotsample
   - name: SDKs
     items:
     - name: C#
