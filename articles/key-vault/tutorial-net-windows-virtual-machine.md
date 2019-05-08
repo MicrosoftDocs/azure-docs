@@ -10,6 +10,7 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
+ms.custom: fasttrack-edit
 #Customer intent: As a developer I want to use Azure Key Vault to store secrets for my app, so that they are kept secure.
 ---
 # Tutorial: Use Azure Key Vault with a Windows virtual machine in .NET
@@ -212,6 +213,19 @@ Edit the class file to contain the code in the following two-step process:
 
 The preceding code shows you how to do operations with Azure Key Vault in a Windows virtual machine.
 
+## Add Packages
+
+This code sample uses newtonsoft.json to parse the response. Add this package by running the command below.
+```batch
+dotnet add package newtonsoft.json
+```
+## Verify the secret has been retrieved
+
+Run the following command to verify that the secret was successfully retrieved.
+
+```batch
+dontet run
+```
 ## Clean up resources
 
 When they are no longer needed, delete the virtual machine and your key vault.
