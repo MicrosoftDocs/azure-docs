@@ -127,7 +127,7 @@ sections:
         values:
           - href: 
           - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/
-          - href: https://docs.microsoft.com/en-us/powershell/module/az.sql/restore-azsqlinstancedatabase?view=azps-2.0.0#examples
+          - href: https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase?view=azps-2.0.0#examples
           - href:
       - title: Restore dropped database
         values:
