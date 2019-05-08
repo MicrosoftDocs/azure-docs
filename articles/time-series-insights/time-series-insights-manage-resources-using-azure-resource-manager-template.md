@@ -21,12 +21,12 @@ Time Series Insights supports the following resources:
 
    | Resource | Description |
    | --- | --- |
-   | Environment | A Time Series Insights environment is a logical grouping of events which are read from event brokers, stored, and made available for query. For more information see [Plan your Azure Time Series Insights environment](time-series-insights-environment-planning.md) |
+   | Environment | A Time Series Insights environment is a logical grouping of events that are read from event brokers, stored, and made available for query. For more information, see [Plan your Azure Time Series Insights environment](time-series-insights-environment-planning.md) |
    | Event Source | An event source is a connection to an event broker from which Time Series Insights reads and ingests events into the environment. Currently supported event sources are IoT Hub and Event Hub. |
    | Reference Data Set | Reference data sets provide metadata about the events in the environment. Metadata in the reference data sets will be joined with events during ingress. Reference data sets are defined as resources by their event key properties. The actual metadata that makes up the reference data set is uploaded or modified through data plane APIs. |
-   | Access Policy | Access policies grant permissions to issue data queries, manipulate reference data in the environment, and share saved queries and perspectives associated with the environment. For more information see [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md) |
+   | Access Policy | Access policies grant permissions to issue data queries, manipulate reference data in the environment, and share saved queries and perspectives associated with the environment. For more information, read [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md) |
 
-A Resource Manager template is a JSON file that defines the infrastructure and configuration of resources in a resource group. For more information see the following documents:
+A Resource Manager template is a JSON file that defines the infrastructure and configuration of resources in a resource group. The following documents describe template files in greater detail:
 
 - [Azure Resource Manager overview - Template deployment](../azure-resource-manager/resource-group-overview.md#template-deployment)
 - [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
@@ -59,8 +59,8 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
      | eventHubNamespaceName | The namespace of the source event hub. |
      | eventHubName | The name of the source event hub. |
      | consumerGroupName | The name of the consumer group that the Time Series Insights service will use to read the data from the event hub. **NOTE:** To avoid resource contention, this consumer group must be dedicated to the Time Series Insights service and not shared with other readers. |
-     | environmentName | The name of the environment. The name cannot include:   `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` and any control characters. All other characters are allowed.|
-     | eventSourceName | The name of the event source child resource. The name cannot include:   `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` and any control characters. All other characters are allowed. |
+     | environmentName | The name of the environment. The name cannot include:   `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`, and any control characters. All other characters are allowed.|
+     | eventSourceName | The name of the event source child resource. The name cannot include:   `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/`, and any control characters. All other characters are allowed. |
 
     <div id="optional-parameters"></div>
 
