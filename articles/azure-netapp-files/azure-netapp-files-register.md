@@ -43,7 +43,7 @@ To use the service, you must register the Azure Resource Provider for Azure NetA
        
    `<SubID>` is your subscription ID.
 
-    If you do not see the feature name `publicPreviewADC`, you do not have access to the service. Stop at this step. Follow instructions in [Submit a waitlist request](azure-netapp-files-waitlist.md). 
+    If you do not see the feature name `publicPreviewADC`, you do not have access to the service. Stop at this step. Follow instructions in [Submit a waitlist request](azure-netapp-files-waitlist.md) to request service access. 
 
 4. In the Azure Cloud Shell console, enter the following command to register the Azure Resource Provider: 
     
