@@ -5,7 +5,7 @@ services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: e78523ae-d70a-456a-818d-f8b1b025d7cb
@@ -25,7 +25,7 @@ ms.author: mlottner
 > This preview version is provided without a service level agreement, and is not recommended for production worklo§1ads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/) provides powerful capabilities to manage and perform business workflows at the edge.
+[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) provides powerful capabilities to manage and perform business workflows at the edge.
 The key part that IoT Edge plays in IoT environments make it particularly attractive for malicious actors.
 
 Azure Security Center (ASC) for IoT security module provides a comprehensive security solution for your IoT Edge devices.
@@ -42,7 +42,7 @@ ASC for IoT security module for IoT Edge offers the following features:
 
 - Analysis of IoT Edge deployment manifests.
 
-- Aggregates raw security events into messages sent through [IoT Edge Hub](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
+- Aggregates raw security events into messages sent through [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
 
 - Remove configuration through use of the security module twin.
 

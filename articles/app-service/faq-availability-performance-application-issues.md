@@ -19,6 +19,10 @@ ms.author: genli
 ms.custom: seodec18
 
 ---
+> [!NOTE]
+> Some of the below guidelines might only work on Windows or Linux App Services. For example, Linux App Services run in 64-bit mode by default.
+>
+
 # Application performance FAQs for Web Apps in Azure
 
 This article has answers to frequently asked questions (FAQs) about application performance issues for the [Web Apps feature of Azure App Service](https://azure.microsoft.com/services/app-service/web/).

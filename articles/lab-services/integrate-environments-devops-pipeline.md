@@ -53,7 +53,7 @@ The next stage of the deployment is to create the environment to be used for dev
 
 1. In the release definition, select **Add tasks**.
 2. On the **Tasks** tab, add an Azure DevTest Labs Create Environment task. Configure the task as follows:
-    1. For **Azure RM Subscription**, select a connection in the **Available Azure Service Connections** list, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](/devops/pipelines/library/service-endpoints).
+    1. For **Azure RM Subscription**, select a connection in the **Available Azure Service Connections** list, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints).
 2. For **Lab Name**, select the name of the instance that you created earlier*.
 3. For **Repository Name**, select the repository where the Resource Manager template (201) has been pushed to*.
 4. For **Template Name**, select the name of the environment that you saved to your source code repository*. 
@@ -68,7 +68,7 @@ The final stage is to delete the Environment that you deployed in your Azure Dev
 In the release definition, select **Add tasks**, and then on the **Deploy** tab, add an **Azure DevTest Labs Delete Environment** task. Configure it as follows:
 
 1. To delete the VM, see [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks):
-    1. For **Azure RM Subscription**, select a connection in the **Available Azure Service Connections** list, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](/devops/pipelines/library/service-endpoints).
+    1. For **Azure RM Subscription**, select a connection in the **Available Azure Service Connections** list, or create a more restricted permissions connection to your Azure subscription. For more information, see [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints).
     2. For **Lab Name**, select the lab where the environment exists.
     3. For **Environment Name**, enter the name of the environment to be removed.
 2. Enter a name for the release definition, and then save it.
@@ -77,5 +77,5 @@ In the release definition, select **Add tasks**, and then on the **Deploy** tab,
 See the following articles: 
 - [Create multi-VM environments with Resource Manager templates](devtest-lab-create-environment-from-arm.md).
 - Quickstart Resource Manager templates for DevTest Labs automation from the [DevTest Labs GitHub repository](https://github.com/Azure/azure-quickstart-templates).
-- [VSTS Troubleshooting page](/devops/pipelines/troubleshooting)
+- [VSTS Troubleshooting page](/azure/devops/pipelines/troubleshooting)
 

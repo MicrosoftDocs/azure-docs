@@ -1,5 +1,5 @@
 ---
-title: Create and manage elastic pools - Azure SQL database | Microsoft Docs
+title: Manage elastic pools - Azure SQL database | Microsoft Docs
 description: Create and manage Azure SQL elastic pools.
 services: sql-database
 ms.service: sql-database
@@ -12,9 +12,10 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
+ms.custom: seoapril2019
 ---
 
-# Create and manage elastic pools in Azure SQL Database
+# Manage elastic pools in Azure SQL Database
 
 With an elastic pool, you determine the amount of resources that the elastic pool requires to handle the workload of its databases, and the amount of resources for each pooled database.
 

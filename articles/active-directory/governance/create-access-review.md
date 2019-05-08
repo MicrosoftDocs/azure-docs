@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -30,13 +30,13 @@ This article describes how to create one or more access reviews for group member
 
 ## Create one or more access reviews
 
-1. Sign-in to the Azure portal and open the [Access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Sign in to the Azure portal and open the [Access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-1. Click **Controls**.
+1. In the left menu, click **Access reviews**.
 
 1. Click **New access review** to create a new access review.
 
-    ![Access review - Controls](./media/create-access-review/controls.png)
+    ![Access review - Controls](./media/create-access-review/access-reviews.png)
 
 1. Name the access review. Optionally, give the review a description. The name and description are shown to the reviewers.
 
@@ -46,15 +46,15 @@ This article describes how to create one or more access reviews for group member
 
     ![Create an access review - Start and end dates](./media/create-access-review/start-end-dates.png)
 
-1. To make the access review recurring, change the **Frequency** setting from **One time** to **Weekly**, **Monthly**, **Quarterly** or **Annually**, and use the **Duration** slider or text box to define how many days each review of the recurring series will be open for input from reviewers. For example, the maximum duration that you can set for a monthly review is 27 days, to avoid overlapping reviews.
+1. To make the access review recurring, change the **Frequency** setting from **One time** to **Weekly**, **Monthly**, **Quarterly** or **Annually**. Use the **Duration** slider or text box to define how many days each review of the recurring series will be open for input from reviewers. For example, the maximum duration that you can set for a monthly review is 27 days, to avoid overlapping reviews.
 
 1. Use the **End** setting to specify how to end the recurring access review series. The series can end in three ways: it runs continuously to start reviews indefinitely, until a specific date, or after a defined number of occurrences has been completed. You, another User administrator, or another Global administrator can stop the series after creation by changing the date in **Settings**, so that it ends on that date.
 
-1. In the **Users** section, specify the users that access review applies to. Access reviews can be for the members of a group or for users who were assigned to an application. You can further scope the access review to review only the guest users who are members (or assigned to the application), rather than reviewing all the users who are members or who have access to the application.
+1. In the **Users** section, specify the users that the access review applies to. Access reviews can be for the members of a group or for users who were assigned to an application. You can further scope the access review to review only the guest users who are members (or assigned to the application), rather than reviewing all the users who are members or who have access to the application.
 
     ![Create an access review - Users](./media/create-access-review/users.png)
 
-1. In the **Groups** section, select one or more groups that you would like to review membership of.
+1. In the **Group** section, select one or more groups that you would like to review membership of.
 
     > [!NOTE]
     > Selecting more than one group will create multiple access reviews. For example, selecting five groups will create five separate access reviews.
@@ -107,7 +107,9 @@ This article describes how to create one or more access reviews for group member
 
 ## Start the access review
 
-Once you have specified the settings for an access review, click **Start**.
+Once you have specified the settings for an access review, click **Start**. The access review will appear in your list with an indicator of its status.
+
+![Access reviews list](./media/create-access-review/access-reviews-list.png)
 
 By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to [review access to groups or applications](perform-access-review.md). If your review is for guests to review their own access, show them the instructions for how to [review access for yourself to groups or applications](review-your-access.md).
 
@@ -115,13 +117,15 @@ If some of the reviewers are guests, guests are notified via email only if they'
 
 ## Manage the access review
 
-You can track the progress as the reviewers complete their reviews in the Azure AD dashboard in the **Access reviews** section. No access rights are changed in the directory until [the review is completed](complete-access-review.md).
+You can track the progress as the reviewers complete their reviews on the **Overview** page of the access review. No access rights are changed in the directory until [the review is completed](complete-access-review.md).
+
+![Access reviews progress](./media/create-access-review/overview-progress.png)
 
 If this is a one-time review, then after the access review period is over or the administrator stops the access review, follow the steps in [Complete an access review of groups or applications](complete-access-review.md) to see and apply the results.  
 
-To manage a series of access reviews, navigate to the access review from **Controls**, and you will find upcoming occurrences in Scheduled reviews, and edit the end date or add/remove reviewers accordingly. 
+To manage a series of access reviews, navigate to the access review, and you will find upcoming occurrences in Scheduled reviews, and edit the end date or add/remove reviewers accordingly.
 
-Based on your selections in Upon completion settings, auto-apply will be executed after the review's end date or when you manually stop the review. The status of the review will change from Completed through intermediate states such as Applying and finally to state Applied. You should expect to see denied users, if any, being removed from the group membership or application assignment in a few minutes.
+Based on your selections in **Upon completion settings**, auto-apply will be executed after the review's end date or when you manually stop the review. The status of the review will change from **Completed** through intermediate states such as **Applying** and finally to state **Applied**. You should expect to see denied users, if any, being removed from the group membership or application assignment in a few minutes.
 
 ## Create reviews via APIs
 

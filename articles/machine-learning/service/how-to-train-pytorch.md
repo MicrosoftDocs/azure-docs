@@ -42,7 +42,7 @@ Here, we specify the following parameters to the PyTorch constructor:
 Parameter | Description
 --|--
 `source_directory` |  Local directory that contains all of your code needed for the training job. This folder gets copied from your local machine to the remote compute
-`script_params` |  Dictionary specifying the command-line arguments to your training script `entry_script`, in the form of <command-line argument, value> pairs
+`script_params` |  Dictionary specifying the command-line arguments to your training script `entry_script`, in the form of <command-line argument, value> pairs.  To specify a verbose flag in `script_params`, use `<command-line argument, "">`.
 `compute_target` |  Remote compute target that your training script will run on, in this case an Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) cluster
 `entry_script` |  Filepath (relative to the `source_directory`) of the training script to be run on the remote compute. This file, and any additional files it depends on, should be located in this folder
 `conda_packages` |  List of Python packages to be installed via conda needed by your training script. The constructor has another parameter called `pip_packages` that you can use for any pip packages needed
@@ -98,6 +98,10 @@ Finally, submit your distributed PyTorch job:
 ```Python
 run = exp.submit(pt_est)
 ```
+
+## Export to ONNX
+
+To get optimized inferencing with the [ONNX Runtime](concept-onnx.md), you can convert your trained PyTorch model to the ONNX format. See the [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) for an example.
 
 ## Examples
 

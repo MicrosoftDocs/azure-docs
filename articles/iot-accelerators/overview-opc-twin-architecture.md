@@ -1,5 +1,5 @@
 ---
-title: Azure IoT OPC UA device management architecture | Microsoft Docs
+title: OPC Twin architecture - Azure | Microsoft Docs
 description: OPC Twin architecture
 author: dominicbetts
 ms.author: dobett
