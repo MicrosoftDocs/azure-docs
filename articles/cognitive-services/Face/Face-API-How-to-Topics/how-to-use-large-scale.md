@@ -17,7 +17,7 @@ ms.author: sbowles
 
 This guide is an advanced article on how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects, respectively. This guide demonstrates the migration process. It assumes a basic familiarity with PersonGroup, FaceList, the [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) operation, and the face recognition functions. To learn more about these subjects, see the [Face recognition](../concepts/face-recognition.md) conceptual guide.
 
-LargePersonGroup and LargeFaceList are collectively referred to as large-scale operations. LargePersonGroup can contain up to 1,000,000 persons, each with a maximum of 248 faces. LargeFaceList can contain up to 1,000,000 faces. The large-scale operations are similar to the conventional PersonGroup and FaceList but have some differences due to the new architecture. 
+LargePersonGroup and LargeFaceList are collectively referred to as large-scale operations. LargePersonGroup can contain up to 1,000,000 persons, each with a maximum of 248 faces. LargeFaceList can contain up to 1,000,000 faces. The large-scale operations are similar to the conventional PersonGroup and FaceList but have some differences because of the new architecture. 
 
 The samples are written in C# by using the Azure Cognitive Services Face API client library.
 
@@ -42,15 +42,15 @@ For more information, see [Subscriptions](https://azure.microsoft.com/services/c
 
 This section focuses on how to migrate PersonGroup or FaceList implementation to LargePersonGroup or LargeFaceList. Although LargePersonGroup or LargeFaceList differs from PersonGroup or FaceList in design and internal implementation, the API interfaces are similar for backward compatibility.
 
-Data migration isn't supported. You have to re-create the LargePersonGroup or LargeFaceList instead.
+Data migration isn't supported. You re-create the LargePersonGroup or LargeFaceList instead.
 
-### Migrate PersonGroup to LargePersonGroup
+### Migrate a PersonGroup to a LargePersonGroup
 
-Migration from PersonGroup to LargePersonGroup is simple. They share exactly the same group-level operations.
+Migration from a PersonGroup to a LargePersonGroup is simple. They share exactly the same group-level operations.
 
 For PersonGroup- or person-related implementation, it's necessary to change only the API paths or SDK class/module to LargePersonGroup and LargePersonGroup Person.
 
-You must add all of the faces and persons from the PersonGroup to the new LargePersonGroup. For more information, see [Add faces](how-to-add-faces.md).
+Add all of the faces and persons from the PersonGroup to the new LargePersonGroup. For more information, see [Add faces](how-to-add-faces.md).
 
 ### Migrate a FaceList to a LargeFaceList
 
@@ -64,7 +64,7 @@ You must add all of the faces and persons from the PersonGroup to the new LargeP
 | - | Train |
 | - | Get Training Status |
 
-The preceding table is a comparison of list-level operations between FaceList and LargeFaceList. As is shown, LargeFaceList comes with new operations, Train, and Get Training Status, when compared with FaceList. Getting the LargeFaceList trained is a precondition of
+The preceding table is a comparison of list-level operations between FaceList and LargeFaceList. As is shown, LargeFaceList comes with new operations, Train and Get Training Status, when compared with FaceList. Training the LargeFaceList is a precondition of the 
 [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) operation. Training isn't required for FaceList. The following snippet is a helper function to wait for the training of a LargeFaceList:
 
 ```CSharp
@@ -209,9 +209,9 @@ The same strategy also applies to LargePersonGroup. For example, when you train 
 
 ## Step 3.2 Small-scale buffer
 
-Persons or faces in LargePersonGroup or LargeFaceList are searchable only after being trained. In a dynamic scenario, new persons or faces are constantly added and must be immediately searchable, yet training might take longer than desired. 
+Persons or faces in a LargePersonGroup or a LargeFaceList are searchable only after being trained. In a dynamic scenario, new persons or faces are constantly added and must be immediately searchable, yet training might take longer than desired. 
 
-To mitigate this problem, use an extra small-scale LargePersonGroup or LargeFaceList as a buffer only for the newly added entries. This buffer takes a shorter time to train because of the smaller size. The immediate search capability on this temporary buffer should work. Use this buffer in combination with training on the master LargePersonGroup or LargeFaceList by running the master training on a more sparse interval. An  example is in the middle of the night and daily.
+To mitigate this problem, use an extra small-scale LargePersonGroup or LargeFaceList as a buffer only for the newly added entries. This buffer takes a shorter time to train because of the smaller size. The immediate search capability on this temporary buffer should work. Use this buffer in combination with training on the master LargePersonGroup or LargeFaceList by running the master training on a sparser interval. Examples are in the middle of the night and daily.
 
 An example workflow:
 
@@ -226,7 +226,7 @@ An example workflow:
 
 If a relatively long latency is acceptable, it isn't necessary to trigger the Train operation right after you add new data. Instead, the Train operation can be split from the main logic and triggered regularly. This strategy is suitable for dynamic scenarios with acceptable latency. It can be applied to static scenarios to further reduce the Train frequency.
 
-Suppose there's a `TrainLargePersonGroup` function similar to the `TrainLargeFaceList`. A typical implementation of the standalone training on LargePersonGroup by invoking the [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) class in `System.Timers` is:
+Suppose there's a `TrainLargePersonGroup` function similar to the `TrainLargeFaceList`. A typical implementation of the standalone training on a LargePersonGroup by invoking the [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) class in `System.Timers` is:
 
 ```CSharp
 private static void Main()
@@ -237,8 +237,8 @@ private static void Main()
     FaceServiceClient.CreateLargePersonGroupAsync(LargePersonGroupId, LargePersonGroupName).Wait();
 
     // Set up standalone training at regular intervals.
-    const int TimeIntervalForStatus = 1000 * 60; // 1 minute interval for getting training status.
-    const double TimeIntervalForTrain = 1000 * 60 * 60; // 1 hour interval for training.
+    const int TimeIntervalForStatus = 1000 * 60; // 1-minute interval for getting training status.
+    const double TimeIntervalForTrain = 1000 * 60 * 60; // 1-hour interval for training.
     var trainTimer = new Timer(TimeIntervalForTrain);
     trainTimer.Elapsed += (sender, args) => TrainTimerOnElapsed(LargePersonGroupId, TimeIntervalForStatus);
     trainTimer.AutoReset = true;
