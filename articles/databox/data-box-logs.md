@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/08/2019
 ms.author: alkohli
 ---
 
@@ -220,6 +220,12 @@ The authentication information fields provide detailed information about this sp
 ## Order history
 
 Order history is available in Azure portal. If the order is complete and the device cleanup (data erasure from the disks) is complete, then go to **Data Box order > Order details**. **Download order history** option is available. For more information, see [Download order history](data-box-portal-admin.md#download-order-history). 
+
+If you scroll to the bottom of the history, you see:
+
+- Carrier tracking information for your device.
+- Events with *SecureErase* activity. These events correspond to the erasure of the data on the disk.
+- Data Box log links. The paths for the *audit logs*, *copylogs*, and *BOM* files are presented.
 
 Here is a sample of the order history log from Azure portal:
 
