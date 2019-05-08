@@ -94,7 +94,7 @@ Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/
 
 ## Associate filters with Streaming Locator
 
-You can specify a list of asset or account filters, which would apply to your Streaming Locator. The [Streaming Endpoint](dynamic-packaging-overview.md) (Origin and dynamic packager) applies this list of filters together with those your client specifies in the URL. This combination generates a [dyanamic manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on Streaming Locator. We recommend that you use this feature if you want to apply filters but do not want to expose the filter names in the URL.
+You can specify a list of asset or account filters, which would apply to your Streaming Locator. The [Streaming Endpoint](dynamic-packaging-overview.md) (Packager and Origin) applies this list of filters together with those your client specifies in the URL. This combination generates a [dyanamic manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on Streaming Locator. We recommend that you use this feature if you want to apply filters but do not want to expose the filter names in the URL.
 
 The following CLI code shows how to create a Streaming Locator and specify `filters`. `filters` is an optional property that takes a space-separated list of asset filter names and/or account filter names.
 
@@ -118,7 +118,6 @@ The following table shows some examples of URLs with filters:
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
- 
 ## Next step
 
 [Stream videos](stream-files-tutorial-with-api.md) 
