@@ -23,7 +23,7 @@ This article walks you through the steps of creating a sample ASP.NET Core [Razo
 ## Prerequisites
 
 - .NET Core 2.0.0 SDK or later
-- [Visual Studio 2019](https://www.visualstudio.com/downloads/) version 15.7.3 or later, with the ASP.NET and web development workload
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/), with the ASP.NET and web development workload
 
 ## Create an ASP.NET Core project in Visual Studio
 
