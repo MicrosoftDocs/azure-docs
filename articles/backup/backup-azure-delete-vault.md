@@ -44,41 +44,30 @@ If you receive an error, remove [backup items](#remove-backup-items), [infrastru
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Install ARMClient as detailed [here](https://github.com/projectkudu/ARMClient/blob/master/README.md).
+1. Install Chocolate from [here](https://chocolatey.org/) then to install ARMClient run the below command:
 
-1. Sign in to your Azure subscription with the `Connect-AzAccount` command, and follow the on-screen directions.
-
-   ```powershell
-    Connect-AzAccount
    ```
-2. The first time you use Azure Backup, you must register the Azure Recovery Service provider in your subscription with [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider).
-
-   ```powershell
-    Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    choco install armclient --source=https://chocolatey.org/api/v2/
    ```
+2. Login to Azure account, running the below command
 
-3. Open a PowerShell window with Administrator privileges.
-4. Use `Set-ExecutionPolicy Unrestricted` to remove any restrictions.
-5. Run the following command to download the Azure Resource Manager Client package from chocolately.org.
+  ```  ARMClient.exe login [environment name]
+    ```
 
-    `iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
+3. In the Azure portal, gather the subscription ID and resource group name for the vault you want to delete.
 
-6. Use the following command to install the Azure Resource Manager API Client.
-
-   `choco.exe install armclient`
-
-7. In the Azure portal, gather the subscription ID and resource group name for the vault you want to delete.
+For more information on ARMClient command, refer this [document](https://github.com/projectkudu/ARMClient/blob/master/README.md)
 
 ### Use ARM client to delete Recovery Services vault
 
-1. In PowerShell, run the following command using your subscription ID, resource group name, and vault name. When you run the command, it deletes the vault and all dependencies.
+1. Run the following command using your subscription ID, resource group name, and vault name. When you run the command, it deletes the vault and all dependencies.
 
-   ```powershell
+   ```
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
 2. If the vault's not empty, you receive the error "Vault cannot be deleted as there are existing resources within this vault". To remove a protected items / container within a vault, do the following:
 
-   ```powershell
+   ```
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
@@ -126,9 +115,6 @@ This procedure provides an example that shows you how to remove backup data from
     ![select your vault to open its dashboard](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
 2. Right-click the item > **Delete**.
-
-    ![select the backup type](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
-
 3. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
 4. After the job completes, the service sends a message: **the backup process was stopped and the backup data was deleted**.
 5. After deleting an item in the list, on the **Backup Infrastructure** menu, click **Refresh** to see the items in the vault.
