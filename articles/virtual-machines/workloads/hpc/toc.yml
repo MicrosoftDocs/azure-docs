@@ -3,7 +3,9 @@
   - name: Overview
     href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
   - name: Configuration
-    href: configure.md
+    items:
+      -name: Configuration for Linux
+       href: configure.md
     items:
     - name: Enable Infiniband with SRIOV
       href: enable-infiniband-with-sriov.md  
@@ -14,14 +16,16 @@
   - name: Virtual machines
     items:
     - name: HB-series 
-      href: hb-series-overview.md
       items:
-      - name: HB-series performance
-        href: hb-series-performance.md  
+        - name: HB-series overview
+          href: hb-series-overview.md
+        - name: HB-series performance
+          href: hb-series-performance.md  
     - name: HC-series
-      href: hc-series-overview.md
-      items:  
-      - name: HC-series performance
-        href: hc-series-performance.md   
+      items:
+        - name: HC-series overview
+          href: hc-series-overview.md
+        - name: HC-series performance
+          href: hc-series-performance.md   
     - name: HB and HC-series Known issues
       href: hb-hc-known-issues.md
