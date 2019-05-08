@@ -167,28 +167,6 @@ This section contains the following examples:
 | **Syntax** | `azcopy cp "https://<source-storage-account-name>.file.core.windows.net/" "https://<destination-storage-account-name>.file.core.windows.net/" --recursive=true"` |
 | **Example** | `azcopy cp "https://mysourceaccount.file.core.windows.net" "https://mydestinationaccount.file.core.windows.net" --recursive=true` |
 
-## Synchronize files
-
-You can synchronize the contents of a source folder to a folder in the destination.
-
-The `sync` command compares file names and last modified timestamps. Set the `--delete-destination` optional flag to a value of `true` or `prompt` to delete files in the destination folder if those files no longer exist in the source folder.
-
-If you set the `--delete-destination` flag to `true` AzCopy deletes files without providing a prompt. If you want a prompt to appear before AzCopy deletes a file, set the `--delete-destination` flag to `prompt`.
-
-### Synchronize a local file system with a file share
-
-|    |     |
-|--------|-----------|
-| **Syntax** | `azcopy sync "<local-folder-path>" "https://<storage-account-name>.file.core.windows.net/<file-share-name>" --recursive=true` |
-| **Example** | `azcopy sync "C:\myFolder" "https://<storage-account-name>.file.core.windows.net/myfileshare" --recursive=true` |
-
-### Synchronize a file share with a local file system
-
-|    |     |
-|--------|-----------|
-| **Syntax** | `azcopy sync "https://<storage-account-name>.file.core.windows.net/<file-share-name>" "C:\myFolder" --recursive=true` |
-| **Example** | `azcopy sync "https://mystorageaccount.file.core.windows.net/myfileshare" "C:\myFolder" --recursive=true` |
-
 ## More examples
 
 See these articles:
