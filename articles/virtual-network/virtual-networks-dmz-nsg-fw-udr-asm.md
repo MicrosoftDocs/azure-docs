@@ -985,7 +985,7 @@ Run this PowerShell script locally on an internet connected PC or server.
 Save this XML file with updated location. Change the `$NetworkConfigFile` variable in the full script above to link to the saved network config file.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

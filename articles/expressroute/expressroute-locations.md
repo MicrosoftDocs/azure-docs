@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2019
+ms.date: 05/07/2019
 ms.author: pareshmu
 
 ---
@@ -92,7 +92,7 @@ The following table shows locations by service provider. If you want to view ava
 | **Epsilon Global Communications** |Supported |Supported |Singapore, Singapore2 |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Supported |Supported |Amsterdam, Atlanta, Chicago, Dallas, Dublin,  Hong Kong SAR, London, London2, Los Angeles, Melbourne, Miami, New York, Osaka, Paris, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **Etisalat UAE** |Supported |Supported |Dubai|
-| **euNetworks** |Supported |Supported |Amsterdam, Dublin, London |
+| **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Supported |Supported |Amsterdam, Dublin, London |
 | **FarEasTone** |Supported |Supported |Taipei|
 | **GÉANT** |Supported |Supported |Amsterdam |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Supported| Supported | Chennai, Mumbai |
@@ -102,7 +102,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Supported |Supported |Cape Town, Johannesburg, London |
 | **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Supported |Supported |Amsterdam, Amsterdam2, Dublin, Frankfurt, London, Marseille, Paris, Zurich |
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Supported |Supported | Amsterdam, London2, Silicon Valley, Toronto |
-| **Jisc** |Supported |Supported |London |
+| **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** |Supported |Supported |London |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Supported |Supported |Seoul |
 | **[Kordia](https://www.kordia.co.nz/cloudconnect)** | Supported |Supported |Sydney |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | Supported | Supported | Amsterdam | 
@@ -131,7 +131,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Supported |Supported |Amsterdam, Sao Paulo |
 | **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |Supported |Supported |London |
 | **Telenor** |Supported |Supported |Amsterdam, London |
-| **[Telia Carrier](https://teliacarrier.com/our-services/connectivity/cloud-connect.html?title=Cloud%20Connect)** | Supported | Supported |Amsterdam, Chicago, Dallas, London, Washington DC |
+| **[Telia Carrier](https://teliacarrier.com/our-services/connectivity/cloud-connect.html?title=Cloud%20Connect)** | Supported | Supported |Amsterdam, Chicago, Dallas, London, Paris, Washington DC |
 | **Telmex Uninet**| Supported | Supported | Dallas |
 | **[Telstra Corporation](https://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Supported |Supported |Melbourne, Singapore, Sydney |
 | **[Telus](https://www.telus.com)** |Supported |Supported |Montreal, Toronto |

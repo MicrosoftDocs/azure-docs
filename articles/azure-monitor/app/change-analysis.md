@@ -8,7 +8,7 @@ ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/07/2019
 ms.author: cawa
 ---
 
@@ -49,11 +49,38 @@ Azure Monitor application change analysis is currently built into the self-servi
 
 5.  Once everything  is enabled, selecting **Diagnose and solve problems** > **Availability and Performance** > **Application Crashes** will allow you to access the change analysis experience. The graph will summerize the type of changes that happened over time along with details on those changes:
 
-     ![screenshot of change diff view](./media/change-analysis/change-view.png)
-        
-     > [!NOTE]
-     > After enabling change analysis you mayT receive a message stating "Unable to fetch Change Analysis information. Please try again later." This is expected, you may need to wait up to 4 hours for the initial collection of application change data to occur.
-    `
+     ![Screenshot of change diff view](./media/change-analysis/change-view.png)
+
+## Troubleshooting
+
+### Unable to fetch Change Analysis information.
+
+This is a temporary issue with the current preview onboarding experience. The workaround consists of setting a hidden tag on your web app and then refreshing the page:
+
+   ![Screenshot of change hidden tag](./media/change-analysis/hidden-tag.png)
+
+To set the hidden tag using PowerShell:
+
+1. Open the Azure Cloud Shell:
+
+    ![Screenshot of change Azure Cloud Shell](./media/change-analysis/cloud-shell.png)
+
+2. Change the shell type to PowerShell:
+
+   ![Screenshot of change Azure Cloud Shell](./media/change-analysis/choose-powershell.png)
+
+3. Run the following command:
+
+```powershell
+$webapp=Get-AzWebApp -Name <name_of_your_webapp>
+$tags = $webapp.Tags
+$tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
+Set-AzResource -ResourceId <your_webapp_resourceid> -Tag $tag
+```
+
+> [!NOTE]
+> Once the hidden tag is added, you may still need to initially wait up to 4 hours to be able to first view changes. This is due to the 4 hour freqeuncy that the change analysis service uses to scan your web app while limiting the performance impact of the scan.
+
 ## Next steps
 
 - Improve your monitoring of Azure App Services [by enabling the Application Insights features](azure-web-apps.md) of Azure Monitor.

@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # Create a Custom Voice
 
-In [Prepare data for Custom Voice](how-to-custom-voice-prepare-data.md), we described the different data types you can use to train a custom voice and the different format requirements. Once you have prepared your data, you can start to upload them to the [Custom Voice portal](http://aka.ms/custom-voice-portal), or through the Custom Voice training API. Here we describe the steps of training a custom voice through the portal.
+In [Prepare data for Custom Voice](how-to-custom-voice-prepare-data.md), we described the different data types you can use to train a custom voice and the different format requirements. Once you have prepared your data, you can start to upload them to the [Custom Voice portal](https://aka.ms/custom-voice-portal), or through the Custom Voice training API. Here we describe the steps of training a custom voice through the portal.
 
 > [!NOTE]
 > This page assumes you have read [Get started with Custom Voice](how-to-custom-voice.md) and [Prepare data for Custom Voice](how-to-custom-voice-prepare-data.md), and have created a Custom Voice project.
@@ -23,7 +23,7 @@ Check the languages supported for custom voice: [language for customization](lan
 
 ## Upload your datasets
 
-When you're ready to upload your data, go to the [Custom Voice portal](http://aka.ms/custom-voice-portal). Create or select a Custom Voice project. The project must share the right language/locale and the gender properties as the data you intent to use for your voice training. For example, select `en-GB` if the audio recordings you have is done in English with a UK accent.
+When you're ready to upload your data, go to the [Custom Voice portal](https://aka.ms/custom-voice-portal). Create or select a Custom Voice project. The project must share the right language/locale and the gender properties as the data you intent to use for your voice training. For example, select `en-GB` if the audio recordings you have is done in English with a UK accent.
 
 Go to the **Data** tab and click **Upload data**. In the wizard, select the correct data type that matches what you have prepared.
 
