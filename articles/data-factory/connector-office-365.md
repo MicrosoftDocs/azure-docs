@@ -16,7 +16,7 @@ ms.date: 05/07/2019
 ms.author: jingwang
 
 ---
-# Copy data from Office 365 into Azure using Azure Data Factory (Preview) 
+# Copy data from Office 365 into Azure using Azure Data Factory
 
 Azure Data Factory allows you to bring the rich organizational data in your Office 365 tenant into Azure in a scalable way and build analytics applications and extract insights based on these valuable data assets. Integration with Privileged Access Management provides secured access control for the valuable curated data in Office 365.  For more information on Microsoft Graph data connect, please refer to [this link](https://docs.microsoft.com/graph/data-connect-concept-overview).
 
