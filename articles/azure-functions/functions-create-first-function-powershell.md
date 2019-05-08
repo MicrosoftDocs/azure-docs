@@ -99,6 +99,10 @@ After you've verified that the function runs correctly on your local computer, i
 > [!NOTE]
 > Remember to remove any calls to `Wait-Debugger` before you publish your functions to Azure. 
 
+> [!NOTE]
+> Creating a Function App in Azure will only prompt for Function App name. 
+> Set azureFunctions.advancedCreation to true to be prompted for all other values.
+
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 
 ## <a name="test"></a>Run the function in Azure
