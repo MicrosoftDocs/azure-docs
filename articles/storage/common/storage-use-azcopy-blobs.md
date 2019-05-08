@@ -14,26 +14,30 @@ ms.subservice: common
 
 AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article contains example commands that work with blob storage.
 
-## First, set up AzCopy
+## Get started
 
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and authenticate your identity.
 
 > [!NOTE]
 > The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command.
+>
 > If you'd rather use a SAS token, then you can append that token to the resource url in each command.
+>
 > For example: `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>"`.
 
-## Create containers
+## Create a container
+
+You can use the AzCopy `make` command to create a container. The examples in this section create a container named `mycontainer`.
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy make "https://<storage-account-name>.<uri-suffix>/<container-name>` |
+| **Syntax** | `azcopy make "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>` |
 | **Example** | `azcopy make "https://mystorageaccount.blob.core.windows.net/mycontainer"` |
 | **Example** (hierarchical namespace) | `azcopy make "https://mystorageaccount.dfs.core.windows.net/mycontainer"` |
 
 ## Upload files
 
-You can use AzCopy to upload files and folders from your local computer.
+You can use the AzCopy `copy` command to upload files and folders from your local computer.
 
 This section contains the following examples:
 
@@ -46,7 +50,7 @@ This section contains the following examples:
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy cp "<local-file-path>" "https://<storage-account-name>.<uri-suffix>/<container-name>/<blob-name>"` |
+| **Syntax** | `azcopy cp "<local-file-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-name>"` |
 | **Example** | `azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt"` |
 | **Example** (hierarchical namespace) | `azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.dfs.core.windows/mycontainer/myTextFile.txt"` |
 
@@ -62,7 +66,7 @@ This example copies a folder (and all of the files in that folder) to a blob con
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy "<local-folder-path>" "https://<storage-account-name>.<uri-suffix>/<container-name>" --recursive=true` |
+| **Syntax** | `azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true` |
 | **Example** | `azcopy copy "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true` |
 | **Example** (hierarchical namespace) | `azcopy copy "C:\myFolder" "https://mystorageaccount.dfs.core.windows/mycontainer" --recursive=true` |
 
@@ -84,7 +88,7 @@ You can use the wildcard symbol (*) to provide partial file names.
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy "<local-folder-path>/*<partial-file-name>*" "https://<storage-account-name>.<uri-suffix>/<container-name>/<folder-path>` |
+| **Syntax** | `azcopy copy "<local-folder-path>/*<partial-file-name>*" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<folder-path>` |
 | **Example** | `azcopy copy "C:\myFolder\*.pdf" "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobFolder"` |
 | **Example** (hierarchical namespace) | `azcopy copy "C:\myFolder\*.pdf" "https://mystorageaccount.dfs.core.windows/mycontainer/myBlobFolder"` |
 
@@ -93,7 +97,7 @@ You can use the wildcard symbol (*) to provide partial file names.
 
 ## Download files
 
-You can use AzCopy to download blobs and containers to your local computer.
+You can use the AzCopy `copy` command to download blobs, folders, and containers to your local computer.
 
 This section contains the following examples:
 
@@ -106,7 +110,7 @@ This section contains the following examples:
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy "https://<storage-account-name>.<uri-suffix>/<container-name>/<blob-path>" "<local-file-path>"` |
+| **Syntax** | `azcopy copy "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>" "<local-file-path>"` |
 | **Example** | `azcopy copy "https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt" "C:\myFolder\myTextFile.txt"` |
 | **Example** (hierarchical namespace) | `azcopy copy "https://mystorageaccount.dfs.core.windows/mycontainer/myTextFile.txt" "C:\myFolder\myTextFile.txt"` |
 
@@ -114,7 +118,7 @@ This section contains the following examples:
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy "https://<storage-account-name>.<uri-suffix>/<container-name>/<folder-path>" "<local-folder-path>" --recursive=true` |
+| **Syntax** | `azcopy copy "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<folder-path>" "<local-folder-path>" --recursive=true` |
 | **Example** | `azcopy copy "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobFolder "C:\myFolder"  --recursive=true` |
 | **Example** (hierarchical namespace) | `azcopy copy "https://mystorageaccount.dfs.core.windows/mycontainer/myBlobFolder "C:\myFolder"  --recursive=true` |
 
@@ -126,7 +130,7 @@ You can use the wildcard symbol (*) to provide partial file names.
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy "https://<storage-account-name>.<uri-suffix>/<container-name>/*<partial-file-name>*" "<local-folder-path>/"` |
+| **Syntax** | `azcopy copy "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/*<partial-file-name>*" "<local-folder-path>/"` |
 | **Example** | `azcopy copy "https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobFolder/*.pdf" "C:\myFolder"` |
 | **Example** (hierarchical namespace) | `azcopy copy "https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobFolder/*.pdf" "C:\myFolder"` |
 
@@ -151,7 +155,7 @@ This section contains the following examples:
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy cp "https://<source-storage-account-name>.<uri-suffix>/<container-name>/<blob-path>" "https://<destination-storage-account-name>.<uri-suffix>/<container-name>/<blob-path>"` |
+| **Syntax** | `azcopy cp "https://<source-storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>" "https://<destination-storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>"` |
 | **Example** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt" "https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt"` |
 | **Example** (hierarchical namespace) | `azcopy cp "https://mysourceaccount.dfs.core.windows/mycontainer/myTextFile.txt" "https://mydestinationaccount.dfs.core.windows/mycontainer/myTextFile.txt"` |
 
@@ -159,7 +163,7 @@ This section contains the following examples:
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy cp "https://<source-storage-account-name>.<uri-suffix>/<container-name>/<folder-path>" "https://<destination-storage-account-name>.<uri-suffix>/<container-name>/<folder-path>" --recursive=true` |
+| **Syntax** | `azcopy cp "https://<source-storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<folder-path>" "https://<destination-storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<folder-path>" --recursive=true` |
 | **Example** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobFolder" "https://mydestinationaccount.blob.core.windows.net/mycontainer/myBlobFolder" --recursive=true` |
 | **Example** (hierarchical namespace) | `azcopy cp "https://mysourceaccount.dfs.core.windows/mycontainer/myBlobFolder" "https://mydestinationaccount.dfs.core.windows/mycontainer/myBlobFolder" --recursive=true`|
 
@@ -167,7 +171,7 @@ This section contains the following examples:
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy cp "https://<source-storage-account-name>.<uri-suffix>/<container-name>" "https://<destination-storage-account-name>.<uri-suffix>/<container-name>" --recursive=true` |
+| **Syntax** | `azcopy cp "https://<source-storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" "https://<destination-storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true` |
 | **Example** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer" "https://mydestinationaccount.blob.core.windows.net/mycontainer" --recursive=true` |
 | **Example** (hierarchical namespace) | `azcopy cp "https://mysourceaccount.dfs.core.windows/mycontainer" "https://mydestinationaccount.dfs.core.windows/mycontainer" --recursive=true` |
 
@@ -175,7 +179,7 @@ This section contains the following examples:
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy cp "https://<source-storage-account-name>.<uri-suffix>/" "https://<destination-storage-account-name>.<uri-suffix>/" --recursive=true" --recursive=true` |
+| **Syntax** | `azcopy cp "https://<source-storage-account-name>.<blob or dfs>.core.windows.net/" "https://<destination-storage-account-name>.<blob or dfs>.core.windows.net/" --recursive=true" --recursive=true` |
 | **Example** | `azcopy cp "https://mysourceaccount.blob.core.windows.net" "https://mydestinationaccount.blob.core.windows.net" --recursive=true` |
 | **Example** (hierarchical namespace) | `azcopy cp "https://mysourceaccount.dfs.core.windows" "https://mydestinationaccount.dfs.core.windows" --recursive=true` |
 
@@ -194,7 +198,7 @@ If you set the `--delete-destination` flag to `true` AzCopy deletes files withou
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy sync "<local-folder-path>" "https://<storage-account-name>.<uri-suffix>/<container-name>" --recursive=true` |
+| **Syntax** | `azcopy sync "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true` |
 | **Example** | `azcopy sync "C:\myFolder" "https://<storage-account-name>.blob.core.windows.net/mycontainer" --recursive=true` |
 | **Example** (hierarchical namespace) | `azcopy sync "C:\myFolder" "https://<storage-account-name>.dfs.core.windows/mycontainer" --recursive=true` |
 
@@ -203,7 +207,7 @@ If you set the `--delete-destination` flag to `true` AzCopy deletes files withou
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy sync "https://<storage-account-name>.<uri-suffix>/<container-name>" "C:\myFolder" --recursive=true` |
+| **Syntax** | `azcopy sync "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" "C:\myFolder" --recursive=true` |
 | **Example** | `azcopy sync "https://mystorageaccount.blob.core.windows.net/mycontainer" "C:\myFolder" --recursive=true` |
 | **Example** (hierarchical namespace) | `azcopy sync "https://mystorageaccount.dfs.core.windows/mycontainer" "C:\myFolder" --recursive=true` |
 
