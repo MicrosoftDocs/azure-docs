@@ -95,7 +95,7 @@ Create the resource group for the cluster. Run the following command from the Ba
 az group create --name $CLUSTER_NAME --location $LOCATION
 ```
 
-### Optional: Connect the cluster's virtual network to an existing virtual network via peering
+### Optional: Connect the cluster's virtual network to an existing virtual network
 
 If you don't need to connect the virtual network (VNET) of the cluster you create to an existing VNET via peering, skip this step.
 
