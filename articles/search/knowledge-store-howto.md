@@ -29,7 +29,7 @@ The following services, tools, and data are used in this quickstart.
 
 + [Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Search.
 
-+ [Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/caselaw) with prepared requests for creating a data source, index, skillset, and indexer. Several object definitions are too long to include in this article. You must get this collection to see the index and skillset definitions in their entirety.
++ [Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Caselaw) with prepared requests for creating a data source, index, skillset, and indexer. Several object definitions are too long to include in this article. You must get this collection to see the index and skillset definitions in their entirety.
 
 + [Caselaw sample data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) originating from the [Caselaw Access Project](https://case.law/bulk/download/) Public Bulk Data download page. Specifically, the exercise uses the first 10 documents of the first download (Arkansas). We uploaded a 10-document sample to GitHub for this exercise.
 

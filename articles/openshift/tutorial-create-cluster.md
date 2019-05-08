@@ -7,7 +7,7 @@ ms.author: twhitney
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
-ms.date: 05/06/2019
+ms.date: 05/08/2019
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 
@@ -31,7 +31,7 @@ In this tutorial series you learn how to:
 Before you begin this tutorial:
 
 Make sure that you've [set up your development environment](howto-setup-environment.md), which includes:
-- Installing the latest CLI
+- Installing the latest CLI (version 2.0.64 or above)
 - Creating a tenant
 - Creating an Azure Application object
 - Creating an Active Directory user used to sign in to apps running on the cluster.
@@ -97,7 +97,7 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 
 ### Optional: Connect the cluster's virtual network to an existing virtual network
 
-If you don't need to connect the virtual network (VNET) of the cluster you create to an existing VNET, skip this step.
+If you don't need to connect the virtual network (VNET) of the cluster you create to an existing VNET via peering, skip this step.
 
 First, get the identifier of the existing VNET. The identifier will be of the form:
 `/subscriptions/{subscription id}/resourceGroups/{resource group of VNET}/providers/Microsoft.Network/virtualNetworks/{VNET name}`.
@@ -134,7 +134,7 @@ After a few minutes, `az openshift create` will complete successfully and return
 
 ## Step 3: Sign in to the OpenShift console
 
-You're now ready to sign in to the OpenShift console for your new cluster. The [OpenShift Web Console](https://docs.openshift.com/dedicated/architecture/infrastructure_components/web_console.html) enables you to visualize, browse, and manage the contents of your OpenShift projects.
+You're now ready to sign in to the OpenShift console for your new cluster. The [OpenShift Web Console](https://docs.openshift.com/aro/architecture/infrastructure_components/web_console.html) enables you to visualize, browse, and manage the contents of your OpenShift projects.
 
 We'll sign in as the [new Azure AD user](howto-aad-app-configuration.md#create-a-new-active-directory-user) you created for testing. To do this, you'll need a fresh browser instance that hasn't cached the identity you normally use to sign in to the Azure portal.
 
@@ -151,13 +151,13 @@ When the **Permissions requested** dialog appears, select **Consent on behalf of
 
 You are now logged into the cluster console.
 
-[Screenshot of the OpenShift cluster console](./media/aro-console.png)
+![Screenshot of the OpenShift cluster console](./media/aro-console.png)
 
- You can learn more about [using the OpenShift console](https://docs.openshift.com/dedicated/getting_started/developers_console.html) to create and built images in the [Red Hat OpenShift](https://docs.openshift.com/dedicated/welcome/index.html) documentation.
+ Learn more about [using the OpenShift console](https://docs.openshift.com/aro/getting_started/developers_console.html) to create and built images in the [Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html) documentation.
 
 ## Step 4: Install the OpenShift CLI
 
-The [OpenShift CLI](https://docs.openshift.com/dedicated/cli_reference/get_started_cli.html) (or *OC Tools*) provide commands for managing your applications and lower-level utilities for interacting with the various components of your OpenShift cluster.
+The [OpenShift CLI](https://docs.openshift.com/aro/cli_reference/get_started_cli.html) (or *OC Tools*) provide commands for managing your applications and lower-level utilities for interacting with the various components of your OpenShift cluster.
 
 In the OpenShift console, click the question mark in the upper right corner by your sign-in name and select **Command Line Tools**.  Follow the **Latest Release** link to download and install the supported oc CLI for Linux, MacOS, or Windows.
 

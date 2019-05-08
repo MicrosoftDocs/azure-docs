@@ -81,20 +81,22 @@
       href: data-box-edge-technical-specifications-compliance.md
   - name: How to
     items:
-    - name: Manage compute
-      href: data-box-edge-manage-compute.md
     - name: Develop C# module
       href: data-box-edge-create-iot-edge-module.md
-    - name: Manage shares
-      href: data-box-edge-manage-shares.md
-    - name: Manage users
-      href: data-box-edge-manage-users.md
-    - name: Manage bandwidth schedules
-      href: data-box-edge-manage-bandwidth-schedules.md
-    - name: Manage power, access, connectivity
-      href: data-box-edge-manage-access-power-connectivity-mode.md
-    - name: Manage via PowerShell
-      href: data-box-edge-connect-powershell-interface.md
+    - name: Manage 
+      items:
+      - name: Edge compute
+        href: data-box-edge-manage-compute.md
+      - name: Shares
+        href: data-box-edge-manage-shares.md
+      - name: Users
+        href: data-box-edge-manage-users.md
+      - name: Bandwidth schedules
+        href: data-box-edge-manage-bandwidth-schedules.md
+      - name: Power, access, connectivity
+        href: data-box-edge-manage-access-power-connectivity-mode.md
+      - name: Via PowerShell
+        href: data-box-edge-connect-powershell-interface.md
     - name: Troubleshoot 
       href: data-box-edge-troubleshoot.md
     - name: Monitor
