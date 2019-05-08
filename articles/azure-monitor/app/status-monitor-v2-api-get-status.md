@@ -75,7 +75,7 @@ Machine Identifier:
 
 You can inspect the process on the instrumented machine to see if all DLLs are loaded. If monitoring is working, at least 12 DLLS should be loaded.
 
-- Cmd: Get-ApplicationInsightsMonitoringStatus -InspectProcess
+- Cmd: `Get-ApplicationInsightsMonitoringStatus -InspectProcess`
 
 
 ```
