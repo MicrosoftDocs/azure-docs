@@ -36,7 +36,7 @@ The [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Deploy the quickstart template locally using PowerShell
+## Specify deployment template and parameters
 
 The following procedure describes how to use PowerShell to deploy an Azure Resource Manager template that creates a Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
 
@@ -48,29 +48,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 
      To create a parameters file, copy the [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json) file.
 
-     ```json
-     {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-           "eventHubNamespaceName": {
-              "value": "GEN-UNIQUE"
-            },
-            "eventHubName": {
-              "value": "GEN-UNIQUE"
-            },
-            "consumerGroupName": {
-              "value": "GEN-UNIQUE"
-            },
-            "environmentName": {
-              "value": "GEN-UNIQUE"
-            },
-            "eventSourceName": {
-              "value": "GEN-UNIQUE"
-            }
-        }
-     }
-     ```
+      [!code-json[deployment-template](~/quickstart-templates/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json)]
 
     <div id="required-parameters"></div>
 
@@ -103,47 +81,21 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 
    * As an example, the following parameters file would be used to create an environment and an event source that reads events from an existing event hub. It also creates two access policies that grant Contributor access to the environment.
 
-     ```json
-     {
-         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-         "contentVersion": "1.0.0.0",
-         "parameters": {
-             "eventHubNamespaceName": {
-                 "value": "tsiTemplateTestNamespace"
-             },
-             "eventHubName": {
-                 "value": "tsiTemplateTestEventHub"
-             },
-             "consumerGroupName": {
-                 "value": "tsiTemplateTestConsumerGroup"
-             },
-             "environmentName": {
-                 "value": "tsiTemplateTestEnvironment"
-             },
-             "eventSourceName": {
-                 "value": "tsiTemplateTestEventSource"
-             },
-             "existingEventHubResourceId": {
-                 "value": "/subscriptions/{yourSubscription}/resourceGroups/MyDemoRG/providers/Microsoft.EventHub/namespaces/tsiTemplateTestNamespace/eventhubs/tsiTemplateTestEventHub"
-             },
-             "accessPolicyContributorObjectIds": {
-                 "value": [
-                     "AGUID001-0000-0000-0000-000000000000",
-                     "AGUID002-0000-0000-0000-000000000000"
-                 ]
-             }
-         }
-     }
-     ```
-
+      [!code-json[deployment-parameters](~/quickstart-templates/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json)]
+  
     * For more information, see the [Parameters](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) article.
+
+## Deploy the quickstart template locally using PowerShell
+
+> [!IMPORTANT]
+> The command-line operations displayed below describe the [Az PowerShell module](https://docs.microsoft.com/powershell/azure/overview).
 
 1. In PowerShell, log in to your Azure account.
 
     * From a PowerShell prompt, run the following command:
 
       ```powershell
-      Login-AzAccount
+      Connect-AzAccount
       ```
 
     * You are prompted to log on to your Azure account. After logging on, run the following command to view your available subscriptions:
@@ -217,39 +169,40 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
     * If the resources are deployed successfully, a summary of the deployment is displayed in the PowerShell window:
 
       ```powershell
-      DeploymentName          : azuredeploy
-      ResourceGroupName       : MyDemoRG
-      ProvisioningState       : Succeeded
-      Timestamp               : 12/9/2017 01:06:54
-      Mode                    : Incremental
-      TemplateLink            :
-      Parameters              :
-                                Name             Type                       Value
-                                ===============  =========================  ==========
-                                eventHubNamespaceName  String               <eventHubNamespaceName>
-                                eventHubName     String                     <eventHubName>
-                                consumerGroupName  String                   <consumerGroupName>
-                                existingEventHubResourceId  String
-                                environmentName  String                     <environmentName>
-                                environmentDisplayName  String
-                                environmentSkuName  String                  S1
-                                environmentSkuCapacity  Int                 1
-                                environmentDataRetentionTime  String        P30D
-                                eventSourceName  String                     <eventSourceName>
-                                eventSourceDisplayName  String
-                                eventSourceTimestampPropertyName  String
-                                eventSourceKeyName  String                  manage
-                                accessPolicyReaderObjectIds  Array          []
-                                accessPolicyContributorObjectIds  Array     [
-                                  "AGUID001-0000-0000-0000-000000000000",
-                                  "AGUID002-0000-0000-0000-000000000000"
-                                ]
+       DeploymentName          : MyDemoDeployment
+       ResourceGroupName       : MyDemoRG
+       ProvisioningState       : Succeeded
+       Timestamp               : 5/8/2019 10:28:34 PM
+       Mode                    : Incremental
+       TemplateLink            :
+       Parameters              :
+                                 Name                                Type                       Value
+                                 ==================================  =========================  ==========
+                                 eventHubNewOrExisting               String                     new
+                                 eventHubResourceGroup               String                     MyDemoRG
+                                 eventHubNamespaceName               String                     tsiquickstartns
+                                 eventHubName                        String                     tsiquickstarteh
+                                 consumerGroupName                   String                     tsiquickstart
+                                 environmentName                     String                     tsiquickstart
+                                 environmentDisplayName              String                     tsiquickstart
+                                 environmentSkuName                  String                     S1
+                                 environmentSkuCapacity              Int                        1
+                                 environmentDataRetentionTime        String                     P30D
+                                 eventSourceName                     String                     tsiquickstart
+                                 eventSourceDisplayName              String                     tsiquickstart
+                                 eventSourceTimestampPropertyName    String
+                                 eventSourceKeyName                  String                     manage
+                                 accessPolicyReaderObjectIds         Array                      []
+                                 accessPolicyContributorObjectIds    Array                      []
+                                 location                            String                     westus
 
-      Outputs                 :
-                                Name             Type                       Value
-                                ===============  =========================  ==========
-                                dataAccessFQDN   String
-                                <guid>.env.timeseries.azure.com
+       Outputs                 :
+                                  Name              Type                       Value
+                                  ================  =========================  ==========
+                                  dataAccessFQDN    String
+                                  11aa1aa1-a1aa-1a1a-a11a-aa111a111a11.env.timeseries.azure.com
+
+       DeploymentDebugLogLevel :
       ```
 
 1. Deploy the quickstart template through the Azure portal
