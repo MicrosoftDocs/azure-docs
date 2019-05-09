@@ -121,9 +121,9 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
 4. Now find and select an action from your SAP server.
 
-   1. In the **SAP action** box, choose the folder icon. From the file list, find and select the SAP message you want to use. To navigate the list, use the arrows.
+   1. In the **SAP Action** box, choose the folder icon. From the file list, find and select the SAP message you want to use. To navigate the list, use the arrows.
 
-      This example selects an IDoc with **Order** type.
+      This example selects an IDoc with **Orders** type.
 
       ![Find and select IDoc action](./media/logic-apps-using-sap-connector/SAP-app-server-find-action.png)
 
