@@ -474,7 +474,7 @@ In this tutorial, you learned how to create multi-step, multi-container-based ta
 [az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
 [az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
 [az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
-[az-acr-task-add-credential]: /cli/azure/acr/task/credential#az-acr-task-credential-add
+[az-acr-task-credential-add]: /cli/azure/acr/task/credential#az-acr-task-credential-add    
 [az-login]: /cli/azure/reference-index#az-login
 
 <!-- IMAGES -->
