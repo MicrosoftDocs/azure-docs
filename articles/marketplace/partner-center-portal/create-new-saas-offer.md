@@ -107,3 +107,16 @@ List your offer to customers on a free trial basis by providing a valid URL (beg
 ##### Contact me
 Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, id, and marketplace source where they found your offer, will be sent to the CRM system that you’ve configured. (See [Lead management](#lead-management) for more information on configuring your CRM). 
 
+## Enable a test drive
+
+A test drive is a great way to showcase your offer to potential customers by giving them the option to 'try before you buy', resulting in increased conversion and the generation of highly qualified leads. [Learn more about test drives.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+
+- **Enable a test drive** (checkbox) 
+
+By enabling test drive, you will be asked to configure a demonstration environment for customers to try your offer for a fixed period of time. 
+
+### Type of test drive
+
+- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)**: A deployment template that contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources.
+- **[Dynamics 365 for Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)**: Microsoft hosts and maintains the test drive service provisioning and deployment for a Business Central enterprise resource planning system (finance, operations, supply chain, CRM, etc).  
+- 
