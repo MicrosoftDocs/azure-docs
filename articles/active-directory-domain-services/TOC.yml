@@ -1,7 +1,5 @@
 - name: Azure AD Domain Services Documentation
   href: index.yml
-- name: Azure AD Domain Services Documentation
-  href: index.yml
 - name: Overview
   expanded: true
   items: 
@@ -100,13 +98,11 @@
         - name: Ubuntu Server
           href: active-directory-ds-join-ubuntu-linux-vm.md
     - name: Troubleshoot Azure AD DS
-      expanded: true
       items: 
         - name: Troubleshooting guide
           href: active-directory-ds-troubleshooting.md
         - name: Troubleshoot alerts
-          href: active-directory-ds-troubleshoot-alerts.md
-          expanded: true
+          href: active-directory-ds-troubleshoot-alerts.md          
           items: 
             - name: Fix a broken NSG configuration
               href: active-directory-ds-troubleshoot-nsg.md
