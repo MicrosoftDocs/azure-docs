@@ -44,7 +44,7 @@ Follow these steps to specify a resource group for all VMs created in the lab.
 ## Use PowerShell 
 The following example shows how to use a PowerShell script to create all lab virtual machines in a new resource group.
 
-```PowerShell
+```powershell
 [CmdletBinding()]
 Param(
     $subId,
@@ -68,7 +68,7 @@ az resource update -g $labRg -n $labName --resource-type "Microsoft.DevTestLab/l
 
 Invoke the script by using the following command. ResourceGroup.ps1 is the file that contains the preceding script:
 
-```PowerShell
+```powershell
 .\ResourceGroup.ps1 -subId <subscriptionID> -labRg <labRGNAme> -labName <LanName> -vmRg <RGName> 
 ```
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/25/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
@@ -64,6 +64,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 When you are done with the knowledge base, remove it in the QnA Maker portal.
 
 ## Next steps
+
+For cost savings measures, you can [share](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) some but not all Azure resources created for QnA Maker.
 
 > [!div class="nextstepaction"]
 > [Add chit-chat personal](./chit-chat-knowledge-base.md)

@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 03/13/2019
 ---
 # Regional disaster recovery for Azure Databricks clusters
 
@@ -241,7 +241,7 @@ To create your own regional disaster recovery topology, follow these requirement
 
 8. **Migrate Azure blob storage and Azure Data Lake Store mounts**
 
-   Manually remount all [Azure Blob storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) and [Azure Data Lake Store (Gen 1)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html) mount points using a notebook-based solution. The storage resources would have been mounted in the primary workspace, and that has to be repeated in the secondary workspace. There is no external API for mounts.
+   Manually remount all [Azure Blob storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) and [Azure Data Lake Store (Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) mount points using a notebook-based solution. The storage resources would have been mounted in the primary workspace, and that has to be repeated in the secondary workspace. There is no external API for mounts.
 
 9. **Migrate cluster init scripts**
 
@@ -261,5 +261,10 @@ To create your own regional disaster recovery topology, follow these requirement
 
     If you do use the Access Control feature, manually reapply the access control to the resources (Notebooks, Clusters, Jobs, Tables).
 
+## Disaster recovery for your Azure ecosystem
+
+If you are using other Azure services, be sure to implement disaster recovery best practices for those services, too. For example, if you choose to use an external Hive metastore instance, you should consider disaster recovery for [Azure SQL Server](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md), and/or [Azure Database for MySQL](../mysql/concepts-business-continuity.md). For general information about disaster recovery, see [Disaster recovery for Azure applications](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
+
 ## Next steps
+
 For more information, see [Azure Databricks documentation](https://docs.azuredatabricks.net/user-guide/index.html).

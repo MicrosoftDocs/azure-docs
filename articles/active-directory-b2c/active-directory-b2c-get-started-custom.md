@@ -1,14 +1,14 @@
 ---
-title: Get started with custom policies in Azure Active Directory B2C | Microsoft Docs
-description: How to get started with Azure Active Directory B2C custom policies.
+title: Get started with custom policies - Azure Active Directory B2C | Microsoft Docs
+description: Learn how to get started with custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 04/03/2019
 ms.author: davidmu
 ms.subservice: B2C
 ---
@@ -21,12 +21,13 @@ ms.subservice: B2C
 
 ## Prerequisites
 
-If you don't have one already, you need to [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
+- If you don't have one already, you need to [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
+- [Register your application](tutorial-register-applications.md) in the tenant that you created so that it can communicate with Azure AD B2C.
 
 ## Add signing and encryption keys
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant. 
+2. Make sure you're using the directory that contains your Azure AD B2C tenant. Click the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant. 
 3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 4. On the Overview page, select **Identity Experience Framework - PREVIEW**.
 
@@ -55,11 +56,11 @@ If you already have a [Facebook application secret](active-directory-b2c-setup-f
 1. Select **Policy Keys** and then select **Add**.
 2. For **Options**, choose `Manual`.
 3. For **Name**, enter `FacebookSecret`. The prefix `B2C_1A_` might be added automatically.
-4. In **Secret**, enter your Facebook secret from developers.facebook.com or `0` as a placeholder. This is the secret, not the application ID.
+4. In **Secret**, enter your Facebook secret from developers.facebook.com or `0` as a placeholder. This value is the secret, not the application ID.
 5. For **Key usage**, select **Signature**.
 6. Click **Create**.
 
-## Register applications
+## Register Identity Experience Framework applications
 
 Azure AD B2C requires you to register two applications that are used to sign up and sign in users: IdentityExperienceFramework (a web app), and ProxyIdentityExperienceFramework (a native app) with delegated permission from the IdentityExperienceFramework app. Local accounts exist only in your tenant. Your users sign up with a unique email address/password combination to access your tenant-registered applications.
 
@@ -81,8 +82,7 @@ Azure AD B2C requires you to register two applications that are used to sign up 
 4. For **Redirect URI**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `yourtenant` is your Azure AD B2C tenant.
 5. Click **Create**. After it's created, copy the application ID and save it to use later.
 6. On the Settings page, select **Required permissions**, and then select **Add**.
-7. Select **Select an API**.
-8. Search for and select **IdentityExperienceFramework**, and then click **Select**.
+7. Choose **Select an API**, search for and select **IdentityExperienceFramework**, and then click **Select**.
 9. Select the check box next to **Access IdentityExperienceFramework**, click **Select**, and then click **Done**.
 10. Select **Grant Permissions**, and then confirm by selecting **Yes**.
 
@@ -127,12 +127,11 @@ Add the application IDs to the extensions file *TrustFrameworkExtensions.xml*.
 
 ## Test the custom policy
 
-1. On the Custom Policies page, select **B2C_1A_signup_signin**. 
-2. Select **Run now**.
-
-3. You should be able to sign up using an email address.
-
-4. Sign in with the same account to confirm that you have the correct configuration.
+1. On the Custom Policies page, select **B2C_1A_signup_signin**.
+2. For **Select application** on the overview page of the custom policy, select the web application named *webapp1* that you previously registered. Make sure that the **Reply URL** is `https://jwt.ms`.
+3. Select **Run now**.
+4. You should be able to sign up using an email address.
+5. Sign in with the same account to confirm that you have the correct configuration.
 
 ## Add Facebook as an identity provider
 

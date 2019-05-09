@@ -4,7 +4,7 @@ description: Explains Service Fabric Reliable Actor lifecycle, garbage collectio
 services: service-fabric
 documentationcenter: .net
 author: amanbha
-manager: timlt
+manager: chackdan
 editor: vturecek
 
 ms.assetid: b91384cc-804c-49d6-a6cb-f3f3d7d65a8e

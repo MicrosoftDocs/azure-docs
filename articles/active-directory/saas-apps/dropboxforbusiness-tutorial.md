@@ -152,7 +152,7 @@ To configure Azure AD single sign-on with Dropbox for Business, perform the foll
 
 	![Configure single sign-on](./media/dropboxforbusiness-tutorial/configure5.png "Configure single sign-on")
 
-	a. Select **Required** as a option from the dropdown for the **Single sign-on**.
+	a. Select **Required** as an option from the dropdown for the **Single sign-on**.
 
 	b. Click on **Add sign-in URL** and in the **Identity provider sign-in URL** textbox, paste the **Login URL** value which you have copied from the Azure portal and then select **Done**.
 

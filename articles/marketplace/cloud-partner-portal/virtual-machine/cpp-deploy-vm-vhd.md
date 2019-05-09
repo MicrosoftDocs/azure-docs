@@ -1,20 +1,12 @@
 ---
-title: Deploy a VM from your VHDs for the Azure Marketplace | Microsoft Docs
+title: Deploy a VM from your VHDs for the Azure Marketplace 
 description: Explains how to register a VM from an Azure-deployed VHD.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 11/30/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Deploy a VM from your VHDs
@@ -28,13 +20,14 @@ To learn more about VM images, see the following blog posts:
 - [VM Image](https://azure.microsoft.com/blog/vm-image-blog-post/)
 - [VM Image PowerShell 'How To'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## Prerequisite: install the necessary tools
 
 If you have not already done so, install Azure PowerShell and the Azure CLI, using the following instructions:
 
-- [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
-- [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+- [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
 ## Deployment steps

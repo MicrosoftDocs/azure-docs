@@ -1,10 +1,9 @@
 ---
 title: Protect new resources with blueprint resource locks
 description: Learn to use the Azure Blueprints resource locks Read Only and Do Not Delete to protect newly deployed resources.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2018
+ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
@@ -39,7 +38,8 @@ First, create the new blueprint definition.
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
 
-1. Find the **Blank sample** blueprint sample at the top of the page and select **Use this sample**.
+1. Find the **Blank Blueprint** blueprint sample at the top of the page and select **Start with
+   blank blueprint**.
 
 1. Enter the _Basics_ of the blueprint sample:
 
@@ -90,7 +90,7 @@ First, create the new blueprint definition.
        "resources": [{
            "type": "Microsoft.Storage/storageAccounts",
            "name": "[variables('storageAccountName')]",
-           "location": "[resourceGroups('RGtoLock').location]",
+           "location": "[resourceGroup().location]",
            "apiVersion": "2018-07-01",
            "sku": {
                "name": "[parameters('storageAccountType')]"
@@ -225,6 +225,8 @@ on the assignment details page.
    assignment prevents someone with appropriate rights on the _Role assignments_ tab from taking
    specific actions. The deny assignment affects _All principals_.
 
+   For information about excluding a principal from a deny assignment, see [blueprints resource locking](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment).
+
 1. Select the deny assignment, then select the **Denied Permissions** page on the left.
 
    The deny assignment is preventing all operations with the **\*** and **Action** configuration,
@@ -278,9 +280,9 @@ When finished with this tutorial, delete the following resources:
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](../concepts/lifecycle.md)
-- Understand how to use [static and dynamic parameters](../concepts/parameters.md)
-- Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md)
-- Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md)
-- Learn how to [update existing assignments](../how-to/update-existing-assignments.md)
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md)
+- Learn about the [blueprint life-cycle](../concepts/lifecycle.md).
+- Understand how to use [static and dynamic parameters](../concepts/parameters.md).
+- Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md).
+- Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md).
+- Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
+- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).

@@ -2,12 +2,12 @@
 title: Developer best practices - Pod security in Azure Kubernetes Services (AKS)
 description: Learn the developer best practices for how to secure pods in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: zr-msft
 
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: iainfou
+ms.author: zarhoads
 ---
 
 # Best practices for pod security in Azure Kubernetes Service (AKS)
@@ -70,6 +70,8 @@ The following [associated AKS open source projects][aks-associated-projects] let
 
 * Managed identities for Azure resources, and
 * Azure Key Vault FlexVol driver
+
+Associated AKS open source projects are not supported by Azure technical support. They are provided to gather feedback and bugs from our community. These projects are not recommended for production use.
 
 ### Use pod managed identities
 

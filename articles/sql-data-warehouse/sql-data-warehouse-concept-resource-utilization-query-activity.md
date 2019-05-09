@@ -7,7 +7,7 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 11/27/2018
+ms.date: 04/12/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -19,7 +19,7 @@ Azure SQL Data Warehouse provides a rich monitoring experience within the Azure 
 The following metrics are available in the Azure portal for SQL Data Warehouse. These metrics are surfaced through [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
 
 > [!NOTE]
-> As of November 2018, the engineering team is addressing an issue causing CPU percentage and Data IO percentage to underreport. This causes DWU Used and percentage to underreport as well. 
+> Currently node level CPU and IO metrics do not properly reflect data warehouse usage. These metrics will be removed in the near future as the team improves the monitoring and troubleshooting experience for SQL Data Warehouse. 
 
 | Metric Name                           | Description     | Aggregation Type |
 | --------------------------------------- | ---------------- | --------------------------------------- |
@@ -41,7 +41,7 @@ For a programmatic experience when monitoring SQL Data Warehouse via T-SQL, the 
 To view the list of DMVs that SQL Data Warehouse provides, refer to this [documentation](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 
 
 ## Metrics and diagnostics logging
-Both metrics and logs can be exported to Azure Monitor, specifically the [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) component and can be programmatically accessed through [Log Search](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata).
+Both metrics and logs can be exported to Azure Monitor, specifically the [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) component and can be programmatically accessed through [log queries](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata). The log latency for SQL Data Warehouse is about 10-15 minutes. For more details on the factors impacting latency, visit the following documentation.
 
 
 ## Next steps

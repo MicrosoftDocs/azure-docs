@@ -3,7 +3,7 @@ title: Azure Active Directory device management FAQ | Microsoft Docs
 description: Azure Active Directory device management FAQ.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2019
-ms.author: markvi
+ms.date: 03/22/2019
+ms.author: joflore
 ms.reviewer: jairoc
 
 ms.collection: M365-identity-device-management
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Azure Active Directory device management FAQ
 
-**Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?**
+### Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?
 
 **A:** Windows 10 devices that are hybrid Azure AD joined don't show up under **USER devices**.
 Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
@@ -35,7 +35,7 @@ Only the following devices are listed under **USER devices**:
 
 ---
 
-**Q: How do I know what the device registration state of the client is?**
+### Q: How do I know what the device registration state of the client is?
 
 **A:** In the Azure portal, go to **All devices**. Search for the device by using the device ID. Check the value under the join type column. Sometimes, the device might be reset or reimaged. So it's essential to also check the device registration state on the device:
 
@@ -44,14 +44,14 @@ Only the following devices are listed under **USER devices**:
 
 ---
 
-**Q: I see the device record under the USER info in the Azure portal. And I see the state as registered on the device. Am I set up correctly to use conditional access?**
+### Q: I see the device record under the USER info in the Azure portal. And I see the state as registered on the device. Am I set up correctly to use conditional access?
 
 **A:** The device join state, shown by **deviceID**, must match the state on Azure AD and meet any evaluation criteria for conditional access. 
 For more information, see [Require managed devices for cloud app access with conditional access](../conditional-access/require-managed-devices.md).
 
 ---
 
-**Q: I deleted my device in the Azure portal or by using Windows PowerShell. But the local state on the device says it's still registered.**
+### Q: I deleted my device in the Azure portal or by using Windows PowerShell. But the local state on the device says it's still registered.
 
 **A:** This operation is by design. The device doesn't have access to resources in the cloud. 
 
@@ -73,7 +73,7 @@ For down-level Windows OS versions that are on-premises Active Directory domain 
 
 ---
 
-**Q: Why do I see duplicate device entries in the Azure portal?**
+### Q: Why do I see duplicate device entries in the Azure portal?
 
 **A:**
 
@@ -87,7 +87,7 @@ For down-level Windows OS versions that are on-premises Active Directory domain 
 
 ---
 
-**Q: Does Windows 10 device registration in Azure AD support TPMs in FIPS mode?**
+### Q: Does Windows 10 device registration in Azure AD support TPMs in FIPS mode?
 
 **A:** No, currently device registration on Windows 10 for all device states - Hybrid Azure AD join, Azure AD join and Azure AD registered - does not support TPMs in FIPS mode. To successfully join or register to Azure AD, FIPS mode needs to be turned off for the TPMs on those devices
 
@@ -104,7 +104,7 @@ For down-level Windows OS versions that are on-premises Active Directory domain 
 
 ## Azure AD join FAQ
 
-**Q: How do I unjoin an Azure AD joined device locally on the device?**
+### Q: How do I unjoin an Azure AD joined device locally on the device?
 
 **A:** 
 - For hybrid Azure AD joined devices, make sure to turn off automatic registration. Then the scheduled task doesn't register the device again. Next, open a command prompt as an administrator and enter `dsregcmd.exe /debug /leave`. Or run this command as a script across several devices to unjoin in bulk.
@@ -113,7 +113,7 @@ For down-level Windows OS versions that are on-premises Active Directory domain 
 
 ---
 
-**Q: Can my users sign in to Azure AD joined devices that are deleted or disabled in Azure AD?**
+### Q: Can my users sign in to Azure AD joined devices that are deleted or disabled in Azure AD?
 
 **A:** Yes. Windows has a cached username and password capability that allows users who signed in previously to access the desktop quickly even without network connectivity. 
 
@@ -123,7 +123,7 @@ Users who didn't sign in previously can't access the device. There's no cached u
 
 ---
 
-**Q: Can disabled or deleted users sign in to Azure AD joined devices?**
+### Q: Can disabled or deleted users sign in to Azure AD joined devices?
 
 **A:** Yes, but only for a limited time. When a user is deleted or disabled in Azure AD, it's not immediately known to the Windows device. So users who signed in previously can access the desktop with the cached username and password. 
 
@@ -133,32 +133,32 @@ Deleted or disabled users who didn't sign in previously can't access a device. T
 
 ---
 
-**Q: Why do my users have issues on Azure AD joined devices after changing their UPN?**
+### Q: Why do my users have issues on Azure AD joined devices after changing their UPN?
 
 **A:** Currently, UPN changes are not fully supported on Azure AD joined devices. So their authentication with Azure AD fails after their UPN changes. As a result, users have SSO and Conditional Access issues on their devices. At this time, users need to sign in to Windows through the "Other user" tile using their new UPN to resolve this issue. We are currently working on addressing this issue. However, users signing in with Windows Hello for Business do not face this issue. 
 
 ---
 
-**Q: My users can't search printers from Azure AD joined devices. How can I enable printing from those devices?**
+### Q: My users can't search printers from Azure AD joined devices. How can I enable printing from those devices?
 
 **A:** To deploy printers for Azure AD joined devices, see [Deploy Windows Server Hybrid Cloud Print with Pre-Authentication](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). You need an on-premises Windows Server to deploy hybrid cloud print. Currently, cloud-based print service isn't available. 
 
 ---
 
-**Q: How do I connect to a remote Azure AD joined device?**
+### Q: How do I connect to a remote Azure AD joined device?
 
 **A:** See [Connect to remote Azure Active Directory-joined PC](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc).
 
 ---
 
-**Q: Why do my users see *You can’t get there from here*?**
+### Q: Why do my users see *You can’t get there from here*?
 
 **A:** Did you configure certain conditional access rules to require a specific device state? If the device doesn't meet the criteria, users are blocked, and they see that message. 
 Evaluate the conditional access policy rules. Make sure the device meets the criteria to avoid the message.
 
 ---
 
-**Q: Why don't some of my users get Azure Multi-Factor Authentication prompts on Azure AD joined devices?**
+### Q: Why don't some of my users get Azure Multi-Factor Authentication prompts on Azure AD joined devices?
 
 **A:** A user might join or register a device with Azure AD by using Multi-Factor Authentication. Then the device itself becomes a trusted second factor for that user. Whenever the same user signs in to the device and accesses an application, Azure AD considers the device as a second factor. It enables that user to seamlessly access applications without additional Multi-Factor Authentication prompts. 
 
@@ -170,7 +170,7 @@ This behavior:
 
 ---
 
-**Q: Why do I get a *username or password is incorrect* message for a device I just joined to Azure AD?**
+### Q: Why do I get a *username or password is incorrect* message for a device I just joined to Azure AD?
 
 **A:** Common reasons for this scenario are as follows:
 
@@ -184,26 +184,26 @@ This behavior:
 
 ---
 
-**Q: Why do I see the *Oops… an error occurred!* dialog when I try to Azure AD join my PC?**
+### Q: Why do I see the *Oops… an error occurred!* dialog when I try to Azure AD join my PC?
 
 **A:** This error happens when you set up Azure Active Directory enrollment with Intune. Make sure that the user who tries to Azure AD join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](https://docs.microsoft.com/intune/windows-enroll).  
 
 ---
 
-**Q: Why did my attempt to Azure AD join a PC fail, although I didn't get any error information?**
+### Q: Why did my attempt to Azure AD join a PC fail, although I didn't get any error information?
 
 **A:** A likely cause is that you signed in to the device by using the local built-in administrator account. 
 Create a different local account before you use Azure Active Directory join to finish the setup. 
 
 ---
 
-**Q:What are the MS-Organization-P2P-Access certificates present on our Windows 10 devices?**
+### Q:What are the MS-Organization-P2P-Access certificates present on our Windows 10 devices?
 
 **A:** The MS-Organization-P2P-Access certificates are issued by Azure AD to both, Azure AD joined and hybrid Azure AD joined devices. These certificates are used to enable trust between devices in the same tenant for remote desktop scenarios. One certificate is issued to the device and another is issued to the user. The device certificate is present in `Local Computer\Personal\Certificates` and is valid for one day. This certificate is renewed (by issuing a new certificate) if the device is still active in Azure AD. The user certificate is present in `Current User\Personal\Certificates` and this certificate is also valid for one day, but it is issued on-demand when a user attempts a remote desktop session to another Azure AD joined device. It is not renewed on expiry. Both these certificates are issued using the MS-Organization-P2P-Access certificate present in the `Local Computer\AAD Token Issuer\Certificates`. This certificate is issued by Azure AD during device registration. 
 
 ---
 
-**Q:Why do I see multiple expired certificates issued by MS-Organization-P2P-Access on our Windows 10 devices? How can I delete them?**
+### Q:Why do I see multiple expired certificates issued by MS-Organization-P2P-Access on our Windows 10 devices? How can I delete them?
 
 **A:** There was an issue identified on Windows 10 version 1709 and lower where expired MS-Organization-P2P-Access certificates continued to exist on the computer store because of cryptographic issues. Your users could face issues with network connectivity, if you are using any VPN clients (e.g. Cisco AnyConnect) that cannot handle the large number of expired certificates. This issue was fixed in Windows 10 1803 release to automatically delete any such expired MS-Organization-P2P-Access certificates. You can resolve this issue by updating your devices to Windows 10 1803. If you are unable to update, you can delete these certificates without any adverse impact.  
 
@@ -212,7 +212,7 @@ Create a different local account before you use Azure Active Directory join to f
 
 ## Hybrid Azure AD join FAQ
 
-**Q: Where can I find troubleshooting information to diagnose hybrid Azure AD join failures?**
+### Q: Where can I find troubleshooting information to diagnose hybrid Azure AD join failures?
 
 **A:** For troubleshooting information, see these articles:
 
@@ -220,7 +220,7 @@ Create a different local account before you use Azure Active Directory join to f
 
 - [Troubleshooting hybrid Azure Active Directory joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
  
-**Q: Why do I see a duplicate Azure AD registered record for my Windows 10 hybrid Azure AD joined device in the Azure AD devices list?**
+### Q: Why do I see a duplicate Azure AD registered record for my Windows 10 hybrid Azure AD joined device in the Azure AD devices list?
 
 **A:** When your users add their accounts to apps on a domain-joined device, they might be prompted with **Add account to Windows?** If they enter **Yes** on the prompt, the device registers with Azure AD. The trust type is marked as Azure AD registered. After you enable hybrid Azure AD join in your organization, the device also gets hybrid Azure AD joined. Then two device states show up for the same device. 
 
@@ -229,19 +229,19 @@ Hybrid Azure AD join takes precedence over the Azure AD registered state. So you
 
 ---
 
-**Q: Why do my users have issues on Windows 10 hybrid Azure AD joined devices after changing their UPN?**
+### Q: Why do my users have issues on Windows 10 hybrid Azure AD joined devices after changing their UPN?
 
 **A:** Currently UPN changes are not fully supported with hybrid Azure AD joined devices. While users can sign in to the device and access their on-premises applications, authentication with Azure AD fails after a UPN change. As a result, users have SSO and Conditional Access issues on their devices. At this time, you need to unjoin the device from Azure AD (run "dsregcmd /leave" with elevated privileges) and re-join (happens automatically) to resolve the issue. We are currently working on addressing this issue. However, users signing in with Windows Hello for Business do not face this issue. 
 
 ---
 
-**Q: Do Windows 10 hybrid Azure AD joined devices require line of sight to the domain controller to get access to cloud resources?**
+### Q: Do Windows 10 hybrid Azure AD joined devices require line of sight to the domain controller to get access to cloud resources?
 
 **A:** Generally no, except when the user's password is changed. Ater Windows 10 hybrid Azure AD join is complete, and the user has signed in at least once, the device doesn't require line of sight to the domain controller to access cloud resources. Windows 10 can get single sign on to Azure AD applications from anywhere with an internet connection, except when a password is changed. Users who sign in with Windows Hello for Business continue to get single sign on to Azure AD applications even after a password change, even if they don't have line of sight to their domain controller. 
 
 ---
 
-**Q: What happens if a user changes their password and tries to login to their Windows 10 hybrid Azure AD joined device outside the corporate network ?**
+### Q: What happens if a user changes their password and tries to login to their Windows 10 hybrid Azure AD joined device outside the corporate network?
 
 **A:** 
 If a password is changed outside the corporate network (for example, by using Azure AD SSPR), then the user logon with the new password will fail. For hybrid Azure AD joined devices, on-premises Active Directory is the primary authority. When a device does not have line of sight to the domain controller, it is unable to validate the new password. So, user needs to establish connection with the domain controller (either via VPN or being in the corporate network) before they're able to sign in to the device with their new password. Otherwise, they can only sign in with their old password because of cached logon capability in Windows. However, the old password is invalidated by Azure AD during token requests and hence, prevents single sign on and fails any device-based Conditional Access policies. This issue doesn't occur if you use Windows Hello for Business. 
@@ -251,11 +251,11 @@ If a password is changed outside the corporate network (for example, by using Az
 
 ## Azure AD register FAQ
 
-**Q: Can I register Android or iOS BYOD devices?**
+### Q: Can I register Android or iOS BYOD devices?
 
 **A:** Yes, but only with the Azure device registration service and for hybrid customers. It's not supported with the on-premises device registration service in Active Directory Federation Services (AD FS).
 
-**Q: How can I register a macOS device?**
+### Q: How can I register a macOS device?
 
 **A:** Take the following steps:
 

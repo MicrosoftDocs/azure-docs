@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory code samples | Microsoft Docs
+title: Azure Active Directory v1.0 code samples | Microsoft Docs
 description: Provides an index of Azure Active Directory (v1.0 endpoint) code samples, organized by scenario.
 services: active-directory
 documentationcenter: dev-center-name

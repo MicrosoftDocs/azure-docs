@@ -9,16 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 5/16/2018
+ms.date: 4/05/2019
 ms.author: scottwhi
 ---
 
-# Using an insights token to get insights about an image
+# Use an insights token to get insights for an image
 
-Bing Visual Search API returns information about an image that you provide. You can provide the image by using the URL of the image, an insights token, or by uploading an image. For information about these options, see [What is Bing Visual Search API?](overview.md). This article demonstrates using an insights token. For examples that demonstrate uploading an image to get insights, see the quickstarts ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)).
+Bing Visual Search API returns information about an image that you provide. You can provide the image by using the URL of the image, an insights token, or by uploading an image. For information about these options, see [What is Bing Visual Search API?](overview.md). This article demonstrates using an insights token. For examples that demonstrate how to upload an image to get insights, see the quickstarts ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)).
 
-
-If you send Visual Search an image token or URL, the following shows the form data you must include in the body of the POST. The form data must include the Content-Disposition header and its `name` parameter must be set to "knowledgeRequest". For details about the `imageInfo` object, see The request.
+If you send Bing Visual Search an image token or URL, the following shows the form data you must include in the body of the POST. The form data must include the `Content-Disposition` header, and you must set its `name` parameter to "knowledgeRequest". For details about the `imageInfo` object, see the request:
 
 ```json
 {
@@ -40,7 +39,7 @@ If you send Visual Search an image token or URL, the following shows the form da
 }
 ```
 
-The examples in this article show how to use the insights token. You get the insights token from an Image object in an /images/search API response. For information about getting the insights token, see [Bing Image Search API](../Bing-Image-Search/overview.md).
+The examples in this article show how to use the insights token. You get the insights token from an `Image` object in an /images/search API response. For information about getting the insights token, see [What is the Bing Image Search API?](../Bing-Image-Search/overview.md).
 
 ```
 --boundary_1234-abcd
@@ -55,28 +54,24 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
+For examples that use the insights token, see [C#](#use-with-c) | [Java](#use-with-java) | [Node.js](#use-with-nodejs) | [Python](#use-with-python).
 
-For examples that use the insights token, see [C#](#using-csharp) | [Java](#using-java) | [Node.js](#using-nodejs) | [Python](#using-python).
+## Use with C#
 
-<a name="using-csharp" />
+### C# prerequisites
 
-## Using C#
+- Any version of [Visual Studio 2017](https://www.visualstudio.com/downloads/) to get this code running on Windows.
+- An Azure subscription. For this quickstart, you can use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
 
-### Prerequisites
-
-You will need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to get this code running on Windows. (The free Community Edition will work.)
-
-For this quickstart, you may use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
-
-## Running the application
+## Run the application
 
 To run this application, follow these steps:
 
-1. Create a new Console solution in Visual Studio.
-1. Replace the contents of `Program.cs` with the code shown in this quickstart.
-2. Replace the `accessKey` value with your subscription key.
-2. Replace the `insightsToken` value with an insights token from an /images/search response.
-3. Run the program.
+1. Create a console solution in Visual Studio.
+2. Replace the contents of Program.cs with the code shown in this quickstart.
+3. Replace the `accessKey` value with your subscription key.
+4. Replace the `insightsToken` value with an insights token from an /images/search response.
+5. Run the program.
 
 ```csharp
 using System;
@@ -234,21 +229,18 @@ namespace VisualSearchInsightsToken
 }
 ```
 
-<a name="using-java" />
+## Use with Java
 
-## Using Java
+### Java prerequisites
 
-### Prerequisites
+- You must use [JDK 7 or 8](https://aka.ms/azure-jdks) to compile and run this code. You can use a Java IDE if you have a favorite, but a text editor will suffice.
+- For this quickstart, you can use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
 
-You will need [JDK 7 or 8](https://aka.ms/azure-jdks) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
-
-For this quickstart, you may use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
-
-## Running the application
+## Run the Java application
 
 To run this application, follow these steps:
 
-1. Download or install the [gson library](https://github.com/google/gson). You may also obtain it via Maven.
+1. Download or install the [Gson Java library](https://github.com/google/gson). You can also obtain Gson via Maven.
 2. Create a new Java project in your favorite IDE or editor.
 3. Add the provided code in a file named `VisualSearch.java`.
 4. Replace the `subscriptionKey` value with your subscription key.
@@ -347,38 +339,35 @@ public class InsightsToken {
         return gson.toJson(json);
     }
 
-    
+
 }
 ```
 
+## Use with Node.js
 
-<a name="using-nodejs" />
+### Node.js prerequisites
 
-## Using Node.js
+- You must have [Node.js 6](https://nodejs.org/en/download/) to run this code.
+- For this quickstart, you can use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
 
-### Prerequisites
-
-You need [Node.js 6](https://nodejs.org/en/download/) to run this code.
-
-For this quickstart, you may use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
-
-## Running the application
+## Run the JavaScript application
 
 To run this application, follow these steps:
 
 1. Create a folder for your project (or use your favorite IDE or editor).
 2. From a command prompt or terminal, navigate to the folder you just created.
-3. Install the request modules:  
-   ```  
+3. Install the request modules:
+  
+   ```
    npm install request  
-   ```  
-3. Install the form-data modules:  
-   ```  
+   ```
+1. Install the form-data modules:  
+   ```
    npm install form-data  
-   ```  
-4. Create a file named GetVisualInsights.js and add the following code to it.
-5. Replace the `subscriptionKey` value with your subscription key.
-7. Run the program.  
+   ```
+1. Create a file named GetVisualInsights.js and add the following code to it.
+1. Replace the `subscriptionKey` value with your subscription key.
+1. Run the program.  
    ```
    node GetVisualInsights.js
    ```
@@ -418,19 +407,14 @@ function requestCallback(err, res, body) {
 }
 ```
 
+## Use with Python
 
-<a name="using-python" />
+### Python prerequisites
 
-## Using Python
+- You must have [Python 3](https://www.python.org/) to run this code.
+- For this quickstart, you may use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
 
-
-### Prerequisites
-
-You need [Python 3](https://www.python.org/) to run this code.
-
-For this quickstart, you may use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
-
-## Running the walkthrough
+## Run the Python application
 
 To run this application, follow these steps:
 
@@ -438,7 +422,6 @@ To run this application, follow these steps:
 2. Create a file named visualsearch.py and add the code shown in this quickstart.
 3. Replace the `SUBSCRIPTION_KEY` value with your subscription key.
 4. Run the program.
-
 
 ```python
 """Bing Visual Search example"""
@@ -488,8 +471,8 @@ if __name__ == '__main__':
 
 ## Next steps
 
-[Bing Visual Search single-page app tutorial](tutorial-bing-visual-search-single-page-app.md)  
-[Bing Visual Search overview](overview.md)  
-[Try it](https://aka.ms/bingvisualsearchtryforfree)  
+[Create a Visual Search single-page web app](tutorial-bing-visual-search-single-page-app.md)  
+[What is the Bing Visual Search API?](overview.md)  
+[Try Cognitive Services](https://aka.ms/bingvisualsearchtryforfree)  
 [Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing Visual Search API reference](https://aka.ms/bingvisualsearchreferencedoc)
+[Images - Visual Search](https://aka.ms/bingvisualsearchreferencedoc)

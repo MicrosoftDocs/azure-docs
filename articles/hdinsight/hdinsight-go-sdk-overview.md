@@ -1,21 +1,20 @@
 ---
-title: Azure HDInsight Go SDK
-description: Reference for Azure HDInsight Go SDK
-services: hdinsight
+title: Azure HDInsight SDK for Go
+description: Reference for Azure HDInsight SDK for Go
 author: tylerfox
 
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 05/8/2019
 ms.author: tyfox
 ms.custom: seodec18
 
 ---
 
-# HDInsight Go Management SDK Preview
+# HDInsight SDK for Go (Preview)
 
 ## Overview
-The HDInsight Go SDK provides classes and functions that allow you to manage your HDInsight clusters. It includes operations to create, delete, update, list, resize, execute script actions, monitor, get properties of HDInsight clusters, and more.
+The HDInsight SDK for Go provides classes and functions that allow you to manage your HDInsight clusters. It includes operations to create, delete, update, list, resize, execute script actions, monitor, get properties of HDInsight clusters, and more.
 
 > [!NOTE]  
 >GoDoc reference material for this SDK is also [available here](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight).
@@ -68,7 +67,7 @@ az account set -s <name or ID of subscription>
 ```
 
 > [!IMPORTANT]  
-> If you have not already registered the HDInsight Resource Provider by another function (such as by creating an HDInsight Cluster through the Azure Portal), you need to do this once before you can authenticate. This can be done from the [Azure Cloud Shell](https://shell.azure.com/bash) by running the following command:
+> If you have not already registered the HDInsight Resource Provider by another function (such as by creating an HDInsight Cluster through the Azure portal), you need to do this once before you can authenticate. This can be done from the [Azure Cloud Shell](https://shell.azure.com/bash) by running the following command:
 >```azurecli-interactive
 >az provider register --namespace Microsoft.HDInsight
 >```

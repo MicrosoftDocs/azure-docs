@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ---
 
 # Azure PowerShell samples for Azure SQL Database
@@ -60,10 +60,14 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 | |  |
 |---|---|
 |**Create and configure managed instances**||
-| [Create and manage a Managed Instance](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/) | This PowerShell script shows you how to create and manage a Managed Instance using the Azure PowerShell |
+| [Create and manage a Managed Instance](scripts/sql-database-create-configure-managed-instance-powershell.md) | This PowerShell script shows you how to create and manage a Managed Instance using the Azure PowerShell |
 | [Create and manage a Managed Instance using Azure Resource Manager template](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script shows you how to create and manage a Managed Instance using the Azure PowerShell and Azure Resource Manager template.|
 | **Configure Transparent Data Encryption (TDE)**||
 | [Manage Transparent Data Encryption in a Managed Instance using your own key from Azure Key Vault](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures Transparent Data Encryption (TDE) in Bring Your Own Key scenario for Azure SQL Managed Instance, using a key from Azure Key Vault|
 |||
 
 Learn more about the [Managed Instance Azure PowerShell API](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances).
+
+## Additional resources
+
+The examples listed on this page use the [Azure SQL Database cmdlets](/powershell/module/az.sql/) for creating and managing Azure SQL resources. Additional cmdlets for running queries, and performing many database tasks are located in the [sqlserver](/powershell/module/sqlserver/) module. For more information, see [SQL Server PowerShell](/sql/powershell/sql-server-powershell/).

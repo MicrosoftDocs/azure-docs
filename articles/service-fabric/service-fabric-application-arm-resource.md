@@ -4,7 +4,7 @@ description: Learn how to deploy applications and services to a Service Fabric c
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

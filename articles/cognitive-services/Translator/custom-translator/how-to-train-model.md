@@ -49,6 +49,9 @@ To train a model:
 
     ![Train model page](media/how-to/how-to-train-model-3.png)
 
+>[!Note]
+>Custom Translator supports 10 concurrent trainings within a workspace at any point in time.
+
 
 ## Edit a model
 

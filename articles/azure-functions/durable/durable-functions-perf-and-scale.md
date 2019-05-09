@@ -51,11 +51,11 @@ The durable task extension implements a random exponential back-off algorithm to
 The maximum polling delay is configurable via the `maxQueuePollingInterval` property in the [host.json file](../functions-host-json.md#durabletask). Setting this to a higher value could result in higher message processing latencies. Higher latencies would be expected only after periods of inactivity. Setting this to a lower value could result in higher storage costs due to increased storage transactions.
 
 > [!NOTE]
-> When running in the Azure Functions Consumption and Premium plans, the [Azure Functions Scale Controller](../functions-scale.md#how-the-consumption-plan-works) will poll each control and work-item queue once every 10 seconds. This additional polling is necessary to determine when to activate function app instances and to make scale decisions. At the time of writing, this 10 second interval is constant and cannot be configured.
+> When running in the Azure Functions Consumption and Premium plans, the [Azure Functions Scale Controller](../functions-scale.md#how-the-consumption-and-premium-plans-work) will poll each control and work-item queue once every 10 seconds. This additional polling is necessary to determine when to activate function app instances and to make scale decisions. At the time of writing, this 10 second interval is constant and cannot be configured.
 
 ## Storage account selection
 
-The queues, tables, and blobs used by Durable Functions are created by in a configured Azure Storage account. The account to use can be specified using the `durableTask/azureStorageConnectionStringName` setting in **host.json** file.
+The queues, tables, and blobs used by Durable Functions are created in a configured Azure Storage account. The account to use can be specified using the `durableTask/azureStorageConnectionStringName` setting in **host.json** file.
 
 ### Functions 1.x
 

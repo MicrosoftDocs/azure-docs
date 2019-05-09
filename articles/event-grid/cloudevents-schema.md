@@ -21,6 +21,8 @@ CloudEvents is being built by several [collaborators](https://github.com/cloudev
 
 This article describes how to use the CloudEvents schema with Event Grid.
 
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
 ## Install preview feature
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
@@ -64,7 +66,7 @@ CloudEvents v0.1 has the following properties available:
 | source             | URI      | "/mycontext"                     | Describes the event producer                                       | topic#subject
 | eventID            | String   | "1234-1234-1234"                 | ID of the event                                                    | id
 | eventTime          | Timestamp| "2018-04-05T17:31:00Z"           | Timestamp of when the event happened (Optional)                    | eventTime
-| schemaURL          | URI      | "https://myschema.com"           | A link to the schema that the data attribute adheres to (Optional) | *not used*
+| schemaURL          | URI      | "https:\//myschema.com"           | A link to the schema that the data attribute adheres to (Optional) | *not used*
 | contentType        | String   | "application/json"               | Describe the data encoding format (Optional)                       | *not used*
 | extensions         | Map      | { "extA": "vA", "extB", "vB" }  | Any additional metadata (Optional)                                 | *not used*
 | data               | Object   | { "objA": "vA", "objB", "vB" }  | The event payload (Optional)                                       | data

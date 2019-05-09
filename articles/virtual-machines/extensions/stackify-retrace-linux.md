@@ -20,6 +20,7 @@ ms.author: roiyz
 # Stackify Retrace Linux Agent Extension
 
 ## Overview
+
 Stackify provides products that track details about your application to help find and fix problems quickly. For developer teams, Retrace is a fully integrated, multi-environment, app performance super-power. It combines several tools every development team needs.
 
 Retrace is the ONLY tool that delivers all of the following capabilities across all environments in a single platform.
@@ -36,6 +37,7 @@ This extension provides an install path for the Linux Agent for Retrace.
 ## Prerequisites
 
 ### Operating system 
+
 The Retrace agent can be run against these Linux distributions
 
 | Distribution | Version |
@@ -46,12 +48,14 @@ The Retrace agent can be run against these Linux distributions
 | CentOS | 6.3+, 7.0+ |
 
 ### Internet connectivity
+
 The Stackify Agent extension for Linux requires that the target virtual machine is connected to the internet. 
 
 You may need to adjust your network configuration to allow connections to Stackify, see https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall. 
 
 
 ## Extension schema
+
 ---
 
 The following JSON shows the schema for the Stackify Retrace Agent extension. The extension requires the `environment` and `activationKey`.
@@ -147,7 +151,7 @@ The `Set-AzVMExtension` command can be used to deploy the Stackify Retrace Linux
 
 The extension requires the `environment` and `activationKey`.
 
-```
+```powershell
 $PublicSettings = @{"environment" = "myEnvironment"}
 $ProtectedSettings = @{"activationKey" = "myActivationKey"}
 

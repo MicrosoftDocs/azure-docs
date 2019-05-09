@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2019
+ms.date: 04/28/2019
 ms.author: terrylan
 
 ---
 # Azure Storage security overview
 
-Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers. Azure Storage provides a comprehensive set of security capabilities. You can:
+This article provides an overview of Azure security features that you can use with Azure Storage. Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers. Azure Storage provides a comprehensive set of security capabilities. You can:
 
 * Secure the storage account by using Role-Based Access Control (RBAC) and Azure Active Directory.
 * Secure data in transit between an application and Azure by using client-side encryption, HTTPS, or SMB 3.0.
@@ -29,9 +29,6 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 * Use analytics to track the authentication method that someone is using when they access Storage.
 
 For a more detailed look at security in Azure Storage, see the [Azure Storage security guide](../storage/common/storage-security-guide.md). This guide provides a deep dive into the security features of Azure Storage. These features include storage account keys, data encryption in transit and at rest, and storage analytics.
-
-
-This article provides an overview of Azure security features that you can use with Azure Storage. Links to articles give details of each feature so you can learn more.
 
 ## Role-Based Access Control
 

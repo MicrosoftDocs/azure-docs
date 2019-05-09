@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 
@@ -31,11 +31,11 @@ For examples of syntax, supported properties, operators, and values for a member
 2. Select **Groups**.
 3. Select **All groups**, and select **New group**.
 
-   ![Add new group](./media/groups-create-rule/new-group-creation.png)
+   ![Select the command to add new group](./media/groups-create-rule/new-group-creation.png)
 
 4. On the **Group** page, enter a name and description for the new group. Select a **Membership type** for either users or devices, and then select **Add dynamic query**. You can use the rule builder to build a simple rule, or [write a membership rule yourself](groups-dynamic-membership.md).
 
-   ![Add dynamic membership rule](./media/groups-create-rule/add-dynamic-group-rule.png)
+   ![Add membership rule for a dynamic group](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 5. To see the custom extension properties available for your membership query
    1. Select **Get custom extension properties**
@@ -53,7 +53,7 @@ When a new Office 365 group is created, a welcome notification is sent the users
 
 You can see the membership processing status and the last updated date on the **Overview** page for the group.
   
-  ![dynamic group status display](./media/groups-create-rule/group-status.png)
+  ![display of dynamic group status](./media/groups-create-rule/group-status.png)
 
 The following status messages can be shown for **Membership processing** status:
 
@@ -71,7 +71,7 @@ The following status messages can be shown for **Membership last updated** statu
 
 If an error occurs while processing the membership rule for a specific group, an alert is shown on the top of the **Overview page** for the group. If no pending dynamic membership updates can be processed for all the groups within the tenant for more then 24 hours, an alert is shown on the top of **All groups**.
 
-![processing error message](./media/groups-create-rule/processing-error.png)
+![processing error message alerts](./media/groups-create-rule/processing-error.png)
 
 These articles provide additional information on groups in Azure Active Directory.
 

@@ -4,7 +4,7 @@ description: Description and contents of the Azure Service Fabric Standalone pac
 services: service-fabric
 documentationcenter: .net
 author: maburlik
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.service: service-fabric

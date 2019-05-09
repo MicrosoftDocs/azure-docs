@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
 
 ---
@@ -25,7 +25,7 @@ Setup takes just a few clicks in Visual Studio. You have the option to avoid cha
 To add Application Insights to your ASP.NET website, you need to:
 
 - Install [Visual Studio 2017 for Windows](https://www.visualstudio.com/downloads/) with the following workloads:
-	- ASP.NET and web development
+	- ASP.NET and web development (Do not uncheck the optional components)
 	- Azure development
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -120,6 +120,10 @@ The Azure resource that receives your app's telemetry is identified by an *instr
 To upgrade to a [new release of the SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases), open the **NuGet package manager**, and filter on installed packages. Select **Microsoft.ApplicationInsights.Web**, and choose **Upgrade**.
 
 If you made any customizations to ApplicationInsights.config, save a copy of it before you upgrade. Then, merge your changes into the new version.
+
+## Video
+
+* External step-by-step video about [configuring Application Insights with a .NET application from scratch](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
 ## Next steps
 

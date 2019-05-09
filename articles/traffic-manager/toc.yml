@@ -96,7 +96,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=traffic-manager
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.trafficmanager
+    href: /powershell/module/az.trafficmanager
   - name: Azure CLI
     href: /cli/azure/network/traffic-manager
   - name: Java
@@ -104,7 +104,7 @@
   - name: Node.js
     href: https://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/
   - name: Ruby
-    href: http://www.rubydoc.info/gems/azure_mgmt_traffic_manager
+    href: https://www.rubydoc.info/gems/azure_mgmt_traffic_manager
   - name: Python
     href: http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html
   - name: REST

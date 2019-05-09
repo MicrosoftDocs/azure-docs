@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: notification-hubs
  ms.topic: include
- ms.date: 04/04/2018
+ ms.date: 03/22/2019
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -53,6 +53,8 @@ Create the new ASP.NET WebAPI backend by doing the following actions:
    You do not need a database for this tutorial. After you have selected your app service plan, select **OK** to create the project.
 
     ![The Configure Microsoft Azure Web App window][B5]
+
+    If you don't see this page for configure app service plan, continue with the tutorial. You can configure it while publishing the app later. 
 
 ## Authenticate clients to the WebAPI backend
 
@@ -260,8 +262,8 @@ In this section, you add a new controller to the WebAPI backend to handle reques
             case "apns":
                 registration = new AppleRegistrationDescription(deviceUpdate.Handle);
                 break;
-            case "gcm":
-                registration = new GcmRegistrationDescription(deviceUpdate.Handle);
+            case "fcm":
+                registration = new FcmRegistrationDescription(deviceUpdate.Handle);
                 break;
             default:
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
@@ -349,10 +351,10 @@ In this section, you add a new controller that exposes a way for client devices 
                 var alert = "{\"aps\":{\"alert\":\"" + "From " + user + ": " + message + "\"}}";
                 outcome = await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
                 break;
-            case "gcm":
+            case "fcm":
                 // Android
                 var notif = "{ \"data\" : {\"message\":\"" + "From " + user + ": " + message + "\"}}";
-                outcome = await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
+                outcome = await Notifications.Instance.Hub.SendFcmNativeNotificationAsync(notif, userTag);
                 break;
         }
 

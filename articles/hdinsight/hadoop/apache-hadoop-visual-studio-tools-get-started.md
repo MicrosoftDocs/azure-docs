@@ -2,7 +2,6 @@
 title: Connect to Apache Hadoop using Data Lake Tools for Visual Studio - Azure HDInsight
 description: Learn how to install and use Data Lake Tools for Visual Studio to connect to Apache Hadoop clusters in Azure HDInsight, and then run Hive queries.
 keywords: hadoop tools,hive query,visual studio,visual studio hadoop
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -87,7 +86,7 @@ To connect to the Azure portal from Visual Studio:
 
 1. From Server Explorer, navigate to **Azure** > **HDInsight** and select your cluster.
 
-2. Right-click an HDInsight cluster, and select **Manage Cluster in Azure Portal**.
+2. Right-click an HDInsight cluster, and select **Manage Cluster in Azure portal**.
 
 To ask questions and/or provide feedback from Visual Studio:
 
@@ -234,7 +233,7 @@ From the job graph, you can select **Task Execution Detail** to get structured a
 ### View Hive jobs
 You can view job queries, job output, job logs, and Yarn logs for Hive jobs.
 
-In the most recent release of the tools, you can see what’s inside your Hive jobs by collecting and surfacing Yarn logs. A Yarn log can help you investigating performance issues. For more information about how HDInsight collects Yarn logs, see [Access HDInsight application logs programmatically](../hdinsight-hadoop-access-yarn-app-logs.md).
+In the most recent release of the tools, you can see what’s inside your Hive jobs by collecting and surfacing Yarn logs. A Yarn log can help you investigating performance issues. For more information about how HDInsight collects Yarn logs, see [Access HDInsight application logs programmatically](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
 To view Hive jobs:
 
@@ -270,5 +269,5 @@ In this article, you learned how to use the Data Lake Tools for Visual Studio pa
 * [Use Hadoop Hive in HDInsight](hdinsight-use-hive.md)
 * [Get started using Apache Hadoop in HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Submit Apache Hadoop jobs in HDInsight](submit-apache-hadoop-jobs-programmatically.md)
-* [Analyze Twitter data with Apache Hadoop in HDInsight](../hdinsight-analyze-twitter-data.md)
+* [Analyze Twitter data with Apache Hadoop in HDInsight](../hdinsight-analyze-twitter-data-linux.md)
 

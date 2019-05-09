@@ -63,6 +63,10 @@ You can achieve self-join conditions in ADF Data Flow by using the Select transf
 
 In the above diagram, the Select transform is at the top. All it's doing is aliasing the original stream to "OrigSourceBatting". In the highlighted Join transform below it you can see that we use this Select alias stream as the right-hand join, allowing us to reference the same key in both the Left & Right side of the Inner Join.
 
+## Composite and custom keys
+
+You can build custom and composite keys on the fly inside the Join transformation. Add rows for additional join columns with the plus sign (+) next to each relationship row. Or compute a new key value in the Expression Builder for an on-the-fly join value.
+
 ## Next steps
 
 After joining data, you can then [create new columns](data-flow-derived-column.md) and [sink your data to a destination data store](data-flow-sink.md).

@@ -34,11 +34,11 @@ sections:
       columns: 3
       items:
         - href: /azure/cosmos-db/distribute-data-globally/
-          html: <p>Learn about global distribution, partitioning, indexing, and other concepts that apply to all of the Azure Cosmos DB APIs.</p>
+          html: <p>Learn about global distribution, partitioning, provisioned throughput, indexing, and other concepts that apply to all of the Azure Cosmos DB APIs.</p>
           image:
             src: media/index/azure-cosmos-db-icon.png
           title: Concepts
-        - href: /azure/cosmos-db/sql-api-introduction/
+        - href: /azure/cosmos-db/sql-api-query-reference/
           html: <p>Use the SQL API if you're building a new non-relational document database and want to query using familiar SQL syntax.</p>
           image:
             src: media/index/sql-api.svg
@@ -102,7 +102,7 @@ sections:
           - href:
           - href:
           - href: /azure/cosmos-db/create-sql-api-xamarin-dotnet
-        - title: Azure Cosmos DB's API for MongoDB
+        - title: API for MongoDB
           values:
             - href: /azure/cosmos-db/create-mongodb-java
             - href: /azure/cosmos-db/create-mongodb-dotnet
@@ -158,12 +158,12 @@ sections:
       style: cards
       className: cardsFTitle
       items:
-      - title:  Create an Azure Cosmos DB database built to scale
+      - title:  Create an Azure Cosmos database built to scale
         href: /learn/modules/create-cosmos-db-for-scale/
         image: 
           src: /learn/achievements/create-cosmos-db-for-scale.svg
           href: /learn/modules/create-cosmos-db-for-scale/
-      - title:  Insert and query data in your Azure Cosmos DB database
+      - title:  Insert and query data in your Azure Cosmos database
         href: /learn/modules/access-data-with-cosmos-db-and-sql-api/
         image: 
           src: /learn/achievements/access-data-with-cosmos-db-and-sql-api.svg
