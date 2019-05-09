@@ -63,7 +63,7 @@ You can put more than one function in a project. Avoid putting your functions in
 
  Azure functions are invoked by a trigger, such as an HTTP request, a timer, or an update to data. Your function needs to process that trigger and any other inputs to produce one or more outputs.
 
-Use the Java annotations included in the [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) package to bind input and outputs to your methods. For more information see [Java reference docs](/java/api/com.microsoft.azure.functions.annotation).
+Use the Java annotations included in the [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) package to bind input and outputs to your methods. For more information, see [Java reference docs](/java/api/com.microsoft.azure.functions.annotation).
 
 > [!IMPORTANT] 
 > You must configure an Azure Storage account in your [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) to run Azure Storage Blob, Queue, or Table triggers locally.
@@ -217,7 +217,7 @@ This function is invoked with an HTTP request.
 - HTTP request payload is passed as a `String` for the argument `inputReq`
 - One entry is retrieved from the Azure Table Storage and is passed as `TestInputData` to the argument `inputData`.
 
-To receive a batch of inputs, you can bind to `String[]`, `POJO[]`, `List<String>` or `List<POJO>`.
+To receive a batch of inputs, you can bind to `String[]`, `POJO[]`, `List<String>`, or `List<POJO>`.
 
 ```java
 @FunctionName("ProcessIotMessages")
@@ -291,7 +291,7 @@ To send multiple output values, use `OutputBinding<T>` defined in the `azure-fun
     }
 ```
 
-Above function is invoked on an HttpRequest and writes multiple values to the Azure Queue
+This function is invoked on an HttpRequest and writes multiple values to the Azure Queue.
 
 ## HttpRequestMessage and HttpResponseMessage
 
@@ -391,7 +391,7 @@ To download the log files as a single ZIP file using the Azure CLI, open a new c
 az webapp log download --resource-group resourcegroupname --name functionappname
 ```
 
-You must have enabled file system logging in the Azure Portal or Azure CLI before running this command.
+You must have enabled file system logging in the Azure portal or Azure CLI before running this command.
 
 ## Environment variables
 
