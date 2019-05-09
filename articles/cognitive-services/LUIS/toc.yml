@@ -318,7 +318,7 @@
     href: luis-reference-prebuilt-domains.md
     displayName: Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web
   - name: Azure CLI
-    href: https://aka.ms/az-cli-cognitiveservices
+    href: https://go.microsoft.com/fwlink/?linkid=2092156
   - name: Azure RM PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: REST APIs
