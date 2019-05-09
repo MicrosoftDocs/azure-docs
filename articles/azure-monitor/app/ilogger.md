@@ -138,14 +138,13 @@ public class Program
 
             // Adding the filter below to ensure logs of all severity from Program.cs
             // is sent to ApplicationInsights.
-            // Replace YourAppName with the namespace of your application's Program.cs.
             builder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>
-                             ("YourAppName.Program", LogLevel.Trace);
+                             (typeof(Program).FullName, LogLevel.Trace);
+
             // Adding the filter below to ensure logs of all severity from Startup.cs
             // is sent to ApplicationInsights.
-            // Replace YourAppName with the namespace of your application's Startup.cs.
             builder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>
-                             ("YourAppName.Startup", LogLevel.Trace);
+                             (typeof(Startup).FullName, LogLevel.Trace);
             }
         );
 }
