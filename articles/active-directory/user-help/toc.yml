@@ -28,7 +28,7 @@
     href: user-help-auth-app-overview.md
   - name: Download and install the app
     href: user-help-auth-app-download-install.md
-  - name: Add accounts overview
+  - name: Add accounts
     items:
       - name: Overview
         href: user-help-auth-app-add-account-overview.md
@@ -64,7 +64,7 @@
     href: user-help-security-info-overview.md
   - name: Add security info during sign-in
     href: security-info-setup-signin.md
-  - name: Add or update security info methods overview
+  - name: Add or update security info methods
     items:
     - name: Overview
       href: security-info-add-update-methods-overview.md
