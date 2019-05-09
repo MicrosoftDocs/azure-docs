@@ -104,4 +104,4 @@ You have now seen how versioning works, and how you can interact with the Bot us
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Demo - password reset](./demo-password-reset.md)
+> [Enum entities and Set entity actions](./tutorial-enum-set-entity.md)
