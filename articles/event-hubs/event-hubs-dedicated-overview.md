@@ -61,16 +61,7 @@ The Event Hubs Dedicated offering is billed at a fixed monthly price, with a min
 
 ## How to onboard
 
-The self-serve experience for onboarding to Dedicated is in Preview, through which you can create 1 CU clusters in the following regions:
-  - Canada Central
-  - West Europe
-  - US Central
-  - US East
-  - US East 2
-  - US North Central
-  - US West
-
-We are actively adding new regions, but in the meantime if your preferred region is not on the list, contact the [Event Hubs team](mailto:askeventhubs@microsoft.com). The Dedicated plan is unique in that you will experience a more hands-on onboarding from the Event Hubs product team to get the flexible deployment that is right for you. 
+To onboard to Event Hubs Dedicated, please contact the [Event Hubs team](mailto:askeventhubs@microsoft.com). The Dedicated plan is unique in that you will experience a more hands-on onboarding from the Event Hubs product team to get the flexible deployment that is right for you. 
 
 ## FAQs
 
