@@ -16,7 +16,7 @@ ms.author: assafi
 # Quickstart: Use C# to call the Text Analytics Cognitive Service
 <a name="HOLTop"></a>
 
-This quickstart helps you begin to use the Text Analytics SDK for C# to analyze language. Although the [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications.
+This quickstart helps you begin using the Text Analytics SDK for C# to analyze language. Although the [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications.
 
 > [!NOTE]
 > The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/TextAnalytics).
@@ -27,7 +27,7 @@ For technical details, refer to the [API definitions](https://westus.dev.cogniti
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
+You also need the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
 
 > [!Tip]
 >  While you could call the [HTTP endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) directly from C#, the Microsoft.Azure.CognitiveServices.Language SDK makes it much easier to call the service without having to serialize and deserialize JSON.
@@ -103,7 +103,7 @@ You must also have the [endpoint and access key](../How-tos/text-analytics-how-t
     private const string Endpoint = "enter-your-service-endpoint-here"; // For example: "https://westus.api.cognitive.microsoft.com";
     ```
 > [!Tip]
-> For secure deployment of secrets in production systems, we recommend that you use [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net).
+> To boost the security of secrets in production systems, we recommend that you use [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net).
 >
 
 ## Create a Text Analytics client
