@@ -124,4 +124,4 @@ AzCopy V10 is the currently supported version of AzCopy. However, if you need to
 
 ## Next steps
 
-If you're interested in seeing what's new in the latest release of AzCopy, visit our [GitHub](https://github.com/Azure/azure-storage-azcopy) page.
+If you have questions, issues, or general feedback, submit them [on GitHub](https://github.com/Azure/azure-storage-azcopy) page.
