@@ -50,7 +50,7 @@ To configure integration of Workspot Control into Azure AD, you must add Workspo
 
 **To add Workspot Control from the gallery, follow these steps:**
 
-1. In the left pane of the **[Azure portal](https://portal.azure.com)**, select **Azure Active Directory**.
+1. In the left pane of the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
@@ -62,7 +62,7 @@ To configure integration of Workspot Control into Azure AD, you must add Workspo
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Workspot Control**, select **Workspot Control** from the results panel, and then select **Add**.
+4. In the search box, enter **Workspot Control**, select **Workspot Control** from the results panel, and then select **Add**.
 
 	 !["Add from the gallery" window](common/search-new-app.png)
 
@@ -73,12 +73,12 @@ For single sign-on to work, you must establish a link between an Azure AD user a
 
 To configure and test Azure AD single sign-on with Workspot Control, you must complete the following tasks:
 
-1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable your users to use the feature.
-2. **[Configure Workspot Control single sign-on](#configure-workspot-control-single-sign-on)** to configure the single sign-on settings on the application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on for Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create a Workspot Control test user](#create-a-workspot-control-test-user)** to establish a counterpart of Britta Simon in Workspot Control that's linked to the Azure AD representation of the user.
-6. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
+1. [Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on) to enable your users to use the feature.
+2. [Configure Workspot Control single sign-on](#configure-workspot-control-single-sign-on) to configure the single sign-on settings on the application side.
+3. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on for Britta Simon.
+4. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable Britta Simon to use Azure AD single sign-on.
+5. [Create a Workspot Control test user](#create-a-workspot-control-test-user) to establish a counterpart of Britta Simon in Workspot Control that's linked to the Azure AD representation of the user.
+6. [Test single sign-on](#test-single-sign-on) to verify that the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -102,17 +102,17 @@ To configure Azure AD single sign-on with Workspot Control, follow these steps:
 
     ![Workspot Control domain and URLs single sign-on information](common/idp-intiated.png)
 
-    1. In the **identifier** text box, type a URL in the following pattern:<br/>
+    1. In the **identifier** text box, enter a URL in the following pattern:<br/>
     ***https://<<i></i>INSTANCENAME>-saml.workspot.com/saml/metadata***
 
-    1. In the **reply URL** text box, type a URL in the following pattern:<br/>
+    1. In the **reply URL** text box, enter a URL in the following pattern:<br/>
     ***https://<<i></i>INSTANCENAME>-saml.workspot.com/saml/assertion***
 
 5. If you want to configure the application in SP-initiated mode, select **Set additional URLs**.
 
     ![Workspot Control domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
-    In the **Sign-on URL** text box, type a URL in the following pattern:<br/>
+    In the **Sign-on URL** text box, enter a URL in the following pattern:<br/>
     ***https://<<i></i>INSTANCENAME>-saml.workspot.com/***
 
 	> [!NOTE]
@@ -172,7 +172,7 @@ In this section, you create a test user in the Azure portal.
 
     1. In the **Name** field,  enter **BrittaSimon**.
   
-    1. In the **User name** field, type **brittasimon@*yourcompanydomain.extension***. For example, type **BrittaSimon@contoso.<i></i>com**.
+    1. In the **User name** field, enter **brittasimon@*yourcompanydomain.extension***. For example, enter **BrittaSimon@contoso.<i></i>com**.
 
     1. Select the **Show password** check box. Then write down the value that's displayed in the **Password** box.
 
