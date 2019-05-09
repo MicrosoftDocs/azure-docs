@@ -1,9 +1,9 @@
 ---
 title: Azure Resource Manager vCPU quota increase requests | Microsoft Docs
 description: Azure Resource Manager vCPU quota increase requests
-author: ganganarayanan
-ms.author: gangan
-ms.date: 6/13/2018
+author: sowmyavenkat86
+ms.author: svenkat
+ms.date: 5/9/2019
 ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
@@ -20,7 +20,7 @@ You can now request an increase via **Help + Support** or the **Usages + Quota**
 
 ## Quota increase using the **Help +Support** blade
 
-Follow the instruction below to create a support request via Azure's 'Help + Support' blade available in the Azure Portal. 
+Follow the instructions below to create a support request via Azure's 'Help + Support' blade available in the Azure Portal. 
 
 1. From https://portal.azure.com, select **Help + Support**.
 
@@ -30,7 +30,7 @@ Follow the instruction below to create a support request via Azure's 'Help + Sup
 
 ![New support request](./media/resource-manager-core-quotas-request/newsupportrequest.png)
 
-3. In the Issue type dropdown choose **Service and subscription limits (quotas)**.
+3. In the Issue type dropdown, choose **Service and subscription limits (quotas)**.
 
 ![Issue type dropdown](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
 
@@ -38,7 +38,7 @@ Follow the instruction below to create a support request via Azure's 'Help + Sup
 
 ![Select subscription newSR](./media/resource-manager-core-quotas-request/select-subscriptionSR.png)
    
-5. Select a **Compute -VM (cores-vCPUs) subscription  limit increases** in **quota type** dropdown. 
+5. Select **Compute -VM (cores-vCPUs) subscription  limit increases** in **quota type** dropdown. 
 
 ![Select quota type](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
