@@ -12,7 +12,7 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/22/2019
+ms.date: 05/09/2019
 ms.author: rolyon
 
 #Customer intent: As a new user, I want to see how to grant access to resources by using Azure Resource Manager template so that I can start granting access to others.
@@ -21,15 +21,23 @@ ms.author: rolyon
 
 # Tutorial: Grant a user access to Azure resources using RBAC and Resource Manager template
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. In this tutorial, you create a resource group and grant a user access to create and manage virtual machines in the resource group. This tutorial focuses on the process of deploying a Resource Manager template to grant the access. For more information on developing Resource Manager templates, see Resource Manager documentation and the template reference.
+[Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. In this tutorial, you create a resource group and grant a user access to create and manage virtual machines in the resource group. This tutorial focuses on the process of deploying a Resource Manager template to grant the access. For more information on developing Resource Manager templates, see [Resource Manager documentation](/azure/azure-resource-manager/) and the [template reference](/azure/templates/microsoft.authorization/allversions
+).
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Grant access for a user at a resource group scope
-> * Remove access
+> * Clean up
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
+
+To add and remove role assignments, you must have:
+
+- `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
+
 
 ## Grant access
 
@@ -60,8 +68,6 @@ $resourceGroupName = "${projectName}rg"
 
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
-
-
 
 ## Next steps
 

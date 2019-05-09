@@ -19,7 +19,7 @@
     href: tutorial-role-assignments-user-powershell.md
   - name: Grant a user access - Resource Manager Template
     displayName: ARM, resource manager template
-    href: tutorial-role-assignments-user-template.md
+    href: quickstart-assign-role-user-template.md
   - name: Grant a group access - PowerShell
     href: tutorial-role-assignments-group-powershell.md
   - name: Create a custom role - PowerShell
