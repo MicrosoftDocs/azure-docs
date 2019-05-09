@@ -7,7 +7,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 04/15/2019
+ms.date: 05/09/2019
 ---
 # Create and configure Enterprise Security Package clusters in Azure HDInsight
 
@@ -57,10 +57,11 @@ Overview: In this section, you will use an Azure Quick Deployment template to Cr
 
 Overview: In this section, you will create the users that will access the HDInsight cluster by the end of this guide.
 
-1. Connect to the domain controller using Remote Desktop. If you used the template mentioned at the beginning, the domain controller is a VM called **adVM** in the `OnPremADVRG` resource group. 
+1. Connect to the domain controller using Remote Desktop. If you used the template mentioned at the beginning, the domain controller is a VM called **adVM** in the `OnPremADVRG` resource group.
+
     1. Go to the Azure portal > **Resource groups** > **OnPremADVRG** > **adVM** > **Connect** > **RDP** > **Download RDP File**. Save the file to your computer and open it.
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image012.png)
+        ![alt-text](./media/apache-domain-joined-create-configure-esp/image012.png)
 
 1. When prompted for credentials, use `HDIFabrikam\HDIFabrikamAdmin` as the username and then enter the password that you chose for the admin account.
 
@@ -71,6 +72,7 @@ Overview: In this section, you will create the users that will access the HDInsi
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image016.png)
 
 1. Create two new users, **HDIAdmin**, **HDIUser** as the usernames. These two users will be used to sign in to HDInsight clusters.
+
     1. In the **Active Directory Users and Computers** screen, right-click in the right pane and then select **User** > **New**.
 
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image018.png)
@@ -88,7 +90,7 @@ Overview: In this section, you will create the users that will access the HDInsi
 
         ![Second Admin User](./media/apache-domain-joined-create-configure-esp/image024.png)
 
-1. Create `HDIUserGroup` as a new Group
+1. Create `HDIUserGroup` as a new Group.
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image026.png)
 
@@ -162,19 +164,19 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
 
 1. On the Connect to Azure AD screen, enter the username and password the global administrator for Azure AD. Click **Next**.
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image058.png)
+![alt-text](./media/apache-domain-joined-create-configure-esp/image058.png)
 
 1. On the Connect to Active Directory Domain Services screen, enter the username and password for an enterprise admin account. Click **Next**.
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image060.png)
+![alt-text](./media/apache-domain-joined-create-configure-esp/image060.png)
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image062.png)
+![alt-text](./media/apache-domain-joined-create-configure-esp/image062.png)
 
 1. On the Ready to configure screen, click **Install**.
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image064.png)
+![alt-text](./media/apache-domain-joined-create-configure-esp/image064.png)
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image078.png)
+![alt-text](./media/apache-domain-joined-create-configure-esp/image078.png)
 
 1. After the sync is complete confirm if the users that you created on the IAAS Active Directory are Synced to Azure Active Directory.
     1. Sign in to the Azure portal.
@@ -206,27 +208,29 @@ For more information, see [Enable Azure Active Directory Domain Services using t
 1. Sign in to the Azure portal.
 1. We are enabling this service in Central US region, the select the Directory Name as that of the Azure Active Directory and that would be **HDIFabrikam**.
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image084.png)
+![alt-text](./media/apache-domain-joined-create-configure-esp/image084.png)
 
 1. Select the network and the subnet that you created in the previous step.
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image086.png)
+![alt-text](./media/apache-domain-joined-create-configure-esp/image086.png)
 
-1. 
+1. XYZ
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image088.png)
+![alt-text](./media/apache-domain-joined-create-configure-esp/image088.png)
 
-1. 
+1. Enable complete synchronization by selecting **All** on the synchronization screen and clicking **OK**.
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image090.png)
+![alt-text](./media/apache-domain-joined-create-configure-esp/image090.png)
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image092.png)
+1. Verify the details for the Azure DS-DS and click **Ok**.
+
+![alt-text](./media/apache-domain-joined-create-configure-esp/image092.png)
 
 1. After you enable Azure AD-DS, a local Domain Name Service (DNS) server runs on the AD Virtual Machines (VMs), To Configure your Azure AADDS Virtual Network (VNET) to use custom DNS servers.
 
 1. First locate the right IP addresses, select **Properties** of HDIFabricam.com AADDS, and look at the IP Addresses listed beneath **IP Address on Virtual Network**.
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image096.png)
+![alt-text](./media/apache-domain-joined-create-configure-esp/image096.png)
 
 1. Change the configuration of the DNS servers on the Azure AD-DS VNET in this scenario Virtual Network configured for AADDS is **HDIFabrikam-AADDSVNET**.
 
@@ -237,7 +241,7 @@ For more information, see [Enable Azure Active Directory Domain Services using t
 
 1. In our scenario AADDS was configured to use IP Addresses 10.0.0.4 and 10.0.0.5, setting the same IP address on AADDS VNet as show in the image below.
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image098.png)
+![alt-text](./media/apache-domain-joined-create-configure-esp/image098.png)
 
 ## Securing LDAP traffic
 
@@ -287,7 +291,7 @@ click **Next**.
 1. The file name has to be .pfx extension, this file is configured on Azure Portal to establish secure connection.
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image109.png)
-
+    
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image111.png)
 
 1. Enable secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
