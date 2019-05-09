@@ -5,7 +5,7 @@
  author: anavinahar
  ms.service: networking
  ms.topic: include
- ms.date: 04/10/2019
+ ms.date: 05/09/2019
  ms.author: anavin
  ms.custom: include file
 
@@ -36,7 +36,7 @@ The following limits apply only for networking resources managed through Azure R
 > [!NOTE]
 > We recently increased all default limits to their maximum limits. If there's no maximum limit column, the resource doesn't have adjustable limits. If you had these limits increased by support in the past and don't see updated limits in the following tables, [open an online customer support request at no charge](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
-| Resource | Default limit/maximum limit | 
+| Resource | Default/maximum limit | 
 | --- | --- |
 | Virtual networks |1,000 |
 | Subnets per virtual network |3,000 |
@@ -71,7 +71,7 @@ The following limits apply only for networking resources managed through Azure R
 #### <a name="load-balancer"></a>Load balancer limits
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
-| Resource | Default limit |
+| Resource | Default/maximum limit |
 | --- | --- |
 | Load balancers | 1,000 | 
 | Rules per resource, Basic | 250 |
