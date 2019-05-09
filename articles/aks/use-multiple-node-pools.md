@@ -67,6 +67,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 * Multiple node pools are only available for clusters created after you've successfully registered the *MultiAgentpoolPreview* and *VMSSPreview* features for your subscription. You can't add or manage node pools with an existing AKS cluster created before these features were successfully registered.
 * You can't delete the first node pool.
+* The HTTP application routing add-on can't be used.
 
 While this feature is in preview, the following additional limitations apply:
 
