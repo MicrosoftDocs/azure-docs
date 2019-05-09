@@ -44,11 +44,11 @@ A personalized, seamless user experience is essential for mobile apps.  Microsof
 
 ![Daemon apps](./media/scenarios/mobile-app.svg)
 
-Mobile app considerations:
+Considerations for mobile apps:
 
-- ***User experience is key***: Allow users to see the value of your app before asking for sign-in, and only request the permissions needed.
-- ***Support all user configurations***: Many mobile business users are under Conditional Access and device compliance policies. Be sure to support these key scenarios.
-- ***Implement single sign-on (SSO)***: MSAL and Microsoft identity platform make enabling single sign-on simple through the device's browser or the Microsoft Authenticator (and Intune Company Portal on Android).
+- **User experience is key**: Allow users to see the value of your app before asking for sign-in, and request only the required permissions.
+- **Support all user configurations**: Many mobile business users are under conditional access and device compliance policies. Be sure to support these key scenarios.
+- **Implement single sign-on (SSO)**: MSAL and Microsoft identity platform make enabling single sign-on simple through the device's browser or the Microsoft Authenticator (and Intune Company Portal on Android).
 
 ## Specifics
 
