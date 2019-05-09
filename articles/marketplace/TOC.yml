@@ -464,7 +464,6 @@
   - name: Getting support
     href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
 - name: Commercial Marketplace Portal in Partner Center
-  href: ./partner-center-portal/commercial-marketplace-overview.md
   items: 
   - name: Overview
     items:
