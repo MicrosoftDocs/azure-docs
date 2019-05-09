@@ -5,15 +5,13 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/28/2019
+ms.date: 5/10/2019
 ms.author: victorh
 ---
 
 # Use Azure DNS for private domains
 
-The Domain Name System, or DNS, is responsible for translating (or resolving) a service name to its IP address. A hosting service for DNS domains, Azure DNS provides name resolution by using the Microsoft Azure infrastructure. In addition to supporting internet-facing DNS domains, Azure DNS now also supports private DNS domains as a preview feature.
-
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+The Domain Name System, or DNS, is responsible for translating (or resolving) a service name to its IP address. A hosting service for DNS domains, Azure DNS provides name resolution by using the Microsoft Azure infrastructure. In addition to supporting internet-facing DNS domains, Azure DNS also supports private DNS domains.
 
 Azure DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without your needing to add a custom DNS solution. By using private DNS zones, you can use your own custom domain names rather than the Azure-provided names available today. Using custom domain names helps you to tailor your virtual network architecture to best suit your organization's needs. It provides name resolution for virtual machines (VMs) within a virtual network and between virtual networks. Additionally, you can configure zones names with a split-horizon view, which allows a private and a public DNS zone to share the name.
 
@@ -65,16 +63,15 @@ For common questions and answers about private zones in Azure DNS, including spe
 
 ## Pricing
 
-The private DNS zones feature is free of charge during the public preview. During general availability, the feature offers a usage-based pricing model similar to that of the existing Azure DNS offering.
-
+For pricing information, see [Azure DNS Pricing](https://azure.microsoft.com/pricing/details/dns/).
 ## Next steps
 
-Learn how to create a private zone in Azure DNS by using [Azure PowerShell](./private-dns-getstarted-powershell.md) or [Azure CLI](./private-dns-getstarted-cli.md).
+- Learn how to create a private zone in Azure DNS by using [Azure PowerShell](./private-dns-getstarted-powershell.md) or [Azure CLI](./private-dns-getstarted-cli.md).
 
-Read about some common [private zone scenarios](./private-dns-scenarios.md) that can be realized with private zones in Azure DNS.
+- Read about some common [private zone scenarios](./private-dns-scenarios.md) that can be realized with private zones in Azure DNS.
 
-For common questions and answers about private zones in Azure DNS, including specific behavior you can expect for certain kinds of operations, see [FAQ](./dns-faq.md#private-dns). 
+- For common questions and answers about private zones in Azure DNS, including specific behavior you can expect for certain kinds of operations, see [FAQ](./dns-faq.md#private-dns). 
 
-Learn about DNS zones and records by visiting [DNS zones and records overview](dns-zones-records.md).
+- Learn about DNS zones and records by visiting [DNS zones and records overview](dns-zones-records.md).
 
-Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
+- Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
