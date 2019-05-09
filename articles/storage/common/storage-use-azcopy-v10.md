@@ -41,9 +41,15 @@ Before you can do anything meaningful with AzCopy, you need to authenticate your
 
 ## Authenticate your identity
 
-You can authenticate your identity by using your Azure account credentials, or by using a Shared Access Signature (SAS) token.
+You can authenticate your identity by using Azure Active Directory (AD), or by using a Shared Access Signature (SAS) token. Use the following table as a guide:
 
-### Option 1: Use your Azure account credentials
+| Storage type | Supported methods of authentication |
+|--|--|
+|**Blob storage** | Azure AD & SAS |
+|**Blob storage (hierarchial namespace)** | Azure AD only |
+|**File storage** | SAS only |
+
+### Use Azure AD
 
 First, ensure that one of these roles has been assigned to your identity:
 
@@ -68,9 +74,9 @@ This command returns an authentication code and the URL of a website. Open the w
 
 A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, you can close the browser window and begin using AzCopy.
 
-### Option 2: Use a SAS token
+### Use a SAS token
 
-An alternative way to authenticate yourself is to obtain a SAS token, and then append that token to each AzCopy command that you execute.
+You can append a SAS token to each AzCopy command that you execute.
 
 This example command recursively copies data from a local directory to a blob container. A fictitious SAS token is appended to the end of the of the container path.
 

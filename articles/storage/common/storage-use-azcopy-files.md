@@ -13,16 +13,7 @@ ms.subservice: common
 
 AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article contains example commands that work with file storage.
 
-## Get started
-
-See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and authenticate your identity.
-
-> [!NOTE]
-> The examples in this article assume that you've authenticated your identity by using the `AzCopy login` command.
->
-> If you'd rather use a SAS token, then you can append that token to the resource url in each command.
->
-> For example: `https://<storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>"`.
+Before you begin, see the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and familiarize yourself with the tool.
 
 ## Create file shares
 
@@ -30,8 +21,8 @@ You can use the AzCopy `make` command to create a file share. The example in thi
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy make "https://<storage-account-name>.file.core.windows.net/<file-share-name>"` |
-| **Example** | `azcopy make "https://mystorageaccount.file.core.windows.net/myfileshare"` |
+| **Syntax** | `azcopy make "https://<storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>"` |
+| **Example** | `azcopy make "https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
 
 ## Upload files
 
@@ -48,8 +39,8 @@ This section contains the following examples:
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy cp "<local-file-path>" "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-name>"` |
-| **Example** | `azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt"` |
+| **Syntax** | `azcopy cp "<local-file-path>" "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-name>?<SAS-token>"` |
+| **Example** | `azcopy copy "C:\myFolder\myTextFile.txt" "https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
 
 > [!NOTE]
 > If you append the `--put-md5` flag to this command, AzCopy will calculate the file's md5 hash code, and then store that code in the `Content-md5` property of the corresponding file for later use.
@@ -60,14 +51,14 @@ This example copies a folder (and all of the files in that folder) to a file sha
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy "<local-folder-path>" "https://<storage-account-name>.file.core.windows.net/<file-share-name>" --recursive=true` |
-| **Example** | `azcopy copy "C:\myFolder" "https://mystorageaccount.file.core.windows.net/myfileshare" --recursive=true` |
+| **Syntax** | `azcopy copy "<local-folder-path>" "https://<storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>" --recursive=true` |
+| **Example** | `azcopy copy "C:\myFolder" "https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive=true` |
 
 To copy to a folder within the file share, just specify the name of that folder in your command string.
 
 |    |     |
 |--------|-----------|
-| **Example** | `azcopy copy "C:\myFolder" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder" --recursive=true` |
+| **Example** | `azcopy copy "C:\myFolder" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive=true` |
 
 If you specify the name of a folder that does not exist in the file share, AzCopy creates a new folder by that name.
 
@@ -80,8 +71,8 @@ You can use the wildcard symbol (*) to provide partial file names.
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy "<local-folder-path>/*<partial-file-name>*" "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<folder-path>` |
-| **Example** | `azcopy copy "C:\myFolder\*.pdf" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder"` |
+| **Syntax** | `azcopy copy "<local-folder-path>/*<partial-file-name>*" "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<folder-path>?<SAS-token>` |
+| **Example** | `azcopy copy "C:\myFolder\*.pdf" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
 
 > [!NOTE]
 > Append the `--recursive=true` flag to upload files in all sub-folders.
@@ -101,15 +92,15 @@ This section contains the following examples:
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-path>" "<local-file-path>"` |
-| **Example** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt" "C:\myFolder\myTextFile.txt"` |
+| **Syntax** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-path>" "<local-file-path>?<SAS-token>"` |
+| **Example** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myFolder\myTextFile.txt"` |
 
 ### Download a folder
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<folder-path>" "<local-folder-path>" --recursive=true` |
-| **Example** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder "C:\myFolder"  --recursive=true` |
+| **Syntax** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<folder-path>" "<local-folder-path>?<SAS-token>" --recursive=true` |
+| **Example** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myFolder"  --recursive=true` |
 
 This example results in a folder named `C:\myFolder\myFileShareFolder` that contains all of the downloaded files.
 
@@ -119,8 +110,8 @@ You can use the wildcard symbol (*) to provide partial file names.
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/*<partial-file-name>*" "<local-folder-path>/"` |
-| **Example** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder/*.pdf" "C:\myFolder"` |
+| **Syntax** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/*<partial-file-name>*?<SAS-token>" "<local-folder-path>/"` |
+| **Example** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareFolder/*.pdf?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myFolder"` |
 
 > [!NOTE]
 > Append the `--recursive=true` flag to upload files in all sub-folders.
