@@ -65,7 +65,7 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 | [Redis data persistence](cache-how-to-premium-persistence.md) |✔|-|-|
 | [Redis cluster](cache-how-to-premium-clustering.md) |✔|-|-|
 | [Security via Firewall rules](cache-configure.md#firewall) |✔|✔|✔|
-| [Encryption in transit](https://docs.microsoft.com/en-us/azure/security/security-azure-encryption-overview) |✔|✔|✔|
+| Encryption in transit |✔|✔|✔|
 | [Enhanced security and isolation with VNet](cache-how-to-premium-vnet.md) |✔|-|-|
 | [Import/Export](cache-how-to-import-export-data.md) |✔|-|-|
 | [Scheduled updates](cache-administration.md#schedule-updates) |✔|✔|✔|

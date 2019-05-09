@@ -52,7 +52,7 @@ Select **Copy**. In the dialog box, enter the details for the new Pay-As-You-Go 
 
 After the app copy operation succeeds, you can navigate to the new application using the link.
 
-![Application settings page](media/howto-administer/appCopy3.png)
+![Application settings page](media/howto-administer/appcopy3a.png)
 
 > [!Note]
 > Copying an application also copies the definition of rules and actions. But because users who have access to your original app aren't copied to the copied app, you have to manually add users to actions such as email for which users are a prerequisite. In general it is a good idea to check the rules and actions to make sure they are up to date in the new app.

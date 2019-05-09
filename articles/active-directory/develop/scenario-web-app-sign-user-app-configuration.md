@@ -140,7 +140,7 @@ In ASP.NET, the application is configured through the `Web.Config` file
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   For more information on how to configure your ASP.NET application, please visit
-  http://go.microsoft.com/fwlink/?LinkId=301880
+  https://go.microsoft.com/fwlink/?LinkId=301880
   -->
 <configuration>
   <appSettings>
