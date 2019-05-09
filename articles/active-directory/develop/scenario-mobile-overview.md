@@ -52,11 +52,11 @@ Considerations for mobile apps:
 
 ## Specifics
 
-When building a mobile app on Microsoft identity platform, the end-to-end experience has a few considerations:
+Keep these considerations in mind when you build a mobile app on Microsoft identity platform:
 
-- Depending on the platform, signing in without any interaction may not be possible on the first sign in. iOS, for example, requires apps to show user interaction when getting SSO the first time through Microsoft Authenticator (and Intune Company Portal on Android).
-- On iOS and Android, MSAL may use an external browsers (which may appear on top of your app) to sign in users. This can be customized to use in-app WebViews instead.
-- Never use a secret in a mobile application, it will be accessible to all users.
+- Depending on the platform, some user interaction might be required the first time users sign in. For example, iOS requires apps to show user interaction when using SSO the first time through Microsoft Authenticator (and Intune Company Portal on Android).
+- On iOS and Android, MSAL might use an external browser (which might appear on top of your app) to sign in users. You can customize the configuration to use in-app WebViews instead.
+- Never use a secret in a mobile application. It will be accessible to all users.
 
 ## Next steps
 
