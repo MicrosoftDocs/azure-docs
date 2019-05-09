@@ -73,7 +73,8 @@ If some changes are missing on the destination, this could mean that is some err
 
 In this scenario, the best course of action is to add `try/catch blocks` in your code and inside the loops that might be processing the changes, to detect any failure for a particular subset of items and handle them accordingly (send them to another storage for further analysis or retry). 
 
-> **The Azure Cosmos DB Trigger, by default, won't retry a batch of changes if there was an unhandled exception** during your code execution. This means that the reason that the changes did not arrive at the destination is because that you are failing to process them.
+> [!NOTE]
+> The Azure Cosmos DB Trigger, by default, won't retry a batch of changes if there was an unhandled exception during your code execution. This means that the reason that the changes did not arrive at the destination is because that you are failing to process them.
 
 If, you find that some changes were not received at all by your trigger, the most common scenario is that there is **another Azure Function running**. It could be another Azure Function deployed in Azure or an Azure Function running locally on a developer's machine that has **exactly the same configuration** (same monitored and lease containers), and this Azure Function is stealing a subset of the changes you would expect your Azure Function to process.
 
