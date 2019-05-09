@@ -55,9 +55,9 @@ The following table lists the available tiers. You can find out more about the v
 
 ## How billing works
 
-There are three ways to incur costs in Azure Search, and there are fixed and variable components. This section describes each billing component.
+There are three ways to incur costs in Azure Search, and there are fixed and variable components. This section describes the three billing components: core service costs, data egress charges, and AI-enriched indexing.
 
-### 1. Core service costs (fixed and variable)
+### Core service costs (fixed and variable)
 
 For the service itself, the minimum charge is the first search unit (1 replica x 1 partition). This minimum is fixed for the lifetime of the service because the service can't run on anything less than this configuration.
 
@@ -71,28 +71,7 @@ In the following screenshot, per-unit pricing is indicated for Free, Basic, and 
 
 When you're estimating the cost of a search solution, keep in mind that pricing and capacity aren't linear. (Doubling capacity more than doubles the cost.) For an example of how of the formula works, see [How to allocate replicas and partitions](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
-
-### 2. Data egress charges during indexing
-
-Using [Azure Search indexers](search-indexer-overview.md) might affect billing, depending on the location of your services. You can eliminate data egress charges entirely if you create the Azure Search service in the same region as your data. Here's some information from the [bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/):
-
-+ Microsoft doesn't charge for any inbound data to any service on Azure, or for any outbound data from Azure Search.
-
-+ In multiservice solutions, there's no charge for data crossing the wire when all services are in the same region.
-
-Charges do apply for outbound data if services are in different regions. These charges aren't actually part of your Azure Search bill. They're mentioned here because if you're using data or AI-enriched indexers to pull data from different regions, you'll see costs reflected in your overall bill.
-
-### 3. AI-enriched indexing with Cognitive Services
-
-For [AI indexing with Cognitive Services](cognitive-search-concept-intro.md), you should plan to attach a billable Azure Cognitive Services resource, in the same region as Azure Search, at the S0 pricing tier for pay-as-you-go processing. There's no fixed cost associated with attaching Cognitive Services. You pay only for the processing you need.
-
-Image extraction during document cracking is an Azure Search charge. It's billed according to the number of images extracted from your documents. Text extraction is currently free.
-
-Other enrichments, like natural language processing, are based on [built-in cognitive skills](cognitive-search-predefined-skills.md) and billed against a Cognitive Services resource. They're billed at the same rate as if you had performed the task by using Cognitive Services directly. For more information, see [Attach a Cognitive Services resource with a skillset](cognitive-search-attach-cognitive-services.md).
-
-<a name="search-units"></a>
-
-### Billing based on search units
+#### Billing based on search units
 
 The most important billing concept to understand for Azure Search operations is the *search unit* (SU). Because Azure Search depends on both replicas and partitions for indexing and queries, it doesn't make sense to bill by just one or the other. Instead, billing is based on a composite of both.
 
@@ -104,13 +83,33 @@ The billing rate is hourly per SU. Each tier has a progressively higher rate. Hi
 
 Most customers bring just a portion of total capacity online, holding the rest in reserve. For billing, the number of partitions and replicas that you bring online, calculated by the SU formula, determines what you pay on an hourly basis.
 
-### Billing for image extraction in cognitive search
+### Data egress charges during indexing
+
+Using [Azure Search indexers](search-indexer-overview.md) might affect billing, depending on the location of your services. You can eliminate data egress charges entirely if you create the Azure Search service in the same region as your data. Here's some information from the [bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/):
+
++ Microsoft doesn't charge for any inbound data to any service on Azure, or for any outbound data from Azure Search.
+
++ In multiservice solutions, there's no charge for data crossing the wire when all services are in the same region.
+
+Charges do apply for outbound data if services are in different regions. These charges aren't actually part of your Azure Search bill. They're mentioned here because if you're using data or AI-enriched indexers to pull data from different regions, you'll see costs reflected in your overall bill.
+
+### AI-enriched indexing with Cognitive Services
+
+For [AI indexing with Cognitive Services](cognitive-search-concept-intro.md), you should plan to attach a billable Azure Cognitive Services resource, in the same region as Azure Search, at the S0 pricing tier for pay-as-you-go processing. There's no fixed cost associated with attaching Cognitive Services. You pay only for the processing you need.
+
+Image extraction during document cracking is an Azure Search charge. It's billed according to the number of images extracted from your documents. Text extraction is currently free.
+
+Other enrichments, like natural language processing, are based on [built-in cognitive skills](cognitive-search-predefined-skills.md) and billed against a Cognitive Services resource. They're billed at the same rate as if you had performed the task by using Cognitive Services directly. For more information, see [Attach a Cognitive Services resource with a skillset](cognitive-search-attach-cognitive-services.md).
+
+<a name="search-units"></a>
+
+#### Billing for image extraction in cognitive search
 
 If you extract images from files in a cognitive search indexing pipeline, you'll be charged for that operation in your Azure Search bill. In an [indexer configuration](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** is the parameter that triggers image extraction. If **imageAction** is set to "none" (the default), you won't be charged for image extraction.
 
 Pricing is subject to change. It's documented on the [pricing details](https://azure.microsoft.com/pricing/details/search/) page for Azure Search.
 
-### Billing for built-in skills in cognitive search
+#### Billing for built-in skills in cognitive search
 
 When you set up an enrichment pipeline, any [built-in skills](cognitive-search-predefined-skills.md) used in the pipeline are based on machine learning models. These models are provided by Cognitive Services. If you use these models during indexing, you'll be billed at the same rate as you would be if you requested the resource directly.
 
@@ -173,7 +172,7 @@ Storage Optimized tiers, L1 and L2, are ideal for applications with large data r
 
 L2 offers twice the overall storage capacity of L1.  Choose your tier based on the maximum amount of data that you think your index needs. The L1 tier partitions scale up in 1-TB increments to a maximum of 12 TB. The L2 partitions increase by 2 TBs per partition up to a maximum of 24 TB.
 
-## Evaluate capacity
+## Evaluating capacity
 
 Capacity and the costs of running the service are directly related. Tiers impose limits on two levels: storage and resources. You should think about both because whichever limit you reach first is the effective limit.
 
@@ -243,7 +242,7 @@ The Free tier and preview features don't provide [service-level agreements (SLAs
 
 Start with a Free tier and build an initial index by using a subset of your data to understand its characteristics. The data structure in Azure Search is an inverted index structure. The size and complexity of an inverted index is determined by content. Remember that highly redundant content tends to result in a smaller index than highly irregular content. So content characteristics rather than the size of the dataset determine index storage requirements.
 
-After you have an initial estimate of your index size, [provision a billable service](search-create-service-portal.md) on one of the tiers discussed in this article, either Basic, Standard, or Storage Optimized. Relax any artificial constraints on data sizing and [rebuild your index](search-howto-reindex.md) to include all the data that you want to be searchable.
+After you have an initial estimate of your index size, [provision a billable service](search-create-service-portal.md) on one of the tiers discussed in this article: Basic, Standard, or Storage Optimized. Relax any artificial constraints on data sizing and [rebuild your index](search-howto-reindex.md) to include all the data that you want to be searchable.
 
 [Allocate partitions and replicas](search-capacity-planning.md) as needed to get the performance and scale you require.
 
