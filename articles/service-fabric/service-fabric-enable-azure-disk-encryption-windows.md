@@ -26,7 +26,7 @@ In this tutorial, you'll learn how to enable disk encryption on Service Fabric c
 
 The guide covers the following topics:
 
-* Key concepts to be aware of during enable disk encryption on Service Fabric cluster virtual machine scale set in Windows.
+* Key concepts to be aware of when enabling disk encryption on Service Fabric cluster virtual machine scale sets in Windows.
 * Steps to be followed before enabling disk encryption on Service Fabric cluster nodes in Windows.
 * Steps to be followed to enable disk encryption on Service Fabric  cluster nodes in Windows.
 
@@ -54,7 +54,7 @@ Create a Key Vault in the same subscription and region as the scale set, then se
 Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 ```
 * Install the latest version of [Azure CLI](/cli/azure/install-azure-cli), which has the new encryption commands.
-* Install the latest version of [Azure SDK from Azure PowerShell](https://github.com/Azure/azure-powershell/releases) release. Following are the virtual machine scale set ADE cmdlets to enable ([set](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) encryption, retrieve ([get](/powershell/module/az.compute/get-azvmssvmdiskencryption)) encryption status, and remove ([disable](/powershell/module/az.compute/disable-azvmssdiskencryption)) encryption on scale set instance.
+* Install the latest version of the [Azure SDK from Azure PowerShell](https://github.com/Azure/azure-powershell/releases) release. Following are the virtual machine scale set ADE cmdlets to enable ([set](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) encryption, retrieve ([get](/powershell/module/az.compute/get-azvmssvmdiskencryption)) encryption status, and remove ([disable](/powershell/module/az.compute/disable-azvmssdiskencryption)) encryption on the scale set instance.
 
 | Command | Version |  Source  |
 | ------------- |-------------| ------------|
@@ -93,7 +93,7 @@ az account set --subscription $subscriptionId
 
 ### Use the custom template that you already have 
 
-If you need to author a custom template to suit your needs, it's highly recommended that you start with one of the templates that are available on the [Azure Service Fabric Template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master) page. To [customize your cluster template][customize-your-cluster-template] section, see the following guidance.
+If you need to author a custom template to suit your needs, it's highly recommended that you start with one of the templates that are available on the [Azure Service Fabric cluster creation template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master) page. To [customize your cluster template][customize-your-cluster-template] section, see the following guidance.
 
 If you already have a custom template, double-check that all three certificate-related parameters in the template and the parameter file are named as follows and that values are null as follows:
 
@@ -148,7 +148,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 To deploy an application to your cluster, follow the steps and guidance at [Deploy and remove applications using PowerShell](service-fabric-deploy-remove-applications.md).
 
 
-### Enable disk encryption for the virtual machine scale sets created above
+### Enable disk encryption for the virtual machine scale sets created previously
 
 To enable disk encryption for the virtual machine scale sets you created through the previous steps, run the following commands:
  
@@ -192,10 +192,10 @@ az vmss encryption show -g <resourceGroupName> -n <VMSS name>
 ```
 
 
-Additionally, you can sign in to the virtual machine in scale set and make sure the drives are encrypted.
+Additionally, you can sign in to the virtual machine scale set and make sure the drives are encrypted.
 
 ### Disable disk encryption for a virtual machine scale set in a Service Fabric cluster 
-Disable disk encryption for a virtual machine scale set by running the following commands. Note that disabling disk encryption applies to entire virtual machine scale set and not an individual instance.
+Disable disk encryption for a virtual machine scale set by running the following commands. Note that disabling disk encryption applies to the entire virtual machine scale set and not an individual instance.
 
 ```powershell
 
