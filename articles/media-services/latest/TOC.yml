@@ -32,8 +32,9 @@
     displayName: PlayReady, Widevine
     href: protect-with-drm.md    
 - name: Concepts
-  href: concepts-overview.md
   items:
+  - name: Overview
+    href: concepts-overview.md
   - name: Cloud upload and storage
     items:    
     - name: Storage
@@ -77,7 +78,7 @@
         href: filters-dynamic-manifest-overview.md 
       - name: Filters
         href: filters-concept.md   
-    - name: Content protection
+    - name: Dynamic encryption/content protection
       items:
       - name: Streaming protocols and encryption types
         displayName: dynamic, encryption      
@@ -92,7 +93,7 @@
           href: widevine-license-template-overview.md
         - name: FairPlay license requirements
           href: fairplay-license-overview.md      
-    - name: Streaming Endpoints/Origin
+    - name: Streaming Endpoints
       displayName: origin, packager, cdn
       href: streaming-endpoint-concept.md
     - name: Streaming Locators
@@ -136,9 +137,10 @@
     - name: Azure Media Player
       href: use-azure-media-player.md
   - name: Developing with v3 APIs
-    href: media-services-apis-overview.md
-    displayName: access, naming, long-running
     items:
+    - name: Overview
+      href: media-services-apis-overview.md
+      displayName: accessing, naming, long-running
     - name: Page, filter, order entities
       href: entities-overview.md 
     - name: RBAC
