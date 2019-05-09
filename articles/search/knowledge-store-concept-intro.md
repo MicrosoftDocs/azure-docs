@@ -1,5 +1,5 @@
 ---
-title: Knowledge Store introduction and overview - Azure Search
+title: Knowledge Store introduction and overview (preview) - Azure Search
 description: Send enriched documents to Azure storage where you can view, reshape, and consume enriched documents in Azure Search and in other applications.
 manager: cgronlun
 author: HeidiSteen
@@ -13,7 +13,11 @@ ms.author: heidist
 ---
 # What is Knowledge Store in Azure Search?
 
-Knowledge Store is an optional feature of Azure Search, currently in public preview, that saves enriched documents and metadata created by an AI-based indexing pipeline [(cognitive search)](cognitive-search-concept-intro.md). Knowledge Store is backed by an Azure storage account that you configure as part of the pipeline. When enabled, the search service uses this storage account to cache a representation of each enriched document. 
+> [!Note]
+> Knowledge Store is in public preview and should not be used in production workloads. REST `api-version=2019-05-06-Preview` provides this feature. You can also use the .NET SDK `8.0.0-preview`.
+>
+
+Knowledge Store is an optional feature of Azure Search that saves enriched documents and metadata created by an AI-based indexing pipeline [(cognitive search)](cognitive-search-concept-intro.md). Knowledge Store is backed by an Azure storage account that you configure as part of the pipeline. When enabled, the search service uses this storage account to cache a representation of each enriched document. 
 
 If you have used cognitive search in the past, you already know that skillsets can be used to move a document through a sequence of enrichments. The outcome can be an Azure Search index, or (new in this preview) projections in a knowledge store.
 

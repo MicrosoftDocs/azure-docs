@@ -11,7 +11,11 @@ ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
 ---
-# moreLikeThis in Azure Search (preview)
+# moreLikeThis in Azure Search
+
+> [!Note]
+> moreLikeThis is in public preview and should not be used in production workloads. REST `api-version=2019-05-06-Preview` provides this feature.
+>
 
 `moreLikeThis=[key]` is a query parameter in the [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents) that finds documents similar to the document specified by the document key. When a search request is made with `moreLikeThis`, a query is generated with search terms extracted from the given document that describe that document best. The generated query is then used to make the search request. By default, the contents of all searchable fields are considered, minus any restricted fields that you specified using the `searchFields` parameter. The `moreLikeThis` parameter cannot be used with the search parameter, `search=[string]`.
 
