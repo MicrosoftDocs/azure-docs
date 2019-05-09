@@ -93,7 +93,7 @@
           href: widevine-license-template-overview.md
         - name: FairPlay license requirements
           href: fairplay-license-overview.md      
-    - name: Streaming Endpoints/Origin
+    - name: Streaming Endpoints
       displayName: origin, packager, cdn
       href: streaming-endpoint-concept.md
     - name: Streaming Locators
