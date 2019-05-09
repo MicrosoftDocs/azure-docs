@@ -26,13 +26,12 @@ The following regions and resources are available to container groups with Linux
 
 | Location | OS | CPU | Memory (GB) |
 | -------- | -- | :---: | :-----------: |
-| Canada Central, Central US, East US, East US 2, South Central US, West US | Linux | 4 | 16 |
-| North Europe, West Europe, West US 2 | Linux | 4 | 14 |
-| Japan East | Linux | 2 | 8 |
-| Australia East, Southeast Asia | Linux | 2 | 7 |
-| Central India, East Asia, North Central US, South India | Linux | 2 | 3.5 |
-| East US,  West Europe, West US| Windows | 4 | 16 |
-| Australia East, Canada Central, Central India, Central US, East Asia, East US 2, Japan East, North Central US, North Europe, South Central US, South India, Southeast Asia, West US 2 | Windows | 2 | 3.5 |
+| Canada Central, Central India, Central US, East Asia, East US, East US 2, North Europe, South Central US, Southeast Asia, West US | Linux | 4 | 16 |
+| West Europe, West US 2 | Linux | 4 | 14 |
+| Australia East, Japan East | Linux | 2 | 8 |
+| North Central US, South India | Linux | 2 | 3.5 |
+| Central US, East US, North Europe, Southeast Asia, West Europe, West US, West US 2 | Windows | 4 | 16 |
+| Australia East, Canada Central, Central India, East Asia, East US 2, Japan East, North Central US, South Central US, South India | Windows | 2 | 3.5 |
 
 ## Availability - Windows Server 2019 LTSC, 1809 deployments (preview)
 
@@ -41,7 +40,7 @@ The following regions and resources are available to container groups with Windo
 | Location | OS | CPU | Memory (GB) |
 | -------- | -- | :---: | :-----------: |
 | East US, West Europe, West US | Windows | 4 | 16 |
-| Central US, West US 2, North Europe, Southeast Asia | Windows | 2 | 3.5 |
+| Central US, North Europe, Southeast Asia, West US 2 | Windows | 2 | 3.5 |
 
 ## Availability - Virtual network deployment (preview)
 
