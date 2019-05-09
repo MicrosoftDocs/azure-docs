@@ -33,7 +33,7 @@ Explore and prepare data, train and test models, and deploy them using rich tool
 
 ## What can I do with Azure Machine Learning service?
 
-Using the <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages or using the [visual interface (preview)](ui-quickstart-run-experiment.md), you can build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning service Workspace.
+Use the <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages, or use the [visual interface (preview)](ui-quickstart-run-experiment.md) to build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning service Workspace.
 
 You can choose from many machine learning components available in open-source Python packages, such as <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>, and <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
