@@ -31,7 +31,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Create a workspace
 
-If you have an Azure Machine Learning service workspace, skip to the [next section](#open-the-visual-interface-webpage). Otherwise, create one now.
+If you have an Azure Machine Learning service workspace, skip to the [next section](#create-a-cloud-based-notebook-server). Otherwise, create one now.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
