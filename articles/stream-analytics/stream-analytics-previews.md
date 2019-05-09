@@ -20,7 +20,7 @@ The following features are in public preview. You can take advantage of these fe
 
 ### Visual Studio Code for Azure Stream Analytics (Released May 2019)
 
-Azure Stream Analytics jobs can be authored in Visual Studio Code. See our [VS Code getting started tutorial](https://docs.microsoft.com/en-us/azure/stream-analytics/quick-create-vs-code).
+Azure Stream Analytics jobs can be authored in Visual Studio Code. See our [VS Code getting started tutorial](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
 
 ### Anomaly Detection
 
