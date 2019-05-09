@@ -12,7 +12,7 @@ ms.author: girobins
 # Profiling Queries
 
 ## QueryMetrics
-[QueryMetrics](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.querymetrics.aspx) is a strongly typed object that holds information on how queries were executed on the backend. These metrics are documented in more detail in the following article [https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query-metrics](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query-metrics). What this article focuses on is how you can retrieve these metrics client-side using the .net SDK.
+[QueryMetrics](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.querymetrics.aspx) is a strongly typed object with information about the backend query execution. These metrics are documented in more detail in the following article [https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query-metrics](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query-metrics). What this article focuses on is how you can retrieve these metrics client-side using the .net SDK.
 
 ## Setting the FeedOptions for CreateDocumentQuery
 
@@ -54,7 +54,7 @@ while (documentQuery.HasMoreResults)
 ```
 #### Aggregating QueryMetrics
 
-Notice that there were multiple calls to [ExecuteNextAsync](https://msdn.microsoft.com/en-us/library/azure/dn850294.aspx) that each returned to us a `FeedResponse`. These `FeedResponses` each have a dictionary of `QueryMetrics`; one for every continuation of the query. So how can we aggregate these `QueryMetrics`? We can aggregate with LINQ!
+Notice that there were multiple calls to [ExecuteNextAsync](https://msdn.microsoft.com/en-us/library/azure/dn850294.aspx) that each returned to us a `FeedResponse`. Each `FeedResponse` has a dictionary of `QueryMetrics`; one for every continuation of the query. So how can we aggregate these `QueryMetrics`? We can aggregate with LINQ!
 
 ```csharp
 List<QueryMetrics> queryMetricsList = new List<QueryMetrics>();
@@ -183,14 +183,14 @@ DoSomeLogging(queryExecutionTimeEndToEndTotal.Elapsed);
 },
 ```
 
-This query is a scan query. This means that the query was'nt able to be served by the index. What happens on the backend is that many documents are loaded. This is evident from the following properties:
+This query is a scan query, which means that the query wasn't able to be served by the index. What happens on the backend is that many documents are loaded, which is evident from the following properties:
 
 ```js
 "RetrievedDocumentCount": 157743,
 "RetrievedDocumentSize": 1578730753,
 ```
 
-This means that the backend had to load 157,743 documents which totaled 1,578,730,753 bytes. This ends up costing many RUs and takes a long time. This is clear when assessing the total time spent via the following property:
+We had to load 157,743 documents, which totaled 1,578,730,753 bytes. Loading this many bytes ends up costing many RUs and takes a long time, which is clear when assessing the total time spent via the following property:
 
 ```js
 "TotalTime": "00:00:04.5299799"
