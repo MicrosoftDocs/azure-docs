@@ -83,10 +83,6 @@ In the testing, the following criteria was used:
 - The event hub used for ingestion had 200 partitions. 
 - The data that was ingested was received by two receiver applications receiving from all partitions.
 
-#### How do I create a cluster larger than 1 CU?
-
-In the Preview release of the self-serve experience, you can request to scale up your cluster after you create the cluster. After creating a 1 CU cluster, please reach out to Event Hubs support by filing a [support request](https://ms.portal.azure.com/#create/Microsoft.Support) under *Technical > Quota > Request to Scale Up or Scale Down Dedicated Cluster*. In our GA release, you will be able to scale up your cluster directly through the portal. 
-
 #### Can I scale down my cluster?
 
 After creation, clusters are billed for a minimum of 4 hours of usage. In the Preview release of the self-serve experience, you can submit a [support request](https://ms.portal.azure.com/#create/Microsoft.Support) to the Event Hubs team under *Technical > Quota > Request to Scale Up or Scale Down Dedicated Cluster*. It may take up to 7 days to complete the request to scale down your cluster. 
@@ -94,7 +90,6 @@ After creation, clusters are billed for a minimum of 4 hours of usage. In the Pr
 #### How will Geo-DR work with my cluster?
 
 You can geo-pair a namespace under a Dedicated-tier cluster with another namespace under a Dedicated-tier cluster. We do not encourage pairing a Dedicated-tier namespace with a namespace in our Standard offering, since the throughput limit will be incompatible which will result in errors. 
-
 
 #### Can I migrate my Standard namespaces to belong to a Dedicated-tier cluster?
 We do not currently support an automated migration process for migrating your event hubs data from a Standard namespace to a Dedicated one. To migrate to a Dedicated-tier cluster, we recommend draining any messages left in your Standard-tier event hubs and replacing the connection endpoints with that of your Dedicated namespace.
