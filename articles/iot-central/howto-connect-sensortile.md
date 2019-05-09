@@ -25,7 +25,7 @@ To complete the steps in this article, you need the following resources:
 
 ### Get your device connection details
 
-In your Azure IoT Central application, add a real device from the **SensorTile.box** device template and make a note of the device connection details: **Scope ID**, **Device ID, and **Primary key**:
+In your Azure IoT Central application, add a real device from the **SensorTile.box** device template and make a note of the device connection details: **Scope ID**, **Device ID**, and **Primary key**:
 
 1. Add a device from Device Explorer. Select **+ New > Real** to add a real device.
 
