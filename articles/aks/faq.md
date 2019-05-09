@@ -107,7 +107,7 @@ In a service level agreement (SLA), the provider agrees to reimburse the custome
 ## Why can I not set `maxPods` below 30?
 
 AKS supports setting the `maxPods` value at cluster creation time via the Azure
-CLI and ARM templates. However, there is a *minimum value* (validated at
+CLI and Azure Resource Manager templates. However, there is a *minimum value* (validated at
 creation time) for both Kubenet and Azure CNI, shown below:
 
 | Networking | Minimum | Maximum |
