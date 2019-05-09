@@ -12,7 +12,7 @@ ms.subservice: common
 
 # Get started with AzCopy
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer files.
+AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer files. 
 
 <a id="download-and-install-azcopy" />
 
@@ -124,4 +124,4 @@ AzCopy V10 is the currently supported version of AzCopy. However, if you need to
 
 ## Next steps
 
-If you have questions, issues, or general feedback, submit them [on GitHub](https://github.com/Azure/azure-storage-azcopy).
+If you're interested in seeing what's new in the latest release of AzCopy, visit our [GitHub](https://github.com/Azure/azure-storage-azcopy) page.
