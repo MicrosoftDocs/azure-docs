@@ -143,6 +143,8 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
 
 ## Sync on-premises users to Azure AD
 
+### Download and install Microsoft Azure Active Directory connect
+
 1. [Download Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
 1. Install Microsoft Azure Active Directory connect on the Domain Controller.
@@ -156,34 +158,39 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
 
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image056.png)
 
-1. Configure Sync between On-Premises Domain Controller and Azure AD
-    1. On the Connect to Azure AD screen, enter the username and password the global administrator for Azure AD. Click **Next**.
+### Configure Sync between On-Premises Domain Controller and Azure AD
 
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image058.png)
+1. On the Connect to Azure AD screen, enter the username and password the global administrator for Azure AD. Click **Next**.
 
-    1. On the Connect to Active Directory Domain Services screen, enter the username and password for an enterprise admin account. Click **Next**.
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image058.png)
 
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image060.png)
+1. On the Connect to Active Directory Domain Services screen, enter the username and password for an enterprise admin account. Click **Next**.
 
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image062.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image060.png)
 
-    1. On the Ready to configure screen, click **Install**.
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image062.png)
 
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image064.png)
+1. On the Ready to configure screen, click **Install**.
 
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image078.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image064.png)
 
-    1. After the sync is complete confirm if the users that you created on the IAAS Active Directory are Synced to Azure Active Directory.
-        1. Sign in to the Azure portal.
-        1. Select **Azure Active Directory** > **HDIFabrikam** > **Users**.
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image078.png)
 
-            ![alt-text](./media/apache-domain-joined-create-configure-esp/image080.jpg)
+1. After the sync is complete confirm if the users that you created on the IAAS Active Directory are Synced to Azure Active Directory.
+    1. Sign in to the Azure portal.
+    1. Select **Azure Active Directory** > **HDIFabrikam** > **Users**.
 
-1. Create an user-assigned managed identity that will be used to configure Azure Azure Active Directory Domain Services (Azure AD-DS).
+        ![alt-text](./media/apache-domain-joined-create-configure-esp/image080.jpg)
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image082.png)
+### Create an user-assigned managed identity
 
-1. Enable Azure Active Directory Domain Services using the Azure portal. For more information, see [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Create an user-assigned managed identity that will be used to configure Azure Azure Active Directory Domain Services (Azure AD-DS). For more information on creating a user-assigned managed identity, see [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+
+![alt-text](./media/apache-domain-joined-create-configure-esp/image082.png)
+
+### Enable Azure Active Directory Domain Services using the Azure portal
+
+For more information, see [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 1. Create the Virtual Network to host AADDS. Run the following powershell code.
 
@@ -196,7 +203,8 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. We are enabling this service in Central US region, the select the Directory Name as that of the Azure Active Directory and that would be "HDIFabrikam".
+1. Sign in to the Azure portal.
+1. We are enabling this service in Central US region, the select the Directory Name as that of the Azure Active Directory and that would be **HDIFabrikam**.
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image084.png)
 
@@ -204,13 +212,15 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image086.png)
 
+1. 
+
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image088.png)
+
+1. 
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image090.png)
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image092.png)
-
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image094.png)
 
 1. After you enable Azure AD-DS, a local Domain Name Service (DNS) server runs on the AD Virtual Machines (VMs), To Configure your Azure AADDS Virtual Network (VNET) to use custom DNS servers.
 
