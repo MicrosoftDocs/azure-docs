@@ -163,7 +163,7 @@ The following administrator roles are available:
 
 
   > [!NOTE]
-  > Delegating administrative permissions over subsets of users and applying policies to a subset of users is possible with [Administrative Units](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
+  > Delegating administrative permissions over subsets of users and applying policies to a subset of users is possible with [Administrative Units (preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
 
 
   > [!NOTE]
