@@ -99,6 +99,16 @@
     href: sql-database-implement-geo-distributed-database.md 
   - name: Set up Azure SQL Data Sync
     href: sql-database-get-started-sql-data-sync.md
+  - name: Machine Learning Services
+    items:
+    - name: Build and deploy a predictive model
+      items:
+      - name: 1- Prepare the database
+        href: sql-database-tutorial-build-deploy-model-1.md
+      - name: 2 - Build the model
+        href: sql-database-tutorial-build-deploy-model-2.md
+      - name: 3 - Deploy the model
+        href: sql-database-tutorial-build-deploy-model-3.md
 - name: Samples
   items:
   - name: Code samples
