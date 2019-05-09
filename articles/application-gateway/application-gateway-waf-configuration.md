@@ -34,11 +34,12 @@ The following attributes can be added to exclusion lists:
 
 * Request Headers
 * Request Cookies
-* Request Body
+* Request attribute name (args)
 
    * Form multi-part data
    * XML
    * JSON
+   * URL query args
 
 You can specify an exact request header, body, cookie, or query string attribute match.  Or, you can optionally specify partial matches. The exclusion is always on a header field, never on its value. Exclusion rules are global in scope, and apply to all pages and all rules.
 
