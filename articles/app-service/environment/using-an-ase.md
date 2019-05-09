@@ -57,9 +57,6 @@ To create an app in an ASE:
 
 1. Select your OS. 
 
-    * Hosting a Linux app in an ASE is a new preview feature, so we suggest that you do not add Linux apps into an ASE that is currently running production workloads. 
-    * Adding a Linux app into an ASE means that the ASE will also be in preview mode. 
-
 1. Select an existing App Service plan in your ASE, or create a new one by following these steps:
 
 	a. Select **Create New**.
