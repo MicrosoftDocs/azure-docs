@@ -345,7 +345,7 @@ Pass the service principal application ID and password in the following `az acr 
 ```azurecli-interactive
 az acr task credential add --name example2 \
     --registry $ACR_NAME \
-    --login-server danlep0429a.azurecr.io \
+    --login-server mycontainerregistrydate.azurecr.io \
     --username <service-principal-application-id> \
     --password <service-principal-password>
 ```
