@@ -48,7 +48,7 @@ An admin can configure these capabilities using the following Azure AD cmdlet Se
 AllowEmailVerifiedUsers and AllowAdHocSubscriptions are directory-wide settings that can be applied to an managed or an unmanaged directory. Here's an example where:
 
 * You administer a directory with a verified domain such as contoso.com
-* You use B2B collaboration from a different directory to invite a user that does not already exist (userdoesnotexist@contoso.com) in the home directory of constoso.com
+* You use B2B collaboration from a different directory to invite a user that does not already exist (userdoesnotexist@contoso.com) in the home directory of contoso.com
 * The home directory has the AllowEmailVerifiedUsers turned on
 
 If the preceding conditions are true, then a member user is created in the home directory, and a B2B guest user is created in the inviting directory.
