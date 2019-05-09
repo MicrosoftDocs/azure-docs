@@ -73,7 +73,10 @@ The following JSON is with the `verbose` parameter set to `false`:
         },
         "entities": {
             "ordinal": [
-                2
+                {
+                    "offset": 2,
+                    "relativeTo": "start"
+                }
             ]
         }
     }
@@ -95,18 +98,24 @@ The following JSON is with the `verbose` parameter set to `true`:
         },
         "entities": {
             "ordinal": [
-                2
+                {
+                    "offset": 2,
+                    "relativeTo": "start"
+                }
             ],
             "$instance": {
                 "ordinal": [
-                    {
-                        "type": "builtin.ordinal",
-                        "text": "second",
-                        "startIndex": 10,
-                        "length": 6,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
+                  {
+                    "type": "builtin.ordinal",
+                    "text": "second",
+                    "startIndex": 10,
+                    "length": 6,
+                    "modelTypeId": 2,
+                    "modelType": "Prebuilt Entity Extractor",
+                    "recognitionSources": [
+                        "model"
+                    ]
+                  }
                 ]
             }
         }
@@ -116,4 +125,4 @@ The following JSON is with the `verbose` parameter set to `true`:
 
 ## Next steps
 
-Learn about the [percentage](luis-reference-prebuilt-percentage.md), [phonenumber](luis-reference-prebuilt-phonenumber.md), and [temperature](luis-reference-prebuilt-temperature.md) entities. 
+Learn about the [percentage](luis-reference-prebuilt-percentage.md), [phone number](luis-reference-prebuilt-phonenumber.md), and [temperature](luis-reference-prebuilt-temperature.md) entities. 

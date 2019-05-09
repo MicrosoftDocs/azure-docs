@@ -36,7 +36,7 @@ Before initializing an application, you first need to [register it with the Azur
 
 You can use MSAL.js as follows in a plain JavaScript/Typescript application. Initialize MSAL authentication context by instantiating `UserAgentApplication` with a configuration object. The minimum required config to initialize MSAL.js is the clientID of your application which you should get from the application registration portal.
 
-For authentication methods with redirect flows (`loginRedirect` and `acquireTokenRedirect`), you will need to explicitly register success and error callbacks through `handleRedirectCallbacks()` method. This is needed since redirect flows do not return promises as the methods with a pop-up experience do.
+For authentication methods with redirect flows (`loginRedirect` and `acquireTokenRedirect`), you will need to explicitly register a callback for success or error through `handleRedirectCallback()` method. This is needed since redirect flows do not return promises as the methods with a pop-up experience do.
 
 ```javascript
 // Configuration object constructed
@@ -49,10 +49,12 @@ const config = {
 // create UserAgentApplication instance
 const myMSALObj = new UserAgentApplication(config);
 
-// (optional when using redirect methods) register redirect call backs for Success and Error
-myMSALObj.handleRedirectCallbacks(
-    acquireTokenRedirectCallBack, acquireTokenErrorRedirectCallBack
-);
+function authCallback(error, response) {
+    //handle redirect response
+}
+
+// (optional when using redirect methods) register redirect call back for Success or Error
+myMSALObj.handleRedirectCallback(authCallback);
 ```
 
 MSAL.js is designed to have a single instance and configuration of the `UserAgentApplication` to represent a single authentication context. Multiple instances are not recommended as they cause conflicting cache entries and behavior in the browser.
@@ -71,7 +73,6 @@ export type AuthOptions = {
     validateAuthority?: boolean;
     redirectUri?: string | (() => string);
     postLogoutRedirectUri?: string | (() => string);
-    state?: string;
     navigateToLoginRequestUrl?: boolean;
 };
 
@@ -122,8 +123,6 @@ Below is the total set of configurable options that are supported currently in t
 - **redirectUri**: Optional.  The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL encoded. Defaults to `window.location.href`.
 
 - **postLogoutRedirectUri**: Optional.  Redirects the user to `postLogoutRedirectUri` after sign out. The default is `redirectUri`.
-
-- **state**: Optional.  A value included in the request that will also be returned in the token response typically used for preventing [cross-site request forgery attacks](https://tools.ietf.org/html/rfc6749#section-10.12). By default, MSAL.js passes a randomly generated unique value for this purpose. You can also pass the user's state in the app, such as the page or view they were on as input to this parameter. The passed in state appended to the unique guid set by MSAL.js would come back in the auth response.
 
 - **navigateToLoginRequestUrl**: Optional. Ability to turn off default navigation to start page after login. Default is true. This is used only for redirect flows.
 

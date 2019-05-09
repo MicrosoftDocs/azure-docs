@@ -14,7 +14,7 @@ Azure periodically updates platform to improve the reliability, performance, and
 
 - If a non-rebootful update is possible, the VM is paused while the host is updated or it is live migrated to an already updated host.
 
-- If maintenance requires a reboot, you get a notice of when the maintenance is planned. Azure will also give a time window where you can start the maintenance yourself, at a time that works for you. Self-maintenance time window is typically four weeks unless it is urgent to perform maintenance. Azure is also investing in technologies to reduce the cases when the VMs have to be rebooted for planned platform maintenance. 
+- If maintenance requires a reboot, you get a notice of when the maintenance is planned. Azure will also give a time window where you can start the maintenance yourself, at a time that works for you. Self-maintenance time window is typically 30 days unless it is urgent to perform maintenance. Azure is also investing in technologies to reduce the cases when the VMs have to be rebooted for planned platform maintenance. 
 
 This page describes how Azure performs both types of maintenance. For more information about unplanned events (outages), see Manage the availability of virtual machines for [Windows](../articles/virtual-machines/windows/manage-availability.md) or [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
@@ -24,13 +24,13 @@ For "how-to" information on managing planned maintenance, see "Handling planned 
 
 ## Maintenance not requiring a reboot
 
-The goal for most non-zero impact maintenance that doesn't require a reboot is less than 10 seconds pause for the VM. Azure chooses the update mechanism that is least impactful to customer VMs. In certain cases, memory preserving maintenance mechanisms are used, which pauses the VM for up to 30 seconds and preserves the memory in RAM. The VM is then resumed and its clock is automatically synchronized. Azure is increasingly using live migration technologies and improving memory preserving maintenance mechanism to reduce the pause duration.  
+As stated above, most platform updates are done with zero impact to customer VMs. When zero impact update is not possible Azure chooses the update mechanism that is least impactful to customer VMs. Majority of these non-zero impact maintenance causes less than 10 seconds pause for the VM. In certain cases, memory preserving maintenance mechanisms are used, which pauses the VM for up to 30 seconds and preserves the memory in RAM. The VM is then resumed and its clock is automatically synchronized. Memory preserving maintenance works for more than 90% Azure VMs except G, M, N, and H series. Azure is increasingly using live migration technologies and improving memory preserving maintenance mechanism to reduce the pause duration.  
 
 These non-rebootful maintenance operations are applied fault domain by fault domain, and progress is stopped if any warning health signals are received. 
 
 Some applications may be impacted by these types of updates. In case the VM is live migrated to a different host, some sensitive workloads might notice a slight performance degradation in the few minutes leading up to the VM pause. Such applications can benefit from using Scheduled Events for [Windows](../articles/virtual-machines/windows/scheduled-events.md) or [Linux](../articles/virtual-machines/linux/scheduled-events.md) to prepare for VM maintenance and have no impact during Azure maintenance. Azure is also working on maintenance control features for such ultra-sensitive applications. 
 
-## Live migration
+### Live migration
 
 Live Migration is a non-rebootful operation that preserves memory for the VM and results in a limited pause or freeze, typically lasting no more than 5 seconds. Today, all Infrastructure as a Service (IaaS) Virtual Machines, apart from G, M, N, and H series, are eligible for Live Migration. This equates to over 90% of the IaaS VMs deployed to the Azure Fleet. 
 

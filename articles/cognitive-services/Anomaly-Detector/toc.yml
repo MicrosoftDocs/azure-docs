@@ -42,6 +42,10 @@
           href: https://aka.ms/anomaly-detector-dotnet-ref
         - name: Go
           href: https://go.microsoft.com/fwlink/?linkid=2089915
+        - name: Python
+          href: https://go.microsoft.com/fwlink/?linkid=2090370
+        - name: Node.js
+          href: https://go.microsoft.com/fwlink/?linkid=2090788
 - name: Resources
   items:
     - name: Pricing

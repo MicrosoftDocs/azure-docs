@@ -96,7 +96,7 @@
         displayName: virtual assistant, speech-enabled bot, conversational agent
       - name: 'Java (Windows, macOS, Linux)'
         href: quickstart-virtual-assistant-java-jre.md
-        displayName: virtual assistant, speech-enabled bot, conversational agent        
+        displayName: virtual assistant, speech-enabled bot, conversational agent
   - name: REST APIs
     items:
     - name: List supported voices by region
@@ -126,7 +126,7 @@
     href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
 - name: Concepts
   items:
-  - name: Conversation Transcription Service
+  - name: Conversation Transcription
     href: conversation-transcription-service.md
   - name: Call Center Transcription
     href: call-center-transcription.md
@@ -139,8 +139,8 @@
     displayName: recognize speech, speech recognition, speech-to-text, stt
   - name: Consume audio input streams (SDK)
     href: how-to-use-audio-input-streams.md
-  - name: Consume compressed audio input streams (SDK)
-    href: how-to-use-compressed-audio-input-streams.md
+  - name: Consume codec compressed audio input streams (SDK)
+    href: how-to-use-codec-compressed-audio-input-streams.md
     displayName: mp3, opus, ogg, flac
   - name: Select an audio input device (SDK)
     href: how-to-select-audio-input-devices.md
@@ -174,13 +174,17 @@
         href: how-to-custom-speech-human-labeled-transcriptions.md
     - name: Text-to-speech
       items:
-      - name: Create voice fonts (bot brand voice)
-        href: how-to-customize-voice-font.md
+      - name: Get started with Custom Voice
+        href: how-to-custom-voice.md
+      - name: Prepare data
+        href: how-to-custom-voice-prepare-data.md
+      - name: Create and use Custom Voice models
+        href: how-to-custom-voice-create-voice.md
       - name: Record voice samples
         href: record-custom-voice-samples.md
       - name: Fine-tune text-to-speech output
         href: how-to-voice-tuning.md
-    - name: Create a custom wake word (Devices SDK)
+    - name: Create a custom wake word (keyword spotting)
       href: speech-devices-sdk-create-kws.md
       displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
   - name: Migration
@@ -191,9 +195,9 @@
       href: how-to-migrate-from-custom-speech-service.md
     - name: From the Translator Speech API
       href: how-to-migrate-from-translator-speech-api.md
-  - name: Use containers
+  - name: Use on-premises containers
     items:
-    - name: Install and run containers
+    - name: Install and run on-premises containers
       displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
       href: speech-container-howto.md
     - name: Configure containers
@@ -216,6 +220,8 @@
     - name: Overview
       href: speech-sdk.md
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
+    - name: Scenario availability
+      href: scenario-availability.md  
     - name: Release notes
       href: releasenotes.md
     - name: C++
@@ -280,7 +286,7 @@
       href: https://www.microsoft.com/translator/faq.aspx
       displayName: translate speech, speech translation, translator, s2s, speech to speech
     - name: Voice-first virtual assistants (Preview)
-      href: faq-voice-first-virtual-assistants.md      
+      href: faq-voice-first-virtual-assistants.md
   - name: Speech SDK licenses
     displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'
     items:

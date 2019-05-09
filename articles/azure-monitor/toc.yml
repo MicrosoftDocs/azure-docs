@@ -130,7 +130,9 @@
     - name: Common alert schema
       href: platform/alerts-common-schema.md
     - name: Action rules
-      href: platform/alerts-action-rules.md  
+      href: platform/alerts-action-rules.md
+    - name: Change analysis
+      href: app/change-analysis.md 
   - name: Visualize data
     href: visualizations.md
   - name: Partner integrations
@@ -555,6 +557,8 @@
           href: app/usage-workbooks.md
       - name: Web App Analytics solution
         href: insights/azure-web-apps-analytics.md
+      - name: Kubernetes hosted apps
+        href: app/kubernetes.md
     - name: Monitor containers
       items:
       - name: Azure Monitor for containers 
@@ -591,8 +595,6 @@
         href: insights/containers.md
       - name: Monitor Docker applications
         href: app/docker.md
-      - name: Application Insights for Kubernetes
-        href: app/kubernetes.md
     - name: Monitor resource groups
       href: insights/resource-group-insights.md
     - name: Monitor databases

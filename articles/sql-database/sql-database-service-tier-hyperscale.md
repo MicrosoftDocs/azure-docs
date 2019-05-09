@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 10/17/2018
+ms.date: 05/06/2019
 ---
 
 # Hyperscale service tier for up to 100 TB
@@ -139,17 +139,42 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 ### Restoring a Hyperscale database to a different geography
 If you need to restore an Azure SQL Database Hyperscale DB to a region other than the one it is currently hosted in, as part of a disaster recovery operation or drill, relocation, or any other reason, the primary method is to do a geo-restore of the database.  This involves exactly the same steps as what you would use to restore any other AZURE SQL DB to a different region:
 1. Create a SQL Database server in the target region if you do not already have an appropriate server there.  This server should be owned by the same subscription as the original (source) server.
-2. Follow the instructions in the [geo-restore](https://azure.microsoft.com/sql-database/sql-database-recovery-using-backups#geo-restore) topic of the page on restoring Azure SQL Databases from automatic backups.
+2. Follow the instructions in the [geo-restore](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) topic of the page on restoring Azure SQL Databases from automatic backups.
 
 #### Notes on geo-restores of a Hyperscale database
 Because the source and target are in separate regions, the database cannot share snapshot storage with the source database as in non-geo restores, which complete extremely quickly.  In the case of a geo-restore of a Hyperscale database, it will be a size-of-data operation, even if the target is in the paired region of the geo-replicated storage.  That means that doing a geo-restore will take time proportional to the size of the database being restored.  If the target is in the paired region, the copy will be within a datacenter, which will be significantly faster than a long distance copy over the internet, but it will still copy all of the bits.
 
-## Available regions
+## <a name=regions></a>Available regions
+
 The Azure SQL Database Hyperscale tier is currently available in the following regions:
 
-Australia East, Australia Southeast, Brazil South, Canada Central, Central US, East Asia, East US, East Us 2, France Central, Japan East, Japan West, North Central US, North Europe, South Africa North, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2
+- Australia East
+- Australia Southeast
+- Brazil South
+- Canada Central
+- Central US
+- China East 2
+- China North 2
+- East Asia
+- East US
+- East Us 2
+- France Central
+- Japan East
+- Japan West
+- Korea Central
+- Korea South
+- North Central US
+- North Europe
+- South Africa North
+- South Central US
+- Southeast Asia
+- UK South
+- UK West
+- West Europe
+- West US
+- West US 2
 
-If you want to create Hyperscale database in a region that is not listed as supported, you can send an onboarding request via Azure portal.  We are working to expand the list of supported regions so please check back for latest region list.
+If you want to create Hyperscale database in a region that is not listed as supported, you can send an onboarding request via Azure portal. We are working to expand the list of supported regions so please check back for latest region list.
 
 To request the ability to create Hyperscale databases in regions not listed:
 

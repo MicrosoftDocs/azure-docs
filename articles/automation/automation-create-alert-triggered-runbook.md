@@ -54,6 +54,14 @@ Use this example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**.
 5. Copy the following PowerShell example into the **Edit** page.
 
     ```powershell-interactive
+    [OutputType("PSAzureOperationResponse")]
+    param
+    (
+        [Parameter (Mandatory=$false)]
+        [object] $WebhookData
+    )
+    $ErrorActionPreference = "stop"
+
     if ($WebhookData)
     {
         # Get the data object from WebhookData

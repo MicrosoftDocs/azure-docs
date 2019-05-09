@@ -19,7 +19,7 @@ Azure Cosmos DB is Microsoft's globally distributed, multi-model database servic
 The etcd API in Azure Cosmos DB allows you to use Azure Cosmos DB as the backend store for [Azure Kubernetes](../aks/index.yml). etcd API in Azure Cosmos DB is currently in preview. Azure Cosmos DB implements the etcd wire protocol. With etcd API in Azure Cosmos DB, developers will automatically get highly reliable, [available](high-availability.md), [globally distributed](distribute-data-globally.md) Kubernetes. This API allows developers to scale Kubernetes state management on a fully managed cloud native PaaS service. 
 
 > [!NOTE]
-> Unlike other APIs in Azure Cosmos DB, you cannot provision an etcd API account through the Azure portal, CLI or SDKs. You can provision an etcd API account by deploying the Resource Manager template only; for detailed steps, see [How to provision Azure Kubernetes with Azure Cosmos DB](bootstrap-kubernetes-cluster.md) article.  
+> Unlike other APIs in Azure Cosmos DB, you cannot provision an etcd API account through the Azure portal, CLI or SDKs. You can provision an etcd API account by deploying the Resource Manager template only; for detailed steps, see [How to provision Azure Kubernetes with Azure Cosmos DB](bootstrap-kubernetes-cluster.md) article. Azure Cosmos DB etcd API is currently in limited preview. You can [sign-up for the preview](https://aka.ms/cosmosetcdapi-signup), by filling out the sign-up form.
 
 ## Wire level compatibility
 

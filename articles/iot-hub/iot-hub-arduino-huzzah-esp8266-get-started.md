@@ -164,7 +164,7 @@ The sample application is hosted on GitHub. Clone the sample repository that con
 9. In the **User Settings** window, copy and paste the following at the end of the file
 
    ```json
-   "arduino.additionalUrls": "http://arduino.esp8266.com/stable/package_esp8266com_index.json"
+   "arduino.additionalUrls": "https://arduino.esp8266.com/stable/package_esp8266com_index.json"
    ```
 
    ![Configure Arduino package URL in VS Code](media/iot-hub-arduino-huzzah-esp8266-get-started/12_vscode-package-url.png)
