@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Simulate a failure in accessing read access redundant storage in Azure | Microsoft Docs'
 description: Simulate an error in accessing read access geo-redundant storage
-services: storage 
+services: storage
 author: tamram
 
-ms.service: storage 
+
+ms.service: storage
 ms.topic: tutorial
 ms.date: 01/03/2019
-ms.author: tamram 
-ms.reviewer: artek
+ms.author: tamram
 ---
 
 # Tutorial: Simulate a failure in accessing read-access redundant storage
@@ -23,14 +23,14 @@ In part two of the series, you learn how to:
 
 > [!div class="checklist"]
 > * Run and pause the application
-> * Simulate a failure with [fiddler](#simulate-a-failure-with-fiddler) or [an invalid static route](#simulate-a-failure-with-an-invalid-static-route) 
+> * Simulate a failure with [fiddler](#simulate-a-failure-with-fiddler) or [an invalid static route](#simulate-a-failure-with-an-invalid-static-route)
 > * Simulate primary endpoint restoration
 
 ## Prerequisites
 
 Before you begin this tutorial, complete the previous tutorial: [Make your application data highly available with Azure storage][previous-tutorial].
 
-To simulate a failure using Fiddler: 
+To simulate a failure using Fiddler:
 
 * Download and [install Fiddler](https://www.telerik.com/download/fiddler)
 
@@ -53,19 +53,19 @@ Paste the following code sample in the `OnBeforeResponse` function. The new code
 Once complete, select **File** and **Save** to save your changes.
 
 ```javascript
-	/*
-		// Simulate data center failure
-		// After it is successfully downloading the blob, pause the code in the sample,
-		// uncomment these lines of script, and save the script.
-		// It will intercept the (probably successful) responses and send back a 503 error. 
-		// When you're ready to stop sending back errors, comment these lines of script out again 
-		//     and save the changes.
+    /*
+        // Simulate data center failure
+        // After it is successfully downloading the blob, pause the code in the sample,
+        // uncomment these lines of script, and save the script.
+        // It will intercept the (probably successful) responses and send back a 503 error.
+        // When you're ready to stop sending back errors, comment these lines of script out again
+        //     and save the changes.
 
-		if ((oSession.hostname == "contosoragrs.blob.core.windows.net") 
-	    	&& (oSession.PathAndQuery.Contains("HelloWorld"))) {
-			oSession.responseCode = 503;  
-		}
-	*/
+        if ((oSession.hostname == "contosoragrs.blob.core.windows.net")
+        && (oSession.PathAndQuery.Contains("HelloWorld"))) {
+            oSession.responseCode = 503;
+        }
+    */
 ```
 
 ![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure2.png)
@@ -98,7 +98,7 @@ The code sample looks for requests to the RA-GRS storage account and, if the pat
 
 Navigate to Fiddler and select **Rules** -> **Customize Rules...**.
 
-Uncomment the following lines, replace `STORAGEACCOUNTNAME` with the name of your storage account. Select **File** -> **Save** to save your changes. 
+Uncomment the following lines, replace `STORAGEACCOUNTNAME` with the name of your storage account. Select **File** -> **Save** to save your changes.
 
 > [!NOTE]
 > If you are running the sample application on Linux, you need to restart Fiddler whenever you edit the **CustomRule.js** file, in order for Fiddler to install the custom logic.
@@ -138,7 +138,7 @@ In order to simulate the primary endpoint functioning again, you remove the logi
 
 To pause the application, press **any key**.
 
-Navigate to Fiddler and select **Rules** and **Customize Rules...**. 
+Navigate to Fiddler and select **Rules** and **Customize Rules...**.
 
 Comment or remove the custom logic in the `OnBeforeResponse` function, leaving the default function.
 
@@ -166,7 +166,7 @@ When complete, enter **G** to test the download. The application will report tha
 
 ## Simulate a failure with an invalid static route
 
-You can create an invalid static route for all requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account. In this tutorial, the local host is used as the gateway for routing requests to the storage account. Using the local host as the gateway causes all requests to your storage account primary endpoint to loop back inside the host, which subsequently leads to failure. Follow the following steps to simulate a failure, and primary endpoint restoration with an invalid static route. 
+You can create an invalid static route for all requests to the primary endpoint of your [read-access geo-redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) storage account. In this tutorial, the local host is used as the gateway for routing requests to the storage account. Using the local host as the gateway causes all requests to your storage account primary endpoint to loop back inside the host, which subsequently leads to failure. Follow the following steps to simulate a failure, and primary endpoint restoration with an invalid static route.
 
 ### Start and pause the application
 
@@ -190,12 +190,13 @@ Get information about the storage account primary endpoint domain by entering th
 
 ```
 nslookup STORAGEACCOUNTNAME.blob.core.windows.net
-``` 
+```
+
  Replace `STORAGEACCOUNTNAME` with the name of your storage account. Copy to the IP address of your storage account to a text editor for later use.
 
-To get the IP address of your local host, type `ipconfig` on the Windows command prompt, or `ifconfig` on the Linux terminal. 
+To get the IP address of your local host, type `ipconfig` on the Windows command prompt, or `ifconfig` on the Linux terminal.
 
-To add a static route for a destination host, type the following command on a Windows command prompt or Linux terminal. 
+To add a static route for a destination host, type the following command on a Windows command prompt or Linux terminal.
 
 #### Linux
 
@@ -238,7 +239,6 @@ To delete the static route of a destination host, the storage account, type the 
 Press **any key** to resume the application. The application continues reading from the primary endpoint until it hits 999 reads.
 
 ![Resume application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
-
 
 # [Java v10](#tab/Java-v10)
 
