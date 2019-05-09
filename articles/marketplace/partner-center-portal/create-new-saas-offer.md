@@ -15,18 +15,20 @@ To begin creating Software as a Service (SaaS) offers, ensure that you have your
 
 ![Commercial Marketplace dashboard on Partner Center](./media/commercial-marketplace-offers.png)
 
-Select the + **Create a new…** button, then select the **Software as a Service** menu item. Note: If you select one of the other offer types, you will be redirected to the older [Cloud Partner Portal](https://cloudpartner.azure.com/).  Only SaaS offers are available in the Commercial Marketplace portal on Partner Center at this time. 
+Select the + **Create a new…** button, then select the **Software as a Service** menu item. 
 
-![Create offer window on Partner Center](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/91249b39-5ec5-4cc4-9360-c4306c0368d3.png)
+If you select one of the other offer types, you will be redirected to the older [Cloud Partner Portal](https://cloudpartner.azure.com/).  Only SaaS offers are available in the Commercial Marketplace portal on Partner Center at this time. 
+
+![Create offer window on Partner Center](./media/new-offer.png)
 
 
-The **New offer** dialog box is displayed. ![New offer dialog box](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/91249b39-5ec5-4cc4-9360-c4306c0368d3.png)
+The **New offer** dialog box is displayed. ![New offer dialog box](./media/new-offer-popup.png)
 
 
 ## Offer ID and name
 
 - **Offer ID**: Create a unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager (ARM) templates (if applicable). This must be lowercase, alphanumeric (including hyphens and underscores, but no whitespace). This is limited to 50 characters and can’t be updated after you select create.  
-<br>Example: test-offer-1 
+Example: test-offer-1 
 <br>Resulting in the URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
 - **Offer name**: The official name of your SaaS application offer, consistent across publications, advertisements, and web sites.  This name may be trademarked.  This name must not contain whitespace, emojis (unless they are the trademark or copyright symbol) and must be limited to 50 characters.
@@ -34,7 +36,7 @@ The **New offer** dialog box is displayed. ![New offer dialog box](https://azure
 
 Select **Create**.  An **Offer overview** page is created for this offer.  
 
-![Offer overview on Partner Center](/media/commercial-marketplace-offer-overview.png)
+![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
 
 ## Offer overview
 
@@ -119,4 +121,14 @@ By enabling test drive, you will be asked to configure a demonstration environme
 
 - **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)**: A deployment template that contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources.
 - **[Dynamics 365 for Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)**: Microsoft hosts and maintains the test drive service provisioning and deployment for a Business Central enterprise resource planning system (finance, operations, supply chain, CRM, etc).  
-- 
+- **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)**: Microsoft hosts and maintains the test drive service provisioning and deployment for a Customer Engagement system (sales, service, project service, field service, etc).  
+- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)**: Microsoft hosts and maintains the test drive service provisioning and deployment for a Finance and Operations enterprise resource planning system (finance, operations, manufacturing, supply chain, etc). 
+- **[Logic app](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)**: A deployment template encompassing all complex solution architectures. Any custom products should use this type of Test Drive.
+- **[PowerBI](https://docs.microsoft.com/power-bi/service-template-apps-overview)**: An embedded link to a custom-built dashboard. Products that want to demonstrate an interactive Power BI visual should use this type of Test Drive. All you need to upload here is your embedded Power BI URL.
+
+#### Additional test drive resources
+- [Test Drive Technical Best Practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Test Drive Marketing Best Practices](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [Test Drive Overview One Pager](./media/test-drive-one-pager.pdf)
+
+
