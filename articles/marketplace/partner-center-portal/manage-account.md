@@ -327,7 +327,7 @@ For more information about managing roles and permissions in other areas of Part
 
 An Azure Active Directory (AD) tenant, also referred to as your "work account" throughout this documentation, is a representation of your organization set up in the Azure portal and helps you to manage a specific instance of Microsoft cloud services for your internal and external users. If your organization subscribed to a Microsoft cloud service, such as Azure, Microsoft Intune, or Office 365, an Azure AD tenant was established for you. 
 
-You can set up multiple tenants to use with Partner Center. Any user with the **Manager** role in the Partner Center account will have the option to add and remove Azure AD tenants from the account. See the article [Create a new tenant in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant) if you want to create a new tenant in your Azure portal. 
+You can set up multiple tenants to use with Partner Center. Any user with the **Manager** role in the Partner Center account will have the option to add and remove Azure AD tenants from the account.  
 
 ### Add an existing tenant
 
@@ -350,6 +350,8 @@ To create a brand new Azure AD tenant with your Partner Center account:
     - **Global administrator user account info**: The first name, last name, username, and password that you want to use for the new global administrator account.
 3. Select **Create** to confirm the new domain and account info.
 4. Sign in with your new Azure AD global administrator username and password to begin [adding and managing users](#manage-users).
+
+For more information about creating new tenants inside your Azure portal, rather than via the Partner Center portal, see the article [Create a new tenant in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
 
 ### Remove a tenant
 
