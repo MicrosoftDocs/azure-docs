@@ -1,5 +1,5 @@
 ---
-title: Schedule and run automated tasks and workflows with Azure Logic Apps | Microsoft Docs
+title: Schedule and run automated tasks and workflows with Azure Logic Apps
 description: Automate scheduled and recurring tasks with the Recurrence connector in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -21,13 +21,6 @@ create a logic app workflow that starts with the
 You can set a date and time for starting the workflow 
 and a recurrence schedule for performing tasks, 
 such as these examples and more:
-
-* Get internal data: [Run a SQL stored procedure](../connectors/connectors-create-api-sqlazure.md) every day.
-* Get external data: Pull weather reports from NOAA every 15 minutes.
-* Report data: Email a summary for all orders greater than a specific amount in the past week.
-* Process data: Compress today's uploaded images every weekday during off-peak hours.
-* Clean up data: Delete all tweets older than three months.
-* Archive data: Push invoices to a backup service every month.
 
 This trigger supports many patterns, for example:
 
