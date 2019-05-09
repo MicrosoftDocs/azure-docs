@@ -15,7 +15,7 @@ Azure HDInsight clusters have several external dependencies that it requires net
 
 There are several inbound dependencies. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published here [https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip]. You can also create Network Security Group(NSG) rules with this information to secure inbound traffic to the clusters.
 
-The HDInsight outbound dependencies are almost entirely defined with FQDNs, which do not have static IP addresses behind them. The lack of static addresses means that Network Security Groups (NSGs) cannot be used to lock down the outbound traffic from a cluster. The addresses change often enough that one cannot set up rules based on the current resolution and use that to setup NSG rules.
+The HDInsight outbound dependencies are almost entirely defined with FQDNs, which don't have static IP addresses behind them. The lack of static addresses means that Network Security Groups (NSGs) can't be used to lock down the outbound traffic from a cluster. The addresses change often enough that one can't set up rules based on the current resolution and use that to set up NSG rules.
 
 The solution to securing outbound addresses lies in use of a firewall device that can control outbound traffic based on domain names. Azure Firewall can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination.
 
@@ -28,8 +28,8 @@ The solution to securing outbound addresses lies in use of a firewall device tha
 A summary of the steps to lock down egress from your existing HDInsight with Azure Firewall are:
 1. Enable service endpoints.
 1. Create a firewall.
-1. Add application rules to the firewall for ???
-1. Add network rules to the firewall to allow clock sync with NTP.
+1. Add application rules to the firewall
+1. Add network rules to the firewall.
 1. Create a routing table.
 
 ### Enable service endpoints
@@ -57,15 +57,23 @@ To enable the correct service endpoints, complete the following steps:
 
 ### Configure the firewall with application rules
 
-Create an Application rule that allows the cluster to <TODO: Add explanation>.
+Create an application rule collection that allows the cluster to send and receive important communications.
 
 Select the new firewall **Test-FW01** from the Azure portal. Click **Rules** under **Settings** > **Application rule collection** > **Add application rule collection**.
 
-On the **Add application rule collection** screen, do the following:
+On the **Add application rule collection** screen, complete the following steps:
 
 1. Enter a **Name**, **Priority**, and click **Allow** from the **Action** dropdown menu.
-1. In the FQDN tags section, provide a **Name**, set **Source addresses** to `*`.
-1. Select **HDInsight** and the **WindowsUpdate** from the **FQDN Tags** dropdown menu.
+1. Add the following rules:
+    1. A rule to allow HDInsight and Windows Update traffic:
+        1. In the **FQDN tags** section, provide a **Name**, and set **Source addresses** to `*`.
+        1. Select **HDInsight** and the **WindowsUpdate** from the **FQDN Tags** dropdown menu.
+    1. A rule to allow Windows login activity:
+        1. In the **Target FQDNs** section, provide a **Name**, and set **Source addresses** to `*`.
+        1. Enter `https:443` under **Protocol:Port** and `login.windows.net` under **Target FQDNS**.
+    1. A rule to allow SQM telemetry:
+        1. In the **Target FQDNs** section, provide a **Name**, and set **Source addresses** to `*`.
+        1. Enter `https:443` under **Protocol:Port** and `sqm.telemetry.microsoft.com` under **Target FQDNS**.
 1. Click **Add**.
 
 > [!Important]
@@ -78,30 +86,69 @@ On the **Add application rule collection** screen, do the following:
 
 ### Configure the firewall with network rules
 
-Create a network rule that allows the cluster to perform clock sync using NTP.
+Create the network rules to correctly configure your HDInsight cluster.
 
-Select the new firewall **Test-FW01** from the Azure portal. Click **Rules** under **Settings** > **Network rule collection** > **Add network rule collection**.
+1. Select the new firewall **Test-FW01** from the Azure portal.
+1. Click **Rules** under **Settings** > **Network rule collection** > **Add network rule collection**.
+1. On the **Add network rule collection** screen, enter a **Name**, **Priority**, and click **Allow** from the **Action** dropdown menu.
+1. Create the following rules:
+    1. A network rule that allows the cluster to perform clock sync using NTP.
+        1. In the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
+        1. Set **Source Addresses** and **Destination addresses** to `*`.
+        1. Set **Destination Ports** to 123.
+    1. A network rule that allows communication with AAD-DS for ESP clusters.
+        1. Determine the IP addresses for your domain controllers.
+        1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
+        1. Set **Source Addresses** `*`.
+        1. Enter all of the IP addresses for your domain controllers in **Destination addresses** separated by commas.
+        1. Set **Destination Ports** to `*`.
+    1. A network rule to address an SNI issue with ADLS Gen1 and Gen2.
+        1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
+        1. Set **Source Addresses** `*`.
+        1. Enter the IP addresses for your storage account in **Destination addresses**.
+        1. Set **Destination Ports** to `*`.
+    1. A network rule to enable communication with the Key Management Service.
+        1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
+        1. Set **Source Addresses** `*`.
+        1. Set **Destination addresses** to `*`.
+        1. Set **Destination Ports** to `1688`.
+    1. A network rule to enable communication with Operations Management Suite (OMS).
+        1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
+        1. Set **Source Addresses** `*`.
+        1. Set **Destination addresses** to `*`.
+        1. Set **Destination Ports** to `12000`.
+1. Click **Add** to complete creation of your network rule collection.
 
-On the **Add network rule collection** screen, do the following:
+![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
-1. Enter a **Name**, **Priority**, and click **Allow** from the **Action** dropdown menu.
-1. In the Rules section, provide a **Name** and select **Any** from the **Protocol** dropdown.
-1. Set **Source Addresses** and **Destination addresses** to `*`.
-1. Set **Destination Ports** to 123.
-1. Click **Add**.
+### Create and configure a route table
 
 > [!Important]
 > If using ESP cluster, then add 2 IPs for the AAD-DS.
 > If using Log Analytics, allow *:12000
 > Add *:1688 port for Key Management Service Windows Activation
 > For gen1 and gen2: Optionally, resolve your ADLS Gen1 or ADLS Gen2 URL and add IP of the storage account instead of Storage service endpoint described above. This option will route the traffic to firewall which might result in higher costs for large data loads but the traffic will be logged and auditable.
-> Optionally, select SQL servicee tags in the firewall instead of SQL sevice endpoints described earlier earlier. If you use SQL tags in firewall you can log and audit sql traffic as well.
+> Optionally, select SQL service tags in the firewall instead of SQL sevice endpoints described earlier earlier. If you use SQL tags in firewall you can log and audit sql traffic as well.
 > update the picture
 
-![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+Create a route table with the following entries:
+
+1. Seven addresses from [this list of required HDInsight management IP addresses](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) with a next hop of Internet:
+    1. Four IP addresses for all clusters in all regions
+    1. Two IP addresses that are specific for the region where the cluster is created
+    1. One IP address for Azure's recursive resolver
+1. One Virtual Appliance route for IP address 0.0.0.0/0 with the next hop being your Azure Firewall private IP address.
+
+For example, to configure the route table for a cluster created in the US region of "Central US", use following steps:
+
+1. Sign in to the Azure portal.
+1. Select your Azure firewall **Test-FW01**. Copy the **Private IP address** listed on the **Overview** page.
+1. Create a new route table.
+1. Click **Routes** under **Settings**.
+1. Click **Add** to create routes for the IP addresses in the table below.
 
 | Route name | Address prefix | Next hop type | Next hop address |
-|---|---|---|---|
+|---|---|---|
 | 168.61.49.99 | 168.61.49.99/32 | Internet | NA |
 | 23.99.5.239 | 23.99.5.239/32 | Internet | NA |
 | 168.61.48.131 | 168.61.48.131/32 | Internet | NA |
@@ -111,22 +158,23 @@ On the **Add network rule collection** screen, do the following:
 | 168.63.129.16 | 168.63.129.16/32 | Internet | NA |
 | 0.0.0.0 | 0.0.0.0/0 | Virtual appliance | <Azure firewall private IP> |
 
-> [!Important]
-> This section is unclear. Once they create a route table and go to **Add route**: What is the address prefix? Where do the IP addresses in the image come from? From here: https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip
+![Title: Creating a route table](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-route-table.png)]
 
-Create a route table with the management addresses from here [https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip] with a next hop of Internet. The route table entries are required to avoid asymmetric routing problems. Add routes for these IP address dependencies in the IP address dependencies with a next hop of Internet. Add a Virtual Appliance route to your route table for 0.0.0.0/0 with the next hop being your Azure Firewall private IP address.
+1. Complete the route table configuration:
 
-![Title: Creating a route table](./media/hdinsight-restrict-outbound-traffic/image010.png)]
+    1. Assign the route table you created to your HDInsight subnet by clicking **Subnets** under **Settings** and then **Associate**.
+    1. On the **Associate subnet** screen, select the virtual network that your cluster was created into and the **AzureFirewallSubnet** that you created for use with your firewall.
+    1. Click **OK**.
 
-Assign the route table you created to your HDInsight subnet.
+![Title: Creating a route table](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-route-table-associate-subnet.png)]
 
 ## Deploying HDInsight behind a firewall
 
 The steps to deploy a NEW cluster behind a firewall are the same as configuring your existing HDInsight cluster with an Azure Firewall except you will need to create your HDInsight subnet and then follow the previous steps.
 
-## Edge node applications traffic
+## Edge-node application traffic
 
-The above steps will allow the cluster to operate without issues. You still need to configure dependencies to accommodate your custom applications running on the edge nodes, if applicable.
+The above steps will allow the cluster to operate without issues. You still need to configure dependencies to accommodate your custom applications running on the edge-nodes, if applicable.
 
 Application dependencies must be identified and added to the Azure Firewall or the route table.
 
@@ -148,7 +196,7 @@ Azure Firewall can send logs to Azure Storage, Event Hub, or Azure Monitor logs.
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-Integrating your Azure Firewall with Azure log Analytics is very useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more from [Analyze log data in Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
 ## Dependencies
 
@@ -193,6 +241,20 @@ With an Azure Firewall, you automatically get everything below configured with t
 >[!Important]
 >We should replicate this file (contains 14000 FQDNs), store it somewhere and link to it here
 
+| **Endpoint**                                                          |
+|---|
+| wawsinfraprodbay063.blob.core.windows.net:443                         |
+| registry-1.docker.io:443                                              |
+| auth.docker.io:443                                                    |
+| production.cloudflare.docker.com:443                                  |
+| download.docker.com:443                                               |
+| us.archive.ubuntu.com:80                                              |
+| download.mono-project.com:80                                          |
+| packages.treasuredata.com:80                                          |
+| security.ubuntu.com:80                                                |
+| azure.archive.ubuntu.com:80                                                |
+| ocsp.msocsp.com:80                                                |
+| ocsp.digicert.com:80                                                |
 
 ## Next steps
 
