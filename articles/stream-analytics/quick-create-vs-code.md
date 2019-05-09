@@ -30,13 +30,12 @@ This quickstart shows you how to create and run a Stream Analytics job using the
 
 3. Once the extension is installed, verify that **Azure Stream Analytics Tools** is visible in your **Enabled Extensions**.
 
-   ![Azure Stream Analytics Tools under enabled extensions in Visual Studio Code](./media/quick-create-vs-code/enabled-extensions.png)
+    <img src="./media/quick-create-vs-code/enabled-extensions.png" width="500">
 
 ## Activate the Azure Stream Analytics extension
 
 1. Select the **Azure** icon on the VS Code activity bar. **Stream Analytics** will be visible in the side bar. Under **Stream Analytics**, select **Sign in to Azure**. 
-
-   ![Sign in to Azure in Visual Studio Code](./media/quick-create-vs-code/azure-sign-in.png)
+    <img src="./media/quick-create-vs-code/azure-sign-in.png" width="500">
 
 2. When you are signed in, your Azure account name appears on the status bar in the lower-left corner of the VS Code window.
 
@@ -108,7 +107,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
 3. The new project will be added to your workspace. An ASA project consists of the query script **(*.asaql)**, a **JobConfig.json** file, and an **asaproj.json** configuration file.
 
-   ![Stream Analytics project files in VS Code](./media/quick-create-vs-code/asa-project-files.png)
+    <img src="./media/quick-create-vs-code/asa-project-files.png" width="450">  
 
 4. The **asaproj.json** configuration file contains the inputs, outputs, and job configuration file information needed for submitting the Stream Analytics job to Azure.
 

@@ -165,8 +165,14 @@
       href: stream-analytics-tools-for-visual-studio-cicd.md
     - name: Write .NET UDF for edge
       href: stream-analytics-edge-csharp-udf-methods.md
-    - name: Explore Stream Analytics in VS Code
-      href: vs-code-how-to.md
+  - name: Visual Studio Code
+    items:
+    - name: Test with sample data
+      href: stream-analytics-vscode-local-run.md
+    - name: Set up CI/CD pipeline
+      href: stream-analytics-npm-cicd.md
+    - name: Explore jobs
+      href: stream-analytics-vscode-explore-jobs.md
   - name: Troubleshoot
     items:
     - name: Input
