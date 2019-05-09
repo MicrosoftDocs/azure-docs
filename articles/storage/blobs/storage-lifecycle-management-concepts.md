@@ -43,9 +43,8 @@ You can add, edit, or remove a policy by using any of the following methods.
 
 * [Azure portal](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
-* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [REST APIs](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
-* A client tool
 
 This article shows how to manage policy by using the portal and PowerShell methods.  
 
@@ -90,7 +89,7 @@ This article shows how to manage policy by using the portal and PowerShell metho
    }
    ```
 
-5. For more information about this JSON example, see [Sample rule](#sample-rule).
+5. For more information about this JSON example, see the [Policy](#policy) and [Rules](#rules) sections.
 
 ### PowerShell
 
