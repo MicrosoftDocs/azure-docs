@@ -88,7 +88,7 @@ In the case where an abstract base class contained virtual methods, these virtua
 
 Entity functions define operations for reading and updating small pieces of state, known as *durable entities*. Like orchestrator functions, entity functions are functions with a special trigger type, *entity trigger*. Unlike orchestrator functions, entity functions do not have any specific code constraints. Entity functions also manage state explicitly rather than implicitly representing state via control flow.
 
-The following code is an example of a simple entity function that defines a *Counter* entity. The function defines three operations, `add`, `remove`, and `reset`, each of which update an integer value, `currentValue`.
+The following code is an example of a simple entity function that defines a *Counter* entity. The function defines three operations, `add`, `subtract`, and `reset`, each of which update an integer value, `currentValue`.
 
 ```csharp
 public static async Task Counter(
