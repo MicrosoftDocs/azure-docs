@@ -19,18 +19,18 @@ ms.author: spelluru
 ---
 # Azure Service Bus to Azure Event Grid integration examples
 
-In this article, you learn how to set up an Azure function and a logic app, which both receive messages based on receiving an event from Azure Event Grid. You'll do the following:
+In this article, you learn how to set up an Azure function and a logic app, which both receive messages based on receiving an event from Azure Event Grid. You'll do the following tasks:
  
-* Create a simple test Azure function for debugging and viewing the initial flow of events from the Event Grid. Perform this step regardless of whether you perform the others.
+* Create a test Azure function for debugging and viewing the initial flow of events from the Event Grid. Complete this step even if you don't complete the others.
 * Create an Azure function to receive and process Azure Service Bus messages based on Event Grid events.
-* Utilize the Logic Apps feature of Azure App Service.
+* Use the Logic Apps feature of Azure App Service.
 
 The example that you create assumes that the Service Bus topic has two subscriptions. The example also assumes that the Event Grid subscription was created to send events for only one Service Bus subscription. 
 
 In the example, you send messages to the Service Bus topic and then verify that the event has been generated for this Service Bus subscription. The function or logic app receives the messages from the Service Bus subscription and then completes it.
 
 ## Prerequisites
-Before you begin, make sure that you have completed the steps in the next two sections.
+Before you begin, make sure that you've completed the steps in the next two sections.
 
 ### Create a Service Bus namespace
 
@@ -38,7 +38,7 @@ Create a Service Bus Premium namespace, and create a Service Bus topic that has 
 
 ### Send a message to the Service Bus topic
 
-You can use any method to send a message to your Service Bus topic. The sample code at the end of this procedure assumes that you are using Visual Studio 2017.
+You can use any method to send a message to your Service Bus topic. The sample code at the end of this procedure assumes that you're using Visual Studio 2019.
 
 1. Clone [the GitHub azure-service-bus repository](https://github.com/Azure/azure-service-bus/).
 
@@ -181,7 +181,7 @@ You'll add an Azure function, as shown in the following example, because the Ser
 
 ### Receive messages by using Logic Apps
 
-Connect a logic app with Azure Service Bus and Azure Event Grid by doing the following:
+Connect a logic app with Azure Service Bus and Azure Event Grid by completing the following steps:
 
 1. Create a new logic app in the Azure portal, and select **Event Grid** as the start action.
 
@@ -191,7 +191,7 @@ Connect a logic app with Azure Service Bus and Azure Event Grid by doing the fol
 
     ![14][]
 
-1. Add your information by doing the following:
+1. Add your information by completing the following steps:
 
     a. In the **Resource Name** box, enter your own namespace name. 
 

@@ -39,7 +39,7 @@ The following services, tools, and data are used in this quickstart.
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) stores the external data source used by an indexer. The sample solution provides a SQL data file to create the table. Steps for creating the service and database are provided in this tutorial.
 
-[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), any edition, can be used to run the sample solution. Sample code and instructions were tested on the free Community edition.
+[Visual Studio 2017 or later](https://visualstudio.microsoft.com/downloads/), any edition, can be used to run the sample solution. Sample code and instructions were tested on the free Community edition.
 
 [Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) provides the sample solution, located in the Azure samples GitHub repository. Download and extract the solution. By default, solutions are read-only. Right-click the solution and clear the read-only attribute so that you can modify files.
 
