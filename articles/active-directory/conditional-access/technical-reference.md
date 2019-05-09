@@ -201,6 +201,7 @@ In your conditional access policy, you can require that an access attempt to the
 This setting applies to the following client apps:
 
 - Microsoft Azure Information Protection
+- Microsoft Bookings
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow
