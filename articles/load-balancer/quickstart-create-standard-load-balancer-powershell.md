@@ -289,7 +289,7 @@ $vm3 = New-AzVM -ResourceGroupName $rgName -Zone 3 -Location $location -VM $vmCo
 
 It takes a few minutes to create and configure the three VMs.
 
-### Install IIS with Custom web page
+### Install IIS with a custom web page
 
 Install IIS with a custom web page on both back-end VMs as follows:
 

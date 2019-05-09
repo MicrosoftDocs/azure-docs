@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: luisca
 ms.custom: seodec2018
 ---
@@ -54,7 +54,7 @@ You are only charged for skills that call the Cognitive Services APIs. Non-API-b
 
    ![Create a Cognitive Services resource](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Create a Cognitive Services resource")
 
-1. In Location, choose the same region as Azure Search to avoid outbound bandwidth charges across regions.
+1. In Location, choose the same region as Azure Search. This is required for performance reasons, but it also voids outbound bandwidth charges across regions.
 
 1. In Pricing tier, choose **S0** to get the all-in-one collection of Cognitive Services features, including the Vision and Language features that back the predefined skills used by Azure Search. 
 

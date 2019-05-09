@@ -17,7 +17,7 @@ ms.author: jgao
 
 ---
 
-# Tutorial: Use Azure Deployment Manager with Resource Manager templates (Gated public preview)
+# Tutorial: Use Azure Deployment Manager with Resource Manager templates (Public preview)
 
 Learn how to use [Azure Deployment Manager](./deployment-manager-overview.md) to deploy your applications across multiple regions. To use Deployment Manager, you need to create two templates:
 
