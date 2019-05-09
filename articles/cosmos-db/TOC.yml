@@ -517,6 +517,8 @@
         href: how-to-sql-subquery.md
     - name: Change Feed
       items:
+      - name: Azure Cosmos DB Trigger logs
+        href: how-to-configure-cosmos-db-trigger-logs.md
       - name: Multiple Azure Cosmos DB Triggers
         href: how-to-create-multiple-cosmos-db-triggers.md
       - name: Troubleshoot Azure Cosmos DB Triggers
