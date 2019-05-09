@@ -21,6 +21,7 @@ Azure Monitor maximizes the availability and performance of your applications by
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
 ## Overview
+
 The following diagram gives a high-level view of Azure Monitor. At the center of the diagram are the data stores for metrics and logs, which are the two fundamental types of data use by Azure Monitor. On the left are the [sources of monitoring data](platform/data-sources.md) that populate these [data stores](platform/data-platform.md). On the right are the different functions that Azure Monitor performs with this collected data such as analysis, alerting, and streaming to external systems.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -28,7 +29,7 @@ The following diagram gives a high-level view of Azure Monitor. At the center of
 ![Azure Monitor overview](media/overview/overview.png)
 
 
-## Monitoring data platform
+## Monitoring data platform 
 All data collected by Azure Monitor fits into one of two fundamental types, [metrics and logs](platform/data-platform.md). [Metrics](platform/data-platform-metrics.md) are numerical values that describe some aspect of a system at a particular point in time. They are lightweight and capable of supporting near real-time scenarios. [Logs](platform/data-platform-logs.md) contain different kinds of data organized into records with different sets of properties for each type. Telemetry such as events and traces are stored as logs in addition to performance data so that it can all be combined for analysis.
 
 For many Azure resources, you'll see data collected by Azure Monitor right in their Overview page in the Azure portal. Have a look at any virtual machine for example, and you'll see several charts displaying performance metrics. Click on any of the graphs to open the data in [metrics explorer](platform/metrics-charts.md) in the Azure portal, which allows you to chart the values of multiple metrics over time.  You can view the charts interactively or pin them to a dashboard to view them with other visualizations.
