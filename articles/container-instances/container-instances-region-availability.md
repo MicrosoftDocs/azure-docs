@@ -39,7 +39,7 @@ The following regions and resources are available to container groups with Windo
 
 | Location | OS | CPU | Memory (GB) |
 | -------- | -- | :---: | :-----------: |
-| East US, West Europe, West US | Windows | 4 | 16 |
+| East US, West Europe, West US | Windows | 4 | 14 |
 | Central US, North Europe, Southeast Asia, West US 2 | Windows | 2 | 3.5 |
 
 ## Availability - Virtual network deployment (preview)
