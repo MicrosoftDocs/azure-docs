@@ -121,7 +121,7 @@ Follow these steps to request a quota increase for your Batch account or your su
    
     Select **Create** to submit the support request.
 
-Once you've submitted your support request, Azure support will contact you. Completing a quota increase request can take anywhere from 1 to 2 business days, depending on the scope of the request.
+Once you've submitted your support request, Azure support will contact you. Completing a quota increase request can take one to two business days, depending on the scope of the request.
 
 ## Related quotas for VM pools
 
