@@ -236,7 +236,7 @@ To enable Azure AD users to sign in to Workspot Control, they must be provisione
 
 In this section, we test our Azure AD single sign-on configuration through *Access Panel*.
 
-When you click the **Workspot Control** tile in Access Panel, you should be automatically signed in to the Workspot Control for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/en-us/azure/active-directory/user-help/my-apps-portal-end-user-access).
+When you click the **Workspot Control** tile in Access Panel, you should be automatically signed in to the Workspot Control for which you set up SSO. For more information, see [Introduction to the Access Panel](https://docs.microsoft.com/en-us/azure/active-directory/user-help/my-apps-portal-end-user-access).
 
 ## Additional resources
 
