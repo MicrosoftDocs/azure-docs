@@ -104,6 +104,22 @@ To run Windows Server containers, you need to run Windows Server-based nodes. Wi
 
 In a service level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service if the published service level isn't met. Since AKS itself is free, there is no cost available to reimburse and thus no formal SLA. However, AKS seeks to maintain availability of at least 99.5% for the Kubernetes API server.
 
+## Why can I not set `maxPods` below 30?
+
+AKS supports setting the `maxPods` value at cluster creation time via the Azure
+CLI and Azure Resource Manager templates. However, there is a *minimum value* (validated at
+creation time) for both Kubenet and Azure CNI, shown below:
+
+| Networking | Minimum | Maximum |
+| -- | :--: | :--: |
+| Azure CNI | 30 | 250 |
+| Kubenet | 30 | 110 |
+
+As AKS is a managed service, we provide addons and pods we deploy and manage as part of the cluster. In the past, users could define a `maxPods` value lower than the value required for the managed pods to run (example: 30), AKS now calculates the minimum number of
+pods via: ((maxPods or (maxPods * vm_count)) > managed add-on pods minimum.
+
+Users may not override the minimum `maxPods` validation.
+
 <!-- LINKS - internal -->
 
 [aks-regions]: ./quotas-skus-regions.md#region-availability

@@ -159,11 +159,11 @@ Now you're ready to generate the OpenAPI definition.
 
 The API is now created for the function.
 
-## Test the OpenAPI definition
+## Test the API
 
-Before you use the API definition, you should verify that it works.
+Before you use the OpenAPI definition, you should verify that the API works.
 
-1. On the **Test** tab of your function, select **POST** operation
+1. On the **Test** tab of your function, select **POST** operation.
 
 1. Enter values for **hours** and **capacity**
 
@@ -178,9 +178,18 @@ Before you use the API definition, you should verify that it works.
 
     ![Test function API](media/functions-openapi-definition/test-function-api-openapi.png)
 
+## Download the OpenAPI definition
+
+If your API works as expected, you can download the OpenAPI definition.
+
+1. Click on the **Download OpenAPI definition** button in the top bar.
+   
+   ![Download OpenAPI definition](media/functions-openapi-definition/download-definition.png)
+
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Learn more about API Management](../api-management/api-management-key-concepts.md)
+> [Edit the OpenAPI definition in API Management](../api-management/edit-api.md)
