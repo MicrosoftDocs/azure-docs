@@ -72,12 +72,12 @@ For single sign-on to work, a link relationship between an Azure AD user and the
 
 To configure and test single sign-on, you need to complete the following steps:
 
-1. **[Configure the Azure AD enterprise application for Single Sign-On](#configure-the-azure-ad-enterprise-application-for-single-sign-on)** - Configure the Azure AD enterprise application for the single sign-on
+1. **[Configure the Azure AD enterprise application for single sign-on](#configure-the-azure-ad-enterprise-application-for-single-sign-on)** - Configure the Azure AD enterprise application for the single sign-on
 2. **[Configure the SAML SSO plugin of your Jira instance](#configure-the-saml-sso-plugin-of-your-jira-instance)** - Configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - Create a test user in Azure AD.
 1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - Enabling the test user to use the single sign-on the Azure side.
 1. **[Create the test user in Jira](#create-the-test-user-also-in-jira)** - Create a counterpart test user in Jira for the Azure AD test user.
-1. **[Test Single Sign-On](#test-single-sign-on)** - Verify whether the configuration works.
+1. **[Test single sign-on](#test-single-sign-on)** - Verify whether the configuration works.
 
 ### Configure the Azure AD enterprise application for single sign-on
 
