@@ -7,7 +7,7 @@ ms.author: owend
 layout: LandingPage
 ms.service: azure-analysis-services
 ms.topic: landing-page
-ms.date: 02/14/2018
+ms.date: 05/09/2019
 ---
 # Analysis Services Documentation
 
@@ -33,7 +33,7 @@ Learn how to set up and manage data modeling with Analysis Services. Tutorials a
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/">
+        <a href="https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
