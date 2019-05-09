@@ -31,7 +31,7 @@ Your users won’t notice anything different when they sign in to use your corpo
 
 ## How do I get access?
 
-Since this scenario is offered through a partnership between Azure Active Directory and PingAccess, you need licenses for both services. However, Azure Active Directory Premium subscriptions include a basic PingAccess license that covers up to 20 applications. If you need to publish more than 20 header-based applications, you can purchase an additional license from PingAccess.
+Since this scenario comes from a partnership between Azure Active Directory and PingAccess, you need licenses for both services. However, Azure Active Directory Premium subscriptions include a basic PingAccess license that covers up to 20 applications. If you need to publish more than 20 header-based applications, you can purchase an additional license from PingAccess.
 
 For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md).
 
@@ -46,7 +46,7 @@ This article is for people to publish an application with this scenario for the 
 
 If you've enabled Application Proxy enabled and installed a connector already, you can skip this section and go to [Add your application to Azure AD with Application Proxy](#add-your-application-to-azure-ad-with-application-proxy).
 
-The Application Proxy connector is a Windows Server service that directs the traffic from your remote employees to your published applications. For more detailed installation instructions, see [Enable Application Proxy in the Azure portal](application-proxy-add-on-premises-application.md).
+The Application Proxy connector is a Windows Server service that directs the traffic from your remote employees to your published applications. For more detailed installation instructions, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/) as an application administrator. The **Azure Active Directory admin center** page appears.
 2. Select **Azure Active Directory** > **Application proxy** > **Download connector service**. The **Application Proxy Connector Download** page appears.
@@ -90,7 +90,7 @@ To publish your own on-premises application:
 
    > [!NOTE]
    > If this is your first application, use port 3000 to start and come back to update this setting if you change your PingAccess configuration. For subsequent applications, the port will need to match the Listener you’ve configured in PingAccess. Learn more about [listeners in PingAccess](https://documentation.pingidentity.com/pingaccess/pa31/index.shtml#Listeners.html).
-4. Select **Add**. Your application is added, and the application's overview page appears.
+4. Select **Add**. The overview page for the new application appears.
 
 Now assign a user for application testing and choose header-based single sign-on:
 
@@ -149,12 +149,12 @@ To collect this information:
    ![Add a client secret](./media/application-proxy-configure-single-sign-on-with-ping-access/add-a-client-secret.png)
 6. In **Description**, type `PingAccess key`.
 7. Under **Expires**, choose how to set the PingAccess key: **In 1 year**, **In 2 years**, or **Never**.
-8. Select **Add**. The PingAccess key is shown in the table of client secrets, with a random string that autofills in the **VALUE** field.
+8. Select **Add**. The PingAccess key appears in the table of client secrets, with a random string that autofills in the **VALUE** field.
 9. Next to the PingAccess key's **VALUE** field, select the **Copy to clipboard** icon, then copy and save it. You specify this value later as PingAccess's client secret.
 
 ### Update GraphAPI to send custom fields (optional)
 
-For a list of security tokens that Azure AD sends for authentication, see [Azure AD token reference](../develop/id-tokens.md). If you need a custom claim that sends other tokens, set the `acceptMappedClaims` application field to `True`. You can use Graph Explorer or the Azure AD portal's application manifest to make this change.
+For a list of security tokens that Azure AD sends for authentication, see [Microsoft identity platform ID tokens](../develop/id-tokens.md). If you need a custom claim that sends other tokens, set the `acceptMappedClaims` application field to `True`. You can use Graph Explorer or the Azure AD portal's application manifest to make this change.
 
 This example uses Graph Explorer:
 
@@ -182,13 +182,13 @@ To make your application use a custom claim and include additional fields, be su
 > [!NOTE]
 > To use a custom claim, you must also have a custom policy defined and assigned to the application. This policy should include all required custom attributes.
 >
-> Policy definition and assignment can be done through PowerShell, Azure AD Graph Explorer, or Microsoft Graph. If you're doing this in PowerShell, you may need to first use `New-AzureADPolicy` and then assign it to the application with `Add-AzureADServicePrincipalPolicy`. For more information, see [Claims mapping policy assignment](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+> You can do policy definition and assignment through PowerShell, Azure AD Graph Explorer, or Microsoft Graph. If you're doing them in PowerShell, you may need to first use `New-AzureADPolicy` and then assign it to the application with `Add-AzureADServicePrincipalPolicy`. For more information, see [Claims mapping policy assignment](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ## Download PingAccess and configure your application
 
 Now that you've completed all the Azure Active Directory setup steps, you can move on to configuring PingAccess.
 
-The detailed steps for the PingAccess part of this scenario continue in the Ping Identity documentation, [Configure PingAccess for Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html).
+The detailed steps for the PingAccess part of this scenario continue in the Ping Identity documentation. Follow the instructions in [Configure PingAccess for Azure AD to protect applications published using Microsoft Azure AD Application Proxy](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html) on the Ping Identity web site.
 
 Those steps help you install PingAccess and set up a PingAccess account (if you don't already have one). Then, to create an Azure AD OpenID Connect (OIDC) connection, you set up a token provider with the **Directory (tenant) ID** value that you copied from the Azure AD portal. Next, to create a web session on PingAccess, you use the **Application (client) ID** and `PingAccess key` values. After that, you can set up identity mapping and create a virtual host, site, and application.
 
@@ -198,6 +198,6 @@ When you've completed all these steps, your application should be up and running
 
 ## Next steps
 
-- [Configure PingAccess for Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
-- [Single sign-on to applications in Azure AD](what-is-single-sign-on.md)
-- [Troubleshoot Application Proxy](application-proxy-troubleshoot.md)
+- [Configure PingAccess for Azure AD to protect applications published using Microsoft Azure AD Application Proxy](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
+- [Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md)
+- [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md)

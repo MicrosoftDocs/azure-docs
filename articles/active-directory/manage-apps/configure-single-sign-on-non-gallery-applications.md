@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Configure single sign-on to non-gallery applications in Azure Active Directory
 
-This article describes a feature that enables administrators to configure single sign-on (SSO) to applications not present in the Azure Active Directory (Azure AD) app gallery *without writing code*. If you're looking instead to integrate custom applications with Azure AD through code, see [Authentication in Microsoft identity platform](../develop/authentication-scenarios.md).
+This article describes a feature that enables administrators to configure single sign-on (SSO) to applications not present in the Azure Active Directory (Azure AD) app gallery *without writing code*. If you're looking instead to integrate custom applications with Azure AD through code, see [What is authentication?](../develop/authentication-scenarios.md)
 
 The Azure AD application gallery provides a listing of applications known to support a form of SSO with Azure AD, as described in [Single sign-on to applications](what-is-single-sign-on.md). As your organization's IT specialist or system integrator, you can follow the step-by-step instructions presented in the Azure AD portal to enable SSO, once you've found the application you want to connect.
 
@@ -27,7 +27,7 @@ The following capabilities are also available according to your license agreemen
 - Self-service connection of applications that use the [System for Cross-Domain Identity Management (SCIM) protocol for user provisioning](use-scim-to-provision-users-and-groups.md)
 - Ability to add links to any application in the [Office 365 app launcher](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](what-is-single-sign-on.md#linked-sso)
 
-These capabilities can include self-service integration of a software as a service (SaaS) application that you use, even if that application hasn't been onboarded to the Azure AD application gallery yet. Another capability is self-service integration of a third-party web application that your organization has deployed to servers you control, either in the cloud or on-premises.
+These capabilities can include self-service integration of a software as a service (SaaS) application that you use, even if nobody has onboarded the application to the Azure AD application gallery yet. Another capability is self-service integration of a third-party web application that your organization has deployed to servers you control, either in the cloud or on-premises.
 
 Also known as *app integration templates*, these capabilities provide standards-based connection points for applications that support SAML, SCIM, or forms-based authentication. The capabilities include flexible options and settings for compatibility with a broad number of applications.
 
@@ -37,11 +37,11 @@ To connect an unlisted application using an app integration template, do these s
 
 1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/) using your Azure Active Directory administrator account.
 2. Select **Enterprise Applications** > **New application**.
-3. (Optional but recommended) In the **Add from the gallery** search box, type the display name of the application. If the application appears in the search results, select it and skip the rest of this procedure.
-4. Select **Non-gallery application**. The Add your own application page appears.
+3. (Optional but recommended) In the **Add from the gallery** search box, enter the display name of the application. If the application appears in the search results, select it and skip the rest of this procedure.
+4. Select **Non-gallery application**. The **Add your own application** page appears.
 
    ![Add application](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
-5. Type the display name for your new application.
+5. Enter the display name for your new application.
 6. Select **Add**.
 
 By adding an application this way, you provide a similar experience to the one available for pre-integrated applications. First select **Single sign-on** from the application’s sidebar. The next page (**Select a single sign-on method**) presents the options for configuring SSO:
@@ -52,7 +52,7 @@ By adding an application this way, you provide a similar experience to the one a
 
 ![Select a single sign-on method](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
 
-The options are described in the next sections of this article.
+For more information about these options, see the following sections of this article.
 
 ## SAML-based single sign-on
 
@@ -60,7 +60,7 @@ Select the **SAML** option to configure SAML-based authentication for the applic
 
 ![Set up single sign-on with SAML](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
 
-This page is organized into five different headings:
+This page has five different headings:
 
 | Heading number | Heading name | For a summary of this heading, see: |
 | --- | --- | --- |
@@ -111,13 +111,13 @@ The following two fields are required:
 
 The following three fields are optional:
 
-- **Sign On URL (SP-initiated only)**. This value indicates where the user goes to sign in to this application. If the application is configured to perform SP-initiated SSO, then when a user navigates to this URL, the SP does the necessary redirection to Azure AD to authenticate and sign in the user. If this field is populated, Azure AD uses this URL to launch the application from Office 365 and the Azure AD Access Panel. If this field is omitted, Azure AD instead performs IdP-initiated sign-on when the application is launched from Office 365, the Azure AD Access Panel, or the Azure AD SSO URL (which can be copied from the **Dashboard** page).
+- **Sign On URL (SP-initiated only)**. This value indicates where the user goes to sign in to this application. If the application performs SP-initiated SSO, then when a user navigates to this URL, the SP does the necessary redirection to Azure AD to authenticate and sign in the user. If you specify this field, Azure AD uses this URL to launch the application from Office 365 and the Azure AD Access Panel. If you omit this field, Azure AD instead performs IdP-initiated sign-on during application launches from Office 365, the Azure AD Access Panel, or the Azure AD SSO URL (which you can copy from the **Dashboard** page).
 
-- **Relay State**. You can specify a relay state in SAML to instruct the application where to redirect users after they are authenticated. The value is typically a URL or URL path that takes users to a specific location within the application.
+- **Relay State**. You can specify a relay state in SAML to instruct the application where to redirect users after authentication. The value is typically a URL or URL path that takes users to a specific location within the application.
 
 - **Logout URL**. This value is used to send the SAML logout response back to the application.
 
-For more information, see [SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports](../develop/single-sign-on-saml-protocol.md).
+For more information, see [Single sign-on SAML protocol](../develop/single-sign-on-saml-protocol.md).
 
 ### Review or customize the claims issued in the SAML token
 
@@ -134,7 +134,7 @@ You might need to edit the claims issued in the SAML token for two reasons:
 - The application requires a different set of claim URIs or claim values.
 - Your application requires the **Name identifier value** claim to be something other than the username (also known as the user principal name) stored in Azure AD.
 
-For more information, see [Customizing claims issued in the SAML token for enterprise applications](../develop/active-directory-saml-claims-customization.md).
+For more information, see [How to: Customize claims issued in the SAML token for enterprise applications](../develop/active-directory-saml-claims-customization.md).
 
 ### Review certificate expiration data, status, and email notification
 
@@ -148,12 +148,12 @@ To view, create, or download your certificates (active or inactive), go to the *
 
 Verify the certificate has:
 
-- *The desired expiration date.* You can configure the expiration date for at most three years.
+- *The desired expiration date.* You can configure the expiration date for up to three years into the future.
 - *A status of active for the desired certificate.* If the status is **Inactive**, change the status to **Active**. To change the status, right-click the desired certificate's row and select **Make certificate active**.
 - *The correct signing option and algorithm.*
 - *The correct notification email address(es).* When the active certificate is near the expiration date, Azure AD sends a notification to the email address configured in this field.  
 
-For more information, see [Manage certificates for federated single sign-on in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) and [Certificate signing options](certificate-signing-options.md).
+For more information, see [Manage certificates for federated single sign-on in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) and [Advanced certificate signing options in the SAML token for gallery apps in Azure Active Directory](certificate-signing-options.md).
 
 ### Set up target application
 
@@ -163,7 +163,7 @@ The required values vary according to the application. For details, see the appl
 
 ### Assign users and groups to your SAML application
 
-Once you've configured your application to use Azure AD as a SAML-based identity provider, it is almost ready to test. As a security control, Azure AD won't issue a token allowing a user to sign into the application unless Azure AD has granted access to the user. Users may be granted access directly or through a group membership.
+Once you've configured your application to use Azure AD as a SAML-based identity provider, it is almost ready to test. As a security control, Azure AD won't issue a token allowing a user to sign into the application unless Azure AD has granted access to the user. Users may gain access directly or through a group membership.
 
 To assign a new user or group to your application:
 
@@ -191,7 +191,7 @@ Assigning a user allows Azure AD to issue the user a token. It also causes a til
 
 ### Test the SAML application
 
-Before you test the SAML application, you must have already set up the application with Azure AD and assigned users or groups to the application. To test the SAML application, select **Single sign-on**. This move returns you to the **SAML-based sign-on** page. (If a different SSO method was in effect, select **Change single sign-on modes** > **SAML** too.) Then in the **Test single sign-on with \<application name>** heading, select **Test**. For more information, see [How to debug SAML-based single sign-on to applications in Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md).
+Before you test the SAML application, you must have already set up the application with Azure AD and assigned users or groups to the application. To test the SAML application, select **Single sign-on**, which returns you to the **SAML-based sign-on** page. (If a different SSO method was in effect, select **Change single sign-on modes** > **SAML** too.) Then in the **Test single sign-on with \<application name>** heading, select **Test**. For more information, see [Debug SAML-based single sign-on to applications in Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md).
 
 ## Password single sign-on
 
@@ -206,7 +206,7 @@ Then do these steps:
 1. Enter the URL. This string must be the page that includes the username input field.
 2. Select **Save**. Azure AD tries to parse the sign-in page for a username input and a password input.
 3. If Azure AD's parsing attempt fails, select **Configure \<application name> Password Single Sign-on Settings** to display the **Configure sign-on** page. (If the attempt succeeds, you can disregard the rest of this procedure.)
-4. Select **Manually detect sign-in fields**. Additional instructions describing the manual detection of sign-in fields are shown.
+4. Select **Manually detect sign-in fields**. Additional instructions describing the manual detection of sign-in fields appear.
 
    ![Manual configuration of password-based single sign-on](./media/configure-single-sign-on-non-gallery-applications/password-configure-sign-on.png)
 5. Select **Capture sign-in fields**. A capture status page opens in a new tab, showing the message **metadata capture is currently in progress**.
@@ -216,11 +216,11 @@ Then do these steps:
 7. In the tab with the entered URL, go through the sign-in process. Fill in the username and password fields, and try to sign in. (You don't have to provide the correct password.)
 
    A prompt asks you to save the captured sign-in fields.
-8. Select **OK**. The tab you were using to enter username and password information closes, the capture status page is updated with the message **Metadata has been updated for the application**, and then that browser tab closes.
+8. Select **OK**. The tab you were using to enter username and password information closes, the browser extension updates the capture status page with the message **Metadata has been updated for the application**, and then that browser tab closes.
 9. In the Azure AD **Configure sign-on** page, select **Ok, I was able to sign-in to the app successfully**.
 10. Select **OK**.
 
-Once the sign-in page is captured, you may assign users and groups, and you can set up credential policies just like regular [password SSO applications](what-is-single-sign-on.md).
+After the capture of the sign-in page, you may assign users and groups, and you can set up credential policies just like regular [password SSO applications](what-is-single-sign-on.md).
 
 > [!NOTE]
 > You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application.
@@ -229,12 +229,12 @@ Once the sign-in page is captured, you may assign users and groups, and you can 
 
 Select this option to add a link to the application in your organization's Azure AD Access Panel or Office 365 portal. You can use this method to add links to custom web applications that currently use Active Directory Federation Services (or other federation service) instead of Azure AD for authentication. Or, you can add deep links to specific SharePoint pages or other web pages that you just want to appear on your user's Access Panels.
 
-After you select **Linked**, you're prompted to enter the URL of the application to link to. Type the URL and select **Save**. Users and groups may be assigned to the application, which causes the application to appear in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](end-user-experiences.md) for those users.
+After you select **Linked**, you're prompted to enter the URL of the application to link to. Type the URL and select **Save**. You may assign users and groups to the application, which causes the application to appear in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](end-user-experiences.md) for those users.
 
 > [!NOTE]
 > You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application.
 
 ## Related articles
 
-- [How to customize claims issued in the SAML token for pre-integrated applications](../develop/active-directory-saml-claims-customization.md)
-- [Troubleshooting SAML-based single sign-on](../develop/howto-v1-debug-saml-sso-issues.md)
+- [How to: Customize claims issued in the SAML token for enterprise applications](../develop/active-directory-saml-claims-customization.md)
+- [Debug SAML-based single sign-on to applications in Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md)
