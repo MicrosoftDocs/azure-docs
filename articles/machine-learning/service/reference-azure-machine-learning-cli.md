@@ -120,14 +120,16 @@ The following commands demonstrate how to use the CLI to manage resources used b
 
 * Start a run of your experiment. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you are looking at your file system) against the -c parameter.
 
+    ```azurecli-interactive
+    az ml run submit-script -c sklearn -e testexperiment train.py
+    ```
+
     > [!TIP]
     > The `az ml folder attach` command creates a `.azureml` subdirectory, which contains two example runconfig files. 
     >
     > If you have a Python script that creates a run configuration object programmatically, you can use [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) to save it as a runconfig file.
-
-    ```azurecli-interactive
-    az ml run submit-script -c sklearn -e testexperiment train.py
-    ```
+    >
+    > For more example runconfig files, see [https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml](https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml).
 
     For more information, see [az ml run submit-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 
@@ -185,3 +187,5 @@ The following commands demonstrate how to register a trained model, and then dep
 ## Next steps
 
 * [Command reference for the Machine Learning CLI extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest).
+
+* [Train and deploy machine learning models using Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)
