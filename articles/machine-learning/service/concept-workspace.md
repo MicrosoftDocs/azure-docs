@@ -36,7 +36,7 @@ The diagram shows the following components of a workspace:
 + [Experiments](concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  You can create and run experiments with
     + The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
     + The [automated machine learning experiments (preview)](how-to-create-portal-experiments.md) section in the Axure portal.
-    + The The [visual interface (preview)](ui-concept-visual-interface.md).
+    + The The [visual interface (preview)]().
 + [Pipelines](concept-azure-machine-learning-architecture.md#pipeline) are reusable workflows for training and retraining your model.
 + [Datasets](concept-azure-machine-learning-architecture.md#dataset) aid in management of the data you use for model training and pipeline creation.
 + Once you have a model you want to deploy, you create a [registered model](concept-azure-machine-learning-architecture.md#model-registry).
@@ -61,7 +61,7 @@ Manage your workspace with any of the following:
 You perform machine learning tasks using your workspace.  You can perform these tasks:
 + On the web using
     + The [Azure portal](https://azure.portal.com)
-    + The [visual interface (preview) for Azure Machine Learning service](ui-concept-visual-interface.md)
+    + The [visual interface (preview) for Azure Machine Learning service]()
 + Using the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + Using the [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
 
@@ -95,7 +95,7 @@ To get started with Azure Machine Learning service, see:
 + [What is Azure Machine Learning service?](overview-what-is-azure-ml.md)
 + [Create a workspace](setup-create-workspace.md)
 + [Create and manage Azure Machine Learning service workspaces](how-to-manage-workspace.md)
-+ The [visual interface (preview) for Azure Machine Learning service](ui-concept-visual-interface.md).
++ The [visual interface (preview) for Azure Machine Learning service]().
 + [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
 + [Tutorial: Train a model](tutorial-train-models-with-aml.md)
