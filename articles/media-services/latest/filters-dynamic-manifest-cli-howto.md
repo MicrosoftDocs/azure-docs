@@ -34,7 +34,8 @@ This topic shows how to configure a filter for a Video on-Demand asset and use C
 
 The following example defines the track selection conditions that are added to the final manifest. This filter includes any audio tracks that are EC-3 and any video tracks that have bitrate in the 0-1000000 range.
 
-If you wanted to define Filters in REST, you would notice that Filters defined in REST, include the "Properties" wrapper JSON object.  
+> [!TIP]
+> If you plan to define **Filters** in REST, notice that you need to include the "Properties" wrapper JSON object.  
 
 ```json
 [
