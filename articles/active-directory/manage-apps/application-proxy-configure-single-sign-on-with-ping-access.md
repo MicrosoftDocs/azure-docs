@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 05/08/2019
 ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -85,8 +85,8 @@ To publish your own on-premises application:
       > [!WARNING]
       > For this type of single sign-on, the internal URL must use `https` and can't use `http`.
 
-   2. **Pre-authentication method**: Azure Active Directory
-   3. **Translate URL in Headers**: No
+   2. **Pre-authentication method**: Choose **Azure Active Directory**.
+   3. **Translate URL in Headers**: Choose **No**.
 
    > [!NOTE]
    > If this is your first application, use port 3000 to start and come back to update this setting if you change your PingAccess configuration. For subsequent applications, the port will need to match the Listener you’ve configured in PingAccess. Learn more about [listeners in PingAccess](https://documentation.pingidentity.com/pingaccess/pa31/index.shtml#Listeners.html).

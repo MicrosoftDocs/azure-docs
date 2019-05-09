@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
-ms.date: 04/22/2019
+ms.date: 05/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
@@ -167,7 +167,7 @@ Once you've configured your application to use Azure AD as a SAML-based identity
 
 To assign a new user or group to your application:
 
-1. In the application sidebar, select **Users and groups**. The **<application name> - Users and groups** page appears, which shows the current list of assigned users and groups.
+1. In the application sidebar, select **Users and groups**. The **\<application name> - Users and groups** page appears, which shows the current list of assigned users and groups.
 2. Select **Add Users**. The **Add Assignments** page appears.
 3. Select **Users and groups (\<Number> Selected)**. The **Users and groups** page appears, showing a list of available users and groups.
 4. Type or scroll to find the user or group you wish to assign from the list.
@@ -205,7 +205,7 @@ Then do these steps:
 
 1. Enter the URL. This string must be the page that includes the username input field.
 2. Select **Save**. Azure AD tries to parse the sign-in page for a username input and a password input.
-3. If Azure AD's parsing attempt fails, select **Configure Password Single Sign-on Settings** to display the **Configure sign-on** page. (If the attempt succeeds, you can disregard the rest of this procedure.)
+3. If Azure AD's parsing attempt fails, select **Configure \<application name> Password Single Sign-on Settings** to display the **Configure sign-on** page. (If the attempt succeeds, you can disregard the rest of this procedure.)
 4. Select **Manually detect sign-in fields**. Additional instructions describing the manual detection of sign-in fields are shown.
 
    ![Manual configuration of password-based single sign-on](./media/configure-single-sign-on-non-gallery-applications/password-configure-sign-on.png)
@@ -217,7 +217,8 @@ Then do these steps:
 
    A prompt asks you to save the captured sign-in fields.
 8. Select **OK**. The tab you were using to enter username and password information closes, the capture status page is updated with the message **Metadata has been updated for the application**, and then that browser tab closes.
-9. In the Azure AD **Configure sign-on** page, select **Ok, I was able to sign-in to the app successfully**, then select **OK**.
+9. In the Azure AD **Configure sign-on** page, select **Ok, I was able to sign-in to the app successfully**.
+10. Select **OK**.
 
 Once the sign-in page is captured, you may assign users and groups, and you can set up credential policies just like regular [password SSO applications](what-is-single-sign-on.md).
 
