@@ -13,26 +13,28 @@ ms.date: 05/30/2019
 
 To begin creating Software as a Service (SaaS) offers, ensure that you have your [Partner Center account set up](./create-account.md) and the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) open in Partner Center, with the **Offers** tab selected. 
 
-![Commercial Marketplace dashboard on Partner Center](../media/commercial-marketplace-offers.png)
+![Commercial Marketplace dashboard on Partner Center](./media/commercial-marketplace-offers.png)
 
-| | |
-|:---:|:---:|
-|Select the + **Create a new…** button, then select the **Software as a Service** menu item. Note: If you select one of the other offer types, you will be redirected to the older [Cloud Partner Portal](https://cloudpartner.azure.com/).  Only SaaS offers are available in the Commercial Marketplace portal on Partner Center at this time.  
+Select the + **Create a new…** button, then select the **Software as a Service** menu item. Note: If you select one of the other offer types, you will be redirected to the older [Cloud Partner Portal](https://cloudpartner.azure.com/).  Only SaaS offers are available in the Commercial Marketplace portal on Partner Center at this time. 
 
-![Create offer window on Partner Center](../media/new-offer.png) | The **New offer** dialog box is displayed. ![New offer dialog box](../media/new-offer-popup.png)|
+![Create offer window on Partner Center](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/91249b39-5ec5-4cc4-9360-c4306c0368d3.png)
+
+
+The **New offer** dialog box is displayed. ![New offer dialog box](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/91249b39-5ec5-4cc4-9360-c4306c0368d3.png)
+
 
 ## Offer ID and name
 
 - **Offer ID**: Create a unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager (ARM) templates (if applicable). This must be lowercase, alphanumeric (including hyphens and underscores, but no whitespace). This is limited to 50 characters and can’t be updated after you select create.  
-Example: test-offer-1 
-Resulting in the URL: https://azuremarketplace.microsoft.com/marketplace/../test-offer-1
+<br>Example: test-offer-1 
+<br>Resulting in the URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
 - **Offer name**: The official name of your SaaS application offer, consistent across publications, advertisements, and web sites.  This name may be trademarked.  This name must not contain whitespace, emojis (unless they are the trademark or copyright symbol) and must be limited to 50 characters.
-Example: Test Offer 1&#8482;
+<br>Example: Test Offer 1&#8482;
 
 Select **Create**.  An **Offer overview** page is created for this offer.  
 
-![Offer overview on Partner Center](../media/commercial-marketplace-offer-overview.png)
+![Offer overview on Partner Center](/media/commercial-marketplace-offer-overview.png)
 
 ## Offer overview
 
@@ -51,11 +53,10 @@ The **Offer overview** page includes:
 The **Offer setup** tab asks for the following information. Select **Save** after completing these fields.
 
 - **Would you like to sell through Microsoft?** (Yes/No)
-    This selection determines whether:
     - **Yes**, you would like to sell your offer through Microsoft, with Microsoft hosting marketplace transactions on your behalf; or 
     - **No**, you would prefer to just list your offer through the marketplaces, processing any monetary transactions independently of Microsoft.    
 
-### Sell through Microsoft (Yes)
+### Sell through Microsoft
 
 Selling through Microsoft provides better customer discovery and acquisition, allows Microsoft to host marketplace transactions on your behalf, and takes advantage of Microsoft’s globally available commerce capabilities.
 
@@ -87,20 +88,22 @@ Software licensing fees are presented as a monthly, recurring site-based subscri
 #### CSP Program Opt-in
 The [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) program enables software offers to reach millions of qualified Microsoft customers with minimal marketing and sales investment.
 
-    - **Channels: Make my offer available in the CSP program** (check box)
-    Electing to make your offer available in the CSP program enables cloud solution providers to sell your product as part of a bundled solution to their customers. 
+- **Channels: Make my offer available in the CSP program** (check box)
 
-### Sell through Microsoft (No): Listing only
+Electing to make your offer available in the CSP program enables cloud solution providers to sell your product as part of a bundled solution to their customers. 
+
+### List through Microsoft
 
 Promote your business with Microsoft by creating a marketplace listing. Selecting to list your offer only and not transact through Microsoft means that Microsoft doesn't participate directly in software license transactions. There is no associated transaction fee and the publisher keeps 100% of any software licensing fees collected from the customer. However, the publisher is responsible for supporting all aspects of the software license transaction, including but not limited to: order fulfillment, metering, billing, invoicing, payment, and collection. 
 
 - **How do you want potential customers to interact with this listing offer?**
 
-#### Get it now (Free)
+##### Get it now (Free)
 List your offer to customers for free by providing a valid URL (beginning with http or https) where they can access your app.  For example: `https://contoso.com/saas-app`
 
-#### Free trial
+##### Free trial
 List your offer to customers on a free trial basis by providing a valid URL (beginning with http or https) where they can access your app.  For example: `https://contoso.com/trial/saas-app`
 
-#### Contact me
-Collect customer contact information by connecting your CRM system. The customer will be asked for permission to share their information. These customer details, along with the offer name, id, and marketplace source where they found your offer, will be sent to the CRM system that you’ve configured. (See Lead management for more information on configuring your CRM). 
+##### Contact me
+Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, id, and marketplace source where they found your offer, will be sent to the CRM system that you’ve configured. (See [Lead management](#lead-management) for more information on configuring your CRM). 
+
