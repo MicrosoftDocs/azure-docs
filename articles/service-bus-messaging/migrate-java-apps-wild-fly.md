@@ -34,7 +34,7 @@ This article walks you through the process of migrating existing Java EE workloa
 * [Build console app - send and receive messages to Service Bus using Java Message Service (JMS)](#build-and-run-console-app-to-send-and-receive-messages)
     * [Create and configure Azure Service Bus](#create-and-configure-azure-service-bus)
     * [Build and run the console app](#build-and-run-the-console-app)
-* [Migrate a message-driven enterprise bean to Azure](#migrate-a-message--driven-enterprise-bean-to-azure)
+* [Migrate a message-driven enterprise bean to Azure](#migrate-a-message-driven-enterprise-bean-to-azure)
     * [Prepare environment](#prepare-environment)
     * [Deploy an app to App Service Linux](#deploy-an-app-to-app-service-linux)
     * [Configure the JMS Resource Adapter ( JMS RA)](#configure-the-jms-resource-adapter-jms-ra)
