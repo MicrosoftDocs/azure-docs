@@ -69,7 +69,8 @@ Now force CoreDNS to reload the ConfigMap. The [kubectl delete pod][kubectl dele
 kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
 ```
 
-*Note*: The command above is correct, while we're changing coredns, the deployment is under the kube-dns name.
+> [!Note]
+> The command above is correct. While we're changing `coredns`, the deployment is under the **kube-dns** name.
 
 ## Custom proxy server
 
