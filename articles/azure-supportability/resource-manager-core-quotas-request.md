@@ -16,7 +16,7 @@ Resource Manager vCPU quotas are enforced at the region level and SKU family lev
 Learn more about how quotas are enforced on the [Azure subscription and service limits](https://aka.ms/quotalimits) page.
 To learn more about SKU Families, you may compare cost and performance on the [Virtual Machines Pricing](https://aka.ms/pricingcompute) page.
 
-You can now request an increase via **Help + Support** or the **Usages + Quota** blade in the portal. 
+You can now request an increase via **Help + Support** blade or the **Usages + Quota** blade in the portal. 
 
 ## Quota increase using the **Help + Support** blade
 
