@@ -8,7 +8,7 @@ ms.date: 5/2/2019
 ms.author: maquaran
 ---
 
-# Exposing the Azure Cosmos DB Trigger logs
+# How to configure and read the Azure Cosmos DB Trigger logs
 
 This article describes how you can configure your Azure Functions environment to send the Azure Cosmos DB Trigger logs to your configured [monitoring solution](../azure-functions/functions-monitoring.md).
 
