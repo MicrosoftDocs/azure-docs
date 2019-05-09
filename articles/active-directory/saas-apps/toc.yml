@@ -1356,6 +1356,8 @@
         href: cisco-spark-provisioning-tutorial.md
       - name: Cisco Webex
         href: cisco-webex-provisioning-tutorial.md
+      - name: Comeet Recruiting Software
+        href: comeet-recruiting-software-provisioning-tutorial.md
       - name: Concur
         href: concur-provisioning-tutorial.md
       - name: Cornerstone OnDemand
@@ -1364,6 +1366,8 @@
         href: docusign-provisioning-tutorial.md
       - name: Dropbox for Business
         href: dropboxforbusiness-provisioning-tutorial.md
+      - name: Dynamic Signal
+        href: dynamic-signal-provisioning-tutorial.md
       - name: G Suite
         href: google-apps-provisioning-tutorial.md
       - name: GitHub
@@ -1372,6 +1376,8 @@
         href: citrixgotomeeting-provisioning-tutorial.md
       - name: Jive
         href: jive-provisioning-tutorial.md
+      - name: Keeper Password Manager & Digital Vault
+        href: keeper-password-manager-digitalvault-provisioning-tutorial.md
       - name: LinkedIn Elevate
         href: linkedinelevate-provisioning-tutorial.md
       - name: LinkedIn Sales Navigator
