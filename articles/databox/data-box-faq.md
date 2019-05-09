@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/25/2019
+ms.date: 05/08/2019
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
@@ -31,12 +31,12 @@ Questions and answers are arranged in the following categories:
 A.  Azure Data Box service is designed for offline data ingestion. This service manages an array of products of differing storage capacities, all tailored for data transport. 
 
 ### Q. What is Azure Data Box?
-A. The Azure Data Box allows a quick, inexpensive, and secure transfer of terabytes of data into and out of Azure. You order the Data Box device via the Azure portal. Microsoft ships you a storage device of 80-TB usable capacity through a regional carrier. 
+A. The Azure Data Box allows a quick, inexpensive, and secure transfer of terabytes of data into Azure. You order the Data Box device via the Azure portal. Microsoft ships you a storage device of 80-TB usable capacity through a regional carrier. 
 
 Once the device is received, you quickly set it up using the local web UI. Copy the data from your servers to the device and ship the device back to Azure. In the Azure datacenter, your data is automatically uploaded from the device to Azure. The entire process is tracked end-to-end by the Data Box service in the Azure portal.
 
 ### Q. When should I use Data Box?
-A. If you have 40 - 500 TB of data that you want to transfer to Azure, you would benefit from using Data Box. For data sizes < 40 TB, use Data Box Disk and for data sizes > 500 TB, sign up for Data Box Heavy.
+A. If you have 40 - 500 TB of data that you want to transfer to Azure, you would benefit from using Data Box. For data sizes < 40 TB, use Data Box Disk and for data sizes > 500 TB, sign up for [Data Box Heavy](data-box-heavy-overview.md).
 
 ### Q. What is the price of Data Box?
 A. Data Box is available at a nominal charge for 10 days. When you select the product model while creating an order in the Azure portal, the charges for the device are displayed. Shipping is also free, however, the charges for Azure storage apply. For more information, go to [Azure Data Box pricing](https://azure.microsoft.com/pricing/details/storage/databox/). 
