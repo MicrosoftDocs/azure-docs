@@ -263,6 +263,10 @@ supported conditions are:
 - `"notIn": ["value1","value2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
+- `"less": "value"`
+- `"lessOrEquals": "value"`
+- `"greater": "value"`
+- `"greaterOrEquals": "value"`
 - `"exists": "bool"`
 
 When using the **like** and **notLike** conditions, you provide a wildcard `*` in the value.
@@ -481,15 +485,28 @@ For complete details on each effect, order of evaluation, properties, and exampl
 
 All [Resource Manager template
 functions](../../../azure-resource-manager/resource-group-template-functions.md) are available to
-use within a policy rule, except the following functions:
+use within a policy rule, except the following functions and user-defined functions:
 
 - copyIndex()
 - deployment()
 - list*
+- newGuid()
+- pickZones()
 - providers()
 - reference()
 - resourceId()
 - variables()
+
+The following functions are available to use in a policy rule, but differ from use in an Azure
+Resource Manager template:
+
+- addDays(dateTime, numberOfDaysToAdd)
+  - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
+    'yyyy-MM-ddTHH:mm:ss.fffffffZ'
+  - **numberOfDaysToAdd**: [Required] integer - Number of days to add
+- utcNow() - Unlike a Resource Manager template, this can be used outside defaultValue.
+  - Returns a string that is set to the current date and time in Universal ISO 8601 DateTime format
+    'yyyy-MM-ddTHH:mm:ss.fffffffZ'
 
 Additionally, the `field` function is available to policy rules. `field` is primarily used with
 **AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that are being
