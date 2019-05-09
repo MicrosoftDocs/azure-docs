@@ -23,7 +23,7 @@ There are two ways to export a template:
 
 Depending on the option you choose, the exported templates have different qualities.
 
-| From resource group or resources | Before deployment or from history |
+| From resource group or resource | Before deployment or from history |
 | --------------------- | ----------------- |
 | Template is snapshot of the resources' current state. It includes any manual changes you made after deployment. | Template only shows state of resources at the time of deployment. Any manual changes you made after deployment aren't included. |
 | You can select which resources from a resource group to export. | All resources for a specific deployment are included. You can't pick a subset of those resources or add resources that were added at a different time. |
@@ -40,7 +40,7 @@ Export the template before deployment or from the history, when:
 * You want an easy-to-reuse template.
 * You don't need to include changes you made after the original deployment.
 
-## Export from resource group
+## Export template from resource group
 
 To export one or more resources from a resource group:
 
@@ -58,7 +58,7 @@ To export one or more resources from a resource group:
 
    ![Show template](./media/export-template-portal/show-template.png)
 
-## Export from resource
+## Export template from resource
 
 To export one resource:
 
