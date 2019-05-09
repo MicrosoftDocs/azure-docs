@@ -18,7 +18,7 @@ To learn more about SKU Families, you may compare cost and performance on the [V
 
 You can now request an increase via **Help + Support** or the **Usages + Quota** blade in the portal. 
 
-## Quota increase using the **Help +Support** blade
+## Quota increase using the **Help + Support** blade
 
 Follow the instructions below to create a support request via Azure's 'Help + Support' blade available in the Azure Portal. 
 
@@ -60,9 +60,9 @@ Follow the instructions below to create a support request via Azure's 'Help + Su
 
 To remove a line, uncheck the SKU from the SKU family dropdown or click the discard "x" icon. After entering the desired quota for each SKU family, click **Save and Continue** on the Quota details panel to continue with the support request creation.
 
-### Quota increase at subscription level using Usages + Quota
+## Quota increase at subscription level using Usages + Quota
 
-follow the instructions below using to create a support request via Azure's 'Usage + quota' blade available in the Azure Portal. 
+Follow the instructions below using to create a support request via Azure's 'Usage + quota' blade available in the Azure Portal. 
 
 1. From https://portal.azure.com, select **Subscriptions**.
 
@@ -80,15 +80,15 @@ follow the instructions below using to create a support request via Azure's 'Usa
 
    ![Request increase](./media/resource-manager-core-quotas-request/request-increase.png)
 
-5. Step:1 - Select **Cores** as the quote type. 
+5. Select **Compute-VM (cores-vCPUs) subscription limit increases** as the quote type. 
 
    ![Fill in form](./media/resource-manager-core-quotas-request/forms.png)
    
-6. Step:2 - Select Deployment model as "Resource Manager" and select a location.
+6. In the **Quota details** panel, select Deployment model as "Resource Manager" and select a location.
 
     ![Quota Problem blade](./media/resource-manager-core-quotas-request/Problem-step.png)
 
-3. Select the SKU Families that require an increase.
+3. Select the **SKU Families** that require an increase.
 
     ![SKU series selected](./media/resource-manager-core-quotas-request/SKU-selected.png)
 
@@ -97,5 +97,4 @@ follow the instructions below using to create a support request via Azure's 'Usa
     ![SKU new quota request](./media/resource-manager-core-quotas-request/SKU-new-quota.png)
 
 - To remove a line, uncheck the SKU from the SKU family dropdown or click the discard "x" icon.
-After entering the desired quota for each SKU family, click "Next" on the Problem step page to continue with the support request creation.
-
+After entering the desired quota for each SKU family, click "Save and Continue" on the Problem step page to continue with the support request creation.
