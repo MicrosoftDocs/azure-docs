@@ -11,7 +11,7 @@ ms.date: 05/09/2019
 
 # Azure Stream Analytics data errors
 
-When there's a discrepancy in the data that is processed by an Azure Stream Analytics job, Stream Analytics sends a data error event is sent to the diagnostic logs. Stream Analytics writes detailed information and example events, to its diagnostic logs when data errors occur. A summary of this information is also provided through portal notifications for some errors.
+When there's a discrepancy in the data that is processed by an Azure Stream Analytics job, Stream Analytics sends a data error event to the diagnostic logs. Stream Analytics writes detailed information and example events, to its diagnostic logs when data errors occur. A summary of this information is also provided through portal notifications for some errors.
 
 This article outlines the different error types, causes, and diagnostic log details for input and output data errors.
 
@@ -38,7 +38,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 ### InputDeserializerError.InvalidCompressionType
 
 * Cause: The input compression type selected doesn't match the data.
-* Portal notification: Yes
+* Portal notification provided: Yes
 * Diagnostic log level: Warning
 * Log details
    * Input message identifier. For Event Hub, the identifier is the PartitionId, Offset, and Sequence Number.
@@ -47,7 +47,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 ### InputDeserializerError.InvalidHeader
 
 * Cause: The header of input data is invalid. For example, a CSV has columns with duplicate names.
-* Portal notification: Yes
+* Portal notification provided: Yes
 * Diagnostic log level: Warning
 * Log details
    * Input message identifier. 
@@ -57,19 +57,19 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 ### InputDeserializerError.MissingColumns
 
 * Cause: The input columns defined with CREATE TABLE or through TIMESTAMP BY doesn't exist.
-* Portal notification: Yes
+* Portal notification provided: Yes
 * Diagnostic log level: Warning
 * Log details
    * Input message identifier. 
    * Names of the columns that are missing. 
    * Actual payload up to a few kilobytes.
 * BriefMessage: "Could not deserialize the input event(s) from resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt' as Csv. Some possible reasons: 1) Malformed events 2) Input source configured with incorrect serialization format" 
-* Message: Missing fields specified in query or in create table. Fields expected:ColumnA Fields expected:ColumnB
+* Message: Missing fields specified in query or in create table. Fields expected:ColumnA Fields found:ColumnB
 
 ### InputDeserializerError.TypeConversionError
 
 * Cause: Unable to convert the input to the type specified in the CREATE TABLE statement.
-* Portal notification: Yes
+* Portal notification provided: Yes
 * Diagnostic log level: Warning
 * Log details
    * Input message identifier. 
@@ -80,7 +80,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 ### InputDeserializerError.InvalidData
 
 * Cause: Input data is not in the right format. For example, the input isn't valid JSON.
-* Portal notification: Yes
+* Portal notification provided: Yes
 * Diagnostic log level: Warning
 * Log details
    * Input message identifier. 
@@ -91,7 +91,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 ### InvalidInputTimeStamp
 
 * Cause: The value of the TIMESTAMP BY expression can't be converted to datetime.
-* Portal notification: Yes
+* Portal notification provided: Yes
 * Diagnostic log level: Warning
 * Log details
    * Input message identifier. 
@@ -102,7 +102,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 ### InvalidInputTimeStampKey
 
 * Cause: The value of TIMESTAMP BY OVER timestampColumn is NULL.
-* Portal notifications: Yes
+* Portal notification provided: Yes
 * Diagnostic log level: Warning
 * Log details
    * The actual payload up to few kilobytes.
@@ -111,7 +111,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 ### LateInputEvent
 
 * Cause: The difference between application time and arrival time is greater than late arrival tolerance window.
-* Portal notification: No
+* Portal notification provided: No
 * Diagnostic log level: Information
 * Log details
    * Application time and arrival time. 
@@ -121,7 +121,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 ### EarlyInputEvent
 
 * Cause: The difference between Application time and Arrival time is greater than 5 minutes.
-* Portal notification: No
+* Portal notification provided: No
 * Diagnostic log level: Information
 * Log details
    * Application time and arrival time. 
@@ -131,7 +131,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 ### OutOfOrderEvent
 
 * Cause: Event is considered out of order according to the out of order tolerance window defined.
-* Portal notification: No
+* Portal notification provided: No
 * Diagnostic log level: Information
 * Log details
    * Actual payload up to few kilobytes.
@@ -142,7 +142,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 ### OutputDataConversionError.RequiredColumnMissing
 
 * Cause: The column required for the output doesn't exist. For example, a column defined as Azure Table PartitionKey does't exist.
-* Portal notification: Yes
+* Portal notification provided: Yes
 * Diagnostic log level: Warning
 * Log details
    * Name of the column and either the record identifier or part of the record.
@@ -151,7 +151,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 ### OutputDataConversionError.ColumnNameInvalid
 
 * Cause: The column value doesn't conform with the output. For example, the column name isn't a valid Azure table column.
-* Portal notification: Yes
+* Portal notification provided: Yes
 * Diagnostic log level: Warning
 * Log details
    * Name of the column and either record identifier or part of the record.
@@ -160,7 +160,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 ### OutputDataConversionError.TypeConversionError
 
 * Cause: A column can't be converted to a valid type in the output. For example, the value of column is incompatible with constraints or type defined in SQL table.
-* Portal notifications: Yes
+* Portal notification provided: Yes
 * Diagnostic log level: Warning
 * Log details
    * Name of the column.
@@ -170,7 +170,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 ### OutputDataConversionError.RecordExceededSizeLimit
 
 * Cause: The value of the message is greater than the supported output size. For example, a record is larger than 1 MB for an Event Hub output.
-* Portal notifications: Yes
+* Portal notification provided: Yes
 * Diagnostic log level: Warning
 * Log details
    * Either record identifier or part of the record.
@@ -179,7 +179,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 ### OutputDataConversionError.DuplicateKey
 
 * Cause: A record already contains a column with the same name as a System column. For example, CosmosDB output with a column named ID when ID column is to a different column.
-* Portal notifications: Yes
+* Portal notification provided: Yes
 * Diagnostic log level: Warning
 * Log details
    * Name of the column.
