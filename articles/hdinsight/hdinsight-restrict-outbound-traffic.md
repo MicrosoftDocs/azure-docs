@@ -132,7 +132,7 @@ For example, to configure the route table for a cluster created in the US region
 1. Click **Add** to create routes for the IP addresses in the table below.
 
 | Route name | Address prefix | Next hop type | Next hop address |
-|---|---|---|
+|---|---|---|---|
 | 168.61.49.99 | 168.61.49.99/32 | Internet | NA |
 | 23.99.5.239 | 23.99.5.239/32 | Internet | NA |
 | 168.61.48.131 | 168.61.48.131/32 | Internet | NA |
@@ -198,13 +198,15 @@ The following information is only required if you wish to configure a firewall a
 |---|
 | Azure SQL |
 | Azure Storage |
+| Azure Active Directory |
 
 #### IP Address dependencies
 
 | **Endpoint** | **Details** |
 |---|---|
 | \*:123 | NTP clock check. Traffic is checked at multiple endpoints on port 123 |
-| IPs published [here](hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) | These are HDInsight service |
+| IPs published [here](hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) | These are HDInsight service management addresses |
+| AAD-DS private IPs for ESP clusters: *:16800 for KMS Windows Activation,*12000 for Log Analytics |  |
 
 With an Azure Firewall, you automatically get everything below configured with the FQDN tags.
 
