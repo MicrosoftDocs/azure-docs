@@ -237,10 +237,13 @@
     items:
     - name: With .NET
       href: filters-dynamic-manifest-dotnet-howto.md
+      displayName: filters
     - name: With REST
       href: filters-dynamic-manifest-rest-howto.md
+      displayName: filters
     - name: With CLI
       href: filters-dynamic-manifest-cli-howto.md  
+      displayName: filters
   - name: Deliver content
     items:
     - name: Publish an asset - CLI
