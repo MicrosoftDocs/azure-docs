@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 In this tutorial, you learn how to set up SAML SSO for Jira by resolution GmbH with Azure Active Directory (Azure AD).
 Integrating SAML SSO for Jira by resolution GmbH with Azure AD provides you with the following benefits:
 
-* You can control in Azure AD who can log in to Jira with the SAML SSO plugin by resolution GmbH.
+* You can control in Azure AD who can sign in to Jira with the SAML SSO plugin by resolution GmbH.
 * You can enable your users to be automatically signed-in to Jira with their Azure AD accounts by using SAML SSO for Jira by resolution GmbH (Single Sign-On).
 * You can manage your accounts in one central location - the Azure portal.
 
@@ -72,11 +72,11 @@ For single sign-on to work, a link relationship between an Azure AD user and the
 
 To configure and test single sign-on, you need to complete the following steps:
 
-1. **[Configure the Azure AD enterprise application for Single Sign-On](#configure-azure-ad-single-sign-on)** - Configure the Azure AD enterprise application for the single sign-on
-2. **[Configure the SAML SSO plugin of your Jira instance](#configure-saml-sso-for-jira-by-resolution-gmbh-single-sign-on)** - Configure the Single Sign-On settings on application side.
+1. **[Configure the Azure AD enterprise application for Single Sign-On](#configure-the-azure-ad-enterprise-application-for-single-sign-on)** - Configure the Azure AD enterprise application for the single sign-on
+2. **[Configure the SAML SSO plugin of your Jira instance](#configure-the-saml-sso-plugin-of-your-jira-instance)** - Configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - Create a test user in Azure AD.
 1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - Enabling the test user to use the single sign-on the Azure side.
-1. **[Create the test user in Jira](#create-saml-sso-for-jira-by-resolution-gmbh-test-user)** - Create a counterpart test user in Jira for the Azure AD test user.
+1. **[Create the test user in Jira](#create-the-test-user-also-in-jira)** - Create a counterpart test user in Jira for the Azure AD test user.
 1. **[Test Single Sign-On](#test-single-sign-on)** - Verify whether the configuration works.
 
 ### Configure the Azure AD enterprise application for Single Sign-On
@@ -123,7 +123,7 @@ To configure the single sign-on with SAML SSO for Jira by resolution GmbH, perfo
 
 ### Configure the SAML SSO plugin of your Jira instance] 
 
-1. In a different web browser window, log in to your Jira instance as an administrator.
+1. In a different web browser window, sign in to your Jira instance as an administrator.
 
 2. Hover over the cog at the right side and click **Manage apps**.
     
@@ -251,11 +251,11 @@ In this section, you add Britta Simon to enterprise application, which allows he
 
 ### Create the test user also in Jira
 
-To enable Azure AD users to log in to SAML SSO for Jira by resolution GmbH, they must be provisioned into SAML SSO for Jira by resolution GmbH. For the case of this tutorial, you have to do the provisioning by hand. However, there are also other provisioning models available for the SAML SSO plugin by resolution, for example **Just In Time** provisioning. Refer to their documentation at [SAML SSO by resolution GmbH](https://wiki.resolution.de/doc/saml-sso/latest/all). If you have question about it, do not hesitate the support at [resolution support](https://www.resolution.de/go/support).
+To enable Azure AD users to sign in to SAML SSO for Jira by resolution GmbH, they must be provisioned into SAML SSO for Jira by resolution GmbH. For the case of this tutorial, you have to do the provisioning by hand. However, there are also other provisioning models available for the SAML SSO plugin by resolution, for example **Just In Time** provisioning. Refer to their documentation at [SAML SSO by resolution GmbH](https://wiki.resolution.de/doc/saml-sso/latest/all). If you have question about it, do not hesitate the support at [resolution support](https://www.resolution.de/go/support).
 
 **To manually provision a user account, perform the following steps:**
 
-1. Log in to Jira instance as an administrator.
+1. Sign in to Jira instance as an administrator.
 
 2. Hover over the cog and select **User management**.
 
