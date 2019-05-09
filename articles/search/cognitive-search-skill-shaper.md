@@ -192,7 +192,7 @@ In this case, the **Shaper** flattens all chapter titles to create a single arra
 ## Scenario 3: input consolidation from nested contexts
 
 > [!NOTE]
-> Nested structures supported in the api-version=2019-05-06-Preview can be used in a [knowledge store](knowledge-store-concept-intro.md) or in an Azure Search index.
+> Nested structures supported in the [REST API version 2019-05-06-Preview](search-api-preview.md) can be used in a [knowledge store](knowledge-store-concept-intro.md) or in an Azure Search index.
 
 Imagine you have the title, chapters, and contents of a book and have run entity recognition and key phrases on the contents and now need to aggregate results from the different skills into a single shape with the chapter name, entities, and key phrases.
 

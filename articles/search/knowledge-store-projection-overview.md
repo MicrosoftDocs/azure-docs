@@ -14,7 +14,7 @@ ms.custom: seomay2019
 # Working with projections in a knowledge store in Azure Search
 
 > [!Note]
-> Knowledge Store is in preview and not intended for production use. The REST API version 2019-05-06-Preview provides this feature. There is no .NET SDK support at this time.
+> Knowledge Store is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
 
 Azure Search enables content enrichment through AI cognitive skills and custom skills as part of indexing. Enrichments add structure to your documents and make searching more effective. In many instances, the enriched documents are useful for scenarios other than search, such as for knowledge mining.

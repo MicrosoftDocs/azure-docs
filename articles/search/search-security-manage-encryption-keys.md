@@ -13,7 +13,7 @@ ms.custom:
 # Azure Search encryption using customer-managed keys in Azure Key Vault
 
 > [!Note]
-> Encryption with customer-managed keys is in preview and not intended for production use. The REST API version 2019-05-06-Preview provides this feature. You can also use the .NET SDK version 8.0.0-preview.
+> Encryption with customer-managed keys is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. You can also use the .NET SDK version 8.0.0-preview.
 >
 > This feature is not available for free services. You must use a billable search service created on or after 2019-01-01. There is no portal support at this time.
 

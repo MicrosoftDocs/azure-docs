@@ -16,7 +16,7 @@ ms.custom: seodec2018
 
 
 > [!Note]
-> MongoDB API support is in preview and not intended for production use. The REST API version 2019-05-06-Preview and 017-11-11-Preview provide this feature. There is no portal or .NET SDK support at this time.
+> MongoDB API support is in preview and not intended for production use. The [REST API versions 2019-05-06-Preview and 2017-11-11-Preview](search-api-preview.md) provide this feature. There is no portal or .NET SDK support at this time.
 >
 > SQL API is generally available.
 
