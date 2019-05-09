@@ -1,5 +1,5 @@
 ---
-title: Introduction to the built-in operational analytics with Apache Spark
+title: Introduction to the built-in operational analytics in Azure Cosmos DB with Apache Spark
 description: Learn how you can use the built-in support for Apache Spark in Azure Cosmos DB to run operational analytics and AI
 ms.service: cosmos-db
 ms.topic: overview 
@@ -8,7 +8,7 @@ author: rimman
 ms.author: rimman
 ---
 
-# Built-in operational analytics with Apache Spark (preview) 
+# Built-in operational analytics in Azure Cosmos DB with Apache Spark (preview) 
 
 The built-in support for Apache Spark in Azure Cosmos DB allows you to run analytics from Apache Spark against your data stored in an Azure Cosmos account. It provides the native support for Apache Spark jobs to execute directly on your globally distributed Cosmos databases. With these capabilities, developers, data engineers, and data scientists can use Azure Cosmos DB as a flexible, scalable, and performant data platform to run both **OLTP and OLAP/HTAP** workloads. 
 
