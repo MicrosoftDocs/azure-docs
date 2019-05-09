@@ -696,7 +696,7 @@ For an ARM template example, see [Deploy a Virtual Machine with CustomData](http
 
 Custom data is available to all processes running in the VM. It is suggested that customers do not insert secret information into custom data.
 
-Currently, custom data is guaranteed to be available during bootstrap of a VM. If updates are made to the VM, Instace Metadata Service will not provide custom data. Providing custom data persistently through Instance Metadata Service is currently in progress.
+Currently, custom data is guaranteed to be available during bootstrap of a VM. If updates are made to the VM such as adding disks or resizing the VM, Instance Metadata Service will not provide custom data. Providing custom data persistently through Instance Metadata Service is currently in progress.
 
 #### Retrieving custom data in Virtual Machine
 Instance Metadata Service provides custom data to the VM in base64 encoded form. The following example decodes the base64 encoded string.
