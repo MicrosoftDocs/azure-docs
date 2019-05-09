@@ -1,7 +1,6 @@
 ---
 title: Use Data Lake Storage Gen1 with Hadoop in Azure HDInsight
 description: Learn how to query data from Azure Data Lake Storage Gen1 and to store results of your analysis.
-services: hdinsight,storage
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -22,6 +21,7 @@ In this article, you learn how Data Lake Storage Gen1 works with HDInsight clust
 > [!NOTE]  
 > Data Lake Storage Gen1 is always accessed through a secure channel, so there is no `adls` filesystem scheme name. You always use `adl`.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Availability for HDInsight clusters
 
@@ -36,6 +36,7 @@ As of now, only some of the HDInsight cluster types/versions support using Data 
 
 | HDInsight cluster type | Data Lake Storage Gen1 as default storage | Data Lake Storage Gen1 as additional storage| Notes |
 |------------------------|------------------------------------|---------------------------------------|------|
+| HDInsight version 4.0 | No | No |ADLS Gen1 is not supported with HDInsight 4.0 |
 | HDInsight version 3.6 | Yes | Yes | With the exception of HBase|
 | HDInsight version 3.5 | Yes | Yes | With the exception of HBase|
 | HDInsight version 3.4 | No | Yes | |
@@ -88,7 +89,7 @@ $identityCertificate = [System.Convert]::ToBase64String($certBytes)
 Then you can use the `$identityCertificate` to deploy a new cluster as in the following snippet:
 
 ```powershell
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile $pathToArmTemplate `
     -identityCertificate $identityCertificate `
@@ -205,21 +206,21 @@ elseif($certSource -eq 2)
     $certString =[System.Convert]::ToBase64String($certBytes)
 }
 
-Login-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId $subscriptionId
+Login-AzAccount
+Select-AzSubscription -SubscriptionId $subscriptionId
 
 if($addNewCertKeyCredential)
 {
     Write-Host "Creating new KeyCredential for the app"
     $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
-    New-AzureRmADAppCredential -ApplicationId $appId -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
+    New-AzADAppCredential -ApplicationId $appId -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
     Write-Host "Waiting for 30 seconds for the permissions to get propagated"
     Start-Sleep -s 30
 }
 
 Write-Host "Updating the certificate on HDInsight cluster..."
 
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
     -ResourceGroupName $resourceGroupName `
     -ResourceType 'Microsoft.HDInsight/clusters' `
     -ResourceName $clusterName `

@@ -59,7 +59,7 @@ For this tutorial, we recommend that you use [this sample app available from Git
 Create a fork of this app and take note of the location (URL) for use in later steps of this tutorial. For more information, see [Fork a repo](https://help.github.com/articles/fork-a-repo/).    
 
 > [!NOTE]
-> The app was built through [Yeoman](http://yeoman.io/learning/index.html). It uses Express, bower, and grunt. And it has some npm packages as dependencies.
+> The app was built through [Yeoman](https://yeoman.io/learning/index.html). It uses Express, bower, and grunt. And it has some npm packages as dependencies.
 > The sample also contains a script that sets up Nginx and deploys the app. It is executed on the virtual machines. Specifically, the script:
 > 1. Installs Node, Nginx, and PM2.
 > 2. Configures Nginx and PM2.

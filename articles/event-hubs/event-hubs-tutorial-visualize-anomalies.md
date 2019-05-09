@@ -15,7 +15,7 @@ ms.date: 02/26/2019
 
 # Tutorial: Visualize data anomalies in real-time events sent to Azure Event Hubs
 
-With Azure Event Hubs, you can use Azure Stream Analytics to check the incoming data and pull out the anomalies, which you can then visualize in Power BI. Let's say you have thousands of devices constantly sending real-time data to an event hub, adding up to millions of events per second. How do you check that much data for anomalies, or errors, in the data? For example, what if the devices are sending credit card transactions, and you need to capture anywhere you have multiple transactions in multiple countries within a 5-second time interval? This could happen if someone steals credit cards and then uses them to purchase items around the globe at the same time. 
+With Azure Event Hubs, you can use Azure Stream Analytics to check the incoming data and pull out the anomalies, which you can then visualize in Power BI. Let's say you have thousands of devices constantly sending real-time data to an event hub, adding up to millions of events per second. How do you check that much data for anomalies, or errors, in the data? For example, what if the devices are sending credit card transactions, and you need to capture anywhere you have multiple transactions in multiple countries/regions within a 5-second time interval? This could happen if someone steals credit cards and then uses them to purchase items around the globe at the same time. 
 
 In this tutorial, you simulate this example. You run an application that creates and sends credit card transactions to an event hub. Then you read the stream of data in real-time with Azure Stream Analytics, which separates the valid transactions from the invalid transactions, and then use Power BI to visually identify the transactions that are tagged as invalid.
 
@@ -325,10 +325,10 @@ In the Stream Analytics job, click **Start**, then **Now**, then **Start**. Once
     > When you run the sample application and stream data to the event hub, the number on this tile changes rapidly (every second). It's because the Stream Analytics query actually updates the value **every second**. Update the query to a 3 minute tumbling window to see the sum in the last few minutes. 
 11. Add another visualization. Repeat the first few steps again:
 
-   * Click **Add Tile**.
-   * Select **Custom Streaming Data**. 
-   * Click **Next**.
-   * Select your dataset and then click **Next**. 
+    * Click **Add Tile**.
+    * Select **Custom Streaming Data**. 
+    * Click **Next**.
+    * Select your dataset and then click **Next**. 
 
 12. Under **Visualization Type**, select **Line chart**.
 

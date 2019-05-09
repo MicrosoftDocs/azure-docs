@@ -13,7 +13,7 @@ ms.author: rosh, v-gedod
 
 # Bing Local Business Search API v7 reference
 
-The Local Business Search API sends a search query to Bing to get results that include restaurants, hotels, or other local businesses. For places, the query can specify the name of the local business or a category (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is business entities, states, countries, etc.  
+The Local Business Search API sends a search query to Bing to get results that include restaurants, hotels, or other local businesses. For places, the query can specify the name of the local business or a category (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is business entities, states, countries/regions, etc.  
 
 This section provides technical details about the response objects, and the query parameters and headers that affect the search results. For examples that show how to make requests, see [Local Business Search C# quickstart](quickstarts/local-quickstart.md) or [Local Business Search Java quickstart](quickstarts/local-search-java-quickstart.md). 
   
@@ -168,18 +168,21 @@ Defines the query context that Bing used for the request.
 |originalQuery|The query string as specified in the request.|String|  
 
 ### Identifiable
+
 |Name|Value|Type|  
 |-------------|-----------------|----------|
 |id|A resource identifier|String|
  
 ### RankingGroup
 Defines a search results group, such as mainline.
+
 |Name|Value|Type|  
 |-------------|-----------------|----------|
 |items|A list of search results to display in the group.|RankingItem|
 
 ### RankingItem
 Defines a search result item to display.
+
 |Name|Value|Type|  
 |-------------|-----------------|----------|
 |resultIndex|A zero-based index of the item in the answer to display. If the item does not include this field, display all items in the answer. For example, display all news articles in the News answer.|Integer|

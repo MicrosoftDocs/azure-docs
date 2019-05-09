@@ -146,10 +146,10 @@ To configure Azure AD single sign-on with MOVEit Transfer - Azure AD integration
 
 	![Service Provider Metadata URL](./media/moveittransfer-tutorial/tutorial_moveittransfer_002.png)
 	
-	* Verify **entityID** matches **Identifier** in the **Basic SAML Configuration** section .
-	* Verify **AssertionConsumerService** Location URL matches **REPLY URL**  in the **Basic SAML Configuration** section.
+   * Verify **entityID** matches **Identifier** in the **Basic SAML Configuration** section .
+   * Verify **AssertionConsumerService** Location URL matches **REPLY URL**  in the **Basic SAML Configuration** section.
 	
-	![Configure Single Sign-On On App side](./media/moveittransfer-tutorial/tutorial_moveittransfer_007.png)
+     ![Configure Single Sign-On On App side](./media/moveittransfer-tutorial/tutorial_moveittransfer_007.png)
 
 5. Click **Add Identity Provider** button to add a new Federated Identity Provider.
 
@@ -171,7 +171,7 @@ To configure Azure AD single sign-on with MOVEit Transfer - Azure AD integration
 	
 	b. Select **Other** as **Full name** and in the **Attribute name** textbox put the value: `http://schemas.microsoft.com/identity/claims/displayname`.
 	
-	c. Select **Other** as **Email** and in the **Attribute name** textbox put the value: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+	c. Select **Other** as **Email** and in the **Attribute name** textbox put the value: `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 	
 	d. Select **Yes** as **Auto-create account on signon**.
 	
@@ -195,7 +195,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -243,9 +243,9 @@ When you click the MOVEit Transfer - Azure AD integration tile in the Access Pan
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

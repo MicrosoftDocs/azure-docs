@@ -10,7 +10,7 @@ ms.author: kenchen
 # Resiliency and disaster recovery
 
 Resiliency and disaster recovery is a common need for online systems. Azure SignalR Service already guarantees 99.9% availability, but it's still a regional service.
-Your service instance is always running in one region and won't failover to another region when there is a region-wide outage.
+Your service instance is always running in one region and won't fail-over to another region when there is a region-wide outage.
 
 Instead, our service SDK provides a functionality to support multiple SignalR service instances and automatically switch to other instances when some of them are not available.
 With this feature, you'll be able to recover when there is disaster takes place, but you will need to set up the right system topology by yourself. You'll learn how to do so in this document.
@@ -22,8 +22,8 @@ When connecting multiple service instances to app server, there are two roles, p
 Primary is an instance who is taking online traffic and secondary is a fully functional but backup instance for primary.
 In our SDK implementation, negotiate will only return primary endpoints so in normal case clients only connect to primary endpoints.
 But when primary instance is down, negotiate will return secondary endpoints so client can still make connections.
-Primary instance and app server are connected through normal server connections but secondary instance and app server are connected through a special kind of connections called weak connections.
-The main difference of a weak connection is that it doesn't accept client connection routing, because secondary instance is usually located in another region. Routing a client to another region is usually not an optimal choice (increases latency).
+Primary instance and app server are connected through normal server connections but secondary instance and app server are connected through a special type of connection called weak connection.
+The main difference of a weak connection is that it doesn't accept client connection routing, because secondary instance is located in another region. Routing a client to another region is not an optimal choice (increases latency).
 
 One service instance can have different roles when connecting to multiple app servers.
 One typical setup for cross region scenario is to have two (or more) pairs of SignalR service instances and app servers.
@@ -45,7 +45,7 @@ There are two ways you can do it:
 
 ### Through config
 
-You should already know how to set SignalR service connection string through environment variables/app settings/web.cofig, through a config entry named `Azure:SignalR:ConnectionString`.
+You should have known how to set SignalR service connection string through environment variables/app settings/web.cofig, through a config entry named `Azure:SignalR:ConnectionString`.
 If you have multiple endpoints, you can set them in multiple config entries, each in the following format:
 
 ```
@@ -118,7 +118,7 @@ SignalR service can support both patterns, the main difference is how you implem
 If app servers are active/passive, SignalR service will also be active/passive (as the primary app server only returns its primary SignalR service instance).
 If app servers are active/active, SignalR service will also be active/active (as all app servers will return their own primary SignalR instances, so all of them can get traffic).
 
-Please be noted no matter which patterns you choose to use, you'll need to connect each SignalR service instance to an app server as primary.
+Be noted no matter which patterns you choose to use, you'll need to connect each SignalR service instance to an app server as primary.
 
 Also due to the nature of SignalR connection (it's a long connection), clients will experience connection drops when there is a disaster and failover take place.
 You'll need to handle such cases at client side to make it transparent to your end customers. For example, do reconnect after a connection is closed.
@@ -126,3 +126,5 @@ You'll need to handle such cases at client side to make it transparent to your e
 ## Next steps
 
 In this article, you have learned how to configure your application to achieve resiliency for SignalR service. To understand more details about server/client connection and connection routing in SignalR service, you can read [this article](signalr-concept-internals.md) for SignalR service internals.
+
+For scaling scenarios such as sharding, that use multiple instances together to handle large number of connections, read [how to scale multiple instances](signalr-howto-scale-multi-instances.md)?

@@ -64,7 +64,7 @@ This approach is a template that you can modify for the size and scale of your o
 
 ### Compute considerations
 
-This architecture runs the application, storage, and data tiers on Azure virtual machines. The [deployment setup scripts](http://aka.ms/db2onazure) create the following:
+This architecture runs the application, storage, and data tiers on Azure virtual machines. The [deployment setup scripts](https://aka.ms/db2onazure) create the following:
 
 -   A DB2 pureScale cluster. The type of compute resources you need on Azure depends on your setup. In general, you can use two approaches:
 

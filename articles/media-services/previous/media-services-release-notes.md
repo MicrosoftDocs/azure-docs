@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
@@ -21,7 +21,7 @@ ms.author: juliako
 These release notes for Azure Media Services summarize changes from previous releases and known issues.
 
 > [!NOTE]
-> No new features or functionality are being added to Media Services v2. 
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 We want to hear from our customers so that we can focus on fixing problems that affect you. To report a problem or ask questions, submit a post in the [Azure Media Services MSDN Forum]. 
 
@@ -38,13 +38,12 @@ We want to hear from our customers so that we can focus on fixing problems that 
 | Some clients can come across a repeat tag issue in the Smooth Streaming manifest. |For more information, see [this section](media-services-deliver-content-overview.md#known-issues). |
 | Media Services .NET SDK objects can't be serialized and as a result don't work with Azure Cache for Redis. |If you try to serialize the SDK AssetCollection object to add it to Azure Cache for Redis, an exception is thrown. |
 
-
 ## <a id="rest_version_history"/>REST API version history
 For information about the Media Services REST API version history, see the [Azure Media Services REST API reference].
 
 ## December 2018
 
-The [Media Hyperlapse Preview](media-services-hyperlapse-content.md) feature of Azure Media Services will soon be retired. Starting December 19, 2018, Media Services will no longer make changes or improvements to Media Hyperlapse. On March 29, 2019, it will be retired and no longer available.
+The Media Hyperlapse Preview feature of Azure Media Services will soon be retired. Starting December 19, 2018, Media Services will no longer make changes or improvements to Media Hyperlapse. On March 29, 2019, it will be retired and no longer available.
 
 ## October 2018
 
@@ -256,7 +255,6 @@ The following new features were announced:
 
 * [A preview of live encoding with Media Services](media-services-manage-live-encoder-enabled-channels.md)
 * [Dynamic manifest](media-services-dynamic-manifest-overview.md)
-* [A preview of the Azure Media Hyperlapse media processor](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
 
 ## <a id="april_changes_15"></a>April 2015 release
 ### General Media Services updates
@@ -318,10 +316,6 @@ The [Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.medias
 * You now can use Media Services to ingest live Smooth Streaming (fMP4) content over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS. Currently, Media Services doesn't support SSL with custom domains. For more information about live streaming, see [Work with Azure Media Services Live Streaming](https://msdn.microsoft.com/library/azure/dn783466.aspx).
 * Currently, you can't ingest an RTMP live stream over an SSL connection.
 * You can stream over SSL only if the streaming endpoint from which you deliver your content was created after September 10, 2014. If your streaming URLs are based on the streaming endpoints created after September 10, 2014, the URL contains "streaming.mediaservices.windows.net" (the new format). Streaming URLs that contain "origin.mediaservices.windows.net" (the old format) don't support SSL. If your URL is in the old format and you want to stream over SSL, [create a new streaming endpoint](media-services-portal-manage-streaming-endpoints.md). To stream your content over SSL, use URLs based on the new streaming endpoint.
-
-## <a id="october_changes_14"></a>October 2014 release
-### <a id="new_encoder_release"></a>Media Services Encoder release
- The new release of the Media Services Azure Media Encoder was announced. With the latest Media Encoder, you're charged only for output GBs. Otherwise, the new encoder is feature compatible with the previous encoder. For more information, see [Media Services pricing details].
 
 ### <a id="oct_sdk"></a>Media Services .NET SDK
 The Media Services SDK for .NET extensions is now version 2.0.0.3.
@@ -394,14 +388,6 @@ The Media Services .NET SDK is now version 3.0.0.5. The following updates were m
   * When you get web exceptions (for example, during an Access Control Service token request), fatal errors fail faster now.
 
 For more information, see [Retry logic in the Media Services SDK for .NET].
-
-## <a id="april_changes_14"></a>April 2014 Encoder release
-### <a name="april_14_enocer_changes"></a>Media Services Encoder updates
-* Support was added to ingest AVI files that are authored by using the Grass Valley EDIUS nonlinear editor. In this process, the video is lightly compressed by using the Grass Valley HQ/HQX codec. For more information, see [Grass Valley announces EDIUS 7 streaming through the cloud].
-*  Support was added to specify the naming convention for the files produced by the Media Services Encoder. For more information, see [Control Media Services Encoder output file names](https://msdn.microsoft.com/library/azure/dn303341.aspx).
-*  Support was added for video and/or audio overlays. For more information, see [Create overlays](https://msdn.microsoft.com/library/azure/dn640496.aspx).
-*  Support was added to stitch together multiple video segments. For more information, see [Stitch video segments](https://msdn.microsoft.com/library/azure/dn640504.aspx).
-* A bug was fixed that was related to transcoding MP4s where the audio was encoded with MPEG-1 Audio Layer 3 (also known as MP3).
 
 ## <a id="jan_feb_changes_14"></a>January/February 2014 releases
 ### <a name="jan_fab_14_donnet_changes"></a>Media Services .NET SDK 3.0.0.1, 3.0.0.2 and 3.0.0.3

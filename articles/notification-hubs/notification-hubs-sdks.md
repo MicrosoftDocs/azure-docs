@@ -17,12 +17,12 @@ ms.date: 02/14/2019
 
 # Azure Notification Hubs SDKs
 
-Microsoft and third-parties publish SDKs for Azure Notification Hubs.
+Microsoft and third-parties publish SDKs for Azure Notification Hubs. The Microsoft repositories for Android, iOS, and .NET also include sample apps for each target platform.
 
 | SDK            | Publisher      |
 | -------------- | -------------- |
 | [.NET Server](https://github.com/Azure/azure-notificationhubs-dotnet) | Microsoft |
-| [Android](https://github.com/Azure/azure-notificationhubs/tree/master/Android)  |Microsoft |
+| [Android](https://github.com/Azure/azure-notificationhubs-android)  |Microsoft |
 | [Apache Cordova](https://github.com/derek82511/cordova-azure-notification-hubs) | Third-party |
 | [iOS](https://github.com/Azure/azure-notificationhubs-ios) |Microsoft |
 | [Java Server](https://github.com/Azure/azure-notificationhubs-java-backend) |Microsoft |

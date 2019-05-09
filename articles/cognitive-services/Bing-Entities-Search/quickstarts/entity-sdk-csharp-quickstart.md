@@ -48,13 +48,13 @@ To add the Bing Entity Search SDK to your Visual Studio project, use the `Manage
 
 ## Create a client and send a search request
 
-2. Create a new search client. Add your subscription key by creating a new `ApiKeyServiceClientCredentials`.
+1. Create a new search client. Add your subscription key by creating a new `ApiKeyServiceClientCredentials`.
 
     ```csharp
     var client = new EntitySearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
     ```
 
-3. Use the client's `Entities.Search()` function to search for your query:
+1. Use the client's `Entities.Search()` function to search for your query:
     
     ```csharp
     var entityData = client.Entities.Search(query: "Satya Nadella");

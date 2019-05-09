@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Windows Virtual Desktop Preview Documentation
+metadata:
+  title: Windows Virtual Desktop Preview Documentation - Tutorials, quickstarts, API references | Microsoft Docs
+  description: Windows Virtual Desktop Preview for Azure is a multi-user Windows 10 Enterprise experience virtualized in the cloud.
+  author: Heidilohr
+  manager: daveba
+  ms.service: virtual-desktop
+  services: virtual-desktop
+  ms.topic: landing-page
+  ms.date: 02/20/2019
+  ms.author: helohr
+abstract:
+  description: Deliver a virtual desktop experience and remote apps to any device. Bring together Microsoft 365 and Azure to provide users with the only multi-session Windows 10 experience—with exceptional scale and reduced IT costs.
+sections:
+- title: Overview
+  items:
+  - type: paragraph
+    text: 'Learn about Windows Virtual Desktop Preview and how to use it. Tutorials, How-tos, reference content, and more show you how to set up host pools and tenants and assign roles to users for your Windows Virtual Desktop environment.'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/virtual-desktop/overview">What is Windows Virtual Desktop Preview?</a>
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to install and configure Windows Virtual Desktop, and how to connect to the client when ready.'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Create a tenant in Windows Virtual Desktop</a>
+    - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Create a host pool with Azure Marketplace</a>
+    - html: <a href="/azure/virtual-desktop/manage-app-groups">Manage app groups for Windows Virtual Desktop</a>
+    - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">Create service principals and role assignments with PowerShell</a>
+- title: Reference
+  items: 
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>

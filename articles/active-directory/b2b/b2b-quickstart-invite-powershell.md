@@ -74,7 +74,7 @@ When prompted, enter your credentials.
 
 ## Send an invitation
 
-1. To send an invitation to your test email account, run the following PowerShell command (replace **"Sanda"** and **sanda@fabrikam.com** with your test email account name and email address): 
+1. To send an invitation to your test email account, run the following PowerShell command (replace **"Sanda"** and **sanda\@fabrikam.com** with your test email account name and email address): 
 
    ```powershell
    New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.azure.com -SendInvitationMessage $true
@@ -90,7 +90,7 @@ When prompted, enter your credentials.
    ```powershell
    Get-AzureADUser -Filter "UserType eq 'Guest'"
    ```
-3. Check the output to make sure the user you invited is listed, with a user principal name (UPN) in the format *emailaddress*#EXT#@*domain*. For example, *sanda_fabrikam.com#EXT#@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
+3. Check the output to make sure the user you invited is listed, with a user principal name (UPN) in the format *emailaddress*#EXT#\@*domain*. For example, *sanda_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
 
    ![PowerShell output showing guest user added](media/quickstart-invite-powershell/powershell-guest-user-added.png)
 

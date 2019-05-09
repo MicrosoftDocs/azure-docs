@@ -3,8 +3,8 @@ title: Azure Service Fabric container application manifest examples | Microsoft 
 description: Learn how to configure application and service manifest settings for a multi-container Service Fabric application.
 services: service-fabric
 documentationcenter: na
-author: rwike77
-manager: timlt
+author: peterpogorski
+manager: chackdan
 editor: 
 ms.assetid: 
 ms.service: service-fabric
@@ -13,13 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
-ms.author: ryanwi
+ms.author: pepogors
 ---
 
 # Multi-container application and service manifest examples
 The following are examples of the application and service manifests for a multi-container Service Fabric application. The purpose of these examples is to show what settings are available and how to use them. These application and service manifests are based on the [Windows Server 2016 Container Sample](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) manifests.
 
 The following features are shown:
+
 |Manifest|Features|
 |---|---|
 |[Application manifest](#application-manifest)| [override environment variables](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [configure container port-to-host mapping](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [configure container registry authentication](service-fabric-get-started-containers.md#configure-container-registry-authentication), [resource governance](service-fabric-resource-governance.md), [set isolation mode](service-fabric-get-started-containers.md#configure-isolation-mode), [specify OS build-specific container images](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 

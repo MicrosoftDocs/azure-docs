@@ -22,7 +22,7 @@ Select a project, then select the models tab of that project, locate the model y
 
 The test tab shows you:
 
-1.  **System Test Results:**The result of the test process in the trainings. The test process produces the BLEU score.
+1.  **System Test Results:** The result of the test process in the trainings. The test process produces the BLEU score.
 
     **Sentence Count:** How many parallel sentences were used in the test set.
 
@@ -80,6 +80,9 @@ To request a deployment:
     ![Deploy model](media/how-to/how-to-deploy-model-regions.png)
 
 5.  You can view the status of your model in the “Status” column.
+
+>[!Note]
+>Custom Translator supports 10 deployed models within a workspace at any point in time.
 
 ## Update deployment settings
 

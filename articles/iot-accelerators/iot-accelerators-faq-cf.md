@@ -169,15 +169,15 @@ To send telemetry data from non OPC UA devices to Connected Factory:
 
     ```json
     [
-      {
-        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
-        "DisplayName": "<name_of_the_datapoint>",
-        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
-        "Value": {
-          "Value": <datapoint_value>,
-          "SourceTimestamp": "<timestamp>"
-        }
-      }
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
     ]
     ```
 

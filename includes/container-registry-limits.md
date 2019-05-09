@@ -6,15 +6,15 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: include
-ms.date: 08/30/2018
+ms.date: 04/29/2019
 ms.author: danlep
 ms.custom: include file
 ---
 
 | Resource | Basic | Standard | Premium |
-|---|---|---|---|---|
+|---|---|---|---|
 | Storage<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
-| Maximum image layer size | 20 GiB | 20 GiB | 50 GiB |
+| Maximum image layer size | 200 GiB | 200 GiB | 200 GiB |
 | ReadOps per minute<sup>2, 3</sup> | 1,000 | 3,000 | 10,000 |
 | WriteOps per minute<sup>2, 4</sup> | 100 | 500 | 2,000 |
 | Download bandwidth MBps<sup>2</sup> | 30 | 60 | 100 |

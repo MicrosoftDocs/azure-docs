@@ -5,7 +5,7 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/17/2018
+ms.date: 03/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -14,19 +14,19 @@ ms.custom: seodec18
 
 # Update the IoT Edge security daemon and runtime
 
-As the IoT Edge service releases new versions, you'll want to update your IoT Edge devices to have the latest features and security improvements. This article provides information about how to update your IoT Edge devices when a new version is available. 
+As the IoT Edge service releases new versions, you'll want to update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge devices when a new version is available. 
 
 Two components of an IoT Edge device need to be updated if you want to move to a newer version. The first is the security daemon, which runs on the device and starts the runtime modules when the device starts. Currently, the security daemon can only be updated from the device itself. The second component is the runtime, made up of the IoT Edge hub and IoT Edge agent modules. Depending on how you structure your deployment, the runtime can be updated from the device or remotely. 
+
+To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
 >[!IMPORTANT]
 >If you are running Azure IoT Edge on a Windows device, do not update to version 1.0.5 if one of the following applies to your device: 
 >* You have not upgraded your device to Windows build 17763. IoT Edge version 1.0.5 does not support Windows builds older than 17763.
 >* You run Java or Node.js modules on your Windows device. Skip version 1.0.5 even if you have updated your Windows device to the latest build. 
 >
->For more information about IoT Edge version 1.0.5, see [1.0.5 release notes](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). For more information about how to keep your development tools from updating to the latest version, see [the IoT developer blog](https://devblogs.microsoft.com/iotdev/).
+>For more information about IoT Edge version 1.0.5, see [1.0.5 release notes](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). For more information about how to prevent your development tools from updating to the latest version, see [the IoT developer blog](https://devblogs.microsoft.com/iotdev/).
 
-
-To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
 ## Update the security daemon
 
@@ -45,25 +45,15 @@ apt-get install libiothsm iotedge
 
 ### Windows devices
 
-On Windows devices, use the PowerShell script to uninstall and then reinstall the security daemon. The installation script automatically pulls the latest version of the security daemon. 
-
-Uninstall the security daemon in an administrator PowerShell session. 
+On Windows devices, use the PowerShell script to update the security daemon. The script automatically pulls the latest version of the security daemon. 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Uninstall-SecurityDaemon
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
 ```
 
-Running the `Uninstall-SecurityDaemon` command without any parameters removes the security daemon from your device, along with the two runtime container images. The config.yaml file is kept on the device, as well as data from the Moby container engine. Preserving the configuration means that you don't have to provide the connection string or Device Provisioning Service information for your device again during the installation process. 
+Running the Update-IoTEdge command removes the security daemon from your device, along with the two runtime container images. The config.yaml file is kept on the device, as well as data from the Moby container engine (if you're using Windows containers). Keeping the configuration information means that you don't have to provide the connection string or Device Provisioning Service information for your device again during the update process. 
 
-Reinstall the security daemon depending on whether your IoT Edge device uses Windows containers or Linux containers. Replace the phrase **\<Windows or Linux\>** with one of the container operating systems. Use the **-ExistingConfig** flag to point to the existing config.yaml file on your device. 
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Install-SecurityDaemon -ExistingConfig -ContainerOS <Windows or Linux>
-```
-
-If you want to install a specific version of the security daemon, download the appropriate iotedged-windows.zip file from [IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). Then, use the `-OfflineInstallationPath` parameter to point to the file location. For more information, see [Offline installation](how-to-install-iot-edge-windows.md#offline-installation).
+If you want to install a specific version of the security daemon, download the appropriate Microsoft-Azure-IoTEdge.cab file from [IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). Then, use the `-OfflineInstallationPath` parameter to point to the file location. For more information, see [Offline installation](how-to-install-iot-edge-windows.md#offline-installation).
 
 ## Update the runtime containers
 
@@ -86,7 +76,7 @@ If you use rolling tags in your deployment (for example, mcr.microsoft.com/azure
 
 Delete the local version of the image from your IoT Edge device. On Windows machines, uninstalling the security daemon also removes the runtime images, so you don't need to take this step again. 
 
-```cmd/sh
+```bash
 docker rmi mcr.microsoft.com/azureiotedge-hub:1.0
 docker rmi mcr.microsoft.com/azureiotedge-agent:1.0
 ```
@@ -101,7 +91,7 @@ If you use specific tags in your deployment (for example, mcr.microsoft.com/azur
 
 In the Azure portal, the runtime deployment images are declared in the **Configure advanced Edge Runtime settings** section. 
 
-[Configure advanced edge runtime settings](./media/how-to-update-iot-edge/configure-runtime.png)
+![Configure advanced edge runtime settings](./media/how-to-update-iot-edge/configure-runtime.png)
 
 In a JSON deployment manifest, update the module images in the **systemModules** section. 
 

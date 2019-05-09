@@ -19,14 +19,20 @@ ms.date: 01/04/2019
 ms.author: jowargo
 ---
 
-# Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Google Cloud Messaging
+# Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Google Cloud Messaging (deprecated)
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
+
+> [!WARNING]
+> As of April 10, 2018, Google has deprecated Google Cloud Messaging (GCM). The GCM server and client APIs are deprecated and will be removed as soon as May 29, 2019. For more information, see [GCM and FCM Frequently Asked Questions](https://developers.google.com/cloud-messaging/faq).
 
 ## Overview
 
 This tutorial shows you how to use Azure Notification Hubs to send push notifications to an Android application.
 You create a blank Android app that receives push notifications by using Google Cloud Messaging (GCM).
+
+> [!IMPORTANT]
+> The Google Cloud Messaging (GCM) is deprecated and will be removed [soon](https://developers.google.com/cloud-messaging/faq).
 
 > [!IMPORTANT]
 > This topic demonstrates push notifications with Google Cloud Messaging (GCM). If you are using Google's Firebase Cloud Messaging (FCM), see [Sending push notifications to Android with Azure Notification Hubs and FCM](notification-hubs-android-push-notification-google-fcm-get-started.md).
@@ -85,8 +91,8 @@ Your notification hub is now configured to work with GCM, and you have the conne
 1. In the `Build.Gradle` file for the **app**, add the following lines in the **dependencies** section.
 
     ```gradle
-    compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
-    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
+    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
+    implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 2. Add the following repository after the **dependencies** section.
 
@@ -160,13 +166,13 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
      `NotificationSettings` code:
 
-    ```java
-    public class NotificationSettings {
+     ```java
+     public class NotificationSettings {
         public static String SenderId = "<Your project number>";
         public static String HubName = "<Your HubName>";
         public static String HubListenConnectionString = "<Your default listen connection string>";
-    }
-    ```
+     }
+     ```
 2. Add another new class named `MyInstanceIDService`. This class is the Instance ID listener service implementation.
 
     The code for this class calls `IntentService` to [refresh the GCM token](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) in the background.

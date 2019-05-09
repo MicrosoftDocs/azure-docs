@@ -20,7 +20,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 ## Prerequisites
 
 - A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](quick-start.md) for more information.
-- Microsoft [.Net Core](https://www.microsoft.com/net/download/core)
+- Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
 - Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 - If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 - The [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) package installed. 
@@ -98,7 +98,7 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
     var responseContent = httpResponseMessage.Content.ReadAsStringAsync().Result;
     BingCustomSearchResponse response = JsonConvert.DeserializeObject<BingCustomSearchResponse>(responseContent);
     ```
-## Process and view the results
+   ## Process and view the results
 
 1. Iterate over the response object to display information about each search result, including its name, url, and the date the webpage was last crawled.
 

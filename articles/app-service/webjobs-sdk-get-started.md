@@ -43,15 +43,15 @@ To learn more about working with the WebJobs SDK, see [How to use the Azure WebJ
 
 1. Install the latest stable 3.x versions of the following NuGet packages:
 
-    * `Microsoft.Azure.WebJobs`
-    * `Microsoft.Azure.WebJobs.Extensions`
+   * `Microsoft.Azure.WebJobs`
+   * `Microsoft.Azure.WebJobs.Extensions`
 
-    Here's the **Package Manager Console** commands for version 3.0.4:
+     Here's the **Package Manager Console** commands for version 3.0.4:
 
-    ```powershell
-    Install-Package Microsoft.Azure.WebJobs -version 3.0.4
-    Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.1
-    ```
+     ```powershell
+     Install-Package Microsoft.Azure.WebJobs -version 3.0.4
+     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.1
+     ```
 
 ## Create the Host
 
@@ -192,7 +192,7 @@ Starting with version 3.x, you must explicitly install the Storage binding exten
 
    The `QueueTrigger` attribute tells the runtime to call this function when a new message is written on an Azure Storage queue called `queue`. The contents of the queue message are provided to the method code in the `message` parameter. The body of the method is where you process the trigger data. In this example, the code just logs the message.
 
-   The `message` parameter doesn't have to be a string. You can also bind to a JSON object, a byte array, or a [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) object. [See Queue trigger usage](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Each binding type (such as queues, blobs, or tables) has a different set of parameter types that you can bind to.
+   The `message` parameter doesn't have to be a string. You can also bind to a JSON object, a byte array, or a [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) object. [See Queue trigger usage](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Each binding type (such as queues, blobs, or tables) has a different set of parameter types that you can bind to.
 
 ## Create a storage account
 
@@ -290,7 +290,7 @@ In this section, you build and run the project locally and trigger the function 
 
    Due to [queue polling exponential backoff](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm), it might take as long as 2 minutes for the runtime to find the message and invoke the function. This wait time can be reduced by running in [development mode](webjobs-sdk-how-to.md#host-development-settings).
 
-  The console output looks like this:
+   The console output looks like this:
 
    ```console
     info: Function.ProcessQueueMessage[0]

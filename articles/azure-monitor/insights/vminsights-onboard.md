@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/11/2019
+ms.date: 04/30/2019
 ms.author: magoedte
 ---
 
@@ -70,7 +70,7 @@ The following table lists the Windows and Linux operating systems that are suppo
 
 |OS version |Performance |Maps |Health |
 |-----------|------------|-----|-------|
-|Windows Server 2019 | X | X |  |
+|Windows Server 2019 | X | X | |
 |Windows Server 2016 1803 | X | X | X |
 |Windows Server 2016 | X | X | X |
 |Windows Server 2012 R2 | X | X | |
@@ -153,8 +153,8 @@ The Dependency agent can be downloaded from the following locations:
 
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.8.1 | 3037934A5D3FB7911D5840A9744AE9F980F87F620A7F7B407F05E276FE7AE4A8 |
 
 ## Role-based access control
 To enable and access the features in Azure Monitor for VMs, you need to be assigned the following access roles:
@@ -370,11 +370,11 @@ With this initial release, you can create the policy assignment only in the Azur
     
 1. In the **Log Analytics workspace** drop-down list for the supported region, select a workspace.
 
-    >[!NOTE]
-    >If the workspace is beyond the scope of the assignment, grant *Log Analytics Contributor* permissions to the policy assignment's Principal ID. If you don't do this, you might see a deployment failure such as: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... `
-    >To grant access, review [how to manually configure the managed identity](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
-    >  
-    The **Managed Identity** check box is selected, because the initiative being assigned includes a policy with the *deployIfNotExists* effect.
+   > [!NOTE]
+   > If the workspace is beyond the scope of the assignment, grant *Log Analytics Contributor* permissions to the policy assignment's Principal ID. If you don't do this, you might see a deployment failure such as: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
+   > To grant access, review [how to manually configure the managed identity](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
+   > 
+   >  The **Managed Identity** check box is selected, because the initiative being assigned includes a policy with the *deployIfNotExists* effect.
     
 1. In the **Manage Identity location** drop-down list, select the appropriate region.
 
@@ -707,12 +707,12 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
 1. Save this file as *installsolutionsforvminsights.json* to a local folder.
 
-1. Edit the values for *WorkspaceName*, *ResourceGroupName*, and *WorkspaceLocation*. The value for *WorkspaceName* is the full resource ID of your Log Analytics workspace, which includes the workspace name. The value for *WorkspaceLocation* is the region the workspace is defined in.
+1. Capture the values for *WorkspaceName*, *ResourceGroupName*, and *WorkspaceLocation*. The value for *WorkspaceName* is the name of your Log Analytics workspace. The value for *WorkspaceLocation* is the region the workspace is defined in.
 
 1. You're ready to deploy this template by using the following PowerShell command:
 
     ```powershell
-    New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+    New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
     ```
 
     The configuration change can take a few minutes to complete. When it's complete, a message is displayed that's similar to the following and includes the result:
@@ -720,7 +720,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     ```powershell
     provisioningState       : Succeeded
     ```
-After you've enabled monitoring, it might take about 10 minutes before you can view the health state and metrics for the hybrid computer.
+   After you've enabled monitoring, it might take about 10 minutes before you can view the health state and metrics for the hybrid computer.
 
 ## Performance counters enabled
 Azure Monitor for VMs configures a Log Analytics workspace to collect the performance counters that are used by the solution. The following table lists the objects and counters configured by the solution that are collected every 60 seconds.

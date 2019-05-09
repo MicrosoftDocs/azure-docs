@@ -24,8 +24,8 @@ These capabilities are also available, according to your license agreement. For 
 
 - Self-service integration of any application that supports SAML 2.0 identity providers (SP-initiated or IdP-initiated)
 - Self-service integration of any web application that has an HTML-based sign-in page using [password-based SSO](what-is-single-sign-on.md#password-based-sso)
-* Self-service connection of applications that use the SCIM protocol for user provisioning ([described here](use-scim-to-provision-users-and-groups.md))
-* Ability to add links to any application in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](what-is-single-sign-on.md#linked-sso)
+- Self-service connection of applications that use the SCIM protocol for user provisioning ([described here](use-scim-to-provision-users-and-groups.md))
+- Ability to add links to any application in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](what-is-single-sign-on.md#linked-sso)
 
 This can include not only SaaS applications that you use but have not yet been on-boarded to the Azure AD application gallery, but third-party web applications that your organization has deployed to servers you control, either in the cloud or on-premises.
 
@@ -74,7 +74,7 @@ To set up Azure AD, enter the basic SAML configuration. You can manually enter t
 
     To configure multiple replyURLs you can use the following PowerShell script.
 
-    ```PowerShell
+    ```powershell
     $sp = Get-AzureADServicePrincipal -SearchString "<Exact App  name>"
     $app = Get-AzureADApplication -SearchString "<Exact app name>"
     Set-AzureADApplication -ObjectId $app.ObjectId -ReplyUrls "<ReplyURLs>"
@@ -119,7 +119,7 @@ For more information, see [Manage certificates for federated single sign-on in A
 
 ### Set up target application
 
-To configure the application for single sign-on, locate the application's documentation. To find the documentation, scroll to the end of the SAML-based sign-on configuration page, and then click on **Configure <application name>**. 
+To configure the application for single sign-on, locate the application's documentation. To find the documentation, scroll to the end of the SAML-based sign-on configuration page, and then click on **Configure \<application name>**. 
 
 The required values vary according to the application. For details, see the application's SAML documentation. The Sign-On and Sign-Out service URL both resolve to the same endpoint, which is the SAML request-handling endpoint for your instance of Azure AD. The SAML Entity ID is the value that appears as the Issuer in the SAML token that is issued to the application.
 

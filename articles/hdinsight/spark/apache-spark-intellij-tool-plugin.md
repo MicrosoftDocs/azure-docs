@@ -1,7 +1,6 @@
 ---
 title: 'Azure Toolkit for IntelliJ: Create Spark applications for an HDInsight cluster '
 description: Use the Azure Toolkit for IntelliJ to develop Spark applications written in Scala, and submit them to an HDInsight Spark cluster.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -51,10 +50,10 @@ Perform the following steps to install the Scala plugin:
 3. Select **Spark Project (Scala)** from the main window.
 
 4. From the **Build tool** drop-down list, select one of the following:
-      * **Maven** for Scala project-creation wizard support.
-      * **SBT** for managing the dependencies and building for the Scala project.
+   * **Maven** for Scala project-creation wizard support.
+   * **SBT** for managing the dependencies and building for the Scala project.
 
-    ![The New Project dialog box](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
+     ![The New Project dialog box](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
 5. Select **Next**.
 

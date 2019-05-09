@@ -3,7 +3,7 @@ title: Add a real device to an Azure IoT Central application | Microsoft Docs
 description: As an operator, add a real device to your Azure IoT Central application.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 02/01/2019
+ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -37,6 +37,8 @@ Before you begin, the builder should complete at least the first builder tutoria
 * [Configure rules and actions for your device](tutorial-configure-rules.md) (Optional)
 * [Customize the operator's views](tutorial-customize-operator.md) (Optional)
 
+Install [Node.js](https://nodejs.org/) version 8.0.0 or later on your development machine. You can run `node --version` in the command line to check your version. Node.js is available for a wide variety of operating systems.
+
 ## Add a real device
 
 To add a real device to your application, you use the **Connected Air Conditioner** device template you created in the [Define a new device type](tutorial-define-device-type.md) tutorial.
@@ -45,13 +47,13 @@ To add a real device to your application, you use the **Connected Air Conditione
 
    ![Device explorer page showing connected air conditioner](media/tutorial-add-device/explorer.png)
 
-   The **Device Explorer** shows the **Connected Air Conditioner** device template and the simulated device that was automatically created when the builder created the device template.
+   The **Device Explorer** shows the **Connected Air Conditioner** device template and a simulated device. When you create a device template, IoT Central automatically creates a simulated device.
 
 2. To start connecting a real connected air conditioner device, select **+**, then **Real**:
 
    ![Start adding a new, real connected air conditioner device](media/tutorial-add-device/newreal.png)
 
-3. Enter the Device Id (should be lower case) or use the suggested Device Id. You can also enter the name for your new device and choose **Create**.
+3. Enter the Device ID (should be lower case) or use the suggested Device ID. You can also enter the name for your new device and choose **Create**.
 
    ![Rename the device](media/tutorial-add-device/rename.png)
 
@@ -63,7 +65,7 @@ The real device is created from the **Connected Air Conditioner** device templat
 
     ![Settings show syncing](media/tutorial-add-device/settingssyncing.png)
 
-2. On the **Properties** page for your new, real connected air conditioner device, location of service and the last service date are both editable properties of the device. The serial number and firmware version fields are empty until the device is connected to the application. These are read-only values that are sent from the device and cannot be edited.
+2. On the **Properties** page for your new, real device, both location of service and last service date are editable properties. The serial number and firmware version fields are empty until the device is connected to the application. These read-only values are sent from the device and can't be edited.
 
     ![Device Properties for real device](media/tutorial-add-device/setproperties1.png)
 
@@ -71,11 +73,11 @@ The real device is created from the **Connected Air Conditioner** device templat
 
 ## Generate connection string
 
-A device developer needs to embed the *connection string* for your real device in the code that runs on the device. The connection string enables the device to connect securely to your Azure IoT Central application. You generate the connection string as part of preparing the client code written in Node.js in the next steps. The Node.js application represents the real connected air conditioner. 
+A device developer needs to embed the *connection string* for your real device in the code that runs on the device. The connection string enables the device to connect securely to your application. The following steps show you generate the connection string and prepare the client Node.js code.
 
 ## Prepare the client code
 
-The example code in this article is written in [Node.js](https://nodejs.org/) and shows just enough code to:
+The example code in this article is written in [Node.js](https://nodejs.org/) and shows enough code to:
 
 * Connect as a device to your Azure IoT Central application.
 * Send temperature telemetry as a connected air conditioner device.
@@ -83,41 +85,31 @@ The example code in this article is written in [Node.js](https://nodejs.org/) an
 * Respond to an operator who uses the **Set Temperature** setting.
 * Handle the Echo command from your Azure IoT Central application.
 
-The "How to" articles referenced in the [Next Steps](#next-steps) section provide more complete samples and show the use of other programming languages. For more information about how devices connect to Azure IoT Central, see the [Device connectivity](concepts-connectivity.md) article.
+The articles listed in the [Next Steps](#next-steps) section include more complete samples and show other programming languages. For more information about how devices connect to Azure IoT Central, see the [Device connectivity](concepts-connectivity.md) article.
 
 The following steps show how to prepare the [Node.js](https://nodejs.org/) sample:
 
-1. Install [Node.js](https://nodejs.org/) version 4.0.x or later in your machine. Node.js is available for a wide variety of operating systems.
-
-1. Create a folder called `connectedairconditioner` on your machine.
-
-1. In your command-line environment, navigate to the `connectedairconditioner` folder you created.
-
-1. Install the DPS key generator by using the following command:
-
-    ```cmd/sh
-    npm i -g dps-keygen
-    ```
-
-   Learn more about the [command line tool here](https://www.npmjs.com/package/dps-keygen).
+### Get the device connection information
 
 1. The connection string for a device instance in your application is generated from device information provided by the IoT Central.
 
-   Return to the IoT Central portal. On the device screen for your real connected air conditioner, choose **Connect**.
+   On the device screen for your real connected air conditioner, choose **Connect**.
 
    ![Device page showing view connection information link](media/tutorial-add-device/connectionlink.png)
 
-1. On the Device Connection page, copy and paste Scope ID, Device ID and Primary Key on to a text editor, then save. You use these values in the next step.
+1. On the Device Connection page, make a note of the **Scope ID**, **Device ID** and **Primary Key** values. You use these values in the next step.
 
    ![Connection details](media/tutorial-add-device/device-connect.png)
 
-1. Return to the command line environment and generate your connection string by executing:
+### Generate the connection string
 
-    ```cmd/sh
-    dps-keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
-    ```
+[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
 
-   Copy the output and save in a new file (for example, connection.txt).
+### Prepare the Node.js project
+
+1. Create a folder called `connectedairconditioner` on your development machine.
+
+1. In your command-line environment, navigate to the `connectedairconditioner` folder you created.
 
 1. To initialize your Node.js project, run the following command accepting all the defaults:
 
@@ -158,7 +150,7 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 
 ## Review client code
 
-In the previous section, you created a skeleton Node.js project for an application that connects to your Azure IoT Central application. In this section, you add the code to:
+In the previous section, you created a skeleton Node.js project for an application that connects to your Azure IoT Central application. The next step is to add code to:
 
 * Connect to your Azure IoT Central application.
 * Send telemetry to your Azure IoT Central application.
@@ -304,7 +296,7 @@ To configure your client code to connect to your Azure IoT Central application, 
     var connectionString = '{your device connection string}';
     ```
 
-1. Replace `{your device connection string}` with the connection string of your real device. You saved the connection string earlier in a text editor.
+1. Replace `{your device connection string}` with the connection string of your real device. You copied the connection string you generated in a previous step.
 
 1. Save the changes to the **ConnectedAirConditioner.js** file.
 
@@ -351,7 +343,7 @@ In this tutorial, you learned how to:
 > * Understand how client code maps to the application
 > * Configure client code for the real device
 
-Now that you have connected a real device to your Azure IoT Central application, here are the suggested next steps:
+Now that you've connected a real device to your Azure IoT Central application, here are the suggested next steps:
 
 As an operator, you can learn how to:
 
@@ -361,10 +353,8 @@ As an operator, you can learn how to:
 
 As a device developer, you can learn how to:
 
-* [Prepare and connect a DevKit](howto-connect-devkit.md)
-* [Prepare and connect a Raspberry Pi](howto-connect-raspberry-pi-python.md)
+* [Prepare and connect a DevKit device (C)](howto-connect-devkit.md)
+* [Prepare and connect a Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)
+* [Prepare and connect a Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md)
+* [Prepare and connect a Windows 10 IoT core device (C#)](howto-connect-windowsiotcore.md)
 * [Connect a generic Node.js client to your Azure IoT Central application](howto-connect-nodejs.md)
-* [Customize your code][lnk-nodejs-device-ref]
-
-
-[lnk-nodejs-device-ref]: /javascript/api/azure-iot-device/?view=azure-iot-typescript-latest

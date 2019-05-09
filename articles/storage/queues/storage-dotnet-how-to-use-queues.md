@@ -1,13 +1,15 @@
 ---
-title: Get started with Azure Queue storage using .NET | Microsoft Docs
+title: Get started with Azure Queue storage using .NET - Azure Storage
 description: Azure Queues provide reliable, asynchronous messaging between application components. Cloud messaging enables your application components to scale independently.
 services: storage
-author: tamram
+author: mhopkins-msft
+
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.author: tamram
+ms.author: mhopkins
+ms.reviewer: cbrooks
 ms.subservice: queues
 ---
 
@@ -320,9 +322,9 @@ to learn about more complex storage tasks.
   * [Connect to SQL Database by using .NET (C#)](../../sql-database/sql-database-connect-query-dotnet-core.md) to store relational data.
 
 [Download and install the Azure SDK for .NET]: /develop/net/
-[.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
-[Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-[Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
+[.NET client library reference]: https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+[Creating an Azure Project in Visual Studio]: https://msdn.microsoft.com/library/azure/ee405487.aspx
+[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
+[OData]: https://nuget.org/packages/Microsoft.Data.OData/5.0.2
+[Edm]: https://nuget.org/packages/Microsoft.Data.Edm/5.0.2
+[Spatial]: https://nuget.org/packages/System.Spatial/5.0.2

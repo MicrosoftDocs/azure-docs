@@ -60,7 +60,7 @@ sections:
           src: media/index/i_elasticpool.svg
         title: Elastic pools
       - href: /azure/sql-database/sql-database-managed-instance-index
-        html: <p>Use the Managed Instance to easily migrate your on-premises databases to the fully managed Azure PaaS database service with minimal or no database code changes.</p>
+        html: <p>Use the Managed Instance to get a fully managed SQL Server Database Engine Instance hosted in Azure cloud, with minimal or no database code changes needed for migration from on-premises databases.</p>
         image:
           src: media/index/i_mi.svg
         title: Managed instance
@@ -116,7 +116,7 @@ sections:
         values:
           - href: /azure/sql-database/sql-database-managed-instance-get-started
           - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
-          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/
+          - href: /azure/sql-database/scripts/sql-database-create-configure-managed-instance-powershell
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
 - title: Step-by-Step Tutorials
   items:
@@ -125,7 +125,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Get started with <a href="/azure/sql-database/sql-database-single-database-quickstart-guide">a single database</a> and a <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">managed instance</a> using our quickstart guides.
+    - html: Get started with a <a href="/azure/sql-database/sql-database-single-database-quickstart-guide">single database</a> and a <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">managed instance</a> using our quickstart guides.
     - html: Create and design the schema for a new single database using <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> or <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
     - html: Migrate an existing database to Azure using <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">a native SQL Server backup file</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">the Database Migration Assistant</a>, or <a href="/azure/sql-database/sql-database-import">by importing a BACPAC file</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Secure your SQL Database</a>

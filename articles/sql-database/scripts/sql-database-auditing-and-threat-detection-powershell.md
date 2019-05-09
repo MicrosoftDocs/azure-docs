@@ -3,7 +3,7 @@ title: PowerShell example-auditing-threat detection-Azure SQL Database  | Micros
 description: Azure PowerShell example script to configure auditing & threat detection in an Azure SQL Database
 services: sql-database
 ms.service: sql-database
-ms.subservice: threat-detection
+ms.subservice: security
 ms.custom: security
 ms.devlang: PowerShell
 ms.topic: sample
@@ -29,7 +29,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 ## Clean up deployment
 
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+Use the following command to remove  the resource group and all resources associated with it.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -45,7 +45,7 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts a single database or elastic pool. |
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a single database or elastic pool. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Creates a Storage account. |
-| [Set-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/set-azsqldatabaseauditingpolicy) | Sets the auditing policy for a database. |
+| [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing) | Sets the auditing policy for a database. |
 | [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | Sets a threat detection policy on a database. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||

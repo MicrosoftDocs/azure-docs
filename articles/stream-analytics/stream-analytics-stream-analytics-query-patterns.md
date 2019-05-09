@@ -104,7 +104,7 @@ For example, provide a string description for how many cars of the same make pas
 **Output**:
 
 | CarsPassed | Time |
-| --- | --- | --- |
+| --- | --- |
 | 1 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 Toyotas |2015-01-01T00:00:10.0000000Z |
 
@@ -612,10 +612,11 @@ The second query is joined to the first query to find the power value in the mos
 And then, provided the conditions are met, an alert is generated for the device.
 
 ## Query example: Process events independent of Device Clock Skew (substreams)
-**Description**: Events can arrive late or out of order due to clock skews between event producers, clock skews between partitions, or network latency. In the following example, the device clock for TollID 2 is ten seconds behind TollID 1, and the device clock for TollID 3 is five seconds behind TollID 1. 
+**Description**: Events can arrive late or out of order due to clock skews between event producers, clock skews between partitions, or network latency. In the following example, the device clock for TollID 2 is five seconds behind TollID 1, and the device clock for TollID 3 is ten seconds behind TollID 1. 
 
 
 **Input**:
+
 | LicensePlate | Make | Time | TollID |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
@@ -628,6 +629,7 @@ And then, provided the conditions are met, an alert is generated for the device.
 | YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
 
 **Output**:
+
 | TollID | Count |
 | --- | --- |
 | 1 | 2 |

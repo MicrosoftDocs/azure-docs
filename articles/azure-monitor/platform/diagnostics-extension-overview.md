@@ -45,6 +45,9 @@ You also have the choice of sending your data to Azure Monitor metrics time-seri
 
 To learn more on how to configure this sink, refer to the [Azure diagnostics schema documentation.](diagnostics-extension-schema-1dot3.md)
 
+## Costs
+Each of the options above may incur costs. Be sure to research them to avoid unexpected bills.  Application Insights, Event hub, and Azure Storage have separate costs associated with ingestion and the time stored. In particular, Azure Storage will hold any data forever so you may want to purge older data after a certain time period to keep your costs down.    
+
 ## Versioning and configuration schema
 See [Azure Diagnostics Version History and Schema](diagnostics-extension-schema.md).
 

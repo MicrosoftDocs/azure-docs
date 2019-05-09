@@ -381,7 +381,7 @@ This optional section controls execution of arbitrary [OMI](https://github.com/M
 
 Element | Value
 ------- | -----
-namespace | (optional) The OMI namespace within which the query should be executed. If unspecified, the default value is "root/scx", implemented by the [System Center Cross-platform Providers](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
+namespace | (optional) The OMI namespace within which the query should be executed. If unspecified, the default value is "root/scx", implemented by the [System Center Cross-platform Providers](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 query | The OMI query to be executed.
 table | (optional) The Azure storage table, in the designated storage account (see [Protected settings](#protected-settings)).
 frequency | (optional) The number of seconds between execution of the query. Default value is 300 (5 minutes); minimum value is 15 seconds.
@@ -495,7 +495,9 @@ ReadsPerSecond | Read operations per second
 WritesPerSecond | Write operations per second
 TransfersPerSecond | Read or write operations per second
 
-Aggregated values across all file systems can be obtained by setting `"condition": "IsAggregate=True"`. Values for a specific mounted file system, such as "/mnt", can be obtained by setting `"condition": 'Name="/mnt"'`.
+Aggregated values across all file systems can be obtained by setting `"condition": "IsAggregate=True"`. Values for a specific mounted file system, such as "/mnt", can be obtained by setting `"condition": 'Name="/mnt"'`. 
+
+**NOTE**: If using the Azure Portal instead of JSON, the correct condition field form is Name='/mnt'
 
 ### builtin metrics for the Disk class
 

@@ -1,20 +1,12 @@
 ---
-title: Create Azure IoT Edge module technical assets | Microsoft Docs
+title: Create Azure IoT Edge module technical assets | Azure Marketplace
 description: Create the technical assets for an IoT Edge module.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Prepare your IoT Edge module technical assets
@@ -57,9 +49,9 @@ IoT Edge module dimensions (CPU/RAM/Storage/GPU/etc.) on targeted IoT Edge devic
 - The module must **work with at least one IoT Edge certified** device in the [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) device catalog.
 - The **Minimum hardware requirements** must be documented as the last paragraph in the description of the offer (under the [Marketplace tab](./cpp-marketplace-tab.md)). Optionally, you can also list the recommended hardware requirements if they differ significantly. For example, add the following section at the end of your offer description:
 
- ```html
+  ```html
     <p><u>Minimum hardware requirements:</u> Linux x64 and arm32  OS, 1GB of RAM, 500 Mb of storage</p>
- ```
+  ```
 
 ### Configuration
 

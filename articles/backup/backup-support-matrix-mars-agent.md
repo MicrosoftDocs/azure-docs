@@ -19,16 +19,14 @@ You can use the [Azure Backup service](backup-overview.md) to back up on-premise
 Azure Backup uses the MARS agent to back up data from on-premises machines and Azure VMs to a backup Recovery Services vault in Azure. The MARS agent can:
 - Run on on-premises Windows machines so that they can back up directly to a backup Recovery Services vault in Azure.
 - Run on Windows VMs so that they can back up directly to a vault.
-- Run on Microsoft Azure Backup Server (MABS) or a System Center Data Protection Manager (DPM) server. In this scenario, machines and workloads back up to MABS or to the DPM server. The MARS agent then backs up this server to a vault in Azure. 
+- Run on Microsoft Azure Backup Server (MABS) or a System Center Data Protection Manager (DPM) server. In this scenario, machines and workloads back up to MABS or to the DPM server. The MARS agent then backs up this server to a vault in Azure.
 
-Your backup options depend on where the agent is installed. For more information, see [Azure Backup architecture using the MARS agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders). For information about MABS and DPM backup architecture, see [Back up to DPM or MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Also see [requirements](backup-support-matrix-mabs-dpm.md) for the backup architecture.
-
-## Supported installations
+Your backup options depend on where the agent is installed. For more information, see [Azure Backup architecture using the MARS agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). For information about MABS and DPM backup architecture, see [Back up to DPM or MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Also see [requirements](backup-support-matrix-mabs-dpm.md) for the backup architecture.
 
 **Installation** | **Details**
 --- | ---
 Download the latest MARS agent | You can download the latest version of the agent from the vault, or [download it directly](https://aka.ms/azurebackup_agent).
-Install directly on a machine | You can install the MARS agent directly on an on-premises Windows server or on a Windows VM that's running any of the [supported operating systems](https://docs.microsoft.com/en-us/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Install directly on a machine | You can install the MARS agent directly on an on-premises Windows server or on a Windows VM that's running any of the [supported operating systems](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
 Install on a backup server | When you set up DPM or MABS to back up to Azure, you download and install the MARS agent on the server. You can install the agent on [supported operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) in the backup server support matrix.
 
 > [!NOTE]
@@ -42,8 +40,8 @@ When you use the MARS agent to back up data, the agent takes a snapshot of the d
 
 **Cache** | **Details**
 --- | ---
-Size |  Free space in the cache folder should be at least 5 to 10 percent of the overall size of your backup data. 
-Location | The cache folder must be locally stored on the machine that's being backed up, and it must be online. The cache folder shouldn't be on a network share, on removable media, or on an offline volume. 
+Size |  Free space in the cache folder should be at least 5 to 10 percent of the overall size of your backup data.
+Location | The cache folder must be locally stored on the machine that's being backed up, and it must be online. The cache folder shouldn't be on a network share, on removable media, or on an offline volume.
 Folder | The cache folder should be encrypted on a deduplicated volume or in a folder that's compressed, that's sparse, or that has a reparse point.
 Location changes | You can change the cache location by stopping the backup engine (`net stop bengine`) and copying the cache folder to a new drive. (Ensure the new drive has sufficient space.) Then update two registry entries under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** and **Config/CloudBackupProvider/ScratchLocation**) to the new location and restart the engine.
 
@@ -100,9 +98,9 @@ Windows 7	| 1,700 GB
 
 ## Supported file types for backup
 
-**Type** | **Support** 
---- | --- 
-Encrypted	| Supported. 
+**Type** | **Support**
+--- | ---
+Encrypted	| Supported.
 Compressed | Supported.
 Sparse | Supported.
 Compressed and sparse |	Supported.
@@ -111,7 +109,7 @@ Reparse point	| Not supported. Skipped.
 Encrypted and sparse |	Not supported. Skipped.
 Compressed stream	| Not supported. Skipped.
 Sparse stream	| Not supported. Skipped.
-OneDrive (synced files are sparse streams)	| Not supported. 
+OneDrive (synced files are sparse streams)	| Not supported.
 
 ## Supported drives or volumes for backup
 
@@ -134,14 +132,12 @@ Azure Backup supports *offline seeding* to transfer initial backup data to Azure
 
 Offline backup can't be used for system state files.
 
-
 ## Support for data restoration
 
 By using the [Instant Restore](backup-instant-restore-capability.md) feature of Azure Backup, you can restore data before it's copied to the vault. The machine you're backing up must be running .NET Framework 4.5.2 or higher.
 
 Backups can't be restored to a target machine that's running an earlier version of the operating system. For example, a backup taken from a computer that's running Windows 7 can be restored on Windows 8 or later. But a backup taken from a computer that's running Windows 8 can't be restored on a computer that's running Windows 7.
 
-
 ## Next steps
-- Learn more about [backup architecture that uses the MARS agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders).
+- Learn more about [backup architecture that uses the MARS agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
 - Learn what's supported when you [run the MARS agent on MABS or a DPM server](backup-support-matrix-mabs-dpm.md).

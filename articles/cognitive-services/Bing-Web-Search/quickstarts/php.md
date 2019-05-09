@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using PHP.
@@ -16,9 +16,10 @@ ms.custom: seodec2018
 
 # Quickstart: Use PHP to call the Bing Web Search API  
 
-Use this quickstart to make your first call to the Bing Web Search API and receive the JSON response. This Node.js application sends a search request to the API, and displays the response. While this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
+Use this quickstart to make your first call to the Bing Web Search API and receive the JSON response. This Node.js application sends a search request to the API, and shows the response. While this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
+
 Here are a few things that you'll need before running this quickstart:
 
 * [PHP 5.6.x](https://php.net/downloads.php) or later
@@ -30,11 +31,11 @@ Here are a few things that you'll need before running this quickstart:
 
 Before we get started, locate `php.ini` and uncomment this line:
 
-```
-;extension=php_openssl.dll
+```php
+; extension=php_openssl.dll
 ```
 
-## Create a project and define variables  
+## Create a project and define variables
 
 Create a new PHP project in your favorite IDE or editor. Don't forget to add opening and closing tags `<?php` and `?>`.
 

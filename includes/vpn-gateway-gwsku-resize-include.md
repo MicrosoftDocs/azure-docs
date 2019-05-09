@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 03/21/2018
+ ms.date: 03/15/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -14,7 +14,7 @@ For the current SKUs (VpnGw1, VpnGw2, and VPNGW3) you want to resize your gatewa
 
 The following PowerShell example shows a gateway SKU being resized to VpnGw2.
 
-```powershell
+```azurepowershell-interactive
 $gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
 ```

@@ -27,7 +27,8 @@ By using the query action, you can work with batches and arrays to accomplish wo
 To get started using the query action in a logic app, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Use the query action
-An action is an operation that is carried out by the workflow that is defined in a logic app. [Learn more about actions](connectors-overview.md).  
+An action is an operation that is carried out by the workflow that is defined in a logic app. 
+[Learn more about actions](../connectors/apis-list.md).  
 
 The query action currently has one operation, called the filter array, that is exposed in the designer. This allows you to query an array and return a set of filtered results.
 

@@ -34,7 +34,7 @@ There isn't an equivalent file to control the [SDK in a web page][client].
 This document describes the sections you see in the configuration file, how they control the components of the SDK, and which NuGet packages load those components.
 
 > [!NOTE]
-> ApplicationInsights.config and .xml instructions do not apply to the .NET Core SDK. For changes to a .NET Core application we typically use the appsettings.json file. An example of this can be found in the [Snapshot Debugger documentation.](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)
+> ApplicationInsights.config and .xml instructions do not apply to the .NET Core SDK. For changes to a .NET Core application we typically use the appsettings.json file. An example of this can be found in the [Snapshot Debugger documentation.](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
 
 ## Telemetry Modules (ASP.NET)
 Each telemetry module collects a specific type of data and uses the core API to send the data. The modules are installed by different NuGet packages, which also add the required lines to the .config file.
@@ -85,13 +85,13 @@ Reports the [response time and result code](../../azure-monitor/app/asp-net.md) 
 * [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet package.
 
 ### EventSource Tracking
-`EventSourceTelemetryModule` allows you to configure EventSource events to be sent to Application Insights as traces. For information on tracking EventSource events, see [Using EventSource Events](../../azure-monitor/app/asp-net-trace-logs.md#using-eventsource-events).
+`EventSourceTelemetryModule` allows you to configure EventSource events to be sent to Application Insights as traces. For information on tracking EventSource events, see [Using EventSource Events](../../azure-monitor/app/asp-net-trace-logs.md#use-eventsource-events).
 
 * `Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule`
 * [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener) 
 
 ### ETW Event Tracking
-`EtwCollectorTelemetryModule` allows you to configure events from ETW providers to be sent to Application Insights as traces. For information on tracking ETW events, see [Using ETW Events](../../azure-monitor/app/asp-net-trace-logs.md#using-etw-events).
+`EtwCollectorTelemetryModule` allows you to configure events from ETW providers to be sent to Application Insights as traces. For information on tracking ETW events, see [Using ETW Events](../../azure-monitor/app/asp-net-trace-logs.md#use-etw-events).
 
 * `Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule`
 * [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 

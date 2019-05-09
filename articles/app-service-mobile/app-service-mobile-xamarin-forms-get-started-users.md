@@ -139,7 +139,7 @@ This section shows how to implement the **IAuthenticate** interface in the Andro
 5. Update the **MainActivity** class by adding a **MobileServiceUser** field and an **Authenticate** method, which is required by the **IAuthenticate**
    interface, as follows:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
@@ -217,7 +217,7 @@ This section shows how to implement the **IAuthenticate** interface in the iOS a
 5. Update the **AppDelegate** class by adding a **MobileServiceUser** field and an **Authenticate** method, which is required by the **IAuthenticate**
    interface, as follows:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
@@ -291,7 +291,7 @@ Universal Windows Platform (UWP) projects, but using the **UWP** project (with n
 5. Update the **MainPage** class by adding a **MobileServiceUser** field and an **Authenticate** method, which is required by the **IAuthenticate**
    interface, as follows:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
@@ -343,7 +343,7 @@ Universal Windows Platform (UWP) projects, but using the **UWP** project (with n
             if (args.Kind == ActivationKind.Protocol)
             {
                 ProtocolActivatedEventArgs protocolArgs = args as ProtocolActivatedEventArgs;
-                TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(protocolArgs.Uri);
+                MobileServiceClientExtensions.ResumeWithURL(TodoItemManager.DefaultManager.CurrentClient,protocolArgs.Uri);
             }
        }
 

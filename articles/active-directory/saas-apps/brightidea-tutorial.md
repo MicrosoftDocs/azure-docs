@@ -160,18 +160,18 @@ To configure Azure AD single sign-on with Brightidea, perform the following step
 	
 	![Brightidea Configuration](./media/brightidea-tutorial/configure4.png)
 	
-	 * Enter the **SAML Profile Name** like e.g `Azure Ad SSO`
+   * Enter the **SAML Profile Name** like e.g `Azure Ad SSO`
 	
-	 * For **Upload Metadata**, click choose file and upload the downloaded metadata file from the Azure portal.
+   * For **Upload Metadata**, click choose file and upload the downloaded metadata file from the Azure portal.
 
 	 > [!NOTE]
 	 > After uploading the metadata file, the remaining fields **Single Sign-on Service, Identity Provider Issuer, Upload Public Key** will populate automatically.
 
-	 * In the **Email** textbox, enter the value as `mail`.
+   * In the **Email** textbox, enter the value as `mail`.
 	 
-	 * In the **Screen Name** textbox, enter the value as `givenName`.
+   * In the **Screen Name** textbox, enter the value as `givenName`.
 	 
-	 * Click **Save Changes**.  
+   * Click **Save Changes**.  
 
 ### Create an Azure AD test user 
 
@@ -191,7 +191,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

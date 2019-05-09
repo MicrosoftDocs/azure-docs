@@ -6,21 +6,24 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: cforbe
-author: cforbe
+ms.author: sihhu
+author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 2/22/2019
+ms.date: 02/22/2019
 ms.custom: seodec18
 ---
 
-# Load and read data with Azure Machine Learning
-
-In this article, you learn different methods of loading data using the Azure Machine Learning Data Prep SDK. To see reference documentation for the SDK, see the [overview](https://aka.ms/data-prep-sdk). The SDK supports multiple data ingestion features, including:
+# Load and read data with the Azure Machine Learning Data Prep SDK
+In this article, you learn different methods of loading data using the Azure Machine Learning Data Prep SDK.  The SDK supports multiple data ingestion features, including:
 
 * Load from many file types with parsing parameter inference (encoding, separator, headers)
 * Type-conversion using inference during file loading
 * Connection support for MS SQL Server and Azure Data Lake Storage
+
+> [!Important]
+> If you are building a new solution, try the [Azure Machine Learning Datasets](how-to-explore-prepare-data.md) (preview) for data exploration and preparation. Datasets is the next version of the data prep SDK, offering expanded functionality for managing data sets in AI solutions.
+> If you use the `azureml-dataprep` package to create a dataflow with your transformations instead of using the `azureml-datasets` package to create a dataset, you won't be able to use snapshots or versioned datasets later.
 
 The following table shows a selection of functions used for loading data from common file types.
 
@@ -84,7 +87,7 @@ dflow.head(5)
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
-|0||stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
+|0|stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |1|ALABAMA|1|101710|Hale County|10171002158| |
 |2|ALABAMA|1|101710|Hale County|10171002162| |
 
@@ -98,7 +101,7 @@ dflow.head(5)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
-|-----|-------|---------| -------|------|-----|------|-----|
+|-----|-------|---------| -------|------|-----|------|
 |0|ALABAMA|1|101710|Hale County|10171002158|29|
 |1|ALABAMA|1|101710|Hale County|10171002162|40 |
 
@@ -149,12 +152,12 @@ dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2')
 dflow.head(5)
 ```
 
-||Column1|Column2|Column3|Column4|Column5|Column6|Column7|Column8|
-|------|------|------|-----|------|-----|-------|----|-----|
-|0|None|None|None|None|None|None|None|None|None|
-|1|None|None|None|None|None|None|None|None|None|
-|2|None|None|None|None|None|None|None|None|None|
-|3|Rank|Title|Studio|Worldwide|Domestic / %|Column1|Overseas / %|Column2|Year^|
+| |Column1|Column2|Column3|Column4|Column5|Column6|Column7|Column8| | |
+|-|-------|-------|-------|-------|-------|-------|-------|-------|-|-|
+|0|None|None|None|None|None|None|None|None|None| |
+|1|None|None|None|None|None|None|None|None|None| |
+|2|None|None|None|None|None|None|None|None|None| |
+|3|Rank|Title|Studio|Worldwide|Domestic / %|Column1|Overseas / %|Column2|Year^| |
 |4|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009^|5|
 
 The output shows that the data in the second sheet had three empty rows before the headers. The `read_excel()` function contains optional parameters for skipping rows and using headers. Run the following code to skip the first three rows, and use the fourth row as the headers.
@@ -220,8 +223,8 @@ dflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
 dflow.head(5)
 ```
 
-||ProductID|Name|ProductNumber|Color|StandardCost|ListPrice|Size|Weight|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate|
-|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| |ProductID|Name|ProductNumber|Color|StandardCost|ListPrice|Size|Weight|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate| |
+|-|---------|----|-------------|-----|------------|---------|----|------|-----------------|--------------|-------------|-----------|----------------|--------------|----------------------|-------|------------|-|
 |0|680|HL Road Frame - Black, 58|FR-R92B-58|Black|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|None|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|2008-03-11 |0:01:36.827000+00:00|
 |1|706|HL Road Frame - Red, 58|FR-R92R-58|Red|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|None|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|2008-03-11 |10:01:36.827000+00:00|
 |2|707|Sport-100 Helmet, Red|HL-U509-R|Red|13.0863|34.99|None|None|35|33|2005-07-01 00:00:00+00:00|None|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|2e1ef41a-c08a-4ff6-8ada-bde58b64a712|2008-03-11 |10:01:36.827000+00:00|
@@ -286,7 +289,7 @@ servicePrincipalAppId = "8dd38f34-1fcb-4ff9-accd-7cd60b757174"
 
 ### Acquire an OAuth access token
 
-Use the `adal` package (`pip install adal`) to create an authentication context on the MSFT tenant and acquire an OAuth access token. For ADLS, the resource in the token request must be for 'https://datalake.azure.net', which is different from most other Azure resources.
+Use the `adal` package (`pip install adal`) to create an authentication context on the MSFT tenant and acquire an OAuth access token. For ADLS, the resource in the token request must be for 'https:\//datalake.azure.net', which is different from most other Azure resources.
 
 ```python
 import adal
@@ -302,11 +305,10 @@ dflow.to_pandas_dataframe().head()
 |----|------|-----|----|----|----|----|
 |0|1012063|Caledonia Farmers Market Association - Danville|https://sites.google.com/site/caledoniafarmers... ||Danville|Caledonia|
 |1|1011871|Stearns Homestead Farmers' Market|http://Stearnshomestead.com |6975 Ridge Road|Parma|Cuyahoga|
-|2|1011878|100 Mile Market|http://www.pfcmarkets.com |507 Harrison St|Kalamazoo|Kalamazoo|
+|2|1011878|100 Mile Market|https://www.pfcmarkets.com |507 Harrison St|Kalamazoo|Kalamazoo|
 |3|1009364|106 S. Main Street Farmers Market|http://thetownofsixmile.wordpress.com/ |106 S. Main Street|Six Mile|||
 |4|1010691|10th Street Community Farmers Market|https://agrimissouri.com/... |10th Street and Poplar|Lamar|Barton|
 
 ## Next steps
 
-* See the SDK [overview](https://aka.ms/data-prep-sdk) for design patterns and usage examples
 * See the Azure Machine Learning Data Prep SDK [tutorial](tutorial-data-prep.md) for an example of solving a specific scenario

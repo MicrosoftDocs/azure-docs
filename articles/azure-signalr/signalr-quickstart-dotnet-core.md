@@ -91,7 +91,7 @@ In this section, you will add the [Secret Manager tool](https://docs.microsoft.c
 
     Secret Manager will only be used for testing the web app while it is hosted locally. In a later tutorial, you will deploy the chat web app to Azure. Once the web app is deployed to Azure, you will use an application setting instead of storing the connection string with Secret Manager.
 
-    This secret is a accessed with the configuration API. A colon (:) works in the configuration name with the configuration API on all supported platforms, see [Configuration by environment](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0). 
+    This secret is accessed with the configuration API. A colon (:) works in the configuration name with the configuration API on all supported platforms, see [Configuration by environment](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0). 
 
 
 4. Open *Startup.cs* and update the `ConfigureServices` method to use Azure SignalR Service by calling the `services.AddSignalR().AddAzureSignalR()` method:

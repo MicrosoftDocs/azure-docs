@@ -78,17 +78,17 @@ Supporting IaaS cloud-based applications dependent on NTLM/Kerberos authenticati
 >The preceding figure is a simple connectivity example, using site-to-site VPN. Azure ExpressRoute is another and more preferred connectivity option.
 >
 
-The type of domain controller to place in Azure is also a consideration based on application requirements for directory access. If applications require directory write access, deploy a standard domain controller with a writable copy of the Active Directory database. If applications only require directory read access, we recommend deploying a RODC (Read-Only Domain Controller) to Azure instead. Specifically, for RODCs we recommend following the guidance available at [Deployment Decisions and Factors for Read-Only DCs](https://msdn.microsoft.com/library/azure/jj156090.aspx#BKMK_RODC).
+The type of domain controller to place in Azure is also a consideration based on application requirements for directory access. If applications require directory write access, deploy a standard domain controller with a writable copy of the Active Directory database. If applications only require directory read access, we recommend deploying a RODC (Read-Only Domain Controller) to Azure instead. Specifically, for RODCs we recommend following the guidance available at [Deployment Decisions and Factors for Read-Only DCs](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100#BKMK_RODC).
 
 We have documentation covering the guidelines for deploying AD Domain Controllers and ADFS (AD Federation Services) at these links:
 
- - [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx) 
-   -  Answers questions such as:
+- [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) 
+  - Answers questions such as:
     -   Is it safe to virtualize Windows Server Active Directory Domain Controllers?
     -   Why deploy AD to Azure Virtual Machines?
     -   Can you deploy ADFS to Azure Virtual Machines?
- - [Deploying Active Directory Federation Services in Azure](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md)
-   -   Provides guidance on how to deploy ADFS in Azure.
+- [Deploying Active Directory Federation Services in Azure](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md)
+  -   Provides guidance on how to deploy ADFS in Azure.
 
 ## Identity scenarios for subscription administration in Azure Government
 First, see [Managing and connecting to your subscription in Azure Government](./documentation-government-manage-subscriptions.md), for instructions on accessing Azure Government management portals.

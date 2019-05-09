@@ -158,7 +158,7 @@ To configure Azure AD single sign-on with Appraisd, perform the following steps:
 
 1. In a different web browser window, sign in to Appraisd as a Security Administrator.
 
-2. On the top right of the page, click on **Settings** icon, then navigate to **Configuration**.
+2. On the top right of the page, click on **Settings** icon, then navigate to **Configuration**.
 
 	![image](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
@@ -170,9 +170,9 @@ To configure Azure AD single sign-on with Appraisd, perform the following steps:
 
 	![image](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
-	a. Copy the **Default Relay State** value and paste it in **Relay State** textbox in **Basic SAML Configuration** on Azure portal.
+	a. Copy the **Default Relay State** value and paste it in **Relay State** textbox in **Basic SAML Configuration** on Azure portal.
 
-	b. Copy the **Service-initiated login URL** value and paste it in **Sign-on URL** textbox in **Basic SAML Configuration** on Azure portal.
+	b. Copy the **Service-initiated login URL** value and paste it in **Sign-on URL** textbox in **Basic SAML Configuration** on Azure portal.
 
 5. Scroll down the same page under **Identifying users**, perform the following steps:
 
@@ -182,7 +182,7 @@ To configure Azure AD single sign-on with Appraisd, perform the following steps:
 
 	b. In the **Identity Provider Issuer URL** textbox, paste the value of **Azure Ad Identifier**, which you have copied from the Azure portal and click **Save**.
 
-	c. In Notepad, open the base-64 encoded certificate that you downloaded from the Azure portal, copy its content, and then paste it into the **X.509 Certificate** box and click **Save**.
+	c. In Notepad, open the base-64 encoded certificate that you downloaded from the Azure portal, copy its content, and then paste it into the **X.509 Certificate** box and click **Save**.
 
 ### Create an Azure AD test user
 
@@ -202,7 +202,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -243,11 +243,11 @@ To enable Azure AD users sign in to Appraisd, they must be provisioned into Appr
 
 1. Sign in to Appraisd as a Security Administrator.
 
-2. On the top right of the page, click on **Settings** icon, then navigate to **Administration centre**.
+2. On the top right of the page, click on **Settings** icon, then navigate to **Administration centre**.
 
 	![image](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
 
-3. In the toolbar at the top of the page, click **People**, then navigate to **Add a new user**.
+3. In the toolbar at the top of the page, click **People**, then navigate to **Add a new user**.
 
 	![image](./media/appraisd-tutorial/tutorial_appraisd_user.png)
 
@@ -259,7 +259,7 @@ To enable Azure AD users sign in to Appraisd, they must be provisioned into Appr
 
 	b. In **Last name** text box, enter the last name of user like **simon**.
 
-	c. In **Email** text box, enter the email of user like **Brittasimon@contoso.com**.
+	c. In **Email** text box, enter the email of user like **Brittasimon\@contoso.com**.
 
 	d. Click **Add user**.
 

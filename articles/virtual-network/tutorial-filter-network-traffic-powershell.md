@@ -3,8 +3,8 @@ title: Filter network traffic - Azure PowerShell | Microsoft Docs
 description: In this article, you learn how to filter network traffic to a subnet, with a network security group, using PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/30/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
 ---
 
@@ -273,7 +273,7 @@ Use the following command to install Microsoft IIS on the *myVmWeb* VM from Powe
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-After the IIS installation is complete, disconnect from the *myVmWeb* VM, which leaves you in the *myVmMgmt* VM remote desktop connection. To view the IIS welcome screen, open an internet browser and browse to http://myVmWeb.
+After the IIS installation is complete, disconnect from the *myVmWeb* VM, which leaves you in the *myVmMgmt* VM remote desktop connection. To view the IIS welcome screen, open an internet browser and browse to http:\//myVmWeb.
 
 Disconnect from the *myVmMgmt* VM.
 

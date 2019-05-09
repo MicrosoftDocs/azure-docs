@@ -49,18 +49,18 @@ While this application is written in Python, the API is a RESTful Web service co
 ## Send a request and get a response
 
 1. Create a function called `get_suggestions()`. Then perform the following steps.
-    1. Add your subscription key to a dictionary with `Ocp-Apim-Subscription-Key` as a key.
-    2. Use `http.client.HTTPSConnection()` to create a HTTPS client object. Send a `GET` request using `request()` with your path and parameters, and header information.
-    3. Store the response with `getresponse()`, and return `response.read()`.
+   1. Add your subscription key to a dictionary with `Ocp-Apim-Subscription-Key` as a key.
+   2. Use `http.client.HTTPSConnection()` to create a HTTPS client object. Send a `GET` request using `request()` with your path and parameters, and header information.
+   3. Store the response with `getresponse()`, and return `response.read()`.
 
-    ```python
-    def get_suggestions ():
-    	headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-    	conn = http.client.HTTPSConnection (host)
-    	conn.request ("GET", path + params, None, headers)
-    	response = conn.getresponse ()
-    	return response.read()
-    ```
+      ```python
+      def get_suggestions ():
+       headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+       conn = http.client.HTTPSConnection (host)
+       conn.request ("GET", path + params, None, headers)
+       response = conn.getresponse ()
+       return response.read()
+      ```
 
 2. Call `get_suggestions()`, and print the json response.
 

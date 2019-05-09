@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ---
 
-# Azure Data Factory Mapping Data Flow Unpivot Transformation
+# Azure Data Factory Unpivot Transformation
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -46,3 +46,7 @@ Setting the Column Arrangement to "Normal" will group together all of the pivote
 ![Unpivot Transformation](media/data-flow//unpivot7.png "Unpivot options 5")
 
 The final unpivoted data result set shows the column totals now unpivoted into separate row values.
+
+## Next steps
+
+Use the [Pivot transformation](data-flow-pivot.md) to pivot rows to columns.

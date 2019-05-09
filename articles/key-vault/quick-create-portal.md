@@ -6,13 +6,10 @@ author: barclayn
 manager: barbkess
 tags: azure-resource-manager
 
-ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 03/14/2019
 ms.author: barclayn
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -39,7 +36,6 @@ Sign in to the Azure portal at https://portal.azure.com.
     - **Subscription**: Choose a subscription.
     - Under **Resource Group** choose **Create new** and enter a resource group name.
     - In the **Location** pull-down menu, choose a location.
-    - Check the **Pin to dashboard** checkbox.
     - Leave the other options to their defaults.
 6. After providing the information above, select **Create**.
 

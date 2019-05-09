@@ -6,13 +6,13 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ---
 # Update Management solution in Azure
 
-You can use the Update Management solution in Azure Automation to manage operating system updates for your Windows and Linux computers that are deployed in Azure, in on-premises environments, or in other cloud providers. You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
+You can use the Update Management solution in Azure Automation to manage operating system updates for your Windows and Linux computers in Azure, in on-premises environments, or in other cloud providers. You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
 
 You can enable Update Management for virtual machines directly from your Azure Automation account. To learn how to enable Update Management for virtual machines from your Automation account, see [Manage updates for multiple virtual machines](manage-update-multi.md). You can also enable Update Management for a virtual machine from the virtual machine page in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtual machines.
 
@@ -29,7 +29,7 @@ Computers that are managed by Update Management use the following configurations
 
 The following diagram shows a conceptual view of the behavior and data flow with how the solution assesses and applies security updates to all connected Windows Server and Linux computers in a workspace:
 
-![Update Management process flow](media/automation-update-management/update-mgmt-updateworkflow.png)
+![Update Management process flow](./media/automation-update-management/update-mgmt-updateworkflow.png)
 
 Update Management can be used to natively onboard machines in multiple subscriptions in the same tenant.
 
@@ -46,9 +46,11 @@ The solution reports how up-to-date the computer is based on what source you're 
 > [!NOTE]
 > To properly report to the service, Update Management requires certain URLs and ports to be enabled. To learn more about these requirements, see [Network planning for Hybrid Workers](automation-hybrid-runbook-worker.md#network-planning).
 
-You can deploy and install software updates on computers that require the updates by creating a scheduled deployment. Updates classified as *Optional* aren't included in the deployment scope for Windows computers. Only required updates are included in the deployment scope. 
+You can deploy and install software updates on computers that require the updates by creating a scheduled deployment. Updates classified as *Optional* aren't included in the deployment scope for Windows computers. Only required updates are included in the deployment scope.
 
-The scheduled deployment defines what target computers receive the applicable updates, either by explicitly specifying computers or by selecting a [computer group](../azure-monitor/platform/computer-groups.md) that's based on log searches of a specific set of computers. You also specify a schedule to approve and set a period of time during which updates can be installed.
+The scheduled deployment defines what target computers receive the applicable updates, either by explicitly specifying computers or by selecting a [computer group](../azure-monitor/platform/computer-groups.md) that's based on log searches of a specific set of computers, or an [Azure query](#azure-machines) that dynamically selects Azure VMs based on specified criteria. These groups are different from [Scope Configuration](../azure-monitor/insights/solution-targeting.md), which is only used to determine what machines get the management packs that enable the solution. 
+
+You also specify a schedule to approve and set a period of time during which updates can be installed. This period of time is called the maintenance window. Ten minutes of the maintenance window is reserved for reboots if a reboot is needed and you selected the appropriate reboot option. If patching takes longer than expected and there is less than ten minutes in the maintenance window, a reboot will not occur.
 
 Updates are installed by runbooks in Azure Automation. You can't view these runbooks, and the runbooks don’t require any configuration. When an update deployment is created, the update deployment creates a schedule that starts a master update runbook at the specified time for the included computers. The master runbook starts a child runbook on each agent to install the required updates.
 
@@ -70,6 +72,9 @@ The following table shows a list of supported operating systems:
 |Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
 |Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 (x86/x64)      |Linux agents must have access to an update repository.         |
+
+> [!NOTE]
+> Azure virtual machine scale sets can be managed with Update Management. Update Management works on the instances themselves and not the base image. You'll need to schedule the updates in an incremental way, as to not update all VM instances at once.
 
 ### Unsupported client types
 
@@ -139,14 +144,14 @@ To confirm that directly connected machines are communicating with Azure Monitor
 
 #### Linux
 
-```
+```loganalytics
 Heartbeat
 | where OSType == "Linux" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
 #### Windows
 
-```
+```loganalytics
 Heartbeat
 | where OSType == "Windows" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
@@ -166,7 +171,7 @@ If the agent can't communicate with Azure Monitor logs and the agent is configur
 
 Newly added Linux agents show a status of **Updated** after an assessment has been performed. This process can take up to 6 hours.
 
-To confirm that an Operations Manager management group is communicating with Azure Monitor logs, see [Validate Operations Manager integration with Azure Monitor logs](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-log-analytics).
+To confirm that an Operations Manager management group is communicating with Azure Monitor logs, see [Validate Operations Manager integration with Azure Monitor logs](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
 
 ## Data collection
 
@@ -202,9 +207,9 @@ To run a log search that returns information about the machine, update, or deplo
 
 ## Install updates
 
-After updates are assessed for all the Linux and Windows computers in your workspace, you can install required updates by creating an *update deployment*. An update deployment is a scheduled installation of required updates for one or more computers. You specify the date and time for the deployment and a computer or group of computers to include in the scope of a deployment. To learn more about computer groups, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md).
+After updates are assessed for all the Linux and Windows computers in your workspace, you can install required updates by creating an *update deployment*. To create an Update Deployment, you must have write access to the Automation Account and write access to the any Azure VMs that are targeted in the deployment. An update deployment is a scheduled installation of required updates for one or more computers. You specify the date and time for the deployment and a computer or group of computers to include in the scope of a deployment. To learn more about computer groups, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md).
 
- When you include computer groups in your update deployment, group membership is evaluated only once, at the time of schedule creation. Subsequent changes to a group aren't reflected. To get around this use [Dynamic groups](#using-dynamic-groups), these groups are resolved at deployment time and are defined by a query.
+When you include computer groups in your update deployment, group membership is evaluated only once, at the time of schedule creation. Subsequent changes to a group aren't reflected. To get around this use [Dynamic groups](#using-dynamic-groups), these groups are resolved at deployment time and are defined by a query for Azure VMs or a saved search for Non-Azure VMs.
 
 > [!NOTE]
 > Windows virtual machines that are deployed from the Azure Marketplace by default are set to receive automatic updates from Windows Update Service. This behavior doesn't change when you add this solution or add Windows virtual machines to your workspace. If you don't actively manage updates by using this solution, the default behavior (to automatically apply updates) applies.
@@ -213,13 +218,13 @@ To avoid updates being applied outside of a maintenance window on Ubuntu, reconf
 
 Virtual machines that were created from the on-demand Red Hat Enterprise Linux (RHEL) images that are available in the Azure Marketplace are registered to access the [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) that's deployed in Azure. Any other Linux distribution must be updated from the distribution's online file repository by following the distribution's supported methods.
 
-To create a new update deployment, select **Schedule update deployment**. The **New Update Deployment** pane opens. Enter values for the properties described in the following table and then click **Create**:
+To create a new update deployment, select **Schedule update deployment**. The **New Update Deployment** page opens. Enter values for the properties described in the following table and then click **Create**:
 
 | Property | Description |
 | --- | --- |
 | Name |Unique name to identify the update deployment. |
 |Operating System| Linux or Windows|
-| Groups to update (preview)|Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more, see [Dynamic Groups](automation-update-management.md#using-dynamic-groups)|
+| Groups to update |For Azure machines, define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. </br></br>For Non-Azure machines, select an existing saved search to select a group of Non-Azure machines to include in the deployment. </br></br>To learn more, see [Dynamic Groups](automation-update-management.md#using-dynamic-groups)|
 | Machines to update |Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column.</br> To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md) |
 |Update classifications|Select all the update classifications that you need|
 |Include/exclude updates|This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For more information on how inclusion is handled, see [inclusion behavior](automation-update-management.md#inclusion-behavior) |
@@ -232,7 +237,7 @@ Update Deployments can also be created programmatically. To learn how to create 
 
 ### <a name="multi-tenant"></a>Cross-tenant Update Deployments
 
-If you have machines in another Azure tenant reporting to Update Management that you need to patch, you'll need to use the following workaround to get them scheduled. You can use the [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) cmdlet with the switch `-ForUpdate` to create a schedule, and use the [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+If you have machines in another Azure tenant reporting to Update Management that you need to patch, you'll need to use the following workaround to get them scheduled. You can use the [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet with the switch `-ForUpdate` to create a schedule, and use the [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
 ) cmdlet and pass the machines in the other tenant to the `-NonAzureComputer` parameter. The following example shows an example on how to do this:
 
 ```azurepowershell-interactive
@@ -289,7 +294,7 @@ sudo yum -q --security check-update
 
 There's currently no method supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who may have enabled this on their own.
 
-## <a name="firstparty-predownload"></a>First party patching and pre-download
+## <a name="firstparty-predownload"></a>Advanced settings
 
 Update Management relies on Windows Update to download and install Windows Updates. As a result, we respect many of the settings used by Windows Update. If you use settings to enable non-Windows updates, Update Management will manage those updates as well. If you want to enable downloading updates before an update deployment occurs, update deployments can go faster and be less likely to exceed the maintenance window.
 
@@ -305,9 +310,18 @@ $WUSettings.NotificationLevel = 3
 $WUSettings.Save()
 ```
 
+### Disable automatic installation
+
+Azure VMs have Automatic installation of updates enabled by default. This can cause updates to be installed before you schedule them to be installed by Update Management. You can disable this behavior by setting the `NoAutoUpdate` registry key to `1`. The following PowerShell snippet shows you one way to do this.
+
+```powershell
+$AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
+Set-ItemProperty -Path $AutoUpdatePath -Name NoAutoUpdate -Value 1
+```
+
 ### Enable updates for other Microsoft products
 
-By default, Windows Update only provides updates for Windows. If you enable **Give me updates for other Microsoft products when I update Windows**, you're provided with updates for other products, including such things security patches for SQL Server or other first party software. This option can't be configured by Group Policy. Run the following PowerShell on the systems that you wish to enable other first party patches on, and Update Management will honor this setting.
+By default, Windows Update only provides updates for Windows. If you enable **Give me updates for other Microsoft products when I update Windows**, you're provided with updates for other products, including security patches for SQL Server or other first party software. This option can't be configured by Group Policy. Run the following PowerShell on the systems that you wish to enable other first party patches on, and Update Management will honor this setting.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -318,8 +332,8 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## <a name="third-party"></a> Third-party patches on Windows
 
-Update Management relies on WSUS or Windows Update to patch supported Windows systems. Tools like [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
-) (Updates Publisher) allow you to publish custom updates into WSUS. This scenario allows Update Management to patch machines that use WSUS as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/sccm/sum/tools/install-updates-publisher).
+Update Management relies on the locally configured update repository to patch supported Windows systems. This is either WSUS or Windows Update. Tools like [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
+) (Updates Publisher) allow you to publish custom updates into WSUS. This scenario allows Update Management to patch machines that use System Center Configuration Manager as their update repository with third-party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/sccm/sum/tools/install-updates-publisher).
 
 ## <a name="ports"></a>Network Planning
 
@@ -550,9 +564,16 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
-## <a name="using-dynamic-groups"></a>Using dynamic groups (preview)
+## <a name="using-dynamic-groups"></a>Using dynamic groups
 
-Update Management provides the ability to target a dynamic group of Azure VMs for update deployments. These groups are defined by a query, when an update deployment begins, the members of that group are evaluated. When defining your query, the following items can be used together to populate the dynamic group
+Update Management provides the ability to target a dynamic group of Azure or Non-Azure VMs for update deployments. These groups are evaluated at deployment time so you do not have to edit your deployment to add machines.
+
+> [!NOTE]
+> You must have the proper permissions when creating an update deployment. To learn more, see [Install Updates](#install-updates).
+
+### Azure machines
+
+These groups are defined by a query, when an update deployment begins, the members of that group are evaluated. Dynamic groups do not work with classic VMs. When defining your query, the following items can be used together to populate the dynamic group
 
 * Subscription
 * Resource groups
@@ -564,6 +585,12 @@ Update Management provides the ability to target a dynamic group of Azure VMs fo
 To preview the results of a dynamic group, click the **Preview** button. This preview shows the group membership at that time, in this example, we are searching for machines with the tag **Role** is equal to **BackendServer**. If more machines have this tag added, they will be added to any future deployments against that group.
 
 ![preview groups](./media/automation-update-management/preview-groups.png)
+
+### Non-Azure machines
+
+For Non-Azure machines, saved searches also referred to as computer groups are used to create the dynamic group. To learn how to create a saved search, see [Creating a computer group](../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Once your group is created you can select it from the list of saved searches. Click **Preview** to preview the computers in the saved search at that time.
+
+![Select groups](./media/automation-update-management/select-groups-2.png)
 
 ## Integrate with System Center Configuration Manager
 
@@ -595,7 +622,7 @@ In Red Hat Enterprise Linux, the package name to exclude is redhat-release-serve
 
 When you deploy updates to a Linux machine, you can select update classifications. This filters the updates that are applied to the machine that meet the specified criteria. This filter is applied locally on the machine when the update is deployed.
 
-Because Update Management performs update enrichment in the cloud, some updates might be flagged in Update Management as having security impact, even though the local machine doesn't have that information. As a result, if you apply critical updates to a Linux machine, there might be updates that aren't marked as having security impact on that machine and the updates aren't applied.
+Because Update Management performs update enrichment in the cloud, some updates can be flagged in Update Management as having security impact, even though the local machine doesn't have that information. As a result, if you apply critical updates to a Linux machine, there might be updates that aren't marked as having security impact on that machine and the updates aren't applied.
 
 However, Update Management might still report that machine as being non-compliant because it has additional information about the relevant update.
 
@@ -608,10 +635,6 @@ To remove a VM from Update Management:
 * In your Log Analytics workspace, remove the VM from the saved search for the Scope Configuration `MicrosoftDefaultScopeConfig-Updates`. Saved searches can be found under **General** in your workspace.
 * Remove the [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) or the [Log Analytics agent for Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
-## Troubleshoot
-
-To learn how to troubleshoot your Update Management, see [Troubleshooting Update Management](troubleshoot/update-management.md)
-
 ## Next steps
 
 Continue to the tutorial to learn how to manage updates for your Windows virtual machines.
@@ -623,4 +646,4 @@ Continue to the tutorial to learn how to manage updates for your Windows virtual
 * [Create alerts](automation-tutorial-update-management.md#configure-alerts) for update deployment status.
 
 * To learn how to interact with Update Management through the REST API, see [Software Update Configurations](/rest/api/automation/softwareupdateconfigurations)
-
+* To learn how to troubleshoot your Update Management, see [Troubleshooting Update Management](troubleshoot/update-management.md)

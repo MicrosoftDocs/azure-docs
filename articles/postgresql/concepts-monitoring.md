@@ -1,13 +1,14 @@
 ---
-title: Monitor and Tune in Azure Database for PostgreSQL
-description: This article describes monitoring and tuning features in Azure Database for PostgreSQL.
+title: Monitor and Tune in Azure Database for PostgreSQL - Single Server
+description: This article describes monitoring and tuning features in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 5/6/2019
 ---
-# Monitor and tune
+
+# Monitor and tune Azure Database for PostgreSQL - Single Server
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for PostgreSQL provides various monitoring options to provide insight into the behavior of your server.
 
 ## Metrics
@@ -17,7 +18,7 @@ Azure Database for PostgreSQL provides various metrics that give insight into th
 These metrics are available for Azure Database for PostgreSQL:
 
 |Metric|Metric Display Name|Unit|Description|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|CPU percent|Percent|The percentage of CPU in use.|
 |memory_percent|Memory percent|Percent|The percentage of memory in use.|
 |io_consumption_percent|IO percent|Percent|The percentage of IO in use.|

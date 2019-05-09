@@ -127,8 +127,16 @@ var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
 
 // Print the response
-Console.WriteLine(jsonResponse);
+Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
+```
+
+Add `PrettyPrint` to add formatting to your JSON response:
+```csharp
+static string PrettyPrint(string s)
+{
+    return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
+}
 ```
 
 ## Put it all together

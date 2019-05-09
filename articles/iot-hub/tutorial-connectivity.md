@@ -132,7 +132,7 @@ az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubNam
 
 Make a note of the full text of the generated SAS token. A SAS token looks like the following: `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
-In a terminal window on your development machine, navigate to the root folder of the sample Node.js project you downloaded. Then navigate to the **iot-hub\Tutorials\ConnectivityTests\simulated-device** folder.
+In a terminal window on your development machine, navigate to the root folder of the sample Node.js project you downloaded. Then navigate to the **iot-hub\Tutorials\ConnectivityTests** folder.
 
 In the terminal window, run the following commands to install the required libraries and run the simulated device application:
 
@@ -173,7 +173,7 @@ First, retrieve the current connection string for your simulated device using th
 az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
-To run a simulated device that sends messages, navigate to the **iot-hub\Tutorials\ConnectivityTests\simulated-device** folder in the code you downloaded.
+To run a simulated device that sends messages, navigate to the **iot-hub\Tutorials\ConnectivityTests** folder in the code you downloaded.
 
 In the terminal window, run the following commands to install the required libraries and run the simulated device application:
 

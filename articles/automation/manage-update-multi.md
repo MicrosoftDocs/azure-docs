@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/10/2019
+ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -23,7 +23,6 @@ You can use the Update Management solution to manage updates and patches for you
 
 To use Update Management, you need:
 
-- An Azure Automation Run As account. To learn how to create one, see [Getting started with Azure Automation](automation-offering-get-started.md).
 - A virtual machine or computer with one of the supported operating systems installed.
 
 ## Supported operating systems

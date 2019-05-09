@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot connection issues to Azure Database for PostgreSQL
-description: Learn how to troubleshoot connection issues to Azure Database for PostgreSQL.
+title: Troubleshoot connection issues to Azure Database for PostgreSQL - Single Server
+description: Learn how to troubleshoot connection issues to Azure Database for PostgreSQL - Single Server.
 keywords: postgresql connection,connection string,connectivity issues,transient error,connection error
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/09/2018
+ms.date: 5/6/2019
 ---
 
-# Troubleshoot connection issues to Azure Database for PostgreSQL
+# Troubleshoot connection issues to Azure Database for PostgreSQL - Single Server
 
 Connection problems may be caused by a variety of things, including:
 
@@ -43,7 +43,7 @@ If the application persistently fails to connect to Azure Database for PostgreSQ
 
 * Server firewall configuration: Make sure that the Azure Database for PostgreSQL server firewall is configured to allow connections from your client, including proxy servers and gateways.
 * Client firewall configuration: The firewall on your client must allow connections to your database server. IP addresses and ports of the server that you cannot to must be allowed as well as application names such as PostgreSQL in some firewalls.
-* User error: You might have mistyped connection parameters, such as the server name in the connection string or a missing *@servername* suffix in the user name.
+* User error: You might have mistyped connection parameters, such as the server name in the connection string or a missing *\@servername* suffix in the user name.
 
 ### Steps to resolve persistent connectivity issues
 

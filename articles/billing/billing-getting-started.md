@@ -178,7 +178,7 @@ To see if you're the Account admin, go to [Subscriptions in the Azure portal](ht
 
 If you're not the Account admin, then somebody probably gave you partial access by using [Azure Active Directory Role-based Access Control](../role-based-access-control/role-assignments-portal.md) (RBAC). To manage subscriptions and change billing info, [find the Account Admin](billing-subscription-transfer.md#whoisaa). Ask the Account Admin to do the tasks or [transfer the subscription to you](billing-subscription-transfer.md).
 
-If your Account admin is no longer with your organization and you need to manage billing, [contact us](https://aka.ms/AA4g7jo).
+If your Account admin is no longer with your organization and you need to manage billing, [contact us](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 
 ### How to request a Service Level Agreement credit for a service incident
@@ -198,8 +198,8 @@ SLA thresholds vary by service. For example, SQL Web Tier has an SLA of 99.9%, V
 
 For some services, there are prerequisites for the SLA to apply. For example, Virtual Machines must have two or more instances deployed in the same Availability Set.
 
-For more information, see the [Service Level Agreements](https://azure.microsoft.com/en-us/support/legal/sla/) documentation and the [SLA summary for Azure services](https://azure.microsoft.com/en-us/support/legal/sla/summary/) documentation.
+For more information, see the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) documentation and the [SLA summary for Azure services](https://azure.microsoft.com/support/legal/sla/summary/) documentation.
 
 ## Need help? Contact us.
 
-If you have questions or need help,  [create a support request](https://aka.ms/AA4g7jo).
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -32,6 +32,9 @@ To complete this tutorial, the following are required:
 * [Automation account](automation-offering-get-started.md) to hold the watcher and action runbooks and the Watcher Task.
 * A [hybrid runbook worker](automation-hybrid-runbook-worker.md) where the watcher task runs.
 
+> [!NOTE]
+> Watcher tasks are not supported in Azure China.
+
 ## Import a watcher runbook
 
 This tutorial uses a watcher runbook called **Watch-NewFile** to look for new files in a directory. The watcher runbook retrieves the last known write time to the files in a folder and looks at any files newer than that watermark. In this step, you import this runbook into your automation account.
@@ -84,8 +87,8 @@ The watcher task contains two parts. The watcher and the action. The watcher run
 1. Select **Configure action** and select "Process-NewFile" runbook.
 1. Enter the following values for parameters:
 
-   ***EVENTDATA** - Leave blank. Data is passed in from the watcher runbook.  
-   ***Run Settings** - Leave as Azure as this runbook runs in the Automation service.
+   * **EVENTDATA** - Leave blank. Data is passed in from the watcher runbook.  
+   * **Run Settings** - Leave as Azure as this runbook runs in the Automation service.
 
 1. Click **OK**, and then Select to return to the watcher page.
 1. Click **OK** to create the watcher task.

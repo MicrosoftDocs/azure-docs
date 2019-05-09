@@ -44,7 +44,7 @@ Alerts are primarily scenarios where users are notified so that they can take re
 The following scenarios are defined by service as alertable scenarios.
 
   - Backup/Restore failures
-  - Backup succeeded with warnings
+  - Backup succeeded with warnings for Azure Backup Agent (MAB)
   - Stop protection with retain data/Stop protection with delete data
 
 ### Exceptions when an alert is not raised
@@ -88,8 +88,8 @@ If the frequency was set to an hourly digest and an alert was raised and resolve
 
 > [!NOTE]
 >
-* If a destructive operation such as **stop protection with delete data** is performed, an alert is raised and an email is sent to subscription owners, admins, and co-admins even if notifications are NOT configured for the Recover Service vault.
-* To configure notification for successful jobs use [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+> * If a destructive operation such as **stop protection with delete data** is performed, an alert is raised and an email is sent to subscription owners, admins, and co-admins even if notifications are NOT configured for the Recover Service vault.
+> * To configure notification for successful jobs use [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
 ## Next steps
 

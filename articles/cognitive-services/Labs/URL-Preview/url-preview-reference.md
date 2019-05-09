@@ -52,7 +52,7 @@ For information about permitted use and display of results, see [Use and display
 > Some request headers that are meaningful for other search APIs don’t affect URL Preview
 > - Pragma – the caller does not have control over whether URL Preview uses cache
 > - User-Agent – For now, Url Preview API doesn’t provide different responses for calls emanating from PC, Laptop, or Mobile.
-
+> 
 > Also, some parameters are not currently meaningful for URL Preview API, but may be used in the future for improved globalization.
 
 ## Headers

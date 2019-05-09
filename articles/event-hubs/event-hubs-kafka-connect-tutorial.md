@@ -19,7 +19,7 @@ As ingestion for business needs increases, so does the requirement to ingest for
 This tutorial walks you through integrating Kafka Connect with a Kafka-enabled Azure event hub and deploying basic FileStreamSource and FileStreamSink connectors. This feature is currently in preview. While these connectors are not meant for production use, they demonstrate an end-to-end Kafka Connect scenario where Azure Event Hubs acts as a Kafka broker.
 
 > [!NOTE]
-This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
+> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
 
 In this tutorial, you take the following steps:
 

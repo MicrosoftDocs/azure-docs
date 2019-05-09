@@ -2,7 +2,7 @@
 title: Handling errors in Durable Functions - Azure
 description: Learn how to handle errors in the Durable Functions extension for Azure Functions.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions

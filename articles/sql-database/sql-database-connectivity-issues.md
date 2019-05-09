@@ -353,7 +353,7 @@ Here are some links to information about EntLib60:
 
 - Free book download: [Developer's Guide to Microsoft Enterprise Library, 2nd edition](https://www.microsoft.com/download/details.aspx?id=41145).
 - Best practices: [Retry general guidance](../best-practices-retry-general.md) has an excellent in-depth discussion of retry logic.
-- NuGet download: [Enterprise Library - Transient Fault Handling Application Block 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
+- NuGet download: [Enterprise Library - Transient Fault Handling Application Block 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 

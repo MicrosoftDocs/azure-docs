@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Create an Spark cluster in HDInsight using template'
 description: This quickstart shows how to use Resource Manager template to create an Apache Spark cluster in Azure HDInsight, and run a simple Spark SQL query.
-services: azure-hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -18,7 +17,7 @@ ms.custom: mvc
 
 Learn how to create an [Apache Spark](https://spark.apache.org/) cluster in Azure HDInsight, and how to run Spark SQL queries against [Apache Hive](https://hive.apache.org/) tables. Apache Spark enables fast data analytics and cluster computing using in-memory processing. For information on Spark on HDInsight, see [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md).
 
-In this quickstart, you use a Resource Manager template to create an HDInsight Spark cluster. Similar templates can be viewed at [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). The template reference can be found [here](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
+In this quickstart, you use a Resource Manager template to create an HDInsight Spark cluster. Similar templates can be viewed at [Azure quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). The template reference can be found [here](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
 
 The cluster uses Azure Storage Blobs as the cluster storage. For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 

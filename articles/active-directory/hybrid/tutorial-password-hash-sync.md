@@ -73,7 +73,7 @@ In order to finish building the virtual machine, you need to finish the operatin
 
 1. Hyper-V Manager, double-click on the virtual machine
 2. Click on the Start button.
-3.  You will be prompted to ‘Press any key to boot from CD or DVD’. Go ahead and do so.
+3. You will be prompted to ‘Press any key to boot from CD or DVD’. Go ahead and do so.
 4. On the Windows Server start up screen select your language and click **Next**.
 5. Click **Install Now**.
 6. Enter your license key and click **Next**.
@@ -222,9 +222,9 @@ We will now verify that the users that we had in our on-premises directory have 
 
 ## Test signing in with one of our users
 
-1.  Browse to [https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Browse to [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Sign-in with a user account that was created in our new tenant.  You will need to sign-in using the following format: (user@domain.onmicrosoft.com). Use the same password that the user uses to sign-in on-premises.</br>
-![Verify](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![Verify](media/tutorial-password-hash-sync/verify1.png)</br>
 
 You have now successfully setup a hybrid identity environment that you can use to test and familiarize yourself with what Azure has to offer.
 

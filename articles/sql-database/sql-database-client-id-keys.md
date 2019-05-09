@@ -41,7 +41,7 @@ The following PowerShell script creates the Active Directory (AD) application an
     $uri = "http://{app-name}"
     $secret = "{app-password}"
 
-    # Create a AAD app
+    # Create an AAD app
     $azureAdApplication = New-AzADApplication -DisplayName $appName -HomePage $Uri -IdentifierUris $Uri -Password $secret
 
     # Create a Service Principal for the app

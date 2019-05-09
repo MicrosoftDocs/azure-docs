@@ -3,7 +3,7 @@ title: Using AppAuth in an iOS application in Azure Active Directory B2C | Micro
 description: This article shows you how to create an iOS app that uses AppAuth with Azure Active Directory B2C to manage user identities and authenticate users.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity

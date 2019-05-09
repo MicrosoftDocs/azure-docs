@@ -38,7 +38,7 @@ Set up the tunnel using the `ssh` command on the page from the command line, rep
 ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
 ```
 
-After you have started the tunnel, navigate to http://localhost:8080/ on your local machine. 
+After you have started the tunnel, navigate to `http://localhost:8080/` on your local machine. 
 
 Get the initial password by running the following command in the command line while connected through SSH to the Jenkins VM.
 

@@ -21,7 +21,7 @@ This article describes how to get started using Azure Queue storage in Visual St
 
 Azure queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 kilobytes (KB) in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account. Also see [Get started with Azure Queue storage using .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) for details on programmatically manipulating queues.
 
-To get started, first create an Azure queue in your storage account. This article then shows how to create a queue in C# and how to perform basic queue operations such as adding, modifying, reading, and removing queue messages.  The code uses the Azure Storage Client Library for .NET. For more information about ASP.NET, see [ASP.NET](http://www.asp.net).
+To get started, first create an Azure queue in your storage account. This article then shows how to create a queue in C# and how to perform basic queue operations such as adding, modifying, reading, and removing queue messages.  The code uses the Azure Storage Client Library for .NET. For more information about ASP.NET, see [ASP.NET](https://www.asp.net).
 
 Some of the Azure Storage APIs are asynchronous, and the code in this article assumes async methods are being used. See [Asynchronous programming](https://docs.microsoft.com/dotnet/csharp/async) for more information.
 
@@ -60,7 +60,7 @@ To access queues in ASP.NET Core projects, include the following items in any C#
 
 ### Create a queue in code
 
-To create the Azure queue in code, call ``CreateIfNotExistsAsync`:
+To create the Azure queue in code, call `CreateIfNotExistsAsync`:
 
 ```cs
 // Create the CloudQueue if it does not exist.

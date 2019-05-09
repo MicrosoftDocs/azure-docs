@@ -3,8 +3,8 @@ title: Learn more about Azure Service Fabric | Microsoft Docs
 description: Learn about the core concepts and major areas of Azure Service Fabric. Provides an extended overview of Service Fabric and how to create microservices. 
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: 
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
-ms.author: ryanwi
+ms.author: atsenthi
 
 ---
 # So you want to learn about Service Fabric?
@@ -161,7 +161,7 @@ Reporting can be done from:
 * Internal watchdogs that run on the Service Fabric nodes but are not implemented as Service Fabric services.
 * External watchdogs that probe the resource from outside the Service Fabric cluster (for example, monitoring service like Gomez).
 
-Out of the box, Service Fabric components report health on all entities in the cluster. [System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) provide visibility into cluster and application functionality and flag issues through health. For applications and services, system health reports verify that entities are implemented and are behaving correctly from the perspective of the Service Fabric runtime. The reports do not provide any health monitoring of the business logic of the service or detect hung processes. To add health information specific to your service's logic, [implement custom health reporting](service-fabric-report-health.md) in your services.
+Out of the box, Service Fabric components report health on all entities in the cluster. [System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md) provide visibility into cluster and application functionality and flag issues through health. For applications and services, system health reports verify that entities are implemented and are behaving correctly from the perspective of the Service Fabric runtime. The reports do not provide any health monitoring of the business logic of the service or detect processes that have stopped responding. To add health information specific to your service's logic, [implement custom health reporting](service-fabric-report-health.md) in your services.
 
 Service Fabric provides multiple ways to [view health reports](service-fabric-view-entities-aggregated-health.md) aggregated in the health store:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) or other visualization tools.

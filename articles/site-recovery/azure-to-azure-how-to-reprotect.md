@@ -19,10 +19,6 @@ When you [fail over](site-recovery-failover.md) Azure VMs from one region to ano
 - Reprotect the VMs in the secondary region, so that they start to replicate to the primary region.
 - After reprotection completes and the VMs are replicating, you can fail them over from the secondary to primary region.
 
-> [!WARNING]
-> If you've [migrated](migrate-overview.md#what-do-we-mean-by-migration) machines from the primary to the secondary region, moved the VM to another resource group, or deleted the Azure VM, you can't reprotect the VM, or fail it back.
-
-
 ## Prerequisites
 1. The VM failover from the primary to secondary region must be committed.
 2. The primary target site should be available, and you should be able to access or create resources in that region.
@@ -31,12 +27,12 @@ When you [fail over](site-recovery-failover.md) Azure VMs from one region to ano
 
 1. In **Vault** > **Replicated items**, right-click the failed over VM, and select **Re-Protect**. The reprotection direction should show from secondary to primary.
 
-  ![Reprotect](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   ![Reprotect](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 2. Review the resource group, network, storage, and availability sets. Then click **OK**. If there are any resources marked as new, they are created as part of the reprotection process.
 3. The reprotection job seeds the target site with the latest data. After that finishes, delta replication takes place. Then, you can fail over back to the primary site. You can select the storage account or the network you want to use during reprotect, using the customize option.
 
-  ![Customize option](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
+   ![Customize option](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
 
 ### Customize reprotect settings
 

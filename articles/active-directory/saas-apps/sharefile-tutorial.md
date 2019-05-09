@@ -116,6 +116,7 @@ To configure Azure AD single sign-on with Citrix ShareFile, perform the followin
 	| |
 	
 	c. In the **Reply URL** textbox, type a URL using the following pattern:
+	
 	| |
 	|---|
 	| `https://<tenant-name>.sharefile.com/saml/acs`|
@@ -183,7 +184,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -232,7 +233,7 @@ In order to enable Azure AD users to log into Citrix ShareFile, they must be pro
    
 	![Basic Information](./media/sharefile-tutorial/IC799951.png "Basic Information")
    
-	a. In the **Email Address** textbox, type the email address of Britta Simon as **brittasimon@contoso.com**.
+	a. In the **Email Address** textbox, type the email address of Britta Simon as **brittasimon\@contoso.com**.
    
 	b. In the **First Name** textbox, type **first name** of user as **Britta**.
    

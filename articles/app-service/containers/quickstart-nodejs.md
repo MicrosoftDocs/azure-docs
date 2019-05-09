@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/20/2018
+ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc
 ms.custom: seodec18
@@ -187,4 +187,7 @@ This command may take a minute to run.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Node.js with MongoDB](tutorial-nodejs-mongodb-app.md)
+> [Tutorial: Node.js app with MongoDB](tutorial-nodejs-mongodb-app.md)
+
+> [!div class="nextstepaction"]
+> [Configure Node.js app](configure-language-nodejs.md)

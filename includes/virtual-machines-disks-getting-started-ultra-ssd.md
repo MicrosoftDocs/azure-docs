@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-# Enabling Azure ultra SSD
+# Enabling Azure ultra SSDs
 
 Azure ultra SSD deliver high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Additional benefits of ultra SSD include the ability to dynamically change the performance of the disk along with your workloads without the need to restart your virtual machines. Ultra SSD are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
 

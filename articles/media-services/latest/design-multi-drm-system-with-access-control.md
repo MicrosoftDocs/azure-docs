@@ -45,7 +45,7 @@ The goals of this article are to:
 The following table summarizes native DRM support on different platforms and EME support in different browsers.
 
 | **Client platform** | **Native DRM** | **EME** |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Smart TVs, STBs** | PlayReady, Widevine, and/or other | Embedded browser/EME for PlayReady and/or Widevine|
 | **Windows 10** | PlayReady | Microsoft Edge/IE11 for PlayReady|
 | **Android devices (phone, tablet, TV)** |Widevine |Chrome for Widevine |
@@ -361,7 +361,7 @@ There are two types of security keys:
 
 > [!NOTE]
 > If you use .NET Framework/C# as your development platform, the X509 certificate used for an asymmetric security key must have a key length of at least 2048. This is a requirement of the class System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. Otherwise, the following exception is thrown:
-
+> 
 > IDX10630: The 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' for signing cannot be smaller than '2048' bits.
 
 ## The completed system and test

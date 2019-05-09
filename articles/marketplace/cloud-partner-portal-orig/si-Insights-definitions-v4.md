@@ -1,20 +1,20 @@
 ---
-title: Seller Insights Definitions | Microsoft Docs
+title: Seller Insights Definitions 
 description: Provides definitions for many of the terms you will find in Seller Insights
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: v-miclar
-manager: Patrick.Butler  
-editor:
 
-ms.assetid: 
+author: v-miclar
+
+
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 Seller Insights Definitions

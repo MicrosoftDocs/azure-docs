@@ -4,7 +4,7 @@ description: How to describe endpoint resources in a service manifest, including
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d

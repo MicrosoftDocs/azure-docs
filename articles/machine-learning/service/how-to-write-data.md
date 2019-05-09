@@ -6,16 +6,20 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: cforbe
-author: cforbe
+ms.author: sihhu
+author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
 ---
-# Write and configure data using Azure Machine Learning
+# Write and configure data  with the Azure Machine Learning Data Prep SDK
 
 In this article, you learn different methods to write data using the [Azure Machine Learning Data Prep Python SDK](https://aka.ms/data-prep-sdk) and how to configure that data for experimentation with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Output data can be written at any point in a dataflow. Writes are added as steps to the resulting data flow, and these steps run every time the data flow runs. Data is written to multiple partition files to allow parallel writes.
+
+> [!Important]
+> If you are building a new solution, try the [Azure Machine Learning Datasets](how-to-explore-prepare-data.md) (preview) to transform your data, snapshot data, and store versioned dataset definitions. Datasets is the next version of the data prep SDK, offering expanded functionality for managing datasets in AI solutions.
+> If you use the `azureml-dataprep` package to create a dataflow with your transformations instead of using the `azureml-datasets` package to create a dataset, you won't be able to use snapshots or versioned datasets later.
 
 Since there are no limitations to how many write steps there are in a pipeline, you can easily add additional write steps to get intermediate results for troubleshooting or for other pipelines.
 
@@ -52,6 +56,7 @@ t.head(5)
 ```
 
 Example output:
+
 | | Column1 | Column2 | Column3 | Column4 | Column5	| Column6 |	Column7	| Column8 |	Column9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 |0| 10000.0 | 99999.0 |	None | NO |	NO | ENRS | NaN	| NaN |	NaN |	
@@ -76,6 +81,7 @@ written_files.head(5)
 ```
 
 Example output:
+
 | | Column1 | Column2 | Column3 | Column4 | Column5	| Column6 |	Column7	| Column8 |	Column9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 |0| 10000.0 | 99999.0 |	ERROR | NO | NO | ENRS | NaN	| NaN |	NaN |	
@@ -98,6 +104,7 @@ written_files.head(5)
 ```
 
 The preceding code produces this output:
+
 | | Column1 | Column2 | Column3 | Column4 | Column5	| Column6 |	Column7	| Column8 |	Column9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 |0| 10000.0 | 99999.0 |	BadData | NO | NO | ENRS | NaN	| NaN |	NaN |	
@@ -125,6 +132,7 @@ written_parquet_files.head(5)
 ```
 
 The preceding code produces this output:
+
 |   | Column1 | Column2 | Column3 | Column4 | Column5 | Column6 | Column7 | Column8 | Column9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |-------- |
 |0| 10000.0 | 99999.0 | MiscreantData | NO | NO | ENRS | MiscreantData | MiscreantData | MiscreantData |

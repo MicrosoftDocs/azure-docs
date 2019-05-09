@@ -102,6 +102,7 @@ To configure Azure AD single sign-on with Deputy, perform the following steps:
     ![Deputy Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
+
     |  |
 	| ----|
 	| `https://<subdomain>.<region>.au.deputy.com` |
@@ -121,6 +122,7 @@ To configure Azure AD single sign-on with Deputy, perform the following steps:
 	| `https://<subdomain>.<region>.deputy.com` |
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
+	
     | |
 	|----|
 	| `https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs` |
@@ -207,7 +209,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

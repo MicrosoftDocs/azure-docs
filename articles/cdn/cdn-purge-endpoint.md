@@ -53,7 +53,7 @@ This tutorial walks you through purging assets from all edge nodes of an endpoin
 	3. **Root domain purge**: Purge the root of the endpoint with "/" in the path.
    
    > [!TIP]
-   > Paths must be specified for purge and must be a relative URL that fit the following [regular expression](https://msdn.microsoft.com/library/az24scfc.aspx). **Purge all** and **Wildcard purge** not supported by **Azure CDN from Akamai** currently.
+   > Paths must be specified for purge and must be a relative URL that fit the following [regular expression](/dotnet/standard/base-types/regular-expression-language-quick-reference). **Purge all** and **Wildcard purge** not supported by **Azure CDN from Akamai** currently.
    > > Single URL purge `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
    > > Query string `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
    > > Wildcard purge `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`. 
@@ -71,5 +71,5 @@ This tutorial walks you through purging assets from all edge nodes of an endpoin
 
 ## See also
 * [Pre-load assets on an Azure CDN endpoint](cdn-preload-endpoint.md)
-* [Azure CDN REST API reference - Purge or Pre-Load an Endpoint](https://msdn.microsoft.com/library/mt634451.aspx)
+* [Azure CDN REST API reference - Purge or Pre-Load an Endpoint](/rest/api/cdn/endpoints)
 

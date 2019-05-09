@@ -2,18 +2,14 @@
 title: Best Practices to use Key Vault - Azure Key Vault | Microsoft Docs
 description: This document explains some of the best practices to use Key Vault
 services: key-vault
-documentationcenter: ''
-author: yvprashanth
+author: msmbaldwin
 manager: barbkess
 tags: azure-key-vault
 
-ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/07/2019
-ms.author: prashanthyv
+ms.author: mbaldwin
 # Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them.
 ---
 # Best practices to use Key Vault
@@ -32,7 +28,7 @@ Suggestions while controlling access to your vault are as follows:
 
 Our recommendation is to use a vault per application per environment (Development, Pre-Production and Production). This helps you not share secrets across environments and also reduces the threat in case of a breach.
 
-## Backup your Vault
+## Backup
 
 Make sure you take regular back ups of your [vault](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) on update/delete/create of objects within a Vault.
 

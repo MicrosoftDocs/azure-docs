@@ -1,20 +1,20 @@
 ---
-title: How to fill out the Technical Info form | Microsoft Docs
+title: How to fill out the Technical Info form 
 description: Explains how to enter the values for the on the Technical Info form for a new Dynamics 365 Business Central app.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: v-miclar
-manager: Patrick.Butler  
-editor:
 
-ms.assetid: 
+author: v-miclar
+
+
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 How to fill out the Technical Info form
@@ -40,11 +40,11 @@ has not been and will not be published in AppSource.
 -   **App Test Automation** -- Required - the VS Coded test
     package that you must create for automated testing of extensions.
 
-2.  In the **Additional Information for the extension** section, upload
-    additional information for your extension. This information is used during
-    validation.
+1. In the **Additional Information for the extension** section, upload
+   additional information for your extension. This information is used during
+   validation.
 
-    ![Additional information for the app extension form](./media/d365-financials/image016.png)
+   ![Additional information for the app extension form](./media/d365-financials/image016.png)
 
 
 -   **URL to Product Documentation** -- Required - URL to the

@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ---
 
-# Set up a device template (New UI design)
+# Set up a device template
 
 A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an Azure IoT Central application.
 
@@ -39,11 +39,13 @@ From this device template, an operator can create and connect real fan devices w
 
 1. Navigate to the **Device Templates** page.
 
-2. To create a blank template, select **+**, and then enter a name, such as **Refrigerator** for your new device template. Then select **Create**:
+2. To create a template, start by selecting **+New**.
 
-   ![Device details page with "Refrigerator" as the template name](./media/howto-set-up-template/devicedetailspage.png)
+3. To get started quickly, choose from the existing pre-built templates. Otherwise, select **Custom**, enter a name, and click **Create** to build your own template from scratch.
 
-4. Now you’re on the **Device Details** page for a new device template. IoT Central automatically creates a simulated device when you create a device template. A simulated device lets you test the behavior of your application before you connect a real device.
+   ![Device template library](./media/howto-set-up-template/newtemplate.png)
+
+4. When you create a custom template, you see the **Device Details** page for your new device template. IoT Central automatically creates a simulated device when you create a device template. A simulated device lets you test the behavior of your application before you connect a real device.
 
 The following sections describe each of the tabs on the **Device Template** page.
 
@@ -61,7 +63,7 @@ To add a new telemetry measurement, select **+ New Measurement**, choose **Telem
 
 > [!NOTE]
 > The field names in the device template must match the property names in the corresponding device code in order for the telemetry measurement to be displayed in the application when a real device is connected. Do the same when you configure settings, device properties, and commands as you continue to define the device template in the following sections.
-
+.png
 For example, you can add a new temperature telemetry measurement:
 
 | Display Name        | Field Name    |  Units    | Min   |Max|
@@ -71,6 +73,8 @@ For example, you can add a new temperature telemetry measurement:
 !["Create Telemetry" form with details for temperature measurement](./media/howto-set-up-template/measurementsform.png)
 
 After you select **Save**, the **Temperature** measurement appears in the list of measurements. In a short while, you see the visualization of the temperature data from the simulated device.
+
+When displaying telemetry, you can choose from the following aggregation options: Average, Minimum, Maximum, Sum, and Count. **Average** is selected as the default aggregation on the chart. 
 
 > [!NOTE]
 > The data type of the telemetry measurement is a floating point number.
@@ -230,7 +234,7 @@ For example, you can add a new **Echo** command by selecting the **Commands** ta
 | --------------| -----------|---------------- | --------- |
 | Echo Command  | echo       |  30             | text      |
 
-!["Configure Command" form with details for echo](./media/howto-set-up-template/commandsecho.png)
+!["Configure Command" form with details for echo](./media/howto-set-up-template/commandsecho1.png)
 
 After you select **Save**, the **Echo** command appears as a tile and is ready to be used from the **Device Explorer** when your real device connects. The field names of your command must match the property names in the corresponding device code in order for commands to be run successfully.
 
@@ -246,7 +250,7 @@ The dashboard is where an operator can go to see information about a device. As 
 
 For example, you can add a **Settings and Properties** tile to show a selection of the current values of settings and properties by selecting the **Dashboard** tab and the tile from the Library:
 
-!["Configure Device Details" form with details for settings and properties](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
+!["Configure Device Details" form with details for settings and properties](./media/howto-set-up-template/dashboardsettingsandpropertiesform1.png)
 
 Now when an operator views the dashboard in the **Device Explorer**, they can see the tile.
 
@@ -272,3 +276,5 @@ Now that you've learned how to set up a device template in your Azure IoT Centra
 
 > [!div class="nextstepaction"]
 > [Create a new device template version](howto-version-devicetemplate.md)
+> [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit.md)
+> [Connect a generic client application to your Azure IoT Central application (Node.js)](howto-connect-nodejs.md)
