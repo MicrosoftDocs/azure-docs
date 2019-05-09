@@ -16,7 +16,7 @@ ms.custom: seodec2018
 # Indexing CSV blobs with Azure Search blob indexer
 
 > [!Note]
-> delimitedText parsing mode is in preview and not intended for production use. The [REST API versions 2019-05-06-Preview and 2017-11-11-Preview](search-api-preview.md) provide this feature. There is no .NET SDK support at this time.
+> delimitedText parsing mode is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
 
 By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses delimited text blobs as a single chunk of text. However, with blobs containing CSV data, you often want to treat each line in the blob as a separate document. For example, given the following delimited text, you might want to parse it into two documents, each containing "id", "datePublished", and "tags" fields: 
