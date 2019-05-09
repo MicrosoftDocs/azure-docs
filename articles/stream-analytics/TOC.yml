@@ -34,6 +34,8 @@
     href: https://azure.microsoft.com/resources/samples/?service=stream-analytics
 - name: Concepts
   items:
+  - name: Choose a streaming analytics technology
+    href: streaming-technologies.md
   - name: Input types for a job
     items:
     - name: Inputs overview
