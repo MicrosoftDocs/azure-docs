@@ -98,7 +98,6 @@ Use the [`register()`](https://docs.microsoft.com/python/api/azureml-core/azurem
 ```Python
 dataset = dataset.register(workspace = workspace,
                            name = 'dataset_crime',
-
                            description = 'Training data',
                            exist_ok = False
                            )
@@ -112,6 +111,9 @@ The `register()` method returns the already registered Dataset with the paramete
 ```Python
 dataset = dataset.register(workspace = workspace,
                            name = 'dataset_crime',
+                           description = 'Training data',
+                           exist_ok = True
+                           )
 ```
 
 Use `list()` to see all of the registered Datasets in your workspace.
