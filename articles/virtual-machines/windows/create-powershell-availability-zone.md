@@ -25,7 +25,7 @@ This article details using Azure PowerShell to create an Azure virtual machine r
 
 To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-overview.md#services-support-by-region).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Sign in to Azure
 

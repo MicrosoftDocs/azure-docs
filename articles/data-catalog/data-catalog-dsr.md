@@ -62,10 +62,8 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td>
-        <font size="2">
       </td>
       <td>
-        <font size="2">
       </td>
     </tr>
     <tr>

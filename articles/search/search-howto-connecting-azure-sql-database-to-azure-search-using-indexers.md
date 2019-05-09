@@ -2,7 +2,7 @@
 title: Connect and index Azure SQL Database content using indexers - Azure Search
 description: Learn how to crawl data in Azure SQL Database using indexers for full text search in Azure Search. This article covers connections, indexer configuration, and data ingestion.
 
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein 
 manager: cgronlun
 ms.author: magottei
@@ -59,7 +59,7 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
 1. Create the data source:
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2017-11-11
+    POST https://myservice.search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -78,7 +78,7 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
 3. Create the indexer by giving it a name and referencing the data source and target index:
 
     ```
-    POST https://myservice.search.windows.net/indexers?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -91,7 +91,7 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
 
 An indexer created in this way doesn’t have a schedule. It automatically runs once when it’s created. You can run it again at any time using a **run indexer** request:
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2019-05-06
     api-key: admin-key
 
 You can customize several aspects of indexer behavior, such as batch size and how many documents can be skipped before an indexer execution fails. For more information, see [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
@@ -100,7 +100,7 @@ You may need to allow Azure services to connect to your database. See [Connectin
 
 To monitor the indexer status and execution history (number of items indexed, failures, etc.), use an **indexer status** request:
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2017-11-11
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2019-05-06
     api-key: admin-key
 
 The response should look similar to the following:
@@ -142,7 +142,7 @@ Additional information about the response can be found in [Get Indexer Status](h
 ## Run indexers on a schedule
 You can also arrange the indexer to run periodically on a schedule. To do this, add the **schedule** property when creating or updating the indexer. The example below shows a PUT request to update the indexer:
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2017-11-11
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 

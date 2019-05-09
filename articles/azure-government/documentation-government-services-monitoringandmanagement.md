@@ -8,7 +8,7 @@ ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
 ms.service: azure-government
 ms.topic: article
 ms.workload: azure-government
-ms.date: 02/13/2019
+ms.date: 04/22/2019
 ms.author: gsacavdm
 
 ---
@@ -33,7 +33,7 @@ The following Advisor recommendations are not currently available in Azure Gover
 * Performance
   * Improve App Service performance and reliability
   * Reduce DNS time to live on your Traffic Manager profile to fail over to healthy endpoints faster
-  * Improve SQL Datawarehouse performance
+  * Improve SQL Data Warehouse performance
   * Use Premium Storage
   * Migrate your Storage Account to Azure Resource Manager
 * Cost
@@ -41,7 +41,7 @@ The following Advisor recommendations are not currently available in Azure Gover
   * Eliminate unprovisioned ExpressRoute circuits
   * Delete or reconfigure idle virtual network gateways
 
-The calculation used to recommend that you should right-size or shutdown underutilized virtual machines is as follows in Azure Government:
+The calculation used to recommend that you should right-size or shut down underutilized virtual machines is as follows in Azure Government:
 
 Advisor monitors your virtual machine usage for 7 days and identifies low-utilization virtual machines. Virtual machines are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2% or if the current workload can be accommodated by a smaller virtual machine size. If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
 
@@ -156,6 +156,136 @@ Add-AzMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -ResourceGroup
 For more information on using PowerShell, see [public documentation](../azure-monitor/platform/powershell-quickstart-samples.md).
 
 ## Application Insights
+
+> [!NOTE]
+> Codeless agent/extension based monitoring for Azure App Services is **currently not supported**. Snapshot Debugger is also not currently available in Azure Government. As soon as this functionality becomes available this article will be updated.
+
+### SDK endpoint modifications
+
+In order to send data from Application Insights to the Azure Government region, you will need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications.
+
+### .NET with applicationinsights.config
+
+```xml
+<ApplicationInsights>
+  ...
+  <TelemetryModules>
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
+      <QuickPulseServiceEndpoint>https://quickpulse.applicationinsights.us/QuickPulseService.svc</QuickPulseServiceEndpoint>
+    </Add>
+  </TelemetryModules>
+    ...
+  <TelemetryChannel>
+     <EndpointAddress>https://dc.applicationinsights.us/v2/track</EndpointAddress>
+  </TelemetryChannel>
+  ...
+  <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+    <ProfileQueryEndpoint>https://dc.applicationinsights.us/api/profiles/{0}/appId</ProfileQueryEndpoint>
+  </ApplicationIdProvider>
+  ...
+</ApplicationInsights>
+```
+
+### .NET Core
+
+Modify the appsettings.json file in your project as follows to adjust the main endpoint:
+
+```json
+"ApplicationInsights": {
+    "InstrumentationKey": "instrumentationkey",
+    "TelemetryChannel": {
+      "EndpointAddress": "https://dc.applicationinsights.us/v2/track"
+    }
+  }
+```
+
+The values for Live Metrics and the Profile Query Endpoint can only be set via code. To override the default values for all endpoint values via code, make the following changes in the `ConfigureServices` method of the `Startup.cs` file:
+
+```csharp
+using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; //place at top of Startup.cs file
+
+   services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="https://quickpulse.applicationinsights.us/QuickPulseService.svc");
+
+   services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.us/api/profiles/{0}/appId" }); 
+
+   services.AddSingleton<ITelemetryChannel>(new ServerTelemetryChannel() { EndpointAddress = "https://dc.applicationinsights.us/v2/track" });
+
+    //place in ConfigureServices method. If present, place this prior to   services.AddApplicationInsightsTelemetry("instrumentation key");
+```
+
+### Java
+
+Modify the applicationinsights.xml file to change the default endpoint address.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
+  <InstrumentationKey>ffffeeee-dddd-cccc-bbbb-aaaa99998888</InstrumentationKey>
+  <TelemetryModules>
+    <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
+    <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
+    <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
+  </TelemetryModules>
+  <TelemetryInitializers>
+    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
+  </TelemetryInitializers>
+  <!--Add the following Channel value to modify the Endpoint address-->
+  <Channel type="com.microsoft.applicationinsights.channel.concrete.inprocess.InProcessTelemetryChannel">
+  <EndpointAddress>https://dc.applicationinsights.us/v2/track</EndpointAddress>
+  </Channel>
+</ApplicationInsights>
+```
+
+### Spring Boot
+
+Modify the `application.properties` file and add:
+
+```yaml
+azure.application-insights.channel.in-process.endpoint-address= https://dc.applicationinsights.us/v2/track
+```
+
+### Node.js
+
+```javascript
+var appInsights = require("applicationinsights");
+appInsights.setup('INSTRUMENTATION_KEY');
+appInsights.defaultClient.config.endpointUrl = "https://dc.applicationinsights.us/v2/track"; // ingestion
+appInsights.defaultClient.config.profileQueryEndpoint = "https://dc.applicationinsights.us/api/profiles/{0}/appId"; // appid/profile lookup
+appInsights.defaultClient.config.quickPulseHost = "https://quickpulse.applicationinsights.us/QuickPulseService.svc"; //live metrics
+appInsights.Configuration.start();
+```
+
+The endpoints can also be configured through environment variables:
+
+```
+Instrumentation Key: “APPINSIGHTS_INSTRUMENTATIONKEY”
+Profile Endpoint: “https://dc.applicationinsights.us/api/profiles/{0}/appId”
+Live Metrics Endpoint: "https://quickpulse.applicationinsights.us/QuickPulseService.svc"
+```
+
+### JavaScript
+
+```javascript
+<script type="text/javascript">
+var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){i[e]=function(){var n=arguments;i.queue.push(function(){i[e].apply(i,n)})}}var i={config:e};i.initialize=!0;var a=document,t=window;setTimeout(function(){var n=a.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/next/ai.2.min.js",a.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{i.cookie=a.cookie}catch(e){}i.queue=[],i.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var o="Track"+r[0];if(n("start"+o),n("stop"+o),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var s=t[r];t[r]=function(e,n,a,t,o){var c=s&&s(e,n,a,t,o);return!0!==c&&i["_"+r]({message:e,url:n,lineNumber:a,columnNumber:t,error:o}),c},e.autoExceptionInstrumented=!0}return i}
+(
+	{
+	instrumentationKey:"INSTRUMENTATION_KEY",
+	endpointUrl: "https://dc.applicationinsights.us/v2/track"
+  }
+);
+window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+</script>
+
+```
+
+### Firewall exceptions
+
 The Azure Application Insights service uses a number of IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
 
 > [!NOTE]
@@ -189,7 +319,7 @@ The following Azure Monitor logs features and solutions are not currently availa
   * Key Vault Analytics solution
 * Solutions and features that require updates to on-premises software, including:
   * Surface Hub solution
-* Features that are in preview in public Azure, including:
+* Features that are in preview in global Azure, including:
   * Export of data to Power BI
 * Azure metrics and Azure diagnostics
 

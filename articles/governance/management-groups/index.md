@@ -5,7 +5,7 @@ author: rthorn17
 
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 04/17/2019
+ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
 ---
@@ -62,9 +62,8 @@ root group initially. After elevating access, the administrator can assign any R
 
 ### Important facts about the Root management group
 
-- The root management group's name and ID are given by default. The display name can be updated at any time to show different within the Azure portal. To [change the name](manage.md#change-the-name-of-a-management-group), your account must be assigned the Owner or Contributor role on the root management group.
-  - The name will be "Tenant root group".
-  - The ID will be the Azure Active Directory ID.
+- By default, the root management group's display name is **Tenant root group**. The ID is the Azure Active Directory ID.
+- To change the display name, your account must be assigned the Owner or Contributor role on the root management group. For the steps to change the name, see [Change the name of a management group](manage.md#change-the-name-of-a-management-group).
 - The root management group can't be moved or deleted, unlike other management groups.  
 - All subscriptions and management groups fold up to the one root management group within the directory.
   - All resources in the directory fold up to the root management group for global management.

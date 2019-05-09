@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 04/25/2019
 ms.author: tomfitz
 
 ---
@@ -218,6 +218,22 @@ When moving a Web App _across subscriptions_, the following limitations apply:
 - All App Service resources in the resource group must be moved together.
 - App Service resources can only be moved from the resource group in which they were originally created. If an App Service resource is no longer in its original resource group, it must be moved back to that original resource group first, and then it can be moved across subscriptions.
 
+If you don't remember the original resource group, you can find it through diagnostics. For your web app, select **Diagnose and solve problems**. Then, select **Configuration and Management**.
+
+![Select diagnostics](./media/resource-group-move-resources/select-diagnostics.png)
+
+Select **Migration Options**.
+
+![Select migration options](./media/resource-group-move-resources/select-migration.png)
+
+Select the option for recommended steps to move the web app.
+
+![Select recommended steps](./media/resource-group-move-resources/recommended-steps.png)
+
+You see the recommended actions to take before moving the resources. The information includes the original resource group for the web app.
+
+![Recommendations](./media/resource-group-move-resources/recommendations.png)
+
 ### App Service Certificate limitations
 
 You can move your App Service Certificate to a new resource group or subscription. If your App Service Certificate is bound to a web app, you must take some steps before moving the resources to a new subscription. Delete the SSL binding and private certificate from the web app before moving the resources. The App Service Certificate doesn't need to be deleted, just the private certificate in the web app.
@@ -247,7 +263,7 @@ When moving resources to a new subscription, the following restrictions apply:
 * The target subscription must not have any other classic resources.
 * The move can only be requested through a separate REST API for classic moves. The standard Resource Manager move commands don't work when moving classic resources to a new subscription.
 
-To move classic resources to a new subscription, use the REST operations that are specific to classic resources. To use REST, perform the following steps:
+To move classic resources to a new subscription, use the REST operations that are specific to classic resources. To use REST, do the following steps:
 
 1. Check if the source subscription can participate in a cross-subscription move. Use the following operation:
 

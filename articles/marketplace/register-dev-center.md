@@ -2,16 +2,16 @@
 title: Register in Dev Center | Azure
 description: How to Register in Developer Center (Dev Center).
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
+
 author: jm-aditi-ms
 manager: pabutler
-editor:
 
-ms.assetid: 
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
@@ -31,7 +31,7 @@ To help verify that you are not logged into a personal browser account, open a n
     ![Account info with box for country/region](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)  
    
     >[!WARNING]
-    >To sell your services in Azure Marketplace, verify that your registered entity is from one of the approved *sell-from* countries. The location restriction is required for payout and taxation reasons. 
+    >To sell your services in Azure Marketplace, verify that your registered entity is from one of the approved *sell-from* countries/regions. The location restriction is required for payout and taxation reasons. 
     >*   For more information, visit the Azure Marketplace Participation Policies page located at [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).  
 
 4.  For *Account Type*, select the `Company` radio button.  

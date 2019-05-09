@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Overview: Azure Time Series Insights Preview | Microsoft Docs'
 description: Azure Time Series Insights Preview overview.
 ms.service: time-series-insights
@@ -9,23 +9,28 @@ manager: cshankar
 ms.reviewer: anshan
 ms.workload: big-data
 ms.topic: overview
-ms.date: 12/05/2018
+ms.date: 04/26/2019
 ms.custom: seodec18
 ---
 
-# Azure Time Series Insights Preview overview
+# The Azure Time Series Insights Preview
 
-Azure Time Series Insights Preview is an end-to-end platform-as-a-service offering. It's used to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data. Time Series Insights is ideal for ad hoc data exploration and operational analysis. Time Series Insights is a uniquely extensible and customized service offering that meets the broad needs of industrial IoT deployments.
+Azure Time Series Insights Preview is an end-to-end platform-as-a-service offering. It's used to collect, process, store, analyze, and query highly contextualized, time-series-optimized IoT-scale data. Time Series Insights is ideal for ad hoc data exploration and operational analysis. Time Series Insights is a uniquely extensible and customized service offering that meets the broad needs of industrial IoT deployments.
+
+> [!TIP]
+> For features in general availability, read the [Azure Time Series Insights GA overview](time-series-insights-overview.md).
 
 ## Video
 
-In this video, we provide an overview of Azure Time Series Insights Preview, a cloud-based IoT analytics platform.
+### Learn more about the Azure Time Series Insights Preview. </br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics/player]
 
 ## Define IoT data
 
-IoT data is any "industrial" data that's available in asset-intensive organizations. IoT data is often highly unstructured because it's sent from assets that record fairly noisy measurements. These measurements include  temperature, motion, and humidity. These data streams are frequently characterized by significant gaps, corrupted messages, and false readings. Data from these streams must be cleaned up before any analysis can occur. IoT data is often meaningful only in the context of additional data inputs that come from first-party sources, such as CRM or ERP. Inputs also come from third-party data sources, such as weather or location.
+IoT data is any industrial data that's available in asset-intensive organizations. IoT data is often highly unstructured because it's sent from assets that record fairly noisy measurements. These measurements include  temperature, motion, and humidity. These data streams are frequently characterized by significant gaps, corrupted messages, and false readings. Data from these streams must be cleaned up before any analysis can occur.
+
+IoT data is often meaningful only in the context of additional data inputs that come from first-party sources, such as CRM or ERP. Inputs also come from third-party data sources, such as weather or location.
 
 As a result, only a fraction of the data gets used for operational and business purposes. Such data provides consistent, comprehensive, current, and correct information for business reporting and analysis. Turning collected IoT data into actionable insights requires:
 
@@ -41,8 +46,8 @@ A typical IoT data flow is shown in the following image.
 
 The current IoT landscape is diverse. Customers span the manufacturing, automotive, energy, utilities, smart buildings, and consulting industries. Scenarios include ad hoc data exploration where the shape of the data is unknown. Scenarios also include operational analysis over schematized, or explicitly modeled, data to drive operational efficiency. These scenarios typically exist side by side and support different use cases. Platform capabilities that are key to the success of industrial IoT enterprises and their digital revolution include:
 
-- Multilayered storage, both warm and cold. 
-- The ability to store decades' worth of time series data. 
+- Multilayered storage, both warm and cold.
+- The ability to store decades' worth of time series data.
 - The ability to explicitly model and optimize queries for asset-based operational intelligence.
 
 Time Series Insights is a comprehensive, end-to-end platform-as-a-service offering for IoT data exploration and operational insights. Time Series Insights offers a fully managed cloud service for analyzing IoT-scale time series data.

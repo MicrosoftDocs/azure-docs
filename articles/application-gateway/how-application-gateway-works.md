@@ -21,7 +21,7 @@ This article explains how an application gateway accepts incoming requests and r
 
 2. The Azure DNS returns the IP address to the client, which is the frontend IP address of the application gateway.
 
-3. The application gateway accepts incoming traffic on one or more listeners. A listener is a logical entity that checks for connection requests. It's configured with a fronted IP address, protocol, and port number for connections from clients to the application gateway.
+3. The application gateway accepts incoming traffic on one or more listeners. A listener is a logical entity that checks for connection requests. It's configured with a frontend IP address, protocol, and port number for connections from clients to the application gateway.
 
 4. If a web application firewall (WAF) is in use, the application gateway checks the request headers and the body, if present, against WAF rules. This action determines if the request is valid request or a security threat. If the request is valid, it's routed to the backend. If the request isn't valid, it's blocked as a security threat.
 

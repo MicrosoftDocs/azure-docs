@@ -29,7 +29,8 @@ Change detection and details are valuable for the following example scenarios:
   may need to be managed via an Azure Policy definition.
 
 This article shows how to gather this information through Resource Graph's SDK. To see this
-information in the Azure portal, see Azure Policy's [Change history](../../policy/how-to/determine-non-compliance.md#change-history-preview).
+information in the Azure portal, see Azure Policy's [Change history](../../policy/how-to/determine-non-compliance.md#change-history-preview)
+or Azure Activity Log [Change history](../../../azure-monitor/platform/activity-logs-overview.md#view-change-history).
 
 > [!NOTE]
 > Change details in Resource Graph are for Resource Manager properties. For tracking changes inside
@@ -42,8 +43,7 @@ information in the Azure portal, see Azure Policy's [Change history](../../polic
 ## Find when changes were detected
 
 The first step in seeing what changed on a resource is to find the change events related to that
-resource within a window of time. This step is done through the [resourceChanges](/rest/api/azureresourcegraph/resourceChanges)
-REST endpoint.
+resource within a window of time. This step is done through the **resourceChanges** REST endpoint.
 
 The **resourceChanges** endpoint requires two parameters in the request body:
 
@@ -102,8 +102,7 @@ The change event occurred at some point in this window of time.
 
 ## See what properties changed
 
-With the **changeId** from the **resourceChanges** endpoint, the [resourceChangeDetails](/rest/api/azureresourcegraph/resourceChangeDetails)
-REST endpoint is then used to get specifics of the change event.
+With the **changeId** from the **resourceChanges** endpoint, the **resourceChangeDetails** REST endpoint is then used to get specifics of the change event.
 
 The **resourceChangeDetails** endpoint requires two parameters in the request body:
 
@@ -116,7 +115,6 @@ Example request body:
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
     "changeId": "53dc0515-b86b-4bc2-979b-e4694ab4a556"
-    }
 }
 ```
 

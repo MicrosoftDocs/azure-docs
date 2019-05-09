@@ -1,7 +1,6 @@
 ---
 title: Apache Storm example Java topology - Azure HDInsight 
 description: Learn how to create Apache Storm topologies in Java by creating an example word count topology.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: apache storm,apache storm example,storm java,storm topology example
