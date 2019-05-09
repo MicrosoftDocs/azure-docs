@@ -94,23 +94,34 @@ Follow these steps to request a quota increase for your Batch account or your su
    
     d. **Support plan** > **Quota support - Included**
    
-    Click **Next**.
-1. In **Problem**:
-   
-    a. Select a **Severity** according to your [business impact][support_sev].
-   
-    b. In **Details**, specify each quota you want to change, the Batch account name, and the new limit.
-   
-    Click **Next**.
+    Select **Next**.
+    
+1. In **Details**:
+      
+    a. In **Provide details**, specify the location, quota type, and Batch account.
+    
+        ![Batch quota increase][quota_increase]
+
+    Note that the "Per batch account" quota type includes dedicated and low priority cores, active jobs, job schedules, and pools on a per Batch account basis.
+
+    If you're increasing the number of dedicated cores, note that the total computed value applies to all VM series.  
+
+    If you need to increase the number of Batch accounts per region, specify "All accounts in this region" in the quota type.
+
+
+    b. Select a **Severity** according to your [business impact][support_sev].
+
+    Select **Next**.
+
 1. In **Contact information**:
    
     a. Select a **Preferred contact method**.
    
     b. Verify and enter the required contact details.
    
-    Click **Create** to submit the support request.
+    Select **Create** to submit the support request.
 
-Once you've submitted your support request, Azure support will contact you. Note that completing the request can take up to 2 business days.
+Once you've submitted your support request, Azure support will contact you. Completing a quota increase request can take anywhere from 1 to 2 business days, depending on the scope of the request.
 
 ## Related quotas for VM pools
 
@@ -133,3 +144,4 @@ These resources are allocated in the subscription that contains the virtual netw
 [support_sev]: https://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.png
+[quota_increase]: ./medai/batch-quota-limit/quota_incease.png
