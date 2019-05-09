@@ -45,7 +45,7 @@ In Example 1 above, a volume from a capacity pool with the Premium storage tier 
 
 In Example 2 above, a volume from a capacity pool with the Premium storage tier that is assigned 100 GiB of quota will be assigned a throughput limit of 6.25 MiB/s (0.09765625 TiB * 64 MiB/s). This scenario applies regardless of the capacity pool size or the actual volume consumption.
 
-## Next steps
+**Next steps**
 
 - See the [Azure NetApp Files pricing page](https://azure.microsoft.com/pricing/details/storage/netapp/) for the price of different service levels
 - See [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md) for the calculation of the capacity consumption in a capacity pool 

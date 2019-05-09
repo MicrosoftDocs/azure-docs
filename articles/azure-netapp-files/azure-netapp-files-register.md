@@ -1,6 +1,6 @@
 ---
-title: Register the NetApp Resource Provider | Microsoft Docs
-description: Describes how to register the Azure Resource Provider for Azure NetApp Files. 
+title: Register for Azure NetApp Files | Microsoft Docs
+description: Describes how to register to use Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -16,11 +16,29 @@ ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: b-juche
 ---
-
-# Register the NetApp Resource Provider
+# Register for Azure NetApp Files
 
 > [!IMPORTANT] 
-> Before registering the Azure NetApp Files resource provider, you must have received an email from the Azure NetApp Files team confirming that you have been granted access to the service. You will be able to successfully register the NetApp Resource Provider even without being granted access for service. However, without access authorization, any Azure portal or API request to create a NetApp account or any other Azure NetApp Files resource will be rejected. To request access to the service, see [Submit a waitlist request](azure-netapp-files-waitlist.md). You must wait for an official confirmation email from the Azure NetApp Files team before continuing. Waitlist signup does not guarantee immediate service access. You must wait for an official confirmation email from the Azure NetApp Files team before creating any NetApp accounts. 
+> Before registering the Azure NetApp Files resource provider, you must have received an email from the Azure NetApp Files team confirming that you have been granted access to the service. 
+
+<a name="waitlist"></a>
+
+## Submit a waitlist request for accessing the service
+
+1. Submit a waitlist request for accessing the Azure NetApp Files service through the [Azure NetApp Files waitlist submission page](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u). 
+
+Waitlist signup does not guarantee immediate service access. 
+
+2. Wait for an official confirmation email from the Azure NetApp Files team before continuing with other tasks. 
+
+## Register the NetApp Resource Provider
+
+To use the service, you must register the Azure Resource Provider for Azure NetApp Files.
+
+> [!NOTE] 
+> You will be able to successfully register the NetApp Resource Provider even without being granted access for service. However, without access authorization, any Azure portal or API request to create a NetApp account or any other Azure NetApp Files resource will be rejected with the following error:  
+>
+> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
 
 To use the service, you must register the Azure Resource Provider for Azure NetApp Files. 
 
@@ -43,7 +61,7 @@ To use the service, you must register the Azure Resource Provider for Azure NetA
        
    `<SubID>` is your subscription ID.
 
-    If you do not see the feature name `publicPreviewADC`, you do not have access to the service. Stop at this step. Follow instructions in [Submit a waitlist request](azure-netapp-files-waitlist.md) to request service access. 
+    If you do not see the feature name `Microsoft.NetApp/publicPreviewADC`, you do not have access to the service. Stop at this step. Follow instructions in [Submit a waitlist request](azure-netapp-files-waitlist.md) to request service access. 
 
 4. In the Azure Cloud Shell console, enter the following command to register the Azure Resource Provider: 
     
@@ -72,6 +90,6 @@ To use the service, you must register the Azure Resource Provider for Azure NetA
       ![Registered Microsoft.NetApp](../media/azure-netapp-files/azure-netapp-files-registered-resource-providers.png)
 
 
-## Next steps  
+## Next steps
 
 [Create a NetApp account](azure-netapp-files-create-netapp-account.md)

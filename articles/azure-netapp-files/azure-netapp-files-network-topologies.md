@@ -20,7 +20,7 @@ ms.author: b-juche
 
 Network architecture planning is a key element of designing any application infrastructure. This article helps you design an effective network architecture for your workloads to benefit from the rich capabilities of Azure NetApp Files.
 
-Azure NetApp Files volumes are designed to be contained in a special purpose subnet called [delegated subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) within your Azure Virtual Network. Therefore, you can access the volumes directly from your VNet, from peered VNets in the same region, or from on-prem over a Virtual Network Gateway (ExpressRoute or VPN Gateway) as necessary. The subnet is dedicated to Azure NetApp Files and there is no connectivity to other Azure services or the internet.
+Azure NetApp Files volumes are designed to be contained in a special purpose subnet called [delegated subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) within your Azure Virtual Network. Therefore, you can access the volumes directly from your VNet, from peered VNets in the same region, or from on-premises over a Virtual Network Gateway (ExpressRoute or VPN Gateway) as necessary. The subnet is dedicated to Azure NetApp Files and there is no connectivity to other Azure services or the internet.
 
 ## Considerations  
 
@@ -45,15 +45,15 @@ The following network restrictions apply to Azure NetApp Files:
 
 The following table describes the network topologies supported by Azure NetApp Files.  It also describes the workarounds for the unsupported topologies. 
 
-|    Topologies    |    Is Supported    |     Workaround    |
+|    Topologies    |    Is supported    |     Workaround    |
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
 |    Connectivity to volume in a local VNet    |    Yes    |         |
 |    Connectivity to volume in a peered VNet (Same region)    |    Yes    |         |
 |    Connectivity to volume in a peered VNet (Cross region or global   peering)    |    No    |    None    |
 |    Connectivity to a volume over ExpressRoute gateway    |    Yes    |         |
-|    Connectivity from on-prem to a volume in a spoke VNet over   ExpressRoute gateway and VNet peering with gateway transit    |    No    |    Create a delegated subnet in the hub VNet (Azure VNet with   Gateway)    |
-|    Connectivity from on-prem to a volume in a spoke VNet over VPN   gateway    |    Yes    |         |
-|    Connectivity from on-prem to a volume in a spoke VNet over VPN   gateway and VNet peering with gateway transit    |    Yes    |         |
+|    Connectivity from on-premises to a volume in a spoke VNet over   ExpressRoute gateway and VNet peering with gateway transit    |    No    |    Create a delegated subnet in the hub VNet (Azure VNet with   Gateway)    |
+|    Connectivity from on-premises to a volume in a spoke VNet over VPN   gateway    |    Yes    |         |
+|    Connectivity from on-premises to a volume in a spoke VNet over VPN   gateway and VNet peering with gateway transit    |    Yes    |         |
 
 
 ## Virtual network for Azure NetApp Files volumes
@@ -62,11 +62,11 @@ This section explains concepts that help you with virtual network planning.
 
 ### Azure virtual networks
 
-Before provisioning an Azure NetApp Files volume, you need to create an Azure virtual network (VNet) or use one that already exists in your subscription. The VNet defines the network boundary of the volume.  For more information on creating virtual networks, see the [Azure Virtual Network documentation](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview).
+Before provisioning an Azure NetApp Files volume, you need to create an Azure virtual network (VNet) or use one that already exists in your subscription. The VNet defines the network boundary of the volume.  For more information on creating virtual networks, see the [Azure Virtual Network documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 ### Subnets
 
-Subnets segment the virtual network into separate address spaces that are usable by the Azure resources in them.  Azure NetApp Files volumes are contained in a special-purpose subnet called [delegated subnet](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-subnet). 
+Subnets segment the virtual network into separate address spaces that are usable by the Azure resources in them.  Azure NetApp Files volumes are contained in a special-purpose subnet called [delegated subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet). 
 
 Subnet delegation gives explicit permissions to the Azure NetApp Files service to create service-specific resources in the subnet.  It uses a unique identifier in deploying the service. In this case, a network interface is created to enable connectivity to Azure NetApp Files.
 
@@ -106,16 +106,16 @@ The following diagram illustrates a hybrid environment:
 
 ![Hybrid networking environment](../media/azure-netapp-files/azure-netapp-files-networ-hybrid-environment.png)
 
-In the hybrid scenario, applications from on-prem data centers need access to the resources in Azure.  This is the case whether you want to extend your data center to Azure, or you want to use Azure native services or for disaster recovery. See [VPN Gateway planning options](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) about how to connect multiple resources on-prem to resources in Azure through a site-to-site VPN or an ExpressRoute.
+In the hybrid scenario, applications from on-premises data centers need access to the resources in Azure.  This is the case whether you want to extend your data center to Azure, or you want to use Azure native services or for disaster recovery. See [VPN Gateway planning options](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) about how to connect multiple resources on-premises to resources in Azure through a site-to-site VPN or an ExpressRoute.
 
-In a hybrid hub-spoke topology, the hub VNet in Azure acts as a central point of connectivity to your on-prem network. The spokes are VNets peered with the hub, and they can be used to isolate workloads.
+In a hybrid hub-spoke topology, the hub VNet in Azure acts as a central point of connectivity to your on-premises network. The spokes are VNets peered with the hub, and they can be used to isolate workloads.
 
-Depending on the configuration. You can connect resources from on-prem to resources in the hub and the spokes.
+Depending on the configuration. You can connect resources from on-premises to resources in the hub and the spokes.
 
-In the topology illustrated above, the on-prem network is connected to a hub VNet in Azure, and there are 2 spoke VNets peered with the hub VNet.  In this scenario, the connectivity options supported for Azure NetApp Files volumes are as follows:
+In the topology illustrated above, the on-premises network is connected to a hub VNet in Azure, and there are 2 spoke VNets peered with the hub VNet.  In this scenario, the connectivity options supported for Azure NetApp Files volumes are as follows:
 
-* On-prem resources VM 1 and VM 2 can connect to Volume 1 in the hub over a site-to-site VPN or an ExpressRoute. 
-* On-prem resources VM 1 and VM 2 can connect to Volume 2 or Volume 3.
+* On-premises resources VM 1 and VM 2 can connect to Volume 1 in the hub over a site-to-site VPN or an ExpressRoute. 
+* On-premises resources VM 1 and VM 2 can connect to Volume 2 or Volume 3.
 * VM 3 in the hub VNet can connect to volume 2 in spoke VNet 1 and Volume 3 in spoke VNet 2.
 * VM 4 from spoke VNet 1 and VM 5 from spoke VNet 2 can connect to Volume 1 in the hub VNet.
 

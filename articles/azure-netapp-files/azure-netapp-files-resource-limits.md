@@ -24,7 +24,7 @@ Understanding resource limits for Azure NetApp Files helps you manage your volum
 
 The following table describes resource limits for Azure NetApp Files:
 
-|  **Resource**  |  **Default Limit**  |  **Adjustable via Support Request**  |
+|  Resource  |  Default limit  |  Adjustable via support request  |
 |----------------|---------------------|--------------------------------------|
 |  Number of NetApp accounts per Azure  Subscription   |  10    |  Yes   |
 |  Number of capacity pools per NetApp account   |    25     |   Yes   |
@@ -55,7 +55,7 @@ From Azure portal navigation plane:
 4. On the Details tab:
     1. In the Description box, provide the following information for the corresponding resource type:
 
-        |  **Resource**  |    **Parent Resources**      |    **Requested New Limits**     |    **Reason for quota increase**       |
+        |  Resource  |    Parent resources      |    Requested new limits     |    Reason for quota increase       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  Account |  *Subscription ID*   |  *Requested new maximum **account** number*    |  *What scenario or use case prompted the request?*  |
         |  Pool    |  *Subscription ID, Account URI*  |  *Requested new maximum **pool** number*   |  *What scenario or use case prompted the request?*  |
