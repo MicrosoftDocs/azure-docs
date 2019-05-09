@@ -15126,6 +15126,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/stream-analytics/custom-deserializer.md",
+      "redirect_url": "https://aka.ms/asapreview1",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/stream-analytics/stream-analytics-tools-for-visual-studio.md",
       "redirect_url": "/azure/stream-analytics/stream-analytics-quick-create-vs",
       "redirect_document_id": false
@@ -21877,6 +21882,11 @@
     {
       "source_path": "articles/service-fabric/service-fabric-diagnostics-how-to-setup-wad.md",
       "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric/service-fabric-patch-orchestration-application-linux.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-patch-orchestration-application",
       "redirect_document_id": false
     },
     {
@@ -38887,6 +38897,16 @@
       "source_path": "articles/hdinsight/hadoop/hdinsight-use-pig.md",
       "redirect_url": "/azure/hdinsight/",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-create-and-manage-applications-as-CSP.md",
+      "redirect_url": "/azure/iot-central/howto-create-and-manage-applications-csp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
+      "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-datafu-udf.md",
