@@ -1,6 +1,6 @@
 ---
 title: Enable Disk encryption for Azure Service Fabric Windows clusters | Microsoft Docs
-description: This article describes how to enable disk encryption for Service Fabric cluster nodes in Azure by using Azure Key Vault in Azure Resource Manager.
+description: This article describes how to enable disk encryption for Azure Service Fabric cluster nodes by using Azure Key Vault in Azure Resource Manager.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -22,7 +22,7 @@ ms.author: aljo
 >
 >
 
-In this tutorial, you'll learn how to enable disk encryption on Service Fabric cluster nodes in Windows. You'll need to follow these steps for each of the node types/virtual machine scale sets. For encrypting the nodes, we'll leverage the Azure Disk Encryption (ADE) capability on virtual machine scale sets.
+In this tutorial, you'll learn how to enable disk encryption on Service Fabric cluster nodes in Windows. You'll need to follow these steps for each of the node types/virtual machine scale sets. For encrypting the nodes, we'll use the Azure Disk Encryption (ADE) capability on virtual machine scale sets.
 
 The guide covers the following topics:
 
@@ -49,7 +49,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 **Azure Key Vault** 
 
-Create a Key Vault in the same subscription and region as the scale set and select the **EnabledForDiskEncryption** access policy on the Key Vault by using its PowerShell cmdlet. You can also set the policy by using the Key Vault UI in the Azure portal with the following command: 
+Create a Key Vault in the same subscription and region as the scale set, then select the **EnabledForDiskEncryption** access policy on the Key Vault by using its PowerShell cmdlet. You can also set the policy by using the Key Vault UI in the Azure portal with the following command: 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 ```
@@ -67,9 +67,9 @@ Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 
 
 ## Supported scenarios for disk encryption
-* Virtual machine scale set encryption is supported only for scale sets created with managed disks. It's not supported for native (or unmanaged) disk scale sets.
-* Virtual machine scale set encryption is supported for OS and data volumes for virtual machine scale sets in Windows. Disable encryption is supported for OS and data volumes for virtual machine scale sets in Windows.
-* Virtual machine reimage and upgrade operations for virtual machine scale sets are not supported in the current preview.
+* Encryption for virtual machine scale sets is supported only for scale sets created with managed disks. It's not supported for native (or unmanaged) disk scale sets.
+* Encryption is supported for OS and data volumes in virtual machine scale sets in Windows. Disable encryption is also supported for OS and data volumes for virtual machine scale sets in Windows.
+* Virtual machine reimage and upgrade operations for virtual machine scale sets aren't supported in the current preview.
 
 
 ## Create new cluster and enable disk encryption
@@ -95,7 +95,7 @@ az account set --subscription $subscriptionId
 
 If you need to author a custom template to suit your needs, it's highly recommended that you start with one of the templates that are available on the [Azure Service Fabric Template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master) page. To [customize your cluster template][customize-your-cluster-template] section, see the following guidance.
 
-If you already have a custom template, then make sure to double-check that all three certificate-related parameters in the template and the parameter file are named as follows and that values are null as follows:
+If you already have a custom template, double-check that all three certificate-related parameters in the template and the parameter file are named as follows and that values are null as follows:
 
 ```Json
    "certificateThumbprint": {
@@ -173,7 +173,7 @@ az vmss encryption enable -g <resourceGroupName> -n <VMSS name> --disk-encryptio
 
 
 ### Validate if disk encryption is enabled for a virtual machine scale set in Windows
-Get status of an entire virtual machine scale set or any instance in a scale set by running the following commands. 
+Get the status of an entire virtual machine scale set or any instance in a scale set by running the following commands.
 
 ```powershell
 
