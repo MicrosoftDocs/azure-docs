@@ -88,11 +88,11 @@ Follow the instructions below using to create a support request via Azure's 'Usa
 
     ![Quota Problem blade](./media/resource-manager-core-quotas-request/Problem-step.png)
 
-3. Select the **SKU Families** that require an increase.
+7. Select the **SKU Families** that require an increase.
 
     ![SKU series selected](./media/resource-manager-core-quotas-request/SKU-selected.png)
 
-4. Enter the new limits you would like on the subscription.
+8. Enter the new limits you would like on the subscription.
 
     ![SKU new quota request](./media/resource-manager-core-quotas-request/SKU-new-quota.png)
 
