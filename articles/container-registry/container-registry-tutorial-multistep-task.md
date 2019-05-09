@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 05/04/2019
+ms.date: 05/09/2019
 ms.author: danlep
 ms.custom: "seodec18, mvc"
 # Customer intent: As a developer or devops engineer, I want to trigger
@@ -51,7 +51,10 @@ steps:
 # Build target image
 - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f Dockerfile .
 # Run image 
-- cmd: -d -p 8080:80 --name test -t {{.Run.Registry}}/hello-world:{{.Run.ID}}
+- cmd: -t {{.Run.Registry}}/hello-world:{{.Run.ID}}
+  id: test
+  detach: true
+  ports: ["8080:80"]
 - cmd: docker stop test
 # Push image
 - push:
@@ -297,7 +300,10 @@ steps:
 - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f Dockerfile .
 - build: -t {{.Values.regDate}}/hello-world:{{.Run.Date}} -f Dockerfile .
 # Run image 
-- cmd: -d -p 8080:80 --name test -t {{.Run.Registry}}/hello-world:{{.Run.ID}} 
+- cmd: -t {{.Run.Registry}}/hello-world:{{.Run.ID}}
+  id: test
+  detach: true
+  ports: ["8080:80"]
 - cmd: docker stop test
 # Push images
 - push:
@@ -343,6 +349,8 @@ az acr task credential add --name example2 \
     --username <service-principal-application-id> \
     --password <service-principal-password>
 ```
+
+The CLI returns the name of the registry login server you added.
 
 ### Test the multi-step workflow
 
