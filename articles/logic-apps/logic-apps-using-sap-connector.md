@@ -14,7 +14,7 @@ tags: connectors
 
 # Connect to SAP systems from Azure Logic Apps
 
-This article shows how you can access your on-premises SAP resources from inside a logic app by using the SAP connector. The connector works with SAP's classical releases such R/3, ECC systems on-premises. The connector also enables integration with the SAP's newer HANA based SAP systems such as S/4 HANA, wherever they are hosted - on premises or in cloud. The SAP connector supports message or data integration to and from SAP NetWeaver-based systems through Intermediate Document (IDoc) or Business Application Programming Interface (BAPI) or Remote Function Call (RFC).
+This article shows how you can access your on-premises SAP resources from inside a logic app by using the SAP connector. The connector works with SAP's classical releases such R/3, ECC systems on-premises. The connector also enables integration with the SAP's newer HANA-based SAP systems such as S/4 HANA, wherever they are hosted - on premises or in cloud. The SAP connector supports message or data integration to and from SAP NetWeaver-based systems through Intermediate Document (IDoc) or Business Application Programming Interface (BAPI) or Remote Function Call (RFC).
 
 The SAP connector uses the [SAP .NET Connector (NCo) library](https://support.sap.com/en/product/connectors/msnet.html) and provides these operations or actions:
 
@@ -49,7 +49,7 @@ To follow along with this article, you need these items:
 
 * If you are enabling SNC with an external security product, copy the SNC library or files on the same machine where the gateway is installed. Some examples of SNC products include [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, NTLM, and so on.
 
-* Download and install the latest SAP client library, which is currently [SAP Connector (NCo) 3.0.21.0 for Microsoft .NET Framework 4.0 and Windows 64bit (x64)](https://softwaredownloads.sap.com/file/0020000001865512018), on the same computer as the on-premises data gateway. Install this version or later for these reasons:
+* Download and install the latest SAP client library, which is currently [SAP Connector (NCo) 3.0.21.0 for Microsoft .NET Framework 4.0 and Windows 64 bit (x64)](https://softwaredownloads.sap.com/file/0020000001865512018), on the same computer as the on-premises data gateway. Install this version or later for these reasons:
 
   * Earlier SAP NCo versions might become deadlocked when more than one IDoc messages are sent at the same time. This condition blocks all later messages that are sent to the SAP destination, causing the messages to time out.
 
@@ -347,7 +347,7 @@ Optionally, you can download or store the generated schemas in repositories, suc
 
 1. In Logic App Designer, under the trigger, choose **New step**.
 
-1. In the search box, enter "resource manager" as your filter. Select this action: **Create or update a resource**
+1. In the search box, enter "Resource Manager" as your filter. Select this action: **Create or update a resource**
 
    ![Select Azure Resource Manager action](media/logic-apps-using-sap-connector/select-arm-action.png)
 
@@ -399,20 +399,20 @@ To enable SNC for your requests to or from SAP system, select the **Use SNC** ch
 
    ![Configure SAP SNC in connection](media/logic-apps-using-sap-connector/configure-sapsnc.png)
 
-   | Property   | Description |
-   |------------| ------------|
-   | **SNC Library** | SNC library name or path relative to NCo installation location or absolute path. As an example sapsnc.dll or .\security\sapsnc.dll or c:\security\sapsnc.dll |
-   | **SNC SSO** | When connecting via SNC, the SNC identity is typically used for authenticating the caller. Another option is to override so that user/password information can be used for authenticating the caller, but the line is still encrypted. |
-   | **SNC My Name** | In most cases this can be omitted. The installed SNC solution usually knows its own SNC name. Only for solutions supporting “multiple identities”, you may need to specify the identity to be used for this particular destination/server |
+   | Property | Description |
+   |----------| ------------|
+   | **SNC Library** | The SNC library name or path relative to NCo installation location or absolute path. For example, `sapsnc.dll` or `.\security\sapsnc.dll` or `c:\security\sapsnc.dll` |
+   | **SNC SSO** | When connecting through SNC, the SNC identity is typically used for authenticating the caller. Another option is to override so that user and password information can be used for authenticating the caller, but the line is still encrypted. |
+   | **SNC My Name** | In most cases, this property can be omitted. The installed SNC solution usually knows its own SNC name. Only for solutions supporting "multiple identities", you might need to specify the identity to be used for this particular destination or server. |
    | **SNC Partner Name** | The name for the backend SNC |
-   | **SNC Quality of Protection** | Quality of Service to be used for SNC communication of this particular destination/server. Default value is defined by the back-end system. Maximum value is defined by the security product used for SNC |
+   | **SNC Quality of Protection** | Quality of Service to be used for SNC communication of this particular destination/server. Default value is defined by the backend system. The maximum value is defined by the security product used for SNC. |
    |||
 
    > [!NOTE]
    > Environment variables SNC_LIB and SNC_LIB_64 should 
    > not be set on the machine where you have data gateway 
    > and SNC library. If set, they would take precedence 
-   > over the SNC Library value passed via connector.
+   > over the SNC Library value passed through the connector.
 
 ## Known issues and limitations
 
