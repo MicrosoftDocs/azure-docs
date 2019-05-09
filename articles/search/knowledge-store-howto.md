@@ -11,9 +11,8 @@ ms.author: heidist
 ---
 # How to get started with Knowledge Store in Azure Search
 
-
 > [!Note]
-> Knowledge Store is in public preview and should not be used in production workloads. REST `api-version=2019-05-06-Preview` provides this feature. You can also use the .NET SDK `8.0.0-preview`.
+> Knowledge Store is in preview and not intended for production use. The REST API version 2019-05-06-Preview provides this feature. There is no .NET SDK support at this time.
 >
 
 [Knowledge Store](knowledge-store-concept-intro.md) saves AI enrichments created during indexing to your Azure storage account for downstream knowledge mining in other apps. You can also use saved enrichments to understand and refine an Azure Search indexing pipeline.

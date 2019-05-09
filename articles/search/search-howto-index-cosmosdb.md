@@ -14,8 +14,9 @@ ms.custom: seodec2018
 ---
 # How to index Cosmos DB using an Azure Search indexer
 
+
 > [!Note]
-> MongoDB API support is in public preview and should not be used in production workloads. REST `api-version=2019-05-06-Preview` and `api-version=2017-11-11-Preview` provide this feature. There is no portal or .NET SDK support.
+> MongoDB API support is in preview and not intended for production use. The REST API version 2019-05-06-Preview and 017-11-11-Preview provide this feature. There is no portal or .NET SDK support at this time.
 >
 > SQL API is generally available.
 

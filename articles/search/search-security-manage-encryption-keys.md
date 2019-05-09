@@ -13,9 +13,9 @@ ms.custom:
 # Azure Search encryption using customer-managed keys in Azure Key Vault
 
 > [!Note]
-> Encryption with customer-managed keys is in public preview and should not be used in production workloads.  REST `api-version=2019-05-06-Preview` provides this feature. You can also use the .NET SDK `8.0.0-preview`.
+> Encryption with customer-managed keys is in preview and not intended for production use. The REST API version 2019-05-06-Preview provides this feature. You can also use the .NET SDK version 8.0.0-preview.
 >
-> Additionally, this feature is not available for free services. For paid services, it is only available for search services created on or after 2019-01-01. Currently, there is no portal support for this feature.
+> This feature is not available for free services. You must use a billable search service created on or after 2019-01-01. There is no portal support at this time.
 
 By default, Azure Search encrypts user content at rest with [service-managed keys](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest#data-encryption-models). 
 You can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. This article walks you through the steps.

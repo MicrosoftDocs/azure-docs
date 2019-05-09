@@ -14,7 +14,7 @@ ms.author: heidist
 # What is Knowledge Store in Azure Search?
 
 > [!Note]
-> Knowledge Store is in public preview and should not be used in production workloads. REST `api-version=2019-05-06-Preview` provides this feature. You can also use the .NET SDK `8.0.0-preview`.
+> Knowledge Store is in preview and not intended for production use. The REST API version 2019-05-06-Preview provides this feature. There is no .NET SDK support at this time.
 >
 
 Knowledge Store is an optional feature of Azure Search that saves enriched documents and metadata created by an AI-based indexing pipeline [(cognitive search)](cognitive-search-concept-intro.md). Knowledge Store is backed by an Azure storage account that you configure as part of the pipeline. When enabled, the search service uses this storage account to cache a representation of each enriched document. 
