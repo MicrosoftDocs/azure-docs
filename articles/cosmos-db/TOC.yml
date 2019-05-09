@@ -492,7 +492,7 @@
         href: how-to-sql-subquery.md
     - name: Change Feed
       items:
-      - name: Exposing Azure Cosmos DB Trigger logs
+      - name: Azure Cosmos DB Trigger logs
         href: how-to-expose-cosmos-db-trigger-logs.md
       - name: Multiple Azure Cosmos DB Triggers
         href: how-to-create-multiple-cosmos-db-triggers.md
