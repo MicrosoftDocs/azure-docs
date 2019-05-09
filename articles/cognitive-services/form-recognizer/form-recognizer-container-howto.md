@@ -256,7 +256,7 @@ formrecognizer_config = formrecognizersdk.FormRecognizerConfig(subscription=form
 
 ### Form Recognizer
 
-The container provides REST endpoint APIs, which can be found [here](https://docs.microsoft.com/azure/cognitive-services/formrecognizer-service/rest-apis#formrecognier-api) and samples can be found [here](https://azure.microsoft.com/resources/samples/cognitive-formrecognizer).
+The container provides REST endpoint APIs, which can be found [here](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel).
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]

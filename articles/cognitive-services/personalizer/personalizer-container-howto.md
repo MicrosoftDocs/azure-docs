@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 05/09/2019
 ms.author: edjez
 ---
 
@@ -177,7 +177,7 @@ The container provides a full set of documentation for the endpoints as well as 
 
 The Personalizer Service containers send billing information to Azure, using a _Personalizer Service_ resource on your Azure account. 
 
-Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft. 
+Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times.  
 
 The `docker run` command uses the following arguments for billing purposes:
 
