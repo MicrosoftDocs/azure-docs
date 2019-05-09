@@ -12,14 +12,14 @@ ms.author: girobins
 # Profiling Queries
 
 ## QueryMetrics
-[QueryMetrics](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.querymetrics.aspx) is a strongly typed object that holds information on how queries were executed on the backend. These metrics are documented in more detail in the following article [https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query-metrics](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query-metrics). What this article focuses on is how you can retrieve these metrics client side using the .net SDK.
+[QueryMetrics](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.querymetrics.aspx) is a strongly typed object that holds information on how queries were executed on the backend. These metrics are documented in more detail in the following article [https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query-metrics](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query-metrics). What this article focuses on is how you can retrieve these metrics client-side using the .net SDK.
 
 ## Setting the FeedOptions for CreateDocumentQuery
 
-All the overloads for [DocumentClient.CreateDocumentQuery](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) take in an optional [FeedOptions](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.client.feedoptions.aspx) parameter. This option is what allows query execution to be tuned and parameterized. What is important is that you set the [PopulateQueryMetrics](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) in the `FeedOptions` to `true`. This will make it so that the `FeedResponse` will contain the relevant `QueryMetrics`.
+All the overloads for [DocumentClient.CreateDocumentQuery](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) take in an optional [FeedOptions](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.client.feedoptions.aspx) parameter. This option is what allows query execution to be tuned and parameterized. What is important is that you set the [PopulateQueryMetrics](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) in the `FeedOptions` to `true`. Setting `PopulateQueryMetrics` to true will make it so that the `FeedResponse` will contain the relevant `QueryMetrics`.
 
 ### AsDocumentQuery()
-The following code sample shows how to do this if you use [AsDocumentQuery()](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.linq.documentqueryable.asdocumentquery.aspx)
+The following code sample shows how to do retrieve metrics if you use [AsDocumentQuery()](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.linq.documentqueryable.asdocumentquery.aspx)
 
 ```csharp
 
@@ -54,7 +54,7 @@ while (documentQuery.HasMoreResults)
 ```
 #### Aggregating QueryMetrics
 
-Notice that there were multiple calls to [ExecuteNextAsync](https://msdn.microsoft.com/en-us/library/azure/dn850294.aspx) that each returned to us a `FeedResponse`. These `FeedResponses` each have a dictionary of `QueryMetrics`; one for every continuation of the query. So now that begs the question "how can I aggregate these `QueryMetrics`?" We can do this with LINQ!
+Notice that there were multiple calls to [ExecuteNextAsync](https://msdn.microsoft.com/en-us/library/azure/dn850294.aspx) that each returned to us a `FeedResponse`. These `FeedResponses` each have a dictionary of `QueryMetrics`; one for every continuation of the query. So how can we aggregate these `QueryMetrics`? We can aggregate with LINQ!
 
 ```csharp
 List<QueryMetrics> queryMetricsList = new List<QueryMetrics>();
@@ -75,7 +75,7 @@ Console.WriteLine(aggregatedQueryMetrics);
 
 #### Grouping By PartitionId
 
-But what if we want to keep the group the `QueryMetrics` by the paritionId so that we can see if any one partition performed worse than the others on the backend? Again we can do that with some LINQ magic.
+But what if we want to group the `QueryMetrics` by the paritionId so that we can see if any one partition performed worse than the others on the backend? Again we can do that with some LINQ magic.
 
 ```csharp
 List<KeyValuePair<string, QueryMetrics>> partitionedQueryMetrics = new List<KeyValuePair<string, QueryMetrics>>();
@@ -119,7 +119,7 @@ IReadOnlyDictionary<string, QueryMetrics> queryMetrics = feedResponse.QueryMetri
 
 ## Expensive Queries
 
-In order to investigate expensive queries we need to capture the [RequestCharge](https://msdn.microsoft.com/en-us/library/azure/dn948712.aspx) from the `FeedResponse` similar to how we captured the `QueryMetrics`. You can read more about how RequestCharges are calculated here [https://docs.microsoft.com/en-us/azure/cosmos-db/request-units](https://docs.microsoft.com/en-us/azure/cosmos-db/request-units)
+To investigate expensive queries, we need to capture the [RequestCharge](https://msdn.microsoft.com/en-us/library/azure/dn948712.aspx) from the `FeedResponse` similar to how we captured the `QueryMetrics`. You can read more about how RequestCharges are calculated here [https://docs.microsoft.com/en-us/azure/cosmos-db/request-units](https://docs.microsoft.com/en-us/azure/cosmos-db/request-units)
 
 ```csharp
 string query = "SELECT * FROM c";
@@ -135,9 +135,9 @@ while (documentQuery.HasMoreResults)
 }
 ```
 
-## Timing Client Side Query Execution
+## Timing Client-Side Query Execution
 
-When timing client side query execution you should make sure that your Stopwatch is only timing the calls to `ExecuteNextAsync` and not other parts of your code base, since what we are really interested in is how long the query execution took.
+When timing client-side query execution you should make sure that your Stopwatch is only timing the calls to `ExecuteNextAsync` and not other parts of your code base, since what we are interested in is how long the query execution took.
 
 ```csharp
 string query = "SELECT * FROM c";
@@ -183,14 +183,14 @@ DoSomeLogging(queryExecutionTimeEndToEndTotal.Elapsed);
 },
 ```
 
-This query is a scan query meaning that the query was not able to be served by the index. What happens on the backend is that a lot of documents are loaded as apparent by the following properties:
+This query is a scan query. This means that the query was'nt able to be served by the index. What happens on the backend is that many documents are loaded. This is evident from the following properties:
 
 ```js
 "RetrievedDocumentCount": 157743,
 "RetrievedDocumentSize": 1578730753,
 ```
 
-Meaning that the backend had to load 157743 documents that totaled 1578730753 bytes. This end up costing a lot of RUs and also taking a lot of time as apparent by the following property:
+This means that the backend had to load 157,743 documents which totaled 1,578,730,753 bytes. This ends up costing many RUs and takes a long time. This is clear when assessing the total time spent via the following property:
 
 ```js
 "TotalTime": "00:00:04.5299799"
