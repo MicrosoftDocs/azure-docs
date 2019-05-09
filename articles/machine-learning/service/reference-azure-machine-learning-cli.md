@@ -169,16 +169,16 @@ The following commands demonstrate how to register a trained model, and then dep
     The following is an example `inferenceconfig.json` document:
 
     ```json
-{
-   "entryScript": "score.py",
-   "runtime": "python",
-   "condaFile": "myenv.yml",
-   "extraDockerfileSteps": null,
-   "sourceDirectory": null,
-   "enableGpu": false,
-   "baseImage": null,
-   "baseImageRegistry": null
-}
+    {
+    "entryScript": "score.py",
+    "runtime": "python",
+    "condaFile": "myenv.yml",
+    "extraDockerfileSteps": null,
+    "sourceDirectory": null,
+    "enableGpu": false,
+    "baseImage": null,
+    "baseImageRegistry": null
+    }
     ```
 
     For more information, see [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy).
