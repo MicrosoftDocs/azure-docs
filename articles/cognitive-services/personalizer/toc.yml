@@ -63,7 +63,7 @@
     - name: .Net SDK Reference 
       href: https://aka.ms/personalizer-dotnet-sdk-docs
     - name: NuGet package
-      href: https://aka.ms/personalizer-nuget-sdk
+      href: https://go.microsoft.com/fwlink/?linkid=2092272
 - name: Resources
   items:
   - name: Regional availability
