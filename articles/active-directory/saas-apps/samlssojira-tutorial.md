@@ -97,7 +97,7 @@ To configure the single sign-on with SAML SSO for Jira by resolution GmbH, perfo
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you wish to configure the application in the **IDP** initiated mode, then perform the following steps:
+4. In the **Basic SAML Configuration** section, if you wish to configure the application in the **IDP** initiated mode, then perform the following steps:
 
     ![SAML SSO for Jira by resolution GmbH Domain and URLs single sign-on information](common/idp-intiated.png)
 
@@ -143,7 +143,7 @@ To configure the single sign-on with SAML SSO for Jira by resolution GmbH, perfo
 
 	![Configure Single Sign-On](./media/samlssojira-tutorial/store-3.png)
 
-6.	Then click **Manage**.
+6. Then, click **Manage**.
 
 	![Configure Single Sign-On](./media/samlssojira-tutorial/store-4.png)
     
