@@ -28,10 +28,12 @@ A taxonomy of the workspace is illustrated in the following diagram:
 [![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 The diagram shows the following components of a workspace:
-+ Assign different [user roles](how-to-assign-roles.md) to others who share your workspace.
+
++ A workspace can contain [Notebook VMs](quickstart-run-cloud-notebook.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
++ You can share your workspace and assign different [user roles](how-to-assign-roles.md).
 + [Compute targets](concept-azure-machine-learning-architecture.md#compute-target) are used to run your experiments.
 + When you create the workspace, [associated resources](#resources) are also created for you.
-+ [Experiments](concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  You create and run experiments with
++ [Experiments](concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  You can create and run experiments with
     + The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
     + The [automated machine learning experiments (preview)](how-to-create-portal-experiments.md) section in the Axure portal.
     + The The [visual interface (preview)](ui-concept-visual-interface.md).
@@ -52,6 +54,7 @@ Manage your workspace with any of the following:
 | Create a workspace        | **&check;**     | **&check;** | **&check;** |
 | Create and manage compute resources    | **&check;**   | **&check;** |  **&check;**   |
 | Manage workspace access    | **&check;**   | |  **&check;**    |
+| Create Notebook VMs | **&check;**   | |     |
 
 ## Machine learning with a workspace
 
