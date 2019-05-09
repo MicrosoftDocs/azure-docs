@@ -24,6 +24,10 @@ ms.author: brkhande
 > [!IMPORTANT]
 > Application version 1.2.* is going out of support on 30 April 2019. Please upgrade to the latest version.
 
+> 
+> [!IMPORTANT]
+> Patch Orchestration application on linux has been deprecated. Please visit [Azure virtual machine scale set automatic OS image upgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) for orchestrating updates on linux.
+
 
 [Azure virtual machine scale set automatic OS image upgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) is the best practice for keeping your operating systems patched in Azure, and the Patch Orchestration Application (POA) is a wrapper around Service Fabrics RepairManager Systems service that enables configuration based OS patch scheduling for non-Azure hosted clusters. POA is not required for non-Azure hosted clusters, but scheduling patch installation by Upgrade Domains, is required to patch Service Fabric clusters hosts without downtime.
 

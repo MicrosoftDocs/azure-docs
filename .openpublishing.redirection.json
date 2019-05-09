@@ -21875,6 +21875,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/service-fabric/service-fabric-patch-orchestration-application-linux.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-patch-orchestration-application",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/service-fabric/service-fabric-diagnostics-how-to-setup-lad.md",
       "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-event-aggregation-lad",
       "redirect_document_id": false
