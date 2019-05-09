@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 05/08/2019
 ms.author: raynew
 ---
 
@@ -145,6 +145,7 @@ Back up VMs that are deployed from the [Azure Marketplace](https://azuremarketpl
 Back up VMs that are deployed from a custom image (third-party) |	Supported.<br/><br/> The VM must be running a supported operating system.<br/><br/> When recovering files on the VM, you can restore only to a compatible OS (not an earlier or later OS).
 Back up VMs that are migrated to Azure	| Supported.<br/><br/> To back up the VM, the VM agent must be installed on the migrated machine.
 Back up Multi-VM consistency | Azure Backup does not provide data and application consistency across multiple VMs.
+Backup with [Diagnostic Settings](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | Unsupported. <br/><br/> If the restore of the Azure VM with diagnostic settings is triggered using [Create New](backup-azure-arm-restore-vms.md#create-a-vm) option then the restore fails.
 
 
 ## VM storage support
