@@ -7,7 +7,7 @@
   - name: About App Service on Linux
     href: app-service-linux-intro.md
   - name: Compare hosting options
-    href: https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree
+    href: /azure/architecture/guide/technology-choices/compute-decision-tree
 - name: Quickstarts
   expanded: true
   items:
