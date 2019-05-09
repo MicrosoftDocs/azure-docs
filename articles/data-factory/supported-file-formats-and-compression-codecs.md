@@ -409,7 +409,7 @@ The output dataset with **JsonFormat** type is defined as follows: (partial defi
 ## Parquet format
 
 >[!NOTE]
->Data Factory introduced new Parquet format datset, see [Parquet format](format-delimited-text.md) article with details. The following configurations on file-based data store dataset is still supported as-is for backward compabitility. You are suggested to use the new model going forward.
+>Data Factory introduced new Parquet format datset, see [Parquet format](format-parquet.md) article with details. The following configurations on file-based data store dataset is still supported as-is for backward compabitility. You are suggested to use the new model going forward.
 
 If you want to parse the Parquet files or write the data in Parquet format, set the `format` `type` property to **ParquetFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
 

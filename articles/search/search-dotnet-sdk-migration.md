@@ -13,10 +13,6 @@ ms.custom: seodec2018
 ---
 # Upgrading to the Azure Search .NET SDK version 3
 
-> [!Important]
-> This content is still under construction. Version 9.0 of the Azure Search .NET SDK is available on NuGet. We are working on this article to explain how to upgrade to 9.0. 
-> 
-
 <!--- DETAILS in the word doc
 cosmosdb
 NER v1 skill 
@@ -146,6 +142,6 @@ If your application has a hard dependency on these features, you will not be abl
 ## Conclusion
 If you need more details on using the Azure Search .NET SDK, see the [.NET How-to](search-howto-dotnet-sdk.md).
 
-We welcome your feedback on the SDK. If you encounter problems, feel free to ask us for help on the [Azure Search MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). If you find a bug, you can file an issue in the [Azure .NET SDK GitHub repository](https://github.com/Azure/azure-sdk-for-net/issues). Make sure to prefix your issue title with "[Azure Search]".
+We welcome your feedback on the SDK. If you encounter problems, feel free to ask us for help on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). If you find a bug, you can file an issue in the [Azure .NET SDK GitHub repository](https://github.com/Azure/azure-sdk-for-net/issues). Make sure to prefix your issue title with "[Azure Search]".
 
 Thank you for using Azure Search!

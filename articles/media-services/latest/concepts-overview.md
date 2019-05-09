@@ -132,7 +132,7 @@ You can use Azure Media Player to play back media content streamed by Media Serv
 
 - [Azure Media Player overview](use-azure-media-player.md)
 
-## Provide feedback
+## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 

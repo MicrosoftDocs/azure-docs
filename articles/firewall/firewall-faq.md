@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 4/17/2019
+ms.date: 5/3/2019
 ms.author: victorh
 ---
 
@@ -118,11 +118,9 @@ Yes. However, configuring the UDRs to redirect traffic between subnets in the sa
 
 Forced tunneling is not supported by default, but it can be enabled with help from Support.
 
-Azure Firewall must have direct Internet connectivity. By default, AzureFirewallSubnet has a 0.0.0.0/0 route with the NextHopType value set to **Internet**.
+Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity. By default, Azure Firewall doesn't support forced tunneling to an on-premises network.
 
-If you enable forced tunneling to on-premises via ExpressRoute or VPN Gateway, you may need to explicitly configure a 0.0.0.0/0 user defined route (UDR) with the NextHopType value set as Internet and associate it with your AzureFirewallSubnet. This overrides a potential default gateway BGP advertisement back to your on-premises network.
-
-If your organization requires forced tunneling for Azure Firewall to direct default gateway traffic back through your on-premises network, contact Support. We can whitelist your subscription to ensure the required firewall Internet connectivity is maintained.
+However, if your configuration requires forced tunneling to an on-premises network, Microsoft will support it on a case by case basis. Contact Support so that we can review your case. If accepted, we'll whitelist your subscription and ensure the required firewall Internet connectivity is maintained.
 
 ## Are there any firewall resource group restrictions?
 
