@@ -25,6 +25,7 @@ In this tutorial, you learn how to:
 > * Create a function in Azure
 > * Generate an OpenAPI definition using Azure API Management
 > * Test the definition by calling the function
+> * Download the OpenAPI definition
 
 ## Create a function app
 
@@ -190,6 +191,7 @@ If your API works as expected, you can download the OpenAPI definition.
 
 ## Next steps
 
+You have used API Management integration to generate an OpenAPI definition of your functions. You can now edit the definition in API Management in the portal. You can also [learn more about API Management](../api-management/api-management-key-concepts.md).
+
 > [!div class="nextstepaction"]
-> [Learn more about API Management](../api-management/api-management-key-concepts.md)
 > [Edit the OpenAPI definition in API Management](../api-management/edit-api.md)
