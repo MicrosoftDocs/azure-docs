@@ -4,7 +4,7 @@ description: Learn how to manage indexing policies in Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
 ---
 
@@ -157,7 +157,7 @@ response = client.ReplaceContainer(containerPath, container)
 Here are some examples of indexing policies shown in their JSON format, which is how they are exposed on the Azure portal. The same parameters can be set through the Azure CLI or any SDK.
 
 ### Opt-out policy to selectively exclude some property paths
-
+```
     {
         "indexingPolicy": "consistent",
         "includedPaths": [
@@ -188,9 +188,10 @@ Here are some examples of indexing policies shown in their JSON format, which is
             }
         ]
     }
+```
 
 ### Opt-in policy to selectively include some property paths
-
+```
     {
         "indexingPolicy": "consistent",
         "includedPaths": [
@@ -219,11 +220,12 @@ Here are some examples of indexing policies shown in their JSON format, which is
             }
         ]
     }
+```
 
 Note: It is generally recommended to use an **opt-out** indexing policy to let Azure Cosmos DB proactively index any new property that may be added to your model.
 
 ### Using a spatial index on a specific property path only
-
+```
     {
         "indexingPolicy": "consistent",
         "includedPaths": [
@@ -252,11 +254,12 @@ Note: It is generally recommended to use an **opt-out** indexing policy to let A
         ],
         "excludedPaths": []
     }
+```
 
 ### Excluding all property paths but keeping indexing active
 
 This policy can be used in situations where the [Time-to-Live (TTL) feature](time-to-live.md) is active but no secondary index is required (to use Azure Cosmos DB as a pure key-value store).
-
+```
     {
         "indexingMode": "consistent",
         "includedPaths": [],
@@ -264,12 +267,130 @@ This policy can be used in situations where the [Time-to-Live (TTL) feature](tim
             "path": "/*"
         }]
     }
+```
 
 ### No indexing
-
+```
     {
         "indexingPolicy": "none"
     }
+```
+
+## Composite indexing policy examples
+
+In addition to including or excluding paths for individual properties, you can also specify a composite index. If you would like to perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](index-policy.md#composite-indexes) on those properties is required.
+
+### Composite index defined for (name asc, age desc):
+```
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+```
+
+This composite index would be able to support the following two queries:
+
+Query #1:
+```sql
+    SELECT *
+    FROM c
+    ORDER BY name asc, age desc    
+```
+
+Query #2:
+```sql
+    SELECT *
+    FROM c
+    ORDER BY name desc, age asc
+```
+
+### Composite index defined for (name asc, age asc) and (name asc, age desc):
+
+You can define multiple different composite indexes within the same indexing policy. 
+```
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"ascending"
+                }
+            ]
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+```
+
+### Composite index defined for (name asc, age asc):
+
+It is optional to specify the order. If not specified, the order is ascending.
+```
+{  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                },
+                {  
+                    "path":"/age",
+                }
+            ]
+        ]
+}
+```
 
 ## Next steps
 

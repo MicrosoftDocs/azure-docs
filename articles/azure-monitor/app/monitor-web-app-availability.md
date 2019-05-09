@@ -270,7 +270,7 @@ If your test must sign in using OAuth, the general approach is:
 
 ## Performance tests
 > [!NOTE]  
-> The cloud-based load testing service is deprecated. More information about the deprecation, the service availability, and alternative services can be found [here](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops).
+> The cloud-based load testing service is deprecated. More information about the deprecation, the service availability, and alternative services can be found [here](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
 
 You can run a load test on your website. Like the availability test, you can send either simple requests or multi-step requests from our points around the world. Unlike an availability test, many requests are sent, simulating multiple simultaneous users.
 

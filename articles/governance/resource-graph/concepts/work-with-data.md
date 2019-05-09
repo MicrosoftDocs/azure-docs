@@ -90,9 +90,20 @@ When **resultTruncated** is **true**, the **$skipToken** property is set in the 
 value is used with the same query and subscription values to get the next set of records that
 matched the query.
 
+The following examples show how to **skip** the first 3000 records and return the **first** 1000
+records after those skipped with Azure CLI and Azure PowerShell:
+
+```azurecli-interactive
+az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 3000
+```
+
 > [!IMPORTANT]
-> The query must **project** the **id** field in order for pagination to work. If it is missing from
-> the query, the REST API response won't include the **$skipToken**.
+> The query must **project** the **id** field in order for pagination to work. If it's missing from
+> the query, the response won't include the **$skipToken**.
 
 For an example, see [Next page query](/rest/api/azureresourcegraph/resources/resources#next_page_query)
 in the REST API docs.

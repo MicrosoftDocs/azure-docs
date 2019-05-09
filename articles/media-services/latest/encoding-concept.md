@@ -89,7 +89,7 @@ Media Services fully supports customizing all values in presets to meet your spe
 
 To scale media processing, see [Scale with CLI](media-reserved-units-cli-how-to.md).
 
-## Provide feedback
+## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 

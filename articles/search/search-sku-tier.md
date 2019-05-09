@@ -7,7 +7,7 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---

@@ -21,7 +21,7 @@ ms.author: cynthn
 
 You can create multiple virtual machines (VMs) from an Azure managed VM image using the Azure portal or PowerShell. A managed VM image contains the information necessary to create a VM, including the OS and data disks. The virtual hard disks (VHDs) that make up the image, including both the OS disks and any data disks, are stored as managed disks. 
 
-Before creating a new VM, you'll need to [create a managed VM image](capture-image-resource.md) to use as the source image. 
+Before creating a new VM, you'll need to [create a managed VM image](capture-image-resource.md) to use as the source image and grant read access on the image to any user who should have access to the image. 
 
 
 ## Use the portal

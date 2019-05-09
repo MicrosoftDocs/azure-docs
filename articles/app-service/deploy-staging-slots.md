@@ -262,6 +262,8 @@ To let users opt in to your beta app, set the same query parameter to the name o
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
 
+By default, new slots are given a routing rule of `0%`, shown in grey. By explicitly setting this value to `0%` (shown in black text), your users can access the staging slot manually by using the `x-ms-routing-name` query parameter, but they will not be routed to the slot automatically since the routing percentage is set to 0. This is an advanced scenario where you can "hide" your staging slot from the public while allowing internal teams to test changes on the slot.
+
 <a name="Delete"></a>
 
 ## Delete slot

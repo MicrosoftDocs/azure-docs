@@ -60,7 +60,7 @@ Configuration parameters are provided as JSON:
 ```json
 {
   "recordingsUrl": "<URL to the Azure blob to transcribe>",
-  "models": ["<optional acoustic model ID>, <optional language model ID>"],
+  "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
   "locale": "<local to us, for example en-US>",
   "name": "<user define name of the transcription batch>",
   "description": "<optional description of the transcription>",

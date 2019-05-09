@@ -1,16 +1,16 @@
 ---
-title: Connect to Azure Database for PostgreSQL using Go language
-description: This quickstart provides a Go programming language sample you can use to connect and query data from Azure Database for PostgreSQL.
+title: Use Go language to connect to Azure Database for PostgreSQL - Single Server
+description: This quickstart provides a Go programming language sample you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 5/6/2019
 ---
 
-# Azure Database for PostgreSQL: Use Go language to connect and query data
+# Azure Database for PostgreSQL - Single Server: Use Go language to connect and query data
 This quickstart demonstrates how to connect to an Azure Database for PostgreSQL using code written in the [Go](https://golang.org/) language (golang). It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes you are familiar with development using Go, but that you are new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites
