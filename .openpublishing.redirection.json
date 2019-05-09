@@ -4001,6 +4001,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/app-service/overview-compare.md",
+      "redirect_url": "/azure/architecture/guide/technology-choices/compute-decision-tree",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service/containers/tutorial-ruby-mysql-app.md",
       "redirect_url": "/azure/app-service/containers/tutorial-ruby-postgres-app",
       "redirect_document_id": false
@@ -5807,12 +5812,12 @@
     },
     {
       "source_path": "articles/app-service-web/choose-web-site-cloud-service-vm.md",
-      "redirect_url": "/azure/app-service/overview-compare",
+      "redirect_url": "/azure/architecture/guide/technology-choices/compute-decision-tree",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service/choose-web-site-cloud-service-vm.md",
-      "redirect_url": "/azure/app-service/overview-compare",
+      "redirect_url": "/azure/architecture/guide/technology-choices/compute-decision-tree",
       "redirect_document_id": false
     },
     {
