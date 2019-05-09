@@ -27,7 +27,7 @@ ms.author: b-juche
 
 1. Submit a waitlist request for accessing the Azure NetApp Files service through the [Azure NetApp Files waitlist submission page](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u). 
 
-Waitlist signup does not guarantee immediate service access. 
+    Waitlist signup does not guarantee immediate service access. 
 
 2. Wait for an official confirmation email from the Azure NetApp Files team before continuing with other tasks. 
 
