@@ -7,7 +7,7 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -84,7 +84,7 @@ Charges do apply for outbound data if services are in different regions. These c
 
 ### 3. AI-enriched indexing with Cognitive Services
 
-For [AI indexing with Cognitive Services](cognitive-search-concept-intro.md), you should plan to attach a billable Azure Cognitive Services resource at the S0 pricing tier for pay-as-you-go processing. There's no fixed cost associated with attaching Cognitive Services. You pay only for the processing you need.
+For [AI indexing with Cognitive Services](cognitive-search-concept-intro.md), you should plan to attach a billable Azure Cognitive Services resource, in the same region as Azure Search, at the S0 pricing tier for pay-as-you-go processing. There's no fixed cost associated with attaching Cognitive Services. You pay only for the processing you need.
 
 Image extraction during document cracking is an Azure Search charge. It's billed according to the number of images extracted from your documents. Text extraction is currently free.
 
@@ -137,7 +137,7 @@ In Azure Search, capacity is structured as *replicas* and *partitions*.
 
 ### More about service limits
 
-Services host resources like indexes and indexers. Each tier imposes [service limits](search-limits-quotas-capacity.md) on the number of resources you can create. So the maximum number of indexes (and other objects) is the second differentiating feature among tiers. As you review each option in the portal, note the limits on the number of indexes. Other resources, like indexers, data sources, and skillsets, are pegged to index limits.
+Services host resources like indexes and indexers. Each tier imposes [service limits](search-limits-quotas-capacity.md) on the number of resources you can create. So the maximum number of indexes (and other objects) is the second differentiating feature among tiers. As you review each option in the portal, note the limits on the number of indexes. Other resources, like indexers, data sources, and skillsets, are affixed to index limits.
 
 ## Consumption patterns
 

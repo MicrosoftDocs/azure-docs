@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: luisca
 ms.custom: seodec2018
 ---
@@ -44,7 +44,7 @@ Free (Limited enrichments) resources are restricted to 20 documents per day, per
 
 ## Use billable resources
 
-For workloads numbering more than 20 enrichments per day, you need to attach a billable Cognitive Services resource.
+For workloads that create more than 20 enrichments per day, you need to attach a billable Cognitive Services resource.
 
 You're charged only for skills that call the Cognitive Services APIs. You're not billed for [custom skills](cognitive-search-create-custom-skill-example.md),  or skills like [text merger](cognitive-search-skill-textmerger.md), [text splitter](cognitive-search-skill-textsplit.md), and [shaper](cognitive-search-skill-shaper.md), which aren't API-based.
 
@@ -54,7 +54,7 @@ You're charged only for skills that call the Cognitive Services APIs. You're not
 
    ![Create a Cognitive Services resource](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Create a Cognitive Services resource")
 
-1. In the **Location** list, select the region where your Azure Search service is located to avoid outbound bandwidth charges across regions.
+1. In the **Location** list, select the region where your Azure Search service is located. You need to use this region for performance reasons. Using this region also voids outbound bandwidth charges across regions.
 
 1. In the **Pricing tier** list, select **S0** to get the all-in-one collection of Cognitive Services features, including the Vision and Language features that back the predefined skills used by Azure Search.
 
@@ -137,7 +137,7 @@ To estimate the costs associated with cognitive search indexing, start with an i
 
 Assume a pipeline that consists of document cracking of each PDF, image and text extraction, optical character recognition (OCR) of images, and entity recognition of organizations.
 
-In this exercise, we're using the most expensive price per transaction. Actual costs could be lower because of graduated pricing. See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services).
+The prices shown in this article are hypothetical. They're used to illustrate the estimation process. Your costs could be lower. For the actual prices of transactions, see See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services).
 
 1. For document cracking with text and image content, text extraction is currently free. For 6,000 images, assume $1 for every 1,000 images extracted. That's a cost of $6.00 for this step.
 

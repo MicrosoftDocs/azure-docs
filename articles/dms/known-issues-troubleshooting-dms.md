@@ -10,12 +10,12 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 05/09/2019
 ---
 
 # Troubleshoot common Azure Database Migration Service issues and errors
 
-This article describes some common issues and errors that Azure Database Migration Service users can come across when using the service, along information about how to resolve them.
+This article describes some common issues and errors that Azure Database Migration Service users can come across. The article also includes information about how to resolve these issues and errors.
 
 ## Migration activity in queued state
 
@@ -23,13 +23,13 @@ When you create new activities on Azure Database Migration Service project, the 
 
 | Cause         | Resolution |
 | ------------- | ------------- |
-| This issue happens when the Azure Database Migration Service instance has reached maximum capacity for ongoing tasks that concurrently run. Any new activity is queued until the capacity becomes available. | Validate the Data Migration Service instance has running activities across projects. You can continue to create new activities that automatically get added to the queue for execution. As soon as any of the existing running activities complete, the next queued activity starts running and the status changes to running state automatically. You don't need to perform any additional action to start migration of queued activity.<br> |
+| This issue happens when the Azure Database Migration Service instance has reached maximum capacity for ongoing tasks that concurrently run. Any new activity is queued until the capacity becomes available. | Validate the Data Migration Service instance has running activities across projects. You can continue to create new activities that automatically get added to the queue for execution. As soon as any of the existing running activities complete, the next queued activity starts running and the status changes to running state automatically. You don't need to take any additional action to start migration of queued activity.<br> |
 
 ## Max number of databases selected for migration
 
-You come across the following error when creating an activity for database migration project from source to the destination of Azure SQL Database or an Azure SQL Database managed instance:
+The following error occurs when creating an activity for a database migration project for moving to Azure SQL Database or an Azure SQL Database managed instance:
 
-    * **Error**: Migration settings validation error", "errorDetail":"More than max number '4' objects of 'Databases' has been selected for migration."
+* **Error**: Migration settings validation error", "errorDetail":"More than max number '4' objects of 'Databases' has been selected for migration."
 
 | Cause         | Resolution |
 | ------------- | ------------- |
@@ -39,7 +39,7 @@ You come across the following error when creating an activity for database migra
 
 When you migrate from MySQL to Azure Database for MySQL using Azure Database Migration Service, the migration activity fails with the following error:
 
-    * **Error**: Error: Database migration error - Task 'TaskID' was suspended due to [n] successive recovery failures.
+* **Error**: Error: Database migration error - Task 'TaskID' was suspended due to [n] successive recovery failures.
 
 | Cause         | Resolution |
 | ------------- | ------------- |
@@ -49,17 +49,17 @@ When you migrate from MySQL to Azure Database for MySQL using Azure Database Mig
 
 You receive following error when stopping the Azure Database Migration Service instance:
 
-    * **Error**: Service failed to Stop. Error: {'error':{'code':'InvalidRequest','message':'One or more activities are currently running. To stop the service, please wait until the activities have completed or stop those activities manually and try again.'}}
+* **Error**: Service failed to Stop. Error: {'error':{'code':'InvalidRequest','message':'One or more activities are currently running. To stop the service,  wait until the activities have completed or stop those activities manually and try again.'}}
 
 | Cause         | Resolution |
 | ------------- | ------------- |
-| This error displays when you have activities that may be running or present in the projects under the service being attempted to stop. <br><br><br><br><br><br> | Make sure the Azure Database Migration Service instance being stopped has no running activities. You may also delete the activities or projects before attempting to stop the service. The following steps illustrate how to remove projects to clean up the migration service instance by deleting all running tasks:<br>1. Install-Module -Name AzureRM.DataMigration <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription -SubscriptionName "<subName>" <br> 4. Remove-AzureRmDataMigrationProject -Name <projectName> -ResourceGroupName <rgName> -ServiceName <serviceName> -DeleteRunningTask |
+| This error displays when the service instance you're attempting to stop includes activities that are still running or present in migration projects. <br><br><br><br><br><br> | Ensure that there are no activities running in the instance of Azure Database Migration Service you're trying to stop. You may also delete the activities or projects before attempting to stop the service. The following steps illustrate how to remove projects to clean up the migration service instance by deleting all running tasks:<br>1. Install-Module -Name AzureRM.DataMigration <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription -SubscriptionName "<subName>" <br> 4. Remove-AzureRmDataMigrationProject -Name <projectName> -ResourceGroupName <rgName> -ServiceName <serviceName> -DeleteRunningTask |
 
 ## Error restoring database while migrating from SQL Server to an Azure SQL Database managed instance
 
 When you perform an online migration from SQL Server to an Azure SQL Database managed instance, the cutover fails with following error:
 
-    * **Error**: Restore Operation failed for operation Id 'operationId'. Code 'AuthorizationFailed', Message 'The client 'clientId' with object id 'objectId' does not have authorization to perform action 'Microsoft.Sql/locations/managedDatabaseRestoreAzureAsyncOperation/read' over scope '/subscriptions/subscriptionId'.'.
+* **Error**: Restore Operation failed for operation Id 'operationId'. Code 'AuthorizationFailed', Message 'The client 'clientId' with object id 'objectId' does not have authorization to perform action 'Microsoft.Sql/locations/managedDatabaseRestoreAzureAsyncOperation/read' over scope '/subscriptions/subscriptionId'.'.
 
 | Cause         | Resolution    |
 | ------------- | ------------- |
@@ -69,7 +69,7 @@ When you perform an online migration from SQL Server to an Azure SQL Database ma
 
 When you try to delete a Network Interface Card associated with Azure Database Migration Service, the deletion attempt fails with this error:
 
-    * **Error**: Cannot delete the NIC associated to Azure Database Migration Service due to the DMS service utilizing the NIC
+* **Error**: Cannot delete the NIC associated to Azure Database Migration Service due to the DMS service utilizing the NIC
 
 | Cause         | Resolution    |
 | ------------- | ------------- |
@@ -91,7 +91,7 @@ When you migrate a MySQL database to an Azure Database for MySQL instance via Az
 
 | Cause         | Resolution    |
 | ------------- | ------------- |
-| This error occurs when migration fails because of  the lock wait timeout during migration.<br><br> | Consider increasing the value of server parameter `'innodb_lock_wait_timeout'`. The highest allowed value is 1073741824. |
+| This error occurs when migration fails because of  the lock wait timeout during migration.<br><br> | Consider increasing the value of server parameter **'innodb_lock_wait_timeout'**. The highest allowed value is 1073741824. |
 
 ## Additional known issues
 
