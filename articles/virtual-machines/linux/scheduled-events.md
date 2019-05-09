@@ -43,7 +43,7 @@ With Scheduled Events, your application can discover when maintenance will occur
 
 Scheduled Events provides events in the following use cases:
 
-- [Platform initiated maintenance](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/maintenance-and-updates) (for example, VM reboot, live migration or memory preserving updates for host)
+- [Platform initiated maintenance](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (for example, VM reboot, live migration or memory preserving updates for host)
 - Degraded hardware
 - User-initiated maintenance (for example, a user restarts or redeploys a VM)
 - [Low-Priority VM eviction](https://azure.microsoft.com/blog/low-priority-scale-sets) in scale sets
