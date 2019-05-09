@@ -115,7 +115,7 @@ creation time) for both Kubenet and Azure CNI, shown below:
 | Azure CNI | 30 | 250 |
 | Kubenet | 30 | 110 |
 
-As AKS is a managed service, we provide addons and pods we deploy and manage as part of the cluster. However in the past, users could define a `maxPods` value lower than the value required for the managed pods to run (example: 30), AKS now calculates the minimum number of
+As AKS is a managed service, we provide addons and pods we deploy and manage as part of the cluster. In the past, users could define a `maxPods` value lower than the value required for the managed pods to run (example: 30), AKS now calculates the minimum number of
 pods via: ((maxPods or (maxPods * vm_count)) > managed add-on pods minimum.
 
 Users may not override the minimum `maxPods` validation.
