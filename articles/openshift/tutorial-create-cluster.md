@@ -7,7 +7,7 @@ ms.author: twhitney
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
-ms.date: 05/08/2019
+ms.date: 05/09/2019
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 
@@ -49,7 +49,7 @@ az login
 
 ## Step 2: Create an Azure Red Hat OpenShift cluster
 
-In your Bash command window, set the following variables:
+In a Bash command window, set the following variables:
 
 > [!IMPORTANT]
 > The name of your cluster must be all lowercase or cluster creation will fail.
@@ -70,6 +70,12 @@ Set  `APPID` to the value you saved in step 9 of [Create a new app registration]
 
 ```bash
 APPID=<app ID value>
+```
+
+Set 'GROUPID' to the value you saved in step 11 of [Create an Azure AD security group](howto-aad-app-configuration.md#create-an-azure-ad-security-group).
+
+```bash
+GROUPID=<group ID value>
 ```
 
 Set `SECRET` to the value you saved in step 6 of [Create a client secret](howto-aad-app-configuration.md#create-a-client-secret).  

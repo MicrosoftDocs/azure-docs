@@ -95,11 +95,11 @@ The Azure Red Hat OpenShift service requires an associated Azure Active Director
 
 If you don't have an Azure AD to use as the tenant for your Azure Red Hat OpenShift cluster, or you wish to create a tenant for testing, follow the instructions in [Create an Azure AD tenant for your Azure Red Hat OpenShift cluster](howto-create-tenant.md) before continuing with this guide.
 
-## Create an Azure AD application object and user
+## Create an Azure AD user, security group and application object
 
-Azure Red Hat OpenShift requires permissions to perform tasks on your cluster, such as configuring storage. These permissions are represented through a [service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) and are created when you register an Azure AD application representing the workload you intend to host on Azure Red Hat OpenShift. You'll also want to create a new Active Directory user for testing apps running on your Azure Red Hat OpenShift cluster.
+Azure Red Hat OpenShift requires permissions to perform tasks on your cluster, such as configuring storage. These permissions are represented through a [service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object). You'll also want to create a new Active Directory user for testing apps running on your Azure Red Hat OpenShift cluster.
 
-Follow the instructions in [Create an Azure AD app object and user](howto-aad-app-configuration.md) to learn how to create a service principal, generate a client secret and authentication callback URL for your app, and create a new Active Directory user for testing.
+Follow the instructions in [Create an Azure AD app object and user](howto-aad-app-configuration.md) to create a service principal, generate a client secret and authentication callback URL for your app, and create a new Azure AD security group and user to access the cluster.
 
 ## Next steps
 
