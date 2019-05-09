@@ -91,7 +91,7 @@ Proactive CPU monitoring provides you an easy, proactive way to take an action w
 
 ### Proactive auto-healing
 
-Like proactive CPU monitoring, proactive auto-healing offers an easy, proactive approach to mitigating unexpected behavior of your app. You can set your own rules based on request count, slow request, memory limit, and HTTP status code to trigger mitigation actions. This tool can be used to temporarily mitigate an unexpected behavior until the real cause for the issue is found. For more information on proactive auto-healing, please visit [Announcing the New Auto-Healing Experience in App Service Diagnostics](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
+Like proactive CPU monitoring, proactive auto-healing offers an easy, proactive approach to mitigating unexpected behavior of your app. You can set your own rules based on request count, slow request, memory limit, and HTTP status code to trigger mitigation actions. This tool can be used to temporarily mitigate an unexpected behavior until the real cause for the issue is found. For more information on proactive auto-healing, visit [Announcing the new auto healing experience in app service diagnostics](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
 
 ![Proactive auto-healing](./media/app-service-diagnostics/proactiveautohealing9.png)
 
@@ -103,4 +103,4 @@ In a fast-paced development environment, sometimes it may be difficult to keep t
 
 ![Diff view](./media/app-service-diagnostics/diffview11.png)
 
-Change analysis has to be enabled before using the feature. For more information on change analysis, please visit [Announcing the new change analysis experience in App Service Diagnostics](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
+Change analysis has to be enabled before using the feature. For more information on change analysis, visit [Announcing the new change analysis experience in App Service Diagnostics](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
