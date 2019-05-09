@@ -18,6 +18,9 @@ In Azure Cosmos DB, data is indexed following [indexing policies](index-policy.m
 
 An [indexing policy update](index-policy.md#modifying-the-indexing-policy) triggers an index transformation. The progress of this transformation can also be tracked from the SDKs.
 
+> [!NOTE]
+> Some Azure Cosmos containers will have a new indexing policy object when viewed through the portal or accessed through the latest sdk versions. This change has no impact on performance and you can continue to update indexing policy using the same syntax. You can continue to use all samples in our existing documentation to update indexing policy.
+
 ## Use the Azure portal
 
 Azure Cosmos containers store their indexing policy as a JSON document that the Azure portal lets you directly edit.
