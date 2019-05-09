@@ -21,6 +21,8 @@ ms.author: b-juche
 > [!IMPORTANT] 
 > Before registering the Azure NetApp Files resource provider, you must have received an email from the Azure NetApp Files team confirming that you have been granted access to the service. 
 
+In this article, learn how to register for Azure NetApp Files so that you can begin to use the service.
+
 ## <a name="waitlist"></a>Submit a waitlist request for accessing the service
 
 1. Submit a waitlist request for accessing the Azure NetApp Files service through the [Azure NetApp Files waitlist submission page](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u). 
