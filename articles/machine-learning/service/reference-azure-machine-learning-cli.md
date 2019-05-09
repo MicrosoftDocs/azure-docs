@@ -82,9 +82,12 @@ The following commands demonstrate how to use the CLI to manage resources used b
     For more information, see [az ml workspace create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create).
 
 + Attach a workspace configuration to a folder to enable CLI contextual awareness.
+
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
+
+    This command creates a `.azureml` subdirectory that contains example runconfig and conda environment files. It also contains a `config.json` file that is used to communicate with your Azure Machine Learning workspace.
 
     For more information, see [az ml folder attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
 
@@ -116,6 +119,11 @@ The following commands demonstrate how to use the CLI to manage resources used b
 ## <a id="experiments"></a>Run experiments
 
 * Start a run of your experiment. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you are looking at your file system) against the -c parameter.
+
+    > [!TIP]
+    > The `az ml folder attach` command creates a `.azureml` subdirectory, which contains two example runconfig files. 
+    >
+    > If you have a Python script that creates a run configuration object programmatically, you can use [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) to save it as a runconfig file.
 
     ```azurecli-interactive
     az ml run submit-script -c sklearn -e testexperiment train.py
@@ -154,6 +162,21 @@ The following commands demonstrate how to register a trained model, and then dep
 
     ```azurecli-interactive
     az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
+    ```
+
+    The following is an example `inferenceconfig.json` document:
+
+    ```json
+{
+   "entryScript": "score.py",
+   "runtime": "python",
+   "condaFile": "myenv.yml",
+   "extraDockerfileSteps": null,
+   "sourceDirectory": null,
+   "enableGpu": false,
+   "baseImage": null,
+   "baseImageRegistry": null
+}
     ```
 
     For more information, see [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy).
