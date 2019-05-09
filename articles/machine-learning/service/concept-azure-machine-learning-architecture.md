@@ -1,7 +1,7 @@
 ---
 title: 'Architecture & key concepts'
 titleSuffix: Azure Machine Learning service
-description: Learn about the architecture, terms, concepts and workflow that make up Azure Machine Learning service.
+description: Learn about the architecture, terms, concepts, and workflow that make up Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
