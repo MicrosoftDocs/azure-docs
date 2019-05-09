@@ -1,5 +1,5 @@
 ---
-title: Migrate Java Enterprise Edition Apps to Azure | Microsoft Docs
+title: Migrate Java Enterprise Edition apps to Azure | Microsoft Docs
 description: Learn about one of the ways you can migrate your Java Enterprise Edition (EE) apps to Azure 
 services: service-bus-messaging
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: asirveda
 
 ---
 
-# Migrate Java Enterprise Edition (EE) Apps to Azure
+# Migrate Java enterprise edition (EE) apps to Azure
 This article walks you through the process of migrating existing Java EE workloads to Azure:
  
-- Java enterprise apps (message driven enterprise beans) to [Azure App Service on Linux](../app-service/containers/app-service-linux-intro.md)
+- Java enterprise apps (message-driven enterprise beans) to [Azure App Service on Linux](../app-service/containers/app-service-linux-intro.md)
 - App's messaging subsystem to Azure Service Bus
 - Use Web Sockets for interactive Java workloads 
 
@@ -30,27 +30,27 @@ This article walks you through the process of migrating existing Java EE workloa
 * [Prerequisites](#prerequisites)
 * [Get started](#get-started)
     * [Clone the Git repository and Prep](#clone-and-prepare-the-git-repository)
-* [Build Sample Archive](#build-sample-archive)
-* [Build Console App - send and receive messages to Service Bus using Java Message Service (JMS)](#build-and-run-console-app-to-send-and-receive-messages)
-    * [Create and Configure Azure Service Bus](#create-and-configure-azure-service-bus)
-    * [Build and Run Console App](#build-and-run-the-console-app)
-* [Migrate a message driven enterprise bean to Azure](#migrate-a-message-driven-enterprise-bean-to-azure)
-    * [Prepare Environment](#prepare-environment)
-    * [Deploy App to App Service Linux](#deploy-app-to-app-service-linux)
-    * [Configure JMS Resource Adapter ( JMS RA)](#configure-jms-resource-adapter-jms-ra)
-    * [Understand How to configure WildFly](#understand-how-to-configure-wildfly)
-    * [Upload Startup and Binary Artifacts to App through FTP](#upload-startup-and-binary-artifacts-to-app-through-ftp)
-        * [Get FTP Deployment Credentials](#get-ftp-deployment-credentials)
-        * [Upload Startup and Binary Artifacts to App through FTP](#upload-startup-and-binary-artifacts-to-app-through-ftp)
-    * [Test the JBoss/WildFly Startup Script and CLI Commands to Configure JMS RA](#test-the-jbosswildfly-startup-script-and-cli-commands-to-configure-jms-ra)
+* [Build the sample archive](#build-the-sample-archive)
+* [Build console app - send and receive messages to Service Bus using Java Message Service (JMS)](#build-and-run-console-app-to-send-and-receive-messages)
+    * [Create and configure Azure Service Bus](#create-and-configure-azure-service-bus)
+    * [Build and run the console app](#build-and-run-the-console-app)
+* [Migrate a message-driven enterprise bean to Azure](#migrate-a-message--driven-enterprise-bean-to-azure)
+    * [Prepare environment](#prepare-environment)
+    * [Deploy an app to App Service Linux](#deploy-an-app-to-app-service-linux)
+    * [Configure the JMS Resource Adapter ( JMS RA)](#configure-the-jms-resource-adapter-jms-ra)
+    * [Understand how to configure WildFly](#understand-how-to-configure-wildfly)
+    * [Upload startup and binary artifacts to app through FTP](#upload-startup-and-binary-artifacts-to-app-through-ftp)
+        * [Get FTP deployment credentials](#get-ftp-deployment-credentials)
+        * [Upload startup and binary artifacts to app through FTP](#upload-startup-and-binary-artifacts-to-app-through-ftp)
+    * [Test the JBoss/WildFly startup script and CLI commands to configure JMS RA](#test-the-jbosswildfly-startup-script-and-cli-commands-to-configure-jms-ra)
         * [Test the startup.sh script](#test-the-startupsh-script)
     * [Restart the remote WildFly app server](#restart-the-remote-wildfly-app-server)
     * [Stream WildFly/JBoss logs to a dev machine](#stream-wildflyjboss-logs-to-a-dev-machine)
-    * [Open the Message-Driven Enterprise Bean on Azure](#open-the-message-driven-enterprise-bean-on-azure)
+    * [Open the Message-Driven enterprise bean on Azure](#open-the-message-driven-enterprise-bean-on-azure)
     * [Additional Info](#additional-information)
 * [Migrate Java Enterprise App that uses WebSockets](#migrate-java-ee-app-that-uses-websockets)
-    * [Deploy App to App Service Linux](#deploy-app-to-app-service-linux)
-    * [Open the Migrated App on App Service Linux](#open-the-migrated-app-on-app-service-linux)
+    * [Deploy an app to App Service Linux](#deploy-an-app-to-app-service-linux)
+    * [Open the migrated app on App Service Linux](#open-the-migrated-app-on-app-service-linux)
 * [Next steps](#next-steps)
 
 ## What you will migrate to cloud
@@ -84,7 +84,7 @@ cd migrate-Java-EE-app-to-azure-2
 yes | cp -rf .prep/* .
 ```
 
-## Build Sample Archive
+## Build the sample archive
 Build the sample archive using Maven. This step will take a few minutes.
 
 ```bash
@@ -363,7 +363,7 @@ INFO: Received message with content Hello, World!
 [INFO] Final Memory: 33M/401M
 [INFO] ------------------------------------------------------------------------
 ```
-## Migrate a message driven enterprise bean to Azure
+## Migrate a message-driven enterprise bean to Azure
 
 ### Prepare environment
 
@@ -386,7 +386,7 @@ the previous exercise `../helloworld-jms/.scripts/set-env-variables.sh` and add 
     source .scripts/set-env-variables.sh
     ```
 
-### Deploy app to Azure App Service on Linux
+### Deploy an app to Azure App Service on Linux
 
 1. Add [Maven Plugin for Azure App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) configuration to POM.xml and deploy message-driven bean to WildFly in App Service on Linux:
 
@@ -500,7 +500,7 @@ the previous exercise `../helloworld-jms/.scripts/set-env-variables.sh` and add 
 
     ```
 
-### Configure JMS resource adapter (JMS RA)
+### Configure the JMS resource adapter (JMS RA)
 There are a few steps to configure a JMS RA that will enable Java EJBs to configure a remote JMS connection factory and queue. This remote setup will point to Azure Service Bus, using the [Apache Qpid JMS Provider](https://qpid.apache.org/components/jms/index.html) for the AMQP protocol. 
 
 #### Understand How to configure WildFly
@@ -508,7 +508,7 @@ There are a few steps to configure a JMS RA that will enable Java EJBs to config
 In App Service, each instance of an app server is stateless. Therefore, each instance must be configured on startup to support a Wildfly configuration needed by your application. You can configure at 
 startup by supplying a startup Bash script that calls [JBoss/WildFly CLI commands](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) to set up data sources, messaging providers, and any other dependencies. You'll create a startup.sh script and place it in the `/home`  directory of the Web app. The script will:
  
-1. Install a WildFly Generic JMS Provider Module and Configure JMS RA. A `module.xml` describes the Generic JMS Provider Module:
+1. Install a WildFly Generic JMS provider module and configure the JMS RA. A `module.xml` describes the Generic JMS Provider Module:
 
     ```xml
     <module xmlns="urn:jboss:module:1.1" name="org.jboss.genericjms.provider"> 
@@ -770,7 +770,7 @@ Open an FTP connection to App Service on Linux to upload artifacts:
     12244 bytes sent in 00:00 (169.29 KiB/s)
     ```
 
-#### Test the JBoss/WildFly startup script and CLI Commands to configure JMS RA
+#### Test the JBoss/WildFly startup script and CLI commands to configure JMS RA
 
 You can test the Bash script for configuring data source by running them on App Service Linux by [opening an SSH connection from your development machine](../app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell):
 
@@ -937,9 +937,9 @@ Picked up _JAVA_OPTIONS: -Djava.net.preferIPv4Stack=true
 
 For additional info, refer to: 
  
- - [Deploying Generic JMS RA Adapter in JBoss/WildFly](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
+ - [Deploying Generic JMS RA Adapter in JBoss/WildFly](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
  - [JBoss/WildFly CLI Guide](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface)
- - [Open SSH session from your development machine to App Service Linux](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support#open-ssh-session-from-remote-shell)
+ - [Open SSH session from your development machine to App Service Linux](../app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell)
 
 ## Migrate Java EE app that uses WebSockets
 
@@ -961,7 +961,7 @@ Bash shell script template.
     source .scripts/set-env-variables.sh
     ```
 
-### Deploy app to App Service Linux
+### Deploy an app to App Service Linux
 
 1. Add [Maven Plugin for Azure App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) configuration to POM.xml and deploy Message-Driven Bean to WildFly in App Service Linux:
 
@@ -1070,10 +1070,10 @@ Congratulations! You migrated existing Java enterprise workloads to Azure: app t
 ## Next steps
 See the following articles: 
 
-- [Java Enterprise Guide for App Service on Linux](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-java-enterprise)
-- [Maven Plugin for Azure App Service](https://docs.microsoft.com/en-us/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable)
-- [Deploying Generic JMS RA Adapter in JBoss/WildFly](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
+- [Java Enterprise Guide for App Service on Linux](../app-service/containers/app-service-java-enterprise.md)
+- [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable)
+- [Deploying Generic JMS RA Adapter in JBoss/WildFly](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
 - [WildFly/JBoss Messaging Configuration](https://docs.jboss.org/author/display/WFLY/Messaging+configuration)
 - [JBoss/WildFly CLI Guide](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface)
-- [Opening an SSH connection from your development machine](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support#open-ssh-session-from-remote-shell)
-- [Azure for Java Developers](https://docs.microsoft.com/en-us/java/azure/)
+- [Opening an SSH connection from your development machine](../app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell)
+- [Azure for Java Developers](/java/azure/)
