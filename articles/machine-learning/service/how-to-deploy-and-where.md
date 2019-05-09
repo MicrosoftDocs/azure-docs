@@ -456,7 +456,7 @@ Azure Machine Learning Compute targets are created and managed by the Azure Mach
 For a walkthrough of batch inference with Azure Machine Learning Compute, read the [How to Run Batch Predictions](how-to-run-batch-predictions.md) article.
 
 ## <a id="iotedge"></a> Inference on IoT Edge
-Support for deploying to the edge is in preview. For more information, see the  [Deploy Azure Machine Learning as an IoT Edge module](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-machine-learning) article.
+Support for deploying to the edge is in preview. For more information, see the  [Deploy Azure Machine Learning as an IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) article.
 
 ## Next steps
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
