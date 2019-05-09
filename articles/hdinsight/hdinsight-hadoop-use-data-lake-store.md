@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/09/2019
 ---
 # Use Data Lake Storage Gen1 with Azure HDInsight clusters
 
@@ -215,7 +215,7 @@ if($addNewCertKeyCredential)
     $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
     New-AzADAppCredential -ApplicationId $appId -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
     Write-Host "Waiting for 30 seconds for the permissions to get propagated"
-    Start-Sleep -s 30
+    Start-Sleep -s 420 #7 minutes
 }
 
 Write-Host "Updating the certificate on HDInsight cluster..."
