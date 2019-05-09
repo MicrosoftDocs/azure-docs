@@ -102,8 +102,6 @@ You get credits to spend on Azure services. After they're used up, you can keep 
   + [Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md) 
   + [Prepare data and use automated machine learning to auto-train a regression model](tutorial-data-prep.md)
 
-- Use the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) to prepare your data.
-
 - Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.
 
 - Read the in-depth [Azure Machine Learning service architecture and concepts](concept-azure-machine-learning-architecture.md) article.
