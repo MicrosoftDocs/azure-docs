@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/06/2018
+ms.date: 05/06/2019
 ms.author: b-juche
 ---
 # Register for Azure NetApp Files
@@ -59,7 +59,7 @@ To use the service, you must register the Azure Resource Provider for Azure NetA
        
    `<SubID>` is your subscription ID.
 
-    If you do not see the feature name `Microsoft.NetApp/publicPreviewADC`, you do not have access to the service. Stop at this step. Follow instructions in [Submit a waitlist request for accessing the service](#waitlist) to request service access. 
+    If you do not see the feature name `Microsoft.NetApp/publicPreviewADC`, you do not have access to the service. Stop at this step. Follow instructions in [Submit a waitlist request for accessing the service](#waitlist) to request service access before continuing. 
 
 4. In the Azure Cloud Shell console, enter the following command to register the Azure Resource Provider: 
     
