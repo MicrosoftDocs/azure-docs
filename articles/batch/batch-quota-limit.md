@@ -100,7 +100,7 @@ Follow these steps to request a quota increase for your Batch account or your su
       
     a. In **Provide details**, specify the location, quota type, and Batch account.
     
-        ![Batch quota increase][quota_increase]
+    ![Batch quota increase][quota_increase]
 
     Note that the "Per batch account" quota type includes dedicated and low priority cores, active jobs, job schedules, and pools on a per Batch account basis.
 
