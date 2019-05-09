@@ -7,7 +7,7 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -84,7 +84,7 @@ Charges do apply for outbound data if services are in different regions. Such ch
 
 ### 3. AI-enriched indexing using Cognitive Services
 
-For [AI-indexing with Cognitive Services](cognitive-search-concept-intro.md), you should plan on attaching a billable Cognitive Services resource at the S0 pricing tier for pay-as-you-go processing. There is no "fixed cost" associated with attaching Cognitive Services. You pay only for the processing you need.
+For [AI-indexing with Cognitive Services](cognitive-search-concept-intro.md), you should plan on attaching a billable Cognitive Services resource, in the same region as Azure Search, at the S0 pricing tier for pay-as-you-go processing. There is no "fixed cost" associated with attaching Cognitive Services. You pay only for the processing you need.
 
 Image extraction during document cracking is an Azure Search charge, billed based on the number of images extracted from your documents. Text extraction is currently free. 
 

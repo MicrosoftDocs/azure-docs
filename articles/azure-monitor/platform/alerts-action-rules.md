@@ -137,11 +137,11 @@ From here, you can enable/disable/delete action rules at scale by selecting the 
 
 ## Best practices
 
-Log alerts created with the ['number of results'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option generate **a single alert instance** using the whole search result (which could be across multiple computers for example). In this scenario, if an action rule uses the 'Alert Context (payload)' filter, it will act on the alert instance as long as there is a match. In scenario 2 as described previously, if the search results for the log alert generated contain both 'Computer-01' and 'Computer-02', the entire notification is suppressed (that is, there is no notification generated for 'Computer-02' at all).
+Log alerts created with the ['number of results'](alerts-unified-log.md) option generate **a single alert instance** using the whole search result (which could be across multiple computers for example). In this scenario, if an action rule uses the 'Alert Context (payload)' filter, it will act on the alert instance as long as there is a match. In scenario 2 as described previously, if the search results for the log alert generated contain both 'Computer-01' and 'Computer-02', the entire notification is suppressed (that is, there is no notification generated for 'Computer-02' at all).
 
 ![Action rules and log alerts (number of results)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-To best leverage log alerts with action rules, we advise you to create log alerts with the ['metric measurement'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option. Using this option, separate alert instances are generated based on the Group Field defined. Then in scenario 2, separate alert instances are generated for 'Computer-01' and 'Computer-02'. With the action rule described in the scenario, only the notification for 'Computer-01' would be suppressed while the notification for 'Computer-02' would continue to fire as normal.
+To best leverage log alerts with action rules, we advise you to create log alerts with the ['metric measurement'](alerts-unified-log.md) option. Using this option, separate alert instances are generated based on the Group Field defined. Then in scenario 2, separate alert instances are generated for 'Computer-01' and 'Computer-02'. With the action rule described in the scenario, only the notification for 'Computer-01' would be suppressed while the notification for 'Computer-02' would continue to fire as normal.
 
 ![Action rules and log alerts (number of results)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
@@ -179,8 +179,8 @@ To best leverage log alerts with action rules, we advise you to create log alert
 
 * Q. What happens if I have a resource monitored in two separate action rules? Do I get one or two notifications? For example 'VM2' in this scenario:
 
-      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1' 
-      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1' 
+      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1'
+      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1'
 
     A. For every alert on 'VM1' and 'VM3', action group 'AG1' would be triggered once. For every alert on 'VM2', action group 'AG1' would be triggered twice (**action rules do not de-duplicate actions**). 
 
@@ -193,10 +193,10 @@ To best leverage log alerts with action rules, we advise you to create log alert
 
 * Q. What happens if I have an alert rule and an action rule defined for the same resource calling different action groups? For example, 'VM1' in this scenario:
 
-     alert rule  'rule1' on          'VM1' with action group 'AG2'
-     action rule 'AR1'   defined for 'VM1' with action group 'AG1',  
+      alert rule  'rule1' on          'VM1' with action group 'AG2'
+      action rule 'AR1'   defined for 'VM1' with action group 'AG1' 
  
-    A. For every alert on 'VM1', action group 'AG1' would be triggered once. Whenever alert rule 'rule1' is triggered, it will also trigger 'AG2' additionally. (**action groups defined within action rules and alert rules operate independently, with no de-duplication**) 
+    A. For every alert on 'VM1', action group 'AG1' would be triggered once. Whenever alert rule 'rule1' is triggered, it will also trigger 'AG2' additionally. **Action groups defined within action rules and alert rules operate independently, with no de-duplication**. 
 
 ## Next steps
 

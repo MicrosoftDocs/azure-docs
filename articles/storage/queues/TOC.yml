@@ -7,9 +7,6 @@
     href: storage-queues-introduction.md
 - name: Quickstarts
   items:
-  - name: Create a storage account
-    displayName: resource manager, resource manager template, template, ARM
-    href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Manage queues without code
     items:
     - name: Azure portal
@@ -94,8 +91,11 @@
         href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: How to
   items:
-  - name: Manage storage accounts
+  - name: Create and manage storage accounts
     items:
+    - name: Create a storage account
+      displayName: resource manager, resource manager template, template, ARM
+      href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Manage a storage account
       href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Upgrade a storage account

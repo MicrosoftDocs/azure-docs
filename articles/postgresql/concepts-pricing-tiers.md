@@ -1,14 +1,14 @@
 ---
-title: Pricing tiers for Azure Database for PostgreSQL
-description: This article describes the pricing tiers for Azure Database for PostgreSQL.
+title: Pricing tiers for Azure Database for PostgreSQL - Single Server
+description: This article describes the pricing tiers for Azure Database for PostgreSQL - Single Server.
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 5/6/2019
 ---
 
-# Azure Database for PostgreSQL pricing tiers
+# Pricing tiers in Azure Database for PostgreSQL - Single Server
 
 You can create an Azure Database for PostgreSQL server in one of three different pricing tiers: Basic, General Purpose, and Memory Optimized. The pricing tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the PostgreSQL server level. A server can have one or many databases.
 

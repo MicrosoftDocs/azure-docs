@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 04/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ---
@@ -189,30 +189,9 @@ Log files are an important resource when troubleshooting.
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
 
-
 #### Event logs
 
 You can find the Data Management Gateway and PowerBIGateway logs under **Application and Services Logs**.
-
-
-## <a name="telemetry"></a>Telemetry
-Telemetry can be used for monitoring and troubleshooting. By default
-
-**To turn on telemetry**
-
-1.	Check the On-premises data gateway client directory on the computer. Typically, it is **%systemdrive%\Program Files\On-premises data gateway**. Or, you can open a Services console and check the Path to executable: A property of the On-premises data gateway service.
-2.	In the Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config file from client directory. Change the SendTelemetry setting to true.
-        
-    ```
-        <setting name="SendTelemetry" serializeAs="String">
-                    <value>true</value>
-        </setting>
-    ```
-
-3.	Save your changes and restart the Windows service: On-premises data gateway service.
-
-
-
 
 ## Next steps
 * [Install and configure on-premises data gateway](analysis-services-gateway-install.md).   

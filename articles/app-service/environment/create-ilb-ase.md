@@ -129,8 +129,8 @@ After you create your ASE, the domain name shows the domain you specified. A new
 
 Your ILB ASE needs a valid SSL certificate. Use internal certificate authorities, purchase a certificate from an external issuer, or use a self-signed certificate. Regardless of the source of the SSL certificate, the following certificate attributes need to be configured properly:
 
-* **Subject**: This attribute must be set to *.your-root-domain-here.
-* **Subject Alternative Name**: This attribute must include both **.your-root-domain-here* and **.scm.your-root-domain-here*. SSL connections to the SCM/Kudu site associated with each app use an address of the form *your-app-name.scm.your-root-domain-here*.
+* **Subject**: This attribute must be set to *\.your-root-domain-here.
+* **Subject Alternative Name**: This attribute must include both *.your-root-domain-here* and *.scm.your-root-domain-here*. SSL connections to the SCM/Kudu site associated with each app use an address of the form *your-app-name.scm.your-root-domain-here*.
 
 Convert/save the SSL certificate as a .pfx file. The .pfx file must include all intermediate and root certificates. Secure it with a password.
 
