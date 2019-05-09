@@ -90,7 +90,7 @@ To configure Azure AD single sign-on with Workspot Control, follow these steps:
 
     ![Configure single sign-on link](common/select-sso.png)
 
-2. In the **Select a single sign-on method** window, select **SAML/WS-Fed** mode to enable single sign-on.
+2. In the **Select a single sign-on method** window, select **SAML** mode to enable single sign-on.
 
     ![Select a single sign-on select method window](common/select-saml-option.png)
 
