@@ -13,7 +13,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/09/2019
 ms.author: lahugh
 ms.custom: seodec18
 
@@ -144,4 +144,4 @@ These resources are allocated in the subscription that contains the virtual netw
 [support_sev]: https://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.png
-[quota_increase]: ./medai/batch-quota-limit/quota_incease.png
+[quota_increase]: ./media/batch-quota-limit/quota_incease.png
