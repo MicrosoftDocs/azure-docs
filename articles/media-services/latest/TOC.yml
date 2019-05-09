@@ -47,6 +47,7 @@
       displayName: encoding, presets, jobs, adaptive, bitrate
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md 
+      displayName: preset, schema 
     - name: Media Encoder Standard formats
       displayName: containers, codecs    
       href: media-encoder-standard-formats.md
@@ -79,7 +80,7 @@
     - name: Content protection
       items:
       - name: Streaming protocols and encryption types
-        displayName: Dynamic encryption      
+        displayName: dynamic, encryption      
         href: content-protection-overview.md  
       - name: Multi-DRM system with access control
         href: design-multi-drm-system-with-access-control.md  
@@ -136,7 +137,7 @@
       href: use-azure-media-player.md
   - name: Developing with v3 APIs
     href: media-services-apis-overview.md
-    displayName: accessing APIs, naming conventions, long-running operations
+    displayName: access, naming, long-running
     items:
     - name: Page, filter, order entities
       href: entities-overview.md 
@@ -246,6 +247,7 @@
   items:
   - name: OpenAPI Specification (Swagger)
     href: https://aka.ms/ams-v3-rest-sdk
+    displayName: schema
   - name: REST
     href: https://aka.ms/ams-v3-rest-ref 
   - name: Azure CLI
