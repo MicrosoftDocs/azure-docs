@@ -38,7 +38,7 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 ## Prerequisites for deployment
 
-- A model. If you do not have a trained model, you can use the model & dependency files provided in [this tutorial](http://aka.ms/azml-deploy-cloud).
+- A model. If you do not have a trained model, you can use the model & dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
 
 - The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), or the [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk).
 

@@ -332,7 +332,6 @@ To remove the Service Fabric SDKs, run the following commands.
 * [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md)
 * [Manage your applications by using the Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 * [Service Fabric Windows and Linux differences](service-fabric-linux-windows-differences.md)
-* [Automate operating system patching on your Linux cluster](service-fabric-patch-orchestration-application-linux.md)
 * [Get started with Service Fabric CLI](service-fabric-cli.md)
 
 <!-- Links -->

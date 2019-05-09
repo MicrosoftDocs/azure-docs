@@ -194,7 +194,7 @@ For more information, see [Quickstart: Build a .NET web app by using an Azure Co
 ### Use the MongoDB Java driver
 
 
-When you use the [official MongoDB Java driver](http://mongodb.github.io/mongo-java-driver/), you can execute commands by calling the `runCommand` method on a `MongoDatabase` object:
+When you use the [official MongoDB Java driver](https://mongodb.github.io/mongo-java-driver/), you can execute commands by calling the `runCommand` method on a `MongoDatabase` object:
 
 ```java
 Document stats = database.runCommand(new Document("getLastRequestStatistics", 1));

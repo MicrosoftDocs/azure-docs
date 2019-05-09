@@ -135,17 +135,11 @@ The following sections describe how to call each API feature.
 ## Sentiment analysis
 
 1. Create a new function `SentimentAnalysisExample()` that takes the client that you created earlier.
-2. Create a new `TextAnalyticsClient` object that has `ApiKeyServiceClientCredentials` as a parameter. Then generate a list of `MultiLanguageInput` objects that contain the documents that you want to analyze.
+2. Generate a list of `MultiLanguageInput` objects that contains the documents that you want to analyze.
 
     ```csharp
-    public static async Task SentimentAnalysisExample(string endpoint, string key)
+    public static async Task SentimentAnalysisExample(TextAnalyticsClient client)
     {
-        var credentials = new ApiKeyServiceClientCredentials(key);
-        var client = new TextAnalyticsClient(credentials)
-        {
-            Endpoint = endpoint
-        };
-
         // The documents to be analyzed. Add the language of the document. The ID can be any value.
         var inputDocuments = new MultiLanguageBatchInput(
             new List<MultiLanguageInput>
@@ -183,16 +177,11 @@ Document ID: 4 , Sentiment Score: 1.00
 ## Language detection
 
 1. Create a new function `DetectLanguageExample()` that takes the client that you created earlier.
-2. Create a new `TextAnalyticsClient` object that has `ApiKeyServiceClientCredentials` as a parameter. Then generate a list of `LanguageInput` objects that contain your documents.
+2. Generate a list of `LanguageInput` objects that contains your documents.
 
     ```csharp
-    public static async Task DetectLanguageExample(string endpoint, string key)
+    public static async Task DetectLanguageExample(TextAnalyticsClient client)
     {
-        var credentials = new ApiKeyServiceClientCredentials(key);
-        var client = new TextAnalyticsClient(credentials)
-        {
-            Endpoint = endpoint
-        };
 
         // The documents to be submitted for language detection. The ID can be any value.
         var inputDocuments = new LanguageBatchInput(
@@ -230,16 +219,11 @@ Document ID: 3 , Language: Chinese_Simplified
 ## Entity recognition
 
 1. Create a new function `RecognizeEntitiesExample()` that takes the client that you created earlier.
-2. Create a new `TextAnalyticsClient` object that has `ApiKeyServiceClientCredentials` as a parameter. Then generate a list of `MultiLanguageBatchInput` objects that contain your documents.
+2. Generate a list of `MultiLanguageBatchInput` objects that contains your documents.
 
     ```csharp
-    public static async Task RecognizeEntitiesExample(string endpoint, string key)
+    public static async Task RecognizeEntitiesExample(TextAnalyticsClient client)
     {
-        var credentials = new ApiKeyServiceClientCredentials(key);
-        var client = new TextAnalyticsClient(credentials)
-        {
-            Endpoint = endpoint
-        };
 
         // The documents to be submitted for entity recognition. The ID can be any value.
         var inputDocuments = new MultiLanguageBatchInput(
@@ -308,17 +292,11 @@ Document ID: 2
 ## Key phrase extraction
 
 1. Create a new function `KeyPhraseExtractionExample()` that takes the client that you created earlier.
-2. Create a new `TextAnalyticsClient` object that has `ApiKeyServiceClientCredentials` as a parameter. Then generate a list of `MultiLanguageBatchInput` objects that contain your documents.
+2. Generate a list of `MultiLanguageBatchInput` objects that contains your documents.
 
     ```csharp
-    public static async Task KeyPhraseExtractionExample(string endpoint, string key)
+    public static async Task KeyPhraseExtractionExample(TextAnalyticsClient client)
     {
-        var credentials = new ApiKeyServiceClientCredentials(key);
-        var client = new TextAnalyticsClient(credentials)
-        {
-            Endpoint = endpoint
-        };
-
         var inputDocuments = new MultiLanguageBatchInput(
                     new List<MultiLanguageInput>
                     {
