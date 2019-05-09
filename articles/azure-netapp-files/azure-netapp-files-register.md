@@ -29,7 +29,7 @@ ms.author: b-juche
 
 2. Wait for an official confirmation email from the Azure NetApp Files team before continuing with other tasks. 
 
-## Register the NetApp Resource Provider
+## <a name="resource-provider"></a>Register the NetApp Resource Provider
 
 To use the service, you must register the Azure Resource Provider for Azure NetApp Files.
 
