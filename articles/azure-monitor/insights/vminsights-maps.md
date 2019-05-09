@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 05/09/2019
 ms.author: magoedte
 ---
 
@@ -96,7 +96,7 @@ Map visualizes the VMs dependencies, that is running process groups and processe
 
 To access Azure Monitor for VMs directly from a virtual machine scale set, perform the following.
 
-1. In the Azure portal, select **Virtual Machine scale sets**.
+1. In the Azure portal, select **Virtual machine scale sets**.
 2. From the list, choose a VM and in the **Monitoring** section choose **Insights (preview)**.  
 3. Select the **Map** tab.
 
@@ -105,7 +105,7 @@ Map visualizes all of the instances in the scale set as a group node along with 
 ![Direct VM map overview](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
->You can also access a map for a specific instance from the Instances view for your scale set. Navigate to **Instances** under the **Settings** section, and then choose **Insights (preview)**.
+>You can also access a map for a specific instance from the Instances view for your virtual machine scale set. Navigate to **Instances** under the **Settings** section, and then choose **Insights (preview)**.
 
 ## View Map from Azure Monitor
 From Azure Monitor, the Map feature provides a global view of your virtual machines and their dependencies.  To access the Map feature from Azure Monitor, perform the following. 

@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 05/09/2019
 ms.author: magoedte
 ---
 
@@ -47,9 +47,9 @@ After you've enabled monitoring, it might take about 10 minutes before you can v
 
 ![Enable Azure Monitor for VMs monitoring deployment processing](./media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
 
-## Enable monitoring for a single VM scale set
+## Enable monitoring for a single virtual machine scale set
 
-To enable monitoring of your Azure VM scale set in the Azure portal, do the following:
+To enable monitoring of your Azure virtual machine scale set in the Azure portal, do the following:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -63,7 +63,7 @@ To enable monitoring of your Azure VM scale set in the Azure portal, do the foll
 
     The list preselects the default workspace and location that the virtual machine is deployed to in the subscription. 
 
-    ![Enable Azure Monitor for VMs for a VM scale set](./media/vminsights-enable-single-vm/enable-vminsights-vmss-portal-01.png)
+    ![Enable Azure Monitor for VMs for a virtual machine scale set](./media/vminsights-enable-single-vm/enable-vminsights-vmss-portal-01.png)
 
     >[!NOTE]
     >If you want to create a new Log Analytics workspace for storing the monitoring data from the VM, follow the instructions in [Create a Log Analytics workspace](../learn/quick-create-workspace.md) in one of the supported regions listed earlier.

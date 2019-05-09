@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 05/09/2019
 ms.author: magoedte
 ---
 
@@ -21,8 +21,8 @@ This article provides an overview of the options available to setup Azure Monito
 
 You enable Azure Monitor for VMs by using one of the following methods:
 
-* Enable a single Azure virtual machine or virtual machine scale set by selecting **Insights (preview)** directly from the VM or VM scale set.
-* Enable two or more Azure VMs and VM scale sets by using Azure Policy. Through this method, the required dependencies of existing and new VMs and scale sets are installed and properly configured. Non-compliant VMs and scale sets are reported, so you can decide whether to enable them and how you want to remediate them.
+* Enable a single Azure virtual machine or virtual machine scale set by selecting **Insights (preview)** directly from the VM or virtual machine scale set.
+* Enable two or more Azure VMs and virtual machine scale sets by using Azure Policy. Through this method, the required dependencies of existing and new VMs and scale sets are installed and properly configured. Non-compliant VMs and scale sets are reported, so you can decide whether to enable them and how you want to remediate them.
 * Enable two or more Azure VMs or virtual machine scale sets across a specified subscription or resource group by using PowerShell.
 * Enable to monitor virtual machines or physical computers hosted in your corporate network or other cloud environment.
 
@@ -53,7 +53,7 @@ If you don't have a workspace, you can create one with one of the following meth
 * [The Azure portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
-If you're enabling monitoring for a single Azure VM or VM scale set in the Azure portal, you can create a workspace during this process.
+If you're enabling monitoring for a single Azure VM or virtual machine scale set in the Azure portal, you can create a workspace during this process.
 
 For the at-scale scenario using Azure Policy, Azure PowerShell, or Azure Resource Manager templates, your Log Analytics workspace first needs the following configured:
 
@@ -175,8 +175,8 @@ You enable Azure Monitor for VMs by using one of the following methods described
 | Deployment state | Method | Description |
 |------------------|--------|-------------|
 | Single Azure VM | [Directly from the VM](vminsights-enable-single-vm.md) | You can enable a single Azure virtual machine by selecting **Insights (preview)** directly from the VM. |
-| Multiple Azure VMs or VM scale sets | [Azure Policy](vminsights-enable-atscale-policy.md) | You can enable multiple Azure VMs using Azure Policy and available policy definitions. |
-| Multiple Azure VMs or VM scale sets | [Azure PowerShell or Azure Resource Manager templates](vminsights-enable-atscale-posh.md) | You can enable multiple Azure VMs or virtual machine scale sets across a specified subscription or resource group using Azure PowerShell or Azure Resource Manager templates. |
+| Multiple Azure VMs or virtual machine scale sets | [Azure Policy](vminsights-enable-atscale-policy.md) | You can enable multiple Azure VMs using Azure Policy and available policy definitions. |
+| Multiple Azure VMs or virtual machine scale sets | [Azure PowerShell or Azure Resource Manager templates](vminsights-enable-atscale-posh.md) | You can enable multiple Azure VMs or virtual machine scale sets across a specified subscription or resource group using Azure PowerShell or Azure Resource Manager templates. |
 | Hybrid cloud | [Enable for Hybrid environment](vminsights-enable-hybrid-cloud.md) | You can deploy to virtual machines or physical computers that are hosted in your datacenter or other cloud environments. |
 
 ## Performance counters enabled

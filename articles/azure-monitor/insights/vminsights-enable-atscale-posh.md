@@ -1,5 +1,5 @@
 ---
-title: Enable Azure Monitor for VMs (preview) using Azure PowerShell | Microsoft Docs
+title: Enable Azure Monitor for VMs (preview) using Azure PowerShell or Resource Manager template | Microsoft Docs
 description: This article describes how you enable Azure Monitor for VMs for one or more Azure virtual machines or virtual machine scale sets using Azure PowerShell or Azure Resource Manager templates.
 services: azure-monitor
 documentationcenter: ''
@@ -11,11 +11,11 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 05/09/2019
 ms.author: magoedte
 ---
 
-# Enable using Azure PowerShell or with an Azure Resource Manager template
+# Enable Azure Monitor for VMs (preview) using Azure PowerShell or Resource Manager template
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
