@@ -34,7 +34,7 @@ The features are organized into three perspectives:
 * Map
 
 >[!NOTE]
->Currently, the Health feature is offered only for Azure virtual machines and virtual machine scale sets. Performance and Map features support both Azure VMs and virtual machines that are hosted in your environment or other cloud provider.
+>Currently, the Health feature is offered only for Azure virtual machines. Performance and Map features support Azure VMs, Azure VM scale sets, and virtual machines that are hosted in your environment or other cloud provider.
 
 Integration with Azure Monitor logs delivers powerful aggregation and filtering, and it can analyze data trends over time. Such comprehensive workload monitoring can't be achieved with Azure Monitor or Service Map alone.  
 

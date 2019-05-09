@@ -85,7 +85,7 @@ The following section describes the configuration of auditing using the Azure po
 5. **New** - You now have multiple options for configuring where audit logs will be written. You can write logs to an Azure storage account, to a Log Analytics workspace for consumption by Azure Monitor logs, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each.
 
    > [!WARNING]
-   > Enabling auditing to Log Analytics will incur cost based on ingestion rates. Please be aware of the associated cost with using this [option](https://azure.microsoft.com/en-us/pricing/details/monitor/), or consider storing the audit logs in an Azure storage account.
+   > Enabling auditing to Log Analytics will incur cost based on ingestion rates. Please be aware of the associated cost with using this [option](https://azure.microsoft.com/pricing/details/monitor/), or consider storing the audit logs in an Azure storage account.
 
     ![storage options](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 

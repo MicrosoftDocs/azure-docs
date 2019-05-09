@@ -78,6 +78,7 @@ The JSON body has several settings:
 |`question`|required|string|A user question to be sent to your knowledge base.|
 |`top`|optional|integer|The number of ranked results to include in the output. The default value is 1.|
 |`userId`|optional|string|A unique ID to identify the user. This ID will be recorded in the chat logs.|
+|`scoreThreshold`|optional|integer|Only answers with confidence score above this threshold will be returned. The default value is 0.|
 |`isTest`|optional|boolean|If set to true, returns results from `testkb` Search index instead of published index.|
 |`strictFilters`|optional|string|If specified, tells QnA Maker to return only answers that have the specified metadata. Use `none` to indicate response should have no metadata filters. |
 
@@ -88,6 +89,7 @@ An example JSON body looks like:
     "question": "qna maker and luis",
     "top": 6,
     "isTest": true,
+    "scoreThreshold": 20,
     "strictFilters": [
     {
         "name": "category",

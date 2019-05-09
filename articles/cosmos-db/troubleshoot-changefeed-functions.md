@@ -26,7 +26,7 @@ This article will always refer to Azure Functions V2 whenever the runtime is men
 
 The key functionality of the extension package is to provide support for the Azure Cosmos DB trigger and bindings. It also includes the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), which is helpful if you want to interact with Azure Cosmos DB programmatically without using the trigger and bindings.
 
-If want to to use the Azure Cosmos DB SDK, make sure that you don't add to your project another NuGet package reference. Instead, **let the SDK reference resolve through the Azure Functions' Extension package**.
+If want to use the Azure Cosmos DB SDK, make sure that you don't add to your project another NuGet package reference. Instead, **let the SDK reference resolve through the Azure Functions' Extension package**.
 
 Additionally, if you are manually creating your own instance of the [Azure Cosmos DB SDK client](./sql-api-sdk-dotnet-core.md), you should follow the pattern of having only one instance of the client [using a Singleton pattern approach](../azure-functions/manage-connections.md#documentclient-code-example-c). This process will avoid the potential socket issues in your operations.
 

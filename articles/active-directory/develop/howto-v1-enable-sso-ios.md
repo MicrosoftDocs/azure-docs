@@ -39,7 +39,7 @@ This how-to applies to:
 
 This how-to assumes that you know how to:
 
-* Provision your app using the legacy portal for Azure AD. For more info, see [Register an app with the Azure AD v1.0 endpoint](quickstart-v1-add-azure-ad-app.md)
+* Provision your app using the legacy portal for Azure AD. For more info, see [Register an app](quickstart-register-app.md)
 * Integrate your application with the [Azure AD iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## Single sign-on concepts
@@ -160,7 +160,7 @@ For non-broker assisted SSO across applications, the SDKs manage much of the com
 
 To enable SSO across applications you own you need to do the following:
 
-1. Ensure all your applications user the same Client ID or Application ID.
+1. Ensure all your applications use the same Client ID or Application ID.
 2. Ensure that all of your applications share the same signing certificate from Apple so that you can share keychains.
 3. Request the same keychain entitlement for each of your applications.
 4. Tell the SDKs about the shared keychain you want us to use.

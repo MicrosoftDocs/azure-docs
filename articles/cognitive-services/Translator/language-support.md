@@ -22,7 +22,7 @@ The Translator Text API supports the following languages for text to text transl
 **V2 Translator API**
 
 > [!NOTE]
-> V2 was deprecated on April 30, 2018 and will be discontinued on April 30, 2019.
+> V2 was deprecated on April 30, 2018. Please migrate your applications to V3 in order to take advantage of new functionality available exclusively in V3.
 
 * Statistical only: No neural system is available for this language.
 * Neural available: A neural system is available. Use the parameter `category=generalnn` to access the neural system.
@@ -225,14 +225,17 @@ The following languages are available for customization to or from English using
 | Indonesian|	`id`	|
 | Italian      | `it`          |
 | Japanese      | `ja`          |
+|Kiswahili|	`sw`	|
 | Korean      | `ko`          |
 | Latvian      | `lv`          |
 | Lithuanian      | `lt`          |
+|Malagasy|	`mg`	|
 | Norwegian      | `nb`          |
 | Polish      | `pl`          |
 | Portuguese      | `pt`          |
 | Romanian      | `ro`          |
 | Russian      | `ru`          |
+|Samoan|	`sm`	|
 | Serbian (Latin)      | `sr-Latn`          |
 | Slovak     | `sk`          |
 | Slovenian      | `sl`          |

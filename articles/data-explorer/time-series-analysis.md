@@ -256,3 +256,8 @@ demo_many_series1
 In less than two minutes, ADX analyzed close to 20,000 time series and detected two abnormal time series in which the read count suddenly dropped.
 
 These advanced capabilities combined with ADX fast performance supply a unique and powerful solution for time series analysis.
+
+## Next steps
+
+* Learn about [Time series anomaly detection and forecasting](/azure/data-explorer/anomaly-detection) in Azure Data Explorer.
+* Learn about [Machine learning capabilities](/azure/data-explorer/machine-learning-clustering) in Azure Data Explorer.

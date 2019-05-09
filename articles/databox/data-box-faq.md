@@ -45,7 +45,7 @@ A. Data Box is available at a nominal charge for 10 days. When you select the pr
 A. Data Box has a raw capacity of 100 TB and usable capacity of 80 TB. You can transfer up to 80 TB of data with Data Box. To transfer more data, you need to order more devices.
 
 ### Q. How can I check if Data Box is available in my region? 
-A.  For information on which countries the Data Box is available, go to [region availability](data-box-overview.md#region-availability).  
+A.  For information on which countries/regions the Data Box is available, go to [region availability](data-box-overview.md#region-availability).  
 
 ### Q. Which regions can I store data in with Data Box?
 A. Data Box is supported for all regions within US, West Europe, North Europe, France, and UK. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported. For more information, go to [Region availability](data-box-overview.md#region-availability).

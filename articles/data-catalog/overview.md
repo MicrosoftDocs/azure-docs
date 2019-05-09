@@ -1,8 +1,8 @@
 ---
 title: Introduction to Azure Data Catalog
 description: This article provides an overview of Microsoft Azure Data Catalog, including its features and the problems it addresses. Data Catalog enables any user to register, discover, understand, and consume data sources.
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: overview
 ms.date: 04/05/2019

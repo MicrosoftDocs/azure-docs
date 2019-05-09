@@ -60,7 +60,7 @@ Activity logs provide insights into the operations done on Azure resources. Diag
 
 To configure diagnostic logs for your Front Door Service:
 
-1. Select your Azure API Management service.
+1. Select your Azure Front Door service.
 
 2. Choose **Diagnostic settings**.
 

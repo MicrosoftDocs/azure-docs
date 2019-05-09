@@ -230,7 +230,7 @@ Now that you've learned the basics of Service Bus queues, see [Queues, topics, a
 
 For more information, see the [Java Developer Center](https://azure.microsoft.com/develop/java/).
 
-[Azure SDK for Java]: https://azure.microsoft.com/develop/java/
-[Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
+[Azure SDK for Java]: https://docs.microsoft.com/en-us/java/api/overview/azure/
+[Azure Toolkit for Eclipse]: https://docs.microsoft.com/en-us/java/azure/eclipse/azure-toolkit-for-eclipse
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

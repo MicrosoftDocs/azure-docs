@@ -35,7 +35,7 @@ To complete this quickstart, make sure you have:
   - If running on macOS, get Git installed via HomeBrew. Enter the following command into a single line of the Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Then, run `brew install git`.
   - To build the NDK sample, you'll also need to install the NDK and CMake 3.6 SDK Tools in Android Studio.
 - A <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">developer enabled</a> and <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore capable</a> Android device.
-- Your app must target ARCore 1.5 (support for ARCore 1.6+ will be available a later date).
+- Your app must target ARCore 1.7.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -43,7 +43,7 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-If you're building the Android NDK sample, you'll need to download `arcore_c_api.h` from [here](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.5.0/libraries/include/arcore_c_api.h) and place it in `Android\NDK\libraries\include`.
+If you're building the Android NDK sample, you'll need to download `arcore_c_api.h` from [here](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.7.0/libraries/include/arcore_c_api.h) and place it in `Android\NDK\libraries\include`.
 
 Open Android Studio.
 

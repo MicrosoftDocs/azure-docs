@@ -18,8 +18,8 @@ Testing your QnA Maker knowledge base is an important part of an iterative proce
 
 ## Test answer matching
 
-1.  Access your knowledge base by selecting its name on the **My knowledge bases** page.
-2.  To access the Test slide-out panel, select **Test** in your application's top panel.
+1.  Access your knowledge base by selecting its name on the **My knowledge bases** page.
+2.  To access the Test slide-out panel, select **Test** in your application's top panel.
 
     ![Access Test panel](../media/qnamaker-how-to-test-kb/access-test.png)
 
@@ -29,21 +29,21 @@ Testing your QnA Maker knowledge base is an important part of an iterative proce
 
 ## Clear test panel
 
-To clear all the entered test queries and their results from the test console, select **Start over** at the upper-left corner of the Test panel.
+To clear all the entered test queries and their results from the test console, select **Start over** at the upper-left corner of the Test panel.
 
 ## Close test panel
 
-To close the Test panel, select the **Test** button again. While the Test panel is open, you cannot edit the Knowledge Base contents.
+To close the Test panel, select the **Test** button again. While the Test panel is open, you cannot edit the Knowledge Base contents.
 
 ## Inspect score
 
-You inspect details of the test result in the Inspect panel.
+You inspect details of the test result in the Inspect panel.
 
-1.  With the Test slide-out panel open, select **Inspect** for more details on that response.
+1.  With the Test slide-out panel open, select **Inspect** for more details on that response.
 
     ![Inspect responses](../media/qnamaker-how-to-test-kb/inspect.png)
 
-2.  The Inspection panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
+2.  The Inspection panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
 
 ## Correct the top scoring answer
 
@@ -61,12 +61,16 @@ You can add alternate forms of a question to a given answer. Type the alternate 
 
 You can add a new answer if any of the existing answers that were matched are incorrect or the answer does not exist in the knowledge base (no good match found in the KB). Enter the new answer to current question in the text box and press enter to add it. 
 
-Select **Save and Train** to persist this answer. A new question-answer pair has now been added to your knowledge base.
+Select **Save and Train** to persist this answer. A new question-answer pair has now been added to your knowledge base. 
 
 ![Add new question and answer pair](../media/qnamaker-how-to-test-kb/add-answer.png)
 
 > [!NOTE]
 > All edits to your knowledge base only get saved when you press the **Save and Train** button.
+
+## Test the published knowledge base
+
+You can test the published version of knowledge base in the test pane. Once you have published the KB, check the "published" box and send a query to get results from the published KB.
 
 ## Next steps
 

@@ -197,7 +197,7 @@ Records with a type of *ServiceMapProcess_CL* have inventory data for TCP-connec
 | ProductVersion_s | The product version |
 | FileVersion_s | The file version |
 | CommandLine_s | The command line |
-| ExecutablePath _s | The path to the executable file |
+| ExecutablePath_s | The path to the executable file |
 | WorkingDirectory_s | The working directory |
 | UserName | The account under which the process is executing |
 | UserDomain | The domain under which the process is executing |

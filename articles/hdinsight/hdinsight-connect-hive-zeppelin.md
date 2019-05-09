@@ -2,7 +2,6 @@
 title: Use Apache Zeppelin to run Apache Hive queries in Azure HDInsight  
 description: Learn how to use Apache Zeppelin to run Apache Hive queries.
 keywords: hdinsight,hadoop,hive,interactive query,LLAP 
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 

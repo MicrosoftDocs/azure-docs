@@ -99,7 +99,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
 1. Use the [Azure](https://portal.azure.com/) portal to create an Azure Media Services account, as described in [Create an account](../previous/media-services-portal-create-account.md).
 
-    When creating a storage account for your Media Services account, select **StorageV2** for account kind and **Geo-redundant (RGS)** for replication fields.
+    When creating a storage account for your Media Services account, select **StorageV2** for account kind and **Geo-redundant (GRS)** for replication fields.
 
     ![new AMS account](./media/create-account/create-ams-account1.png)
 
