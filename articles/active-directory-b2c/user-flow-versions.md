@@ -3,7 +3,7 @@ title: User flow versions in Azure Active Directory B2C | Microsoft Docs
 description: Learn about the versions of user flows available in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity

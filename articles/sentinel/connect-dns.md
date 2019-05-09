@@ -4,7 +4,7 @@ description: Learn how to connect DNS data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: 77af84f9-47bc-418e-8ce2-4414d7b58c0c

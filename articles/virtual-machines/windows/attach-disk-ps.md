@@ -3,8 +3,8 @@ title: Attach a data disk to a Windows VM in Azure by using PowerShell | Microso
 description: How to attach a new or existing data disk to a Windows VM using PowerShell with the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: cynthn
+ms.author: rogarana
 ms.subservice: disks
 
 ---
@@ -28,7 +28,7 @@ First, review these tips:
 * The size of the virtual machine controls how many data disks you can attach. For more information, see [Sizes for virtual machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * To use premium SSDs, you'll need a [premium storage-enabled VM type](sizes-memory.md), like the DS-series or GS-series virtual machine.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 

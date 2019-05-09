@@ -77,7 +77,7 @@ New-AzDeployment -Location <location> -TemplateUri https://raw.githubusercontent
 ```
 
 * [Deploy resources with Resource Manager templates and Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
-* [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
+* [`New-AzResourceGroupDeployment`](/powershell/module/az.resources/new-azresourcegroupdeployment)
 * [`New-AzDeployment`](/powershell/module/az.resources/new-azdeployment)
 
 <a name="cli"></a>

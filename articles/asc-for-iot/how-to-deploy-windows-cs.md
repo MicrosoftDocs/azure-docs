@@ -5,7 +5,7 @@ services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
@@ -86,7 +86,7 @@ For additional help, use the Get-Help command in PowerShell <br>Get-Help example
 ### Verify deployment status
 
 - Check the agent deployment status by running:<br>
-    ```sc.exe query "ASC IoT Agent" ```
+    ```sc.exe query "ASC IoT Agent"```
 
 ### Uninstall the agent
 

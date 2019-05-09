@@ -121,7 +121,7 @@ To configure Azure AD single sign-on with Tableau Server, perform the following 
 
 	| Name | Source Attribute | Namespace |
 	| ---------------| --------------- | ----------- |
-	| username | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+	| username | user.userprincipalname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
 	| | |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
@@ -255,9 +255,9 @@ When you click the Tableau Server tile in the Access Panel, you should be automa
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

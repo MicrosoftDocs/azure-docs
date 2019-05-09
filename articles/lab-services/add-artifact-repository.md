@@ -228,7 +228,7 @@ Folder under which artifacts can be found. Defaults to '/Artifacts'
 
 .PARAMETER PersonalAccessToken
 Security token for access to GitHub or VSOGit repository.
-See https://azure.microsoft.com/en-us/documentation/articles/devtest-lab-add-artifact-repo/ for instructions to get personal access token
+See https://azure.microsoft.com/documentation/articles/devtest-lab-add-artifact-repo/ for instructions to get personal access token
 
 .PARAMETER SourceType
 Whether artifact is VSOGit or GitHub repository.

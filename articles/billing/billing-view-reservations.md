@@ -1,36 +1,38 @@
 ---
 title: View reservations for Azure resources| Microsoft Docs
-description: Learn how to view Azure reservations in the Azure portal. 
-services: 'billing'
+description: Learn how to view Azure reservations in the Azure portal.
 documentationcenter: ''
 author: yashesvi
 manager: yashar
 editor: ''
-
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2018
+ms.date: 04/13/2019
 ms.author: banders
 ---
 # View Azure reservations in the Azure portal
 
 Depending on your subscription type and permissions, there are a couple of ways to view reservations for Azure.
 
-## View reservations as Owner or Reader
+## View purchased reservations
 
-By default, when you buy a reservation, you and the account administrator can view the reservation. You and the account administrator automatically get the Owner role on the reservation. To allow other people to view the reservation, you must add them as an **Owner** or **Reader** on the Reservation. For more information, see [Add or change users who can manage a reservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
- 
+By default, when you buy a reservation, you and the account administrator can view the reservation. You and the account administrator automatically get the Owner role on the reservation order and reservation. To allow other people to view the reservation, you must add them as an **Owner** or **Reader** on the Reservation order or reservation.
+
+For more information, see [Add or change users who can manage a reservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+
 To view a reservation as an Owner or Reader,
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search on **Reservations**.
-
-    ![Screenshot that shows Azure portal search](./media/billing-view-reservation/portal-reservation-search.png)
-
-1. You see a list of the reservations where you have the Owner or Reader role.
+2. Search on **Reservations**.
+    ![Screenshot that shows Azure portal search](./media/billing-view-reservation/portal-reservation-search.png)  
+3. The list shows all the reservations where you have the Owner or Reader role. Each reservation shows the last known utilization percentage.  
+    ![Example showing a list of reservations](./media/billing-view-reservation/view-reservations.png)
+4. Select a reservation and see the utilization trend for last five days.  
+    ![Example showing reservation utilization trend](./media/billing-view-reservation/reservation-utilization.png)
+5. You can also get the [reservation utilization](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) using the Reserved Instance usage API and with the [Microsoft Azure Consumption Insights Power BI content pack](/power-bi/service-connect-to-azure-consumption-insights).
 
 If you need to change the scope of a reservation, split a reservation, or change who can manage a reservation, see [Manage Azure Reservations](billing-manage-reserved-vm-instance.md).
 

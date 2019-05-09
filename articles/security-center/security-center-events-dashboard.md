@@ -21,7 +21,7 @@ ms.author: rkarlin
 The Events dashboard provides an overview of the number of security events collected over time and a list of notable events that may require your attention.  
 
 > [!NOTE]
-> Security events dashboard will be retired on July 31st, 2019. Click [here](security-center-features-retirement-july2019.md#menu_events) to learn on alternative services.
+> Security events dashboard will be retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_events).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

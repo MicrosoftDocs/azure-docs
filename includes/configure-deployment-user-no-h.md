@@ -18,7 +18,7 @@ In the following example, replace *\<username>* and *\<password>*, including the
 az webapp deployment user set --user-name <username> --password <password>
 ```
 
-You get a JSON output with the password shown as `null`. If you get a `'Conflict'. Details: 409` error, change the username. If you get a ` 'Bad Request'. Details: 400` error, use a stronger password. The deployment username must not contain ‘@’ symbol for local Git pushes.
+You get a JSON output with the password shown as `null`. If you get a `'Conflict'. Details: 409` error, change the username. If you get a `'Bad Request'. Details: 400` error, use a stronger password. The deployment username must not contain ‘@’ symbol for local Git pushes.
 
 You configure this deployment user only once. You can use it for all your Azure deployments.
 

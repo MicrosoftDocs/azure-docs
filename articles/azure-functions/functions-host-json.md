@@ -31,7 +31,6 @@ Some host.json settings are only used when running locally in the [local.setting
 
 The following sample *host.json* files have all possible options specified.
 
-
 ```json
 {
     "version": "2.0",
@@ -77,7 +76,10 @@ The following sample *host.json* files have all possible options specified.
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 
@@ -269,6 +271,18 @@ A set of [shared code directories](functions-reference-csharp.md#watched-directo
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## managedDependency
+
+Managed dependency is a preview feature that is currently only supported with PowerShell based functions. It enables dependencies to be automatically managed by the service. When the enabled property is set to true, the [requirements.psd1](functions-reference-powershell.md#dependency-management) file will be processed. Dependencies will be updated when any minor versions are released.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 

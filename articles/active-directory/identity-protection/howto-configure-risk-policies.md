@@ -36,7 +36,8 @@ Azure AD analyzes each sign-in of a user. The objective of the analysis is to de
 
 The sign-in risk policy is an automated response you can configure for a specific sign-in risk level. In your response, you can block access to your resources or require passing a multi-factor authentication (MFA) challenge to gain access.
 
-   
+When a user successfully completes an MFA prompt triggered by the sign-in risk policy, it gives feedback to Identity Protection that the sign-in originated from the legitimate user. Thus, the sign-in risk event that triggered the MFA prompt will automatically be closed and Identity Protection will prevent this event from contributing to the elevation of user risk. Enabling the sign-in risk policy can reduce noisiness in the risky sign-ins view by allowing users to self-remediate when prompted for MFA and subsequently automatically closing the associated risky sign-in.
+
 ## How do I access the sign-in risk policy?
    
 The sign-in risk policy is in the **Configure** section on the [Azure AD Identity Protection page](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).

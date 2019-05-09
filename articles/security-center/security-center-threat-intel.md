@@ -21,7 +21,7 @@ ms.author: rkarlin
 This article helps you to use the Azure Security Center security alerts map and security event-based threat intelligence map to address security-related issues.
 
 > [!NOTE]
-> The Security *events* map button will be retired on July 31st, 2019. Click [here](security-center-features-retirement-july2019.md#menu_securityeventsmap) to learn on alternative services.
+> The Security *events* map button will be retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
 
 
 ## How the security alerts map works

@@ -11,24 +11,58 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 05/08/2019
 ms.author: juliako
 ---
 
 # Transforms and Jobs
 
-This topic gives details about [Transforms](https://docs.microsoft.com/rest/api/media/transforms) and [Jobs](https://docs.microsoft.com/rest/api/media/jobs) and explains the relationship between these entities. The following diagram shows transforms/jobs workflow.
+This topic gives details about [Transforms](https://docs.microsoft.com/rest/api/media/transforms) and [Jobs](https://docs.microsoft.com/rest/api/media/jobs) and explains the relationship between these entities. 
+
+## Overview 
+
+### Transforms/Jobs workflow
+
+The following diagram shows transforms/jobs workflow.
 
 ![Transforms](./media/encoding/transforms-jobs.png)
+
+#### Typical workflow
+
+1. Create a Transform 
+2. Submit Jobs under that Transform 
+3. List Transforms 
+4. Delete a Transform, if you are not planning to use it in the future. 
+
+#### Example
+
+Suppose you wanted to extract the first frame of all your videos as a thumbnail image – the steps you would take are: 
+
+1. Define the recipe, or the rule for processing your videos - "use the first frame of the video as the thumbnail". 
+2. For each video you would tell the service: 
+    1. Where to find that video,  
+    2. Where to write the output thumbnail image. 
+
+A **Transform** helps you create the recipe once (Step 1), and submit Jobs using that recipe (Step 2).
 
 > [!NOTE]
 > Properties of **Transform** and **Job** that are of the Datetime type are always in UTC format.
 
 ## Transforms
 
-Use **Transforms** to configure common tasks for encoding or analyzing videos. Each **Transform** describes a recipe, or a workflow of tasks for processing your video or audio files. A single Transform can apply more than one rule. For example, a Transform could specify that each video be encoded into an MP4 file at a given bitrate, and that a thumbnail image be generated from the first frame of the video. You would add one TransformOutput entry for each rule that you want to include in your Transform. You can create Transforms in your Media Services account using the Media Services v3 API, or using any of the published SDKs. The Media Services v3 API is driven by Azure Resource Manager, so you can also use Resource Manager templates to create and deploy Transforms in your Media Services account. Role-based access control can be used to lock down access to Transforms.
+Use **Transforms** to configure common tasks for encoding or analyzing videos. Each **Transform** describes a recipe, or a workflow of tasks for processing your video or audio files. A single Transform can apply more than one rule. For example, a Transform could specify that each video be encoded into an MP4 file at a given bitrate, and that a thumbnail image be generated from the first frame of the video. You would add one TransformOutput entry for each rule that you want to include in your Transform. You use presets to tell the Transform how the input media files should be processed.
 
-The Update operation on the [Transform](https://docs.microsoft.com/rest/api/media/transforms) entity is intended for making changes to the description, or the priorities of the underlying TransformOutputs. It is recommended that such updates be performed when all in-progress jobs have completed. If you intend to rewrite the recipe, you need to create a new transform.
+In Media Services v3, presets are strongly typed entities in the API itself. You can find  the "schema" definition for these objects in [Open API Specification (or Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). You can also view the preset definitions (like **StandardEncoderPreset**) in the [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (or other Media Services v3 SDK reference documentation).
+
+You can create Transforms using REST, CLI, or use any of the published SDKs. The Media Services v3 API is driven by Azure Resource Manager, so you can also use Resource Manager templates to create and deploy Transforms in your Media Services account. Role-based access control can be used to lock down access to Transforms.
+
+If you need to update your [Transform](https://docs.microsoft.com/rest/api/media/transforms), use the **Update** operation. It is intended for making changes to the description, or the priorities of the underlying TransformOutputs. It is recommended that such updates be performed when all in-progress jobs have completed. If you intend to rewrite the recipe, you need to create a new Transform.
+
+### Transform object diagram
+
+The following diagram shows the **Transform** object and the objects it references including the derivation relationships. The gray arrows show a type that the Job references and the green arrows show class derivation relationships.<br/>Click the image to view it full size.  
+
+<a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a> 
 
 ## Jobs
 
@@ -42,31 +76,11 @@ The progress and state of jobs can be obtained by monitoring events with Event G
 
 The Update operation on the [Job](https://docs.microsoft.com/rest/api/media/jobs) entity can be used to modify the *description*, and the *priority* properties after the job has been submitted. A change to the *priority* property is effective only if the job is still in a queued state. If the job has begun processing, or has finished, changing priority has no effect.
 
-## Typical workflow
+### Job object diagram
 
-1. Create a Transform 
-2. Submit Jobs under that Transform 
-3. List Transforms 
-4. Delete a Transform, if you are not planning to use it in the future. 
+The following diagram shows the **Job** object and the objects it references including the derivation relationships.<br/>Click the image to view it full size.  
 
-### Example
-
-Suppose you wanted to extract the first frame of all your videos as a thumbnail image – the steps you would take are: 
-
-1. Define the recipe, or the rule for processing your videos - "use the first frame of the video as the thumbnail". 
-2. For each video you would tell the service: 
-    1. Where to find that video,  
-    2. Where to write the output thumbnail image. 
-
-A **Transform** helps you create the recipe once (Step 1), and submit Jobs using that recipe (Step 2).
-
-## Job error codes
-
-See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
-
-## Paging
-
-See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
+<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a> 
 
 ## Configure Media Reserved Units
 
@@ -74,7 +88,19 @@ For the Audio Analysis and Video Analysis Jobs that are triggered by Media Servi
 
 For details, see [Scale media processing with CLI](media-reserved-units-cli-how-to.md).
 
+## Ask questions, give feedback, get updates
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
+
+## See also
+
+* [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
+* [Filtering, ordering, paging of Media Services entities](entities-overview.md)
+
 ## Next steps
 
-- [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
-- [Tutorial: Analyze videos with Media Services v3 using .NET](analyze-videos-tutorial-with-api.md)
+- Before you start developing, review [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, etc.)
+- Check out these tutorials:
+
+    - [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
+    - [Tutorial: Analyze videos with Media Services v3 using .NET](analyze-videos-tutorial-with-api.md)

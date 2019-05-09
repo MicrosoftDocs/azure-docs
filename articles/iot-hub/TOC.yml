@@ -149,6 +149,8 @@
       href: iot-hub-devguide-sdks.md
     - name: MQTT support
       href: iot-hub-mqtt-support.md
+    - name: AMQP support
+      href: iot-hub-amqp-support.md
     - name: Glossary
       href: iot-hub-devguide-glossary.md
   - name: Security
@@ -276,6 +278,7 @@
       - name: Use the REST API
         href: iot-hub-rm-rest.md
       - name: Use a template from Azure PowerShell
+        displayName: Azure Resource Manager, ARM
         href: iot-hub-rm-template-powershell.md
       - name: Use a template from .NET
         href: iot-hub-rm-template.md
