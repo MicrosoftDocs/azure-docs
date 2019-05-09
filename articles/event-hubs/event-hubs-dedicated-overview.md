@@ -70,7 +70,7 @@ The self-serve experience for onboarding to Dedicated is in Preview, through whi
   - US North Central
   - US West
 
-We are actively adding new regions, but in the meantime if your preferred region is not on the list, please submit a support request to the [Event Hubs team](https://ms.portal.azure.com/#create/Microsoft.Support) under *Technical > Event Hubs > Quota > Request for Dedicated SKU*. The Dedicated plan is unique in that you will experience a more hands-on onboarding from the Event Hubs product team to get the flexible deployment that is right for you. 
+We are actively adding new regions, but in the meantime if your preferred region is not on the list, contact the [Event Hubs team](mailto:askeventhubs@microsoft.com). The Dedicated plan is unique in that you will experience a more hands-on onboarding from the Event Hubs product team to get the flexible deployment that is right for you. 
 
 ## FAQs
 
@@ -82,9 +82,9 @@ Following table shows the benchmark results that we achieved during our testing:
 
 | Payload shape | Receivers | Ingress bandwidth| Ingress messages | Egress bandwidth | Egress messages | Total TUs | TUs per CU |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Batches of 100x1KB | 2 | 400 MB/sec | 400k msgs/sec | 800 MB/sec | 800k msgs/sec | 400 TUs | 100 TUs | 
-| Batches of 10x10KB | 2 | 666 MB/sec | 66.6k msgs/sec | 1.33 GB/sec | 133k msgs/sec | 666 TUs | 166 TUs |
-| Batches of 6x32KB | 1 | 1.05 GB/sec | 34k msgs / sec | 1.05 GB/sec | 34k msgs/sec | 1000 TUs | 250 TUs |
+| Batches of 100x1KB | 2 | 400 MB/sec | 400k messages/sec | 800 MB/sec | 800k messages/sec | 400 TUs | 100 TUs | 
+| Batches of 10x10KB | 2 | 666 MB/sec | 66.6k messages/sec | 1.33 GB/sec | 133k messages/sec | 666 TUs | 166 TUs |
+| Batches of 6x32KB | 1 | 1.05 GB/sec | 34k messages / sec | 1.05 GB/sec | 34k messages/sec | 1000 TUs | 250 TUs |
 
 In the testing, the following criteria was used:
 
