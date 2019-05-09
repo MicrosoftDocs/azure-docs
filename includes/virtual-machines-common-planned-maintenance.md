@@ -77,6 +77,6 @@ When deploying a workload on Azure VMs, you can create the VMs within an *availa
 
 Within an availability set, individual VMs are spread across up to 20 update domains (UDs). During scheduled maintenance, only one UD is updated at any given time. UDs aren't necessarily updated sequentially. 
 
-VM *scale sets* are an Azure compute resource that you can use to deploy and manage a set of identical VMs as a single resource. The scale set is automatically deployed across UDs, like VMs in an availability set. As with availability sets, when you use scale sets, only one UD is updated at any given time during scheduled maintenance.
+Virtual Machine *scale sets* are an Azure compute resource that you can use to deploy and manage a set of identical VMs as a single resource. The scale set is automatically deployed across UDs, like VMs in an availability set. As with availability sets, when you use scale sets, only one UD is updated at any given time during scheduled maintenance.
 
 For more information about setting up your VMs for high availability, see [Manage the availability of your VMs for Windows](../articles/virtual-machines/windows/manage-availability.md) or the corresponding article for [Linux](../articles/virtual-machines/linux/manage-availability.md).
