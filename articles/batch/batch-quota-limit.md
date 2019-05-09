@@ -144,4 +144,4 @@ These resources are allocated in the subscription that contains the virtual netw
 [support_sev]: https://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.png
-[quota_increase]: ./media/batch-quota-limit/quota_incease.png
+[quota_increase]: ./media/batch-quota-limit/quota_increase.png
