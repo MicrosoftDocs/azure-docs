@@ -30,7 +30,7 @@ The **Application Settings** tab maintains settings that are used by your functi
 
 ![Function app settings in the Azure portal.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-These settings are stored encrypted, and you mush select **Show values** to see the values in the portal.
+These settings are stored encrypted, and you must select **Show values** to see the values in the portal.
 
 To add a setting, select **New application setting** and add the new key-value pair.
 

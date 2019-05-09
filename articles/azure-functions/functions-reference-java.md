@@ -112,7 +112,7 @@ Download and use the [Azul Zulu Enterprise for Azure](https://assets.azul.com/fi
 
 ## Customize JVM
 
-Functions lets you customize the Java virtual machine (JVM) used to host your Java functions. The [following JVM arguments](https://github.com/Azure/azure-functions-java-worker/blob/master/worker.config.json#L7) are used by default:
+Functions lets you customize the Java virtual machine (JVM) used to execute your Java functions. The [following JVM options](https://github.com/Azure/azure-functions-java-worker/blob/master/worker.config.json#L7) are used by default:
 
 * `-XX:+TieredCompilation`
 * `-XX:TieredStopAtLevel=1`
@@ -124,7 +124,7 @@ You can provide additional arguments in an app setting named `JAVA_OPTS`. You ca
 
 ### Azure portal
 
-In the [Azure portal](https://portal.azure.com), use the [Application Settings tab](functions-how-to-use-azure-function-app-settings.md#settings) to add the `JAVA_OPTS` setting. 
+In the [Azure portal](https://portal.azure.com), use the [Application Settings tab](functions-how-to-use-azure-function-app-settings.md#settings) to add the `JAVA_OPTS` setting.
 
 ### Azure CLI
 
@@ -137,9 +137,9 @@ The [az functionapp config appsettings set](/cli/azure/functionapp/config/appset
     ```
 This example enables headless mode. Replace `<APP_NAME>` with the name of your function app and `<RESOURCE_GROUP> ` with the resource group.
 
-> [!NOTE]
+> [!WARNING]  
 > When running in a [Consumption plan](functions-scale.md#consumption-plan), you must add the  `WEBSITE_USE_PLACEHOLDER` setting with a value of `0`.  
-This setting does increase the cold start times for Java functions. 
+This setting does increase the cold start times for Java functions.
 
 ## Third-party libraries 
 
