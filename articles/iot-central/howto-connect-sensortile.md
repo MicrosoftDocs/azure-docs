@@ -19,7 +19,7 @@ This article describes how, as a device developer, to connect a SensorTile.box d
 To complete the steps in this article, you need the following resources:
 
 * A SensorTile.box device, see [SensorTile.box](https://www.st.com/content/st_com/en/products/evaluation-tools/SensorTile.box) for more information.
-* The ST BLE Sensor app installed on your Android device, you can [download it from here] (https://play.google.com/store/apps/details?id=com.st.bluems). For more information visit: [ST BLE Sensor] (http://www.st.com/stblesensor)
+* The ST BLE Sensor app installed on your Android device, you can [download it from here] (https://play.google.com/store/apps/details?id=com.st.bluems). For more information visit: [ST BLE Sensor] (https://www.st.com/stblesensor)
 * An Azure IoT Central application created from the **DevKits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 * Add the **SensorTile.box** device template into your IoT Central application by visiting the **Device Templates** page, clicking **+ New**, and selecting the **SensorTile** template.
 

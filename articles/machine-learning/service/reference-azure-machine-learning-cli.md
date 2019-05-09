@@ -45,7 +45,7 @@ az extension add -n azure-cli-ml
 ```
 
 > [!TIP]
-> Example files you can use with the commands below can be found [here](http://aka.ms/azml-deploy-cloud).
+> Example files you can use with the commands below can be found [here](https://aka.ms/azml-deploy-cloud).
 
 When prompted, select `y` to install the extension.
 
