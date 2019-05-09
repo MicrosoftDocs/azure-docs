@@ -1,6 +1,6 @@
 ---
-title: What's New in Microsoft 365 Government - Azure Active Directory | Microsoft Docs
-description: Learn about some changes to the Microsoft 365 Government cloud instance, which might impact you.
+title: What’s New in Azure Active Directory in Microsoft 365 Government - Azure Active Directory | Microsoft Docs
+description: Learn about some changes to Azure Active Directory (Azure AD) in the Microsoft 365 Government cloud instance, which might impact you.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -16,9 +16,9 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# What's New in Microsoft 365 Government
+# What's New in Azure Active Directory in Microsoft 365 Government
 
-We've made some changes to the Microsoft 365 Government cloud instance, which is applicable to customers using the following services:
+We've made some changes to Azure Active Directory (Azure AD) in the Microsoft 365 Government cloud instance, which is applicable to customers using the following services:
 
 - Microsoft Azure Government
 
@@ -52,6 +52,7 @@ The following table shows the endpoints for all customers:
 | Azure Active Directory Authority Endpoint | https://login.microsoftonline.us |
 | Azure Active Directory Graph API | https://graph.microsoftazure.us |
 | Microsoft Graph API for Microsoft 365 Government - GCC High | https://graph.microsoft.us |
+| Microsoft Graph API for Microsoft 365 Government - DoD | https://dod-graph.microsoft.us |
 | Azure Government services endpoints | For details, see [Azure Government developer guide](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
 | Microsoft 365 Government - GCC High endpoints | For details, see [Office 365 U.S. Government GCC High endpoints](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
 | Microsoft 365 Government - DoD | For details, see [Office 365 U.S. Government DoD endpoints](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) |
