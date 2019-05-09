@@ -125,48 +125,6 @@ You can use the wildcard symbol (*) to provide partial file names.
 > [!NOTE]
 > Append the `--recursive=true` flag to upload files in all sub-folders.
 
-## Copy files between storage accounts
-
-You can use AzCopy to copy files to other storage accounts.
-
-AzCopy uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer.
-
-This section contains the following examples:
-
-> [!div class="checklist"]
-> * Copy a file to another storage account
-> * Copy a folder to another storage account
-> * Copy a file shares to another storage account
-> * Copy all file shares, folders, and files to another storage account
-
-### Copy a file to another storage account
-
-|    |     |
-|--------|-----------|
-| **Syntax** | `azcopy cp "https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<file-path>" "https://<destination-storage-account-name>.file.core.windows.net/<file-share-name>/<file-path>"` |
-| **Example** | `azcopy cp "https://mysourceaccount.file.core.windows.net/myfileshare/myTextFile.txt" "https://mydestinationaccount.file.core.windows.net/myfileshare/myTextFile.txt"` |
-
-### Copy a folder to another storage account
-
-|    |     |
-|--------|-----------|
-| **Syntax** | `azcopy cp "https://<source-storage-account-name>.file.core.windows.net/<file-share-name>/<folder-path>" "https://<destination-storage-account-name>.file.core.windows.net/<file-share-name>/<folder-path>" --recursive=true` |
-| **Example** | `azcopy cp "https://mysourceaccount.file.core.windows.net/myfileshare/myFileShareFolder" "https://mydestinationaccount.file.core.windows.net/myfileshare/myFileShareFolder" --recursive=true` |
-
-### Copy a file shares to another storage account
-
-|    |     |
-|--------|-----------|
-| **Syntax** | `azcopy cp "https://<source-storage-account-name>.file.core.windows.net/<file-share-name>" "https://<destination-storage-account-name>.file.core.windows.net/<file-share-name>" --recursive=true` |
-| **Example** | `azcopy cp "https://mysourceaccount.file.core.windows.net/myfileshare" "https://mydestinationaccount.file.core.windows.net/myfileshare" --recursive=true` |
-
-### Copy all file shares, folders, and files to another storage account
-
-|    |     |
-|--------|-----------|
-| **Syntax** | `azcopy cp "https://<source-storage-account-name>.file.core.windows.net/" "https://<destination-storage-account-name>.file.core.windows.net/" --recursive=true"` |
-| **Example** | `azcopy cp "https://mysourceaccount.file.core.windows.net" "https://mydestinationaccount.file.core.windows.net" --recursive=true` |
-
 ## More examples
 
 See these articles:
