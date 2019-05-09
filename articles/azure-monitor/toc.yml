@@ -557,7 +557,7 @@
           href: app/usage-workbooks.md
       - name: Web App Analytics solution
         href: insights/azure-web-apps-analytics.md
-      - name: Monitoring Kubernetes applications
+      - name: Monitor Kubernetes applications
         href: app/kubernetes.md
     - name: Monitor containers
       items:
