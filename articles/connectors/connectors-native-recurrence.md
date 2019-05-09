@@ -14,9 +14,7 @@ ms.date: 05/10/2019
 
 # Create, schedule, and run recurring tasks and workflows with the Recurrence trigger in Azure Logic Apps
 
-To schedule actions, workloads, or processes that run regularly, create a logic app workflow that starts with the **Recurrence - Schedule** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). You can set a date and time for starting the workflow and a recurrence schedule for performing tasks.
-
-This trigger supports many patterns, for example:
+To schedule actions, workloads, or processes that run regularly on a particular schedule, create a logic app workflow that starts with the **Recurrence** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). You can set a date and time for starting the workflow and a recurrence schedule for performing tasks. This trigger supports many patterns, for example:
 
 * Run immediately and repeat every *n* number of seconds, minutes, hours, days
 weeks, or months.
@@ -29,19 +27,17 @@ To trigger your logic app and run only one time in the future, see [Run jobs one
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, you can [start with a free Azure account](https://azure.microsoft.com/free/). Otherwise, you can [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
+* An Azure subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
+* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). If you're new to logic apps, learn [how to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Add Recurrence trigger
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Create a blank logic app, or learn [how to create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+1. Sign in to the [Azure portal](https://portal.azure.com). Create a blank logic app.
 
-1. After Logic Apps Designer appears, under the search box, choose **All**. In the search box, enter "recurrence" as your filter. From the triggers list, select this trigger: **Recurrence - Schedule**
+1. After Logic App Designer appears, in the search box, enter "recurrence" as your filter. From the triggers list, select this trigger as the first step in your logic app workflow: **Recurrence**
 
-   ![Select "Recurrence - Schedule" trigger](./media/connectors-native-recurrence/add-recurrence-trigger.png)
-
-   This trigger is now the first step in your logic app.
+   ![Select "Recurrence" trigger](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
 1. Set the interval and frequency for the recurrence. In this example, set these properties to run your workflow every week.
 
@@ -89,9 +85,11 @@ You can configure these properties for the Recurrence trigger.
 | **At these minutes** | No | minutes | Integer or integer array | If you select "Day" or "Week", you can select one or more integers from 0 to 59 as the minutes of the hour when you want to run the workflow. <p>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. |
 |||||
 
-## JSON example
+## JSON definition
 
-Here is an example [Recurrence trigger definition](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger):
+In your logic app's underlying workflow definition, which uses JSON, you can view the [Recurrence trigger definition](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger) with the options you chose. To review this definition, on the designer toolbar, choose **Code view**. To return to the designer, choose on the designer toolbar, **Designer**.
+
+This example shows how a Recurrence trigger definition might look in your underlying workflow definition:
 
 ``` json
 "triggers": {
