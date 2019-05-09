@@ -49,7 +49,7 @@ Maximum values allowed for various components of Azure SQL Data Warehouse.
 ## Loads
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| Polybase Loads |MB per row |1<br/><br/>Polybase loads rows that are smaller than 1 MB.<br/><br/> |
+| Polybase Loads |MB per row |1<br/><br/>Polybase loads rows that are smaller than 1 MB. Loading LOB data types into tables with a Clustered Columnstore Index (CCI) is not supported.<br/><br/> |
 
 ## Queries
 | Category | Description | Maximum |

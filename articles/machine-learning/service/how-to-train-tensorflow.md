@@ -19,11 +19,11 @@ You can easily run TensorFlow training jobs on Azure compute by using the [`Tens
 
 The `TensorFlow` estimator also provides a layer of abstraction over execution, which means that you can easily configure parameterized runs on different compute targets without altering your training scripts.
 
-## Getting started
+## Get started
 
-Submitting jobs with the `TensorFlow` estimator is similar to using the base [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py). So, we recommend begin by reading the [base Estimator how-to article](how-to-train-ml-models.md) to understand the overarching concepts first.
+Since the `TensorFlow` estimator class is similar to the base [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py), we recommend you first read the [base Estimator how-to article](how-to-train-ml-models.md) to understand the overarching concepts.
 
-If you want to get started with Azure Machine Learning service, [complete the quickstart](quickstart-run-cloud-notebook.md). You'll have a working environment loaded with all of our [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml).
+To get started with Azure Machine Learning service, [complete the quickstart](quickstart-run-cloud-notebook.md). Once finished, you'll have an [Azure Machine Learning workspace](concept-azure-machine-learning-architecture.md#workspace) and all of our [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml) including those for training DNNs with TensorFlow and Keras.
 
 ## Single-node training
 

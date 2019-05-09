@@ -249,7 +249,7 @@ An error response looks like this:
 | `correlation_id` | A unique identifier for the request to help with diagnostics across components. |
 
 > [!NOTE]
-> In order for your application to be able to recieve the v2 token you can update the manifest file of the application from within azure portal. You can add the attribute `accessTokenAcceptedVersion` and set the value to 2 as `"accessTokenAcceptedVersion": 2`. Please check the article [Application manifest](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest#manifest-reference) to understand more about the same. By default the application currently recieves a v1 token . if this is not defined within the application/Web API manifest , it the value for this attribute in teh manifest defaults to 1 and hence the application will recieve v1 token.  
+> In order for your application to be able to recieve the v2 token you can update the manifest file of the application from within azure portal. You can add the attribute `accessTokenAcceptedVersion` and set the value to 2 as `"accessTokenAcceptedVersion": 2`. Please check the article [Application manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-reference) to understand more about the same. By default the application currently recieves a v1 token . if this is not defined within the application/Web API manifest , it the value for this attribute in teh manifest defaults to 1 and hence the application will recieve v1 token.  
 
 
 ## Use a token
