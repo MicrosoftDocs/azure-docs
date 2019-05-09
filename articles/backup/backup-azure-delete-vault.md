@@ -40,7 +40,7 @@ If you receive an error, remove [backup items](#remove-backup-items), [infrastru
 ![delete vault error](./media/backup-azure-delete-vault/error.png)
 
 
-## Delete the Recovery Services vault using ARM client
+## Delete the Recovery Services vault using Azure Resource Manager client
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -53,11 +53,11 @@ If you receive an error, remove [backup items](#remove-backup-items), [infrastru
 
 3. In the Azure portal, gather the subscription ID and resource group name for the vault you want to delete.
 
-For more information on ARMClient command, refer this [document](https://github.com/projectkudu/ARMClient/blob/master/README.md)
+For more information on ARMClient command, refer this [document](https://github.com/projectkudu/ARMClient/blob/master/README.md).
 
-### Use ARM client to delete Recovery Services vault
+### Use Azure Resource Manager client to delete Recovery Services vault
 
-1. Run the following command using your subscription ID, resource group name, and vault name. When you run the command it deletes the vault if you don’t have any dependencies.
+1. Run the following command using your subscription ID, resource group name, and vault name. W\hen you run the command it deletes the vault if you don’t have any dependencies.
 
    ```
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
