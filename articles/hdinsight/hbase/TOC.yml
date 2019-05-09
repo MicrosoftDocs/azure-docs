@@ -1,8 +1,8 @@
 - name: Azure HDInsight Documentation
   href: /azure/hdinsight
-- name: Apache HBase on HDInsight
+- name: Overview
   items:
-  - name: Overview
+  - name: Apache HBase on HDInsight
     href: apache-hbase-overview.md
   - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
@@ -10,6 +10,10 @@
   - name: HDInsight 4.0
     href: ../hdinsight-version-release.md
     maintainContext: true
+- name: Quickstarts
+  items:
+  - name: Query Apache HBase - Apache Phoenix
+    href: apache-hbase-phoenix-squirrel-linux.md
 - name: Get started
   items:
   - name: Start with Apache HBase & NoSQL
@@ -48,8 +52,6 @@
     - name: Apache Phoenix in HDInsight
       href: ../hdinsight-phoenix-in-hdinsight.md
       maintainContext: true
-    - name: Use Apache Phoenix and SQLLine
-      href: apache-hbase-phoenix-squirrel-linux.md
     - name: Use the Apache Phoenix Query Server REST SDK
       href: apache-hbase-using-phoenix-query-server-rest-sdk.md
   - name: Analyze big data
