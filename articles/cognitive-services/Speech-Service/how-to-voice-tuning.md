@@ -38,7 +38,7 @@ Before you can start fine-tuning the text-to-speech output with the Voice Tuning
    * Locate and select **All Subscriptions**.  
    * Select **Connect existing subscription**.  
      ![Connect an existing subscription](./media/custom-voice/custom-voice-connect-subscription.png).
-   * Enter your Azure Speech Services subscription key from the Azure portal, then select **Add**. Your subscription keys are available in the Azure portal from the Resource Management pane.  You could also get the keys from the subscription list in the Voice Tuning portal.
+   * Enter your Azure Speech Services subscription key, then select **Add**. Your subscription keys are available in the Speech customization portal from the [Subscription page](https://go.microsoft.com/fwlink/?linkid=2090458). You could also get the keys from the Resource Management pane in the [Azure portal](https://portal.azure.com/). 
    * If you have more than one Speech Services subscription that you plan to use, repeat these steps for each subscription.
 
 ## Customize the text-to-speech output

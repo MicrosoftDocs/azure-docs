@@ -1,14 +1,14 @@
 ---
 title: Transcribe multi-participant conversations with the Speech SDK - Speech Services
 titleSuffix: Azure Cognitive Services
-description: Learn how to use Conversation Transcription service with the Speech SDK. Available for C++, C#, and Java.
+description: Learn how to use Conversation Transcription with the Speech SDK. Available for C++, C#, and Java.
 services: cognitive-services
-author: jhakulin 
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/06/2019
 ms.author: jhakulin
 ---
 
@@ -19,7 +19,7 @@ The Speech SDK's **ConversationTranscriber** API allows you to transcribe meetin
 ## Limitations
 
 * Conversation transcriber is supported for C++, C#, and Java on Windows, Linux, and Android.
-* The ROOBO DevKit is the supported hardware environment for creating conversations as that provides circular multi-microphone array that can be utilized efficiently by the Conversation Transcription service for the speaker identification. [For more information, see Speech Devices SDK](speech-devices-sdk.md). 
+* The ROOBO DevKit is the supported hardware environment for creating conversations as that provides circular multi-microphone array that can be utilized efficiently by the Conversation Transcription service for the speaker identification. [For more information, see Speech Devices SDK](speech-devices-sdk.md).
 * Speech SDK support is limited to use of audio pull and push mode streams with eight channels of PCM audio.
 
 ## Prerequisites
@@ -73,7 +73,7 @@ class Program
 
 To transcribe conversations with multiple participants, create the `ConversationTranscriber` object that's associated with the `AudioConfig` object created for the conversation session and stream audio using `PullAudioInputStream` or `PushAudioInputStream`.
 
-Let's assume that you have a ConversationTranscriber class called `MyConversationTranscriber`. Your code may look like this: 
+Let's assume that you have a ConversationTranscriber class called `MyConversationTranscriber`. Your code may look like this:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -92,7 +92,7 @@ public class MyConversationTranscriber
         var stopTranscription = new TaskCompletionSource<int>();
 
         // Create an audio stream from a wav file.
-        // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback 
+        // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback
         using (var audioInput = Helper.OpenWavFile(@"8channelsOfRecordedPCMAudio.wav"))
         {
             // Creates a conversation transcriber using audio stream input.

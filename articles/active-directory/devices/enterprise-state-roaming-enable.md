@@ -43,9 +43,9 @@ Enterprise State Roaming data is hosted in one or more [Azure regions](https://a
 
 Country/region value | has their data hosted in
 ---------------------|-------------------------
-An EMEA country such as France or Zambia | One or more of the Azure regions within Europe 
-A North American country such as United States or Canada | One or more of the Azure regions within the US
-An APAC country such as Australia or New Zealand | One or more of the Azure regions within Asia
+An EMEA country/region such as France or Zambia | One or more of the Azure regions within Europe 
+A North American country/region such as United States or Canada | One or more of the Azure regions within the US
+An APAC country/region such as Australia or New Zealand | One or more of the Azure regions within Asia
 South American and Antarctica regions | One or more Azure regions within the US
 
 The country/region value is set as part of the Azure AD directory creation process and cannot be subsequently modified. If you need more details on your data storage location, file a ticket with [Azure support](https://azure.microsoft.com/support/options/).

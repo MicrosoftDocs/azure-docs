@@ -121,7 +121,35 @@ You can set the service tier, compute size, and storage amount for a single data
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-## Business Critical service tier: Storage sizes and compute sizes
+### Serverless compute tier
+
+The [serverless compute tier](sql-database-serverless.md) is in public preview and is only for single databases using the vCore purchasing model.
+
+#### Generation 5 compute platform
+
+|Compute size|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|
+|:--- | --: |--: |--: |
+|H/W generation|5|5|5|
+|Min-max vCores|0.5-1|0.5-2|0.5-4|
+|Min-max memory (GB)|2.02-3|2.05-6|2.10-12|
+|Min auto-pause delay (hours)|6|6|6|
+|Columnstore support|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|
+|Max data size (GB)|512|1024|1024|
+|Max log size (GB)|12|24|48|
+|TempDB size (GB)|32|64|128|
+|Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
+|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
+|Target IOPS (64 KB)|250|500|1000|
+|Log rate limits (MBps)|2.5|5.6|10|
+|Max concurrent workers (requests)|75|150|300|
+|Max allowed sessions|30000|30000|30000|
+|Number of replicas|1|1|1|
+|Multi-AZ|N/A|N/A|N/A|
+|Read Scale-out|N/A|N/A|N/A|
+|Included backup storage|1X DB size|1X DB size|1X DB size|
+
+## Business Critical service tier for provisioned compute tier
 
 ### Business Critical service tier: Generation 4 compute platform (part 1)
 
@@ -219,30 +247,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-## Hyperscale service tier (preview)
-
-### Generation 4 compute platform: Storage sizes and compute sizes
-
-|Performance level|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
-|:--- | --: |--: |--: |--: |--: |--: |
-|H/W generation|4|4|4|4|4|4|
-|vCores|1|2|4|8|16|24|
-|Memory (GB)|7|14|28|56|112|168|
-|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
-|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
-|Max data size (TB)|100 |100 |100 |100 |100 |100 |
-|Max log size (TB)|1 |1 |1 |1 |1 |1 |
-|TempDB size (GB)|32|64|128|256|384|384|
-|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Target IOPS (64 KB)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
-|IO latency (approximate)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
-|Max concurrent workers (requests)|200|400|800|1600|3200|4800|
-|Max allowed sessions|30000|30000|30000|30000|30000|30000|
-|Number of replicas|2|2|2|2|2|2|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
-|Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
-|Included backup storage|7|7|7|7|7|7|
-|||
+## Hyperscale service tier
 
 ### Generation 5 compute platform
 
@@ -264,7 +269,7 @@ You can set the service tier, compute size, and storage amount for a single data
 |Number of replicas|2|2|2|2|2|2|2|2|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Included backup storage (preview limit)|7|7|7|7|7|7|7|7|
+|Included backup storage |7|7|7|7|7|7|7|7|
 |||
 
 ## Next steps
