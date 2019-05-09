@@ -15,13 +15,13 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: dadobali
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
 
 # Scenario: Mobile application that calls web APIs
 
-Learn all you need to build a mobile app that calls web APIs.
+Learn all you need to know to build a mobile app that calls web APIs.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ Create your first mobile application and try out a quickstart!
 
 ## Overview
 
-When building a mobile app, a personalized, seamless end user experience is essential.  Microsoft identity platform enables mobile developers to do exactly this for iOS and Android users. Your application can sign in Azure AD, personal Microsoft account, and Azure AD B2C users and acquire tokens to call a web API on their behalf. To implement these flows, we'll use Microsoft Authentication Library (MSAL) which implements the industry standard [OAuth2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
+A personalized, seamless user experience is essential for mobile apps.  Microsoft identity platform enables mobile developers to create that experience for iOS and Android users. Your application can sign in Azure Active Directory (Azure AD) users, personal Microsoft account users, and Azure AD B2C users and acquire tokens to call a web API on their behalf. To implement these flows, we'll use Microsoft Authentication Library (MSAL), which implements the industry standard [OAuth2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
 
 ![Daemon apps](./media/scenarios/mobile-app.svg)
 

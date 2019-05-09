@@ -161,9 +161,9 @@ catch(MsalUiRequiredException e)
 
 We don't recommend using the protocol directly. If you do, the app won’t support some single sign-on (SSO), device management, and conditional access scenarios.
 
-When getting tokens for mobile apps using the protocol, you'll need to make 2 requests: get an authorization code and exchange it for a token.
+When you use the protocol to get tokens for mobile apps, you need to make two requests: get an authorization code and exchange it for a token.
 
-#### Getting Authorization code
+#### Get authorization code
 
 ```Text
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -175,7 +175,7 @@ client_id=<CLIENT_ID>
 &state=12345
 ```
 
-#### Getting access and refresh token
+#### Get access and refresh token
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
