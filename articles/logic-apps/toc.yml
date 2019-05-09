@@ -54,13 +54,17 @@
     - name: Create variables for saving values
       href: logic-apps-create-variables-store-values.md
     - name: Perform data operations
-      href: logic-apps-perform-data-operations.md  
-    - name: Add custom code with Azure Functions
+      href: logic-apps-perform-data-operations.md
+    - name: Add and run code snippets with inline code
+      href: logic-apps-add-run-inline-code.md
+    - name: Add and run code with Azure Functions
       href: logic-apps-azure-functions.md
     - name: Call logic apps with Azure Functions
       href: logic-apps-scenario-function-sb-trigger.md
     - name: Call, trigger, or nest logic apps
       href: logic-apps-http-endpoint.md
+    - name: Get bulk data with pagination
+      href: logic-apps-exceed-default-page-size-with-pagination.md  
     - name: Batch process messages
       href: logic-apps-batch-process-send-receive-messages.md
     - name: Author JSON definitions

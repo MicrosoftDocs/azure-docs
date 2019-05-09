@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 04/25/2019
 ms.author: iainfou
 ---
 
@@ -58,6 +58,8 @@ If you create resources for use with your AKS cluster, such as storage accounts 
 
 Yes. By default, the AKS resource provider automatically creates a secondary resource group during deployment, such as *MC_myResourceGroup_myAKSCluster_eastus*. To comply with corporate policy, you can provide your own name for this managed cluster (*MC_*) resource group.
 
+To specify your own resource group name, install the [aks-preview][aks-preview-cli] Azure CLI extension version *0.3.2* or later. When you create an AKS cluster using the [az aks create][az-aks-create] command, use the *--node-resource-group* parameter and specify a name for the resource group. If you [use an Azure Resource Manager template][aks-rm-template] to deploy an AKS cluster, you can define the resource group name using the *nodeResourceGroup* property.
+
 * This resource group is automatically created by the Azure resource provider in your own subscription.
 * You can only specify a custom resource group name when the cluster is created.
 
@@ -102,6 +104,22 @@ To run Windows Server containers, you need to run Windows Server-based nodes. Wi
 
 In a service level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service if the published service level isn't met. Since AKS itself is free, there is no cost available to reimburse and thus no formal SLA. However, AKS seeks to maintain availability of at least 99.5% for the Kubernetes API server.
 
+## Why can I not set `maxPods` below 30?
+
+AKS supports setting the `maxPods` value at cluster creation time via the Azure
+CLI and Azure Resource Manager templates. However, there is a *minimum value* (validated at
+creation time) for both Kubenet and Azure CNI, shown below:
+
+| Networking | Minimum | Maximum |
+| -- | :--: | :--: |
+| Azure CNI | 30 | 250 |
+| Kubenet | 30 | 110 |
+
+As AKS is a managed service, we provide addons and pods we deploy and manage as part of the cluster. In the past, users could define a `maxPods` value lower than the value required for the managed pods to run (example: 30), AKS now calculates the minimum number of
+pods via: ((maxPods or (maxPods * vm_count)) > managed add-on pods minimum.
+
+Users may not override the minimum `maxPods` validation.
+
 <!-- LINKS - internal -->
 
 [aks-regions]: ./quotas-skus-regions.md#region-availability
@@ -111,6 +129,9 @@ In a service level agreement (SLA), the provider agrees to reimburse the custome
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration.md
 [node-updates-kured]: node-updates-kured.md
+[aks-preview-cli]: /cli/azure/ext/aks-preview/aks
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
 
 <!-- LINKS - external -->
 
@@ -119,4 +140,3 @@ In a service level agreement (SLA), the provider agrees to reimburse the custome
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
-

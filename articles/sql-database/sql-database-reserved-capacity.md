@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/06/2019
+ms.date: 04/26/2019
 ---
 # Prepay for SQL Database compute resources with Azure SQL Database reserved capacity
 

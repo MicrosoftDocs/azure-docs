@@ -19,7 +19,7 @@ This how-to article shows you how to toggle the live chat in your IoT Central ap
 
 ## Chat with us
 
-To get technical support, open your IoT Central application and click on **Chat with us**.
+To get technical support, open your IoT Central application and select **Chat with us**.
 
 ![Chat with us](media/howto-show-hide-chat/chat-with-us.png)
 
@@ -38,3 +38,10 @@ To hide the chat, choose **Hide Chat** in the **Help** panel:
 To show the chat, choose **Show Chat** in the **Help** panel:
 
  ![Show Chat](media/howto-show-hide-chat/show-chat.png)
+
+## Next steps
+
+Now that you've learned how to toggle live chat in Azure IoT Central, here is the suggested next step:
+
+> [!div class="nextstepaction"]
+> [Configure your application dashboard](howto-configure-homepage.md)

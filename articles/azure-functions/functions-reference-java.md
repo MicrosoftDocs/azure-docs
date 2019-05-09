@@ -108,7 +108,7 @@ here is the generated corresponding `function.json` by the [azure-functions-mave
 
 Download and use the [Azul Zulu Enterprise for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDKs from [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) for local development of Java function apps. Azure Functions uses the Azul Java 8 JDK runtime when you deploy your function apps to the cloud.
 
-[Azure support](https://azure.microsoft.com/en-us/support/) for issues with the JDKs and Function apps is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
+[Azure support](https://azure.microsoft.com/support/) for issues with the JDKs and Function apps is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
 
 ## Third-party libraries 
 

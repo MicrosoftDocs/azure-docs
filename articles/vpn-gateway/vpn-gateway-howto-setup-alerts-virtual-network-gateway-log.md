@@ -14,11 +14,9 @@ ms.author: alzam
 
 This article helps you set up alerts based on diagnostic log events from Azure VPN Gateway.
 
-
-## <a name="setup"></a>Set up Azure Monitor alerts based on diagnostic log events by using the portal
+## <a name="setup"></a>Set up alerts
 
 The following example steps will create an alert for a disconnection event that involves a site-to-site VPN tunnel:
-
 
 
 1. In the Azure portal, search for **Log Analytics** under **All services** and select **Log Analytics workspaces**.
@@ -49,6 +47,7 @@ The following example steps will create an alert for a disconnection event that 
 
    ![Selections for creating a new alert rule](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Select")
 
+   ![point-to-site](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Select")
 8. Select the Log Analytics workspace and the resource.
 
    ![Selections for workspace and resource](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png  "Select")
@@ -59,9 +58,9 @@ The following example steps will create an alert for a disconnection event that 
 
 10. Enter the following query in the **Search query** text box. Replace the values in <> as appropriate.
 
-	    AzureDiagnostics |
-	    where Category  == "TunnelDiagnosticLog" and ResourceId == toupper("<RESOURCEID OF GATEWAY>") and TimeGenerated > ago(5m) and
-        remoteIP_s == "<REMOTE IP OF TUNNEL>" and status_s == "Disconnected"
+	 `AzureDiagnostics |
+	 where Category  == "TunnelDiagnosticLog" and ResourceId == toupper("<RESOURCEID OF GATEWAY>") and TimeGenerated > ago(5m) and
+     remoteIP_s == "<REMOTE IP OF TUNNEL>" and status_s == "Disconnected"`
 
     Set the threshold value to 0 and select **Done**.
 

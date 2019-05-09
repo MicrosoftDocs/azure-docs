@@ -2,10 +2,8 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Search
+  - name: What is Azure Search?
     href: search-what-is-azure-search.md
-  - name: What is cognitive search
-    href: cognitive-search-concept-intro.md
 - name: Quickstarts
   expanded: true
   items:
@@ -15,7 +13,7 @@
     items:
     - name: Load and query an index
       href: search-get-started-portal.md
-    - name: Enrich with AI (cognitive search)
+    - name: Enrich with AI (Cognitive Search)
       href: cognitive-search-quickstart-blob.md
   - name: C#
     items:
@@ -35,8 +33,12 @@
     href: search-indexer-tutorial.md
   - name: Index Azure JSON blobs
     href: search-semi-structured-data.md
-  - name: Index with AI (Cognitive Services)
-    href: cognitive-search-tutorial-blob.md
+  - name: Enrich with AI (Cognitive Search)
+    items:
+    - name: REST
+      href: cognitive-search-tutorial-blob.md
+    - name: C#
+      href: cognitive-search-tutorial-blob-dotnet.md
 - name: Samples
   items:
   - name: Azure code samples
@@ -51,13 +53,17 @@
     href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
 - name: Concepts
   items:
-  - name: Full text search
+  - name: Full-text search
     href: search-lucene-query-architecture.md
-  - name: Design patterns for multitenancy
-    href: search-modeling-multitenant-saas-applications.md
+  - name: Cognitive search
+    href: cognitive-search-concept-intro.md
+  - name: Knowledge Store 
+    href: knowledge-store-concept-intro.md
+  - name: Projections
+    href: knowledge-store-projection-overview.md
 - name: How-to guides
   items:
-  - name: Capacity planning
+  - name: Planning
     items:
     - name: Choose a tier
       href: search-sku-tier.md
@@ -67,6 +73,8 @@
       href: search-capacity-planning.md
     - name: Deployment strategies and best practices
       href: search-performance-optimization.md
+    - name: Multitenant architecture
+      href: search-modeling-multitenant-saas-applications.md
   - name: Security
     items:
     - name: Security overview
@@ -79,6 +87,8 @@
       href: search-security-trimming-for-azure-search.md
     - name: Filter on AAD identities
       href: search-security-trimming-for-azure-search-with-aad.md
+    - name: Manage encryption keys (preview)
+      href: search-security-manage-encryption-keys.md
   - name: Development
     items:
     - name: API versions
@@ -91,6 +101,8 @@
       href: search-get-started-java.md
     - name: Upgrade the SDK
       items:
+      - name: .NET SDK 9.0
+        href: search-dotnet-sdk-migration-version-9.md
       - name: .NET SDK 5.0
         href: search-dotnet-sdk-migration-version-5.md
       - name: .NET SDK 3.0
@@ -119,7 +131,7 @@
       items:
       - name: Create a suggester
         href: index-add-suggesters.md
-      - name: Examples (suggestions, autocomplete)
+      - name: Add suggestions or autocomplete
         href: search-autocomplete-tutorial.md
     - name: Synonyms
       items:
@@ -169,26 +181,36 @@
       href: search-indexer-field-mappings.md
     - name: Troubleshooting common issues
       href: search-indexer-troubleshooting.md
-  - name: AI-indexing (cognitive search)
+  - name: Enrich with AI
     items:
     - name: Attach a Cognitive Services resource
       href: cognitive-search-attach-cognitive-services.md
-    - name: Define a skillset
-      href: cognitive-search-defining-skillset.md
-    - name: Reference an annotation    
-      href: cognitive-search-concept-annotations-syntax.md
-    - name: Map to index fields
-      href: cognitive-search-output-field-mapping.md
-    - name: Process and extract information from images
-      href: cognitive-search-concept-image-scenarios.md
-    - name: Integrate custom skills
-      href: cognitive-search-custom-skill-interface.md
-    - name: Example - custom skills
-      href: cognitive-search-create-custom-skill-example.md
+    - name: Skillsets
+      items:
+      - name: Define a skillset
+        href: cognitive-search-defining-skillset.md
+      - name: Reference an annotation    
+        href: cognitive-search-concept-annotations-syntax.md
+      - name: Map to index fields
+        href: cognitive-search-output-field-mapping.md
+      - name: Process and extract information from images
+        href: cognitive-search-concept-image-scenarios.md
+    - name: Custom skills
+      items:
+      - name: Integrate custom skills
+        href: cognitive-search-custom-skill-interface.md
+      - name: Example - Azure Functions
+        href: cognitive-search-create-custom-skill-example.md
+      - name: Example - Containers
+        href: https://go.microsoft.com/fwlink/?linkid=2089500 
     - name: Troubleshooting tips
       href: cognitive-search-concept-troubleshooting.md
     - name: Documentation links
       href: cognitive-search-resources-documentation.md
+  - name: Knowledge Store (preview)
+    items:
+    - name: How to get started
+      href: knowledge-store-howto.md
   - name: Query data
     items:
     - name: Create a basic query
@@ -203,6 +225,8 @@
       href: search-query-simple-examples.md
     - name: Examples (full Lucene)
       href: search-query-lucene-examples.md
+    - name: moreLikeThis (preview)
+      href: search-more-like-this.md
   - name: Filter and sort data
     items:
     - name: Filter overview
@@ -272,13 +296,15 @@
       href: cognitive-search-skill-sentiment.md
     - name: Image Analysis
       href: cognitive-search-skill-image-analysis.md
-    - name: Ocr
+    - name: OCR
       href: cognitive-search-skill-ocr.md
     - name: Shaper
       href: cognitive-search-skill-shaper.md
+    - name: Conditional
+      href: cognitive-search-skill-conditional.md
     - name: Deprecated Skills
       href: cognitive-search-skill-deprecated.md
-  - name: Custom skills (Preview)
+  - name: Custom skills
     items:
     - name: Custom Web API
       href: cognitive-search-custom-skill-web-api.md

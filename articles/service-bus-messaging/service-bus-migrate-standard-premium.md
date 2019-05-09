@@ -58,7 +58,7 @@ To migrate your Service Bus standard namespace to premium by using the Azure CLI
    ```
 
     >[!IMPORTANT]
-    > The Post-migration name (post_migration_dns_name) will be used to access the old standard namespace post migration. Use this to drain the queues and the subscriptions, and then delete the namespace.
+    > The Post-migration alias/name (post_migration_dns_name) will be used to access the old standard namespace post migration. Use this to drain the queues and the subscriptions, and then delete the namespace.
 
 1. Pair the standard and premium namespaces and start the sync by using the following command:
 

@@ -225,14 +225,17 @@ The following languages are available for customization to or from English using
 | Indonesian|	`id`	|
 | Italian      | `it`          |
 | Japanese      | `ja`          |
+|Kiswahili|	`sw`	|
 | Korean      | `ko`          |
 | Latvian      | `lv`          |
 | Lithuanian      | `lt`          |
+|Malagasy|	`mg`	|
 | Norwegian      | `nb`          |
 | Polish      | `pl`          |
 | Portuguese      | `pt`          |
 | Romanian      | `ro`          |
 | Russian      | `ru`          |
+|Samoan|	`sm`	|
 | Serbian (Latin)      | `sr-Latn`          |
 | Slovak     | `sk`          |
 | Slovenian      | `sl`          |

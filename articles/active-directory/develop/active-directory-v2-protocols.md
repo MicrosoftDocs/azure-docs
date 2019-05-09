@@ -41,13 +41,13 @@ In nearly all OAuth 2.0 and OpenID Connect flows, there are four parties involve
 
 ## App Registration
 
-Every app that wants to accept both personal and work or school accounts must be registered through the new **App registrations (Preview)** experience in the [Azure portal](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) before it can sign these users in using OAuth 2.0 or OpenID Connect. The app registration process will collect and assign a few values to your app:
+Every app that wants to accept both personal and work or school accounts must be registered through the **App registrations** experience in the [Azure portal](https://aka.ms/appregistrations) before it can sign these users in using OAuth 2.0 or OpenID Connect. The app registration process will collect and assign a few values to your app:
 
 * An **Application ID** that uniquely identifies your app
 * A **Redirect URI** or **Package Identifier** that can be used to direct responses back to your app
 * A few other scenario-specific values.
 
-For more details, learn how to [register an app](quickstart-v2-register-an-app.md).
+For more details, learn how to [register an app](quickstart-register-app.md).
 
 ## Endpoints
 

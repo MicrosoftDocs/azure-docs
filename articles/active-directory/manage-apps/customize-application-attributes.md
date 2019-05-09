@@ -147,6 +147,8 @@ Selecting this option will effectively force a resynchronization of all users wh
 
 * A recommended best practice is to keep the number of consecutive changes to your attribute-mappings at a minimum.
 
+* Adding a photo attribute to be provisioned to an app is not supported today as you cannot specify the format to sync the photo. You can request the feature on [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory)
+
 
 ## Next steps
 

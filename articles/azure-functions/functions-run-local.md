@@ -40,6 +40,10 @@ Unless otherwise noted, the examples in this article are for version 2.x.
 
 Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core 2.x supports, including [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). You must first install the .NET Core 2.x SDK.
 
+> [!IMPORTANT]
+> When you enable extension bundles in the project's host.json file, you do not need to install the .NET Core 2.x SDK. For more information, see [Local development with Azure Functions Core Tools and extension bundles
+](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Extension bundles requires version 2.6.1071 of the Core Tools, or a later version.
+
 #### <a name="windows-npm"></a>Windows
 
 The following steps use npm to install Core Tools on Windows. You can also use [Chocolatey](https://chocolatey.org/). For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
@@ -181,7 +185,7 @@ The file local.settings.json stores app settings, connection strings, and settin
 
 | Setting      | Description                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | When set to `true`, all values are encrypted using a local machine key. Used with `func settings` commands. Default value is `false`. |
+| **`IsEncrypted`** | When set to `true`, all values are encrypted using a local machine key. Used with `func settings` commands. Default value is `true`. When `true`, all settings added by using `func settings add` are encrypted using the local machine key. This mirrors how function app settings are stored in application settings in Azure. Encrypting local settings values provides extra protection for valuable data should the local.settings.json be publicly exposed.  |
 | **`Values`** | Collection of application settings and connection strings used when running locally. These values correspond to app settings in your function app in Azure, such as [`AzureWebJobsStorage`]. Many triggers and bindings have a property that refers to a connection string app setting, such as `Connection` for the [Blob storage trigger](functions-bindings-storage-blob.md#trigger---configuration). For such properties, you need an application setting defined in the `Values` array. <br/>[`AzureWebJobsStorage`] is a required app setting for triggers other than HTTP. <br/>Version 2.x of the Functions runtime requires the [`FUNCTIONS_WORKER_RUNTIME`] setting, which is generated for your project by Core Tools. <br/> When you have the [Azure storage emulator](../storage/common/storage-use-emulator.md) installed locally, you can set [`AzureWebJobsStorage`] to `UseDevelopmentStorage=true` and Core Tools uses the emulator. This is useful during development, but you should test with an actual storage connection before deployment. |
 | **`Host`** | Settings in this section customize the Functions host process when running locally. |
 | **`LocalHttpPort`** | Sets the default port used when running the local Functions host (`func host start` and `func run`). The `--port` command-line option takes precedence over this value. |
@@ -308,6 +312,7 @@ The `host` command is only required in version 1.x.
 | **`--script-root --prefix`** | Used to specify the path to the root of the function app that is to be run or deployed. This is used for compiled projects that generate project files into a subfolder. For example, when you build a C# class library project, the host.json, local.settings.json, and function.json files are generated in a *root* subfolder with a path like `MyProject/bin/Debug/netstandard2.0`. In this case, set the prefix as `--script-root MyProject/bin/Debug/netstandard2.0`. This is the root of the function app when running in Azure. |
 | **`--timeout -t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
+| **`--enableAuth`** | Enable full authentication handling pipeline.|
 
 For a C# class library project (.csproj), you must include the `--build` option to generate the library .dll.
 
