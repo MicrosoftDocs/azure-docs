@@ -183,9 +183,11 @@ Before you use the OpenAPI definition, you should verify that the API works.
 
 If your API works as expected, you can download the OpenAPI definition.
 
-1. Click on the **Download OpenAPI definition** button in the top bar.
+1. Select **Download OpenAPI definition** at the top of the page.
    
    ![Download OpenAPI definition](media/functions-openapi-definition/download-definition.png)
+
+2. Open the downloaded JSON file and review the definition.
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
