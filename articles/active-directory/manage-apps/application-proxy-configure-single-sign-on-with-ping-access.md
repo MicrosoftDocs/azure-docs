@@ -37,14 +37,14 @@ For more information, see [Azure Active Directory editions](../fundamentals/acti
 
 ## Publish your application in Azure
 
-This article is for people to publish an application with this scenario for the first time. Besides detailing the publishing steps, it guides you in getting started with both Application Proxy and PingAccess. If you’ve already configured both services but want a refresher on the publishing steps, skip to the [Publish your application](#publish-your-application) section.
+This article is for people to publish an application with this scenario for the first time. Besides detailing the publishing steps, it guides you in getting started with both Application Proxy and PingAccess. If you’ve already configured both services but want a refresher on the publishing steps, skip to the [Add your application to Azure AD with Application Proxy](#add-your-application-to-azure-ad-with-application-proxy) section.
 
 > [!NOTE]
 > Since this scenario is a partnership between Azure AD and PingAccess, some of the instructions exist on the Ping Identity site.
 
 ### Install an Application Proxy connector
 
-If you've enabled Application Proxy enabled and installed a connector already, you can skip this section and go to [Add your app to Azure AD with Application Proxy](#add-your-app-to-azure-ad-with-application-proxy).
+If you've enabled Application Proxy enabled and installed a connector already, you can skip this section and go to [Add your application to Azure AD with Application Proxy](#add-your-application-to-azure-ad-with-application-proxy).
 
 The Application Proxy connector is a Windows Server service that directs the traffic from your remote employees to your published applications. For more detailed installation instructions, see [Enable Application Proxy in the Azure portal](application-proxy-add-on-premises-application.md).
 
@@ -78,12 +78,12 @@ To publish your own on-premises application:
 3. Fill out the required fields with information about your new application. Use the guidance below for the settings.
 
    > [!NOTE]
-   > For a more detailed walkthrough of step 3, see [Add an on-premises app to Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
+   > For a more detailed walkthrough of this step, see [Add an on-premises app to Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
 
    1. **Internal URL**: Normally you provide the URL that takes you to the app’s sign-in page when you’re on the corporate network. For this scenario, the connector needs to treat the PingAccess proxy as the front page of the application. Use this format: `https://<host name of your PingAccess server>:<port>`. The port is 3000 by default, but you can configure it in PingAccess.
 
       > [!WARNING]
-      > For this type of single sign-on, the internal URL must use https and can't use http.
+      > For this type of single sign-on, the internal URL must use `https` and can't use `http`.
 
    2. **Pre-authentication method**: Azure Active Directory
    3. **Translate URL in Headers**: No
@@ -128,13 +128,13 @@ Finally, set up your on-premises application so that users have read access and 
 
 #### Collect information for the PingAccess steps
 
-The following three pieces of information (all GUIDs) need to be collected to set up your application with PingAccess:
+You need to collect these three pieces of information (all GUIDs) to set up your application with PingAccess:
 
-| Name of Azure AD field | Name of PingAccess field |
-| --- | --- |
-| **Application (client) ID** | **Client ID** |
-| **Directory (tenant) ID** | **Issuer** |
-| `PingAccess key` | **Client Secret** |
+| Name of Azure AD field | Name of PingAccess field | Data format |
+| --- | --- | --- |
+| **Application (client) ID** | **Client ID** | GUID |
+| **Directory (tenant) ID** | **Issuer** | GUID |
+| `PingAccess key` | **Client Secret** | Random string |
 
 To collect this information:
 
@@ -142,15 +142,15 @@ To collect this information:
 2. Select your application. The **App registrations** page for your application appears.
 
    ![Registration overview for an application](./media/application-proxy-configure-single-sign-on-with-ping-access/registration-overview-for-an-application.png)
-3. Next to the **Application (client) ID** value, select the **Copy to clipboard** icon, then copy and save it. You specify this value later for PingAccess's client ID.
-4. Next the **Directory (tenant) ID** value, also select **Copy to clipboard**, then copy and save it. You specify this value later for PingAccess's issuer.
+3. Next to the **Application (client) ID** value, select the **Copy to clipboard** icon, then copy and save it. You specify this value later as PingAccess's client ID.
+4. Next the **Directory (tenant) ID** value, also select **Copy to clipboard**, then copy and save it. You specify this value later as PingAccess's issuer.
 5. From the sidebar of the **App registrations** for your application, select **Certificates and secrets** > **New client secret**. The **Add a client secret** page appears.
 
    ![Add a client secret](./media/application-proxy-configure-single-sign-on-with-ping-access/add-a-client-secret.png)
 6. In **Description**, type `PingAccess key`.
 7. Under **Expires**, choose how to set the PingAccess key: **In 1 year**, **In 2 years**, or **Never**.
 8. Select **Add**. The PingAccess key is shown in the table of client secrets, with a random string that autofills in the **VALUE** field.
-9. Next to the PingAccess key's **VALUE** field, select the **Copy to clipboard** icon, then copy and save it. You specify this value later for PingAccess's client secret.
+9. Next to the PingAccess key's **VALUE** field, select the **Copy to clipboard** icon, then copy and save it. You specify this value later as PingAccess's client secret.
 
 ### Update GraphAPI to send custom fields (optional)
 
@@ -190,7 +190,7 @@ Now that you've completed all the Azure Active Directory setup steps, you can mo
 
 The detailed steps for the PingAccess part of this scenario continue in the Ping Identity documentation, [Configure PingAccess for Azure AD](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html).
 
-Those steps help you install PingAccess and set up a PingAccess account (if you don't already have one). Then, to create an Azure AD OpenID Connect (OIDC) connection, you set up a token provider with the **Directory (tenant) ID** value that you copied from the Azure AD portal. Then, to create a web session on PingAccess, you use the **Application (client) ID** and `PingAccess key` values. After that, you can set up identity mapping and create a virtual host, site, and application.
+Those steps help you install PingAccess and set up a PingAccess account (if you don't already have one). Then, to create an Azure AD OpenID Connect (OIDC) connection, you set up a token provider with the **Directory (tenant) ID** value that you copied from the Azure AD portal. Next, to create a web session on PingAccess, you use the **Application (client) ID** and `PingAccess key` values. After that, you can set up identity mapping and create a virtual host, site, and application.
 
 ### Test your application
 
