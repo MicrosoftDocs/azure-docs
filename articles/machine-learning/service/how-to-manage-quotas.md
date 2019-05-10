@@ -48,9 +48,9 @@ For a more detailed and up-to-date list of quota limits, check the Azure-wide qu
 For Azure Machine Learning Compute, there is a default quota limit on both the number of cores and number of unique compute resources allowed per region in a subscription. This quota is separate from the VM core quota above and the core limits are not shared currently between the two resource types.
 
 Available resources:
-+ Dedicated cores per region have a default limit of 10 - 24.  The number of dedicated cores per subscription can be increased. Contact Azure support to discuss increase options.
++ Dedicated cores per region have a default limit of 24 - 300 depending on your subscription offer type.  The number of dedicated cores per subscription can be increased. Contact Azure support to discuss increase options.
 
-+ Low-priority cores per region have a default limit of 10 - 24.  The number of low-priority cores per subscription can be increased. Contact Azure support to discuss increase options.
++ Low-priority cores per region have a default limit of 24 - 300 depending on your subscription offer type.  The number of low-priority cores per subscription can be increased. Contact Azure support to discuss increase options.
 
 + Clusters per region have a default limit of 100 and a maximum limit of 200. Contact Azure support if you want to request an increase beyond this limit.
 
@@ -62,10 +62,12 @@ Available resources:
 | Maximum nodes in a single Azure Machine Learning Compute (AmlCompute) resource | 100 nodes |
 | Maximum GPU MPI processes per node | 1-4 |
 | Maximum GPU workers per node | 1-4 |
-| Maximum job lifetime | 7 days<sup>1</sup> |
+| Maximum job lifetime | 90 days<sup>1</sup> |
+| Maximum job lifetime on a Low Priority Node | 1 day<sup>2</sup> |
 | Maximum parameter servers per node | 1 |
 
 <sup>1</sup> The maximum lifetime refers to the time that a run start and when it finishes. Completed runs persist indefinitely; data for runs not completed within the maximum lifetime is not accessible.
+<sup>2</sup> Jobs on a Low Priority node could be pre-empted any time there is a capacity constraint. It is recommended to implement checkpointing in your job.
 
 ### Container instances
 
