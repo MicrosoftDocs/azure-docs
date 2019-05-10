@@ -67,7 +67,9 @@ If either of these situations apply to you, then you may need to change your cod
 
 If you are upgrading from a preview API version, the above also applies, but you must also be aware that some preview features are not available in version 2019-05-06:
 
-* ["More like this" queries](search-more-like-this.md) continue to be a preview-only feature.
+* ["More like this" queries](search-more-like-this.md)
+* [CSV blob indexing](search-howto-index-csv-blobs.md)
+* [MongoDB API support for Cosmos DB indexers](search-howto-index-cosmosdb.md)
 
 If your code uses these features, you will not be able to upgrade to API version 2019-05-06 without removing your usage of them.
 

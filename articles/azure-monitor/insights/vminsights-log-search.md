@@ -125,7 +125,7 @@ Ports on a machine that actively accept incoming traffic or could potentially ac
 >- East US  
 >- West Europe
 >
-> Collecting this data is enabled in the other [supported regions](vminsights-onboard.md#log-analytics) for Azure Monitor for VMs. 
+> Collecting this data is enabled in the other [supported regions](vminsights-enable-overview.md#log-analytics) for Azure Monitor for VMs. 
 
 Every record in VMBoundPort is identified by the following fields: 
 
