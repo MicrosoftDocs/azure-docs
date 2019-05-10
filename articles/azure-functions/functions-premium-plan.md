@@ -111,6 +111,7 @@ Below are the currently supported regions for the public preview.
 |France Central|
 |Japan West|
 |Korea Central|
+|North Central US|
 |North Europe|
 |South Central US|
 |South India|
