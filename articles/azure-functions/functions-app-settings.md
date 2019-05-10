@@ -212,7 +212,7 @@ Here is an example proxies.json in a function app at the URL myfunction.com
 
 ## Next steps
 
-[Learn how to update app settings](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[Learn how to update app settings](functions-how-to-use-azure-function-app-settings.md#settings)
 
 [See global settings in the host.json file](functions-host-json.md)
 

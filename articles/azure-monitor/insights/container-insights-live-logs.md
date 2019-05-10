@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
+ms.date: 05/10/2019
 ms.author: magoedte
 ---
 
@@ -67,7 +67,7 @@ If you have enabled Kubernetes RBAC authorization, you will need to apply cluste
 AKS can be configured to use Azure Active Directory (AD) for user authentication. If you are configuring this for the first time, see [Integrate Azure Active Directory with Azure Kubernetes Service](../../aks/azure-ad-integration.md). During the steps to create the [client application](../../aks/azure-ad-integration.md#create-client-application) and specify the **redirect URI**, you need to add another URI to the list `https://ininprodeusuxbase.microsoft.com/*`.  
 
 >[!NOTE]
->Configuring authentication with Azure Active Directory for single-sign on can only be accomplished during intial deployment of a new AKS cluster. You cannot configure single-sign on for an AKS cluster already deployed.  
+>Configuring authentication with Azure Active Directory for single-sign on can only be accomplished during intial deployment of a new AKS cluster. You cannot configure single-sign on for an AKS cluster already deployed. You must configure authentication from **App registration (legacy)** option in Azure AD in order to support the use of a wildcard in the URI, and while adding it to the list, register it as a **native** app.
 > 
 
 ## View live logs and events
