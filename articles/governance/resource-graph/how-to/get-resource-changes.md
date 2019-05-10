@@ -114,7 +114,7 @@ Example request body:
 ```json
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
-    "changeId": "53dc0515-b86b-4bc2-979b-e4694ab4a556"
+    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}"
 }
 ```
 
@@ -128,7 +128,7 @@ The response looks similar to this example:
 
 ```json
 {
-    "changeId": "53dc0515-b86b-4bc2-979b-e4694ab4a556",
+    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}",
     "beforeSnapshot": {
         "timestamp": "2019-03-29T01:32:05.993Z",
         "content": {
