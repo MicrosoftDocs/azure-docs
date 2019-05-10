@@ -61,7 +61,7 @@ Azure CLI. If you haven't installed the Azure CLI, see [Install the Azure CLI](h
     export clusterSizeInNodes=1
     export clusterVersion=3.6
     export clusterType=hadoop
-    export componentVersion=Hadoop=2.7.3
+    export componentVersion=Hadoop=2.7
     ```
 
 3. [Create the resource group](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) by entering the command below:
