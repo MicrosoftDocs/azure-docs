@@ -259,7 +259,7 @@ To enable the reverse proxy on the cluster, follow the steps in [Reverse proxy i
 
 Patch orchestration app logs are collected as part of Service Fabric runtime logs.
 
-In case you want to capture logs via diagnostic tool/pipeline of your choice. Patch orchestration application uses below fixed provider IDs to log events via [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
+In case you want to capture logs via diagnostic tool/pipeline of your choice. Patch orchestration application uses below fixed provider IDs to log events via [event source](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -308,7 +308,7 @@ Q. **What can I do if my cluster is unhealthy and I need to do an urgent operati
 
 A. The patch orchestration app does not install updates while the cluster is unhealthy. Try to bring your cluster to a healthy state to unblock the patch orchestration app workflow.
 
-Q. **Should i set TaskApprovalPolicy as 'NodeWise' or 'UpgradeDomainWise' for my cluster?**
+Q. **Should I set TaskApprovalPolicy as 'NodeWise' or 'UpgradeDomainWise' for my cluster?**
 
 A. 'UpgradeDomainWise' makes the overall cluster patching faster by patching all the nodes belonging to an upgrade domain in parallel. This means that nodes belonging to an entire upgrade domain would be unavailable (in [Disabled](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) state) during the patching process.
 
@@ -343,7 +343,7 @@ Q. **Can Patch Orchestration app be used to patch my dev cluster (one-node clust
 
 A. No, Patch orchestration app cannot be used to patch one-node cluster. This limitation is by design, as [service fabric system services](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) or any customer apps will face downtime and hence any repair job for patching would never get approved by repair manager.
 
-Q. **How do i patch cluster nodes on Linux?**
+Q. **How do I patch cluster nodes on Linux?**
 
 A. See [Azure virtual machine scale set automatic OS image upgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) for orchestrating updates on linux.
 
@@ -413,7 +413,7 @@ An administrator must intervene and determine why the application or cluster bec
 
 - Setting InstallWindowsOSOnlyUpdates to false now installs all the available updates.
 - Changed the logic of disabling automatic updates. This fixes a bug where Automatic updates were not getting disabled on Server 2016 and above.
-- Parameterized placement constraint for both the microservices of POA for advanced usecases.
+- Parameterized placement constraint for both the microservices of POA for advanced use cases.
 
 ### Version 1.3.1
 - Fixing regression where POA 1.3.0 won't work on Windows Server 2012 R2 or lower due to failure in disabling automatic updates. 
@@ -421,4 +421,4 @@ An administrator must intervene and determine why the application or cluster bec
 - Changing default value of InstallWindowsOSOnlyUpdates to False.
 
 ### Version 1.3.2
-- Fixing an issue which effected the patching life-cyle on a node in case there are nodes with name which is subset of the current node name. For such nodes, its possible, patching is missed or reboot is pending. 
+- Fixing an issue which effected the patching lifecyle on a node in case there are nodes with name which is subset of the current node name. For such nodes, its possible, patching is missed or reboot is pending. 
