@@ -203,9 +203,9 @@ To better utilize the large-scale feature, we recommend the following strategies
 
 ## Step 3.1: Customize time interval
 
-As is shown in the `TrainLargeFaceList()`, there's a `timeIntervalInMilliseconds` to delay the infinite training status checking process. For LargeFaceList with more faces, using a larger interval reduces the call counts and cost. Customize the time interval according to the expected capacity of the LargeFaceList.
+As is shown in `TrainLargeFaceList()`, there's a time interval in milliseconds to delay the infinite training status checking process. For LargeFaceList with more faces, using a larger interval reduces the call counts and cost. Customize the time interval according to the expected capacity of the LargeFaceList.
 
-The same strategy also applies to LargePersonGroup. For example, when you train a LargePersonGroup with 1,000,000 persons, the `timeIntervalInMilliseconds` might be 60,000, which is a 1-minute interval.
+The same strategy also applies to LargePersonGroup. For example, when you train a LargePersonGroup with 1 million persons, `timeIntervalInMilliseconds` might be 60,000, which is a 1-minute interval.
 
 ## Step 3.2 Small-scale buffer
 
@@ -226,7 +226,7 @@ An example workflow:
 
 If a relatively long latency is acceptable, it isn't necessary to trigger the Train operation right after you add new data. Instead, the Train operation can be split from the main logic and triggered regularly. This strategy is suitable for dynamic scenarios with acceptable latency. It can be applied to static scenarios to further reduce the Train frequency.
 
-Suppose there's a `TrainLargePersonGroup` function similar to the `TrainLargeFaceList`. A typical implementation of the standalone training on a LargePersonGroup by invoking the [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) class in `System.Timers` is:
+Suppose there's a `TrainLargePersonGroup` function similar to `TrainLargeFaceList`. A typical implementation of the standalone training on a LargePersonGroup by invoking the [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) class in `System.Timers` is:
 
 ```CSharp
 private static void Main()

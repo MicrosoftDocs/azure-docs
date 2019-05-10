@@ -179,6 +179,6 @@ In this guide, you learned the process of creating a PersonGroup and identifying
 ## Related topics
 
 - [Face recognition concepts](../concepts/face-recognition.md)
-- [How to detect faces in an image](HowtoDetectFacesinImage.md)
-- [How to add faces](how-to-add-faces.md)
-- [How to use the large-scale feature](how-to-use-large-scale.md)
+- [Detect faces in an image](HowtoDetectFacesinImage.md)
+- [Add faces](how-to-add-faces.md)
+- [Use the large-scale feature](how-to-use-large-scale.md)
