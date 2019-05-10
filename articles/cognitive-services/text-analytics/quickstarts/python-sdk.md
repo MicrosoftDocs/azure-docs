@@ -20,11 +20,6 @@ Use this quickstart to begin analyzing language with the Text Analytics SDK for 
 
 Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
-You can run this example from the command line or as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge:
-
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
-
-
 ## Prerequisites
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
