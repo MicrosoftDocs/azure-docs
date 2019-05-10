@@ -42,19 +42,6 @@ The diagram shows the following components of a workspace:
 + Once you have a model you want to deploy, you create a [registered model](concept-azure-machine-learning-architecture.md#model-registry).
 + Use the registered model and a scoring script to create a [deployment](concept-azure-machine-learning-architecture.md#image-registry).
 
-## Manage a workspace
-
-Manage your workspace with any of the following:
-+ The [Azure portal](https://azure.portal.com)
-+ The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-+ The [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
-
-| Workspace Management Task   | Portal              | SDK        | CLI        |
-|---------------------------|------------------|------------|------------|
-| Create a workspace        | **&check;**     | **&check;** | **&check;** |
-| Create and manage compute resources    | **&check;**   | **&check;** |  **&check;**   |
-| Manage workspace access    | **&check;**   | |  **&check;**    |
-| Create Notebook VMs | **&check;**   | |     |
 
 ## Machine learning with a workspace
 
@@ -75,6 +62,19 @@ You perform machine learning tasks using your workspace.  You can perform these 
 | View ML artifacts (experiments, pipelines, models, deployments )  | **&check;** (portal) | **&check;** |            |
 | Manage ML artifacts          | **&check;** (portal)   | **&check;** |
 
+## Manage a workspace
+
+Manage your workspace with any of the following:
++ The [Azure portal](https://azure.portal.com)
++ The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
++ The [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
+
+| Workspace Management Task   | Portal              | SDK        | CLI        |
+|---------------------------|------------------|------------|------------|
+| Create a workspace        | **&check;**     | **&check;** | **&check;** |
+| Create and manage compute resources    | **&check;**   | **&check;** |  **&check;**   |
+| Manage workspace access    | **&check;**   | |  **&check;**    |
+| Create Notebook VMs | **&check;**   | |     |
 
 ## <a name="resources"></a> Associated resources
 
