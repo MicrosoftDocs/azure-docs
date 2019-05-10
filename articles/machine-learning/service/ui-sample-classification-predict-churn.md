@@ -14,7 +14,18 @@ ms.date: 05/02/2019
 
 # Sample 5 - Classification: Predict churn, appetency, and up-selling 
 
-This visual interface sample experiment shows binary classifier prediction of churn, appetency and up-selling, a common task for customer relationship management (CRM).
+Learn how to build a machine learning classifier that to predict churn, appetency, and up-selling that predicts an automobile's price without writing a single line of code.
+
+You'll use the visual interface to perform the basic steps of any machine learning model development project:
+
+1. Get the data
+1. Pre-process the data
+1. Train the model
+1. Evaluate the model
+
+Here's the final, completed graph of the experiment. This article provides the rationale  for every module so you can make similar decisions when creating your own models.
+
+![Experiment graph](./media/ui-sample-classification-predict-churn/experiment-graph.png)
 
 ## Prerequisites
 
@@ -30,9 +41,7 @@ The data we use for this experiment is from KDD Cup 2009. The dataset has 50,000
 
 ## Experiment summary
 
-Here's the complete experiment graph:
-
-![Experiment graph](./media/ui-sample-classification-predict-churn/experiment-graph.png)
+This visual interface sample experiment shows binary classifier prediction of churn, appetency and up-selling, a common task for customer relationship management (CRM).
 
 First, we do some simple data processing.
 
