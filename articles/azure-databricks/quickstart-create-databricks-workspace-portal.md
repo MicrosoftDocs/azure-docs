@@ -20,9 +20,9 @@ In this quickstart, as part of the Spark job, you analyze Boston safety data to 
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create an Azure Databricks workspace
 
