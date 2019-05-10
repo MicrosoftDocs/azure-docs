@@ -38,7 +38,7 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
     pip install --upgrade requests
     ```
 
-If you"re running the Binder notebook locally, You may need to update [IPython](https://ipython.org/install.html):
+* If you're running the Binder notebook locally, You may need to update [IPython](https://ipython.org/install.html):
     
     ```console
     pip install --upgrade IPython
@@ -58,7 +58,7 @@ from pprint import pprint
 from IPython.display import HTML
 ```
 
-Create variables for your subscription key, and the endpoint for the Text Analytics REST API. Verify that the region in the endpoint corresponds to the one you used when you signed up (for example `westcentralus`). If you"re using a free trial key, you don"t need to change anything.
+Create variables for your subscription key, and the endpoint for the Text Analytics REST API. Verify that the region in the endpoint corresponds to the one you used when you signed up (for example `westcentralus`). If you're using a free trial key, you don't need to change anything.
     
 ```python
 subscription_key = "<ADD YOUR KEY HERE>"
@@ -71,7 +71,7 @@ The following sections describe how to call each of the API"s features.
 
 ## Detect languages
 
-Append `languages` to the Text Analytics base URL to form the language detection endpoint. For example:
+Append `languages` to the Text Analytics base endpoint to form the language detection URL. For example:
     `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
     
 ```python
@@ -141,7 +141,7 @@ pprint(languages)
 
 ## Analyze sentiment
 
-To detect the sentiment (which ranges between positive or negative) of a set of documents, append `sentiment` to the Text Analytics base URL to form the language detection endpoint. For example:
+To detect the sentiment (which ranges between positive or negative) of a set of documents, append `sentiment` to the Text Analytics base endpoint to form the language detection URL. For example:
     `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
     
 ```python
@@ -202,7 +202,7 @@ The sentiment score for a document is between 0.0 and 1.0, with a higher score i
 
 ## Extract key phrases
  
-To extract the key phrases from a set of documents, append `keyPhrases` to the Text Analytics base URL to form the language detection endpoint. For example:
+To extract the key phrases from a set of documents, append `keyPhrases` to the Text Analytics base endpoint to form the language detection URL. For example:
     `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
     
 ```python
@@ -277,7 +277,7 @@ pprint(key_phrases)
 
 ## Identify Entities
 
-To identify well-known entities (people, places, and things) in text documents, append `keyPhrases` to the Text Analytics base URL to form the language detection endpoint. For example:
+To identify well-known entities (people, places, and things) in text documents, append `keyPhrases` to the Text Analytics base endpoint to form the language detection URL. For example:
     `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
     
 ```python
