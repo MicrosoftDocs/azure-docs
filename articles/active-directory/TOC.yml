@@ -14,8 +14,6 @@
     href: fundamentals/active-directory-data-storage-eu.md
   - name: FAQs
     href: fundamentals/active-directory-faq.md
-  - name: What's New
-    href: fundamentals/whats-new.md
 - name: Get started
   items:
   - name: Sign up for Azure AD Premium
@@ -34,6 +32,8 @@
     href: active-directory-properties-area.md
   - name: Access Azure Active Directory to create a new tenant
     href: fundamentals/active-directory-access-create-new-tenant.md
+  - name: What's New
+    href: fundamentals/whats-new.md
 - name: How to
   items:
   - name: Plan and design
