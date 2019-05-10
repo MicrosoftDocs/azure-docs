@@ -45,8 +45,6 @@ To enable the correct service endpoints, complete the following steps:
 1. If you are using an ESP cluster, then you must also select the **Microsoft.AzureActiveDirectory** service endpoint.
 1. Click **Save**.
 
-    ![Title: Add service endpoints](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-service-endpoint.png)
-
 ### Create a new firewall for your cluster
 
 1. Create a subnet named **AzureFirewallSubnet** in the virtual network where your cluster exists. 
@@ -192,7 +190,7 @@ Integrating your Azure Firewall with Azure Monitor logs is useful when first get
 
 ## Dependencies
 
-The following information is ONLY required if you wish to configure a network virtual appliance(NVA) other than Azure Firewall.
+The following information is ONLY required if you wish to configure a network virtual appliance (NVA) other than Azure Firewall. With an Azure Firewall, you automatically get everything below configured with the FQDN tags.
 
 * Service Endpoint capable services should be configured with service endpoints.
 * IP Address dependencies are for non-HTTP/S traffic (both TCP and UDP traffic)
@@ -218,9 +216,10 @@ The following information is ONLY required if you wish to configure a network vi
 | \*:16800 for KMS Windows Activation |
 | \*12000 for Log Analytics |
 
-With an Azure Firewall, you automatically get everything below configured with the FQDN tags.
-
 #### FQDN HTTP/HTTPS dependencies
+
+>[!Important]
+> You can get the full list of FQDNs for configuring your NVA [in this file](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
 
 | **Endpoint**                                                          |
 |---|
@@ -228,13 +227,6 @@ With an Azure Firewall, you automatically get everything below configured with t
 | security.ubuntu.com:80                                                |
 | ocsp.msocsp.com:80                                                    |
 | ocsp.digicert.com:80                                                  |
-| The full list is here [https://msdata.visualstudio.com/HDInsight/_git/HDInsight-Main?path=%2Ftools%2FHDInsightFQDNTag%2FHDInsightFQDNTags.json&version=GBdeveloper]
-
->[!Important]
->We should replicate this file (contains 14000 FQDNs), store it somewhere and link to it here
-
-| **Endpoint**                                                          |
-|---|
 | wawsinfraprodbay063.blob.core.windows.net:443                         |
 | registry-1.docker.io:443                                              |
 | auth.docker.io:443                                                    |
