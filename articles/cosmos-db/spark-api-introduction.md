@@ -3,7 +3,7 @@ title: Introduction to the built-in operational analytics in Azure Cosmos DB wit
 description: Learn how you can use the built-in support for Apache Spark in Azure Cosmos DB to run operational analytics and AI
 ms.service: cosmos-db
 ms.topic: overview 
-ms.date: 05/06/2019
+ms.date: 05/10/2019
 author: rimman
 ms.author: rimman
 ---
@@ -67,6 +67,12 @@ The Apache Spark jobs will have the Azure Cosmos DB benefits such as industry le
 ### Mixed workloads
 
 The integration of Apache Spark into Azure Cosmos DB bridges the transactional and analytic separation, which has been one of the major customer pain points when building cloud-native applications at global scale. 
+
+## Built-in Jupyter notebooks support
+
+Azure Cosmos DB supports Jupyter notebooks for all APIs such as Cassandra, MongoDB, SQL, Gremlin, and table. The Jupyter notebooks run within the Azure Cosmos DB accounts and they enhance the developer experience. The built-in notebook support for all Azure Cosmos DB APIs and data models allows you to interactively run queries. You can also execute machine learning models, and analyze the data stored in your Azure Cosmos databases. By using the Jupyter notebook experience, you can analyze the stored data, build and train machine learning models, and perform inferencing on the data in the Azure portal as shown in the following image:
+
+![Jupyter notebooks support in Azure Cosmos DB](./media/spark-api-introduction/jupyter-notebooks-portal.png)
 
 ## Next steps
 
