@@ -204,7 +204,7 @@ Once the selected script successfully executes, updates to the profiles and poli
 
 To review the changes you can also export the profiles, and applying changes to the export file as outlined in the SECCON documentation based on and additional hardening that is required.
 
-Running the Intune data export script `DeviceConfiguration_Export.ps1` from the [DeviceConfiguration GiuHub repository](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration) will provide the current export of all the of Intune existing profiles.
+Running the Intune data export script `DeviceConfiguration_Export.ps1` from the [DeviceConfiguration GiuHub repository](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration) will provide the current export of all of the existing Intune profiles.
 
 ## Additional configurations and hardening to consider
 
@@ -305,14 +305,13 @@ To enroll your device, you need the following information:
 
 You can gather this information by signing in to a Windows 10 version 1809 or higher device to gather the information, or your hardware reseller can provide this information when ordering new devices.
 
-After retrieving the required information return to the Azure portal and browse to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Devices - Manage Windows Autopilot devices**, select **Import** and choose the CSV file you created or were provided.
+Gather the required information and return to the **Azure portal**. Navigate to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Devices - Manage Windows Autopilot devices**, select **Import**, and choose the CSV file you created or were provided.
 
 * Add the now enrolled device to the security group **Secure Workstations** created earlier.
 
 From the Windows 10 device you wish to configure, browse to **Windows Settings** > **Update & Security** > **Recovery**. Choose **Get started** under **Reset this PC** and follow the prompts to reset and reconfigure the device using the profile and compliance policies configured.
 
-After the device has been reconfigured, complete a review of the now enrolled device and check its configuration. 
-The device should now be configured in accord with the policies you have configured.
+After the device has been configured, complete a review and check the configuration. Confirm the first device is configured correctly before continuing your deployment.
 
 ## Assignment and monitoring
 
