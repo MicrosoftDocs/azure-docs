@@ -65,7 +65,7 @@ subscription_key = "<ADD YOUR KEY HERE>"
 text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/"
 ```
 
-The following sections describe how to call each of the API"s features.
+The following sections describe how to call each of the API's features.
 
 <a name="Detect"></a>
 
