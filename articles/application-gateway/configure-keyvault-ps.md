@@ -17,9 +17,6 @@ For more information, see [SSL termination with Key Vault certificates](key-vaul
 
 This article shows you an Azure PowerShell script to integrate Key Vault with Application Gateway for SSL termination certificates.
 
-> [!IMPORTANT]
-> The Application Gateway Key Vault integration is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 This article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). To run the commands in this article, you also need to run `Connect-AzAccount` to create a connection with Azure.

@@ -23,7 +23,7 @@ You can specify a country/region using the `cc` query parameter. If you specify 
 
 The `Accept-Language` header and the `setLang` query parameter are mutually exclusive—do not specify both. For details, see [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage).
 
-## Countries
+## Countries/Regions
 
 |Country/region|Code|
 |-------|----|

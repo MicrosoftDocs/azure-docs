@@ -104,7 +104,7 @@ Now we need to reset the trust between AD FS and Azure.
 
 ## Test signing in with one of our users
 
-1.  Browse to [http://myapps.microsoft.com](http://myapps.microsoft.com)
+1.  Browse to [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Sign-in with a user account that was created in our new tenant.  You will need to sign-in using the following format: (user@domain.onmicrosoft.com). Use the same password that the user uses to sign-in on-premises.
 ![Verify](media/tutorial-password-hash-sync/verify1.png)
 

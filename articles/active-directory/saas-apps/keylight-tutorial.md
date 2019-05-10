@@ -170,11 +170,11 @@ To configure Azure AD single sign-on with LockPath Keylight, perform the followi
 
     j. Set **Auto-provision security config**, select **Standard User Configuration**.
 
-    k. In the **Email attribute** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    k. In the **Email attribute** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    l. In the **First name attribute** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    l. In the **First name attribute** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    m. In the **Last name attribute** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    m. In the **Last name attribute** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
     n. Click **Save**.
 
@@ -240,8 +240,8 @@ When you click the LockPath Keylight tile in the Access Panel, you should be aut
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

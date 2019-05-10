@@ -24,7 +24,7 @@ Connectors are lightweight agents that sit on-premises and facilitate the outbou
 
 ## Requirements and deployment
 
-To deploy Application Proxy successfully, you need at least one connector, but we recommend two or more for greater resiliency. Install the connector on a Windows Server 2012 R2 or 2016 machine. The connector needs to communicate with the Application Proxy service and the on-premises applications that you publish. 
+To deploy Application Proxy successfully, you need at least one connector, but we recommend two or more for greater resiliency. Install the connector on a machine running Windows Server 2012 R2 or later. The connector needs to communicate with the Application Proxy service and the on-premises applications that you publish. 
 
 ### Windows server
 You need a server running Windows Server 2012 R2 or later on which you can install the Application Proxy connector. The server needs to connect to the Application Proxy services in Azure, and the on-premises applications that you're publishing.
@@ -98,7 +98,7 @@ It is important to make sure you have planned enough capacity between connectors
 
 ## Security and networking
 
-Connectors can be installed anywhere on the network that allows them to send requests to the Application Proxy service. What's important is that the computer running the connector also has access to your apps. You can install connectors inside of your corporate network or on a virtual machine that runs in the cloud. Connectors can run within a demilitarized zone (DMZ), but it's not necessary because all traffic is outbound so your network stays secure.
+Connectors can be installed anywhere on the network that allows them to send requests to the Application Proxy service. What's important is that the computer running the connector also has access to your apps. You can install connectors inside of your corporate network or on a virtual machine that runs in the cloud. Connectors can run within a perimeter network, also known as a demilitarized zone (DMZ), but it's not necessary because all traffic is outbound so your network stays secure.
 
 Connectors only send outbound requests. The outbound traffic is sent to the Application Proxy service and to the published applications. You don't have to open inbound ports because traffic flows both ways once a session is established. You also don't have to configure inbound access through your firewalls. 
 

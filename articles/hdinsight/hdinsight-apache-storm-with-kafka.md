@@ -74,7 +74,7 @@ Apache Storm provides the several components for working with Apache Kafka. The 
     * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: Maps from the tuple data structure used inside the Storm topology to fields stored in Kafka.
 
 These components are available in the `org.apache.storm : storm-kafka` package. Use the package version that matches the Storm version. For HDInsight 3.6, the Storm version is 1.1.0.
-You also need the `org.apache.kafka : kafka_2.10` package, which contains additional Kafka components. Use the package version that matches the Kafka version. For HDInsight 3.6, the Kafka version is 0.10.0.0.
+You also need the `org.apache.kafka : kafka_2.10` package, which contains additional Kafka components. Use the package version that matches the Kafka version. For HDInsight 3.6, the Kafka version is 1.1.1.
 
 The following XML is the dependency declaration in the `pom.xml` for an [Apache Maven](https://maven.apache.org/) project:
 
@@ -89,7 +89,7 @@ The following XML is the dependency declaration in the `pom.xml` for an [Apache 
 <dependency>
     <groupId>org.apache.kafka</groupId>
     <artifactId>kafka_2.10</artifactId>
-    <version>0.10.0.0</version>
+    <version>1.1.1</version>
     <!-- Exclude components that are loaded from the Storm cluster at runtime -->
     <exclusions>
         <exclusion>

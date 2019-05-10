@@ -181,7 +181,7 @@ This API call returns a JSON response:
   "name": "QnA Maker FAQ from quickstart",
   "userId": "AAAc3841df0b42cdb00f53a49d51a89c",
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
     "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "sources": [
@@ -220,10 +220,10 @@ This API call returns a JSON response:
       "questions": [
         "Does QnA Maker support non-English languages?"
       ],
-      "answer": "See more details about [supported languages](https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/overview/languages-supported).\n\n\nIf you have content from multiple languages, be sure to create a separate service for each language.",
+      "answer": "See more details about [supported languages](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/languages-supported).\n\n\nIf you have content from multiple languages, be sure to create a separate service for each language.",
       "score": 82.19,
       "id": 11,
-      "source": "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+      "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
       "metadata": []
     }
   ]

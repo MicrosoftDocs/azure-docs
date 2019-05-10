@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
+ms.date: 04/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -42,8 +42,8 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 
 ### Release status 
 
-3/25/2019: Released for download 
- 
+04/24/2019: Released for download
+
 ### New features and improvements 
 
 - Add support for Domain Refresh 

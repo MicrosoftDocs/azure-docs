@@ -36,7 +36,7 @@ Depending on how your Azure App Service Environment is configured, the call to c
 ## <a id="profileondemand"></a> Manually trigger Profiler
 
 ### Minimum Requirements 
-For a user to manually trigger a profiler session they require at minimum "write" access on their role for the Application Insights component. In most cases you get this access automatically and no additional work is needed. If you are having issues, the subscription scope role to add would be the "Application Insights Component Contributor" role. [See more about role access control with Azure Monitoring](https://docs.microsoft.com/en-us/azure/azure-monitor/app/resources-roles-access-control).
+For a user to manually trigger a profiler session they require at minimum "write" access on their role for the Application Insights component. In most cases you get this access automatically and no additional work is needed. If you are having issues, the subscription scope role to add would be the "Application Insights Component Contributor" role. [See more about role access control with Azure Monitoring](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
 
 You can trigger Profiler manually with a single click. Suppose you're running a web performance test. You'll need traces to help you understand how your web app is performing under load. Having control over when traces are captured is crucial, because you know when the load test will be running. But the random sampling interval might miss it.
 

@@ -123,10 +123,10 @@ To configure Azure AD single sign-on with Leapsome, perform the following steps:
 
 	| Name | Source Attribute | Namespace |
 	| ---------------| --------------- | --------- |  
-	| firstname | user.givenname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| lastname | user.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| title | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| picture | URL to the employee's picture | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| firstname | user.givenname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| lastname | user.surname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| title | user.jobtitle | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| picture | URL to the employee's picture | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 	| | |
 
 	> [!Note]
@@ -251,8 +251,8 @@ When you click the Leapsome tile in the Access Panel, you should be automaticall
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
