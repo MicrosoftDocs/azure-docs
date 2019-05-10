@@ -154,7 +154,7 @@ Security Center can enable [integrated security solutions in Azure](https://docs
 
 After retirement, you won't be able to add or modify any of solution types mentioned in the preceding list, either from the UI or the API.
 
-If you have existing connected solutions, we encourage you to move to Azure Sentinel before they're retired.
+If you have existing connected solutions, we encourage you to move to Azure Sentinel.
 
 ![Security centers solutions][16]
 
