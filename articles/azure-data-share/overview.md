@@ -35,8 +35,6 @@ As a Data Consumer, Azure Data Share allows you to:
 
 All key capabilities listed above are supported through the Azure Portal or via REST APIs. For more details on using Azure Data Share through REST APIs, click here. 
 
-## Provide feedback
-
 ## Next steps
 
-To get started, you'll need to create a Data Share account.
+* Get Started with Azure Data Share using Azure Portal | REST APIs

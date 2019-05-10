@@ -4,11 +4,11 @@
   items:
   - name: What is Azure Data Share?
     href: overview.md
+- name: Quickstarts
+  items:
+  - name: Quickstarts
+    href: quickstarts.md
 - name: Tutorials
   items:
-  - name: 1. Create a Data Share Account
-    href: create-data-share-account.md
-- name: Resources
-  items:
-  - name: Tech Community support group 
-    href: https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop
+  - name: Tutorials
+    href: tutorials.md
