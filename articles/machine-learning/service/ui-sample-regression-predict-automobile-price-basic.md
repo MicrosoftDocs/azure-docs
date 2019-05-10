@@ -1,7 +1,7 @@
 ---
 title: "Regression: Predict price"
 titleSuffix: Azure Machine Learning service
-description: Learn how to build a machine learning model that predicts an automobile's price without writing a single line of code.
+description: Learn how to build a machine learning model to predict an automobile's price without writing a single line of code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
