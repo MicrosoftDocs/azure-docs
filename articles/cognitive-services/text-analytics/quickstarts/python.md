@@ -273,6 +273,8 @@ pprint(key_phrases)
 }
 ```
 
+<a name="Entities"></a>
+
 ## Identify Entities
 
 To identify well-known entities (people, places, and things) in text documents, append `keyPhrases` to the Text Analytics base URL to form the language detection endpoint. For example:
