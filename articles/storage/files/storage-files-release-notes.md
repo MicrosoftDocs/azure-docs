@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 5/6/2019
+ms.date: 5/7/2019
 ms.author: wgries
 ms.subservice: files
 ---
