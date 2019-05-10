@@ -122,8 +122,8 @@ To open the **Backup Jobs** page:
    ![Select the job you want to monitor](./media/backup-file-shares/open-backup-jobs.png)
 
     The list of Backup jobs and the status of those jobs appears.
-    
-   ![Select the job you want to monitor](./media/backup-file-shares/backup-jobs-progress-list.png)
+
+    ![Select the job you want to monitor](./media/backup-file-shares/backup-jobs-progress-list.png)
 
 ### Create a new policy
 
