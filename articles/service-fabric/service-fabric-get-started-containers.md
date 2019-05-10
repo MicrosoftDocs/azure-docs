@@ -34,7 +34,7 @@ Running an existing application in a Windows container on a Service Fabric clust
 ## Prerequisites
 
 * A development computer running:
-  * Visual Studio 2015 or Visual Studio 2017.
+  * Visual Studio 2015, Visual Studio 2017, or Visual Studio 2019.
   * [Service Fabric SDK and tools](service-fabric-get-started.md).
   *  Docker for Windows. [Get Docker CE for Windows (stable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). After installing and starting Docker, right-click on the tray icon and select **Switch to Windows containers**. This step is required to run Docker images based on Windows.
 
