@@ -73,11 +73,11 @@ In this example, you create a logic app with an endpoint in Azure so that you ca
 
 1. In the [Azure portal](https://portal.azure.com), create a blank logic app, which opens the Logic App Designer.
 
-2. In the search box, enter "http request" as your filter. From the triggers list, select this trigger: **When a HTTP request is received**
+1. In the search box, enter "http request" as your filter. From the triggers list, select this trigger: **When a HTTP request is received**
 
    ![Add HTTP Request trigger](./media/logic-apps-using-sap-connector/add-trigger.png)
 
-3. Now save your logic app so you can generate an endpoint URL for your logic app. On the designer toolbar, choose **Save**.
+1. Now save your logic app so you can generate an endpoint URL for your logic app. On the designer toolbar, choose **Save**.
 
    The endpoint URL now appears in your trigger, for example:
 
@@ -93,7 +93,7 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
    ![Choose "New step"](./media/logic-apps-using-sap-connector/add-action.png)
 
-2. In the search box, enter "sap" as your filter. From the actions list, select this action: **Send message to SAP**
+1. In the search box, enter "sap" as your filter. From the actions list, select this action: **Send message to SAP**
   
    ![Select SAP send action](media/logic-apps-using-sap-connector/select-sap-send-action.png)
 
@@ -101,7 +101,7 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
    ![Select SAP send action from Enterprise tab](media/logic-apps-using-sap-connector/select-sap-send-action-ent-tab.png)
 
-3. If you're prompted for connection details, create your SAP connection now. Otherwise, if your connection already exists, continue with the next step so you can set up your SAP action.
+1. If you're prompted for connection details, create your SAP connection now. Otherwise, if your connection already exists, continue with the next step so you can set up your SAP action.
 
    **Create on-premises SAP connection**
 
@@ -115,11 +115,11 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
       ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-   2. When you're done, choose **Create**.
+   1. When you're done, choose **Create**.
 
       Logic Apps sets up and tests your connection, making sure that the connection works properly.
 
-4. Now find and select an action from your SAP server.
+1. Now find and select an action from your SAP server.
 
    1. In the **SAP Action** box, choose the folder icon. From the file list, find and select the SAP message you want to use. To navigate the list, use the arrows.
 
@@ -137,7 +137,7 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
       For more information about IDoc operations, see [Message schemas for IDOC operations](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
-   2. Click inside the **Input Message** box so that the dynamic content list appears. From that list, under **When a HTTP request is received**, select the **Body** field.
+   1. Click inside the **Input Message** box so that the dynamic content list appears. From that list, under **When a HTTP request is received**, select the **Body** field.
 
       This step includes the body content from your HTTP request trigger and sends that output to your SAP server.
 
@@ -147,7 +147,7 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
       ![Complete SAP action](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
 
-5. Save your logic app. On the designer toolbar, choose **Save**.
+1. Save your logic app. On the designer toolbar, choose **Save**.
 
 <a name="add-response"></a>
 
@@ -157,21 +157,21 @@ Now add a response action to your logic app's workflow and include the output fr
 
 1. In the Logic App Designer, under the SAP action, choose **New step**.
 
-2. In the search box, enter "response" as your filter. From the actions list, select this action: **Response**
+1. In the search box, enter "response" as your filter. From the actions list, select this action: **Response**
 
-3. Click inside the **Body** box so that the dynamic content list appears. From that list, under **Send message to SAP**, select the **Body** field.
+1. Click inside the **Body** box so that the dynamic content list appears. From that list, under **Send message to SAP**, select the **Body** field.
 
    ![Complete SAP action](./media/logic-apps-using-sap-connector/select-sap-body-for-response-action.png)
 
-4. Save your logic app.
+1. Save your logic app.
 
 ### Test your logic app
 
 1. If your logic app isn't already enabled, on your logic app menu, choose **Overview**. On the toolbar, choose **Enable**.
 
-2. On the Logic App Designer toolbar, choose **Run**. This step manually starts your logic app.
+1. On the Logic App Designer toolbar, choose **Run**. This step manually starts your logic app.
 
-3. Trigger your logic app by sending an HTTP POST request to the URL in your HTTP request trigger,
+1. Trigger your logic app by sending an HTTP POST request to the URL in your HTTP request trigger,
 and include your message content with your request. To the send the request, you can use a tool such as [Postman](https://www.getpostman.com/apps).
 
    For this article, the request sends an IDoc file, which must be in XML format and include the namespace for the SAP action you're using, for example:
@@ -185,7 +185,7 @@ and include your message content with your request. To the send the request, you
    </Send>
    ```
 
-4. After you send your HTTP request, wait for the response from your logic app.
+1. After you send your HTTP request, wait for the response from your logic app.
 
    > [!NOTE]
    > Your logic app might time out if all the steps 
@@ -205,7 +205,7 @@ This example uses a logic app that triggers when receiving a message from an SAP
 
 1. In the Azure portal, create a blank logic app, which opens the Logic App Designer.
 
-2. In the search box, enter "sap" as your filter. From the triggers list, select this trigger: **When a message is received from SAP**
+1. In the search box, enter "sap" as your filter. From the triggers list, select this trigger: **When a message is received from SAP**
 
    ![Add SAP trigger](./media/logic-apps-using-sap-connector/add-sap-trigger.png)
 
@@ -213,7 +213,7 @@ This example uses a logic app that triggers when receiving a message from an SAP
 
    ![Add SAP trigger from Enterprise tab](./media/logic-apps-using-sap-connector/add-sap-trigger-ent-tab.png)
 
-3. If you're prompted for connection details, create your SAP connection now. Otherwise, if your connection already exists, continue with the next step so you can set up your SAP action.
+1. If you're prompted for connection details, create your SAP connection now. Otherwise, if your connection already exists, continue with the next step so you can set up your SAP action.
 
    **Create on-premises SAP connection**
 
@@ -227,7 +227,7 @@ This example uses a logic app that triggers when receiving a message from an SAP
 
       ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
 
-4. Provide the required parameters based on your SAP system configuration.
+1. Provide the required parameters based on your SAP system configuration.
 
    You can optionally provide one or more SAP actions. This list of actions specifies the messages that the trigger receives from your SAP server through the data gateway. An empty list specifies that the trigger receives all messages. If the list has more than one message, the trigger receives only the messages specified in the list. Any other messages sent from your SAP server are rejected by the gateway.
 
@@ -245,7 +245,7 @@ This example uses a logic app that triggers when receiving a message from an SAP
 
    For more information about the SAP action, see [Message schemas for IDOC operations](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)
 
-5. Now save your logic app so you can start receiving messages from your SAP system.
+1. Now save your logic app so you can start receiving messages from your SAP system.
 On the designer toolbar, choose **Save**.
 
 Your logic app is now ready to receive messages from your SAP system.
@@ -260,9 +260,9 @@ Your logic app is now ready to receive messages from your SAP system.
 
 1. To trigger your logic app, send a message from your SAP system.
 
-2. On the logic app menu, choose **Overview**, and review the **Runs history** for any new runs for your logic app.
+1. On the logic app menu, choose **Overview**, and review the **Runs history** for any new runs for your logic app.
 
-3. Open the most recent run, which shows the message sent from your SAP system in the trigger outputs section.
+1. Open the most recent run, which shows the message sent from your SAP system in the trigger outputs section.
 
 ## Generate schemas for artifacts in SAP
 
@@ -272,11 +272,11 @@ This example uses a logic app that you can trigger with an HTTP request. The SAP
 
 1. In the Azure portal, create a blank logic app, which opens the Logic App Designer.
 
-2. In the search box, enter "http request" as your filter. From the triggers list, select this trigger: **When a HTTP request is received**
+1. In the search box, enter "http request" as your filter. From the triggers list, select this trigger: **When a HTTP request is received**
 
    ![Add HTTP Request trigger](./media/logic-apps-using-sap-connector/add-trigger.png)
 
-3. Now save your logic app so you can generate an endpoint URL for your logic app.
+1. Now save your logic app so you can generate an endpoint URL for your logic app.
 On the designer toolbar, choose **Save**.
 
    The endpoint URL now appears in your trigger, for example:
@@ -289,7 +289,7 @@ On the designer toolbar, choose **Save**.
 
    ![Choose "New step"](./media/logic-apps-using-sap-connector/add-action.png)
 
-2. In the search box, enter "sap" as your filter. From the actions list, select this action: **Generate schemas**
+1. In the search box, enter "sap" as your filter. From the actions list, select this action: **Generate schemas**
   
    ![Select SAP send action](media/logic-apps-using-sap-connector/select-sap-schema-generator-action.png)
 
@@ -297,7 +297,7 @@ On the designer toolbar, choose **Save**.
 
    ![Select SAP send action from Enterprise tab](media/logic-apps-using-sap-connector/select-sap-schema-generator-ent-tab.png)
 
-3. If you're prompted for connection details, create your SAP connection now. Otherwise, if your connection already exists, continue with the next step so you can set up your SAP action.
+1. If you're prompted for connection details, create your SAP connection now. Otherwise, if your connection already exists, continue with the next step so you can set up your SAP action.
 
    **Create on-premises SAP connection**
 
@@ -311,9 +311,9 @@ On the designer toolbar, choose **Save**.
 
       ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-   2. When you're done, choose **Create**. Logic Apps sets up and tests your connection, making sure that the connection works properly.
+   1. When you're done, choose **Create**. Logic Apps sets up and tests your connection, making sure that the connection works properly.
 
-4. Provide the path to the artifact for which you want to generate the schema.
+1. Provide the path to the artifact for which you want to generate the schema.
 
    You can select the SAP action from the file picker:
 
@@ -331,13 +331,13 @@ On the designer toolbar, choose **Save**.
 
    For more information about the SAP Action, see [Message schemas for IDOC operations](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
-5. Save your logic app. On the designer toolbar, choose **Save**.
+1. Save your logic app. On the designer toolbar, choose **Save**.
 
 ### Test your logic app
 
 1. On the designer toolbar, choose **Run** to trigger a run for your logic app.
 
-2. Open the run, and check the outputs for the **Generate schemas** action.
+1. Open the run, and check the outputs for the **Generate schemas** action.
 
    The outputs show the generated schemas for the specified list of messages.
 
@@ -383,7 +383,7 @@ Optionally, you can download or store the generated schemas in repositories, suc
 
 1. On the designer toolbar, choose **Run** to manually trigger your logic app.
 
-2. After a successful run, go to the integration account, and check that the generated schemas generated exist.
+1. After a successful run, go to the integration account, and check that the generated schemas generated exist.
 
 ## Enable Secure Network Communications (SNC)
 
