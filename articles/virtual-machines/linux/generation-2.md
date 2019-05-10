@@ -49,12 +49,6 @@ See the capabilities section for a list of supported marketplace images as we wi
 
 Generation 2 VMs can be created from managed image or managed disk in the same way you would create a generation 1 VM.
 
-You can use your on-premises generation 2 .vhd file to create a generation 2 VM in Azure too. To use your on-premises VHD file, you must:
-
-1. Create your OS disk as generation 2 from your on-premises .vhd via [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) in PowerShell. Set the `-HyperVGeneration` property to `V2`. Generation 2 VMs can be created from a marketplace image, a managed image, or a managed disk. This requires PowerShell version 1.7 or higher.
-
-1. Create a VM from this disk, which results in a generation 2 VM.
-
 ### Virtual machine scale sets
 
 Generation 2 VMs can also be created using virtual machine scale sets. You can create generation 2 VMs using Azure virtual machine scale sets via Azure CLI.
@@ -90,7 +84,9 @@ Azure does not currently support some of the features that on-premises Hyper-V s
 | Virtualization-Based Security (VBS) | :heavy_check_mark:  | :x:   |
 | VHDX format                         | :heavy_check_mark:  | :x:   |
 
-## Generation 1 vs generation 2 VM features
+## Features and capabilities
+
+### Generation 1 vs generation 2 features
 
 | Feature | Generation 1 | Generation 2 |
 |---------|--------------|--------------|
@@ -98,7 +94,7 @@ Azure does not currently support some of the features that on-premises Hyper-V s
 | Disk controllers | IDE                       | SCSI                               |
 | VM Sizes         | Available on all VM sizes | Premium storage supported VMs only |
 
-## Generation 1 vs generation 2 VM capabilities
+### Generation 1 vs generation 2 capabilites
 
 | Capability | Generation 1 | Generation 2 |
 |------------|--------------|--------------|
