@@ -1,7 +1,7 @@
 ---
 title: Record sensor streams to a file
 description: Instructions to use recording tool
-author: jawirth
+author: joylital
 ms.author: jawirth, joylital
 ms.date: 3/5/2019
 ms.topic: quickstart
@@ -17,7 +17,7 @@ This page provides information about how you can use the `k4arecorder` command p
 This quick start assumes:
 
 * You have the Azure Kinect DK connected to your host PC and powered properly.
-* You have completed the [Setup](set-up-hardware.md) process.
+* You have completed the Set up Hardware.
 
 ## Create a recording
 
@@ -26,17 +26,17 @@ This quick start assumes:
 
     `k4arecorder.exe -l 5 %TEMP%\output.mkv`
 
-3. For a complete overview of recording options and tips, refer to [Azure Kinect Recorder](k4arecorder.md).
+3. For a complete overview of recording options and tips, refer to k4arecorder.
 
 ## Playback a recording
 
-You can use the [Azure Kinect Viewer](k4a-viewer.md) to playback a recording.
+You can use the k4a-viewer to playback a recording.
 
-1. Launch [Azure Kinect Viewer](k4a-viewer.md).
+1. Launch k4a-viewer
 2. Unfold the **Open Recording** tab and open your recording.
 
 ## See also
 
-* [Azure Kinect Recorder](k4arecorder.md)
-* [Azure Kinect Viewer](k4a-viewer.md)
-* [SDK Playback and Record](sdk-record-playback.md)
+* k4arecorder
+* k4a-viewer
+* sdk-record-playback
