@@ -39,6 +39,8 @@
     href: resource-health-faq.md
 - name: Reference
   items:
+  - name: Service health notifications properties 
+    href: service-health-notifications-properties.md
   - name: Resource types and health checks available through Azure Resource Health
     href: resource-health-checks-resource-types.md
 - name: Resources
