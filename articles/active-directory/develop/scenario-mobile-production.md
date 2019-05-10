@@ -40,10 +40,6 @@ To diagnose issues in your app, it helps to collect data. For information about 
 - Users might ask for help when they encounter problems. A best practice is to capture and temporarily store logs and provide a location where users can upload them. MSAL provides logging extensions to capture detailed information about authentication.
 - If it's available, enable telemetry through MSAL to gather data about how users are signing in to your app.
 
-## Testing your app
-
-Be sure to test your app against the [Integration checklist](identity-platform-integration-checklist.md).
-
 ## Next steps
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
