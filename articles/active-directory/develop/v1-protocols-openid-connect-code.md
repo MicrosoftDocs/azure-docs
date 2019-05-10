@@ -212,7 +212,7 @@ By including permission scopes in the request and using `response_type=code+id_t
 
 ### Successful response
 
-A successful response, sent to the `redirect_uri` using `response_mode=form_post` looks like:
+A successful response, sent to the `redirect_uri` using `response_mode=form_post`, looks like:
 
 ```
 POST /myapp/ HTTP/1.1
