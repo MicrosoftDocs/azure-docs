@@ -34,7 +34,7 @@ Use this quickstart to begin analyzing language with the Text Analytics SDK for 
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
+You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that were generated for you during sign-up.
 
 ## Create a new Python application
 
@@ -48,7 +48,7 @@ from msrest.authentication import CognitiveServicesCredentials
 ## Authenticate your credentials
 
 > [!Tip]
-> For secure deployment of secrets in production systems we recommend using [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/quick-create-net).
+> For secure deployment of secrets in production systems we recommend using [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net).
 >
 
 After making a variable for your Text Analytics subscription key, instantiate a `CognitiveServicesCredentials` object with it.
