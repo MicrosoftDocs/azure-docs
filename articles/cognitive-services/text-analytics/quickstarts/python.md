@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 05/09/2019
 ms.author: aahi
 ---
 
@@ -145,7 +145,7 @@ To detect the sentiment (which ranges between positive or negative) of a set of 
     `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
     
 ```python
-language_api_url = text_analytics_base_url + "sentiment"
+sentiment_url = text_analytics_base_url + "sentiment"
 ```
 
 As with the language detection example, create a dictionary with a `documents` key that consists of a list of documents. Each document is a tuple consisting of the `id`, the `text` to be analyzed and the `language` of the text. 
@@ -163,7 +163,7 @@ Use the Requests library to send the documents to the API. Add your subscription
 
 ```python
 headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
-response  = requests.post(sentiment_api_url, headers=headers, json=documents)
+response  = requests.post(sentiment_url, headers=headers, json=documents)
 sentiments = response.json()
 pprint(sentiments)
 ```
@@ -177,18 +177,24 @@ The sentiment score for a document is between 0.0 and 1.0, with a higher score i
   "documents":[
     {
       "id":"1",
-      "score":0.7673527002334595
+      "score":0.9708490371704102
     },
     {
       "id":"2",
-      "score":0.18574094772338867
+      "score":0.0019068121910095215
     },
     {
       "id":"3",
-      "score":0.5
+      "score":0.7456425428390503
+    },
+    {
+      "id":"4",
+      "score":0.334433376789093
     }
   ],
-  "errors":[]
+  "errors":[
+
+  ]
 }
 ```
 
@@ -200,7 +206,7 @@ To extract the key phrases from a set of documents, append `keyPhrases` to the T
     `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
     
 ```python
-language_api_url = text_analytics_base_url + "keyPhrases"
+keyphrase_url = text_analytics_base_url + "keyPhrases"
 ```
 
 This collection of documents is the same used for the sentiment analysis example.
@@ -218,7 +224,7 @@ Use the Requests library to send the documents to the API. Add your subscription
 
 ```python
 headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
-response  = requests.post(key_phrase_api_url, headers=headers, json=documents)
+response  = requests.post(keyphrase_url, headers=headers, json=documents)
 key_phrases = response.json()
 pprint(key_phrases)
 ```
@@ -273,7 +279,7 @@ To identify well-known entities (people, places, and things) in text documents, 
     `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
     
 ```python
-language_api_url = text_analytics_base_url + "keyPhrases"
+entities_url = text_analytics_base_url + "keyPhrases"
 ```
 
 Create a collection of documents, like in the previous examples. 
@@ -288,53 +294,27 @@ Use the Requests library to send the documents to the API. Add your subscription
 
 ```python
 headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
-response  = requests.post(entity_linking_api_url, headers=headers, json=documents)
+response  = requests.post(entities_url, headers=headers, json=documents)
 entities = response.json()
 ```
 
-Successful JSON response:
+### Output
+
 ```json
-{  
-   "documents":[  
-      {  
-         "id":"1",
-         "entities":[  
-            {  
-               "name":"Microsoft",
-               "matches":[  
-                  {  
-                     "wikipediaScore":0.20872054383103444,
-                     "entityTypeScore":0.99996185302734375,
-                     "text":"Microsoft",
-                     "offset":0,
-                     "length":9
-                  }
-               ],
-               "wikipediaLanguage":"en",
-               "wikipediaId":"Microsoft",
-               "wikipediaUrl":"https://en.wikipedia.org/wiki/Microsoft",
-               "bingId":"a093e9b9-90f5-a3d5-c4b8-5855e1b01f85",
-               "type":"Organization"
-            },
-            {  
-               "name":"Technology company",
-               "matches":[  
-                  {  
-                     "wikipediaScore":0.82123868042800585,
-                     "text":"It company",
-                     "offset":16,
-                     "length":10
-                  }
-               ],
-               "wikipediaLanguage":"en",
-               "wikipediaId":"Technology company",
-               "wikipediaUrl":"https://en.wikipedia.org/wiki/Technology_company",
-               "bingId":"bc30426e-22ae-7a35-f24b-454722a47d8f"
-            }
-         ]
-      }
-   ],
-    "errors":[]
+{
+  "documents":[
+    {
+      "id":"1",
+      "keyPhrases":[
+        "Bill Gates",
+        "Paul Allen",
+        "BASIC interpreters",
+        "Altair",
+        "Microsoft"
+      ]
+    }
+  ],
+  "errors":[]
 }
 ```
 
