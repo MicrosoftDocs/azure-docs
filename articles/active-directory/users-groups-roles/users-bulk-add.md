@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 05/01/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -43,7 +43,7 @@ Check to see that the users you added exist in the directory either in the Azure
 1. Sign in to the Azure portal with an account that is a User administrator in the organization.
 2. In the navigation pane, select Azure Active Directory.
 3. Under **Manage**, select **Users**.
-4. Under **Show**, select **All users** only and verify that the users you added are listed.
+4. Under **Show**, select **All users** and verify that the users you added are listed.
 
 ### View users with PowerShell
 
@@ -53,7 +53,7 @@ Run the following command:
 Get-AzureADUser -Filter "UserType eq 'Member'"
 ```
 
-You should see the users that you invited listed, with a user principal name (UPN) in the format emailaddress#EXT#@domain. For example, lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
+You should see that the users that you created are listed, with a user principal name (UPN) in the format emailaddress#EXT#@domain.
 
 ## Troubleshoot bulk user addition
 
