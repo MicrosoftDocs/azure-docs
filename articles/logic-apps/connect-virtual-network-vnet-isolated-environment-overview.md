@@ -78,24 +78,19 @@ that offer versions that run in an ISE:
 The difference between ISE and non-ISE connectors is 
 in the locations where the triggers and actions run:
 
-* In your ISE, built-in triggers and actions such as 
-HTTP always run in the same ISE as your logic app 
-and display the **Core** label.
+* In your ISE, built-in triggers and actions, 
+such as HTTP, always run in the same ISE as 
+your logic app and display the **Core** label.
 
   ![Select "Core" built-in triggers and actions](./media/connect-virtual-network-vnet-isolated-environment-overview/select-core-built-in-actions-triggers.png)
 
-* For connectors that offer two versions, 
-one version runs in an ISE, while the other 
-version runs in the global Logic Apps service.  
-
-  Connectors that have the **ISE** label always run 
-  in the same ISE as your logic app. Connectors without 
-  the **ISE** label run in the global Logic Apps service.
+* Connectors that run in an ISE have publicly hosted versions 
+available in the global Logic Apps service. For connectors that 
+offer two versions, connectors with the **ISE** label always run 
+in the same ISE as your logic app. Connectors without the **ISE** 
+label run in the global Logic Apps service.
 
   ![Select ISE connectors](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
-
-* Connectors that run in an ISE also have publicly hosted 
-versions available in the global Logic Apps service.
 
 ### Access to on-premises data sources
 
@@ -103,7 +98,7 @@ For on-premises systems that are connected to an Azure virtual network,
 inject an ISE into that network so your logic apps can directly access 
 those systems by using any of these items:
 
-* ISE connector for that system, for example, SQL Server
+* ISE-version connector for that system, for example, SQL Server
   
 * HTTP action
   
