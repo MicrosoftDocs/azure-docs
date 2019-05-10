@@ -25,7 +25,7 @@ To discover, manage, and enable Azure Monitor for VMs for all of your Azure virt
 * Report on compliance results.
 * Remediate for non-compliant VMs.
 
-If you are interested in accomplishing this with Azure PowerShell or Azure Resource Manager template, see [Enable using Azure PowerShell or Resource Manager template](vminsights-enable-at-scale-posh.md). 
+If you are interested in accomplishing this with Azure PowerShell or Azure Resource Manager template, see [Enable using Azure PowerShell or Resource Manager template](vminsights-enable-at-scale-powershell.md). 
 
 ## Manage Policy Coverage feature overview
 
@@ -171,7 +171,7 @@ The following table maps each possible assignment status for the initiative.
 
 The following example is for an Azure VM, but also applies to virtual machine scale sets. You can learn how to review compliance results by reading [identify non-compliance results](../../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). On the Azure Monitor for VMs Policy Coverage page, select either a management group or subscription from the table, and select **View Compliance** by clicking the ellipse (...).   
 
-![Policy compliance for Azure VMs](./media/vminsights-enable-atscale-policy/policy-view-compliance-01.png)
+![Policy compliance for Azure VMs](./media/vminsights-enable-at-scale-policy/policy-view-compliance-01.png)
 
 Based on the results of the policies included with the initiative, VMs are reported as non-compliant in the following scenarios:
 
