@@ -30,7 +30,7 @@ Use this quickstart to begin analyzing language with the Text Analytics SDK for 
 * The Text Analytics [SDK for python](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) 
     You can install the package with:
 
-    `pip install azure-cognitiveservices-language-textanalytics`
+    `pip install --upgrade azure-cognitiveservices-language-textanalytics`
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -38,7 +38,7 @@ You must also have the [endpoint and access key](../How-tos/text-analytics-how-t
 
 ## Create a new Python application
 
-Create a new Python application in your favorite editor or IDE. Add the following import statements to your file.
+Create a new Python application in your favorite editor or IDE. Then add the following import statements to your file.
 
 ```python
 from azure.cognitiveservices.language.textanalytics import TextAnalyticsClient
@@ -287,5 +287,6 @@ Document Id:  4
 
 ## See also
 
- [Text Analytics overview](../overview.md)
- [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)
+* [What is the Text Analytics API?](../overview.md)
+* [Example user scenarios](../text-analytics-user-scenarios.md)
+* [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)
