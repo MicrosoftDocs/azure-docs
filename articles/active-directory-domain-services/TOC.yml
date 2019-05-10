@@ -60,7 +60,7 @@
         - name: Create an Azure AD DS administrative virtual machine
           href: active-directory-ds-admin-guide-administer-domain.md
         - name: Administer DNS on a managed domain
-          href: active-directory-ds-admin-guide-administer-dns.md
+          href: manage-dns.md
         - name: Update email notifications
           href: active-directory-ds-notifications.md
         - name: Configure secure LDAP for a managed domain

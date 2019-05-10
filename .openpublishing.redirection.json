@@ -3881,6 +3881,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-dns",
+      "redirect_url": "/azure/active-directory-domain-services/manage-dns",
+      "redirect_document_id":true
+    },
+    {
       "source_path": "articles/active-directory-ds/active-directory-ds-admin-guide-administer-domain.md",
       "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain",
       "redirect_document_id": false

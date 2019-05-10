@@ -56,7 +56,7 @@ The managed domain is securely locked down as per Microsoft’s security recomme
 
 #### DNS server
 An Azure AD Domain Services managed domain includes managed DNS services. Members of the 'AAD DC Administrators' group can manage DNS on the managed domain. Members of this group are given full DNS Administration privileges for the managed domain. DNS management can be performed using the 'DNS Administration console' included in the Remote Server Administration Tools (RSAT) package.
-[More information](active-directory-ds-admin-guide-administer-dns.md)
+[More information](manage-dns.md)
 
 #### Domain or Enterprise Administrator privileges
 These elevated privileges are not offered on an AAD-DS managed domain. Applications that require these elevated privileges cannot be deployed against AAD-DS managed domains. A smaller subset of administrative privileges is available to members of the delegated administration group called ‘AAD DC Administrators’. These privileges include privileges to configure DNS, configure group policy, gain administrator privileges on domain-joined machines etc.
