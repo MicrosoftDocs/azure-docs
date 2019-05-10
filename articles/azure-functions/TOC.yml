@@ -45,7 +45,7 @@
       href: functions-add-output-binding-storage-queue-python.md
     - name: Storage - portal
       href: functions-integrate-storage-queue-output-binding.md
-- name: Tutorials
+- name: Tutorials By Raji
   items:
   - name: Functions with Logic Apps
     href: functions-twitter-email.md
