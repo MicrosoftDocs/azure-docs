@@ -14,10 +14,9 @@ ms.date: 05/10/2019
 
 # Create, schedule, and run recurring tasks and workflows with the Recurrence trigger in Azure Logic Apps
 
-To regularly run tasks, processes, or workloads on specific schedule, you can start your logic app workflow with the built-in **Recurrence - Schedule** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). You can set a date and time for starting the workflow and a recurrence schedule for performing tasks. This trigger supports many patterns, for example:
+To regularly run tasks, processes, or workloads on specific schedule, you can start your logic app workflow with the [built-in](../connectors/apis-list.md) **Recurrence - Schedule** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). You can set a date and time for starting the workflow and a recurrence schedule for performing tasks. This trigger supports many patterns, for example:
 
-* Run immediately and repeat every *n* number of seconds, minutes, hours, days
-weeks, or months.
+* Run immediately and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
 * Start at a specific time, then run and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
 * Run and repeat at one or more times each day, for example, at 8:00 AM and 5:00 PM.
 * Run and repeat each week, but only for specific days, such as Saturday and Sunday.
@@ -85,7 +84,7 @@ You can configure these properties for the Recurrence trigger.
 | **At these minutes** | No | minutes | Integer or integer array | If you select "Day" or "Week", you can select one or more integers from 0 to 59 as the minutes of the hour when you want to run the workflow. <p>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. |
 |||||
 
-## JSON definition
+## Workflow definition - Recurrence
 
 In your logic app's underlying workflow definition, which uses JSON, you can view the [Recurrence trigger definition](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger) with the options that you chose. To view this definition, on the designer toolbar, choose **Code view**. To return to the designer, choose on the designer toolbar, **Designer**.
 
