@@ -39,6 +39,8 @@ Give the app registration permission to use the shared image gallery.
 1. Under **Select**, type *myGalleryApp* and select it when it shows up in the list. When you are done, select **Save**.
 
 
+## Give Tenant 2 access
+
 Create a service principal for Tenant 2 to use for accessing the application by requesting a sign-in using a browser. Replace *<Tenant2 ID>* with the tenant ID for the tenant that you would like to share your image gallery with. Replace *<Application (client) ID>* with the application ID of the app registration you created. When done making the replacements, paste the URL into a browser and follow the sign-in prompts to sign into Tenant 2.
 
 ```
