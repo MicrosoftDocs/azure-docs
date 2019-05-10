@@ -52,7 +52,7 @@ In this step, a PersonGroup named "MyFriends" contains Anna, Bill, and Clare. Ea
 
 ![MyFriends](../Images/group.image.1.jpg)
 
-### 2.1 Define people for the PersonGroup
+### Step 2.1: Define people for the PersonGroup
 A person is a basic unit of identify. A person can have one or more known faces registered. A PersonGroup is a collection of people. Each person is defined within a particular PersonGroup. Identification is done against a PersonGroup. The task is to create a PersonGroup, and then create the people in it, such as Anna, Bill, and Clare.
 
 First, create a new PersonGroup by using the [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API. The corresponding client library API is the CreatePersonGroupAsync method for the FaceServiceClient class. The group ID that's specified to create the group is unique for each subscription. You also can get, update, or delete PersonGroups by using other PersonGroup APIs. 
@@ -74,7 +74,7 @@ CreatePersonResult friend1 = await faceServiceClient.CreatePersonAsync(
  
 // Define Bill and Clare in the same way
 ```
-### <a name="step2-2"></a> 2.2 Detect faces and register them to the correct person
+### <a name="step2-2"></a> Step 2.2: Detect faces and register them to the correct person
 Detection is done by sending a "POST" web request to the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API with the image file in the HTTP request body. When you use the client library, face detection is done through the DetectAsync method for the FaceServiceClient class.
 
 For each face that's detected, call [PersonGroup Person – Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) to add it to the correct person.
