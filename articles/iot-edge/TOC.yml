@@ -154,6 +154,8 @@
     items:
     - name: Azure Blob Storage on IoT Edge
       href: how-to-store-data-blob.md
+    - name: Deploy blob storage modules
+      href: how-to-deploy-blob.md
   - name: Manage with DevOps tools
     items:
     - name: Azure DevOps Projects
