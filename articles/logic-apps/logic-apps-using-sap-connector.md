@@ -426,6 +426,10 @@ Here are the currently known issues and limitations for the SAP connector:
 
 * The SAP connector currently doesn't support SAP router strings. The on-premises data gateway must exist on the same LAN as the SAP system you want to connect.
 
+## Connector reference
+
+For technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the [connector's reference page](/connectors/sap/).
+
 ## Next steps
 
 * [Connect to on-premises systems](../logic-apps/logic-apps-gateway-connection.md) from logic apps
