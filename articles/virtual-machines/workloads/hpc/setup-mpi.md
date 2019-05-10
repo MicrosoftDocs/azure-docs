@@ -17,7 +17,8 @@ ms.author: amverma
 
 # Set up MPI
 
-Set up MPI for Linux VMs.
+MPI workloads form a large portion of traditional HPC workloads. The SR-IOV enabled VM sizes on Azure allow almost any flavor of MPI to be used; we've used the following MPIs.
+Running MPI jobs on VMs requires setting up of partition keys across a tenant. Follow the steps in the [Discover partition keys](#pkey) sub-section for details on determining the p-key values.
 
 ## UCX
 
@@ -137,7 +138,7 @@ make
 MPI Benchmarks are under `mpi/` folder.
 
 
-## Discover partition keys
+## <a name="pkey"></a>Discover partition keys
 
 Discover partition keys (pkeys) for communicating with other VMs.
 
