@@ -16,7 +16,7 @@ ms.author: aahi
 # Quickstart: Call the Text Analytics Service using the Python SDK 
 <a name="HOLTop"></a>
 
-Use this quickstart to begin analyzing language with the Text Analytics SDK for Python. While the [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications without serializing and deserializing JSON.
+Use this quickstart to begin analyzing language with the Text Analytics SDK for Python. While the Text Analytics REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications without serializing and deserializing JSON.
 
 
 > [!Note]
