@@ -30,7 +30,7 @@ For technical details, refer to the [API definitions](https://westus.dev.cogniti
 You also need the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
 
 > [!Tip]
->  While you could call the [HTTP endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) directly from C#, the Microsoft.Azure.CognitiveServices.Language SDK makes it much easier to call the service without having to serialize and deserialize JSON.
+>  While you can call the [HTTP endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) directly from C#, the Microsoft.Azure.CognitiveServices.Language SDK makes it much easier to call the service without having to serialize and deserialize JSON.
 >
 > A few useful links:
 > - [SDK Nuget page](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
