@@ -1,5 +1,5 @@
 ---
-title: Install, run containers
+title: Install and run containers
 titlesuffix: Face - Azure Cognitive Services
 description: Download, install, and run containers for Face in this walkthrough tutorial.
 services: cognitive-services
@@ -51,7 +51,7 @@ The following table describes the minimum and recommended CPU cores and memory t
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
-## Get the container image with `docker pull`
+## Get the container image with docker pull
 
 Container images for the Face API are available. 
 
@@ -74,7 +74,7 @@ After the container is on the [host computer](#the-host-computer), use the follo
 1. [Run the container](#run-the-container-with-docker-run) with the required billing settings. More [examples](./face-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
 1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint). 
 
-## Run the container with `docker run`
+## Run the container with docker run
 
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run any of the three containers. The command uses the following parameters.
 
