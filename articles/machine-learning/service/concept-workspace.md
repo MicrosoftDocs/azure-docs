@@ -45,7 +45,7 @@ The diagram shows the following components of a workspace:
 
 ## Machine learning with a workspace
 
-You perform machine learning tasks using your workspace.  You can perform these tasks:
+Machine learning tasks read and/or write artifacts to your workspace.  You can perform these tasks:
 + On the web using
     + The [Azure portal](https://azure.portal.com)
     + The [visual interface (preview) for Azure Machine Learning service]()
