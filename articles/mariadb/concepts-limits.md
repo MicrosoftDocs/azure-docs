@@ -80,7 +80,7 @@ Requires super privileges to create and is restricted. If importing data using a
 ### VNet service endpoints
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
-## Storage size
+### Storage size
 - Please refer to [pricing tiers](concepts-pricing-tiers.md) for the storage size limits per pricing tier.
 
 ## Current known issues
