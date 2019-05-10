@@ -54,16 +54,15 @@ You can interact with your workspace in the following ways:
 
 ## Machine learning with a workspace
 
-Machine learning tasks read and/or write artifacts to your workspace.  You can perform these tasks:
+Machine learning tasks read and/or write artifacts to your workspace. 
 
-| ML task                      | Web              | SDK        | CLI        |
-|---------------------------|------------------|------------|------------|
-| Run an experiment to train a model | **&check;** (visual interface) | **&check;** | **&check;** |
-| Use automated ML to train a model         | **&check;** (portal)           | **&check;** | **&check;** |
-| Deploy a model            | **&check;** (visual interface)  | **&check;** | **&check;** |
-| Create reusable workflows | **&check;** (visual interface)  | **&check;** |            |
-| View ML artifacts (experiments, pipelines, models, deployments )  | **&check;** (portal) | **&check;** |            |
-| Manage ML artifacts          | **&check;** (portal)   | **&check;** |
++ Run an experiment to train a model - writes experiment run results to the workspace.
++ Use automated ML to train a model - writes training results to the workspace.
++ Register a model in the workspace.
++ Deploy a model - uses the registered model to create a deployment.
++ Create and run reusable workflows.
++ View machine learning artifacts such as experiments, pipelines, models, deployments.
++ Track and monitor models.
 
 ## Workspace management
 
