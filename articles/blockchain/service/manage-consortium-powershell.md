@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -24,7 +24,7 @@ You can use PowerShell to manage blockchain consortium members for your Azure Bl
 
 ## Launch Azure Cloud Shell
 
-The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
 You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
 
@@ -32,16 +32,26 @@ You can also launch Cloud Shell in a separate browser tab by going to [https://s
 
 Install the Microsoft.AzureBlockchainService.ConsortiumManagement.PS package from the PowerShell Gallery.
 
-```powershell
+```powershell-interactive
 Install-Module -Name Microsoft.AzureBlockchainService.ConsortiumManagement.PS -Scope CurrentUser
 Import-Module Microsoft.AzureBlockchainService.ConsortiumManagement.PS
+```
+
+## Set information preference
+
+You can get more information when executing the cmdlets by setting information preference variable. By default, *$InformationPreference* is set to *SilentlyContinue*.
+
+For more verbose information from cmdlets, set the preference in the PowerShell as follows:
+
+```powershell-interactive
+$InformationPreference = 'Continue'
 ```
 
 ## Establish a Web3 connection
 
 To manage consortium members, you need to establish a Web3 connection to your Azure Blockchain Service member endpoint. You can use this script to set global variables that can be used when calling the consortium management cmdlets.
 
-```powershell
+```powershell-interactive
 $Connection = New-Web3Connection -RemoteRPCEndpoint '<Endpoint address>'
 $MemberAccount = Import-Web3Account -ManagedAccountAddress '<Member account address>' -ManagedAccountPassword '<Member account password>'
 $ContractConnection = Import-ConsortiumManagementContracts -RootContractAddress '<RootContract address>' -Web3Client $Connection
@@ -58,7 +68,7 @@ Find the other values in the Azure portal:
 
     Replace \<Member account\>, and \<RootContract address\> with the values from the portal.
 
-1. For the endpoint address, select **Transaction nodes** and select a transaction node.
+1. For the endpoint address, select **Transaction nodes** and select the **default** transaction node. The default transaction node has the same name as the blockchain member.
 1. Select **Connection strings**.
 
     ![Connection strings](./media/manage-consortium-powershell/connection-strings.png)
@@ -73,7 +83,7 @@ Use the network and smart contract cmdlets to establish a connection to your blo
 
 Connects to the consortium management smart contracts, which are used to manage and enforce members within the consortium.
 
-```powershell
+```
 Import-ConsortiumManagementContracts -RootContractAddress <String> -Web3Client <IClient>
 ```
 
@@ -84,7 +94,7 @@ Import-ConsortiumManagementContracts -RootContractAddress <String> -Web3Client <
 
 **Example**
 
-```powershell
+```powershell-interactive
 Import-ConsortiumManagementContracts -RootContractAddress '<RootContract address>'  -Web3Client $Connection
 ```
 
@@ -92,7 +102,7 @@ Import-ConsortiumManagementContracts -RootContractAddress '<RootContract address
 
 Use this cmdlet to create an object to hold the information remote node management account.
 
-```powershell
+```
 Import-Web3Account -ManagedAccountAddress <String> -ManagedAccountPassword <String>
 ```
 
@@ -103,7 +113,7 @@ Import-Web3Account -ManagedAccountAddress <String> -ManagedAccountPassword <Stri
 
 **Example**
 
-```powershell
+```powershell-interactive
 Import-Web3Account -ManagedAccountAddress '<Member account address>'  -ManagedAccountPassword '<Member account password>'
 ```
 
@@ -111,7 +121,7 @@ Import-Web3Account -ManagedAccountAddress '<Member account address>'  -ManagedAc
 
 Establishes a connection to the RPC endpoint of a transaction node.
 
-```powershell
+```
 New-Web3Connection [-RemoteRPCEndpoint <String>]
 ```
 
@@ -122,7 +132,7 @@ New-Web3Connection [-RemoteRPCEndpoint <String>]
 
 **Example**
 
-```powershell
+```powershell-interactive
 New-Web3Connection -RemoteRPCEndpoint '<Endpoint address>'
 ```
 
@@ -134,7 +144,7 @@ Use consortium member management cmdlets to manage members within the consortium
 
 Gets member details or list members of the consortium.
 
-```powershell
+```
 Get-BlockchainMember [[-Name] <String>] -Members <IContract> -Web3Client <IClient>
 ```
 
@@ -146,7 +156,7 @@ Get-BlockchainMember [[-Name] <String>] -Members <IContract> -Web3Client <IClien
 
 **Example**
 
-```powershell
+```powershell-interactive
 $ContractConnection | Get-BlockchainMember -Name <Member Name>
 ```
 
@@ -165,7 +175,7 @@ Role           : ADMIN
 
 Removes a blockchain member.
 
-```powershell
+```
 Remove-BlockchainMember -Name <String> -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>
 ```
 
@@ -178,7 +188,7 @@ Remove-BlockchainMember -Name <String> -Members <IContract> -Web3Account <IAccou
 
 **Example**
 
-```powershell
+```powershell-interactive
 $ContractConnection | Remove-BlockchainMember -Name <Member Name> -Web3Account $MemberAccount
 ```
 
@@ -188,7 +198,7 @@ Sets blockchain member attributes including display name and consortium role.
 
 Consortium administrators can set **DisplayName** and **Role** for all members. Consortium member with the user role can only change their own member's display name.
 
-```powershell
+```
 Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <String>] [-Role <String>]
  -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>
 ```
@@ -204,7 +214,7 @@ Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <St
 
 **Example**
 
-```powershell
+```powershell-interactive
 $ContractConnection | Set-BlockchainMember -Name <Member Name> -DisplayName <Display name> -Web3Account $MemberAccount
 ```
 
@@ -216,7 +226,7 @@ Use consortium member invitation management cmdlets to manage consortium member 
 
 Invite new members to the consortium.
 
-```powershell
+```
 New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
  -Web3Account <IAccount> -Web3Client <IClient>
 ```
@@ -231,7 +241,7 @@ New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
 
 **Example**
 
-```powershell
+```powershell-interactive
 $ContractConnection | New-BlockchainMemberInvitation -SubscriptionId <Azure Subscription ID> -Role USER -Web3Account $MemberAccount
 ```
 
@@ -239,7 +249,7 @@ $ContractConnection | New-BlockchainMemberInvitation -SubscriptionId <Azure Subs
 
 Retrieves or lists consortium member invitation status.
 
-```powershell
+```
 Get-BlockchainMemberInvitation [[-SubscriptionId] <String>] -Members <IContract> -Web3Client <IClient>
 ```
 
@@ -251,7 +261,7 @@ Get-BlockchainMemberInvitation [[-SubscriptionId] <String>] -Members <IContract>
 
 **Example**
 
-```powershell
+```powershell-interactive
 $ContractConnection | Get-BlockchainMemberInvitation – SubscriptionId <Azure subscription ID>
 ```
 
@@ -267,7 +277,7 @@ SubscriptionId                       Role CorrelationId
 
 Revokes a consortium member invite.
 
-```powershell
+```
 Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> -Web3Account <IAccount>
  -Web3Client <IClient>
 ```
@@ -281,7 +291,7 @@ Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> 
 
 **Example**
 
-```powershell
+```powershell-interactive
 $ContractConnection | Remove-BlockchainMemberInvitation -SubscriptionId <Subscription ID> -Web3Account $MemberAccount
 ```
 
@@ -289,7 +299,7 @@ $ContractConnection | Remove-BlockchainMemberInvitation -SubscriptionId <Subscri
 
 Sets the **Role** for an existing invitation. Only consortium administrators can change invitations.
 
-```powershell
+```
 Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
  -Web3Account <IAccount> -Web3Client <IClient>
 ```
@@ -304,7 +314,7 @@ Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
 
 **Example**
 
-```powershell
+```powershell-interactive
 $ContractConnection | Set-BlockchainMemberInvitation -SubscriptionId <Azure subscription ID> -Role USER -Web3Account $MemberAccount
 ```
 
