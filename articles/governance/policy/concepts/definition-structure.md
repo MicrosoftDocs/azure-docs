@@ -44,7 +44,7 @@ For example, the following JSON shows a policy that limits where resources are d
                     "strongType": "location",
                     "displayName": "Allowed locations"
                 },
-                "defaultValue": "westus2"
+                "defaultValue": [ "westus2" ]
             }
         },
         "displayName": "Allowed locations",
@@ -134,7 +134,7 @@ would be used by each assignment of the policy definition to limit the accepted 
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2",
+        "defaultValue": [ "westus2" ],
         "allowedValues": [
             "eastus2",
             "westus2",
