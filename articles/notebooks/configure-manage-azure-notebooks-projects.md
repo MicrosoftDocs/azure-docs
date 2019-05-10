@@ -33,6 +33,7 @@ Azure Notebooks starts the underlying virtual machine whenever you run a noteboo
 
 ## Compute tier
 
+By default, projects run on the Free Compute tier, which is limited to 4GB of memory and 1GB of data to prevent abuse. You can bypass these limitations by using a different virtual machine that you've provisioned in an Azure subscription. Connecting to a DSVM can increase your compute power.
 See [how to use Data Science Virtual Machines](use-data-science-virtual-machine.md).
 
 ## Edit project metadata
