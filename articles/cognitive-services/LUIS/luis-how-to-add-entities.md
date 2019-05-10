@@ -109,7 +109,7 @@ In the utterance `Where is Request relocation from employee new to the company o
 
 A role is a named subtype based on context. It is available in all entities including prebuilt and non-machine-learned entities. 
 
-The syntax for a role is **{Entityname:Rolename}** where the entity name is followed by a colon, then the role name. For example, `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+The syntax for a role is **`{Entityname:Rolename}`** where the entity name is followed by a colon, then the role name. For example, `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
 
 1. From the **Build** section, select **Entities** in the left panel.
 

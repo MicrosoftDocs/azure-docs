@@ -46,7 +46,7 @@ private async Task GetTodoList(bool isAppStarting)
 }
 ```
 
-`BuildConfidentialClient()` is similar to what you've seen in the article [Web API that calls web APIs - app configuration](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()` instantiates `IConfidentialClientApplication` with a cache that contains only information for one account. The account is is provided by the `GetAccountIdentifier` method.
+`BuildConfidentialClient()` is similar to what you've seen in the article [Web API that calls web APIs - app configuration](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()` instantiates `IConfidentialClientApplication` with a cache that contains only information for one account. The account is provided by the `GetAccountIdentifier` method.
 
 The `GetAccountIdentifier` method uses the claims associated with the identity of the user for which the web API received the JWT:
 

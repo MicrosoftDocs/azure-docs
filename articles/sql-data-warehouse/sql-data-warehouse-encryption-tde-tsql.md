@@ -7,9 +7,9 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 04/17/2018
+ms.date: 04/30/2019
 ms.author: kavithaj
-ms.reviewer: igorstan
+ms.reviewer: rortloff
 ---
 
 # Get started with Transparent Data Encryption (TDE)

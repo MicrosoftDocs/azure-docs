@@ -236,8 +236,8 @@ Suppose the app has a list, named `Cities`, allowing for variations of city name
 
 |List item|Item synonyms|
 |---|---|
-|Seattle|sea-tac, sea, 98101, 206, +1 |
-|Paris|cdg, roissy, ory, 75001, 1, +33|
+|`Seattle`|`sea-tac`, `sea`, `98101`, `206`, `+1` |
+|`Paris`|`cdg`, `roissy`, `ory`, `75001`, `1`, `+33`|
 
 `book 2 tickets to paris`
 

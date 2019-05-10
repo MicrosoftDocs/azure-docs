@@ -41,7 +41,7 @@ The following picture summarizes some of the differences between ADAL.NET and MS
 
 ADAL.NET is consumed from the [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package. the namespace to use is `Microsoft.IdentityModel.Clients.ActiveDirectory`.
 
-To use MSAL.NET you will need to add the [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet package (for the moment in Preview), and use the `Microsoft.Identity.Client` namespace
+To use MSAL.NET you will need to add the [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet package, and use the `Microsoft.Identity.Client` namespace
 
 ### Scopes not resources
 
@@ -125,7 +125,7 @@ Here are the grants supported in ADAL.NET and MSAL.NET for Web Applications, Web
 
 Type of App | Grant | ADAL.NET | MSAL.NET
 ----- | ----- | ----- | -----
-Web App, Web API, daemon | Client Credentials | [Client credential flows in ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [Client credential flows in MSAL.NET](msal-authentication-flows.md#confidential-client)
+Web App, Web API, daemon | Client Credentials | [Client credential flows in ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [Client credential flows in MSAL.NET](msal-authentication-flows.md#client-credentials))
 Web API | On behalf of | [Service to service calls on behalf of the user with ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [On behalf of in MSAL.NET](msal-authentication-flows.md#on-behalf-of)
 Web App | Auth Code | [Acquiring tokens with authorization codes on web apps with ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-authorization-codes-on-web-apps) | [Acquiring tokens with authorization codes on web apps with A MSAL.NET](msal-authentication-flows.md#authorization-code)
 

@@ -140,7 +140,7 @@ If you have published the **Live Output**'s **Asset** using a **Streaming Locato
 
 For more information, see [Using a cloud DVR](live-event-cloud-dvr.md).
 
-## Provide feedback
+## Ask questions, give feedback, get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
