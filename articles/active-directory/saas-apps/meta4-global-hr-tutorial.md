@@ -54,7 +54,7 @@ To configure the integration of Meta4 Global HR into Azure AD, you need to add M
 
 **To add Meta4 Global HR from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click the **Azure Active Directory** icon.
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
@@ -62,11 +62,11 @@ To configure the integration of Meta4 Global HR into Azure AD, you need to add M
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add new application, click **New application** button on the top of dialog.
+3. To add a new application, click the **New application** button on the top of the dialog.
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Meta4 Global HR**, select **Meta4 Global HR** from result panel then click **Add** button to add the application.
+4. In the search box, type **Meta4 Global HR**, select **Meta4 Global HR** from the result panel then click the **Add** button to add the application.
 
 	![Meta4 Global HR in the results list](common/search-new-app.png)
 
@@ -98,7 +98,7 @@ To configure Azure AD single sign-on with Meta4 Global HR, perform the following
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. On the **Set up Single Sign-On with SAML** page, click the **Edit** icon to open the **Basic SAML Configuration** dialog.
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -197,10 +197,10 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Meta4 Global HR tile in the Access Panel, you should be automatically signed in to the Meta4 Global HR for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
