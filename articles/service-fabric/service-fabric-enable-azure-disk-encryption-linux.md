@@ -1,6 +1,6 @@
 ---
 title: Enable Disk encryption for Azure Service Fabric Linux clusters | Microsoft Docs
-description: This article describes how to enable disk encryption for Service Fabric cluster scale set in Azure by using Azure Resource Manager, Azure Key Vault.
+description: This article describes how to enable disk encryption for Azure Service Fabric cluster nodes in Linux by using Azure Resource Manager and Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -71,7 +71,7 @@ Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 
 ## Supported scenarios for disk encryption
 * Encryption for virtual machine scale sets is supported only for scale sets created with managed disks. It's not supported for native (or unmanaged) disk scale sets.
-* Encryption is supported for OS and data volumes in virtual machine scale sets in Linux. Disable encryption is also supported for OS and data volumes for virtual machine scale sets in Linux.
+* Both encryption and disable encryption are supported for OS and data volumes in virtual machine scale sets in Linux. 
 * Virtual machine (VM) reimage and upgrade operations for virtual machine scale sets aren't supported in the current preview.
 
 
@@ -99,7 +99,7 @@ az account set --subscription $subscriptionId
 
 ### Use the custom template that you already have 
 
-If you need to author a custom template to suit your needs, it's highly recommended that you start with one of the templates that are available on the [Azure Service Fabric cluster creation template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master) page. 
+If you need to author a custom template, it's highly recommended that you start with one of the templates available on the [Azure Service Fabric cluster creation template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master) page. 
 
 If you already have a custom template, double-check that all three certificate-related parameters in the template and the parameter file are named as follows and that values are null as follows:
 
@@ -115,7 +115,7 @@ If you already have a custom template, double-check that all three certificate-r
     },
 ```
 
-Because only data disk encryption is supported for virtual machine scale sets in Linux, you need to add a data disk by using a Resource Manager template. Update your template for data disk provision as follows:
+Because only data disk encryption is supported for virtual machine scale sets in Linux, you must add a data disk by using a Resource Manager template. Update your template for data disk provision as follows:
 
 ```Json
    
@@ -177,7 +177,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 ### Mount a data disk to a Linux instance
-Before you proceed with encryption on a virtual machine scale set in Linux, you need to make sure that the added data disk is correctly mounted. Sign in to the Linux cluster VM and run the **LSBLK** command. The output should show that added data disk in the **Mount Point** column.
+Before you proceed with encryption on a virtual machine scale set in Linux, you must ensure that the added data disk is correctly mounted. Sign in to the Linux cluster VM and run the **LSBLK** command. The output should show that added data disk in the **Mount Point** column.
 
 
 ### Deploy application to a Service Fabric cluster in Linux
@@ -206,7 +206,7 @@ az vmss encryption enable -g <resourceGroupName> -n <VMSS name> --disk-encryptio
 ```
 
 ### Validate if disk encryption is enabled for a virtual machine scale set in Linux
-Get the status of an entire virtual machine scale set or any instance in a scale set by running the following commands.
+To get the status of an entire virtual machine scale set or any instance in a scale set, run the following commands.
 Additionally, you can sign in to the Linux cluster VM and run the **LSBLK** command. The output should show the added data disk in the **Mount Point** column, and the **Type** column should read *Crypt*.
 
 ```powershell
