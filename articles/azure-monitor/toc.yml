@@ -638,9 +638,9 @@
           - name: Enable for single Azure VM
             href: insights/vminsights-enable-single-vm.md
           - name: Enable using Azure Policy
-            href: insights/vminsights-enable-atscale-policy.md
+            href: insights/vminsights-enable-at-scale-policy.md
           - name: Enable using Azure PowerShell
-            href: insights/vminsights-enable-atscale-posh.md
+            href: insights/vminsights-enable-at-scale-powershell.md
           - name: Enable for Hybrid environment
             href: insights/vminsights-enable-hybrid-cloud.md
         - name: Monitor health
