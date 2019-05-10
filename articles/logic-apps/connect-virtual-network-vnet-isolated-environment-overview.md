@@ -13,12 +13,12 @@ ms.date: 05/06/2019
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
 
-Sometimes, your logic apps and integration accounts need access to 
-secured resources, such as virtual machines (VMs) and other systems 
-or services, in an [Azure virtual network](../virtual-network/virtual-networks-overview.md). 
+Sometimes, your logic apps and integration accounts need access to secured resources, 
+such as virtual machines (VMs) and other systems or services, that are inside an 
+[Azure virtual network](../virtual-network/virtual-networks-overview.md). 
 To set up this access, you can 
 [create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 
-for running your logic apps and integration accounts. 
+where you can run your logic apps and create your integration accounts.
 
 When you create an ISE, Azure deploys a private and isolated 
 instance of the Logic Apps service into your Azure virtual network. 
@@ -42,16 +42,14 @@ or connected to your virtual network by using any of these items:
 * A **Core**-labeled built-in trigger or action, such as the HTTP trigger or action
 * A custom connector
 
-Logic apps, built-in triggers, built-in actions, and connectors that run in 
-your ISE use a pricing plan different from the consumption-based pricing plan. 
-For more information, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md). 
-
 This overview describes more details about how an ISE gives your logic apps 
 and integration accounts direct access to your Azure virtual network and 
 compares differences between an ISE and the global Logic Apps service.
-For on-premises systems that aren't connected to a virtual network or 
-don't have ISE-version connectors, you can connect to those systems 
-by [setting up and using the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md).
+
+> [!NOTE]
+> Logic apps, built-in triggers, built-in actions, and connectors that run in 
+> your ISE use a pricing plan different from the consumption-based pricing plan. 
+> For more information, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
 <a name="difference"></a>
 
@@ -65,11 +63,11 @@ you can create and run your logic apps on dedicated resources. When you create
 your logic app, you select your ISE as your app's location, which gives your 
 logic app direct access to your virtual network and the resources in that network.
 
-Logic apps in an ISE provide the same user experiences and similar 
-capabilities as the global Logic Apps service. Not only can you use 
-the same built-in actions and connectors in the global Logic Apps service, 
-but you can also use ISE-specific connectors. For example, here's 
-some Standard connectors that offer versions that run in an ISE:
+Logic apps in an ISE provide the same user experiences and similar capabilities 
+as the global Logic Apps service. Not only can you use the same built-in triggers, 
+built-in actions, and connectors from the global Logic Apps service, but you can 
+also use ISE-specific connectors. For example, here's some Standard connectors 
+that offer versions that run in an ISE:
 
 * Azure Blob Storage, File Storage, and Table Storage
 * Azure Queues, Azure Service Bus, Azure Event Hubs, and IBM MQ
@@ -98,6 +96,34 @@ version runs in the global Logic Apps service.
 
 * Connectors that run in an ISE are also 
 available in the global Logic Apps service.
+
+### Access to on-premises data sources
+
+For on-premises systems that are connected to an Azure virtual network, 
+inject an ISE into that network so your logic apps can directly access 
+those systems by using any of these items:
+
+* ISE connector for that system, for example, SQL Server
+  
+* HTTP action
+  
+* Custom connector
+
+  * If you have custom connectors that require the on-premises 
+  data gateway, and you created those connectors outside an ISE, 
+  logic apps in an ISE can also use those connectors.
+  
+  * Custom connectors created in an ISE don't work with the 
+  on-premises data gateway. However, these connectors can 
+  directly access on-premises data sources that are connected 
+  to the virtual network hosting the ISE. So, logic apps in an 
+  ISE most likely don't need the data gateway when communicating 
+  with those resources.
+
+For on-premises systems that aren't connected to a virtual 
+network or don't have ISE-version connectors, you must first 
+[set up the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) 
+before your logic apps can connect to those systems.
 
 <a name="create-integration-account-environment"></a>
 

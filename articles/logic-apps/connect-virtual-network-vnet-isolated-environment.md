@@ -275,66 +275,28 @@ For more information about creating subnets, see
 
 ## Create logic app - ISE
 
-To create logic apps that use your integration 
-service environment (ISE), follow the steps in 
-[how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
-but with these differences:
-
-* When you create your logic app, under the **Location** property, 
-select your ISE from the **Integration service environments** section, 
-for example:
+To create logic apps that run in your integration service environment (ISE), 
+[create your logic apps in the usual way](../logic-apps/quickstart-create-first-logic-app-workflow.md) except when you set the **Location** property, select your ISE from the 
+**Integration service environments** section, for example:
 
   ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-* You can use the same built-in triggers and actions such as HTTP, 
-which run in the same ISE as your logic app and display the **Core** label.
-
-  ![Select "core" built-in triggers and actions](./media/connect-virtual-network-vnet-isolated-environment/select-core-built-in-actions-triggers.png)
-
-* Standard connectors with the **ISE** label also run in the same ISE as your logic app. 
-Standard connectors without the **ISE** label run in the global Logic Apps service.
-
-  ![Select ISE connectors](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
-
-* After you inject your ISE into an Azure virtual network, 
-the logic apps in your ISE can directly access resources in that 
-virtual network. For on-premises systems that are connected to a 
-virtual network, inject an ISE into that network so your logic apps 
-can directly access those systems by using any of these items:
-
-  * ISE connector for that system, for example, SQL Server
-  
-  * HTTP action
-  
-  * Custom connector
-
-    * Logic apps in an ISE can use custom connectors that require 
-    the on-premises data gateway and are created outside an ISE.
-  
-    * Custom connectors created in an ISE don't work with the 
-    on-premises data gateway. However, you might not need the 
-    gateway to connect logic apps in an ISE with on-premises 
-    data sources that are connected to the virtual network hosting the ISE.
-
-  For on-premises systems that aren't connected to a 
-  virtual network or don't have ISE connectors, first 
-  [set up the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md).
+For differences in how you select triggers and actions in an ISE and how they work in ISE 
+compared to the global Logic Apps service, see [Isolated versus global in the ISE overview](connect-virtual-network-vnet-isolated-environment-overview.md#difference).
 
 <a name="create-integration-account-environment"></a>
 
 ## Create integration account - ISE
 
-To use an integration account with logic apps in an 
-integration service environment (ISE), that integration 
-account must use the *same environment* as the logic apps. 
-Logic apps in an ISE can reference only integration 
-accounts in the same ISE. 
+If you want to use an integration account with logic apps in an 
+integration service environment (ISE), that integration account 
+must use the *same environment* as the logic apps. Logic apps in 
+an ISE can reference only integration accounts in the same ISE.
 
-To create an integration account that uses an ISE, follow the steps in 
-[how to create integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
-except for the **Location** property where the 
-**Integration service environments** section now appears. 
-Instead, select your ISE, rather than a region, for example:
+To create an integration account that uses an ISE, 
+[create your integration account in the usual way](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
+except when you set the **Location** property, select your ISE from 
+the **Integration service environments** section, for example:
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 
