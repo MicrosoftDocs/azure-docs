@@ -49,7 +49,7 @@
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md 
       displayName: preset, schema 
-    - name: Media Encoder Standard formats
+    - name: Standard Encoder formats
       displayName: containers, codecs    
       href: media-encoder-standard-formats.md
     - name: Autogen adaptive bitrate ladder
@@ -237,10 +237,13 @@
     items:
     - name: With .NET
       href: filters-dynamic-manifest-dotnet-howto.md
+      displayName: filters
     - name: With REST
       href: filters-dynamic-manifest-rest-howto.md
+      displayName: filters
     - name: With CLI
       href: filters-dynamic-manifest-cli-howto.md  
+      displayName: filters
   - name: Deliver content
     items:
     - name: Publish an asset - CLI
