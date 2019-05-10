@@ -46,14 +46,6 @@ The V3 response object changes include [prebuilt entities](luis-reference-prebui
 
 ## Request changes 
 
-The **POST** request to the endpoint URL is in the format of:
-
-```
-https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appId}/versions/{versionId}/slots/{slotName}/predict
-```
-
-Slot name values are `staging` or `production`.
-
 ### Query string parameters
 
 The V3 API has different query string parameters.
