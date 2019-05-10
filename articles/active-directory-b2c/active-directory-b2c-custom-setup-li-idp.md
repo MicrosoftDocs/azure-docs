@@ -356,8 +356,12 @@ As part of the LinkedIn migration from v1.0 to v2.0, an additional call to anoth
 
     ```XML
     <!-- Extra step for LinkedIn to get the email -->
-    <OrchestrationStep Order="4" Type="ClaimsExchange">
+    <OrchestrationStep Order="3" Type="ClaimsExchange">
       <Preconditions>
+        <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+          <Value>identityProvider</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
         <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
           <Value>identityProvider</Value>
           <Value>linkedin.com</Value>
