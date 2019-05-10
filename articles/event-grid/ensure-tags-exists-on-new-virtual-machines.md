@@ -102,7 +102,7 @@ To complete this tutorial, an [Azure Automation account](../automation/automatio
     4. In the **Defined Event Types** drop-down, uncheck all options except **Resource Write Success**.
 
         > [!NOTE] 
-        > Azure Resource Manager does not currently differentiate between Create and Update, so implementing this tutorial for all Microsoft.Resources.ResourceWriteSuccess events in your Azure Subscription could result in a high volume of calls.”
+        > Azure Resource Manager does not currently differentiate between Create and Update, so implementing this tutorial for all Microsoft.Resources.ResourceWriteSuccess events in your Azure Subscription could result in a high volume of calls.
     1. For **Endpoint Type**, select **Webhook**.
     2. Click **Select an endpoint**. On the **Select Web Hook** page that opens up, paste the webhook url you created for the Watch-VMWrite runbook.
     3. Under **FILTERS**, enter the subscription and resource group where you want to look for the new VMs created. It should look like:
