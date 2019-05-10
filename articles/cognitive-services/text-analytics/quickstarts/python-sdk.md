@@ -3,7 +3,7 @@ title: 'Quickstart: Call the Text Analytics Service using the Python SDK'
 titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Azure Cognitive Services.
 services: cognitive-services
-author: chtufts
+author: ctufts
 manager: assafi
 
 ms.service: cognitive-services
@@ -16,78 +16,91 @@ ms.author: aahi
 # Quickstart: Call the Text Analytics Service using the Python SDK 
 <a name="HOLTop"></a>
 
-Use this quickstart to begin analyzing language with the Text Analytics SDK for Python. While the [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications.
+Use this quickstart to begin analyzing language with the Text Analytics SDK for Python. While the [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications without serializing and deserializing JSON.
 
-Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
+
+> [!Note]
+> * Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
+> * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py).  
 
 ## Prerequisites
+
+* [Python 3.x](https://www.python.org/)
+* The Text Analytics [SDK for python](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) 
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
 
-> [!Tip]
->  While you could call the [HTTP endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) directly from Python, the azure.cognitiveservices.language.textanalytics SDK makes it much easier to call the service without having to worry about serializing and deserializing JSON.
-
-### Command Line 
-
-You may need to update [IPython](https://ipython.org/install.html), the kernel for Jupyter:
-```bash
-pip install --upgrade IPython
-```
-
 ## Authenticate your credentials
 
-1. Add the following import statements to your script:
+> [!Tip]
+> For secure deployment of secrets in production systems we recommend using [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/quick-create-net).
+>
 
-```
+Create a new Python application in your favorite editor or IDE. Add the following import statements to your file.
+
+```python
 from azure.cognitiveservices.language.textanalytics import TextAnalyticsClient
 from msrest.authentication import CognitiveServicesCredentials
 ```
 
-2. Create a variable for your Text Analytics subscription key. Then create a `CognitiveServicesCredentials` object. 
+After making a variable for your Text Analytics subscription key, instantiate a `CognitiveServicesCredentials` object with it.
 
-```
+```python
 subscription_key = "enter-your-key-here"
 credentials = CognitiveServicesCredentials(subscription_key)
 ```
 
-> [!Tip]
-> For secure deployment of secrets in production systems we recommend using [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/quick-create-net)
->
-
 ## Create a Text Analytics client
 
-Create a new `TextAnalyticsClient` object with `credentials` and `text_analytics_url` as a parameter. Use the correct Azure region for your Text Analytics subscription.
+Create a new `TextAnalyticsClient` object with `credentials` and `text_analytics_url` as a parameter. Use the correct Azure region for your Text Analytics subscription (for example `westcentralus`).
 
 ```
-text_analytics_url = "https://westus.api.cognitive.microsoft.com/"
+text_analytics_url = "https://westcentralus.api.cognitive.microsoft.com/"
 text_analytics = TextAnalyticsClient(endpoint=text_analytics_url, credentials=credentials)
 ```
 
 ## Sentiment analysis
 
-1. Create a list of dictionaries, each representing a document you want to analyze.
+The payload to the API consists of a list of `documents`, which are dictionaries containing an `id` and a `text` attribute. The `text` attribute stores the text to be analyzed, and the `id` can be any value. 
 
-```
+```python
 documents = [
-  {"id": "1", "language": "en", "text": "I had the best day of my life."},
-  {"id": "2", "language": "en", "text": "This was a waste of my time. The speaker put me to sleep."},  
-  {"id": "3", "language": "es", "text": "No tengo dinero ni nada que dar..."},  
-  {"id": "4", "language": "it", "text": "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."}
+  {
+    "id": "1", 
+    "language": "en", 
+    "text": "I had the best day of my life."
+  },
+  {
+    "id": "2", 
+    "language": "en", 
+    "text": "This was a waste of my time. The speaker put me to sleep."
+  },  
+  {
+    "id": "3", 
+    "language": "es", 
+    "text": "No tengo dinero ni nada que dar..."
+  },  
+  {
+    "id": "4", 
+    "language": "it", 
+    "text": "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."
+  }
 ]
 ```
 
-2. Call the `sentiment()` function and get the result. Then iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
+Call the `sentiment()` function and get the result. Then iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
 
-```
+```python
 response = text_analytics.sentiment(documents=documents)
 for document in response.documents:
      print("Document Id: ", document.id, ", Sentiment Score: ", "{:.2f}".format(document.score))
 ```
 
 ### Output
-```
+
+```console
 Document Id:  1 , Sentiment Score:  0.87
 Document Id:  2 , Sentiment Score:  0.11
 Document Id:  3 , Sentiment Score:  0.44
@@ -96,18 +109,28 @@ Document Id:  4 , Sentiment Score:  1.00
 
 ## Language detection
 
-1. Create a list of dictionaries, containing the documents you want to analyze.
+Create a list of dictionaries, each containing the document you want to analyze. The `text` attribute stores the text to be analyzed, and the `id` can be any value. 
 
-``` 
+```python
 documents = [
-    { 'id': '1', 'text': 'This is a document written in English.' },
-    { 'id': '2', 'text': 'Este es un document escrito en Español.' },
-    { 'id': '3', 'text': '这是一个用中文写的文件' }
+    { 
+        'id': '1', 
+        'text': 'This is a document written in English.' 
+    },
+    {
+        'id': '2', 
+        'text': 'Este es un document escrito en Español.' 
+    },
+    { 
+        'id': '3', 
+        'text': '这是一个用中文写的文件' 
+    }
 ]
 ``` 
-2. Using the client created earlier, call `detect_language()` function and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
 
-```
+Using the client created earlier, call `detect_language()` and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
+
+```python
 response = text_analytics.detect_language(documents=documents)
 for document in response.documents:
     print("Document Id: ", document.id , ", Language: ", document.detected_languages[0].name)
@@ -115,7 +138,7 @@ for document in response.documents:
 
 ### Output
 
-```
+```console
 Document Id:  1 , Language:  English
 Document Id:  2 , Language:  Spanish
 Document Id:  3 , Language:  Chinese_Simplified
@@ -123,17 +146,27 @@ Document Id:  3 , Language:  Chinese_Simplified
 
 ## Entity recognition
 
-1. Create a list of dictionaries, containing the documents you want to analyze.
+Create a list of dictionaries, containing the documents you want to analyze. The `text` attribute stores the text to be analyzed, and the `id` can be any value. 
 
-```
+
+```python
 documents = [
-    {"id": "1","language": "en", "text": "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."},
-    {"id": "2","language": "es", "text": "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."}
+    {
+        "id": "1",
+        "language": "en", 
+        "text": "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."
+    },
+    {
+        "id": "2",
+        "language": "es", 
+        "text": "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."
+    }
 ]
 ```
-2.  Using the client created earlier, call `entities()` function and get the result. Then iterate through the results, and print each document's ID, and the entities contained in it.
 
-```
+Using the client created earlier, call `entities()` function and get the result. Then iterate through the results, and print each document's ID, and the entities contained in it.
+
+```python
 response = text_analytics.entities(documents=documents)
 
 for document in response.documents:
@@ -149,7 +182,7 @@ for document in response.documents:
 
 ### Output
 
-```
+```console
 Document Id:  1
 	Key Entities:
 		 NAME:  Microsoft 	Type:  Organization 	Sub-type:  None
@@ -180,20 +213,37 @@ Document Id:  2
 
 ## Key phrase extraction
 
-1. Create a list of dictionaries, containing the documents you want to analyze.
+Create a list of dictionaries, containing the documents you want to analyze. The `text` attribute stores the text to be analyzed, and the `id` can be any value. 
 
-```
+
+```python
 documents = [
-    {"id": "1", "language": "ja", "text": "猫は幸せ"},
-    {"id": "2", "language": "de", "text": "Fahrt nach Stuttgart und dann zum Hotel zu Fu."},
-    {"id": "3", "language": "en", "text": "My cat might need to see a veterinarian."},
-    {"id": "4", "language": "es", "text": "A mi me encanta el fútbol!"}
-            ]
+    {
+        "id": "1", 
+        "language": "ja", 
+        "text": "猫は幸せ"
+    },
+    {
+        "id": "2", 
+        "language": "de", 
+        "text": "Fahrt nach Stuttgart und dann zum Hotel zu Fu."
+    },
+    {
+        "id": "3", 
+        "language": "en",
+        "text": "My cat might need to see a veterinarian."
+    },
+    {
+        "id": "4", 
+        "language": "es", 
+        "text": "A mi me encanta el fútbol!"
+    }
+]
 ```
 
-2. Using the client created earlier, call `key_phrases()` function and get the result. Then iterate through the results, and print each document's ID, and the key phrases contained in it.
+Using the client created earlier, call `key_phrases()` function and get the result. Then iterate through the results, and print each document's ID, and the key phrases contained in it.
 
-```
+```python
 response = text_analytics.key_phrases(documents=documents)
 
 for document in response.documents:
@@ -205,7 +255,7 @@ for document in response.documents:
 
 ### Output
 
-```
+```console
 Document Id:  1
 	Phrases:
 		 幸せ
