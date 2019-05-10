@@ -14,7 +14,7 @@ ms.date: 05/10/2019
 
 # Advanced Sample - Classification: Predict credit risk (cost sensitive)
 
-Learn how to incorporate Python code in the visual interface to create a machine learning classification model. Then, learn how to quickly compare algorithms to choose the best one for you.
+Learn how to incorporate Python code in the visual interface to create a cost-sensitive classification model. Then, learn how to quickly compare algorithms to choose the best one for you.
 
 This sample predicts credit risk based on credit applications. It takes into account misclassification costs, which are added by a custom Python script, and it tests two algorithms: **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
 
