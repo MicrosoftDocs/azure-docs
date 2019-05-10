@@ -49,9 +49,9 @@ logic app's workflow, and also work with data.
   > and run in the same ISE as your logic apps. Logic apps, 
   > built-in triggers, and built-in actions that run in your 
   > ISE use a pricing plan different from the consumption-based 
-  > pricing plan. 
+  > pricing plan.
   > 
-  > For more information about ISEs, see 
+  > For more information about creating ISEs, see 
   > [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment). 
   > For more information about pricing, see 
   > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md).
@@ -103,7 +103,7 @@ you might have to first create connections, which are managed by Azure Logic App
   > connectors that run in your ISE use a pricing plan different from 
   > the consumption-based pricing plan. 
   > 
-  > For more information about logic apps, connectors, and ISEs, see 
+  > For more information about creating ISEs, see 
   > [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
   > For more information about pricing, see 
   > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md).
@@ -300,18 +300,19 @@ To make custom API Apps or connectors public for anyone to use in Azure,
 you can [submit connectors for Microsoft certification](../logic-apps/custom-connector-submit-certification.md).
 
 > [!NOTE]
-> Logic apps within an 
-> [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)
-> can use custom connectors that require the on-premises 
-> data gateway and are created outside an ISE.
-> 
+> If you have custom connectors that require 
+> the on-premises data gateway, and you created 
+> those connectors outside an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> logic apps in an ISE can also those connectors.
+>
 > Custom connectors created within an ISE don't work 
-> with the on-premises data gateway. However, 
-> you might not need the gateway to connect logic apps 
-> in an ISE with on-premises data sources that are 
-> connected to the virtual network hosting the ISE. 
-> 
-> For more information about logic apps, custom connectors, and ISEs, see 
+> with the on-premises data gateway. However, these 
+> connectors can directly access on-premises data sources 
+> that are connected to an Azure virtual network hosting 
+> the ISE. So, logic apps in an ISE most likely don't need 
+> the data gateway when communicating with those resources.
+>
+> For more information about creating ISEs, see 
 > [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
 
 ## Next steps
