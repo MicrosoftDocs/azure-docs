@@ -35,14 +35,14 @@ To complete this tutorial, you need the following prerequisites:
 
 
 ### Install npm package
-To install the npm package for Event Hubs, open a command prompt that has `npm` in its path, change the directory
+To install the [npm package for Event Hubs](https://www.npmjs.com/package/@azure/event-hubs), open a command prompt that has `npm` in its path, change the directory
 to the folder where you want to have your samples and then run this command
 
 ```shell
 npm install @azure/event-hubs
 ```
 
-To install the npm package for Event Processor Host, run the below command instead
+To install the [npm package for Event Processor Host](https://www.npmjs.com/package/@azure/event-processor-host), run the below command instead
 
 ```shell
 npm install @azure/event-processor-host
@@ -53,7 +53,7 @@ npm install @azure/event-processor-host
 This section shows you how to create a Node.js application that sends events to an event hub. 
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com). 
-2. Create a file called `send.js` and paste the below code into it. This will send 100 events to your Event Hub
+2. Create a file called `send.js` and paste the below code into it.
 ```javascript
 const { EventHubClient } = require("@azure/event-hubs");
 
@@ -78,19 +78,18 @@ main().catch(err => {
 });
 ```
 3. Enter the connection string and the name of your Event Hub in the above code
-4. Then run the command `node send.js` in a command prompt to execute this file.
+4. Then run the command `node send.js` in a command prompt to execute this file. This will send 100 events to your Event Hub
 
-Congratulations! You have now sent messages to an event hub.
+Congratulations! You have now sent events to an event hub.
 
 
 ## Receive events
 
 This section shows you how to create a Node.js application that receives events from a single partition
-of a consumer group in an event hub. 
+of the default consumer group in an event hub. 
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com). 
-2. Create a file called `receive.js` and paste the below code into it. This will receive events from one of the partitions
-in your Event Hub
+2. Create a file called `receive.js` and paste the below code into it.
 ```javascript
 const { EventHubClient, delay } = require("@azure/event-hubs");
 
@@ -120,18 +119,17 @@ main().catch(err => {
   console.log("Error occurred: ", err);
 });
 ```
-3. Enter the connection string and the name of your Event Hub in the above code
-4. Then run the command `node receive.js` in a command prompt to execute this file.
+3. Enter the connection string and the name of your Event Hub in the above code.
+4. Then run the command `node receive.js` in a command prompt to execute this file. This will receive events from one of the partitions of the default consumer group in your Event Hub
 
-Congratulations! You have now received messages from event hub.
+Congratulations! You have now received events from event hub.
 
 ## Receive events using Event Processor Host
 
-This tutorial shows how to receive events from an event hub by using Azure [EventProcessorHost](event-hubs-event-processor-host.md) in a Node.js application. The EventProcessorHost (EPH) helps you efficiently receive events from an event hub by creating receivers across all partitions in the consumer group of an event hub. It checkpoints metadata on received messages at regular intervals in an Azure Storage Blob. This approach makes it easy to continue receiving messages from where you left off at a later time.
+This section shows how to receive events from an event hub by using Azure [EventProcessorHost](event-hubs-event-processor-host.md) in a Node.js application. The EventProcessorHost (EPH) helps you efficiently receive events from an event hub by creating receivers across all partitions in the consumer group of an event hub. It checkpoints metadata on received messages at regular intervals in an Azure Storage Blob. This approach makes it easy to continue receiving messages from where you left off at a later time.
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com). 
-2. Create a file called `receiveAll.js` and paste the below code into it. This will receive events from all the partitions
-in your Event Hub
+2. Create a file called `receiveAll.js` and paste the below code into it.
 ```javascript
 const { EventProcessorHost, delay } = require("@azure/event-processor-host");
 
@@ -174,7 +172,7 @@ main().catch(err => {
 3. Enter the connection string and the name of your Event Hub in the above code along with connection string for an Azure Blob Storage
 4. Then run the command `node receiveAll.js` in a command prompt to execute this file.
 
-Congratulations! You have now received messages from event hub using Event Processor Host.
+Congratulations! You have now received events from event hub using Event Processor Host. This will receive events from all the partitions of the default consumer group in your Event Hub
 
 ## Next steps
 Read the following articles:
