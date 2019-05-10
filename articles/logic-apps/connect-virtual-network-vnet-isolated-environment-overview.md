@@ -94,7 +94,7 @@ version runs in the global Logic Apps service.
 
   ![Select ISE connectors](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
-* Connectors that run in an ISE also have publicly-hosted 
+* Connectors that run in an ISE also have publicly hosted 
 versions available in the global Logic Apps service.
 
 ### Access to on-premises data sources
