@@ -55,24 +55,24 @@
 - name: Reference
   items:
   - name: Samples
-    href: https://aka.ms/personalizer-samples
+    href: https://go.microsoft.com/fwlink/?linkid=2092083
   - name: REST API Reference
-    href: https://aka.ms/personalizer-rest-api-docs
+    href: https://go.microsoft.com/fwlink/?linkid=2092082
   - name: SDKs
     items:
     - name: .Net SDK Reference 
-      href: https://aka.ms/personalizer-dotnet-sdk-docs
+      href: https://go.microsoft.com/fwlink/?linkid=2092353
     - name: NuGet package
-      href: https://aka.ms/personalizer-nuget-sdk
+      href: https://go.microsoft.com/fwlink/?linkid=2092272
 - name: Resources
   items:
   - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Azure Roadmap
-    href: https://aka.ms/personalizer-roadmap
+    href: https://go.microsoft.com/fwlink/?linkid=2092153
   - name: Pricing 
-    href: https://aka.ms/personalizer-pricing
+    href: https://go.microsoft.com/fwlink/?linkid=2092154
   - name: Stack Overflow
-    href: https://aka.ms/personalizer-stackoverflow
+    href: https://stackoverflow.com/questions/tagged/personalizer
   - name: UserVoice
-    href: https://aka.ms/personalizer-uservoice          
+    href: https://cognitive.uservoice.com/forums/921562-personalizer        
