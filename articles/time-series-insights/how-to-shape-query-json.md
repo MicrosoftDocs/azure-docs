@@ -107,7 +107,7 @@ Above:
 
 - Unnecessary properties are avoided, for example, make and model information, etc. Since they won't be queried in the future, eliminating them enables better network and storage efficiency.
 
-- Reference data is used to reduce the number of bytes transferred over the network. Two attributes, **messageId** and **deviceLocation** , are joined using the key property, **deviceId**. This data is joined with the telemetry data at ingress time, and subsequently stored in TSI for querying.
+- Reference data is used to reduce the number of bytes transferred over the network. Two attributes, **messageId** and **deviceLocation**, are joined using the key property, **deviceId**. This data is joined with the telemetry data at ingress time, and subsequently stored in TSI for querying.
 
 - Two layers of nesting are used, which is the maximum amount of nesting supported by TSI. It's critical to avoid deeply nested arrays.
 
