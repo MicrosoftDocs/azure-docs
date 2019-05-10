@@ -276,12 +276,13 @@ For more information about creating subnets, see
 ## Create logic app - ISE
 
 To create logic apps that run in your integration service environment (ISE), 
-[create your logic apps in the usual way](../logic-apps/quickstart-create-first-logic-app-workflow.md) except when you set the **Location** property, select your ISE from the 
+[create your logic apps in the usual way](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
+except when you set the **Location** property, select your ISE from the 
 **Integration service environments** section, for example:
 
   ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-For differences in how you select triggers and actions in an ISE and how they work in ISE 
+For differences in how triggers and actions work and how they're labeled when you use an ISE 
 compared to the global Logic Apps service, see [Isolated versus global in the ISE overview](connect-virtual-network-vnet-isolated-environment-overview.md#difference).
 
 <a name="create-integration-account-environment"></a>
