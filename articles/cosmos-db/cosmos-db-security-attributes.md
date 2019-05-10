@@ -1,6 +1,6 @@
 ﻿---
-title: Security attributes for Cosmos DB
-description: A checklist of security attributes for evaluating Cosmos DB
+title: Security attributes for Azure Cosmos DB
+description: A checklist of security attributes for evaluating Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
 author: msmbaldwin
@@ -12,6 +12,8 @@ ms.date: 05/08/2019
 ms.author: mbaldwin
 
 ---
+# Security attributes Azure Cosmos DB
+
 This article documents the common security attributes built into Azure Cosmos DB
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
