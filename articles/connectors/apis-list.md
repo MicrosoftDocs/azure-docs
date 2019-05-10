@@ -303,7 +303,7 @@ you can [submit connectors for Microsoft certification](../logic-apps/custom-con
 > If you have custom connectors that require 
 > the on-premises data gateway, and you created 
 > those connectors outside an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-> logic apps in an ISE can also those connectors.
+> logic apps in an ISE can also use those connectors.
 >
 > Custom connectors created within an ISE don't work 
 > with the on-premises data gateway. However, these 
