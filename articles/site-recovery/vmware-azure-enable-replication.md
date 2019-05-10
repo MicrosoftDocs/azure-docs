@@ -42,14 +42,13 @@ Before you follow the steps in this section, note the following information:
 3. For **Machine type**, select **Virtual Machines** or **Physical Machines**.
 4. In **vCenter/vSphere Hypervisor**, select the vCenter server that manages the vSphere host, or select the host. This setting isn't relevant if you're replicating physical computers.
 5. Select the process server. If there are no additional process servers created, inbuilt process server of configuration server will be available in the dropdown. Health status of each process server is indicated as per recommended limits and other parameters. Choose a healthy process server. A [critical](vmware-physical-azure-monitor-process-server.md#process-server-alerts) process server cannot be chosen. You can either [troubleshoot and resolve](vmware-physical-azure-troubleshoot-process-server.md) the errors **or** set up a [scale-out process server](vmware-azure-set-up-process-server-scale.md).
+    ![Enable replication source window](media/vmware-azure-enable-replication/ps-selection.png)
 
 > [!NOTE]
 > From [9.24 versions](service-updates-how-to.md#links-to-currently-supported-update-rollups), additional alerts are introduced to enhance the health alerts of process server. Upgrade Site Recovery components to 9.24 versions or above for all alerts to be generated.
 
-    ![Enable replication source window](./media/vmware-azure-enable-replication/ps-selection.png)
-
 6. For **Target**, select the subscription and resource group where you want to create the failed-over virtual machines. Choose the deployment model that you want to use in Azure for the failed-over VMs.
-7. Select the Azure network and subnet that the Azure VMs will connect to after failover. The network must be in the same region as the Site Recovery service vault.
+2. Select the Azure network and subnet that the Azure VMs will connect to after failover. The network must be in the same region as the Site Recovery service vault.
 
    Select **Configure now for selected machines** to apply the network setting to all virtual machines that you select for protection. Select **Configure later** to select the Azure network per virtual machine. If you don't have a network, you need to create one. To create a network by using Azure Resource Manager, select **Create new**. Select a subnet if applicable, and then select **OK**.
    

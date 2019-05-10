@@ -168,6 +168,7 @@ Guest/server VMDK | Yes
 Guest/server shared cluster disk | No
 Guest/server encrypted disk | No
 Guest/server NFS | No
+Guest/server iSCSI | No
 Guest/server SMB 3.0 | No
 Guest/server RDM | Yes<br/><br/> N/A for physical servers
 Guest/server disk > 1 TB | Yes<br/><br/>Up to 4,095 GB<br/><br/> Disk must be larger than 1024 MB.
