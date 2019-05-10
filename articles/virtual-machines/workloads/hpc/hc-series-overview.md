@@ -62,3 +62,9 @@ Segregation of cores reserved for Azure Hypervisor and HC-series VMs
 | OS Support for SRIOV RDMA   | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+ |
 | Azure CycleCloud Support    | Yes                         |
 | Azure Batch Support         | Yes                         |
+
+## Next steps
+* Learn more about HPC VM sizes for [Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-hpc) and [Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-hpc) in Azure.
+
+https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-hpc
+* Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
