@@ -3,6 +3,7 @@ title: Record sensor streams to a file
 description: Instructions to use recording tool
 author: joylital
 ms.author: jawirth, joylital
+ms:prod: kinect-dk
 ms.date: 3/5/2019
 ms.topic: quickstart
 keywords: kinect, record, playback, reader, matroska, mkv, streams, depth, rgb, camera, color, imu, audio, sensor
