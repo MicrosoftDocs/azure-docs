@@ -101,8 +101,8 @@ Clicking on the pin icon at the upper right-hand corner of any one of the charts
 
 ![VM insights Performance directly from VM view](./media/vminsights-performance/vminsights-performance-directvm-01.png)
 
-## View performance directly from an Azure VM scale set
-To access directly from a virtual machine scale set, perform the following steps.
+## View performance directly from an Azure virtual machine scale set
+To access directly from an Azure virtual machine scale set, perform the following steps.
 
 1. In the Azure portal, select **Virtual machine scale sets**.
 2. From the list, choose a VM and in the **Monitoring** section choose **Insights (preview)** to view the **Performance** tab.
@@ -111,7 +111,7 @@ This page loads the Azure Monitor performance view, scoped to the selected scale
 
 Clicking on the pin icon at the upper right-hand corner of any one of the charts pins the selected chart to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to Azure Monitor for VMs and loads the performance detail view for the VM.  
 
-![VM insights Performance directly from VM scale set view](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
+![VM insights Performance directly from virtual machine scale set view](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
 
 >[!NOTE]
 >You can also access a detailed performance view for a specific instance from the Instances view for your scale set. Navigate to **Instances** under the **Settings** section, and then choose **Insights (preview)**.
