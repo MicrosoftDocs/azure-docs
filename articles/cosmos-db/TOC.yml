@@ -163,7 +163,7 @@
       - name: Trigger Azure Functions 
         displayName: change feed
         href: change-feed-functions.md
-    - name: Analytics with Apache Spark
+    - name: Built-in analytics with Apache Spark
       href: spark-api-introduction.md
     - name: Server-side programming
       items:
@@ -210,9 +210,9 @@
         - name: Role-based access control
           displayName: rbac
           href: role-based-access-control.md  
-        - name: Security Attributes
-          href: cosmos-db-security-attributes.md  
-      - name: Enterprise readiness 
+        - name: Security attributes
+          href: cosmos-db-security-attributes.md
+    - name: Enterprise readiness 
       items:
       - name: Online backup and on-demand restore
         href: online-backup-and-restore.md
@@ -519,6 +519,8 @@
         href: how-to-sql-subquery.md
     - name: Change Feed
       items:
+      - name: Azure Cosmos DB Trigger logs
+        href: how-to-configure-cosmos-db-trigger-logs.md
       - name: Multiple Azure Cosmos DB Triggers
         href: how-to-create-multiple-cosmos-db-triggers.md
       - name: Troubleshoot Azure Cosmos DB Triggers
