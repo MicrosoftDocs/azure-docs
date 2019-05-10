@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/29/2019
+ms.date: 05/10/2019
 ms.author: jeedes
 
 ---
@@ -126,23 +126,37 @@ To configure Azure AD single sign-on with Zscaler Private Access (ZPA), perform 
 
 ### Configure Zscaler Private Access (ZPA) Single Sign-On
 
-1. In a different web browser window, sign into your Zscaler Private Access (ZPA) company site as an administrator.
+1. To automate the configuration within Zscaler Private Access (ZPA), you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-2. Navigate to **Administrator** and then click **Idp Configuration**.
+	![My apps extension](common/install-myappssecure-extension.png)
 
-	![Configure Single Sign-On On App Side](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_04.png)
+2. After adding extension to the browser, click on **Setup Zscaler Private Access (ZPA)** will direct you to the Zscaler Private Access (ZPA) application. From there, provide the admin credentials to sign into Zscaler Private Access (ZPA). The browser extension will automatically configure the application for you and automate steps 3-6.
 
-3. In the **Idp Configuration** section, click **Add New IDP Configuration**.
+	![Setup sso](common/setup-sso.png)
 
-	![Configure Single Sign-On On App Side](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_05.png)
+3. If you want to setup Zscaler Private Access (ZPA) manually, open a new web browser window and sign into your Zscaler Private Access (ZPA) company site as an administrator and perform the following steps:
 
-4. In the **New IDP Configuration** section, perform the following steps:
+4. From the left side of menu, click **Administration** and navigate to **AUTHENTICATION** section click **IdP Configuration**.
 
-	![Configure Single Sign-On On App Side](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_06.png)
+	![Zscaler Private Access Administrator admin](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_admin.png)
 
-	a. Click **Select File** and upload your downloaded metadata file.
+5. In the top right corner, click **Add IdP Configuration**. 
 
-	b. Click **Save** button.
+	![Zscaler Private Access Administrator addidp](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_addpidp.png)
+
+6. On the **Add IdP Configuration** page perform the following steps:
+ 
+	![Zscaler Private Access Administrator idpselect](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_idpselect.png)
+
+	a. Click **Select File** to upload the downloaded Metadata file from Azure AD in the **IdP Metadata File Upload** field.
+
+	b. It reads the **IdP metadata** from Azure AD and populates all the fields information as shown below.
+
+	![Zscaler Private Access Administrator idpconfig](./media/zscalerprivateaccess-tutorial/idpconfig.png)
+
+	b. Select your domain from **Domains** field.
+	
+	c. Click **Save**.
 
 ### Create an Azure AD test user 
 
