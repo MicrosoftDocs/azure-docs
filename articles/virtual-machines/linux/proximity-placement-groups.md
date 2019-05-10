@@ -20,24 +20,31 @@ ms.author: cynthn
 [!INCLUDE [virtual-machines-common-ppg-overview](../../../includes/virtual-machines-common-ppg-overview.md)]
 
 ## CLI
-Create a proximity placement group using [az ppg create](/cli/azure/vm). This example creates a proximity placement group using standard storage. You can also use `-t ultra` to have the proximity placement group backed by Ultra SSD storage.
+Create a proximity placement group using [az ppg create](/cli/azure/ppg#az-ppg-create). 
 
+```azurecli-interactive
+az ppg create \
+   -n myPPG \
+   -g myPPGGroup \
+   -l westus \
+   -t standard 
+```
 
-az ppg create -n myppg -g myPPGGroup -l westus -t standard 
+## Create a VM
 
-
-## Create a VMs
-
-az vm create -n myVM -g PPGTest --image UbuntuLTS --ppg myppg  --generate-ssh-keys --size Standard_D1_v2  -l westus
-
-
-az ppg list  
-
-az ppg show -n myppg -g ppgtest  
-
- 
+Create a VM within the proximity placement group using [new az vm](/cli/azure/vm#az-vm-create).
+```azurecli-interactive
+az vm create \
+   -n myVM \
+   -g myPPGGroup \
+   --image UbuntuLTS \
+   --ppg myPPG  \
+   --generate-ssh-keys \
+   --size Standard_D1_v2  \
+   -l westus
+```
 
 
 ## Next steps
 
-Learn more about [Azure regions and availability](regions-and-availability.md).
+Learn more about the [Azure CLI](/cli/azure/ppg) commands for proximity placement groups.

@@ -22,7 +22,7 @@ ms.author: cynthn
 [!INCLUDE [virtual-machines-common-ppg-overview](../../../includes/virtual-machines-common-ppg-overview.md)]
 
 ## Create a proximity placement group
-Create a proximity placement group using the [New-AzProximityPlacementGroup](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup) cmdlet. This example creates a proximity placement group using standard storage, you can also use `-ProximityPlacementGroupType Ultra` to have the proximity placement group backed by Ultra SSD storage.
+Create a proximity placement group using the [New-AzProximityPlacementGroup](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup) cmdlet. 
 
 ```azurepowershell-interactive
 $resourceGroup = "myPPGResourceGroup"

@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/01/2019
+ ms.date: 05/09/2019
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -14,20 +14,15 @@ One of the largest contributors to latency between VMs is simply distance. Placi
 
 A Proximity Placement Group (PPG) is a logical grouping used to make sure that Azure compute resources are physically located close to each other in a region or Availability Zone. Proximity placement groups are useful for workloads where low latency is a requirement. 
 
-PPGs provide latency advantages between VMs, by iteself or when used with other features:
+- Low latency between stand-alone VMs.
+- Low Latency between VMs in a single availability set or a virtual machine scale set. 
+- Low latency between sand-alone VMs, VMs in multiple Availability Sets, or multiple VM scale sets. You can have multiple compute resources in a single placement group to bring together a multi-tiered application. 
+- Low latency between multiple application tiers using different hardware types. For example, running the backend using M-series in an availability set and  the front end on a D-series VM scale set in a single Proximity Placement Group.
 
-- Low latency between stand-alone VMs. Get low latency without the complexity of other options like zones or availability sets.
-- Compatible with Availability Zones. Get even lower latency between VMs in an Availability Zone. Availability Zones provide fault isolation while PPGs provide better latency
-- Low latency between different hardware types. Fore example, M-series and D-series VMs can be in the same Proximity Placement Group.
-- Low latency between VMs in different Availability Sets. You can have multiple Availability Sets and/or single VMs in a placement group. For example, a SAP/HANA deployment where M-series VMs running Hana can be in AvSet 1 and D-series VMs running a front-end app can be in AvSet2. Both AvSets can be in the same placement group.
-- Enable Accelerated Networking for best results
 
-You can also combine Proximity Placement Groups with Availability Zone placement for other resources:
-- Gateways
-- Firewalls
-- Load balancers
-- Storage (other than Premium Managed disks which can be in PPG directly)
-- Databases
-- Anything else that is zone aware
 
-Put VMs in a PPG and the entire solution in a availability zone.
+Best practices:
+- Deploy all VMs at once with a template.
+- Deploy largest and rarest VM types first. Use this page to determine rarity: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines If a VM type is available in a limited number of regions, it is “rare”. Deploy this one first.
+- When re-using an existing PPG from which VMs were deleted, wait for the deletion to fully complete before adding VMs to it.
+- Put VMs in a PPG and the entire solution in a availability zone.
