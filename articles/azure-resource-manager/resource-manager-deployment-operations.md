@@ -1,22 +1,14 @@
 ---
-title: Deployment operations with Azure Resource Manager | Microsoft Docs
+title: Deployment history with Azure Resource Manager | Microsoft Docs
 description: Describes how to view Azure Resource Manager deployment operations with the portal, PowerShell, Azure CLI, and REST API.
-services: azure-resource-manager,virtual-machines
-documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
-
-ms.assetid: 
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: vm-multiple
-ms.workload: infrastructure
-ms.date: 09/28/2018
+ms.date: 05/09/2019
 ms.author: tomfitz
-
 ---
-# View deployment operations with Azure Resource Manager
+# View deployment history with Azure Resource Manager
 
 You can view the operations for a deployment through the Azure portal. You may be most interested in viewing the operations when you've received an error during deployment so this article focuses on viewing operations that have failed. The portal provides an interface that enables you to easily find the errors and determine potential fixes.
 
