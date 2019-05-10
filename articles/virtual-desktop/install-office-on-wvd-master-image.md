@@ -11,7 +11,7 @@ ms.author: v-chjenk
 ---
 # Install Office on a master VHD image
 
-This article tells you how to prepare and install Office 365 ProPlus, OneDrive, and other common applications a master virtual hard disk (VHD) image for upload to Azure. If your users need to access certain line of business (LOB) applications, we recommend you install them after completing the instructions in this article.
+This article tells you how to install Office 365 ProPlus, OneDrive, and other common applications on a master virtual hard disk (VHD) image for upload to Azure. If your users need to access certain line of business (LOB) applications, we recommend you install them after completing the instructions in this article.
 
 This article assumes you've already created a virtual machine (VM). If not, see [Prepare and customize a master VHD image](set-up-customize-master-image.md#create-a-vm)
 
@@ -23,8 +23,6 @@ This article also assumes you have elevated access on the VM, whether it's provi
 ## Install Office in shared computer activation mode
 
 Shared computer activation lets you to deploy Office 365 ProPlus to a computer in your organization that is accessed by multiple users. For more information about shared computer activation, see [Overview of shared computer activation for Office 365 ProPlus](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus).
-
-
 
 Use the [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117) to install Office. Windows 10 Enterprise multi-session only supports Office 365 ProPlus.
 
@@ -40,7 +38,7 @@ This sample configuration XML we've provided will do the following things:
 - Enable shared computer activation.
 
 >[!NOTE]
->Stencil search feature in Visio does not operate in Windows Virtual Desktop during preview configuration. We are working on fixing this issue.
+>Stencil search feature in Visio does not operate in Windows Virtual Desktop during preview configuration.
 
 Here's what this sample configuration XML won't do:
 
@@ -167,7 +165,7 @@ Here's how to install OneDrive in per-machine mode:
 
 ## Teams and Skype
 
-Windows Virtual Desktop does not officially support Skype for Business and Teams.
+Windows Virtual Desktop doesn't support Skype for Business and Teams.
 
 ## Next steps
 

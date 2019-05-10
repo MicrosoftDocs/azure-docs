@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Prepare and customize a master VHD image
 
-This article will tell you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install and configure software on them. These instructions are for a Windows Virtual Desktop Preview-specific configuration that can be used with your organization's existing processes.
+This article tells you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install software on them. These instructions are for a Windows Virtual Desktop Preview-specific configuration that can be used with your organization's existing processes.
 
 ## Create a VM
 
@@ -23,7 +23,7 @@ The second option is to create the image locally by downloading the image, provi
 
 ### Local image creation
 
-Once you've downloaded the image to a local location, open **Hyper-V Manager** to create a VM with the VHD you just copied. The following is the simple version, but you can find more detailed instructions in [Create a virtual machine in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).
+Once you've downloaded the image to a local location, open **Hyper-V Manager** to create a VM with the VHD you copied. The following instructions are a simple version, but you can find more detailed instructions in [Create a virtual machine in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).
 
 To create a VM with the copied VHD:
 
@@ -90,7 +90,7 @@ To include the FSLogix container as part of the image, follow the instructions i
 
 ### Configure Windows Defender
 
-If Windows Defender is configured in the VM, make sure it's configured to not scan the entire contents of VHD and VHDX files during attachment of the same.
+If Windows Defender is configured in the VM, make sure it's configured to not scan the entire contents of VHD and VHDX files during attachment.
 
 This configuration only removes scanning of VHD and VHDX files during attachment, but won't affect real-time scanning.
 
