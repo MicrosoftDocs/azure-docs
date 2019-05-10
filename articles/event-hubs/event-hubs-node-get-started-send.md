@@ -53,29 +53,29 @@ This section shows you how to create a Node.js application that sends events to 
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com). 
 2. Create a file called `send.js` and paste the below code into it.
-```javascript
-const { EventHubClient } = require("@azure/event-hubs");
+  ```javascript
+  const { EventHubClient } = require("@azure/event-hubs");
 
-// Define connection string and the name of the Event Hub
-const connectionString = "";
-const eventHubsName = "";
+  // Define connection string and the name of the Event Hub
+  const connectionString = "";
+  const eventHubsName = "";
 
-async function main() {
-  const client = EventHubClient.createFromConnectionString(connectionString, eventHubsName);
-  
-  for (let i = 0; i < 100; i++) {
-    const eventData = {body: `Event ${i}`};
-    console.log(`Sending message: ${eventData.body}`);
-    await client.send(eventData);
+  async function main() {
+    const client = EventHubClient.createFromConnectionString(connectionString, eventHubsName);
+
+    for (let i = 0; i < 100; i++) {
+      const eventData = {body: `Event ${i}`};
+      console.log(`Sending message: ${eventData.body}`);
+      await client.send(eventData);
+    }
+
+    await client.close();
   }
 
-  await client.close();
-}
-
-main().catch(err => {
-  console.log("Error occurred: ", err);
-});
-```
+  main().catch(err => {
+    console.log("Error occurred: ", err);
+  });
+  ```
 3. Enter the connection string and the name of your Event Hub in the above code
 4. Then run the command `node send.js` in a command prompt to execute this file. This will send 100 events to your Event Hub
 
@@ -89,35 +89,35 @@ of the default consumer group in an event hub.
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com). 
 2. Create a file called `receive.js` and paste the below code into it.
-```javascript
-const { EventHubClient, delay } = require("@azure/event-hubs");
+  ```javascript
+  const { EventHubClient, delay } = require("@azure/event-hubs");
 
-// Define connection string and related Event Hubs entity name here
-const connectionString = "";
-const eventHubsName = "";
+  // Define connection string and related Event Hubs entity name here
+  const connectionString = "";
+  const eventHubsName = "";
 
-async function main() {
-  const client = EventHubClient.createFromConnectionString(connectionString, eventHubsName);
-  const allPartitionIds = await client.getPartitionIds();
-  const firstPartitionId = allPartitionIds[0];
+  async function main() {
+    const client = EventHubClient.createFromConnectionString(connectionString, eventHubsName);
+    const allPartitionIds = await client.getPartitionIds();
+    const firstPartitionId = allPartitionIds[0];
 
-  const receiveHandler = client.receive(firstPartitionId, eventData => {
-    console.log(`Received message: ${eventData.body} from partition ${firstPartitionId}`);
-  }, error => {
-    console.log('Error when receiving message: ', error)
+    const receiveHandler = client.receive(firstPartitionId, eventData => {
+      console.log(`Received message: ${eventData.body} from partition ${firstPartitionId}`);
+    }, error => {
+      console.log('Error when receiving message: ', error)
+    });
+
+    // Sleep for a while before stopping the receive operation.
+    await delay(15000);
+    await receiveHandler.stop();
+
+    await client.close();
+  }
+
+  main().catch(err => {
+    console.log("Error occurred: ", err);
   });
-  
-  // Sleep for a while before stopping the receive operation.
-  await delay(15000);
-  await receiveHandler.stop();
-
-  await client.close();
-}
-
-main().catch(err => {
-  console.log("Error occurred: ", err);
-});
-```
+  ```
 3. Enter the connection string and the name of your Event Hub in the above code.
 4. Then run the command `node receive.js` in a command prompt to execute this file. This will receive events from one of the partitions of the default consumer group in your Event Hub
 
@@ -129,45 +129,45 @@ This section shows how to receive events from an event hub by using Azure [Event
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com). 
 2. Create a file called `receiveAll.js` and paste the below code into it.
-```javascript
-const { EventProcessorHost, delay } = require("@azure/event-processor-host");
+  ```javascript
+  const { EventProcessorHost, delay } = require("@azure/event-processor-host");
 
-// Define connection string and related Event Hubs entity name here
-const eventHubConnectionString = "";
-const eventHubName = "";
-const storageConnectionString = "";
+  // Define connection string and related Event Hubs entity name here
+  const eventHubConnectionString = "";
+  const eventHubName = "";
+  const storageConnectionString = "";
 
-async function main() {
-  const eph = EventProcessorHost.createFromConnectionString(
-    "my-eph",
-    storageConnectionString,
-    "my-storage-container-name",
-    eventHubConnectionString,
-    {
-      eventHubPath: eventHubName,
-      onEphError: (error) => {
-        console.log("[%s] Error: %O", error);
+  async function main() {
+    const eph = EventProcessorHost.createFromConnectionString(
+      "my-eph",
+      storageConnectionString,
+      "my-storage-container-name",
+      eventHubConnectionString,
+      {
+        eventHubPath: eventHubName,
+        onEphError: (error) => {
+          console.log("[%s] Error: %O", error);
+        }
       }
-    }
-  );
+    );
 
 
-  eph.start((context, eventData) => {
-    console.log(`Received message: ${eventData.body} from partition ${context.partitionId}`);
-  }, error => {
-    console.log('Error when receiving message: ', error)
+    eph.start((context, eventData) => {
+      console.log(`Received message: ${eventData.body} from partition ${context.partitionId}`);
+    }, error => {
+      console.log('Error when receiving message: ', error)
+    });
+
+    // Sleep for a while before stopping the receive operation.
+    await delay(15000);
+    await eph.stop();
+  }
+
+  main().catch(err => {
+    console.log("Error occurred: ", err);
   });
-  
-  // Sleep for a while before stopping the receive operation.
-  await delay(15000);
-  await eph.stop();
-}
 
-main().catch(err => {
-  console.log("Error occurred: ", err);
-});
-
-```
+  ```
 3. Enter the connection string and the name of your Event Hub in the above code along with connection string for an Azure Blob Storage
 4. Then run the command `node receiveAll.js` in a command prompt to execute this file.
 
