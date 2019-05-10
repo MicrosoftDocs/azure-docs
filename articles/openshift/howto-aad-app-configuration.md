@@ -21,8 +21,8 @@ Microsoft Azure Red Hat OpenShift needs permissions to perform tasks on behalf o
 
 In the [Azure portal](https://portal.azure.com), ensure that your tenant appears under your user name in the top right of the portal:
 
-    ![Screenshot of portal with tenant listed in top right](./media/howto-create-tenant/tenant-callout.png)
-    If the wrong tenant is displayed, click on your user name in the top right, then click **Switch Directory**, and select the correct tenant from the **All Directories** list.
+![Screenshot of portal with tenant listed in top right](./media/howto-create-tenant/tenant-callout.png)
+If the wrong tenant is displayed, click on your user name in the top right, then click **Switch Directory**, and select the correct tenant from the **All Directories** list.
 
 Create a new Azure Active Directory global administrator user to sign in to your Azure Red Hat OpenShift cluster.
 
@@ -78,7 +78,7 @@ Generate a client secret for authenticating your app to Azure Active Directory.
 4. Set **Expires** to the duration you prefer, for example **In 2 Years**.
 5. Click **Add** and the key value will appear in the **Client secrets** section of the page.
 6. Copy down the key value. We will refer to this value as `SECRET` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
-1. 
+ 
 ![Screenshot of the certificates and secrets pane](./media/howto-create-tenant/create-key.png)
  
 For more info on Azure Application Objects, see [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
