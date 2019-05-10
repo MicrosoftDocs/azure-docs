@@ -31,7 +31,7 @@ This article shows you how to request an access token for a web application and 
 
 Scopes provide a way to manage permissions to protected resources. When an access token is requested, the client application needs to specify the desired permissions in the **scope** parameter of the request. For example, to specify the **Scope Value** of `read` for the API that has the **App ID URI** of `https://contoso.onmicrosoft.com/api`, the scope would be `https://contoso.onmicrosoft.com/api/read`.
 
-Scopes are used by the web API to implement scope-based access control. For example, users of the web API could have both read and write access, or users of the web API might have only read access. To acquire multiple permissions in the same request, you can add multiple entries in the single **scope** parameter of the request, separated by spaces.
+Scopes are used by the web API to implement scope-based access control. For example, users of the web API could have both read and write access, or users of the web API might have only read access. To acquire multiple permissions in the same request, you can add multiple entries in the single **scope** parameter of the request, separated by spaces.This line is added in scope.
 
 The following example shows scopes decoded in a URL:
 
