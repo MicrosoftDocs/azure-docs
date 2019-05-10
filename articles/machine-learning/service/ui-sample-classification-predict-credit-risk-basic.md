@@ -14,7 +14,18 @@ ms.date: 05/02/2019
 
 # Sample 3 - Classification: Predict credit risk
 
-This visual interface sample experiment demonstrates how to perform binary classification to predict credit risk based on information provided in a credit application. It shows how you can perform basic classification, including data processing operations, split the dataset into training and test sets, train the model, score the test dataset, and evaluate the predictions.
+Learn how to build a machine learning classifier to predict whether credit risk based on a credit application without writing a single line of code.
+
+You will use the visual interface to perform the basic steps of any machine learning model development project:
+
+1. Get the data
+1. Pre-process the data
+1. Train the model
+1. Evaluate the model
+
+Here's the final, completed graph of the experiment. This article highlights the key decisions in creating this model so you can make similar decisions when creating your own classifier.
+
+![Graph of the experiment](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
 ## Prerequisites
 
@@ -36,7 +47,6 @@ The dataset contains 1,000 samples with 20 features and 1 label. Each sample rep
 
 ## Experiment summary
 
-
 We follow these steps to create the experiment:
 
 1. Drag the German Credit Card UCI Data dataset module into the experiment's canvas.
@@ -46,11 +56,10 @@ We follow these steps to create the experiment:
 1. Add a **Train Model** module. Connect the classifier from the previous step to the left input port of the **Train Model**. Add the training set (the left output port of the **Split Data**) to the right input port of the **Train Model**. The **Train Model** will train the classifier.
 1. Add a **Score Model** module and connect the **Train Model** module to it. Then add the test set (the right port of the **Split Data**) to the **Score Model**. The **Score Model** will make the predictions. You can select its output port to see the predictions and the positive class probabilities.
 1. Add an **Evaluate Model** module and connect the scored dataset to its left input port. To see the evaluation results, select the output port of the **Evaluate Model** module and select **Visualize**.
-    
+
 Here's the complete experiment graph:
 
 ![Graph of the experiment](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
-
 
 ## Results
 
