@@ -25,6 +25,8 @@
     href: tutorial-monitor-devices.md
   - name: 5 - Add a device
     href: tutorial-add-device.md
+  - name: 6 - Custom notifications
+    href: tutorial-custom-notifications.md
 - name: Concepts
   items:
   - name: Architecture
