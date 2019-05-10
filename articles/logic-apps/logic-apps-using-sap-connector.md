@@ -18,9 +18,9 @@ This article shows how you can access your on-premises SAP resources from inside
 
 The SAP connector uses the [SAP .NET Connector (NCo) library](https://support.sap.com/en/product/connectors/msnet.html) and provides these operations or actions:
 
-- **Send to SAP**: Send IDoc or call BAPI functions over tRFC in SAP systems.
-- **Receive from SAP**: Receive IDoc or BAPI function calls over tRFC from SAP systems.
-- **Generate schemas**: Generate schemas for the SAP artifacts for IDoc or BAPI or RFC.
+* **Send to SAP**: Send IDoc over tRFC, call BAPI functions over RFC, or call RFC/tRFC in SAP systems.
+* **Receive from SAP**: Receive IDoc over tRFC, call BAPI functions over tRFC, or call RFC/tRFC in SAP systems.
+* **Generate schemas**: Generate schemas for the SAP artifacts for IDoc, BAPI, or RFC.
 
 For all the above operations, SAP connector supports basic authentication through username and password. The connector also supports [Secure Network Communications (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/en-US/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true), which can be used for SAP NetWeaver Single Sign-On or for additional security capabilities provided by an external security product.
 
