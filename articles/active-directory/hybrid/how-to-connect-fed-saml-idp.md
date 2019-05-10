@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Use a SAML 2.0 Identity Provider for Single Sign On | Microsoft Docs'
+title: 'Azure AD Connect: Use a SAML 2.0 Identity Provider for Single Sign On - Azure'
 description: This document describes using a SAML 2.0 compliant Idp for single sign on.
 services: active-directory
 author: billmath
@@ -36,7 +36,7 @@ Microsoft supports this sign-on experience as the integration of a Microsoft clo
 >     - Windows 8 Mail Client and Windows 8.1 Mail Client
 >     - Windows 10 Mail Client
 
-All other clients are not available in this sign-on scenario with your SAML 2.0 Identity Provider. For example, the Lync 2010 desktop client is not able to log in into the service with your SAML 2.0 Identity Provider configured for single sign-on.
+All other clients are not available in this sign-on scenario with your SAML 2.0 Identity Provider. For example, the Lync 2010 desktop client is not able to sign in to the service with your SAML 2.0 Identity Provider configured for single sign-on.
 
 ## Azure AD SAML 2.0 protocol requirements
 This document contains detailed requirements on the protocol and message formatting that your SAML 2.0 identity provider must implement to federate with Azure AD to enable sign-on to one or more Microsoft cloud services (such as Office 365). The SAML 2.0 relying party (SP-STS) for a Microsoft cloud service used in this scenario is Azure AD.
@@ -68,8 +68,8 @@ Within the SAML Response message, the Signature node contains information about 
 Bindings are the transport-related communications parameters that are required. The following requirements apply to the bindings
 
 1. HTTPS is the required transport.
-2.	Azure AD will require HTTP POST for token submission during logon
-3.	Azure AD will use HTTP POST for the authentication request to the identity provider and REDIRECT for the Logoff message to the identity provider.
+2.	Azure AD will require HTTP POST for token submission during sign-in.
+3.	Azure AD will use HTTP POST for the authentication request to the identity provider and REDIRECT for the sign out message to the identity provider.
 
 ## Required attributes
 This table shows requirements for specific attributes in the SAML 2.0 message.
@@ -256,7 +256,7 @@ Microsoft has provided a tool that you can use to test your SAML 2.0 based ident
 2.	Click Install Now to begin downloading and installing the tool.
 3.	Select “I can’t set up federation with Office 365, Azure, or other services that use Azure Active Directory”.
 4.	Once the tool is downloaded and running, you will see the Connectivity Diagnostics window. The tool will step you through testing your federation connection.
-5.	The Connectivity Analyzer will open your SAML 2.0 IDP for you to log on, enter the credentials for the user principal you are testing:
+5.	The Connectivity Analyzer will open your SAML 2.0 IDP for you to sign-in, enter the credentials for the user principal you are testing:
 ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  At the Federation test sign-in window, you should enter an account name and password for the Azure AD tenant that is configured to be federated with your SAML 2.0 identity provider. The tool will attempt to sign-in using those credentials and detailed results of tests performed during the sign-in attempt will be provided as output.
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
@@ -270,7 +270,7 @@ Manual verification provides additional steps that you can take to ensure that y
 To verify that single sign-on has been set up correctly, complete the following steps:
 
 
-1. On a domain-joined computer, sign-in to your cloud service using the same logon name that you use for your corporate credentials.
+1. On a domain-joined computer, sign-in to your cloud service using the same sign-in name that you use for your corporate credentials.
 2.	Click inside the password box. If single sign-on is set up, the password box will be shaded, and you will see the following message: “You are now required to sign-in at &lt;your company&gt;.”
 3.	Click the Sign-in at &lt;your company&gt; link. If you are able to sign-in, then single sign-on has been set up.
 

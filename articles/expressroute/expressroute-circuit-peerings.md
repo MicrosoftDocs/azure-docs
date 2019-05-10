@@ -58,7 +58,7 @@ See the [FAQ page](expressroute-faqs.md) for more information on services suppor
 ### <a name="publicpeering"></a>Azure public peering (deprecated for new circuits)
 
 > [!Note]
-> Azure public peering has 1 NAT IP address associated to each BGP session. For greater than 2 NAT IP addresses, move to Microsoft peering. Microsoft peering allows you to configure your own NAT allocations, as well as use route filters for selective prefix advertisements. For more information, see [Move to Microsoft peering](https://docs.microsoft.com/en-us/azure/expressroute/how-to-move-peering).
+> Azure public peering has 1 NAT IP address associated to each BGP session. For greater than 2 NAT IP addresses, move to Microsoft peering. Microsoft peering allows you to configure your own NAT allocations, as well as use route filters for selective prefix advertisements. For more information, see [Move to Microsoft peering](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
 >
 
 Services such as Azure Storage, SQL databases, and Websites are offered on public IP addresses. You can privately connect to services hosted on public IP addresses, including VIPs of your cloud services, through the public peering routing domain. You can connect the public peering domain to your DMZ and connect to all Azure services on their public IP addresses from your WAN without having to connect through the internet.

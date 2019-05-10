@@ -51,7 +51,7 @@ This section details some of the top issues faced during deployment of Data Box 
 |Error message  |Recommended action |
 |---------|---------|
 |The value for one of the HTTP headers is not in the correct format. |The installed version of the Microsoft Azure Storage Library for Python is not supported by Data Box. See Azure Data Box Blob storage requirements for supported versions.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED] …|Before running Python, set the REQUESTS_CA_BUNDLE environment variable to the path of the Base64-encoded SSL certificate file (see how to [Download the certificate]()). <br>For example:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Alternately, add the certificate to the system’s certificate store and then set this environment variable to the path of that store. <br> For example, on Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
+|… [SSL: CERTIFICATE_VERIFY_FAILED] …|Before running Python, set the REQUESTS_CA_BUNDLE environment variable to the path of the Base64-encoded SSL certificate file (see how to [Download the certificate](data-box-deploy-copy-data-via-rest.md#download-certificate)). <br>For example:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Alternately, add the certificate to the system’s certificate store and then set this environment variable to the path of that store. <br> For example, on Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
 
 
 ## Common errors

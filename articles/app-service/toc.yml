@@ -9,7 +9,7 @@
   - name: About App Service Environments
     href: environment/intro.md
   - name: Compare hosting options
-    href: overview-compare.md
+    href: /azure/architecture/guide/technology-choices/compute-decision-tree
 - name: Quickstarts
   expanded: true
   items:
