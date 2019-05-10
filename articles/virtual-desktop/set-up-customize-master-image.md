@@ -303,7 +303,7 @@ This article doesn’t cover how to configure language and regional support. For
 This section covers application and operating system configuration. All configuration in this section is done through registry entries that can be executed by command-line and regedit tools.
 
 >[!NOTE]
->You can implement best practices in configuration with either General Policy Objects (GPOs) or registry imports. The administrator can choose either option based on their organization's requirements.
+>You can implement best practices in configuration with either Group Policy Objects (GPOs) or registry imports. The administrator can choose either option based on their organization's requirements.
 
 For feedback hub collection of telemetry data on Windows 10 Enterprise multi-session, run this command:
 
