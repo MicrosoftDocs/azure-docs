@@ -300,7 +300,7 @@ To make custom API Apps or connectors public for anyone to use in Azure,
 you can [submit connectors for Microsoft certification](../logic-apps/custom-connector-submit-certification.md).
 
 > [!NOTE]
-> Logic apps within an an 
+> Logic apps within an 
 > [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)
 > can use custom connectors that require the on-premises 
 > data gateway and are created outside an ISE.
