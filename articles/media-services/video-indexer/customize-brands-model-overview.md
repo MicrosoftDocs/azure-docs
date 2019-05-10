@@ -7,6 +7,7 @@ author: anikaz
 manager: johndeu
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
