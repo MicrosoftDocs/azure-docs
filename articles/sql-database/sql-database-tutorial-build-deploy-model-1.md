@@ -1,7 +1,7 @@
 ---
-title: Step 1 - Prepare data to train a predictive model in R
+title: "Tutorial: Prepare data to train a predictive model in R"
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Step 1 - Prepare the data from an Azure SQL database to train and deploy a machine learning model in R to predict ski rentals with Azure SQL Database Machine Learning Services (preview).
+description: In part one of this three-part tutorial series, you'll prepare the data from an Azure SQL database to train a predictive model in R with Azure SQL Database Machine Learning Services (preview).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -15,32 +15,50 @@ manager: cgronlun
 ms.date: 05/02/2019
 ---
 
-# Step 1 - Prepare data to train a predictive model in R with Azure SQL Database Machine Learning Services (preview)
+# Tutorial: Prepare data to train a predictive model in R with Azure SQL Database Machine Learning Services (preview)
 
-In this tutorial, you'll learn how to choose and train a predictive model in R, and then deploy it with Azure SQL Database Machine Learning Services (preview).
-Assume you own a ski rental business and you want to predict the number of rentals that you'll have on a future date. This information will help you get your stock, staff, and facilities ready.
-
-In step 1 of this tutorial, you'll set up the sample database and prepare the data to be used for training a model.
+In this tutorial, you'll learn how to import a sample database into an Azure SQL database. Then you'll prepare the data to be used for training a predictive model in R.
 
 Predictive modeling is a powerful way to add intelligence to your application. It enables applications to predict outcomes against new data. The act of incorporating predictive analytics into your applications involves three major phases: **data preparation**, **model training**, and **model deployment**.
+
+For this tutorial series, imagine you own a ski rental business and you want to predict the number of rentals that you'll have on a future date. This information will help you get your stock, staff, and facilities ready.
+
+This tutorial is **part one of a three-part tutorial series**.
+
+In part one, you learn how to:
+
+> [!div class="checklist"]
+> * Import a database backup file into an Azure SQL database
+> * Load the data from the Azure SQL database into a data frame using R
+> * Prepare the data by identifying some columns as categories
+
+In [part two](sql-database-tutorial-build-deploy-model-2.md), you'll learn how to create and train multiple models, and then choose the most accurate one.
+
+In [part three](sql-database-tutorial-build-deploy-model-2.md), you'll learn how to store the model in a database, and then create a stored procedure that can make predictions based on new data.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/) before you begin.
+* If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/) before you begin.
 
-- To run the example code in these exercises, you must first have an Azure SQL Database Server with Machine Learning Services enabled. During the public preview, Microsoft will onboard you and enable machine learning for your existing or new database. Follow the steps in [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
+* To run the example code in these exercises, you must first have an Azure SQL Database Server with Machine Learning Services enabled. During the public preview, Microsoft will onboard you and enable machine learning for your existing or new database. Follow the steps in [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
 
-- Install an R IDE such as [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) or [R Tools for Visual Studio (RTVS)](https://www.visualstudio.com/vs/rtvs). This tutorial will use RStudio Desktop.
+* Install an R IDE such as [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) or [R Tools for Visual Studio (RTVS)](https://www.visualstudio.com/vs/rtvs). This tutorial will use RStudio Desktop.
 
-- Install [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) or [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). You can run SQL commands using other database management or query tools, but this example assumes Azure Data Studio or SSMS.
+* Install [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) or [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). You can run SQL commands using other database management or query tools, but this example assumes Azure Data Studio or SSMS.
 
-## Import the TutorialDB sample database
+## Sign in to the Azure portal
 
-The dataset used in this tutorial is hosted in a SQL database table that contains rental data from previous years. The table is in a database named TutorialDB which can be imported from a .bacpac backup file.
+Sign in to the [Azure portal](https://portal.azure.com/).
+
+## Import the sample database
+
+The dataset used in this tutorial is hosted in a SQL database table that contains rental data from previous years. The table is in a database named TutorialDB that can be imported from a `.bacpac` backup file.
  
 The first thing to do is import the TutorialDB database into your own Azure SQL database.
+
+> NOTE TO ME: Add a screenshot of the "Import database" blade with info filled in.
 
 1. Download the file [TutorialDB.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/TutorialDB.bacpac) to your local computer.
 1. In the Azure portal, select **All services**, search for and select **SQL servers**, and then select your SQL server or create a new one.
@@ -53,7 +71,7 @@ The first thing to do is import the TutorialDB database into your own Azure SQL 
 1. Enter the remaining information and select **OK**.
 
 A table named rental_data containing the dataset should exist in the restored SQL database.
-You can verify this by connecting to the TutorialDB database in Azure Data Studio or SSMS and running the following query.
+You can verify this data by connecting to the TutorialDB database in Azure Data Studio or SSMS and running the following query.
 
 ```sql
 USE tutorialdb;
@@ -76,7 +94,7 @@ You should see something similar to this.
 8  2014    3      8      240         7        0      0
 ```
 
-## Load the data from TutorialDB using R
+## Load the data into a data frame using R
 
 To use the data in R, you'll load the data from the Azure SQL database into a data frame.
 
@@ -124,9 +142,9 @@ $ Snow       : num  0 0 0 0 0 0 0 0 0 0 ...
 
 ## Prepare the data
 
-Data to be used in a predictive model often needs to be prepared and cleaned beforehand in the *data preparation* phase. In this sample database, most of the preparations have already been done, but you'll do one more preparation here.
+In the *data preparation* phase, data to be used in a predictive model often needs to be cleaned before it can be used. In this sample database, most of the preparation has already been done, but you'll do one more preparation here.
 
-Use the following R script to identify 3 columns as *categories* by changing the data types to *factor*. This helps when building the model because it explicitly specifies that values in these columns are categorical.
+Use the following R script to identify three columns as *categories* by changing the data types to *factor*. Changing these data types helps when building the model because it explicitly specifies that values in these columns are categorical.
 
 ```r
 #Changing the three factor columns to factor types
@@ -153,7 +171,13 @@ The data is now prepared for training.
 
 ## Next Steps
 
-To create a machine learning model that uses data from the TutorialDB database, follow step 2 of this tutorial:
+In part one of this tutorial series, you completed these steps:
+
+* Import a database backup file into an Azure SQL database
+* Load the data from the Azure SQL database into a data frame using R
+* Prepare the data by identifying some columns as categories
+
+To create a machine learning model that uses data from the TutorialDB database, follow part two of this tutorial series:
 
 > [!div class="nextstepaction"]
-> [Step 2 - Build a predictive model in R with Azure SQL Database Machine Learning Services (preview)](sql-database-tutorial-build-deploy-model-2.md)
+> [Tutorial: Create a predictive model in R with Azure SQL Database Machine Learning Services (preview)](sql-database-tutorial-build-deploy-model-2.md)

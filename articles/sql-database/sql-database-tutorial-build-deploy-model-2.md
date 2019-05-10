@@ -1,7 +1,7 @@
 ---
-title: Step 2 - Choose a predictive model in R
+title: "Tutorial: Train and compare predictive models in R"
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Step 2 - Choose a machine learning model in R to predict ski rentals with Azure SQL Database Machine Learning Services (preview).
+description: In part two of this three-part tutorial series, you'll create two predictive models in R with Azure SQL Database Machine Learning Services (preview), and then select the most accurate model.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -15,20 +15,28 @@ manager: cgronlun
 ms.date: 05/02/2019
 ---
 
-# Step 2 - Choose a predictive model in R with Azure SQL Database Machine Learning Services (preview)
+# Tutorial: Create a predictive model in R with Azure SQL Database Machine Learning Services (preview)
 
-In this tutorial, you're learning how to choose and train a predictive model in R, and then deploy it with Azure SQL Database Machine Learning Services (preview).
-Assume you own a ski rental business and you want to predict the number of rentals that you'll have on a future date. This information will help you get your stock, staff, and facilities ready.
+In this tutorial, you'll learn how to train two predictive models in R with Azure SQL Database Machine Learning Services (preview), and then choose the most accurate model to deploy.
 
-In step 2 of this tutorial, you'll learn how to train two predictive models (using the data you prepared in [step 1](sql-database-tutorial-build-deploy-model-1.md)) and then choose the best model.
+This tutorial is **part two of a three-part tutorial series**.
 
-Predictive modeling is a powerful way to add intelligence to your application. It enables applications to predict outcomes against new data. The act of incorporating predictive analytics into your applications involves three major phases: **data preparation**, **model training**, and **model deployment**.
+In part two, you learn how to:
+
+> [!div class="checklist"]
+> * Train two machine learning models
+> * Make predictions from both models
+> * Compare the results to choose the most accurate model
+
+In [part one](sql-database-tutorial-build-deploy-model-1.md), you learned how how to import a sample database into an Azure SQL database, and then prepare the data to be used for training a predictive model in R.
+
+In [part three](sql-database-tutorial-build-deploy-model-2.md), you'll learn how to store the model in a database, and then create a stored procedure that can make predictions based on new data.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## Prerequisites
 
-- Step 2 of this tutorial assumes you have completed [step 1](sql-database-tutorial-build-deploy-model-1.md) and its prerequisites.
+* Part two of this tutorial assumes you have completed [part one](sql-database-tutorial-build-deploy-model-1.md) and its prerequisites.
 
 ## Train two models
 
@@ -105,7 +113,13 @@ It looks like the decision tree model is the more accurate of the two models. Yo
 
 ## Next Steps
 
-To deploy the machine learning model you've created, follow step 3 of this tutorial:
+In part two of this tutorial series, you completed these steps:
+
+* Train two machine learning models
+* Make predictions from both models
+* Compare the results to choose the most accurate model
+
+To deploy the machine learning model you've created, follow part three of this tutorial series:
 
 > [!div class="nextstepaction"]
-> [Step 3 - Deploy a predictive model in R with Azure SQL Database Machine Learning Services (preview)](sql-database-tutorial-build-deploy-model-3.md)
+> [Tutorial: Deploy a predictive model in R with Azure SQL Database Machine Learning Services (preview)](sql-database-tutorial-build-deploy-model-3.md)
