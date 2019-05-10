@@ -20,7 +20,7 @@ ms.author: getroyer
 
 ## Why connect to a Data Science Virtual Machine (DSVM)
 
-By default, projects run on the **Free Compute** tier, which is limited to 4GB of memory and 1GB of data to prevent abuse. You can bypass these limitations by using a different virtual machine that you've provisioned in an Azure subscription. Connecting to a DSVM can increase your compute power.
+By default, projects run on the **Free Compute** tier, which is limited to 4GB of memory and 1GB of data to prevent abuse. You can bypass these limitations by using a different virtual machine that you've provisioned in an Azure subscription. Connecting to a [DSVM](https://azure.microsoft.com/en-us/services/virtual-machines/data-science-virtual-machines/) can increase your compute power.
 
 ## How to create a DSVM
 
