@@ -42,7 +42,12 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 * Diagnostic log level: Warning
 * Log details
    * Input message identifier. For Event Hub, the identifier is the PartitionId, Offset, and Sequence Number.
-* BriefMessage: "Unable to decompress events from resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt'. Please ensure compression setting fits the data being processed."
+
+**Error message**
+
+```json
+"BriefMessage": "Unable to decompress events from resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt'. Please ensure compression setting fits the data being processed."
+```
 
 ### InputDeserializerError.InvalidHeader
 
@@ -52,7 +57,12 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 * Log details
    * Input message identifier. 
    * Actual payload up to few kilobytes.
-* BriefMessage: "Invalid CSV Header for resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt'. Please make sure there are no duplicate field names."
+
+**Error message**
+
+```json
+"BriefMessage": "Invalid CSV Header for resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt'. Please make sure there are no duplicate field names."
+```
 
 ### InputDeserializerError.MissingColumns
 
@@ -63,8 +73,16 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
    * Input message identifier. 
    * Names of the columns that are missing. 
    * Actual payload up to a few kilobytes.
-* BriefMessage: "Could not deserialize the input event(s) from resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt' as Csv. Some possible reasons: 1) Malformed events 2) Input source configured with incorrect serialization format" 
-* Message: Missing fields specified in query or in create table. Fields expected:ColumnA Fields found:ColumnB
+
+**Error messages**
+
+```json
+"BriefMessage": "Could not deserialize the input event(s) from resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt' as Csv. Some possible reasons: 1) Malformed events 2) Input source configured with incorrect serialization format" 
+```
+
+```json
+"Message": "Missing fields specified in query or in create table. Fields expected:ColumnA Fields found:ColumnB"
+```
 
 ### InputDeserializerError.TypeConversionError
 
@@ -74,8 +92,16 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 * Log details
    * Input message identifier. 
    * Name of the column and expected type.
-* BriefMessage: "Could not deserialize the input event(s) from resource '''https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt ' as Csv. Some possible reasons: 1) Malformed events 2) Input source configured with incorrect serialization format" 
-* Message: Unable to convert column: dateColumn to expected type.
+
+**Error messages**
+
+```json
+"BriefMessage": "Could not deserialize the input event(s) from resource '''https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt ' as Csv. Some possible reasons: 1) Malformed events 2) Input source configured with incorrect serialization format" 
+```
+
+```json
+"Message": "Unable to convert column: dateColumn to expected type."
+```
 
 ### InputDeserializerError.InvalidData
 
@@ -85,8 +111,16 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 * Log details
    * Input message identifier. 
    * Actual payload up to few kilobytes.
-* BriefMessage: Json input stream should either be an array of objects or line separated objects. Found token type: String Message: Json input stream should either be an array of objects or line separated objects. Found token type: String
 
+**Error messages**
+
+```json
+"BriefMessage": "Json input stream should either be an array of objects or line separated objects. Found token type: String"
+```
+
+```json
+"Message": "Json input stream should either be an array of objects or line separated objects. Found token type: String"
+```
 
 ### InvalidInputTimeStamp
 
@@ -97,7 +131,12 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
    * Input message identifier. 
    * Error message. 
    * Actual payload up to few kilobytes.
-* BriefMessage:Unable to get timestamp for resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt ' due to error 'Cannot convert string to datetime'
+
+**Error message**
+
+```json
+"BriefMessage": "Unable to get timestamp for resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt ' due to error 'Cannot convert string to datetime'"
+```
 
 ### InvalidInputTimeStampKey
 
@@ -106,7 +145,12 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 * Diagnostic log level: Warning
 * Log details
    * The actual payload up to few kilobytes.
-* BriefMessage: Unable to get value of TIMESTAMP BY OVER COLUMN
+
+**Error message**
+
+```json
+"BriefMessage": "Unable to get value of TIMESTAMP BY OVER COLUMN"
+```
 
 ### LateInputEvent
 
@@ -116,7 +160,12 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 * Log details
    * Application time and arrival time. 
    * Actual payload up to few kilobytes.
-* BriefMessage: Input event with application timestamp '2019-01-01' and arrival time '2019-01-02' was sent later than configured tolerance.
+
+**Error message**
+
+```json
+"BriefMessage": "Input event with application timestamp '2019-01-01' and arrival time '2019-01-02' was sent later than configured tolerance."
+```
 
 ### EarlyInputEvent
 
@@ -126,7 +175,12 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 * Log details
    * Application time and arrival time. 
    * Actual payload up to few kilobytes.
-* BriefMessage: Input event arrival time '2019-01-01' is earlier than input event application timestamp '2019-01-02' by more than 5 minutes.
+
+**Error message**
+
+```json
+"BriefMessage": "Input event arrival time '2019-01-01' is earlier than input event application timestamp '2019-01-02' by more than 5 minutes."
+```
 
 ### OutOfOrderEvent
 
@@ -135,7 +189,12 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 * Diagnostic log level: Information
 * Log details
    * Actual payload up to few kilobytes.
-* Message: Out of order event(s) received.
+
+**Error message**
+
+```json
+"Message": "Out of order event(s) received."
+```
 
 ## Output data errors
 
@@ -146,7 +205,12 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 * Diagnostic log level: Warning
 * Log details
    * Name of the column and either the record identifier or part of the record.
-* Message: The output record does not contain primary key property: [deviceId] Ensure the query output contains the column [deviceId] with a unique non-empty string less than '255' characters.
+
+**Error message**
+
+```json
+"Message": "The output record does not contain primary key property: [deviceId] Ensure the query output contains the column [deviceId] with a unique non-empty string less than '255' characters."
+```
 
 ### OutputDataConversionError.ColumnNameInvalid
 
@@ -155,7 +219,12 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 * Diagnostic log level: Warning
 * Log details
    * Name of the column and either record identifier or part of the record.
-* Message: Invalid property name #deviceIdValue. Please refer MSDN for Azure table property naming convention.
+
+**Error message**
+
+```json
+"Message": "Invalid property name #deviceIdValue. Please refer MSDN for Azure table property naming convention."
+```
 
 ### OutputDataConversionError.TypeConversionError
 
@@ -165,7 +234,12 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 * Log details
    * Name of the column.
    * Either record identifier or part of the record.
-* Message: The column [id] value null or its type is invalid. Ensure to provide a unique non-empty string less than '255' characters.
+
+**Error message**
+
+```json
+"Message": "The column [id] value null or its type is invalid. Ensure to provide a unique non-empty string less than '255' characters."
+```
 
 ### OutputDataConversionError.RecordExceededSizeLimit
 
@@ -174,7 +248,12 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 * Diagnostic log level: Warning
 * Log details
    * Either record identifier or part of the record.
-* BriefMessage: Single output event exceeds the maximum message size limit allowed (262144 bytes) by Event Hub.
+
+**Error message**
+
+```json
+"BriefMessage": "Single output event exceeds the maximum message size limit allowed (262144 bytes) by Event Hub."
+```
 
 ### OutputDataConversionError.DuplicateKey
 
@@ -184,7 +263,10 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 * Log details
    * Name of the column.
    * Either record identifier or part of the record.
-* BriefMessage: Column 'devicePartitionKey' is being mapped to multiple columns.
+
+```json
+"BriefMessage": "Column 'devicePartitionKey' is being mapped to multiple columns."
+```
 
 ## Next steps
 
