@@ -70,7 +70,9 @@ If your organization doesn't already have an Azure Active Directory (Azure AD) a
     https://openshift.<cluster-name>.<azure-region>.azmosa.io/oauth2callback/Azure%20AD
     ```
 
-    `<cluster-name>` is the intended name of your Azure Red Hat OpenShift cluster (or any unique, lower-case string) and `<azure-region>` is the [Azure region hosting your Azure Red Hat OpenShift cluster](supported-resources.md#azure-regions). For example, if your cluster name is to be `contoso`, and you will be creating it in the `eastus` region, the URI that you'll enter for the **Redirect URI** would be `https://openshift.contoso.eastus.azmosa.io/oath2callback/Azure%20AD`
+    `<cluster-name>` is the intended name of your Azure Red Hat OpenShift cluster (or any unique, lower-case string) and `<azure-region>` is the [Azure region hosting your Azure Red Hat OpenShift cluster](supported-resources.md#azure-regions).
+
+    For example, if your cluster name is to be `contoso`, and you will be creating it in the `eastus` region, the URI that you'll enter for the **Redirect URI** would be `https://openshift.contoso.eastus.azmosa.io/oath2callback/Azure%20AD`
 
     > [!IMPORTANT]
     > The cluster name must be all lowercase, and be unique.

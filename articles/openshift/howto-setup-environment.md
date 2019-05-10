@@ -35,13 +35,13 @@ If you are not an Azure customer, [contact sales](https://aka.ms/openshift/conta
 
 ## Install the Azure CLI
 
-Azure Red Hat OpenShift requires version 2.0.64 or higher of the Azure CLI. If you've already installed the Azure CLI, you can check which version you have by running:
+Azure Red Hat OpenShift requires version 2.0.65 or higher of the Azure CLI. If you've already installed the Azure CLI, you can check which version you have by running:
 
 ```bash
 az --version
 ```
 
-The first line of output will have the CLI version, for example `azure-cli (2.0.64)`.
+The first line of output will have the CLI version, for example `azure-cli (2.0.65)`.
 
 Here are instructions for [installing the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) if you require a new installation or an upgrade.
 

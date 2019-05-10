@@ -157,7 +157,7 @@ The sign in URL for your cluster will be `https://` followed by the `publicHostN
 
 You're now ready to sign in to the OpenShift console for your new cluster. The [OpenShift Web Console](https://docs.openshift.com/aro/architecture/infrastructure_components/web_console.html) enables you to visualize, browse, and manage the contents of your OpenShift projects.
 
-We'll sign in as the [new Azure AD user](howto-aad-app-configuration.md#create-a-new-active-directory-user) you created for testing. To do this, you'll need a fresh browser instance that hasn't cached the identity you normally use to sign in to the Azure portal.
+We'll sign in as the [new Azure AD user](howto-aad-app-configuration.md#create-a-new-azure-active-directory-user) you created for testing. To do this, you'll need a fresh browser instance that hasn't cached the identity you normally use to sign in to the Azure portal.
 
 1. Open an *incognito* window (Chrome) or *InPrivate* window (Microsoft Edge).
 2. Navigate to the sign-on URL that you obtained above, for example: `https://openshift.xxxxxxxxxxxxxxxxxxxx.westus.azmosa.io`
@@ -169,7 +169,7 @@ A **Permissions requested** dialog will appear. Click **Consent on behalf of you
 > When prompted in your browser, bypass the warning and accept
 > the "untrusted" certificate.
 
-From the Red Hat OpenShift web console, sign in with the user and password that you created in [Create a new Active Directory user](howto-aad-app-configuration.md#create-a-new-active-directory-user)
+From the Red Hat OpenShift web console, sign in with the user and password that you created in [Create a new Active Directory user](howto-aad-app-configuration.md#create-a-new-azure-active-directory-user)
 
 You are now logged into the cluster console.
 
