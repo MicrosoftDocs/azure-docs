@@ -18,10 +18,6 @@ ms.author: aahi
 
 Use this quickstart to begin analyzing language with the Text Analytics REST API and Python. This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities).
 
-You can run this example from the command line or as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge:
-
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
-
 Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
 ## Prerequisites
@@ -38,13 +34,7 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
     pip install --upgrade requests
     ```
 
-* If you're running the Binder notebook locally, You may need to update [IPython](https://ipython.org/install.html):
-    
-    ```console
-    pip install --upgrade IPython
-    ```
-
-* [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 
 ## Create a new Python application
