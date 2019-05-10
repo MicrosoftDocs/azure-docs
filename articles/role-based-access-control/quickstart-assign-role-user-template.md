@@ -49,13 +49,15 @@ To deploy the template, select **Try it** to open the Azure Cloud shell, and the
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
 $emailAddress = Read-Host -Prompt "Enter your email address that is associated with your Azure subscription (used to find the principal ID)"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
 $resourceGroupName = "${projectName}rg"
 $roleAssignmentName = "${projectName}Assignment"
 $principalId = (Get-AzAdUser -Mail $emailAddress).id
 $roleDefinitionId = (Get-AzRoleDefinition -name "Virtual Machine Contributor").id
 $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-rbac-builtinrole-resourcegroup/azuredeploy.json"
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -Template $templateUri -roleDefinitionID $roleDefinitionId -principalId $principalId
+
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -roleAssignmentName $roleAssignmentName -roleDefinitionID $roleDefinitionId -principalId $principalId
+
 ```
 
 ## Clean up
