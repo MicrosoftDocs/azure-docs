@@ -456,7 +456,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.Databricks
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| workspaces | Yes | Yes |
+| workspaces | Yes | No |
 | workspaces/virtualNetworkPeerings | No |  No |
 
 ## Microsoft.DataCatalog
