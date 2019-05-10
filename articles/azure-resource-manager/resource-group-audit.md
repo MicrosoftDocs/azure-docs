@@ -66,6 +66,20 @@ You can retrieve information from the activity logs through the portal, PowerShe
 
     ![Show filter on dashboard](./media/resource-group-audit/show-dashboard.png)
 
+1. From the portal, you can view changes to a resource. Go back to the default view in Monitor, and select an operation that involved changing a resource.
+
+    ![Select operation](./media/resource-group-audit/select-operation.png)
+
+1. Select **Change history (Preview)** and pick one of the available operations.
+
+    ![Select change history](./media/resource-group-audit/select-change-history.png)
+
+1. The changes in the resource are displayed.
+
+    ![Show changes](./media/resource-group-audit/show-changes.png)
+
+To learn more about change history, see [Get resource changes](../governance/resource-graph/how-to/get-resource-changes.md).
+
 ## PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -118,6 +132,8 @@ Depending on the start time you specify, the previous commands can return a long
 Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
 ```
 
+You can use Resource Graph to see the change history for a resource. For more information, see [Get resource changes](../governance/resource-graph/how-to/get-resource-changes.md).
+
 ## Azure CLI
 
 To retrieve log entries, run the [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) command with an offset to indicate the time span.
@@ -161,6 +177,8 @@ Depending on the start time you specify, the previous commands can return a long
 ```azurecli-interactive
 az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationName.value=='Microsoft.Storage/storageAccounts/write']"
 ```
+
+You can use Resource Graph to see the change history for a resource. For more information, see [Get resource changes](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## REST API
 
