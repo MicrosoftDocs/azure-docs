@@ -210,7 +210,9 @@
         - name: Role-based access control
           displayName: rbac
           href: role-based-access-control.md  
-    - name: Enterprise readiness 
+        - name: Security Attributes
+          href: cosmos-db-security-attributes.md  
+      - name: Enterprise readiness 
       items:
       - name: Online backup and on-demand restore
         href: online-backup-and-restore.md
