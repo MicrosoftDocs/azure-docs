@@ -50,7 +50,7 @@ To get the subscription key, go to the Azure Marketplace from the Azure portal. 
 
 In this step, a PersonGroup named "MyFriends" contains Anna, Bill, and Clare. Each person has several faces registered. The faces must be detected from the images. After all of these steps, you have a PersonGroup like the following image:
 
-![HowToIdentify1](../Images/group.image.1.jpg)
+![MyFriends](../Images/group.image.1.jpg)
 
 ### 2.1 Define people for the PersonGroup
 A person is a basic unit of identify. A person can have one or more known faces registered. A PersonGroup is a collection of people. Each person is defined within a particular PersonGroup. Identification is done against a PersonGroup. The task is to create a PersonGroup, and then create the people in it, such as Anna, Bill, and Clare.
@@ -159,7 +159,7 @@ using (Stream s = File.OpenRead(testImageFile))
 
 After you finish the steps, try to identify different faces. See if the faces of Anna, Bill, or Clare can be correctly identified according to the images uploaded for face detection. See the following examples:
 
-![HowToIdentify2](../Images/identificationResult.1.jpg )
+![Identify different faces](../Images/identificationResult.1.jpg )
 
 ## Step 5: Request for large scale
 

@@ -15,9 +15,9 @@ ms.author: sbowles
 
 # Example: Use the large-scale feature
 
-This guide is an advanced article on how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects, respectively. This guide demonstrates the migration process. It assumes a basic familiarity with PersonGroup, FaceList, the [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) operation, and the face recognition functions. To learn more about these subjects, see the [Face recognition](../concepts/face-recognition.md) conceptual guide.
+This guide is an advanced article on how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects, respectively. This guide demonstrates the migration process. It assumes a basic familiarity with PersonGroup and FaceList objects, the [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) operation, and the face recognition functions. To learn more about these subjects, see the [Face recognition](../concepts/face-recognition.md) conceptual guide.
 
-LargePersonGroup and LargeFaceList are collectively referred to as large-scale operations. LargePersonGroup can contain up to 1,000,000 persons, each with a maximum of 248 faces. LargeFaceList can contain up to 1,000,000 faces. The large-scale operations are similar to the conventional PersonGroup and FaceList but have some differences because of the new architecture. 
+LargePersonGroup and LargeFaceList are collectively referred to as large-scale operations. LargePersonGroup can contain up to 1 million persons, each with a maximum of 248 faces. LargeFaceList can contain up to 1 million faces. The large-scale operations are similar to the conventional PersonGroup and FaceList but have some differences because of the new architecture. 
 
 The samples are written in C# by using the Azure Cognitive Services Face API client library.
 
