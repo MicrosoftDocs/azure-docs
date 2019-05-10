@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/11/2019
 ms.author: lahugh
 ---
 
@@ -26,9 +26,7 @@ ms.author: lahugh
 
 Support for generation 2 virtual machines (VMs) is now available in public preview on Azure. You can't change a virtual machine's generation after you've created it. So, we recommend that you review the considerations [here](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) as well as the information on this page before choosing a generation.
 
-Generation 2 VMs support key features like: increased memory, Intel® Software Guard Extensions (SGX), and virtual persistent memory (vPMEM), which are not supported on generation 1 VMs. Generation 2 VMs use the new UEFI-based Boot architecture vs the BIOS-based architecture used by generation 1 VMs. Compared to generation 1 VMs, generation 2 VMs may have improved boot and installation times.
-
-This article provides an overview of generation 2 VM features on Azure. If you'd like to learn more about generation 1 and generation 2 VMs in Hyper-V, see [VM Generation](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+Generation 2 VMs support key features like: increased memory, Intel® Software Guard Extensions (SGX), and virtual persistent memory (vPMEM), which are not supported on generation 1 VMs. Generation 2 VMs use the new UEFI-based Boot architecture vs the BIOS-based architecture used by generation 1 VMs. Compared to generation 1 VMs, generation 2 VMs may have improved boot and installation times. For an overview of generation 2 VMs and some of the key differences between generation 1 and generation 2, see [Should I create a generation 1 or 2 virtual machine in Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 ## Creating a generation 2 VM
 
@@ -98,7 +96,6 @@ Azure does not currently support some of the features that on-premises Hyper-V s
 |---------|--------------|--------------|
 | Boot             | PCAT                      | UEFI                               |
 | Disk controllers | IDE                       | SCSI                               |
-| OS disk type     | Standard and premium      | Premium                            |
 | VM Sizes         | Available on all VM sizes | Premium storage supported VMs only |
 
 ## Generation 1 vs generation 2 VM capabilities
