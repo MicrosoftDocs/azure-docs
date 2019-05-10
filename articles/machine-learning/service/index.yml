@@ -16,7 +16,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Azure Machine Learning service provides SDKs and services to quickly prep data, train, and deploy machine learning models. Improve productivity and costs with autoscaling compute & pipelines. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. Get started with our quickstarts and tutorials.
+  description: Azure Machine Learning service helps to quickly prep data, train, and deploy machine learning models. Improve productivity and costs with autoscaling compute & pipelines. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. Get started with our quickstarts and tutorials.
   aside:
     image:
       alt: 
@@ -36,6 +36,7 @@ sections:
     items:
     - html: <a href="quickstart-run-cloud-notebook">Run an experiment in the cloud</a> (no install required).
     - html: <a href="quickstart-run-local-notebook">Run an experiment using a local notebook server</a> (local SDK install).
+    - html: <a href="how-to-deploy-and-where">Deploy a machine learning model as a service.</a>
 
 - title: Step-by-Step Tutorials
   items:
@@ -46,11 +47,14 @@ sections:
     items:
     - html: <a href="tutorial-train-models-with-aml">Train</a> and <a href="tutorial-deploy-models-with-aml">deploy</a>  image classification models (<b>two-part series</b>).
     - html: <a href="tutorial-data-prep">Prep data</a> and <a href="tutorial-auto-train-models">use automated machine learning</a> to train & tune regression models  (<b>two-part series</b>).
+    - html: <a href="how-to-deploy-and-where">Deploy & operationalize</a> a model with Azure ML & MLOps capabilities.
 
 - title: Samples
   items:
   - type: paragraph
     text: 'Find <a href="samples-notebooks">Jupyter notebooks</a> to help you explore the service on Github.'
+  - type: paragraph
+    text: 'Find <a href="https://github.com/topics/azureml">sample Git repos</a> to help you use the service on GitHub.'
     
 - title: Reference
   items:
