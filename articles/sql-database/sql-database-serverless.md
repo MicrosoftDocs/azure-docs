@@ -17,7 +17,7 @@ ms.date: 05/11/2019
 
 ## What is the serverless compute tier
 
-SQL Database serverless (preview) is a compute tier that bills for the amount of compute used by a single database on a per second basis. Serverless is price-perf optimized for single databases with bursty usage patterns that can afford some delay in compute warm-up after idle usage periods.
+SQL Database serverless (preview) is a compute tier that bills for the amount of compute used by a single database on a per second basis. Serverless is price-perf optimized for single databases with intermittent, unpredictable usage patterns that can afford some delay in compute warm-up after idle usage periods.
 
 A database in the serverless compute tier is parameterized by the compute range it can use and an autopause delay.
 
@@ -35,15 +35,15 @@ Billing for compute is based on the amount of vCores used and memory used per se
 - The minimum compute billed is based on min vCores and min memory.
 - While the database is paused, only storage is billed.
 
-## Scenarios
+## Choosing between serverless and provisioned compute tiers
 
-Serverless is price-performance optimized for single databases with bursty usage patterns that can afford some delay in compute warm-up after idle usage periods. The provisioned compute tier is price-performance optimized for single or pooled databases with higher average usage that cannot afford any delay in compute warm-up.
+Serverless is price-performance optimized for single databases with intermittent, unpredictable usage patterns that can afford some delay in compute warm-up after idle usage periods. In contrast, the provisioned compute tier is price-performance optimized for single or pooled databases with higher average usage that cannot afford any delay in compute warm-up.
 
 The following table compares serverless compute tier with the provisioned compute tier:
 
 ||Serverless compute|Provisioned compute|
 |---|---|---|
-|**Typical usage scenario**|Databases with bursty, unpredictable usage interspersed with inactive periods|Databases or elastic pools with more regular usage|
+|**Typical usage scenario**|Databases with intermittent, unpredictable usage interspersed with inactive periods|Databases or elastic pools with more regular usage|
 |**Performance management effort**|Lower|Higher|
 |**Compute scaling**|Automatic|Manual|
 |**Compute responsiveness**|Lower after inactive periods|Immediate|
@@ -52,7 +52,7 @@ The following table compares serverless compute tier with the provisioned comput
 
 ### Scenarios well-suited for serverless compute
 
-- Single databases with bursty usage patterns interspersed with periods of inactivity can benefit from price savings based on billing per second for the amount of compute used.
+- Single databases with intermittent, unpredictable usage patterns interspersed with periods of inactivity can benefit from price savings based on billing per second for the amount of compute used.
 - Single databases with resource demand that is difficult to predict and customers who prefer to delegate compute sizing to the service.
 - Single databases in the provisioned compute tier that frequently change performance levels.
 
@@ -60,8 +60,19 @@ The following table compares serverless compute tier with the provisioned comput
 
 - Single databases with more regular and more substantial compute utilization over time.
 - Databases that cannot tolerate performance trade-offs resulting from more frequent memory trimming or delay in autoresuming from a paused state.
-- Multiple databases with bursty usage patterns that can be consolidated into a single server and use elastic pools for better price optimization.
+- Multiple databases with intermittent, unpredictable usage patterns that can be consolidated into a single server and use elastic pools for better price optimization.
 
+### Comparison with provisioned compute tier
+
+The following table summarizes distinctions between the serverless compute tier and the provisioned compute tier:
+
+| | Serverless compute | Provisioned compute |
+|:---|:---|:---|
+|Typical usage scenario| Databases with intermittent, unpredictable usage interspersed with inactive periods. |	Databases or elastic pools with more regular usage.|
+| Performance management effort |Lower|Higher|
+|Compute scaling|Automatic|Manual|
+|Compute responsiveness|Lower after inactive periods|Immediate|
+|Billing granularity|Per second|Per hour|
 
 ## Purchasing model and service tier
 
