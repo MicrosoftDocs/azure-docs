@@ -35,6 +35,16 @@ Azure Active Directory (Azure AD) supports bulk user create and delete operation
 1. When the file contents are validated, you must fix any errors before you can start the upload job.
 1. When your file passes validation, select **Submit** to start the Azure batch job that adds the new user information. Job notifications are generated to apprise you of progress to completion.
 
+## Verify guest users in the directory
+
+Check to see that the users you added exist in the directory either in the Azure portal or by using PowerShell.
+
+### View guest users in the Azure portal
+
+1. Sign in to the Azure portal with an account that is a User administrator in the organization.
+2. In the navigation pane, select Azure Active Directory.
+3. Under **Manage**, select **Users**.
+4. Under **Show**, select **All users** only and verify that the users you added are listed.
 
 ### View guest users with PowerShell
 
