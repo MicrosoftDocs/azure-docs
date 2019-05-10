@@ -4,7 +4,7 @@ description: Learn how to add app roles in an application registered in Azure Ac
 services: active-directory
 documentationcenter: ''
 author: kkrishna
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
