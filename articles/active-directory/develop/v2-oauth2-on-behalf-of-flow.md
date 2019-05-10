@@ -3,7 +3,7 @@ title: Microsoft identity platform and OAuth2.0 On-Behalf-Of flow | Azure
 description: This article describes how to use HTTP messages to implement service to service authentication using the OAuth2.0 On-Behalf-Of flow.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
+author: rwike77
 manager: mtillman
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management

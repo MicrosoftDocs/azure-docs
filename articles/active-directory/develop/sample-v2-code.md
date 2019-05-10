@@ -3,7 +3,7 @@ title: Microsoft identity platform code samples | Microsoft Docs
 description: Provides an index of available Microsoft identity platform (V2 endpoint) code samples, organized by scenario.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
+author: rwike77
 manager: mtillman
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/26/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management

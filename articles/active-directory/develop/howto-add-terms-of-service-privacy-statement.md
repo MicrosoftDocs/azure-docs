@@ -3,7 +3,7 @@ title: Terms of Service and privacy statement for apps | Azure
 description: Learn how you can configure the terms of service and privacy statement for apps registered to use Azure AD.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
+author: rwike77
 manager: mtillman
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management

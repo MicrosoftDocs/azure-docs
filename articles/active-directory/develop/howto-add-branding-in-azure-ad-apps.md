@@ -3,7 +3,7 @@ title: Branding guidelines for applications | Microsoft Docs
 description: A comprehensive guide to developer-oriented resources for Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
+author: rwike77
 manager: mtillman
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ms.collection: M365-identity-device-management

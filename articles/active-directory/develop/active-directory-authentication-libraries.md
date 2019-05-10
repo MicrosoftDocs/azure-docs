@@ -3,7 +3,7 @@ title: Azure Active Directory Authentication Libraries | Microsoft Docs
 description: The Azure AD Authentication Library (ADAL) allows client application developers to easily authenticate users to cloud or on-premises Active Directory (AD) and then obtain access tokens for securing API calls.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
+author: rwike77
 manager: mtillman
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management

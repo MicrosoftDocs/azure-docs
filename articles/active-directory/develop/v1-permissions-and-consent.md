@@ -3,7 +3,7 @@ title: Permissions in Azure Active Directory | Microsoft docs
 description: Learn about permissions in Azure Active Directory and how to use them.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
+author: rwike77
 manager: mtillman
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management

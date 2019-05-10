@@ -3,7 +3,7 @@ title: Azure AD Service to Service Auth using OAuth2.0 | Microsoft Docs
 description: This article describes how to use HTTP messages to implement service to service authentication using the OAuth2.0 client credentials grant flow.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
+author: rwike77
 manager: mtillman
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management

@@ -3,7 +3,7 @@ title: Sign in users and call the Microsoft Graph API from an Android app | Micr
 description: Learn how to sign-in users and call the Microsoft Graph API from my Android app.
 services: active-directory
 documentationcenter: android
-author: CelesteDG
+author: rwike77
 manager: mtillman
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: dadobali
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to sign-in users and call the Microsoft Graph API from my Android app.

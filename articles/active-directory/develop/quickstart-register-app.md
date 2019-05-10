@@ -3,7 +3,7 @@ title: Register an app with the Microsoft identity platform - Microsoft identity
 description: Learn how to add and register an application with the Microsoft identity platform.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
+author: rwike77
 manager: mtillman
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 #Customer intent: As an enterprise developer and software-as-a-service provider, I want to know how to add and register my application with the Microsoft identity platform.

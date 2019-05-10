@@ -3,7 +3,7 @@ title: Migrate from the Azure Access Control Service | Microsoft Docs
 description: Learn about the options for moving apps and services from the Azure Access Control Service (ACS).
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
+author: rwike77
 manager: mtillman
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
 ---

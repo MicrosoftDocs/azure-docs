@@ -3,7 +3,7 @@ title: Signing Key Rollover in Azure AD
 description: This article discusses the signing key rollover best practices for Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
+author: rwike77
 manager: mtillman
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management

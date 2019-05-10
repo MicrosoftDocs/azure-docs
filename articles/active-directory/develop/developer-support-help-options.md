@@ -3,7 +3,7 @@ title: Support and help options for Azure AD app developers | Microsoft Docs
 description: Know how to obtain help and support for development-related questions and problems when creating application that integrate with Microsoft identities (Azure Active Directory and Microsoft account)
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
+author: rwike77
 manager: mtillman
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/14/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur, dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management

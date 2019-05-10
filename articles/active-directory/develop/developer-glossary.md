@@ -3,7 +3,7 @@ title: Microsoft identity platform developer glossary | Azure
 description: A list of terms for commonly used Microsoft identity platform developer concepts and features.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
+author: rwike77
 manager: mtillman
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma, dadobali
 ms.collection: M365-identity-device-management

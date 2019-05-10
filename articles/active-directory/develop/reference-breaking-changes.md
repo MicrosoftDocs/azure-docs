@@ -3,7 +3,7 @@ title: Azure Active Directory breaking changes reference | Microsoft Docs
 description: Learn about changes made to the Azure AD protocols that may impact your application.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
+author: rwike77
 manager: mtillman
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management

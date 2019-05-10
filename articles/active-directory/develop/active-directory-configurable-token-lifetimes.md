@@ -3,7 +3,7 @@ title: Configurable token lifetimes in Azure Active Directory | Microsoft Docs
 description: Learn how to set lifetimes for tokens issued by Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
+author: rwike77
 manager: mtillman
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 

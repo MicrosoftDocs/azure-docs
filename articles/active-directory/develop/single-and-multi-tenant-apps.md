@@ -3,7 +3,7 @@ title: Single and multi-tenant apps in Azure Active Directory
 description: Learn about the features and differences between single-tenant and multi-tenant apps in Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
+author: rwike77
 manager: mtillman
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management

@@ -2,7 +2,7 @@
 title: Azure Active Directory authentication protocols | Microsoft Docs
 description: An overview of the authentication protocols supported by Azure Active Directory (AD)
 documentationcenter: dev-center-name
-author: CelesteDG
+author: ryanwi
 services: active-directory
 manager: mtillman
 editor: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
-ms.author: celested
+ms.author: rwike77
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
