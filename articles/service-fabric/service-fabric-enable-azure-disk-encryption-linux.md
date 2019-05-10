@@ -51,7 +51,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 **Azure Key Vault**
 
-Create a Key Vault in the same subscription and region as the scale set, then select the **EnabledForDiskEncryption** access policy on the Key Vault by using its PowerShell cmdlet. You can also set the policy by using the Key Vault UI in the Azure portal with the following command:
+Create a Key Vault in the same subscription and region as the scale set. Then select the **EnabledForDiskEncryption** access policy on the Key Vault by using its PowerShell cmdlet. You can also set the policy by using the Key Vault UI in the Azure portal with the following command:
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 ```
@@ -99,9 +99,9 @@ az account set --subscription $subscriptionId
 
 ### Use the custom template that you already have 
 
-If you need to author a custom template, it's highly recommended that you start with one of the templates available on the [Azure Service Fabric cluster creation template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master) page. 
+If you need to author a custom template, it's highly recommended that you use one of the templates on the [Azure Service Fabric cluster creation template samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master) page. 
 
-If you already have a custom template, double-check that all three certificate-related parameters in the template and the parameter file are named as follows and that values are null as follows:
+If you already have a custom template, double-check that all three certificate-related parameters in the template and the parameter file are named as follows. Also ensure that the values are null as follows:
 
 ```Json
    "certificateThumbprint": {
@@ -177,7 +177,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 ### Mount a data disk to a Linux instance
-Before you proceed with encryption on a virtual machine scale set in Linux, you must ensure that the added data disk is correctly mounted. Sign in to the Linux cluster VM and run the **LSBLK** command. The output should show that added data disk in the **Mount Point** column.
+Before you continue with encryption on a virtual machine scale set in Linux, ensure that the added data disk is correctly mounted. Sign in to the Linux cluster VM and run the **LSBLK** command. The output should show that added data disk in the **Mount Point** column.
 
 
 ### Deploy application to a Service Fabric cluster in Linux
