@@ -4,7 +4,7 @@ description: Learn how you can configure the terms of service and privacy statem
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

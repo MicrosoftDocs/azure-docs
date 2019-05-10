@@ -4,7 +4,7 @@ description: Learn about the AADSTS error codes that are returned from the Azure
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

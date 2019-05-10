@@ -4,7 +4,7 @@ description: Describes the types of apps and scenarios supported by the Azure Ac
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

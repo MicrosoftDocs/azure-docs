@@ -4,7 +4,7 @@ description: Learn how to list an application that supports single sign-on in th
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06

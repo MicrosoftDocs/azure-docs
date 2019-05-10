@@ -4,7 +4,7 @@ description: A guide for adding custom or additional claims to the SAML 2.0 and 
 documentationcenter: na
 author: rwike77
 services: active-directory
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

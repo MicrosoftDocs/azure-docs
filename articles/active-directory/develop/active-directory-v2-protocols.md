@@ -4,7 +4,7 @@ description: A guide to OAuth 2.0 and OpenID Connect protocols that are supporte
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22

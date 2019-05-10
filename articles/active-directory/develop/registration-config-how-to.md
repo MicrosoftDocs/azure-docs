@@ -4,7 +4,7 @@ description: How to find the authentication endpoints for a custom application y
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory

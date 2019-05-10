@@ -4,7 +4,7 @@ description: Describes how to create a new Azure Active Directory application an
 services: active-directory
 documentationcenter: na
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop

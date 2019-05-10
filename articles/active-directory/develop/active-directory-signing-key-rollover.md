@@ -4,7 +4,7 @@ description: This article discusses the signing key rollover best practices for 
 services: active-directory
 documentationcenter: .net
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

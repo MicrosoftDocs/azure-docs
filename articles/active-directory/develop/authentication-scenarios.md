@@ -4,7 +4,7 @@ description: Learn about authentication in Microsoft identity platform, the app 
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9

@@ -4,7 +4,7 @@ description: Learn about the features and differences between single-tenant and 
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

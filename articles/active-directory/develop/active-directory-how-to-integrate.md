@@ -4,7 +4,7 @@ description: Learn the benefits of integrating your application with Azure Activ
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: d13bba54-96bd-4b81-bee9-c8025ffa1648

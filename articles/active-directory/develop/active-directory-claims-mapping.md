@@ -3,7 +3,7 @@ title: Customize claims emitted in tokens for a specific app in an Azure AD tena
 description: This page describes Azure Active Directory claims mapping.
 services: active-directory
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

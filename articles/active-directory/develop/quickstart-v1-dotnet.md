@@ -4,7 +4,7 @@ description: Learn how to build a .NET Windows Desktop application that integrat
 services: active-directory
 documentationcenter: .net
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1

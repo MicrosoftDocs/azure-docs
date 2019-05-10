@@ -4,7 +4,7 @@ description: Learn how to build an AngularJS single-page application that integr
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7

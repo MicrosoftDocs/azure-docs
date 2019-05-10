@@ -4,7 +4,7 @@ description: A description of authorization in the Microsoft identity platform e
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423

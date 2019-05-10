@@ -4,7 +4,7 @@ description: Describes what service-to-service applications and the basics on pr
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

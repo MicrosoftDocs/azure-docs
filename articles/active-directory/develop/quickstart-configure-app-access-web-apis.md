@@ -4,7 +4,7 @@ description: Learn how to configure an application registered with the Microsoft
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

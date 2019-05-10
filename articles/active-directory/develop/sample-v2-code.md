@@ -4,7 +4,7 @@ description: Provides an index of available Microsoft identity platform (V2 endp
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433

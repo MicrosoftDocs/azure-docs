@@ -4,7 +4,7 @@ description: Know the differences between the Microsoft identity platform (v2.0)
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

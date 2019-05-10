@@ -4,7 +4,7 @@ description: This article describes how to use HTTP messages to authorize access
 services: active-directory
 documentationcenter: .net
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

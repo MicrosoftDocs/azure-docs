@@ -4,7 +4,7 @@ description: Learn about best practices and common oversights when integrating w
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

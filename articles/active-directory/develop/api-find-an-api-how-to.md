@@ -4,7 +4,7 @@ description: How to configure the permissions you need to access a particular AP
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory

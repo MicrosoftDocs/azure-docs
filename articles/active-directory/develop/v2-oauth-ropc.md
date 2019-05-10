@@ -4,7 +4,7 @@ description: Support browser-less authentication flows using the resource owner 
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

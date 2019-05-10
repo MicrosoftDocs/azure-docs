@@ -4,7 +4,7 @@ description: Describes what single-page applications (SPAs) are and the basics o
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

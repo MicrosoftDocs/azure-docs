@@ -4,7 +4,7 @@ description: Learn how to remove an application registered with the Microsoft id
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

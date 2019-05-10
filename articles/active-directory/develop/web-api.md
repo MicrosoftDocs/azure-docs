@@ -4,7 +4,7 @@ description: Describes what web API applications are and the basics on protocol 
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

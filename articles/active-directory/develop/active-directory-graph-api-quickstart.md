@@ -4,7 +4,7 @@ description: The Azure Active Directory (Azure AD) Graph API provides programmat
 services: active-directory
 documentationcenter: n/a
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 tags: ''
 

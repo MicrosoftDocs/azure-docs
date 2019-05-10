@@ -4,7 +4,7 @@ description: Guidance on how to fill out specific fields when you are registerin
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory

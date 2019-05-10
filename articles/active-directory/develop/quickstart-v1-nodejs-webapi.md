@@ -4,7 +4,7 @@ description: Learn how to build a Node.js REST web API that integrates with Azur
 services: active-directory
 documentationcenter: nodejs
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory

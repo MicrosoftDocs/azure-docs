@@ -4,7 +4,7 @@ description: Learn how to sign in users and call the Microsoft Graph API from my
 services: active-directory
 documentationcenter: ios
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb

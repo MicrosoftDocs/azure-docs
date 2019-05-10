@@ -4,7 +4,7 @@ description: A list of terms for commonly used Microsoft identity platform devel
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba

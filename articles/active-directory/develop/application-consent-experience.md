@@ -4,7 +4,7 @@ description: Learn more about the Azure AD consent experiences to see how you ca
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory

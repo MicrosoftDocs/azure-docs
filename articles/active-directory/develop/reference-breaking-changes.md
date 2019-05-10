@@ -4,7 +4,7 @@ description: Learn about changes made to the Azure AD protocols that may impact 
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 68517c83-1279-4cc7-a7c1-c7ccc3dbe146

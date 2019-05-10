@@ -4,7 +4,7 @@ description: This article describes how to use HTTP messages to implement servic
 services: active-directory
 documentationcenter: .net
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d

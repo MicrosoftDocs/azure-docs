@@ -4,7 +4,7 @@ description: What does it mean for an application to be added to Azure AD and ho
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576

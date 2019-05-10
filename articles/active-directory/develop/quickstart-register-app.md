@@ -4,7 +4,7 @@ description: Learn how to add and register an application with the Microsoft ide
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

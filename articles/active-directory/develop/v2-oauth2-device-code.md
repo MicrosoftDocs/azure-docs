@@ -4,7 +4,7 @@ description: Build embedded and browser-less authentication flows using the devi
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

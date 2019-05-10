@@ -4,7 +4,7 @@ description: How to update Token Lifetime policies for your application that you
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory

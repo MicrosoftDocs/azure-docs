@@ -4,7 +4,7 @@ description: Provides error handling guidance and best practices for ADAL client
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 ms.author: ryanwi
 ms.service: active-directory
 ms.subservice: develop

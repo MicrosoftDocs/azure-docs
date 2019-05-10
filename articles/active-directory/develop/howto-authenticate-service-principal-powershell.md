@@ -4,7 +4,7 @@ description: Describes how to use Azure PowerShell to create an Azure Active Dir
 services: active-directory
 documentationcenter: na
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 
 ms.assetid: d2caf121-9fbe-4f00-bf9d-8f3d1f00a6ff
 ms.service: active-directory

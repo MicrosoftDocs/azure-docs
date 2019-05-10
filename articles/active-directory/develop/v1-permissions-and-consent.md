@@ -4,7 +4,7 @@ description: Learn about permissions in Azure Active Directory and how to use th
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 6c0dc122-2cd8-4d70-be5a-3943459d308e

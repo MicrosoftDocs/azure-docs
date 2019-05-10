@@ -4,7 +4,7 @@ description: Configure an application registered with the Microsoft identity pla
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

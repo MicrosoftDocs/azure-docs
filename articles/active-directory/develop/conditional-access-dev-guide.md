@@ -4,7 +4,7 @@ description: Developer guidance and scenarios for Azure AD conditional access
 services: active-directory
 keywords: 
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 
 ms.author: ryanwi
 ms.reviewer: dadobali

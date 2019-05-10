@@ -4,7 +4,7 @@ description: Learn about the Microsoft identity platform (v2.0) endpoint and pla
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

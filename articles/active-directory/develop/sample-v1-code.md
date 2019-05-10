@@ -4,7 +4,7 @@ description: Provides an index of Azure Active Directory (v1.0 endpoint) code sa
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433

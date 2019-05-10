@@ -4,7 +4,7 @@ description: Learn how to configure an application's publisher domain to let use
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

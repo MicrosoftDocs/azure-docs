@@ -4,7 +4,7 @@ description: Learn how to find and enable your Azure Access Control Service (ACS
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop

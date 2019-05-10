@@ -4,7 +4,7 @@ description: Learn about the consent framework in Azure Active Directory and how
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

@@ -4,7 +4,7 @@ description: Learn about access tokens emitted by the Azure AD v1.0 and Microsof
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

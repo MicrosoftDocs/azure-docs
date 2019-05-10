@@ -4,7 +4,7 @@ description: Build web applications by using the Microsoft identity platform imp
 services: active-directory
 documentationcenter: ''
 author: rwike77
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
