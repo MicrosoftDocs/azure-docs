@@ -1,6 +1,6 @@
 ---
-title: Compiling applications for HPC on Azure | Microsoft Docs
-description: Learn how to compile HPC applications on Azure VMs. 
+title: Scaling HPC applications on Azure | Microsoft Docs
+description: Learn how to scale HPC applications on Azure VMs. 
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -15,11 +15,17 @@ ms.date: 05/07/2019
 ms.author: amverma
 ---
 
-# Compiling and scaling applications
+# Scaling HPC applications
 
-The AMD Optimizing C/C++ Compiler (AOCC) compiler system offers a high level of advanced optimizations, multi-threading, and processor support that includes global optimization, vectorization, inter-procedural analyses, loop transformations, and code generation.  AOCC compiler binaries are suitable for Linux systems having GNU C Library (glibc) version 2.17 and above. The compiler suite consists of a C/C++ compiler (clang), a Fortran compiler (Flang) and a Fortran front end to Clang (Dragon Egg).
+For optimal scale-up and scale-out performance of HPC applications on Azure, we welcome performance tuning and optimization experiments for the specific workload. In this section and the VM series specific pages, we offer some general guidance based on our experience.
 
 ## Compiling applications 
+
+Though not necessary, we suggest compiling applications with appropriate optimization flags for the best scale-up performance on our VMs.
+
+### AOCC
+
+The AMD Optimizing C/C++ Compiler (AOCC) compiler system offers a high level of advanced optimizations, multi-threading, and processor support that includes global optimization, vectorization, inter-procedural analyses, loop transformations, and code generation.  AOCC compiler binaries are suitable for Linux systems having GNU C Library (glibc) version 2.17 and above. The compiler suite consists of a C/C++ compiler (clang), a Fortran compiler (Flang) and a Fortran front end to Clang (Dragon Egg).
 
 ### Clang 
 
