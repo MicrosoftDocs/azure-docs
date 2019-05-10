@@ -12,7 +12,7 @@ keywords: kinect, audio, speech, microphone, quick, start, SDK, mic
 
 This page provides information about how to recognize speech with your Azure Kinect device, by using the Speech SDK.
 
-[Azure Kinect hardware](azure-kinect-devkit.md#microphone-array) includes a 7-mic array, recognized by a PC as a standard USB audio class 2.0 device.
+Azure Kinect Hardware includes a 7-mic array, recognized by a PC as a standard USB audio class 2.0 device.
 
 Get familiar with the [Speech SDK](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/) and try the following Speech Recognition Quickstarts:
 

@@ -1,4 +1,3 @@
-
 - name: Overview 
   items: 
   - name: What is Azure Kinect DK?
@@ -11,5 +10,3 @@
     href: record-sensor-streams-to-a-file.md
   - name: Recognize speech
     href: recognize-speech.md
- 
--
