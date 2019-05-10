@@ -5,27 +5,37 @@ tags: top-support-issue
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 05/10/2019
 ms.author: tomfitz
 ---
 # View deployment history with Azure Resource Manager
 
 You can view the operations for a deployment through the Azure portal. You may be most interested in viewing the operations when you've received an error during deployment so this article focuses on viewing operations that have failed. The portal provides an interface that enables you to easily find the errors and determine potential fixes.
 
-You can troubleshoot your deployment by looking at either the audit logs, or the deployment operations. This article shows both methods. For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+You can troubleshoot your deployment by looking at either the activity logs, or the deployment operations. This article shows both methods. For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## Portal
 
-To see the deployment operations, use the following steps:
+To get details about a deployment from the deployment history.
 
-1. For the resource group involved in the deployment, notice the status of the last deployment. You can select this status to get more details.
+1. Select the resource group you want to examine.
+
+1. Select the link under **Deployments**.
+
+   ![Select deployment history](./media/resource-manager-deployment-operations/select-deployment-history.png)
+
+1. Select one of the deployments from the deployment history.
+
+   ![Select deployment](./media/resource-manager-deployment-operations/select-details.png)
+
+1. A summary of the deployment is displayed, including a list of the resources that were deployed.
+
+    ![Deployment summary](./media/resource-manager-deployment-operations/view-deployment-summary.png)
+
+2. To view the template used for the deployment, select **Template**. You can download the template to reuse it.
    
-    ![deployment status](./media/resource-manager-deployment-operations/deployment-status.png)
-2. You see the recent deployment history. Select the deployment that failed.
-   
-    ![deployment status](./media/resource-manager-deployment-operations/select-deployment.png)
+    ![deployment status](./media/resource-manager-deployment-operations/show-template-from-history.png)
+
 3. Select the link to see a description of why the deployment failed. In the image below, the DNS record isn't unique.  
    
     ![view failed deployment](./media/resource-manager-deployment-operations/view-error.png)
@@ -44,6 +54,9 @@ To see the deployment operations, use the following steps:
     ![see events](./media/resource-manager-deployment-operations/see-all-events.png)
 
 ## PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. To get the overall status of a deployment, use the **Get-AzResourceGroupDeployment** command. 
 
    ```powershell
