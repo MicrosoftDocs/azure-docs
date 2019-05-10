@@ -55,6 +55,10 @@ Some key capabilities of Ultra SSD are:
 |512     |80,000         |2,000         |
 |1,024-65,536 (sizes in this range increasing in increments of 1 TiB)     |160,000         |2,000         |
 
+### Transactions
+
+For ultra SSDs, each I/O operation less than or equal to 256 KiB of throughput is considered a single I/O operation. I/O operations larger than 256 KiB of throughput are considered multiple I/Os of size 256 KiB.
+
 ### Preview scope and limitations
 
 During preview, ultra SSD:
