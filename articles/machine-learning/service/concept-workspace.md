@@ -33,7 +33,7 @@ The diagram shows the following components of a workspace:
 + You can share your workspace and assign different [user roles](how-to-assign-roles.md).
 + [Compute targets](concept-azure-machine-learning-architecture.md#compute-target) are used to run your experiments.
 + When you create the workspace, [associated resources](#resources) are also created for you.
-+ [Experiments](concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  You can create and run experiments with
++ [Experiments](concept-azure-machine-learning-architecture.md#experiment) are training runs you use to build your models.  You can create and run experiments with
     + The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
     + The [automated machine learning experiments (preview)](how-to-create-portal-experiments.md) section in the Axure portal.
     + The [visual interface (preview)]().
