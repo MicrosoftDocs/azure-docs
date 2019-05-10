@@ -59,6 +59,9 @@ print(model.name, model.id, model.version, sep='\t')
 ```
 
 ### Register an externally created model
+
+[!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
+
 You can register an externally created model by providing a **local path** to the model. You can provide either a folder or a single file.
 
 **ONNX example with the Python SDK:**
