@@ -1,7 +1,7 @@
 ---
 title: "Classification: Predict credit risk (cost sensitive)"
 titleSuffix: Azure Machine Learning service
-description: This visual interface sample experiment demonstrates how to use a customized Python script to perform cost-sensitive binary classification. It predicts credit risk based on information provided in a credit application.
+description: Learn how to incorporate Python code in the visual interface to create a machine learning classification model. Then, learn how to quickly compare algorithms to choose the best one for you.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,18 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ---
 
-# Sample - Classification: Predict credit risk (cost sensitive)
+# Advanced Sample - Classification: Predict credit risk (cost sensitive)
 
-Learn how to incorporate Python scripts in the visual interface to predict credit. Then, learn how to quickly compare classifiers to choose the best one.
+Learn how to incorporate Python code in the visual interface to create a machine learning classification model. Then, learn how to quickly compare algorithms to choose the best one for you.
 
-create a cost-sensitive binary classifier
+This sample predicts credit risk based on credit applications. It takes into account misclassification costs, which are added by a custom Python script, and it tests two algorithms: **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
 
-This sample predicts credit risk based on information provided in credit applications. It takes account misclassification costs which are added by a custom Python script. It will try two classification algorithms: **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
+Here's the final, completed graph of the experiment. This article goes over the critical information you'll need to create a similar experiment on your own.
+
+[![Graph of the experiment](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## Prerequisites
 
@@ -27,10 +29,6 @@ This sample predicts credit risk based on information provided in credit applica
 4. Select the **Open** button for the Sample 4 experiment:
 
     ![Open the experiment](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
-
-## Related sample
-
-See [Sample 3 - Classification: Credit Risk Prediction (Basic)](ui-sample-classification-predict-churn.md) for a basic experiment that solves the same problem as this experiment, without adjusting for misclassification costs.
 
 ## Data
 
@@ -107,7 +105,6 @@ The following diagram shows a portion of this experiment, in which the original 
 
 ![Experiment graph](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
 
-
 In the evaluation stage of the experiment, we compute the accuracy of each of the four models. For this experiment, we use **Evaluate Model** to compare examples that have the same misclassification cost.
 
 The **Evaluate Model** module can compute the performance metrics for as many as two scored models. So we use one instance of **Evaluate Model** to evaluate the two SVM models and another instance of **Evaluate Model** to evaluate the two Boosted Decision Tree models.
@@ -154,9 +151,6 @@ From these results, you can see that the best accuracy is provided by the model 
 
 ## Next steps
 
-Explore the other samples available for the visual interface:
+Create and deploy your own machine learning model using the visual interface:
 
-- [Sample 1 - Regression: Predict an automobile's price](ui-sample-regression-predict-automobile-price-basic.md)
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
-- [Sample 5 - Classification: Predict churn](ui-sample-classification-predict-churn.md)
+- [Tutorial: Automobile price prediction](ui-tutorial-automobile-price-train-score.md)
