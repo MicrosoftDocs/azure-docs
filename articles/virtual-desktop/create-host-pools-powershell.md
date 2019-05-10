@@ -23,12 +23,6 @@ Run the following cmdlet to sign in to the Windows Virtual Desktop environment
 Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
 ```
 
-After that, run the following cmdlet to set the context to your tenant group. If you don't have the name of the tenant group, your tenant is most likely in the “Default Tenant Group,” so you can skip this cmdlet.
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
-```
-
 Next, run this cmdlet to create a new host pool in your Windows Virtual Desktop tenant:
 
 ```powershell
