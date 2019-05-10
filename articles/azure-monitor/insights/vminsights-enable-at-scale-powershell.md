@@ -150,7 +150,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
 ### Download templates
 
-The Azure Resource Manager templates are provided in an archive file (.zip) that you can [download](https://aka.ms/VmInsightsARMTemplates)from our GitHub repo. Contents of the file include folders representing each deployment scenario with a template and parameter file. Before running, modify the parameters file and specify the values required. Do not modify the template file unless you need to customize it to support your particular requirements. After you have modified the parameter file you can deploy them using the following methods described later in this article. 
+The Azure Resource Manager templates are provided in an archive file (.zip) that you can [download](https://aka.ms/VmInsightsARMTemplates) from our GitHub repo. Contents of the file include folders representing each deployment scenario with a template and parameter file. Before running, modify the parameters file and specify the values required. Do not modify the template file unless you need to customize it to support your particular requirements. After you have modified the parameter file you can deploy it using the following methods described later in this article. 
 
 The download file contains the following templates for different scenarios:
 
@@ -165,7 +165,7 @@ The download file contains the following templates for different scenarios:
 
 ### Deploy using Azure PowerShell
 
-The following steps enables monitoring using Azure PowerShell.
+The following step enables monitoring using Azure PowerShell.
 
 ```powershell
 New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile <Template.json> -TemplateParameterFile <Parameters.json>

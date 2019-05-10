@@ -62,8 +62,8 @@ For the at-scale scenario using Azure Policy, Azure PowerShell, or Azure Resourc
 
 To configure your workspace for the at-scale scenario, you can configure it using one of the following methods:
 
-* [Azure PowerShell](vminsights-enable-atscale-posh.md#set-up-a-log-analytics-workspace)
-* From the **Configure Workspace** option on the Azure Monitor for VMs [Policy Coverage](vminsights-enable-atscale-policy.md#manage-policy-coverage-feature-overview) page
+* [Azure PowerShell](vminsights-enable-at-scale-powershell.md#set-up-a-log-analytics-workspace)
+* From the **Configure Workspace** option on the Azure Monitor for VMs [Policy Coverage](vminsights-enable-at-scale-policy.md#manage-policy-coverage-feature-overview) page
 
 ### Supported operating systems
 
@@ -174,9 +174,9 @@ You enable Azure Monitor for VMs by using one of the following methods described
 
 | Deployment state | Method | Description |
 |------------------|--------|-------------|
-| Single Azure VM | [Directly from the VM](vminsights-enable-single-vm.md) | You can enable a single Azure virtual machine by selecting **Insights (preview)** directly from the VM. |
-| Multiple Azure VMs or virtual machine scale sets | [Azure Policy](vminsights-enable-atscale-policy.md) | You can enable multiple Azure VMs using Azure Policy and available policy definitions. |
-| Multiple Azure VMs or virtual machine scale sets | [Azure PowerShell or Azure Resource Manager templates](vminsights-enable-atscale-posh.md) | You can enable multiple Azure VMs or virtual machine scale sets across a specified subscription or resource group using Azure PowerShell or Azure Resource Manager templates. |
+| Single Azure VM or virtual machine scale set | [Directly from the VM](vminsights-enable-single-vm.md) | You can enable a single Azure virtual machine by selecting **Insights (preview)** directly from the VM or virtual machine scale set. |
+| Multiple Azure VMs or virtual machine scale sets | [Azure Policy](vminsights-enable-at-scale-policy.md) | You can enable multiple Azure VMs using Azure Policy and available policy definitions. |
+| Multiple Azure VMs or virtual machine scale sets | [Azure PowerShell or Azure Resource Manager templates](vminsights-enable-at-scale-powershell.md) | You can enable multiple Azure VMs or virtual machine scale sets across a specified subscription or resource group using Azure PowerShell or Azure Resource Manager templates. |
 | Hybrid cloud | [Enable for Hybrid environment](vminsights-enable-hybrid-cloud.md) | You can deploy to virtual machines or physical computers that are hosted in your datacenter or other cloud environments. |
 
 ## Performance counters enabled
