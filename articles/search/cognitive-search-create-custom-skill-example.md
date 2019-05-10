@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ---
@@ -238,7 +238,7 @@ When you are satisfied with the function behavior, you can publish it.
 
 1. Follow the on-screen prompts. You are asked to specify the Azure account, the resource group, the hosting plan, and the storage account you want to use. You can create a new resource group, a new hosting plan, and a storage account if you don't already have these. When finished, select **Create**
 
-1. After the deployment is complete, note the Site URL. It is the address of your function app in Azure. 
+1. After the deployment is complete, notice the Site URL. It is the address of your function app in Azure. 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the Resource Group, and look for the Translate Function you published. Under the **Manage** section, you should see Host Keys. Select the **Copy** icon for the *default* host key.  
 
@@ -277,7 +277,7 @@ Now that you have a new custom skill, you can add it to your skillset. The examp
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new translator custom skill",
-        "uri": "http://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]",
+        "uri": "https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]",
         "batchSize":1,
         "context": "/document",
         "inputs": [

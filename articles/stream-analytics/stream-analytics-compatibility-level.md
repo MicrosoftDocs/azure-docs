@@ -5,7 +5,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 5/2/2019
 ---
 
 # Compatibility level for Azure Stream Analytics jobs
@@ -20,8 +20,8 @@ Compatibility level controls the runtime behavior of a stream analytics job.
 
 Azure Stream Analytics currently supports three compatibility levels:
 
-* 1.0 - default level
-* 1.1 - current release behavior
+* 1.0 - Previous behavior
+* 1.1 - Default behavior
 * 1.2 (preview) - newest behavior with most recent improvements in evaluation
 
 The original 1.0 compatibility level was introduced during general availability of Azure Stream Analytics several years ago.
@@ -44,7 +44,7 @@ To update the compatibility level of the job in the Azure portal:
 
 When you update the compatibility level, the T-SQL compiler validates the job with the syntax that corresponds to the selected compatibility level.
 
-## Compatibility level 1.2
+## Compatibility level 1.2 (Preview)
 
 The following major changes are introduced in compatibility level 1.2:
 
@@ -70,7 +70,7 @@ For more information, see [Updates to geospatial features in Azure Stream Analyt
 
 **Previous levels:** The upsert behavior was *insert or merge*.
 
-**1.2 level:** Native Bulk API integration with CosmosDB output maximizes throughput and efficiently handles throttling requests.
+**1.2 level:** Native Bulk API integration with CosmosDB output maximizes throughput and efficiently handles throttling requests. For more information, see [the Azure Stream Analytics output to Azure Cosmos DB page](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12).
 
 The upsert behavior is *insert or replace*.
 

@@ -1,5 +1,5 @@
 ---
-title: Recognize printed, handwritten text - Computer Vision
+title: Recognize printed/handwritten text, Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Concepts related to recognizing printed and handwritten text in images using the Computer Vision API.
 services: cognitive-services
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
 
 # Recognize printed and handwritten text
 
-Computer Vision provides a number of services that detect and extract printed or handwritten text that appears in images. This is useful in a variety of scenarios such as notetaking, medical records, security, and banking. The following three sections detail three different text recognition APIs, each optimized for different use cases.
+Computer Vision provides a number of services that detect and extract printed or handwritten text that appears in images. This is useful in a variety of scenarios such as note taking, medical records, security, and banking. The following three sections detail three different text recognition APIs, each optimized for different use cases.
 
 ## Read API
 
@@ -41,13 +41,11 @@ If you are using a free-tier subscription, the Read API will only process the fi
 
 ## OCR (optical character recognition) API
 
-Computer Vision's optical character recognition (OCR) API is similar to the Read API, but it executes synchronously and is not optimized for large documents. It uses an earlier recognition model but works with more languages.
-
-OCR supports 25 languages: Arabic, Chinese Simplified, Chinese Traditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, Serbian (Cyrillic and Latin), Slovak, Spanish, Swedish, and Turkish. OCR automatically detects the language of the detected text.
+Computer Vision's optical character recognition (OCR) API is similar to the Read API, but it executes synchronously and is not optimized for large documents. It uses an earlier recognition model but works with more languages; see [Language support](language-support.md#text-recognition) for a full list of the supported languages.
 
 If necessary, OCR corrects the rotation of the recognized text by returning the rotational offset in degrees about the horizontal image axis. OCR also provides the frame coordinates of each word, as seen in the following illustration.
 
-![A diagram depicting an image being rotated and its text being read and delineated](./Images/vision-overview-ocr.png)
+![An image being rotated and its text being read and delineated](./Images/vision-overview-ocr.png)
 
 See the [OCR reference docs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) to learn more.
 

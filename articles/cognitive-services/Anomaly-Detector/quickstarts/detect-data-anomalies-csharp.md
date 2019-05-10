@@ -30,7 +30,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
         1. Right click on the **Solution Manager**
         2. Click **Manage NuGet Packages...**
         3. Search for `Newtonsoft.Json` and install the package
-- If you are using Linux/MacOS, this application can be ran using [Mono](http://www.mono-project.com/).
+- If you are using Linux/MacOS, this application can be ran using [Mono](https://www.mono-project.com/).
 
 - A JSON file containing time series data points. The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 

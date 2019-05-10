@@ -2,11 +2,11 @@
 title: Manage registered servers with Azure File Sync | Microsoft Docs
 description: Learn how to register and unregister a Windows Server with an Azure File Sync Storage Sync Service.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
 ---
 
@@ -131,17 +131,15 @@ Before unregistering the server on the Storage Sync Service, all server endpoint
 This can also be accomplished with a simple PowerShell script:
 
 ```powershell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+Connect-AzAccount
 
-$accountInfo = Connect-AzAccount
-Login-AzStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
+$storageSyncServiceName = "<your-storage-sync-service>"
+$resourceGroup = "<your-resource-group>"
 
-$StorageSyncService = "<your-storage-sync-service>"
-
-Get-AzStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEach-Object { 
-    $SyncGroup = $_; 
-    Get-AzStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name | Where-Object { $_.DisplayName -eq $env:ComputerName } | ForEach-Object { 
-        Remove-AzStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name -ServerEndpointName $_.Name 
+Get-AzStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName $storageSyncServiceName | ForEach-Object { 
+    $syncGroup = $_; 
+    Get-AzStorageSyncServerEndpoint -ParentObject $syncGroup | Where-Object { $_.ServerEndpointName -eq $env:ComputerName } | ForEach-Object { 
+        Remove-AzStorageSyncServerEndpoint -InputObject $_ 
     } 
 }
 ```

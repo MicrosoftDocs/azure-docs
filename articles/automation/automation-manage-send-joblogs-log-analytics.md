@@ -1,6 +1,6 @@
 ---
 title: Forward Azure Automation job data to Azure Monitor logs
-description: This article demonstrates how to send job status and runbook job streams to Azure Azure Monitor logs to deliver additional insight and management.
+description: This article demonstrates how to send job status and runbook job streams to Azure Monitor logs to deliver additional insight and management.
 services: automation
 ms.service: automation
 ms.subservice: process-automation

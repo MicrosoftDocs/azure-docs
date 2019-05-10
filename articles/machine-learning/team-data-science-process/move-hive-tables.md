@@ -41,7 +41,7 @@ Hive queries can be submitted by using:
 2. [Submit Hive queries with the Hive Editor](#hive-editor)
 3. [Submit Hive queries with Azure PowerShell Commands](#ps)
 
-Hive queries are SQL-like. If you are familiar with SQL, you may find the [Hive for SQL Users Cheat Sheet](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) useful.
+Hive queries are SQL-like. If you are familiar with SQL, you may find the [Hive for SQL Users Cheat Sheet](https://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) useful.
 
 When submitting a Hive query, you can also control the destination of the output from Hive queries, whether it be on the screen or to a local file on the head node or to an Azure blob.
 

@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/08/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -85,9 +85,17 @@ Media Services fully supports customizing all values in presets to meet your spe
 - [Customize presets with CLI](custom-preset-cli-howto.md)
 - [Customize presets with REST](custom-preset-rest-howto.md)
 
+## Preset schema
+
+In Media Services v3, presets are strongly typed entities in the API itself. You can find  the "schema" definition for these objects in [Open API Specification (or Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). You can also view the preset definitions (like **StandardEncoderPreset**) in the [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (or other Media Services v3 SDK reference documentation).
+
 ## Scaling encoding in v3
 
 To scale media processing, see [Scale with CLI](media-reserved-units-cli-how-to.md).
+
+## Ask questions, give feedback, get updates
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 
