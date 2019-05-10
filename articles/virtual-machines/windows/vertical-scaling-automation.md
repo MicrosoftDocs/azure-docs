@@ -81,7 +81,7 @@ The outline for the steps to accomplish this is as below
 > | Standard_ND6s |Standard_ND24s |
 > | Standard_NV6 |Standard_NV24 |
 > | Standard_NV6s_v2 |Standard_NV24s_v2 |
-> 
+> | Standard_NV12s_v3 |Standard_NV48s_v3 |
 > 
 
 ## Setup Azure Automation to access your Virtual Machines
