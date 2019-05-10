@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2019
+ms.date: 05/08/2019
 ms.author: pareshmu
 ---
 # ExpressRoute partners and peering locations
@@ -83,7 +83,7 @@ The following table shows connectivity locations and the service providers for e
 | **Denver** | CoreSite | CoreSite, Megaport, Zayo |
 | **Dubai** | Etisalat UAE | Etisalat UAE |
 | **Dublin** | Equinix | Colt, eir, Equinix, Interxion, Megaport |
-| **Frankfurt** | Interxion | Interxion |
+| **Frankfurt** | Interxion | DE-CIX, Interxion |
 | **Hong Kong SAR** | Equinix | Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Johannesburg** | Teraco | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Kuala Lumpur** | TIME dotCom | TIME dotCom |
@@ -100,7 +100,7 @@ The following table shows connectivity locations and the service providers for e
 | **New York** | Equinix | CenturyLink Cloud Connect, Coresite, Equinix, InterCloud, Megaport, Packet, Zayo |
 | **Newport(Wales)** | Next Generation Data | British Telecom, Level 3 Communications, Next Generation Data |
 | **Osaka** | Equinix | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
-| **Paris** | Interxion | Colt, Equinix, Intercloud, Interxion, Orange, Zayo |
+| **Paris** | Interxion | Colt, Equinix, Intercloud, Interxion, Orange, Telia Carrier, Zayo |
 | **Perth** | NextDC | Megaport, NextDC |
 | **Quebec City** | 4Degrees | Bell Canada, Megaport |
 | **San Antonio** | CyrusOne | CenturyLink Cloud Connect, Megaport |

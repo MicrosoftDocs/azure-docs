@@ -106,6 +106,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning-service/concept-accelerate-inferencing-with-gpus.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-deploy-inferencing-gpus",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machines/windows/high-performance-computing.md",
       "redirect_url": "https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/",
       "redirect_document_id": false
@@ -4001,6 +4006,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/app-service/overview-compare.md",
+      "redirect_url": "/azure/architecture/guide/technology-choices/compute-decision-tree",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service/containers/tutorial-ruby-mysql-app.md",
       "redirect_url": "/azure/app-service/containers/tutorial-ruby-postgres-app",
       "redirect_document_id": false
@@ -5807,12 +5817,12 @@
     },
     {
       "source_path": "articles/app-service-web/choose-web-site-cloud-service-vm.md",
-      "redirect_url": "/azure/app-service/overview-compare",
+      "redirect_url": "/azure/architecture/guide/technology-choices/compute-decision-tree",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service/choose-web-site-cloud-service-vm.md",
-      "redirect_url": "/azure/app-service/overview-compare",
+      "redirect_url": "/azure/architecture/guide/technology-choices/compute-decision-tree",
       "redirect_document_id": false
     },
     {
@@ -10891,6 +10901,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-dedicated-overview",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
       "redirect_document_id": false
@@ -15118,6 +15133,11 @@
     {
       "source_path": "articles/virtual-network/container-networking.md",
       "redirect_url": "/azure/aks/networking-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/stream-analytics/custom-deserializer.md",
+      "redirect_url": "https://aka.ms/asapreview1",
       "redirect_document_id": false
     },
     {
@@ -21872,6 +21892,11 @@
     {
       "source_path": "articles/service-fabric/service-fabric-diagnostics-how-to-setup-wad.md",
       "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric/service-fabric-patch-orchestration-application-linux.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-patch-orchestration-application#frequently-asked-questions",
       "redirect_document_id": false
     },
     {
@@ -33884,8 +33909,8 @@
       "redirect_document_id": "false"
     },
     {
-      "source_path": "articles/monitoring/monitoring-vminsights-onboard.md",
-      "redirect_url": "/azure/azure-monitor/insights/vminsights-onboard",
+      "source_path": "articles/azure-monitor/insights/vminsights-onboard.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-overview",
       "redirect_document_id": "false"
     },
     {
@@ -38851,6 +38876,51 @@
     {
       "source_path": "articles/media-services/latest/scripts/cli-samples.md",
       "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-install-presto.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-dotnet-sdk.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-powershell.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-curl.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-ssh.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/hdinsight-use-pig.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-create-and-manage-applications-as-CSP.md",
+      "redirect_url": "/azure/iot-central/howto-create-and-manage-applications-csp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
+      "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-datafu-udf.md",
+      "redirect_url": "/azure/hdinsight/",
       "redirect_document_id": true
     }
   ]

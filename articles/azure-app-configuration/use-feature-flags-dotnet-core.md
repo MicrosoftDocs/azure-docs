@@ -34,76 +34,78 @@ In this tutorial, you learn how to:
 
 The .NET Core feature manager `IFeatureManager` gets feature flags from the framework's native configuration system. As a result, you can define your application's feature flags using any configuration source that .NET Core supports, including the local *appsettings.json* file or environment variables. Feature manager relies on .NET Core dependency injection. You can register the feature management services using standard conventions.
 
-    ```csharp
-    using Microsoft.FeatureManagement;
+```csharp
+using Microsoft.FeatureManagement;
 
-    IConfiguration Configuration { get; set;}
-
+public class Startup
+{
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddFeatureManagement();
     }
-    ```
+}
+```
 
 The feature manager retrieves feature flags from the "FeatureManagement" section of the .NET Core configuration data by default. The following example tells it to read from a different section called "MyFeatureFlags" instead.
 
-    ```csharp
-    using Microsoft.FeatureManagement;
+```csharp
+using Microsoft.FeatureManagement;
 
-    IConfiguration Configuration { get; set;}
-
+public class Startup
+{
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddFeatureManagement(options =>
         {
-            options.UseConfiguration(Configuration.GetSection("MyFeatureFlags"));
+                options.UseConfiguration(Configuration.GetSection("MyFeatureFlags"));
         });
     }
-    ```
+}
+```
 
 If you use filter in your feature flags, you need to include an additional library and register it. The following example shows how to use a built-in feature filter called **PercentageFilter"**.
 
-    ```csharp
-    using Microsoft.FeatureManagement;
-    using Microsoft.FeatureManagement.FeatureFilters;
+```csharp
+using Microsoft.FeatureManagement;
+using Microsoft.FeatureManagement.FeatureFilters;
 
-    IConfiguration Configuration { get; set;}
-
+public class Startup
+{
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddFeatureManagement()
                 .AddFeatureFilter<PercentageFilter>();
     }
-    ```
+}
+```
 
 To operate effectively, you should keep feature flags outside of the application and manage them separately. Doing so allows you to modify flag states at any time and have those changes taking effect in the application right away. App Configuration provides a centralized place for organizing and controlling all your feature flags through a dedicated portal UI and delivers the flags to your application directly through its .NET Core client libraries. The easiest way to connect your ASP.NET Core application to App Configuration is through the configuration provider `Microsoft.Extensions.Configuration.AzureAppConfiguration`. You can use this NuGet package in your code by adding the following to the *Program.cs* file:
 
-    ```csharp
-    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+```csharp
+using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((hostingContext, config) =>
-            {
-                var settings = config.Build();
-                config.AddAzureAppConfiguration(options => {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .UseFeatureFlags();
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+           .ConfigureAppConfiguration((hostingContext, config) => {
+               var settings = config.Build();
+               config.AddAzureAppConfiguration(options => {
+                   options.Connect(settings["ConnectionStrings:AppConfig"])
+                          .UseFeatureFlags();
                 });
-            })
-            .UseStartup<Startup>();
-    ```
+           })
+           .UseStartup<Startup>();
+```
 
 Feature flag values are expected to change over time. By default, the feature manager will refresh feature flag values every 30 seconds. You can use a different polling interval in the `options.UseFeatureFlags()` call above.
 
-    ```csharp
-    config.AddAzureAppConfiguration(options => {
-        options.Connect(settings["ConnectionStrings:AppConfig"])
-               .UseFeatureFlags(featureFlagOptions => {
-                    featureFlagOptions.PollInterval = TimeSpan.FromSeconds(5);
-               });
-    });
-    ```
+```csharp
+config.AddAzureAppConfiguration(options => {
+    options.Connect(settings["ConnectionStrings:AppConfig"])
+           .UseFeatureFlags(featureFlagOptions => {
+                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(5);
+           });
+});
+```
 
 ## Feature flag declaration
 
@@ -111,92 +113,92 @@ Each feature flag has two parts: a name and a list of one or more filters that a
 
 The feature manager supports *appsettings.json* as a configuration source for feature flags. The following example shows how to set up feature flags in a json file.
 
-    ```csharp
-    "FeatureManagement": {
-        "FeatureX": true, // Feature flag set to on
-        "FeatureY": false, // Feature flag set to off
-        "FeatureC": {
-            "EnabledFor": [
-                {
-                    "Name": "Browser"
-                    "Parameters": {
-                        "AllowedBrowsers": [ "Edge", "Chrome" ]
-                    }
+```JSON
+"FeatureManagement": {
+    "FeatureX": true, // Feature flag set to on
+    "FeatureY": false, // Feature flag set to off
+    "FeatureC": {
+        "EnabledFor": [
+            {
+                "Name": "Percentage",
+                "Parameters": {
+                    "Value": 50
                 }
-            ]
-        }
+            }
+        ]
     }
-    ```
+}
+```
 
 By convention, the `FeatureManagement` section of this json document is used for feature flag settings. The above example shows three feature flags with their filters defined in the *EnabledFor* property:
 
 * **FeatureA** is *on*.
 * **FeatureB** is *off*.
-* **FeatureC** specifies a filter named *Browser* with a *Parameters* property. *Browser* is an example of a configurable filter and it specifies the *Edge* and *Chrome* browsers as *AllowedBrowsers* for enabling the **FeatureC** flag.
+* **FeatureC** specifies a filter named *Percentage* with a *Parameters* property. *Percentage* is an example of a configurable filter and it specifies a 50% probability for the **FeatureC** flag to be *on*.
 
 ## Referencing
 
 Though not required, feature flags should be defined as `enum` variables so that they can be referenced easily in code.
 
-    ```csharp
-    public enum MyFeatureFlags
-    {
-        FeatureA,
-        FeatureB,
-        FeatureC
-    }
-    ```
+```csharp
+public enum MyFeatureFlags
+{
+    FeatureA,
+    FeatureB,
+    FeatureC
+}
+```
 
 ## Feature flag check
 
 The basic pattern of feature management is to first check if a feature flag is set to *on* and then perform the enclosed actions if that is the case.
 
-    ```csharp
-    IFeatureManager featureManager;
-    ...
-    if (featureManager.IsEnabled(nameof(MyFeatureFlags.FeatureA)))
-    {
-        // Run the following code
-    }
-    ```
+```csharp
+IFeatureManager featureManager;
+...
+if (featureManager.IsEnabled(nameof(MyFeatureFlags.FeatureA)))
+{
+    // Run the following code
+}
+```
 
 ## Dependency injection
 
 In ASP.NET Core MVC, the feature manager `IFeatureManager` can be accessed through dependency injection.
 
-    ```csharp
-    public class HomeController : Controller
-    {
-        private readonly IFeatureManager _featureManager;
+```csharp
+public class HomeController : Controller
+{
+    private readonly IFeatureManager _featureManager;
 
-        public HomeController(IFeatureManager featureManager)
-        {
-            _featureManager = featureManager;
-        }
+    public HomeController(IFeatureManager featureManager)
+    {
+        _featureManager = featureManager;
     }
-    ```
+}
+```
 
 ## Controller action
 
 In MVC controllers, a `Feature` attribute can be used to control whether a whole controller class or a specific action is enabled. The following `HomeController` controller requires *FeatureA* to be *on* before any action it contains can be executed.
 
-    ```csharp
-    [Feature(MyFeatureFlags.FeatureA)]
-    public class HomeController : Controller
-    {
-        ...
-    }
-    ```
+```csharp
+[Feature(MyFeatureFlags.FeatureA)]
+public class HomeController : Controller
+{
+    ...
+}
+```
 
 The following `Index` action above requires *FeatureA* to be *on* before it can run.
 
-    ```csharp
-    [Feature(MyFeatureFlags.FeatureA)]
-    public IActionResult Index()
-    {
-        return View();
-    }
-    ```
+```csharp
+[Feature(MyFeatureFlags.FeatureA)]
+public IActionResult Index()
+{
+    return View();
+}
+```
 
 When an MVC controller or action is blocked because the controlling feature flag is *off*, a registered `IDisabledFeatureHandler` is called. The default `IDisabledFeatureHandler` returns a 404 status code to the client with no response body.
 
@@ -204,55 +206,54 @@ When an MVC controller or action is blocked because the controlling feature flag
 
 In MVC views, a `<feature>` tag can be used to render content based on whether a feature flag is enabled or not.
 
-    ```html
-    <feature name="FeatureA">
-        <p>This can only be seen if 'FeatureA' is enabled.</p>
-    </feature>
-    ```
+```html
+<feature name="FeatureA">
+    <p>This can only be seen if 'FeatureA' is enabled.</p>
+</feature>
+```
 
 ## MVC filter
 
 MVC filters can be set up such that they are activated based on the state of a feature flag. The following adds an MVC filter named `SomeMvcFilter`. This filter is triggered within the MVC pipeline only if *FeatureA* is enabled.
 
-    ```csharp
-    using Microsoft.FeatureManagement.FeatureFilters;
+```csharp
+using Microsoft.FeatureManagement.FeatureFilters;
 
-    IConfiguration Configuration { get; set;}
+IConfiguration Configuration { get; set;}
 
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddMvc(options => {
-            options.Filters.AddForFeature<SomeMvcFilter>(nameof(MyFeatureFlags.FeatureA));
-        });
-    }
-    ```
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddMvc(options => {
+        options.Filters.AddForFeature<SomeMvcFilter>(nameof(MyFeatureFlags.FeatureA));
+    });
+}
+```
 
 ## Route
 
 Routes can be exposed dynamically based on feature flags. The following adds a route, which sets `Beta` as the default controller, only when *FeatureA* is enabled.
 
-    ```csharp
-    app.UseMvc(routes => {
-        routes.MapRouteForFeature(nameof(MyFeatureFlags.FeatureA), "betaDefault",
-            "{controller=Beta}/{action=Index}/{id?}"
-    });
-    ```
+```csharp
+app.UseMvc(routes => {
+    routes.MapRouteForFeature(nameof(MyFeatureFlags.FeatureA), "betaDefault", "{controller=Beta}/{action=Index}/{id?}");
+});
+```
 
 ## Middleware
 
 Feature flags can be used to add application branches and middleware conditionally. The following inserts a middleware component in the request pipeline only when *FeatureA* is enabled.
 
-    ```csharp
-    app.UseMiddlewareForFeature<ThirdPartyMiddleware>(nameof(MyFeatureFlags.FeatureA));
-    ```
+```csharp
+app.UseMiddlewareForFeature<ThirdPartyMiddleware>(nameof(MyFeatureFlags.FeatureA));
+```
 
 This builds off the more generic capability to branch the entire application based on a feature flag.
 
-    ```csharp
-    app.UseForFeature(featureName, appBuilder => {
-        appBuilder.UseMiddleware<T>();
-    });
-    ```
+```csharp
+app.UseForFeature(featureName, appBuilder => {
+    appBuilder.UseMiddleware<T>();
+});
+```
 
 ## Next steps
 
