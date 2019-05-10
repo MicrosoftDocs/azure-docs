@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Bulk add users in the Azure Active Directory portal
 
-Azure Active Directory (Azure AD) supports bulk user create and delete operations, and supports downloading lists of users, groups, and group members.
+Azure Active Directory (Azure AD) supports bulk user create and delete operations, bulk invite for guests, and supports downloading lists of users, groups, and group members.
 
 ## To bulk add users
 

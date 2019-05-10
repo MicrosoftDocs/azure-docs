@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Download a list of users in the Azure Active Directory portal
 
-Azure Active Directory (Azure AD) supports bulk user create and delete operations, and supports downloading lists of users, groups, and group members.
+Azure Active Directory (Azure AD) supports bulk user create and delete operations, bulk invite for guests, and supports downloading lists of users, groups, and group members.
 
 ## To download a list of users
 
