@@ -13,7 +13,7 @@ ms.date: 05/06/2019
 
 Azure HDInsight clusters have several external dependencies that it requires network access to function properly. The cluster usually lives in the customer specified virtual network.
 
-There are several inbound dependencies. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published here [https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip]. You can also create Network Security Group(NSG) rules with this information to secure inbound traffic to the clusters.
+There are several inbound dependencies. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published [here](hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip). You can also create Network Security Group(NSG) rules with this information to secure inbound traffic to the clusters.
 
 The HDInsight outbound dependencies are almost entirely defined with FQDNs, which don't have static IP addresses behind them. The lack of static addresses means that Network Security Groups (NSGs) can't be used to lock down the outbound traffic from a cluster. The addresses change often enough that one can't set up rules based on the current resolution and use that to set up NSG rules.
 
@@ -74,19 +74,19 @@ On the **Add application rule collection** screen, complete the following steps:
     1. A rule to allow SQM telemetry:
         1. In the **Target FQDNs** section, provide a **Name**, and set **Source addresses** to `*`.
         1. Enter `https:443` under **Protocol:Port** and `sqm.telemetry.microsoft.com` under **Target FQDNS**.
+    1. If your cluster is backed by WASB and you are not using the service endpoints above, then add a rule for WASB:
+        1. In the **Target FQDNs** section, provide a **Name**, and set **Source addresses** to `*`.
+        1. Enter `wasb` under **Protocol:Port** and `*` under **Target FQDNS**.
 1. Click **Add**.
-
-> [!Important]
-> Also add applicatin rules for login.windows.net:443  , sqm.telemetry.microsoft.com:443
-> If cluster is backed by WASB and you are not using sevice endpoints described above, then add wasb:// url.
-> update the picture
-
 
 ![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
 ### Configure the firewall with network rules
 
 Create the network rules to correctly configure your HDInsight cluster.
+
+> [!Important]
+> Optionally, select SQL service tags in the firewall instead of SQL sevice endpoints described earlier earlier. If you use SQL tags in firewall you can log and audit sql traffic as well.
 
 1. Select the new firewall **Test-FW01** from the Azure portal.
 1. Click **Rules** under **Settings** > **Network rule collection** > **Add network rule collection**.
@@ -96,23 +96,24 @@ Create the network rules to correctly configure your HDInsight cluster.
         1. In the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
         1. Set **Source Addresses** and **Destination addresses** to `*`.
         1. Set **Destination Ports** to 123.
-    1. A network rule that allows communication with AAD-DS for ESP clusters.
-        1. Determine the IP addresses for your domain controllers.
+    1. If you are using Enterprise Security Package (ESP), then add a network rule that allows communication with AAD-DS for ESP clusters.
+        1. Determine the two IP addresses for your domain controllers.
         1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
         1. Set **Source Addresses** `*`.
         1. Enter all of the IP addresses for your domain controllers in **Destination addresses** separated by commas.
         1. Set **Destination Ports** to `*`.
-    1. A network rule to address an SNI issue with ADLS Gen1 and Gen2.
+    1. If you are using Azure Data Lake Storage, then you can add a network rule to address an SNI issue with ADLS Gen1 and Gen2. This option will route the traffic to firewall which might result in higher costs for large data loads but the traffic will be logged and auditable.
+        1. Determine the IP address for your Data Lake Storage account.
         1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
         1. Set **Source Addresses** `*`.
         1. Enter the IP addresses for your storage account in **Destination addresses**.
         1. Set **Destination Ports** to `*`.
-    1. A network rule to enable communication with the Key Management Service.
+    1. A network rule to enable communication with the Key Management Service for Windows Activation.
         1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
         1. Set **Source Addresses** `*`.
         1. Set **Destination addresses** to `*`.
         1. Set **Destination Ports** to `1688`.
-    1. A network rule to enable communication with Operations Management Suite (OMS).
+    1. If you are using Log Analytics, then create a network rule to enable communication with your Log Analytics workspace.
         1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
         1. Set **Source Addresses** `*`.
         1. Set **Destination addresses** to `*`.
@@ -122,14 +123,6 @@ Create the network rules to correctly configure your HDInsight cluster.
 ![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 ### Create and configure a route table
-
-> [!Important]
-> If using ESP cluster, then add 2 IPs for the AAD-DS.
-> If using Log Analytics, allow *:12000
-> Add *:1688 port for Key Management Service Windows Activation
-> For gen1 and gen2: Optionally, resolve your ADLS Gen1 or ADLS Gen2 URL and add IP of the storage account instead of Storage service endpoint described above. This option will route the traffic to firewall which might result in higher costs for large data loads but the traffic will be logged and auditable.
-> Optionally, select SQL service tags in the firewall instead of SQL sevice endpoints described earlier earlier. If you use SQL tags in firewall you can log and audit sql traffic as well.
-> update the picture
 
 Create a route table with the following entries:
 
@@ -158,7 +151,7 @@ For example, to configure the route table for a cluster created in the US region
 | 168.63.129.16 | 168.63.129.16/32 | Internet | NA |
 | 0.0.0.0 | 0.0.0.0/0 | Virtual appliance | <Azure firewall private IP> |
 
-![Title: Creating a route table](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-route-table.png)]
+![Title: Creating a route table](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-route-table.png)
 
 1. Complete the route table configuration:
 
@@ -166,7 +159,7 @@ For example, to configure the route table for a cluster created in the US region
     1. On the **Associate subnet** screen, select the virtual network that your cluster was created into and the **AzureFirewallSubnet** that you created for use with your firewall.
     1. Click **OK**.
 
-![Title: Creating a route table](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-route-table-associate-subnet.png)]
+![Title: Creating a route table](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-route-table-associate-subnet.png)
 
 ## Deploying HDInsight behind a firewall
 
@@ -183,14 +176,13 @@ Routes must be created for the application traffic to avoid asymmetric routing i
 If your applications have other dependencies, they need to be added to your Azure Firewall. Create Application rules to allow HTTP/HTTPS traffic and Network rules for everything else.
 
 ## Logging
+>[!Important]
+>The instructions in this section are unclear. Should the user go to **Firewall** > **Diagnostic settings** > **Turn on diagnostics**?
 
 Azure Firewall can send logs to Azure Storage, Event Hub, or Azure Monitor logs. To integrate your app with any supported destination, complete the following steps:
 
->[!Important]
->The instructions in this section are unclear.
-
 1. Go the Azure Firewall portal > Diagnostic Logs and enable the logs for your desired destination. If you integrate with Azure log Analytics, then you can see logging for any traffic sent to Azure Firewall. 
-1. To see the traffic that is being denied, open your Log Analytics workspace portal \> Logs and enter a query such as the following:
+1. To see the traffic that is being denied, open your Log Analytics workspace portal > Logs and enter a query such as the following:
 
 ```
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
