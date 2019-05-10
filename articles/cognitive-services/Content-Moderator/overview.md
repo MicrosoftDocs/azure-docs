@@ -17,7 +17,7 @@ ms.author: pafarley
 
 # What is Azure Content Moderator?
 
-The Azure Content Moderator API is a cognitive service that checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content in order to comply with regulations or maintain the intended environment for users. See the [Content Moderator APIs](#content-moderator-apis) section to learn more about what the different content flags indicate.
+The Azure Content Moderator API is a cognitive service that checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content in order to comply with regulations or maintain the intended environment for users. See the [Moderation APIs](#moderation-apis) section to learn more about what the different content flags indicate.
 
 ## Where it is used
 
@@ -51,7 +51,7 @@ The following table describes the different types of moderation APIs.
 
 ## Review APIs
 
-The Review APIs let you integrate your moderation pipeline with human reviewers. Use the [Jobs](review-api.md#jobs), [Reviews](review-api.md#reviews), and [Workflow](review-api.md#workflows) operations to create and automate human-in-the-loop workflows with the [Review tool](#the-review-tool).
+The Review APIs let you integrate your moderation pipeline with human reviewers. Use the [Jobs](review-api.md#jobs), [Reviews](review-api.md#reviews), and [Workflow](review-api.md#workflows) operations to create and automate human-in-the-loop workflows with the [Review tool](#the-review-tool) (below).
 
 > [!NOTE]
 > The Workflow API is not yet available in the .NET SDK but can be used with the REST endpoint.
