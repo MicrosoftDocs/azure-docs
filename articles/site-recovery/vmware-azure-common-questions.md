@@ -107,7 +107,7 @@ Site Recovery replicates on-premises VMware VMs and physical servers to managed 
 
 ### Can I replicate new machines to storage accounts?
 
-No. Beginning in March 2019, in the portal, you can replicate only to Azure managed disks.
+No. Beginning in March 2019, in the Azure portal, you can replicate only to Azure managed disks.
 
 Replication of new VMs to a storage account is available only by using PowerShell or the REST API (version 2018-01-10 or 2016-08-10).
 
@@ -185,11 +185,11 @@ Site Recovery follows the N-4 support model. [Learn more](https://aka.ms/asr_sup
 
 ### Where can I find the release notes and update rollups for Azure Site Recovery?
 
-[Learn](site-recovery-whats-new.md) about new updates, and [get rollup information](service-updates-how-to.md).
+[Learn about new updates](site-recovery-whats-new.md), and [get rollup information](service-updates-how-to.md).
 
 ### Where can I find upgrade information for disaster recovery to Azure?
 
-[Learn about](https://aka.ms/asr_vmware_upgrades) upgrading.
+[Learn about upgrading](https://aka.ms/asr_vmware_upgrades).
 
 ## Do I need to reboot source machines for each upgrade?
 
@@ -213,7 +213,7 @@ The configuration server runs the on-premises Site Recovery components, includin
 
 ### Where do I set up the configuration server?
 
-You need a single, highly available on-premises VMware VM for the configuration server. For physical server disaster recovery, you can install the configuration server on a physical machine.
+You need a single, highly available, on-premises VMware VM for the configuration server. For physical server disaster recovery, install the configuration server on a physical machine.
 
 ### What do I need for the configuration server?
 
@@ -221,23 +221,23 @@ Review the [prerequisites](vmware-azure-deploy-configuration-server.md#prerequis
 
 ### Can I manually set up the configuration server instead of using a template?
 
-We recommend that you [create the configuration server VM](vmware-azure-deploy-configuration-server.md) with the latest version of the OVF template. If for some reason you can't, for example you don't have access to the VMware server, you can [download](physical-azure-set-up-source.md) the setup file from the portal and set up the configuration server.
+We recommend that you [create the configuration server VM](vmware-azure-deploy-configuration-server.md) by using the latest version of the Open Virtual Machine Format (OVF) template. If you can't use the template (for example, if you don't have access to the VMware server), [download](physical-azure-set-up-source.md) the setup file from the portal and set up the configuration server.
 
 ### Can a configuration server replicate to more than one region?
 
-No. To do this, you need a configuration server in each region.
+No. To replicate to more than one region, you need a configuration server in each region.
 
 ### Can I host a configuration server in Azure?
 
-While possible, the Azure VM running the configuration server would need to communicate with your on-premises VMware infrastructure and VMs. This adds latency and impacts ongoing replication.
+Although it's possible, the Azure VM running the configuration server would need to communicate with your on-premises VMware infrastructure and VMs. This adds latency and impacts ongoing replication.
 
 ### How do I update the configuration server?
 
-[Learn](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) how to update configuration server.
+[Learn](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) how to update the configuration server.
 
 - You can find the latest update information on the [Azure updates page](https://azure.microsoft.com/updates/?product=site-recovery).
-- You can download the latest version from the portal. Alternatively, you can directly download the latest version of the configuration server from the [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
-- If your version is more than four versions older than the current version, refer to our [support statement](https://aka.ms/asr_support_statement) for upgrade guidance.
+- You can download the latest version from the portal. Alternatively, you can download the latest version of the configuration server directly from the [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+- If your version is more than four versions older than the current version, see the [support statement](https://aka.ms/asr_support_statement) for upgrade guidance.
 
 ### Should I back up the configuration server?
 
@@ -249,100 +249,99 @@ We recommend taking regular scheduled backups of the configuration server.
 
 ### When I'm setting up the configuration server, can I download and install MySQL manually?
 
-Yes. Download MySQL and place it in the **C:\Temp\ASRSetup** folder. Then install it manually. When you set up the configuration server VM and accept the terms, MySQL will be listed as **Already installed** in **Download and install**.
+Yes. Download MySQL and place it in the C:\Temp\ASRSetup folder. Then, install it manually. When you set up the configuration server VM and accept the terms, MySQL will be listed as **Already installed** in **Download and install**.
 
 ### Can I avoid downloading MySQL but let Site Recovery install it?
 
-Yes. Download the MySQL installer and place it in the **C:\Temp\ASRSetup** folder.  When you set up the configuration server VM, accept the terms, and click on **Download and install**. The portal will use the installer you added to install MySQL.
- 
+Yes. Download the MySQL installer and place it in the C:\Temp\ASRSetup folder. When you set up the configuration server VM, accept the terms and select **Download and install**. The portal will use the installer that you added to install MySQL.
+
 ### Can I use the configuration server VM for anything else?
 
-No, you should only use the VM for the configuration server. 
+No. Use the VM only for the configuration server.
 
 ### Can I clone a configuration server and use it for orchestration?
 
-No, you should set up a fresh configuration server to avoid registration issues.
+No. Set up a fresh configuration server to avoid registration issues.
 
 ### Can I change the vault in which the configuration server is registered?
 
-No. After a vault is associated with the configuration server, it can't be changed. Review [this article](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) to learn about re-registering.
+No. After a vault is associated with the configuration server, it can't be changed. [Learn](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) about registering a configuration server with a different vault.
 
-### Can I use the same configuration server for disaster recovery of both VMware VMs and physical servers
+### Can I use the same configuration server for disaster recovery of both VMware VMs and physical servers?
 
-Yes, but note that physical machine can only be failed back to a VMware VM.
+Yes, but note that physical machine can be failed back only to a VMware VM.
 
 ### Where can I download the passphrase for the configuration server?
 
-[Learn how to](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) download the passphrase.
+[Learn](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) how to download the passphrase.
 
 ### Where can I download vault registration keys?
 
-In the Recovery Services vault, click **Configuration Servers** in **Site Recovery Infrastructure** > **Manage**. Then in **Servers**, select **Download registration key** to download the vault credentials file.
+In the Recovery Services vault, select **Configuration Servers** in **Site Recovery Infrastructure** > **Manage**. Then, in **Servers**, select **Download registration key** to download the vault credentials file.
 
-## Process Server
+## Process server
 
 ### Unable to select process server during enable replication
 
-From 9.24 version, enhancements are made to provide [process server alerts](vmware-physical-azure-monitor-process-server.md#process-server-alerts) on when to set up a scale-out process server. This is to avoid process server throttling and avoid usage of unhealthy process server.
+Enhancements in version 9.24 provide [process server alerts](vmware-physical-azure-monitor-process-server.md#process-server-alerts) for when to set up a scale-out process server. This is to avoid process server throttling and avoid use of an unhealthy process server.
 
-### What should I do to obtain accurate health status of process server?
+### What should I do to get an accurate health status of process server?
 
-Upgrade Site Recovery components to the [latest versions](service-updates-how-to.md#links-to-currently-supported-update-rollups) (at least 9.24 or above).
+Upgrade the Site Recovery components to the [latest versions](service-updates-how-to.md#links-to-currently-supported-update-rollups) (9.24 or later).
 
 ## Failover and failback
 
-### Can I use the process server at on-premises for failback?
+### Can I use the on-premises process server for failback?
 
-We strongly recommended creating a process server in Azure for failback purposes, to avoid data transfer latencies. Additionally, in case you separated the source VMs network with the Azure facing network in the configuration server, it's essential to use the process server created in Azure for failback.
+We strongly recommend creating a process server in Azure for failback purposes, to avoid data transfer latencies. Additionally, in case you separated the source VMs network with the Azure facing network in the configuration server, it's essential to use the process server created in Azure for failback.
 
 ### Can I retain the IP address on failover?
 
-Yes, you can retain the IP address on failover. Ensure that you specify target IP address in 'Compute and Network' settings for the VM before failover. Also, shut down machines at the time of failover to avoid IP address conflicts during failback.
+Yes, you can retain the IP address on failover. Ensure that you specify the target IP address in the **Compute and Network** settings for the VM before failover. Also, shut down machines at the time of failover to avoid IP address conflicts during failback.
 
 ### Can I change the target VM size or VM type before failover?
 
-Yes, you can change the type or size of the VM any time before failover on the Compute and Network settings of the replicated Vm,  in the portal.
+Yes, you can change the type or size of the VM at any time before failover. In the portal, use the **Compute and Network** settings for the replicated VM.
 
 ### How far back can I recover?
 
-For VMware to Azure the oldest recovery point you can use is 72 hours.
+For VMware to Azure, the oldest recovery point you can use is 72 hours.
 
 ### How do I access Azure VMs after failover?
 
-After failover, you can access Azure VMs over a secure Internet connection, over a site-to-site VPN, or over Azure ExpressRoute. You'll need to prepare several things in order to connect. [Learn more](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+After failover, you can access Azure VMs over a secure internet connection, over a site-to-site VPN, or over Azure ExpressRoute. To connect, you must prepare several things. [Learn more](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 
-### Is failed over data resilient?
+### Is failed-over data resilient?
 
-Azure is designed for resilience. Site Recovery is engineered for failover to a secondary Azure datacenter, in accordance with the Azure SLA. When failover occurs, we make sure your metadata and vaults remain within the same geographic region that you chose for your vault.
+Azure is designed for resilience. Site Recovery is engineered for failover to a secondary Azure datacenter, in accordance with the Azure service-level agreement (SLA). When failover occurs, we make sure your metadata and vaults remain in the same geographic region that you chose for your vault.
 
 ### Is failover automatic?
 
-[Failover](site-recovery-failover.md) isn't automatic. You initiate failovers with single click in the portal, or you can use [PowerShell](/powershell/module/az.recoveryservices) to trigger a failover.
+[Failover](site-recovery-failover.md) isn't automatic. You initiate a failover by making a single selection in the portal, or you can use [PowerShell](/powershell/module/az.recoveryservices) to trigger a failover.
 
 ### Can I fail back to a different location?
 
-Yes, if you failed over to Azure, you can fail back to a different location if the original one isn't available. [Learn more](concepts-types-of-failback.md#alternate-location-recovery-alr).
+Yes. If you failed over to Azure, you can fail back to a different location if the original one isn't available. [Learn more](concepts-types-of-failback.md#alternate-location-recovery-alr).
 
 ### Why do I need a VPN or ExpressRoute to fail back?
 
-When you fail back from Azure, data from Azure is copied back to your on-premises VM and private access is required.
+When you fail back from Azure, data from Azure is copied back to your on-premises VM. Private access to that VM is required.
 
 ### Can I resize the Azure VM after failover?
 
-No, you cannot change the size or type of the target VM after the failover.
+No, you can't change the size or type of the target VM after the failover.
 
 ## Automation and scripting
 
 ### Can I set up replication with scripting?
 
-Yes. You can automate Site Recovery workflows using the Rest API, PowerShell, or the Azure SDK.[Learn more](vmware-azure-disaster-recovery-powershell.md).
+Yes. You can automate Site Recovery workflows by using the Rest API, PowerShell, or the Azure SDK. [Learn more](vmware-azure-disaster-recovery-powershell.md).
 
 ## Performance and capacity
 
 ### Can I throttle replication bandwidth?
 
 Yes. [Learn more](site-recovery-plan-capacity-vmware.md).
-
 
 ## Next steps
 
