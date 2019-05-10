@@ -153,23 +153,27 @@ Look for the `publicHostName` in the output, for example: `"publicHostname": "op
 
 The sign in URL for your cluster will be `https://` followed by the `publicHostName` value.  For example: `https://openshift.xxxxxxxxxxxxxxxxxxxx.westus.azmosa.io`
 
-## Step 3: Sign in to the OpenShift console
+## Step 3: Update your app registration URI
+
+1. Open the [App registrations blade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview).
+2. Click on your app registration object.
+3. Click on the link under **Redirect URIs**.  It will look like **1 web, 0 public client**.
+4. Change it using the following pattern:
+    ```
+    https://openshift.<public host name>/oauth2callback/Azure%20AD
+    ```
+5. Click **Save**
+
+## Step 4: Sign in to the OpenShift console
 
 You're now ready to sign in to the OpenShift console for your new cluster. The [OpenShift Web Console](https://docs.openshift.com/aro/architecture/infrastructure_components/web_console.html) enables you to visualize, browse, and manage the contents of your OpenShift projects.
 
-We'll sign in as the [new Azure AD user](howto-aad-app-configuration.md#create-a-new-azure-active-directory-user) you created for testing. To do this, you'll need a fresh browser instance that hasn't cached the identity you normally use to sign in to the Azure portal.
+You'll need a fresh browser instance that hasn't cached the identity you normally use to sign in to the Azure portal.
 
 1. Open an *incognito* window (Chrome) or *InPrivate* window (Microsoft Edge).
 2. Navigate to the sign-on URL that you obtained above, for example: `https://openshift.xxxxxxxxxxxxxxxxxxxx.westus.azmosa.io`
 
 A **Permissions requested** dialog will appear. Click **Consent on behalf of your organization**  and then click **Accept**.
-
-> [!NOTE]
-> The OpenShift console uses a self-signed certificate.
-> When prompted in your browser, bypass the warning and accept
-> the "untrusted" certificate.
-
-From the Red Hat OpenShift web console, sign in with the user and password that you created in [Create a new Active Directory user](howto-aad-app-configuration.md#create-a-new-azure-active-directory-user)
 
 You are now logged into the cluster console.
 
@@ -177,7 +181,7 @@ You are now logged into the cluster console.
 
  Learn more about [using the OpenShift console](https://docs.openshift.com/aro/getting_started/developers_console.html) to create and built images in the [Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html) documentation.
 
-## Step 4: Install the OpenShift CLI
+## Step 5: Install the OpenShift CLI
 
 The [OpenShift CLI](https://docs.openshift.com/aro/cli_reference/get_started_cli.html) (or *OC Tools*) provide commands for managing your applications and lower-level utilities for interacting with the various components of your OpenShift cluster.
 

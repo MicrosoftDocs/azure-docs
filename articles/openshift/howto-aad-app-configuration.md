@@ -63,25 +63,8 @@ If your organization doesn't already have an Azure Active Directory (Azure AD) a
 1. Open the [App registrations blade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) and click **+New  registration**.
 2. In the **Register an application** pane, enter a name for your application object.
 3. Ensure that under **Supported account types**, that **Accounts in this organizational directory only** is selected. This is the most secure choice.
-4. Ensure that the **Redirect URI (optional)** dropdown is set to **Web**.
-5. Create a **Redirect URI** using the following pattern:
-
-    ```
-    https://openshift.<cluster-name>.<azure-region>.azmosa.io/oauth2callback/Azure%20AD
-    ```
-
-    `<cluster-name>` is the intended name of your Azure Red Hat OpenShift cluster (or any unique, lower-case string) and `<azure-region>` is the [Azure region hosting your Azure Red Hat OpenShift cluster](supported-resources.md#azure-regions).
-
-    For example, if your cluster name is to be `contoso`, and you will be creating it in the `eastus` region, the URI that you'll enter for the **Redirect URI** would be `https://openshift.contoso.eastus.azmosa.io/oath2callback/Azure%20AD`
-
-    > [!IMPORTANT]
-    > The cluster name must be all lowercase, and be unique.
-    
-    Make note of your cluster name. We will refer to the cluster name as `CLUSTER_NAME` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
-
-6. Ensure your **Redirect URI (optional)** value validates with a green check.
-7. Click the **Register** button to create the Azure AD application object.
-8. On the page that appears displaying the created app registration, copy down the **Application (client) ID**. We will refer to this value as `APPID` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
+4. Click the **Register** button to create the Azure AD application object.
+5. On the page that appears displaying the created app registration, copy down the **Application (client) ID**. We will refer to this value as `APPID` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
 
 ![Screenshot of app object page](./media/howto-create-tenant/get-app-id.png)
 
