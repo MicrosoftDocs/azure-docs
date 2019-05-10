@@ -59,7 +59,7 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 This section covers how to prepare and install FSLogix, Windows Defender, and other common applications. 
 
-If you're installing Office 365 ProPlus and OneDrive on your VM, see [Install Office 365 on a master VHD image](install-o365-on-wvd-master-image.md). Follow the link in Next steps of that article to return to this article and complete the master VHD process.
+If you're installing Office 365 ProPlus and OneDrive on your VM, see [Install Office on a master VHD image](install-office-on-wvd-master-image.md). Follow the link in Next steps of that article to return to this article and complete the master VHD process.
 
 If your users need to access certain LOB applications, we recommend you install them after completing this section’s instructions.
 

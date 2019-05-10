@@ -1,6 +1,6 @@
 ---
-title: Install Office 365 on a master VHD image - Azure
-description: How to install and customize Office 365 on a Windows Virtual Desktop preview master image to Azure.
+title: Install Office on a master VHD image - Azure
+description: How to install and customize Office on a Windows Virtual Desktop preview master image to Azure.
 services: virtual-desktop
 author: ChJenk
 
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: v-chjenk
 ---
-# Install Office 365 on a master VHD image
+# Install Office on a master VHD image
 
 This article tells you how to prepare and install Office 365 ProPlus, OneDrive, and other common applications a master virtual hard disk (VHD) image for upload to Azure. If your users need to access certain line of business (LOB) applications, we recommend you install them after completing the instructions in this article.
 
@@ -22,7 +22,11 @@ This article also assumes you have elevated access on the VM, whether it's provi
 
 ## Install Office in shared computer activation mode
 
-Use the [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117) to install Office. Windows 10 Enterprise multi-session only supports Office 365 ProPlus, not Office 2019 Perpetual.
+Shared computer activation lets you to deploy Office 365 ProPlus to a computer in your organization that is accessed by multiple users. For more information about shared computer activation, see [Overview of shared computer activation for Office 365 ProPlus](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus).
+
+
+
+Use the [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117) to install Office. Windows 10 Enterprise multi-session only supports Office 365 ProPlus.
 
 The Office Deployment Tool requires a configuration XML file. To customize the following sample, see the [Configuration Options for the Office Deployment Tool](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
 
@@ -33,7 +37,7 @@ This sample configuration XML we've provided will do the following things:
 - Disable automatic updates.
 - Install Visio and Project.
 - Remove any existing installations of Office and migrate their settings.
-- Enable shared computer licensing for operation in a terminal server environment.
+- Enable shared computer activation.
 
 >[!NOTE]
 >Stencil search feature in Visio does not operate in Windows Virtual Desktop during preview configuration. We are working on fixing this issue.
@@ -44,7 +48,7 @@ Here's what this sample configuration XML won't do:
 - Install OneDrive in per-user mode. To learn more, see [Install OneDrive in per-machine mode](#install-onedrive-in-per-machine-mode).
 
 >[!NOTE]
->Shared Computer Licensing can be set up through Group Policy Objects (GPOs) or registry settings. The GPO is located at **Computer Configuration\\Policies\\Administrative Templates\\Microsoft Office 2016 (Machine)\\Licensing Settings**
+>Shared Computer Activation can be set up through Group Policy Objects (GPOs) or registry settings. The GPO is located at **Computer Configuration\\Policies\\Administrative Templates\\Microsoft Office 2016 (Machine)\\Licensing Settings**
 
 The Office Deployment Tool contains setup.exe. To install Office, run the following command in a command line:
 
@@ -54,7 +58,7 @@ Setup.exe /configure configuration.xml
 
 #### Sample configuration.xml
 
-The following XML sample will install the Insiders release, also known as Insiders Fast or Insiders Main.
+The following XML sample will install the Insiders release.
 
 ```xml
 <Configuration>
@@ -167,4 +171,4 @@ Windows Virtual Desktop does not officially support Skype for Business and Teams
 
 ## Next steps
 
-Now that you've added Office 365 to the image, you can continue to customize your master VHD image. See [Prepare and customize a master VHD image](set-up-customize-master-image.md).
+Now that you've added Office to the image, you can continue to customize your master VHD image. See [Prepare and customize a master VHD image](set-up-customize-master-image.md).
