@@ -5,7 +5,7 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 5/9/2019
+ms.date: 5/10/2019
 ms.author: dukek
 ms.subservice: alerts
 ---
