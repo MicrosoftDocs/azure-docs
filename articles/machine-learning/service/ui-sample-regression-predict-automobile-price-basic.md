@@ -35,10 +35,6 @@ Here's the final, completed graph of the experiment. This article provides the r
 
     ![Open the experiment](media/ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
 
-## Related sample
-
-`Sample 2 - Regression: Automobile Price Prediction (Compare Algorithms)` provides a more complicated sample experiment that solves the same problem by using two different regression models. It shows how to quickly compare different algorithms for performance. Check it out if you're looking for a more advanced sample.
-
 ## Get the data
 
 In this experiment, we use the **Automobile price data (Raw)** dataset, which is from the UCI Machine Learning Repository. The dataset contains 26 columns that contain information about automobiles, including make, model, price, vehicle features (like the number of cylinders), MPG, and an insurance risk score. The goal of this experiment is to predict the price of the car.
@@ -52,6 +48,7 @@ We use the **Select Columns in Dataset** module to exclude normalized-losses tha
 ![Data pre-processing](./media/ui-sample-regression-predict-automobile-price-basic/data-processing.png)
 
 ## Train the model
+
 Machine learning problems vary. Common machine learning tasks include classification, clustering, regression, and recommender systems, each of which might require a different algorithm. Your choice of algorithm often depends on the requirements of the use case. After you pick an algorithm, you need to tune its parameters to train a more accurate model. You then need to evaluate all models based on metrics like accuracy, intelligibility, and efficiency.
 
 Because the goal of this experiment is to predict automobile prices, and because the label column (price) contains real numbers, a regression model is a good choice. Considering that the number of features is relatively small (less than 100) and these features aren't sparse, the decision boundary is likely to be nonlinear. So we use **Decision Forest Regression** for this experiment.
@@ -78,9 +75,6 @@ We then pass the scores to the **Evaluate Model** module to generate evaluation 
 
 ## Next steps
 
-Explore the other samples available for the visual interface:
+Explore the advanced sample to learn how to build a classifier and compare potential algorithms:
 
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](ui-sample-classification-predict-churn.md)
+- [Predict credit risk (cost sensitive)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
