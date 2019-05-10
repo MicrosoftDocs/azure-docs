@@ -41,7 +41,7 @@ If no events and executions occur today in the Consumption plan, your app may sc
 
 In the Premium plan, you can have your app pre-warmed on a specified number of instances, up to your minimum plan size.  Pre-warmed instances also let you pre-scale an app before high load. As the app scales out, it first scales into the pre-warmed instances. Additional instances continue to buffer out and warm immediately in preparation for the next scale operation. By having a buffer of pre-warmed instances, you can effectively avoid cold start latencies.  Pre-warmed instances is a feature of the Premium plan, and you need to keep at least one instance running and available at all times the plan is active.
 
-You can configure the number of pre-warmed instances in the Azure portal by selecting  **Scale Out** in the **Platform Features** tab.
+You can configure the number of pre-warmed instances in the Azure portal by selected your **Function App**, going to the **Platform Features** tab, and selecting the **Scale Out** options. In the function app edit window, pre-warmed instances is specific to that app, but the minimum and maximum instances apply to your entire plan.
 
 ![Elastic Scale Settings](./media/functions-premium-plan/scale-out.png)
 

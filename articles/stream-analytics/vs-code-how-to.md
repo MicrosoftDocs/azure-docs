@@ -55,7 +55,7 @@ You can use the Azure Stream Analytics extension for Visual Studio Code to test 
 
 You can enable continuous integration and deployment for Azure Stream Analytics jobs using the **asa-cicd tools** NPM package. The NPM package provides the tools for the auto-deployment of Stream Analytics Visual Studio Code projects. It can be used on Windows, macOS, and Linux without installing Visual Studio Code.
 
-Once you have [downloaded the package](https://usqldownload.blob.core.windows.net/ext/asa/asa-cicd-0.0.1-preview-beta.tar), use the following command to output the Azure Resource Manager templates. If the **outputPath** is not specified, the templates will be placed in the **Deploy** folder under the project's **bin** folder.
+Once you have [downloaded the package](https://www.npmjs.com/package/azure-streamanalytics-cicd), use the following command to output the Azure Resource Manager templates. If the **outputPath** is not specified, the templates will be placed in the **Deploy** folder under the project's **bin** folder.
 
 ```powershell
 asa-cicd build -scriptPath <scriptFullPath> -outputPath <outputPath>
