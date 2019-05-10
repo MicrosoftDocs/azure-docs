@@ -234,7 +234,7 @@ RebootRequired | true - reboot was required<br> false - reboot was not required 
 
 If no update is scheduled yet, the result JSON is empty.
 
-Log in to the cluster to query Windows Update results. Then find out the replica address for the primary of the Coordinator Service, and hit the URL from the browser:
+Sign in to the cluster to query Windows Update results. Then find out the replica address for the primary of the Coordinator Service, and hit the URL from the browser:
 http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults.
 
 The REST endpoint for the Coordinator Service has a dynamic port. To check the exact URL, refer to the Service Fabric Explorer. For example, the results are available at
