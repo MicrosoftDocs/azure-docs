@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/24/2019
+ms.date: 05/08/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -69,7 +69,7 @@ To deploy the Start/Stop VMs during off hours solution to an Automation Account 
 | Microsoft.Resources/subscriptions/resourceGroups/read | Resource Group |
 | Microsoft.Resources/deployments/* | Resource Group |
 
-### New Automation Account and a new Log Analytics workspace
+#### New Automation Account and a new Log Analytics workspace
 
 To deploy the Start/Stop VMs during off hours solution to a new Automation Account and Log Analytics workspace the user deploying the solution needs the permissions defined in the preceding section as well as the following permissions:
 
@@ -85,6 +85,30 @@ To deploy the Start/Stop VMs during off hours solution to a new Automation Accou
 | Microsoft.Automation/automationAccounts/write | Resource Group |
 | Microsoft.OperationalInsights/workspaces/write | Resource Group |
 
+### Region mappings
+
+When enabling Start/Stop VMs during off-hours, only certain regions are supported for linking a Log Analytics workspace and an Automation Account.
+
+The following table shows the supported mappings:
+
+|**Log Analytics Workspace Region**|**Azure Automation Region**|
+|---|---|
+|AustraliaSoutheast|AustraliaSoutheast|
+|CanadaCentral|CanadaCentral|
+|CentralIndia|CentralIndia|
+|EastUS<sup>1</sup>|EastUS2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
+|WestEurope|WestEurope|
+|UKSouth|UKSouth|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> EastUS2EUAP and EastUS mappings for Log Analytics workspaces to Automation Accounts are not an exact region to region mapping but is the correct mapping.
+
+<sup>2</sup> Due to capacity restraints the region is not available when creating new resources. This includes Automation Accounts and Log Analytics workspaces. However, preexisting linked resources in the region should continue to work.
+
 ## Deploy the solution
 
 Perform the following steps to add the Start/Stop VMs during off-hours solution to your Automation account, and then configure the variables to customize the solution.
@@ -95,6 +119,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
 
    > [!NOTE]
    > You can also create it from anywhere in the Azure portal, by clicking **Create a resource**. In the Marketplace page, type a keyword such as **Start** or **Start/Stop**. As you begin typing, the list filters based on your input. Alternatively, you can type in one or more keywords from the full name of the solution and then press Enter. Select **Start/Stop VMs during off-hours** from the search results.
+
 2. In the **Start/Stop VMs during off-hours** page for the selected solution, review the summary information and then click **Create**.
 
    ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)

@@ -66,7 +66,9 @@ Yes. For more information about public IP address ranges, see [Create a virtual 
 Yes. See [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) for details. Subnet address spaces cannot overlap one another.
 
 ### Are there any restrictions on using IP addresses within these subnets?
-Yes. Azure reserves 5 IP addresses within each subnet. The first and last IP addresses of each subnet are reserved for protocol conformance, along with the x.x.x.1-x.x.x.3 addresses of each subnet, which are used for Azure services.
+Yes. Azure reserves 5 IP addresses within each subnet. These are x.x.x.0-x.x.x.3 and the last address of the subnet.    
+- x.x.x.0 and the last address of the subnet is reserved for protocol conformance.
+- x.x.x.1-x.x.x.3 is reserved in each subnet for Azure services.
 
 ### How small and how large can VNets and subnets be?
 The smallest supported subnet is /29, and the largest is /8 (using CIDR subnet definitions).
@@ -241,7 +243,7 @@ The following resources use Basic Load Balancers which means you cannot communic
 - Application Gateway (v1) SKU
 - Service Fabric
 - SQL MI
-- API Managemenet
+- API Management
 - Active Directory Domain Service (ADDS)
 - Logic Apps
 - HD Insight
@@ -280,6 +282,9 @@ No. Transitive peering is not supported. You must peer VNetA and VNetC for this 
 
 ### Are there any bandwidth limitations for peering connections?
 No. VNet peering, whether local or global, does not impose any bandwidth restrictions. Bandwidth is only limited by the VM or the compute resource.
+
+### How can I troubleshoot VNet Peering issues?
+Here is a [troubleshooter guide] (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) you can try.
 
 ## Virtual network TAP
 
