@@ -16,7 +16,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.AAD
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| DomainServices | Yes | 
+| DomainServices | Yes | Yes |
 | DomainServices/oucontainer | No | No |
 
 ## microsoft.aadiam
@@ -65,7 +65,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.AnalysisServices
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| servers | Yes | 
+| servers | Yes | Yes |
 
 ## Microsoft.ApiManagement
 | Resource type | Supports tags | Tag in cost report |
@@ -115,19 +115,19 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.AzureActiveDirectory
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| b2cDirectories | Yes | 
+| b2cDirectories | Yes | No |
 
 ## Microsoft.AzureStack
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| registrations | Yes | 
+| registrations | Yes | Yes |
 | registrations/customerSubscriptions | No |  No |
 | registrations/products | No |  No |
 
 ## Microsoft.Batch
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| batchAccounts | Yes | 
+| batchAccounts | Yes | Yes |
 
 ## Microsoft.Billing
 | Resource type | Supports tags | Tag in cost report |
@@ -186,13 +186,13 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.BingMaps
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| mapApis | Yes | 
+| mapApis | Yes | Yes |
 | updateCommunicationPreference | No |  No |
 
 ## Microsoft.BizTalkServices
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| BizTalk | Yes | 
+| BizTalk | Yes | Yes |
 
 ## Microsoft.Blueprint
 | Resource type | Supports tags | Tag in cost report |
@@ -215,7 +215,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.Cache
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| Redis | Yes | 
+| Redis | Yes | Yes |
 | RedisConfigDefinition | No |  No |
 
 ## Microsoft.Capacity
@@ -241,7 +241,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
 | edgenodes | No |  No |
-| profiles | Yes | 
+| profiles | Yes | Yes |
 | profiles/endpoints | Yes | 
 | profiles/endpoints/customdomains | No |  No |
 | profiles/endpoints/origins | No |  No |
@@ -250,7 +250,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.CertificateRegistration
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| certificateOrders | Yes | 
+| certificateOrders | Yes | Yes |
 | certificateOrders/certificates | No |  No |
 | validateCertificateRegistrationInformation | No |  No |
 
@@ -322,18 +322,18 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.Compute
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| availabilitySets | Yes | 
-| disks | Yes | 
-| images | Yes | 
-| restorePointCollections | Yes | 
+| availabilitySets | Yes | Yes |
+| disks | Yes | Yes |
+| images | Yes | Yes |
+| restorePointCollections | Yes | Yes |
 | restorePointCollections/restorePoints | No |  No |
-| sharedVMImages | Yes | 
-| sharedVMImages/versions | Yes | 
-| snapshots | Yes | 
-| virtualMachines | Yes | 
+| sharedVMImages | Yes | Yes |
+| sharedVMImages/versions | Yes | Yes |
+| snapshots | Yes | Yes |
+| virtualMachines | Yes | Yes |
 | virtualMachines/diagnosticSettings | No |  No |
-| virtualMachines/extensions | Yes | 
-| virtualMachineScaleSets | Yes | 
+| virtualMachines/extensions | Yes | Yes |
+| virtualMachineScaleSets | Yes | Yes |
 | virtualMachineScaleSets/extensions | No |  No |
 | virtualMachineScaleSets/networkInterfaces | No |  No |
 | virtualMachineScaleSets/publicIPAddresses | No |  No |
@@ -366,17 +366,17 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.ContainerInstance
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| containerGroups | Yes | 
+| containerGroups | Yes | Yes |
 | serviceAssociationLinks | No |  No |
 
 ## Microsoft.ContainerRegistry
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| registries | Yes | 
+| registries | Yes | Yes |
 | registries/builds | No |  No |
 | registries/builds/cancel | No |  No |
 | registries/builds/getLogLink | No |  No |
-| registries/buildTasks | Yes | 
+| registries/buildTasks | Yes | Yes |
 | registries/buildTasks/steps | No |  No |
 | registries/eventGridFilters | No |  No |
 | registries/getBuildSourceUploadUrl | No |  No |
@@ -385,39 +385,39 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | registries/queueBuild | No |  No |
 | registries/regenerateCredential | No |  No |
 | registries/regenerateCredentials | No |  No |
-| registries/replications | Yes | 
+| registries/replications | Yes | Yes |
 | registries/runs | No |  No |
 | registries/runs/cancel | No |  No |
 | registries/scheduleRun | No |  No |
-| registries/tasks | Yes | 
+| registries/tasks | Yes | Yes |
 | registries/updatePolicies | No |  No |
-| registries/webhooks | Yes | 
+| registries/webhooks | Yes | Yes |
 | registries/webhooks/getCallbackConfig | No |  No |
 | registries/webhooks/ping | No |  No |
 
 ## Microsoft.ContainerService
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| containerServices | Yes | 
-| managedClusters | Yes | 
+| containerServices | Yes | Yes |
+| managedClusters | Yes | Yes |
 
 ## Microsoft.ContentModerator
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| applications | Yes | 
+| applications | Yes | Yes |
 | updateCommunicationPreference | No |  No |
 
 ## Microsoft.CortanaAnalytics
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| accounts | Yes | 
+| accounts | Yes | Yes |
 
 ## Microsoft.CostManagement
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
 | Alerts | No |  No |
 | BillingAccounts | No |  No |
-| Connectors | Yes | 
+| Connectors | Yes | Yes |
 | Departments | No |  No |
 | Dimensions | No |  No |
 | EnrollmentAccounts | No |  No |
@@ -429,7 +429,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.CustomerInsights
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| hubs | Yes | 
+| hubs | Yes | Yes |
 | hubs/authorizationPolicies | No |  No |
 | hubs/connectors | No |  No |
 | hubs/connectors/mappings | No |  No |
@@ -446,12 +446,12 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.DataBox
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| jobs | Yes | 
+| jobs | Yes | Yes |
 
 ## Microsoft.DataBoxEdge
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| DataBoxEdgeDevices | Yes | 
+| DataBoxEdgeDevices | Yes | Yes |
 
 ## Microsoft.Databricks
 | Resource type | Supports tags | Tag in cost report |
@@ -462,26 +462,26 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.DataCatalog
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| catalogs | Yes | 
+| catalogs | Yes | Yes |
 
 ## Microsoft.DataConnect
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| connectionManagers | Yes | 
+| connectionManagers | Yes | Yes |
 
 ## Microsoft.DataFactory
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| dataFactories | Yes | 
+| dataFactories | Yes | No |
 | dataFactories/diagnosticSettings | No |  No |
 | dataFactorySchema | No |  No |
-| factories | Yes | 
+| factories | Yes | No |
 | factories/integrationRuntimes | No |  No |
 
 ## Microsoft.DataLakeAnalytics
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| accounts | Yes | 
+| accounts | Yes | Yes |
 | accounts/dataLakeStoreAccounts | No |  No |
 | accounts/storageAccounts | No |  No |
 | accounts/storageAccounts/containers | No |  No |
@@ -489,34 +489,34 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.DataLakeStore
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| accounts | Yes | 
+| accounts | Yes | Yes |
 | accounts/eventGridFilters | No |  No |
 | accounts/firewallRules | No |  No |
 
 ## Microsoft.DataMigration
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| services | Yes | 
-| services/projects | Yes | 
+| services | Yes | Yes |
+| services/projects | Yes | Yes |
 
 ## Microsoft.DBforMariaDB
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| servers | Yes | 
+| servers | Yes | Yes |
 | servers/recoverableServers | No |  No |
 | servers/virtualNetworkRules | No |  No |
 
 ## Microsoft.DBforMySQL
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| servers | Yes | 
+| servers | Yes | Yes |
 | servers/recoverableServers | No |  No |
 | servers/virtualNetworkRules | No |  No |
 
 ## Microsoft.DBforPostgreSQL
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| servers | Yes | 
+| servers | Yes | Yes |
 | servers/advisors | No |  No |
 | servers/queryTexts | No |  No |
 | servers/recoverableServers | No |  No |
@@ -527,34 +527,34 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.Devices
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| IotHubs | Yes | 
+| IotHubs | Yes | Yes |
 | IotHubs/eventGridFilters | No |  No |
-| ProvisioningServices | Yes | 
+| ProvisioningServices | Yes | Yes |
 | usages | No |  No |
 
 ## Microsoft.DevSpaces
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| controllers | Yes | 
+| controllers | Yes | Yes |
 
 ## Microsoft.DevTestLab
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| labs | Yes | 
-| labs/serviceRunners | Yes | 
-| labs/virtualMachines | Yes | 
-| schedules | Yes | 
+| labs | Yes | Yes |
+| labs/serviceRunners | Yes | Yes |
+| labs/virtualMachines | Yes | Yes |
+| schedules | Yes | Yes |
 
 ## Microsoft.DocumentDB
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
 | databaseAccountNames | No |  No |
-| databaseAccounts | Yes | 
+| databaseAccounts | Yes | Yes |
 
 ## Microsoft.DomainRegistration
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| domains | Yes | 
+| domains | Yes | Yes |
 | domains/domainOwnershipIdentifiers | No |  No |
 | generateSsoRequest | No |  No |
 | topLevelDomains | No |  No |
@@ -570,18 +570,18 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.EventGrid
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| domains | Yes |
+| domains | Yes | No |
 | domains/topics | No |  No |
 | eventSubscriptions | No |  No |
 | extensionTopics | No |  No |
-| topics | Yes |
+| topics | Yes | No |
 | topicTypes | No |  No |
 
 ## Microsoft.EventHub
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| clusters | Yes | 
-| namespaces | Yes | 
+| clusters | Yes | No |
+| namespaces | Yes | No |
 | namespaces/authorizationrules | No |  No |
 | namespaces/disasterrecoveryconfigs | No |  No |
 | namespaces/eventhubs | No |  No |
@@ -619,7 +619,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.HanaOnAzure
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| hanaInstances | Yes |  No |
+| hanaInstances | Yes |  Yes |
 
 ## Microsoft.HDInsight
 | Resource type | Supports tags | Tag in cost report |
@@ -630,7 +630,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.ImportExport
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| jobs | Yes | 
+| jobs | Yes | Yes |
 
 ## Microsoft.InformationProtection
 | Resource type | Supports tags | Tag in cost report |
@@ -644,14 +644,14 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## microsoft.insights
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| actiongroups | Yes | 
-| activityLogAlerts | Yes | 
-| alertrules | Yes | 
+| actiongroups | Yes | Yes |
+| activityLogAlerts | Yes | Yes |
+| alertrules | Yes | Yes |
 | automatedExportSettings | No |  No |
-| autoscalesettings | Yes | 
+| autoscalesettings | Yes | Yes |
 | baseline | No |  No |
 | calculatebaseline | No |  No |
-| components | Yes | 
+| components | Yes | Yes |
 | components/events | No |  No |
 | components/pricingPlans | No |  No |
 | components/query | No |  No |
@@ -663,15 +663,15 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | logDefinitions | No |  No |
 | logprofiles | No |  No |
 | logs | No |  No |
-| metricAlerts | Yes |
+| metricAlerts | Yes | Yes |
 | migrateToNewPricingModel | No |  No |
 | myWorkbooks | No |  No |
 | queries | No |  No |
 | rollbackToLegacyPricingModel | No |  No |
-| scheduledqueryrules | Yes | 
+| scheduledqueryrules | Yes | Yes |
 | vmInsightsOnboardingStatuses | No |  No |
-| webtests | Yes | 
-| workbooks | Yes | 
+| webtests | Yes | Yes |
+| workbooks | Yes | Yes |
 
 ## Microsoft.Intune
 | Resource type | Supports tags | Tag in cost report |
@@ -682,12 +682,12 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.IoTCentral
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| IoTApps | Yes | 
+| IoTApps | Yes | Yes |
 
 ## Microsoft.IoTSpaces
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| Graph | Yes | 
+| Graph | Yes | Yes |
 
 ## Microsoft.KeyVault
 | Resource type | Supports tags | Tag in cost report |
@@ -700,7 +700,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.Kusto
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| clusters | Yes | 
+| clusters | Yes | Yes |
 | clusters/databases | No |  No |
 | clusters/databases/dataconnections | No |  No |
 | clusters/databases/eventhubconnections | No |  No |
@@ -708,18 +708,18 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.LabServices
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| labaccounts | Yes | 
+| labaccounts | Yes | Yes |
 | users | No |  No |
 
 ## Microsoft.LocationBasedServices
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| accounts | Yes | 
+| accounts | Yes | Yes |
 
 ## Microsoft.LocationServices
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| accounts | Yes | 
+| accounts | Yes | Yes |
 
 ## Microsoft.LogAnalytics
 | Resource type | Supports tags | Tag in cost report |
@@ -729,35 +729,35 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.Logic
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| integrationAccounts | Yes | 
-| workflows | Yes | 
+| integrationAccounts | Yes | Yes |
+| workflows | Yes | Yes |
 
 ## Microsoft.MachineLearning
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| commitmentPlans | Yes | 
-| webServices | Yes | 
-| Workspaces | Yes | 
+| commitmentPlans | Yes | Yes |
+| webServices | Yes | Yes |
+| Workspaces | Yes | Yes |
 
 ## Microsoft.MachineLearningExperimentation
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| accounts | Yes | 
-| accounts/workspaces | Yes | 
-| accounts/workspaces/projects | Yes | 
-| teamAccounts | Yes | 
-| teamAccounts/workspaces | Yes | 
-| teamAccounts/workspaces/projects | Yes | 
+| accounts | Yes | Yes |
+| accounts/workspaces | Yes | Yes |
+| accounts/workspaces/projects | Yes | Yes |
+| teamAccounts | Yes | Yes |
+| teamAccounts/workspaces | Yes | Yes |
+| teamAccounts/workspaces/projects | Yes | Yes |
 
 ## Microsoft.MachineLearningModelManagement
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| accounts | Yes | 
+| accounts | Yes | Yes |
 
 ## Microsoft.MachineLearningServices
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| workspaces | Yes | 
+| workspaces | Yes | Yes |
 | workspaces/computes | No |  No |
 
 ## Microsoft.ManagedIdentity
@@ -778,7 +778,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.Maps
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| accounts | Yes | 
+| accounts | Yes | Yes |
 | accounts/eventGridFilters | No |  No |
 
 ## Microsoft.Marketplace
@@ -798,7 +798,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.MarketplaceApps
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| classicDevServices | Yes | 
+| classicDevServices | Yes | Yes |
 | updateCommunicationPreference | No |  No |
 
 ## Microsoft.MarketplaceOrdering
@@ -810,18 +810,18 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.Media
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| mediaservices | Yes | 
+| mediaservices | Yes | Yes |
 | mediaservices/accountFilters | No |  No |
 | mediaservices/assets | No |  No |
 | mediaservices/assets/assetFilters | No |  No |
 | mediaservices/contentKeyPolicies | No |  No |
 | mediaservices/eventGridFilters | No |  No |
 | mediaservices/liveEventOperations | No |  No |
-| mediaservices/liveEvents | Yes | 
+| mediaservices/liveEvents | Yes | Yes |
 | mediaservices/liveEvents/liveOutputs | No |  No |
 | mediaservices/liveOutputOperations | No |  No |
 | mediaservices/streamingEndpointOperations | No |  No |
-| mediaservices/streamingEndpoints | Yes | 
+| mediaservices/streamingEndpoints | Yes | Yes |
 | mediaservices/streamingLocators | No |  No |
 | mediaservices/streamingPolicies | No |  No |
 | mediaservices/transforms | No |  No |
@@ -830,21 +830,21 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.Migrate
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| projects | Yes | 
+| projects | Yes | Yes |
 
 ## Microsoft.Network
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
 | applicationGateways | Yes | No |
-| applicationSecurityGroups | Yes | 
+| applicationSecurityGroups | Yes | Yes |
 | azureFirewallFqdnTags | No |  No |
 | azureFirewalls | Yes | No |
 | bgpServiceCommunities | No |  No |
-| connections | Yes | 
-| ddosCustomPolicies | Yes | 
-| ddosProtectionPlans | Yes | 
+| connections | Yes | Yes |
+| ddosCustomPolicies | Yes | Yes |
+| ddosProtectionPlans | Yes | Yes |
 | dnsOperationStatuses | No |  No |
-| dnszones | Yes | 
+| dnszones | Yes | Yes |
 | dnszones/A | No |  No |
 | dnszones/AAAA | No |  No |
 | dnszones/all | No |  No |
@@ -859,46 +859,46 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | dnszones/TXT | No |  No |
 | expressRouteCircuits | Yes  | No |
 | expressRouteServiceProviders | No |  No |
-| frontdoors | Yes | 
-| frontdoorWebApplicationFirewallPolicies | Yes | 
+| frontdoors | Yes | Yes |
+| frontdoorWebApplicationFirewallPolicies | Yes | Yes |
 | getDnsResourceReference | No |  No |
-| interfaceEndpoints | Yes | 
+| interfaceEndpoints | Yes | Yes |
 | internalNotify | No |  No |
 | loadBalancers | Yes | No |
-| localNetworkGateways | Yes | 
-| natGateways | Yes | 
-| networkIntentPolicies | Yes | 
-| networkInterfaces | Yes | 
-| networkProfiles | Yes | 
-| networkSecurityGroups | Yes | 
+| localNetworkGateways | Yes | Yes |
+| natGateways | Yes | Yes |
+| networkIntentPolicies | Yes | Yes |
+| networkInterfaces | Yes | Yes |
+| networkProfiles | Yes | Yes |
+| networkSecurityGroups | Yes | Yes |
 | networkWatchers | Yes | No |
 | networkWatchers/connectionMonitors | Yes | No |
 | networkWatchers/lenses | Yes | No |
 | networkWatchers/pingMeshes | Yes | No |
-| privateLinkServices | Yes | 
+| privateLinkServices | Yes | Yes |
 | publicIPAddresses | Yes | Yes |
 | publicIPPrefixes | Yes | Yes |
-| routeFilters | Yes | 
-| routeTables | Yes | 
-| serviceEndpointPolicies | Yes | 
+| routeFilters | Yes | Yes |
+| routeTables | Yes | Yes |
+| serviceEndpointPolicies | Yes | Yes |
 | trafficManagerGeographicHierarchies | No |  No |
-| trafficmanagerprofiles | Yes | 
+| trafficmanagerprofiles | Yes | Yes |
 | trafficmanagerprofiles/heatMaps | No |  No |
-| virtualHubs | Yes | 
-| virtualNetworkGateways | Yes | 
-| virtualNetworks | Yes | 
+| virtualHubs | Yes | Yes |
+| virtualNetworkGateways | Yes | No |
+| virtualNetworks | Yes | Yes |
 | virtualNetworks/subnets | No |  No |
-| virtualNetworkTaps | Yes | 
-| virtualWans | Yes | 
+| virtualNetworkTaps | Yes | Yes |
+| virtualWans | Yes | Yes |
 | vpnGateways | Yes | No |
-| vpnSites | Yes | 
-| webApplicationFirewallPolicies | Yes | 
+| vpnSites | Yes | Yes |
+| webApplicationFirewallPolicies | Yes | Yes |
 
 ## Microsoft.NotificationHubs
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| namespaces | Yes | 
-| namespaces/notificationHubs | Yes | 
+| namespaces | Yes | No |
+| namespaces/notificationHubs | Yes | No |
 
 ## Microsoft.OperationalInsights
 | Resource type | Supports tags | Tag in cost report |
@@ -915,9 +915,9 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
 | managementassociations | No |  No |
-| managementconfigurations | Yes | 
-| solutions | Yes | 
-| views | Yes | 
+| managementconfigurations | Yes | Yes |
+| solutions | Yes | Yes |
+| views | Yes | Yes |
 
 ## Microsoft.PolicyInsights
 | Resource type | Supports tags | Tag in cost report |
@@ -931,34 +931,34 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
 | consoles | No |  No |
-| dashboards | Yes | 
+| dashboards | Yes | Yes |
 | userSettings | No |  No |
 
 ## Microsoft.PowerBI
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| workspaceCollections | Yes | 
+| workspaceCollections | Yes | Yes |
 
 ## Microsoft.PowerBIDedicated
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| capacities | Yes | 
+| capacities | Yes | Yes |
 
 ## Microsoft.ProjectOxford
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| accounts | Yes | 
+| accounts | Yes | Yes |
 
 ## Microsoft.RecoveryServices
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
 | backupProtectedItems | No |  No |
-| vaults | Yes | 
+| vaults | Yes | Yes |
 
 ## Microsoft.Relay
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| namespaces | Yes | 
+| namespaces | Yes | Yes |
 | namespaces/authorizationrules | No |  No |
 | namespaces/hybridconnections | No |  No |
 | namespaces/hybridconnections/authorizationrules | No |  No |
@@ -1003,20 +1003,20 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.SaaS
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| applications | Yes | 
+| applications | Yes | Yes |
 | saasresources | No |  No |
 
 ## Microsoft.Scheduler
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| flows | Yes | 
-| jobcollections | Yes | 
+| flows | Yes | Yes |
+| jobcollections | Yes | Yes |
 
 ## Microsoft.Search
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
 | resourceHealthMetadata | No |  No |
-| searchServices | Yes | 
+| searchServices | Yes | Yes |
 
 ## Microsoft.Security
 | Resource type | Supports tags | Tag in cost report |
@@ -1062,7 +1062,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.ServiceBus
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| namespaces | Yes | 
+| namespaces | Yes | No |
 | namespaces/authorizationrules | No |  No |
 | namespaces/disasterrecoveryconfigs | No |  No |
 | namespaces/eventgridfilters | No |  No |
@@ -1077,31 +1077,31 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.ServiceFabric
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| clusters | Yes | 
+| clusters | Yes | Yes |
 | clusters/applications | No |  No |
 
 ## Microsoft.ServiceFabricMesh
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| applications | Yes | 
-| gateways | Yes | 
-| networks | Yes | 
-| secrets | Yes | 
-| volumes | Yes | 
+| applications | Yes | Yes |
+| gateways | Yes | Yes |
+| networks | Yes | Yes |
+| secrets | Yes | Yes |
+| volumes | Yes | Yes |
 
 ## Microsoft.SignalRService
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| SignalR | Yes | 
+| SignalR | Yes | Yes |
 
 ## Microsoft.Solutions
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| applianceDefinitions | Yes | 
-| appliances | Yes | 
-| applicationDefinitions | Yes | 
-| applications | Yes | 
-| jitRequests | Yes | 
+| applianceDefinitions | Yes | Yes |
+| appliances | Yes | Yes |
+| applicationDefinitions | Yes | Yes |
+| applications | Yes | Yes |
+| jitRequests | Yes | Yes |
 
 ## Microsoft.SQL
 | Resource type | Supports tags | Tag in cost report |
@@ -1134,9 +1134,9 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.SqlVirtualMachine
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| SqlVirtualMachineGroups | Yes | 
+| SqlVirtualMachineGroups | Yes | Yes |
 | SqlVirtualMachineGroups/AvailabilityGroupListeners | No |  No |
-| SqlVirtualMachines | Yes | 
+| SqlVirtualMachines | Yes | Yes |
 
 ## Microsoft.Storage
 | Resource type | Supports tags | Tag in cost report |
@@ -1152,7 +1152,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.StorageSync
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| storageSyncServices | Yes | 
+| storageSyncServices | Yes | Yes |
 | storageSyncServices/registeredServers | No |  No |
 | storageSyncServices/syncGroups | No |  No |
 | storageSyncServices/syncGroups/cloudEndpoints | No |  No |
@@ -1162,12 +1162,12 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.StorSimple
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| managers | Yes | 
+| managers | Yes | Yes |
 
 ## Microsoft.StreamAnalytics
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| streamingjobs | Yes (see note below) | 
+| streamingjobs | Yes (see note below) | Yes |
 | streamingjobs/diagnosticSettings | No |  No |
 
 > [!NOTE]
@@ -1188,16 +1188,16 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.TerraformOSS
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| providerRegistrations | Yes | 
-| resources | Yes | 
+| providerRegistrations | Yes | Yes |
+| resources | Yes | Yes |
 
 ## Microsoft.TimeSeriesInsights
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| environments | Yes | 
+| environments | Yes | No |
 | environments/accessPolicies | No |  No |
-| environments/eventsources | Yes | 
-| environments/referenceDataSets | Yes | 
+| environments/eventsources | Yes | No |
+| environments/referenceDataSets | Yes | No |
 
 ## microsoft.visualstudio
 | Resource type | Supports tags | Tag in cost report |
@@ -1220,13 +1220,13 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | apiManagementAccounts/connectionAcls | No |  No |
 | apiManagementAccounts/connections | No |  No |
 | billingMeters | No |  No |
-| certificates | Yes | 
-| connectionGateways | Yes | 
-| connections | Yes | 
-| customApis | Yes | 
+| certificates | Yes | Yes |
+| connectionGateways | Yes | Yes |
+| connections | Yes | Yes |
+| customApis | Yes | Yes |
 | deletedSites | No |  No |
 | functions | No |  No |
-| hostingEnvironments | Yes | 
+| hostingEnvironments | Yes | No |
 | hostingEnvironments/multiRolePools | No |  No |
 | hostingEnvironments/multiRolePools/instances | No |  No |
 | hostingEnvironments/workerPools | No |  No |
@@ -1235,17 +1235,17 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | recommendations | No |  No |
 | resourceHealthMetadata | No |  No |
 | runtimes | No |  No |
-| serverFarms | Yes | 
+| serverFarms | Yes | Yes |
 | serverFarms/workers | No |  No |
-| sites | Yes | 
+| sites | Yes | Yes |
 | sites/domainOwnershipIdentifiers | No |  No |
 | sites/hostNameBindings | No |  No |
 | sites/instances | No |  No |
 | sites/instances/extensions | No |  No |
-| sites/premieraddons | Yes | 
+| sites/premieraddons | Yes | Yes |
 | sites/recommendations | No |  No |
 | sites/resourceHealthMetadata | No |  No |
-| sites/slots | Yes | 
+| sites/slots | Yes | Yes |
 | sites/slots/hostNameBindings | No |  No |
 | sites/slots/instances | No |  No |
 | sites/slots/instances/extensions | No |  No |
@@ -1262,7 +1262,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 ## Microsoft.WindowsIoT
 | Resource type | Supports tags | Tag in cost report |
 | ------------- | ----------- | ----------- |
-| DeviceServices | Yes | 
+| DeviceServices | Yes | Yes |
 
 ## Microsoft.WorkloadMonitor
 | Resource type | Supports tags | Tag in cost report |
