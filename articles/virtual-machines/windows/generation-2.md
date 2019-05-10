@@ -94,7 +94,7 @@ Azure does not currently support some of the features that on-premises Hyper-V s
 | Disk controllers | IDE                       | SCSI                               |
 | VM Sizes         | Available on all VM sizes | Premium storage supported VMs only |
 
-### Generation 1 vs generation 2 capabilites
+### Generation 1 vs generation 2 capabilities
 
 | Capability | Generation 1 | Generation 2 |
 |------------|--------------|--------------|
