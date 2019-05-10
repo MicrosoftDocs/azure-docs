@@ -22,7 +22,7 @@ The SAP connector uses the [SAP .NET Connector (NCo) library](https://support.sa
 * **Receive from SAP**: Receive IDoc over tRFC, call BAPI functions over tRFC, or call RFC/tRFC in SAP systems.
 * **Generate schemas**: Generate schemas for the SAP artifacts for IDoc, BAPI, or RFC.
 
-For all the above operations, SAP connector supports basic authentication through username and password. The connector also supports [Secure Network Communications (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/en-US/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true), which can be used for SAP NetWeaver Single Sign-On or for additional security capabilities provided by an external security product.
+For all the above operations, SAP connector supports basic authentication through username and password. The connector also supports [Secure Network Communications (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true), which can be used for SAP NetWeaver Single Sign-On or for additional security capabilities provided by an external security product.
 
 The SAP connector integrates with on-premises SAP systems through the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). In Send scenarios, for example, when sending a message from logic apps to an SAP system, the data gateway acts as an RFC client and forwards the requests received from logic apps to SAP.
 Likewise, in Receive scenarios, the data gateway acts as an RFC server that receives requests from SAP and forwards to the logic app.
@@ -41,7 +41,7 @@ To follow along with this article, you need these items:
 
 * Your [SAP Application Server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP Message Server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm)
 
-* Download and install the latest [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127) on any on-premises computer. Make sure you set up your gateway in the Azure portal before you continue. The gateway helps you securely access data and resources are on premises. For more information, see [Install on-premises data gateway for Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
+* Download and install the latest [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127) on any on-premises computer. Make sure you set up your gateway in the Azure portal before you continue. The gateway helps you securely access on-premises data and resources. For more information, see [Install on-premises data gateway for Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
 
 * If you are using SNC with Single Sign-On (SSO), make sure the gateway is running as a user that's mapped against the SAP user. To change the default account, select **Change account**, and enter the user credentials.
 
@@ -349,7 +349,7 @@ Optionally, you can download or store the generated schemas in repositories, suc
 
 1. In the search box, enter "Resource Manager" as your filter. Select this action: **Create or update a resource**
 
-   ![Select Azure Resource Manager action](media/logic-apps-using-sap-connector/select-arm-action.png)
+   ![Select Azure Resource Manager action](media/logic-apps-using-sap-connector/select-azure-resource-manager-action.png)
 
 1. Enter the details for the action, including your Azure subscription, Azure resource group, and integration account. To add SAP tokens to the fields, click inside the boxes for those fields, and select from the dynamic content list that appears.
 
@@ -357,11 +357,11 @@ Optionally, you can download or store the generated schemas in repositories, suc
 
    1. Provide details for these new fields as shown in this example.
 
-      ![Enter details for Azure Resource Manager action](media/logic-apps-using-sap-connector/arm-action.png)
+      ![Enter details for Azure Resource Manager action](media/logic-apps-using-sap-connector/azure-resource-manager-action.png)
 
    The SAP **Generate schemas** action generates schemas as a collection, so the designer automatically adds a **For each** loop to the action. Here's an example that shows how this action appears:
 
-   ![Azure Resource Manager action with "for each" loop](media/logic-apps-using-sap-connector/arm-action-foreach.png)  
+   ![Azure Resource Manager action with "for each" loop](media/logic-apps-using-sap-connector/azure-resource-manager-action-foreach.png)  
 
    > [!NOTE]
    > The schemas use base64-encoded format. 
@@ -383,7 +383,7 @@ Optionally, you can download or store the generated schemas in repositories, suc
 
 1. On the designer toolbar, choose **Run** to manually trigger your logic app.
 
-1. After a successful run, go to the integration account, and check that the generated schemas generated exist.
+1. After a successful run, go to the integration account, and check that the generated schemas exist.
 
 ## Enable Secure Network Communications (SNC)
 
