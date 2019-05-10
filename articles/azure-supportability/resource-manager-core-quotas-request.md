@@ -46,7 +46,7 @@ Follow the instructions below to create a support request via Azure's 'Help + Su
 
 ![Provide details](./media/resource-manager-core-quotas-request/provide-details.png)
 
-7. In the **Quota details** panel, select Deployment model as "Resource Manager" and select a location.
+7. In the **Quota details** panel, select Deployment model and select a location.
 
 ![Quota Details DM](./media/resource-manager-core-quotas-request/QuotaDetailsDM.png)
 
@@ -54,11 +54,10 @@ Follow the instructions below to create a support request via Azure's 'Help + Su
 
 ![SKU Family](./media/resource-manager-core-quotas-request/SkuFamily.png)
 
-9. Enter the new limits you would like on the subscription
+9. Enter the new limits you would like on the subscription. To remove a line, uncheck the SKU from the SKU family dropdown or click the discard "x" icon. After entering the desired quota for each SKU family, click **Save and Continue** on the Quota details panel to continue with the support request creation.
 
 ![New Limits](./media/resource-manager-core-quotas-request/NewLimits.png)
 
-To remove a line, uncheck the SKU from the SKU family dropdown or click the discard "x" icon. After entering the desired quota for each SKU family, click **Save and Continue** on the Quota details panel to continue with the support request creation.
 
 ## Quota increase at subscription level using Usages + Quota
 
@@ -84,17 +83,16 @@ Follow the instructions below using to create a support request via Azure's 'Usa
 
    ![Fill in form](./media/resource-manager-core-quotas-request/forms.png)
    
-6. In the **Quota details** panel, select Deployment model as "Resource Manager" and select a location.
+6. In the **Quota details** panel, select Deployment model and select a location.
 
     ![Quota Problem blade](./media/resource-manager-core-quotas-request/Problem-step.png)
 
 7. Select the **SKU Families** that require an increase.
 
-    ![SKU series selected](./media/resource-manager-core-quotas-request/SKU-selected.png)
+    ![SKU series selected](./media/resource-manager-core-quotas-request/SkuFamily.png)
 
-8. Enter the new limits you would like on the subscription.
+8. Enter the new limits you would like on the subscription. To remove a line, uncheck the SKU from the SKU family dropdown or click the discard "x" icon. After entering the desired quota for each SKU family, click **Save and Continue** on the Problem step page to continue with the support request creation.
 
-    ![SKU new quota request](./media/resource-manager-core-quotas-request/SKU-new-quota.png)
+    ![SKU new quota request](./media/resource-manager-core-quotas-request/NewLimits.png)
 
-- To remove a line, uncheck the SKU from the SKU family dropdown or click the discard "x" icon.
-After entering the desired quota for each SKU family, click "Save and Continue" on the Problem step page to continue with the support request creation.
+
