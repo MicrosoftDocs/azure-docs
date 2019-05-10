@@ -1,7 +1,7 @@
 ---
 title: "Regression: Predict price"
 titleSuffix: Azure Machine Learning service
-description: This visual interface sample experiment demonstrates how to build a regression model to predict an automobile's price. The process includes training, testing, and evaluating the model on the Automobile price data (Raw) dataset.
+description: Learn how to build a machine learning model that predicts an automobile's price without writing a single line of code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,23 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ---
 
-# Sample 1 - Regression: Predict price
+# Sample - Regression: Predict price
 
-This visual interface sample experiment shows how to build a regression model to predict an automobile's price. The process includes training, testing, and evaluating the model by using the **Automobile price data (Raw)** dataset.
+Learn how to build a machine learning model that predicts an automobile's price without writing a single line of code.
+
+You will use the visual interface to perform the basic steps of any machine learning model development project:
+
+1. Get the data
+1. Pre-process the data
+1. Train the model
+1. Evaluate the model
+
+Here's the final, completed graph of the experiment. This article provides the rationale  for every module so you can make similar decisions when creating your own models.
+
+![Graph of the experiment](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## Prerequisites
 
@@ -26,20 +37,7 @@ This visual interface sample experiment shows how to build a regression model to
 
 ## Related sample
 
-[Sample 2 - Regression: Automobile Price Prediction (Compare Algorithms)](ui-sample-regression-predict-automobile-price-compare-algorithms.md) provides a more complicated sample experiment that solves the same problem as this experiment by using two different regression models. It shows how to quickly compare different algorithms. Check it out if you're looking for a more advanced sample.
-
-## Experiment summary
-
-We use these steps to build the experiment:
-
-1. Get the data.
-1. Pre-process the data.
-1. Train the model.
-1. Test, evaluate, and compare the models.
-
-Here's the complete graph of the experiment:
-
-![Graph of the experiment](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
+`Sample 2 - Regression: Automobile Price Prediction (Compare Algorithms)` provides a more complicated sample experiment that solves the same problem by using two different regression models. It shows how to quickly compare different algorithms for performance. Check it out if you're looking for a more advanced sample.
 
 ## Get the data
 
