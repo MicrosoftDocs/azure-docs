@@ -4,7 +4,7 @@ description: Shows which Azure resource types support tags. Provides details for
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 05/07/2019
+ms.date: 05/10/2019
 ms.author: tomfitz
 ---
 
@@ -242,7 +242,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | ------------- | ----------- | ----------- |
 | edgenodes | No |  No |
 | profiles | Yes | Yes |
-| profiles/endpoints | Yes | 
+| profiles/endpoints | Yes | Yes |
 | profiles/endpoints/customdomains | No |  No |
 | profiles/endpoints/origins | No |  No |
 | validateProbe | No |  No |
