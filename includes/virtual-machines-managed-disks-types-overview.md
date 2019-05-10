@@ -39,6 +39,7 @@ Some key capabilities of Ultra SSD are:
 - Disk capacity: Ultra SSD capacity ranges from 4 GiB up to 64 TiB.
 - Disk IOPS: Ultra SSD support IOPS limits of 300 IOPS/GiB, up to a maximum of 160 K IOPS per disk. To achieve the IOPS that you provisioned, ensure that the selected Disk IOPS are less than the VM IOPS. The minimum disk IOPS are 100 IOPS.
 - Disk throughput: With ultra SSD, the throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk (where MBps = 10^6 Bytes per second). The minimum disk throughput is 1 MiB.
+- Ultra SSDs support adjusting the disk performance attributes (IOPS and throughput) at runtime without detaching the disk from the virtual machine. Once a disk performance resize operation has been issued on a disk, it can take up to an hour for the change to actually take effect.
 
 ### Disk size
 
