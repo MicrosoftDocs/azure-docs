@@ -24,7 +24,7 @@ When you’re running a web application, you want to be prepared for any issues 
 
 Although this experience is most helpful when you’re having issues with your app within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
 
-App Service diagnostics works for not only your app on Windows, but also apps on [Linux/containers](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro), [App Service Environment](https://docs.microsoft.com/en-us/azure/app-service/environment/intro), and [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview).
+App Service diagnostics works for not only your app on Windows, but also apps on [Linux/containers](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), [App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro), and [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
 
 ## Open App Service diagnostics
 
@@ -34,25 +34,25 @@ For Azure Functions, navigate to your function app, and in the top navigation, c
 
 In the App Service diagnostics homepage, you can choose the category that best describes the issue with your app by using the keywords in each homepage tile. Also, this page is where you can find **Diagnostic Tools** for Windows apps. See [Diagnostic tools (only for Windows app)](#diagnostic-tools-only-for-windows-app).
 
-![Homepage](./media/app-service-diagnostics/appservicediagnosticshomepage1.png)
+![Homepage](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
 
 ## Interactive interface
 
 Once you select a homepage category that best aligns with your app's problem, App Service diagnostics' interactive interface, Genie, can guide you through diagnosing and solving problem with your app. You can use the tile shortcuts provided by Genie to view the full diagnostic report of the problem category that you are interested. The tile shortcuts provide you a direct way of accessing your diagnostic metrics.
 
-![Tile shortcuts](./media/app-service-diagnostics/tileshortcuts2.png)
+![Tile shortcuts](./media/app-service-diagnostics/tile-shortcuts-2.png)
 
 After clicking on these tiles, you can see a list of topics related to the issue described in the tile. These topics provide snippets of notable information from the full report. You can click on any of these topics to investigate the issues further. Also, you can click on **View Full Report** to explore all the topics on a single page.
 
-![Topics](./media/app-service-diagnostics/applicationlogsinsights3.png)
+![Topics](./media/app-service-diagnostics/application-logs-insights-3.png)
 
-![View Full Report](./media/app-service-diagnostics/viewfullreport4.png)
+![View Full Report](./media/app-service-diagnostics/view-full-report-4.png)
 
 ## Diagnostic report
 
 After you choose to investigate the issue further by clicking on a topic, you can view more details about the topic often supplemented with graphs and markdowns. Diagnostic report can be a powerful tool for pinpointing the problem with your app.
 
-![Diagnostic report](./media/app-service-diagnostics/fulldiagnosticreport5.png)
+![Diagnostic report](./media/app-service-diagnostics/full-diagnostic-report-5.png)
 
 ## Health checkup
 
@@ -67,13 +67,13 @@ There are four different graphs in the health checkup.
 - **CPU usage:** A graph that shows the overall percent CPU usage per instance over the last 24 hours.  
 - **memory usage:** A graph that shows the overall percent physical memory usage per instance over the last 24 hours.
 
-![Health checkup](./media/app-service-diagnostics/healthcheckup6.png)
+![Health checkup](./media/app-service-diagnostics/health-checkup-6.png)
 
 ### Investigate application code issues (only for Windows app)
 
-Because many app issues are related to issues in your application code, App Service diagnostics integrates with [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) to highlight exceptions and dependency issues to correlate with the selected downtime. Application Insights has to be enabled separately.
+Because many app issues are related to issues in your application code, App Service diagnostics integrates with [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) to highlight exceptions and dependency issues to correlate with the selected downtime. Application Insights has to be enabled separately.
 
-![Application Insights](./media/app-service-diagnostics/applicationinsights7a.png)
+![Application Insights](./media/app-service-diagnostics/application-insights-7.png)
 
 To view Application Insights exceptions and dependencies, select the **web app down** or **web app slow** tile shortcuts.
 
@@ -81,7 +81,7 @@ To view Application Insights exceptions and dependencies, select the **web app d
 
 If an issue is detected with a specific problem category within the last 24 hours, you can view the full diagnostic report, and App Service diagnostics may prompt you to view more troubleshooting advice and next steps for a more guided experience.
 
-![Application Insights and Troubleshooting and Next Steps](./media/app-service-diagnostics/troubleshootingandnextsteps7b.png)
+![Application Insights and Troubleshooting and Next Steps](./media/app-service-diagnostics/troubleshooting-and-next-steps-8.png)
 
 ## Diagnostic tools (only for Windows app)
 
@@ -91,20 +91,20 @@ Diagnostics Tools include more advanced diagnostic tools that help you investiga
 
 Proactive CPU monitoring provides you an easy, proactive way to take an action when your app or child process for your app is consuming high CPU resources. You can set your own CPU threshold rules to temporarily mitigate a high CPU issue until the real cause for the unexpected issue is found.
 
-![Proactive CPU monitoring](./media/app-service-diagnostics/proactivecpumonitoring8.png)
+![Proactive CPU monitoring](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 
 ### Proactive auto-healing
 
 Like proactive CPU monitoring, proactive auto-healing offers an easy, proactive approach to mitigating unexpected behavior of your app. You can set your own rules based on request count, slow request, memory limit, and HTTP status code to trigger mitigation actions. This tool can be used to temporarily mitigate an unexpected behavior until the real cause for the issue is found. For more information on proactive auto-healing, visit [Announcing the new auto healing experience in app service diagnostics](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
 
-![Proactive auto-healing](./media/app-service-diagnostics/proactiveautohealing9.png)
+![Proactive auto-healing](./media/app-service-diagnostics/proactive-auto-healing-10.png)
 
 ## Change analysis
 
 In a fast-paced development environment, sometimes it may be difficult to keep track of all the changes made to your app and let alone pinpoint on a change that caused an unhealthy behavior. Change analysis can help you narrow down on the changes made to your app to facilitate trouble-shooting experience. Change analysis is embedded in diagnostic report such as **Application Crashes** so you can use it concurrently with other metrics.
 
-![Change analysis default page](./media/app-service-diagnostics/changeanalysisdefaultpage10.png)
+![Change analysis default page](./media/app-service-diagnostics/change-analysis-default-page-11.png)
 
-![Diff view](./media/app-service-diagnostics/diffview11.png)
+![Diff view](./media/app-service-diagnostics/diff-view-12.png)
 
 Change analysis has to be enabled before using the feature. For more information on change analysis, visit [Announcing the new change analysis experience in App Service Diagnostics](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
