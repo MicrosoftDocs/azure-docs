@@ -19,23 +19,17 @@ ms.author: amverma
 # Enable InfiniBand with SRIOV
 
 
-The simplest and recommend way to configure your VM with InfiniBand (IB) is to add the InfiniBandDriverLinux or InfiniBandDriverWindows VM extension to your deployment.
+The simplest and recommended way to configure your custom VM imge with InfiniBand (IB) is to add the InfiniBandDriverLinux or InfiniBandDriverWindows VM extension to your deployment.
+Learn how to use these VM extensions with [Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) and [Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
 
-Example, for Linux VM with RHEL/CentOS (ver 7.4-7.6):
-
-```bash
-"properties":{
-"publisher": "Microsoft.HpcCompute",
-"type": "InfiniBandDriverLinux",
-"typeHandlerVersion": "1.0",
-} 
-```
+To manually configure InfiniBand on SR-IOV enabled VMs (currently HB and HC series), follow the steps below. Note that these steps are for RHEL/CentOS only. For Ubuntu (16 and 18), and SLES (12 SP4 and 15), the inbox drivers work well. For Ubuntu, 
 
 
 ## Manully install OFED
 
-To manually configure InfiniBand for RHEL/CentOS 7.6, install latest Mellanox OFED drivers for ConnectX-5.
+Install the latest MLNX_OFED drivers for ConnectX-5 from [Mellanox](http://www.mellanox.com/page/products_dyn?product_family=26).
 
+For RHEL/CentOS (example below for 7.6):
 ```bash
 sudo yum install -y kernel-devel python-devel
 sudo yum install -y redhat-rpm-config rpm-build gcc-gfortran gcc-c++
@@ -45,6 +39,7 @@ tar zxvf MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64.tgz
 sudo ./MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64/mlnxofedinstall --add-kernel-support
 ```
 
+For Windows, download and install the WinOF-2 drivers for ConnectX-5 from [Mellanox](http://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34)
 
 ## Assign an IP address
 
