@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/07/2019
+ms.date: 05/10/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -65,10 +65,6 @@ To configure the integration of Displayr into Azure AD, you need to add Displayr
 4. In the search box, type **Displayr**, select **Displayr** from result panel then click **Add** button to add the application.
 
 	![Displayr in the results list](common/search-new-app.png)
-
-5. On the **Displayr** page, click **Properties** in the left-side navigation pane, and copy the **Application ID** and save it on your computer for subsequent use.
-
-	![image](./media/displayr-tutorial/properties.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -168,7 +164,7 @@ To configure Azure AD single sign-on with Displayr, perform the following steps:
 
 	a. Check the **Enable Single Sign On (SAML)** box.
 
-	b. In the **Issuer** text box, paste the value of **Application ID**, which you have copied from the **Properties** tab of Azure portal.
+	b. Copy the actual **Identifier** value from the **Basic SAML Configuration** section of Azure AD and paste it into the **Issuer** text box.
 
 	c. In the **Login URL** text box, paste the value of **Login URL**, which you have copied from Azure portal.
 
