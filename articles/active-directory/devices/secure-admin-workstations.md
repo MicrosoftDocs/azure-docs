@@ -64,31 +64,31 @@ While it is possible to add security to an existing device, it is better to star
 
 Containment strategies provide increased security assurances by increasing the number and type of controls an adversary has to overcome in order to access sensitive assets. The model developed here provides containment of administrative privileges to specific devices using a tiered privilege model.
 
-Throughout the guidance, multiple scenarios will be addressed to achieve a more secure solution. These scenarios reflect common users in organizations that can benefit from a secure workstation, while balancing usability and risk. The guidance will provide configuration of settings based on industry standards. This guidance is used to illustrate a method in hardening Windows 10 and reducing the risks associated with device or user compromise using policy and technology to help manage security features and risks. We will outline the steps required to achieve a level of hardening called secured workstation.
+Throughout the guidance, multiple security profiles will be addressed to achieve a more secure solution. These profiles reflect common users in organizations that can benefit from a secure workstation, while balancing usability and risk. The guidance will provide configuration of settings based on industry accepted standards. This guidance is used to illustrate a method in hardening Windows 10 and reducing the risks associated with device or user compromise using policy and technology to help manage security features and risks. We will outline the steps required to achieve a level of hardening called secured workstation.
 
-|    | Standard | Enhanced | VIP | DevOps | Secured |
+| Profile   | Standard | Enhanced | VIP | DevOps | Secured |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | User in Azure AD | Yes | Yes | Yes | Yes | Yes |
 | Intune managed | Yes | Yes | Yes | Yes | Yes |
 | Device Azure AD registered | Yes |  |  |  |  |
 | Device Azure AD joined |   | Yes | Yes | Yes | Yes |
-| Intune security baseline applied |   | Yes | Yes <br> (Enhanced) | Yes <br> (NCSC) | Yes <br> (Custom) |
+| Intune security baseline applied |   | Yes <br> (Enhanced) | Yes <br> (Enhanced+) | Yes <br> (NCSC) | Yes <br> (Secured) |
 | Hardware meets secure Windows 10 Standards |   | Yes | Yes | Yes | Yes |
 | Removal of admin rights |   |   | Yes | Yes | Yes |
 | Microsoft Defender ATP enabled |   |   |   | Yes | Yes |
-| Deployment using Autodeploy |   |   |   | Yes | Yes |
+| Deployment using Microsoft Autopilot |   |   |   | Yes | Yes |
 | Apps installed only by Intune |   |   |   | Yes | Yes |
 | URLs restricted to approved list only |   |   |   | Yes | Yes |
 
 ![SECCON Levels](./media/secure-admin-workstations/SECCON-levels.png)
 
-* Standard – A managed standard workstation provides a good starting point for most home, and simple business use.
+* Standard – A managed standard workstation provides a good starting point for most home, and simple business use. These devices are Azure Ad registered and Intune managed.
 * Enhanced – Is an entry level solution for basics of securing a Windows 10 workstation.
-   * The Enhanced workstation provides a secure means to ensure that users that require to work with customer data, and must actively do email and web browsing are performed is effectively on the front line and faces high exposure to many common cyberattacks.
+   * The Enhanced workstation provides a secure means to ensure that users that require to work with customer data, and must actively do email and web browsing are performed is effectively on the front line and faces high exposure to many common cyberattacks. An Enhanced workstation can be used to audit, and profile use of a workstation by enabling auditing, and logging to Intune. In this profile, the workstation will enable security controls and policies described in the content, and deployed in the Enhanced Workstation - Windows10 (1809) script. 
 * VIP – Organizational VIPs can reflect executives, as well as high profile users that may occasionally have contact with sensitive data such as payroll, or approval of services, and processes.
-   * The VIP user profile demands a higher controlled environment while still being able to perform their productivity activity, such as mail, and web browsing while maintaining a simple to use experience. The users expect features such as cookies, favorites, and other shortcuts available to operate. However these users do not require the ability to modify their device, and will not install drivers, develop code, or write scripts.
-* DevOps – Developers and testers are an attractive target to attackers as these roles can alter systems of interest to the attackers.
-* Secured – An attacker who can compromise an administrative account can typically cause significant business damage by data theft, data alteration, or service disruption. In this hardened state, the workstation will enable all the security controls and policies described in the content.
+   * The VIP user profile demands a higher controlled environment while still being able to perform their productivity activity, such as mail, and web browsing while maintaining a simple to use experience. The users expect features such as cookies, favorites, and other shortcuts available to operate. However these users do not require the ability to modify their device, and will not install drivers, develop code, or write scripts. The deployment is similar to the Enhanced workstation, but enhances the hardening by enabling ATP, and removing local admin rights.
+* DevOps – Developers and testers are an attractive target to attackers as these roles can alter systems of interest to the attackers. The devops workstation takes the effort deployed in the VIP workstation, and further emphases it's security by managing local applications, limiting internet web sites, and restricting productivity capabilities that are high risk such as ActiveX, Java, Browser plug-in's, and several other known high risk controls on a Windows device. In this profile, the workstation will enable security controls and policies described in the content, and deployed in the DeviceConfiguration_NCSC - Windows10 (1803) SecurityBaseline (60) script. 
+* Secured – An attacker who can compromise an administrative account can typically cause significant business damage by data theft, data alteration, or service disruption. In this hardened state, the workstation will enable all the security controls and policies described in the content, and deployed in the Secure Workstation - Windows10 (1809) SecurityBaseline (90) script. 
 
 ![Secured workstation](./media/secure-admin-workstations/secure-workstation.png)
 
@@ -227,36 +227,6 @@ Click **Create** then on the **Assignments** tab add the **Secure Workstations**
 
 Additional information about Windows Update policies can be found in [Policy CSP - Update](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-update)
 
-#### Enable a secure device baseline
-
-For this security guidance, Windows 10 version 1809 is required for the use of Windows Defender ATP, Intune, and Windows Threat protection. To find your Windows version, follow the guidance outlined in the article [Enroll your first Windows 10 device](https://docs.microsoft.com/Intune/quickstart-enroll-windows-device).
-
-The [Intune secure baseline](https://docs.microsoft.com/Intune/security-baseline-settings-Windows) provides a good start point for securing our devices, implement the baseline, and apply additional items in policies.
-
-This baseline includes settings in the following categories:
-
-|   |   |   |
-| :---: | :---: | :---: |
-| Above Lock | Device Installation | Remote Desktop Services |
-| App Runtime | Device Lock | Remote Management |
-| Application Management | Event Log Service | Remote Procedure Call |
-| Auto Play | Experience | Search |
-| BitLocker | Exploit Guard | Smart Screen |
-| Browser | File Explorer | System |
-| Connectivity | Internet Explorer | Wi-Fi |
-| Credentials Delegation | Local Policies Security Options | Windows Connection Manager |
-| Credentials UI | MS Security Guide | Windows Defender |
-| Data Protection | MSS Legacy | Windows Ink Workspace |
-| Device Guard | Power | Windows PowerShell |
-
-To configure a security baseline profile in the Azure portal, browse to **Microsoft Intune** > **Device security**. Select the **Preview: MDM Security Baseline for October 2018** and select **Create profile**.
-
-* Name the profile **Secured-Workstation-Baseline1**
-* From the **Assignments** tab, choose **+ Select existing** and pick the **Secure Workstation Users** group
-* From the **Review + Create** tab, select **Save + deploy**
-
-Check the System boot start driver initialization setting? Should we change this from the default?
-
 #### Enable Intune compliance policies
 
 Compliance policies define the configuration rules and settings that users and devices must meet to be considered compliant including:
@@ -270,7 +240,11 @@ We will require devices to be compliant to access cloud services.
 
 In Microsoft Intune Device compliance - Compliance policy settings, we will enable the ability to validate compliant devices, and enable the Enhanced jailbreak detection with a validation no longer than 10 days.
 
-NEED LIST OF SETTINGS FOR COMPLIANCE POLICY
+To configure Device Compliance, browse to **Microsoft Intune** > **Device compliance - Compliance policy settings**
+
+* Mark devices with no compliance policy assigned as - **Not Compliance**
+* Enhanced jailreak detection - **Enabled** 
+* Compliance status validity period (days) **10**
 
 #### Windows Defender ATP Intune integration
 
@@ -291,39 +265,30 @@ Additional information can be found in the article [Windows Defender Advanced Th
 
 ### Completing hardening of the workstation profile
 
-To successfully harden the secured workstation we will configure the installation by implementing the PowerShell SDK, and device configuration from JSON scripts to import configurations based on the SECCON 3 controls.
+To successfully complete the hardening of the solution the following scripts can be downloaded and used based on the desired **profile level** from the following chart.
 
-Additionally, the following configuration will be required to be enabled for the SECCON controls. Will be done using Intune PowerShell sdk https://github.com/Microsoft/Intune-PowerShell-SDK and Intune scripts import scripts created by Dave Falkus. These configuration changes, will require that you configure your Intune consent, and [compliance manager](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center) to allow for users to export and import configurations using PowerShell.
+|   |   |   |
+| :---: | Download location | filename |
+| Standard | N/A |  N/A |
+| Enhanced | https://aka.ms/securedworkstationgit | Enhanced Workstation - Windows10 (1809) .ps1 |
+| VIP | https://aka.ms/securedworkstationgit | Enhanced Workstation - Windows10 (1809) .ps1 |
+| DevOps | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC - Windows10 (1803) SecurityBaseline.ps1 |
+| Secured | https://aka.ms/securedworkstationgit | Secure Workstation - Windows10 (1809) SecurityBaseline (90).ps1 |
 
-The modules can be loaded using following command.
+Once the your selected script successfully executes, updates to the profiles can be made in the Intune device manager. 
 
-``` PowerShell
-Install-Module -Name Microsoft.Graph.Intune
-```
+Enabling the profiles compliance policy can be done by browsing to **Microsoft Intune** > **Device compliance - Policies** Select the policy name imported > Select **Assignments** > Select Assign to **Selected Groups** Secure Workstation Users
 
-We will also require the scripts consent to operate `Connect-MSGraph -AdminConsent`
+Enable the profile Device configuration can be done by browsing to **Microsoft Intune** > **Device configuration - Profiles** Select the policy name imported > Select **Assignments** > Select Assign to **Selected Groups** Secure Workstation Users
 
-In our solution, we will implement categories to appropriate Intune profiles.
 
-The configuration can be done by exporting the current baseline, and applying changes to the export file as outlined in the SECCON documentation based on the profiles hardening that is required. Each hardening level will restrict and harden the workstation.
+To review the changes you can also export the profiles, and applying changes to the export file as outlined in the SECCON documentation based on and additional hardening that is required. 
 
 Running the Intune data export script `DeviceConfiguration_Export.ps1` from the [DeviceConfiguration GiuHub repository](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration) will provide the current export of all the of Intune existing profiles.
 
-The exported JSON files can be updated for the SECCON 3 and the following categories be addressed in including:
+## Additional configurations and hardening to consider
 
-* Security template policies
-* Windows Defender Policies
-* Computer Policies
-* Windows Antivirus Policies
-* User Policies
-* IE Computer policies
-* LAPS
-* Computer Policies
-* Services (restriction)
-
-After the policy files are configured to the appropriate SECCON level, the configuration file can be imported to Intune using `DeviceConfiguration_Import_FromJSON.ps1` from the [DeviceConfiguration GiuHub repository](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration).
-
-We have selected not to implement the Advanced Audit policies, as advanced threat protection (ATP) will provide the required auditing and reporting.
+The guidance provided has enabled a secured workstation, additional controls should also be considered, such as alternate browsers access, outbound HTTP whitelisted and blacklisted websites, and the ability to run custom PowerShell script.
 
 ### Restrictive inbound, and outbound rules in Firewall configuration service provider (CSP)
 
@@ -334,13 +299,13 @@ Default restricted recommendations are:
 * Deny All inbound
 * Deny All outbound
 
-Permitted site list added to outbound.
+A good deny list of untrusted website that can be used for untrusted sites: can be retrieved from the following reputation web site.
 
-* https://www.spamhaus.org/whitelist/ (WAS A BETA AND HAS BEEN TAKEN DOWN)
+* https://www.spamhaus.org/dbl/  Domain Block List
 
-### Limiting and removing local applications
+### Managing local applications
 
-Removing all application, including the removal of productivity applications will move the secure workstation to a truly hardened state. In our example, we will add Chrome as the default browser and restrict the ability to modify the browser including plug-ins using Intune.
+Removing local applications, including the removal of productivity applications will move the secure workstation to a truly hardened state. In our example, we will add Chrome as the default browser and restrict the ability to modify the browser including plug-ins using Intune.
 
 #### Deploy Chrome using Intune
 
@@ -349,6 +314,14 @@ In some situations, the Google Chrome browser is required on the secured worksta
 Deploying Chrome https://www.ntweekly.com/2018/12/21/deploy-google-chrome-with-microsoft-Intune-to-Windows-10-machines/
 
 Configuring and lock Chrome down https://support.google.com/chrome/a/answer/9102677?hl=en
+
+#### Configuring the company portal for custom apps
+
+In a secured mode, installing applications will be restricted to the Intune company portal. However, installing the portal requires access to Microsoft Store. In our secured solution, we will make the portal available to all devices using an offline mode of the company portal.
+
+Installing an Intune managed copy of the [Company Portal](https://docs.microsoft.com/en-us/Intune/store-apps-company-portal-app) will permit the ability to push down additional tools on demand to users of the secured workstations.
+
+Some organizations may be required to install win32 apps or apps that require other preparations to deploy. For these applications, the [Microsoft win32 content prep tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) will provide a ready to use `.intunewin` format file for installation.
 
 ### Setting up custom security settings using PowerShell
 
@@ -368,12 +341,28 @@ Microsoft scripting center provides the script [SetDesktopBackground.ps1](https:
 1. Select create
 1. Select assignment
 1. Add the security group Secure Workstation Users
-1. D
-1. 
-1. 
-1. 
 1. Wait for the changes to be applied to the user's desktop.
 1. You can also monitor the progress under the device configuration in Microsoft Intune.
+
+#### Using the Preview: MDM Security Baseline for October 2018
+
+Microsoft Intune has introduced a single baseline management feature which provides users a visual way to see a security posture. [Enroll your first Windows 10 device](https://docs.microsoft.com/Intune/quickstart-enroll-windows-device). The baseline provides a similar means to achieve a locked down Enhanced profile workstation.
+
+|   |   |   |
+| :---: | :---: | :---: |
+| Above Lock | Device Installation | Remote Desktop Services |
+| App Runtime | Device Lock | Remote Management |
+| Application Management | Event Log Service | Remote Procedure Call |
+| Auto Play | Experience | Search |
+| BitLocker | Exploit Guard | Smart Screen |
+| Browser | File Explorer | System requirement|
+| Connectivity | Internet Explorer | Wi-Fi |
+| Credentials Delegation | Local Policies Security Options | Windows Connection Manager |
+| Credentials UI | MS Security Guide | Windows Defender|
+| Data Protection | MSS Legacy | Windows Ink Workspace |
+| Device Guard | Power | Windows PowerShell |
+
+ For the secure workstation, implementation this baseline is not used as it will conflict with the secure configuration deployment. 
 
 ## Enroll and validate your first device
 
@@ -398,16 +387,8 @@ From the Windows 10 device you wish to configure, browse to **Windows Settings**
 After the device has been reconfigured, complete a review of the now enrolled device and check its configuration. 
 The device should now be configured in accord with the policies you have configured.
 
-## Additional tasks once the Secure workstation is configured
+## Assignment and monitoring
 
-Assigning device and users will require the mapping of the [selected profiles](https://docs.microsoft.com/intune/device-profile-assign) to your security group ‘securedsg’ and all new users that will be given permission to the service will be required to be added to the security group as well.
+Assigning device and users will require the mapping of the [selected profiles](https://docs.microsoft.com/intune/device-profile-assign) to your security group and all new users that will be given permission to the service will be required to be added to the security group as well.
 
 Monitoring the profiles to can be done using the monitoring [Microsoft Intune profiles](https://docs.microsoft.com/intune/device-profile-monitor).
-
-### Configuring the company portal for custom apps
-
-In a secured mode, installing applications will be restricted to the Intune company portal. However, installing the portal requires access to Microsoft Store. In our secured solution, we will make the portal available to all devices using an offline mode of the company portal.
-
-Installing an Intune managed copy of the [Company Portal](https://docs.microsoft.com/en-us/Intune/store-apps-company-portal-app) will permit the ability to push down additional tools on demand to users of the secured workstations.
-
-Some organizations may be required to install win32 apps or apps that require other preparations to deploy. For these applications, the [Microsoft win32 content prep tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) will provide a ready to use `.intunewin` format file for installation.
