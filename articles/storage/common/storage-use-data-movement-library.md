@@ -78,7 +78,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
-using Microsoft.WindowsAzure.Storage.DataMovement;
+using microsoft.azure.storage.datamovement;
 
 namespace DMLibSample
 {
