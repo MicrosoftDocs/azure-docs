@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/24/2018
+ ms.date: 05/10/2019
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -146,4 +146,4 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 
 ## Next steps
 
-If you would like to try the new disk type and haven't signed up for the preview yet, [request access through this survey](https://aka.ms/UltraSSDPreviewSignUp).
+If you would like to try the new disk type [request access to the preview with this survey](https://aka.ms/UltraSSDPreviewSignUp).
