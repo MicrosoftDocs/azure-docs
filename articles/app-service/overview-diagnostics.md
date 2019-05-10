@@ -32,11 +32,11 @@ To access App Service diagnostics, navigate to your App Service web app or App S
 
 For Azure Functions, navigate to your function app, and in the top navigation, click on **Platform features**, and select **Diagnose and solve problems** from the **Resource management** section.
 
-In the App Service diagnostics homepage, you can choose the category that best describes the issue with your app by using the keywords in each homepage tile. Also, this page is where you can find **Diagnostic Tools** for Windows apps. [See more details below](##diagnostic-tools-only-for-windows-app)
+In the App Service diagnostics homepage, you can choose the category that best describes the issue with your app by using the keywords in each homepage tile. Also, this page is where you can find **Diagnostic Tools** for Windows apps. See [Diagnostic tools (only for Windows app)](#diagnostic-tools-only-for-windows-app).
 
 ![Homepage](./media/app-service-diagnostics/appservicediagnosticshomepage1.png)
 
-## Interactive Interface
+## Interactive interface
 
 Once you select a homepage category that best aligns with your app's problem, App Service diagnostics' interactive interface, Genie, can guide you through diagnosing and solving problem with your app. You can use the tile shortcuts provided by Genie to view the full diagnostic report of the problem category that you are interested. The tile shortcuts provide you a direct way of accessing your diagnostic metrics.
 
@@ -60,26 +60,30 @@ If you don't know what’s wrong with your app or don’t know where to start tr
 
 ### Health checkup graphs
 
-- **Requests and Errors:** A graph that shows the number of requests made over the last 24 hours along with HTTP server errors.
-- **App Performance:** A graph that shows response time over the last 24 hours for various percentile groups.
-- **CPU Usage:** A graph that shows the overall percent CPU usage per instance over the last 24 hours.  
-- **Memory Usage:** A graph that shows the overall percent physical memory usage per instance over the last 24 hours.
+There are four different graphs in the health checkup.
+
+- **requests and errors:** A graph that shows the number of requests made over the last 24 hours along with HTTP server errors.
+- **app performance:** A graph that shows response time over the last 24 hours for various percentile groups.
+- **CPU usage:** A graph that shows the overall percent CPU usage per instance over the last 24 hours.  
+- **memory usage:** A graph that shows the overall percent physical memory usage per instance over the last 24 hours.
 
 ![Health checkup](./media/app-service-diagnostics/healthcheckup6.png)
 
-### Investigate application code issues (Only for Windows app)
+### Investigate application code issues (only for Windows app)
 
 Because many app issues are related to issues in your application code, App Service diagnostics integrates with [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) to highlight exceptions and dependency issues to correlate with the selected downtime. Application Insights has to be enabled separately.
 
-To view Application Insights exceptions and dependencies, select the **Web App Down** or **Web App Slow** tile shortcuts.
+![Application Insights](./media/app-service-diagnostics/applicationinsights7a.png)
 
-### Troubleshooting steps (Only for Windows app)
+To view Application Insights exceptions and dependencies, select the **web app down** or **web app slow** tile shortcuts.
+
+### Troubleshooting steps (only for Windows app)
 
 If an issue is detected with a specific problem category within the last 24 hours, you can view the full diagnostic report, and App Service diagnostics may prompt you to view more troubleshooting advice and next steps for a more guided experience.
 
-![Application Insights and Troubleshooting and Next Steps](./media/app-service-diagnostics/applicationinsightsandhealthchecknextsteps7.png)
+![Application Insights and Troubleshooting and Next Steps](./media/app-service-diagnostics/troubleshootingandnextsteps7b.png)
 
-## Diagnostic Tools (Only for Windows app)
+## Diagnostic tools (only for Windows app)
 
 Diagnostics Tools include more advanced diagnostic tools that help you investigate application code issues, slowness, connection strings, and more. and proactive tools that help you mitigate issues with CPU usage, requests, and memory.
 
