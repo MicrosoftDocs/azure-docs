@@ -184,7 +184,7 @@ If you want to separate costs, you can create a management group that holds just
 
 ## Set up an AWS consolidated account
 
-The AWS consolidated account consolidates billing and payment for multiple AWS accounts. It also acts as an AWS linked account.
+The AWS consolidated account combines billing and payment for multiple AWS accounts. It also acts as an AWS linked account.
 
 ![Example details for an AWS consolidated account](./media/aws-integration-setup-configure/aws-consolidated-account01.png)
 
