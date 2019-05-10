@@ -14,16 +14,16 @@ ms.date: 05/10/2019
 
 # Sample - Regression: Predict price
 
-Learn how to build a machine learning model that predicts an automobile's price without writing a single line of code.
+Learn how to build a machine learning model to predict an automobile's price without writing a single line of code.
 
-You will use the visual interface to perform the basic steps of any machine learning model development project:
+This sample implements a **regression algorithm** to predict price based on car specification..However, the basic steps will be similar for any algorithm type you choose whether its classification, regression, clustering, etc. These basic steps are:
 
 1. Get the data
 1. Pre-process the data
 1. Train the model
 1. Evaluate the model
 
-Here's the final, completed graph of the experiment. This article provides the rationale  for every module so you can make similar decisions when creating your own models.
+Here's the final, completed graph of the experiment. This article provides the rationale for every module so you can make similar decisions on your own.
 
 ![Graph of the experiment](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
@@ -75,6 +75,6 @@ We then pass the scores to the **Evaluate Model** module to generate evaluation 
 
 ## Next steps
 
-Explore the advanced sample to learn how to build a classifier and compare potential algorithms:
+Explore the advanced sample to learn how to incorporate Python code and compare potential algorithms for performance:
 
 - [Predict credit risk (cost sensitive)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)

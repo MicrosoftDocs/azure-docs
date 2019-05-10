@@ -12,18 +12,13 @@ ms.reviewer: sgilley
 ms.date: 05/02/2019
 ---
 
-# Sample 4 - Classification: Predict credit risk (cost sensitive)
+# Sample - Classification: Predict credit risk (cost sensitive)
 
-This visual interface sample experiment shows how to use a customized Python script to perform cost-sensitive binary classification. The cost of misclassifying the positive samples is five times the cost of misclassifying the negative samples.
+Learn how to incorporate Python scripts in the visual interface to predict credit. Then, learn how to quickly compare classifiers to choose the best one.
 
-This sample predicts credit risk based on information provided in a credit application, taking into account the misclassification costs.
+create a cost-sensitive binary classifier
 
-In this experiment, we compare two different approaches for generating models to solve this problem:
-
-- Training with the original dataset.
-- Training with a replicated dataset.
-
-With both approaches, we evaluate the models by using the test dataset with replication to ensure that results are aligned with the cost function. We test two classifiers with both approaches: **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
+This sample predicts credit risk based on information provided in credit applications. It takes account misclassification costs which are added by a custom Python script. It will try two classification algorithms: **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
 
 ## Prerequisites
 
@@ -42,6 +37,13 @@ See [Sample 3 - Classification: Credit Risk Prediction (Basic)](ui-sample-classi
 We use the German Credit Card dataset from the UC Irvine repository. This dataset contains 1,000 samples with 20 features and 1 label. Each sample represents a person. The 20 features include numerical and categorical features. See the [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) for more information about the dataset. The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
 
 ## Experiment summary
+
+In this experiment, we compare two different approaches for generating models to solve this problem:
+
+- Training with the original dataset.
+- Training with a replicated dataset.
+
+With both approaches, we evaluate the models by using the test dataset with replication to ensure that results are aligned with the cost function. We test two classifiers with both approaches: **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
 
 The cost of misclassifying a low-risk example as high is 1, and the cost of misclassifying a high-risk example as low is 5. We use an **Execute Python Script** module to account for this misclassification cost.
 
@@ -133,7 +135,6 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     result = pd.concat([new_cols, dataframe1], axis=1)
     return result,
 ```
-
 
 ## Results
 
