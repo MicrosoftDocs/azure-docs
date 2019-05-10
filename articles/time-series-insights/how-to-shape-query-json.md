@@ -6,7 +6,7 @@ author: ashannon7
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 05/08/2019
 ms.author: anshan
 ms.custom: seodec18
 
@@ -17,9 +17,9 @@ ms.custom: seodec18
 
 This article provides guidance for shaping JSON, to maximize the efficiency of your Azure Time Series Insights (TSI) queries.
 
-## Video: 
+## Video
 
-### In this video, we cover best practices around shaping JSON to meet your storage needs.</br>
+### Learn best practices for shaping JSON to meet your storage needs.</br>
 
 > [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
@@ -28,19 +28,19 @@ This article provides guidance for shaping JSON, to maximize the efficiency of y
 It's important to think about how you send events to Time Series Insights. Namely, you should always:
 
 1. send data over the network as efficiently as possible.
-2. ensure your data is stored in a way that enables you to perform aggregations suitable for your scenario.
-3. ensure you don't hit TSI's maximum property limits of
+1. ensure your data is stored in a way that enables you to perform aggregations suitable for your scenario.
+1. ensure you don't hit TSI's maximum property limits of
    - 600 properties (columns) for S1 environments.
    - 800 properties (columns) for S2 environments.
 
 The following guidance helps ensure the best possible query performance:
 
 1. Don't use dynamic properties, such as a tag ID as property name, as it contributes to hitting the maximum properties limit.
-2. Don't send unnecessary properties. If a query property isn't required, it's best not to send it, and avoid storage limitations.
-3. Use [reference data](time-series-insights-add-reference-data-set.md), to avoid sending static data over the network.
-4. Share dimension properties among multiple events, to send data over the network more efficiently.
-5. Don't use deep array nesting. TSI supports up to two levels of nested arrays that contain objects. TSI flattens arrays in the messages, into multiple events with property value pairs.
-6. If only a few measures exist for all or most events, it's better to send these measures as separate properties within the same object. Sending them separately reduces the number of events, and may make queries more performant as fewer events need to be processed. When there are several measures, sending them as values in a single property minimizes the possibility of hitting the maximum property limit.
+1. Don't send unnecessary properties. If a query property isn't required, it's best not to send it, and avoid storage limitations.
+1. Use [reference data](time-series-insights-add-reference-data-set.md), to avoid sending static data over the network.
+1. Share dimension properties among multiple events, to send data over the network more efficiently.
+1. Don't use deep array nesting. TSI supports up to two levels of nested arrays that contain objects. TSI flattens arrays in the messages, into multiple events with property value pairs.
+1. If only a few measures exist for all or most events, it's better to send these measures as separate properties within the same object. Sending them separately reduces the number of events, and may make queries more performant as fewer events need to be processed. When there are several measures, sending them as values in a single property minimizes the possibility of hitting the maximum property limit.
 
 ## Examples
 
@@ -77,7 +77,7 @@ Example JSON payload:
         "timestamp": "2018-01-17T01:18:00Z",
         "series": [
             {
-                "Flow Rate psi": 0.58015072345733643,
+                "Flow Rate ft3/s": 0.58015072345733643,
                 "Engine Oil Pressure psi ": 22.2
             }
         ]
@@ -85,7 +85,7 @@ Example JSON payload:
 ]
 ```
 
-Reference data table (key property is deviceId):
+Reference data table (key property is **deviceId**):
 
 | deviceId | messageId | deviceLocation |
 | --- | --- | --- |
@@ -100,7 +100,7 @@ Time Series Insights event table (after flattening):
 | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
 | FYYY | LINE\_DATA | US | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
 
-Note the following in the previous example:
+Above:
 
 - The **deviceId** column serves as the column header for the various devices in a fleet. Attempting to make deviceId value its own property name, would have limited total devices to 595 (S1 environments) or 795 (S2 environments), with the other five columns.
 
@@ -159,7 +159,7 @@ Example JSON payload:
 ]
 ```
 
-Reference Data (key properties are deviceId and series.tagId):
+Reference Data (key properties are **deviceId** and **series.tagId**):
 
 | deviceId | series.tagId | messageId | deviceLocation | type | unit |
 | --- | --- | --- | --- | --- | --- |
@@ -179,7 +179,7 @@ Time Series Insights event table (after flattening):
 | FYYY | pumpRate | LINE\_DATA | US | Flow Rate | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
 | FYYY | oilPressure | LINE\_DATA | US | Engine Oil Pressure | psi | 2018-01-17T01:18:00Z | 22.2 |
 
-Note the following in the previous example, and similar to the first example:
+Above:
 
 - columns **deviceId** and **series.tagId** serve as the column headers for the various devices and tags in a fleet. Using each as its own attribute would have limited the query to 594 (S1 environments) or 794 (S2 environments) total devices with the other six columns.
 
@@ -192,9 +192,12 @@ Note the following in the previous example, and similar to the first example:
 ### For both scenarios
 
 If you have a property with a large number of possible values, it's best to send as distinct values within a single column, rather than creating a new column for each value. From the previous two examples:
-  - In the first example, there are few properties that have several values, so it's appropriate to make each a separate property. 
+
+  - In the first example, there are few properties that have several values, so it's appropriate to make each a separate property.
   - However, in the second example, you can see that the measures are not specified as individual properties, but rather, an array of values/measures under a common series property. A new key is sent, **tagId** , which creates a new column, **series.tagId** in the flattened table. New properties are created, **type** and **unit**, using reference data, thus preventing the property limit from being hit.
 
 ## Next steps
 
-- To put these guidelines into practice, see [Azure Time Series Insights query syntax](/rest/api/time-series-insights/ga-query-syntax) to learn more about the query syntax for the TSI data access REST API.
+- Read [Azure Time Series Insights query syntax](/rest/api/time-series-insights/ga-query-syntax) to learn more about the query syntax for the TSI data access REST API.
+
+- Learn [How to shape events](./time-series-insights-send-events.md).
