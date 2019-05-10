@@ -33,6 +33,7 @@ To register services, you can create a configure method and add components to an
 
 To register your configure method, you must add an assembly attribute that specifies the type for your configure method using the `FunctionsStartup` attribute.
 
+
 ```csharp
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
 
@@ -50,6 +51,12 @@ namespace MyNamespace
         }
     }
 }
+```
+
+In order to register HttpClient you also need to install an additional Nuget package **Microsoft.Extensions.Http**
+
+```powershell
+Install-Package Microsoft.Extensions.Http
 ```
 
 ## Service lifetimes
