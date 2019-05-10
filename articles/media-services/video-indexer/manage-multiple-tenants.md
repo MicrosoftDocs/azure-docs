@@ -8,6 +8,7 @@ manager: femila
 editor: ''
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.workload: 
 ms.topic: article
 ms.custom: 

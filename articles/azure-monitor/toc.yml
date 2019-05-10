@@ -314,8 +314,9 @@
         - name: Status Monitor 
           href: app/monitor-performance-live-website-now.md
         - name: Status Monitor v2
-          href: app/status-monitor-v2-overview.md
           items:
+          - name: Overview
+            href: app/status-monitor-v2-overview.md
           - name: Getting started
             href: app/status-monitor-v2-get-started.md
           - name: Detailed instructions
@@ -557,7 +558,7 @@
           href: app/usage-workbooks.md
       - name: Web App Analytics solution
         href: insights/azure-web-apps-analytics.md
-      - name: Kubernetes hosted apps
+      - name: Monitor Kubernetes applications
         href: app/kubernetes.md
     - name: Monitor containers
       items:
