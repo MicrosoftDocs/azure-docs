@@ -123,7 +123,7 @@ You can set the service tier, compute size, and storage amount for a single data
 
 ### Serverless compute tier
 
-The [serverless compute tier](sql-database-serverless.md) is in public preview and is only for single databases using the vCore purchasing model.
+The [serverless compute tier](sql-database-serverless.md) is in preview and is only for single databases using the vCore purchasing model.
 
 #### Generation 5 compute platform
 
