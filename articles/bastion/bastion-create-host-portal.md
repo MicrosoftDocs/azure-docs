@@ -40,15 +40,15 @@ After your subscription has been provisioned for the preview, we will respond wi
 
 This section helps you create a new Azure Bastion resource from the Azure portal.
 
-1. From the home page in the [preview portal](http://aka.ms/BastionHost), select the **+** option to **Create a new resource**.
+1. From the home page in the [preview portal](http://aka.ms/BastionHost), click **+ Create a resource** to create a new resource.
 
 1. Type 'Bastion' in the search resource type field, then click **Enter** to get to the search results.
 
-1. From the search results, select the **Bastion Host** resource. Make sure the publisher is Microsoft and the category is Networking. (Note that WALLIX Bastion is not Microsoft Azure Bastion).
+1. From the search results, click the **Bastion** resource. Make sure the publisher is *Microsoft* and the category is *Networking*. (Note that WALLIX Bastion is not Microsoft Azure Bastion).
 
-4. On the **Bastion (Preview)** page, click the **Create** button at the bottom of the page to create a new Bastion resource.
+4. On the **Bastion (preview)** page, click **Create** to open the **Create a bastion** page .
 
-5. On the **Create a bastion** page, configure the new Bastion resource. Specify the configuration settings.
+5. On the **Create a bastion** page, configure a new Bastion resource. Specify the configuration settings for your bastion resource.
 
     ![Virtual WAN diagram](./media/bastion-create-host-portal/settings.png)
 
