@@ -64,8 +64,7 @@ This section helps you create a new Azure Bastion resource from the Azure portal
     * **Assignment**: Static
 
 6. When you have finished specifying the settings, click **Review + Create**.
-7. On the validation screen, click **Create**. Wait for about 5 mins for the Bastion resource to be created and deployed.
-8. To connect a VM, navigate to the VM in the portal, then click **Connect** and select **Bastion** from the right pane.
+7. On the validation screen, click **Create**. Wait for about 5 mins for the Bastion resource to be created and deployed. During this time, you may see deployment messages. Wait until the deployment has fully completed. This should take about 5 minutes.
 
 ## Create a bastion host using VM settings
 
@@ -80,7 +79,6 @@ If you create a bastion host in the portal by using an existing VM, various sett
     * **Public IP address**: This is the public IP of the Bastion resource on which RDP/SSH will be accessed (over port 443). Create a new public IP, or use an existing one. The public IP address must be in the same region as the Bastion resource you are creating.
     * **Public IP address name**: The name of the public IP address resource.
 4. Click **Create** to create and deploy the bastion host.
-5. To connect to a VM, navigate to the VM in the portal, then click **Connect** and select **Bastion** from the right pane.
 
 ## Next steps
 
