@@ -15,9 +15,9 @@ ms.reviewer: igorstan
 ---
 
 # Install Visual Studio and SSDT for SQL Data Warehouse
-Use Visual Studio 2017 to develop applications for SQL Data Warehouse. Currently Visual Studio 2019 SSDT is not supported for SQL Data Warehouse. 
+Use Visual Studio 2019 to develop applications for SQL Data Warehouse. Currently Visual Studio 2019 SSDT isn't supported for SQL Data Warehouse. 
 
-Using Visual Studio with SSDT allows you to use the SQL Server Object Explorer to visually explore tables, views, stored procedures, and many more objects in your SQL Data Warehouse as well as run queries.
+Using Visual Studio with SSDT allows you to use the SQL Server Object Explorer to explore tables, views, stored procedures, and many more objects visually in your SQL Data Warehouse. It also allows you to run queries.
 
 > [!NOTE]
 > SQL Data Warehouse does not yet support Visual Studio Database Projects. To receive periodic updates on this feature, please vote on [UserVoice].
@@ -36,10 +36,10 @@ To install SSDT for Visual Studio, first check for an SSDT update from within Vi
 1. In Visual Studio click on **Tools** / **Extensions and Updates…** / **Updates**
 2. Select **Product Updates** and then look for **Microsoft SQL Server Update for database tooling**
 
-If an update is not found, then you should have the latest version installed.  To confirm SSDT is installed, click on **Help** / **About Microsoft Visual Studio** and look for SQL Server Data Tools in the list. If the option to install is not available from Visual Studio, alternatively you can visit the [SSDT Download][SSDT Download] page to download and install SSDT manually.
+You should have the latest version installed if an update isn't found. To confirm SSDT is installed, click on **Help** / **About Microsoft Visual Studio** and look for SQL Server Data Tools in the list. If the option to install isn't available from Visual Studio, you can visit the [SSDT Download][SSDT Download] page to download and install SSDT manually.
 
 ## Next steps
-Now that you have the latest version of SSDT, you are ready to [connect][connect] to your SQL Data Warehouse.
+Now that you have the latest version of SSDT, you're ready to [connect][connect] to your SQL Data Warehouse.
 
 <!--Anchors-->
 
