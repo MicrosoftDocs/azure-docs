@@ -164,7 +164,6 @@ This setting has an impact on access attempts made from the following mobile app
 
 | Client apps | Target Service | Platform |
 | --- | --- | --- |
-| Azure Remote app | Azure Remote App service | Windows 10, Windows 8.1, Windows 7, iOS, Android, and macOS |
 | Dynamics CRM app | Dynamics CRM | Windows 10, Windows 8.1, iOS, and Android |
 | Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication)| Office 365 Exchange Online | Windows 10 |
 | MFA and location policy for apps. Device based policies are not supported.| Any My Apps app service| Android and iOS |
