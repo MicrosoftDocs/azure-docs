@@ -57,7 +57,7 @@ After any action in your logic app workflow, you can use the Delay and Delay Unt
 
 * **Delay**: Pauses for the specified number of time units, such as seconds, minutes, hours, days, weeks, or months.
 
-* **Delay until**: Pauses until the specified date and time and time.
+* **Delay until**: Pauses until the specified date and time.
 
 ## Patterns for start date and time
 
@@ -132,4 +132,4 @@ Or, if you're using a blank logic app template, start your logic app with the **
 ## Next steps
 
 * [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence.md)
-* []
+* [Pause workflows with delay actions](../connectors/connectors-native-delay.md)
