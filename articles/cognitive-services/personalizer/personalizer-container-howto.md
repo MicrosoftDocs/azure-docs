@@ -35,9 +35,9 @@ You must meet the following prerequisites before using Personalizer Service cont
 
 The **host** is the computer that runs the docker container. It can be a computer on your premises or a docker hosting service in Azure including:
 
-* [Azure Kubernetes Service](https://docs.microsoft.com/aks/index.yml)
-* [Azure Container Instances](https://docs.microsoft.com/container-instances/index.yml)
-* [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](https://docs.microsoft.com/azure-stack/index.yml). For more information, see [Deploy Kubernetes to Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+* [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/)
+* [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index)
+* [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](https://docs.microsoft.com/azure-stack/operator/). For more information, see [Deploy Kubernetes to Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
 ### Container requirements and recommendations
 
