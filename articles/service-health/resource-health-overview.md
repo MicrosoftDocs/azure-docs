@@ -5,8 +5,7 @@ author: stephbaron
 ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
-ms.workload: Supportability
-ms.date: 11/16/2018
+ms.date: 05/10/2019
 
 ---
 # Azure Resource Health overview

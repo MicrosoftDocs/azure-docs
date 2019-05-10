@@ -2,11 +2,19 @@
   href: index.md
 - name: Overview
   items:
-  - name: What is Azure status?
+  - name: What is in Azure Service Health
+    href: overview.md
+- name: Quickstarts
+  items:
+  - name: Configure alerts for service health events
+    href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+- name: Concepts
+  items:
+  - name: Azure status Overview
     href: azure-status-overview.md
-  - name: What is Service Health?
+  - name: Azure service health overview
     href: service-health-overview.md
-  - name: What is Resource Health?
+  - name: Azure resource health overview
     href: resource-health-overview.md
 - name: How To
   items:
@@ -15,24 +23,30 @@
     items:
     - name: View service health notifications by using the Azure portal
       href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
-  - name: Configure service health notifications using a webhook
+  - name: Send alerts to outside systems via webhook
     href: service-health-alert-webhook-guide.md
-    items:
-    - name: Configure with ServiceNow
-      href: service-health-alert-webhook-servicenow.md
-    - name: Configure with PagerDuty
-      href: service-health-alert-webhook-pagerduty.md
-    - name: Configure with OpsGenie
-      href: service-health-alert-webhook-opsgenie.md
-    - name: Retrieve health events with REST
-      href: service-health-rest.md
+  - name: Send alerts to ServiceNow
+    href: service-health-alert-webhook-servicenow.md
+  - name: Send alerts to PagerDuty
+    href: service-health-alert-webhook-pagerduty.md
+  - name: Send alerts to OpsGenie
+    href: service-health-alert-webhook-opsgenie.md
+  - name: Retrieve health events with REST
+    href: service-health-rest.md
   - name: Configure alerts for resource health events
     href: resource-health-alert-arm-template-guide.md
-- name: Resources
-  items:
   - name: Frequently Asked Questions
     href: resource-health-faq.md
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
+- name: Reference
+  items:
   - name: Resource types and health checks available through Azure Resource Health
     href: resource-health-checks-resource-types.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Notification Pricing
+    href: https://azure.microsoft.com/en-us/pricing/details/monitor/
+  
