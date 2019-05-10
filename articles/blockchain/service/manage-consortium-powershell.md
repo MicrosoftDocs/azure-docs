@@ -83,9 +83,7 @@ Use the network and smart contract cmdlets to establish a connection to your blo
 
 Connects to the consortium management smart contracts, which are used to manage and enforce members within the consortium.
 
-```
-Import-ConsortiumManagementContracts -RootContractAddress <String> -Web3Client <IClient>
-```
+`Import-ConsortiumManagementContracts -RootContractAddress <String> -Web3Client <IClient>`
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
@@ -102,9 +100,7 @@ Import-ConsortiumManagementContracts -RootContractAddress '<RootContract address
 
 Use this cmdlet to create an object to hold the information remote node management account.
 
-```
-Import-Web3Account -ManagedAccountAddress <String> -ManagedAccountPassword <String>
-```
+`Import-Web3Account -ManagedAccountAddress <String> -ManagedAccountPassword <String>`
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
@@ -121,14 +117,11 @@ Import-Web3Account -ManagedAccountAddress '<Member account address>'  -ManagedAc
 
 Establishes a connection to the RPC endpoint of a transaction node.
 
-```
-New-Web3Connection [-RemoteRPCEndpoint <String>]
-```
+`New-Web3Connection [-RemoteRPCEndpoint <String>]`
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
 | RemoteRPCEndpoint | Blockchain member endpoint address | Yes |
-
 
 **Example**
 
@@ -144,9 +137,7 @@ Use consortium member management cmdlets to manage members within the consortium
 
 Gets member details or list members of the consortium.
 
-```
-Get-BlockchainMember [[-Name] <String>] -Members <IContract> -Web3Client <IClient>
-```
+`Get-BlockchainMember [[-Name] <String>] -Members <IContract> -Web3Client <IClient>`
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
@@ -175,9 +166,7 @@ Role           : ADMIN
 
 Removes a blockchain member.
 
-```
-Remove-BlockchainMember -Name <String> -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>
-```
+`Remove-BlockchainMember -Name <String> -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>`
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
@@ -198,10 +187,8 @@ Sets blockchain member attributes including display name and consortium role.
 
 Consortium administrators can set **DisplayName** and **Role** for all members. Consortium member with the user role can only change their own member's display name.
 
-```
-Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <String>] [-Role <String>]
- -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>
-```
+`Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <String>] [-Role <String>]
+ -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>`
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
@@ -226,10 +213,8 @@ Use consortium member invitation management cmdlets to manage consortium member 
 
 Invite new members to the consortium.
 
-```
-New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
- -Web3Account <IAccount> -Web3Client <IClient>
-```
+`New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
+ -Web3Account <IAccount> -Web3Client <IClient>`
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
@@ -249,9 +234,7 @@ $ContractConnection | New-BlockchainMemberInvitation -SubscriptionId <Azure Subs
 
 Retrieves or lists consortium member invitation status.
 
-```
-Get-BlockchainMemberInvitation [[-SubscriptionId] <String>] -Members <IContract> -Web3Client <IClient>
-```
+`Get-BlockchainMemberInvitation [[-SubscriptionId] <String>] -Members <IContract> -Web3Client <IClient>`
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
@@ -277,10 +260,8 @@ SubscriptionId                       Role CorrelationId
 
 Revokes a consortium member invite.
 
-```
-Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> -Web3Account <IAccount>
- -Web3Client <IClient>
-```
+`Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> -Web3Account <IAccount>
+ -Web3Client <IClient>`
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
@@ -299,10 +280,8 @@ $ContractConnection | Remove-BlockchainMemberInvitation -SubscriptionId <Subscri
 
 Sets the **Role** for an existing invitation. Only consortium administrators can change invitations.
 
-```
-Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
- -Web3Account <IAccount> -Web3Client <IClient>
-```
+`Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
+ -Web3Account <IAccount> -Web3Client <IClient>`
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
