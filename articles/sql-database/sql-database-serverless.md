@@ -11,16 +11,15 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/07/2019
+ms.date: 05/11/2019
 ---
 # SQL Database serverless (preview)
 
 ## What is the serverless compute tier
 
-SQL Database serverless (preview) is a compute tier that bills for the amount of compute used by a single database on a per second basis. Serverless is price-perf optimized for single databases with bursty usage patterns that can afford some delay in compute warm-up after idle usage periods.
-In contrast, publicly available offers in SQL Database today bill for the amount of compute provisioned on an hourly basis. This provisioned compute tier is price-perf optimized for single databases or elastic pools with higher average usage that cannot afford any delay in compute warm-up.
+SQL Database serverless (preview) is a compute tier that bills for the amount of compute used by a single database on a per second basis. Serverless is price-performance optimized for single databases with intermittent, unpredictable usage patterns that can afford some delay in compute warm-up after idle usage periods.
 
-A database in the serverless computer tier is parameterized by the compute range it can use and an autopause delay.
+A database in the serverless compute tier is parameterized by the compute range it can use and an autopause delay.
 
 ![serverless billing](./media/sql-database-serverless/serverless-billing.png)
 
@@ -38,22 +37,11 @@ Billing for compute is based on the amount of vCores used and memory used per se
 
 ## Scenarios
 
-Serverless is price-performance optimized for single databases with bursty usage patterns that can afford some delay in compute warm-up after idle usage periods. The provisioned compute tier is price-performance optimized for single or pooled databases with higher average usage that cannot afford any delay in compute warm-up.
-
-The following table compares serverless compute tier with the provisioned compute tier:
-
-||Serverless compute|Provisioned compute|
-|---|---|---|
-|**Typical usage scenario**|Databases with bursty, unpredictable usage interspersed with inactive periods|Databases or elastic pools with more regular usage|
-|**Performance management effort**|Lower|Higher|
-|**Compute scaling**|Automatic|Manual|
-|**Compute responsiveness**|Lower after inactive periods|Immediate|
-|**Billing granularity**|Per second|Per hour|
-|
+Serverless is price-performance optimized for single databases with intermittent, unpredictable usage patterns that can afford some delay in compute warm-up after idle usage periods. In contrast, the provisioned compute tier is price-performance optimized for single or pooled databases with higher average usage that cannot afford any delay in compute warm-up.
 
 ### Scenarios well-suited for serverless compute
 
-- Single databases with bursty usage patterns interspersed with periods of inactivity can benefit from price savings based on billing per second for the amount of compute used.
+- Single databases with intermittent, unpredictable usage patterns interspersed with periods of inactivity can benefit from price savings based on billing per second for the amount of compute used.
 - Single databases with resource demand that is difficult to predict and customers who prefer to delegate compute sizing to the service.
 - Single databases in the provisioned compute tier that frequently change performance levels.
 
@@ -61,8 +49,19 @@ The following table compares serverless compute tier with the provisioned comput
 
 - Single databases with more regular and more substantial compute utilization over time.
 - Databases that cannot tolerate performance trade-offs resulting from more frequent memory trimming or delay in autoresuming from a paused state.
-- Multiple databases with bursty usage patterns that can be consolidated into a single server and use elastic pools for better price optimization.
+- Multiple databases with intermittent, unpredictable usage patterns that can be consolidated into a single server and use elastic pools for better price optimization.
 
+## Comparison with provisioned compute tier
+
+The following table summarizes distinctions between the serverless compute tier and the provisioned compute tier:
+
+| | **Serverless compute** | **Provisioned compute** |
+|:---|:---|:---|
+|**Typical usage scenario**| Databases with intermittent, unpredictable usage interspersed with inactive periods. |	Databases or elastic pools with more regular usage.|
+| **Performance management effort** |Lower|Higher|
+|**Compute scaling**|Automatic|Manual|
+|**Compute responsiveness**|Lower after inactive periods|Immediate|
+|**Billing granularity**|Per second|Per hour|
 
 ## Purchasing model and service tier
 
@@ -110,7 +109,7 @@ Autoresume is triggered if any of the following conditions are true at any time:
 
 ### Connectivity
 
-If a serverless databases is paused, then the first login will resume the database and return an error stating that the database is unavailable. Once the database is resumed, the login must be retried to establish connectivity. Database clients with connection retry logic should not need to be modified.
+If a serverless databases is paused, then the first login will resume the database and return an error stating that the database is unavailable with error code 40613. Once the database is resumed, the login must be retried to establish connectivity. Database clients with connection retry logic should not need to be modified.
 
 ### Latency
 
@@ -129,13 +128,13 @@ The following features do not support autopausing and autoresuming. That is, if 
 
 Creating a new database or moving an existing database into a serverless compute tier follows the same pattern as creating a new database in provisioned compute tier and involves the following two steps:
 
-1. Specify the service objective name. The following table shows the available service tier and compute sizes currently available in the public preview.
+1. Specify the service objective name. The service objective prescribes the service tier, hardware generation, and maximum vCores. The following table shows the service objective options:
 
-   |Service tier|Compute size|
-   |---|---|
-   |General Purpose|GP_S_Gen5_1|
-   |General Purpose|GP_S_Gen5_2|
-   |General Purpose|GP_S_Gen5_4|
+   |Service objective name|Service tier|Hardware generation|Max vCores|
+   |---|---|---|---|
+   |GP_S_Gen5_1|General Purpose|Gen5|1|
+   |GP_S_Gen5_2|General Purpose|Gen5|2|
+   |GP_S_Gen5_4|General Purpose|Gen5|4|
 
 2. Optionally, specify the minimum vCores and autopause delay to change their default values. The following table shows the available values for these parameters.
 
@@ -172,7 +171,7 @@ New-AzSqlDatabase `
 
 ### Move existing database into the serverless compute tier
 
-The following example moves an existing single database from the provisioned compute tier into the serverless compute tier. This example uses the default values for the min vCores, max vCores, and autopause delay.
+The following example moves an existing single database from the provisioned compute tier into the serverless compute tier. This example explicitly specifies the min vCores, max vCores, and autopause delay.
 
 ```powershell
 Set-AzSqlDatabase
@@ -224,7 +223,7 @@ The user resource pool is the inner most resource management boundary for a data
 |Entity|Metric|Description|Units|
 |---|---|---|---|
 |App package|app_cpu_percent|Percentage of vCores used by the app relative to max vCores allowed for the app.|Percentage|
-|App package|app_cpu_billed|The amount of compute billed for the app during the reporting period. The amount paid during this period is the product of this metric and the vCore unit price.<br>Values of this metric are determined by aggregating over time the maximum of CPU used and memory used each second.<br>If the amount used is less than the minimum amount provisioned as set by the min vCores and min memory, then the minimum amount provisioned is billed.  In order to compare CPU with memory for billing purposes, memory is normalized into units of vCores by rescaling the amount of memory in GB by 3 GB per vCore.|vCore seconds|
+|App package|app_cpu_billed|The amount of compute billed for the app during the reporting period. The amount paid during this period is the product of this metric and the vCore unit price. <br><br>Values of this metric are determined by aggregating over time the maximum of CPU used and memory used each second. If the amount used is less than the minimum amount provisioned as set by the min vCores and min memory, then the minimum amount provisioned is billed. In order to compare CPU with memory for billing purposes, memory is normalized into units of vCores by rescaling the amount of memory in GB by 3 GB per vCore.|vCore seconds|
 |App package|app_memory_percent|Percentage of memory used by the app relative to max memory allowed for the app.|Percentage|
 |User pool|cpu_percent|Percentage of vCores used by user workload relative to max vCores allowed for user workload.|Percentage|
 |User pool|data_IO_percent|Percentage of data IOPS used by user workload relative to max data IOPS allowed for user workload.|Percentage|
@@ -256,20 +255,21 @@ For resource limits, see [Serverless compute tier](sql-database-vCore-resource-l
 
 ## Billing
 
-The amount of compute billed each second is the maximum of CPU used and memory used each second. If the amount of CPU used and memory used is less than the minimum amount provisioned for each, then the provisioned amount is billed. In order to compare CPU with memory for billing purposes, memory is normalized into units of vCores by rescaling the amount of memory in GB by 3 GB per vCore.
+The amount of compute billed is the maximum of CPU used and memory used each second. If the amount of CPU used and memory used is less than the minimum amount provisioned for each, then the provisioned amount is billed. In order to compare CPU with memory for billing purposes, memory is normalized into units of vCores by rescaling the amount of memory in GB by 3 GB per vCore.
 
 - **Resource billed**: CPU and memory
 - **Amount billed ($)**: vCore unit price * max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3) 
 - **Billing frequency**: Per second
 
+The vcore unit price in the cost per vcore per second. Refer to the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/) for specific unit prices in a given region.
+
 The amount of compute billed is exposed by the following metric:
 
 - **Metric**: app_cpu_billed (vCore seconds)
-- **Definition**: max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3)*
+- **Definition**: max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3)
 - **Reporting frequency**: Per minute
 
-> [!NOTE]
-> \* This quantity is calculated each second and aggregated over 1 minute.
+This quantity is calculated each second and aggregated over 1 minute.
 
 **Example**: Consider a database using GP_S_Gen5_4 with the following usage over a one hour period:
 
@@ -283,7 +283,7 @@ The amount of compute billed is exposed by the following metric:
 |0:06 - 1:00|1255|
 ||Total: 1631|
 
-Suppose the compute unit price is $0.2609/vCore/hour. Then the compute billed for this one hour period is determined using the following formula: **$0.2609/vCore/hour * 1631 vCore seconds * 1 hour/3600 seconds = $0.1232**
+Suppose the compute unit price is $0.000073/vCore/second. Then the compute billed for this one hour period is determined using the following formula: **$0.000073/vCore/second * 1631 vCore seconds = $0.1191**
 
 ## Available regions
 
@@ -291,4 +291,5 @@ The serverless compute tier is available in all regions except the following reg
 
 ## Next steps
 
-For resource limits, see [Serverless compute tier resource limits](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier).
+- To get started, see [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md).
+- For resource limits, see [Serverless compute tier resource limits](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier).
