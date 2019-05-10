@@ -76,8 +76,8 @@ Successful customers have detailed plans where the preceding questions are discu
 
   Conducting a lab test of your exact scenario (compute, networking, and storage) is the best way to ensure a smooth migration. This will help ensure:
 
-  - A wholly separate lab or an existing non-production environment to test. We recommend a wholly separate lab that can be migrated repeatedly and can be destructively modified.  Scripts to collect/hydrate metadata from the real subscriptions are listed below.
-  - It's a good idea to create the lab in a separate subscription. The reason is that the lab will be torn down repeatedly, and having a separate, isolated subscription will reduce the chance that something real will get accidentally deleted.
+- A wholly separate lab or an existing non-production environment to test. We recommend a wholly separate lab that can be migrated repeatedly and can be destructively modified.  Scripts to collect/hydrate metadata from the real subscriptions are listed below.
+- It's a good idea to create the lab in a separate subscription. The reason is that the lab will be torn down repeatedly, and having a separate, isolated subscription will reduce the chance that something real will get accidentally deleted.
 
   This can be accomplished by using the AsmMetadataParser tool. [Read more about this tool here](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
@@ -119,32 +119,34 @@ The following were issues discovered in many of the larger migrations. This is n
     > These limits need to be raised in the same region as your current environment to be migrated.
     >
 
-    - Network Interfaces
-    - Load Balancers
-    - Public IPs
-    - Static Public IPs
-    - Cores
-    - Network Security Groups
-    - Route Tables
+  - Network Interfaces
+  - Load Balancers
+  - Public IPs
+  - Static Public IPs
+  - Cores
+  - Network Security Groups
+  - Route Tables
 
     You can check your current Azure Resource Manager quotas using the following commands with the latest version of Azure PowerShell.
+	
+	[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
     **Compute** *(Cores, Availability Sets)*
 
     ```powershell
-    Get-AzureRmVMUsage -Location <azure-region>
+    Get-AzVMUsage -Location <azure-region>
     ```
 
     **Network** *(Virtual Networks, Static Public IPs, Public IPs, Network Security Groups, Network Interfaces, Load Balancers, Route Tables)*
 
     ```powershell
-    Get-AzureRmUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
+    Get-AzUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
     **Storage** *(Storage Account)*
 
     ```powershell
-    Get-AzureRmStorageUsage
+    Get-AzStorageUsage
     ```
 
 - **Azure Resource Manager API throttling limits** - If you have a large enough environment (eg. > 400 VMs in a VNET), you might hit the default API throttling limits for writes (currently `1200 writes/hour`) in Azure Resource Manager. Before starting migration, you should raise a support ticket to increase this limit for your subscription.
@@ -198,11 +200,11 @@ Things to consider:
 
 Be purposeful on what services you now want to enable in Azure Resource Manager.  Many customers find the below compelling for their Azure environments:
 
-- [Role Based Access Control](../../azure-resource-manager/resource-group-overview.md#access-control).
+- [Role Based Access Control](../../role-based-access-control/overview.md).
 - [Azure Resource Manager templates for easier and more controlled deployment](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Tags](../../azure-resource-manager/resource-group-using-tags.md).
 - [Activity Control](../../azure-resource-manager/resource-group-audit.md)
-- [Azure Policies](../../azure-policy/azure-policy-introduction.md)
+- [Azure Policies](../../governance/policy/overview.md)
 
 ### Pitfalls to avoid
 

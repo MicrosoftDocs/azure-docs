@@ -12,12 +12,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/29/2018
+ms.topic: conceptual
+ms.date: 04/01/2019
 ms.author: juliako
 
 ---
-# Set up your Media Services development environment
+# Set up your Media Services development environment  
+
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 The following steps describe prerequisites required for developing with Azure Media Services.
 

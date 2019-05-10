@@ -4,7 +4,7 @@ description: Azure CLI Samples
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-ms.assetid:
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

@@ -19,7 +19,9 @@ ms.author: spelluru
 
 This sample PowerShell script sets allowed virtual machine (VM) sizes in Azure Lab Services.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## Prerequisites
 * **A lab**. The script requires you to have an existing lab. 
@@ -34,10 +36,10 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) | Searches for resources based on specified parameters. |
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Gets resources. |
-| [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Modifies a resource. |
-| [New-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | Create a resource. |
+| Find-AzResource | Searches for resources based on specified parameters. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Gets resources. |
+| [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifies a resource. |
+| [New-AzResource](/powershell/module/az.resources/new-azresource) | Create a resource. |
 
 ## Next steps
 

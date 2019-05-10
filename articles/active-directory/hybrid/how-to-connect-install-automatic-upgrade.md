@@ -4,19 +4,20 @@ description: This topic describes the built-in automatic upgrade feature in Azur
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2018
-ms.component: hybrid
+ms.date: 02/26/2019
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Automatic upgrade
 This feature was introduced with build [1.1.105.0 (released February 2016)](reference-connect-version-history.md#111050).  This feature was updated in [build 1.1.561](reference-connect-version-history.md#115610) and now supports additional scenarios that were previously not supported.
@@ -38,7 +39,7 @@ The current state of automatic upgrade can be viewed with the PowerShell cmdlet 
 | Suspended |Set by the system only. The system is **not currently** eligible to receive automatic upgrades. |
 | Disabled |Automatic upgrade is disabled. |
 
-You can change between **Enabled** and **Disabled** with `Set-ADSyncAutoUpgrade`. Only the system should set the state **Suspended**.
+You can change between **Enabled** and **Disabled** with `Set-ADSyncAutoUpgrade`. Only the system should set the state **Suspended**.  Prior to 1.1.750.0 the Set-ADSyncAutoUpgrade cmdlet would block Autoupgrade if the auto-upgrade state was set to Suspended. This functionality has now changed so it does not block AutoUpgrade.
 
 Automatic upgrade is using Azure AD Connect Health for the upgrade infrastructure. For automatic upgrade to work, make sure you have opened the URLs in your proxy server for **Azure AD Connect Health** as documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
@@ -84,18 +85,18 @@ Here is a list of the most common messages you find. It does not list all, but t
 | UpgradeAbortedSyncExeInUse |The [synchronization service manager UI](how-to-connect-sync-service-manager-ui.md) is open on the server. |
 | UpgradeAbortedSyncOrConfigurationInProgress |The installation wizard is running or a sync was scheduled outside the scheduler. |
 | **UpgradeNotSupported** | |
-| UpgradeNotSupportedAdfsSignInMethod | You have selected Adfs as the sign-in method. | 
+| UpgradeNotSupportedAdfsSignInMethod | You have selected Adfs as the sign-in method. |
 | UpgradeNotSupportedCustomizedSyncRules |You have added your own custom rules to the configuration. |
 | UpgradeNotSupportedDeviceWritebackEnabled |You have enabled the [device writeback](how-to-connect-device-writeback.md) feature. |
 | UpgradeNotSupportedGroupWritebackEnabled |You have enabled the [group writeback](how-to-connect-preview.md#group-writeback) feature. |
 | UpgradeNotSupportedInvalidPersistedState |The installation is not an Express settings or a DirSync upgrade. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |You have more than 100,000 objects in the metaverse. |
 | UpgradeNotSupportedMultiForestSetup |You are connecting to more than one forest. Express setup only connects to one forest. |
-| UpgradeNotSupportedNonLocalDbInstall |You are not using a SQL Server Express LocalDB database. |d
+| UpgradeNotSupportedNonLocalDbInstall |You are not using a SQL Server Express LocalDB database. |
 | UpgradeNotSupportedNonMsolAccount |The [AD DS Connector account](reference-connect-accounts-permissions.md#ad-ds-connector-account) is not the default MSOL_ account anymore. |
-| UpgradeNotSupportedNotConfiguredSignInMethod | When setting up AAD Connect, you chose *Do Not Configure* when selecting the sign-on method. | 
+| UpgradeNotSupportedNotConfiguredSignInMethod | When setting up AAD Connect, you chose *Do Not Configure* when selecting the sign-on method. |
 | UpgradeNotSupportedPtaSignInMethod | You have selected Pass-through Authentication as the sign-in method. |
-| UpgradeNotSupportedStagingModeEnabled |The server is set to be in [staging mode](how-to-connect-sync-operations.md#staging-mode). |
+| UpgradeNotSupportedStagingModeEnabled |The server is set to be in [staging mode](how-to-connect-sync-staging-server.md). |
 | UpgradeNotSupportedUserWritebackEnabled |You have enabled the [user writeback](how-to-connect-preview.md#user-writeback) feature. |
 
 ## Next steps

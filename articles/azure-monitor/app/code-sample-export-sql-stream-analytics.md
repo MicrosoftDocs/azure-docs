@@ -176,8 +176,8 @@ To get the name and iKey of your Application Insights resource, open Essentials 
 > Use the Sample function to check that you have set the input path correctly. If it fails: Check that there is data in the storage for the sample time range you chose. Edit the input definition and check you set the storage account, path prefix and date format correctly.
 > 
 > 
-## Set query
-Open the query section:
+> ## Set query
+> Open the query section:
 
 Replace the default query with:
 
@@ -244,7 +244,7 @@ After a few minutes, go back to SQL Server Management Tools and watch the data f
 
 
 ## Related articles
-* [Export to PowerBI using Stream Analytics](../../application-insights/app-insights-export-power-bi.md)
+* [Export to PowerBI using Stream Analytics](../../azure-monitor/app/export-power-bi.md )
 * [Detailed data model reference for the property types and values.](../../azure-monitor/app/export-data-model.md)
 * [Continuous Export in Application Insights](../../azure-monitor/app/export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
@@ -255,5 +255,5 @@ After a few minutes, go back to SQL Server Management Tools and watch the data f
 [export]: ../../azure-monitor/app/export-telemetry.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
 [portal]: https://portal.azure.com/
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

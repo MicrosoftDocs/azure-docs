@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
+ms.subservice: common
 ---
 # Quick reference for frequently used commands for import jobs
 This section provides a quick reference for some frequently used commands. For detailed usage, see [Preparing Hard Drives for an Import Job](../storage-import-export-tool-preparing-hard-drives-import-v1.md).  

@@ -159,7 +159,7 @@ You can add addition user-defined operators to the application.  For more inform
 
 1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**, right-click the default Data Lake Storage account, and then click **Explorer**.
 2. Double-click **Samples** to open the folder, and then double-click **Outputs**.
-3. Double-click **UnsuccessfulResponsees.log**.
+3. Double-click **UnsuccessfulResponses.log**.
 4. You can also double-click the output file inside the graph view of the job in order to navigate directly to the output.
 
 ## See also

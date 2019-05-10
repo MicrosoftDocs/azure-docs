@@ -36,7 +36,7 @@ psexec \\<computer>-u user -s cmd
 
 >[!Note]
 >* The command must be run on a computer that’s in the same VNET.
->* DIP or HostName can be used to replace <computer>.
+>* DIP or HostName can be used to replace \<computer>.
 >* The -s parameter makes sure that the command is invoked by using System Account (administrator permission).
 >* PsExec uses TCP ports 135 and 445. Therefore, the two ports have to be open on the Firewall.
 
@@ -88,6 +88,8 @@ Set-AzureVMCustomScriptExtension "CustomScriptExtension" -VM $vm -StorageAccount
 
 ### For V2 VMs
 
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+
 ```powershell
 #Setup the basic variables
 $subscriptionID = "<<SUBSCRIPTION ID>>"
@@ -100,19 +102,18 @@ $vmResourceGroup = "<<RESOURCE GROUP>>"
 $vmLocation = "<<DATACENTER>>" 
  
 #Setup the Azure Powershell module and ensure the access to the subscription
-Import-Module AzureRM
-Login-AzureRmAccount #Ensure Login with account associated with subscription ID
-Get-AzureRmSubscription -SubscriptionId $subscriptionID | Select-AzureRmSubscription
+Login-AzAccount #Ensure Login with account associated with subscription ID
+Get-AzSubscription -SubscriptionId $subscriptionID | Select-AzSubscription
 
 #Setup the access to the storage account and upload the script 
-$storageKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $storageRG -Name $storageAccount).Value[0]
+$storageKey = (Get-AzStorageAccountKey -ResourceGroupName $storageRG -Name $storageAccount).Value[0]
 $context = New-AzureStorageContext -StorageAccountName $storageAccount -StorageAccountKey $storageKey
 $container = "cse" + (Get-Date -Format yyyyMMddhhmmss)
 New-AzureStorageContainer -Name $container -Permission Off -Context $context
 Set-AzureStorageBlobContent -File $localScript -Container $container -Blob $blobName  -Context $context
 
 #Push the script into the VM
-Set-AzureRmVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $vmResourceGroup -VMName $vmName -Location $vmLocation -StorageAccountName $storageAccount -StorageAccountKey $storagekey -ContainerName $container -FileName $blobName -Run $blobName
+Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $vmResourceGroup -VMName $vmName -Location $vmLocation -StorageAccountName $storageAccount -StorageAccountKey $storagekey -ContainerName $container -FileName $blobName -Run $blobName
 ```
 
 ## Remote PowerShell
@@ -168,14 +169,14 @@ Run the following command, depending on the client computer location:
 
 * Outside the VNET or deployment
 
-    * For a classic VM, run the following command:
+  * For a classic VM, run the following command:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-    * For an ARM VM, first add a DNS name to the public IP address. For detailed steps, see [Create a fully qualified domain name in the Azure portal for a Windows VM](../windows/portal-create-fqdn.md). Then, run the following command:
+  * For an ARM VM, first add a DNS name to the public IP address. For detailed steps, see [Create a fully qualified domain name in the Azure portal for a Windows VM](../windows/portal-create-fqdn.md). Then, run the following command:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck

@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 03/05/2019
 ms.author: tamram
 ---
 
@@ -16,9 +16,9 @@ A variety of settings for your storage account are available in the [Azure porta
 
 ## Access control
 
-Azure Storage supports authentication with Azure Active Directory for Blob storage and Queue storage (preview) via role-based access control (RBAC). For more information about authentication with Azure AD, see [Authenticate access to Azure blobs and queues using Azure Active Directory (Preview)](storage-auth-aad.md).
+Azure Storage supports authentication with Azure Active Directory for Blob storage and Queue storage via role-based access control (RBAC). For more information about authentication with Azure AD, see [Authenticate access to Azure blobs and queues using Azure Active Directory](storage-auth-aad.md).
 
-The **Access control** settings in the Azure portal offer a simple way to assign RBAC roles to users, groups, service principals, and managed identities. For more information about assigning RBAC roles, see [Manage access rights to blob and queue data with RBAC (Preview)](storage-auth-aad-rbac.md).
+The **Access control** settings in the Azure portal offer a simple way to assign RBAC roles to users, groups, service principals, and managed identities. For more information about assigning RBAC roles, see [Manage access rights to blob and queue data with RBAC](storage-auth-aad-rbac.md).
 
 > [!NOTE]
 > Authenticating users or applications using Azure AD credentials provides superior security and ease of use over other means of authorization. While you can continue to use Shared Key authorization with your applications, using Azure AD circumvents the need to store your account access key with your code. You can also continue to use shared access signatures (SAS) to grant fine-grained access to resources in your storage account, but Azure AD offers similar capabilities without the need to manage SAS tokens or worry about revoking a compromised SAS. 
@@ -47,7 +47,7 @@ To view your storage account credentials:
 4. Find the **Key** value under **key1**, and click the **Copy** button to copy the account key.
 5. Alternately, you can copy the entire connection string. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string.
 
-    ![Screen shot showing how to view access keys in the Azure portal](media/storage-manage-account/portal-connection-string.png)
+    ![Screenshot showing how to view access keys in the Azure portal](media/storage-manage-account/portal-connection-string.png)
 
 ### Regenerate access keys
 

@@ -3,33 +3,34 @@ title: Secure your RESTful services by using HTTP basic authentication in Azure 
 description: Secure your custom REST API claims exchanges in your Azure AD B2C by using HTTP basic authentication.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
-
 # Secure your RESTful services by using HTTP basic authentication
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In a [related Azure AD B2C article](active-directory-b2c-custom-rest-api-netfw.md), you create a RESTful service (web API) that integrates with Azure Active Directory B2C (Azure AD B2C) user journeys without authentication. 
+In a [related Azure AD B2C article](active-directory-b2c-custom-rest-api-netfw.md), you create a RESTful service (web API) that integrates with Azure Active Directory B2C (Azure AD B2C) user journeys without authentication.
 
-In this article, you add HTTP basic authentication to your RESTful service so that only verified users, including B2C, can access your API. With HTTP basic authentication, you set the user credentials (app ID and app secret) in your custom policy. 
+In this article, you add HTTP basic authentication to your RESTful service so that only verified users, including B2C, can access your API. With HTTP basic authentication, you set the user credentials (app ID and app secret) in your custom policy.
 
 For more information, see [Basic authentication in ASP.NET web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
 ## Prerequisites
+
 Complete the steps in the [Integrate REST API claims exchanges in your Azure AD B2C user journey](active-directory-b2c-custom-rest-api-netfw.md) article.
 
 ## Step 1: Add authentication support
 
 ### Step 1.1: Add application settings to your project's web.config file
-1. Open the Visual Studio project that you created earlier. 
+
+1. Open the Visual Studio project that you created earlier.
 
 2. Add the following application settings to the web.config file under the `appSettings` element:
 
@@ -42,7 +43,7 @@ Complete the steps in the [Integrate REST API claims exchanges in your Azure AD 
 
     To generate a complex password, run the following PowerShell code. You can use any arbitrary value.
 
-    ```PowerShell
+    ```powershell
     $bytes = New-Object Byte[] 32
     $rand = [System.Security.Cryptography.RandomNumberGenerator]::Create()
     $rand.GetBytes($bytes)
@@ -51,15 +52,17 @@ Complete the steps in the [Integrate REST API claims exchanges in your Azure AD 
     ```
 
 ### Step 1.2: Install OWIN libraries
+
 To begin, add the OWIN middleware NuGet packages to the project by using the Visual Studio Package Manager Console:
 
-```
+```powershell
 PM> Install-Package Microsoft.Owin
 PM> Install-Package Owin
 PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
 ### Step 1.3: Add an authentication middleware class
+
 Add the `ClientAuthMiddleware.cs` class under the *App_Start* folder. To do so:
 
 1. Right-click the *App_Start* folder, select **Add**, and then select **Class**.
@@ -183,6 +186,7 @@ Add the `ClientAuthMiddleware.cs` class under the *App_Start* folder. To do so:
     ```
 
 ### Step 1.4: Add an OWIN startup class
+
 Add an OWIN startup class named `Startup.cs` to the API. To do so:
 1. Right-click the project, select **Add** > **New Item**, and then search for **OWIN**.
 
@@ -201,24 +205,28 @@ Add an OWIN startup class named `Startup.cs` to the API. To do so:
         {
             public void Configuration(IAppBuilder app)
             {
-                    app.Use<ClientAuthMiddleware>();
+                app.Use<ClientAuthMiddleware>();
             }
         }
     }
     ```
 
 ### Step 1.5: Protect the Identity API class
+
 Open Controllers\IdentityController.cs, and add the `[Authorize]` tag to the controller class. This tag restricts access to the controller to users who meet the authorization requirement.
 
 ![Add the Authorize tag to the controller](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-authorize.png)
 
 ## Step 2: Publish to Azure
+
 To publish your project, in Solution Explorer, right-click the **Contoso.AADB2C.API** project, and then select **Publish**.
 
 ## Step 3: Add the RESTful services app ID and app secret to Azure AD B2C
-After your RESTful service is protected by the client ID (username) and secret, you must store the credentials in your Azure AD B2C tenant. Your custom policy provides the credentials when it invokes your RESTful services. 
+
+After your RESTful service is protected by the client ID (username) and secret, you must store the credentials in your Azure AD B2C tenant. Your custom policy provides the credentials when it invokes your RESTful services.
 
 ### Step 3.1: Add a RESTful services client ID
+
 1. In your Azure AD B2C tenant, select **B2C Settings** > **Identity Experience Framework**.
 
 
@@ -240,6 +248,7 @@ After your RESTful service is protected by the client ID (username) and secret, 
 9. Confirm that you've created the `B2C_1A_B2cRestClientId` key.
 
 ### Step 3.2: Add a RESTful services client secret
+
 1. In your Azure AD B2C tenant, select **B2C Settings** > **Identity Experience Framework**.
 
 2. Select **Policy Keys** to view the keys available in your tenant.
@@ -260,6 +269,7 @@ After your RESTful service is protected by the client ID (username) and secret, 
 9. Confirm that you've created the `B2C_1A_B2cRestClientSecret` key.
 
 ## Step 4: Change the technical profile to support basic authentication in your extension policy
+
 1. In your working directory, open the extension policy file (TrustFrameworkExtensions.xml).
 
 2. Search for the `<TechnicalProfile>` node that includes `Id="REST-API-SignUp"`.
@@ -267,11 +277,12 @@ After your RESTful service is protected by the client ID (username) and secret, 
 3. Locate the `<Metadata>` element.
 
 4. Change the *AuthenticationType* to *Basic*, as follows:
+
     ```xml
     <Item Key="AuthenticationType">Basic</Item>
     ```
 
-5. Immediately after the closing `<Metadata>` element, add the following XML snippet: 
+5. Immediately after the closing `<Metadata>` element, add the following XML snippet:
 
     ```xml
     <CryptographicKeys>
@@ -279,6 +290,7 @@ After your RESTful service is protected by the client ID (username) and secret, 
         <Key Id="BasicAuthenticationPassword" StorageReferenceId="B2C_1A_B2cRestClientSecret" />
     </CryptographicKeys>
     ```
+
     After you add the snippet, your technical profile should look like the following XML code:
     
     ![Add basic authentication XML elements](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-add-1.png)
@@ -298,6 +310,7 @@ After your RESTful service is protected by the client ID (username) and secret, 
 6. Upload the *TrustFrameworkExtensions.xml* file, and then ensure that it passes validation.
 
 ## Step 6: Test the custom policy by using Run Now
+
 1. Open **Azure AD B2C Settings**, and then select **Identity Experience Framework**.
 
     >[!NOTE]
@@ -335,9 +348,10 @@ After your RESTful service is protected by the client ID (username) and secret, 
     ```
 
 ## (Optional) Download the complete policy files and code
+
 * After you complete the [Get started with custom policies](active-directory-b2c-get-started-custom.md) walkthrough, we recommend that you build your scenario by using your own custom policy files. For your reference, we have provided [Sample policy files](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic).
 * You can download the complete code from [Sample Visual Studio solution for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API).
 
 ## Next steps
-* [Use client certificates to secure your RESTful API](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 
+* [Use client certificates to secure your RESTful API](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

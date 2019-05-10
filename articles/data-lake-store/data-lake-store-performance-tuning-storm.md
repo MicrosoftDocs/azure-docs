@@ -78,7 +78,7 @@ You can modify the following settings to tune the spout.
 
 - **Max spout pending: topology.max.spout.pending**. This setting determines the number of tuples that can in be flight (not yet acknowledged at all nodes in the topology) per spout thread at any time.
 
- A good calculation to do is to estimate the size of each of your tuples. Then figure out how much memory one spout thread has. The total memory allocated to a thread, divided by this value, should give you the upper bound for the max spout pending parameter.
+  A good calculation to do is to estimate the size of each of your tuples. Then figure out how much memory one spout thread has. The total memory allocated to a thread, divided by this value, should give you the upper bound for the max spout pending parameter.
 
 ## Tune the bolt
 When you're writing to Data Lake Storage Gen1, set a size sync policy (buffer on the client side) to 4 MB. A flushing or hsync() is then performed only when the buffer size is the at this value. The Data Lake Storage Gen1 driver on the worker VM automatically does this buffering, unless you explicitly perform an hsync().
@@ -94,7 +94,7 @@ In Storm, a spout holds on to a tuple until it is explicitly acknowledged by the
 For best performance on Data Lake Storage Gen1, have the bolt buffer 4 MB of tuple data. Then write to the Data Lake Storage Gen1 back end as one 4-MB write. After the data has been successfully written to the store (by calling hflush()), the bolt can acknowledge the data back to the spout. This is what the example bolt supplied here does. It is also acceptable to hold a larger number of tuples before the hflush() call is made and the tuples acknowledged. However, this increases the number of tuples in flight that the spout needs to hold, and therefore increases the amount of memory required per JVM.
 
 > [!NOTE]
-Applications might have a requirement to acknowledge tuples more frequently (at data sizes less than 4 MB) for other non-performance reasons. However, that might affect the I/O throughput to the storage back end. Carefully weigh this tradeoff against the bolt’s I/O performance.
+> Applications might have a requirement to acknowledge tuples more frequently (at data sizes less than 4 MB) for other non-performance reasons. However, that might affect the I/O throughput to the storage back end. Carefully weigh this tradeoff against the bolt’s I/O performance.
 
 If the incoming rate of tuples is not high, so the 4-MB buffer takes a long time to fill, consider mitigating this by:
 * Reducing the number of bolts, so there are fewer buffers to fill.

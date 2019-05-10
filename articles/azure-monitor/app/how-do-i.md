@@ -88,7 +88,7 @@ Some points to consider:
 * In [Metric Explorer](../../azure-monitor/app/metrics-explorer.md), customize your chart and save it as a favorite. Pin it to the Azure dashboard.
 
 #### Dashboard with data from other sources and Application Insights
-* [Export telemetry to Power BI](../../application-insights/app-insights-export-power-bi.md).
+* [Export telemetry to Power BI](../../azure-monitor/app/export-power-bi.md ).
 
 Or
 

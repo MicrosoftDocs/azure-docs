@@ -28,7 +28,7 @@ This tutorial describes the steps required for the creation, deletion, migration
 > [!NOTE]
 > -  The Azure portal supports devices running Update 5.0 or later. If your device is not up to date, install Update 5 immediately. For more information, go to [Install Update 5](storsimple-8000-install-update-5.md). 
 > - If you're using a StorSimple Cloud Appliance (8010/8020), you cannot update a cloud appliance. Use the latest version of software to create a new cloud appliance with Update 5.0,  and then fail over to the new cloud appliance created. 
-> - All devices running Update 4.0 or earlier will experience [reduced management functionality](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
+> - All devices running Update 4.0 or earlier will experience reduced management functionality. 
 
 ## Create a service
 To create a StorSimple Device Manager service, you need to have:

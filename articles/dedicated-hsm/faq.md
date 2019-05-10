@@ -1,18 +1,18 @@
-﻿---
+---
 title: Frequently asked questions - Azure Dedicated HSM | Microsoft Docs
 description: Frequently asked questions covering different topics on Azure Dedicated HSM 
 services: dedicated-hsm
-author: barclayn
-manager: mbaldwin
+author: johncdawson
+manager: barbkess
 tags: azure-resource-manager
 ms.custom: "mvc, seodec18"
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: concepts
+ms.topic: conceptual
 ms.custom: mvc
-ms.date: 12/11/2018
+ms.date: 5/8/2019
 ms.author: barclayn
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
@@ -53,11 +53,30 @@ At this time, Azure Dedicated HSM only provides HSMs with password-based authent
 
 ### Q: Will Azure Dedicated HSM host my HSMs for me?
 
-Microsoft only offers the Gemalto SafeNet Luna Network HSM via the Dedicated HSM service and cannot host any cusotmer provided devices.
+Microsoft only offers the Gemalto SafeNet Luna Network HSM via the Dedicated HSM service and cannot host any customer-provided devices.
 
-### Q: Does Azure Dedicated HSM support PIN/ETF features or meet PCI HSM v1 or v2 certification requirements?
+### Q: Does Azure Dedicated HSM support payment (PIN/ETF) features?
 
-The Azure Dedicated HSM service uses SafeNet Luna Network HSM 7 (model A790) devices. These devices do not support payment HSM specific functionality (such as PIN or ETF) or certifications. If you would like Azure Dedicated HSM service to support payment HSMs in future, please provide the feedback below.
+The Azure Dedicated HSM service uses SafeNet Luna Network HSM 7 (model A790) devices. These devices do not support payment HSM specific functionality (such as PIN or ETF) or certifications. If you would like Azure Dedicated HSM service to support payment HSMs in future, please pass on the feedback to your Microsoft Account Representative.
+
+### Q: Which Azure regions is Dedicated HSM available in?
+
+As of late March 2019, Dedicated HSM is available in the 14 regions listed below. Further regions are planned and can be discussed via your Microsoft Account Representative.
+
+* East US
+* East US 2
+* West US
+* South Central US
+* Southeast Asia
+* East Asia
+* North Europe
+* West Europe
+* UK South
+* UK West
+* Canada Central
+* Canada East
+* Australia East
+* Australia Southeast
 
 ## Interoperability
 
@@ -133,6 +152,10 @@ Yes. Each HSM appliance is fully dedicated to one single customer and no one els
 
 Microsoft does not have any administrative or cryptographic control over the HSM. Microsoft does have monitor level access via serial port connection to retrieve basic telemetry such as temperature and component health. This allows Microsoft to provide proactive notification of health issues. If required, the customer can disable this account.
 
+### Q: What is the "tenantadmin" account Microsoft uses, I am used to the admin user being "admin" on SafeNet HSMs?
+
+The HSM device ships with a default user of admin with its usual default password. Microsoft did not want to have default passwords in use while any device is in a pool waiting to be provisioned by customers. This would not meet our strict security requirements. For this reason, we set a strong password which is discarded at provisioning time. Also, at provisioning time we create a new user in the admin role called "tenantadmin". This user has the default password and customers change this as the first action when first logging into the newly provisioned device. This process ensures high degrees of security and maintains our promise of sole administrative control for our customers. It should be noted that the "tenantadmin" user can be used to reset the admin user password if a customer prefers to use that account. 
+
 ### Q: Can Microsoft or anyone at Microsoft access keys in my Dedicated HSM?
 
 No. Microsoft does not have any access to the keys stored in customer allocated Dedicated HSM.
@@ -159,27 +182,27 @@ Yes. You can send logs from the HSM appliance to a syslog server
 
 ## High availability
 
-### Q: Is it possible to configure high-availability in the same region or across multiple regions?
+### Q: Is it possible to configure high availability in the same region or across multiple regions?
 
-Yes. High availability configuration and setup are performed in the HSM client software provided by Gemalto. HSMs from the same VNET or other VNETs in the same region or across regions, or on-prem HSMs connected to a VNET using site-to-site or point-to-point VPN can be added to same high availability configuration.
+Yes. High availability configuration and setup are performed in the HSM client software provided by Gemalto. HSMs from the same VNET or other VNETs in the same region or across regions, or on premises HSMs connected to a VNET using site-to-site or point-to-point VPN can be added to same high availability configuration. It should be noted that this synchronizes key material only and not specific configuration items such as roles.
 
-### Can I add HSMs from my on-premises network to a high availability group with Azure Dedicated HSM?
+### Q: Can I add HSMs from my on-premises network to a high availability group with Azure Dedicated HSM?
 
 Yes. They must meet the high availability requirements for SafeNet Luna Network HSM 7.
 
-### Can I add Luna 5/6 HSMs from on-premises networks to a high availability group with Azure Dedicated HSM?
+### Q: Can I add Luna 5/6 HSMs from on-premises networks to a high availability group with Azure Dedicated HSM?
 
 No.
 
 ### Q: How many HSMs can I add to the same high availability configuration from one single application?
 
-16.
+16 members of an HA group has under-gone, full-throttle testing with excellent results.
 
 ## Support
 
 ### Q: What is the SLA for Dedicated HSM service?
 
-At this time, there is no SLA provided for Dedicated HSM service. Microsoft will ensure network level access to the device, and hence standard Azure networking SLAs apply.
+There is no specific uptime guarantee provided for the Dedicated HSM service. Microsoft will ensure network level access to the device, and hence standard Azure networking SLAs apply.
 
 ### Q: How are the HSMs used in Azure Dedicated HSM protected?
 
@@ -195,15 +218,19 @@ It is highly recommended to use an on-premises HSM backup device to perform regu
 
 ### Q: How do I get support for Dedicated HSM?
 
-The same way you get support for all other Azure services. The Azure support team will escalate to Gemalto support as necessary depending on the case.
+Support is provided by both Microsoft and Gemalto.  If you have an issue with the hardware or network access, raise a support request with Microsoft and if you have an issue with HSM configuration, software and application development please raise a support request with Gemalto. If you have an undetermined issue, raise a support request with Microsoft and then Gemalto can be engaged as required. 
 
-### Q: How do I get access to Dedicated HSM client software, documentation, firmware images?
+### Q: How do I get the client software, documentation and access to integration guidance for the SafeNet Luna 7 HSM?
 
-Customer must work directly with Gemalto to get access to HSM client software, documentation, OS/firmware images.
+After registering for the service, a Gemalto Customer ID will be provided that allows for registration in the Gemalto customer support portal. This will enable access to all software and documentation as well as enabling support requests directly with Gemalto.
 
 ### Q: If there is a security vulnerability found and a patch is released by Gemalto, who is responsible for upgrading/patching OS/Firmware?
 
 Microsoft does not have the ability to connect to HSMs allocated to customers. Customers must upgrade and patch their HSMs.
+
+### Q: What if I need to reboot my HSM?
+
+The HSM has a command line reboot option, however, we are experiencing reboot hang issues intermittently and for this reason it is recommended for the safest reboot that you raise a support request with Microsoft to have the device physically rebooted. 
 
 ## Cryptography and standards
 
@@ -244,7 +271,7 @@ Yes. Dedicated HSM service provisions SafeNet Network HSM 7 appliances that use 
 
 The Dedicated HSM service provisions SafeNet Luna Network HSM 7 appliances. These appliances use FIPS 140-2 Level 3 validated HSMs. The default deployed configuration, operating system, and firmware are also FIPS validated. You do not need to take any action for FIPS 140-2 Level 3 compliance.
 
-### How does a customer ensure that when an HSM is deprovisioned all the key material is wiped out?
+### Q: How does a customer ensure that when an HSM is deprovisioned all the key material is wiped out?
 
 Before requesting deprovisioning, a customer must have zeroized the HSM using Gemalto provided HSM client tools.
 
@@ -260,15 +287,13 @@ Dedicated HSM provisions SafeNet Network HSM 7 appliances (model A790). Here's a
 
 ### Q: How many partitions can be created in Dedicated HSM?
 
-Based on the specific model of HSM used, there are 10 partitions available.
+The SafeNet Luna HSM 7 model A790 used includes a license for 10 partitions in the cost of the service. The device has a limit of 100 partitions and adding partitions up to this limit would incur extra licensing costs and require installation of a new license file on the device.
 
 ### Q: How many keys can be supported in Dedicated HSM?
 
-Maximum number of keys. These numbers are also applicable to key pairs if using asymmetric keys.
+The maximum number of keys is a function of the memory available. The SafeNet Luna 7 model A790 in use has 32MB of memory. The following numbers are also applicable to key pairs if using asymmetric keys.
 
 * RSA-2048 - 19,000
 * ECC-P256 - 91,000
-* AES-256 - 218,000
 
 Capacity will vary depending on specific key attributes set in the key generation template and number of partitions.
-

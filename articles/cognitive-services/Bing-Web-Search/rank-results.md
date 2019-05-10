@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to use ranking to display search results from the Bing Web Search API.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: BBF87972-B6C3-4910-BB52-DE90893F6C71
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 03/17/2019
 ms.author: scottwhi
 ---
 
@@ -51,7 +51,7 @@ The following shows an example [RankingResponse](https://docs.microsoft.com/rest
             },
             . . .  
         ]  
-    },  
+    }],  
     "images" : {
         "id" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#Images",
         "readLink" : "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images...",

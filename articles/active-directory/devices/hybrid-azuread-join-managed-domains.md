@@ -1,25 +1,26 @@
 ---
-title: How to configure hybrid Azure Active Directory joined devices | Microsoft Docs
-description: Learn how to configure hybrid Azure Active Directory joined devices.
+title: Configure hybrid Azure Active Directory join for managed domains | Microsoft Docs
+description: Learn how to configure hybrid Azure Active Directory join for managed domains.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: mtillman
+author: MicrosoftGuyJFlo
+manager: daveba
 editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.subservice: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/01/2018
-ms.author: markvi
+ms.date: 03/20/2019
+ms.author: joflore
 ms.reviewer: sandeo
 
-#Customer intent: As a IT admin, I want to setup hybrid Azure AD joined devices so that I can automatically bring AD domain-joined devices under control
+#Customer intent: As an IT admin, I want to setup hybrid Azure AD joined devices for managed domains so that I can automatically bring AD domain-joined devices under control
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure hybrid Azure Active Directory join for managed domains
 
@@ -49,11 +50,12 @@ This tutorial assumes that you are familiar with:
 -  [How to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
 
 -  [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
-  
+
+> [!NOTE]
+> Azure AD does not support smartcards or certificates in managed domains.
+
 
 To configure the scenario in this article, you need:
-
-- An on-premises Active Directory (AD) with a schema level of 85 or later. For more information, see [Upgrade your Active Directory Schema](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
 
 - The [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 or higher) to be installed. 
 
@@ -219,5 +221,5 @@ If you are experiencing issues with completing hybrid Azure AD join for domain j
 
 > [!div class="nextstepaction"]
 > [Configure hybrid Azure Active Directory join for federated domains](hybrid-azuread-join-federated-domains.md)
-> [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual-steps.md)
+> [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual.md)
 

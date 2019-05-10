@@ -7,7 +7,7 @@ author: alexkarcher-msft
 manager: cfowler
 editor: ''
 
-ms.service: functions
+ms.service: azure-functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
@@ -54,20 +54,20 @@ In the previous step, if you did not have a storage account connection string th
 * Required
     * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
 * Required for Consumption Plan Functions
-    * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#websitecontentazurefileconnectionstring)
-    * [`WEBSITE_CONTENTSHARE`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#websitecontentshare)
+    * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
+    * [`WEBSITE_CONTENTSHARE`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
 [Read about these application settings here](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
 ### Guidance
 
 * Do not check "slot setting" for any of these settings. When you swap deployment slots the Function will break.
-* Do not set these settings when using automated deployments.
+* Do not modify these settings as part of automated deployments.
 * These settings must be provided and valid at creation time. An automated deployment that does not contain these settings will result in a non-functional App, even if the settings are added after the fact.
 
 ## Storage account credentials invalid
 
-The above Storage Account connection strings must be updated if you regenerate storage keys. [Read more about storage key management here](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#manage-your-storage-account)
+The above Storage Account connection strings must be updated if you regenerate storage keys. [Read more about storage key management here](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)
 
 ## Storage account inaccessible
 

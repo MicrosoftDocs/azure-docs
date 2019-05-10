@@ -1,4 +1,7 @@
-- name: Azure Table storage Documentation
+- name: Azure Storage Documentation
+  href: /azure/storage/
+- name: Overview
+  expanded: true
   items: 
   - name: Azure Table storage overview
     href: table-storage-overview.md
@@ -7,9 +10,6 @@
     maintainContext: true   
 - name: Quickstarts
   items:
-  - name: Create a storage account
-    href: /azure/storage/common/storage-quickstart-create-account  
-    maintainContext: true 
   - name: Create a table in the Azure portal
     href: table-storage-quickstart-portal.md
 - name: Samples
@@ -66,6 +66,10 @@
     href: table-storage-design-patterns.md
 - name: How-to guides
   items:
+  - name: Create a storage account
+    displayName: resource manager, resource manager template, template, ARM
+    href: /azure/storage/common/storage-quickstart-create-account  
+    maintainContext: true 
   - name: How to use the storage emulator
     href: /azure/storage/common/storage-use-emulator
     maintainContext: true
@@ -77,6 +81,8 @@
       href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json 
     - name: AzCopy on Linux (v8)
       href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json 
+  - name: Initiate an account failover
+    href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
 - name: Resources
   items:
   - name: Table storage REST APIs

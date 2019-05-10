@@ -1,18 +1,19 @@
 ---
-title: Access and usage reports for Azure MFA | Microsoft Docs
+title: Access and usage reports for Azure MFA - Azure Active Directory
 description: This describes how to use the Azure Multi-Factor Authentication feature - reports.
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/30/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Reports in Azure Multi-Factor Authentication
 
@@ -32,7 +33,7 @@ Azure Multi-Factor Authentication provides several reports that can be used by y
 2. On the left, select **Azure Active Directory** > **MFA Server**.
 3. Select the report that you wish to view.
 
-   <center>![Cloud](./media/howto-mfa-reporting/report.png)</center>
+   ![MFA Server server status report in the Azure portal](./media/howto-mfa-reporting/report.png)
 
 ## Azure AD sign-ins report
 
@@ -49,7 +50,7 @@ The sign-ins report can provide you with information about the usage of managed 
 
 This data is available through the [Azure portal](https://portal.azure.com) and the [reporting API](../reports-monitoring/concept-reporting-api.md).
 
-![Cloud](./media/howto-mfa-reporting/sign-in-report.png)
+![Azure AD sign-ins report in the Azure portal](./media/howto-mfa-reporting/sign-in-report.png)
 
 ### Sign-ins report structure
 
@@ -118,7 +119,9 @@ The sign-in activity reports for MFA give you access to the following informatio
 - Session controls
 - Result
 
-## PowerShell reporting
+## PowerShell reporting on users registered for MFA
+
+First, ensure that you have the [MSOnline V1 PowerShell module](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) installed.
 
 Identify users who have registered for MFA using the PowerShell that follows.
 

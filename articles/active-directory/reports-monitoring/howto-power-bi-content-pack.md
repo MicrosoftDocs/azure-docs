@@ -3,8 +3,8 @@
 title: How to use the Azure Active Directory Power BI Content Pack | Microsoft Docs
 description: Learn how to use the Azure Active Directory Power BI Content Pack
 services: active-directory
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
@@ -12,11 +12,12 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # How to use the Azure Active Directory Power BI content pack
 
@@ -98,13 +99,45 @@ If you want to update your content pack to a newer version:
 
 Once you verify that the new version of the content pack works as expected, you can remove the old version if needed by deleting the underlying reports and datasets associated with that content pack.
 
-## Still having issues? 
+## Troubleshoot content pack errors
 
-Check out our [troubleshooting guide](troubleshoot-content-pack.md). For general help with Power BI, check out these [help articles](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
+When working with the content pack, it is possible that you run into the following errors: 
+
+- [Refresh failed](#refresh-failed) 
+- [Failed to update data source credentials](#failed-to-update-data-source-credentials) 
+- [Importing of data is taking too long](#data-import-is-too-slow) 
+
+For general help with Power BI, check out these [help articles](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
+
+### Refresh failed 
+ 
+**How this error is surfaced**: Email from Power BI or failed status in the refresh history. 
+
+
+| Cause | How to fix |
+| ---   | ---        |
+| Refresh failure errors can be caused when the credentials of the users connecting to the content pack have been reset but not updated in the connection settings of the content pack. | In Power BI, locate the dataset corresponding to the Azure AD activity logs dashboard (**Azure Active Directory Activity logs**), choose schedule refresh, and then enter your Azure AD credentials. |
+| A refresh can fail due to data issues in the underlying content pack. | [File a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md).|
  
+ 
+### Failed to update data source credentials 
+ 
+**How this error is surfaced**: In Power BI, when you connect to the Azure AD activity logs content pack. 
+
+| Cause | How to fix |
+| ---   | ---        |
+| The connecting user is not a global administrator or a security reader or a security administrator. | Use an account that is either a global administrator or a security reader or a security administrator to access the content packs. |
+| Your tenant is not a Premium tenant or doesn't have at least one user with Premium license File. | [File a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md).|
  
+### Data import is too slow 
+ 
+**How this error is surfaced**: In Power BI, after you connect your content pack, the data import process starts to prepare your dashboard for Azure AD activity logs. You see the message: **Importing data...** without any further progress.  
+
+| Cause | How to fix |
+| ---   | ---        |
+| Depending on the size of your tenant, this step could take anywhere from a few minutes to 30 minutes. | If the message does not change to showing your dashboard within an hour, [file a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+  
 ## Next steps
 
 * [Install Power BI content pack](quickstart-install-power-bi-content-pack.md).
-* [Troubleshoot content pack errors](troubleshoot-content-pack.md).
 * [What are Azure AD reports?](overview-reports.md).

@@ -2,18 +2,18 @@
 title: How to create an Azure file share | Microsoft Docs
 description: How to create an Azure file share in Azure Files using the Azure portal, PowerShell, and the Azure CLI.
 services: storage
-author: RenaShahMSFT
+author: roygara
 
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 09/19/2017
-ms.author: renash
-ms.component: files
+ms.author: rogarana
+ms.subservice: files
 ---
 
 # Create a file share in Azure Files
 You can create Azure File shares using the [Azure portal](https://portal.azure.com/), the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. In this tutorial, you will learn:
-* [How to create an Azure file share using the Azure portal](#create-file-share-through-the-azure-portal)
+* How to create an Azure file share using the Azure portal
 * [How to create an Azure file share using Powershell](#create-file-share-through-powershell)
 * [How to create an Azure file share using the CLI](#create-file-share-through-command-line-interface-cli)
 
@@ -73,7 +73,7 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
     Replace ```<storage-account>``` and ```<resource_group>``` with your storage account name and resource group in the following example:
 
    ```azurecli
-    current_env_conn_string = $(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
+    current_env_conn_string=$(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
 
     if [[ $current_env_conn_string == "" ]]; then  
         echo "Couldn't retrieve the connection string."

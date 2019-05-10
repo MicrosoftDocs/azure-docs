@@ -3,11 +3,11 @@ title: How to plan your Azure Active Directory (Azure AD) join implementation | 
 description: Explains the steps that are required to implement Azure AD joined devices in your environment.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: mtillman
+author: MicrosoftGuyJFlo
+manager: daveba
 editor: ''
 
-ms.component: devices
+ms.subservice: devices
 ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
 ms.service: active-directory
 ms.workload: identity
@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: sandeo
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Plan your Azure AD join implementation
@@ -36,7 +37,7 @@ This article assumes that you are familiar with the [Introduction to device mana
 
 ## Plan your implementation
 
-To plan your hybrid Azure AD implementation, you should familiarize yourself with:
+To plan your Azure AD join implementation, you should familiarize yourself with:
 
 |   |   |
 |---|---|
@@ -123,13 +124,19 @@ Azure AD join:
 - Is only applicable to Windows 10 devices. 
 
 - Is not applicable to previous versions of Windows or other operating systems. If you have Windows 7/8.1 devices, you must upgrade to Windows 10 to deploy Azure AD join.
+
+- Is not supported on devices with TPM in FIPS mode.
  
 **Recommendation:** Always use the latest Windows 10 release to take advantage of updated features.
 
 
 ### Management platform
 
-Device management for Azure AD joined devices is based on an MDM platform such as Intune) and MDM CSPs. Windows 10 has a built-in MDM agent that works with all compatible MDM solutions.
+Device management for Azure AD joined devices is based on an MDM platform such as Intune, and MDM CSPs. Windows 10 has a built-in MDM agent that works with all compatible MDM solutions.
+
+> [!NOTE]
+> Group policies are not supported in Azure AD joined devices as they are not connected to on-premises Active Directory. Management of Azure AD joined devices is only possible through MDM
+
 
 There are two approaches for managing Azure AD joined devices:
 
@@ -137,7 +144,6 @@ There are two approaches for managing Azure AD joined devices:
 
 - **Co-management** -  A device is managed by an MDM provider and SCCM. In this approach, the SCCM agent is installed on an MDM-managed device to administer certain aspects.
 
-Because Azure AD joined devices are not connected to on-premises Active Directory, group policies are not supported.
 
 
 If you are using group policies, evaluate your MDM policy parity by using the [MDM Migration Analysis Tool (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 
@@ -165,7 +171,7 @@ The following sections list considerations for different types of applications a
 
 ### Cloud-based applications
 
-If an application is added to Azure AD app gallery, users get SSO through Azure AD joined devices. No additional configuration is required. Users get SSO on both, Edge and Chrome browsers. For Chrome, you need to deploy the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
+If an application is added to Azure AD app gallery, users get SSO through Azure AD joined devices. No additional configuration is required. Users get SSO on both, Microsoft Edge and Chrome browsers. For Chrome, you need to deploy the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
 
 All Win32 applications that:
 

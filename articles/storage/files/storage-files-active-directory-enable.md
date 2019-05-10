@@ -2,12 +2,12 @@
 title: Enable Azure Active Directory authentication over SMB for Azure Files (preview) - Azure Storage
 description: Learn how to enable identity-based authentication over SMB (Server Message Block) (preview) for Azure Files through Azure Active Directory (Azure AD) Domain Services. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares using Azure AD credentials. 
 services: storage
-author: tamram
+author: roygara
 
 ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
-ms.author: tamram
+ms.author: rogarana
 ---
 
 # Enable Azure Active Directory authentication over SMB for Azure Files (preview)
@@ -131,7 +131,7 @@ az storage account update -n <storage-account-name> -g <resource-group-name> --f
 To access Azure Files resources using Azure AD credentials, an identity (a user, group, or service principal) must have the necessary permissions at the share level. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity.
 
 > [!IMPORTANT]
-> Full administrative control of a file share, including the ability to assign a role to an identity, requires using the storage account key. Adminstrative control is not supported with Azure AD credentials. 
+> Full administrative control of a file share, including the ability to assign a role to an identity, requires using the storage account key. Administrative control is not supported with Azure AD credentials. 
 
 ### Define a custom role
 
@@ -237,7 +237,7 @@ When running the following sample script, remember to replace placeholder values
 #List the custom roles
 az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.roleName, "description":.description, "roleType":.roleType}'
 #Assign the custom role to the target identity
-az role assignment create --role "<custome-role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
+az role assignment create --role "<custom-role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
 ```
 
 ## Configure NTFS permissions over SMB 

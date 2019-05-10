@@ -4,7 +4,7 @@ description: " Detect threats and malicious by integrating Microsoft Cloud App S
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6

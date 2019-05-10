@@ -1,16 +1,15 @@
 ---
 title: What is Azure Databricks? 
-description: Learn about what is Azure Databricks and how it brings Spark on Databricks into Azure. Azure Databricks is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform.
+description: Learn about Azure Databricks and how it brings Spark on Databricks into Azure. Azure Databricks is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform.
 services: azure-databricks
 author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: overview
-ms.date: 05/29/2018
+ms.date: 05/08/2019
 ms.author: mamccrea
 ms.custom: mvc
-
 ---
 
 # What is Azure Databricks?
@@ -18,6 +17,10 @@ ms.custom: mvc
 Azure Databricks is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Designed with the founders of Apache Spark, Databricks is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive workspace that enables collaboration between data scientists, data engineers, and business analysts.
 
 ![What is Azure Databricks?](./media/what-is-azure-databricks/azure-databricks-overview.png "What is Azure Databricks?")
+
+Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics service. For a big data pipeline, the data (raw or structured) is ingested into Azure through Azure Data Factory in batches, or streamed near real-time using Kafka, Event Hub, or IoT Hub. This data lands in a data lake for long term persisted storage, in Azure Blob Storage or Azure Data Lake Storage. As part of your analytics workflow, use Azure Databricks to read data from multiple data sources such as [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml), or [Azure SQL Data Warehouse](../sql-data-warehouse/index.md) and turn it into breakthrough insights using Spark.
+
+![Databricks pipeline](./media/what-is-azure-databricks/databricks-pipeline.png)
 
 ## Apache Spark-based analytics platform
 

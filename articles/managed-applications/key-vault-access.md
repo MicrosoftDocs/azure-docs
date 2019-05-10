@@ -3,18 +3,19 @@ title: Use Azure Key Vault with Managed Applications | Microsoft Docs
 description: Shows how to use access secrets in Azure Key Vault when deploying Managed Applications
 services: managed-applications
 author: tfitzmac
-manager: timlt
 
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
 ---
 # Access Key Vault secret when deploying Azure Managed Applications
 
-When you need to pass a secure value (like a password) as a parameter during deployment, you can retrieve the value from an [Azure Key Vault](../key-vault/key-vault-whatis.md). To access the Key Vault when deploying Managed Applications, you must grant access to the **Appliance Resource Provider** service principal. This article describes how to configure the Key Vault to work with Managed Applications.
+When you need to pass a secure value (like a password) as a parameter during deployment, you can retrieve the value from an [Azure Key Vault](../key-vault/key-vault-whatis.md). To access the Key Vault when deploying Managed Applications, you must grant access to the **Appliance Resource Provider** service principal. The Managed Applications service uses this identity to run operations. To successfully retrieve a value from a Key Vault during deployment, the service principal must be able to access the Key Vault.
+
+This article describes how to configure the Key Vault to work with Managed Applications.
 
 ## Enable template deployment
 

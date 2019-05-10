@@ -2,13 +2,14 @@
 title: 'Azure AD Connect: ADSyncConfig PowerShell Reference | Microsoft Docs'
 description: This document provides reference information for the ADSyncConfig.psm1 PowerShell module.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
-ms.component: hybrid
+ms.date: 01/24/2019
+ms.subservice: hybrid
 ms.author: billmath
-
+ms.topic: reference
+ms.collection: M365-identity-device-management
 ---
 
 # Azure AD Connect:  ADSyncConfig PowerShell Reference
@@ -1220,7 +1221,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
 ### DESCRIPTION
 The Set-ADSyncUnifiedGroupWritebackPermissions Function will give required permissions to the AD synchronization account, which include the following:
 1.
-Generic Read/Write, Delete, Delete Tree and Create\Delete Child for all Object types and SubObjects
+Generic Read/Write, Delete, Delete Tree and Create\Delete Child for all  group Object types and SubObjects
 
 These permissions are applied to all domains in the forest.
 Optionally you can provide a DistinguishedName in ADobjectDN parameter to set these permissions on that AD Object only (including inheritance to sub objects).
@@ -1372,7 +1373,7 @@ Show-ADSyncADObjectPermissions [-ADobjectDN] <String> [<CommonParameters>]
 ```
 
 ### DESCRIPTION
-This function retuns all the AD permissions currently set for a given AD object provided in the parameter -ADobjectDN.
+This function returns all the AD permissions currently set for a given AD object provided in the parameter -ADobjectDN.
 The ADobjectDN must be provided in a DistinguishedName format.
 
 ### EXAMPLES

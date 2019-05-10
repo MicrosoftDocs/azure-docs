@@ -38,7 +38,7 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-  - name: What is Load Balancer Standard?
+  - name: What is Standard Load Balancer?
     href: load-balancer-standard-overview.md
   - name: Health probes
     href: load-balancer-custom-probe-overview.md
@@ -112,7 +112,7 @@
       href: load-balancer-multiple-ip-cli.md
     - name: Using multiple IP configurations (PowerShell)
       href: load-balancer-multiple-ip-powershell.md
-  - name: Log analytics for Azure Load Balancer
+  - name: Azure Monitor logs for Azure Load Balancer
     href: load-balancer-monitor-log.md
   - name: Get Load Balancer metrics with REST
     href: load-balancer-query-metrics-rest-api.md
@@ -148,7 +148,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=load-balancer
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.network
+    href: /powershell/module/az.network
   - name: Azure CLI
     href: /cli/azure/network/lb
   - name: .NET

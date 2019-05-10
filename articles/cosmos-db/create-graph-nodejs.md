@@ -10,7 +10,7 @@ ms.date: 01/08/2018
 ms.author: lbosq
 
 ---
-# Azure Cosmos DB: Build a Node.js application by using Gremlin API
+# Quickstart: Build a Node.js application by using Azure Cosmos DB Gremlin API account
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-gremlin-console.md)
@@ -73,7 +73,7 @@ The following snippets are all taken from the app.js file.
 
 * The Gremlin client is created.
 
-    ```nodejs
+    ```javascript
     const client = Gremlin.createClient(
         443, 
         config.endpoint, 
@@ -89,7 +89,7 @@ The following snippets are all taken from the app.js file.
 
 * A series of functions are defined to execute different Gremlin operations. This is one of them:
 
-    ```nodejs
+    ```javascript
     function addVertex1(callback)
     {
         console.log('Running Add Vertex1'); 
@@ -103,7 +103,7 @@ The following snippets are all taken from the app.js file.
 
 * Each function executes a `client.execute` method with a Gremlin query string parameter. Here is an example of how `g.V().count()` is executed:
 
-    ```nodejs
+    ```javascript
     console.log('Running Count'); 
     client.execute("g.V().count()", { }, (err, results) => {
         if (err) return console.error(err);
@@ -114,7 +114,7 @@ The following snippets are all taken from the app.js file.
 
 * At the end of the file, all methods are then invoked using the `async.waterfall()` method. This will execute them one after the other:
 
-    ```nodejs
+    ```javascript
     try{
         async.waterfall([
             dropGraph,
@@ -153,7 +153,7 @@ The following snippets are all taken from the app.js file.
 
 Here's an example of what your completed config.js file should look like:
 
-```nodejs
+```javascript
 var config = {}
 
 // Note that this must not have HTTPS or the port number

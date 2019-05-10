@@ -1,5 +1,5 @@
 ---
-title: Discover Azure resources to manage in PIM | Microsoft Docs
+title: Discover Azure resources to manage in PIM - Azure Active Directory | Microsoft Docs
 description: Learn how to discover Azure resources to manage in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
-ms.date: 08/30/2018
+ms.subservice: pim
+ms.date: 04/09/2019
 ms.author: rolyon
+ms.collection: M365-identity-device-management
 ---
 
 # Discover Azure resources to manage in PIM
 
-Using Azure AD Privileged Identity Management (PIM), you can improve the protection of your Azure resources. This is helpful to organizations that already use PIM to protect Azure AD directory roles, and to management group and subscription owners who are looking to secure production resources.
+Using Azure Active Directory (Azure AD) Privileged Identity Management (PIM), you can improve the protection of your Azure resources. This is helpful to organizations that already use PIM to protect Azure AD roles, and to management group and subscription owners who are looking to secure production resources.
 
 When you first set up PIM for Azure resources, you need to discover and select the resources to protect with PIM. There's no limit to the number of resources that you can manage with PIM. However, we recommend starting with your most critical (production) resources.
 
@@ -47,12 +48,16 @@ When you first set up PIM for Azure resources, you need to discover and select t
 
 1. Add a checkmark next to any unmanaged resources you want to manage.
 
+1. Click **Manage resource** to start managing the selected resources.
+
     > [!NOTE]
     > Once a management group or subscription is set to managed, it can't be unmanaged. This prevents another resource administrator from removing PIM settings.
 
     ![Discovery - Manage resource](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. Click **Manage resource** to start managing the selected resources.
+1. If you see a message to confirm the onboarding of the selected resource for management, click **Yes**.
+
+    ![Discovery - Manage resource message](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
 ## Next steps
 

@@ -6,7 +6,7 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 11/15/2018
+ms.date: 03/08/2019
 ms.topic: tutorial
 ms.custom: mvc
 
@@ -17,7 +17,7 @@ ms.custom: mvc
 
 In this tutorial, you use the Remote Monitoring solution accelerator to configure and manage your connected IoT devices. You add a new device to the solution accelerator and configure the device.
 
-Contoso has ordered new machinery to expand one of their facilities. While you wait for the new machinery to be delivered, you want to run a simulation to test the behavior of your solution. To run the simulation, you add a new simulated engine device to the Remote Monitoring solution accelerator and test that this simulated device responds correctly to configuration updates. While this tutorial uses simulated devices, a device developer can implement direct methods on a [physical device connected to the Remote Monitoring solution accelerator](iot-accelerators-connecting-devices.md).
+Contoso has ordered new machinery to expand one of their facilities. While you wait for the new machinery to be delivered, you want to run a simulation to test the behavior of your solution. To run the simulation, you add a new simulated engine device to the Remote Monitoring solution accelerator and test that this simulated device responds correctly to configuration updates. While this tutorial uses simulated devices, a device developer can implement direct methods on a [real device connected to the Remote Monitoring solution accelerator](iot-accelerators-connecting-devices.md).
 
 In this tutorial, you:
 
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Add a simulated device
 
-Navigate to the **Devices** page in the solution and then click **+ New device**:
+Navigate to the **Device Explorer** page in the solution and then click **+ New device**:
 
 [![Provision a simulated device](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-expanded.png#lightbox)
 
@@ -43,7 +43,7 @@ In the **New device** panel, choose **Simulated**, leave the number of devices t
 
 ## Test the simulated device
 
-To test your simulated engine device is sending telemetry and reporting property values, select it in the list of devices on the **Devices** page. Live information about your engine displays in the **Device Details** panel:
+To test your simulated engine device is sending telemetry and reporting property values, select it in the list of devices on the **Device Explorer** page. Live information about your engine displays in the **Device Details** panel:
 
 [![View the new simulated engine device](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
 
@@ -57,7 +57,7 @@ To view detailed diagnostics, scroll down in the **Device Details** panel to vie
 
 ## Reconfigure a device
 
-To test that you can update the engine's configuration properties, select it in the device list on the **Devices** page. Then click **Jobs**, and then choose **Properties**. The jobs panel shows the updateable property values for the selected device:
+To test that you can update the engine's configuration properties, select it in the device list on the **Device Explorer** page. Then click **Jobs**, and then choose **Properties**. The jobs panel shows the updateable property values for the selected device:
 
 [![Reconfigure a device](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 
@@ -80,7 +80,7 @@ To make it easier as an operator to organize and manage your devices, you want t
 * The Smart Vehicle team manages trucks and prototyping devices.
 * The Smart Building team manages chillers, elevators, and engines.
 
-To display all your devices, navigate to the **Devices** page and choose the **All devices** filter:
+To display all your devices, navigate to the **Device Explorer** page and choose the **All devices** filter:
 
 [![Show all devices](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-expanded.png#lightbox)
 
@@ -100,7 +100,7 @@ In the **Jobs** panel, select **Tag**, set the job name to **AddSmartBuildingTag
 
 ### Create filters
 
-Now you can use the tag values to create filters. On the **Devices** page, click **Manage device groups**:
+Now you can use the tag values to create filters. On the **Device Explorer** page, click **Manage device groups**:
 
 [![Manage device groups](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-expanded.png#lightbox)
 

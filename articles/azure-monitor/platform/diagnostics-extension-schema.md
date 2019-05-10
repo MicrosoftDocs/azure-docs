@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
-ms.component: diagnostic-extension
+ms.subservice: diagnostic-extension
 ---
 # Azure Diagnostics extension configuration schema versions and history
 This page indexes Azure Diagnostics extension schema versions shipped as part of the Microsoft Azure SDK.  
@@ -23,7 +23,7 @@ This page indexes Azure Diagnostics extension schema versions shipped as part of
 >
 > This page is only relevant if you are using one of these services.
 
-The Azure Diagnostics extension is used with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics. For more information, see [Microsoft Monitoring Tools Overview](../../azure-monitor/overview.md).
+The Azure Diagnostics extension is used with other Microsoft diagnostics products like Azure Monitor, which includes Application Insights and Log Analytics. For more information, see [Microsoft Monitoring Tools Overview](../../azure-monitor/overview.md).
 
 ## Azure SDK and diagnostics versions shipping chart  
 
@@ -181,7 +181,7 @@ There are some notable differences between how the connection string worked in A
 
 * In Azure SDK 2.4 and earlier, the connection string was used at runtime by the diagnostics plugin to get the storage account information for transferring diagnostics logs.
 * In Azure SDK 2.6 and later, Visual Studio uses the diagnostics connection string to configure the diagnostics extension with the appropriate storage account information during publishing. The connection string lets you define different storage accounts for different service configurations that Visual Studio will use when publishing. However, because the diagnostics plugin is no longer available (after Azure SDK 2.5), the .cscfg file by itself can't enable the Diagnostics Extension. You have to enable the extension separately through tools such as Visual Studio or PowerShell.
-* To simplify the process of configuring the diagnostics extension with PowerShell, the package output from Visual Studio also contains the public configuration XML for the diagnostics extension for each role. Visual Studio uses the diagnostics connection string to populate the storage account information present in the public configuration. The public config files are created in the Extensions folder and follow the pattern PaaSDiagnostics.<RoleName>.PubConfig.xml. Any PowerShell based deployments can use this pattern to map each configuration to a Role.
+* To simplify the process of configuring the diagnostics extension with PowerShell, the package output from Visual Studio also contains the public configuration XML for the diagnostics extension for each role. Visual Studio uses the diagnostics connection string to populate the storage account information present in the public configuration. The public config files are created in the Extensions folder and follow the pattern `PaaSDiagnostics.<RoleName>.PubConfig.xml`. Any PowerShell based deployments can use this pattern to map each configuration to a Role.
 * The connection string in the .cscfg file is also used by the Azure portal to access the diagnostics data so it can appear in the **Monitoring** tab. The connection string is needed to configure the service to show verbose monitoring data in the portal.
 
 #### Migrating projects to Azure SDK 2.6 and later
@@ -204,3 +204,4 @@ If you're upgrading your project from Azure SDK 2.4 to Azure SDK 2.5 or later, y
 * **Diagnostics for cloud service applications can only be configured at the role level, not at the instance level.**
 * **Every time you deploy your app, the diagnostics configuration is updated** – This can cause parity issues if you change your diagnostics configuration from Server Explorer and then redeploy your app.
 * **In Azure SDK 2.5 and later, crash dumps are configured in the diagnostics configuration file, not in code** – If you have crash dumps configured in code, you'll have to manually transfer the configuration from code to the configuration file, because the crash dumps aren't transferred during the migration to Azure SDK 2.6.
+

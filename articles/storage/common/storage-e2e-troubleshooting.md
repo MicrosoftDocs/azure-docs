@@ -2,14 +2,17 @@
 title: Troubleshooting Azure Storage with diagnostics & Message Analyzer | Microsoft Docs
 description: A tutorial demonstrating end-to-end troubleshooting with Azure Storage Analytics, AzCopy, and Microsoft Message Analyzer
 services: storage
-author: tamram
+author: normesta
+
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: tamram
-ms.component: common
+ms.author: normesta
+ms.reviewer: cbrooks
+ms.subservice: common
 ---
+
 # End-to-end troubleshooting using Azure Storage metrics and logging, AzCopy, and Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
@@ -23,12 +26,12 @@ This tutorial provides a hands-on exploration of an end-to-end troubleshooting s
 To troubleshoot client applications using Microsoft Azure Storage, you can use a combination of tools to determine when an issue has occurred and what the cause of the problem may be. These tools include:
 
 * **Azure Storage Analytics**. [Azure Storage Analytics](/rest/api/storageservices/Storage-Analytics) provides metrics and logging for Azure Storage.
-  
+
   * **Storage metrics** tracks transaction metrics and capacity metrics for your storage account. Using metrics, you can determine how your application is performing according to a variety of different measures. See [Storage Analytics Metrics Table Schema](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) for more information about the types of metrics tracked by Storage Analytics.
   * **Storage logging** logs each request to the Azure Storage services to a server-side log. The log tracks detailed data for each request, including the operation performed, the status of the operation, and latency information. See [Storage Analytics Log Format](/rest/api/storageservices/Storage-Analytics-Log-Format) for more information about the request and response data that is written to the logs by Storage Analytics.
 
 * **Azure portal**. You can configure metrics and logging for your storage account in the [Azure portal](https://portal.azure.com). You can also view charts and graphs that show how your application is performing over time, and configure alerts to notify you if your application performs differently than expected for a specified metric.
-  
+
     See [Monitor a storage account in the Azure portal](storage-monitor-storage-account.md) for information about configuring monitoring in the Azure portal.
 * **AzCopy**. Server logs for Azure Storage are stored as blobs, so you can use AzCopy to copy the log blobs to a local directory for analysis using Microsoft Message Analyzer. See [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md) for more information about AzCopy.
 * **Microsoft Message Analyzer**. Message Analyzer is a tool that consumes log files and displays log data in a visual format that makes it easy to filter, search, and group log data into useful sets that you can use to analyze errors and performance issues. See [Microsoft Message Analyzer Operating Guide](https://technet.microsoft.com/library/jj649776.aspx) for more information about Message Analyzer.
@@ -73,51 +76,7 @@ In this tutorial, we'll use Message Analyzer to work with three different types 
 * The **HTTP network trace log**, which collects data on HTTP/HTTPS request and response data, including for operations against Azure Storage. In this tutorial, we'll generate the network trace via Message Analyzer.
 
 ### Configure server-side logging and metrics
-First, we'll need to configure Azure Storage logging and metrics, so that we have data from the client application to analyze. You can configure logging and metrics in a variety of ways - via the [Azure portal](https://portal.azure.com), by using PowerShell, or programmatically. See [Enabling Storage Metrics and Viewing Metrics Data](https://msdn.microsoft.com/library/azure/dn782843.aspx) and [Enabling Storage Logging and Accessing Log Data](https://msdn.microsoft.com/library/azure/dn782840.aspx) on MSDN for details about configuring logging and metrics.
-
-**Via the Azure portal**
-
-To configure logging and metrics for your storage account using the [Azure portal](https://portal.azure.com), follow the instructions at [Monitor a storage account in the Azure portal](storage-monitor-storage-account.md).
-
-> [!NOTE]
-> It's not possible to set minute metrics using the Azure portal. However, we recommend that you do set them for the purposes of this tutorial, and for investigating performance issues with your application. You can set minute metrics using PowerShell as shown below, or programmatically using the storage client library.
-> 
-> Note that the Azure portal cannot display minute metrics, only hourly metrics.
-> 
-> 
-
-**Via PowerShell**
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-To get started with PowerShell for Azure, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
-
-1. Use the [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet to add your Azure user account to the PowerShell window:
-   
-	```powershell
-	Add-AzureAccount
-	```
-
-2. In the **Sign in to Microsoft Azure** window, type the email address and password associated with your account. Azure authenticates and saves the credential information, and then closes the window.
-3. Set the default storage account to the storage account you are using for the tutorial by executing these commands in the PowerShell window:
-   
-	```powershell
-	$SubscriptionName = 'Your subscription name'
-	$StorageAccountName = 'yourstorageaccount'
-	Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-	```
-
-4. Enable storage logging for the Blob service:
-   
-	```powershell
-	Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
-	```
-
-5. Enable storage metrics for the Blob service, making sure to set **-MetricsType** to `Minute`:
-   
-	```powershell
-	Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
-	```
+First, we'll need to configure Azure Storage logging and metrics, so that we have data from the service side to analyze. You can configure logging and metrics in a variety of ways - via the [Azure portal](https://portal.azure.com), by using PowerShell, or programmatically. See [Enable metrics](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) and [Enable logging](storage-analytics-logging.md#enable-storage-logging) for details about configuring logging and metrics.
 
 ### Configure .NET client-side logging
 To configure client-side logging for a .NET application, enable .NET diagnostics in the application's configuration file (web.config or app.config). See [Client-side Logging with the .NET Storage Client Library](https://msdn.microsoft.com/library/azure/dn782839.aspx) and [Client-side Logging with the Microsoft Azure Storage SDK for Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) on MSDN for details.
@@ -127,9 +86,9 @@ The client-side log includes detailed information about how the client prepares 
 The Storage Client Library stores client-side log data in the location specified in the application's configuration file (web.config or app.config).
 
 ### Collect a network trace
-You can use Message Analyzer to collect an HTTP/HTTPS network trace while your client application is running. Message Analyzer uses [Fiddler](http://www.telerik.com/fiddler) on the back end. Before you collect the network trace, we recommend that you configure Fiddler to record unencrypted HTTPS traffic:
+You can use Message Analyzer to collect an HTTP/HTTPS network trace while your client application is running. Message Analyzer uses [Fiddler](https://www.telerik.com/fiddler) on the back end. Before you collect the network trace, we recommend that you configure Fiddler to record unencrypted HTTPS traffic:
 
-1. Install [Fiddler](http://www.telerik.com/download/fiddler).
+1. Install [Fiddler](https://www.telerik.com/download/fiddler).
 2. Launch Fiddler.
 3. Select **Tools | Fiddler Options**.
 4. In the Options dialog, ensure that **Capture HTTPS CONNECTs** and **Decrypt HTTPS Traffic** are both selected, as shown below.
@@ -153,8 +112,8 @@ For the tutorial, collect and save a network trace first in Message Analyzer, th
 
 > [!NOTE]
 > After you have finished collecting your network trace, we strongly recommend that you revert the settings that you may have changed in Fiddler to decrypt HTTPS traffic. In the Fiddler Options dialog, deselect the **Capture HTTPS CONNECTs** and **Decrypt HTTPS Traffic** checkboxes.
-> 
-> 
+>
+>
 
 See [Using the Network Tracing Features](https://technet.microsoft.com/library/jj674819.aspx) on Technet for more details.
 
@@ -169,8 +128,8 @@ For more details on adding and customizing metrics charts, see [Customize metric
 
 > [!NOTE]
 > It may take some time for your metrics data to appear in the Azure portal after you enable storage metrics. This is because hourly metrics for the previous hour are not displayed in the Azure portal until the current hour has elapsed. Also, minute metrics are not currently displayed in the Azure portal. So depending on when you enable metrics, it may take up to two hours to see metrics data.
-> 
-> 
+>
+>
 
 ## Use AzCopy to copy server logs to a local directory
 Azure Storage writes server log data to blobs, while metrics are written to tables. Log blobs are available in the well-known `$logs` container for your storage account. Log blobs are named hierarchically by year, month, day, and hour, so that you can easily locate the range of time you wish to investigate. For example, in the `storagesample` account, the container for the log blobs for 01/02/2015, from 8-9 am, is `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. The individual blobs in this container are named sequentially, beginning with `000000.log`.
@@ -205,8 +164,8 @@ Message Analyzer includes assets for Azure Storage that help you to analyze serv
 
 > [!NOTE]
 > Install all of the Azure Storage assets shown for the purposes of this tutorial.
-> 
-> 
+>
+>
 
 ### Import your log files into Message Analyzer
 You can import all of your saved log files (server-side, client-side, and network) into a single session in Microsoft Message Analyzer for analysis.
@@ -250,8 +209,8 @@ The picture below shows this layout view applied to the sample log data, with a 
 > [!NOTE]
 > Different log files have different columns, so when data from multiple log files is displayed in the Analysis Grid, some columns may not contain any data for a given row. For example, in the picture above, the
 > client log rows do not show any data for the **Timestamp**, **TimeElapsed**, **Source**, and **Destination** columns, because these columns do not exist in the client log, but do exist in the network trace. Similarly, the **Timestamp** column displays timestamp data from the server log, but no data is displayed for the **TimeElapsed**, **Source**, and **Destination** columns, which are not part of the server log.
-> 
-> 
+>
+>
 
 In addition to using the Azure Storage view layouts, you can also define and save your own view layouts. You can select other desired fields for grouping data and save the grouping as part of your custom layout as well.
 
@@ -284,12 +243,12 @@ After applying this filter, you'll see that rows from the client log are exclude
 
 > [!NOTE]
 > You can filter on the **StatusCode** column and still display data from all three logs, including the client log, if you add an expression to the filter that includes log entries where the status code is null. To construct this filter expression, use:
-> 
+>
 > <code>&#42;StatusCode >= 400 or !&#42;StatusCode</code>
-> 
+>
 > This filter returns all rows from the client log and only rows from the server log and HTTP log where the status code is greater than 400. If you apply it to the view layout grouped by client request ID and module, you can search or scroll through the log entries to find ones where all three logs are represented.   
-> 
-> 
+>
+>
 
 ### Filter log data to find 404 errors
 The Storage Assets include predefined filters that you can use to narrow log data to find the errors or trends you are looking for. Next, we'll apply two predefined filters: one that filters the server and network trace logs for 404 errors, and one that filters the data on a specified time range.

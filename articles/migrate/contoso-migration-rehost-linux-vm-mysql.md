@@ -122,7 +122,7 @@ Here's how Contoso admins will complete the migration:
 > [!div class="checklist"]
 > * **Step 1: Prepare Azure for Site Recovery**: They create an Azure storage account to hold replicated data, and create a Recovery Services vault.
 > * **Step 2: Prepare on-premises VMware for Site Recovery**: They prepare accounts for VM discovery and agent installation, and prepare to connect to Azure VMs after failover.
- * **Step 3: Provision the database]**: In Azure, they provision an instance of Azure MySQL database.
+>   * **Step 3: Provision the database]**: In Azure, they provision an instance of Azure MySQL database.
 > * **Step 4: Replicate VMs**: They configure the Site Recovery source and target environment, set up a replication policy, and start replicating VMs to Azure storage.
 > * **Step 5: Migrate the database**: They set up migration with MySQL tools.
 > * **Step 6: Migrate the VMs with Site Recovery**: Lastly, they run a test failover to make sure everything's working, and then run a full failover to migrate the VMs to Azure.
@@ -142,10 +142,10 @@ The Contoso admins create a storage account and vault as follows:
 
 1. They create a storage account (**contosovmsacc20180528**) in the East US 2 region.
 
-    - The storage account must be in the same region as the Recovery Services vault.
-    - They use a general purpose account, with standard storage, and LRS replication.
+   - The storage account must be in the same region as the Recovery Services vault.
+   - They use a general purpose account, with standard storage, and LRS replication.
 
-    ![Site Recovery storage](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
+     ![Site Recovery storage](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
 
 3. With the network and storage account in place, they create a vault (ContosoMigrationVault), and place it in the **ContosoFailoverRG** resource group, in the primary East US 2 region.
 
@@ -477,7 +477,7 @@ The Contoso security team review the VM and database to determine any security i
 - They consider securing the data on the VM disks using Disk encryption and Azure KeyVault.
 - Communication between the VM and database instance isn't configured for SSL. They will need to do this to ensure that database traffic can't be hacked.
 
-[Read more](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) about security practices for VMs.
+[Read more](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms) about security practices for VMs.
 
 ### BCDR
 

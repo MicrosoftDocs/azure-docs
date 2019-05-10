@@ -77,7 +77,7 @@ Learn more about the Connected Factory solution accelerator by reading the follo
 
 * [Connected Factory solution accelerator walkthrough][lnk-rm-walkthrough]
 * [Deploy a gateway for Connected Factory][lnk-connect-cf]
-* [Permissions on the azureiotsuite.com site][lnk-permissions]
+* [Permissions on the azureiotsolutions.com site][lnk-permissions]
 * [Connected Factory FAQ](iot-accelerators-faq-cf.md)
 * [FAQ][lnk-faq]
 

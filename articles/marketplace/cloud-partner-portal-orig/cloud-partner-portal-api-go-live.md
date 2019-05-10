@@ -1,22 +1,13 @@
 ---
-title: Go Live | Microsoft Docs
+title: Go Live | Azure Marketplace
 description: The Go Live API initiates the offer live listing process.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
-
 
 Go Live
 =======
@@ -66,7 +57,7 @@ Body example
 
 ### Response status codes
 
-| **Code** |  ** Description**                                                                        |
+| **Code** |  **Description**                                                                        |
 | -------- |  ----------------                                                                        |
 |  202     | `Accepted` - The request was successfully accepted. The response contains a location to track the operation status. |
 |  400     | `Bad/Malformed request` - Additional error information is found within the response body. |

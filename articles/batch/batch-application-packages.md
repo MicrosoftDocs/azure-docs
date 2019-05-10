@@ -3,7 +3,7 @@ title: Install application packages on compute nodes - Azure Batch | Microsoft D
 description: Use the application packages feature of Azure Batch to easily manage multiple applications and versions for installation on Batch compute nodes.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
-ms.date: 06/15/2018
-ms.author: danlep
+ms.date: 04/05/2019
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -25,14 +25,11 @@ The application packages feature of Azure Batch provides easy management of task
 In this article, you learn how to upload and manage application packages in the Azure portal. You then learn how to install them on a pool's compute nodes with the [Batch .NET][api_net] library.
 
 > [!NOTE]
-> 
 > Application packages are supported on all Batch pools created after 5 July 2017. They are supported on Batch pools created between 10 March 2016 and 5 July 2017 only if the pool was created using a Cloud Service configuration. Batch pools created prior to 10 March 2016 do not support application packages.
 >
 > The APIs for creating and managing application packages are part of the [Batch Management .NET][api_net_mgmt] library. The APIs for installing application packages on a compute node are part of the [Batch .NET][api_net] library. Comparable features are in the available Batch APIs for other languages. 
 >
 > The application packages feature described here supersedes the Batch Apps feature available in previous versions of the service.
-> 
-> 
 
 ## Application package requirements
 To use application packages, you need to [link an Azure Storage account](#link-a-storage-account) to your Batch account.
@@ -112,6 +109,14 @@ This window displays the ID of each application in your account and the followin
 * **Packages**: The number of versions associated with this application.
 * **Default version**: The application version installed if you do not indicate a version when you specify the application for a pool. This setting is optional.
 * **Allow updates**: The value that specifies whether package updates, deletions, and additions are allowed. If this is set to **No**, package updates and deletions are disabled for the application. Only new application package versions can be added. The default is **Yes**.
+
+If you'd like to see the file structure of the application package on your compute node, navigate to your Batch account in the portal. From your Batch account, navigate to **Pools**. Select the pool that contains the compute node(s) you're interested in.
+
+![Nodes in pool][13]
+
+Once you've selected your pool, navigate to the compute node that the application package is installed on. From there, the details of the application package are located in the **applications** folder. Additional folders on the compute node contain other files, such as start tasks, output files, error output, etc.
+
+![Files on node][14]
 
 ### View application details
 To see the details for an application, select the application in the **Applications** window.
@@ -370,3 +375,5 @@ With application packages, you can help your customers select the applications f
 [10]: ./media/batch-application-packages/app_pkg_10.png "Choose storage account blade in Azure portal"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Update package blade in Azure portal"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Delete package confirmation dialog in Azure portal"
+[13]: ./media/batch-application-packages/package-file-structure.png "Compute node information in Azure portal"
+[14]: ./media/batch-application-packages/package-file-structure-node.png "Files on the compute node displayed in Azure portal"

@@ -2,17 +2,17 @@
 title: Create a Linux SQL Server 2017 VM in Azure | Microsoft Docs
 description: This tutorial shows how to create a Linux SQL Server 2017 virtual machine in the Azure portal.
 services: virtual-machines-linux
-author: rothja 
-ms.author: jroth 
-manager: jhubbard
+author: MashaMSFT 
+manager: craigg
 ms.date: 12/5/2018
 ms.topic: article
 tags: azure-service-management
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
-ms.technology: database-engine
+ms.author: mathoma
+ms.reviewer: jroth
 ---
 # Provision a Linux SQL Server virtual machine in the Azure portal
 
@@ -71,23 +71,23 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. In **Virtual machine name**, enter a name for your new Linux VM.
 1. Then, type or select the following values:
-    * **Region**: Select the Azure region that's right for you.
-    * **Availability options**: Choose the availability and redundancy option that's best for your apps and data.
-    * **Change size**: Select this option to pick a machine size and when done, choose **Select**. For more information about VM machine sizes, see [Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+   * **Region**: Select the Azure region that's right for you.
+   * **Availability options**: Choose the availability and redundancy option that's best for your apps and data.
+   * **Change size**: Select this option to pick a machine size and when done, choose **Select**. For more information about VM machine sizes, see [Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
 
-    ![Choose a VM size](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
+     ![Choose a VM size](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
    > [!TIP]
    > For development and functional testing, use a VM size of **DS2** or higher. For performance testing, use **DS13** or higher.
 
-    * **Authentication type**: Select **SSH public key**.
+   * **Authentication type**: Select **SSH public key**.
 
-    > [!Note]
-    > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+     > [!Note]
+     > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
 
-    * **Username**: Enter the Administrator name for the VM.
-    * **SSH public key**: Enter your RSA public key.
-    * **Public inbound ports**: Choose **Allow selected ports** and pick the **SSH (22)** port in the **Select public inbound ports** list. In this quickstart, this step is necessary to connect and complete the SQL Server configuration. If you want to remotely connect to SQL Server, also select **MS SQL (1433)** to open port 1433 for connections over the Internet.
+   * **Username**: Enter the Administrator name for the VM.
+   * **SSH public key**: Enter your RSA public key.
+   * **Public inbound ports**: Choose **Allow selected ports** and pick the **SSH (22)** port in the **Select public inbound ports** list. In this quickstart, this step is necessary to connect and complete the SQL Server configuration. If you want to remotely connect to SQL Server, also select **MS SQL (1433)** to open port 1433 for connections over the Internet.
 
    ![Inbound ports](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 
@@ -115,7 +115,7 @@ You can find the IP address of your VM in the Azure portal.
 
 If you're running on Windows and don't have a BASH shell, install an SSH client, such as PuTTY.
 
-1. [Download and install PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+1. [Download and install PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 1. Run PuTTY.
 
@@ -123,7 +123,7 @@ If you're running on Windows and don't have a BASH shell, install an SSH client,
 
 1. Select **Open** and enter your username and password at the prompts.
 
-For more information about connecting to Linux VMs, see [Create a Linux VM on Azure using the Portal](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal#ssh-to-the-vm).
+For more information about connecting to Linux VMs, see [Create a Linux VM on Azure using the Portal](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal).
 
 > [!Note]
 > If you see a PuTTY security alert about the server's host key not being cached in the registry, choose from the following options. If you trust this host, select **Yes** to add the key to PuTTy's cache and continue connecting. If you want to carry on connecting just once, without adding the key to the cache, select **No**. If you don't trust this host, select **Cancel** to abandon the connection.

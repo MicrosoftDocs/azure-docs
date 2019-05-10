@@ -1,0 +1,46 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Advisor Documentation
+metadata:
+  title: Azure Advisor Documentation | Microsoft Docs
+  description:	
+  services: advisor
+  author: rboucher
+  layout: LandingPage
+  ms.service: advisor
+  ms.tgt_pltfrm: na
+  ms.topic: landing-page
+  ms.date: 02/01/2019
+  ms.author: robb
+abstract:
+  description: Azure Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry. It then recommends solutions to help improve the performance, security, and high availability of your resources while looking for opportunities to reduce your overall Azure spend.
+sections:
+- title: 
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Learn about Azure Advisor
+      href: /azure/advisor/advisor-overview
+      image: 
+        src: media/index/advisor.svg
+        href: /azure/advisor/advisor-overview
+    - title:  Get started with Azure Advisor
+      href: /azure/advisor/advisor-get-started
+      image: 
+        src: media/index/get-started.svg
+        href: /azure/advisor/advisor-get-started
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/advisor/">REST API Reference</a></p>
+    - title: Command-Line
+      html: <p><a href="https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest">Common Language Interface (CLI)</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0">Azure PowerShell</a></p>
+

@@ -2,12 +2,12 @@
 title: Add/remove an Azure File Sync server endpoint | Microsoft Docs
 description: Learn what to consider when planning for an Azure Files deployment.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
-ms.author: wgries
-ms.component: files
+ms.author: rogarana
+ms.subservice: files
 ---
 
 # Add/remove an Azure File Sync server endpoint
@@ -46,7 +46,7 @@ If you desire to discontinue using Azure File Sync for a given server endpoint, 
 
 To ensure that all tiered files are recalled before removing the server endpoint, disable cloud tiering on the server endpoint, and then execute the following PowerShell cmdlet to recall all tiered files within your server endpoint namespace:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
@@ -65,3 +65,4 @@ To remove the server endpoint:
 ## Next steps
 - [Register/unregister a server with Azure File Sync](storage-sync-files-server-registration.md)
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
+- [Monitor Azure File Sync](storage-sync-files-monitoring.md)

@@ -3,8 +3,8 @@ title: Features and platforms supported by Azure Security Center | Microsoft Doc
 description: This document provides a list of features and platforms supported by Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
+author: monhaber
+manager: barbkess
 editor: ''
 
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
-ms.author: rkarlin
+ms.date: 5/02/2019
+ms.author: monhaber
 
 ---
 # Platforms and features supported by Azure Security Center
@@ -33,11 +33,12 @@ This section lists the platforms on which the Azure Security Center agent can ru
 ### Supported platforms for Windows computers and VMs
 The following Windows operating systems are supported:
 
-* Windows Server 2008
-* Windows Server 2008 R2
-* Windows Server 2012
-* Windows Server 2012 R2
+* Windows Server 2019
 * Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows Server 2008
 
 > [!NOTE]
 > Integration with Windows Defender ATP supports only Windows Server 2012 R2 and Windows Server 2016.
@@ -70,12 +71,12 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 |Environment|Azure|Non-Azure|Azure|Non-Azure|
 |VMBA threat detection alerts|✔|✔|✔ (on supported versions)|✔|
 |Network-based threat detection alerts|✔|X|✔|X|
-|Windows Defender ATP integration*|✔ (on supported versions)|✔|X|X|
+|Windows Defender ATP integration|✔ (on supported versions)|✔|X|X|
 |Missing patches|✔|✔|✔|✔|
 |Security configurations|✔|✔|✔|✔|
-|Antimalware programs|✔|✔|X|X|
+|Endpoint protection|✔|✔|X|X|
 |JIT VM access|✔|X|✔|X|
-|Adaptive application controls|✔|X|X|X|
+|Adaptive application controls|✔|✔|✔|✔|
 |FIM|✔|✔|✔|✔|
 |Disk encryption|✔|X|✔|X|
 |Third-party deployment|✔|X|✔|X|
@@ -84,8 +85,27 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 |Network map|✔|X|✔|X|
 |Adaptive network controls|✔|X|✔|X|
 
-\* These features are currently supported in public preview.
 
+### Supported endpoint protection solutions
+
+The following table provides a matrix of:
+ - Whether you can use Azure Security Center to install each solution for you.
+ - Which endpoint protection solutions Security Center can discover. If one of these endpoint protection solutions is discovered, Security Center will not recommend installing one.
+
+| Endpoint Protection| Platforms | Security Center Installation | Security Center Discovery |
+|------|------|-----|-----|
+| Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, Built in to OS| Yes |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (see note below) | Via Extension | Yes |
+| Trend Micro – All version | Windows Server Family  | No | Yes |
+| Symantec v12.1.1100+| Windows Server Family  | No | Yes |
+| McAfee v10+ | Windows Server Family  | No | Yes |
+| Kaspersky| Windows Server Family  | No | No  |
+| Sophos| Windows Server Family  | No | No  |
+
+> [!NOTE]
+> - Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell 3.0 (or an upper version).
+>
+>
 
 ## Supported PaaS features 
 
@@ -105,6 +125,8 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 |Subscription|✔| ✔|
 
 \* These features are currently supported in public preview. 
+
+
 
 ## Next steps
 

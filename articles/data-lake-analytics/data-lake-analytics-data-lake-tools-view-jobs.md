@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 08/02/2017
 ---
 # Use Job Browser and Job View for Azure Data Lake Analytics
-The Azure Data Lake Analytics service archives submitted jobs in a [query store](#query-store). In this article, you learn how to use Job Browser and Job View in Azure Data Lake Tools for Visual Studio to find the historical job information. 
+The Azure Data Lake Analytics service archives submitted jobs in a query store. In this article, you learn how to use Job Browser and Job View in Azure Data Lake Tools for Visual Studio to find the historical job information. 
 
 By default, the Data Lake Analytics service archives the jobs for 30 days. The expiration period can be configured from the Azure portal by configuring the customized expiration policy. You will not be able to access the job information after expiration. 
 
@@ -121,7 +121,7 @@ Job View contains:
     
       ![Azure Data Lake Analytics job graph heap map example](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-graph-heat-map-example.png)
     
-    * Progress: The job execution progress, see Information in [stage information](#stage-information).
+    * Progress: The job execution progress, see Information in stage information.
     * Data read/written: The heat map of total data read/written in each stage.
     * Compute time: The heat map of SUM (every vertex execution time), you can consider this as how long it would take if all work in the stage is executed with only 1 vertex.
     * Average execution time per node: The heat map of SUM (every vertex execution time) / (Vertex Number). Which means if you could assign all the vertices executed in parallelism, the whole stage will be done in this time frame.

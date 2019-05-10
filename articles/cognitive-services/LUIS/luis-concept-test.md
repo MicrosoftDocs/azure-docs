@@ -3,12 +3,13 @@ title: Test your LUIS app
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: Testing is the process of providing sample utterances to LUIS and getting a response of LUIS-recognized intents and entities.
 author: diberry
-manager: cgronlun
+manager: nitinme
+services: cognitive-services
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 01/09/2019
 ms.author: diberry
 ---
 
@@ -42,7 +43,7 @@ If you test against an endpoint, and do not want the utterance logged, remember 
 ## Where to find utterances
 LUIS stores all logged utterances in the query log, available for download on the [LUIS](luis-reference-regions.md) website **Apps** list page, as well as the LUIS [authoring APIs](https://aka.ms/luis-authoring-apis). 
 
-Any utterances LUIS is unsure of are listed in the **[Review endpoint utterances](luis-how-to-review-endoint-utt.md)** page of the [LUIS](luis-reference-regions.md) website. 
+Any utterances LUIS is unsure of are listed in the **[Review endpoint utterances](luis-how-to-review-endpoint-utterances.md)** page of the [LUIS](luis-reference-regions.md) website. 
 
 ![Review endpoint utterances](./media/luis-concept-test/review-endpoint-utterances.png)
  

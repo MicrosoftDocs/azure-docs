@@ -4,7 +4,7 @@ description: This article helps you strengthen your security posture by monitori
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808

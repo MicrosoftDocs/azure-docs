@@ -11,6 +11,7 @@ To reference the CloudConfigurationManager package, add the following `using` di
 
 ```csharp
 using Microsoft.Azure; //Namespace for CloudConfigurationManager
+using Microsoft.WindowsAzure.Storage;
 ```
 
 Here's an example that shows how to retrieve a connection string from a configuration file:

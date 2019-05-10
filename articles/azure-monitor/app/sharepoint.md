@@ -139,7 +139,7 @@ function onRequestFail(sender, args) {
 
 ## Next Steps
 * [Web tests](../../azure-monitor/app/monitor-web-app-availability.md) to monitor the availability of your site.
-* [Application Insights](../../application-insights/app-insights-overview.md) for other types of app.
+* [Application Insights](../../azure-monitor/app/app-insights-overview.md) for other types of app.
 
 <!--Link references-->
 

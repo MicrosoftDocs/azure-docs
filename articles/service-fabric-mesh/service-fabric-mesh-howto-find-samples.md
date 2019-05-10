@@ -6,9 +6,9 @@ keywords:
 author: v-vasuke
 ms.author: v-vasuke
 ms.date: 12/03/2018
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: service-fabric-mesh
-manager: jeconnoc
+manager: chakdan
 #Customer intent: Choose a prepared sample project that most closely mirrors my goals. 
 ---
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 11/16/2018
+ms.date: 02/11/2019
 ms.author: stbaron
 
 ---
 # Azure status
-[Azure status](https://azure.microsoft.com/status/) provides you with a global view of the health of Azure services. With Azure status, you can get up-to-the-minute information on service availability. Everyone has access to Azure status and can view all services that report their service health. 
+[Azure status](https://azure.microsoft.com/status/) provides you with a global view of the health of Azure services and regions. With Azure status, you can get up-to-the-minute information on service availability. Azure status is available to everyone to view all services that report their service health, as well as incidents with wide-ranging impact. If you're a current Azure user, however, we strongly encourage you to use the personalized experience in [Azure Service Health](https://aka.ms/azureservicehealth). Azure Service Health includes all outages, upcoming planned maintenance activities, and service advisories.
 
 ![Azure status page](./media/azure-status-overview/azure-status.PNG)
 

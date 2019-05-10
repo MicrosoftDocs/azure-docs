@@ -5,11 +5,11 @@ description: LUIS includes a set of prebuilt domains for quickly adding common, 
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 01/24/2019
 ms.author: diberry
 ---
 

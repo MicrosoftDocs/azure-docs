@@ -65,7 +65,7 @@ In the Serial Console Access instance, you can query the current status of the f
 *   Query by using the Local Port that the application uses:
 
     ```cmd
-    netsh advfirewall firewall show rule dir=in name=all | select-string -pattern "(LocalPort.*<APPLICAITON PORT>)" -context 9,4 | more
+    netsh advfirewall firewall show rule dir=in name=all | select-string -pattern "(LocalPort.*<APPLICATION PORT>)" -context 9,4 | more
     ```
 
 *   Query by using the Local IP address that the application uses:
@@ -95,7 +95,7 @@ In the Serial Console Access instance, you can query the current status of the f
 
 ### Offline Mitigations
 
-1.	To enable or disable firewall rules, refer to [Enable or disable a firewall rule on a Azure VM Guest OS](enable-disable-firewall-rule-guest-os.md).
+1.	To enable or disable firewall rules, refer to [Enable or disable a firewall rule on an Azure VM Guest OS](enable-disable-firewall-rule-guest-os.md).
 
 2.	Check whether you are in the [Guest OS firewall blocking inbound traffic scenario](guest-os-firewall-blocking-inbound-traffic.md).
 

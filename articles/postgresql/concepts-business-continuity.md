@@ -1,14 +1,14 @@
 ---
-title: Overview of business continuity with Azure Database for PostgreSQL
+title: Overview of business continuity with Azure Database for PostgreSQL - Single Server
 description: Overview of business continuity with Azure Database for PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
+ms.date: 5/6/2019
 ---
 
-# Overview of business continuity with Azure Database for PostgreSQL
+# Overview of business continuity with Azure Database for PostgreSQL - Single Server
 
 This overview describes the capabilities that Azure Database for PostgreSQL provides for business continuity and disaster recovery. Learn about options for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. Learn what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance.
 
@@ -44,6 +44,6 @@ The other option is to use the Azure Database for PostgreSQL's geo-restore featu
 > Geo-restore is only possible if you provisioned the server with geo-redundant backup storage. If you wish to switch from locally redundant to geo-redundant backups for an existing server, you must take a dump using pg_dump of your existing server and restore it to a newly created configured with geo-redundant backups.
 
 ## Next steps
-- To learn more about the automated backups, see [Backups in Azure Database for PostgreSQL](concepts-backup.md). 
-- To restore to a point in time using the Azure portal, see [restore database to a point in time using the Azure portal](howto-restore-server-portal.md).
-- To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md).
+- Learn more about the [automated backups in Azure Database for PostgreSQL](concepts-backup.md). 
+- Learn how to restore using [the Azure portal](howto-restore-server-portal.md) or [the Azure CLI](howto-restore-server-cli.md).
+- Learn about [read replicas in Azure Database for PostgreSQL](concepts-read-replicas.md).

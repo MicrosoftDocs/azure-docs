@@ -41,7 +41,7 @@ Performing these steps in order ensures that old versions of the client library 
 
 ***Option 1: Upgrade metadata using PowerShell***
 
-1. Download the latest command-line utility for NuGet from [here](http://nuget.org/nuget.exe) and save to a folder.
+1. Download the latest command-line utility for NuGet from [here](https://nuget.org/nuget.exe) and save to a folder.
 2. Open a Command Prompt, navigate to the same folder, and issue the command:
    `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
 3. Navigate to the subfolder containing the new client DLL version you have just downloaded, for example:
@@ -51,7 +51,7 @@ Performing these steps in order ensures that old versions of the client library 
 
 ***Option 2: Upgrade metadata using C#***
 
-Alternatively, create a Visual Studio application that opens your ShardMapManager, iterates over all shards, and performs the metadata upgrade by calling the methods [UpgradeLocalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore.aspx) and [UpgradeGlobalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore.aspx) as in this example:
+Alternatively, create a Visual Studio application that opens your ShardMapManager, iterates over all shards, and performs the metadata upgrade by calling the methods [UpgradeLocalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore) and [UpgradeGlobalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore) as in this example:
 
     ShardMapManager smm =
        ShardMapManagerFactory.GetSqlShardMapManager

@@ -29,7 +29,7 @@ If you haven't yet added Application Insights to your project (that is, if it do
 * [ASP.NET web apps](../../azure-monitor/app/asp-net.md)
   * [Add exception monitoring](../../azure-monitor/app/asp-net-exceptions.md)
   * [Add dependency monitoring](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [J2EE web apps](../../azure-monitor/app/java-get-started.md)
+* [Java EE web apps](../../azure-monitor/app/java-get-started.md)
   * [Add dependency monitoring](../../azure-monitor/app/java-agent.md)
 
 ## <a name="view"></a>Exploring performance metrics
@@ -106,7 +106,7 @@ Here are a few tips for finding and diagnosing performance issues:
 * Compare the Request count with other metrics to see if failures or slow response are related to load.
 * [Insert and search trace statements][diagnostic] in your code to help pinpoint problems.
 * Monitor your Web app in operation with [Live Metrics Stream][livestream].
-* Capture the state of your .Net application with [Snapshot Debugger][snapshot].
+* Capture the state of your .NET application with [Snapshot Debugger][snapshot].
 
 ## Find and fix performance bottlenecks with performance investigation experience
 
@@ -151,7 +151,7 @@ The performance investigation experience shows relevant insights along side the 
 [greenbrown]: ../../azure-monitor/app/asp-net.md
 [qna]: ../../azure-monitor/app/troubleshoot-faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 [usage]: usage-overview.md
 [livestream]: ../../azure-monitor/app/live-stream.md
 [snapshot]: ../../azure-monitor/app/snapshot-debugger.md

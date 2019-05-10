@@ -1,10 +1,9 @@
 ---
 title: Remediate non-compliant resources
 description: This how-to walks you through the remediation of resources that are non-compliant to policies in Azure Policy.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -16,6 +15,8 @@ Resources that are non-compliant to a **deployIfNotExists** policy can be put in
 state through **Remediation**. Remediation is accomplished by instructing Policy to run the
 **deployIfNotExists** effect of the assigned policy on your existing resources. This article shows
 the steps needed to understand and accomplish remediation with Policy.
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## How remediation security works
 
@@ -60,7 +61,7 @@ az role definition list --name 'Contributor'
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmRoleDefinition -Name 'Contributor'
+Get-AzRoleDefinition -Name 'Contributor'
 ```
 
 ## Manually configure the managed identity
@@ -84,16 +85,16 @@ SQL DB transparent data encryption**, sets the target resource group, and then c
 assignment.
 
 ```azurepowershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+# Login first with Connect-AzAccount if not using Cloud Shell
 
 # Get the built-in "Deploy SQL DB transparent data encryption" policy definition
-$policyDef = Get-AzureRmPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
+$policyDef = Get-AzPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
 
 # Get the reference to the resource group
-$resourceGroup = Get-AzureRmResourceGroup -Name 'MyResourceGroup'
+$resourceGroup = Get-AzResourceGroup -Name 'MyResourceGroup'
 
 # Create the assignment using the -Location and -AssignIdentity properties
-$assignment = New-AzureRmPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
+$assignment = New-AzPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
 ```
 
 The `$assignment` variable now contains the principal ID of the managed identity along with the
@@ -105,7 +106,7 @@ standard values returned when creating a policy assignment. It can be accessed t
 The new managed identity must complete replication through Azure Active Directory before it can be
 granted the needed roles. Once replication is complete, the following example iterates the policy
 definition in `$policyDef` for the **roleDefinitionIds** and uses
-[New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) to
+[New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) to
 grant the new managed identity the roles.
 
 ```azurepowershell-interactive
@@ -116,7 +117,7 @@ if ($roleDefinitionIds.Count -gt 0)
 {
     $roleDefinitionIds | ForEach-Object {
         $roleDefId = $_.Split("/") | Select-Object -Last 1
-        New-AzureRmRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
+        New-AzRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
     }
 }
 ```
@@ -137,7 +138,7 @@ To add a role to the assignment's managed identity, follow these steps:
 
 1. Find the **Assignment ID** property on the edit page. The assignment ID will be something like:
 
-   ```
+   ```output
    /subscriptions/{subscriptionId}/resourceGroups/PolicyTarget/providers/Microsoft.Authorization/policyAssignments/2802056bfc094dfb95d4d7a5
    ```
 
@@ -151,6 +152,8 @@ To add a role to the assignment's managed identity, follow these steps:
 
 ## Create a remediation task
 
+### Create a remediation task through portal
+
 During evaluation, the policy assignment with **deployIfNotExists** effect determines if there are
 non-compliant resources. When non-compliant resources are found, the details are provided on the
 **Remediation** page. Along with the list of policies that have non-compliant resources is the
@@ -161,11 +164,11 @@ To create a **remediation task**, follow these steps:
 
 1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching for and selecting **Policy**.
 
-   ![Search for policy](../media/remediate-resources/search-policy.png)
+   ![Search for Policy in All Services](../media/remediate-resources/search-policy.png)
 
 1. Select **Remediation** on the left side of the Azure Policy page.
 
-   ![Select remediation](../media/remediate-resources/select-remediation.png)
+   ![Select Remediation on the Policy page](../media/remediate-resources/select-remediation.png)
 
 1. All **deployIfNotExists** policy assignments with non-compliant resources are included on the **Policies to remediate** tab and data table. Click on a policy with resources that are non-compliant. The **New remediation task** page opens.
 
@@ -175,11 +178,11 @@ To create a **remediation task**, follow these steps:
 
 1. On the **New remediation task** page, filter the resources to remediate by using the **Scope** ellipses to pick child resources from where the policy is assigned (including down to the individual resource objects). Additionally, use the **Locations** drop-down to further filter the resources. Only resources listed in the table will be remediated.
 
-   ![Remediate - select resources](../media/remediate-resources/select-resources.png)
+   ![Remediate - select which resources to remediate](../media/remediate-resources/select-resources.png)
 
 1. Begin the remediation task once the resources have been filtered by clicking **Remediate**. The policy compliance page will open to the **Remediation tasks** tab to show the state of the tasks progress.
 
-   ![Remediate - task progress](../media/remediate-resources/task-progress.png)
+   ![Remediate - progress of remediation tasks](../media/remediate-resources/task-progress.png)
 
 1. Click on the **remediation task** from the policy compliance page to get details about the progress. The filtering used for the task is shown along with a list of the resources being remediated.
 
@@ -188,6 +191,37 @@ To create a **remediation task**, follow these steps:
    ![Remediate - resource task context menu](../media/remediate-resources/resource-task-context-menu.png)
 
 Resources deployed through a **remediation task** are added to the **Deployed Resources** tab on the policy compliance page.
+
+### Create a remediation task through Azure CLI
+
+To create a **remediation task** with Azure CLI, use the `az policy remediation` commands. Replace
+`{subscriptionId}` with your subscription ID and `{myAssignmentId}` with your **deployIfNotExists**
+policy assignment ID.
+
+```azurecli-interactive
+# Login first with az login if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+For other remediation commands and examples, see the [az policy
+remediation](/cli/azure/policy/remediation) commands.
+
+### Create a remediation task through Azure PowerShell
+
+To create a **remediation task** with Azure PowerShell, use the `Start-AzPolicyRemediation` commands. Replace
+`{subscriptionId}` with your subscription ID and `{myAssignmentId}` with your **deployIfNotExists**
+policy assignment ID.
+
+```azurepowershell-interactive
+# Login first with Connect-AzAccount if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+For other remediation cmdlets and examples, see the [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) module.
 
 ## Next steps
 

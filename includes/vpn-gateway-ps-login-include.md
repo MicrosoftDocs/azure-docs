@@ -14,17 +14,17 @@ Before beginning this configuration, you must sign in to your Azure account. The
 To sign in, open your PowerShell console with elevated privileges, and connect to your account. Use the following example to help you connect:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 If you have multiple Azure subscriptions, check the subscriptions for the account.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Specify the subscription that you want to use.
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
  ```

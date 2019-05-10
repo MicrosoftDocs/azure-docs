@@ -12,13 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/18/2018
+ms.date: 01/18/2019
 ms.author: borisb
 
 ---
 
 # Red Hat Enterprise Linux images in Azure
-This article describes available Red Hat Enterprise Linux (RHEL) images in the Azure Marketplace along with policies around their naming and retention
+This article describes available Red Hat Enterprise Linux (RHEL) images in the Azure Marketplace along with policies around their naming and retention.
+
+Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
+
+>[!Important]
+> RHEL images currently available in the Azure marketplace support either Bring-Your-Own-Subscription (BYOS) or Pay-As-You-Go (PAYG) licensing models. The [Azure Hybrid Use Benefit](../windows/hybrid-use-benefit-licensing.md) and dynamic switching between BYOS and PAYG is not supported. Switching licensing mode requires redeploying the VM from the corresponding image.
+
+>[!Note]
+> For any issue related to RHEL images in the Azure marketplace gallery please file a support ticket with Microsoft.
 
 ## Images available in the UI
 When you search for “Red Hat” in the Marketplace or when you create a resource in Azure portal UI, you'll see a subset of available RHEL images and related Red Hat products. You can always obtain the full set of available VM images using the Azure CLI/PowerShell/API.
@@ -54,7 +62,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 ### Current naming convention
 All currently published RHEL images use the Pay-As-You-Go model and are connected to [Red Hat Update Infrastructure (RHUI) in Azure](https://aka.ms/rhui-update). Due to a design limitation of RHUI, a new naming convention has been adopted for RHEL 7 family images. The RHEL 6 family naming hasn't been changed at this time.
 
-The limitation is in the fact that when a non-selective `yum update` is run against a VM connected to RHUI, the RHEL version gets updated to the latest in the current family. For more information, see [this link](https://aka.ms/rhui-udate). This may result in confusion when a provisioned RHEL 7.2 image becomes RHEL 7.6 after an update. You can still provision from an older image as illustrated in the examples above by specifying the required version explicitly. If the required version is not specified while provisioning a new RHEL 7 image, then the latest image will be provisioned.
+The limitation is in the fact that when a non-selective `yum update` is run against a VM connected to RHUI, the RHEL version gets updated to the latest in the current family. For more information, see [this link](https://aka.ms/rhui-update). This may result in confusion when a provisioned RHEL 7.2 image becomes RHEL 7.6 after an update. You can still provision from an older image as illustrated in the examples above by specifying the required version explicitly. If the required version is not specified while provisioning a new RHEL 7 image, then the latest image will be provisioned.
 
 >[!NOTE]
 > In the RHEL for SAP set of images, the RHEL version remains fixed. As such, their naming convention includes a particular version in the SKU.
@@ -63,6 +71,7 @@ The limitation is in the fact that when a non-selective `yum update` is run agai
 > RHEL 6 set of images were not moved to the new naming convention.
 
 The following offers are SKUs are currently available for general use:
+
 Offer| SKU | Partitioning | Provisioning | Notes
 :----|:----|:-------------|:-------------|:-----
 RHEL | 7-RAW | RAW | Linux Agent | RHEL 7 family of images
@@ -105,3 +114,4 @@ Our current policy is to keep all previously published images. We reserve the ri
 
 ## Next steps
 * Learn more about the Azure Red Hat Update Infrastructure [here](https://aka.ms/rhui-update).
+* Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.

@@ -5,9 +5,9 @@ services: storage
 author: alkohli
 
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 04/01/2019
 ms.author: alkohli
 ---
 
@@ -48,9 +48,9 @@ The following table summarizes the differences in key capabilities.
 
 ### Continuous data ingestion over network
 
-| Feature                                       | Data Box Gateway (preview) | Data Box Edge (preview)  | Azure Data Factory        |
+| Feature                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
-| Form factor                                   | Virtual device             | Physical device          | Serivce in Azure portal, agent on-premises                                                            |
+| Form factor                                   | Virtual device             | Physical device          | Service in Azure portal, agent on-premises                                                            |
 | Hardware                                      | Your hypervisor            | Supplied by Microsoft    | NA                                                            |
 | Initial setup effort                          | Low (<30 mins.)            | Moderate (~couple hours) | Large (~days)                                                 |
 | Data Format                                   | Azure Blobs, Azure Files   | Azure Blobs, Azure Files | [Supports 70+ data connectors for data stores and formats](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|

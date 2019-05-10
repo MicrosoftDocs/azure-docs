@@ -3,18 +3,19 @@ title: How to manage a user-assigned managed identity using the Azure portal
 description: Step by step instructions on how to create, list, delete and assign a role to a user-assigned managed identity.
 services: active-directory
 documentationcenter: 
-author: daveba
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: 
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
-ms.author: daveba
+ms.author: markvi
+ms.collection: M365-identity-device-management
 ---
 
 # Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal
@@ -58,6 +59,8 @@ To list/read a user-assigned managed identity, your account needs the [Managed I
 ## Delete a user-assigned managed identity
 
 To delete a user-assigned managed identity, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+
+Deleting a user assigned identity does not remove it from the VM or resource it was assigned to.  To remove the user assigned identity from a VM see, [Remove a user-assigned managed identity from a VM](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#remove-a-user-assigned-managed-identity-from-a-vm).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to delete a user-assigned managed identity.
 2. Select the user-assigned managed identity and click **Delete**.

@@ -1,18 +1,19 @@
 ---
-title: When and how to use an Azure Multi-Factor Auth Provider?
+title: When and how to use an Azure Multi-Factor Auth Provider? - Azure Active Directory
 description: When should you use an Auth Provider with Azure MFA?
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/27/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # When to use an Azure Multi-Factor Authentication Provider
 

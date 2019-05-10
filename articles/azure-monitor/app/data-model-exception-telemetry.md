@@ -15,7 +15,7 @@ ms.author: mbullwin
 ---
 # Exception telemetry: Application Insights data model
 
-In [Application Insights](../../application-insights/app-insights-overview.md), an instance of Exception represents a handled or unhandled exception that occurred during execution of the monitored application.
+In [Application Insights](../../azure-monitor/app/app-insights-overview.md), an instance of Exception represents a handled or unhandled exception that occurred during execution of the monitored application.
 
 ## Problem Id
 

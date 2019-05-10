@@ -3,8 +3,8 @@ title: Protecting your machines and applications in Azure Security Center  | Mic
 description: This document addresses recommendations in Security Center that help you protect your virtual machines and computers and your web apps and App Service environments.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
+author: monhaber
+manager: barbkess
 editor: ''
 
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
-ms.author: rkarlin
+ms.date: 3/20/2019
+ms.author: monhaber
 
 ---
 # Protecting your machines and applications in Azure Security Center
-Azure Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls. Recommendations apply to Azure resource types: virtual machines (VMs) and computers, applications, networking, SQL, and Identity and Access.
+Azure Security Center analyzes the security state of your Azure resources, non-Azure servers, and virtual machines. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls. Recommendations apply to Azure resource types: virtual machines (VMs) and computers, applications, networking, SQL, and Identity and Access.
 
 This article addresses recommendations that apply to machines and applications.
 
@@ -38,19 +38,18 @@ Under **Compute & apps**, there are the following tabs:
 - **Overview**: monitoring and recommendations identified by Security Center.
 - **VMs and computers**: list of your VMs, computers, and current security state of each.
 - **Cloud Services**: list of your web and worker roles monitored by Security Center.
-- **App services (Preview)**: list of your App service environments and current security state of each.
+- **App services**: list of your App service environments and current security state of each.
 - **Containers (Preview)**: list of your containers hosted on IaaS Linux machines and security assessment of their Docker configurations.
-- **VM scale sets (Preview)**: list of your scale sets and recommendations for each.
 - **Compute resources (Preview)**: list of recommendations for your compute resources, such as Service Fabric clusters and Event hubs.
 
-To continue, select **Compute & apps** under **Resource security hygeine**.
+To continue, select **Compute & apps** under **Resource security hygiene**.
 
 ![Compute](./media/security-center-virtual-machine-recommendations/compute.png)
 
 In each tab you can have multiple sections, and in each section, you can select an individual option to see more details about the recommended steps to address that particular issue.
 
 ### Unmonitored VMs and computers <a name="unmonitored-vms-and-computers"></a>
-A VM or computer is unmonitored by Security Center if the machine is not running the Microsoft Monitoring Agent extension. A machine may have a local agent already installed, for example the OMS direct agent or the SCOM agent. Machines with these agents are identified as unmonitored because these agents are not fully supported in Security Center. To fully benefit from all of Security Center’s capabilities, the Microsoft Monitoring Agent extension is required.
+A VM or computer is unmonitored by Security Center if the machine is not running the Microsoft Monitoring Agent extension. A machine may have a local agent already installed, for example the OMS direct agent or the System Center Operations Manager agent. Machines with these agents are identified as unmonitored because these agents are not fully supported in Security Center. To fully benefit from all of Security Center’s capabilities, the Microsoft Monitoring Agent extension is required.
 
 You can install the extension on the unmonitored VM or computer in addition to the already installed local agent. Configure both agents the same, connecting them to the same workspace. This enables Security Center to interact with the Microsoft Monitoring Agent extension and collect data. See [Enable the VM extension](../azure-monitor/learn/quick-collect-azurevm.md) for instructions on how to install the Microsoft Monitoring Agent extension.
 
@@ -100,7 +99,7 @@ There are four types of icons represented in this list:
 ![Azure Classic VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) Azure Classic VM.
 
 
-![VMs identified from the workspace](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) VMs that are identified only from the workspace that is part of the viewed subscription. This includes VMs from other subscriptions that report to the workspace in this subscription, and VMs that were installed with SCOM direct agent, and have no resource ID.
+![VMs identified from the workspace](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) VMs that are identified only from the workspace that is part of the viewed subscription. This includes VMs from other subscriptions that report to the workspace in this subscription, and VMs that were installed with Operations Manager direct agent, and have no resource ID.
 
 The icon that appears under each recommendation helps you to quickly identify the VM and computer that needs attention, and the type of recommendation. You can also use the filters to search the list by **Resource type** and by **Severity**.
 
@@ -121,12 +120,11 @@ To see a more prescriptive explanation about this recommendation, click **Update
 
 ![Update OS version](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
-### App services (Preview)
+### App services
+You need to enable App Service in your subscription in order to view the App Service information. For instructions on how to enable this feature, see [Protect App Service with Azure Security Center](security-center-app-services.md).
+[!NOTE]
+> Monitoring App Service is in preview and available only on the Standard tier of Security Center.
 
-> [!NOTE]
-> Monitoring App Service is in preview and available only on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
->
->
 
 Under **App services**, you find a list of your App service environments and the health summary based on the assessment Security Center performed.
 
@@ -142,23 +140,23 @@ There are three types of icons represented in this list:
 
 1. Select a web application. A summary view opens with three tabs:
 
-  - **Recommendations**:  based on assessments performed by Security Center that failed.
-  - **Passed assessments**: list of assessments performed by Security Center that passed.
-  - **Unavailable assessments**: list of assessments that failed to run due to an error or the recommendation is not relevant for the specific App service
+   - **Recommendations**:  based on assessments performed by Security Center that failed.
+   - **Passed assessments**: list of assessments performed by Security Center that passed.
+   - **Unavailable assessments**: list of assessments that failed to run due to an error or the recommendation is not relevant for the specific App service
 
-  Under **Recommendations** is a list of the recommendations for the selected web application and severity of each recommendation.
+   Under **Recommendations** is a list of the recommendations for the selected web application and severity of each recommendation.
 
-  ![App Services recommendations](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
+   ![App Services recommendations](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
 
 2. Select a recommendation to see a description of the recommendation and a list of unhealthy resources, healthy resources, and unscanned resources.
 
- - Under the **Passed assessments** column is a list of passed assessments.  Severity of these assessments is always green.
+   - Under the **Passed assessments** column is a list of passed assessments.  Severity of these assessments is always green.
 
- -  Select a passed assessment from the list for a description of the assessment, a list of unhealthy and healthy resources, and a list of unscanned resources. There is a tab for unhealthy resources but that list is always empty since the assessment passed.
+   - Select a passed assessment from the list for a description of the assessment, a list of unhealthy and healthy resources, and a list of unscanned resources. There is a tab for unhealthy resources but that list is always empty since the assessment passed.
 
-    ![App Service remediation](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
+     ![App Service remediation](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
-## Virtual machine scale sets (Preview)
+## Virtual machine scale sets
 Security Center automatically discovers whether you have scales sets and recommends that you install the Microsoft Monitoring Agent on these scale sets. 
 
 To install the Microsoft Monitoring Agent: 
@@ -166,11 +164,11 @@ To install the Microsoft Monitoring Agent:
 1. Select the recommendation **Install the monitoring agent on virtual machine scale set**. You get a list of unmonitored scale sets.
 2. Select an unhealthy scale set. Follow the instructions to install the monitoring agent using an existing populated workspace or create a new one. Make sure to set the workspace [pricing tier](security-center-pricing.md) if it’s not set.
 
- ![Install MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
+   ![Install MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
 If you want to set new scale sets to automatically install the Microsoft Monitoring Agent:
 1. Go to Azure Policy and click **Definitions**.
-2. Search for the policy **Deploy Log Analytics agent for Windows VM scale sets** and click on it.
+2. Search for the policy **Deploy Log Analytics agent for Windows virtual machine scale sets** and click on it.
 3. Click **Assign**.
 4. Set the **Scope** and **Log Analytics workspace** and click **Assign**.
 
@@ -186,19 +184,9 @@ If you want to set all existing scale sets to install the Microsoft Monitoring A
 |App service|10|Remote debugging should be turned off for Web Application|Turn off debugging for Web Applications if you no longer need to use it. Remote debugging requires inbound ports to be opened on a Function App.|
 |App service|10|Remote debugging should be turned off for Function Application|Turn off debugging for Function App if you no longer need to use it. Remote debugging requires inbound ports to be opened on a Function App.|
 |App service|10|Configure IP restrictions for Web Application|Define a list of IP addresses that are allowed to access your application. Use of IP restrictions protects a web application from common attacks.|
-|App service|10|Configure IP restrictions for Function App| Define a list of IP addresses that are allowed to access your application. Use of IP restrictions protects a function app from common attacks.|
 |App service|10|Do not allow all ('*') resources to access your application| Do not allow set of WEBSITE_LOAD_CERTIFICATES parameter to "". Setting the parameter to ‘’ means that all certificates are loaded to your web applications personal certificate store. This can lead to abuse of the principle of least privilege as it is unlikely that the site needs access to all certificates at runtime.|
-|App service|5|Web Sockets should be disabled for Web Application|Review the use of Web Sockets within web applications. The Web Sockets protocol is vulnerable to different types of security threats.|
-|App service|5|Web Sockets should be disabled for Function App|Review the use of Web Sockets within Function Apps. The Web Sockets protocol is vulnerable to different types of security threats.|
-|App service|5|Use custom domains for your Web Application|Use custom domains to protect a web application from common attacks such as phishing and other DNS-related attacks.|
-|App service|5|Use custom domains for Function App|Use custom domains to protect a function app from common attacks such as phishing and other DNS-related attacks.|
 |App service|20|CORS should not allow every resource to access your Web applications|Allow only required domains to interact with your web application. Cross origin resource sharing (CORS) should not allow all domains to access your web application.|
 |App service|20|CORS should not allow every resource to access your Function App| Allow only required domains to interact with your function application. Cross origin resource sharing (CORS) should not allow all domains to access your function application.|
-|App service|10|Use the latest supported .NET Framework for Web Application|Use the latest .NET Framework version for the latest security classes. Using older classes and types can make your application vulnerable.|
-|App service|10|Use the latest supported Java version for Web Application|Use the latest Java version for the latest security classes. Using older classes and types can make your application vulnerable.|
-|App service|10|Use the latest supported PHP version for Web Application|Use the latest PHP version for the latest security classes. Using older classes and types can make your application vulnerable.|
-|App service|10|Use the latest supported Node.js version for Web Application|Use the latest Node.js version for the latest security classes. Using older classes and types can make your application vulnerable.|
-|App service|10|Use the latest supported Python version for Web Application|Use the latest Python version for the latest security classes. Using older classes and types can make your application vulnerable.|
 |Compute resources (batch)|1|Configure metric alert rules on Batch account|Configure metric alert rules on Batch account and enable the metrics Pool Delete Complete Events and Pool Delete Start Events|
 |Compute resources (service fabric)|10|Use Azure Active Directory for client authentication in Service Fabric|Perform Client authentication only via Azure Active Directory in Service Fabric.|
 |Compute resources (automation account)|5| Enable encryption of Automation account|Enable encryption of Automation account variable assets when storing sensitive data.|
@@ -211,8 +199,8 @@ If you want to set all existing scale sets to install the Microsoft Monitoring A
 |Compute resources (event hub)|5|Enable diagnostics logs in Event Hub|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
 |Compute resources (logic apps)|5|Enable diagnostics logs in Logic Apps|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
 |Compute resources (service fabric)|15|Set the ClusterProtectionLevel property to EncryptAndSign in Service Fabric|Service Fabric provides three levels of protection (None, Sign and EncryptAndSign) for node-to-node communication using a primary cluster certificate.  Set the protection level to ensure that all node-to-node messages are encrypted and digitally signed. |
-|Compute resources (service bus)|1|Remove all authorization rules except RootManageSharedAccessKey from Service Bus namespace |Service Bus clients should not use a namespace level access policy that provides access to all queues and topics in a namespace. To align with the least privilege security model, you shoud create access policies at the entity level for queues and topics to provide access to only the specific entity.|
-|Compute resources (event hub)|1|Remove all authorization rules except RootManageSharedAccessKey from Event Hub namespace |Event Hub clients should not use a namespace level access policy that provides access to all queues and topics in a namespace. To align with the least privilege security model, you shoud create access policies at the entity level for queues and topics to provide access to only the specific entity.|
+|Compute resources (service bus)|1|Remove all authorization rules except RootManageSharedAccessKey from Service Bus namespace |Service Bus clients should not use a namespace level access policy that provides access to all queues and topics in a namespace. To align with the least privilege security model, you should create access policies at the entity level for queues and topics to provide access to only the specific entity.|
+|Compute resources (event hub)|1|Remove all authorization rules except RootManageSharedAccessKey from Event Hub namespace |Event Hub clients should not use a namespace level access policy that provides access to all queues and topics in a namespace. To align with the least privilege security model, you should create access policies at the entity level for queues and topics to provide access to only the specific entity.|
 |Compute resources (event hub)|5|Define authorization rules on the Event Hub entity|Audit authorization rules on the Event Hub entity to grant least-privileged access.|
 |Machine|50|Install monitoring agent on your machines|Install the Monitoring agent to enable data collection, updates scanning, baseline scanning, and endpoint protection on each machine.|
 |Machine|50|Enable automatic provisioning and data collection for your subscriptions |Enable automatic provisioning and data collection for machines in your subscriptions to enable data collection, updates scanning, baseline scanning, and endpoint protection on each machine added to your subscriptions.|
@@ -232,7 +220,7 @@ If you want to set all existing scale sets to install the Microsoft Monitoring A
 |Machine|15|Add a web application firewall| Deploy a web application firewall (WAF) solution to secure your web applications. |
 |Machine|30|Remediate vulnerabilities using a vulnerability assessment solution|Virtual machines for which a vulnerability assessment 3rd party solution is deployed are being continuously assessed against application and OS vulnerabilities. Whenever such vulnerabilities are found, these are available for more information as part of the recommendation.|
 |Machine|30|Install a vulnerability assessment solution on your virtual machines|Install a vulnerability assessment solution on your virtual machines|
-|Machine|1|Migrate virtual machines to new Azure Resource Manager resources|Use  Azure Resource Manager for your virutal machines to provide security enhancements such as: stronger access control (RBAC), better auditing, Resource Manager-based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication and support for tags and resource groups for easier security management. |
+|Machine|1|Migrate virtual machines to new Azure Resource Manager resources|Use  Azure Resource Manager for your virtual machines to provide security enhancements such as: stronger access control (RBAC), better auditing, Resource Manager-based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication and support for tags and resource groups for easier security management. |
 |Machine|30|Remediate vulnerabilities using a vulnerability assessment solution|Virtual machines for which a vulnerability assessment 3rd party solution is deployed are being continuously assessed against application and OS vulnerabilities. Whenever such vulnerabilities are found, these are available for more information as part of the recommendation.|
 |Virtual machine scale set |4|Enable diagnostics logs in Virtual Machine Scale Sets|Enable logs and retain them for up to a year. This enables you to recreate activity trails for investigation purposes. This is useful when a security incident occurs, or your network is compromised.|
 |Virtual machine scale set|35|Remediate vulnerabilities in security configuration on your virtual machine scale sets|Remediate vulnerabilities in security configuration on your virtual machine scale sets to protect them from attacks. |

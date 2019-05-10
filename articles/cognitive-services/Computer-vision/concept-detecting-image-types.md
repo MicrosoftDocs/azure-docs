@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Concepts related to the image type detection feature of the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
 
 # Detecting image types with Computer Vision
 
-Computer Vision can analyze the content type of images by indicating whether an image is clip art, rating the likelihood on a scale, or a line drawing.
+With the [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API, Computer Vision can analyze the content type of images, indicating whether an image is clip art or a line drawing.
 
 ## Detecting clip art
 
@@ -111,4 +111,4 @@ The following JSON responses illustrates what Computer Vision returns when indic
 
 ## Next steps
 
-Learn concepts about [tagging images](concept-tagging-images.md) and [categorizing images](concept-categorizing-images.md).
+See the [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) reference documentation to learn how to detect image types.

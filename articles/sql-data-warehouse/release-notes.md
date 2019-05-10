@@ -2,23 +2,25 @@
 title: Azure SQL Data Warehouse Release Notes | Microsoft Docs
 description: Release notes for Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
-manager: craigg
+author: mlee3gsd
+ms.author: anumjs
+ms.reviewer: jrasnick
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
-ms.date: 11/11/2018
-ms.author: twounder
-ms.reviewer: twounder
+ms.subservice: manage
+ms.date: 02/09/2019
 ---
 
-# Azure SQL Data Warehouse release notes
+# Azure SQL Data Warehouse release notes and documentation updates
 
-Azure SQL Data Warehouse is a cloud-based Enterprise Data Warehouse (EDW) that leverages Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. Use SQL Data Warehouse as a key component of a big data solution. Import big data into SQL Data Warehouse with simple PolyBase T-SQL queries, and then use the power of MPP to run high-performance analytics. As you integrate and analyze, the data warehouse will become the single version of truth your business can count on for insights.
+Azure SQL Data Warehouse (SQL DW) is a cloud-based Enterprise Data Warehouse that leverages Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. Use SQL Data Warehouse as a key component of a big data solution. Import big data into SQL Data Warehouse with simple PolyBase T-SQL queries, and then use the power of MPP to run high-performance analytics. As you integrate and analyze, the data warehouse will become the single version of truth your business can count on for insights.
 
 Click on the links below to find out more about the new features and improvements that you can expect in the latest version of Azure SQL Data Warehouse. You can expect to receive these service updates during your identified maintenance schedule.
 
-- [October 2018](./release-notes-october-2018.md)
+- [March 2019](./release-notes-10-0-10106-0.md#march-2019)
+- [January 2019](./release-notes-10-0-10106-0.md#january-2019)
+- [December 2018](./release-notes-10-0-10106-0.md#december-2018)
+- [October 2018](./release-notes-10-0-10106-0.md#october-2018)
 - [September 2018](./release-notes-september-2018.md)
 - [August 2018](./release-notes-august-2018.md)
 - [July 2018](./release-notes-july-2018.md)

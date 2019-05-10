@@ -4,7 +4,7 @@ description: This document helps you to understand how Azure Security Center can
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 5fe5a12c-5d25-430c-9d47-df9438b1d7c5

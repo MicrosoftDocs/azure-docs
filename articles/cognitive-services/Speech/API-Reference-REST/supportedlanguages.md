@@ -6,10 +6,11 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Supported languages
 
@@ -17,12 +18,12 @@ ms.author: zhouwang
 
 ## Interactive and dictation mode
 
-The Microsoft speech recognition API supports the following languages in `interactive` and `dictation` modes. 
+The Microsoft speech recognition API supports the following languages in `interactive` and `dictation` modes.
 
 |Code | Language | Code | Language |
 |-----|-----|-----|-----|
 | ar-EG | Arabic (Egypt), modern standard | hi-IN | Hindi (India) |
-| ca-ES | Catalan (Spain) | it-IT | Italian (Italy)  |
+| ca-ES | Catalan | it-IT | Italian (Italy)  |
 | da-DK | Danish (Denmark) | ja-JP | Japanese (Japan) |
 | de-DE | German (Germany) |ko-KR | Korean (Korea) |
 | en-AU | English (Australia) |nb-NO | Norwegian (Bokmål) (Norway)  |
@@ -39,7 +40,7 @@ The Microsoft speech recognition API supports the following languages in `intera
 
 ## Conversation mode
 
-The Microsoft speech recognition API supports the following languages in `conversation` modes. 
+The Microsoft speech recognition API supports the following languages in `conversation` modes.
 
 | Code | Language | Code | Language |
 |-----|-----|-----|-----|

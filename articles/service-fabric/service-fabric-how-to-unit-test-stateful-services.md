@@ -3,8 +3,8 @@ title: Develop unit tests for stateful services in Azure Service Fabric | Micros
 description: Learn how to develop unit tests for Service Fabric Stateful Services.
 services: service-fabric
 documentationcenter: .net
-author: charleszipp
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: vturecek
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
-ms.author: ryanwi
+ms.author: atsenthi
 
 ---
 
@@ -39,13 +39,13 @@ As of version 3.3.0, [ServiceFabric.Mocks](https://www.nuget.org/packages/Servic
 As part of the arrange portion of a test, a mock replica set and state manager will be created. The replica set will then own creating an instance of the tested service for each replica. It will also own executing lifecycle events such as `OnChangeRole` and `RunAsync`. The mock state manager will ensure any operations performed against the state manager are run and kept as the actual state manager would.
 
 1. Create a service factory delegate that will instantiate the service being tested. This should be similar or same as the service factory callback typically found in `Program.cs` for a Service Fabric service or actor. This should follow the following signature:
-```csharp
-MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
-```
+   ```csharp
+   MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
+   ```
 2. Create an instance of `MockReliableStateManager` class. This will mock all interactions with the state manager.
 3. Create an instance of `MockStatefulServiceReplicaSet<TStatefulService>` where `TStatefulService` is the type of the service being tested. This will require the delegate created in step #1 and the state manager instantiated in #2
 4. Add Replicas to the Replica Set. Specify the role (such as Primary, ActiveSecondary, IdleSecondary) and the ID of the replica
-> Hold on to the replica IDs! These will likely be used during the act and assert portions of a unit test.
+   > Hold on to the replica IDs! These will likely be used during the act and assert portions of a unit test.
 
 ```csharp
 //service factory to instruct how to create the service instance
@@ -88,7 +88,7 @@ replicaSet.PromoteNewReplicaToPrimaryAsync(4);
 
 //promote the first idle secondary to an active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync();
-//promote idle secodary with replica id 4 to active secondary
+//promote idle secondary with replica id 4 to active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync(4);
 
 //add a new replica with randomly assigned replica id and promote it to primary

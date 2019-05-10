@@ -24,9 +24,12 @@ In this article, you learn more about managed identities in Azure Container Inst
 
 Adapt the examples to enable and use identities in Azure Container Instances to access other Azure services. These examples are interactive. However, in practice your container images would run code to access Azure services.
 
+> [!NOTE]
+> Currently you cannot use a managed identity in a container group deployed to a virtual network.
+
 ## Why use a managed identity?
 
-Use a managed identity in a running container to authenticate to any [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) without managing credentials in your container code. For services that don't support AD authentication, you can store secrets in Azure Key Vault and use the managed identity to access Key Vault to retrieve credentials. For more information about using a managed identity, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
+Use a managed identity in a running container to authenticate to any [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) without managing credentials in your container code. For services that don't support AD authentication, you can store secrets in Azure Key Vault and use the managed identity to access Key Vault to retrieve credentials. For more information about using a managed identity, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). Currently, managed identities are only supported on Linux container instances.
@@ -130,7 +133,7 @@ The `identity` section in the output looks similar to the following, showing the
 
 ### Grant user-assigned identity access to the Key Vault
 
-Run the following [az keyvault set-policy](/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command to set an access policy on the Key Vault. The following example allows the user-assigned identity to get secrets from the Key Vault:
+Run the following [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) command to set an access policy on the Key Vault. The following example allows the user-assigned identity to get secrets from the Key Vault:
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get
@@ -212,7 +215,7 @@ spID=$(az container show --resource-group myResourceGroup --name mycontainer --q
 
 ### Grant container group access to the Key Vault
 
-Run the following [az keyvault set-policy](/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command to set an access policy on the Key Vault. The following example allows the system-managed identity to get secrets from the Key Vault:
+Run the following [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest) command to set an access policy on the Key Vault. The following example allows the system-managed identity to get secrets from the Key Vault:
 
 ```azurecli-interactive
  az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get
@@ -245,7 +248,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Now use the access token to authenticate to Key Vault and read a secret. Be sure to substitute the name of your key vault in the URL (*https://mykeyvault.vault.azure.net/...*):
+Now use the access token to authenticate to Key Vault and read a secret. Be sure to substitute the name of your key vault in the URL (*https:\//mykeyvault.vault.azure.net/...*):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

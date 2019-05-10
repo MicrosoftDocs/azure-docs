@@ -1,4 +1,4 @@
-﻿---
+---
 title: Understanding Azure CDN billing | Microsoft Docs
 description: This FAQ describes how Azure CDN billing works.
 services: cdn

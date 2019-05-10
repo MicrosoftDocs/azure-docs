@@ -25,6 +25,7 @@ robots: noindex
 This article provides information about functions and variables supported by Azure Data Factory.
 
 ## Data Factory system variables
+
 | Variable Name | Description | Object Scope | JSON Scope and Use Cases |
 | --- | --- | --- | --- |
 | WindowStart |Start of time interval for current activity run window |activity |<ol><li>Specify data selection queries. See connector articles referenced in the [Data Movement Activities](data-factory-data-movement-activities.md) article.</li> |
@@ -56,7 +57,7 @@ You can use functions in data factory along with system variables for the follow
 
 1. Specifying data selection queries (see connector articles referenced by the [Data Movement Activities](data-factory-data-movement-activities.md) article.
    
-   The syntax to invoke a data factory function is: **$$<function>** for data selection queries and other properties in the activity and datasets.  
+   The syntax to invoke a data factory function is: **$$\<function>** for data selection queries and other properties in the activity and datasets.  
 2. Specifying input dependencies with data factory functions in activity inputs collection.
    
     $$ is not needed for specifying input dependency expressions.     
@@ -151,7 +152,7 @@ In the following example, the DateTime parameter for the Stored Procedure Activi
             {
                 "type": "SqlServerStoredProcedure",
                 "typeProperties": {
-                    "storedProcedureName": "sp_sample",
+                    "storedProcedureName": "usp_sample",
                     "storedProcedureParameters": {
                         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
                     }

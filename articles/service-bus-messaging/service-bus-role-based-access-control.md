@@ -3,9 +3,9 @@ title: Azure Service Bus Role-Based Access Control (RBAC) preview | Microsoft Do
 description: Azure Service Bus role based access control
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid:
 ms.service: service-bus-messaging
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 
@@ -54,7 +54,7 @@ The user account now has access to the Service Bus namespace, and to the queue y
 
 Before you can run the sample application, register it in Azure AD and approve the consent prompt that permits the application to access Azure Service Bus on its behalf.
 
-Because the sample application is a console application, you must register a native application and add API permissions for **Microsoft.ServiceBus** to the "required permissions" set. Native applications also need a **redirect-URI** in Azure AD which serves as an identifier; the URI does not need to be a network destination. Use `http://servicebus.microsoft.com` for this example, because the sample code already uses that URI.
+Because the sample application is a console application, you must register a native application and add API permissions for **Microsoft.ServiceBus** to the "required permissions" set. Native applications also need a **redirect-URI** in Azure AD which serves as an identifier; the URI does not need to be a network destination. Use `https://servicebus.microsoft.com` for this example, because the sample code already uses that URI.
 
 The detailed registration steps are explained in [this tutorial](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Follow the steps to register a **Native** app, and then follow the update instructions to add the **Microsoft.ServiceBus** API to the required permissions. As you follow the steps, make note of the **TenantId** and the **ApplicationId**, as you will need these values to run the application.
 

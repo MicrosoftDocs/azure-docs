@@ -7,11 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 03/19/2019
 ms.author: alkohli
 ---
 
-# Develop a C# IoT Edge module to move files on Data Box Edge (Preview)
+# Develop a C# IoT Edge module to move files on Data Box Edge
 
 This article steps you through how to create an IoT Edge module for deployment with your Data Box Edge device. Azure Data Box Edge is a storage solution that allows you to process data and send it over network to Azure.
 
@@ -23,22 +23,16 @@ In this article, you learn how to:
 > * Create a container registry to store and manage your modules (Docker images).
 > * Create an IoT Edge module to deploy on your Data Box Edge device.
 
-> [!IMPORTANT]
-> Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution. 
 
 ## About the IoT Edge module
 
 Your Data Box Edge device can deploy and run IoT Edge modules. Edge modules are essentially Docker containers that perform a specific task, such as ingest a message from a device, transform a message, or send a message to an IoT Hub. In this article, you will create a module that copies files from a local share to a cloud share on your Data Box Edge device.
 
 1. Files are written to the local share on your Data Box Edge device.
-2. The file event generator creates a file event for each file written to the local share. The file events are then sent to IoT Edge Hub (in IoT Edge runtime).
-
-   > [!IMPORTANT]
-   > The file events are generated only for the newly created files. Modification of existing files does not generate any file events.
-
+2. The file event generator creates a file event for each file written to the local share. The file events are also generated when a file is modified. The file events are then sent to IoT Edge Hub (in IoT Edge runtime).
 3. The IoT Edge custom module processes the file event to create a file event object that also contains a relative path for the file. The module generates an absolute path using the relative file path and copies the file from the local share to the cloud share. The module then deletes the file from the local share.
 
-![How Azure IoT Edge module works on Data Box Edge](./media/data-box-edge-create-iot-edge-module/how-module-works.png)
+![How Azure IoT Edge module works on Data Box Edge](./media/data-box-edge-create-iot-edge-module/how-module-works-1.png)
 
 Once the file is in the cloud share, it automatically gets uploaded to your Azure Storage account.
 
@@ -48,8 +42,9 @@ Before you begin, make sure you have:
 
 - A Data Box Edge device that is running.
 
-    - The device also has an associated IoT Hub resource. For more information, go to [Create an IoT Hub resource](data-box-edge-deploy-configure-compute.md#create-an-iot-hub-resource) for your Data Box Edge.
-    - The device has Edge compute role configured. For more information, go to [Set up compute role](data-box-edge-deploy-configure-compute.md#set-up-compute-role) on your Data Box Edge.
+    - The device also has an associated IoT Hub resource.
+    - The device has Edge compute role configured.
+    For more information, go to [Configure compute](data-box-edge-deploy-configure-compute.md#configure-compute) for your Data Box Edge.
 
 - The following development resources:
 
@@ -67,14 +62,14 @@ An Azure container registry is a private Docker registry in Azure where you can 
 2. Select **Create a resource > Containers > Container Registry**. Click **Create**.
 3. Provide:
 
-    1. A unique **Registry name** within Azure that contains 5 to 50 alphanumeric characters.
-    2. Choose a **Subscription**.
-    3. Create new or choose an existing **Resource group**.
-    4. Select a **Location**. We recommend that this location be the same as that is associated with the Data Box Edge resource.
-    5. Toggle **Admin user** to **Enable**.
-    6. Set the SKU to **Basic**.
+   1. A unique **Registry name** within Azure that contains 5 to 50 alphanumeric characters.
+   2. Choose a **Subscription**.
+   3. Create new or choose an existing **Resource group**.
+   4. Select a **Location**. We recommend that this location be the same as that is associated with the Data Box Edge resource.
+   5. Toggle **Admin user** to **Enable**.
+   6. Set the SKU to **Basic**.
 
-    ![Create container registry](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
+      ![Create container registry](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
  
 4. Select **Create**.
 5. After your container registry is created, browse to it, and select **Access keys**.
@@ -124,7 +119,7 @@ Create a C# solution template that you can customize with your own code.
 
 ### Update the module with custom code
 
-1. In the VS Code explorer, open **modules > CSharpModule > Program.cs**.
+1. In the VS Code explorer, open **modules > FileCopyModule > Program.cs**.
 2. At the top of the **FileCopyModule namespace**, add the following using statements for types that are used later. **Microsoft.Azure.Devices.Client.Transport.Mqtt** is a protocol to send messages to IoT Edge Hub.
 
     ```
@@ -137,12 +132,9 @@ Create a C# solution template that you can customize with your own code.
     class Program
         {
             static int counter;
-            private const string InputFolderPath = "/home/LocalShare";
-            private const string OutputFolderPath = "/home/CloudShare";
-    ````
-
-    > [!IMPORTANT]
-    > Make a note of the `InputFolderPath` and the `OutputFolderPath`. You will need to provide these paths when you deploy this module.
+            private const string InputFolderPath = "/home/input";
+            private const string OutputFolderPath = "/home/output";
+    ```
 
 4. Add the **MessageBody** class to the Program class. These classes define the expected schema for the body of incoming messages.
 
@@ -185,7 +177,7 @@ Create a C# solution template that you can customize with your own code.
 6. Insert the code for **FileCopy**.
 
     ```
-            /// <summary>
+        /// <summary>
         /// This method is called whenever the module is sent a message from the IoT Edge Hub. 
         /// This method deserializes the file event, extracts the corresponding relative file path, and creates the absolute input file path using the relative file path and the InputFolderPath.
         /// This method also forms the absolute output file path using the relative file path and the OutputFolderPath. It then copies the input file to output file and deletes the input file after the copy is complete.
@@ -237,8 +229,6 @@ Create a C# solution template that you can customize with your own code.
             Console.WriteLine($"Processed event.");
             return MessageResponse.Completed;
         }
-
-    }
     ```
 
 7. Save this file.
@@ -247,7 +237,8 @@ Create a C# solution template that you can customize with your own code.
 
 In the previous section, you created an IoT Edge solution and added code to the FileCopyModule to copy files from local share to the cloud share. Now you need to build the solution as a container image and push it to your container registry.
 
-1. Sign in to Docker by entering the following command in the Visual Studio Code integrated terminal.
+1. In VSCode, go to Terminal > New Terminal to open a new Visual Studio Code integrated terminal.
+2. Sign in to Docker by entering the following command in the integrated terminal.
 
     `docker login <ACR login server> -u <ACR username>`
 
@@ -263,6 +254,13 @@ In the previous section, you created an IoT Edge solution and added code to the 
  
     When you tell Visual Studio Code to build your solution, it runs two commands in the integrated terminal: docker build and docker push. These two commands build your code, containerize the CSharpModule.dll, and then push the code to the container registry that you specified when you initialized the solution.
 
+    You will be prompted to choose the module platform. Select *amd64* corresponding to Linux.
+
+    ![Select platform](./media/data-box-edge-create-iot-edge-module/select-platform.png)
+
+    > [!IMPORTANT] 
+    > Only the Linux modules are supported.
+
     You may see the following warning that you can ignore:
 
     *Program.cs(77,44): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.*
@@ -271,4 +269,4 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 ## Next steps
 
-To deploy and run this module on Data Box Edge, see the steps in [Add a custom module](data-box-edge-deploy-configure-compute.md#add-a-custom-module).
+To deploy and run this module on Data Box Edge, see the steps in [Add a module](data-box-edge-deploy-configure-compute.md#add-a-module).

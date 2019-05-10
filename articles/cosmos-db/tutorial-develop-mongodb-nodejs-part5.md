@@ -51,35 +51,35 @@ Mongoose is an object data modeling (ODM) library for MongoDB and Node.js. You c
 
 1. Copy the following code into the **mongo.js** file. The code provides the following functionality:
 
-    * Requires Mongoose.
-    * Overrides the Mongo promise to use the basic promise that's built into ES6/ES2015 and later versions.
-    * Calls on an env file that lets you set up certain things based on whether you're in staging, production, or development. You'll create that file in the next section.
-    * Includes the MongoDB connection string, which is set in the env file.
-    * Creates a connect function that calls Mongoose.
+   * Requires Mongoose.
+   * Overrides the Mongo promise to use the basic promise that's built into ES6/ES2015 and later versions.
+   * Calls on an env file that lets you set up certain things based on whether you're in staging, production, or development. You'll create that file in the next section.
+   * Includes the MongoDB connection string, which is set in the env file.
+   * Creates a connect function that calls Mongoose.
 
-    ```javascript
-    const mongoose = require('mongoose');
-    /**
+     ```javascript
+     const mongoose = require('mongoose');
+     /**
      * Set to Node.js native promises
-     * Per http://mongoosejs.com/docs/promises.html
+     * Per https://mongoosejs.com/docs/promises.html
      */
-    mongoose.Promise = global.Promise;
+     mongoose.Promise = global.Promise;
 
-    const env = require('./env/environment');
+     const env = require('./env/environment');
 
-    // eslint-disable-next-line max-len
-    const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
+     // eslint-disable-next-line max-len
+     const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
 
-    function connect() {
+     function connect() {
      mongoose.set('debug', true);
      return mongoose.connect(mongoUri, { useMongoClient: true });
-    }
+     }
 
-    module.exports = {
-      connect,
-      mongoose
-    };
-    ```
+     module.exports = {
+     connect,
+     mongoose
+     };
+     ```
     
 1. In the Explorer pane, under **server**, create a folder named **environment**. In the **environment** folder, create a file named **environment.js**.
 
@@ -229,7 +229,7 @@ Next, run the app by using the following steps:
 
 1. In Visual Studio Code, save all your changes. On the left, select the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png), and then select the **Start Debugging** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
-1. Now switch to the browser. Open the **Developer tools** and the **Network tab**. Go to http://localhost:3000, and there you see our application.
+1. Now switch to the browser. Open the **Developer tools** and the **Network tab**. Go to `http://localhost:3000`, and there you see our application.
 
     ![New Azure Cosmos DB account in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 

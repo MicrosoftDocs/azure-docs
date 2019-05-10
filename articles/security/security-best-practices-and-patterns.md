@@ -1,10 +1,10 @@
 ---
-title: Azure security best practices and patterns | Microsoft Docs
-description: The article provides a list of Azure Security best practices and patterns for different Azure resources.
+title: Security best practices and patterns - Microsoft Azure | Microsoft Docs
+description: This article links you to security best practices and patterns for different Azure resources.
 services: azure-security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 1cbbf8dc-ea94-4a7e-8fa0-c2cb198956c5
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/10/2018
+ms.date: 5/03/2019
 ms.author: terrylan
 
 ---

@@ -6,8 +6,11 @@ metadata:
   title: Azure SQL Database - Platform as a Service
   meta.description: Learn about the PaaS capabilities of Azure SQL Database.
   services: sql-database
+  ms.subservice: service
   author: jovanpop-msft
+  ms.reviewer: carlrab
   manager: craigg
+  requires-business-manager-approval: false
   ms.service: sql-database
   ms.tgt_pltfrm: na
   ms.devlang:
@@ -49,7 +52,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/sql-database/sql-database-security-index">Advanced security</a> detects threats and vunerabilities in your databases and enables you to secure your data.
+    - html: <a href="/azure/sql-database/sql-database-security-index">Advanced security</a> detects threats and vulnerabilities in your databases and enables you to secure your data.
     - html: <a href="/azure/sql-database/sql-database-automatic-tuning">Automatic tuning</a> analyzes your workload and provides you the recommendations that can optimize performance of your applications by adding indexes, removing unused indexes, and automatically fixing the query plan issues.
     - html: <a href="/azure/log-analytics/log-analytics-azure-sql">Built-in monitoring capabilities</a> enable you to get the insights into performance of your databases and workload, and troubleshoot the performance issues.
     - html: <a href="/azure/sql-database/sql-database-intelligent-insights">Built-in intelligence</a> automatically identifies the potential issues in your workload and provides you the recommendations that can help you to fix the problems.

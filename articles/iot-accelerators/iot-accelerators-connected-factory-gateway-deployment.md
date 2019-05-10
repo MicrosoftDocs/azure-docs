@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 03/08/2019
 ms.author: dobett
 ---
 
@@ -34,7 +34,7 @@ The steps in this article show you how to deploy an edge gateway using Docker on
 
 ## Choose a gateway device
 
-If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of their partners. For a list of gateway devices compatible with the Connected Factory solution, visit the [Azure IoT device catalog](https://catalog.azureiotsuite.com/?q=opc). Follow the instructions that come with the device to set up the gateway.
+If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of their partners. For a list of gateway devices compatible with the Connected Factory solution, visit the [Azure IoT device catalog](https://catalog.azureiotsolutions.com/?q=opc). Follow the instructions that come with the device to set up the gateway.
 
 If you need to manually configure an existing gateway device, use the following instructions.
 

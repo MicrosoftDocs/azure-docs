@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Azure DB for MariaDB
+  - name: What is Azure DB for MariaDB?
     href: overview.md
 - name: Quickstarts
   expanded: true
@@ -17,7 +17,7 @@
       href: connect-workbench.md
 - name: Tutorials
   items:
-  - name: 1 - Design a Database
+  - name: Design a Database
     items:
     - name: Azure portal
       href: tutorial-design-database-using-portal.md
@@ -65,6 +65,8 @@
       href: concepts-server-logs.md
   - name: Development
     items:
+    - name: Drivers and tools compatibility
+      href: concepts-compatibility.md
     - name: Connection resiliency
       href: concepts-connectivity.md
   - name: Replication
@@ -109,6 +111,10 @@
       href: howto-configure-server-logs-portal.md
     - name: Azure CLI
       href: howto-configure-server-logs-cli.md
+  - name: Monitor
+    items:
+    - name: Create alerts on metrics
+      href: howto-alert-metric.md
   - name: Replication
     items:
     - name: Configure data-in replication
@@ -125,10 +131,20 @@
       href: howto-manage-vnet-portal.md
     - name: Azure CLI
       href: howto-manage-vnet-cli.md
+  - name: Restart server
+    items:
+    - name: Azure portal
+      href: howto-restart-server-portal.md
+    - name: Azure CLI
+      href: howto-restart-server-cli.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/mariadb
   - name: REST API
     href: /rest/api/mariadb
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.dbformariadb/allversions
   - name: Data-in replication stored procedures
     href: reference-data-in-stored-procedures.md
 - name: Resources

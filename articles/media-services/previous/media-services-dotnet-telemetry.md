@@ -4,7 +4,7 @@ description: This article shows you how to use the Azure Media Services telemetr
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: f8f55e37-0714-49ea-bf4a-e6c1319bec44
@@ -13,12 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
 
-# Configuring Azure Media Services telemetry with .NET
+# Configuring Azure Media Services telemetry with .NET 
 
 This article describes general steps that you might take when configuring the Azure Media Services (AMS) telemetry using .NET SDK. 
 

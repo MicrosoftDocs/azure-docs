@@ -1,53 +1,48 @@
 ---
-title: Azure Monitor metrics explorer
-description: Learn about new features in Azure Monitor Metrics Explorer
+title: Advanced features of Azure Metrics Explorer
+description: Learn about advanced features of Azure Monitor Metrics Explorer
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/20/2018
-ms.author: vitaly.gorbenko
-ms.component: metrics
+ms.date: 01/22/2019
+ms.author: vitalyg
+ms.subservice: metrics
 ---
 
-# Azure Monitor Metrics Explorer
+# Advanced features of Azure Metrics Explorer
 
-Azure Monitor Metrics Explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics' values. Metrics Explorer is an essential starting point for investigating various performance and availability issues with your applications and infrastructure hosted in Azure or monitored by Azure Monitor services.
+> [!NOTE]
+> This article assumes that you are familiar with basic features of Metrics Explorer. If you are a new user and want to learn how to create your first metric chart, see [Getting started with Azure Metrics Explorer](metrics-getting-started.md).
 
 ## Metrics in Azure
 
-Metrics in Microsoft Azure are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Custom metrics are stored in the Application Insights resources together with other application specific metrics.
+[Metrics in Azure Monitor](data-platform-metrics.md) are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events and metrics](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics),  [Windows Azure Diagnostics (WAD) extension](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), or by [Azure Monitor REST API](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
-## Create a new chart
+## Create views with multiple metrics and charts
 
-1. Open the Azure portal
-2. Navigate to the new **Monitor** tab, and then select **Metrics**.
+You can create charts that plot multiple metrics lines or show multiple metric charts at once. This functionality allows you to:
 
-   ![Metrics Image](./media/metrics-charts/00001.png)
+- correlate related metrics on the same graph to see how one value is related to another
+- display metrics with different units of measure in close proximity
+- visually aggregate and compare metrics from multiple resources
 
-3. The **metric selector** will automatically be open for you. Choose a resource from the list to view its associated metrics. Only resources with metrics are shown in the list.
+For example, if you have 5 storage accounts and you want to know how much total space is consumed between them, you can create a (stacked) area chart which shows the individual and sum of all the values at particular points in time.
 
-   ![Metrics Image](./media/metrics-charts/00002.png)
+### Multiple metrics on the same chart
 
-   > [!NOTE]
-   >If you have more than one Azure subscription, Metrics Explorer pulls out the resources across all subscriptions that are selected in the Portal Settings -> Filter by subscriptions list. To change it, click on the Portal settings gear icon on top of the screen and select which subscriptions you want to use.
-
-4. For some resources types (Storage Accounts and Virtual Machines), before selecting a metric you must choose a **Namespace**. Each namespace carries its own set of metrics that are relevant to this namespace only, and not to other namespaces.
-
-   For example, each Azure Storage has metrics for subservices “Blobs”, “Files”, “Queues” and “Tables”, which are all parts of the storage account. However, the metric “Queue Message Count” is naturally applicable to the subservice “Queue” and not to any other storage account subservices.
-
-   ![Metrics Image](./media/metrics-charts/00003.png)
-
-5. Select a metric from the list. If you know a partial name of the metric you want, you can start typing it in to see a filtered list of available metrics:
-
-   ![Metrics Image](./media/metrics-charts/00004.png)
-
-6. After selecting a metric, the chart will render with the default aggregation for the selected metric. At this point you can just click away from the **metrics selector** to close it. You can also optionally switch the chart to a different aggregation. For some metrics, switching aggregation allows you to choose which value you want to see on the chart. For example, you can switch between the average, minimum and maximum values. 
-
-7. By clicking on **Add metric** and repeating steps 3-6, you can add more metrics on the same chart.
+First, [create a new chart](metrics-getting-started.md#create-your-first-metric-chart). Click **Add Metric** and repeat the steps to add another metric on the same chart.
 
    > [!NOTE]
-   > You typically don’t want to have metrics with different units of measure (i.e. “milliseconds” and “kilobytes”) or with significantly different scale on one chart. Instead, consider using multiple charts. Click on the Add Chart button to create multiple charts in Metrics Explorer.
+   > You typically don’t want to have metrics with different units of measure (i.e. “milliseconds” and “kilobytes”) or with significantly different scale on one chart. Instead, consider using multiple charts. Click on the Add Chart button to create multiple charts in metrics explorer.
+
+### Multiple charts
+
+Click the **Add chart** and create another chart with a different metric.
+
+### Order or delete multiple charts
+
+To order or delete multiple charts, click on the ellipses ( **...** ) symbol to open the chart menu and choose the appropriate menu item of **Move up**, **Move down**, or **Delete**.
 
 ## Apply filters to charts
 
@@ -71,16 +66,18 @@ You can apply filters to the charts that show metrics with dimensions. For examp
 
 5. You can repeat steps 1-4 to apply multiple filters to the same charts.
 
-## Segment a chart
 
-You can split a metric by dimension to visualize how different segments of the metric compare against each other, and identify the outlying segments of a dimension. 
 
-### To segment a chart
+## Apply splitting to a chart
+
+You can split a metric by dimension to visualize how different segments of the metric compare against each other, and identify the outlying segments of a dimension.
+
+### Apply splitting
 
 1. Click on **Apply splitting** above the chart.
  
    > [!NOTE]
-   > You can have multiple filters but only one splitting/segmentation value on any single chart.
+   > Splitting cannot be used with charts that have multiple metrics. Also, you can have multiple filters but only one splitting dimension applied to any single chart.
 
 2. Choose a dimension on which you want to segment your chart:
 
@@ -94,20 +91,6 @@ You can split a metric by dimension to visualize how different segments of the m
 
    > [!NOTE]
    > Use both Filtering and Splitting on the same dimension to hide the segments that are irrelevant for your scenario and make charts easier to read.
-
-### New alert rule
-
-You can also use the criteria you have set to visualize your metrics as the basis for the underlying logic of a metric based alert rule. 
-
-If you click **New Alert rule**
-
-![New alert rule button highlighted in red](./media/metrics-charts/015.png)
-
-You will be taken to the alert rule creation pane with the underlying metric dimensions from your chart pre-populated to make it easier to generate custom alert rules.
-
-![Create alert rule](./media/metrics-charts/016.png)
-
-Checkout this [article](alerts-metric.md) to learn more about setting up metric alerts.
 
 ## Lock boundaries of chart y-axis
 
@@ -134,6 +117,31 @@ After configuring your chart, click on the **Chart Actions** menu in the right t
 
 ![metric image](./media/metrics-charts/00013.png)
 
+## Create alert rules
+
+You can use the criteria you have set to visualize your metrics as the basis of a metric based alert rule. The new alerting rule will include your target resource, metric, splitting, and filter dimensions from your chart. You will be able to modify these settings later on the alert rule creation pane.
+
+### To create a new alert rule, click **New Alert rule**
+
+![New alert rule button highlighted in red](./media/metrics-charts/015.png)
+
+You will be taken to the alert rule creation pane with the underlying metric dimensions from your chart pre-populated to make it easier to generate custom alert rules.
+
+![Create alert rule](./media/metrics-charts/016.png)
+
+Check out this [article](alerts-metric.md) to learn more about setting up metric alerts.
+
+## Troubleshooting
+
+*I don't see any data on my chart.*
+
+* Filters apply to all the charts on the pane. Make sure that, while you're focusing on one chart, you didn't set a filter that excludes all the data on another.
+
+* If you want to set different filters on different charts, create them in different blades, save them as separate favorites. If you want, you can pin them to the dashboard so that you can see them alongside each other.
+
+* If you segment a chart by a property that is not defined on the metric, then there will be nothing on the chart. Try clearing the segmentation (splitting), or choose a different property.
+
 ## Next steps
 
   Read [Creating custom KPI dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) to learn about the best practices for creating actionable dashboards with metrics.
+

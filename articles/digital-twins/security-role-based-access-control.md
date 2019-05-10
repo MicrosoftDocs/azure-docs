@@ -62,7 +62,7 @@ A role definition is a collection of permissions and other attributes that const
 The following reference documentation articles describe:
 
 - How to [Query or the object ID for a user](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0).
-- How to [Obtain the object ID for a service principal](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.8.1).
+- How to [Obtain the object ID for a service principal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal).
 - How to [Retrieve the object ID for an Azure AD tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
 ## Role assignments
@@ -78,4 +78,4 @@ To grant permissions to a recipient, create a role assignment. To revoke permiss
 
 ## Next steps
 
-To learn more about creating and managing Azure Digital Twins role assignments, read [Create and manage role assignments](./security-create-manage-role-assignments.md).
+- To learn more about creating and managing Azure Digital Twins role assignments, read [Create and manage role assignments](./security-create-manage-role-assignments.md).

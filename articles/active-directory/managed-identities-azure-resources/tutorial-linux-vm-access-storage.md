@@ -1,21 +1,22 @@
-﻿---
+---
 title: Use a Linux VM system-assigned managed identity to access Azure Storage
 description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Storage.
 services: active-directory
 documentationcenter: 
-author: daveba
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: 
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
-ms.author: daveba
+ms.author: markvi
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Use a Linux VM system-assigned managed identity to access Azure Storage 
 
@@ -79,7 +80,7 @@ You can use the VM's managed identity to retrieve the data in the Azure storage 
 1. Navigate back to your newly created storage account.  
 2. Click the **Access control (IAM)** link in the left panel.  
 3. Click **+ Add role assignment** on top of the page to add a new role assignment for your VM.
-4. Under **Role**, from the dropdown, select **Storage Blob Data Reader (Preview)**. 
+4. Under **Role**, from the dropdown, select **Storage Blob Data Reader**. 
 5. In the next dropdown, under **Assign access to**, choose **Virtual Machine**.  
 6. Next, ensure the proper subscription is listed in **Subscription** dropdown and then set **Resource Group** to **All resource groups**.  
 7. Under **Select**, choose your VM and then click **Save**.

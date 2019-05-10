@@ -626,30 +626,6 @@ To find the event logs for the gateway, follow these steps:
 
    ![View event logs for gateway](./media/logic-apps-gateway-install/event-viewer.png)
 
-### Telemetry
-
-For additional monitoring and troubleshooting, you can turn on and collect telemetry. 
-
-1. Browse to the location for the on-premises data gateway client, 
-which you can usually find here: ```C:\Program Files\On-premises data gateway```
-
-   Otherwise, to find the client location, 
-   open the Services console on the same computer, 
-   find **On-premises data gateway service**, 
-   and view the **Path to executable** property.
-
-2. Open this *configuration* file: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
-
-3. Change the **SendTelemetry** value to **true**:
-
-   ```html
-   <setting name="SendTelemetry" serializeAs="String">
-      <value>true</value>
-   </setting>
-   ```
-
-4. Save your changes, and then restart the Windows service.
-
 ### Review slow query performance
 
 If you find queries run slowly through the gateway, 
@@ -741,7 +717,7 @@ which you can usually find here: ```C:\Program Files\On-premises data gateway```
 
 ### Trace traffic with Fiddler
 
-[Fiddler](http://www.telerik.com/fiddler) is a free tool from Telerik that monitors HTTP traffic. 
+[Fiddler](https://www.telerik.com/fiddler) is a free tool from Telerik that monitors HTTP traffic. 
 You can review this traffic with the Power BI service from the client machine. 
 This service might show errors and other related information.
 

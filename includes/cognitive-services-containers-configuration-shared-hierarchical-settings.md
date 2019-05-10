@@ -1,10 +1,10 @@
---- 
+---
 author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/02/2019
---- 
+---
 
 Settings for the container are hierarchical, and all containers on the host computer use a shared hierarchy.
 

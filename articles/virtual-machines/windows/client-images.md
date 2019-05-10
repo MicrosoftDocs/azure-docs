@@ -55,7 +55,7 @@ If you do not know your offer ID, you can obtain it through the Azure portal in 
 
 - Or, click **Billing** and then click your subscription ID. The offer ID appears in the *Billing* window.
 
-You can also view the offer ID from the ['Subscriptions' tab](http://account.windowsazure.com/Subscriptions) of the Azure Account portal:
+You can also view the offer ID from the ['Subscriptions' tab](https://account.windowsazure.com/Subscriptions) of the Azure Account portal:
 
 ![Offer ID details from the Azure Account portal](./media/client-images/offer-id-azure-account-portal.png) 
 

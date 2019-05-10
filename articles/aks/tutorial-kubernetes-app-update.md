@@ -2,12 +2,12 @@
 title: Kubernetes on Azure tutorial - Update an application
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to update an existing application deployment to AKS with a new version of the application code.
 services: container-service
-author: iainfoulds
+author: zr-msft
 
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: iainfou
+ms.author: zarhoads
 ms.custom: mvc
 
 #Customer intent: As a developer, I want to learn how to update an existing application deployment in an Azure Kubernetes Service (AKS) cluster so that I can maintain the application lifecycle.
@@ -63,7 +63,7 @@ docker-compose up --build -d
 
 ## Test the application locally
 
-To verify that the updated container image shows your changes, open a local web browser to http://localhost:8080.
+To verify that the updated container image shows your changes, open a local web browser to `http://localhost:8080`.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
@@ -71,7 +71,7 @@ The updated values provided in the *config_file.cfg* file are displayed in your 
 
 ## Tag and push the image
 
-To correctly use the updated image, tag the *azure-vote-front* image with the login server name of your ACR registry. Get the login server name with the [az acr list](/cli/azure/acr#az_acr_list) command:
+To correctly use the updated image, tag the *azure-vote-front* image with the login server name of your ACR registry. Get the login server name with the [az acr list](/cli/azure/acr) command:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -170,5 +170,5 @@ Advance to the next tutorial to learn how to upgrade an AKS cluster to a new ver
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
-[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-acr-login]: /cli/azure/acr
 [azure-cli-install]: /cli/azure/install-azure-cli

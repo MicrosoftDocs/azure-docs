@@ -155,7 +155,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 Run the following command to create a stored procedure in your SQL database. This stored procedure updates the watermark value after every pipeline run. 
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -172,6 +172,11 @@ END
 Run the following query to create two stored procedures and two data types in your SQL database. 
 They're used to merge the data from source tables into destination tables.
 
+In order to make the journey easy to start with, we directly use these Stored Procedures passing the delta data in via a table variable and then merge the them into destination store. Be cautious that it is not expecting a "large" number of delta rows (more than 100) to be stored in the table variable.  
+
+If you do need to merge a large number of delta rows into the destination store, we suggest you to use copy activity to copy all the delta data into a temporary "staging" table in the destination store first, and then built your own stored procedure without using table variable to merge  them from the “staging” table to the “final” table. 
+
+
 ```sql
 CREATE TYPE DataTypeforCustomerTable AS TABLE(
     PersonID int,
@@ -181,7 +186,7 @@ CREATE TYPE DataTypeforCustomerTable AS TABLE(
 
 GO
 
-CREATE PROCEDURE sp_upsert_customer_table @customer_table DataTypeforCustomerTable READONLY
+CREATE PROCEDURE usp_upsert_customer_table @customer_table DataTypeforCustomerTable READONLY
 AS
 
 BEGIN
@@ -204,7 +209,7 @@ CREATE TYPE DataTypeforProjectTable AS TABLE(
 
 GO
 
-CREATE PROCEDURE sp_upsert_project_table @project_table DataTypeforProjectTable READONLY
+CREATE PROCEDURE usp_upsert_project_table @project_table DataTypeforProjectTable READONLY
 AS
 
 BEGIN
@@ -284,7 +289,7 @@ As you are moving data from a data store in a private network (on-premises) to a
    ![Integration runtime setup - finish](./media/tutorial-incremental-copy-multiple-tables-portal/click-finish-integration-runtime-setup.png)
 1. Confirm that you see **MySelfHostedIR** in the list of integration runtimes.
 
-       ![Integration runtimes - list](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtimes-list.png)
+    ![Integration runtimes - list](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtimes-list.png)
 
 ## Create linked services
 You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your on-premises SQL Server database and SQL database. 
@@ -483,11 +488,12 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 1. Switch to the **Sink** tab, and select **SinkDataset** for **Sink Dataset**. 
         
     ![Copy Activity - sink settings](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
-1. Switch to the **Parameters** tab, and do the following steps:
+1. Do the following steps:
 
-    1. For **Sink Stored Procedure Name** property, enter `@{item().StoredProcedureNameForMergeOperation}`.
-    1. For **Sink Table Type** property, enter `@{item().TableType}`.
-    1. In the **Sink Dataset** section, for **SinkTableName** parameter, enter `@{item().TABLE_NAME}`.
+    1. In the **Dataset** property, for **SinkTableName** parameter, enter `@{item().TABLE_NAME}`.
+    1. For **Stored Procedure Name** property, enter `@{item().StoredProcedureNameForMergeOperation}`.
+    1. For **Table Type** property, enter `@{item().TableType}`.
+
 
         ![Copy Activity - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Drag-and-drop the **Stored Procedure** activity from the **Activities** toolbox to the pipeline designer surface. Connect the **Copy** activity to the **Stored Procedure** activity. 
@@ -501,7 +507,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     ![Stored Procedure Activity - SQL Account](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 1. Switch to the **Stored Procedure** tab, and do the following steps:
 
-    1. For **Stored procedure name**, select `sp_write_watermark`. 
+    1. For **Stored procedure name**, select `usp_write_watermark`. 
     1. Select **Import parameter**. 
     1. Specify the following values for the parameters: 
 
@@ -532,13 +538,13 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
             "TABLE_NAME": "customer_table",
             "WaterMark_Column": "LastModifytime",
             "TableType": "DataTypeforCustomerTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_customer_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_customer_table"
         },
         {
             "TABLE_NAME": "project_table",
             "WaterMark_Column": "Creationtime",
             "TableType": "DataTypeforProjectTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_project_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_project_table"
         }
     ]
     ```
@@ -636,13 +642,13 @@ VALUES
             "TABLE_NAME": "customer_table",
             "WaterMark_Column": "LastModifytime",
             "TableType": "DataTypeforCustomerTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_customer_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_customer_table"
         },
         {
             "TABLE_NAME": "project_table",
             "WaterMark_Column": "Creationtime",
             "TableType": "DataTypeforProjectTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_project_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_project_table"
         }
     ]
     ```

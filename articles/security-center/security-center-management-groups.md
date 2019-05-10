@@ -4,7 +4,7 @@ description: Learn about gaining tenant-wide visibility in Azure Security Center
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
@@ -21,6 +21,9 @@ ms.author: rkarlin
 # Gain tenant-wide visibility for Azure Security Center
 This article helps you get started by doing several actions that maximize the benefits Azure Security Center provides. Performing these actions enables you to gain visibility on all the Azure subscriptions that are linked to your Azure Active Directory tenant and effectively manage your organization’s security posture at scale by applying security policies across multiple subscriptions in an aggregative manner.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Management groups
 Azure management groups provide the ability to efficiently manage access, policies, and reporting on groups of subscriptions, as well as effectively manage the entire Azure estate by performing actions on the root management group. Each Azure AD tenant is given a single top-level management group called the root management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This group allows global policies and RBAC assignments to be applied at the directory level. 
 
@@ -35,7 +38,7 @@ For a detailed overview of management groups, see the [Organize your resources w
 You can organize subscriptions into management groups and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group. While management groups aren't required to onboard Security Center, it’s highly recommended that you create at least one management group so the root management group is created. After the group is created, all subscriptions under your Azure AD tenant will be linked to it. For instructions for PowerShell and more information, see [Create management groups for resource and organization management](../azure-resource-manager/management-groups-create.md).
 
  
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Management groups**.
 3. On the main page, select **New Management group.** 
 
@@ -48,7 +51,7 @@ You can organize subscriptions into management groups and apply your governance 
 5.  Select **Save**
 
 ### View management groups in the Azure portal
-1. SIgn in to the [Azure portal](http://portal.azure.com).
+1. SIgn in to the [Azure portal](https://portal.azure.com).
 2. To view management groups, select **All services** under the Azure main menu.
 3. Under **General**, select **Management Groups**.
 
@@ -74,7 +77,7 @@ An Azure Active Directory tenant administrator doesn’t have direct access to A
 
    - When you set the switch to Yes, you are assigned the User Access Administrator role in Azure RBAC at the root scope (/). This grants you permission to assign roles in all Azure subscriptions and management groups associated with this Azure AD directory. This switch is only available to users who are assigned the Global Administrator role in Azure AD.
 
-  - When you set the switch to No, the User Access Administrator role in Azure RBAC is removed from your user account. You can no longer assign roles in all Azure subscriptions and management groups that are associated with this Azure AD directory. You can view and manage only the Azure subscriptions and management groups to which you have been granted access.
+   - When you set the switch to No, the User Access Administrator role in Azure RBAC is removed from your user account. You can no longer assign roles in all Azure subscriptions and management groups that are associated with this Azure AD directory. You can view and manage only the Azure subscriptions and management groups to which you have been granted access.
 
 4. Click **Save** to save your setting.
 
@@ -105,15 +108,15 @@ To gain visibility to all subscriptions, tenant administrators need to assign th
 
 
 #### Assign RBAC roles to users with PowerShell: 
-1. Install [Azure PowerShell](/powershell/azure/install-azurerm-ps).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+1. Install [Azure PowerShell](/powershell/azure/install-az-ps).
 2. Run the following commands: 
 
     ```azurepowershell
-    # Install Management Groups Powershell module
-    Install-Module AzureRM.Resources
-    
     # Login to Azure as a Global Administrator user
-    Login-AzureRmAccount
+    Connect-AzAccount
     ```
 
 3. When prompted, sign in with global admin credentials. 
@@ -125,12 +128,12 @@ To gain visibility to all subscriptions, tenant administrators need to assign th
     ```azurepowershell
     # Add Reader role to the required user on the Root Management Group
     # Replace "user@domian.com” with the user to grant access to
-    New-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
+    New-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
     ```
 5. To remove the role, use the following command: 
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
+    Remove-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
 
 ### Open or refresh Security Center
@@ -138,11 +141,16 @@ Once you have elevated access, open or refresh Azure Security Center to verify y
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. Make sure you select all the subscriptions in the subscription selector that you would like to view in Security Center.
+
     ![Subscription selector screenshot](./media/security-center-management-groups/subscription-selector.png)
+
 1. Select **All services** under the Azure main menu then select **Security Center**.
-2. In the **Overview**, there's a subscription coverage chart. 
+2. In the **Overview**, there's a subscription coverage chart.
+
     ![Subscription coverage chart screenshot](./media/security-center-management-groups/security-center-subscription-coverage.png)
+
 3. Click on **Coverage** to see the list of subscriptions covered. 
+
     ![Subscription coverage list screenshot](./media/security-center-management-groups/security-center-coverage.png)
 
 ### Remove elevated access 
@@ -173,8 +181,8 @@ You can add subscriptions to the management group that you created. These steps 
 
 4. Repeat steps 1 through 3 until you've added all the subscriptions in the scope.
 
- > [!NOTE]
- > Management groups can contain both subscriptions and child management  groups. When you assign a user an RBAC role to the parent management group, the access is inherited by the child management group's subscriptions. Policies set at the parent management group are also inherited by the children. 
+   > [!NOTE]
+   > Management groups can contain both subscriptions and child management  groups. When you assign a user an RBAC role to the parent management group, the access is inherited by the child management group's subscriptions. Policies set at the parent management group are also inherited by the children. 
 
 ## Next steps
 In this article, you learned how to gain tenant-wide visibility for Azure Security Center. To learn more about Security Center, see the following articles:

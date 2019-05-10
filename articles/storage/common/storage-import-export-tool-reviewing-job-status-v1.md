@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: muralikk
-ms.component: common
+ms.subservice: common
 ---
 
 # Reviewing Azure Import/Export job status with copy log files

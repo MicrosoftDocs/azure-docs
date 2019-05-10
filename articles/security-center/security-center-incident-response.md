@@ -4,7 +4,7 @@ description: This document explains how to use Azure Security Center for an inci
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 8af12f1c-4dce-4212-8ac4-170d4313492d

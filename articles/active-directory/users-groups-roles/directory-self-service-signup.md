@@ -1,5 +1,5 @@
 ---
-title: Self-service or trial signup in Azure Active Directory | Microsoft Docs
+title: Self-service signup for email-verified user accounts - Azure Active Directory | Microsoft Docs
 description: Use self-service signup in an Azure Active Directory (Azure AD) tenant
 services: active-directory
 documentationcenter: ''
@@ -8,17 +8,19 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 10/16/2018
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # What is self-service signup for Azure Active Directory?
-This article explains self-service signup and how to support it in Azure Active Directory (Azure AD). If you want to take over a domain name from an unmanaged Azure AD tenant, see [Take over an unmanaged directory as administrator](domains-admin-takeover.md).
+
+This article explains how to use self-service signup to populate an organization in Azure Active Directory (Azure AD). If you want to take over a domain name from an unmanaged Azure AD organization, see [Take over an unmanaged directory as administrator](domains-admin-takeover.md).
 
 ## Why use self-service signup?
 * Get customers to services they want faster
@@ -46,7 +48,7 @@ An admin can configure these capabilities using the following Azure AD cmdlet Se
 AllowEmailVerifiedUsers and AllowAdHocSubscriptions are directory-wide settings that can be applied to an managed or an unmanaged directory. Here's an example where:
 
 * You administer a directory with a verified domain such as contoso.com
-* You use B2B collaboration from a different directory to invite a user that does not already exist (userdoesnotexist@contoso.com) in the home directory of constoso.com
+* You use B2B collaboration from a different directory to invite a user that does not already exist (userdoesnotexist@contoso.com) in the home directory of contoso.com
 * The home directory has the AllowEmailVerifiedUsers turned on
 
 If the preceding conditions are true, then a member user is created in the home directory, and a B2B guest user is created in the inviting directory.
@@ -59,13 +61,13 @@ Flow and PowerApps trial signups are not controlled by the **AllowAdHocSubscript
 ### How do the controls work together?
 These two parameters can be used in conjunction to define more precise control over self-service signup. For example, the following command will allow users to perform self-service signup, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created first cannot perform self-service signup):
 
-````powershell
+```powershell
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
-````
+```
 
 The following flowchart explains the different combinations for these parameters and the resulting conditions for the directory and self-service signup.
 
-![self service sign-up controls](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
+![flowchart of self service sign-up controls](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
 For more information and examples of how to use these parameters, see [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 

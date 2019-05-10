@@ -91,7 +91,7 @@ In some scenarios, the VM is placed behind a load balance solution that has a de
 
 ### Step 6: Check whether traffic is blocked by ACLs for the classic VM
 
-An  access control list (ACL) provides the ability to selectively permit or deny traffic for a virtual machine endpoint. For more information, see [Manage the ACL on an endpoint](../virtual-machines/windows/classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
+An  access control list (ACL) provides the ability to selectively permit or deny traffic for a virtual machine endpoint. For more information, see [Manage the ACL on an endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
 ### Step 7: Check whether the endpoint is created for the classic VM
 

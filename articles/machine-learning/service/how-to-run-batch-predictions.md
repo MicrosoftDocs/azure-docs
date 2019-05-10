@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn how to make batch predictions asynchronously on large amounts of data using Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 
 ms.reviewer: jmartens, garye
@@ -26,7 +26,7 @@ In the following steps, you create a [machine learning pipeline](concept-ml-pipe
 
 ## Prerequisites
 
-- If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree).
+- If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree).
 
 - Configure your development environment to install the Azure Machine Learning SDK. For more information, see [Configure a development environment for Azure Machine Learning](how-to-configure-environment.md).
 
@@ -182,7 +182,7 @@ model = Model.register(
 ## Write your scoring script
 
 >[!Warning]
->The following code is only a sample of what is contained in the [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/batch_score.py) used by the [sample notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-batch-scoring.ipynb). You’ll need to create your own scoring script for your scenario.
+>The following code is only a sample of what is contained in the [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/batch_scoring.py) used by the [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/pipeline-batch-scoring.ipynb). You’ll need to create your own scoring script for your scenario.
 
 The `batch_score.py` script takes input images in *dataset_path*, pretrained models in *model_dir,* and outputs *results-label.txt* to *output_dir*.
 

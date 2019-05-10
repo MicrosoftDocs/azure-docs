@@ -13,28 +13,33 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: na
-  ms.date: 09/18/2018
+  ms.date: 05/05/2019
   ms.author: barclayn
 
 
 
 ---
 # Security best practices for IaaS workloads in Azure
+This article describes security best practices for VMs and operating systems.
+
+The best practices are based on a consensus of opinion, and they work with current Azure platform capabilities and feature sets. Because opinions and technologies can change over time,  this article will be updated to reflect those changes.
 
 In most infrastructure as a service (IaaS) scenarios, [Azure virtual machines (VMs)](https://docs.microsoft.com/azure/virtual-machines/) are the main workload for organizations that use cloud computing. This fact is evident in [hybrid scenarios](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) where organizations want to slowly migrate workloads to the cloud. In such scenarios, follow the [general security considerations for IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx), and apply security best practices to all your VMs.
 
+## Shared responsibility
 Your responsibility for security is based on the type of cloud service. The following chart summarizes the balance of responsibility for both Microsoft and you:
 
 ![Areas of responsibility](./media/azure-security-iaas/sec-cloudstack-new.png)
 
 Security requirements vary depending on a number of factors including different types of workloads. Not one of these best practices can by itself secure your systems. Like anything else in security, you have to choose the appropriate options and see how the solutions can complement each other by filling gaps.
 
-This article describes security best practices for VMs and operating systems.
-
-The best practices are based on a consensus of opinion, and they work with current Azure platform capabilities and feature sets. Because opinions and technologies can change over time,  this article will be updated to reflect those changes.
-
 ## Protect VMs by using authentication and access control
 The first step in protecting your VMs is to ensure that only authorized users can set up new VMs and access VMs.
+
+> [!NOTE]
+> To improve the security of Linux VMs on Azure, you can integrate with Azure AD authentication. When you use [Azure AD authentication for Linux VMs](../virtual-machines/linux/login-using-aad.md), you centrally control and enforce policies that allow or deny access to the VMs.
+>
+>
 
 **Best practice**: Control VM access.   
 **Detail**: Use [Azure policies](../azure-policy/azure-policy-introduction.md) to establish conventions for resources in your organization and create customized policies. Apply these policies to resources, such as [resource groups](../azure-resource-manager/resource-group-overview.md). VMs that belong to a resource group inherit its policies.
@@ -100,6 +105,9 @@ If you use Windows Update, leave the automatic Windows Update setting enabled.
 **Best practice**: Periodically redeploy your VMs to force a fresh version of the OS.   
 **Detail**: Define your VM with an [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) so you can easily redeploy it. Using a template gives you a patched and secure VM when you need it.
 
+**Best practice**: Rapidly apply security updates to VMs.   
+**Detail**: Enable Azure Security Center (Free tier or Standard tier) to [identify missing security updates and apply them](../security-center/security-center-apply-system-updates.md).
+
 **Best practice**: Install the latest security updates.   
 **Detail**: Some of the first workloads that customers move to Azure are labs and external-facing systems. If your Azure VMs host applications or services that need to be accessible to the internet, be vigilant about patching. Patch beyond the operating system. Unpatched vulnerabilities on partner applications can also lead to problems that can be avoided if good patch management is in place.
 
@@ -126,7 +134,7 @@ To monitor the security posture of your [Windows](../security-center/security-ce
 
 Security Center can actively monitor for threats, and potential threats are exposed in security alerts. Correlated threats are aggregated in a single view called a security incident.
 
-Security Center stores data in [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics provides a query language and analytics engine that gives you insights into the operation of your applications and resources. Data is also collected from [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), management solutions, and agents installed on virtual machines in the cloud or on-premises. This shared functionality helps you form a complete picture of your environment.
+Security Center stores data in [Azure Monitor logs](../log-analytics/log-analytics-overview.md). Azure Monitor logs provides a query language and analytics engine that gives you insights into the operation of your applications and resources. Data is also collected from [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), management solutions, and agents installed on virtual machines in the cloud or on-premises. This shared functionality helps you form a complete picture of your environment.
 
 Organizations that don't enforce strong security for their VMs remain unaware of potential attempts by unauthorized users to circumvent security controls.
 
@@ -151,10 +159,10 @@ Following are best practices for using Azure Disk Encryption:
 **Detail**: Azure Disk Encryption generates and writes the encryption keys to your key vault. Managing encryption keys in your key vault requires Azure AD authentication. Create an Azure AD application for this purpose. For authentication purposes, you can use either client secret-based authentication or [client certificate-based Azure AD authentication](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
 **Best practice**: Use a key encryption key (KEK) for an additional layer of security for encryption keys. Add a KEK to your key vault.   
-**Detail**: Use the [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet to create a key encryption key in the key vault. You can also import a KEK from your on-premises hardware security module (HSM) for key management. For more information, see the [Key Vault documentation](../key-vault/key-vault-hsm-protected-keys.md). When a key encryption key is specified, Azure Disk Encryption uses that key to wrap the encryption secrets before writing to Key Vault. Keeping an escrow copy of this key in an on-premises key management HSM offers additional protection against accidental deletion of keys.
+**Detail**: Use the [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet to create a key encryption key in the key vault. You can also import a KEK from your on-premises hardware security module (HSM) for key management. For more information, see the [Key Vault documentation](../key-vault/key-vault-hsm-protected-keys.md). When a key encryption key is specified, Azure Disk Encryption uses that key to wrap the encryption secrets before writing to Key Vault. Keeping an escrow copy of this key in an on-premises key management HSM offers additional protection against accidental deletion of keys.
 
 **Best practice**: Take a [snapshot](../virtual-machines/windows/snapshot-copy-managed-disk.md) and/or backup before disks are encrypted. Backups provide a recovery option if an unexpected failure happens during encryption.   
-**Detail**: VMs with managed disks require a backup before encryption occurs. After a backup is made, you can use the **Set-AzureRmVMDiskEncryptionExtension** cmdlet to encrypt managed disks by specifying the *-skipVmBackup* parameter. For more information about how to back up and restore encrypted VMs, see the [Azure Backup](../backup/backup-azure-vms-encryption.md) article.
+**Detail**: VMs with managed disks require a backup before encryption occurs. After a backup is made, you can use the **Set-AzVMDiskEncryptionExtension** cmdlet to encrypt managed disks by specifying the *-skipVmBackup* parameter. For more information about how to back up and restore encrypted VMs, see the [Azure Backup](../backup/backup-azure-vms-encryption.md) article.
 
 **Best practice**: To make sure the encryption secrets don’t cross regional boundaries, Azure Disk Encryption needs the key vault and the VMs to be located in the same region.   
 **Detail**: Create and use a key vault that is in the same region as the VM to be encrypted.
@@ -163,6 +171,18 @@ When you apply Azure Disk Encryption, you can satisfy the following business nee
 
 - IaaS VMs are secured at rest through industry-standard encryption technology to address organizational security and compliance requirements.
 - IaaS VMs start under customer-controlled keys and policies, and you can audit their usage in your key vault.
+
+## Restrict direct internet connectivity
+Monitor and restrict VM direct internet connectivity. Attackers constantly scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and known unpatched vulnerabilities. The following table lists best practices to help protect against these attacks:
+
+**Best practice**: Prevent inadvertent exposure to network routing and security.   
+**Detail**: Use RBAC to ensure that only the central networking group has permission to networking resources.
+
+**Best practice**: Identify and remediate exposed VMs that allow access from “any” source IP address.   
+**Detail**: Use Azure Security Center. Security Center will recommend that you restrict access through internet-facing endpoints if any of your network security groups has one or more inbound rules that allow access from “any” source IP address. Security Center will recommend that you edit these inbound rules to [restrict access](../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) to source IP addresses that actually need access.
+
+**Best practice**: Restrict management ports (RDP, SSH).   
+**Detail**: [Just-in-time (JIT) VM access](../security-center/security-center-just-in-time.md) can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed. When JIT is enabled, Security Center locks down inbound traffic to your Azure VMs by creating a network security group rule. You select the ports on the VM to which inbound traffic will be locked down. These ports are controlled by the JIT solution.
 
 ## Next steps
 See [Azure security best practices and patterns](security-best-practices-and-patterns.md) for more security best practices to use when you’re designing, deploying, and managing your cloud solutions by using Azure.

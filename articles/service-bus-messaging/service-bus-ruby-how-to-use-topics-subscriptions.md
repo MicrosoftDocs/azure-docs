@@ -3,7 +3,7 @@ title: How to use Service Bus topics (Ruby) | Microsoft Docs
 description: Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications.
 services: service-bus-messaging
 documentationcenter: ruby
-author: spelluru
+author: axisc
 manager: timlt
 editor: ''
 
@@ -13,19 +13,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 08/10/2018
-ms.author: spelluru
+ms.date: 04/15/2019
+ms.author: aschhab
 
 ---
 # How to use Service Bus topics and subscriptions with Ruby
  
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-This article describes how to use Service Bus topics and subscriptions from Ruby applications. The scenarios covered include **creating topics and subscriptions, creating subscription filters, sending messages** to a topic, **receiving messages from a subscription**, and **deleting topics and subscriptions**. For more information on topics and subscriptions, see the [Next Steps](#next-steps) section.
+This article describes how to use Service Bus topics and subscriptions from Ruby applications. The scenarios covered include:
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- Creating topics and subscriptions 
+- Creating subscription filters 
+- Sending messages to a topic 
+- Receiving messages from a subscription
+- Deleting topics and subscriptions
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
+## Prerequisites
+1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md) to create a Service Bus **namespace** and get the **connection string**. 
+
+    > [!NOTE]
+    > You will create a **topic** and a **subscription** to the topic by using **Ruby** in this quickstart. 
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
@@ -35,7 +45,7 @@ The **Azure::ServiceBusService** object enables you to work with topics. The fol
 ```ruby
 azure_service_bus_service = Azure::ServiceBus::ServiceBusService.new(sb_host, { signer: signer})
 begin
-  topic = azure_service_bus_service.create_queue("test-topic")
+  topic = azure_service_bus_service.create_topic("test-topic")
 rescue
   puts $!
 end
@@ -159,7 +169,7 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 Now that you've learned the basics of Service Bus topics, follow these links to learn more.
 
 * See [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).
-* API reference for [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter).
+* API reference for [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter).
 * Visit the [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) repository on GitHub.
 
 [Azure portal]: https://portal.azure.com

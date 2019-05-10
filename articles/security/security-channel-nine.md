@@ -4,7 +4,7 @@ description: This article provides a curated list of Azure security presentation
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 9e5e14aa-11d7-4242-8b7e-49fd0e79817a

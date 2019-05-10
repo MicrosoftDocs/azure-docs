@@ -79,7 +79,7 @@ that you expect the trigger to receive.
     > [!TIP]
     > 
     > You can generate a schema for a sample JSON payload 
-    > from a tool like [jsonschema.net](http://jsonschema.net/), 
+    > from a tool like [jsonschema.net](https://jsonschema.net/), 
     > or in the **Request** trigger by choosing **Use sample payload to generate schema**. 
     > Enter your sample payload, and choose **Done**.
 

@@ -10,7 +10,7 @@ ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -68,7 +68,7 @@ Here are some of the ML tools and libraries on Data Science Virtual Machines.
 | Supported editions     | Windows, Linux     |
 | Typical uses      | General ML tool     |
 | How to use or run it      | On Windows, search for Weka on the Start menu. On Linux, sign in with X2Go, and then go to **Applications** > **Development** > **Weka**. |
-| Link to samples      | [Weka samples](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Link to samples      | [Weka samples](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Related tools      |LightGBM, Rattle, XGBoost   |
 
 ## Rattle

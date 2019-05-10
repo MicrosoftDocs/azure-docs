@@ -1,29 +1,30 @@
 ---
-title: How to manage the lifecycle of devices in Azure AD | Microsoft Docs
-description: Learn how device management can help you to get control over the devices that are accessing resources in your environment.
+title: How to manage stale devices in Azure AD | Microsoft Docs
+description: Due to lost, stolen, broken devices, or OS reinstallations you typically have stale devices in your environment. Learn how to remove stale devices from your database of registered devices in Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: mtillman
+author: MicrosoftGuyJFlo
+manager: daveba
 editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.subservice: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/03/2018
-ms.author: markvi
+ms.date: 01/30/2019
+ms.author: joflore
 ms.reviewer: spunukol
 
 
-#Customer intent: As a IT admin, I want to understand how I can get rid of stale devices, so that I can I can cleanup my device registration data.
+#Customer intent: As an IT admin, I want to understand how I can get rid of stale devices, so that I can I can cleanup my device registration data.
 
+ms.collection: M365-identity-device-management
 ---
 
-# How To: Manage the stale devices in Azure AD
+# How To: Manage stale devices in Azure AD
 
 Ideally, to complete the lifecycle, registered devices should be unregistered when they are not needed anymore. However, due to, for example, lost, stolen, broken devices, or OS reinstallations you typically have stale devices in your environment. As an IT admin, you probably want a method to remove stale devices, so that you can focus your resources on managing devices that actually require management.
 
@@ -122,7 +123,7 @@ To cleanup Azure AD:
 
 - **Windows 10 devices** - Disable or delete Windows 10 devices in your on-premises AD, and let Azure AD Connect synchronize the changed device status to Azure AD.
 
-- **Windows 7/8** - Disable or delete Windows 10 devices in the Azure AD. You can't use Azure AD Connect to disable or delete Windows 7/8 devices in Azure AD.
+- **Windows 7/8** - Disable or delete Windows 7/8 devices in the Azure AD. You can't use Azure AD Connect to disable or delete Windows 7/8 devices in Azure AD.
 
 
 

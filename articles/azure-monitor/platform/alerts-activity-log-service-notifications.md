@@ -32,7 +32,11 @@ To learn more about action groups, see [Create and manage action groups](../../a
 
 For information on how to configure service health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](alerts-activity-log.md).
 
-## Create an alert on a service health notification for a new action group by using the Azure portal
+### Watch a video on setting up your first Azure Service Health alert
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
+
+## Alert and new action group using Azure portal
 1. In the [portal](https://portal.azure.com), select **Service Health**.
 
     ![The "Service Health" service](media/alerts-activity-log-service-notifications/home-servicehealth.png)
@@ -81,7 +85,7 @@ Learn how to [Configure webhook notifications for existing problem management sy
 >
 >
 
-## Create an alert on a service health notification for an existing action group by using the Azure portal
+## Alert with existing action group using Azure portal
 
 1. Follow steps 1 through 7 in the previous section to create your service health notification. 
 
@@ -91,7 +95,7 @@ Learn how to [Configure webhook notifications for existing problem management sy
 
 Within a few minutes, the alert is active and begins to trigger based on the conditions you specified during creation.
 
-## Create an alert on a service health notification for a new action group by using the Azure Resource Manager Templates
+## Alert and new action group using the Azure Resource Manager templates
 
 The following is an example that creates an action group with an email target and enables all service health notifications for the target subscription.
 
@@ -190,6 +194,8 @@ After you create an alert, it's visible in the **Alerts** section of **Monitor**
 * Disable or enable it, if you want to temporarily stop or resume receiving notifications for the alert.
 
 ## Next steps
+- Learn about [best practices for setting up Azure Service Health alerts](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa).
+- Learn how to [setup mobile push notifications for Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
 - Learn how to [configure webhook notifications for existing problem management systems](../../service-health/service-health-alert-webhook-guide.md).
 - Learn about [service health notifications](../../azure-monitor/platform/service-notifications.md).
 - Learn about [notification rate limiting](../../azure-monitor/platform/alerts-rate-limiting.md).

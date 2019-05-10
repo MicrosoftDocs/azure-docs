@@ -1,20 +1,12 @@
 ---
-title: Virtual machine offer in the Azure Marketplace | Microsoft Docs
+title: Virtual machine offer in the Azure Marketplace 
 description: Overview of the process for publishing a VM offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 12/04/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Virtual machine offer
@@ -31,7 +23,7 @@ a broad overview of the Azure Marketplace, including how to publish on this mark
 experience with your product page and optional Test Drive experience, how user leads are generated and how you can consume them, and optimize customer
 engagement.
 
-> [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4026]
+> [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4026/player]
 
 
 ## VM Publishing process flow

@@ -2,20 +2,13 @@
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 12/11/2018
+ms.date: 04/17/2019
 ms.topic: include
 ---
 > [!NOTE]
->
-> This article has recently been updated to use commands from the new Azure PowerShell Az
-> module. This module is the new PowerShell module for Azure, compatible with
-> PowerShell versions 5.x and 6. AzureRM will continue to get critical bugfix updates, but 
-> new features will be in the Az module only.
->
-> * To learn more about the Az module and continued support for the AzureRM module,
->   see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
-> * The Az module is already available on Cloud Shell, with AzureRM compatibility automatically enabled.
->   For instructions on installing the Az module, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
-> * To enable the AzureRM compatibility commands, run `Enable-AzureRmAlias` after installation.
->   For more on compatibility, see [Migrate from Azure PowerShell AzureRM to Az](/powershell/azure/migrate-from-azurerm-to-az).
+> This article has been updated to use the new Azure PowerShell Az
+> module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020.
+> To learn more about the new Az module and AzureRM compatibility, see
+> [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az). For
+> Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
 

@@ -23,7 +23,7 @@ open your logic app in the Logic App Designer.
 On the toolbar, choose **Update Schema**.
 
    > [!NOTE]
-   > When you chooose **Update Schema**, Azure Logic Apps 
+   > When you choose **Update Schema**, Azure Logic Apps 
    > automatically runs the migration steps and provides 
    > the code output for you. You can use this output for 
    > updating your logic app definition. However, make 

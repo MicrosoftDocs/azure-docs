@@ -35,7 +35,7 @@ Data processing in Azure Digital Twins consists of defining three objects: *matc
 
 ### Matchers
 
-Matchers define a set of conditions that evaluate what actions take place based on incoming sensor telemetry. Conditions to determine the match might include properties from the sensor, the sensor's parent device, and the sensor's parent space. The conditions are expressed as comparisons against a [JSON path](http://jsonpath.com/) as outlined in this example:
+Matchers define a set of conditions that evaluate what actions take place based on incoming sensor telemetry. Conditions to determine the match might include properties from the sensor, the sensor's parent device, and the sensor's parent space. The conditions are expressed as comparisons against a [JSON path](https://jsonpath.com/) as outlined in this example:
 
 - All sensors of datatype **Temperature** represented by the escaped String value `\"Temperature\"`
 - Having `01` in their port
@@ -97,6 +97,15 @@ User-defined functions can be written in JavaScript. Helper methods interact wit
 - Attach graph metadata to the sensor reading before sending out a notification.
 
 For more information, see [How to use user-defined functions](./how-to-user-defined-functions.md).
+
+
+#### Examples
+
+The [GitHub repo for the Digital Twins C# sample](https://github.com/Azure-Samples/digital-twins-samples-csharp/) contains a few examples of the user-defined functions:
+- [This function](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) looks for carbon dioxide, motion, and temperature values to determine whether a room is available with these values in range. The [tutorials for Digital Twins](tutorial-facilities-udf.md) explore this function in more details. 
+- [This function](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js) looks for data from multiple motion sensors, and determines that the space is available if none of them detect any motion. You can easily replace the user-defined function used in either the [quickstart](quickstart-view-occupancy-dotnet.md), or the [tutorials](tutorial-facilities-setup.md), by making the changes mentioned in the comments section of the file. 
+
+
 
 ### Role assignment
 

@@ -54,7 +54,7 @@ The following table provides a summary of issues fixed in this release.
 | 1 |Backup performance|In the earlier releases, the backups involving large number of files would take a long time to complete (in the order of days). In this release, both the full and incremental backups see a significant reduction in the time to completion. |
 | 2 |Support package|Disk, CPU, memory, network, and cloud statistics are now logged in to the Support logs making the Support packages very effective in troubleshooting any device issues.|
 | 3 |Backup |In earlier releases, long running backups could result in a space crunch on the device resulting in backup failures. This bug is addressed in this release by allowing no more than 5 backups to queue at one time.|
-| 4 |iSCSI | In earlier releases, the local reservation for tiered or locally pinned volumes was 10% of the provisioned volume size. In this release, the local reservation for all iSCSI volumes (locally pinned or tiered) is limited to 10 % with a maximum of upto 200 GB (for tiered volumes larger than 2 TB) thereby freeing up more space on the local disk. We recommend that the locally pinned volumes in this release be limited to 200 GB.|
+| 4 |iSCSI | In earlier releases, the local reservation for tiered or locally pinned volumes was 10% of the provisioned volume size. In this release, the local reservation for all iSCSI volumes (locally pinned or tiered) is limited to 10 % with a maximum of up to 200 GB (for tiered volumes larger than 2 TB) thereby freeing up more space on the local disk. We recommend that the locally pinned volumes in this release be limited to 200 GB.|
 
 
 ## Known issues in the Update 0.4

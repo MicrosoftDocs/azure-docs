@@ -1,18 +1,19 @@
 ---
-title: Grant B2B users in Azure AD access to your on-premises applications | Microsoft Docs
-description: Shows how to give cloud B2B users access to on-prem apps with Azure AD B2B collaboration.
+title: Grant B2B users access to your on-premises apps - Azure Active Directory | Microsoft Docs
+description: Shows how to give cloud B2B users access to on premises apps with Azure AD B2B collaboration.
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 10/10/2018
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Grant B2B users in Azure AD access to your on-premises applications
@@ -41,7 +42,7 @@ To provide B2B users access to on-premises applications that are secured with In
 
    For the B2B user scenario, there are two methods available that you can use to create the guest user objects that are required for authorization in the on-premises directory:
 
-   - Microsoft Identity Manager (MIM) and the [MIM management agent for Microsoft Graph](#create-b2b-guest-user-objects-through-mim-preview). 
+   - Microsoft Identity Manager (MIM) and the MIM management agent for Microsoft Graph. 
    - [A PowerShell script](#create-b2b-guest-user-objects-through-a-script-preview). Using the script is a more lightweight solution that does not require MIM. 
 
 The following diagram provides a high-level overview of how Azure AD Application Proxy and the generation of the B2B user object in the on-premises directory work together to grant B2B users access to your on-premises IWA and KCD apps. The numbered steps are described in detail below the diagram.

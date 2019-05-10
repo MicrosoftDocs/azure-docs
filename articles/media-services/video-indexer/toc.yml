@@ -17,7 +17,9 @@
   href: video-indexer-concepts.md
   items:
   - name: Compare Video Indexer and Media Services presets
-    href: compare-video-indexer-with-media-services-presets.md     
+    href: compare-video-indexer-with-media-services-presets.md   
+  - name: Manage multiple tenants
+    href: manage-multiple-tenants.md  
   - name: Customizing content models
     items:
     - name: Brands
@@ -38,8 +40,12 @@
     href: video-indexer-output-json-v2.md
   - name: Find exact moments within videos
     href: video-indexer-search.md
+  - name: Scenes, shots, and keyframes
+    href: scenes-shots-keyframes.md
   - name: View and edit Video Indexer insights
     href: video-indexer-view-edit.md
+  - name: Use editor to create projects
+    href: use-editor-create-project.md
   - name: Create video insights from existing videos
     href: video-indexer-create-new.md
   - name: Embed widgets into your application
@@ -78,5 +84,7 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Regions
     href: regions.md
-
-    
+  - name: FAQs
+    href: faq.md    
+  - name: Compliance
+    href: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942 

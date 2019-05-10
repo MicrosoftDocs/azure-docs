@@ -1,16 +1,18 @@
 ---
 
-title: Manage emergency access accounts in Azure AD | Microsoft Docs
+title: Manage emergency access administrator accounts - Azure Active Directory | Microsoft Docs
 description: This article describes how to use emergency access accounts to help prevent being inadvertently locked out of your Azure Active Directory (Azure AD) tenant. 
 services: active-directory 
 author: markwahl-msft
-ms.author: billmath
-ms.date: 12/21/2018
-ms.topic: article-type-from-white-list
+ms.author: curtand
+ms.date: 03/19/2019
+ms.topic: conceptual
 ms.service: active-directory
+ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
+ms.collection: M365-identity-device-management
 ---
 
 # Manage emergency access accounts in Azure AD

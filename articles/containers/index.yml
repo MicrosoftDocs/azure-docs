@@ -3,13 +3,13 @@ documentType: LandingData
 title: Azure for Containers
 metadata:
   document_id:
-  title: Azure for Containers - Tutorials, API Reference
-  description: Get started developing apps with Azure using the resources below to find great quickstarts, tutorials, and tools for containers.
+  title: Azure for Containers - Quickstarts, Tutorials, API Reference
+  description: Get started managing and deploying container apps with Azure using quickstarts, tutorials, and tools for containers.
   keywords: Azure, Containers, Docker, API, Kubernetes
-  author: bketelsen
-  ms.author: brketels
-  manager: listonb
-  ms.date: 09/14/2017
+  author: dlepow
+  ms.author: danlep
+  manager: jeconnoc
+  ms.date: 01/08/2019
   ms.topic: article
   ms.prod: azure
   featureFlags:
@@ -21,23 +21,7 @@ sections:
 - items:
   - type: markdown
     text: |
-      Get started developing apps with Azure using the resources below to find great tutorials and tools for containers.
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
-    items:
-    - href: https://docs.microsoft.com/azure/container-instances/container-instances-quickstart
-      html: <p>Create a containerized app with Azure Container Instances</p>
-      image:
-        src: https://docs.microsoft.com/media/common/i_get-started.svg
-      title: Get Started
-    - href: https://docs.microsoft.com/azure/container-service/kubernetes/cli-samples
-      html: <p>Azure CLI Samples for Azure Container Service</p>
-      image:
-        src: https://docs.microsoft.com/media/common/i_code-samples.svg
-      title: Code Samples
+      Get started deploying and managing container apps with Azure tools and services for containers. 
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
@@ -67,36 +51,33 @@ sections:
       title: Run a container app on-demand in Azure Container Instances
       image:
         src: /azure/media/index/containerinstances.svg
-- title: Free Pluralsight Video Training
-  items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
-    items:
-    - href: https://go.microsoft.com/fwlink/?linkid=2012827
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-      title: ' Azure Administrator'
-- title: Samples
-  items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="https://azure.microsoft.com/resources/samples/app-service-java-deploy-image-from-acr-to-linux/">Getting Started with Appservice - Manage Linux Web App With Container Registry - in Java</a>
-    - html: <a href="https://azure.microsoft.com/resources/samples/service-fabric-containers/">Service Fabric Container Samples</a>
-    - html: <a href="https://azure.microsoft.com/resources/samples/container-service-python-manage/">Deploy and connect to a Docker container in an Azure cluster</a>
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to use Azure Kubernetes Service (AKS)
+    text: Learn how to deploy, manage, and update container apps using Azure services
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Create container images from an application</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Upload container images to the Azure Container Registry</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">Deploy an AKS cluster</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Run your container images in Kubernetes</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-scale">Scale an application and Kubernetes infrastructure</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Update an application running in Kubernetes</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-monitor">Monitor Kubernetes with Log Analytics</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Build and deploy a container to Azure Kubernetes Service</a>
+    - html: <a href="/azure/service-fabric/service-fabric-host-app-in-a-container">Build and deploy a .NET container app to Azure Service Fabric</a>
+    - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">Create a multi-container app in Web App for Containers</a>
+    - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">Build and deploy container images with Azure Container Registry Tasks</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Build and deploy a container to Azure Container Instances</a>
+    - html: <a href="/azure/openshift/tutorial-create-cluster">Create an Azure Red Hat OpenShift cluster</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Run Docker containers with Azure Container Instances
+      href: /learn/modules/run-docker-with-azure-container-instances/
+      image: 
+        src: /learn/achievements/run-docker-with-azure-container-instances.svg
+        href: /learn/modules/run-docker-with-azure-container-instances/
+    - title: Build and store container images with Azure Container Registry
+      href: /learn/modules/build-and-store-container-images/
+      image: 
+        src: /learn/achievements/build-and-store-container-images.svg
+        href: /learn/modules/build-and-store-container-images/
+

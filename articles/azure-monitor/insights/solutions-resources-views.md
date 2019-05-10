@@ -7,7 +7,7 @@ author: bwren
 manager: jwhit
 editor: tysonn
 ms.assetid: 570b278c-2d47-4e5a-9828-7f01f31ddf8c
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -101,7 +101,7 @@ The view resource in the exported view file will contain two elements in the **p
 For example, the following sample shows a simple solution file with a view.  Ellipses (...) are shown for the **Dashboard** and **OverviewTile** contents for space reasons.
 
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "workspaceName": {

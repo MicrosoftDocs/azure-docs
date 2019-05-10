@@ -4,26 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Use the Face API to identify faces in images.
 services: cognitive-services
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
-ms.date: 03/01/2018
+ms.date: 04/10/2019
 ms.author: sbowles
 ---
 
-# Example: How to identify faces in images
+# Example: Identify faces in images
 
 This guide demonstrates how to identify unknown faces using PersonGroups, which are created from known people in advance. The samples are written in C# using the Face API client library.
-
-## Concepts
-
-If you are not familiar with the following concepts in this guide, please search for the definitions in our [glossary](../Glossary.md) at any time:
-
-- Face - Detect
-- Face - Identify
-- PersonGroup
 
 ## Preparation
 
@@ -34,7 +26,7 @@ In this sample, we demonstrate the following:
 
 To carry out the demonstration of this sample, you need to prepare a bunch of pictures:
 
-- A few photos with the person's face. [Click here to download sample photos](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) for Anna, Bill, and Clare.
+- A few photos with the person's face. [Download sample photos](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) for Anna, Bill, and Clare.
 - A series of test photos, which may or may not contain the faces of Anna, Bill or Clare used to test identification. You can also select some sample images from the preceding link.
 
 ## Step 1: Authorize the API call
@@ -184,6 +176,7 @@ In this guide, you have learned the process of creating a PersonGroup and identi
 
 ## Related Topics
 
+- [Face recognition concepts](../concepts/face-recognition.md)
 - [How to Detect Faces in Image](HowtoDetectFacesinImage.md)
 - [How to Add Faces](how-to-add-faces.md)
 - [How to use the large-scale feature](how-to-use-large-scale.md)

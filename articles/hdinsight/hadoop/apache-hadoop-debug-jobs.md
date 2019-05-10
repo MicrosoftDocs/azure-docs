@@ -1,7 +1,6 @@
 ---
 title: 'Debug Apache Hadoop: View logs and interpret error messages - Azure HDInsight'
 description: Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover.
-services: hdinsight
 ms.reviewer: jasonh
 author: ashishthaps
 
@@ -14,7 +13,7 @@ ms.author: ashishth
 ---
 # Analyze Apache Hadoop logs
 
-Each Apache Hadoop cluster in Azure HDInsight has an Azure storage account used as the default file system. The storage account is referred as the default Storage account. Cluster uses the Azure Table storage and the Blob storage on the default Storage account to store its logs.  To find out the default storage account for your cluster, see [Manage Apache Hadoop clusters in HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). The logs retain in the Storage account even after the cluster is deleted.
+Each Apache Hadoop cluster in Azure HDInsight has an Azure storage account used as the default file system. The storage account is referred as the default Storage account. Cluster uses the Azure Table storage and the Blob storage on the default Storage account to store its logs.  To find out the default storage account for your cluster, see [Manage Apache Hadoop clusters in HDInsight](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts). The logs retain in the Storage account even after the cluster is deleted.
 
 ## Logs written to Azure Tables
 
@@ -29,7 +28,7 @@ When you create an HDInsight cluster, six tables are automatically created for L
 * ambariserverlog
 * ambariagentlog
 
-The table file names are **u<ClusterName>DDMonYYYYatHHMMSSsss<TableName>**.
+The table file names are **u\<ClusterName>DDMonYYYYatHHMMSSsss\<TableName>**.
 
 These tables contain the following fields:
 
@@ -95,7 +94,7 @@ You can now use Excel to filter and sort as necessary. You may want to include o
     For more information about constructing filters, see [Construct Filter Strings for the Table Designer](../../vs-azure-tools-table-designer-construct-filter-strings.md).
 
 ## Logs Written to Azure Blob Storage
-[The logs written to Azure Tables](#log-written-to-azure-tables) provide one level of insight into what is happening with an HDInsight cluster. However, these tables do not provide task-level logs, which can be helpful in drilling further into issues when they occur. To provide this next level of detail, HDInsight clusters are configured to write task logs to your Blob Storage account for any job that is submitted through Templeton. Practically, this means jobs submitted using the Microsoft Azure PowerShell cmdlets or the .NET Job Submission APIs, not jobs submitted through RDP/command-line access to the cluster. 
+The logs written to Azure Tables provide one level of insight into what is happening with an HDInsight cluster. However, these tables do not provide task-level logs, which can be helpful in drilling further into issues when they occur. To provide this next level of detail, HDInsight clusters are configured to write task logs to your Blob Storage account for any job that is submitted through Templeton. Practically, this means jobs submitted using the Microsoft Azure PowerShell cmdlets or the .NET Job Submission APIs, not jobs submitted through RDP/command-line access to the cluster. 
 
 To view the logs, see [Access Apache Hadoop YARN application logs on Linux-based HDInsight](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
@@ -311,6 +310,5 @@ Some of these error messages could also be seen in the Azure portal when it is u
 
 ## Next steps
 
-* [Use Apache Ambari Views to debug Apache Tez Jobs on HDInsight](../hdinsight-debug-ambari-tez-view.md)
 * [Enable heap dumps for Apache Hadoop services on Linux-based HDInsight](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Manage HDInsight clusters by using the Apache Ambari Web UI](../hdinsight-hadoop-manage-ambari.md)

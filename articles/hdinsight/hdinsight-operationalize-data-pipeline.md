@@ -1,7 +1,6 @@
 ---
 title: Operationalize a data analytics pipeline - Azure 
 description: Set up and run an example data pipeline that is triggered by new data and produces concise results.
-services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
@@ -144,7 +143,7 @@ To use the Oozie Web Console to view the status of your coordinator and workflow
 
 2. Verify the tunnel is operational by navigating to Ambari on your head node by browsing to:
 
-    http://headnodehost:8080
+    http:\//headnodehost:8080
 
 3. To access the **Oozie Web Console** from within Ambari, select **Oozie**, **Quick Links**, and then select **Oozie Web Console**.
 
@@ -170,7 +169,7 @@ You can copy the file using SCP in your `bash` shell session.
 
 The sample data is now available. However, the pipeline requires two Hive tables for processing, one for the incoming data (`rawFlights`) and one for the summarized data (`flights`). Create these tables in Ambari as follows.
 
-1. Log in to Ambari by navigating to [http://headnodehost:8080](http://headnodehost:8080).
+1. Log in to Ambari by navigating to http:\//headnodehost:8080.
 2. From the list of services, select **Hive**.
 
     ![Selecting Hive in Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)

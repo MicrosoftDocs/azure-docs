@@ -45,9 +45,6 @@ In this tutorial, you perform the following tasks:
 
     **Region**: select a region close to you that is part of the preview. This tutorial uses `westus2`. A failover can only be performed between Azure geo-paired regions. The region geo-paired with westus2 is WestCentralUS.
     
-   > [!NOTE]
-   > Manual failover is currently in public preview and is *not* available in the following Azure regions: East US, West US, North Europe, West Europe, Brazil South, and South Central US.
-
    **IoT Hub Name**: specify a name for your Iot hub. The hub name must be globally unique. 
 
    ![Screenshot showing Basics pane for creating an IoT hub](./media/tutorial-manual-failover/create-hub-02-basics.png)
@@ -108,7 +105,7 @@ A failback is performed just like a manual failover. These are the steps:
 
    ![Screenshot of manual failback request](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
 
-   The banners are displayed as explained in the [perform a failover](#perform-a-failover) section. After the failback is complete, it again shows `westus2` as the primary location and `WestCentralUS` as the secondary location, as set originally.
+   The banners are displayed as explained in the perform a failover section. After the failback is complete, it again shows `westus2` as the primary location and `WestCentralUS` as the secondary location, as set originally.
 
 ## Clean up resources 
 
@@ -134,4 +131,4 @@ In this tutorial, you learned how to configure and perform a manual failover, an
 Advance to the next tutorial to learn how to manage the state of an IoT device. 
 
 > [!div class="nextstepaction"]
-[Manage the state of an IoT device](tutorial-device-twins.md)
+> [Manage the state of an IoT device](tutorial-device-twins.md)

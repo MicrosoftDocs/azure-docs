@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
-ms.component: files
+ms.subservice: files
 ---
 # Troubleshoot Azure Files problems in Linux
 
@@ -43,7 +43,7 @@ Verify virtual network and firewall rules are configured properly on the storage
 
 In Linux, you receive an error message that resembles the following:
 
-**<filename> [permission denied] Disk quota exceeded**
+**\<filename> [permission denied] Disk quota exceeded**
 
 ### Cause
 

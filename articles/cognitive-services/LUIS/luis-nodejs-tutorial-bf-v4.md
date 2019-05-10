@@ -1,15 +1,15 @@
-﻿---
+---
 title: Bot - Node.js - v4 
 titleSuffix: Azure Cognitive Services
 description: Using Node.js, build a chat bot integrated with language understanding (LUIS). This chat bot uses the Human Resources app to quickly implement a bot solution. The bot is built with the Bot Framework version 4 and the Azure Web app bot.
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cjgronlund
+manager: nitinme
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 01/30/2019
 ms.author: diberry
 ---
 
@@ -61,7 +61,7 @@ Using Node.js, you can build a chat bot integrated with language understanding (
     
 5. Select **Create**. This creates and deploys the bot service to Azure. Part of this process creates a LUIS app named `luis-nodejs-bot-XXXX`. This name is based on the bot and app name's in the previous section.
 
-    [ ![Create web app bot](./media/bfv4-nodejs/create-web-app-service.png) ](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
+    [![Create web app bot](./media/bfv4-nodejs/create-web-app-service.png)](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
 
 6. Leave this browser tab open. For any steps with the LUIS portal, open a new browser tab. Continue to the next section when the new bot service is deployed.
 
@@ -101,7 +101,7 @@ In order to develop the web app bot code, download the code and use on your loca
 
 3. Select **Download Bot source code**. 
 
-    [ ![Download web app bot source code for basic bot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png) ](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
+    [![Download web app bot source code for basic bot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
 4. When the source code is zipped, a message will provide a link to download the code. Select the link. 
 
@@ -109,7 +109,7 @@ In order to develop the web app bot code, download the code and use on your loca
 
 6. Open the bot.js file and look for `const results = await this.luisRecognizer.recognize(context);`. This is where the user utterance entered into the bot is sent to LUIS.
 
-    ```nodejs
+   ```javascript
     /**
      * Driver code that does one of the following:
      * 1. Display a welcome card upon startup
@@ -225,7 +225,7 @@ Before changing any code or settings, verify the bot works.
 
 2. In the bot emulator, select the *.bot file in the root of the project. This `.bot` file includes the bot's URL endpoint for messages:
 
-    [ ![Bot emulator v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png) ](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
+    [![Bot emulator v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png)](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
 
 3. Enter the bot secret you copied from the Azure bot service's Application Settings in Step 1 of the **[Download the web app bot](#download-the-web-app-bot)** section. This allows the emulator to access any encrypted fields in the .bot file.
 
@@ -234,7 +234,7 @@ Before changing any code or settings, verify the bot works.
 
 4. In the bot emulator, enter `Hello` and get the proper response for the basic bot.
 
-    [ ![Basic bot response in emulator](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png) ](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
+    [![Basic bot response in emulator](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png)](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
 
 ## Modify bot code 
 
@@ -242,7 +242,7 @@ In the `bot.js` file, add code to handle the new intents.
 
 1. At the top of the file, find the **Supported LUIS Intents** section, and add constants for the HomeAutomation intents:
 
-    ```nodejs
+   ```javascript
     // Supported LUIS Intents
     const GREETING_INTENT = 'Greeting';
     const CANCEL_INTENT = 'Cancel';
@@ -256,7 +256,7 @@ In the `bot.js` file, add code to handle the new intents.
 
 2. Find the **isTurnInterrupted** that receives the LUIS prediction of the utterance and add a line to print out the result to the console.
 
-    ```nodejs
+   ```javascript
     /**
      * Look at the LUIS results and determine if we need to handle
      * an interruptions due to a Help or Cancel intent
@@ -304,7 +304,7 @@ In the `bot.js` file, add code to handle the new intents.
 
 3. Add the intents to the onTurn method's switch statement for the `DialogTurnStatus.empty` case:
 
-    ```nodejs
+   ```javascript
     switch (topIntent) {
         case GREETING_INTENT:
             await dc.begin(GREETING_DIALOG);

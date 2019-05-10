@@ -7,11 +7,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
+ms.subservice: common
 ---
 
 # Enumerating jobs in the Azure Import/Export service
-To enumerate all jobs in a subscription, call the [List Jobs](/rest/api/storageimportexport/jobs#Jobs_List) operation. `List Jobs` returns a list of jobs as well as the following attributes:
+To enumerate all jobs in a subscription, call the [List Jobs](/rest/api/storageimportexport/jobs) operation. `List Jobs` returns a list of jobs as well as the following attributes:
 
 -   The type of job (Import or Export)
 

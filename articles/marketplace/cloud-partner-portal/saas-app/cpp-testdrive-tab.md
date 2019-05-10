@@ -1,20 +1,12 @@
 ---
-title: Azure SaaS application offer test drive configuration | Microsoft Docs
+title: Azure SaaS application offer test drive configuration | Azure Marketplace
 description: Configure test drive for SaaS application offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
-ms.date: 12/04/2018
-ms.author: pbutlerm
+ms.date: 04/24/2019
+ms.author: pabutler
 ---
 
 # SaaS application Test Drive tab
@@ -27,9 +19,11 @@ Creating a trial experience for your customers is a best practice to ensure they
 
 Test drive provides customers with a hands-on, self-guided trial of your product's key features and benefits, demonstrated in a real-world implementation scenario.
 
+
 ## How a test drive works
 
-A potential customer searches and discovers your application on the Marketplace. The customer signs in and agrees to the terms of use. At this point, the customer receives your pre-configured environment to try for a fixed number of hours, while you receive a highly qualified lead to follow up with. For more information, see [What is Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/what-is-test-drive)
+A potential customer searches and discovers your application on the Marketplace. The customer signs in and agrees to the terms of use. At this point, the customer receives your pre-configured environment to try for a fixed number of hours, while you receive a highly qualified lead to follow up with. For more information, see [What is Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+
 
 ## Publishing steps
 
@@ -40,15 +34,19 @@ The main publishing steps for adding a test Drive are:
 3. Create your Test Drive step-by-step manual
 4. Republish your offer
 
+
 ## Setting up a test drive
 
 There are four different types of Test Drives available, each based on the type of product, scenario, and marketplace you’re on.
+
 |  **Type**          |  **Description**  |  **Setup instructions**  |
 |  ---------------   |  ---------------  |  ---------------  |
-|     Azure Resource Manager               |    An Azure Resource Manager Test Drive is a deployment template that contains all the Azure resources that comprise a solution being built by the publisher. Products that fit this type of Test Drive are ones that use only Azure resources.               |       [Azure Resource Manager Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/azure-resource-manager-test-drive)            |
-|       Hosted             |       A Hosted Test Drive removes the complexity of setup by Microsoft hosting and maintain the service that performs the Test Drive user provisioning and deprovisioning.             |         [Hosted Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/hosted-test-drive)          |
-|      Logic App              |       A Logic App Test Drive is a deployment template which is meant to encompass all complex solution architectures. All Dynamics applications or custom products should use this type of Test Drive.            |      [Logic App Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/logic-app-test-drive)             |
-|       Power BI             |         A Power BI Test Drive consists of an embedded link to a custom-built dashboard. Any product that wants to demonstrate an interactive Power BI visual should use this type of Test Drive. All you need to upload is your embedded Power BI URL.          |        [Power BI Test Drive](#Power-BI-test-drive)           |
+|     Azure Resource Manager               |    An Azure Resource Manager Test Drive is a deployment template that contains all the Azure resources that comprise a solution being built by the publisher. Products that fit this type of Test Drive are ones that use only Azure resources.               |       [Azure Resource Manager Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)            |
+|       Hosted             |       A Hosted Test Drive removes the complexity of setup by Microsoft hosting and maintain the service that performs the Test Drive user provisioning and deprovisioning.             |         [Hosted Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
+|      Logic App              |       A Logic App Test Drive is a deployment template which is meant to encompass all complex solution architectures. All Dynamics applications or custom products should use this type of Test Drive.            |      [Logic App Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
+|       Power BI             |         A Power BI Test Drive consists of an embedded link to a custom-built dashboard. Any product that wants to demonstrate an interactive Power BI visual should use this type of Test Drive. All you need to upload is your embedded Power BI URL.          |        [Power BI Test Drive](#power-bi-test-drive)           |
+|   |   |   |
+
 
 ### Power BI test drive
 

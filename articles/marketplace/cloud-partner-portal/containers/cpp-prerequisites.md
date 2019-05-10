@@ -1,25 +1,17 @@
 ---
-title: Azure Containers offer prerequisites | Microsoft Docs
+title: Azure Containers offer prerequisites | Azure Marketplace
 description: Prerequisites for publishing an Azure container.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
+author: v-miclar
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
-ms.date: 11/01/2018
-ms.author: pbutlerm
+ms.date: 03/13/2019
+ms.author: pabutler
 ---
 
 # Container publishing prerequisites
 
-This article describes the prerequisites for publishing a container offer on the Azure Marketplace.
+This article describes the prerequisites for publishing a container offer on the Azure Marketplace.  If you have not already done so, you should review the [Containers Offer Publishing Guide](../../marketplace-containers.md).
 
 ## Publishing prerequisites
 
@@ -32,11 +24,10 @@ To publish a new container image, you have to meet the following prerequisites:
   - A title
   - A description (in HTML format)
   - A logo image (in PNG format) and in these fixed image sizes: 40x40 px, 90x90 px, 115x 115 px, and 255x115 px.
-- A terms of use and a privacy policy
-- Documentation
+- A *Terms of Use* and a *Privacy Policy* statements
+- Container solution documentation
 - Support contacts
 
 ## Next steps
 
-- [Prepare your container technical assets](./cpp-create-technical-assets.md)
-- [Create your container offer](./cpp-create-offer.md) 
+If you have not already done so, you must [prepare your container technical assets](./cpp-create-technical-assets.md) before you [create your container offer](./cpp-create-offer.md).  

@@ -1,7 +1,6 @@
 ---
-title: Machine learning overview - Azure HDInsight 
+title: Machine learning overview - Azure HDInsight
 description: Describes the machine learning options in HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -37,13 +36,13 @@ Azure Machine Learning provides tools to model predictive analytics, as well as 
 
 ![Making advanced analytics accessible to Hadoop with Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/hadoop-azure-ml.png)
 
-Create features for data in an HDInsight Hadoop cluster using [Hive queries](../machine-learning/team-data-science-process/create-features-hive.md). *Feature engineering* attempts to increase the predictive power of learning algorithms by creating features from raw data that facilitate the learning process. You can run HiveQL queries from Azure ML, and access data processed in Hive and stored in blob storage, by using the [Import Data module](../machine-learning/studio/import-data.md).
+Create features for data in an HDInsight Hadoop cluster using [Hive queries](../machine-learning/team-data-science-process/create-features-hive.md). *Feature engineering* attempts to increase the predictive power of learning algorithms by creating features from raw data that facilitate the learning process. You can run HiveQL queries from Azure Machine Learning studio, and access data processed in Hive and stored in blob storage, by using the [Import Data module](../machine-learning/studio/import-data.md).
 
 ## Microsoft Cognitive Toolkit
 
 [Deep learning](https://www.microsoft.com/en-us/research/group/dltc/) is a branch of machine learning that uses neural networks, inspired by the biological processes of the human brain. Many researchers see deep learning as a promising approach for enhancing artificial intelligence. Examples of deep learning are spoken language translators, image recognition systems, and machine reasoning.
 
-To help advance its own work in deep learning, Microsoft  developed the free, easy-to-use, open-source [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/). This toolkit is being used  by a wide variety of Microsoft products, by companies worldwide with a need to deploy deep learning at scale, and by students interested in the latest algorithms and techniques. 
+To help advance its own work in deep learning, Microsoft  developed the free, easy-to-use, open-source [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/). This toolkit is being used  by a wide variety of Microsoft products, by companies worldwide with a need to deploy deep learning at scale, and by students interested in the latest algorithms and techniques.
 
 ## See also
 
@@ -58,5 +57,6 @@ To help advance its own work in deep learning, Microsoft  developed the free, ea
 
 ### Deep learning resources
 
-* [Deep learning toolkit with Apache Spark](https://blogs.technet.microsoft.com/machinelearning/2017/04/25/using-microsofts-deep-learning-toolkit-with-spark-on-azure-hdinsight-clusters/)
-* [Embarrassingly parallel image classification with Cognitive toolkit + Tensorflow on Apache Spark](https://blogs.technet.microsoft.com/machinelearning/2017/04/12/embarrassingly-parallel-image-classification-using-cognitive-toolkit-tensorflow-on-azure-hdinsight-spark/)
+* [Use Microsoft Cognitive Toolkit deep learning model with Azure HDInsight Spark cluster](spark/apache-spark-microsoft-cognitive-toolkit.md)
+* [Use Caffe on Azure HDInsight Spark for distributed deep learning](spark/apache-spark-deep-learning-caffe.md)
+* [Deep Learning and AI frameworks on the Data Science Virtual Machine (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)

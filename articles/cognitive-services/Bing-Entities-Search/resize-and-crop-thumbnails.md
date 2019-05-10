@@ -4,12 +4,12 @@ titlesuffix: Azure Cognitive Services
 description: Shows how to resize and crop thumbnails that a Bing Entity Search response returns.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: conceptual
-ms.date: 07/06/2017
+ms.date: 02/01/2019
 ms.author: scottwhi
 ---
 

@@ -7,7 +7,6 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
@@ -95,7 +94,7 @@ The following query limits the number of 'hospital' results to first three retur
 
 The following example JSON response includes three hospitals in the greater Seattle area:
 
-````json
+```json
 BingAPIs-TraceId: 68AFB51807C6485CAB8AAF20E232EFFF
 BingAPIs-SessionId: F89E7B8539B34BF58AAF811485E83B20
 X-MSEdge-ClientID: 1C44E64DBFAA6BCA1270EADDBE7D6A22
@@ -210,7 +209,7 @@ X-MSEdge-Ref: Ref A: 68AFB51807C6485CAB8AAF20E232EFFF Ref B: CO1EDGE0108 Ref C: 
       }
    }
 }
-````
+```
 
 ## Next steps
 - [Geographic search boundaries](specify-geographic-search.md)

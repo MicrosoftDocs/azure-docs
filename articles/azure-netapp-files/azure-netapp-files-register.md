@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: b-juche
 ---
@@ -20,7 +20,7 @@ ms.author: b-juche
 Before using Azure NetApp Files, you must submit a request to enroll in the Azure NetApp Files service.  After the enrollment, you then register to use the service.
 
 ## Request to enroll in the service
-You need to be part of the Public Preview program and whitelisted for accessing the Microsoft.NetApp Resource Provider. For details about joining the Public Preview program, see the [Azure NetApp Files Public Preview signup page](http://aka.ms/nfspublicpreview). 
+You need to be part of the Public Preview program and whitelisted for accessing the Microsoft.NetApp Resource Provider. For details about joining the Public Preview program, see the [Azure NetApp Files Public Preview signup page](https://aka.ms/nfspublicpreview). 
 
 
 ## Register the NetApp Resource Provider
@@ -56,7 +56,7 @@ To use the service, you must register the Azure Resource Provider for Azure NetA
     
         az provider show --namespace Microsoft.NetApp
 
-  The command output appears as follows:
+   The command output appears as follows:
    
         {
         "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",

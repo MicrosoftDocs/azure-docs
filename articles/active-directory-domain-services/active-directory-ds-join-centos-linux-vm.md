@@ -4,12 +4,12 @@ description: Join a CentOS Linux virtual machine to Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -82,13 +82,12 @@ Now that the required packages are installed on the Linux virtual machine, the n
     sudo realm discover CONTOSO100.COM
     ```
 
-    > [!NOTE]
-    > **Troubleshooting:**
-      > If *realm discover* is unable to find your managed domain:  
-      * Ensure that the domain is reachable from the virtual machine (try ping).  
-      * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-      * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.  
-      >
+   > [!NOTE]
+   > **Troubleshooting:**
+   > If *realm discover* is unable to find your managed domain:  
+   >    * Ensure that the domain is reachable from the virtual machine (try ping).  
+   >    * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
+   >    * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.  
 
 2. Initialize Kerberos. In your SSH terminal, type the following command:
 

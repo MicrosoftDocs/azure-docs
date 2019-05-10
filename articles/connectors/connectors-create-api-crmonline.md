@@ -1,12 +1,12 @@
 ---
-title: Connect to Dynamics 365 - Azure Logic Apps | Microsoft Docs
+title: Connect to Dynamics 365 - Azure Logic Apps
 description: Create and manage records with Dynamics 365 (online) REST APIs and Azure Logic Apps
+services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: Mattp123
 ms.author: matp
-ms.service: logic-apps
-services: logic-apps
 ms.reviewer: estfan, LADocs
-ms.suite: integration
 ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
@@ -30,7 +30,7 @@ If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/lo
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
 * A [Dynamics 365 account](https://dynamics.microsoft.com)
 
@@ -39,7 +39,7 @@ If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/lo
 
 * The logic app where you want to access your Dynamics 365 account. 
 To start your logic app with a Dynamics 365 trigger, you need a 
-[blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+[blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Add Dynamics 365 trigger
 
@@ -61,8 +61,8 @@ select this trigger: **When a record is created**
 
 1. Provide these trigger details:
 
-   | Property | Required | Description | 
-   |----------|----------|-------------| 
+   | Property | Required | Description |
+   |----------|----------|-------------|
    | **Organization Name** | Yes | The name for your organization's Dynamics 365 instance to monitor, for example, "Contoso" |
    | **Entity Name** | Yes | The name for the entity to monitor, for example, "Leads" | 
    | **Frequency** | Yes | The unit of time to use with intervals when checking for updates related to the trigger |
@@ -84,10 +84,10 @@ From the actions list, select this action: **Create a new record**
 
 1. Provide these action details:
 
-   | Property | Required | Description | 
-   |----------|----------|-------------| 
+   | Property | Required | Description |
+   |----------|----------|-------------|
    | **Organization Name** | Yes | The Dynamics 365 instance where you want to create the record, which doesn't have to be the same instance in your trigger, but is "Contoso" in this example |
-   | **Entity Name** | Yes | The entity where you want to create the record, for example, "Tasks" | 
+   | **Entity Name** | Yes | The entity where you want to create the record, for example, "Tasks" |
    | | |
 
    ![Action details](./media/connectors-create-api-crmonline/action-details.png)
@@ -97,11 +97,11 @@ click inside the **Subject** box so the dynamic content
 list appears. From this list, select the field values to 
 include in the task record associated with the new lead record:
 
-   | Field | Description | 
-   |-------|-------------| 
+   | Field | Description |
+   |-------|-------------|
    | **Last name** | The last name from the lead as the primary contact in the record |
-   | **Topic** | The descriptive name for the lead in the record | 
-   | | | 
+   | **Topic** | The descriptive name for the lead in the record |
+   | | |
 
    ![Task record details](./media/connectors-create-api-crmonline/create-record-details.png)
 
@@ -130,7 +130,7 @@ select **Account Name**.
    ![Specify filter and order](./media/connectors-create-api-crmonline/advanced-options.png)
 
 For more information, see these Dynamics 365 
-Customer Engagement Web API system query options: 
+Customer Engagement Web API system query options:
 
 * [$filter](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#filter-results)
 * [$orderby](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#order-results)
@@ -155,19 +155,19 @@ the required data types for their values.
 Expanding on these field types, here are example fields in 
 Dynamics 365 triggers and actions that require both a 
 record ID and the lookup type. This requirement means 
-values that you select from the dynamic list won't work. 
+values that you select from the dynamic list won't work.
 
-| Field | Description | 
+| Field | Description |
 |-------|-------------|
-| **Owner** | Must be either a valid user ID or team record ID. | 
-| **Owner Type** | Must be either **systemusers** or **teams**. | 
-| **Regarding** | Must be a valid record ID, such as an account ID or contact record ID. | 
-| **Regarding Type** | Must be a lookup type, such as **accounts** or **contacts**. | 
-| **Customer** | Must be a valid record ID, such as an account ID or contact record ID. | 
-| **Customer Type** | Must be the lookup type, such as **accounts** or **contacts**. | 
+| **Owner** | Must be either a valid user ID or team record ID. |
+| **Owner Type** | Must be either **systemusers** or **teams**. |
+| **Regarding** | Must be a valid record ID, such as an account ID or contact record ID. |
+| **Regarding Type** | Must be a lookup type, such as **accounts** or **contacts**. |
+| **Customer** | Must be a valid record ID, such as an account ID or contact record ID. |
+| **Customer Type** | Must be the lookup type, such as **accounts** or **contacts**. |
 |||
 
-In this example, the action named **Create a new record** creates a new task record: 
+In this example, the action named **Create a new record** creates a new task record:
 
 ![Create task record with record IDs and lookup types](./media/connectors-create-api-crmonline/create-record-advanced.png)
 
@@ -177,13 +177,13 @@ based on the record ID in the **Owner** field and the lookup type in the **Owner
 ![Owner record ID and lookup type](./media/connectors-create-api-crmonline/owner-record-id-and-lookup-type.png)
 
 This action also adds an account record that's associated with the record ID 
-added in the **Regarding** field and the lookup type in the **Regarding Type** field: 
+added in the **Regarding** field and the lookup type in the **Regarding Type** field:
 
 ![Regarding record ID and lookup type](./media/connectors-create-api-crmonline/regarding-record-id-lookup-type-account.png)
 
 ## Find record ID
 
-To find a record ID, follow these steps: 
+To find a record ID, follow these steps:
 
 1. In Dynamics 365, open a record, such as an account record.
 
@@ -208,7 +208,7 @@ select a failed run for more information.
 
    ![Logic app run status](./media/connectors-create-api-crmonline/run-history.png)
 
-1. Expand a failed step so you can view more details. 
+1. Expand a failed step so you can view more details.
 
    ![Expand failed step](./media/connectors-create-api-crmonline/expand-failed-step.png)
 
@@ -223,8 +223,8 @@ For more information about troubleshooting logic apps, see
 ## Connector reference
 
 For technical details, such as triggers, actions, and limits, 
-as described by the connector's Swagger file, 
-see the [connector's reference page](/connectors/crm/). 
+as described by the connector's OpenAPI (formerly Swagger) file, 
+see the [connector's reference page](/connectors/dynamicscrmonline/).
 
 ## Get support
 

@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.component: common
+ms.subservice: common
 ---
 # Frequently asked questions about Azure Storage migration
 
@@ -301,7 +301,7 @@ To give other people access to the storage resources:
 
 **For a replicated storage account (such as zone-redundant storage, geo-redundant storage, or read-access geo-redundant storage), how do I access data that is stored in the secondary region?**
 
--   If you're using zone-redundant storage or geo-redundant storage, you cannot access data from the secondary region unless a failover occurs. For more information about the failover process, see [What to expect if a storage failover occurs](storage-disaster-recovery-guidance.md#what-to-expect-if-a-storage-failover-occurs).
+-   If you're using zone-redundant storage or geo-redundant storage, you cannot access data from the secondary region unless you initiate a failover to that region. For more information about the failover process, see [Disaster recovery and storage account failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md).
 
 -   If you're using read-access geo-redundant storage, you can access data from the secondary region at any time. Use one of the following methods:  
       
@@ -311,7 +311,7 @@ To give other people access to the storage resources:
 
     - **SAS token**: Use an SAS token to access data from the endpoint. For more information, see [Using shared access signatures](storage-dotnet-shared-access-signature-part-1.md).
 
-**How do I use an HTTPS custom domain with my storage account? For example, how do I make "https://mystorageaccountname.blob.core.windows.net/images/image.gif" appear as "https://www.contoso.com/images/image.gif"?**
+**How do I use an HTTPS custom domain with my storage account? For example, how do I make "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif" appear as "https:\//www.contoso.com/images/image.gif"?**
 
 SSL is not currently supported on storage accounts with custom domains.
 But you can use non-HTTPS custom domains. For more information,

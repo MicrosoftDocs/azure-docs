@@ -88,9 +88,9 @@ A number of **Edit** boxes appear near the various elements of the workbook. Sel
 
 ![Screenshot of edit boxes](./media/resource-group-insights/0009-failure-edit-graph.png)
 
-This reveals the underlying Log Analytics query that is driving the table visualization.
+This reveals the underlying log query that is driving the table visualization.
 
- ![Screenshot of log analytics query window](./media/resource-group-insights/0010-failure-edit-query.png)
+ ![Screenshot of log query window](./media/resource-group-insights/0010-failure-edit-query.png)
 
 You can modify the query directly. Or you can use it as a reference and borrow from it when designing your own custom parameterized workbook.
 

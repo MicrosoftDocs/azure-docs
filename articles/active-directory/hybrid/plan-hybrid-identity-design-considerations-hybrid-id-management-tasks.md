@@ -1,21 +1,22 @@
-﻿---
+---
 title: Hybrid identity design - management tasks Azure | Microsoft Docs
 description: With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application.
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
-ms.component: hybrid
+ms.date: 04/29/2019
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
+ms.collection: M365-identity-device-management
 ---
 # Plan for Hybrid Identity Lifecycle
 Identity is one of the foundations of your enterprise mobility and application access strategy. Whether you are signing on to your mobile device or SaaS app, your identity is the key to gaining access to everything. At its highest level, an identity management solution encompasses unifying and syncing between your identity repositories, which includes automating and centralizing the process of provisioning resources. The identity solution should be a centralized identity across on-premises and cloud and also use some form of identity federation to maintain centralized authentication and securely share and collaborate with external users and businesses. Resources range from operating systems and applications to people in, or affiliated with, an organization. Organizational structure can be altered to accommodate the provisioning policies and procedures.
@@ -25,7 +26,7 @@ It is also important to have an identity solution geared to empower your users b
 ## Determine Hybrid Identity Management Tasks
 Distributing administrative tasks in your organization improves the accuracy and effectiveness of administration and improves the balance of the workload of an organization. Following are the pivots that define a robust identity management system.
 
- ![](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
+ ![identity management considerations](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
 
 To define hybrid identity management tasks, you must understand some essential characteristics of the organization that will be adopting hybrid identity. It is important to understand the current repositories being used for identity sources. By knowing those core elements, you will have the foundational requirements and based on that you will need to ask more granular questions that will lead you to a better design decision for your Identity solution.  
 
@@ -54,7 +55,7 @@ While defining those requirements, ensure that at least the following questions 
 ## Synchronization Management
 One of the goals of an identity manager, to be able to bring all the identity providers and keep them synchronized. You keep the data synchronized based on an authoritative master identity provider. In a hybrid identity scenario, with a synchronized management model, you manage all user and device identities in an on-premises server and synchronize the accounts and, optionally, passwords to the cloud. The user enters the same password on-premises as they do in the cloud, and at sign-in, the password is verified by the identity solution. This model uses a directory synchronization tool.
 
-![](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png)
+![directory sync](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png)
 To proper design the synchronization of your hybrid identity solution ensure that the following questions are answered:
 •    What are the sync solutions available for the hybrid identity solution?
 •    What are the single sign on capabilities available?

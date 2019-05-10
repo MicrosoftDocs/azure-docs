@@ -3,9 +3,9 @@ title: SQLRuleAction syntax reference in Azure | Microsoft Docs
 description: Details about SQLRuleAction grammar.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: 
 ms.service: service-bus-messaging
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 
