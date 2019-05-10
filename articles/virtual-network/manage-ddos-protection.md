@@ -201,6 +201,19 @@ Microsoft has partnered with [BreakingPoint Cloud](https://www.ixiacom.com/produ
 - Document DDoS compliance
 - Train your network security teams
 
+## View DDoS protection alerts in Azure Security Center
+
+Azure Security Center provides a list of [security alerts](/azure/security-center/security-center-managing-and-responding-alerts), with information to help investigate and remediate problems. With this feature, you get a unified view of alerts, including DDoS attack-related alerts and the actions taken to mitigate the attack in near-time.
+There are two specific alerts that you will see for any DDoS attack detection and mitigation:
+
+- DDoS Attack detected: This alert is generated when the DDoS protection service detects that one of your public IP addresses is the target of a DDoS attack.
+- DDoS Attack mitigated: This alert is generated when an attack on the public IP address has been mitigated. 
+To view the alerts, open Security Center in the Azure portal. Under Threat Protection, select Security alerts. The following screenshot shows an example of the DDoS attack alerts.
+
+![DDoS Alert in Azure Security Center](/media/manage-ddos-protection/ddos-alert-asc.png)
+
+The alerts include general information about the public IP address that’s under attack, geo and threat intelligence information, and remediations steps.
+
 ## Permissions
 
 To work with DDoS protection plans, your account must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role that is assigned the appropriate actions listed in the following table:
