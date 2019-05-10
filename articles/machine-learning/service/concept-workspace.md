@@ -42,18 +42,21 @@ The diagram shows the following components of a workspace:
 + Once you have a model you want to deploy, you create a [registered model](concept-azure-machine-learning-architecture.md#model-registry).
 + Use the registered model and a scoring script to create a [deployment](concept-azure-machine-learning-architecture.md#image-registry).
 
+## Tools for workspace interaction
+
+You can interact with your workspace in the following ways:
+
++ On the web:
+    + The [Azure portal](https://azure.portal.com)
+    + The [visual interface (preview)]()
++ In Python using Azure Machine Learning [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
++ On the command line using the Azure Machine Learning [CLI extension](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
 
 ## Machine learning with a workspace
 
 Machine learning tasks read and/or write artifacts to your workspace.  You can perform these tasks:
-+ On the web using
-    + The [Azure portal](https://azure.portal.com)
-    + The [visual interface (preview) for Azure Machine Learning service]()
-+ Using the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-+ Using the [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
 
-
-| Machine Learning Task                      | Web              | SDK        | CLI        |
+| ML task                      | Web              | SDK        | CLI        |
 |---------------------------|------------------|------------|------------|
 | Run an experiment to train a model | **&check;** (visual interface) | **&check;** | **&check;** |
 | Use automated ML to train a model         | **&check;** (portal)           | **&check;** | **&check;** |
@@ -62,26 +65,25 @@ Machine learning tasks read and/or write artifacts to your workspace.  You can p
 | View ML artifacts (experiments, pipelines, models, deployments )  | **&check;** (portal) | **&check;** |            |
 | Manage ML artifacts          | **&check;** (portal)   | **&check;** |
 
-## Manage a workspace
+## Workspace management
 
-Manage your workspace with any of the following:
-+ The [Azure portal](https://azure.portal.com)
-+ The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-+ The [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
+You can also perform the following workspace management tasks:
 
-| Workspace Management Task   | Portal              | SDK        | CLI        |
+| Workspace management task   | Portal              | SDK        | CLI        |
 |---------------------------|------------------|------------|------------|
 | Create a workspace        | **&check;**     | **&check;** | **&check;** |
 | Create and manage compute resources    | **&check;**   | **&check;** |  **&check;**   |
 | Manage workspace access    | **&check;**   | |  **&check;**    |
-| Create Notebook VMs | **&check;**   | |     |
+| Create a notebook VM | **&check;**   | |     |
+
+Get started with the service by [creating a workspace](setup-create-workspace.md).
 
 ## <a name="resources"></a> Associated resources
 
 When you create a new workspace, it automatically creates several Azure resources that are used by the workspace:
 
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that you use during training and when you deploy a model.
-+ [Azure storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.
++ [Azure Storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Stores monitoring information about your models.
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Stores secrets that are used by compute targets and other sensitive information that's needed by the workspace.
 
@@ -92,11 +94,7 @@ When you create a new workspace, it automatically creates several Azure resource
 
 To get started with Azure Machine Learning service, see:
 
-+ [What is Azure Machine Learning service?](overview-what-is-azure-ml.md)
++ [Azure Machine Learning service overview](overview-what-is-azure-ml.md)
 + [Create a workspace](setup-create-workspace.md)
-+ [Create and manage Azure Machine Learning service workspaces](how-to-manage-workspace.md)
-+ The [visual interface (preview) for Azure Machine Learning service]().
-+ [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-+ [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
++ [Manage a workspace](how-to-manage-workspace.md)
 + [Tutorial: Train a model](tutorial-train-models-with-aml.md)
-+ [Tutorial: Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md)
