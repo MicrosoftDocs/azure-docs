@@ -4,7 +4,7 @@ description: Learn how a user can get pre-consent for several resources using th
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
