@@ -20,6 +20,9 @@ ms.author: juliako
 
 Azure Media Services enables you to deliver live events to your customers on the Azure cloud. To configure your live streaming events in Media Services v3, you need to understand concepts discussed in this article. <br/>The list of sections is listed on the right of the page.
 
+> [!TIP]
+> For customers migrating from Media Services v2 APIs, the **Live Event** entity replaces **Channel** in v2 and **Live Output** replaces **Program**.
+
 ## Live Events
 
 [Live Events](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for ingesting and processing the live video feeds. When you create a Live Event, an input endpoint is created that you can use to send a live signal from a remote encoder. The remote live encoder sends the contribution feed to that input endpoint using either the [RTMP](https://www.adobe.com/devnet/rtmp.html) or [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (fragmented-MP4) protocol. For the Smooth Streaming ingest protocol, the supported URL schemes are `http://` or `https://`. For the RTMP ingest protocol, the supported URL schemes are `rtmp://` or `rtmps://`. 
