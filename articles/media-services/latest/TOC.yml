@@ -67,7 +67,7 @@
       href: transforms-jobs-concept.md 
     - name: Job error codes
       href: job-error-codes.md     
-  - name: Packaging, delivery, protection
+  - name: Packaging and delivery
     items:
     - name: Packaging
       items:
@@ -78,21 +78,6 @@
         href: filters-dynamic-manifest-overview.md 
       - name: Filters
         href: filters-concept.md   
-    - name: Dynamic encryption/content protection
-      items:
-      - name: Streaming protocols and encryption types
-        displayName: dynamic, encryption      
-        href: content-protection-overview.md  
-      - name: Multi-DRM system with access control
-        href: design-multi-drm-system-with-access-control.md  
-      - name: DRM licenses
-        items:
-        - name: PlayReady license template
-          href: playready-license-template-overview.md
-        - name: Widevine license template
-          href: widevine-license-template-overview.md
-        - name: FairPlay license requirements
-          href: fairplay-license-overview.md      
     - name: Streaming Endpoints
       displayName: origin, packager, cdn
       href: streaming-endpoint-concept.md
@@ -101,10 +86,25 @@
       href: streaming-locators-concept.md
     - name: Streaming Policies
       href: streaming-policy-concept.md  
-    - name: Content Key Policies
-      href: content-key-policy-concept.md      
     - name: Streaming Endpoint error codes  
-      href: streaming-endpoint-error-codes.md       
+      href: streaming-endpoint-error-codes.md    
+  - name: Dynamic encryption/content protection
+    items:
+    - name: Streaming protocols and encryption types
+      displayName: dynamic, encryption      
+      href: content-protection-overview.md  
+    - name: Multi-DRM system with access control
+      href: design-multi-drm-system-with-access-control.md  
+    - name: DRM licenses
+      items:
+      - name: PlayReady license template
+        href: playready-license-template-overview.md
+      - name: Widevine license template
+        href: widevine-license-template-overview.md
+      - name: FairPlay license requirements
+        href: fairplay-license-overview.md            
+    - name: Content Key Policies
+      href: content-key-policy-concept.md              
   - name: Live streaming 
     items:
     - name: Overview
