@@ -14,7 +14,7 @@ ms.subservice: common
 
 # Using the Azure Storage REST API
 
-This article shows you how to use the Blob Storage Service REST APIs and how to authenticate the call to the service. It is written from the point of view of a developer who knows nothing about REST and no idea how to make a REST call. We look at the reference documentation for a REST call and see how to translate it into an actual REST call – which fields go where? After learning how to set up a REST call, you can leverage this knowledge to use any of the other Storage Service REST APIs.
+This article shows you how to use the Blob Storage Service REST APIs and how to authenticate the call to the service. It's written from the point of view of a developer who knows nothing about REST and no idea how to make a REST call. We look at the reference documentation for a REST call and see how to translate it into an actual REST call – which fields go where? After learning how to set up a REST call, you can leverage this knowledge to use any of the other Storage Service REST APIs.
 
 ## Prerequisites 
 
@@ -45,9 +45,9 @@ This command clones the repository to your local git folder. To open the Visual 
 
 REST means *representational state transfer*. For a specific definition, check out [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer).
 
-Basically, REST is an architecture you can use when calling APIs or making APIs available to be called. It is independent of what's happening on either side, and what other software is being used when sending or receiving the REST calls. You can write an application that runs on a Mac, Windows, Linux, an Android phone or tablet, iPhone, iPod, or web site, and use the same REST API for all of those platforms. Data can be passed in and/or out when the REST API is called. The REST API doesn't care from what platform it's called – what's important is the information passed in the request and the data provided in the response.
+Basically, REST is an architecture you can use when calling APIs or making APIs available to be called. It's independent of what's happening on either side, and what other software is used when sending or receiving the REST calls. You can write an application that runs on a Mac, Windows, Linux, an Android phone or tablet, iPhone, iPod, or web site, and use the same REST API for all of those platforms. Data can be passed in and/or out when the REST API is called. The REST API doesn't care from what platform it's called – what's important is the information passed in the request and the data provided in the response.
 
-Knowing how to use REST is a useful skill. The Azure product team frequently releases new features. Many times, the new features are accessible through the REST interface. Sometimes, though, the features haven't yet been surfaced through **all** of the storage client libraries or the UI (such as the Azure portal). If you always want to use the latest and greatest, learning REST is a requirement. Also, if you want to write your own library to interact with Azure Storage, or you want to access Azure Storage with a programming language that does not have an SDK or storage client library, you can use the REST API.
+Knowing how to use REST is a useful skill. The Azure product team frequently releases new features. Many times, the new features are accessible through the REST interface. Sometimes, though, the features haven't surfaced through **all** of the storage client libraries or the UI (such as the Azure portal). If you always want to use the latest and greatest, learning REST is a requirement. Also, if you want to write your own library to interact with Azure Storage, or you want to access Azure Storage with a programming language that does not have an SDK or storage client library, you can use the REST API.
 
 ## About the sample application
 
@@ -58,7 +58,7 @@ API](/rest/api/storageservices/Blob-Service-REST-API), you see all of the operat
 
 ## REST API Reference: List Containers API
 
-Let's look at the page in the REST API Reference for the [ListContainers](/rest/api/storageservices/List-Containers2) operation so you understand where some of the fields come from in the request and response in the next section with the code.
+Let's look at the page in the REST API Reference for the [ListContainers](/rest/api/storageservices/List-Containers2) operation. This information will help you understand where some of the fields come from in the request and response.
 
 **Request Method**: GET. This verb is the HTTP method you specify as a property of the request object. Other values for this verb include HEAD, PUT, and DELETE, depending on the API you are calling.
 
@@ -91,7 +91,7 @@ This field is an XML structure providing the data requested. In this example, th
 
 ## Creating the REST request
 
-A couple of notes before starting – for security when running in production, always use HTTPS rather than HTTP. For the purposes of this exercise, you should use HTTP so you can view the request and response data. To view the request and response information in the actual REST calls, you can download [Fiddler](https://www.telerik.com/fiddler) or a similar application. In the Visual Studio solution, the storage account name and key are hardcoded in the class, and the ListContainersAsyncREST method passes the storage account name and storage account key to the methods that are used to create the various components of the REST request. In a real world application, the storage account name and key would reside in a configuration file, environment variables, or be retrieved from an Azure Key Vault.
+A couple of notes before starting – for security when running in production, always use HTTPS rather than HTTP. For the purposes of this exercise, you should use HTTP so you can view the request and response data. To view the request and response information in the actual REST calls, you can download [Fiddler](https://www.telerik.com/fiddler) or a similar application. In the Visual Studio solution, the storage account name and key are hardcoded in the class. The ListContainersAsyncREST method passes the storage account name and storage account key to the methods that are used to create the various components of the REST request. In a real world application, the storage account name and key would reside in a configuration file, environment variables, or be retrieved from an Azure Key Vault.
 
 In our sample project, the code for creating the Authorization header is in a separate class. The idea is that you could take the whole class and add it to your own solution and use it "as is." The Authorization header code works for most REST API calls to Azure Storage.
 
@@ -361,7 +361,7 @@ This part of the signature string represents the storage account targeted by the
 /contosorest/\ncomp:list
 ```
 
-If you have query parameters, this example includes those parameters as well. Here's the code, which also handles additional query parameters and query parameters with multiple values. Remember that you're building this code to work for all of the REST APIs, so you want to include all possibilities, even if the ListContainers method doesn't need all of them.
+If you have query parameters, this example includes those parameters as well. Here's the code, which also handles additional query parameters and query parameters with multiple values. Remember that you're building this code to work for all of the REST APIs. You want to include all possibilities, even if the ListContainers method doesn't need all of them.
 
 ```csharp 
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
@@ -431,7 +431,7 @@ SharedKey contosorest:Ms5sfwkA8nqTRw7Uury4MPHqM6Rj2nfgbYNvUKOa67w=
 
 The AuthorizationHeader is the last header placed in the request headers before posting the response.
 
-That covers everything you need to know, along with the code, to put together a class you can use to create a request to be used to call the Storage Services REST APIs.
+That covers everything you need to know to put together a class with which you can create a request to call the Storage Services REST APIs.
 
 ## How about another example? 
 
@@ -567,7 +567,7 @@ Content-Length: 1135
 
 ## Summary
 
-In this article, you learned how to make a request to the blob storage REST API to retrieve a list of containers or a list of blobs in a container. You also learned how to create the authorization signature for the REST API call, how to use it in the REST request, and how to examine the response.
+In this article, you learned how to make a request to the blob storage REST API. With the request, you can retrieve a list of containers or a list of blobs in a container. You learned how to create the authorization signature for the REST API call and how to use it in the REST request. Finally, you learned how to examine the response.
 
 ## Next steps
 

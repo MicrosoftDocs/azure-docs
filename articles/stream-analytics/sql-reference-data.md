@@ -59,6 +59,7 @@ Use the following steps to add Azure SQL Database as a reference input source us
 
    * Visual Studio 2015
    * Visual Studio 2017
+   * Visual Studio 2019
 
 3. Become familiar with the [Stream Analytics tools for Visual Studio](stream-analytics-quick-create-vs.md) quickstart.
 
@@ -112,7 +113,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. Open the SQL file in the editor and write the SQL query.
 
-5. If you are using Visual Studio 2017 and you have installed SQL Server Data tools, you can test the query by clicking **Execute**. A wizard window will pop up to help you connect to the SQL database and the query result will appear in the window at the bottom.
+5. If you are using Visual Studio 2017 or 2019, and you have installed SQL Server Data tools, you can test the query by clicking **Execute**. A wizard window will pop up to help you connect to the SQL database and the query result will appear in the window at the bottom.
 
 ### Specify storage account
 
