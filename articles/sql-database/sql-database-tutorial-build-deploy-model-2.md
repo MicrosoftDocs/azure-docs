@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to train two predictive models in R with Azur
 
 This tutorial is **part two of a three-part tutorial series**.
 
-In part two, you learn how to:
+In part two, you'll learn how to:
 
 > [!div class="checklist"]
 > * Train two machine learning models
@@ -42,7 +42,7 @@ In [part three](sql-database-tutorial-build-deploy-model-2.md), you'll learn how
 
 In the *model training phase*, you find a function (*model*) that best describes the dependency between the variables in the dataset. This is typically done by using a subset of the entire dataset as training data. It's also common to train and compare multiple models in order to find the one that fits the data best.
 
-To find the best model for the ski rental data, create two different models and see which one is predicting more accurately.
+To find the best model for the ski rental data, create two different models and see which one is predicting more accurately. You'll use the data frame `rentaldata` that you created in part one of this series.s
 
 ```r
 #First, split the dataset into 2 different sets:

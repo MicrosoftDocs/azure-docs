@@ -103,9 +103,9 @@
     items:
     - name: Build and deploy a predictive model
       items:
-      - name: 1- Prepare the database
+      - name: 1 - Prepare the data
         href: sql-database-tutorial-build-deploy-model-1.md
-      - name: 2 - Build the model
+      - name: 2 - Create the model
         href: sql-database-tutorial-build-deploy-model-2.md
       - name: 3 - Deploy the model
         href: sql-database-tutorial-build-deploy-model-3.md

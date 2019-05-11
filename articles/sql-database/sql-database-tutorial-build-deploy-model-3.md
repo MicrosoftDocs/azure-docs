@@ -23,7 +23,7 @@ Azure SQL Database Machine Learning Services enables you to train and test predi
 
 This tutorial is **part three of a three-part tutorial series**.
 
-In part three, you learn how to:
+In part three, you'll learn how to:
 
 > [!div class="checklist"]
 > * Store the predictive model in a database table

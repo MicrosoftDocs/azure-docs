@@ -17,20 +17,20 @@ ms.date: 05/02/2019
 
 # Tutorial: Prepare data to train a predictive model in R with Azure SQL Database Machine Learning Services (preview)
 
-In this tutorial, you'll learn how to import a sample database into an Azure SQL database. Then you'll prepare the data to be used for training a predictive model in R.
-
-Predictive modeling is a powerful way to add intelligence to your application. It enables applications to predict outcomes against new data. The act of incorporating predictive analytics into your applications involves three major phases: **data preparation**, **model training**, and **model deployment**.
+In this tutorial, you'll learn how to import a sample database into an Azure SQL database and prepare the data to be used for training a predictive model in R.
 
 For this tutorial series, imagine you own a ski rental business and you want to predict the number of rentals that you'll have on a future date. This information will help you get your stock, staff, and facilities ready.
 
+Predictive modeling is a powerful way to add intelligence to your application. It enables applications to predict outcomes against new data. Predictive analytics involves three basic phases: **data preparation**, **model training**, and **model deployment**.
+
 This tutorial is **part one of a three-part tutorial series**.
 
-In part one, you learn how to:
+In part one, you'll learn how to:
 
 > [!div class="checklist"]
 > * Import a database backup file into an Azure SQL database
 > * Load the data from the Azure SQL database into a data frame using R
-> * Prepare the data by identifying some columns as categories
+> * Prepare the data by identifying some columns as categorical
 
 In [part two](sql-database-tutorial-build-deploy-model-2.md), you'll learn how to create and train multiple models, and then choose the most accurate one.
 
@@ -58,7 +58,7 @@ The dataset used in this tutorial is hosted in a SQL database table that contain
  
 The first thing to do is import the TutorialDB database into your own Azure SQL database.
 
-> NOTE TO ME: Add a screenshot of the "Import database" blade with info filled in.
+> NOTE TO ME: Add a screenshot of the "Import database" blade with info filled in, and/or an animated gif of the parts/all of the sequence.
 
 1. Download the file [TutorialDB.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/TutorialDB.bacpac) to your local computer.
 1. In the Azure portal, select **All services**, search for and select **SQL servers**, and then select your SQL server or create a new one.
