@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Train a model and extract form data using cURL - Form Recognizer"
+title: "Quickstart: Train a model and extract form data by using cURL - Form Recognizer"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you will use the Form Recognizer REST API with cURL to train a model and extract data from forms.
+description: In this quickstart, you'll use the Form Recognizer REST API with cURL to train a model and extract data from forms.
 author: PatrickFarley
 manager: nitinme
 
@@ -13,18 +13,18 @@ ms.author: pafarley
 #Customer intent: As a developer or data scientist familiar with cURL, I want to learn how to use Form Recognizer to extract my form data.
 ---
 
-# Quickstart: Train a Form Recognizer model and extract form data using REST API with cURL
+# Quickstart: Train a Form Recognizer model and extract form data by using the REST API with cURL
 
-In this quickstart, you will use the Form Recognizer's REST API with cURL to train and score forms to extract key-value pairs and tables.
+In this quickstart, you'll use the Form Recognizer's REST API with cURL to train and score forms to extract key-value pairs and tables.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-- You got access to the Form Recognizer limited-access preview. To get access to the preview, please fill out and submit the [Cognitive Services Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
+- You must have access to the Form Recognizer limited-access preview. To get access to the preview, please fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - You must have [cURL](https://curl.haxx.se/windows/).
-- You must have a subscription key for Form Recognizer. Follow the single-service subscription instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) to subscribe to Form Recognizer and get your key. Do not use the multi-service subscription, as this will not include the Form Recognizer service.
-- You must have a minimum set of five forms of the same type. You can use a [sample dataset](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart.
+- You must have a subscription key for Form Recognizer. Follow the single-service subscription instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) to subscribe to Form Recognizer and get your key. Don't use a multi-service subscription, because it won't include the Form Recognizer service.
+- You must have a set of at least five forms of the same type. You can use a [sample dataset](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart.
 
 ## Train a Form Recognizer model
 
