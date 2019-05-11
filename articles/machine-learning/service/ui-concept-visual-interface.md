@@ -18,15 +18,17 @@ ms.custom: seodec18
 
 The visual interface (preview) for Azure Machine Learning service enables you to prep data, train, test, deploy, manage, and track machine learning models without writing code.
 
+The visual interface uses the compute resources in Azure Machine Learning service to train and deploy the model.
+
+![Overview of the visual interface](media/ui-concept-visual-interface/overview.png)
+
+## Workflow
+
 You typically use data from one or more sources to develop a predictive analysis model.  You transform and analyze the data through various data manipulation and statistical functions, then generate a set of results. This process is an iterative one. Modify the various functions and their parameters until you are satisfied that you have trained an effective model.
 
 The visual interface gives you an interactive, visual workspace to quickly build, test, and iterate on a model. You drag-and-drop **datasets** and analysis **modules** onto an interactive canvas, connecting them together to form an **experiment**. Then run the experiment using the compute resource of the Machine Learning Service workspace. To iterate on your model design, you edit the experiment, save a copy if desired, and run it again. When you're ready, convert your **training experiment** to a **predictive experiment**.   Then  deploy the predictive experiment as a **web service** so that your model can be accessed by others.
 
 There is no programming required, you visually connect datasets and modules to construct your model.
-
-The visual interface uses the compute resources in Azure Machine Learning service to train and deploy the model.
-
-![Overview of the visual interface](media/ui-concept-visual-interface/overview.png)
 
 ## Experiment
 
@@ -48,8 +50,8 @@ For an example of a simple experiment, see [Quickstart: Prepare and visualize da
 
 For a more complete walkthrough of a predictive analytics solution, see [Tutorial: Predict automobile price with the visual interface](ui-tutorial-automobile-price-train-score.md)
 
-
 ## Compute target
+
 A compute target is the compute resource that you use to run your experiment or host your service deployment. The supported compute targets are: 
 
 
@@ -67,7 +69,6 @@ Once your predictive analytics model is ready, you can deploy it as a web servic
 The web services provide an interface between an application and the visual interface workflow scoring model. An external application can communicate with the workflow scoring model in real time. A call to a web service returns prediction results to an external application. To make a call to a web service, you pass an API key that was created when you deployed the web service. The web service is based on REST, a popular architecture choice for web programming projects.
 
 To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the visual interface](ui-tutorial-automobile-price-deploy.md).
-
 
 ## Datasets
 
