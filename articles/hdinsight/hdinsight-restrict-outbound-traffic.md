@@ -19,10 +19,6 @@ The HDInsight outbound dependencies are almost entirely defined with FQDNs, whic
 
 The solution to securing outbound addresses lies in use of a firewall device that can control outbound traffic based on domain names. Azure Firewall can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination.
 
-> [!Important]
-> Change the picture to show HDInsight cluster
-![Title: ASE with Azure Firewall connection flow](./media/hdinsight-restrict-outbound-traffic/image002.png)
-
 ## Configuring Azure Firewall with HDInsight
 
 A summary of the steps to lock down egress from your existing HDInsight with Azure Firewall are:
@@ -219,7 +215,7 @@ The following information is ONLY required if you wish to configure a network vi
 #### FQDN HTTP/HTTPS dependencies
 
 >[!Important]
-> You can get the full list of FQDNs for configuring your NVA [in this file](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
+> The list below only gives a few of the most important FQDNs. You can get the full list of FQDNs for configuring your NVA [in this file](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
 
 | **Endpoint**                                                          |
 |---|
