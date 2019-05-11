@@ -63,7 +63,7 @@ The sample NSG in the following table locks down secure LDAP access over the int
 * [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
 * [Manage an Azure AD Domain Services domain](manage-domain.md)
 * [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx)
-* [Administer Group Policy on an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
+* [Manage Group Policy for Azure AD Domain Services](manage-group-policy.md)
 * [Network security groups](../virtual-network/security-overview.md)
 * [Create a Network Security Group](../virtual-network/tutorial-filter-network-traffic.md)
 

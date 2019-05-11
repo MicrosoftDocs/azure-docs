@@ -78,6 +78,6 @@ Now that you have created a custom OU, you can go ahead and create users, groups
 
 ## Related Content
 * [Manage an Azure AD Domain Services domain](manage-domain.md)
-* [Configure Group Policy on a managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
+* [Manage Group Policy for Azure AD Domain Services](manage-group-policy.md)
 * [Active Directory Administrative Center: Getting Started](https://technet.microsoft.com/library/dd560651.aspx)
 * [Service Accounts Step-by-Step Guide](https://technet.microsoft.com/library/dd548356.aspx)

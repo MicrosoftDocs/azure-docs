@@ -3,7 +3,7 @@ title: 'Azure AD Domain Services: Compare Azure AD Domain Services to DIY domain
 description: Comparing Azure Active Directory Domain Services to DIY domain controllers
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/07/2017
-ms.author: ergreenl
+ms.date: 05/10/2019
+ms.author: mstephen
 
 ---
 # How to decide if Azure AD Domain Services is right for your use-case
@@ -93,7 +93,7 @@ The managed domain is read-only for user objects. Therefore, applications that p
 
 #### Group policy
 There is a built-in GPO each for the "AADDC Computers" and "AADDC Users" containers. You can customize these built-in GPOs to configure group policy. Members of the 'AAD DC Administrators' group can also create custom GPOs and link them to existing OUs (including custom OUs).
-[More information](active-directory-ds-admin-guide-administer-group-policy.md)
+[More information](manage-group-policy.md)
 
 #### Geo-dispersed deployments
 Azure AD Domain Services managed domains are available in a single virtual network in Azure. For scenarios that require domain controllers to be available in multiple Azure regions across the world, setting up domain controllers in Azure IaaS VMs might be the better alternative.

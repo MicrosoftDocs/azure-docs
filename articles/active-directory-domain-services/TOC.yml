@@ -51,15 +51,15 @@
           href: active-directory-ds-admin-guide-create-ou.md
         - name: Create a group managed service account on a managed domain
           href: active-directory-ds-create-gmsa.md
-        - name: Administer group policy on a managed domain
-          href: active-directory-ds-admin-guide-administer-group-policy.md
+        - name: Manage Group Policy forAzure AD Domain Services
+          href: manage-group-policy.md
         - name: Configure password polices on a managed domain
           href: active-directory-ds-password-policy.md
         - name: Delete a managed domain
           href: active-directory-ds-disable-aadds.md
         - name: Create an Azure AD DS administrative virtual machine
           href: manage-domain.md
-        - name: Administer DNS on a managed domain
+        - name: Manage DNS for Azure AD Domain Services
           href: manage-dns.md
         - name: Update email notifications
           href: active-directory-ds-notifications.md
