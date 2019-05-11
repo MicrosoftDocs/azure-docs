@@ -90,15 +90,17 @@ For Trend Micro, Azure Security Center checks only Discovery. No health assessme
 
 ### Discovery
 
-1. HKLM:\SOFTWARE\TrendMicro\Deep Security Agent exists 
-1. HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder exists 
-1. dsq_query.cmd file is found in Installation Folder
+1. **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** exists 
+1. **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** exists
+1. **dsq_query.cmd** file is found in Installation Folder
 1. Run **dsa_query.cmd**
 1. `Component.AM.mode: on` - Trend Micro Deep Security Agent detected.
 
 ### Threat status
+
 For Trend Micro, there are threat detection and health discovery. You can treat them as 2 different events.
-we will first check is there any threat detected on the machine by querying event id 9501 in Deep Security Agent event log.
+
+We will first check is there any threat detected on the machine by querying event id 9501 in Deep Security Agent event log.
 If yes, we will send an event like below:
 
 Protection status will always be 550 if there is threat detected
@@ -111,104 +113,127 @@ threatRank = 470
 threatStatus = Unknown
 threatStatusDetails = Unknown
 
-if scan action for the threat is delete
-threatRank = 370 
+If scan action for the threat is delete: <!--Redo this statement-->
+threatRank = 370
 threatStatus = Remediated
 threatStatusDetails = Remediated
 
 If customers would like to see is there any threat detected on the machine, they can filter log by protectionRank = 550
 
 ### Health Assessment
+
 Then we will collect one more record for the current protection status of the machine
-Threat status and rank are always unknown for Trend Micro in this event. 
+Threat status and rank are always unknown for Trend Micro in this event.
 
 ## Symantec Endpoint Protection
+
 For Symantec, windows registry values are used for detection and health assessment
 
 ### Discovery
+
 1. HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"
 
-2. HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1 
+1. HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1 
 
 Or 
 
-1. HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"
+1. **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME** = **"Symantec Endpoint Protection"**
 
-2. HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1
+2. **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus** = **1**
 
 ### Health Assessment
-Real time protection enabled is evaluated based on following checks,
-1. Check Symantec Version >= 12, registry location: HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION";
-2. Check Real Time Protection status - HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff == 1
-3. Check Signature Update status - HKLM\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LatestVirusDefsDate <= 7 days
-4. Check Full Scan status - HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime <= 7 days
-5. Find signature version number
-	 Path to signature version for Symantec 12: Registry Paths+ "CurrentVersion\SharedDefs" -Value "SRTSP"
-	 Path to signature version for Symantec 14: Registry Paths+ "CurrentVersion\SharedDefs\SDSDefs" -Value "SRTSP"
 
-Registry Paths:
- "HKLM:\Software\Symantec\Symantec Endpoint Protection\" + $Path;
- "HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\" + $Path
+Real time protection enabled is evaluated based on following checks:
+
+1. Check **Symantec Version** >= **12**, registry location: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**;
+
+1. Check Real Time Protection status - **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff** == **1**
+
+1. Check Signature Update status - **HKLM\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LatestVirusDefsDate** <= **7 days**
+
+1. Check Full Scan status - **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime** <= **7 days**
+
+1. Find signature version number:
+
+     * Path to signature version for Symantec 12: **Registry Paths+ "CurrentVersion\SharedDefs" -Value "SRTSP"**
+
+     * Path to signature version for Symantec 14: **Registry Paths+ "CurrentVersion\SharedDefs\SDSDefs" -Value "SRTSP"**
+
+    * Registry Paths: **"HKLM:\Software\Symantec\Symantec Endpoint Protection\" + $Path;**
+    **"HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\" + $Path**
 
 ## McAfee Endpoint Protection for Windows
-For McAfee, windows registry values are used for detection and health assessment
+
+For McAfee, windows registry values are used for detection and health assessment.
 
 ### Discovery
-1. HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion exists
+1. **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** exists
 
-2. HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1
-
+2. **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas** = **1**
 
 ### Health Assessment
-1. McAfee Verion HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion >= 10
-2. Find Signature Version at HKLM:\Software\McAfee\AVSolution\DS\DS -Value "dwContentMajorVersion"
-3. Find Signature date at HKLM:\Software\McAfee\AVSolution\DS\DS -Value "szContentCreationDate" >= 7 days
-4. Find Scan date at HKLM:\Software\McAfee\Endpoint\AV\ODS -Value "LastFullScanOdsRunTime" >= 7 days
+1. McAfee Verion **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** >= **10**
+1. Find Signature Version at **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "dwContentMajorVersion"**
+1. Find Signature date at **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "szContentCreationDate"** >= **7 days**
+1. Find Scan date at **HKLM:\Software\McAfee\Endpoint\AV\ODS -Value "LastFullScanOdsRunTime"** >= **7 days**
 
 ## McAfee Endpoint Protection for Linux
-For McAfee Linux, commands and logs are used for detection and health assessment
+
+For McAfee Linux, commands and logs are used for detection and health assessment.
 
 ### Discovery
-1. File /opt/isec/ens/threatprevention/bin/isecav exits
-2. Successfully run "/opt/isec/ens/threatprevention/bin/isecav --version"
-3. From the output from command in step 2 : McAfee name = McAfee Endpoint Security for Linux Threat Prevention
-4. From the output from command in step 2 : McAfee version >= 10
+
+1. File **/opt/isec/ens/threatprevention/bin/isecav** exits
+1. Successfully run **"/opt/isec/ens/threatprevention/bin/isecav --version"**
+1. From the output from command in step 2: **McAfee name** = **McAfee Endpoint Security for Linux Threat Prevention**
+1. From the output from command in step 2: **McAfee version** >= **10**
 
 ### Health Assessment
-1. Run "/opt/isec/ens/threatprevention/bin/isecav --version" to get mcafeeVersion, datVersion, datTime, engineVersion
-2. Run "/opt/isec/ens/threatprevention/bin/isecav --listtask" to get Quick scan, Full scan and DAT and engine Update time.
+
+1. Run **"/opt/isec/ens/threatprevention/bin/isecav --version"** to get **mcafeeVersion**, **datVersion**, **datTime**, **engineVersion**
+2. Run **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** to get Quick scan, Full scan and DAT and engine Update time.
    One of the scan needs >= 7 days, DAT and engine Update time >= 7 days
-3. Run "/opt/isec/ens/threatprevention/bin/isecav --getoasconfig --summary" to get On Access Scan status and GTI status
+3. Run **"/opt/isec/ens/threatprevention/bin/isecav --getoasconfig --summary"** to get On Access Scan status and GTI status
    On Access Scan = On
-4. Run "/opt/isec/ens/threatprevention/bin/isecav --getapstatus" to get Access Protection
+4. Run **"/opt/isec/ens/threatprevention/bin/isecav --getapstatus"** to get Access Protection
 
 ## Sophos Anti-Virus for Linux
+
 For Sophos Linux, commands and logs are used for detection and health assessment
 
 ### Discovery
-1. File /opt/sophos-av/bin/savdstatus exits or search for customized location "find / -iname savdstatus | grep /bin/savdstatus"
-2. Successfully run "/opt/sophos-av/bin/savdstatus --version"
-3. From the output from command in step 2 : Sophos name = Sophos Anti-Virus
-4. From the output from command in step 2 : Sophos version >= 9
+
+1. Check if the file **/opt/sophos-av/bin/savdstatus** exits or search for the customized location **"find / -iname savdstatus | grep /bin/savdstatus"**
+
+1. Successfully run **"/opt/sophos-av/bin/savdstatus --version"**
+
+1. From the output from command in step 2: **Sophos name** = **Sophos Anti-Virus**
+
+1. From the output from command in step 2: **Sophos version** >= **9**
 
 ### Health Assessment
-1. Run "/opt/sophos-av/bin/savdstatus --version" to get Sophos buildRevision, threatDetectionEngine, threatData, threatCount, threatDataRelease and lastUpdate 
-2. Run "/opt/sophos-av/bin/savdstatus --lastupdate" to get lastUpdate >= 7 days
-3. Run "/opt/sophos-av/bin/savdstatus -v" to get On access scanning status and it is not equal to "On-access scanning is not running"
-4. Run "/opt/sophos-av/bin/savconfig get LiveProtection" to check it is enabled or not
-5. Run "/opt/sophos-av/bin/savdstatus --rms" to get remote managment status
-6. Run "/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished" | tail -1" to get On demand scan date within past 7 days
-   Run "/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .* completed" | tail -1" to get scheduled scan date within past 7 days
-   One of On demand scan and scheduled scan needs to be happened within past 7 days
+
+1. Run **"/opt/sophos-av/bin/savdstatus --version"** to get Sophos **buildRevision**, **threatDetectionEngine**, **threatData**, **threatCount**, **threatDataRelease** and **lastUpdate**. <!--What is Sophos?-->
+
+1. Run **"/opt/sophos-av/bin/savdstatus --lastupdate"** to get lastUpdate >= 7 days
+
+1. Run **"/opt/sophos-av/bin/savdstatus -v"** to get On access scanning status and it is not equal to "On-access scanning is not running"
+
+1. Run **"/opt/sophos-av/bin/savconfig get LiveProtection"** to check it is enabled or not.
+
+1. Run "**/opt/sophos-av/bin/savdstatus --rms"** to get remote managment status.
+
+1. Run **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished" | tail -1"** to get On demand scan date within past 7 days
+1. Run **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .* completed" | tail -1"** to get scheduled scan date within the past 7 days. One of **On demand** scan and scheduled scan needs to be happened within past 7 days.
 
    
 ## Troubleshoot and support
 
 ### Troubleshoot
 
-Microsoft Antimalware extension logs are available at - %Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware(Or PaaSAntimalware)\1.5.5.x(version#)\CommandExecution.log
+Microsoft Antimalware extension logs are available at - 
 
-
+**%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware(Or PaaSAntimalware)\1.5.5.x(version#)\CommandExecution.log**
 
 ### Support
 
