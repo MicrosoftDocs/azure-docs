@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2019
+ms.date: 05/11/2019
 ms.author: monhaber
 ---
 
@@ -21,79 +21,80 @@ ms.author: monhaber
 
 ## Overview
 
-Endpoint Protection evaluation in Azure Security Center is capable of detect and provide health assessment of [supported](https://docs.microsoft.com/en-us/azure/security-center/security-center-os-coverage#supported-platforms-for-windows-computers-and-vms) versions of Microsoft and non-Microsoft solutions. 
-This document elaborates how the discovery and health assessment is performed and how you can troubleshoot.
-       
+Endpoint Protection evaluation in Azure Security Center detects and provides health assessment of [supported](https://docs.microsoft.com/en-us/azure/security-center/security-center-os-coverage#supported-platforms-for-windows-computers-and-vms) versions of Microsoft and non-Microsoft solutions. This document elaborates how the discovery and health assessment is performed and the steps to take to troubleshoot when a problem is found.
 
 ## Windows Defender
 
 ### Discovery
 
-1. Run [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) and result exists
-2. Check for `AMServiceEnabled : True`
-
+1. Run [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) and result exists<!--Rephrase this sentence - is it "and if there is a result, then check...."? -->
+1. Check for 'AMServiceEnabled: True'
 
 ### Health Assessment
+
 1. Run [Get-MpComputerStatus](https://docs.microsoft.com/en-us/powershell/module/defender/get-mpcomputerstatus?view=win10-ps)
-1. No real time protection status checks all conditions below
+1. No real time protection status checks all conditions below<!--Rephrase this sentence -->
 
-  AMServiceEnabled   	           : True
+      `AMServiceEnabled: True`
 
-  AntispywareEnabled              : True
+      `AntispywareEnabled: True`
 
-  RealTimeProtectionEnabled       : True
+      `RealTimeProtectionEnabled: True`
 
-  BehaviorMonitorEnabled          : True
+     `BehaviorMonitorEnabled: True`
 
-  IoavProtectionEnabled           : True
-  
-  OnAccessProtectionEnabled       : True
+      `IoavProtectionEnabled : True`
 
-3. Check Signature Update status
+      `OnAccessProtectionEnabled: True`
 
-  AntispywareSignatureAge        >= 7 days
+1. Check Signature Update status
 
-  AntivirusSignatureAge          >= 7 days
-
+      `AntispywareSignatureAge >= 7 days`
+    
+      `AntivirusSignatureAge >= 7 days`
+    
 ## Microsoft System Center Endpoint Protection
 
 ### Discovery
-1. Import SCEPMpModule "$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1"
-2. Run Get-MProtComputerStatus and result exists
-3. Check `AMServiceEnabled = true`
 
-### Health Assessment
-1. Run Get-MprotComputerStatus 
-2. Real time protection status checks all conditions below
-   
-  AMServiceEnabled   	            : True
+1. Import **SCEPMpModule "$env:ProgramFiles\Microsoft Security Client\MpProvider\MpProvider.psd1**
 
-  AntispywareEnabled              : True
+1. Run **Get-MProtComputerStatus** and result exists<!--Rephrase this sentence-->
 
-  RealTimeProtectionEnabled       : True
+1. Check `AMServiceEnabled = true`
 
-  BehaviorMonitorEnabled          : True
+## Health Assessment
 
-  IoavProtectionEnabled           : True
+1. Run **Get-MprotComputerStatus**
+1. Real time protection status checks all conditions below:
 
-  OnAccessProtectionEnabled       : True
+      `AMServiceEnabled: True`
 
+      `AntispywareEnabled: True`
+
+      `BehaviorMonitorEnabled: True`
+
+      `IoavProtectionEnabled: True`
+
+      `OnAccessProtectionEnabled: True`
+    
 3. Check Signature Update status
 
-  AntispywareSignatureAge        >= 7 days
-
-  AntivirusSignatureAge          >= 7 days
-
+      `AntispywareSignatureAge >= 7 daysv`
+    
+      `AntivirusSignatureAge >= 7 days`
+    
 ## Trend Micro
-For Trend Micro, Azure Security Center check only Discovery. No health assessment
+
+For Trend Micro, Azure Security Center checks only Discovery. No health assessments
 
 ### Discovery
 
 1. HKLM:\SOFTWARE\TrendMicro\Deep Security Agent exists 
-2. HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder exists 
-3. dsq_query.cmd file is found in Installation Folder
-4. Run dsa_query.cmd
-5. Component.AM.mode: on - Trend Micro Deep Security Agent detected    
+1. HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder exists 
+1. dsq_query.cmd file is found in Installation Folder
+1. Run **dsa_query.cmd**
+1. `Component.AM.mode: on` - Trend Micro Deep Security Agent detected.
 
 ### Threat status
 For Trend Micro, there are threat detection and health discovery. You can treat them as 2 different events.
