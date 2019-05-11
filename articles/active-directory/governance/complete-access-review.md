@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/10/2019
+ms.date: 05/11/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -26,7 +26,10 @@ As an administrator, you [create an access review of groups or applications](cre
 
 ## Prerequisites
 
+- Azure AD Premium P2
 - Global administrator, User administrator, Security administrator, or Security reader
+
+For more information, see [Which users must have licenses?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## View an access review
 

@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/10/2019
+ms.date: 05/11/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -25,8 +25,11 @@ This article describes how to create one or more access reviews for group member
 
 ## Prerequisites
 
+- Azure AD Premium P2
 - [Access reviews enabled](access-reviews-overview.md)
 - Global administrator or User administrator
+
+For more information, see [Which users must have licenses?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## Create one or more access reviews
 
