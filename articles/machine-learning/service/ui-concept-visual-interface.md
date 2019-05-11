@@ -66,7 +66,7 @@ Compute targets are attached to your Machine Learning [workspace](concept-worksp
 
 Once your predictive analytics model is ready, you can deploy it as a web service right from the visual interface.
 
-The web services provide an interface between an application and the visual interface workflow scoring model. An external application can communicate with the workflow scoring model in real time. A call to a web service returns prediction results to an external application. To make a call to a web service, you pass an API key that was created when you deployed the web service. The web service is based on REST, a popular architecture choice for web programming projects.
+The web services provide an interface between an application and your scoring model. An external application can communicate with the scoring model in real time. A call to a web service returns prediction results to an external application. To make a call to a web service, you pass an API key that was created when you deployed the web service. The web service is based on REST, a popular architecture choice for web programming projects.
 
 To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the visual interface](ui-tutorial-automobile-price-deploy.md).
 
