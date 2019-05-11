@@ -20,7 +20,7 @@ ms.author: cynthn
 [!INCLUDE [virtual-machines-common-ppg-overview](../../../includes/virtual-machines-common-ppg-overview.md)]
 
 ## CLI
-Create a proximity placement group using [az ppg create](/cli/azure/ppg#az-ppg-create). 
+Create a proximity placement group using [`az ppg create`](/cli/azure/ppg#az-ppg-create). 
 
 ```azurecli-interactive
 az ppg create \

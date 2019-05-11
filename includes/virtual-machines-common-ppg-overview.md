@@ -16,8 +16,8 @@ A Proximity Placement Group (PPG) is a logical grouping used to make sure that A
 
 - Low latency between stand-alone VMs.
 - Low Latency between VMs in a single availability set or a virtual machine scale set. 
-- Low latency between sand-alone VMs, VMs in multiple Availability Sets, or multiple VM scale sets. You can have multiple compute resources in a single placement group to bring together a multi-tiered application. 
-- Low latency between multiple application tiers using different hardware types. For example, running the backend using M-series in an availability set and  the front end on a D-series VM scale set in a single Proximity Placement Group.
+- Low latency between sand-alone VMs, VMs in multiple Availability Sets, or multiple scale sets. You can have multiple compute resources in a single placement group to bring together a multi-tiered application. 
+- Low latency between multiple application tiers using different hardware types. For example, running the backend using M-series in an availability set and the front end on a D-series instance, in a scale set, in a single Proximity Placement Group.
 
 
 
@@ -25,4 +25,4 @@ Best practices:
 - Deploy all VMs at once with a template.
 - Deploy largest and rarest VM types first. Use this page to determine rarity: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines If a VM type is available in a limited number of regions, it is “rare”. Deploy this one first.
 - When re-using an existing PPG from which VMs were deleted, wait for the deletion to fully complete before adding VMs to it.
-- Put VMs in a PPG and the entire solution in a availability zone.
+- Put VMs in a PPG and the entire solution in an availability zone.

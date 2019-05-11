@@ -1,6 +1,6 @@
 ---
 title: Co-locate Windows Azure VMs | Microsoft Docs
-description: Learn about how co-locating Azure VM resources can improve perfomance.
+description: Learn about how co-locating Azure VM resources can improve performance.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn

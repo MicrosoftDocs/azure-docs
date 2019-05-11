@@ -1,6 +1,6 @@
 ---
 title: Co-locate Linux Azure VMs | Microsoft Docs
-description: Learn about how co-locating Azure VM resources can improve perfomance.
+description: Learn about how co-locating Azure VM resources can improve performance.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn

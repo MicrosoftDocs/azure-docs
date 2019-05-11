@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-# Availability opitions for virtual machines in Azure
+# Availability options for virtual machines in Azure
 This article provides you with an overview of the availability features of Azure virtual machines (VMs).
 
 
