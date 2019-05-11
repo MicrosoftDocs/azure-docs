@@ -39,14 +39,14 @@
     items:    
     - name: Storage
       href: storage-account-concept.md    
-    - name: Assets
+    - name: Assets API
       href: assets-concept.md    
   - name: Encoding
     items:
     - name: Overview
       href: encoding-concept.md   
       displayName: encoding, presets, jobs, adaptive, bitrate
-    - name: Transforms and Jobs
+    - name: Transforms and Jobs API
       href: transforms-jobs-concept.md 
       displayName: preset, schema 
     - name: Standard Encoder formats
@@ -63,7 +63,7 @@
     - name: Overview
       href: analyzing-video-audio-files-concept.md
       displayName: analyzing, presets, jobs
-    - name: Transforms and Jobs
+    - name: Transforms and Jobs API
       href: transforms-jobs-concept.md 
     - name: Job error codes
       href: job-error-codes.md     
@@ -74,15 +74,15 @@
       href: dynamic-packaging-overview.md
     - name: Dynamic manifests
       href: filters-dynamic-manifest-overview.md 
-    - name: Filters
+    - name: Filters API
       href: filters-concept.md   
-    - name: Streaming Endpoints
+    - name: Streaming Endpoints API
       displayName: origin, packager, cdn
       href: streaming-endpoint-concept.md
-    - name: Streaming Locators
+    - name: Streaming Locators API
       displayName: URLs
       href: streaming-locators-concept.md
-    - name: Streaming Policies
+    - name: Streaming Policies API
       href: streaming-policy-concept.md  
     - name: Streaming Endpoint error codes  
       href: streaming-endpoint-error-codes.md    
@@ -101,15 +101,15 @@
         href: widevine-license-template-overview.md
       - name: FairPlay license requirements
         href: fairplay-license-overview.md  
-    - name: Streaming Policies
+    - name: Streaming Policies API
       href: streaming-policy-concept.md          
-    - name: Content Key Policies
+    - name: Content Key Policies API
       href: content-key-policy-concept.md              
   - name: Live streaming 
     items:
     - name: Overview
       href: live-streaming-overview.md
-    - name: Live Events and Live Outputs
+    - name: Live Events and Live Outputs API
       href: live-events-outputs-concept.md    
     - name: Recommended live encoders
       href: recommended-on-premises-live-encoders.md
