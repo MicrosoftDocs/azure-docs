@@ -481,24 +481,10 @@
     items:
     - name: Create a SaaS offer
       href: ./partner-center-portal/create-new-saas-offer.md
-      items: 
-      - name: Offer setup
-        href: ./partner-center-portal/saas-offer-setup.md
-      - name: Properties
-        href: ./partner-center-portal/saas-offer-properties.md
-      - name: Offer listing
-        href: ./partner-center-portal/saas-offer-setup.md
-      - name: Preview
-        href: ./partner-center-portal/saas-offer-preview.md
-      - name: Technical Configuration
-        href: ./partner-center-portal/saas-technical-config.md
-      - name: SKU Overview
-        href: ./partner-center-portal/saas-sku-overview.md
-      - name: Test Drive
-        href: ./partner-center-portal/saas-test-drive.md
   - name: Publishing status
     href: ./partner-center-portal/saas-publishing-status.md
   - name: Update existing offers
+    href: ./partner-center-portal/update-existing-offer.md
   - name: Resources
   
 
