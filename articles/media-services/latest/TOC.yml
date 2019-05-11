@@ -69,15 +69,13 @@
       href: job-error-codes.md     
   - name: Packaging and delivery
     items:
-    - name: Packaging
-      items:
-      - name: Dynamic packaging
-        displayName: origin, packager      
-        href: dynamic-packaging-overview.md
-      - name: Dynamic manifests
-        href: filters-dynamic-manifest-overview.md 
-      - name: Filters
-        href: filters-concept.md   
+    - name: Dynamic packaging
+      displayName: origin, packager      
+      href: dynamic-packaging-overview.md
+    - name: Dynamic manifests
+      href: filters-dynamic-manifest-overview.md 
+    - name: Filters
+      href: filters-concept.md   
     - name: Streaming Endpoints
       displayName: origin, packager, cdn
       href: streaming-endpoint-concept.md
