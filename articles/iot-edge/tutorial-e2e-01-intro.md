@@ -1,6 +1,6 @@
 ---
 title: Detailed walkthrough Machine Learning on Azure IoT Edge | Microsoft Docs 
-description: A high-level tutorial that walks through all the configurations to create an end-to-end machine learning at the edge scenario. In a real-world environment, these tasks might be distributed amongst several people with different specializations, for example developers focused on either device or cloud code, or data scientists for analytics.
+description: A high-level tutorial that walks through all the configurations to create an end-to-end machine learning at the edge scenario. 
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -20,11 +20,11 @@ The primary objective of this document is to introduce processing of IoT data wi
 
 This set of tutorials is intended for developers without previous experience in IoT development or machine learning. Deploying machine learning at the edge requires knowledge of how to connect a wide range of technologies. Therefore, this walk-through covers an entire end-to-end scenario to demonstrate one way of joining these technologies together for an IoT solution. In a real-world environment, these tasks might be distributed among several people with different specializations. For example, developers would focus on either device or cloud code, while data scientists designed the analytics models. To enable an individual developer to successfully complete this walkthrough, we have provided supplemental guidance with insights and links to more information we hope is sufficient to understand what is being done, as well as why.
 
-Alternatively, you may team up with co-workers of different roles to follow the tutorial together, bringing your full expertise to bear, and learn as a team how things fit together.
+Alternatively, you may team up with coworkers of different roles to follow the tutorial together, bringing your full expertise to bear, and learn as a team how things fit together.
 
 In either case, to help orient the reader(s), each section indicates the role of the user. Those roles include:
 
-* Cloud development (Includes a cloud developer working in a devops capacity)
+* Cloud development (Includes a cloud developer working in a DevOps capacity)
 * Data analytics
 
 ## Use case: predictive maintenance
@@ -55,11 +55,11 @@ The picture below illustrates the rough steps we follow in this walk-through:
 
 1. **Collect training data**: The process begins by collecting training data. In some cases, data has already been collected and is available in a data base, or in form of data files. In other cases, especially for IoT scenarios, the data needs to be collected from IoT devices and sensors and stored in the cloud.
     
-   As we assume that you do not have a collection of turbofan engines, we provide a simple device simulator harness that sends the NASA device data to the cloud.
+   We assume that you don't have a collection of turbofan engines, so the project files include a simple device simulator that sends the NASA device data to the cloud.
 
-1. **Prepare data**. In most cases, the raw data as collected from devices and sensors will require preparation for machine learning. This may involve data clean up, data reformatting, or preprocessing to inject additional information machine learning can key off. 
+1. **Prepare data**. In most cases, the raw data as collected from devices and sensors will require preparation for machine learning. This step may involve data clean up, data reformatting, or preprocessing to inject additional information machine learning can key off. 
     
-   In the case of our airplane engine machine data, data preparation involves calculating explicit time-to-failure times for every data point in the sample based on the actual observations on the data. This information allows the machine learning algorithm to find correlations between actual sensor data patterns and the expected remaining life time of the engine. Of course, this step is highly domain specific.
+   For our airplane engine machine data, data preparation involves calculating explicit time-to-failure times for every data point in the sample based on the actual observations on the data. This information allows the machine learning algorithm to find correlations between actual sensor data patterns and the expected remaining life time of the engine. This step is highly domain-specific.
 
 1. **Build a model**. Based on the prepared data, we can now experiment with different machine learning algorithms and parameterizations to train models and compare the results to one another. 
 
@@ -67,19 +67,19 @@ The picture below illustrates the rough steps we follow in this walk-through:
 
 1. **Deploy**. Once we have a model that satisfies our success criteria, we can move to deployment. That involves wrapping the model into a web service app that can be fed with data using REST calls and return analysis results. The web service app is then packaged into a docker container, which in turn can be deployed either in the cloud or as an IoT Edge module. In this example, we focus on deployment to IoT Edge.
 
-1. **Refine the model**. Our work is not done once the model is deployed. In many cases, we want to continue collecting data and periodically upload that data to the cloud. We can then use this data to re-train and refine our model, which we then can re-deploy to IoT Edge.
+1. **Refine the model**. Our work is not done once the model is deployed. In many cases, we want to continue collecting data and periodically upload that data to the cloud. We can then use this data to retrain and refine our model, which we then can redeploy to IoT Edge.
 
 ## Prerequisites 
 
-To complete the walk-through you need access to an Azure subscription in which you have rights to create resources. Several of the services used in this walk-through will incur Azure charges. If you do not already have an Azure subscription you may be able to get started with an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/).
+To complete the walk-through, you need access to an Azure subscription in which you have rights to create resources. Several of the services used in this walk-through will incur Azure charges. If you do not already have an Azure subscription, you may be able to get started with an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/).
 
 You also need a machine with PowerShell installed where you can run scripts to set up an Azure Virtual Machine as your development machine.
 
 In this document, we use the following set of tools:
 
-  - Azure IoT Hub for data capture
+  - An Azure IoT hub for data capture
 
-  - Azure Notebooks as our main front-end for data preparation and ML experimentation. Running python code in a notebook on a subset of the sample data is a great way to get fast iterative and interactive turnaround during data preparation. Jupyter notebooks can also be used to prepare scripts to run at scale in a compute backend.
+  - Azure Notebooks as our main front end for data preparation and ML experimentation. Running python code in a notebook on a subset of the sample data is a great way to get fast iterative and interactive turnaround during data preparation. Jupyter notebooks can also be used to prepare scripts to run at scale in a compute backend.
 
   - Azure Machine Learning as a backend for ML at scale and for ML image generation. We drive the Azure Machine Learning backend using scripts prepared and tested in Jupyter notebooks.
 
@@ -91,7 +91,7 @@ Obviously, there are other options available. In certain scenarios, for example,
 
 This tutorial is divided into the following sections:
 
-1.  Set up up your development machine and Azure services.
+1.  Set up your development machine and Azure services.
 2.  Generate the training data for the ML module.
 3.  Train and deploy the ML module.
 4.  Configure an IoT Edge device.

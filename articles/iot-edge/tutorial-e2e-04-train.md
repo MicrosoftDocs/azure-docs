@@ -34,7 +34,7 @@ The steps in this section might be typically performed by data scientists.
 
 ## Set up Azure Notebooks 
 
-We use Azure Notebooks to host the two Jupyter Notebooks and supporting files. Here we create and configure an Azure Notebooks project. If you have not used Jupyter and/or Azure Notebooks here are a couple of introductory documents:
+We use Azure Notebooks to host the two Jupyter Notebooks and supporting files. Here we create and configure an Azure Notebooks project. If you have not used Jupyter and/or Azure Notebooks, here are a couple of introductory documents:
 
 * **Quickstart:** [Create and share a notebook](../notebooks/quickstart-create-share-jupyter-notebook.md)
 * **Tutorial:** [Create and run a Jupyter notebook with Python](../notebooks/tutorial-create-run-jupyter-notebook.md)
@@ -54,9 +54,9 @@ Azure Notebook accounts are independent from Azure subscriptions. To use Azure N
 
 3.  Sign in with either your work or school account (Azure Active Directory) or your personal account (Microsoft Account).
 
-4.  If you have not used Azure Notebooks before you will be prompted to grant access for the Azure Notebooks app.
+4.  If you have not used Azure Notebooks before, you will be prompted to grant access for the Azure Notebooks app.
 
-5.  Create a user id for Azure Notebooks.
+5.  Create a user ID for Azure Notebooks.
 
     ![Create a user ID](media/tutorial-e2e-04-train/04-train-a.png)
 
@@ -66,7 +66,7 @@ In this step, we create a new Azure Notebooks project and upload files to it. Sp
 
 * **01-turbofan\_regression.ipynb**: Jupyter notebook file that walks through the process of downloading the device harness generated data from the Azure storage account; exploring and preparing the data for training the classifier; training the model; testing the data using the test dataset found in the Test\_FD003.txt file; and, finally saving the classifier model in the Machine Learning service workspace.
 
-* **02-turbofan\_deploy\_model.ipynb:** Jupyter notebook that guides you through the process of using the classifier model saved in the Machine Learning service workspace to produce a container image. Once the image is created the notebook walks you through the process of deploying the image as a web service so that you can validate it is working as expected. This validated image will be deployed to our edge device in the [Create IoT Edge Modules](#section) section.
+* **02-turbofan\_deploy\_model.ipynb:** Jupyter notebook that guides you through the process of using the classifier model saved in the Machine Learning service workspace to produce a container image. Once the image is created, the notebook walks you through the process of deploying the image as a web service so that you can validate it is working as expected. This validated image will be deployed to our edge device in the [Create IoT Edge Modules](#section) section.
 
 * **Test\_FD003.txt:** This file contains the data we will use as our test set when validating our trained classifier. We chose to use the test data as provided for the original contest as our test set for simplicity of the example.
 
@@ -124,4 +124,4 @@ In this section, we used two Jupyter Notebooks running in Azure Notebooks to use
 Continue to the next section to create an IoT Edge device.
 
 > [!div class="nextstepaction"] 
-> [Configure an IoT Edge device](tutorial-e2e-02-setup.md)
+> [Configure an IoT Edge device](tutorial-e2e-05-configure.md)

@@ -19,20 +19,20 @@ Use machine learning training data to simulate a device sending telemetry to IoT
 * Each time series is from a different engine
 * Each engine starts with different degrees of initial wear and manufacturing variation
 
-In this section we use the training data subset of a single data set (FD003).
+In this section, we use the training data subset of a single data set (FD003).
 
 In reality, each engine would be an independent IoT device. Assuming you do not have a collection of internet-connected turbofan engines available, we will build a software stand-in for these devices. 
 
 The simulator is a C# program that uses the IoT Hub APIs to programmatically register virtual devices with IoT Hub. We then read the data for each device from the NASA-provided data subset and send it to your IoT hub using a simulated IoT Device. All the code for this section can be found in the DeviceHarness directory of the repository.
 
-The DeviceHarness is a .NET core project written in C\# consisting of 4 classes:
+The DeviceHarness is a .NET core project written in C# consisting of four classes:
 
 * **Program:** The entry point for execution responsible for handling user input and overall coordination.
 * **TrainingFileManager:** responsible for reading and parsing the selected data file.
 * **CycleData:** represents a single row of data in a file converted to message format.
 * **TurbofanDevice:** responsible for creating an IoT Device that corresponds to a single device (time series) in the data and transmitting the data to IoT Hub via the IoT Device.
 
-This will take about 20 minutes to complete.
+This section will take about 20 minutes to complete.
 
 The real-world equivalent to the work in this step would likely be performed by device developers and cloud developers.
 
@@ -48,7 +48,7 @@ The real-world equivalent to the work in this step would likely be performed by 
     
     * If OmniSharp errors appear in the output window, you’ll need to uninstall the C# extension, close and reopen VS Code, install the C# extension, and then reload the window.
 
-5.  Since this is the first time using extensions on this machine, some extensions will update and install their dependencies. You may be prompted to update extension. If so, select **Reload Window**.
+5.  Since you're using extensions on this machine for the first time, some extensions will update and install their dependencies. You may be prompted to update extension. If so, select **Reload Window**.
 
 6.  You will be prompted to add required assets for DeviceHarness. Select **Yes** to add them.
     
@@ -135,13 +135,13 @@ The data we just sent to your IoT hub was routed to the storage container that w
 
 2.  From the storage account navigator, select **Storage Explorer (preview)**.
 
-3.  In the storage explorer select **Blob Containers** then **devicedata**.
+3.  In the storage explorer, select **Blob Containers** then **devicedata**.
 
 4.  In the content pane click on the folder for the name of the IoT hub, then the year, the month, the day, and the hour. You will see several folders representing the minutes when the data was written.  
 
     ![View folders in blob storage](media/tutorial-e2e-03-generate/03-generate-g.png)
 
-5.  Click into one of those folders to find data files labelled **00** and **01** corresponding to the partition.
+5.  Click into one of those folders to find data files labeled **00** and **01** corresponding to the partition.
 
 6.  The files are written in [Avro](http://avro.apache.org/) format but double-clicking on one of these files will open another browser tab and partially render the data. If instead you are prompted to open the file in a program, you can choose VS Code and it will render fine. The result will look like:  
 
@@ -151,9 +151,9 @@ The data we just sent to your IoT hub was routed to the storage container that w
 
 ## Next steps
 
-In this section we used a .NET Core project to create a set of virtual devices and send data through those devices through our IoT Hub and into an Azure Storage container. This simulates a real-world scenario where physical devices send data including sensor readings, operational settings, failure signals and modes, etc. to an IoT Hub and onward into a curated storage. Once enough data has been collected, we use it to train models that predict the remaining useful life (RUL) for the device, which we will demonstrate in the next section.
+In this section, we used a .NET Core project to create a set of virtual devices and send data through those devices through our IoT Hub and into an Azure Storage container. This project simulates a real-world scenario where physical devices send data including sensor readings, operational settings, failure signals and modes, etc. to an IoT Hub and onward into a curated storage. Once enough data has been collected, we use it to train models that predict the remaining useful life (RUL) for the device, which we will demonstrate in the next section.
 
 Continue to the next section to train a machine learning model with the data.
 
 > [!div class="nextstepaction"] 
-> [Train and deploy an Azure Machine Learning model](tutorial-e2e-02-setup.md)
+> [Train and deploy an Azure Machine Learning model](tutorial-e2e-04-train.md)
