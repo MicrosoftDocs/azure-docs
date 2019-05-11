@@ -25,7 +25,7 @@ Azure CLI. If you haven't installed the Azure CLI, see [Install the Azure CLI](h
 
 ## Create an Apache Spark cluster
 
-1. Login to your Azure subscription. If you plan to use Azure Cloud Shell then simply select **Try it** in the upper-right corner of the code block. Else, enter the command below:
+1. Sign in to your Azure subscription. If you plan to use Azure Cloud Shell then simply select **Try it** in the upper-right corner of the code block. Else, enter the command below:
 
     ```azurecli-interactive
     az login
@@ -34,7 +34,7 @@ Azure CLI. If you haven't installed the Azure CLI, see [Install the Azure CLI](h
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. Set environment variables. The use of variables in this quickstart is based on Bash. Slight variations will be needed for other environments. Replace RESOURCEGROUPNAME, LOCATION, CLUSTERNAME, STORAGEACCOUNTNAME, and PASSWORD with the desired values. Then enter the values.
+2. Set environment variables. The use of variables in this quickstart is based on Bash. Slight variations will be needed for other environments. Replace RESOURCEGROUPNAME, LOCATION, CLUSTERNAME, STORAGEACCOUNTNAME, and PASSWORD in the code snippet below with the desired values. Then enter the CLI commands to set the environment variables.
 
     ```azurecli-interactive
     export resourceGroupName=RESOURCEGROUPNAME
