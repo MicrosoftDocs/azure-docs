@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Join a Windows Server VM to a ma
 description: Join a Windows Server virtual machine to Azure AD DS
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/21/2018
-ms.author: ergreenl
+ms.date: 05/10/2019
+ms.author: mstephen
 
 ---
 # Join a Windows Server virtual machine to a managed domain
@@ -148,4 +148,4 @@ If you're having trouble with credentials and are unable to join the domain, try
 
 ## Related content
 * [Azure AD DS getting started guide](active-directory-ds-getting-started.md)
-* [Administer an Azure AD DS-managed domain](active-directory-ds-admin-guide-administer-domain.md)
+* [Manage an Azure AD Domain Services domain](manage-domain.md)

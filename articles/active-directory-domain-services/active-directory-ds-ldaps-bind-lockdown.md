@@ -3,7 +3,7 @@ title: Bind using Secure LDAP (LDAPS) to an Azure AD Domain Services managed dom
 description: Bind to an Azure AD Domain Services managed domain using secure LDAP (LDAPS)
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: ergreenl
+ms.date: 05/10/2019
+ms.author: mstephen
 
 ---
 # Bind to an Azure AD Domain Services managed domain using secure LDAP (LDAPS)
@@ -61,7 +61,7 @@ The sample NSG in the following table locks down secure LDAP access over the int
 
 ## Related content
 * [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
-* [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
+* [Manage an Azure AD Domain Services domain](manage-domain.md)
 * [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx)
 * [Administer Group Policy on an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Network security groups](../virtual-network/security-overview.md)

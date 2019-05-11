@@ -3891,6 +3891,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain",
+      "redirect_url": "/azure/active-directory-domain-services/manage-domain",
+      "redirect_document_id":true
+    },
+    {
       "source_path": "articles/active-directory-ds/active-directory-ds-admin-guide-configure-secure-ldap.md",
       "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap",
       "redirect_document_id": false

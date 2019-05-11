@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Administration Guide | Microsoft
 description: Create an Organizational Unit (OU) on Azure AD Domain Services managed domains
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
-ms.author: ergreenl
+ms.date: 05/10/2019
+ms.author: mstephen
 
 ---
 # Create an Organizational Unit (OU) on an Azure AD Domain Services managed domain
@@ -33,7 +33,7 @@ To perform the tasks listed in this article, you need:
 5. You need the credentials of a **user account belonging to the 'AAD DC Administrators' group** in your directory, to create a custom OU on your managed domain.
 
 ## Install AD administration tools on a domain-joined virtual machine for remote administration
-Azure AD Domain Services managed domains can be managed remotely using familiar Active Directory administrative tools such as the Active Directory Administrative Center (ADAC) or AD PowerShell. Tenant administrators do not have privileges to connect to domain controllers on the managed domain via Remote Desktop. To administer the managed domain, install the AD administration tools feature on a virtual machine joined to the managed domain. Refer to the article titled [administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md) for instructions.
+Azure AD Domain Services managed domains can be managed remotely using familiar Active Directory administrative tools such as the Active Directory Administrative Center (ADAC) or AD PowerShell. Tenant administrators do not have privileges to connect to domain controllers on the managed domain via Remote Desktop. To administer the managed domain, install the AD administration tools feature on a virtual machine joined to the managed domain. Refer to the article titled [Manage an Azure AD Domain Services domain](manage-domain.md) for instructions.
 
 ## Create an Organizational Unit on the managed domain
 Now that the AD Administrative Tools are installed on the domain joined virtual machine, we can use these tools to create an organization unit on the managed domain. Perform the following steps:
@@ -77,7 +77,7 @@ Now that you have created a custom OU, you can go ahead and create users, groups
 >
 
 ## Related Content
-* [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
+* [Manage an Azure AD Domain Services domain](manage-domain.md)
 * [Configure Group Policy on a managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Active Directory Administrative Center: Getting Started](https://technet.microsoft.com/library/dd560651.aspx)
 * [Service Accounts Step-by-Step Guide](https://technet.microsoft.com/library/dd548356.aspx)
