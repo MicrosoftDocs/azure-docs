@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/2/2019
+ms.date: 05/10/2019
 ms.author: bwren
 
 ---
@@ -30,22 +30,22 @@ Monitoring data from Azure applications can be organized into tiers, the highest
 
 
 ### Azure
-The application tiers in the following table are specific to Azure.
+The following table briefly describes the application tiers that are specific to Azure. Further details on each are provided in the sections below.
 
 | Tier | Description | Collection method |
 |:---|:---|:---|
-| [Azure Tenant](#azure-tenant) | Data about the operation of tenant-level Azure services, such as Azure Active Directory. | View in portal or configure using a tenant diagnostic setting. |
-| [Azure subscription](#azure-subscription) |  Telemetry related to the health and operation of Azure itself. | View in portal or configure collection using a log profile. |
-| [Azure resources](#azure-resources) |  Data about the operation and performance of each Azure resource. | Metrics collected automatically. View in Metrics Explorer.<br>Configure diagnostic settings to collect logs.<br>Monitoring solutions and Insights available for more detailed monitoring for specific resource types. |
+| [Azure Tenant](#azure-tenant) | Data about the operation of tenant-level Azure services, such as Azure Active Directory. | View in portal or configure collection to Azure Monitor using a tenant diagnostic setting. |
+| [Azure subscription](#azure-subscription) |  Telemetry related to the health and operation of Azure itself. | View in portal or configure collection to Azure Monitor using a log profile. |
+| [Azure resources](#azure-resources) |  Data about the operation and performance of each Azure resource. | Metrics collected automatically, view in Metrics Explorer.<br>Configure diagnostic settings to collect logs in Azure Monitor.<br>Monitoring solutions and Insights available for more detailed monitoring for specific resource types. |
 
 ### Azure, other cloud, or on-premises 
-The application tiers in the following table may be in Azure, another cloud, or on-premises.
+The following table briefly describes the application tiers that may be in Azure, another cloud, or on-premises. Further details on each are provided in the sections below.
 
 | Tier | Description | Collection method |
 |:---|:---|:---|
-| [Guest operating system](#guest-operating-system) | Data about the operating system on compute resources. | Install an agent such as the Windows Azure Diagnostic Agent or Linux Azure Diagnostic Agent. For Azure virtual machines, install Azure Diagnostic Extension and Azure Monitor for VMs. |
-| [Application](#applications) | Data about the performance and functionality of the actual application and code, including performance traces, application logs, and user telemetry. | Instrument your code for Application Insights. |
-| Custom sources | Data from external services or other components or devices. | Collect log or metrics data from any REST client. |
+| [Guest operating system](#guest-operating-system) | Data about the operating system on compute resources. | Install Log Analytics agent to collect client data sources into Azure Monitor and Dependency agent to collect dependencies supporting Azure Monitor for VMs. For Azure virtual machines, install Azure Diagnostic Extension to collect logs and metrics into Azure Monitor. |
+| [Application](#applications) | Data about the performance and functionality of the actual application and code, including performance traces, application logs, and user telemetry. | Instrument your code to collect data into Application Insights. |
+| Custom sources | Data from external services or other components or devices. | Collect log or metrics data into Azure Monitor from any REST client. |
 
 ## Azure tenant
 Telemetry related to your Azure tenant is collected from tenant-wide services such as Azure Active Directory.
@@ -74,7 +74,7 @@ The [Azure Activity Log](activity-logs-overview.md) includes service health reco
 | Destination | Description | Reference |
 |:---|:---|
 | Activity Log | The Activity Log is collected into its own data store that you can view from the Azure Monitor menu or use to create Activity Log alerts. | [Query the Activity Log in the Azure portal](activity-logs-overview.md#view-the-activity-log-in-the-azure-portal) |
-| Azure Monitor Logs | Configure Azure Monitor Logs to collect the Activity Log to analyze it with other monitoring data. |  |
+| Azure Monitor Logs | Configure Azure Monitor Logs to collect the Activity Log to analyze it with other monitoring data. | [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](activity-log-collect.md) |
 | Azure Storage | Export the Activity log to Azure Storage for archiving. | [Archive Activity Log](activity-log-export.md#archive-activity-log)  |
 | Event Hubs | Stream the Activity log to other locations using Event Hubs | [Stream Activity Log to Event Hub](activity-log-export.md#stream-activity-log-to-event-hub). |
 

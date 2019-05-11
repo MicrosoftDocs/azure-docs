@@ -9,7 +9,7 @@ ms.date: 03/26/2019
 ms.author: nikiest
 ms.subservice: logs
 ---
-# Collect and consume log data from your Azure resources
+# Overview of Azure Diagnostic Logs
 
 **Diagnostic logs** provide rich, frequent data about the operation of an Azure resource. Azure Monitor makes available two types of diagnostic logs:
 
