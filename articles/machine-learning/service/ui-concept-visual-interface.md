@@ -40,7 +40,7 @@ An experiment consists of datasets that provide data to analytical modules, whic
 * All input ports for modules must have some connection to the data flow
 * All required parameters for each module must be set
 
-You drag-and-drop the modules from the left pane to the interactive canvas and connect them to build your **training experiment**. Run the experiment to evaluate the performance of the model. To iterate on your model design, edit the experiment, save a copy if desired, and run it again.
+You drag-and-drop the modules  to the canvas and connect them to build your **training experiment**. Run the experiment to evaluate the performance of the model. To iterate on your model design, edit the experiment, save a copy if desired, and run it again.
 
 When you are ready, covert your **training experiment** to a **predictive experiment**. The predictive experiment generates new predictions by scoring the user's input on your trained model. Then deploy the **predictive experiment** as a **web service** so that your model can be accessed by others.
 
@@ -52,7 +52,7 @@ For a more complete walkthrough of a predictive analytics solution, see [Tutoria
 
 ## Compute target
 
-A compute target is the compute resource that you use to run your experiment or host your service deployment. The supported compute targets are: 
+A compute target is the compute resource that you use to run your experiment or host your service deployment. The supported compute targets are:
 
 
 | Compute target | Training | Deployment |
@@ -64,7 +64,7 @@ Compute targets are attached to your Machine Learning [workspace](concept-worksp
 
 ## Web service
 
-Once your predictive analytics model is ready, you can deploy it as a web service right from the visual interface.
+Once your predictive analytics model is ready, you deploy it as a web service right from the visual interface.
 
 The web services provide an interface between an application and your scoring model. An external application can communicate with the scoring model in real time. A call to a web service returns prediction results to an external application. To make a call to a web service, you pass an API key that was created when you deployed the web service. The web service is based on REST, a popular architecture choice for web programming projects.
 
