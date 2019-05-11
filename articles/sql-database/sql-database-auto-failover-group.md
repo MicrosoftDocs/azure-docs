@@ -37,7 +37,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Failover group (FOG)**
 
-  A failover group is a group of databases managed by a single SQL Database server or within a single managed instance that can fail over as a unit to another region in case all or some primary databases become unavailable due to an outage in the primary region. When crated for managed instances, a failover group contains all user databases in the instance and therefore only one failover groups can be configured on an instance.
+  A failover group is a group of databases managed by a single SQL Database server or within a single managed instance that can fail over as a unit to another region in case all or some primary databases become unavailable due to an outage in the primary region. When created for managed instances, a failover group contains all user databases in the instance and therefore only one failover group can be configured on an instance.
 
 - **SQL Database servers**
 

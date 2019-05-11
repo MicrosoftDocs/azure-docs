@@ -28,7 +28,7 @@ by assigning two [Azure Policy](../../../policy/overview.md) definitions that au
 owners for Azure subscriptions. Managing subscription owner permissions can help you implement
 appropriate separation of duties.
 
-- [Preview]: Audit minimum number of owners for subscription
+- [Preview]: Audit minimum number of owners for a subscription
 - [Preview]: Audit maximum number of owners for a subscription
 
 ## A.8.2.1 Classification of information
