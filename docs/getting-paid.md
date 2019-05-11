@@ -1,0 +1,1 @@
+Getting paid for apps and add-ins on AppSource

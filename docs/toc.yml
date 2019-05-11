@@ -1,5 +1,7 @@
 - name: Submit your solutions to AppSource
   href: submit-to-the-office-store.md
+- name: Open a developer account
+- name: Manage account users
 - name: Optimize add-in placement and ranking in AppSource
   href: optimize-for-store-discovery.md
 - name: License your add-ins
@@ -20,9 +22,11 @@
     href: create-effective-office-store-listings.md
   - name: Craft effective AppSource store images
     href: craft-effective-appsource-store-images.md
+- name: Add-in management and services
+  href: add-in-management-and-services
 - name: Prepare localized apps and add-ins
   href: prepare-localized-apps-and-add-ins.md
-- name: Submit to the Seller Dashboard
+- name: Submit Add-ins
   items: 
   - name: Overview
     href: use-the-seller-dashboard-to-submit-to-the-office-store.md
@@ -46,7 +50,7 @@
   href: validation-policies.md
 - name: Promote your AppSource solution
   href: promote-your-office-store-solution.md
-- name: View the Acquisitions report
-  href: view-acquisitions-report.md
-- name: Seller Dashboard accessibility features
-  href: seller-dashboard-accessibility-features.md
+- name: Analyze add-in performance
+  href: analyze-add-in-performance.md
+- name: Getting paid
+  href: getting-paid.md
