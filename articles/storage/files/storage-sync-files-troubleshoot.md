@@ -305,7 +305,7 @@ No action is required; the server will try again. If this error persists for lon
 | **Error string** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
 | **Remediation required** | No |
 
-No action is required. When a file share (cloud endpoint) is restored using Azure Backup, sync is blocked until change detection completes on the Azure file share. Change detection runs immediately once the restore is complete and the duration is based on the number of files in the file share.
+No action is required. When a file or file share (cloud endpoint) is restored using Azure Backup, sync is blocked until change detection completes on the Azure file share. Change detection runs immediately once the restore is complete and the duration is based on the number of files in the file share.
 
 <a id="-2134364065"></a>**Sync can't access the Azure file share specified in the cloud endpoint.**  
 
