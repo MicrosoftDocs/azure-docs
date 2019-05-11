@@ -103,26 +103,27 @@ For Trend Micro, there are threat detection and health discovery. You can treat 
 We will first check is there any threat detected on the machine by querying event id 9501 in Deep Security Agent event log.
 If yes, we will send an event like below:
 
-Protection status will always be 550 if there is threat detected
-protectionRank = 550 
-protectionStatus = Threat Detected
-protectionStatusDetails = At least one threat detected
-
-if scan action for the threat is unknown
-threatRank = 470 
-threatStatus = Unknown
-threatStatusDetails = Unknown
-
-If scan action for the threat is delete: <!--Redo this statement-->
-threatRank = 370
-threatStatus = Remediated
-threatStatusDetails = Remediated
-
+Protection status will always be 550 if a threat is detected:
+    **protectionRank** = **550** 
+    **protectionStatus** = **Threat Detected**
+    **protectionStatusDetails** = **At least one threat detected**
+    
+If scan action for the threat is unknown:
+    **threatRank** = **470** 
+    **threatStatus** = **Unknown**
+    **threatStatusDetails** = **Unknown**
+    
+ If scan action for the threat is delete: <!--Redo this statement-->
+    **threatRank** = **370**
+    **threatStatus** = **Remediated**
+    **threatStatusDetails** = **Remediated**
+    
 If customers would like to see is there any threat detected on the machine, they can filter log by protectionRank = 550
 
 ### Health Assessment
 
-Then we will collect one more record for the current protection status of the machine
+Then we will collect one more record for the current protection status of the machine.
+
 Threat status and rank are always unknown for Trend Micro in this event.
 
 ## Symantec Endpoint Protection
@@ -131,15 +132,15 @@ For Symantec, windows registry values are used for detection and health assessme
 
 ### Discovery
 
-1. HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"
-
-1. HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1 
+  * **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME** = **"Symantec Endpoint Protection"**
+    
+  * **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus** = **1** 
 
 Or 
 
-1. **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME** = **"Symantec Endpoint Protection"**
+* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME** = **"Symantec Endpoint Protection"**
 
-2. **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus** = **1**
+* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus** = **1**
 
 ### Health Assessment
 
@@ -191,11 +192,13 @@ For McAfee Linux, commands and logs are used for detection and health assessment
 ### Health Assessment
 
 1. Run **"/opt/isec/ens/threatprevention/bin/isecav --version"** to get **mcafeeVersion**, **datVersion**, **datTime**, **engineVersion**
-2. Run **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** to get Quick scan, Full scan and DAT and engine Update time.
-   One of the scan needs >= 7 days, DAT and engine Update time >= 7 days
-3. Run **"/opt/isec/ens/threatprevention/bin/isecav --getoasconfig --summary"** to get On Access Scan status and GTI status
+
+1. Run **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** to get Quick scan, Full scan and DAT and engine Update time.
+   One of the scan needs >= **7 days**, DAT and engine Update time >= **7 days**
+
+1. Run **"/opt/isec/ens/threatprevention/bin/isecav --getoasconfig --summary"** to get On Access Scan status and GTI status
    On Access Scan = On
-4. Run **"/opt/isec/ens/threatprevention/bin/isecav --getapstatus"** to get Access Protection
+1. Run **"/opt/isec/ens/threatprevention/bin/isecav --getapstatus"** to get Access Protection
 
 ## Sophos Anti-Virus for Linux
 
@@ -223,16 +226,15 @@ For Sophos Linux, commands and logs are used for detection and health assessment
 
 1. Run "**/opt/sophos-av/bin/savdstatus --rms"** to get remote managment status.
 
-1. Run **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished" | tail -1"** to get On demand scan date within past 7 days
+1. Run **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished" | tail -1"** to get **On demand** scan date within past 7 days.
+
 1. Run **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .* completed" | tail -1"** to get scheduled scan date within the past 7 days. One of **On demand** scan and scheduled scan needs to be happened within past 7 days.
 
-   
 ## Troubleshoot and support
 
 ### Troubleshoot
 
-Microsoft Antimalware extension logs are available at - 
-
+Microsoft Antimalware extension logs are available at:  
 **%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware(Or PaaSAntimalware)\1.5.5.x(version#)\CommandExecution.log**
 
 ### Support
