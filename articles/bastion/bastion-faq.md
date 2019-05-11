@@ -28,7 +28,7 @@ You do not need a public IP on the Azure Virtual Machine that you are connecting
 
 ## <a name="rdpssh"></a>Do I need an RDP or SSH client?
 
-You do not need an RDP or SSH client to access the RDP/SSH to your Azure virtual machine in your Azure portal.  Use the Azure [preview portal](https://aka.ms/BastionHost) link to access the preview flight of the portal to get RDP/SSH access directly in the browser.  
+You do not need an RDP or SSH client to access the RDP/SSH to your Azure virtual machine in your Azure portal. Use the [Azure portal - preview link](https://aka.ms/BastionHost) to access the preview flight of the portal. This will let you get RDP/SSH access directly in the browser.
 
 ## <a name="agent"></a>Do I need an agent running in the Azure virtual machine?
 
@@ -40,11 +40,11 @@ During this preview, use the Microsoft Edge browser or Google Chrome on Windows.
 
 ## <a name="regions"></a>What regions are available during preview?
 
-The preview is available in all Azure Public regions. Once your subscription is enabled, you can deploy and use the Bastion service via the Azure [preview portal](https://aka.ms/BastionHost).
+The preview is available in all Azure Public regions. Once your subscription is enabled, you can deploy and use the Bastion service via the [Azure portal - preview link](https://aka.ms/BastionHost).
 
 ## <a name="portal"></a>I can't find the Bastion resource in the Azure portal. What should I do?
 
-Make sure that you are using the Azure [preview portal](https://aka.ms/BastionHost), not the regular Azure portal.
+Make sure that you are using the [Azure portal - preview link](https://aka.ms/BastionHost), not the regular Azure portal.
 
 ## <a name="previewbill"></a>Do I get billed for participating in the preview?
 
