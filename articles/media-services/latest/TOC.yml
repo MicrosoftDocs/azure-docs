@@ -102,7 +102,9 @@
       - name: Widevine license template
         href: widevine-license-template-overview.md
       - name: FairPlay license requirements
-        href: fairplay-license-overview.md            
+        href: fairplay-license-overview.md  
+    - name: Streaming Policies
+      href: streaming-policy-concept.md          
     - name: Content Key Policies
       href: content-key-policy-concept.md              
   - name: Live streaming 
