@@ -101,10 +101,10 @@ Create the network rules to correctly configure your HDInsight cluster.
         1. Enter all of the IP addresses for your domain controllers in **Destination addresses** separated by commas.
         1. Set **Destination Ports** to `*`.
     1. If you are using Azure Data Lake Storage, then you can add a network rule to address an SNI issue with ADLS Gen1 and Gen2. This option will route the traffic to firewall which might result in higher costs for large data loads but the traffic will be logged and auditable.
-        1. Determine the IP address for your Data Lake Storage account.
+        1. Determine the IP address for your Data Lake Storage account. You can use a powershell command such as `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` to resolve the FQDN to an IP address.
         1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
         1. Set **Source Addresses** `*`.
-        1. Enter the IP addresses for your storage account in **Destination addresses**.
+        1. Enter the IP address for your storage account in **Destination addresses**.
         1. Set **Destination Ports** to `*`.
     1. A network rule to enable communication with the Key Management Service for Windows Activation.
         1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
@@ -116,6 +116,12 @@ Create the network rules to correctly configure your HDInsight cluster.
         1. Set **Source Addresses** `*`.
         1. Set **Destination addresses** to `*`.
         1. Set **Destination Ports** to `12000`.
+    1. Configure a service tag for SQL that will allow you to log and audit SQL traffic.
+        1. In the next row in the **Rules** section, provide a **Name** and select **Any** from the **Protocol** dropdown.
+        1. Set **Source Addresses** `*`.
+        1. Set **Destination addresses** to `*`.
+        1. Select **Sql** from the **Service Tags** dropdown.
+        1. Set **Destination Ports** to `1433,11000-11999,14000-14999`.
 1. Click **Add** to complete creation of your network rule collection.
 
 ![Title: Enter application rule collection details](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
