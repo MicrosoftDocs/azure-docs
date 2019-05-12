@@ -55,7 +55,7 @@ The "Disconnected" state for a Media Services account indicates that the account
 
 The following are the primary scenarios that would result in a Media Services account not having access to attached storage accounts. 
 
-|Error|Solution|
+|Issue|Solution|
 |---|---|
 |The Media Services account or attached storage account(s) were migrated to separate subscriptions. |Migrate the storage account(s) or Media Services account so that they are all in the same subscription. |
 |The Media Services account is using an attached storage account in a different subscription as it was an early Media Services account where this was supported. All early Media Services accounts were converted to modern Azure Resources Manager (ARM) based accounts and will have a Disconnected state. |Migrate the storage account or Media Services account so that they are all in the same subscription.|
