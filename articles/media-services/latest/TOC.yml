@@ -70,7 +70,7 @@
   - name: Packaging and delivery
     items:
     - name: Dynamic packaging
-      displayName: origin, packager      
+      displayName: origin, packager, HLS, DASH, CMAF, and Smooth      
       href: dynamic-packaging-overview.md
     - name: Dynamic manifests
       href: filters-dynamic-manifest-overview.md 
