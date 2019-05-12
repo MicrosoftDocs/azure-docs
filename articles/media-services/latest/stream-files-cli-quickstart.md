@@ -17,13 +17,13 @@ ms.author: juliako
 #Customer intent: As a developer, I want to create a Media Services account so that I can store, encrypt, encode, manage, and stream media content in Azure.
 ---
 
-# Quickstart: Stream video files - CLI
+# Tutorial: Stream video files - CLI
 
-This quickstart shows how to easily encode and stream videos on a variety of browsers and devices by using Azure Media Services and the Azure CLI. You can specify input content by using HTTPS or SAS URLs or paths to files in Azure Blob storage.
+This tutorail shows how to easily encode and stream videos on a variety of browsers and devices by using Azure Media Services and the Azure CLI. You can specify input content by using HTTPS or SAS URLs or paths to files in Azure Blob storage.
 
 The example in this article encodes content that you make accessible via an HTTPS URL. Media Services v3 doesn't currently support chunked transfer encoding over HTTPS URLs.
 
-By the end of this quickstart, you'll be able to stream a video.  
+By the end of this tutorial, you'll be able to stream a video.  
 
 ![Play the video](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -339,7 +339,7 @@ Here's an example:
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the Media Services and storage accounts that you created for this quickstart, delete the resource group.
+If you no longer need any of the resources in your resource group, including the Media Services and storage accounts that you created for this tutorial, delete the resource group.
 
 Run this CLI command:
 
@@ -347,10 +347,7 @@ Run this CLI command:
 az group delete --name amsResourceGroup
 ```
 
-## See also
-
-See [Job error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
-
 ## Next steps
 
 [Media Services overview](media-services-overview.md)
+
