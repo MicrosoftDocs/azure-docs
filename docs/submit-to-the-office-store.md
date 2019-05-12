@@ -10,13 +10,16 @@ localization_priority: Priority
 
 Microsoft AppSource provides a convenient location for you to upload new Office Web Add-ins, SharePoint Add-ins, Power BI custom visuals, and Microsoft Teams apps that provide solutions for both consumers and businesses. When you add your solution to AppSource, you also make it available in the Office Store within Office. To include your solution in AppSource and within Office, you submit it to [Partner Center](https://partner.microsoft.com/en-us/dashboard/office/overview). You need to create an individual or company account and, if applicable, add payout information. For details, see:
 
-- [Register as an app developer](https://developer.microsoft.com/store/register). After you create your account, it goes through an approval process. For details about the registration process, see [Opening a developer account](https://docs.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account).
+- [Register as an app developer](https://developer.microsoft.com/store/register). After you create your account, it goes through an approval process. 
+  - For details about the registration process, see [Opening a developer account](https://docs.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account).
+  - For details about adding and managing additional users in your Partner Center account, see [Manage account users](https://docs.microsoft.com/en-us/windows/uwp/publish/manage-account-users).
 - [Submit your solution to AppSource via Partner Center](use-the-seller-dashboard-to-submit-to-the-office-store.md).
 
-For information about how to submit Power BI custom visuals to AppSource, see [Publish custom visuals to AppSource and make them available within Office](/power-bi/developer/office-store).
 
 > [!NOTE]
 > Office VSTO add-ins and COM add-ins cannot be submitted to AppSource. For more about the distinction between types of Office add-ins, see [How are Office Add-ins different from COM and VSTO add-ins?](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/office-add-ins#how-are-office-add-ins-different-from-com-and-vsto-add-ins).
+
+For information about how to submit Power BI custom visuals to AppSource, see [Publish custom visuals to AppSource](https://docs.microsoft.com/en-us/power-bi/developer/office-store).
 
 <a name="bk_approval"> </a>
 ## Approval process
