@@ -43,12 +43,12 @@ The following table shows the enforced throttles. Values refer to an individual 
 | Jobs operations<sup>1,3</sup> <br/> (create, update, list, delete) | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
 | Jobs device operations<sup>1</sup> <br/> (update twin, invoke direct method) | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
 | Configurations and edge deployments<sup>1</sup> <br/> (create, update, list, delete) | 0.33/sec/unit (20/min/unit) | 0.33/sec/unit (20/min/unit) | 0.33/sec/unit (20/min/unit) |
-| Device stream initiation rate<sup>4</sup> | 5 new streams/sec | 5 new streams/sec | 5 new streams/sec |
+| Device stream initiation rate<sup>3</sup> | 5 new streams/sec | 5 new streams/sec | 5 new streams/sec |
 | Maximum number of concurrently connected device streams<sup>4</sup> | 50 | 50 | 50 |
 | Maximum device stream data transfer<sup>4</sup> (aggregate volume per day) | 300 MB | 300 MB | 300 MB |
 
 
-<sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>Throttling meter size is 4 KB. <br/><sup>3</sup>You can only have one active device import/export job at a time. <br/><sup>4</sup>IoT Hub device streams are only available for S1, S2, S3, and F1 SKU's.
+<sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>Throttling meter size is 4 KB. <br/><sup>3</sup>IoT Hub device streams are only available for S1, S2, S3, and F1 SKU's.
 
 The *device connections* throttle governs the rate at which new device connections can be established with an IoT hub. The *device connections* throttle does not govern the maximum number of simultaneously connected devices. The *device connections* rate throttle depends on the number of units that are provisioned for the IoT hub.
 
@@ -68,7 +68,7 @@ IoT Hub enforces other operational limits:
 | Operation | Limit |
 | --------- | ----- |
 | File upload URIs | 10000 SAS URIs can be out for a storage account at one time. <br/> 10 SAS URIs/device can be out at one time. |
-| Jobs<sup>1</sup> | Job history is retained up to 30 days <br/> Maximum concurrent jobs is 1 (for Free) and S1, 5 (for S2), 10 (for S3). |
+| Jobs<sup>1</sup> | Maximum concurrent jobs is 1 (for Free and S1), 5 (for S2), and 10 (for S3). However, the max concurrent [device import/export jobs](iot-hub-bulk-identity-mgmt.md) is 1 for all tiers. <br/>Job history is retained up to 30 days. |
 | Additional endpoints | Paid SKU hubs may have 10 additional endpoints. Free SKU hubs may have one additional endpoint. |
 | Message routing rules | Paid SKU hubs may have 100 routing rules. Free SKU hubs may have five routing rules. |
 | Device-to-cloud messaging | Maximum message size 256 KB |
