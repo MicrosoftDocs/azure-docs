@@ -58,7 +58,7 @@ Depending on what you want to review, you will create your access review in Azur
 
 ## Which users must have licenses?
 
-Each user who interacts with access reviews, including to create a review or perform a review, requires a paid Azure AD Premium P2 license. Examples include:
+Each user who interacts with access reviews must have a paid Azure AD Premium P2 license. Examples include:
 
 - Administrators who create an access review
 - Group owners who perform an access review
@@ -67,7 +67,7 @@ Each user who interacts with access reviews, including to create a review or per
 
 You can also ask guest users to review their own access. For each paid Azure AD Premium P2 license that you assign to one of your own organization's users, you can use Azure AD business-to-business (B2B) to invite up to five guest users under the External User Allowance. These guest users can also use Azure AD Premium P2 features. For more information, see [Azure AD B2B collaboration licensing guidance](../b2b/licensing-guidance.md).
 
-Here are some example scenarios to help you determine the number of licenses you might need.
+Here are some example scenarios to help you determine the number of licenses you must have.
 
 | Scenario | Calculation | Required number of licenses |
 | --- | --- | --- |
