@@ -4,33 +4,43 @@
   items:
   - name: About Media Services
     href: media-services-overview.md
-- name: Quickstarts
+- name: Tutorials
   expanded: true
   items:
-  - name: Stream video files - .NET
-    href: stream-files-dotnet-quickstart.md
-  - name: Stream video files - Node.js
-    href: stream-files-nodejs-quickstart.md
-- name: Tutorials
-  items:
-  - name: Encode remote file and stream video – REST
-    displayName: encoding, job, transform
-    href: stream-files-tutorial-with-rest.md
-  - name: Encode remote file and stream video - CLI
-    href: stream-files-cli-quickstart.md    
-  - name: Encode uploaded file and stream video - .NET
-    displayName: encode, encoding, job, transform
-    href: stream-files-tutorial-with-api.md
-  - name: Stream live - .NET
-    href: stream-live-tutorial-with-api.md
-  - name: Analyze your video - .NET
-    displayName: job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset
-    href: analyze-videos-tutorial-with-api.md
-  - name: Encrypt dynamically with AES-128 - .NET
-    href: protect-with-aes128.md       
-  - name: Encrypt dynamically with DRM - .NET
-    displayName: PlayReady, Widevine
-    href: protect-with-drm.md    
+  - name: Encode remote file and stream video
+    items:
+    - name: With REST
+      displayName: encoding, job, transform
+      href: stream-files-tutorial-with-rest.md
+    - name: With CLI
+      href: stream-files-cli-quickstart.md 
+    - name: With .NET
+      href: stream-files-dotnet-quickstart.md
+    - name: With Node.js
+      href: stream-files-nodejs-quickstart.md
+  - name: Encode uploaded file and stream video   
+    items:
+    - name: With .NET
+      displayName: encode, encoding, job, transform
+      href: stream-files-tutorial-with-api.md
+  - name: Stream live 
+    items:
+    - name: With .NET
+      href: stream-live-tutorial-with-api.md
+  - name: Analyze your video 
+    items:
+    - name: With .NET
+      displayName: job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset
+      href: analyze-videos-tutorial-with-api.md
+  - name: Encrypt dynamically with AES-128 
+    items:
+    - name: With .NET
+      href: protect-with-aes128.md       
+  - name: Encrypt dynamically with DRM 
+    items:
+    - name: With .NET
+      displayName: PlayReady, Widevine
+      href: protect-with-drm.md    
 - name: Concepts
   items:
   - name: Overview
