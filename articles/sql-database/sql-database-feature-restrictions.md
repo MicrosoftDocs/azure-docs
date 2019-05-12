@@ -74,7 +74,7 @@ One common SQL injection attack method is to inject code that causes an error.  
 Consider a web application that has a request in the form of:
 
 ```html
-http://www.badWebApp.com/employee.php?id=1
+http://www.contoso.com/employee.php?id=1
 ```
 
 Which executes the following database query:
@@ -83,10 +83,10 @@ Which executes the following database query:
 SELECT Name FROM EMPLOYEES WHERE Id=$EmpId
 ```
 
-If the value passed as the `Id` parameter to the web application request is copied to replace $EmpId in the database query, an attacker could make the following request:
+If the value passed as the `id` parameter to the web application request is copied to replace $EmpId in the database query, an attacker could make the following request:
 
 ```html
-http://www.badWebApp.com/employee.php?id=1 AND CAST(DB_NAME() AS INT)=0
+http://www.contoso.com/employee.php?id=1 AND CAST(DB_NAME() AS INT)=0
 ```
 
 And the following error would be returned, allowing the attacker to learn the name of the database:
@@ -104,7 +104,7 @@ Conversion failed when converting the ****** value '******' to data type ******.
 Similarly, the attacker could make the following request:
 
 ```html
-http://www.badWebApp.com/employee.php?id=1 AND CAST(Salary AS TINYINT)=0
+http://www.contoso.com/employee.php?id=1 AND CAST(Salary AS TINYINT)=0
 ```
 
 And the following error would be returned, allowing the attacker to learn the employee’s salary:
@@ -126,7 +126,7 @@ A Blind SQL Injection is when an application does not provides an attacker with 
 Consider a web application that has a request in the form of:
 
 ```html
-http://www.badWebApp.com/employee.php?id=1
+http://www.contoso.com/employee.php?id=1
 ```
 
 which executes the following database query:
@@ -138,7 +138,7 @@ SELECT Name FROM EMPLOYEES WHERE Id=$EmpId
 If the value passed as the id parameter to the web application requests is copied to replace $EmpId in the database query, an attacker can make the following request:
 
 ```html
-http://www.badWebApp.com/employee.php?id=1; IF SYSTEM_USER='sa' WAITFOR DELAY '00:00:05'
+http://www.contoso.com/employee.php?id=1; IF SYSTEM_USER='sa' WAITFOR DELAY '00:00:05'
 ```
 
 And the query would take an additional 5 seconds if the `sa` account was being used. If `WAITFOR` feature restriction is disabled in the database, the `WAITFOR` statement will be ignored and not information is leaked using this attack.
