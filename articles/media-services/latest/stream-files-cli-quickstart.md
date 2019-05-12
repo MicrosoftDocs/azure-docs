@@ -10,7 +10,7 @@ keywords: azure media services, stream
 
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: 
 ms.date: 02/19/2019
 ms.author: juliako
