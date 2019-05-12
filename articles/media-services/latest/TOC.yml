@@ -9,8 +9,6 @@
   items:
   - name: Stream video files - .NET
     href: stream-files-dotnet-quickstart.md
-  - name: Stream video files - CLI
-    href: stream-files-cli-quickstart.md
   - name: Stream video files - Node.js
     href: stream-files-nodejs-quickstart.md
 - name: Tutorials
@@ -18,6 +16,8 @@
   - name: Encode remote file and stream video – REST
     displayName: encoding, job, transform
     href: stream-files-tutorial-with-rest.md
+  - name: Encode remote file and stream video - CLI
+    href: stream-files-cli-quickstart.md    
   - name: Encode uploaded file and stream video - .NET
     displayName: encode, encoding, job, transform
     href: stream-files-tutorial-with-api.md
@@ -302,6 +302,8 @@
       href: https://aka.ms/ams-v3-python-sdk
     - name: Node.js
       href: https://aka.ms/ams-v3-nodejs-sdk   
+    - name: Go
+      href: https://aka.ms/ams-v3-go-sdk      
     - name: Ruby
       href: https://aka.ms/ams-v3-ruby-sdk
   - name: Azure Media Services Explorer
