@@ -24,6 +24,8 @@
       href: tutorial-assess-hyper-v.md
 - name: Concepts
   items:
+  - name: Azure Migrate architecture
+    href: migrate-architecture.md
   - name: Azure Migrate support matrix
     href: migrate-support-matrix.md
   - name: About the collector
