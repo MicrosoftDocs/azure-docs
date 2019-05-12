@@ -1,0 +1,99 @@
+---
+title: Azure Active Directory integration for Azure Red Hat OpenShift | Microsoft Docs
+description:  Learn how to create an Azure AD security group and user for testing apps on your Microsoft Azure Red Hat OpenShift cluster.
+author: tylermsft
+ms.author: twhitney
+ms.service: openshift
+manager: jeconnoc
+ms.topic: conceptual
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 05/10/2019
+---
+
+# Azure Active Directory integration for Azure Red Hat OpenShift
+
+If you haven't already created an Azure Active Directory (Azure AD) tenant, follow the directions in [Create an Azure AD tenant for Azure Red Hat OpenShift](howto-create-tenant.md) before continuing with these instructions.
+
+Microsoft Azure Red Hat OpenShift needs permissions to perform tasks on behalf of your cluster. If your organization doesn't already have an Azure AD user, Azure AD security group, or an Azure AD app registration to use as the service principal, follow these instructions to create them.
+
+## Create a new Azure Active Directory user
+
+In the [Azure portal](https://portal.azure.com), ensure that your tenant appears under your user name in the top right of the portal:
+
+![Screenshot of portal with tenant listed in top right](./media/howto-create-tenant/tenant-callout.png)
+If the wrong tenant is displayed, click on your user name in the top right, then click **Switch Directory**, and select the correct tenant from the **All Directories** list.
+
+Create a new Azure Active Directory global administrator user to sign in to your Azure Red Hat OpenShift cluster.
+
+1. Go to the [Users-All users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) blade.
+2. Click **+New user** to open the **User** pane.
+3. Enter a **Name** for this user.
+4. Create a **User name** based on the name of the tenant you created, with  `.onmicrosoft.com` appended at the end. For example, `yourUserName@yourTenantName.onmicrosoft.com`. Write down this user name. You'll need it to sign in to use the app on your cluster.
+5. Click **Directory role** to open the directory role pane, and select **Global administrator** and then click **Ok** at the bottom of the pane.
+6. In the **User** pane, click **Show Password** and record the temporary password. After you sign in the first time, you'll be prompted to reset it.
+7. At the bottom of the pane, click **Create** to create the user.
+
+## Create an Azure AD security group
+
+Before you can create a cluster, you need an Azure AD security group. This group references the members that will have the customer-admin role on the cluster.
+
+1. Open the [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) blade.
+2. In the **Manage** section, click **Groups** to open the **Groups-All groups** page.
+3. Click **+New Group**
+4. Provide a group name and description.
+5. Set **Group type** to **Security**.
+6. Set **Membership type** to **Assigned**.
+
+Add the Azure AD user that you created in the earlier step to this security group.
+
+7. Click **Members** to open the **Select members** pane.
+8. In the members list, select the Azure AD user that you created above.
+9. At the bottom of the portal, click on **Select** and then **Create** to create the security group.
+
+Save the Group ID value
+
+10. When the group is created, click on it in the **Groups-All groups** pane.
+11. On the page that appears, copy down the **Object ID**. We will refer to this value as `GROUPID` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
+
+## Create an Azure AD app registration
+
+If your organization doesn't already have an Azure Active Directory (Azure AD) app registration to use as the service principal, follow these instructions to create one.
+
+1. Open the [App registrations blade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) and click **+New  registration**.
+2. In the **Register an application** pane, enter a name for your application object.
+3. Ensure that under **Supported account types**, that **Accounts in this organizational directory only** is selected. This is the most secure choice.
+4. Click the **Register** button to create the Azure AD application object.
+5. On the page that appears displaying the created app registration, copy down the **Application (client) ID**. We will refer to this value as `APPID` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
+
+![Screenshot of app object page](./media/howto-create-tenant/get-app-id.png)
+
+### Create a client secret
+
+Generate a client secret for authenticating your app to Azure Active Directory.
+
+1. Under the **Manage** category of the app registrations page, click **Certificates & secrets**.
+2. On the **Certificates & secrets** pane that appears, click **+New client secret**.  The **Add a client secret** pane appears.
+3. Provide a **Description**.
+4. Set **Expires** to the duration you prefer, for example **In 2 Years**.
+5. Click **Add** and the key value will appear in the **Client secrets** section of the page.
+6. Copy down the key value. We will refer to this value as `SECRET` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
+ 
+![Screenshot of the certificates and secrets pane](./media/howto-create-tenant/create-key.png)
+ 
+For more info on Azure Application Objects, see [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+
+For details on creating a new Azure AD application, see [Register an app with the Azure Active Directory v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
+
+## Resources
+
+* [Applications and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)  
+* [Quickstart: Register an app with the Azure Active Directory v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)  
+
+## Next steps
+
+If you've met all the [Azure Red Hat OpenShift prerequisites](howto-setup-environment.md), you're ready to create your first cluster!
+
+Try the tutorial:
+> [!div class="nextstepaction"]
+> [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md)

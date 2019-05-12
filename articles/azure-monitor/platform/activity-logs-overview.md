@@ -5,8 +5,8 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.author: johnkem
+ms.date: 05/12/2018
+ms.author: bwren
 ms.subservice: logs
 ---
 # Overview of Azure Activity log
@@ -41,7 +41,6 @@ Export the Activity Log to Azure Storage for archiving or stream it to an Event 
 
 ## Alert on the Activity Log
 You can create an alert when particular events are created in the Activity Log with an [Activity Log alert](activity-log-alerts.md). You can also create an alert using a [log query](alerts-log-query.md) when your Activity Log is connected to a Log Analytics workspace, but there is a cost to log query alerts. There is no cost for Activity Log alerts.
-
 
 ## Categories in the Activity Log
 Each event in the Activity Log has a particular category that are described in the following table. For full details on the schemata of these categories, see [Azure Activity Log event schema](activity-log-schema.md). 

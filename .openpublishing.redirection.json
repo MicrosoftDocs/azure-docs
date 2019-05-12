@@ -106,6 +106,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning-service/concept-accelerate-inferencing-with-gpus.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-deploy-inferencing-gpus",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machines/windows/high-performance-computing.md",
       "redirect_url": "https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/",
       "redirect_document_id": false
@@ -1096,6 +1101,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-qsg.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices-sdk-android-quickstart",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-licensing-ps-examples.md",
       "redirect_url": "/azure/active-directory/users-groups-roles/licensing-ps-examples",
       "redirect_document_id": true
@@ -1278,6 +1288,41 @@
     {
       "source_path": "articles/cosmos-db/multi-master-conflict-resolution.md",
       "redirect_url": "/azure/cosmos-db/conflict-resolution-policies",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/create-firewall-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-firewall-create",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/ha-failover-policy-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-failover-priority-update",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/scale-multiregion-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-create",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/secure-get-account-key-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-key-get",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/secure-mongo-connection-string-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-connection-string-get",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/secure-regenerate-key-powershell.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-account-key-regenerate",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/manage-account-with-powershell.md",
+      "redirect_url": "/azure/cosmos-db/manage-with-powershell",
       "redirect_document_id": true
     },
     {
@@ -2366,11 +2411,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/iot-edge/how-to-install-iot-edge-windows-with-linux.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/iot-edge/how-to-install-iot-core.md",
       "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows",
       "redirect_document_id": false
@@ -2584,6 +2624,16 @@
       "source_path": "articles/virtual-machines/linux/expand-disks-nodejs.md",
       "redirect_url": "/azure/virtual-machines/linux/expand-disks",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md",
+      "redirect_url": "/azure/virtual-machines/linux/managed-disks-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md",
+      "redirect_url": "/azure/virtual-machines/windows/managed-disks-overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/install-mongodb-nodejs.md",
@@ -3953,6 +4003,11 @@
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-limitations.md",
       "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/overview-compare.md",
+      "redirect_url": "/azure/architecture/guide/technology-choices/compute-decision-tree",
       "redirect_document_id": false
     },
     {
@@ -5762,12 +5817,12 @@
     },
     {
       "source_path": "articles/app-service-web/choose-web-site-cloud-service-vm.md",
-      "redirect_url": "/azure/app-service/overview-compare",
+      "redirect_url": "/azure/architecture/guide/technology-choices/compute-decision-tree",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service/choose-web-site-cloud-service-vm.md",
-      "redirect_url": "/azure/app-service/overview-compare",
+      "redirect_url": "/azure/architecture/guide/technology-choices/compute-decision-tree",
       "redirect_document_id": false
     },
     {
@@ -10846,6 +10901,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-dedicated-overview",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
       "redirect_document_id": false
@@ -13526,6 +13586,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-security-threat-detection.md",
+      "redirect_url": "/sql-database/sql-database-threat-detection-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-overview.md",
+      "redirect_url": "/sql-database/sql-database-auditing",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-auditing-get-started.md",
       "redirect_url": "/azure/sql-database/sql-database-auditing",
       "redirect_document_id": false
@@ -15066,8 +15136,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/stream-analytics/custom-deserializer.md",
+      "redirect_url": "https://aka.ms/asapreview1",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/stream-analytics/stream-analytics-tools-for-visual-studio.md",
       "redirect_url": "/azure/stream-analytics/stream-analytics-quick-create-vs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/stream-analytics/stream-analytics-dotnet-management-sdk-v1.md",
+      "redirect_url": "/azure/stream-analytics/stream-analytics-dotnet-management-sdk",
       "redirect_document_id": false
     },
     {
@@ -21812,6 +21892,11 @@
     {
       "source_path": "articles/service-fabric/service-fabric-diagnostics-how-to-setup-wad.md",
       "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric/service-fabric-patch-orchestration-application-linux.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-patch-orchestration-application#frequently-asked-questions",
       "redirect_document_id": false
     },
     {
@@ -32474,6 +32559,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/speech-service/how-to-customize-voice-font.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/speech-service/supported-languages.md",
       "redirect_url": "/azure/cognitive-services/speech-service/language-support",
       "redirect_document_id": true
@@ -33284,6 +33374,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/service/how-to-build-deploy-onnx.md",
+      "redirect_url": "/azure/machine-learning/service/concept-onnx",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-hub/iot-hub-raspberry-pi-kit-python-get-started.md",
       "redirect_url": "/azure/iot-hub/iot-hub-get-started-physical",
       "redirect_document_id": true
@@ -33814,8 +33909,8 @@
       "redirect_document_id": "false"
     },
     {
-      "source_path": "articles/monitoring/monitoring-vminsights-onboard.md",
-      "redirect_url": "/azure/azure-monitor/insights/vminsights-onboard",
+      "source_path": "articles/azure-monitor/insights/vminsights-onboard.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-overview",
       "redirect_document_id": "false"
     },
     {
@@ -36899,6 +36994,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Content-Moderator/sdk-and-samples.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/samples-dotnet",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md",
       "redirect_url": "/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription",
       "redirect_document_id": false
@@ -36936,11 +37036,6 @@
     {
       "source_path": "articles/azure-stack/azure-stack-poc.md",
       "redirect_url": "/azure/azure-stack/azure-stack-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/hdinsight/hbase/apache-hbase-enhanced-writes.md",
-      "redirect_url": "/azure/hdinsight/hbase/apache-hbase-overview",
       "redirect_document_id": false
     },
     {
@@ -37071,6 +37166,31 @@
     {
       "source_path": "articles/cognitive-services/QnAMaker/How-To/publish-knowledge-base.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-publish-knowledge-base",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/prepare-transcription.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-human-labeled-transcriptions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-acoustic-models.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-language-model.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-pronunciation.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-create-custom-endpoint.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-deploy-model",
       "redirect_document_id": true
     },
     {
@@ -38692,6 +38812,116 @@
       "source_path": "articles/active-directory/develop/app-registration-portal-content.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-v2-register-an-app",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/origin-error-codes.md",
+      "redirect_url": "/azure/media-services/latest/streaming-endpoint-error-codes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-create-account.md",
+      "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-create-asset.md",
+      "redirect_url": "/azure/media-services/latest/cli-create-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-create-event-grid.md",
+      "redirect_url": "/azure/media-services/latest/job-state-events-cli-how-to",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-create-jobs.md",
+      "redirect_url": "/azure/media-services/latest/cli-create-jobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-create-transform.md",
+      "redirect_url": "/azure/media-services/latest/cli-create-transform",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-publish-asset.md",
+      "redirect_url": "/azure/media-services/latest/cli-publish-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-reset-account-credentials.md",
+      "redirect_url": "/azure/media-services/latest/cli-reset-account-credentials",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-upload-file-asset.md",
+      "redirect_url": "/azure/media-services/latest/cli-upload-file-asset",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/rdp.md",
+      "redirect_url": "https://cloudblogs.microsoft.com/opensource/2019/03/25/windows-server-containers-now-supported-kubernetes/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/windows-container-cli.md",
+      "redirect_url": "https://cloudblogs.microsoft.com/opensource/2019/03/25/windows-server-containers-now-supported-kubernetes/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/windows-node-limitations.md",
+      "redirect_url": "https://cloudblogs.microsoft.com/opensource/2019/03/25/windows-server-containers-now-supported-kubernetes/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/scripts/cli-samples.md",
+      "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-install-presto.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-dotnet-sdk.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-powershell.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-curl.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-ssh.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/hdinsight-use-pig.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/howto-create-and-manage-applications-as-CSP.md",
+      "redirect_url": "/azure/iot-central/howto-create-and-manage-applications-csp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
+      "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-datafu-udf.md",
+      "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": true
     }
   ]
 }
