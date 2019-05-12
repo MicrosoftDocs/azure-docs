@@ -84,7 +84,7 @@ On the **Add application rule collection** screen, complete the following steps:
 Create the network rules to correctly configure your HDInsight cluster.
 
 > [!Important]
-> Optionally, select SQL service tags in the firewall instead of SQL sevice endpoints described earlier earlier. If you use SQL tags in firewall you can log and audit sql traffic as well.
+> You can choose between using SQL service tags in the firewall using network rules as described in this section, or a SQL service endpoint a described in [the section on service endpoints](#enable-service-endpoints). If you choose to use SQL tags in network rules, you can log and audit SQL traffic. Using a service endpoint will have SQL traffic bypass the firewall.
 
 1. Select the new firewall **Test-FW01** from the Azure portal.
 1. Click **Rules** under **Settings** > **Network rule collection** > **Add network rule collection**.
