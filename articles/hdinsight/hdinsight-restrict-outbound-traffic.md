@@ -124,7 +124,7 @@ Create the network rules to correctly configure your HDInsight cluster.
 
 Create a route table with the following entries:
 
-1. Seven addresses from [this list of required HDInsight management IP addresses](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) with a next hop of Internet:
+1. Seven addresses from [this list of required HDInsight management IP addresses](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) with a next hop of **Internet**:
     1. Four IP addresses for all clusters in all regions
     1. Two IP addresses that are specific for the region where the cluster is created
     1. One IP address for Azure's recursive resolver
@@ -133,7 +133,7 @@ Create a route table with the following entries:
 For example, to configure the route table for a cluster created in the US region of "Central US", use following steps:
 
 1. Sign in to the Azure portal.
-1. Select your Azure firewall **Test-FW01**. Copy the **Private IP address** listed on the **Overview** page.
+1. Select your Azure firewall **Test-FW01**. Copy the **Private IP address** listed on the **Overview** page. For this example we will use a **sample address of 10.1.1.4**
 1. Create a new route table.
 1. Click **Routes** under **Settings**.
 1. Click **Add** to create routes for the IP addresses in the table below.
@@ -147,7 +147,7 @@ For example, to configure the route table for a cluster created in the US region
 | 13.67.223.215 | 13.67.223.215/32 | Internet | NA |
 | 40.86.83.253 | 40.86.83.253/32 | Internet | NA |
 | 168.63.129.16 | 168.63.129.16/32 | Internet | NA |
-| 0.0.0.0 | 0.0.0.0/0 | Virtual appliance | <Azure firewall private IP> |
+| 0.0.0.0 | 0.0.0.0/0 | Virtual appliance | 10.1.1.4 |
 
 ![Title: Creating a route table](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-route-table.png)
 
@@ -183,16 +183,16 @@ Integrating your Azure Firewall with Azure Monitor logs is useful when first get
 
 ## Configure another network virtual appliance
 
-The previous instructions help you configure Azure Firewall for restricting outbound traffic from your HDInsight cluster. Azure Firewall is automatically configured to allow traffic for many of the common important scenarios. If you want to use another network virtual appliance, you will need to manually configure a number of additional features.
-
 >[!Important]
 > The following information is **only** required if you wish to configure a network virtual appliance (NVA) other than Azure Firewall.
 
+The previous instructions help you configure Azure Firewall for restricting outbound traffic from your HDInsight cluster. Azure Firewall is automatically configured to allow traffic for many of the common important scenarios. If you want to use another network virtual appliance, you will need to manually configure a number of additional features. Keep the following in mind as your configure your network virtual appliance:
+
 * Service Endpoint capable services should be configured with service endpoints.
-* IP Address dependencies are for non-HTTP/S traffic (both TCP and UDP traffic)
+* IP Address dependencies are for non-HTTP/S traffic (both TCP and UDP traffic).
 * FQDN HTTP/HTTPS endpoints can be placed in your NVA device.
 * Wildcard HTTP/HTTPS endpoints are dependencies that can vary based on a number of qualifiers.
-* Assign the route table you created to your HDInsight subnet.
+* Assign the route table that you create to your HDInsight subnet.
 
 ### Service Endpoint capable dependencies
 
