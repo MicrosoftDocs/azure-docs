@@ -137,6 +137,7 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
     1. Click **Create**.
 
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image042.png)
+
 1. If you want to change the password for the newly created user <fabrikamazureadmin@hdifabrikam.com>. Sign in to the Azure portal using the identity and then you will prompted to change the password.
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image046.png)
@@ -163,20 +164,15 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
 ### Configure Sync between On-Premises Domain Controller and Azure AD
 
 1. On the Connect to Azure AD screen, enter the username and password the global administrator for Azure AD. Click **Next**.
-
-![alt-text](./media/apache-domain-joined-create-configure-esp/image058.png)
-
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image058.png)
 1. On the Connect to Active Directory Domain Services screen, enter the username and password for an enterprise admin account. Click **Next**.
-
-![alt-text](./media/apache-domain-joined-create-configure-esp/image060.png)
-
-![alt-text](./media/apache-domain-joined-create-configure-esp/image062.png)
-
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image060.png)
+1. On the **Azure AD sign-in configuration** page, click **Next**.
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image062.png)
 1. On the Ready to configure screen, click **Install**.
-
-![alt-text](./media/apache-domain-joined-create-configure-esp/image064.png)
-
-![alt-text](./media/apache-domain-joined-create-configure-esp/image078.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image064.png)
+1. When the **Configuration complete** screen is displayed, click **Exit**.
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image078.png)
 
 1. After the sync is complete confirm if the users that you created on the IAAS Active Directory are Synced to Azure Active Directory.
     1. Sign in to the Azure portal.
@@ -206,42 +202,44 @@ For more information, see [Enable Azure Active Directory Domain Services using t
     ```
 
 1. Sign in to the Azure portal.
-1. We are enabling this service in Central US region, the select the Directory Name as that of the Azure Active Directory and that would be **HDIFabrikam**.
+1. Select the Azure Active Directory created for this tutorial, **HDIFabrikam**.
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image084.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image084.png)
 
 1. Select the network and the subnet that you created in the previous step.
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image086.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image086.png)
 
-1. XYZ
+1. Click **OK** on the **Adminstrator group** screen. You can optionally modify membership of this group, but it is not required for the steps of this tutorial.
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image088.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image088.png)
 
 1. Enable complete synchronization by selecting **All** on the synchronization screen and clicking **OK**.
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image090.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image090.png)
 
 1. Verify the details for the Azure DS-DS and click **Ok**.
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image092.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image092.png)
 
-1. After you enable Azure AD-DS, a local Domain Name Service (DNS) server runs on the AD Virtual Machines (VMs), To Configure your Azure AADDS Virtual Network (VNET) to use custom DNS servers.
+1. After you enable Azure AD-DS, a local Domain Name Service (DNS) server runs on the AD Virtual Machines (VMs).
 
-1. First locate the right IP addresses, select **Properties** of HDIFabricam.com AADDS, and look at the IP Addresses listed beneath **IP Address on Virtual Network**.
+### Configure your Azure AD-DS virtual network
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image096.png)
+The steps in this section will help you configure your Azure AD-DS virtual network (**HDIFabrikam-AADDSVNET**) to use your custom DNS servers.
 
-1. Change the configuration of the DNS servers on the Azure AD-DS VNET in this scenario Virtual Network configured for AADDS is **HDIFabrikam-AADDSVNET**.
+1. Locate the IP addresses of your custom DNS servers. Click on the **HDIFabrikam.com** AD-DS resource, click **Properties** under **Manage**  and look at the IP Addresses listed under **IP Address on Virtual Network**.
 
-1. Configure **HDIFabrikam-AADDSVNET** to custom IPs 10.0.04 and 10.0.0.5.
+    ![Locate custom DNS IP addresses for Azure AD-DS](./media/apache-domain-joined-create-configure-esp/image096.png)
 
-    1. Select **DNS Servers** under the **Settings** category. then click the radio button next to **Custom**, enter the first IP Address (10.0.04) in the text box below, and click **Save**.
+1. Configure **HDIFabrikam-AADDSVNET** to custom IPs `10.0.0.4` and `10.0.0.5`.
+
+    1. Select **DNS Servers** under the **Settings** category. then click the radio button next to **Custom**, enter the first IP Address (10.0.0.4) in the text box below, and click **Save**.
     1. Add additional IP Addresses (10.0.0.5) using the same steps.
 
-1. In our scenario AADDS was configured to use IP Addresses 10.0.0.4 and 10.0.0.5, setting the same IP address on AADDS VNet as show in the image below.
+1. In our scenario Azure AD-DS was configured to use IP Addresses 10.0.0.4 and 10.0.0.5, setting the same IP address on AADDS VNet as show in the image below.
 
-![alt-text](./media/apache-domain-joined-create-configure-esp/image098.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image098.png)
 
 ## Securing LDAP traffic
 
