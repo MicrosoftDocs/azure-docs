@@ -1,11 +1,11 @@
 ---
-title: Use the Seller Dashboard to submit your solution to AppSource
+title: Submit your solution to AppSource via Partner Center
 description: For your Office Add-in, Office 365 web app, or Power BI custom visual to appear in the AppSource, you need to submit it to the Seller Dashboard for approval.
 ms.date: 1/11/2018
 localization_priority: Priority
 ---
 
-# Use the Seller Dashboard to submit your solution to AppSource
+# Submit your solution to AppSource via Partner Center
 
 If you want your Office Add-in, Office 365 web app, or Power BI custom visual to appear in AppSource and the in-product Store, you need to submit it to the [Seller Dashboard](http://go.microsoft.com/fwlink/?LinkId=248605) for approval. First, familiarize yourself with the [AppSource validation policies](validation-policies.md). You can add and save your submission as a draft in your Seller Dashboard account until you're ready to submit it for approval.
 
