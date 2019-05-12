@@ -19,7 +19,7 @@ ms.author: juliako
 
 # Tutorial: Stream video files - CLI
 
-This tutorail shows how to easily encode and stream videos on a variety of browsers and devices by using Azure Media Services and the Azure CLI. You can specify input content by using HTTPS or SAS URLs or paths to files in Azure Blob storage.
+This tutorial shows how to easily encode and stream videos on a variety of browsers and devices by using Azure Media Services and the Azure CLI. You can specify input content by using HTTPS or SAS URLs or paths to files in Azure Blob storage.
 
 The example in this article encodes content that you make accessible via an HTTPS URL. Media Services v3 doesn't currently support chunked transfer encoding over HTTPS URLs.
 
