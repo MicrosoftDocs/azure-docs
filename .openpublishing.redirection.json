@@ -21896,7 +21896,7 @@
     },
     {
       "source_path": "articles/service-fabric/service-fabric-patch-orchestration-application-linux.md",
-      "redirect_url": "/azure/service-fabric/service-fabric-patch-orchestration-application",
+      "redirect_url": "/azure/service-fabric/service-fabric-patch-orchestration-application#frequently-asked-questions",
       "redirect_document_id": false
     },
     {
@@ -33909,8 +33909,8 @@
       "redirect_document_id": "false"
     },
     {
-      "source_path": "articles/monitoring/monitoring-vminsights-onboard.md",
-      "redirect_url": "/azure/azure-monitor/insights/vminsights-onboard",
+      "source_path": "articles/azure-monitor/insights/vminsights-onboard.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-overview",
       "redirect_document_id": "false"
     },
     {

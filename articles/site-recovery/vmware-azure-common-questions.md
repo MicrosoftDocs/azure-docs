@@ -5,11 +5,11 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/26/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: raynew
 ---
-# Common questions about VMware-to-Azure replication
+# Common questions about VMware to Azure replication
 
 This article answers common questions that might come up when you deploy disaster recovery of on-premises VMware virtual machines (VMs) to Azure.
 
@@ -21,7 +21,7 @@ This article answers common questions that might come up when you deploy disaste
 
 ### Can I use Site Recovery to migrate VMware VMs to Azure?
 
-Yes. In addition to using Azure Site Recovery to set up full disaster recovery for VMware VMs, you can also use Site Recovery to migrate on-premises VMware VMs to Azure. In this scenario, you replicate on-premises VMware VMs to Azure storage. Then, you fail over from on-premises to Azure. After failover, your apps and workloads are available and running on Azure VMs. The process is like setting up full disaster recovery, except that in a migration you can't fail back from Azure.
+Yes. In addition to using Azure Site Recovery to set up full disaster recovery for VMware VMs, you can also use Site Recovery to migrate on-premises VMware VMs to Azure. In this scenario, you replicate on-premises VMware VMs to Azure Storage. Then, you fail over from on-premises to Azure. After failover, your apps and workloads are available and running on Azure VMs. The process is like setting up full disaster recovery, except that in a migration you can't fail back from Azure.
 
 ### Does my Azure account need permissions to create VMs?
 
@@ -64,7 +64,7 @@ Site Recovery needs access to VMware servers to:
 
 ### Is replication data sent to Site Recovery?
 
-No, Site Recovery doesn't intercept replicated data and doesn't have any information about what's running on your VMs. Replication data is exchanged between VMware hypervisors and Azure storage. Site Recovery has no ability to intercept that data. Only the metadata needed to orchestrate replication and failover is sent to the Site Recovery service.  
+No, Site Recovery doesn't intercept replicated data and doesn't have any information about what's running on your VMs. Replication data is exchanged between VMware hypervisors and Azure Storage. Site Recovery has no ability to intercept that data. Only the metadata needed to orchestrate replication and failover is sent to the Site Recovery service.  
 
 Site Recovery is certified for ISO 27001:2013 and 27018, HIPAA, and DPA. It's in the process of SOC2 and FedRAMP JAB assessments.
 
@@ -281,13 +281,13 @@ In the Recovery Services vault, select **Configuration Servers** in **Site Recov
 
 ## Process server
 
-### Unable to select process server during enable replication
+### Why am I unable to select the process server when I enable replication?
 
-Enhancements in version 9.24 provide [process server alerts](vmware-physical-azure-monitor-process-server.md#process-server-alerts) for when to set up a scale-out process server. This is to avoid process server throttling and avoid use of an unhealthy process server.
+Updates in versions 9.24 and later now display the [health of the process server when you enable replication](vmware-azure-enable-replication.md#enable-replication). This is to avoid process-server throttling and minimize the use of unhealthy process servers.
 
-### What should I do to get an accurate health status of process server?
+### How do I update the process server to version 9.24 or later for accurate health information?
 
-Upgrade the Site Recovery components to the [latest versions](service-updates-how-to.md#links-to-currently-supported-update-rollups) (9.24 or later).
+Beginning with [version 9.24](service-updates-how-to.md#links-to-currently-supported-update-rollups), more alerts have been added to enhance the health alerts of the process server. [Update the Site Recovery components to version 9.24] (service-updates-how-to.md#links-to-currently-supported-update-rollups) or later so that all alerts are generated.
 
 ## Failover and failback
 
