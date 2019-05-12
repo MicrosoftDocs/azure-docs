@@ -221,7 +221,7 @@
           href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
         - name: Ubuntu
           href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
-    - name: Log in with Azure Active Directory credentials
+    - name: Sign in with Azure Active Directory credentials
       href: login-using-aad.md
     - name: Updates and patches
       items:
