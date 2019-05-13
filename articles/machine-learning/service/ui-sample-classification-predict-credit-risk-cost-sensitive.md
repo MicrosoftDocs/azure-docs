@@ -14,11 +14,11 @@ ms.date: 05/10/2019
 
 # Advanced Sample - Classification: Predict credit risk (cost sensitive)
 
-Learn how to incorporate Python code in the visual interface to create a cost-sensitive classification model. Then, learn how to quickly compare algorithms to choose the best one for you.
+Learn how to build a complex machine learning experiment using the visual interface. In this article, you learn how to quickly compare algorithms to choose the best option and implement custom logic using Python scripts. This particular sample predicts credit risk based on credit applications. However, you'll be able to apply these same steps to any machine learning problem in the visual interface.
 
-This sample predicts credit risk based on credit applications. It takes into account misclassification costs, which are added by a custom Python script, and it tests two algorithms: **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
+If you're just getting started with machine learning, you can take a look at our [basic sample](ui-sample-regression-predict-automobile-price-basic.md) first to learn more about the fundamental steps in building a machine learning model.
 
-Here's the final, completed graph of the experiment. This article goes over the critical information you'll need to create a similar experiment on your own.
+Here's the final, completed graph of the experiment:
 
 [![Graph of the experiment](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 

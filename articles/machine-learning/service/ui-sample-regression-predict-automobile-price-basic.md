@@ -14,16 +14,18 @@ ms.date: 05/10/2019
 
 # Basic Sample - Regression: Predict price
 
-Learn how to build a machine learning model to predict an automobile's price without writing a single line of code.
+This article shows you how to build a machine learning model without writing a single line of code using the Azure Machine Learning service visual interface.
 
-This sample implements a **regression algorithm** to predict price based on car specification. However, the basic steps will be similar for any algorithm type you choose whether its classification, regression, clustering, etc. These basic steps are:
+This particular sample trains a **decision forest regression** to predict a car's price based on its technical features. However, you'll be able to apply these same fundamental steps to any machine learning problem whether its classification, regression, clustering, etc. This article provides the rationale for the decisions involved in making our sample so you can make similar decisions on your own.
+
+These fundamental steps are:
 
 1. Get the data
 1. Pre-process the data
 1. Train the model
 1. Evaluate the model
 
-Here's the completed graph of the experiment. This article provides the rationale for every module so you can make similar decisions on your own.
+Here's the completed graph of the experiment.
 
 ![Graph of the experiment](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
