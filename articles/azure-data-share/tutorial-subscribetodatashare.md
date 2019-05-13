@@ -17,13 +17,3 @@ This tutorial will teach you how to accept a Data Share invitation and receive d
 
 * Azure Subscription
 * Azure Storage account and/or Azure Data Lake account
-
-# Create an Azure Data Share resource
-
-# Create a Data Share Account
-
-# Add datasets
-
-# Add recipients
-
-# Review & Create
