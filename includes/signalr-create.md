@@ -19,7 +19,7 @@ ms.custom: "include file"
 
     | Name | Recommended value | Description |
     | ---- | ----------------- | ----------- |
-    | Resource Name | *testsignalr* | Enter a unique resource name to use for the SignalR resource. The name must be a string of 1 to 63 characters and contain only numbers, letters, and the hyphen (`-`) character. The name cannot start or end with the hyphen character, and consecutive hyphen characters are not valid.|
+    | Resource name | *testsignalr* | Enter a unique resource name to use for the SignalR resource. The name must be a string of 1 to 63 characters and contain only numbers, letters, and the hyphen (`-`) character. The name cannot start or end with the hyphen character, and consecutive hyphen characters are not valid.|
     | Subscription | Choose your subscription |  Select the Azure subscription that you want to use to test SignalR. If your account has only one subscription, it's automatically selected and the **Subscription** drop-down isn't displayed.|
     | Resource group | Create a resource group named *SignalRTestResources*| Select or create a resource group for your SignalR resource. This group is useful for organizing multiple resources that you might want to delete at the same time by deleting the resource group. For more information, see [Using resource groups to manage your Azure resources](../articles/azure-resource-manager/resource-group-overview.md). |
     | Location | *East US* | Use **Location** to specify the geographic location in which your SignalR resource is hosted. For the best performance, we recommend that you create the resource in the same region as other components of your application. |
