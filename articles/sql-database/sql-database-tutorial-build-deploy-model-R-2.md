@@ -17,7 +17,7 @@ ms.date: 05/02/2019
 
 # Tutorial: Create a predictive model in R with Azure SQL Database Machine Learning Services (preview)
 
-In this tutorial, you'll learn how to train two predictive models in R with Azure SQL Database Machine Learning Services (preview), and then choose the most accurate model to deploy.
+In this tutorial, you'll learn how to train two predictive models in R with Azure SQL Database Machine Learning Services (preview), and then choose the most accurate model to deploy. To find the best model for a particular set of data, it's common to train and compare multiple models in order to find the one that fits the data best.
 
 This tutorial is **part two of a three-part tutorial series**.
 
@@ -39,8 +39,6 @@ In [part three](sql-database-tutorial-build-deploy-model-R-2.md), you'll learn h
 * Part two of this tutorial assumes you have completed [**part one**](sql-database-tutorial-build-deploy-model-R-1.md) and its prerequisites.
 
 ## Train two models
-
-In the *model training phase*, you find a function (*model*) that best describes the dependency between the variables in the dataset. This is typically done by using a subset of the entire dataset as training data. It's also common to train and compare multiple models in order to find the one that fits the data best.
 
 To find the best model for the ski rental data, create two different models (linear regression and decision tree) and see which one is predicting more accurately. You'll use the data frame `rentaldata` that you created in part one of this series.
 
@@ -65,7 +63,7 @@ model_dtree  <- rxDTree(RentalCount ~ Month + Day + WeekDay + Snow + Holiday, da
 
 ## Make predictions from both models
 
-Now use a predict function to predict the Rental Counts using the two trained models.
+Now use a predict function to predict the rental counts using each trained model.
 
 ```r
 #Use both models to make predictions using the test data set.
@@ -97,7 +95,7 @@ head(predict_dtree);
 
 ## Compare the results
 
-Now you want to see which of the models gives the best predictions. To find out, plot the difference between the predicted and actual values. R is a great language for quickly and easily visualizing data. You're going to use a basic plotting function to plot two graphs.
+Now you want to see which of the models gives the best predictions. A quick and easy way to do this is to plot the difference between the predicted and actual values using a basic plotting function.
 
 ```r
 #Use the plotting functionality in R to visualize the results from the predictions
@@ -108,7 +106,7 @@ plot(predict_dtree$RentalCount_Pred  - predict_dtree$RentalCount,  main = "Diffe
 
 ![Comparing the two models](./media/sql-database-tutorial-build-deploy-model-R-2/compare-models.png)
 
-It looks like the decision tree model is the more accurate of the two models. You can feel confident to use it to predict what's going to happen on a given situation in the future.
+It looks like the decision tree model is the more accurate of the two models.
 
 ## Next Steps
 

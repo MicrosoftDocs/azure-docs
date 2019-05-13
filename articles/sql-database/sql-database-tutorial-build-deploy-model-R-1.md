@@ -17,18 +17,16 @@ ms.date: 05/02/2019
 
 # Tutorial: Prepare data to train a predictive model in R with Azure SQL Database Machine Learning Services (preview)
 
-In this tutorial, you'll learn how to import a sample database into an Azure SQL database and prepare the data to be used for training a predictive model in R.
+In this tutorial, you'll learn how to prepare the data to be used for training a predictive model in R. This includes importing a sample database into an Azure SQL database.
 
 For this tutorial series, imagine you own a ski rental business and you want to predict the number of rentals that you'll have on a future date. This information will help you get your stock, staff, and facilities ready.
-
-Predictive modeling is a powerful way to add intelligence to your application. It enables applications to predict outcomes against new data. Predictive analytics involves three basic phases: **data preparation**, **model training**, and **model deployment**.
 
 This tutorial is **part one of a three-part tutorial series**.
 
 In part one, you'll learn how to:
 
 > [!div class="checklist"]
-> * Import a database backup file into an Azure SQL database
+> * Import a sample database into an Azure SQL database
 > * Load the data from the Azure SQL database into a data frame using R
 > * Prepare the data by identifying some columns as categorical
 
@@ -54,7 +52,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Import the sample database
 
-The dataset used in this tutorial is hosted in a SQL database table that contains rental data from previous years. The table is in a database named TutorialDB that can be imported from a `.bacpac` backup file.
+The sample dataset used in this tutorial is hosted in a SQL database table that contains rental data from previous years. The table is in a database named TutorialDB that can be imported from a `.bacpac` backup file.
  
 The first thing to do is import the TutorialDB database into your own Azure SQL database.
 
@@ -143,9 +141,8 @@ $ Snow       : num  0 0 0 0 0 0 0 0 0 0 ...
 
 ## Prepare the data
 
-In the *data preparation* phase, data to be used in a predictive model often needs to be cleaned before it can be used. In this sample database, most of the preparation has already been done, but you'll do one more preparation here.
-
-Use the following R script to identify three columns as *categories* by changing the data types to *factor*. Changing these data types helps when building the model because it explicitly specifies that values in these columns are categorical.
+In this sample database, most of the preparation has already been done, but you'll do one more preparation here.
+Use the following R script to identify three columns as *categories* by changing the data types to *factor*.
 
 ```r
 #Changing the three factor columns to factor types

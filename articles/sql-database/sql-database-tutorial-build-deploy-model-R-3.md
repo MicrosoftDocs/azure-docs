@@ -18,8 +18,7 @@ ms.date: 05/02/2019
 # Tutorial: Deploy a predictive model in R with Azure SQL Database Machine Learning Services (preview)
 
 In this tutorial, you'll learn how to deploy a predictive model in R with Azure SQL Database Machine Learning Services (preview).
-
-Azure SQL Database Machine Learning Services enables you to train and test predictive models in the context of an Azure SQL database. First, you store the model in an Azure SQL database. Then, you create a stored procedure with an embedded R script that makes predictions using the model. The database engine takes care of the execution. Because it executes in the SQL database, your models can easily be trained against data stored in the database.
+You'll create a stored procedure with an embedded R script that makes predictions using the model. The database engine takes care of the execution. Because your model executes in the Azure SQL database, it can easily be trained against data stored in the database.
 
 This tutorial is **part three of a three-part tutorial series**.
 
