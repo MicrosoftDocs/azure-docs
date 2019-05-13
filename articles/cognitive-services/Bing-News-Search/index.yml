@@ -6,7 +6,7 @@ metadata:
   title: Bing News Search API Documentation - Tutorials, quickstarts, API references | Microsoft Docs
   description: Learn how to use the Bing News Search API to search the web for news. 
   services: cognitive-services
-  author: mikedodaro
+  author: aahill
   manager: rosh
   ms.service: cognitive-services
   ms.subservice: bing-video-search
@@ -14,7 +14,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/16/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: The Bing News Search API enables you to integrate Bing's news search capabilities in your applications. By sending search queries with the API, you can get relevant news articles from multiple categories and sources, similar to bing.com/news.
 sections:
