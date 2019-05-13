@@ -63,10 +63,9 @@
           href: manage-dns.md
         - name: Update email notifications
           href: active-directory-ds-notifications.md
-        - name: Configure secure LDAP for a managed domain
-          items: 
-            - name: "Task 1 Obtain a certificate for secure LDAP"
-              href: active-directory-ds-admin-guide-configure-secure-ldap.md
+        - name: Configure secure LDAP (LDAPS) in an Azure AD Domain Services domain
+          href: "configure-ldaps.md"
+          items:             
             - name: "Task 2 Export the secure LDAP certificate"
               href: active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md
             - name: "Task 3 Enable secure LDAP for the managed domain using Azure portal"
