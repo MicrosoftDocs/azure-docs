@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 05/13/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -62,8 +62,7 @@ Assessments are a point-in-time snapshot of data available in Azure Migrate.
 
 ## Before you start
 
-Before you begin this tutorial you should deploy the Azure Migrate appliance and start discovery. If you haven't, [complete this tutorial](tutorial-deploy-discover-hyper-v.md).
-
+Before you begin this tutorial you should deploy the Azure Migrate appliance and start discovery. 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
 
