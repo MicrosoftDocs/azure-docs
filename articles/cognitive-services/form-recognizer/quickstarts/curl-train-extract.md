@@ -15,7 +15,7 @@ ms.author: pafarley
 
 # Quickstart: Train a Form Recognizer model and extract form data by using the REST API with cURL
 
-In this quickstart, you'll use the Form Recognizer's REST API with cURL to train and score forms to extract key-value pairs and tables.
+In this quickstart, you'll use the Form Recognizer REST API with cURL to train and score forms to extract key-value pairs and tables.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
