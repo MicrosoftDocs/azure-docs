@@ -91,13 +91,17 @@ There’s no real limit to the total number of fault or Upgrade Domains in an en
 ![Fault and Upgrade Domain Layouts][Image4]
 </center>
 
-There’s no best answer which layout to choose, each has some pros and cons. For example, the 1FD:1UD model is simple to set up. The 1 Upgrade Domain per Node model is most like what people are used to. During upgrades each node is updated independently. This is similar to how small sets of machines were upgraded manually in the past. 
+There’s no best answer which layout to choose, each has some pros and cons. For example, the 1FD:1UD model is simple to set up. The 1 Upgrade Domain per Node model is most like what people are used to. During upgrades each node is updated independently. This is similar to how small sets of machines were upgraded manually in the past.
 
 The most common model is the FD/UD matrix, where the FDs and UDs form a table and nodes are placed starting along the diagonal. This is the model used by default in Service Fabric clusters in Azure. For clusters with many nodes everything ends up looking like the dense matrix pattern above.
 
+> [!NOTE]
+> Service Fabric clusters hosted in Azure do not support changing the default strategy. Only Standalone clusters offer that customization.
+>
+
 ## Fault and Upgrade Domain constraints and resulting behavior
 ### *Default approach*
-By default, the Cluster Resource Manager keeps services balanced across Fault and Upgrade Domains. This is modeled as a [constraint](service-fabric-cluster-resource-manager-management-integration.md). The Fault and Upgrade Domain constraint states: “For a given service partition, there should never be a difference greater than one in the number of service objects (stateless service instances or stateful service replicas) between any two domains on the same level of hierarchy”. Let’s say this constraint provides a “maximum difference” guarantee. The Fault and Upgrade Domain constraint prevents certain moves or arrangements that violate the rule stated above. 
+By default, the Cluster Resource Manager keeps services balanced across Fault and Upgrade Domains. This is modeled as a [constraint](service-fabric-cluster-resource-manager-management-integration.md). The Fault and Upgrade Domain constraint states: “For a given service partition, there should never be a difference greater than one in the number of service objects (stateless service instances or stateful service replicas) between any two domains on the same level of hierarchy”. Let’s say this constraint provides a “maximum difference” guarantee. The Fault and Upgrade Domain constraint prevents certain moves or arrangements that violate the rule stated above.
 
 Let's look at one example. Let's say that we have a cluster with six nodes, configured with five Fault Domains and five Upgrade Domains.
 
