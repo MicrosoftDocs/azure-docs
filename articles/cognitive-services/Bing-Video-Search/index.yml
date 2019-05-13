@@ -6,7 +6,7 @@ metadata:
   description: Learn how to use the Bing Video Search API search and find videos from across the Web.
   services: cognitive-services
   author: aahill
-  manager: rosh
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
   ms.tgt_pltfrm: na

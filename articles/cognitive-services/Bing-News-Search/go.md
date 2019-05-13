@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to get news results from the Bing News Search API.
 services: cognitive-services
 author: aahill
-manager: rosh
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
