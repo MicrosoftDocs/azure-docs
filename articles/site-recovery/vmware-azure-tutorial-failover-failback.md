@@ -1,6 +1,6 @@
 ---
 title: Fail over and fail back VMware VMs and physical servers during disaster recovery to Azure with Site Recovery | Microsoft Docs
-description: Learn how to fail over VMware VMs and physical servers to Azure, and fail back to the on-premises site, during disaster recovery to Azure with Azure Site Recovery
+description: Learn how to fail over VMware VMs and physical servers to Azure, and how to fail back to the on-premises site, during disaster recovery to Azure by using Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -10,7 +10,6 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ---
-
 # Fail over and fail back VMware VMs
 
 This article describes how to fail over an on-premises VMware virtual machine (VM) to [Azure Site Recovery](site-recovery-overview.md).
@@ -46,7 +45,7 @@ Failover and failback have four stages:
 
 ## Verify VM properties
 
-Before you run a failover, verify VM properties, and make sure that VMs comply with [Azure requirements](vmware-physical-azure-support-matrix.md#replicated-machines).
+Before you run a failover, verify VM properties, and make sure that the VMs meet [Azure requirements](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 Verify properties as follows:
 
@@ -73,7 +72,7 @@ Verify properties as follows:
 
 1. In **Settings** > **Replicated items**, select the VM you want to fail over, and then select **Failover**.
 2. In **Failover**, select a **Recovery Point** to fail over to. You can use one of the following options:
-   * **Latest**: This option first processes all the data sent to Site Recovery. It provides the lowest Recovery Point Objective (RPO)) because the Azure VM created after failover has all the data that was replicated to Site Recovery when the failover was triggered.
+   * **Latest**: This option first processes all the data sent to Site Recovery. It provides the lowest Recovery Point Objective (RPO) because the Azure VM that's created after failover has all the data that was replicated to Site Recovery when the failover was triggered.
    * **Latest processed**: This option fails the VM over to the latest recovery point processed by Site Recovery. This option provides a low RTO (Recovery Time Objective) because no time is spent processing unprocessed data.
    * **Latest app-consistent**: This option fails the VM over to the latest app-consistent recovery point processed by Site Recovery.
    * **Custom**: This option lets you specify a recovery point.
@@ -87,21 +86,21 @@ In some scenarios, failover requires additional processing that takes around eig
 * VMware Linux VMs.
 * Hyper-V VMs protected as physical servers.
 * VMware VMs that don't have the DHCP service enabled.
-* VMware VMs that don't have the following boot drivers: storvsc, vmbus, storflt, intelide, atapi.
+* VMware VMs that don't have the following boot drivers: storvsc, vmbus, storflt, intelide, and atapi.
 
 > [!WARNING]
 > Don't cancel a failover in progress. Before failover is started, VM replication is stopped. If you cancel a failover in progress, failover stops, but the VM won't replicate again.
 
 ## Connect to failed-over VM
 
-1. If you want to connect to Azure VMs by using RDP/SSH after failover, [verify these requirements](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+1. If you want to connect to Azure VMs after failover by using Remote Desktop Protocol (RDP) and Secure Shell (SSH), [verify that the requirements have been met](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 2. After failover, go to the VM and validate by [connecting](../virtual-machines/windows/connect-logon.md) to it.
 3. Use **Change recovery point** if you want to use a different recovery point after failover. After you commit the failover in the next step, this option will no longer be available.
-4. After validation, click on **Commit** to finalize the recovery point of the VM after failover.
-5. After commit, all the other available recovery points are deleted. This completes failover.
+4. After validation, select **Commit** to finalize the recovery point of the VM after failover.
+5. After you commit, all the other available recovery points are deleted. This step completes the failover.
 
 >[!TIP]
-> If you encounter any connectivity issues after failover, follow this [troubleshooting guide](site-recovery-failover-to-azure-troubleshoot.md).
+> If you encounter any connectivity issues after failover, follow the [troubleshooting guide](site-recovery-failover-to-azure-troubleshoot.md).
 
 ## Next steps
 
