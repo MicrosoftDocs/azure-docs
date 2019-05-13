@@ -44,17 +44,18 @@ Registration of applications utilizing all other types of [supported authenticat
 
 To connect an application using an app integration template, sign in to the Azure portal using your Microsoft identity platform administrator account. Browse to the **Active Directory > Enterprise Applications > New application > Non-gallery application** section, select **Add**, and then **Add an application from the gallery**.
 
-  ![Add application](./media/configure-single-sign-on-non-gallery-applications/customapp1.png)
+![Add application](./media/configure-single-sign-on-non-gallery-applications/customapp1.png)
 
 In the app gallery, you can add an unlisted app by selecting the **Non-gallery application** tile that is shown in the search results if your desired app wasn't found. After entering a Name for your application, you can configure the single sign-on options and behavior.
 
-**Quick tip**:  As a best practice, use the search function to check to see if the application already exists in the application gallery. If the app is found and its description mentions single sign-on, then the application is already supported for federated single sign-on.
+> [!TIP]
+> As a best practice, use the search function to check to see if the application already exists in the application gallery. If the app is found and its description mentions single sign-on, then the application is already supported for federated single sign-on.
 
-  ![Search](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
+![Search](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
 
 Adding an application this way provides a similar experience to the one available for pre-integrated applications. To start, select **Configure Single Sign-On** or click on **Single sign-on** from the application’s left-hand navigation menu. The next screen presents the options for configuring single sign-on. The options are described in the next sections of this article.
   
-  ![Configuration options](./media/configure-single-sign-on-non-gallery-applications/customapp3.png)
+![Configuration options](./media/configure-single-sign-on-non-gallery-applications/customapp3.png)
 
 ## SAML-based single sign-on
 
@@ -66,7 +67,7 @@ To set up Azure AD, enter the basic SAML configuration. You can manually enter t
 
   ![Litware domain and URLs](./media/configure-single-sign-on-non-gallery-applications/customapp4.png)
 
-- **Sign On URL (SP-initiated only)** – Where the user goes to sign-in to this application. If the application is configured to perform service provider-initiated single sign-on, then when a user navigates to this URL, the service provider will do the necessary redirection to Azure AD to authenticate and log on the user in. If this field is populated, then Azure AD will use this URL to launch the application from Office 365 and the Azure AD Access Panel. If this field is omitted, then Azure AD will instead perform identity provider -initiated sign-on when the app is launched from Office 365, the Azure AD Access Panel, or from the Azure AD single sign-on URL (can be copied from the Dashboard tab).
+- **Sign On URL (SP-initiated only)** – Where the user goes to sign in to this application. If the application is configured to perform service provider-initiated single sign-on, then when a user navigates to this URL, the service provider will do the necessary redirection to Azure AD to authenticate and sign in the user. If this field is populated, then Azure AD will use this URL to launch the application from Office 365 and the Azure AD Access Panel. If this field is omitted, then Azure AD will instead perform identity provider -initiated sign-on when the app is launched from Office 365, the Azure AD Access Panel, or from the Azure AD single sign-on URL (can be copied from the Dashboard tab).
 - **Identifier** - should uniquely identify the application for which single sign-on is being configured. You can find this value as the Issuer element in the AuthRequest (SAML request) sent by the application. This value also appears as the **Entity ID** in any SAML metadata provided by the application. Check the application’s SAML documentation for details on what its Entity ID or Audience value is. 
 
     The following is an example of how the Identifier or Issuer appears in the SAML request sent by the application to Azure AD:
@@ -106,7 +107,7 @@ You can view or edit the claims sent in the SAML token to the application under 
 There are two reasons why you might need to edit the claims issued in the SAML token:
 
 - The application has been written to require a different set of claim URIs or claim values.
-- Your application has been deployed in a way that requires the NameIdentifier claim to be something other than the username (AKA user principal name) stored in Microsoft identity platform.
+- Your application has been deployed in a way that requires the NameIdentifier claim to be something other than the username (that is, user principal name) stored in Microsoft identity platform.
 
 For more information, see [Customizing claims issued in the SAML token for enterprise applications](./../develop/../develop/active-directory-saml-claims-customization.md). 
 
