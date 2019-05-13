@@ -51,7 +51,7 @@ Azure Data Explorer currently supports:
 
 ### Programmatic ingestion
 
-Azure Data Explorer provides SDKs that can be used for query and data ingestion. Programmatic ingestion is optimized for reducing ingestion costs (COGs), by minimizing storage transactions during and following the ingestion process.
+Azure Data Explorer provides SDKs that can be used for query and data ingestion. Programmatic ingestion is optimized for reducing ingestion costs by minimizing storage transactions during and following the ingestion process.
 
 **Available SDKs and open-source projects**:
 
