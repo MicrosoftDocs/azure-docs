@@ -16,7 +16,11 @@ For example, if you have some batch processing that happens once a day or once a
 
 You can scale a cluster manually using one of the methods outlined below, or use [autoscale](hdinsight-autoscale-clusters.md) options to have the system automatically scale up and down in response to CPU, Memory, and other metrics.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## Impact of scaling operations
+
+When you add nodes to your running HDInsight cluster, any pending or running jobs will not be impacted. In addition, new jobs can be safely submitted while the scaling process is running. If the scaling operations fail for any reason, the failure is gracefully handled, leaving the cluster in a functional state.
+
+However, if you are scaling down your cluster by removing nodes, any pending or running jobs will fail when the scaling operation completes. This failure is due to some of the services restarting during the process.
 
 ## Utilities to scale clusters
 
@@ -38,11 +42,9 @@ Using any of these methods, you can scale your HDInsight cluster up or down with
 > * The Aure classic CLI is deprecated and should only be used with the classic deployment model. For all other deployments, use the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
 > * The PowerShell AzureRM module is deprecated.  Please use the [Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) whenever possible.
 
-## Scaling impacts on running jobs
+## How to safely scale a cluster
 
-When you **add** nodes to your running HDInsight cluster, any pending or running jobs will not be impacted. In addition, new jobs can be safely submitted while the scaling process is running. If the scaling operations fail for any reason, the failure is gracefully handled, leaving the cluster in a functional state.
-
-However, if you are scaling down your cluster by **removing** nodes, any pending or running jobs will fail when the scaling operation completes. This failure is due to some of the services restarting during the process.
+### Scale down a cluster with running jobs
 
 To address this issue, you can wait for the jobs to complete before scaling down your cluster, manually terminate the jobs, or  resubmit the jobs after the scaling operation has concluded.
 
@@ -74,7 +76,11 @@ For example:
 yarn application -kill "application_1499348398273_0003"
 ```
 
-## Rebalancing an Apache HBase cluster
+### Scale down a cluster to less than 3 nodes
+
+As HDFS is configured with a dfs.replication setting of 3, when there are not the expected three copies of each file block available, HDFS will enter safe mode and Ambari may generate alerts. We suggest not to scale down a cluster to less than 3 nodes. If you have to, please update the dfs.replication to the number you would like your cluster to scale down to.
+
+### Scale down an Apache HBase cluster
 
 Region servers are automatically balanced within a few minutes after completion of the scaling operation. To manually balance region servers, use the following steps:
 
@@ -88,11 +94,7 @@ Region servers are automatically balanced within a few minutes after completion 
 
         balancer
 
-## Scale down implications
-
-As mentioned previously, any pending or running jobs are terminated at the completion of a scaling down operation. However, there are other potential implications to scaling down that may occur.
-
-## HDInsight name node stays in safe mode after scaling down
+## Troubleshooting when name node goes into safe mode
 
 If you shrink your cluster down to the minimum of one worker node, Apache HDFS may become stuck in safe mode when worker nodes are rebooted due to patching, or immediately after the scaling operation.
 
@@ -112,20 +114,8 @@ After leaving safe mode, you can manually remove the  temporary files, or wait f
 
 ### Example errors when safe mode is turned on
 
-* H070 Unable to open Hive session. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Cannot create directory** /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. **Name node is in safe mode**. The reported blocks 75 needs additional 12 blocks to reach the threshold 0.9900 of total blocks 87. The number of live datanodes 10 has reached the minimum number 0. Safe mode will be turned off automatically once the thresholds have been reached.
-
-* H100 Unable to submit statement show databases: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] failed: **Connection refused**
-
-* H020 Could not establish connection to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001:
-  org.apache.thrift.transport.TTransportException: Could not create http connection to http:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001
-  [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: Connection refused: org.apache.thrift.transport.TTransportException: Could not create http connection to http:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: **Connection refused**
-
-* From the Hive logs:
-    WARN [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – Error starting HiveServer2 on attempt 21, will retry in 60 seconds
-    java.lang.RuntimeException: Error applying authorization policy on hive configuration: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Cannot create directory** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **Name node is in safe mode**.
-    The reported blocks 0 needs additional 9 blocks to reach the threshold 0.9900 of total blocks 9.
-    The number of live datanodes 10 has reached the minimum number 0. **Safe mode will be turned off automatically once the thresholds have been reached**.
-    at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
+* org.apache.hadoop.hdfs.server.namenode.SafeModeException: Cannot create directory /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. Name node is in safe mode. 
+* org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] failed: Connection refused
 
 You can review the name node logs from the `/var/log/hadoop/hdfs/` folder, near the time when the cluster was scaled, to see when it entered safe mode. The log files are named `Hadoop-hdfs-namenode-hn0-clustername.*`.
 
@@ -140,120 +130,7 @@ The `hive.exec.scratchdir` parameter in Hive is configured within `/etc/hive/con
 </property>
 ```
 
-### View the health and state of your HDFS file system
-
-You can view a status report from each name node to see whether nodes are in safe mode. To view the report, SSH into each head node and run the following command:
-
-```
-hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
-```
-
-![Safe mode off](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
-
-> [!NOTE]  
-> The `-D` switch is necessary because the default file system in HDInsight is either Azure Storage or Azure Data Lake Storage. `-D` specifies that the commands execute against the local HDFS file system.
-
-Next, you can view a report that shows the details of the HDFS state:
-
-```
-hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -report
-```
-
-This command results in the following on a healthy cluster where all blocks are replicated to the expected degree:
-
-![Safe mode off](./media/hdinsight-scaling-best-practices/report.png)
-
-HDFS supports the `fsck` command to check for  inconsistencies with various files, such as missing blocks for a file or under-replicated blocks. To run the `fsck` command against the `scratchdir` (temporary scratch disk) files:
-
-```
-hdfs fsck -D 'fs.default.name=hdfs://mycluster/' /tmp/hive/hive
-```
-
-When executed on a healthy HDFS file system with no under-replicated blocks, you see an output similar to the following:
-
-```
-Connecting to namenode via http://hn0-scalin.name.bx.internal.cloudapp.net:30070/fsck?ugi=sshuser&path=%2Ftmp%2Fhive%2Fhive
-FSCK started by sshuser (auth:SIMPLE) from /10.0.0.21 for path /tmp/hive/hive at Thu Jul 06 20:07:01 UTC 2017
-..Status: HEALTHY
- Total size:    53 B
- Total dirs:    5
- Total files:   2
- Total symlinks:                0 (Files currently being written: 2)
- Total blocks (validated):      2 (avg. block size 26 B)
- Minimally replicated blocks:   2 (100.0 %)
- Over-replicated blocks:        0 (0.0 %)
- Under-replicated blocks:       0 (0.0 %)
- Mis-replicated blocks:         0 (0.0 %)
- Default replication factor:    3
- Average block replication:     3.0
- Corrupt blocks:                0
- Missing replicas:              0 (0.0 %)
- Number of data-nodes:          4
- Number of racks:               1
-FSCK ended at Thu Jul 06 20:07:01 UTC 2017 in 3 milliseconds
-
-
-The filesystem under path '/tmp/hive/hive' is HEALTHY
-```
-
-In contrast, when the `fsck` command is executed on an HDFS file system with some under-replicated blocks, the output is similar to the following:
-
-```
-Connecting to namenode via http://hn0-scalin.name.bx.internal.cloudapp.net:30070/fsck?ugi=sshuser&path=%2Ftmp%2Fhive%2Fhive
-FSCK started by sshuser (auth:SIMPLE) from /10.0.0.21 for path /tmp/hive/hive at Thu Jul 06 20:13:58 UTC 2017
-.
-/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/inuse.info:  Under replicated BP-1867508080-10.0.0.21-1499348422953:blk_1073741826_1002. Target Replicas is 3 but found 1 live replica(s), 0 decommissioned replica(s) and 0 decommissioning replica(s).
-.
-/tmp/hive/hive/e7c03964-ff3a-4ee1-aa3c-90637a1f4591/inuse.info: CORRUPT blockpool BP-1867508080-10.0.0.21-1499348422953 block blk_1073741825
-
-/tmp/hive/hive/e7c03964-ff3a-4ee1-aa3c-90637a1f4591/inuse.info: MISSING 1 blocks of total size 26 B.Status: CORRUPT
- Total size:    53 B
- Total dirs:    5
- Total files:   2
- Total symlinks:                0 (Files currently being written: 2)
- Total blocks (validated):      2 (avg. block size 26 B)
-  ********************************
-  UNDER MIN REPL'D BLOCKS:      1 (50.0 %)
-  dfs.namenode.replication.min: 1
-  CORRUPT FILES:        1
-  MISSING BLOCKS:       1
-  MISSING SIZE:         26 B
-  CORRUPT BLOCKS:       1
-  ********************************
- Minimally replicated blocks:   1 (50.0 %)
- Over-replicated blocks:        0 (0.0 %)
- Under-replicated blocks:       1 (50.0 %)
- Mis-replicated blocks:         0 (0.0 %)
- Default replication factor:    3
- Average block replication:     0.5
- Corrupt blocks:                1
- Missing replicas:              2 (33.333332 %)
- Number of data-nodes:          1
- Number of racks:               1
-FSCK ended at Thu Jul 06 20:13:58 UTC 2017 in 28 milliseconds
-
-
-The filesystem under path '/tmp/hive/hive' is CORRUPT
-```
-
-You can also view the HDFS status in Ambari UI by selecting the **HDFS** service on the left, or with  `https://<HDInsightClusterName>.azurehdinsight.net/#/main/services/HDFS/summary`.
-
-![Ambari HDFS status](./media/hdinsight-scaling-best-practices/ambari-hdfs.png)
-
-You may also see one or more critical errors on the active or standby NameNodes. To view the NameNode Blocks Health, select the NameNode link next to the alert.
-
-![NameNode Blocks Health](./media/hdinsight-scaling-best-practices/ambari-hdfs-crit.png)
-
-To clean up the scratch files, which remove the block replication errors, SSH into each head node and run the following command:
-
-```
-hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
-```
-
-> [!NOTE]  
-> This command can break Hive if some jobs are still running.
-
-### How to prevent HDInsight from getting stuck in safe mode due to under-replicated blocks
+### How to prevent HDInsight from getting stuck in safe mode
 
 There are several ways to prevent HDInsight from being left in safe mode:
 
@@ -281,7 +158,7 @@ If Hive has left behind temporary files, then you can manually clean up those fi
     ```
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     ```
-    
+
     Here is a sample output when files exist:
 
     ```
@@ -301,7 +178,7 @@ If Hive has left behind temporary files, then you can manually clean up those fi
     ```
     hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
     ```
-    
+
 #### Scale  HDInsight to three worker nodes
 
 If getting stuck in safe mode is a persistent problem, and the previous steps are not options, then you may want to avoid the problem by only scaling down to three worker nodes. This may not be optimal, due to cost constraints, compared to scaling down to one node. However, with only one worker node, HDFS cannot guarantee three replicas of the data are available to the cluster.
@@ -315,13 +192,13 @@ The final option is to watch for the rare occasion in which HDFS enters safe mod
     ```bash
     hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
     ```
-    
+
 * HDInsight on Windows:
 
     ```bash
     hdfs dfsadmin -fs hdfs://headnodehost:9000 -safemode leave
     ```
-    
+
 ## Next steps
 
 * [Automatically scale Azure HDInsight clusters](hdinsight-autoscale-clusters.md)
