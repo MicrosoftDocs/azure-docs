@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 02/24/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
 ---
 
@@ -21,7 +21,7 @@ The only requirements for your development environment are Python 3, Anaconda (f
 
 This article focuses on the following environments and tools:
 
-* Your own [cloud-based notebook server](#notebookvm): Use a compute resource in your workstation to run Jupyter notebooks. It's the easiest way to get started, because the Azure Machine Learning SDK is already installed.
+* Your own [cloud-based notebook VM](#notebookvm): Use a compute resource in your workstation to run Jupyter notebooks. It's the easiest way to get started, because the Azure Machine Learning SDK is already installed.
 
 * [The Data Science Virtual Machine (DSVM)](#dsvm): A pre-configured development or experimentation environment in the Azure cloud that's designed for data science work and can be deployed to either CPU only VM instances or GPU-based instances. Python 3, Conda, Jupyter Notebooks, and the Azure Machine Learning SDK are already installed. The VM comes with popular machine learning and deep learning frameworks, tools, and editors for developing machine learning solutions. It's probably the most complete development environment for machine learning on the Azure platform.
 
@@ -52,13 +52,28 @@ To install the SDK environment for your [local computer](#local), [Jupyter Noteb
 
 - On Windows, you need the command prompt or Anaconda prompt (installed by Anaconda and Miniconda).
 
-## <a id="notebookvm"></a>Your own cloud-based notebook server
+## <a id="notebookvm"></a>Your own cloud-based notebook VM
 
-Create a notebook server in your Azure Machine Learning workspace for the easiest way to get started with Azure Machine Learning development.
+The notebook virtual machine (VM) is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter notebook server, JupyterLab, and a fully prepared ML environment. 
 
-* The Azure Machine Learning SDK is already installed.
-* The notebook VM environment is automatically configured to work with your workspace.
-* The resource is created in your workspace and can be managed there
+The notebook VM offers: 
+
++ Secure. Since VM and notebook access is secured with HTTPS and Azure Active Directory by default, IT Pros can easily enforce single sign-on and other security features such as multi-factor authentication.
+
++ Preconfigured. This fully prepared Python ML environment draws its pedigree from the popular IaaS Data Science VM and includes:
+  + Azure ML Python SDK (latest)
+  + Automatic configuration to work with your workspace
+  + A Jupyter notebook server
+  + JupyterLab notebook IDE
+  + Preconfigured GPU drivers 
+  + A selection of deep learning frameworks
+  + more...
+
+If you are into code, the VM includes tutorials and samples to help you explore and learn how to use Azure Machine Learning service. The sample notebooks are stored in the Azure Blob Storage account of your workspace making them shareable across VMs. When run, they also have access to the data stores and compute resources of your workspace. 
+
++ Simple setup: Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify a Azure VM type. 
+
++ Customizable. While a managed and secure VM offering, you retain full access to the hardware capabilities and customize it to your heart’s desire. For example, quickly create the latest NVidia V100 powered VM to perform step-by-step debugging of novel Neural Network architecture.
 
 To get started developing with your cloud-based notebook server, see [Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
