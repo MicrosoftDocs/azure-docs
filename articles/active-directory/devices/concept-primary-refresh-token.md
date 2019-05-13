@@ -117,15 +117,17 @@ PRT is invalidated in the following scenarios:
 1. **Invalid user**: If a user is deleted or disabled in Azure AD, their PRT is invalidated and cannot be used to obtain tokens for applications. If a deleted or disabled user already signed in to a device before, cached sign in would log them in, until CloudAP is aware of their invalid state. Once CloudAP determines that the user is invalid, it blocks subsequent logons. An invalid user is automatically blocked from sign in to new devices that don’t have their credentials cached.
 1. **Invalid device**: If a device is deleted or disabled in Azure AD, the PRT obtained on that device is invalidated and cannot be used to obtain tokens for applications. If a user is already signed in to an invalid device, they can continue to do so. But all tokens on the device are invalidated and the user does not have SSO to any resources from that device.
 1. **Password change**: After a user changes their password, the PRT obtained with the previous password is invalidated by Azure AD. Password change results in the user getting a new PRT. This invalidation can happen in two different ways:
-   1. If user signs in to Windows with their new password, CloudAP discards the old PRT and requests Azure AD to issue a new PRT with the new password. If user does not have an internet connection, the new password cannot be validated by CloudAP and Windows can require the user to enter their old password.
+   1. If user signs in to Windows with their new password, CloudAP discards the old PRT and requests Azure AD to issue a new PRT with their new password. If user does not have an internet connection, the new password cannot be validated, Windows may require the user to enter their old password.
    1. If a user has logged in with their old password or changed their password after signing into Windows, the old PRT is used for any WAM-based token requests. In this scenario, the user is prompted to reauthenticate during the WAM token request and a new PRT is issued.
-1. **TPM issues**: Sometimes, a device’s TPM can falter or fail, leading to inaccessibility of keys secured by the TPM. In this case, the device is incapable of getting a PRT or requesting tokens using an existing PRT as it cannot prove possession of the cryptographic keys. As a result, any existing PRT is invalidated by Azure AD. When Windows 10 detects such a situation, it initiates a recovery flow to re-register the device with new cryptographic keys. With Hybrid Azure Ad join, just like the initial registration, the recovery happens silently without user input. While for Azure AD joined or Azure AD registered devices, the recovery needs to be performed by a user who has administrator privileges on the device. In this scenario, the recovery flow is initiated by a system dialog that guides the user to successfully recover the device.
+1. **TPM issues**: Sometimes, a device’s TPM can falter or fail, leading to inaccessibility of keys secured by the TPM. In this case, the device is incapable of getting a PRT or requesting tokens using an existing PRT as it cannot prove possession of the cryptographic keys. As a result, any existing PRT is invalidated by Azure AD. When Windows 10 detects a failure, it initiates a recovery flow to re-register the device with new cryptographic keys. With Hybrid Azure Ad join, just like the initial registration, the recovery happens silently without user input. For Azure AD joined or Azure AD registered devices, the recovery needs to be performed by a user who has administrator privileges on the device. In this scenario, the recovery flow is initiated by a system dialog that guides the user to successfully recover the device.
 
 ## Detailed flows
 
 The following diagrams illustrate the underlying details in issuing, renewing, and using a PRT to request an access token for an application. In addition, these steps also describe how the aforementioned security mechanisms are applied during these interactions.
 
 ### PRT issuance during first sign in
+
+![PRT issuance during first sign in detailed flow](./media/concept-primary-refresh-token/prt-initial-sign-in.png)
 
 > [!NOTE]
 > In Azure AD joined devices, this exchange happens synchronously to issue a PRT before the user can logon to Windows. In hybrid Azure AD joined devices, on-premises Active Directory is the primary authority. So, the user is only waiting until they can acquire a TGT to login, while the PRT issuance happens asynchronously. This scenario does not apply to Azure AD registered devices as logon does not use Azure AD credentials.
@@ -141,10 +143,12 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 
 ### PRT renewal in subsequent logons
 
+![PRT renewal in subsequent logons](./media/concept-primary-refresh-token/prt-renewal-subsequent-logons.png)
+
 | Step | Description |
 | :---: | --- |
 | A | User enters their password in the sign in UI. LogonUI passes the credentials in an auth buffer to LSA, which in turns passes it internally to CloudAP. CloudAP forwards this request to the CloudAP plugin. |
-| B | If the user has previously logged on to the user, Windows initiates cached sign in and validates credentials to log the user in. Every 4 hours, CloudAP plugin initiates PRT renewal asynchronously. |
+| B | If the user has previously logged on to the user, Windows initiates cached sign in and validates credentials to log the user in. Every 4 hours, the CloudAP plugin initiates PRT renewal asynchronously. |
 | C | CloudAP plugin initiates a realm discovery request to identify the identity provider for the user. If user’s tenant has a federation provider setup, Azure AD returns the federation provider’s Metadata Exchange endpoint (MEX) endpoint. If not, Azure AD returns that the user is managed indicating that user can authenticate with Azure AD. |
 | D | If the user is federated, CloudAP plugin requests a SAML token from the federation provider with the user’s credentials. Once it receives, the SAML token, it requests a nonce from Azure AD. If the user is managed, CloudAP will directly get the nonce from Azure AD. |
 | E | CloudAP plugin constructs the authentication request with the user’s credentials, nonce, and the existing PRT, signs the request with the Session key and sends it to Azure AD. In a federated environment, CloudAP plugin uses the SAML token returned by the federation provider instead of the user’ credentials. |
@@ -152,6 +156,8 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 | G | CloudAP plugin passes the encrypted PRT and Session key to CloudAP. CloudAP requests the TPM to decrypt the Session key using the Transport key (tkpriv) and re-encrypt it using the TPM’s own key. CloudAP stores the encrypted Session key in its cache along with the PRT. |
 
 ### PRT usage during app token requests
+
+![PRT usage during app token requests](./media/concept-primary-refresh-token/prt-usage-app-token-requests.png)
 
 | Step | Description |
 | :---: | --- |
@@ -163,6 +169,8 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 | F | Azure AD validates the Session key signature on the PRT cookie, validates the nonce, verifies that the device is valid in the tenant, and issues an ID token for the web page and an encrypted session cookie for the browser. |
 
 ### Browser SSO using PRT
+
+![Browser SSO using PRT](./media/concept-primary-refresh-token/browser-sso-using-prt.png)
 
 | Step | Description |
 | :---: | --- |
