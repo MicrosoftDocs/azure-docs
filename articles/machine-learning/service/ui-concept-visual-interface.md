@@ -6,12 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: larryfr
-author: Blackmist
-ms.date: 04/15/2019
-ms.custom: seoapril2019
-# As a data scientist, I want to understand the big picture about how Azure Machine Learning service works.
-ms.custom: seodec18
+ms.author: sgilley
+author: sdgilley
+ms.date: 05/15/2019
+# As a data scientist, I want to understand the big picture about how the visual interface for Azure Machine Learning service works.
 ---
 
 # What is the visual interface for Azure Machine Learning service? 
@@ -23,15 +21,13 @@ There is no programming required, you visually connect [datasets](#dataset) and 
 The visual interface uses your Azure Machine Learning service [workspace](concept-workspace.md) to:
 
 + Access the [compute targets](#compute-target) to run [experiments](#experiment).
-+ Write the results of experiment runs into the workspace.
++ Write the results of experiment runs into the [workspace](concept-workspace.md).
 + Access [datasets](#dataset).
-+ Register models and create deployments.
++ Register [models](concept-azure-machine-learning-architecture.md#model) and create [deployments](concept-azure-machine-learning-architecture.md#deploy).
 
 ![Overview of the visual interface](media/ui-concept-visual-interface/overview.png)
 
 ## Workflow
-
-You typically use data from one or more sources to develop a predictive analysis model.  You transform and analyze the data through various data manipulation and statistical functions, then generate a set of results. This process is an iterative one. Modify the various functions and their parameters until you are satisfied that you have trained an effective model.
 
 The visual interface gives you an interactive, visual workspace to quickly build, test, and iterate on a model. 
 
