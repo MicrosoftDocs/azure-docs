@@ -37,7 +37,7 @@ Each step can be performed independently or as part of a single command. Additio
 Model registration allows you to store and version your models in the Azure cloud, in your workspace. The model registry makes it easy to organize and keep track of your trained models.
 
 > [!TIP]
-> You can also register models trained outside Azure Machine Learning service.
+> You can also register models trained outside the Azure Machine Learning service.
  
 Registered models are identified by name and version. Each time you register a model with the same name as an existing one, the registry increments the version. You can also provide additional metadata tags during registration that can be used when searching for models. The Azure Machine Learning service supports any model that can be loaded using Python 3.5.2 or higher.
 
