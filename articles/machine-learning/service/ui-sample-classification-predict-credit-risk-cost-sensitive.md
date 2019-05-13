@@ -14,7 +14,7 @@ ms.date: 05/10/2019
 
 # Advanced Sample - Classification: Predict credit risk (cost sensitive)
 
-Learn how to build a complex machine learning experiment using the visual interface. In this article, you learn how to quickly compare algorithms to choose the best option and implement custom logic using Python scripts. This particular sample predicts credit risk based on credit applications. However, you'll be able to apply these same steps to any machine learning problem in the visual interface.
+Learn how to build a complex machine learning experiment using the visual interface. In this article, you learn how to quickly compare algorithms to choose the best option and implement custom logic using Python scripts. This particular sample predicts credit risk based on credit applications. However, you'll be able to apply these same steps to solve your own machine learning problems in the visual interface.
 
 If you're just getting started with machine learning, you can take a look at our [basic sample](ui-sample-regression-predict-automobile-price-basic.md) first to learn more about the fundamental steps in building a machine learning model.
 

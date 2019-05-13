@@ -16,16 +16,16 @@ ms.date: 05/10/2019
 
 This article shows you how to build a machine learning model without writing a single line of code using the Azure Machine Learning service visual interface.
 
-This particular sample trains a **decision forest regression** to predict a car's price based on its technical features. However, you'll be able to apply these same fundamental steps to any machine learning problem whether its classification, regression, clustering, etc. This article provides the rationale for the decisions involved in making our sample so you can make similar decisions on your own.
+This particular sample trains a **decision forest regression** to predict a car's price based on its technical features. However, you'll be able to apply these same fundamental steps to any machine learning problem whether it be classification, regression, clustering, etc. This article provides the rationale for the decisions involved in making our sample so you'll be able to make similar decisions on your own.
 
-These fundamental steps are:
+The fundamental steps of training machine learning model are:
 
 1. Get the data
 1. Pre-process the data
 1. Train the model
 1. Evaluate the model
 
-Here's the completed graph of the experiment.
+Here's the completed graph of the experiment:
 
 ![Graph of the experiment](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
