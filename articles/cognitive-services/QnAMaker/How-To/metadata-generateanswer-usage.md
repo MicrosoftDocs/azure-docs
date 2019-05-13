@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ---
 
@@ -143,7 +143,7 @@ A successful response returns a status of 200 and a JSON response.
 
 ## Using metadata allows you to filter answers by custom metadata tags
 
-Adding metadata allows you to filter the answers by these metadata tags. Consider the below FAQ data. Add metadata to your knowledge base by clicking on the metadata icon.
+Adding metadata allows you to filter the answers by these metadata tags. Add the metadata column from the **View Options** menu. Add metadata to your knowledge base by clicking on the metadata **+** icon to add a metadata pair. This pair consists of one key and one value.
 
 ![add metadata](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
