@@ -18,7 +18,7 @@ This tutorial shows you, as a solution developer, how to extend your IoT Central
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Stream telemetry from an IoT Central application using *continuous data export* (CDE).
+> * Stream telemetry from an IoT Central application using *continuous data export*.
 > * Create a Stream Analytics query that detects when a device has stopped sending data.
 > * Send an email notification using the Azure Functions and SendGrid services.
 
@@ -348,9 +348,9 @@ Navigate to the [IoT Central application](https://aka.ms/iotcentral) you created
 
 Wait until the export status is **Running** before you continue.
 
-## Stop a device
+## Test
 
-To simulate devices stopping, you can disable the continuous data export from IoT Central:
+To test the solution, you can disable the continuous data export from IoT Central to simulated stopped devices:
 
 1. In your IoT Central application, navigate to the **Continuous Data Export** page and select the **Export to Event Hubs** export configuration.
 1. Set **Enabled** to **Off** and choose **Save**.
@@ -374,7 +374,7 @@ You can delete the IoT Central application from the **Management** page within t
 In this tutorial, you learned how to:
 
 > [!div class="nextstepaction"]
-> * Stream telemetry from an IoT Central application using *continuous data export* (CDE).
+> * Stream telemetry from an IoT Central application using *continuous data export*.
 > * Create a Stream Analytics query that detects when a device has stopped sending data.
 > * Send an email notification using the Azure Functions and SendGrid services.
 
