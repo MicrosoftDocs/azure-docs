@@ -16,7 +16,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create an Azure Database for PostgreSQL
+## Create an Azure Database for PostgreSQL - Hyperscale (Citus)
 
 Follow these steps to create an Azure Database for PostgreSQL server:
 1. Click **Create a resource**  in the upper left-hand corner of the Azure portal.
@@ -30,7 +30,7 @@ Follow these steps to create an Azure Database for PostgreSQL server:
    - Location: use the location that is closest to your users to give them the fastest access to the data.
 
    > [!IMPORTANT]
-   > The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use.
+   > The server admin password that you specify here is required to log in to the server and its databases. Remember or record this information for later use.
 
 5. Click **Configure server group**. Leave the settings in that section unchanged and click **Save**.
 6. Click **Review + create** and then **Create** to provision the server. Provisioning takes a few minutes.
@@ -43,7 +43,7 @@ The Azure Database for PostgreSQL – Hyperscale (Citus) (preview) service uses 
 
 1. From the **Outputs** section where you previously copied the coordinator node hostname, click back into the **Overview** menu item.
 
-2. The name of your deployment's scaling group will be prefixed with "sg-". Find it in the list of resources and click it.
+2. Find the name of your deployment's server group and click it. (The server group name will *not* have a suffix. Items with names ending in e.g. "-c", "-w0", or "-w1" are not the server group.)
 
 3. Click **Firewall** under **Security** in the left-hand menu.
 
@@ -55,24 +55,27 @@ The Azure Database for PostgreSQL – Hyperscale (Citus) (preview) service uses 
    > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 5432.
    >
 
-## Connect to the database using psql in Cloud Shell
+## Connect to the database using psql
 
-Let's now use the [psql](https://www.postgresql.org/docs/current/app-psql.html) command-line utility to connect to the Azure Database for PostgreSQL server.
-1. Launch the Azure Cloud Shell via the terminal icon on the top navigation pane.
+When you create your Azure Database for PostgreSQL server, a default database named **citus** is created. To connect to your database server, you need a connection string and admin login credentials.
 
-   ![Azure Database for PostgreSQL - Azure Cloud Shell terminal icon](./media/azure-postgresql-hyperscale-create-db/psql-cloud-shell.png)
+1. Obtain the connection string. Click the **Connection strings** menu item under **Settings** in the left-hand menu of your server group page. Find the string marked **C++ (libpq)**. It will be of the form:
 
-2. The Azure Cloud Shell opens in your browser, enabling you to type bash commands.
-
-   ![Azure Database for PostgreSQL - Azure Shell Bash Prompt](./media/azure-postgresql-hyperscale-create-db/psql-bash.png)
-
-3. At the Cloud Shell prompt, connect to your Azure Database for PostgreSQL server using the psql commands. The following format is used to connect to an Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility:
-   ```bash
-   psql --host=<myserver> --username=myadmin --dbname=citus
+   ```
+   host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require
    ```
 
-   For example, the following command connects to the default database called **citus** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** using access credentials. Enter your server admin password when prompted.
+   Copy the string. You will need to replace "{your\_password}" with the administrative password you chose earlier. The system does not store your plaintext password and is unable to display it in the connection string you copied.
+
+2. Open a terminal window on your local computer.
+
+3. At the prompt, connect to your Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/current/app-psql.html) utility. Pass your connection string in quotes, being sure it contains your password:
+   ```bash
+   psql "{connection_string}"
+   ```
+
+   For example, the following command connects to the coordinator node of the server group **mydemoserver**:
 
    ```bash
-   psql --host=mydemoserver.postgres.database.azure.com --username=myadmin --dbname=citus
+   psql "host=mydemoserver-c.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"
    ```
