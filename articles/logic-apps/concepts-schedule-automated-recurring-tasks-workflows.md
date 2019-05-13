@@ -7,7 +7,7 @@ ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: deli, klam, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/10/2019
 ---
 
@@ -49,7 +49,7 @@ Here are the differences between these triggers:
 
 * **Sliding Window**: Runs your workflow at regular, non-overlapping, sequential time intervals. You can specify a start date and time, time zone, and a delay for any frequency. However, this trigger doesn't provide options to specify hours and minutes of the day or for days of the week.
 
-  This trigger makes sure that your workflow for a specific number of intervals. If any recurrences are missed, the trigger "goes back in time" to process those missed recurrences.
+  If any recurrences are missed, the Sliding Window trigger "goes back in time" to process those missed recurrences.
 
 ## Schedule actions
 
@@ -125,9 +125,9 @@ Here are various example recurrences that you can set up for the triggers that s
 
 If you want to run your logic app only at one time in the future you can use the **Scheduler: Run once jobs** template. After you create a new logic app but before opening the Logic Apps Designer, under the **Templates** section, from the **Category** list, select **Schedule**, and then select this template:
 
-![Select "Scheduler: Run once jobs" template](./media/connectors-native-recurrence/choose-run-once-template.png)
+![Select "Scheduler: Run once jobs" template](./media/concepts-schedule-automated-recurring-tasks-workflows/choose-run-once-template.png)
 
-Or, if you're using a blank logic app template, start your logic app with the **When a HTTP request is received - Request** trigger. Pass the trigger's start time as a parameter. For the next step, add the **Delay until - Schedule** action, and provide the time for when the next action starts running.
+Or, if you can start your logic app with the **When a HTTP request is received - Request** trigger, and pass the start time as a parameter for the trigger. For the first action, use the **Delay until - Schedule** action, and provide the time for when the next action starts running.
 
 ## Next steps
 

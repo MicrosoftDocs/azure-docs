@@ -14,7 +14,7 @@ ms.date: 05/10/2019
 
 # Create, schedule, and run recurring tasks and workflows with the Recurrence trigger in Azure Logic Apps
 
-To regularly run tasks, processes, or workloads on specific schedule, you can start your logic app workflow with the [built-in](../connectors/apis-list.md) **Recurrence - Schedule** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). You can set a date and time for starting the workflow and a recurrence schedule for performing tasks. This trigger supports many patterns, for example:
+To regularly run tasks, processes, or jobs on specific schedule, you can start your logic app workflow with the [built-in](../connectors/apis-list.md) **Recurrence - Schedule** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). You can set a date and time for starting the workflow and a recurrence schedule for repeating that workflow. This trigger supports many patterns, for example:
 
 * Run immediately and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
 * Start at a specific time, then run and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
@@ -22,7 +22,7 @@ To regularly run tasks, processes, or workloads on specific schedule, you can st
 * Run and repeat each week, but only for specific days, such as Saturday and Sunday.
 * Run and repeat each week, but only for specific days and times, such as Monday through Friday at 8:00 AM and 5:00 PM.
 
-To trigger your logic app and run only one time in the future, see [Run jobs one time only](../logic-apps/concepts-schedule-automated-recurrent-tasks-workflows.md#run-once).
+To trigger your logic app and run only one time in the future, see [Run jobs one time only](../logic-apps/concepts-schedule-automated-recurrent-tasks-workflows.md#run-once). For more information about scheduling and running workflows, see [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
 
 ## Prerequisites
 
@@ -58,9 +58,9 @@ To trigger your logic app and run only one time in the future, see [Run jobs one
 
    ![Advanced scheduling options](./media/connectors-native-recurrence/recurrence-trigger-more-options-details.png)
 
-   For example, suppose that today is Monday, September 4, 2017. The following Recurrence trigger doesn't fire *any sooner* than the start date and time, which is Monday, September 18, 2017 at 8:00 AM PST. However, the recurrence schedule is set for 10:30 AM, 12:30 PM, and 2:30 PM on Mondays only. So the first time that the trigger fires and creates a logic app workflow instance is at 10:30 AM. To learn more about how start times work, see these [start time examples](../logic-apps/concepts-schedule-automated-recurrent-tasks-workflows.md#start-time).
+   For example, suppose that today is Monday, September 4, 2017. The following Recurrence trigger doesn't fire *any sooner* than the start date and time, which is Monday, September 18, 2017 at 8:00 AM PST. However, the recurrence schedule is set for 10:30 AM, 12:30 PM, and 2:30 PM on Mondays only. So the first time that the trigger fires and creates a logic app workflow instance is at 10:30 AM. To learn more about how start times work, see these [start time examples](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
 
-   Future runs happen at 12:30 PM and 2:30 PM on the same day. Each recurrence creates their own workflow instance. After that, the entire schedule repeats all over again next Monday. [*What are some other example occurrences?*](../logic-apps/concepts-schedule-automated-recurrent-tasks-workflows.md#example-recurrences)
+   Future runs happen at 12:30 PM and 2:30 PM on the same day. Each recurrence creates their own workflow instance. After that, the entire schedule repeats all over again next Monday. [*What are some other example occurrences?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#example-recurrences)
 
    ![Advanced scheduling example](./media/connectors-native-recurrence/recurrence-trigger-more-options-advanced-schedule.png)
 
