@@ -6,11 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/28/2018
+ms.date: 04/09/2018
 ---
 
 # Create and manage Azure Database for MySQL firewall rules by using the Azure CLI
-Server-level firewall rules allow administrators to manage access to an Azure Database for MySQL Server from a specific IP address or a range of IP addresses. Using convenient Azure CLI commands, you can create, update, delete, list, and show firewall rules to manage your server. For an overview of Azure Database for MySQL firewalls, see [Azure Database for MySQL server firewall rules](./concepts-firewall-rules.md)
+Server-level firewall rules can be used to manage access to an Azure Database for MySQL Server from a specific IP address or a range of IP addresses. Using convenient Azure CLI commands, you can create, update, delete, list, and show firewall rules to manage your server. For an overview of Azure Database for MySQL firewalls, see [Azure Database for MySQL server firewall rules](./concepts-firewall-rules.md).
+
+Virtual Network (VNet) rules can also be used to secure access to your server. Learn more about [creating and managing Virtual Network service endpoints and rules using the Azure CLI](howto-manage-vnet-using-cli.md).
 
 ## Prerequisites
 * [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
@@ -26,7 +28,7 @@ Commands:
 - **show**: Show the details of an Azure MySQL server firewall rule.
 - **update**: Update an Azure MySQL server firewall rule.
 
-## Log in to Azure and list your Azure Database for MySQL Servers
+## Sign in to Azure and list your Azure Database for MySQL Servers
 Securely connect Azure CLI with your Azure account by using the **az login** command.
 
 1. From the command-line, run the following command:
@@ -37,7 +39,7 @@ Securely connect Azure CLI with your Azure account by using the **az login** com
 
 2. Use a web browser to open the page [https://aka.ms/devicelogin](https://aka.ms/devicelogin), and then enter the code.
 
-3. At the prompt, log in using your Azure credentials.
+3. At the prompt, sign in using your Azure credentials.
 
 4. After your login is authorized, a list of subscriptions is printed in the console. Copy the ID of the desired subscription to set the current subscription to use. Use the [az account set](/cli/azure/account#az-account-set) command.
     ```azurecli-interactive
@@ -114,3 +116,4 @@ Upon success, there is no output. Upon failure, error message text displays.
 ## Next steps
 - Understand more about [Azure Database for MySQL Server firewall rules](./concepts-firewall-rules.md).
 - [Create and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md).
+- Further secure access to your server by [creating and managing Virtual Network service endpoints and rules using the Azure CLI](howto-manage-vnet-using-cli.md).

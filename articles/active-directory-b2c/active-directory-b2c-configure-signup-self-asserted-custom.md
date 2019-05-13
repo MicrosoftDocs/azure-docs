@@ -3,7 +3,7 @@ title: Add claims and customize user input using custom policies - Azure Active 
 description: Learn how to customize user input and add claims to the sign-up or sign-in journey in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity

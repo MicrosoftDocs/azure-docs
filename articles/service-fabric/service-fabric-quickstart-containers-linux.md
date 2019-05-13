@@ -4,7 +4,7 @@ description: In this quickstart, you will build a Docker image with your applica
 services: service-fabric
 documentationcenter: linux
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 

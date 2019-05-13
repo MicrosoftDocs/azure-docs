@@ -1,12 +1,12 @@
 ---
 title: Working with Azure Cosmos DB accounts 
 description: This article describes how create and use Azure Cosmos DB accounts
-author: dharmas-cosmos
+author: rimman
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/08/2018
-ms.author: dharmas
+ms.date: 03/31/2019
+ms.author: rimman
 ms.reviewer: sngun
 
 ---
@@ -17,7 +17,7 @@ Azure Cosmos DB is a fully managed platform-as-a-service (PaaS). To begin using 
 
 The Azure Cosmos account is the fundamental unit of global distribution and high availability. For globally distributing your data and throughput across multiple Azure regions, you can add and remove Azure regions to your Azure Cosmos account at any time. You can configure your Azure Cosmos account to have either a single or multiple write regions. For more information, see [how to add and remove Azure regions to your Azure Cosmos account](how-to-manage-database-account.md). You can configure the [default consistency](consistency-levels.md) level on Azure Cosmos account. Azure Cosmos DB provides comprehensive SLAs encompassing throughput, latency at the 99th percentile, consistency, and high availability. For more information, see [Azure Cosmos DB SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
 
-To securely manage access to all the data within your Azure Cosmos account, you can use the master keys associated with your account. To further secure access to your data, you can configure a VNET service endpoint and IP-firewall on your Azure Cosmos account. 
+To securely manage access to all the data within your Azure Cosmos account, you can use the [master keys](secure-access-to-data.md) associated with your account. To further secure access to your data, you can configure a [VNET service endpoint](vnet-service-endpoint.md) and [IP-firewall](firewall-support.md) on your Azure Cosmos account. 
 
 ## Elements in an Azure Cosmos account
 
@@ -29,7 +29,7 @@ Currently, you can create a maximum of 100 Azure Cosmos accounts under an Azure 
 
 ## Next steps
 
-You can now proceed to learn how to manage your Azure Cosmos account or see other concepts associated with Azure Cosmos DB:
+Learn how to manage your Azure Cosmos account and other concepts:
 
 * [How-to manage your Azure Cosmos account](how-to-manage-database-account.md)
 * [Global distribution](distribute-data-globally.md)

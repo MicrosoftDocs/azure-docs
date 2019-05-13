@@ -1,10 +1,11 @@
 ---
-title: Understanding ASC for IoT security agent architecture Preview| Microsoft Docs
-description: Understand security agent architecture for the agents used in the ASC for IoT service.
-services: ascforiot
+title: Understanding Azure Security Center for IoT security agent architecture Preview| Microsoft Docs
+description: Understand security agent architecture for the agents used in the Azure Security Center for IoT service.
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: e78523ae-d70a-456a-818d-f8b1b025d7cb
@@ -20,12 +21,12 @@ ms.author: mlottner
 # Security agent reference architecture
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-ASC for IoT provides reference architecture for security agents that log, process, aggregate, and send security data through IoT hub.
+Azure Security Center (ASC) for IoT provides reference architecture for security agents that log, process, aggregate, and send security data through IoT hub.
 
 Security agents are designed to work in a constrained IoT environment, and are highly customizable in terms of values they provide when compared to the resources they consume.
 
@@ -41,8 +42,8 @@ Security agents support the following features:
 
 ASC for IoT Security agents are developed as open-source projects, and are available from GitHub: 
 
-- [IoT-ASC-Agent-C](https://github.com/Azure/IoT-ASC-Agent-C) 
-- [IoT-ASC-Agent-CS](https://github.com/Azure/IoT-ASC-Agent-CS)
+- [ASC for IoT C-based agent](https://github.com/Azure/Azure-IoT-Security-Agent-C) 
+- [ASC for IoT C#-based agent](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
 
 ## Agent supported platforms
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/25/2019
 ms.author: alkohli
 ---
 # Manage an Azure Data Box Edge device via Windows PowerShell
@@ -19,7 +19,6 @@ This article focuses on the tasks you do using the PowerShell interface.
 This article includes the following procedures:
 
 - Connect to the PowerShell interface
-- Start a support session
 - Create a support package
 - Upload certificate
 - Reset the device
@@ -39,6 +38,20 @@ This article includes the following procedures:
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
+You can also upload IoT Edge certificates to enable a secure connection between your IoT Edge device and the downstream devices that may connect to it. There are three IoT Edge certificates (*.pem* format) that you need to install:
+
+- Root CA certificate or the owner CA
+- Device CA certificate
+- Device key certificate
+
+The following example shows the usage of this cmdlet to install IoT Edge certificates:
+
+```
+Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username/password"
+```
+
+For more information on certificates, go to [Azure IoT Edge certificates](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) or [Install certificates on a gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
+
 ## View device information
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
@@ -56,9 +69,10 @@ If the compute role is configured on your device, you can also get the compute l
 
     The following example shows the usage of this cmdlet:
 
-    ```
+    ```powershell
     Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username/password" -RoleInstanceName "IotRole" -FullLogCollection
     ```
+
     Here is a description of the parameters used for the cmdlet:
     - `Path`: Provide a network path to the share where you want to create the compute log package.
     - `Credential`: Provide the username and password for the network share.
@@ -69,6 +83,9 @@ If the compute role is configured on your device, you can also get the compute l
 
 [!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
 
+## Exit the remote session
+
+To exit the remote PowerShell session, close the PowerShell window.
 
 ## Next steps
 

@@ -56,7 +56,7 @@ Start on the home page in the Web UI.
 
 1. Select **Actions** in the left panel, then **New Action**.
 2. Enter **What's the date?** for **Bot's Response...**. Pre-Trained entities cannot be **Required Entities** as they are recognized by default for all utterances.
-3. Enter **builtin-datetimev2** for **Disqualifying Entitles**.
+3. Enter **builtin-datetimev2** for **Disqualifying Entities**.
 4. Select **Create**.
 
 ![](../media/T08_action_create_2.png)

@@ -1,5 +1,5 @@
 ---
-title: Tutorial on installing an Azure Data Box Edge physical device | Microsoft Docs
+title: Tutorial to install - Unpack, rack, cable Azure Data Box Edge physical device | Microsoft Docs
 description: The second tutorial about installing Azure Data Box Edge involves how to unpack, rack, and cable the physical device.
 services: databox
 author: alkohli
@@ -85,7 +85,9 @@ The device must be installed on a standard 19-inch rack. Use the following proce
 
 - Before you begin, read the safety instructions in your Safety, Environmental, and Regulatory Information booklet. This booklet was shipped with the device.
 - Begin installing the rails in the allotted space that is closest to the bottom of the rack enclosure.
-- For the tooled rail mounting configuration, you need to supply eight screws: #10-32, #12-24, #M5, or #M6. The head diameter of the screws must be less than 10 mm (0.4").
+- For the tooled rail mounting configuration:
+    -  You need to supply eight screws: #10-32, #12-24, #M5, or #M6. The head diameter of the screws must be less than 10 mm (0.4").
+    -  You need a flat-tipped screwdriver.
 
 ### Identify the rail kit contents
 
@@ -97,6 +99,9 @@ Locate the components for installing the rail kit assembly:
 
 ### Install and remove tool-less rails (Square hole or round hole racks)
 
+> [!TIP]
+> This option is tool-less because it does not require tools to install and remove the rails into the unthreaded square or round holes in the racks.
+
 1. Position the left and right rail end pieces labeled **FRONT** facing inward and orient each end piece to seat in the holes on the front side of the vertical rack flanges .
 2. Align each end piece in the bottom and top holes of the desired U spaces.
 3. Engage the back end of the rail until it fully seats on the vertical rack flange and the latch clicks into place. Repeat these steps to position and seat the front end piece on the vertical rack flange.
@@ -105,6 +110,9 @@ Locate the components for installing the rail kit assembly:
 ![Install and remove tool-less rails](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
 ### Install and remove tooled rails (Threaded hole racks)
+
+> [!TIP]
+> This option is tooled because it requires a tool (_a flat-tipped screwdriver_) to install and remove the rails into the threaded round holes in the racks.
 
 1. Remove the pins from the front and rear mounting brackets using a flat-tipped screwdriver.
 2. Pull and rotate the rail latch subassemblies to remove them from the mounting brackets.
@@ -132,7 +140,8 @@ Locate the components for installing the rail kit assembly:
 
 ### Engage and release the slam latch
 
-NOTE: For systems not equipped with slam latches, secure the system using screws, as described in step 3 of this procedure.
+> [!NOTE]
+> For systems not equipped with slam latches, secure the system using screws, as described in step 3 of this procedure.
 
 1. Facing the front, locate the slam latch on either side of the system.
 2. The latches engage automatically as the system is pushed into the rack and are released by pulling up on the latches.
@@ -147,7 +156,7 @@ NOTE: For systems not equipped with slam latches, secure the system using screws
 
 1. Locate the outer CMA brackets on the interior sides of both rack flanges.
 2. Bundle the cables gently, pulling them clear of the system connectors to the left and right sides.
-3. Thread the hook and loop straps through the tooled slots on the outer CMA brackets on each side of the system to secure the cable bundles.
+3. Thread the hook and loop straps through the slots on the outer CMA brackets on each side of the system to secure the cable bundles.
 
 
 ![Route the cables](./media/data-box-edge-deploy-install/routing-cables.png)

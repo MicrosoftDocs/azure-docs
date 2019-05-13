@@ -7,19 +7,19 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
 #Customer intent: As a developer, I want to understand autocomplete implementation, benefits, and tradeoffs.
 ---
 
-# Example: Add Suggestions or Autocomplete to your Azure Search application
+# Add suggestions or autocomplete to your Azure Search application
 
-In this example, learn how to use [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) and [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) to build a powerful search box that supports search-as-you-type behaviors.
+In this article, learn how to use [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) and [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) to build a powerful search box that supports search-as-you-type behaviors.
 
-+ *Suggestions* is a list of suggested results generated as you type, where each suggestion is a single result from the index that matches what you've typed so far. 
++ *Suggestions* are suggested results generated as you type, where each suggestion is a single result from the index that matches what you've typed so far. 
 
-+ *Autocomplete*, [a preview feature](search-api-preview.md), "finishes" the word or phrase that a user is currently typing. As with suggestions, a completed word or phrase is predicated on a match in the index. 
++ *Autocomplete* "finishes" the word or phrase that a user is currently typing. Instead of returning results, it completes a query, which you can then execute to return results. As with suggestions, a completed word or phrase in a query is predicated on a match in the index. The service won't offer queries that return zero results in the index.
 
 You can download and run the sample code in **DotNetHowToAutocomplete** to evaluate these features. The sample code targets a prebuilt index populated with [NYCJobs demo data](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). The NYCJobs index contains a [Suggester construct](index-add-suggesters.md), which is a requirement for using either suggestions or autocomplete. You can use the prepared index hosted in a sandbox service, or [populate your own index](#configure-app) using a data loader in the NYCJobs sample solution. 
 
@@ -119,7 +119,7 @@ So far, the search UX code has been centered on the suggestions. The next code b
 
 ```javascript
 $(function () {
-    // using modified jQuery Autocomplete plugin v1.2.6 http://xdsoft.net/jqplugins/autocomplete/
+    // using modified jQuery Autocomplete plugin v1.2.6 https://xdsoft.net/jqplugins/autocomplete/
     // $.autocomplete -> $.autocompleteInline
     $("#example2").autocompleteInline({
         appendMethod: "replace",
@@ -152,7 +152,7 @@ $(function () {
 });
 ```
 
-## C# version
+## C# example
 
 Now that we have reviewed the JavaScript code for the web page, let's look at the C# server-side controller code that actually retrieves the suggested matches using the Azure Search .NET SDK.
 
@@ -160,7 +160,7 @@ Open the **HomeController.cs** file under the Controllers directory.
 
 The first thing you might notice is a method at the top of the class called `InitSearch`. This creates an authenticated HTTP index client to the Azure Search service. For more information, see [How to use Azure Search from a .NET Application](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
-On line 41, notice the Suggest function. It is based on the [DocumentsOperationsExtensions.Suggest method](https://docs.microsoft.com/dotnet/api/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet-preview).
+On line 41, notice the Suggest function. It is based on the [DocumentsOperationsExtensions.Suggest method](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -194,7 +194,7 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 
 The Suggest function takes two parameters that determine whether hit highlights are returned or fuzzy matching is used in addition to the search term input. The method creates a [SuggestParameters object](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), which is then passed to the Suggest API. The result is then converted to JSON so it can be shown in the client.
 
-On line 69, notice the Autocomplete function. It is based on the [DocumentsOperationsExtensions.Autocomplete method](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet-preview).
+On line 69, notice the Autocomplete function. It is based on the [DocumentsOperationsExtensions.Autocomplete method](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet).
 
 ```csharp
 public ActionResult AutoComplete(string term)
@@ -225,9 +225,11 @@ The Autocomplete function takes the search term input. The method creates an [Au
 
 The other examples on the page follow the same pattern to add hit highlighting and facets to support client-side caching of the autocomplete results. Review each of these to understand how they work and how to leverage them in your search experience.
 
-## JavaScript version with REST
+## JavaScript example
 
-For the JavaScript implementation, open **IndexJavaScript.cshtml**. Notice that the jQuery UI Autocomplete function is also used for the search box, collecting search term inputs and making asynchronous calls to Azure Search to retrieve suggested matches or completed terms. 
+A Javascript implementation of autocomplete and suggestions calls the REST API, using a URI as the source to specify the index and operation. 
+
+To review the JavaScript implementation, open **IndexJavaScript.cshtml**. Notice that the jQuery UI Autocomplete function is also used for the search box, collecting search term inputs and making asynchronous calls to Azure Search to retrieve suggested matches or completed terms. 
 
 Let's look at the JavaScript code for the first example:
 

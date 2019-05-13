@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: carlrab
+ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 12/04/2018
 ---
@@ -26,7 +26,6 @@ Let’s assume that Managed Instance host is `mi-demo.xxxxxx.database.windows.ne
 Now do another `nslookup` for highlighted name removing the `.vnet.` segment. You’ll get the public IP address when you execute this command.
 
 ![Resolving public IP address](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
-
 
 ## Next steps
 

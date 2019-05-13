@@ -175,7 +175,7 @@ Learn how to use Azure Data Lake Storage Gen1 (previously known as Azure Data La
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/module/azurerm.datalakestore/">PowerShell</a></p>
+                        <p><a href="/powershell/module/az.datalakestore/">PowerShell</a></p>
                         <p><a href="/cli/azure/dls">Azure CLI</a></p>
                     </div>
                 </div>

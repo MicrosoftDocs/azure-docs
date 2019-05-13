@@ -1,7 +1,6 @@
 ---
 title: Index of policy samples
 description: Index of samples for Azure Policy. Categories include naming, tags, Key Vault, networking, storage, and more.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy

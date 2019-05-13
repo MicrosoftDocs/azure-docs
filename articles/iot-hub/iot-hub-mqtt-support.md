@@ -9,12 +9,11 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
 ---
-
 # Communicate with your IoT hub using the MQTT protocol
 
 IoT Hub enables devices to communicate with the IoT Hub device endpoints using:
 
-* [MQTT v3.1.1][lnk-mqtt-org] on port 8883
+* [MQTT v3.1.1](https://mqtt.org/) on port 8883
 * MQTT v3.1.1 over WebSocket on port 443.
 
 IoT Hub is not a full-featured MQTT broker and does not support all the behaviors specified in the MQTT v3.1.1 standard. This article describes how devices can use supported MQTT behaviors to communicate with IoT Hub.
@@ -25,14 +24,14 @@ All device communication with IoT Hub must be secured using TLS/SSL. Therefore, 
 
 ## Connecting to IoT Hub
 
-A device can use the MQTT protocol to connect to an IoT hub using:
+A device can use the MQTT protocol to connect to an IoT hub using any of the following options.
 
-* Either the libraries in the [Azure IoT SDKs][lnk-device-sdks].
-* Or the MQTT protocol directly.
+* Libraries in the [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks).
+* The MQTT protocol directly.
 
 ## Using the device SDKs
 
-[Device SDKs][lnk-device-sdks] that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device SDKs use the standard IoT Hub connection string to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. By default, the device SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub.
+[Device SDKs](https://github.com/Azure/azure-iot-sdks) that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device SDKs use the standard IoT Hub connection string to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. By default, the device SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub.
 
 When a device is connected to an IoT hub, the device SDKs provide methods that enable the device to exchange messages with an IoT hub.
 
@@ -40,24 +39,25 @@ The following table contains links to code samples for each supported language a
 
 | Language | Protocol parameter |
 | --- | --- |
-| [Node.js][lnk-sample-node] |azure-iot-device-mqtt |
-| [Java][lnk-sample-java] |IotHubClientProtocol.MQTT |
-| [C][lnk-sample-c] |MQTT_Protocol |
-| [C#][lnk-sample-csharp] |TransportType.Mqtt |
-| [Python][lnk-sample-python] |IoTHubTransportProvider.MQTT |
+| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) |azure-iot-device-mqtt |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol.MQTT |
+| [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) |MQTT_Protocol |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType.Mqtt |
+| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples) |IoTHubTransportProvider.MQTT |
 
 ### Migrating a device app from AMQP to MQTT
 
-If you are using the [device SDKs][lnk-device-sdks], switching from using AMQP to MQTT requires changing the protocol parameter in the client initialization as stated previously.
+If you are using the [device SDKs](https://github.com/Azure/azure-iot-sdks), switching from using AMQP to MQTT requires changing the protocol parameter in the client initialization as stated previously.
 
 When doing so, make sure to check the following items:
 
 * AMQP returns errors for many conditions, while MQTT terminates the connection. As a result your exception handling logic might require some changes.
-* MQTT does not support the *reject* operations when receiving [cloud-to-device messages][lnk-messaging]. If your back-end app needs to receive a response from the device app, consider using [direct methods][lnk-methods].
+
+* MQTT does not support the *reject* operations when receiving [cloud-to-device messages](iot-hub-devguide-messaging.md). If your back-end app needs to receive a response from the device app, consider using [direct methods](iot-hub-devguide-direct-methods.md).
 
 ## Using the MQTT protocol directly (as a device)
 
-If a device cannot use the device SDKs, it can still connect to the public device endpoints using the MQTT protocol on port 8883. In the **CONNECT** packet the device should use the following values:
+If a device cannot use the device SDKs, it can still connect to the public device endpoints using the MQTT protocol on port 8883. In the **CONNECT** packet, the device should use the following values:
 
 * For the **ClientId** field, use the **deviceId**.
 
@@ -72,33 +72,39 @@ If a device cannot use the device SDKs, it can still connect to the public devic
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
   > [!NOTE]
-  > If you use X.509 certificate authentication, SAS token passwords are not required. For more information, see [Set up X.509 security in your Azure IoT Hub][lnk-x509]
+  > If you use X.509 certificate authentication, SAS token passwords are not required. For more information, see [Set up X.509 security in your Azure IoT Hub](iot-hub-security-x509-get-started.md)
 
-  For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens][lnk-sas-tokens].
+  For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the [Device Explorer][lnk-device-explorer] tool to quickly generate a SAS token that you can copy and paste into your own code:
+  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) tool to quickly generate a SAS token that you can copy and paste into your own code:
 
 For Azure IoT Tools:
 
-  1. Expand the **AZURE IOT HUB DEVICES** tab in the bottom left corner of Visual Studio Code.
-  2. Right-click your device and select **Generate SAS Token for Device**.
-  3. Set **expiration time** and press 'Enter'.
-  4. The SAS token is created and copied to clipboard.
+1. Expand the **AZURE IOT HUB DEVICES** tab in the bottom left corner of Visual Studio Code.
+  
+2. Right-click your device and select **Generate SAS Token for Device**.
+  
+3. Set **expiration time** and press 'Enter'.
+  
+4. The SAS token is created and copied to clipboard.
 
 For Device Explorer:
 
-  1. Go to the **Management** tab in **Device Explorer**.
-  2. Click **SAS Token** (top right).
-  3. On **SASTokenForm**, select your device in the **DeviceID** drop down. Set your **TTL**.
-  4. Click **Generate** to create your token.
+1. Go to the **Management** tab in **Device Explorer**.
 
-     The SAS token that's generated has the following structure:
+2. Click **SAS Token** (top right).
 
-     `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
+3. On **SASTokenForm**, select your device in the **DeviceID** drop down. Set your **TTL**.
 
-     The part of this token to use as the **Password** field to connect using MQTT is:
+4. Click **Generate** to create your token.
 
-     `SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
+   The SAS token that's generated has the following structure:
+
+   `HostName={your hub name}.azure-devices.net;DeviceId=javadevice;SharedAccessSignature=SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
+
+   The part of this token to use as the **Password** field to connect using MQTT is:
+
+   `SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
 
 For MQTT connect and disconnect packets, IoT Hub issues an event on the **Operations Monitoring** channel. This event has additional information that can help you to troubleshoot connectivity issues.
 
@@ -107,20 +113,26 @@ The device app can specify a **Will** message in the **CONNECT** packet. The dev
 ## Using the MQTT protocol directly (as a module)
 
 Connecting to IoT Hub over MQTT using a module identity is similar to the device (described [above](#using-the-mqtt-protocol-directly-as-a-device)) but you need to use the following:
+
 * Set the client id to `{device_id}/{module_id}`.
+
 * If authenticating with username and password, set the username to `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30` and use the SAS token associated with the module identity as your password.
+
 * Use `devices/{device_id}/modules/{module_id}/messages/events/` as topic for publishing telemetry.
+
 * Use `devices/{device_id}/modules/{module_id}/messages/events/` as WILL topic.
+
 * The twin GET and PATCH topics are identical for modules and devices.
+
 * The twin status topic is identical for modules and devices.
 
 ### TLS/SSL configuration
 
 To use the MQTT protocol directly, your client *must* connect over TLS/SSL. Attempts to skip this step fail with connection errors.
 
-In order to establish a TLS connection, you may need to download and reference the DigiCert Baltimore Root Certificate. This certificate is the one that Azure uses to secure the connection. You can find this certificate in the [Azure-iot-sdk-c][lnk-sdk-c-certs] repository. More information about these certificates can be found on [Digicert's website][lnk-digicert-root-certs].
+In order to establish a TLS connection, you may need to download and reference the DigiCert Baltimore Root Certificate. This certificate is the one that Azure uses to secure the connection. You can find this certificate in the [Azure-iot-sdk-c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) repository. More information about these certificates can be found on [Digicert's website](https://www.digicert.com/digicert-root-certificates.htm).
 
-An example of how to implement this using the Python version of the [Paho MQTT library][lnk-paho] by the Eclipse Foundation might look like the following.
+An example of how to implement this using the Python version of the [Paho MQTT library](https://pypi.python.org/pypi/paho-mqtt) by the Eclipse Foundation might look like the following.
 
 First, install the Paho library from your command-line environment:
 
@@ -131,8 +143,11 @@ pip install paho-mqtt
 Then, implement the client in a Python script. Replace the placeholders as follows:
 
 * `<local path to digicert.cer>` is the path to a local file that contains the DigiCert Baltimore Root certificate. You can create this file by copying the certificate information from [certs.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) in the Azure IoT SDK for C. Include the lines `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`, remove the `"` marks at the beginning and end of every line, and remove the `\r\n` characters at the end of every line.
+
 * `<device id from device registry>` is the ID of a device you added to your IoT hub.
+
 * `<generated SAS token>` is a SAS token for the device created as described previously in this article.
+
 * `<iot hub name>` the name of your IoT hub.
 
 ```python
@@ -177,15 +192,17 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 ```
 
 > [!NOTE]
-> This `{property_bag}` element uses the same encoding as for query strings in the HTTPS protocol.
+> This `{property_bag}` element uses the same encoding as query strings in the HTTPS protocol.
 
 The following is a list of IoT Hub implementation-specific behaviors:
 
 * IoT Hub does not support QoS 2 messages. If a device app publishes a message with **QoS 2**, IoT Hub closes the network connection.
+
 * IoT Hub does not persist Retain messages. If a device sends a message with the **RETAIN** flag set to 1, IoT Hub adds the **x-opt-retain** application property to the message. In this case, instead of persisting the retain message, IoT Hub passes it to the backend app.
+
 * IoT Hub only supports one active MQTT connection per device. Any new MQTT connection on behalf of the same device ID causes IoT Hub to drop the existing connection.
 
-For more information, see [Messaging developer's guide][lnk-messaging].
+For more information, see [Messaging developer's guide](iot-hub-devguide-messaging.md).
 
 ### Receiving cloud-to-device messages
 
@@ -201,7 +218,7 @@ When a device app subscribes to a topic with **QoS 2**, IoT Hub grants maximum Q
 
 First, a device subscribes to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends an empty message to topic `$iothub/twin/GET/?$rid={request id}`, with a populated value for **request ID**. The service then sends a response message containing the device twin data on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request ID** as the request.
 
-Request ID can be any valid value for a message property value, as per [IoT Hub messaging developer's guide][lnk-messaging], and status is validated as an integer.
+Request ID can be any valid value for a message property value, as per [IoT Hub messaging developer's guide](iot-hub-devguide-messaging.md), and status is validated as an integer.
 
 The response body contains the properties section of the device twin, as shown in the following response example:
 
@@ -224,10 +241,10 @@ The possible status codes are:
 |Status | Description |
 | ----- | ----------- |
 | 204 | Success (no content is returned) |
-| 429 | Too many requests (throttled), as per [IoT Hub throttling][lnk-quotas] |
+| 429 | Too many requests (throttled), as per [IoT Hub throttling](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Server errors |
 
-For more information, see [Device twins developer's guide][lnk-devguide-twin].
+For more information, see [Device twins developer's guide](iot-hub-devguide-device-twins.md).
 
 ### Update device twin's reported properties
 
@@ -237,9 +254,9 @@ The following sequence describes how a device updates the reported properties in
 
 1. A device must first subscribe to the `$iothub/twin/res/#` topic to receive the operation's responses from IoT Hub.
 
-1. A device sends a message that contains the device twin update to the `$iothub/twin/PATCH/properties/reported/?$rid={request id}` topic. This message includes a **request ID** value.
+2. A device sends a message that contains the device twin update to the `$iothub/twin/PATCH/properties/reported/?$rid={request id}` topic. This message includes a **request ID** value.
 
-1. The service then sends a response message that contains the new ETag value for the reported properties collection on topic `$iothub/twin/res/{status}/?$rid={request id}`. This response message uses the same **request ID** as the request.
+3. The service then sends a response message that contains the new ETag value for the reported properties collection on topic `$iothub/twin/res/{status}/?$rid={request id}`. This response message uses the same **request ID** as the request.
 
 The request message body contains a JSON document, that contains new values for reported properties. Each member in the JSON document updates or add the corresponding member in the device twin’s document. A member set to `null`, deletes the member from the containing object. For example:
 
@@ -256,10 +273,11 @@ The possible status codes are:
 | ----- | ----------- |
 | 200 | Success |
 | 400 | Bad Request. Malformed JSON |
-| 429 | Too many requests (throttled), as per [IoT Hub throttling][lnk-quotas] |
+| 429 | Too many requests (throttled), as per [IoT Hub throttling](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Server errors |
 
 The python code snippet below, demonstrates the twin reported properties update process over MQTT (using Paho MQTT client):
+
 ```python
 from paho.mqtt import client as mqtt
 
@@ -273,7 +291,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_repor
 
 Upon success of twin reported properties update operation above, the publication message from IoT Hub will have the following topic: `$iothub/twin/res/204/?$rid=1&$version=6`, where `204` is the status code indicating success, `$rid=1` corresponds to the request ID provided by the device in the code, and `$version` corresponds to the version of reported properties section of device twins after the update.
 
-For more information, see [Device twins developer's guide][lnk-devguide-twin].
+For more information, see [Device twins developer's guide](iot-hub-devguide-device-twins.md).
 
 ### Receiving desired properties update notifications
 
@@ -290,9 +308,9 @@ When a device is connected, IoT Hub sends notifications to the topic `$iothub/tw
 As for property updates, `null` values means that the JSON object member is being deleted. Also, note that `$version` indicates the new version of the desired properties section of the twin.
 
 > [!IMPORTANT]
-> IoT Hub generates change notifications only when devices are connected. Make sure to implement the [device reconnection flow][lnk-devguide-twin-reconnection] to keep the desired properties synchronized between IoT Hub and the device app.
+> IoT Hub generates change notifications only when devices are connected. Make sure to implement the [device reconnection flow](iot-hub-devguide-device-twins.md#device-reconnection-flow) to keep the desired properties synchronized between IoT Hub and the device app.
 
-For more information, see [Device twins developer's guide][lnk-devguide-twin].
+For more information, see [Device twins developer's guide](iot-hub-devguide-device-twins.md).
 
 ### Respond to a direct method
 
@@ -300,54 +318,24 @@ First, a device has to subscribe to `$iothub/methods/POST/#`. IoT Hub sends meth
 
 To respond, the device sends a message with a valid JSON or empty body to the topic `$iothub/methods/res/{status}/?$rid={request id}`. In this message, the **request ID** must match the one in the request message, and **status** must be an integer.
 
-For more information, see [Direct method developer's guide][lnk-methods].
+For more information, see [Direct method developer's guide](iot-hub-devguide-direct-methods.md).
 
 ### Additional considerations
 
-As a final consideration, if you need to customize the MQTT protocol behavior on the cloud side, you should review the [Azure IoT protocol gateway][lnk-azure-protocol-gateway]. This software enables you to deploy a high-performance custom protocol gateway that interfaces directly with IoT Hub. The Azure IoT protocol gateway enables you to customize the device protocol to accommodate brownfield MQTT deployments or other custom protocols. This approach does require, however, that you run and operate a custom protocol gateway.
+As a final consideration, if you need to customize the MQTT protocol behavior on the cloud side, you should review the [Azure IoT protocol gateway](iot-hub-protocol-gateway.md). This software enables you to deploy a high-performance custom protocol gateway that interfaces directly with IoT Hub. The Azure IoT protocol gateway enables you to customize the device protocol to accommodate brownfield MQTT deployments or other custom protocols. This approach does require, however, that you run and operate a custom protocol gateway.
 
 ## Next steps
 
-To learn more about the MQTT protocol, see the [MQTT documentation][lnk-mqtt-docs].
+To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt.org/documentation).
 
 To learn more about planning your IoT Hub deployment, see:
 
-* [Azure Certified for IoT device catalog][lnk-devices]
-* [Support additional protocols][lnk-protocols]
-* [Compare with Event Hubs][lnk-compare]
-* [Scaling, HA, and DR][lnk-scaling]
+* [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com/)
+* [Support additional protocols](iot-hub-protocol-gateway.md)
+* [Compare with Event Hubs](iot-hub-compare-event-hubs.md)
+* [Scaling, HA, and DR](iot-hub-scaling.md)
 
 To further explore the capabilities of IoT Hub, see:
 
-* [IoT Hub developer guide][lnk-devguide]
-* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
-
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
-[lnk-mqtt-org]: https://mqtt.org/
-[lnk-mqtt-docs]: https://mqtt.org/documentation
-[lnk-sample-node]: https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js
-[lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java
-[lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm
-[lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples
-[lnk-sample-python]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples
-[lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-sas-tokens]: iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
-[lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
-
-[lnk-devices]: https://catalog.azureiotsolutions.com/
-[lnk-protocols]: iot-hub-protocol-gateway.md
-[lnk-compare]: iot-hub-compare-event-hubs.md
-[lnk-scaling]: iot-hub-scaling.md
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-x509]: iot-hub-security-x509-get-started.md
-
-[lnk-methods]: iot-hub-devguide-direct-methods.md
-[lnk-messaging]: iot-hub-devguide-messaging.md
-
-[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-devguide-twin-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
-[lnk-devguide-twin]: iot-hub-devguide-device-twins.md
-[lnk-sdk-c-certs]: https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c
-[lnk-digicert-root-certs]: https://www.digicert.com/digicert-root-certificates.htm
-[lnk-paho]: https://pypi.python.org/pypi/paho-mqtt
+* [IoT Hub developer guide](iot-hub-devguide.md)
+* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

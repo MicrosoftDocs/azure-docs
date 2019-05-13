@@ -4,7 +4,7 @@ description: Create your first Linux container application on Azure Service Fabr
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 

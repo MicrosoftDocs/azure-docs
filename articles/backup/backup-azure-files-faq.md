@@ -33,9 +33,9 @@ When trying to back up, selecting a Storage Account to discover file shares with
 Yes. However, you'll need to [Stop Protection](backup-azure-files.md#stop-protecting-an-azure-file-share) from the connected Vault, [Unregister](troubleshoot-azure-files.md#configuring-backup) this Storage Account, and then protect it from a different Vault.
 
 ### In which geos can I back up Azure File shares <br/>
-Backup for Azure File shares is currently in Preview and is available only in the following geos: 
-- Australia East (AE) 
-- Australia South East (ASE) 
+Backup for Azure File shares is currently in Preview and is available only in the following geos:
+- Australia East (AE)
+- Australia South East (ASE)
 - Brazil South (BRS)
 - Canada Central (CNC)
 - Canada East (CE)
@@ -45,17 +45,17 @@ Backup for Azure File shares is currently in Preview and is available only in th
 - East US 2 (EUS2)
 - Japan East (JPE)
 - Japan West (JPW)
-- India Central (INC) 
+- India Central (INC)
 - India South (INS)
 - Korea Central (KRC)
 - Korea South (KRS)
-- North Central US (NCUS) 
-- North Europe (NE) 
-- South Central US (SCUS) 
+- North Central US (NCUS)
+- North Europe (NE)
+- South Central US (SCUS)
 - South East Asia (SEA)
-- UK South (UKS) 
-- UK West (UKW) 
-- West Europe (WE) 
+- UK South (UKS)
+- UK West (UKW)
+- West Europe (WE)
 - West US (WUS)
 - West Central US (WCUS)
 - West US 2 (WUS 2)
@@ -77,7 +77,7 @@ No. All file shares in a Storage Account can be protected only by the same Vault
 You can have up to 200 Snapshots for a file share at any point in time. The limit includes snapshots taken by Azure Backup as defined by your policy. If your backups start failing after reaching the limit, delete On-Demand restore points for successful future backups.
 
 ### After enabling Virtual Networks on my Storage Account, the Backup of file shares in the account started failing. Why?
-Backup for Azure file shares doesn't support Storage Accounts that have Virtual Networks enabled. Disable Virtual Networks in Storage Accounts to enable successful backups. 
+Backup for Azure file shares doesn't support Storage Accounts that have Virtual Networks enabled. Disable Virtual Networks in Storage Accounts to enable successful backups.
 
 ## Restore
 
@@ -86,6 +86,10 @@ When an Azure file share is deleted, you're shown the list of backups that will 
 
 ### Can I restore from backups if I stopped protection on an Azure file share? <br/>
 Yes. If you chose **Retain Backup Data** when you stopped protection, then you can restore from all existing restore points.
+
+### What happens if I cancel an ongoing restore job?
+If an ongoing restore job is canceled, the restore process stops and all files restored before the cancellation, stay in configured destination (original or alternate location) without any rollbacks. 
+
 
 ## Manage Backup
 

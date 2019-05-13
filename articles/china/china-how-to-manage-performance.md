@@ -26,12 +26,12 @@ In addition, if your Azure application provides services to users outside of Chi
 ## Performance considerations
 To fine-tune and optimize your Azure application, conduct performance tests and consider the following recommendations: 
 - Conduct your performance testing in China Standard Time, instead of your own time zone. 
-- Conduct testing in mainland China to better reflect the response times and the real user experience.
+- Conduct testing in China to better reflect the response times and the real user experience.
 - Test during the Internet rush hours to measure the performance of your application under high workloads. 
 
 ## Network latency in China
 The network latency between China and the rest of the world is inevitable given the intermediary technologies that regulate cross-border Internet traffic. Website users and administrators may experience slow performance. These tips may help: 
-- For websites with streaming media and other rich media content, the [Azure Content Delivery Network](/azure/china/china-get-started-service-cdn) (CDN) may be able to help improve responsiveness. Under Chinese law, using the CDN service in China may also subject an offshore website to [ICP filing](/azure/china/china-overview-policies). Do not use a global CDN service that does not have a point of presence (PoP) inside mainland China.
+- For websites with streaming media and other rich media content, the [Azure Content Delivery Network](/azure/china/china-get-started-service-cdn) (CDN) may be able to help improve responsiveness. Under Chinese law, using the CDN service in China may also subject an offshore website to [ICP filing](/azure/china/china-overview-policies). Do not use a global CDN service that does not have a point of presence (PoP) inside China.
 - For the best user experience, host a website in China to serve users in China.
 - For website administrators outside of China, use Secure Shell (SSH) to connect to your remote server for a faster network connection to Microsoft Azure China 21Vianet. For example, use SSH to access a local Azure virtual machine, and from there, use SSH to connect to an Azure China 21Vianet virtual machine. 
 

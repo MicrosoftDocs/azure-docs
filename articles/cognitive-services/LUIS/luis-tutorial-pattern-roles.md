@@ -1,7 +1,7 @@
 ---
 title: Pattern roles
 titleSuffix: Azure Cognitive Services
-description: Use a pattern to extract data from a well-formatted template utterance. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  
+description: Patterns extract data from well-formatted template utterances. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 04/01/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use pattern roles. 
 ---
 
-# Tutorial: Extract contextually-related patterns using roles
+# Tutorial: Extract contextually related patterns using roles
 
-In this tutorial, use a pattern to extract data from a well-formatted template utterance. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  When using patterns, fewer example utterances are needed for the intent.
+In this tutorial, use a pattern to extract data from a well-formatted template utterance. The template utterance uses a [simple entity](luis-concept-entity-types.md#simple-entity) and [roles](luis-concept-roles.md) to extract related data such as origin location and destination location.  When using patterns, fewer example utterances are needed for the intent.
 
 
 **In this tutorial, you learn how to:**
@@ -36,7 +36,7 @@ In this tutorial, use a pattern to extract data from a well-formatted template u
 
 ## Using roles in patterns
 
-The purpose of roles is to extract contextually-related entities in an utterance. In the utterance, `Move new employee Robert Williams from Sacramento and San Francisco`, the origin city, and destination city values are related to each other and use common language to denote each location. 
+The purpose of roles is to extract contextually related entities in an utterance. In the utterance, `Move new employee Robert Williams from Sacramento and San Francisco`, the origin city, and destination city values are related to each other and use common language to denote each location. 
 
 
 The name of the new employee, Billy Patterson, is not part of the list entity **Employee** yet. The new employee name is extracted first, in order to send the name to an external system to create the company credentials. After the company credentials are created, the employee credentials are added to the list entity **Employee**.
@@ -369,19 +369,6 @@ Cities, like people's names are tricky in that they can be any mix of words and 
     ```
 
 The intent score is now much higher and the role names are part of the entity response.
-
-## Hierarchical entities versus roles
-
-In the [hierarchical tutorial](luis-quickstart-intent-and-hier-entity.md), the **MoveEmployee** intent detected when to move an existing employee from one building and office to another. The example utterances had origin and destination locations but did not use roles. Instead, the origin and destination were children of the hierarchical entity. 
-
-In this tutorial, the Human Resources app detects utterances about moving new employees from one city to another. These two types of utterances are the same but solved with different LUIS abilities.
-
-|Tutorial|Example utterance|Origin and destination locations|
-|--|--|--|
-|[Hierarchical (no roles)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
-|This tutorial (with roles)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
-
-For more information, see [Roles versus hierarchical entities](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## Clean up resources
 

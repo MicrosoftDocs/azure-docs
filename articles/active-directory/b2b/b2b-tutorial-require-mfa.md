@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 04/10/2019
 
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celested
 ms.reviewer: mal
 ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
@@ -69,7 +69,7 @@ To complete the scenario in this tutorial, you need:
 3.	Sign out.
 
 ## Create a conditional access policy that requires MFA
-1.	Sign in to your [Azure portal](https://portal.azure.com/) as global administrator, security administrator, or a conditional access administrator.
+1.	Sign in to your [Azure portal](https://portal.azure.com/) as a security administrator or a conditional access administrator.
 2.	In the Azure portal, select **Azure Active Directory**. 
 3.	On the **Azure Active Directory** page, in the **Security** section, select **Conditional access**.
 4.	On the **Conditional Access** page, in the toolbar on the top, select **New policy**.

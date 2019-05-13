@@ -347,8 +347,8 @@ In the parameters file, update the following parameter values:
 |registryPassword|The password you obtained previously in [Retrieve credentials for the registry](#retrieve-credentials-for-the-registry). This parameter in the template is a secure string and will not be displayed in the deployment status or `az mesh service show` commands.|
 |registryUserName|The username you obtained in [Retrieve credentials for the registry](#retrieve-credentials-for-the-registry).|
 |registryServer|The registry server name you obtained in [Retrieve credentials for the registry](#retrieve-credentials-for-the-registry).|
-|frontEndImage|The container image for the front end service.  For example, "<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709".|
-|serviceImage|The container image for the back end service.  For example, "<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709".|
+|frontEndImage|The container image for the front end service.  For example, `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`.|
+|serviceImage|The container image for the back end service.  For example, `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`.|
 
 To deploy the application, run the following:
 

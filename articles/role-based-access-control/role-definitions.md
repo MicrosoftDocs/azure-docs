@@ -92,11 +92,11 @@ To support data operations, new data properties have been added to the role defi
 - Write a storage blob in a container
 - Delete a message in a queue
 
-Here's the [Storage Blob Data Reader (Preview)](built-in-roles.md#storage-blob-data-reader-preview) role definition, which includes operations in both the `Actions` and `DataActions` properties. This role allows you to read the blob container and also the underlying blob data.
+Here's the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role definition, which includes operations in both the `Actions` and `DataActions` properties. This role allows you to read the blob container and also the underlying blob data.
 
 ```json
 {
-  "Name": "Storage Blob Data Reader (Preview)",
+  "Name": "Storage Blob Data Reader",
   "Id": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
   "IsCustom": false,
   "Description": "Allows for read access to Azure Storage blob containers and data",
@@ -120,18 +120,18 @@ Authorization for all management operation API calls is handled by Azure Resourc
 
 ### Data operations example
 
-To better understand how management and data operations work, let's consider a specific example. Alice has been assigned the [Owner](built-in-roles.md#owner) role at the subscription scope. Bob has been assigned the [Storage Blob Data Contributor (Preview)](built-in-roles.md#storage-blob-data-contributor-preview) role at a storage account scope. The following diagram shows this example.
+To better understand how management and data operations work, let's consider a specific example. Alice has been assigned the [Owner](built-in-roles.md#owner) role at the subscription scope. Bob has been assigned the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role at a storage account scope. The following diagram shows this example.
 
 ![Role-based access control has been extended to support both management and data operations](./media/role-definitions/rbac-management-data.png)
 
-The [Owner](built-in-roles.md#owner) role for Alice and the [Storage Blob Data Contributor (Preview)](built-in-roles.md#storage-blob-data-contributor-preview) role for  Bob have the following actions:
+The [Owner](built-in-roles.md#owner) role for Alice and the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role for  Bob have the following actions:
 
 Owner
 
 &nbsp;&nbsp;&nbsp;&nbsp;Actions<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-Storage Blob Data Contributor (Preview)
+Storage Blob Data Contributor
 
 &nbsp;&nbsp;&nbsp;&nbsp;Actions<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
@@ -144,7 +144,7 @@ Storage Blob Data Contributor (Preview)
 
 Since Alice has a wildcard (`*`) action at a subscription scope, her permissions inherit down to enable her to perform all management actions. Alice can read, write, and delete containers. However, Alice cannot perform data operations without taking additional steps. For example, by default, Alice cannot read the blobs inside a container. To read the blobs, Alice would have to retrieve the storage access keys and use them to access the blobs.
 
-Bob's permissions are restricted to just the `Actions` and `DataActions` specified in the [Storage Blob Data Contributor (Preview)](built-in-roles.md#storage-blob-data-contributor-preview) role. Based on the role, Bob can perform both management and data operations. For example, Bob can read, write, and delete containers in the specified storage account and he can also read, write, and delete the blobs.
+Bob's permissions are restricted to just the `Actions` and `DataActions` specified in the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role. Based on the role, Bob can perform both management and data operations. For example, Bob can read, write, and delete containers in the specified storage account and he can also read, write, and delete the blobs.
 
 For more information about management and data plane security for storage, see the [Azure Storage security guide](../storage/common/storage-security-guide.md).
 

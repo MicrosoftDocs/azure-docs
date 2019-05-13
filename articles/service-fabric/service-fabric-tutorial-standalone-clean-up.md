@@ -4,7 +4,7 @@ description: In this tutorial you learn how to cleanup your standalone cluster
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 

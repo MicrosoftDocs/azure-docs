@@ -4,7 +4,7 @@ description: Learn how to monitor and diagnose your Service Fabric services on a
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 4eebe937-ab42-4429-93db-f35c26424321

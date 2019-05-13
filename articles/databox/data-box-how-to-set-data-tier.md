@@ -17,6 +17,9 @@ Azure Data Box moves large amounts of data to Azure by shipping you a proprietar
 
 This article describes how the data that is uploaded by Data Box can be moved to a Hot, Cold, or Archive blob tier.  
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Choose the correct storage tier for your data
 
 Azure storage allows three different tiers to store data in the most cost-effective manner - Hot, Cold, or Archive. Hot storage tier is optimized for storing data that is accessed frequently. Hot storage has higher storage costs than Cool and Archive storage, but the lowest access costs.
@@ -54,7 +57,7 @@ Following steps describe how you can set the blob tier to Archive using an Azure
 
 2. Sign into the Azure PowerShell. 
 
-   `Login-AzureRmAccount`  
+   `Login-AzAccount`  
 
 3. Define the variables for storage account, access key, container, and the storage context.
 
@@ -62,12 +65,12 @@ Following steps describe how you can set the blob tier to Archive using an Azure
     $StorageAccountName = "<enter account name>"
     $StorageAccountKey = "<enter account key>"
     $ContainerName = "<enter container name>"
-    $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
     ```
 
 4. Get all the blobs in the container.
 
-    `$blobs = Get-AzureStorageBlob -Container "<enter container name>" -Context $ctx`
+    `$blobs = Get-AzStorageBlob -Container "<enter container name>" -Context $ctx`
  
 5. Set the tier of all the blobs in the container to Archive.
 
@@ -87,7 +90,7 @@ Following steps describe how you can set the blob tier to Archive using an Azure
     Major  Minor  Build  Revision
     -----  -----  -----  --------
     5      1      17763  134
-    PS C:\WINDOWS\system32> Login-AzureRmAccount
+    PS C:\WINDOWS\system32> Login-AzAccount
 
     Account          : gus@contoso.com
     SubscriptionName : MySubscription
@@ -98,8 +101,8 @@ Following steps describe how you can set the blob tier to Archive using an Azure
     PS C:\WINDOWS\system32> $StorageAccountName = "mygpv2storacct"
     PS C:\WINDOWS\system32> $StorageAccountKey = "mystorageacctkey"
     PS C:\WINDOWS\system32> $ContainerName = "test"
-    PS C:\WINDOWS\system32> $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
-    PS C:\WINDOWS\system32> $blobs = Get-AzureStorageBlob -Container "test" -Context $ctx
+    PS C:\WINDOWS\system32> $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    PS C:\WINDOWS\system32> $blobs = Get-AzStorageBlob -Container "test" -Context $ctx
     PS C:\WINDOWS\system32> Foreach ($blob in $blobs) {
     >> $blob.ICloudBlob.SetStandardBlobTier("Archive")
     >> }
