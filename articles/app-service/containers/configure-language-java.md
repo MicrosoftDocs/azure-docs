@@ -310,7 +310,7 @@ To connect to data sources in Spring Boot applications, we suggest creating conn
 
     This connection string is accessible to our application as an environment variable named `CUSTOMCONNSTR_<your-string-name>`. For example, the connection string we created above will be named `CUSTOMCONNSTR_exampledb`.
 
-2. In your `application.properties` file, reference this connction string with the environment variable name. For our example, we would use the following.
+2. In your `application.properties` file, reference this connection string with the environment variable name. For our example, we would use the following.
 
     ```yml
     app.datasource.url=${CUSTOMCONNSTR_exampledb}
