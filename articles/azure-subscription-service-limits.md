@@ -217,6 +217,9 @@ The following App Service limits include limits for Web Apps, Mobile Apps, and A
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
+### Functions limits
+[!INCLUDE [functions-limits](../includes/functions-limits.md)]
+
 ### Scheduler limits
 [!INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
