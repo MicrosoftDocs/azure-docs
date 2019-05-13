@@ -18,13 +18,9 @@ Learn how to use GPU inferencing for a machine learning model deployed as a web 
 
 GPUs offer performance advantages over CPUs on highly parallelizable computation. Training and inferencing deep learning models (especially for large batches of requests) are excellent use cases for GPUs.  
 
-This example will show you how to deploy a TensorFlow saved model to Azure Machine Learning. 
-
-## Goals and prerequisites
-
-Follow the instructions to:
-* Create a GPU enabled AKS cluster
-* Deploy a model with Tensorflow-GPU
+This example will show you how to deploy a TensorFlow saved model to Azure Machine Learning by:
+* Creating a GPU-enabled AKS cluster
+* Deploying a model with Tensorflow-GPU
 
 ## Prerequisites
 
