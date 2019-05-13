@@ -68,36 +68,10 @@ When requesting a certificate, you must provide the fully qualified domain name 
 
 To deploy (or redeploy) the service with SSL enabled, set the `ssl_enabled` parameter to `True`, wherever applicable. Set the `ssl_certificate` parameter to the value of the __certificate__ file and the `ssl_key` to the value of the __key__ file.
 
-+ **Visual interface - Create secure Azure Kubernetes Service (AKS) for deployment** 
-    
-    Refer to this if you are trying to create secure deploying compute for visual interface. While provisioning the AKS cluster, provide values for SSL-related parameters then create a new AKS.  Please refer to below code snippet:
-    
-
-    > [!TIP]
-    >  If you are not familiar with the Python SDK, start from [Azure Machine Learning Python SDK Overview.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-
-
-    ```python
-    from azureml.core.compute import AksCompute, ComputeTarget
-
-    # Provide SSL-related parameters when provisioning the AKS cluster
-    prov_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")   
- 
-    aks_name = 'secure-aks'
-    # Create the cluster
-    aks_target = ComputeTarget.create(workspace = ws,
-                                        name = aks_name,
-                                        provisioning_configuration = prov_config)
-    
-    # Wait for the create process to complete
-    aks_target.wait_for_completion(show_output = True)
-    print(aks_target.provisioning_state)
-    print(aks_target.provisioning_errors)
-    ```
-    
-   
-
 + **Deploy on Azure Kubernetes Service (AKS) and FPGA**
+
+  > [!NOTE]
+  > The information in this section also applies when deploying a secure web service for the visual interface. If you are not familiar with using the Python SDK, see the [Azure Machine Learning Python SDK Overview.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
   When deploying to AKS, you can either create a new AKS cluster or attach an existing one. Creating a new cluster uses [AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none-) while attaching an existing cluster uses [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none-). Both return a configuration object that has an `enable_ssl` method.
 
@@ -115,23 +89,26 @@ To deploy (or redeploy) the service with SSL enabled, set the `ssl_enabled` para
     ```python
     from azureml.core.compute import AksCompute
     # Config used to create a new AKS cluster and enable SSL
-    provisioning_config = AksCompute.provisioning_configuration().enable_ssl(leaf_domain_label = "myservice")
+    provisioning_config = AksCompute.provisioning_configuration()
+    provisioning_config.enable_ssl(leaf_domain_label = "myservice")
     # Config used to attach an existing AKS cluster to your workspace and enable SSL
     attach_config = AksCompute.attach_configuration(resource_group = resource_group,
-                                          cluster_name = cluster_name).enable_ssl(leaf_domain_label = "myservice")
+                                          cluster_name = cluster_name)
+    attach_config.enable_ssl(leaf_domain_label = "myservice")
     ```
 
-  * When using __a certificate you purchased__, use the `ssl_cert_pem_file`, `ssl_key_pem_file`, and `ssl_cname` parameters.  The following example demonstrates how to create configurations that use an SSL certificate you provide using `.pem` files:
+  * When using __a certificate you purchased__, use the `ssl_cert_pem_file`, `ssl_key_pem_file`, and `ssl_cname` parameters. The following example demonstrates how to create configurations that use an SSL certificate you provide using `.pem` files:
 
     ```python
     from azureml.core.compute import AksCompute
     # Config used to create a new AKS cluster and enable SSL
-    provisioning_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
-    provisioning_config = AksCompute.provisioning_configuration().enable_ssl(ssl_cert_pem_file="cert.pem",
+    provisioning_config = AksCompute.provisioning_configuration()
+    provisioning_config.enable_ssl(ssl_cert_pem_file="cert.pem",
                                         ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     # Config used to attach an existing AKS cluster to your workspace and enable SSL
     attach_config = AksCompute.attach_configuration(resource_group = resource_group,
-                                         cluster_name = cluster_name).enable_ssl(ssl_cert_pem_file="cert.pem",
+                                         cluster_name = cluster_name)
+    attach_config.enable_ssl(ssl_cert_pem_file="cert.pem",
                                         ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 

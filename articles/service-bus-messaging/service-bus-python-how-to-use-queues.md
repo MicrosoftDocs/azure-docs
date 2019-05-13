@@ -78,7 +78,7 @@ queue_client = QueueClient.from_connection_string("<CONNECTION STRING>", "<QUEUE
 
 # Send a test message to the queue
 msg = Message(b'Test Message')
-queue_client.send(Message("Message"))
+queue_client.send(msg)
 ```
 
 Service Bus queues support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
