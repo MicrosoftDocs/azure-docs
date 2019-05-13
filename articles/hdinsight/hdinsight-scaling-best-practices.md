@@ -1,22 +1,20 @@
 ---
-title: Scale cluster sizes - Azure HDInsight 
-description: Scale an HDInsight cluster to your workload.
+title: Scale cluster sizes - Azure HDInsight
+description: Scale an HDInsight cluster elasticity your workload.
 author: ashishthaps
+ms.author: ashish
 ms.reviewer: jasonh
-
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: ashish
-
 ---
 # Scale HDInsight clusters
 
 HDInsight provides elasticity by giving you the option to scale up and scale down the number of worker nodes in your clusters. This allows you to shrink a cluster after hours or on weekends, and expand it during peak business demands.
 
-For example, if you have some batch processing that happens once a day or once a month, the HDInsight cluster can be scaled up a few minutes prior to that scheduled event so  there will be adequate  memory and CPU compute power.  Later, after the processing is done, and usage goes down again, you can scale down the HDInsight cluster to fewer worker nodes.
+For example, if you have some batch processing that happens once a day or once a month, the HDInsight cluster can be scaled up a few minutes prior to that scheduled event so there will be adequate memory and CPU compute power.  Later, after the processing is done, and usage goes down again, you can scale down the HDInsight cluster to fewer worker nodes.
 
+You can scale a cluster manually using one of the methods outlined below, or use [autoscale](hdinsight-autoscale-clusters.md) options to have the system automatically scale up and down in response to CPU, Memory, and other metrics.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -326,6 +324,6 @@ The final option is to watch for the rare occasion in which HDFS enters safe mod
     
 ## Next steps
 
+* [Automatically scale Azure HDInsight clusters](hdinsight-autoscale-clusters.md)
 * [Introduction to Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Scale clusters](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
