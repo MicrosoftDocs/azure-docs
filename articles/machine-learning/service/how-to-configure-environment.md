@@ -37,9 +37,7 @@ If you already have a Python 3 environment, or just want the basic steps for ins
 
 ## Prerequisites
 
-- An Azure Machine Learning service workspace. To create the workspace, see [Create an Azure Machine Learning service workspace](setup-create-workspace.md).
-
-A workspace is all you need to get started with your own [cloud-based notebook server](#notebookvm), a [DSVM](#dsvm), [Azure Databricks](#aml-databricks), or [Azure Notebooks](#aznotebooks).
+An Azure Machine Learning service workspace. To create the workspace, see [Create an Azure Machine Learning service workspace](setup-create-workspace.md). A workspace is all you need to get started with your own [cloud-based notebook server](#notebookvm), a [DSVM](#dsvm), [Azure Databricks](#aml-databricks), or [Azure Notebooks](#aznotebooks).
 
 To install the SDK environment for your [local computer](#local), [Jupyter Notebook server](#jupyter) or [Visual Studio Code](#vscode) you also need:
 
@@ -54,13 +52,13 @@ To install the SDK environment for your [local computer](#local), [Jupyter Noteb
 
 ## <a id="notebookvm"></a>Your own cloud-based notebook VM
 
-The notebook virtual machine (VM) is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter notebook server, JupyterLab, and a fully prepared ML environment. 
+The notebook virtual machine (Preview) is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter notebook server, JupyterLab, and a fully prepared ML environment. 
 
 The notebook VM offers: 
 
-+ Secure. Since VM and notebook access is secured with HTTPS and Azure Active Directory by default, IT Pros can easily enforce single sign-on and other security features such as multi-factor authentication.
++ **Secure**. Since VM and notebook access is secured with HTTPS and Azure Active Directory by default, IT Pros can easily enforce single sign-on and other security features such as multi-factor authentication.
 
-+ Preconfigured. This fully prepared Python ML environment draws its pedigree from the popular IaaS Data Science VM and includes:
++ **Preconfigured**. This fully prepared Python ML environment draws its pedigree from the popular IaaS Data Science VM and includes:
   + Azure ML Python SDK (latest)
   + Automatic configuration to work with your workspace
   + A Jupyter notebook server
@@ -69,13 +67,11 @@ The notebook VM offers:
   + A selection of deep learning frameworks
   + more...
 
-If you are into code, the VM includes tutorials and samples to help you explore and learn how to use Azure Machine Learning service. The sample notebooks are stored in the Azure Blob Storage account of your workspace making them shareable across VMs. When run, they also have access to the data stores and compute resources of your workspace. 
+  If you are into code, the VM includes tutorials and samples to help you explore and learn how to use Azure Machine Learning service. The sample notebooks are stored in the Azure Blob Storage account of your workspace making them shareable across VMs. When run, they also have access to the data stores and compute resources of your workspace. 
 
-+ Simple setup: Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify a Azure VM type. 
++ **Simple setup**: Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify a Azure VM type. Try it now with this [Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
-+ Customizable. While a managed and secure VM offering, you retain full access to the hardware capabilities and customize it to your heart’s desire. For example, quickly create the latest NVidia V100 powered VM to perform step-by-step debugging of novel Neural Network architecture.
-
-To get started developing with your cloud-based notebook server, see [Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning](quickstart-run-cloud-notebook.md).
++ **Customizable**. While a managed and secure VM offering, you retain full access to the hardware capabilities and customize it to your heart’s desire. For example, quickly create the latest NVidia V100 powered VM to perform step-by-step debugging of novel Neural Network architecture.
 
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
