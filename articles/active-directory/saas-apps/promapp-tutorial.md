@@ -56,7 +56,7 @@ To set up the integration of Promapp into Azure AD, you need to add Promapp from
 
 2. Go to **Enterprise applications** > **All applications**:
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+	![Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add an application, select **New application** at the top of the window:
 
@@ -113,66 +113,68 @@ To configure Azure AD single sign-on with Promapp, take these steps:
 	    | `https://ca.promapp.com/TENANTNAME/`|
 	    |   |
 
-	   > [!NOTE] 
-	   > Presently Azure AD integration with Promapp has only been configured for service initiated authentication e.g. going to a Promapp URL initiates the authentication process. However the Reply URL is a required field.
+	   > [!NOTE]
+	   > Azure AD integration with Promapp is currently configured only for service-initiated authentication. (That is, going to a Promapp URL initiates the authentication process.) But the **Reply URL** field is a required field.
 
-    1. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<DOMAINNAME>.promapp.com/TENANTNAME/saml/authenticate.aspx`
+    1. In the **Reply URL** box, enter a URL in this pattern:
 
-5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+       `https://<DOMAINNAME>.promapp.com/TENANTNAME/saml/authenticate.aspx`
+
+5. If you want to configure the application in SP-initiated mode, select **Set additional URLs**. In the **Sign on URL** box, enter a URL in this pattern:
+
+      `https://<DOMAINNAME>.promapp.com/TENANTNAME/saml/authenticate`
 
     ![Promapp Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<DOMAINNAME>.promapp.com/TENANTNAME/saml/authenticate`
+   
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Promapp Client support team](https://www.promapp.com/about-us/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are placeholders. You need to use the actual identifier, reply URL, and sign-on URL. Contact the [Promapp support team](https://www.promapp.com/about-us/contact-us/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
 
-6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Base64)**, per your requirements, and save the certificate on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+	![Certificate download link](common/certificatebase64.png)
 
-7. On the **Set up Promapp** section, copy the appropriate URL(s) as per your requirement.
+7. In the **Set up Promapp** section, copy the appropriate URLs, based on your requirements:
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Copy the configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
+	1. **Login URL**.
 
-	b. Azure AD Identifier
+	1. **Azure AD Identifier**.
 
-	c. Logout URL
+	1. **Logout URL**.
 
-### Configure Promapp Single Sign-On
+### Configure Promapp single sign-on
 
-1. Sign in to your Promapp company site as administrator. 
+1. Sign in to your Promapp company site as an admin.
 
-2. In the menu on the top, click **Admin**. 
+2. In the menu at the top of the window, select **Admin**:
    
-    ![Azure AD Single Sign-On][12]
+    ![Select Admin][12]
 
-3. Click **Configure**. 
+3. Select **Configure**:
    
-    ![Azure AD Single Sign-On][13]
+    ![Select Configure][13]
 
-4. On the **Security** dialog, perform the following steps:
+4. In the **Security** dialog box, take the following steps.
    
-    ![Azure AD Single Sign-On][14]
+    ![Security dialog box][14]
 	
-	a. Paste **Login URL**, which you have copied from the Azure portal into the **SSO-Login URL** textbox.
+	1. Paste the **Login URL** that you copied from the Azure portal into the **SSO-Login URL** box.
 	
-	b. As **SSO - Single Sign-on Mode**, select **Optional**, and then click **Save**.
+	1. In the **SSO - Single Sign-on Mode** list, select **Optional**. Select **Save**.
 
-	> [!NOTE]
-	> **Optional** mode is for testing only. Once you are happy with the configuration, Select **Required** mode to enforce all users to authenticate using Azure AD.
+	   > [!NOTE]
+	   > Optional mode is for testing only. After you're happy with the configuration, select **Required** in the **SSO - Single Sign-on Mode** list to force all users to authenticate with Azure AD.
 
-	c. Open the downloaded certificate in notepad, copy the certificate content without the first line (-----**BEGIN CERTIFICATE**-----) and the last line (-----**END CERTIFICATE**-----), paste it into the **SSO-x.509 Certificate** textbox, and then click **Save**.
+	1. In Notepad, open the  certificate that you downloaded in the previous section. Copy the contents of the certificate without the first line (**-----BEGIN CERTIFICATE-----**) or the last line (**-----END CERTIFICATE-----**). Paste the certificate content into the **SSO-x.509 Certificate** box, and then select **Save**.
 
-### Create an Azure AD test user 
+### Create an Azure AD test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+In this section, you'll create a test user named Britta Simon in the Azure portal.
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. In the Azure portal, select **Azure Active Directory** in the left pane,, select **Users**, and then select **All users**.
 
     ![The "Users and groups" and "All users" links](common/users.png)
 
