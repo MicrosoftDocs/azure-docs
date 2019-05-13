@@ -63,3 +63,7 @@ No. All nodes in an Azure Red Hat OpenShift cluster must originate from the same
 ## Are master and infrastructure nodes abstracted away as they are with Azure Kubernetes Service (AKS)?
 
 No. All resources, including the cluster master, run in your customer subscription. These types of resources are put in a read-only resource group.
+
+## Is Open Service Broker for Azure (OSBA) supported?
+
+Yes. You can use OSBA with Azure Red Hat OpenShift. See [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) for more information.
