@@ -174,17 +174,17 @@ To configure Azure AD single sign-on with Promapp, take these steps:
 
 In this section, you'll create a test user named Britta Simon in the Azure portal.
 
-1. In the Azure portal, select **Azure Active Directory** in the left pane,, select **Users**, and then select **All users**.
+1. In the Azure portal, select **Azure Active Directory** in the left pane, select **Users**, and then select **All users**:
 
-    ![The "Users and groups" and "All users" links](common/users.png)
+    ![Select All users](common/users.png)
 
-2. Select **New user** at the top of the screen.
+2. Select **New user** at the top of the screen:
 
-    ![New user Button](common/new-user.png)
+    ![Select New user](common/new-user.png)
 
-3. In the User properties, perform the following steps.
+3. In the **User** dialog box, take the following steps.
 
-    ![The User dialog box](common/user-properties.png)
+    ![User dialog box](common/user-properties.png)
 
     a. In the **Name** field enter **BrittaSimon**.
   
