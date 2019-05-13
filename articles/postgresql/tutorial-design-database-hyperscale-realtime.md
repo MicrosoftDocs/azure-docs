@@ -120,7 +120,7 @@ DO $$
 END $$;
 ```
 
-The query adds a row approximately every eighth second. The rows are stored on different worker nodes as directed by the distribution column, `site_id`.
+The query inserts approximately eight rows every second. The rows are stored on different worker nodes as directed by the distribution column, `site_id`.
 
    > [!NOTE]
    > Leave the data generation query running, and open a second psql
