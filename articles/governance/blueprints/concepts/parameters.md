@@ -209,7 +209,8 @@ and **tagValue**. The value on each is directly provided and doesn't use a funct
 The opposite of a static parameter is a **dynamic parameter**. This parameter isn't defined on the
 blueprint, but instead is defined during each assignment of the blueprint. In the resource group
 example, use of a **dynamic parameter** makes sense for the resource group name. It provides a
-different name for every assignment of the blueprint.
+different name for every assignment of the blueprint. For a list of blueprint functions, see the [blueprint functions](../reference/blueprint-functions.md)
+reference.
 
 #### Setting dynamic parameters in the portal
 
@@ -225,12 +226,12 @@ different name for every assignment of the blueprint.
 
 #### Setting dynamic parameters from REST API
 
-Setting **dynamic parameters** during the assignment is done by entering the value directly.
-Instead of using a function, such as `parameters()`, the value provided is an appropriate string.
-Artifacts for a resource group are defined with a "template name", **name**, and **location**
-properties. All other parameters for included artifact are defined under **parameters** with a
-**\<name\>** and **value** key pair. If the blueprint is configured for a dynamic parameter that
-isn't provided during assignment, the assignment will fail.
+Setting **dynamic parameters** during the assignment is done by entering the value directly. Instead
+of using a function, such as [parameters()](../reference/blueprint-functions.md#parameters), the
+value provided is an appropriate string. Artifacts for a resource group are defined with a "template
+name", **name**, and **location** properties. All other parameters for included artifact are defined
+under **parameters** with a **\<name\>** and **value** key pair. If the blueprint is configured for
+a dynamic parameter that isn't provided during assignment, the assignment will fail.
 
 - REST API URI
 
@@ -283,6 +284,7 @@ isn't provided during assignment, the assignment will fail.
 
 ## Next steps
 
+- See the list of [blueprint functions](../reference/blueprint-functions.md).
 - Learn about the [blueprint life-cycle](lifecycle.md).
 - Learn to customize the [blueprint sequencing order](sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](resource-locking.md).

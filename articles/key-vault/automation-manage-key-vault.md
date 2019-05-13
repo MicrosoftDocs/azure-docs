@@ -2,15 +2,11 @@
 title: Manage Azure Key Vault using Azure Automation - Azure Key Vault | Microsoft Docs
 description: Learn about how the Azure Automation service can be used to manage Azure Key Vault.
 services: Key-Vault, automation
-documentationcenter: ''
 author: mgoedtel
 manager: jwhit
 editor: ''
 
-ms.assetid: 4e780762-19b6-4ca6-b894-ebb44c538f35
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: magoedte

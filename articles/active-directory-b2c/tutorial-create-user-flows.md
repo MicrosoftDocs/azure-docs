@@ -3,7 +3,7 @@ title: Tutorial - Create user flows - Azure Active Directory B2C | Microsoft Doc
 description: Learn how to Create user flows for your applications in Azure Active Directory B2C using the Azure portal.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity

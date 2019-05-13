@@ -3,7 +3,7 @@ title: Tutorial - Enable authentication in a single-page application  - Azure Ac
 description: Tutorial on how to use Azure Active Directory B2C to provide user login for a single page application (JavaScript).
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.author: davidmu
 ms.date: 02/04/2019
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * [Create user flows](tutorial-create-user-flows.md) to enable user experiences in your application. 
-* Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
+* Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
 * Install the [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) or later
 * Install [Node.js](https://nodejs.org/en/download/)
 

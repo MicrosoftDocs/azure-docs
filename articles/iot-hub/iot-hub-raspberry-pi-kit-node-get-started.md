@@ -1,6 +1,6 @@
 ---
 title: Raspberry Pi to cloud (Node.js) - Connect Raspberry Pi to Azure IoT Hub | Microsoft Docs
-description: Learn how to setup and connect Raspberry Pi to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud platform in this tutorial.
+description: Learn how to set up and connect Raspberry Pi to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud platform in this tutorial.
 author: wesmc7777
 manager:  philmea
 keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi send data to cloud, raspberry pi to cloud
@@ -23,38 +23,54 @@ Don't have a kit yet? Try [Raspberry Pi online simulator](iot-hub-raspberry-pi-w
 ## What you do
 
 * Create an IoT hub.
+
 * Register a device for Pi in your IoT hub.
+
 * Set up Raspberry Pi.
+
 * Run a sample application on Pi to send sensor data to your IoT hub.
 
 ## What you learn
 
 * How to create an Azure IoT hub and get your new device connection string.
+
 * How to connect Pi with a BME280 sensor.
+
 * How to collect sensor data by running a sample application on Pi.
+
 * How to send sensor data to your IoT hub.
 
 ## What you need
 
-![What you need](./media/iot-hub-raspberry-pi-kit-node-get-started/0_starter_kit.jpg)
+![What you need](./media/iot-hub-raspberry-pi-kit-node-get-started/0-starter-kit.png)
 
 * A Raspberry Pi 2 or Raspberry Pi 3 board.
+
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 * A monitor, a USB keyboard, and mouse that connects to Pi.
+
 * A Mac or PC that is running Windows or Linux.
+
 * An internet connection.
+
 * A 16 GB or above microSD card.
+
 * A USB-SD adapter or microSD card to burn the operating system image onto the microSD card.
+
 * A 5-volt 2-amp power supply with the 6-foot micro USB cable.
 
 The following items are optional:
 
 * An assembled Adafruit BME280 temperature, pressure, and humidity sensor.
+
 * A breadboard.
+
 * 6 F/M jumper wires.
+
 * A diffused 10-mm LED.
 
-> [!NOTE] 
+> [!NOTE]
 > If you don't have the optional items, you can use simulated sensor data.
 
 ## Create an IoT hub
@@ -100,26 +116,26 @@ Prepare the microSD card for installation of the Raspbian image.
 
 ### Enable SSH and I2C
 
-1. Connect Pi to the monitor, keyboard, and mouse. 
+1. Connect Pi to the monitor, keyboard, and mouse.
 
-2. Start Pi and then log in Raspbian by using `pi` as the user name and `raspberry` as the password.
+2. Start Pi and then sign into Raspbian by using `pi` as the user name and `raspberry` as the password.
 
 3. Click the Raspberry icon > **Preferences** > **Raspberry Pi Configuration**.
 
-   ![The Raspbian Preferences menu](./media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
+   ![The Raspbian Preferences menu](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
 4. On the **Interfaces** tab, set **I2C** and **SSH** to **Enable**, and then click **OK**. If you don't have physical sensors and want to use simulated sensor data, this step is optional.
 
-   ![Enable I2C and SSH on Raspberry Pi](./media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
+   ![Enable I2C and SSH on Raspberry Pi](./media/iot-hub-raspberry-pi-kit-node-get-started/2-enable-i2c-ssh-on-raspberry-pi.png)
 
-> [!NOTE] 
+> [!NOTE]
 > To enable SSH and I2C, you can find more reference documents on [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) and [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c).
 
 ### Connect the sensor to Pi
 
 Use the breadboard and jumper wires to connect an LED and a BME280 to Pi as follows. If you don’t have the sensor, [skip this section](#connect-pi-to-the-network).
 
-![The Raspberry Pi and sensor connection](./media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
+![The Raspberry Pi and sensor connection](./media/iot-hub-raspberry-pi-kit-node-get-started/3-raspberry-pi-sensor-connection.png)
 
 The BME280 sensor can collect temperature and humidity data. The LED blinks when the device sends a message to the cloud. 
 
@@ -138,13 +154,13 @@ Click to view [Raspberry Pi 2 & 3 pin mappings](https://developer.microsoft.com/
 
 After you've successfully connected BME280 to your Raspberry Pi, it should be like below image.
 
-![Connected Pi and BME280](./media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
+![Connected Pi and BME280](./media/iot-hub-raspberry-pi-kit-node-get-started/4-connected-pi.png)
 
 ### Connect Pi to the network
 
 Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) to connect Pi to your wireless network. After your Pi has been successfully connected to the network, you need to take a note of the [IP address of your Pi](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
 
-![Connected to wired network](./media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
+![Connected to wired network](./media/iot-hub-raspberry-pi-kit-node-get-started/5-power-on-pi.png)
 
 > [!NOTE]
 > Make sure that Pi is connected to the same network as your computer. For example, if your computer is connected to a wireless network while Pi is connected to a wired network, you might not see the IP address in the devdisco output.
@@ -161,18 +177,18 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 
    b. Copy the IP address of your Pi into the Host name (or IP address) section and select SSH as the connection type.
 
-   ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
+   ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7-putty-windows.png)
 
    **Mac and Ubuntu Users**
 
    Use the built-in SSH client on Ubuntu or macOS. You might need to run `ssh pi@<ip address of pi>` to connect Pi via SSH.
 
-   > [!NOTE] 
+   > [!NOTE]
    > The default username is `pi` and the password is `raspberry`.
 
 2. Install Node.js and NPM to your Pi.
 
-   First check your Node.js version. 
+   First check your Node.js version.
 
    ```bash
    node -v
@@ -198,7 +214,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    sudo npm install
    ```
 
-   > [!NOTE] 
+   > [!NOTE]
    >It might take several minutes to finish this installation process depending on your network connection.
 
 ### Configure the sample application
@@ -209,7 +225,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    nano config.json
    ```
 
-   ![Config file](./media/iot-hub-raspberry-pi-kit-node-get-started/6_config-file.png)
+   ![Config file](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
 
    There are two items in this file you can configure. The first one is `interval`, which defines the time interval (in milliseconds) between messages sent to the cloud. The second one is `simulatedData`, which is a Boolean value for whether to use simulated sensor data or not.
 
@@ -225,13 +241,12 @@ Run the sample application by running the following command:
    sudo node index.js '<YOUR AZURE IOT HUB DEVICE CONNECTION STRING>'
    ```
 
-   > [!NOTE] 
+   > [!NOTE]
    > Make sure you copy-paste the device connection string into the single quotes.
-
 
 You should see the following output that shows the sensor data and the messages that are sent to your IoT hub.
 
-![Output - sensor data sent from Raspberry Pi to your IoT hub](./media/iot-hub-raspberry-pi-kit-node-get-started/8_run-output.png)
+![Output - sensor data sent from Raspberry Pi to your IoT hub](./media/iot-hub-raspberry-pi-kit-node-get-started/8-run-output.png)
 
 ## Read the messages received by your hub
 

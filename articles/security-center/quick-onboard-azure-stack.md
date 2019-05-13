@@ -3,7 +3,7 @@ title: Azure Security Center Quickstart - Onboard your Azure Stack virtual machi
 description: This quickstart shows you how to provision the Azure Monitor, Update and Configuration Management virtual machine extension on a Azure Stack virtual machines.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: pipposera
 manager: dsavage
 editor: ''
 
@@ -15,7 +15,7 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
-ms.author: monhaber
+ms.author: fiseraci
 
 ---
 # Quickstart:  Onboard your Azure Stack virtual machines to Security Center
@@ -28,7 +28,7 @@ To get started with Security Center, you must have a subscription to Microsoft A
 
 You must have an Azure subscription on Security Center’s Standard tier before starting this quickstart. See [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) for upgrade instructions. You can try Security Center Standard tier at no cost for 30 days. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
-## Add an Azure Stack virtual machine
+## Select your workspace in Azure Security Center
 
 1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
 2. On the **Microsoft Azure** menu, select **Security Center**. **Security Center - Overview** opens. 
@@ -61,8 +61,12 @@ You must now add the **Azure Monitor, Update and Configuration Management** virt
 3. Select **Extensions**. The list of virtual machine extensions installed on this virtual machine is shown.
 4. Click the **Add** tab. The **New Resource** menu blade opens and shows the list of available virtual machine extensions. 
 5. Select the **Azure Monitor, Update and Configuration Management** extension and click **Create**. The **Install extension** configuration blade opens up.
+
+>[!NOTE]
+> If you do not see the **Azure Monitor, Update and Configuration Management** extension listed in your marketplace, please reach out to your Azure Stack operator to make it available.
+
 6. On the **Install extension** configuration blade, paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied into Notepad in the previous procedure.
-7.  When you have finish providing the necessary configuration settings, click **OK**.
+7.  When you are done providing the necessary configuration settings, click **OK**.
 8. Once the extension installation completes, its status will show as **Provisioning Succeeded**. It might take up to one hour for the virtual machine to appear in the Security Center portal.
 
 For further information on installing and configuring the agent for Windows, see [Connect Windows computers](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).

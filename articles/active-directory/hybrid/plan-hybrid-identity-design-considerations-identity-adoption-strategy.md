@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
@@ -31,7 +31,7 @@ The first task addresses determining the organizations business needs.  This can
 ## Define an integration strategy
 Microsoft has three main integration scenarios which are cloud identities, synchronized identities, and federated identities.  You should plan on adopting one of these integration strategies.  The strategy you choose can vary and the decisions in choosing one may include, what type of user experience you want to provide, do you have an existing infrastructure, and what is the most cost effective.  
 
-![](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
+![integration scenarios](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
 
 The scenarios defined in the above figure are:
 
@@ -106,7 +106,7 @@ Over the years, several synchronization tools have existed and used for various 
 When defining a synchronization strategy, the topology that is used must be determined. Depending on the information that was determined in step 2 you can determine which topology is the proper one to use. 
 The single forest, single Azure AD topology is the most common and consists of a single Active Directory forest and a single instance of Azure AD.  This is going to be used in a majority of the scenarios and is the expected topology when using Azure AD Connect Express installation as shown in the figure below.
 
-![](./media/plan-hybrid-identity-design-considerations/single-forest.png)
+![Supported topologies](./media/plan-hybrid-identity-design-considerations/single-forest.png)
 Single Forest Scenario
 It is common for large and even small organizations to have multiple forests, as shown in Figure 5.
 
@@ -115,7 +115,7 @@ It is common for large and even small organizations to have multiple forests, as
 > 
 > 
 
-![](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
+![multi-forest topology](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
 
 Multi-Forest Scenario
 
@@ -137,7 +137,7 @@ If this is the case, then the multi-forest single Azure AD topology should be co
 
 If the above are not true and you have more than one active account or more than one mailbox, Azure AD Connect will pick one and ignore the other.  If you have linked mailboxes but no other account, these accounts will not be exported to Azure AD and that user will not be a member of any groups.  This is different from how it was in the past with DirSync and is intentional to better support these multi-forest scenarios. A multi-forest scenario is shown in the figure below.
 
-![](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
+![multiple Azure AD tenants](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
 
 **Multi-forest multiple Azure AD scenario**
 
@@ -145,7 +145,7 @@ It is recommended to have just a single directory in Azure AD for an organizatio
 
 It is possible and supported to connect one on-premises instance of Active Directory to multiple Azure AD directories as shown in the figure below:
 
-![](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
+![single forest filtering](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
 
 **Single-forest filtering scenario**
 

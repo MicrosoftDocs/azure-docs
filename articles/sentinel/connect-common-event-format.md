@@ -4,7 +4,7 @@ description: Learn how to connect CEF data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: cbf5003b-76cf-446f-adb6-6d816beca70f

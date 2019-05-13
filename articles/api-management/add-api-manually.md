@@ -23,7 +23,7 @@ The steps in this article show how to use the Azure portal to add an API manuall
 
 If you want to import an existing API, see [related topics](#related-topics) section.
 
-In this article, we create a blank API and specify [httpbin.org](http://httpbin.org) (a public testing service) as a back-end API.
+In this article, we create a blank API and specify [httpbin.org](https://httpbin.org) (a public testing service) as a back-end API.
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
     |**Name**|**Value**|**Description**|
     |---|---|---|
     |**Display name**|"*Blank API*" |This name is displayed in the Developer portal.|
-    |**Web Service URL** (optional)| "*http://httpbin.org*"| If you want to mock an API, you might not enter anything. <br/>In this case, we enter [http://httpbin.org](http://httpbin.org). This is a public testing service. <br/>If you want to import an API that is mapped to a back end automatically, see one of the topics in the [related topics](#related-topics) section.|
+    |**Web Service URL** (optional)| "*https://httpbin.org*"| If you want to mock an API, you might not enter anything. <br/>In this case, we enter [https://httpbin.org](https://httpbin.org). This is a public testing service. <br/>If you want to import an API that is mapped to a back end automatically, see one of the topics in the [related topics](#related-topics) section.|
     |**URL scheme**|"*HTTPS*"|In this case, even though the back end has non-secure HTTP access, we specify a secure HTTPS APIM access to the back end. <br/>This kind of scenario (HTTPS to HTTP) is called HTTPS termination. You might do it if your API exists within a virtual network (where you know the access is secure even if HTTPS is not used). <br/>You might want to use "HTTPS termination" to save on some CPU cycles.|
     |**URL suffix**|"*hbin*"| The suffix is a name that identifies this specific API in this APIM instance. It has to be unique in this APIM instance.|
     |**Products**|"*Unlimited*" |Publish the API by associating the API with a product. If you want for the API to be published and be available to developers, add it to a product. You can do it during API creation or set it later.<br/><br/>Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. <br/>Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default.<br/><br/> By default, each API Management instance comes with two sample products: **Starter** and **Unlimited**.| 

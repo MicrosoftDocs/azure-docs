@@ -97,7 +97,7 @@ To configure Azure AD single sign-on with Percolate, perform the following steps
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode the user does not have to perform any step as the app is already pre-integrated with Azure.
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode the user does not have to perform any step as the app is already pre-integrated with Azure.
 
     ![Percolate Domain and URLs single sign-on information](common/preintegrated.png)
 
@@ -138,7 +138,7 @@ To configure Azure AD single sign-on with Percolate, perform the following steps
 
 	b. In the **Entity ID** textbox, paste the value of **Azure AD Identifier** which you have copied from Azure portal.
 
-	c. In Notepad, open the base-64 encoded certificate that you downloaded from the Azure portal, copy its content, and then paste it into the **x509 certificates** box.
+	c. In Notepad, open the base-64 encoded certificate that you downloaded from the Azure portal, copy its content, and then paste it into the **x509 certificates** box.
 
 	d. In the **Email attribute** textbox, type **emailaddress**.
 
@@ -216,9 +216,9 @@ To enable Azure AD users to sign in to Percolate, they must be provisioned into 
 
 	![Configure Single Sign-On](./media/percolate-tutorial/configure04.png)
 
-	a. In **Email** text box, enter the email of user like brittasimon@contoso.com.
+	a. In **Email** text box, enter the email of user like brittasimon@contoso.com.
 
-	b. In **Fullname** text box, enter the name of user like **Brittasimon**.
+	b. In **Fullname** text box, enter the name of user like **Brittasimon**.
 
 	c. Click **Create users**.
 
