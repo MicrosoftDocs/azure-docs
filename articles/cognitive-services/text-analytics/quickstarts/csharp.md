@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Using C# to call the Text Analytics API'
+title: 'Quickstart: Call the Text Analytics service by using the .NET SDK and C#'
 titleSuffix: Azure Cognitive Services
-description: Information and code samples to help you start using the Text Analytics API.
+description: Information and code samples to help you start using the Text Analytics service and C#.
 services: cognitive-services
 author: raymondl
 manager: nitinme
@@ -13,10 +13,10 @@ ms.date: 04/29/2019
 ms.author: assafi
 ---
 
-# Quickstart: Use C# to call the Text Analytics Cognitive Service
+# Quickstart: Use the .NET SDK and C# to call the Text Analytics service
 <a name="HOLTop"></a>
 
-This quickstart helps you begin using the Text Analytics SDK for C# to analyze language. Although the [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications.
+This quickstart helps you begin using the .NET SDK and C# to analyze language. Although the [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications.
 
 > [!NOTE]
 > The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/TextAnalytics).
