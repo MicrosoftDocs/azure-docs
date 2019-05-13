@@ -42,7 +42,7 @@ The first step is to create a container, because blobs must always be uploaded i
 Follow these steps to create a container:
 
 1. Select the **Storage accounts** button from the main page, and select the storage account that you created.
-2. Select **Blobs** under **Services**, and then select **Container**. 
+2. Select **Blobs** under **Services**, and then select **Container**.
 
    ![Create a container](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
@@ -50,11 +50,13 @@ Container names must start with a letter or number. They can contain only letter
 
 ## Download AzCopy
 
-First, download the AzCopy V10 executable file. There's nothing to install.
+First, download the AzCopy V10 executable file.
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+
+Place the AzCopy file anywhere on your computer. Add the location of the file to your system path variable so that you can refer to this executable file from any folder on your computer.
 
 ## Authenticate with Azure AD
 
@@ -80,7 +82,7 @@ You can use AzCopy to upload all files in a folder to Blob storage on [Windows](
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
 ```
 
-* Replace the `<local-folder-path>` placeholder with the path to a folder that contains files (For example: `C:\myFolder` or `/mnt/myFolder`.
+* Replace the `<local-folder-path>` placeholder with the path to a folder that contains files (For example: `C:\myFolder` or `/mnt/myFolder`).
 
 * Replace the `<storage-account-name>` placeholder with the name of your storage account.
 
@@ -143,7 +145,7 @@ Specifying the cron expression `*/5 * * * *` in the command indicates that the s
 
 To create a scheduled task on Windows, enter the following command at a command prompt or in PowerShell:
 
-This example assumes that your script is located in the root drive of your computer. Your script can be anywhere that you want.
+This example assumes that your script is located in the root drive of your computer, but your script can be anywhere that you want.
 
 ```cmd
 schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\script.bat
@@ -169,8 +171,11 @@ To learn more about ways to move on-premises data to Azure Storage and vice vers
 > [!div class="nextstepaction"]
 > [Move data to and from Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
-For more information about AzCopy explicitly, choose the appropriate article for your operating system:
+For more information about AzCopy, see any of these articles:
 
 > [!div class="nextstepaction"]
-> [Transfer data with AzCopy on Windows](storage-use-azcopy.md)
-> [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md)
+> [Get started with AzCopy](storage-use-azcopy-v10.md)
+> [Transfer data with AzCopy and blob storage](storage-use-azcopy-blobs.md)
+> [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
+> [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
+> [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
