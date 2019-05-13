@@ -97,12 +97,11 @@ To deploy (or redeploy) the service with SSL enabled, set the `ssl_enabled` para
     attach_config.enable_ssl(leaf_domain_label = "myservice")
     ```
 
-  * When using __a certificate you purchased__, use the `ssl_cert_pem_file`, `ssl_key_pem_file`, and `ssl_cname` parameters.  The following example demonstrates how to create configurations that use an SSL certificate you provide using `.pem` files:
+  * When using __a certificate you purchased__, use the `ssl_cert_pem_file`, `ssl_key_pem_file`, and `ssl_cname` parameters. The following example demonstrates how to create configurations that use an SSL certificate you provide using `.pem` files:
 
     ```python
     from azureml.core.compute import AksCompute
     # Config used to create a new AKS cluster and enable SSL
-    provisioning_config = AksCompute.provisioning_configuration(ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     provisioning_config = AksCompute.provisioning_configuration()
     provisioning_config.enable_ssl(ssl_cert_pem_file="cert.pem",
                                         ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
