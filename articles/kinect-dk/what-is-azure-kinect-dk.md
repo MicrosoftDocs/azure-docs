@@ -6,7 +6,7 @@ ms.author: joylital
 ms.prod: kinect-dk
 ms.topic: overview 
 ms.date: 04/11/2019
-keywords: azure, kinect, overview, dev kit, DK, device, depth, body tracking, speech, cognitive services ,SDKs, SDK, firmware
+keywords: azure, kinect, overview, dev kit, DK, device, depth, body tracking, speech, cognitive services, SDKs, SDK, firmware
 ---
 
 # What is Azure Kinect DK?
@@ -27,9 +27,9 @@ In addition, Cognitive Vision services can be used with the device RGB camera.
 
 The Azure Kinect Sensor SDK provides low-level sensor access for Azure Kinect DK hardware sensors and device configuration.
 
-* Visit [Download Sensor SDK](download-sdk.md), to download and install the 1.0 version.
-* See [Using Sensor SDK](sensor-sdk.md), to learn more about the Sensor SDK.
-* The Sensor SDK is also available in open source on [GitHub](https://github.com/microsoft/azure-kinect-sensor-sdk).
+* Visit Download Sensor SDK, to download and install the 1.0 version.
+* See Using Sensor SDK, to learn more about the Sensor SDK.
+* The Sensor SDK is also available in open source on GitHub.
 
 ### Sensor SDK features
 
@@ -62,7 +62,7 @@ The following body-tracking features are available on the accompanying SDK:
 * Provides body segmentation.
 * Contains an anatomically correct skeleton for each partial or full body in FOV.
 * Offers a unique identity for each body.
-* Has the ability to track bodies over time.
+* Can track bodies over time.
 
 ### Body tracking tools
 
@@ -70,13 +70,13 @@ The following body-tracking features are available on the accompanying SDK:
 
 ## Speech SDK
 
-The [Speech SDK](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/) enables Azure-connected speech services.
+The Speech SDK enables Azure-connected speech services.
 
 ### Speech Services
 
-* [Speech-to-text](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-to-text)
-* [Speech translation](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-translation)
-* [Text-to-Speech](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech) (**Note!** The Azure Kinect DK does not have speakers.)
+* Speech-to-text
+* Speech translation
+* Text-to-Speech (**Note!** The Azure Kinect DK does not have speakers.)
 
 For additional details and information, visit [Speech Service documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/).
 
@@ -88,24 +88,24 @@ The following [Azure Cognitive Vision Services](https://azure.microsoft.com/en-u
 
 The following cognitive services are available in the Azure Kinect DK:
 
-* [Computer Vision](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/)
-* [Face](https://azure.microsoft.com/en-us/services/cognitive-services/face/)
-* [Video indexer](https://azure.microsoft.com/en-us/services/media-services/video-indexer/)
-* [Content moderator](https://azure.microsoft.com/en-us/services/cognitive-services/content-moderator/)
-* [Custom vision](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/)
+* Computer Vision
+* Face
+* Video indexer
+* Content moderator
+* Custom vision
 
 Services evolve and improve constantly, so remember to check regularly for new or additional [Cognitive services]( https://azure.microsoft.com/en-us/services/cognitive-services/) to improve your application. For an early look on emerging new services, check out the [Cognitive services labs](https://labs.cognitive.microsoft.com/).
 
 ## Azure Kinect hardware requirements
 
-The Azure Kinect DK integrates Microsoft's latest sensor technology into single USB connected accessory. See [Azure Kinect DK Hardware Specification](azure-kinect-devkit.md) for details.
+The Azure Kinect DK integrates Microsoft's latest sensor technology into single USB connected accessory. See Azure Kinect DK Hardware Specification, for details.
 
 ## Next steps
 
-* [Set up Azure Kinect DK](set-up-hardware.md) and verify sensor streaming using Kinect for the Azure Viewer.
-* Download the [Sensor SDK](download-sdk.md).
-* [See Sensor SDK source code and samples in GitHub](https://github.com/microsoft/azure-kinect-sensor-sdk).
-* Learn more about how to [Use the Sensor SDK](sensor-sdk.md) and [API documentation](download-sdk.md).
+*  Set up Azure Kinect DK and verify sensor streaming using Kinect for the Azure Viewer.
+* Download the Sensor SDK.
+* See Sensor SDK source code and samples in GitHub.
+* Learn more about how to Use the Sensor SDK and API documentation download-sdk.md.
 * Get started with the Body Tracking SDK.
-* Get started with the [Speech SDK](speech-sdk.md).
-* Review the [Azure Kinect DK Hardware Specification](azure-kinect-devkit.md) developer kit.
+* Get started with the Speech SDK.
+* Review the Azure Kinect DK Hardware Specification developer kit.
