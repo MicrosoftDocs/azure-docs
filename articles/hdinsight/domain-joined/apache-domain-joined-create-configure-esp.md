@@ -23,7 +23,7 @@ Before using this process in your own environment, setup Active Directory and Do
 
 ## Deploy Windows Server Domain Controller and Windows DNS server
 
-Overview: In this section, you will use an Azure Quick Deployment template to Create new VMs and configure Domain Name Services (DNS) and a new AD Forest.
+Overview: In this section, you will use an Azure Quick Deployment template to create new VMs, configure Domain Name Services (DNS), and a new AD Forest.
 
 1. Go to [Create an Azure VM with a new AD Forest](https://azure.microsoft.com/resources/templates/active-directory-new-domain/), to view the quick deployment template.
 
@@ -31,31 +31,27 @@ Overview: In this section, you will use an Azure Quick Deployment template to Cr
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image004.png)
 
-1. Sign in to your Azure subscription where you want to configure Windows Domain Controller and DNS Server.
-1. Select the subscription where you want the resources deployed.
-1. Select **Create new** next to **Resource group** and enter the name **OnPremADVRG**
-1. Enter the following details for the rest of the template fields:
+1. Sign in to your Azure subscription.
+1. On the **Create an Azure VM with a new AD Forest** screen, complete the following steps:
+    1. Select the subscription where you want the resources deployed from the **Subscription** dropdown.
+    1. Select **Create new** next to **Resource group** and enter the name **OnPremADVRG**
+    1. Enter the following details for the rest of the template fields:
 
-    * Location: Central US
-    * Admin Username: HDIFabrikamAdmin
-    * Admin Password: <YOUR_PASSWORD>
-    * Domain: HDIFabrikam.com
-    * Dns Prefix: hdifabrikam
+        * **Location**: Central US
+        * **Admin Username**: HDIFabrikamAdmin
+        * **Admin Password**: <YOUR_PASSWORD>
+        * **Domain**: HDIFabrikam.com
+        * **Dns Prefix**: hdifabrikam
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image006.png)
+        ![alt-text](./media/apache-domain-joined-create-configure-esp/image006.png)
 
-1. Click **Purchase**
-1. Monitor the deployment and wait for it to complete.
-
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image008.png)
-
-1. Confirm the resources are created under the correct resource group `OnPremADVRG`.
-
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image010.png)
+    1. Click **Purchase**
+    1. Monitor the deployment and wait for it to complete.
+    1. Confirm the resources are created under the correct resource group `OnPremADVRG`.
 
 ## Configure additional users and groups to access your HDInsight Cluster
 
-Overview: In this section, you will create the users that will access the HDInsight cluster by the end of this guide.
+Overview: In this section, you will create the users that will have access to the HDInsight cluster by the end of this guide.
 
 1. Connect to the domain controller using Remote Desktop. If you used the template mentioned at the beginning, the domain controller is a VM called **adVM** in the `OnPremADVRG` resource group.
 
@@ -140,10 +136,6 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
 
 1. If you want to change the password for the newly created user <fabrikamazureadmin@hdifabrikam.com>. Sign in to the Azure portal using the identity and then you will prompted to change the password.
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image046.png)
-
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image048.png)
-
 ## Sync on-premises users to Azure AD
 
 ### Download and install Microsoft Azure Active Directory connect
@@ -151,7 +143,7 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
 1. [Download Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
 1. Install Microsoft Azure Active Directory connect on the Domain Controller.
-    1. Open the executable that you downloaded in the previous step and agree to the license terms.
+    1. Open the executable that you downloaded in the previous step and agree to the license terms. Click **Continue**.
 
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image052.png)
 
@@ -159,13 +151,11 @@ Overview: Now you will configure your Azure AD tenant so that you can synchroniz
 
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image054.png)
 
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image056.png)
-
 ### Configure Sync between On-Premises Domain Controller and Azure AD
 
-1. On the Connect to Azure AD screen, enter the username and password the global administrator for Azure AD. Click **Next**.
+1. On the **Connect to Azure AD** screen, enter the username and password of the global administrator for Azure AD. Click **Next**. This is the username `fabrikamazureadmin@hdifabrikam.com` that you created when configuring your AD tenant.
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image058.png)
-1. On the Connect to Active Directory Domain Services screen, enter the username and password for an enterprise admin account. Click **Next**.
+1. On the Connect to Active Directory Domain Services screen, enter the username and password for an enterprise admin account. Click **Next**. This is the username `HDIFabrikam\HDIFabrikamAdmin` and its matching password that you created earlier.
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image060.png)
 1. On the **Azure AD sign-in configuration** page, click **Next**.
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image062.png)
