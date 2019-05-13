@@ -124,4 +124,4 @@ Generation 2 VMs can also be created using virtual machine scale sets. You can c
 
 * Learn more about [generation 2 virtual machines in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
-* Learn how to [prepare a VHD](prepare-for-upload-vhd-image.md) for upload from on-premesis to Azure.
+* Learn how to [prepare a VHD](prepare-for-upload-vhd-image.md) for upload from on-premises to Azure.
