@@ -56,12 +56,13 @@ By default, the chart shows the most recent 24 hours of metrics data. Use the **
 
 See [examples of the charts](metric-chart-samples.md) that have filtering and splitting applied. The article shows the steps were used to configure the charts.
 
-## Advanced chart settings and next steps
+## Advanced chart settings
 
 You can customize chart style, title, and modify advanced chart settings. When done with customization, pin it to a dashboard to save your work. You can also configure metrics alerts. Follow [product documentation](metrics-charts.md) to learn about these and other advanced features of Azure Monitor metrics explorer.
 
 ## Next steps
 
+* [Learn about advanced features of Metrics Explorer](metrics-charts.md)
+* [Troubleshooting Metrics Explorer](metrics-troubleshoot.md)
 * [See a list of available metrics for Azure services](metrics-supported.md)
-* [Learn about advanced features of Metric Explorer](metrics-charts.md)
 * [See examples of configured charts](metric-chart-samples.md)
