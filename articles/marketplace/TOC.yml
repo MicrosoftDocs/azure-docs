@@ -482,9 +482,12 @@
     - name: Create a SaaS offer
       href: ./partner-center-portal/create-new-saas-offer.md
   - name: Publishing status
-    href: ./partner-center-portal/saas-publishing-status.md
+    href: ./partner-center-portal/publishing-status.md
   - name: Update existing offers
     href: ./partner-center-portal/update-existing-offer.md
   - name: Resources
+    items:
+    - name: Support options
+      href: ./partner-center-portal/support.md
   
 
