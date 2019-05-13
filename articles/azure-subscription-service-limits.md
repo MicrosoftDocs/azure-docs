@@ -42,6 +42,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Application Gateway](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
 * [Automation](#automation-limits)
+* [Azure Functions](#functions-limits)
 * [Azure Cache for Redis](#azure-cache-for-redis-limits)
 * [Azure Cloud Services](#azure-cloud-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
