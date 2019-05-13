@@ -34,7 +34,7 @@ The Application Insights SDK (Software Development Kit) for ASP.NET Core can mon
 
 5. After adding Application Insights to your project, check to confirm that you are using the latest stable release of the SDK. Go to **Project** > **Manage NuGet Packages** > **Microsoft.ApplicationInsights.AspNetCore** > if needed choose **Update**.
 
-     ![Screenshot of Visual Studio new project wizard](./media/asp-net-core/0002-update-nuget.png)
+     ![Screenshot of Visual Studio new project wizard](./media/asp-net-core/update-nuget-package.png)
 
 ## Enable Application Insights server-side telemetry (without Visual Studio)
 
