@@ -28,6 +28,8 @@ To decide whether to use Azure AD Domain Services we recommend the following rea
 * Review common [deployment scenarios for Azure AD Domain Services](active-directory-ds-scenarios.md).
 * Finally, [compare Azure AD Domain Services to a do-it-yourself AD option](active-directory-ds-comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure).
 
+## Compare Azure AD Domain Services to DIY AD domain in Azure
+
 The following table helps you decide between using Azure AD Domain Services and managing your own AD infrastructure in Azure.
 
 | **Feature** | **Azure AD Domain Services** | **'Do-it-yourself' AD in Azure VMs** |

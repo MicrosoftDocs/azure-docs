@@ -107,7 +107,7 @@ Inside the virtual network, machines may make requests to Azure resources that a
    6. Click on the subnet you wish to edit in the table.
    7. Update the address range and save your changes.
 3. Follow [the Getting Started Using Azure AD Domain Services guide](active-directory-ds-getting-started.md) to recreate your managed domain. Ensure that you pick a virtual network with a private IP address range.
-4. To domain-join your virtual machines to your new domain, follow [this guide](join-windows-vm.md.md).
+4. To domain-join your virtual machines to your new domain, follow [this guide](join-windows-vm.md).
 8. To ensure the alert is resolved, check your domain's health in two hours.
 
 ## AADDS106: Your Azure subscription is not found
