@@ -7,7 +7,7 @@
 - name: Apache HBase
   href: ./hbase/query-hbase-with-hbase-shell.md
 - name: Interactive Query
-  href: ./hdinsight-connect-hive-zeppelin.md
+  href: ./interactive-query/hdinsight-connect-hive-zeppelin.md
 - name: Apache Kafka
   href: ./kafka/apache-kafka-get-started.md
 - name: Apache Storm
