@@ -167,4 +167,4 @@ Useful queries and information on how to understand your consumption bill can be
 
 The following table indicates the limits that apply to function apps when running in the various hosting plans:
 
-[!INCLUDE [functions-limits](../includes/functions-limits.md)]
+[!INCLUDE [functions-limits](../../includes/functions-limits.md)]

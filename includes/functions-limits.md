@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 05/09/2019	
 ms.author: glenga
 ---
-| Resource | [Consumption plan](functions-scale.md#consumption-plan) | [Premium plan](functions-scale.md#premium-plan-public-preview) | [App Service plan](functions-scale.md#app-service-plan)<sup>1</sup> |
+| Resource | [Consumption plan](../articles/azure-functions/functions-scale.md#consumption-plan) | [Premium plan](../articles/azure-functions/functions-scale.md#premium-plan-public-preview) | [App Service plan](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
 | Scale out | Event driven | Event driven | [Manual/autoscale](../articles/app-service/web-sites-scale.md) | 
 |Default [time out duration](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 |30<sup>2</sup> |
