@@ -14,7 +14,7 @@ ms.workload: azure-vs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 04/02/2019
+ms.date: 05/13/2019
 ms.author: phillee
 keywords: visualstudio
 ---
@@ -29,9 +29,9 @@ Images for the most recent major versions, Visual Studio 2019, Visual Studio 201
 
 | Release version                                              | Editions                     |     Product version      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|     Visual Studio 2019: RTW                                  |    Enterprise, Community     |      Version 16.0.0      |
-| Visual Studio 2017: Latest (Version 15.9)                    |    Enterprise, Community     |      Version 15.9.10     |
-|         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Version 15.0.22     |
+|     Visual Studio 2019: RTW                                  |    Enterprise, Community     |      Version 16.0.4      |
+| Visual Studio 2017: Latest (Version 15.9)                    |    Enterprise, Community     |      Version 15.9.12     |
+|         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Version 15.0.23     |
 |   Visual Studio 2015: Latest (Update 3)                      |    Enterprise, Community     |  Version 14.0.25431.01   |
 |         Visual Studio 2015: RTW                              |             None             | (Expired for servicing)  |
 
