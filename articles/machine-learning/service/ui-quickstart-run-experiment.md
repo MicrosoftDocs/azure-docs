@@ -95,13 +95,13 @@ Select which columns of data to work with.  To start with, configure the module 
    
 1. Select the **Select Columns in Dataset** module.
 
-1. In the **Properties** pane to the right of the canvas, select **Launch column selector**.
+1. In the **Properties** pane to the right of the canvas, select **Edit columns**.
 
     In the **Select columns** dialog, select **ALL COLUMNS** and include **all features**. The dialog should look like this:
 
      ![column-selector](./media/ui-quickstart-run-experiment/select-all.png)
 
-1. On the lower right, select the check mark (OK) button to close the column selector.
+1. On the lower right, select **OK** to close the column selector.
 
 ## Run the experiment
 
@@ -142,13 +142,13 @@ First,  remove the **normalized-losses** column completely.
 
 1. Select the **Select Columns in Dataset** module.
 
-1. In the **Properties** pane to the right of the canvas, select **Launch column selector**.
+1. In the **Properties** pane to the right of the canvas, select **Edit columns**.
 
     * Leave  **With rules** and **ALL COLUMNS** selected.
 
     * From the drop-downs, select **Exclude** and **column names**, and then click inside the text box. Type **normalized-losses**.
 
-    * On the lower right, select the check mark (OK) button to close the column selector.
+    * On the lower right, select **OK** to close the column selector.
 
     ![Exclude a column](./media/ui-quickstart-run-experiment/exclude-column.png)
         

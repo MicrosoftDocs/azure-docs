@@ -69,7 +69,7 @@ In this tutorial, you will:
 
    - [Network security groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
    - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-   - [Public IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
     
      For any other networking components, see the [networking documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network).
 
