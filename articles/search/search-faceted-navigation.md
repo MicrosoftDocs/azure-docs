@@ -423,14 +423,3 @@ For more insights on design principles for faceted navigation, we recommend the 
 [10]: ./media/search-faceted-navigation/Facet-10-appTitle.png
 [11]: ./media/search-faceted-navigation/faceted-search-before-facets.png
 [12]: ./media/search-faceted-navigation/faceted-search-after-facets.png
-
-<!--Link references-->
-[Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
-[Design Patterns: Faceted Navigation]: https://alistapart.com/article/design-patterns-faceted-navigation
-[Create your first application]: search-create-first-solution.md
-[OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
-[Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
-[https://www.odata.org/documentation/odata-version-2-0/overview/]: https://www.odata.org/documentation/odata-version-2-0/overview/ 
-[Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
-[Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
-
