@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/26/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: raynew
 ---
@@ -245,13 +245,13 @@ In the Recovery Services vault, click **Configuration Servers** in **Site Recove
 
 ## Process Server
 
-### Unable to select process server during enable replication
+### Why am I unable to select process server during enable replication?
 
-From 9.24 version, enhancements are made to provide [process server alerts](vmware-physical-azure-monitor-process-server.md#process-server-alerts) on when to set up a scale-out process server. This is to avoid process server throttling and avoid usage of unhealthy process server.
+From 9.24 version, enhancements are made to display [health of process server during enable replication](vmware-azure-enable-replication.md#enable-replication). This is to avoid process server throttling and minimize usage of unhealthy process servers.
 
-### What should I do to obtain accurate health status of process server?
+### What is meant by upgrading process server to 9.24 or higher versions for accurate health?
 
-Upgrade Site Recovery components to the [latest versions](service-updates-how-to.md#links-to-currently-supported-update-rollups) (at least 9.24 or above).
+From [9.24 versions](service-updates-how-to.md#links-to-currently-supported-update-rollups), additional alerts are introduced to enhance the health alerts of process server. Upgrade Site Recovery components to 9.24 versions or above for all alerts to be generated.
 
 ## Failover and failback
 ### Can I use the process server at on-premises for failback?

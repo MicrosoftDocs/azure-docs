@@ -417,7 +417,7 @@ These attributes for **user** are in addition to the other apps you have selecte
 ## Exchange hybrid writeback
 These attributes are written back from Azure AD to on-premises Active Directory when you select to enable **Exchange hybrid**. Depending on your Exchange version, fewer attributes might be synchronized.
 
-| Attribute Name (Connect UI) |Attribute Name (On-premises AD) | User | Contact | Group | Comment |
+| Attribute Name (On-premises AD) | Attribute Name (Connect UI) | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Derived from cloudAnchor in Azure AD. This attribute is new in Exchange 2016 and Windows Server 2016 AD. |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Online Archive: Enables customers to archive mail. |
