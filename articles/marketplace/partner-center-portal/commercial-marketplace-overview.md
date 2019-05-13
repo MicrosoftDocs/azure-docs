@@ -11,15 +11,15 @@ ms.date: 05/30/2019
 
 # Overview of the Commercial Marketplace portal in Partner Center
 
-Welcome to the Commercial Marketplace portal in Microsoft Partner Center. The [Commercial Marketplace in Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/) is designed to help you monetize your products and services, reach customers, and grow your business.
+Welcome to the Commercial Marketplace portal in Microsoft Partner Center. The [Commercial Marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/) is designed to help you monetize your products and services, reach customers, and grow your business.
 
-In this documentation, we will cover the basics of creating and using your Partner Center account, creating new Software as a Service (SaaS) offers that can be listed on [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [AppSource](https://appsource.microsoft.com/), managing your existing SaaS offers, and providing resources to assist you with questions and to collect your feedback. 
+In this documentation, we will cover the basics of creating and using your Partner Center account, creating new Software as a Service (SaaS) offers that can be listed on [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [AppSource](https://appsource.microsoft.com/), managing your existing SaaS offers, and providing resources to assist you with questions and collect your feedback. 
 
 ## About Microsoft's Commercial Marketplace
 
 Enterprises, governments, and organizations of all sizes find business solutions, innovative technology, and enablement services through the [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [AppSource](https://appsource.microsoft.com/) web stores, [Azure portal’s in-product experience](https://portal.azure.com), [Cloud Solution Providers](https://partner.microsoft.com/cloud-solution-provider), and Microsoft Sales teams. 
 
-Partner Center is the hub of a Microsoft partner’s experience. For organizations who go to market with Microsoft and leverage the marketplace, Partner Center is the portal through which publishers create and manage offerings, as well as view analytics on offer performance. 
+Partner Center is the hub of a Microsoft partner’s experience. For organizations who go to market with Microsoft and take advantage of the marketplace, Partner Center is the portal through which publishers create and manage offers, provide test drive demonstrations, and view analytics on offer performance. 
 
 ## Migration from Cloud Partner Portal
 
@@ -31,7 +31,7 @@ Existing marketplace publishers will find a familiar but improved user experienc
 
 ### Improvements on user experience and billing
 
-With the transition to Partner Center, new functionality is available to publishers, in addition to improvements on the user experience. SaaS offerings, which can be billed monthly or annually, support per-user licensing (seat-based) in addition to per-site (flat-rate). This new monetization model is ideal for business software. The introduction of SaaS per-user licensing aligns with new functionality allowing customers to complete purchases in AppSource, Microsoft’s commercial marketplace for business and industry solutions. 
+With the transition to Partner Center, new functionality is available to publishers, in addition to improvements on the user experience. SaaS offer,ings which can be billed monthly or annually, support per-user licensing (seat-based) in addition to per-site (flat-rate). This new monetization model is ideal for business software. The introduction of SaaS per-user licensing aligns with new functionality allowing customers to complete purchases in AppSource, Microsoft’s commercial marketplace for business and industry solutions. 
 
 ### Account and user management updates
 
