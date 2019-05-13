@@ -12,7 +12,7 @@ ms.author: robinsh
 ---
 # Tutorial: Using Azure IoT Hub message enrichments (preview)
 
-*Message enrichments* is the ability of the IoT Hub to *stamp* messages with additional information before the messages are sent to the designated endpoint. One reason to use message enrichments is to include data that can be used to simplify downstream processing. For example, enriching device telemetry messages with a device twin tag can reduce load on customers to make device twin API calls for this information. For more information, see the[Overview of message enrichments](iot-hub-message-enrichments-overview.md).
+*Message enrichments* is the ability of the IoT Hub to *stamp* messages with additional information before the messages are sent to the designated endpoint. One reason to use message enrichments is to include data that can be used to simplify downstream processing. For example, enriching device telemetry messages with a device twin tag can reduce load on customers to make device twin API calls for this information. For more information, see the [Overview of message enrichments](iot-hub-message-enrichments-overview.md).
 
 In this tutorial, you use the Azure CLI to set up the resources, including two endpoints that point to two different storage containers -- **enriched** and **original**. Then you use the [Azure portal](https://portal.azure.com) to configure message enrichments to be applied only to messages sent to the endpoint with the **enriched** storage container. You send messages to the IoT Hub, which are routed to both storage containers. Only the messages sent to the endpoint for the **enriched** storage container will be enriched.
 
