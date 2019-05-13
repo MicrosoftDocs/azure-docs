@@ -57,7 +57,7 @@ Compute unit guidance:
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-The [pricing page](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) will be updated to reflect regional prices on May 14, 2019. Billing is scheduled to start on June 1, 2019.
+The [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/) will be updated to reflect regional prices on May 14, 2019. Billing is scheduled to start on June 1, 2019.
 
 **Example 1**
 
@@ -88,7 +88,7 @@ Capacity unit price = 744(hours) * Max (compute unit Max(25/50 for connections/s
 
 Total price = $267.84 + $85.71 = $353.55
 
-The [pricing page](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) will be updated to reflect regional prices on May 14, 2019. Billing is scheduled to start on June 1, 2019.
+The [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/) will be updated to reflect regional prices on May 14, 2019. Billing is scheduled to start on June 1, 2019.
 
 ## Scaling Application Gateway and WAF v2
 
