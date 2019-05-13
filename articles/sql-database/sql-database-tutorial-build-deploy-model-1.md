@@ -66,12 +66,13 @@ The first thing to do is import the TutorialDB database into your own Azure SQL 
 1. Select your subscription.
 1. For **Storage**, select a storage account and then select an existing container or create a new one.
 1. Select **Upload** and browse to and upload the **TutorialDB.bacpac** file you downloaded.
+1. Choose **TutorialDB.bacpac** in the list of items in the container and click **Select**.
 1. Choose the **Pricing tier**. During the preview, choose the **Gen5/vCore** configuration for the database.
 1. Give the database the name "TutorialDB".
 1. Enter the remaining information and select **OK**.
 
-A table named rental_data containing the dataset should exist in the restored SQL database.
-You can verify this data by connecting to the TutorialDB database in Azure Data Studio or SSMS and running the following query.
+Once the database is created, it should contain a table named rental_data.
+You can verify this table by connecting to the TutorialDB database in Azure Data Studio or SSMS and running the following query.
 
 ```sql
 USE tutorialdb;
@@ -96,7 +97,7 @@ You should see something similar to this.
 
 ## Load the data into a data frame using R
 
-To use the data in R, you'll load the data from the Azure SQL database into a data frame.
+To use the data in R, you'll load the data from the Azure SQL database into a data frame (`rentaldata`).
 
 Create a new RScript file in RStudio and run the following script. Insert your own connection information for **Server**, **UID**, and **PWD**.
 

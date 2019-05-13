@@ -39,51 +39,13 @@ In [part two](sql-database-tutorial-build-deploy-model-2.md), you learned how to
 
 ## Prerequisites
 
-* Part three of this tutorial series assumes you have completed [part one](sql-database-tutorial-build-deploy-model-1.md) and [part two](sql-database-tutorial-build-deploy-model-2.md).
-
-## Store the model in a database table
-
-Run the following commands in Azure Data Studio or SSMS.
-
-1. Create a table for storing the model.
-
-    ```sql
-    USE TutorialDB;
-    DROP TABLE IF EXISTS rental_rx_models;
-    GO
-    CREATE TABLE rental_rx_models (
-          model_name VARCHAR(30) NOT NULL DEFAULT('default model') PRIMARY KEY
-        , model VARBINARY(MAX) NOT NULL
-        );
-    GO
-    ```
-
-1. Save the model to a table as a binary object.
-
-    ```sql
-    -- Save model to table
-    TRUNCATE TABLE rental_rx_models;
-    
-    DECLARE @model VARBINARY(MAX);
-    
-    EXECUTE generate_rental_rx_model @model OUTPUT;
-    
-    INSERT INTO rental_rx_models (
-          model_name
-        , model
-        )
-    VALUES (
-         'rxDTree'
-        , @model
-        );
-    
-    SELECT *
-    FROM rental_rx_models;
-    ```
+* Part three of this tutorial series assumes you have completed [**part one**](sql-database-tutorial-build-deploy-model-1.md) and [**part two**](sql-database-tutorial-build-deploy-model-2.md).
 
 ## Create a stored procedure that generates the model
 
-In [part two](sql-database-tutorial-build-deploy-model-2.md#compare-the-results) of this tutorial series, you decided that a decision tree (dtree) model was the most accurate. Now create a stored procedure that trains and generates the dtree model.
+In [part two](sql-database-tutorial-build-deploy-model-2.md#compare-the-results) of this tutorial series, you decided that a decision tree (dtree) model was the most accurate. Now create a stored procedure (`generate_rental_rx_model`) that trains and generates the dtree model using rxDTree from the RevoScaleR package.
+
+Run the following commands in Azure Data Studio or SSMS.
 
 ```sql
 -- Stored procedure that trains and generates an R model using the rental_data and a decision tree algorithm
@@ -123,9 +85,49 @@ END;
 GO
 ```
 
+## Store the model in a database table
+
+Create a table in the TutorialDB database and then save the model to the table.
+
+1. Create a table (`rental_rx_models`) for storing the model.
+
+    ```sql
+    USE TutorialDB;
+    DROP TABLE IF EXISTS rental_rx_models;
+    GO
+    CREATE TABLE rental_rx_models (
+          model_name VARCHAR(30) NOT NULL DEFAULT('default model') PRIMARY KEY
+        , model VARBINARY(MAX) NOT NULL
+        );
+    GO
+    ```
+
+1. Save the model to the table as a binary object, with the model name "rxDTree".
+
+    ```sql
+    -- Save model to table
+    TRUNCATE TABLE rental_rx_models;
+    
+    DECLARE @model VARBINARY(MAX);
+    
+    EXECUTE generate_rental_rx_model @model OUTPUT;
+    
+    INSERT INTO rental_rx_models (
+          model_name
+        , model
+        )
+    VALUES (
+         'rxDTree'
+        , @model
+        );
+    
+    SELECT *
+    FROM rental_rx_models;
+    ```
+
 ## Create a stored procedure that makes predictions
 
-Create a stored procedure (`predict_rentalcount_new`) that makes predictions using the model.
+Create a stored procedure (`predict_rentalcount_new`) that makes predictions using the trained model and a set of new data.
 
 ```sql
 -- Stored procedure that takes model name and new data as input parameters and predicts the rental count for the new data
@@ -173,7 +175,7 @@ GO
 Now you can use the stored procedure `predict_rentalcount_new` to predict the rental count from new data.
 
 ```sql
--- Execute the predict_rentalcount_new stored procedure and pass the model name and a query string with a set of features to use to predict the rental count
+-- Use the predict_rentalcount_new stored procedure with the model name and a set of features to predict the rental count
 EXECUTE dbo.predict_rentalcount_new @model_name = 'rxDTree'
     , @input_query = '
         SELECT CONVERT(INT,  3) AS Month
@@ -205,9 +207,9 @@ In part three of this tutorial series, you completed these steps:
 
 To learn more about using R in Azure SQL Database Machine Learning Services (preview), see:
 
-- [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](sql-database-machine-learning-services-functions.md)
-- [Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)](sql-database-machine-learning-services-data-issues.md)
-- [Add an R package to Azure SQL Database Machine Learning Services (preview)](sql-database-machine-learning-services-add-r-packages.md)
+* [Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)](sql-database-machine-learning-services-functions.md)
+* [Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)](sql-database-machine-learning-services-data-issues.md)
+* [Add an R package to Azure SQL Database Machine Learning Services (preview)](sql-database-machine-learning-services-add-r-packages.md)
 
 <!-- Maybe replace the above with this when the second tutorial gets ported from SQL MLS
 

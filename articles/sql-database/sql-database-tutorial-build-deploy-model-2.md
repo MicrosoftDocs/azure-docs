@@ -28,7 +28,7 @@ In part two, you'll learn how to:
 > * Make predictions from both models
 > * Compare the results to choose the most accurate model
 
-In [part one](sql-database-tutorial-build-deploy-model-1.md), you learned how how to import a sample database into an Azure SQL database, and then prepare the data to be used for training a predictive model in R.
+In [part one](sql-database-tutorial-build-deploy-model-1.md), you learned how to import a sample database into an Azure SQL database, and then prepare the data to be used for training a predictive model in R.
 
 In [part three](sql-database-tutorial-build-deploy-model-2.md), you'll learn how to store the model in a database, and then create a stored procedure that can make predictions based on new data.
 
@@ -36,16 +36,19 @@ In [part three](sql-database-tutorial-build-deploy-model-2.md), you'll learn how
 
 ## Prerequisites
 
-* Part two of this tutorial assumes you have completed [part one](sql-database-tutorial-build-deploy-model-1.md) and its prerequisites.
+* Part two of this tutorial assumes you have completed [**part one**](sql-database-tutorial-build-deploy-model-1.md) and its prerequisites.
 
 ## Train two models
 
 In the *model training phase*, you find a function (*model*) that best describes the dependency between the variables in the dataset. This is typically done by using a subset of the entire dataset as training data. It's also common to train and compare multiple models in order to find the one that fits the data best.
 
-To find the best model for the ski rental data, create two different models and see which one is predicting more accurately. You'll use the data frame `rentaldata` that you created in part one of this series.s
+To find the best model for the ski rental data, create two different models (linear regression and decision tree) and see which one is predicting more accurately. You'll use the data frame `rentaldata` that you created in part one of this series.
+
+> [!TIP]
+> Finding the right type of model for a specific problem requires some experimentation. The [Machine Learning Algorithm Cheat Sheet](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-algorithm-choice/#the-machine-learning-algorithm-cheat-sheet) can be nice to have as a guide.
 
 ```r
-#First, split the dataset into 2 different sets:
+#First, split the dataset into two different sets:
 # one for training the model and the other for validating it
 train_data = rentaldata[rentaldata$Year < 2015,];
 test_data  = rentaldata[rentaldata$Year == 2015,];
@@ -63,10 +66,6 @@ model_dtree  <- rxDTree(RentalCount ~ Month + Day + WeekDay + Snow + Holiday, da
 ## Make predictions from both models
 
 Now use a predict function to predict the Rental Counts using the two trained models.
-Later, you'll compare actual values of RentalCount with the predictions made by the two models and see which model is more accurate.
-
-> [!TIP]
-> Finding the right type of model for a specific problem requires some experimentation. The [Machine Learning Algorithm Cheat Sheet](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-algorithm-choice/#the-machine-learning-algorithm-cheat-sheet) can be nice to have as a guide.
 
 ```r
 #Use both models to make predictions using the test data set.
@@ -98,7 +97,7 @@ head(predict_dtree);
 
 ## Compare the results
 
-Now you want to see which of the models gives the best predictions. To find out, plot the difference between the predicted and actual values. R is a great language for quickly and easily visualizing data. You're going to use a basic plotting function to plot 2 graphs.
+Now you want to see which of the models gives the best predictions. To find out, plot the difference between the predicted and actual values. R is a great language for quickly and easily visualizing data. You're going to use a basic plotting function to plot two graphs.
 
 ```r
 #Use the plotting functionality in R to visualize the results from the predictions
