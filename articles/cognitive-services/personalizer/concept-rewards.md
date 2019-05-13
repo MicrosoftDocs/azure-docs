@@ -22,9 +22,9 @@ Personalizer trains it's machine learning models by evaluating the rewards.
 
 Rewards are sent to Personalizer by the [Reward API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/personalizer/events/reward). A reward is a number from -1 and 1. Personalizer trains the model to achieve the highest possible sum of rewards over time.
 
-Rewards are sent after the user behavior has happened, which could be days later. The maximum amount of time Personalizer will wait until an event is considered to have no reward or a default reward is [configured](how-to-settings.md) with the [Reward Wait Time](concepts-experiment-duration.md).
+Rewards are sent after the user behavior has happened, which could be days later. The maximum amount of time Personalizer will wait until an event is considered to have no reward or a default reward is [configured](how-to-settings.md) with the [Reward Wait Time](#reward-wait-time).
 
-If the reward score for an event hasn't been received within the **Reward Wait Time**, then the **Default Reward** will be applied. Typically, the **[Default Reward](personalizer/how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** is configured to be zero.
+If the reward score for an event hasn't been received within the **Reward Wait Time**, then the **Default Reward** will be applied. Typically, the **[Default Reward](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** is configured to be zero.
 
 ## Composing reward scores
 
