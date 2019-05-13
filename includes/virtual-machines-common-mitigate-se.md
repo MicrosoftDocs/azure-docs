@@ -73,7 +73,7 @@ Your target operating system must be up-to-date to enable these additional secur
 
 **Step 1: Disable hyperthreading on the VM** - Customers running untrusted code on a hyperthreaded VM will need to disable hyperthreading or move to a non-hyperthreaded VM.  To check if your VM has hyperthreading enabled, please refer to the below script using the Windows command line from within the VM.
 
-Type `wmic` to enter the interactive wmic interface. Then type the below to view the amount of physical and logical processors on the VM.
+Type `wmic` to enter the interactive interface. Then type the below to view the amount of physical and logical processors on the VM.
 
 ```console
 CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
