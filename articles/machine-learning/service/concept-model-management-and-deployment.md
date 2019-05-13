@@ -89,4 +89,6 @@ Deployments must be explicitly updated. For more information, see update section
 
 Learn more about [how and where you can deploy models](how-to-deploy-and-where.md) with the Azure Machine Learning service. For an example of deployment, see [Tutorial: Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
+Learn how to create [continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning). 
+
 Learn how to create client applications and services that [Consume a model deployed as a web service](how-to-consume-web-service.md).
