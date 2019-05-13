@@ -101,7 +101,7 @@ No | 1000
 - Limits assume that minimal other jobs are in progress in the target region for the subscription.
 - Some Azure regions are smaller, and might have slightly lower limits.
 
-## Plan for infrastructure and VM connectivity
+## Plan infrastructure and VM connectivity
 
 After failover to Azure you need your workloads to operate as they did on-premises, and to enable users to access workloads running on the Azure VMs.
 
@@ -196,7 +196,7 @@ In an event of disaster, you might need to fail over a large number of machines/
 
 You can prepare in advance for failover as follows:
 
-- [Prepare your infrastructure and VMs](#plan-the-target-infrastructure) so that your workloads will be available after failover, and so that users can access the Azure VMs.
+- [Prepare your infrastructure and VMs](#plan-infrastructure-and-vm-connectivity) so that your workloads will be available after failover, and so that users can access the Azure VMs.
 - Note the [failover limits](#failover-limits) earlier in this document. Make sure your failovers will fall within these limits.
 - Run regular [disaster recovery drills](site-recovery-test-failover-to-azure.md). Drills help to:
     - Find gaps in your deployment before failover.
