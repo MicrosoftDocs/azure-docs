@@ -64,7 +64,7 @@ A compute target is the compute resource that you use to run your experiment or 
 | Azure Machine Learning compute | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-Compute targets are attached to your Machine Learning [workspace](concept-workspace.md). You manage your compute targets in your workspace in Azure portal.
+Compute targets are attached to your Machine Learning [workspace](concept-workspace.md). You manage your compute targets in your workspace in the [Azure portal](https://portal.azure.com).
 
 ## Web service
 
