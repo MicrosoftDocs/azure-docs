@@ -1,5 +1,5 @@
 ---
-title: How to deploy a deep learning model for inferencing with GPU 
+title: Deploy model for inferencing with GPU 
 titleSuffix: Azure Machine Learning service
 description: Learn how to deploy a deep learning model as a web service that uses a GPU for inferencing. In this article, a Tensorflow model is deployed to an Azure Kubernetes Service cluster. The cluster uses a GPU-enabled VM to host the web service and score inferencing requests.
 services: machine-learning
@@ -12,7 +12,7 @@ ms.reviewer: larryfr
 ms.date: 05/02/2019
 ---
 
-# How to do GPU inferencing
+# Deploy a deep learning model for inferencing with GPU
 
 Learn how to use GPU inferencing for a machine learning model deployed as a web service. In this article, you learn how to use the Azure Machine Learning service to deploy an example Tensorflow deep learning model. The model is deployed to an Azure Kubernetes Service (AKS) cluster that uses a GPU-enabled VM to host the service. When requests are sent to the service, the model uses the GPU to perform inferencing.
 
@@ -26,12 +26,13 @@ Follow the instructions to:
 * Create a GPU enabled AKS cluster
 * Deploy a model with Tensorflow-GPU
 
-Prerequisites:
+## Prerequisites
+
 * Azure Machine Learning services workspace
 * Python
 * Tensorflow SavedModel registered. To learn how to register models see [Deploy Models](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#registermodel)
 
-This article is based on [Deploying Tensorflow Models to AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), which uses TensorFlow saved models and deploys to an AKS cluster. However, with small changes to the scoring file and environment file it is applicable to any machine learning framework which support GPUs.  
+This article is based on Jupyter notebook, [Deploying Tensorflow Models to AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), which uses TensorFlow saved models and deploys to an AKS cluster. However, with small changes to the scoring file and environment file it is applicable to any machine learning framework which support GPUs.  
 
 ## Provision AKS cluster with GPUs
 Azure has many different GPU options, all of which can be used for Inferencing. See [the list of N Series](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) for a full breakdown of capabilities and costs. 
