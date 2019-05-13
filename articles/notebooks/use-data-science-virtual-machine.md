@@ -53,3 +53,7 @@ To preserve parity of file paths with the **Free Compute** tier, you are able to
 ![Shutdown button in Azure Notebooks](media/shutdown.png)
 
 When a project is run on a VM, the files are mounted on the root directory of the Jupyter server (the directory shown in JupyterHub), replacing the default Azure Notebooks files. When you shut down the VM using the **Shutdown** button on the notebook UI, Azure Notebooks restores the default files.
+
+## Next steps
+
+Learn more about DSVMs on [Introduction to Azure Data Science Virtual Machines](/machine-learning/data-science-virtual-machine/overview).
