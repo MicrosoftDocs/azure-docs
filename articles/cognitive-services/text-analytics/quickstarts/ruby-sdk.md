@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Using Ruby to call the Text Analytics API'
+title: 'Quickstart: Call the Text Analytics Cognitive Service using the Ruby SDK'
 titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
@@ -12,7 +12,8 @@ ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: tasharm
 ---
-# Quickstart: Using Ruby to call the Text Analytics Cognitive Service
+# Quickstart: Call the Text Analytics service using the Ruby SDK
+
 <a name="HOLTop"></a>
 
 
@@ -108,8 +109,7 @@ Using the Text Analytics SDK or API, You can perform sentiment analysis on a set
 
 3. Within the same function, combine the documents into a list. Add it to the `documents` field of a `MultiLanguageBatchInput` object. 
 
-4. send the documents to the Text Analytics service with client's `sentiment()` function. If any results are returned, print them.
-
+4. Call the client's `sentiment()` function with the `MultiLanguageBatchInput` object as a parameter to send the documents. If any results are returned, print them.
     ```ruby
       input_documents =  MultiLanguageBatchInput.new
       input_documents.documents = [input_1, input_2, input_3, input_4]
@@ -117,8 +117,9 @@ Using the Text Analytics SDK or API, You can perform sentiment analysis on a set
       result = client.sentiment(
           multi_language_batch_input: input_documents
       )
-    
+      
       if (!result.nil? && !result.documents.nil? && result.documents.length > 0)
+        puts '===== SENTIMENT ANALYSIS ====='
         result.documents.each do |document|
           puts "Document Id: #{document.id}: Sentiment Score: #{document.score}"
         end
@@ -135,6 +136,7 @@ Using the Text Analytics SDK or API, You can perform sentiment analysis on a set
 ### Output
 
 ```console
+===== SENTIMENT ANALYSIS =====
 Document ID: 1 , Sentiment Score: 0.87
 Document ID: 2 , Sentiment Score: 0.11
 Document ID: 3 , Sentiment Score: 0.44
@@ -169,8 +171,7 @@ The Text Analytics service can detect the language of a text document across a l
 
 3. Within the same function, combine the documents into a list. Add it to the `documents` field of a `LanguageBatchInput` object. 
 
-4. send the documents to the Text Analytics service with client's `detect_language()` function. If any results are returned, print them.
-       
+4. Call the client's `detect_language()` function with the `LanguageBatchInput` object as a parameter to send the documents. If any results are returned, print them.
     ```ruby
        input_documents = LanguageBatchInput.new
        input_documents.documents = [language_input_1, language_input_2, language_input_3]
@@ -230,9 +231,9 @@ The Text Analytics service can distinguish and extract different entities (peopl
         input_2.text = 'La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle.'
     ```
 
-3. Within the same function, combine the documents into a list. Add it to the `documents` field of a `LanguageBatchInput` object. 
+3. Within the same function, combine the documents into a list. Add it to the `documents` field of a `MultiLanguageBatchInput` object. 
 
-4. send the documents to the Text Analytics service with client's `entities()` function. If any results are returned, print them.
+4. Call the client's `entities()` function with the `MultiLanguageBatchInput` object as a parameter to send the documents. If any results are returned, print them.
 
     ```ruby
         input_documents =  MultiLanguageBatchInput.new
@@ -341,7 +342,7 @@ The Text Analytics service can extract key-phrases in sentences. The following e
 
     3. Within the same function, combine the documents into a list. Add it to the `documents` field of a `MultiLanguageBatchInput` object. 
 
-    4. send the documents to the Text Analytics service with client's `entities()` function. If any results are returned, print them.
+    4. Call the client's `key_phrases()` function with the `MultiLanguageBatchInput` object as a parameter to send the documents. If any results are returned, print them.
 
     ```ruby
       input_documents =  MultiLanguageBatchInput.new
