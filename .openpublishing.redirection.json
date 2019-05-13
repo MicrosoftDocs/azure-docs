@@ -13587,12 +13587,12 @@
     },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-security-threat-detection.md",
-      "redirect_url": "/sql-database/sql-database-threat-detection-overview",
+      "redirect_url": "/azure/sql-database/sql-database-threat-detection-overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-overview.md",
-      "redirect_url": "/sql-database/sql-database-auditing",
+      "redirect_url": "/azure/sql-database/sql-database-auditing",
       "redirect_document_id": false
     },
     {
