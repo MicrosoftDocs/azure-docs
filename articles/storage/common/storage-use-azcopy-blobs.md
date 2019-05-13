@@ -199,7 +199,7 @@ If you set the `--delete-destination` flag to `true` AzCopy deletes files withou
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy sync "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true` |
-| **Example** | `azcopy sync "C:\myFolder" "https://<storage-account-name>.blob.core.windows.net/mycontainer" --recursive=true` |
+| **Example** | `azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true` |
 | **Example** (hierarchical namespace) | `azcopy sync "C:\myFolder" "https://<storage-account-name>.dfs.core.windows.net/mycontainer" --recursive=true` |
 
 
