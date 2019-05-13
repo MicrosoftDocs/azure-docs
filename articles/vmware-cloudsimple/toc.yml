@@ -148,10 +148,6 @@
         href: https://docs.azure.cloudsimple.com/ha-ensuring/
     - name: VMware ecosystem
       items:
-      - name: Disaster recovery solutions
-        href: https://docs.azure.cloudsimple.com/zerto-solutionguide/
-      - name: Disaster recovery using VMware SRM
-        href: https://docs.azure.cloudsimple.com/disaster-recovery-srm/
       - name: Backup workload virtual machines
         href: https://docs.azure.cloudsimple.com/veeam/
       - name: VMware Horizon solution guide
