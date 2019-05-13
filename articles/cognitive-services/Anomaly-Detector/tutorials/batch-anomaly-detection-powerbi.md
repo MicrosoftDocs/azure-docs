@@ -13,7 +13,7 @@ ms.author: aahi
 
 # Tutorial: Visualize anomalies using batch detection and Power BI
 
-Use this this tutorial to perform batch anomaly detection on a time series data set. Using Power BI desktop, you will take an Excel file, prepare the data for the Anomaly Detector API, and visualize statistical anomalies throughout it.
+Use this this tutorial to find anomalies within a time series data set as a batch. Using Power BI desktop, you will take an Excel file, prepare the data for the Anomaly Detector API, and visualize statistical anomalies throughout it.
 
 In this tutorial, you'll learn how to:
 
@@ -67,8 +67,8 @@ Within the Advanced Editor, use the following Power Query M snippet to extract t
 ```M
 (table as table) => let
 
-    apikey      = "[Your Anomaly Detector resource access key]",
-    endpoint    = "[Your Anomaly Detector resource endpoint]/anomalydetector/v1.0/timeseries/entire/detect,
+    apikey      = "[Placeholder: Your Anomaly Detector resource access key]",
+    endpoint    = "[Placeholder: Your Anomaly Detector resource endpoint]/anomalydetector/v1.0/timeseries/entire/detect,
     inputTable = Table.TransformColumnTypes(table,{{"Timestamp", type text},{"Value", type number}}),
     jsontext    = Text.FromBinary(Json.FromValue(inputTable)),
     jsonbody    = "{ ""Granularity"": ""daily"", ""Sensitivity"": 95, ""Series"": "& jsontext &" }",
@@ -150,7 +150,7 @@ After adding the fields, click on the chart and resize it to show all of the dat
 
 ### Display anomaly data points
 
-On the right side of the Power BI window, below the **FIELDS** pane, right-click on **Value** under the Invoked Function query and click **New quick measure**.
+On the right side of the Power BI window, below the **FIELDS** pane, right-click on **Value** under the **Invoked Function query**, and click **New quick measure**.
 
 ![An image of the new quick measure screen](../media/tutorials/new-quick-measure.png)
 
@@ -169,4 +169,4 @@ Apply colors to your chart by clicking on the **Format** tool and **Data colors*
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Anomaly detection on streaming data](anomaly-detection-on-streaming-data.md)
+>[Streaming anomaly detection with Azure Databricks](anomaly-detection-on-streaming-data.md)
