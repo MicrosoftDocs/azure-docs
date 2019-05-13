@@ -27,7 +27,7 @@ For new logic apps that run in the public or "global"
 Azure Logic Apps service, you pay only for what you use. 
 These logic apps use a consumption-based plan and pricing model. 
 In your logic app definition, each step is an action. For example, 
-actions include: 
+actions include:
 
 * Triggers, which are special actions. 
 All logic apps require a trigger as the first step.
@@ -47,19 +47,25 @@ An [*integration service environment* (ISE)](../logic-apps/connect-virtual-netwo
 provides a private, isolated, and dedicated way for you to create and 
 run logic apps that can access resources in an Azure virtual network. 
 For new logic apps that run inside an ISE, you pay a fixed monthly price 
-for built-in actions and Standard connectors. Your ISE also includes one 
-free Enterprise connector, which includes as many connections as you want. 
-Usage for additional Enterprise connectors is charged based on the Enterprise 
-consumption price. 
+for built-in actions and triggers and also for Standard connectors.
+
+Your ISE also includes one free Enterprise connector, which includes 
+as many connections as you want. Usage for additional Enterprise 
+connectors is charged based on the Enterprise consumption price.
+
+> [!NOTE]
+> Within an ISE, built-in triggers and actions display the 
+> **Core** label and run in the same ISE as your logic apps. 
+> Standard and Enterprise connectors that display the **ISE** 
+> label run in the same ISE as your logic apps. Connectors 
+> that don't display the ISE label run in the global Logic Apps service.
 
 Your ISE base unit has fixed capacity, so if you need more throughput, 
 you can [add more scale units](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), 
-either during creation or afterwards.
+either during creation or afterwards. 
 
-> [!NOTE]
-> The ISE is in [*public preview*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> For specific pricing information, see 
-> [Azure Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+For specific pricing information, see 
+[Azure Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="connectors"></a>
 

@@ -17,6 +17,18 @@ ms.author: gracez
 
 The following sections list changes in the most recent releases.
 
+## Cognitive Services Speech Devices SDK 1.5.0: 2019-May release
+
+*	Speech Devices SDK is now GA and no longer a gated preview.
+*	Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 1.5.0. For more information, see its [release notes](https://aka.ms/csspeech/whatsnew).
+*	New wake word technology brings significant quality improvements, see Breaking Changes.
+*	New audio processing pipeline for improved far-field recognition.
+
+**Breaking changes**
+
+*	Due to the new wake word technology all wake words must be re-created at our improved wake word portal. To fully remove old keywords from the device uninstall the old app.
+	- adb uninstall com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
+
 ## Cognitive Services Speech Devices SDK 1.4.0: 2019-Apr release 
 
 * Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 1.4.0. For more information, see its [release notes](https://aka.ms/csspeech/whatsnew). 

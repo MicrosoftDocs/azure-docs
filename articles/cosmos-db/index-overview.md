@@ -4,7 +4,7 @@ description: Understand how indexing works in Azure Cosmos DB.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
 ---
 
@@ -61,19 +61,41 @@ Azure Cosmos DB currently supports two kinds of indexes:
 
 The **range** index kind is used for:
 
-- equality queries: `SELECT * FROM container c WHERE c.property = 'value'`
-- range queries: `SELECT * FROM container c WHERE c.property > 'value'` (works for `>`, `<`, `>=`, `<=`, `!=`)
-- `ORDER BY` queries: `SELECT * FROM container c ORDER BY c.property`
-- `JOIN` queries: `SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'`
+- Equality queries: 
+
+   ```sql SELECT * FROM container c WHERE c.property = 'value'```
+
+- Range queries: 
+
+   ```sql SELECT * FROM container c WHERE c.property > 'value'``` (works for `>`, `<`, `>=`, `<=`, `!=`)
+
+- `ORDER BY` queries:
+
+   ```sql SELECT * FROM container c ORDER BY c.property```
+
+- `JOIN` queries: 
+
+   ```sql SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'```
 
 Range indexes can be used on scalar values (string or number).
 
 The **spatial** index kind is used for:
 
-- geospatial distance queries: `SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40`
-- geospatial within queries: `SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })`
+- Geospatial distance queries: 
+
+   ```sql SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40```
+
+- Geospatial within queries: 
+
+   ```sql SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })```
 
 Spatial indexes can be used on correctly formatted [GeoJSON](geospatial.md) objects. Points, LineStrings and Polygons are currently supported.
+
+The **composite** index kind is used for:
+
+- `ORDER BY` queries on multiple properties: 
+
+   ```sql SELECT * FROM container c ORDER BY c.firstName, c.lastName```
 
 ## Querying with indexes
 
@@ -84,7 +106,7 @@ For example, consider the following query: `SELECT location FROM location IN com
 ![Matching a specific path within a tree](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> An `ORDER BY` clause *always* needs a range index and will fail if the path it references doesn't have one.
+> An `ORDER BY` clause that orders by a single property *always* needs a range index and will fail if the path it references doesn't have one. Similarly, a multi `ORDER BY` query *always* needs a composite index.
 
 ## Next steps
 

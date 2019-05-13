@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/16/2019
+ms.date: 05/06/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -161,6 +161,9 @@ Passwords are *not* written back in any of the following situations:
 * **Unsupported administrator operations**
    * Any administrator-initiated end-user password reset from the [Office management portal](https://portal.office.com)
    * Any administrator-initiated end-user password reset from PowerShell version 1, version 2, or the Azure AD Graph API
+
+> [!WARNING]
+> Use of the checkbox "User must change password at next logon" in on-premises Active Directory administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is not supported. When changing a password on-premises do not check this option. 
 
 ## Next steps
 
