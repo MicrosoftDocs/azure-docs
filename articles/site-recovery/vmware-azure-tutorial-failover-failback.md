@@ -38,10 +38,10 @@ Complete the previous tutorials:
 
 Failover and failback have four stages:
 
-1. **Fail over to Azure**: When your on-premises primary site goes down, fail machines over to Azure. After failover, Azure VMs are created from replicated data.
-2. **Reprotect Azure VMs**: In Azure, reprotect the Azure VMs so that they start replicating back to on-premises VMware VMs. The on-premises VM is turned off during reprotection, to help ensure data consistency.
-3. **Fail over to on-premises**: When your on-premises site is up and running, run a failover to fail back from Azure.
-4. **Reprotect on-premises VMs**: After data has failed back, reprotect the on-premises VMs to which you failed back, so that they start replicating to Azure.
+1. **Fail over to Azure:** When your on-premises primary site goes down, fail machines over to Azure. After failover, Azure VMs are created from replicated data.
+2. **Reprotect Azure VMs:** In Azure, reprotect the Azure VMs so that they start replicating back to on-premises VMware VMs. The on-premises VM is turned off during reprotection, to help ensure data consistency.
+3. **Fail over to on-premises:** When your on-premises site is up and running, run a failover to fail back from Azure.
+4. **Reprotect on-premises VMs:** After data has failed back, reprotect the on-premises VMs to which you failed back, so that they start replicating to Azure.
 
 ## Verify VM properties
 

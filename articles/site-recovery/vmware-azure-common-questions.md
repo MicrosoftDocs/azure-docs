@@ -148,7 +148,7 @@ Offline replication isn't supported. Request this feature in the [feedback forum
 
 ### What is asrseeddisk?
 
-For every source disk, data is replicated to a managed disk in Azure. This disk has the prefix of **asrseeddisk**. It stores the copy of source disk and all the recovery point snapshots.
+For every source disk, data is replicated to a managed disk in Azure. This disk has the prefix of **asrseeddisk**. It stores the copy of the source disk and all the recovery point snapshots.
 
 ### Can I exclude disks from replication?
 
