@@ -37,7 +37,7 @@ The visual interface gives you an interactive, visual workspace to quickly build
 + Run the experiment using the compute resource of the Machine Learning Service workspace.
 + Iterate on your model design by editing the experiment and running it again.
 + When you're ready, convert your **training experiment** to a **predictive experiment**.
-+ [Deploy](#deploy) the predictive experiment as a web service so that your model can be accessed by others.
++ [Deploy](#deployment) the predictive experiment as a web service so that your model can be accessed by others.
 
 ## Experiment
 
