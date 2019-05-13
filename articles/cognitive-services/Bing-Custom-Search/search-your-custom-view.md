@@ -45,6 +45,10 @@ Clicking **Additional Parameters** reveals the following parameters:
     
 After you've specified all required options, click **Call** to view the JSON response in the right pane. If you select the Hosted UI endpoint, you can test the search experience in the bottom pane.
 
+## Change your Bing Custom Search subscription
+
+You can change the subscription associated with your Bing Custom Search instance without creating a new one. to have API calls sent and charged to a new subscription, create a new Bing Custom Search resource in the Azure portal. Use the new subscription key in your API requests, along with your instance's custom configuration ID.
+
 ## Next steps
 
 - [Call your custom view with C#](./call-endpoint-csharp.md)
