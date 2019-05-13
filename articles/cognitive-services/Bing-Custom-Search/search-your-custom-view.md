@@ -47,7 +47,7 @@ After you've specified all required options, click **Call** to view the JSON res
 
 ## Change your Bing Custom Search subscription to a new one
 
-You can change your Bing Custom Search subscription without creating a new account. to have API calls sent and charged to a new subscription, create a new Bing Custom Search resource in the Azure portal. Use the new API key in your API requests, with your instance's custom configuration ID.
+You can change your Bing Custom Search subscription without creating a new search instance. to have API calls sent and charged to a new subscription, create a new Bing Custom Search resource in the Azure portal. Use the new API key in your API requests, with your instance's custom configuration ID.
 
 ## Next steps
 
