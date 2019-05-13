@@ -1,12 +1,12 @@
 ---
 
 title: Bulk add users in the Azure Active Directory portal | Microsoft Docs
-description: Add users in bulk in the Azure admin center. 
+description: Add users in bulk in the Azure admin center in Azure Active Directory 
 services: active-directory 
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/18/2019
+ms.date: 05/13/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -23,28 +23,25 @@ Azure Active Directory (Azure AD) supports bulk user create and delete operation
 ## To bulk add users
 
 1. Sign in to your Azure AD organization with an account that is a User administrator in the organization.
-1. In Azure AD, select **Users** > **Bulk create**.
-
-    ![The bulk create command is on the All users page](./media/users-bulk-add/bulk-create.png)
-
+1. In Azure AD, select **Users** > **Bulk delete**.
 1. On the **Bulk create user** page, select **Download** to receive a valid CSV file of user properties, and then add your new users.
 1. When you finish editing the CSV file or if you have one of your own ready to upload, select the file under **Upload your CSV file** to be validated.
 
-   ![Select a local CSV file in which you list the users you want to add](./media/users-bulk-add/upload-button.png)
+   ![Select a local CSV file in which you list the users you want to delete](./media/users-bulk-add/upload-button.png)
 
-1. When the file contents are validated, you must fix any errors before you can start the upload job.
+1. When the file contents are validated, you must fix any errors before the upload job is submitted.
 1. When your file passes validation, select **Submit** to start the Azure batch job that adds the new user information. Job notifications are generated to apprise you of progress to completion.
 
 ## Verify guest users in the directory
 
-Check to see that the users you added exist in the directory either in the Azure portal or by using PowerShell.
+You can check to see that the users you deleted are no longer in the directory either in the Azure portal or by using PowerShell.
 
 ### View guest users in the Azure portal
 
 1. Sign in to the Azure portal with an account that is a User administrator in the organization.
 2. In the navigation pane, select Azure Active Directory.
 3. Under **Manage**, select **Users**.
-4. Under **Show**, select **All users** only and verify that the users you added are listed.
+4. Under **Show**, select **All users** only and verify that the users you deleted are no longer listed.
 
 ### View guest users with PowerShell
 
@@ -67,8 +64,8 @@ Guidance 2
 
 ## Next steps
 
-Bulk delete users
-Download list of users
+[Bulk add users](users-bulk-add.md)
+[Download list of users](users-bulk-download.md)
 Download list of groups
 Download list of group members
 

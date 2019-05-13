@@ -67,7 +67,7 @@ Guidance 2
 
 ## Next steps
 
-Bulk delete users
-Download list of users
+[Bulk delete users](users-bulk-delete.md)
+[Download list of users](users-bulk-download.md)
 Download list of groups
 Download list of group members
