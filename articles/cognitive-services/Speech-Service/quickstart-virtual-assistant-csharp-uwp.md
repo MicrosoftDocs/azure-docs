@@ -15,6 +15,8 @@ ms.custom:
 
 # Quickstart: Create a voice-first virtual assistant with the Speech SDK, UWP
 
+Quickstarts are also available for [speech-to-text](quickstart-csharp-uwp.md) and [speech-translation](quickstart-translate-speech-uwp.md).
+
 In this article, you'll develop a C# Universal Windows Platform (UWP) application by using the [Speech SDK](speech-sdk.md). The program will connect to a previously authored and configured bot to enable a voice-first virtual assistant experience from the client application. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).
 
 > [!NOTE]
@@ -75,7 +77,7 @@ This quickstart will describe, step by step, how to make a simple client applica
             <MediaElement x:Name="mediaElement"/>
         </Grid>
     </Page>
-        ```
+    ```
 
 1. Open the code-behind source file `MainPage.xaml.cs`. You'll find it grouped under `MainPage.xaml`. Replace the contents with the code below. Here's what this sample covers: 
 
@@ -234,7 +236,7 @@ This quickstart will describe, step by step, how to make a simple client applica
             }
         }
     }
-     ```
+    ```
 
 1. Next, you'll create the `SpeechBotConnector` with your subscription information. Add the following to the method body of `InitializeBotConnector`, replacing the strings `YourChannelSecret`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your bot, speech subscription, and [region](regions.md).
 

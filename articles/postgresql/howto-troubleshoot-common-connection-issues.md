@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot connection issues to Azure Database for PostgreSQL
-description: Learn how to troubleshoot connection issues to Azure Database for PostgreSQL.
+title: Troubleshoot connection issues to Azure Database for PostgreSQL - Single Server
+description: Learn how to troubleshoot connection issues to Azure Database for PostgreSQL - Single Server.
 keywords: postgresql connection,connection string,connectivity issues,transient error,connection error
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/09/2018
+ms.date: 5/6/2019
 ---
 
-# Troubleshoot connection issues to Azure Database for PostgreSQL
+# Troubleshoot connection issues to Azure Database for PostgreSQL - Single Server
 
 Connection problems may be caused by a variety of things, including:
 

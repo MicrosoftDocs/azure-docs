@@ -1,6 +1,6 @@
 ---
-title: Securing PaaS deployments | Microsoft Docs
-description: " Understand the security advantages of PaaS versus other cloud service models and learn recommended practices for securing your Azure PaaS deployment. "
+title: Best practices for secure PaaS deployments - Microsoft Azure
+description: "Learn best practices for designing, building, and managing secure cloud applications on Azure and understand the security advantages of PaaS versus other cloud service models."
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: terrylan
 
 ---
@@ -25,6 +25,8 @@ This article provides information that helps you:
 - Evaluate the security advantages of platform as a service (PaaS) versus other cloud service models
 - Change your security focus from a network-centric to an identity-centric perimeter security approach
 - Implement general PaaS security best practices recommendations
+
+[Developing secure applications on Azure](abstract-develop-secure-apps.md) is a general guide to the security questions and controls you should consider at each phase of the software development lifecycle when developing applications for the cloud.
 
 ## Cloud security advantages
 There are security advantages to being in the cloud. In an on-premises environment, organizations likely have unmet responsibilities and limited resources available to invest in security, which creates an environment where attackers are able to exploit vulnerabilities at all layers.
@@ -151,6 +153,10 @@ Use [Azure Application Insights](https://azure.microsoft.com/documentation/servi
 
 Application Insights has extensive tools for interacting with the data that it collects. Application Insights stores its data in a common repository. It can take advantage of shared functionality such as alerts, dashboards, and deep analysis with the Kusto query language.
 
+## Perform security penetration testing
+Validating security defenses is as important as testing any other functionality. Make [penetration testing](azure-security-pen-testing.md) a standard part of your build and deployment process. Schedule regular security tests and vulnerability scanning on deployed applications, and monitor for open ports, endpoints, and attacks.
+
+Fuzz testing is a method for finding program failures (code errors) by supplying malformed input data to program interfaces (entry points) that parse and consume this data. [Microsoft Security Risk Detection](https://www.microsoft.com/en-us/security-risk-detection/) is a cloud-based tool that you can use to look for bugs and other security vulnerabilities in your software before you deploy it to Azure. The tool is designed to catch vulnerabilities before you deploy software so you don’t have to patch a bug, deal with crashes, or respond to an attack after the software is released.
 
 
 ## Next steps
@@ -162,6 +168,8 @@ In this article, we focused on security advantages of an Azure PaaS deployment a
 - Azure Cache for Redis
 - Azure Service Bus
 - Web Application Firewalls
+
+See [Developing secure applications on Azure](abstract-develop-secure-apps.md) for security questions and controls you should consider at each phase of the software development lifecycle when developing applications for the cloud.
 
 See [Azure security best practices and patterns](security-best-practices-and-patterns.md) for more security best practices to use when you’re designing, deploying, and managing your cloud solutions by using Azure.
 

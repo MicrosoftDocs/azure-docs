@@ -66,6 +66,10 @@
     items:
     - name: Ingest sample data
       href: ingest-sample-data.md
+  - name: Deploy
+    items:
+    - name: DevOps task
+      href: devops.md    
   - name: Query data
     items:
     - name: Write queries
