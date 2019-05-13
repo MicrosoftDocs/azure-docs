@@ -12,7 +12,7 @@ ms.custom: mvc
 
 # Prepare to assess and migrate Hyper-V VMs to Azure
 
-This article describes how to prepare your on-premises environment and Azure resources so that you can migrate on-premises Hyper-V VMs to Azure with [Azure Migrate](migrate-services-overview.md)
+This article describes how to prepare your on-premises environment and Azure resources  for migration of on-premises Hyper-V VMs to Azure with [Azure Migrate](migrate-services-overview.md) services.
 
 
 In this tutorial, you learn how to:
