@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Pegasystems | Microsoft Docs'
-description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and Pegasystems.
+title: 'Tutorial: Azure Active Directory integration with Pega Systems | Microsoft Docs'
+description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and Pega Systems.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -18,14 +18,14 @@ ms.date: 03/26/2019
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with Pegasystems
+# Tutorial: Azure Active Directory integration with Pega Systems
 
-In this tutorial, you'll learn how to integrate Pegasystems with Azure Active Directory (Azure AD).
+In this tutorial, you'll learn how to integrate Pega Systems with Azure Active Directory (Azure AD).
 
 This integration provides these benefits:
 
-* You can use Azure AD to control who has access to Pegasystems.
-* You can enable your users to be automatically signed-in to Pegasystems (single sign-on) with their Azure AD accounts.
+* You can use Azure AD to control who has access to Pega Systems.
+* You can enable your users to be automatically signed-in to Pega Systems (single sign-on) with their Azure AD accounts.
 * You can manage your accounts in one central location: the Azure portal.
 
 To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -34,20 +34,20 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-To configure Azure AD integration with Pegasystems, you need to have:
+To configure Azure AD integration with Pega Systems, you need to have:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can sign up for a [one-month trial](https://azure.microsoft.com/pricing/free-trial/).
-* A Pegasystems subscription that has single sign-on enabled.
+* A Pega Systems subscription that has single sign-on enabled.
 
 ## Scenario description
 
 In this tutorial, you'll configure and test Azure AD single sign-on in a test environment.
 
-* Pegasystems supports SP-initiated and IdP-initiated SSO.
+* Pega Systems supports SP-initiated and IdP-initiated SSO.
 
-## Add Pegasystems from the gallery
+## Add Pega Systems from the gallery
 
-To set up the integration of Pegasystems into Azure AD, you need to add Pegasystems from the gallery to your list of managed SaaS apps.
+To set up the integration of Pega Systems into Azure AD, you need to add Pega Systems from the gallery to your list of managed SaaS apps.
 
 1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**:
 
@@ -61,31 +61,31 @@ To set up the integration of Pegasystems into Azure AD, you need to add Pegasyst
 
 	![Select New application](common/add-new-app.png)
 
-4. In the search box, enter **Pegasystems**. Select **Pegasystems** in the search results, and then select **Add**.
+4. In the search box, enter **Pega Systems**. Select **Pega Systems** in the search results, and then select **Add**.
 
 	 ![Search results](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you'll configure and test Azure AD single sign-on with Pegasystems by using a test user named Britta Simon.
-To enable single sign-on, you need to establish a relationship between an Azure AD user and the corresponding user in Pegasystems.
+In this section, you'll configure and test Azure AD single sign-on with Pega Systems by using a test user named Britta Simon.
+To enable single sign-on, you need to establish a relationship between an Azure AD user and the corresponding user in Pega Systems.
 
-To configure and test Azure AD single sign-on with Pegasystems, you need to complete these steps:
+To configure and test Azure AD single sign-on with Pega Systems, you need to complete these steps:
 
 1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable the feature for your users.
-2. **[Configure Pegasystems single sign-on](#configure-pegasystems-single-sign-on)** on the application side.
+2. **[Configure Pega Systems single sign-on](#configure-pega-systems-single-sign-on)** on the application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Azure AD single sign-on for the user.
-5. **[Create a Pegasystems test user](#create-a-pegasystems-test-user)** that's linked to the Azure AD representation of the user.
+5. **[Create a Pega Systems test user](#create-a-peg-asystems-test-user)** that's linked to the Azure AD representation of the user.
 6. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
 
 ### Configure Azure AD single sign-on
 
 In this section, you'll enable Azure AD single sign-on in the Azure portal.
 
-To configure Azure AD single sign-on with Pegasystems, take these steps:
+To configure Azure AD single sign-on with Pega Systems, take these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Pegasystems** application integration page, select **Single sign-on**:
+1. In the [Azure portal](https://portal.azure.com/), on the **Pega Systems** application integration page, select **Single sign-on**:
 
     ![Select Single sign-on](common/select-sso.png)
 
@@ -119,13 +119,13 @@ To configure Azure AD single sign-on with Pegasystems, take these steps:
        `https://<customername>.pegacloud.io/prweb/sso`
 
 	> [!NOTE]
-	> The values provided here are placeholders. You need to use the actual identifier, reply URL, sign on URL, and relay state URL. You can get the identifier and reply URL values from a Pega application, as explained later in this tutorial. To get the relay state value, contact the [Pegasystems support team](https://www.pega.com/contact-us). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The values provided here are placeholders. You need to use the actual identifier, reply URL, sign on URL, and relay state URL. You can get the identifier and reply URL values from a Pega application, as explained later in this tutorial. To get the relay state value, contact the [Pega Systems support team](https://www.pega.com/contact-us). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-6. The Pegasystems application needs the SAML assertions to be in a specific format. To get them in the correct format, you need to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the default attributes. Select the **Edit** icon to open the **User Attributes** dialog box:
+6. The Pega Systems application needs the SAML assertions to be in a specific format. To get them in the correct format, you need to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the default attributes. Select the **Edit** icon to open the **User Attributes** dialog box:
 
 	![User Attributes](common/edit-attribute.png)
 
-7. In addition to the attributes shown in the previous screenshot, the Pegasystems application requires a few more attributes to be passed back in the SAML response. In the **User claims** section of the **User Attributes** dialog box, complete the following steps to add these SAML token attributes:
+7. In addition to the attributes shown in the previous screenshot, the Pega Systems application requires a few more attributes to be passed back in the SAML response. In the **User claims** section of the **User Attributes** dialog box, complete the following steps to add these SAML token attributes:
 
 	
    - `uid`
@@ -163,7 +163,7 @@ To configure Azure AD single sign-on with Pegasystems, take these steps:
 
 	![Certificate download link](common/metadataxml.png)
 
-9. In the **Set up Pegasystems** section, copy the appropriate URLs, based on your requirements.
+9. In the **Set up Pega Systems** section, copy the appropriate URLs, based on your requirements.
 
 	![Copy the configuration URLs](common/copy-configuration-urls.png)
 
@@ -173,9 +173,9 @@ To configure Azure AD single sign-on with Pegasystems, take these steps:
 
 	1. **Logout URL**.
 
-### Configure Pegasystems single sign-on
+### Configure Pega Systems single sign-on
 
-1. To configure single sign-on on the **Pegasystems** side, sign in to the Pega Portal with an admin account in another browser window.
+1. To configure single sign-on on the **Pega Systems** side, sign in to the Pega Portal with an admin account in another browser window.
 
 2. Select **Create** > **SysAdmin** > **Authentication Service**:
 
@@ -239,13 +239,13 @@ In this section, you'll create a test user named Britta Simon in the Azure porta
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable Britta Simon to use Azure single sign-on by granting her access to Pegasystems.
+In this section, you'll enable Britta Simon to use Azure single sign-on by granting her access to Pega Systems.
 
-1. In the Azure portal, select **Enterprise applications**, select **All applications**, and then select **Pegasystems**.
+1. In the Azure portal, select **Enterprise applications**, select **All applications**, and then select **Pega Systems**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the list of applications, select **Pegasystems**.
+2. In the list of applications, select **Pega Systems**.
 
 	![List of applications](common/all-applications.png)
 
@@ -263,15 +263,15 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 7. In the **Add Assignment** dialog box, select **Assign**.
 
-### Create a Pegasystems test user
+### Create a Pega Systems test user
 
-Next, you need to create a user named Britta Simon in Pegasystems. Work with the [Pegasystems support team](https://www.pega.com/contact-us) to create users.
+Next, you need to create a user named Britta Simon in Pega Systems. Work with the [Pega Systems support team](https://www.pega.com/contact-us) to create users.
 
 ### Test single sign-on
 
 Now you need to test your Azure AD single sign-on configuration by using the Access Panel.
 
-When you select the Pegasystems tile in the Access Panel, you should be automatically signed in to the Pegasystems instance for which you set up SSO. For more information, see [Access and use apps on the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Pega Systems tile in the Access Panel, you should be automatically signed in to the Pega Systems instance for which you set up SSO. For more information, see [Access and use apps on the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
