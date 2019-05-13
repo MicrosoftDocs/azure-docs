@@ -11,11 +11,14 @@ ms.author: v-chjenk
 ---
 # Tutorial: Create a host pool to validate service updates
 
-Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop Preview tenant environments. Before deploying host pools to your production environment, we highly recommend you create a validation host pool. Updates will be applied to validation host pools before being applied to other host pools and you can monitor service updates before rolling them out to your production environment.
+Host pools are a collection of one or more identical virtual machine within Windows Virtual Desktop Preview tenant environments. Before deploying host pools to your production environment, we highly recommend you create a validation host pool. Updates are applied to validation host pools before other host pools so you can monitor service updates before rolling them out to your production environment. Without a validation host pool, you may not discover changes that introduce errors, which could result in downtime for users in your production environment.
 
-To ensure your apps work with the latest updates, the validation host pool should be as similar to host pools in your production environment as possible. Users should connect frequently to the validation host pool and you should include automated testing. Without a validation host pool, you may not discover changes that introduce errors, which could result in downtime for  users in your production environment.
+To ensure your apps work with the latest updates, the validation host pool should be as similar to host pools in your production environment as possible. Users should connect as frequently to the validation host pool as they do to the production host pool. If you have automated testing on your host pool, you should include automated testing on the validation host pool.
 
 You can debug issues in the validation host pool with either the diagnostics service or the [Windows Virtual Desktop troubleshooting articles](https://docs.microsoft.com/Azure/virtual-desktop/troubleshoot-set-up-overview).
+
+>[!NOTE]
+> We recommend that you leave the validation host pool in place to test all future updates.
 
 Before you begin, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session, if you haven't already.
 
@@ -62,7 +65,7 @@ In preview, service updates occur on approximately a monthly cadence. If there a
 
 ## Next steps
 
-Now that you've made a validation host pool and assigned users to access its desktop, you can also populate your validation host pool with RemoteApps. To learn more about how to manage apps in Windows Virtual Desktop, see the Manage app groups tutorial.
+Now that you've created a validation host pool, you can optionally populate your validation host pool with RemoteApps. To learn more about how to manage apps in Windows Virtual Desktop, see the Manage app groups tutorial.
 
 > [!div class="nextstepaction"]
 > [Manage app groups tutorial](./manage-app-groups.md)
