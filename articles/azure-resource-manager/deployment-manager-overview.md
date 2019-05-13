@@ -37,7 +37,7 @@ The Azure Deployment Manager REST API reference can be found [here](https://docs
 
 With Deployment Manager, a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) performs the deployment actions. You create this identity before starting your deployment. It must have access to the subscription you're deploying the service to, and sufficient permission to complete the deployment. For information about the actions granted through roles, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
 
-The identity must reside in one of the supported locations for Deployment Manager, and it must reside in the same location as the rollout.
+The identity must reside in the same location as the rollout.
 
 ## Topology template
 
