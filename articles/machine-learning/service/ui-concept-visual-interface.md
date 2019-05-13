@@ -23,7 +23,8 @@ The visual interface uses your Azure Machine Learning service [workspace](concep
 + Access the [compute targets](#compute-target) to run [experiments](#experiment).
 + Write the results of experiment runs into the [workspace](concept-workspace.md).
 + Access [datasets](#dataset).
-+ Register [models](concept-azure-machine-learning-architecture.md#model) and create [deployments](concept-azure-machine-learning-architecture.md#deploy).
++ Register [models](concept-azure-machine-learning-architecture.md#model) 
++ [Deploy](#deployment) models.
 
 ![Overview of the visual interface](media/ui-concept-visual-interface/overview.png)
 
@@ -54,6 +55,18 @@ For an example of a simple experiment, see [Quickstart: Prepare and visualize da
 
 For a more complete walkthrough of a predictive analytics solution, see [Tutorial: Predict automobile price with the visual interface](ui-tutorial-automobile-price-train-score.md).
 
+## Dataset
+
+A dataset is data that has been uploaded to the visual interface to use in the modeling process. A number of sample datasets are included for you to experiment with, and you can upload more datasets as you need them.
+
+## Module
+
+A module is an algorithm that you can perform on your data. The visual interface has a number of modules ranging from data ingress functions to training, scoring, and validation processes.
+
+A module may have a set of parameters that you can use to configure the module's internal algorithms. When you select a module on the canvas, the module's parameters are displayed in the Properties pane to the right of the canvas. You can modify the parameters in that pane to tune your model.
+
+For some help navigating through the library of machine learning algorithms available, see [Algorithm & module reference overview](../algorithm-module-reference/module-reference.md)
+
 ## Compute target
 
 A compute target is the compute resource that you use to run your experiment or host your service deployment. The supported compute targets are:
@@ -66,25 +79,13 @@ A compute target is the compute resource that you use to run your experiment or 
 
 Compute targets are attached to your Machine Learning [workspace](concept-workspace.md). You manage your compute targets in your workspace in the [Azure portal](https://portal.azure.com).
 
-## Web service
+## Deployment
 
 Once your predictive analytics model is ready, you deploy it as a web service right from the visual interface.
 
 The web services provide an interface between an application and your scoring model. An external application can communicate with the scoring model in real time. A call to a web service returns prediction results to an external application. To make a call to a web service, you pass an API key that was created when you deployed the web service. The web service is based on REST, a popular architecture choice for web programming projects.
 
 To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the visual interface](ui-tutorial-automobile-price-deploy.md).
-
-## Dataset
-
-A dataset is data that has been uploaded to the visual interface to use in the modeling process. A number of sample datasets are included for you to experiment with, and you can upload more datasets as you need them.
-
-## Module
-
-A module is an algorithm that you can perform on your data. The visual interface has a number of modules ranging from data ingress functions to training, scoring, and validation processes.
-
-A module may have a set of parameters that you can use to configure the module's internal algorithms. When you select a module on the canvas, the module's parameters are displayed in the Properties pane to the right of the canvas. You can modify the parameters in that pane to tune your model.
-
-For some help navigating through the library of machine learning algorithms available, see [Algorithm & module reference overview](../algorithm-module-reference/module-reference.md)
 
 ## Next steps
 
