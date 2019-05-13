@@ -168,7 +168,7 @@ DO $$
       ip_address, status_code, response_time_msec
     ) VALUES (
       trunc(random()*32), clock_timestamp(),
-      concat('https://example.com/', md5(random()::text)),
+      concat('http://example.com/', md5(random()::text)),
       ('{China,India,USA,Indonesia}'::text[])[ceil(random()*4)],
       concat(
         trunc(random()*250 + 2), '.',

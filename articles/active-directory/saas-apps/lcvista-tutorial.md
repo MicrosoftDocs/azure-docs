@@ -138,13 +138,13 @@ To configure Azure AD single sign-on with LCVista, perform the following steps:
 
 	c. Open the Metadata XML file which you have downloaded from Azure portal into Notepad, copy the value **X509Certificate** and paste it in the **x509 Certificate** section.
 
-	d. In the **First name attribute** textbox, paste the value `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+	d. In the **First name attribute** textbox, paste the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-	e. In the **Last name attribute** textbox, paste the value `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+	e. In the **Last name attribute** textbox, paste the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
-	f. In the **Email attribute** textbox, paste the value `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+	f. In the **Email attribute** textbox, paste the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-	g. In the **Username attribute** textbox, paste the value `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+	g. In the **Username attribute** textbox, paste the value `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
 	e. Click **Save** to save the settings.
 
