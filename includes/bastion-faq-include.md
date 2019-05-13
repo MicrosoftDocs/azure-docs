@@ -23,7 +23,7 @@ After your subscription has been provisioned for the preview, we will respond wi
 
 ## <a name="publicip"></a>Do I need a public IP on my virtual machine?
 
-You do not need a public IP on the Azure Virtual Machine that you are connecting to with Azure Bastion Host Service. The Bastion service will open the RDP/SSH to your virtual machine over a private IP within your virtual network.
+You do not need a public IP on the Azure Virtual Machine that you are connecting to with Azure Bastion service. The Bastion service will open the RDP/SSH to your virtual machine over a private IP within your virtual network.
 
 ## <a name="rdpssh"></a>Do I need an RDP or SSH client?
 
@@ -35,7 +35,7 @@ You don't need to install an agent or any software on your browser or on your Az
 
 ## <a name="browsers"></a>Which browsers are supported?
 
-During this preview, use the Microsoft Edge browser or Google Chrome on Windows. For Apple Mac, use Google Chrome browseSr.
+During this preview, use the Microsoft Edge browser or Google Chrome on Windows. For Apple Mac, use Google Chrome browser.
 
 ## <a name="regions"></a>What regions are available during preview?
 
