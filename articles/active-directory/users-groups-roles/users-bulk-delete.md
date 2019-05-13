@@ -50,7 +50,7 @@ Run the following command:
 Get-AzureADUser -Filter "UserType eq 'Member'"
 ```
 
-You should see the users that you invited listed, with a user principal name (UPN) in the format emailaddress#EXT#@domain. For example, lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
+Verify that the users that you deleted are no longer listed.
 
 ## Troubleshoot bulk user deletion
 

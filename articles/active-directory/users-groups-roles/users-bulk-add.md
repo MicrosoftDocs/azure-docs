@@ -53,7 +53,7 @@ Run the following command:
 Get-AzureADUser -Filter "UserType eq 'Member'"
 ```
 
-You should see that the users that you created are listed, with a user principal name (UPN) in the format emailaddress#EXT#@domain.
+You should see that the users that you created are listed.
 
 ## Troubleshoot bulk user addition
 

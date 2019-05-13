@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) supports bulk user create and delete operation
 
 1. Sign in to your Azure AD organization with a User administrator account in the organization.
 1. In Azure AD, select **Users** > **Download users**.
-1. On the **Download users** page, select **Start** to receive a CSV file listing your groups.
+1. On the **Download users** page, select **Start** to receive a CSV file listing user profile properties.
 
 ## Troubleshoot bulk user list download
 
