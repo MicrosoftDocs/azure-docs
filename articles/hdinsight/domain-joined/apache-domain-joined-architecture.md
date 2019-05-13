@@ -9,7 +9,7 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
 ---
-# Use Enterprise Security Package in HDInsight
+# What is Enterprise Security Package in Azure HDInsight
 
 The standard Azure HDInsight cluster is a single-user cluster. It's suitable for most companies that have smaller application teams building large data workloads. Each user can create a dedicated cluster on demand and destroy it when it's not needed anymore. 
 

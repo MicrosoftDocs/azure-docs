@@ -1,9 +1,11 @@
 - name: Azure HDInsight Documentation
   href: /azure/hdinsight
-- name: Enterprise security
+- name: Overview
   items:
-  - name: Overview
+  - name: What is Enterprise Security Package in HDInsight?
     href: apache-domain-joined-introduction.md
+- name: Concepts
+  items:
   - name: Plan for ESP clusters
     href: apache-domain-joined-architecture.md
   - name: Configure ESP clusters using Azure AD DS
