@@ -16,7 +16,7 @@ In order to publish offers to [Azure Marketplace](https://azuremarketplace.micro
 In this article, we'll cover how to create a Partner Center account, including how to: 
 
 - [Register using the Partner Center enrollment page](#register-for-an-account-using-the-partner-center-enrollment-page)
-- [Enter your work account email](#enter-your-work-email-address)
+- [Sign in with a work account](#sign-in-with-a-work-account)
 - [Agree to the terms and conditions](#agree-to-terms-and-conditions) 
 - [Provide your publisher profile](#provide-your-publisher-profile)
 
