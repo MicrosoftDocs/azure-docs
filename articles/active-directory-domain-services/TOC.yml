@@ -85,7 +85,7 @@
     - name: Join virtual machines to Azure AD DS
       items: 
         - name: Windows Server VM
-          href: active-directory-ds-admin-guide-join-windows-vm-portal.md
+          href: join-windows-vm.md
         - name: Windows Server VM from template
           href: active-directory-ds-join-windows-vm-template.md
         - name: CentOS

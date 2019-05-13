@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Join a RHEL VM to a managed doma
 description: Join a Red Hat Enterprise Linux virtual machine to Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
-ms.author: ergreenl
+ms.date: 05/13/2019
+ms.author: mstephen
 
 ---
 # Join a Red Hat Enterprise Linux 7 virtual machine to a managed domain
@@ -133,7 +133,7 @@ Verify whether the machine has been successfully joined to the managed domain. C
 
 
 ## Troubleshooting domain join
-Refer to the [Troubleshooting domain join](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) article.
+Refer to the [Troubleshooting domain join](join-windows-vm.md#troubleshoot-joining-a-domain) article.
 
 ## Related Content
 * [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
