@@ -237,7 +237,7 @@ For more detailed information on using Shared Access Signatures and Stored Acces
 * These are tutorials for using the .NET client library to create Shared Access Signatures and Stored Access Policies.
 
   * [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
-  * [Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service](../blobs/storage-dotnet-shared-access-signature-part-2.md)
+  * [Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service](../blobs/common/storage-dotnet-shared-access-signature-part-1.md)
 
     This article includes an explanation of the SAS model, examples of Shared Access Signatures, and recommendations for the best practice use of SAS. Also discussed is the revocation of the permission granted.
 
