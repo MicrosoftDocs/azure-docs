@@ -22,7 +22,7 @@ This article documents the common security attributes built into Azure Cosmos DB
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes | All Azure Cosmos DB data is encrypted at rest. Encryption at rest is enabled by default. all your databases and backups are encrypted.  See [Data encryption in Azure Cosmos DB](database-encryption-at-rest.md)|
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes | All Cosmos DB databases and backups are encrypted by default; see [Data encryption in Azure Cosmos DB](database-encryption-at-rest.md). Server-side encryption with customer-managed keys is not supported. |
 | Encryption in Transit (such as ExpressRoute encryption, in Vnet encryption, and VNet-VNet encryption )| Yes | All Azure Cosmos DB data is encrypted at transit. |
 | Encryption Key Handling (CMK, BYOK, etc.)| No |  |
 | Column Level Encryption (Azure Data Services)| Yes | Only in the Tables API Premium. Not all APIs support this feature. See [Introduction to Azure Cosmos DB: Table API](table-introduction.md). |
@@ -48,7 +48,7 @@ This article documents the common security attributes built into Azure Cosmos DB
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | Yes at the Database Account Level; at the data plane level, Cosmos DB uses resource tokens and key access. |
-| Authorization| Yes | Supported at the Azure Cosmos account with Master keys (primary and secondary) and Resource tokens. You can get read/write or read only access to data with master keys. Resource tokens allow limited time access to resources such as documents and containers.  |
+| Authorization| Yes | Supported at the Azure Cosmos account with Master keys (primary and secondary) and Resource tokens. You can get read/write or read only access to data with master keys. Resource tokens allow limited time access to resources such as documents and containers. |
 
 
 ## Audit trail
@@ -56,7 +56,7 @@ This article documents the common security attributes built into Azure Cosmos DB
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Control/Management Plan Logging and Audit| Yes | Azure Activity log for account level operations such as Firewalls, VNets, Keys access, and IAM. |
-| Data plane Logging and Audit | Yes | Diagnostics monitoring logging for container level operations such as create container, provision throughput, Indexing policies, and CRUD operations on documents. |
+| Data plane Logging and Audit | Yes | Diagnostics monitoring logging for container level operations such as create container, provision throughput, indexing policies, and CRUD operations on documents. |
 
 ## Configuration management
 
@@ -64,7 +64,7 @@ This article documents the common security attributes built into Azure Cosmos DB
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| No  | | 
 
-## Additional security attributes for SQL Database
+## Additional security attributes for Cosmos DB
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
