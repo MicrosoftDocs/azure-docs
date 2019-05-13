@@ -30,7 +30,7 @@ The visual interface uses your Azure Machine Learning service [workspace](concep
 
 ## Workflow
 
-The visual interface gives you an interactive, visual workspace to quickly build, test, and iterate on a model. 
+The visual interface gives you an interactive, visual canvas to quickly build, test, and iterate on a model. 
 
 + You drag-and-drop [datasets](#dataset) and analysis [modules](#module) onto the canvas.
 + Connect the modules together to form an [experiment](#experiment).
@@ -41,6 +41,8 @@ The visual interface gives you an interactive, visual workspace to quickly build
 
 ## Experiment
 
+Create an experiment from scratch, or use an existing sample experiment as a template.  Each time you run an experiment, artifacts are stored in your workspace.
+
 An experiment consists of datasets that provide data to analytical modules, which you connect together to construct a model. Specifically, a valid experiment has these characteristics:
 
 * The experiment contains at least one dataset and one module.
@@ -48,8 +50,6 @@ An experiment consists of datasets that provide data to analytical modules, whic
 * Modules may be connected to either datasets or other modules.
 * All input ports for modules must have some connection to the data flow.
 * All required parameters for each module must be set.
-
-Create a training experiment from scratch, or use an existing sample experiment as a template.  Each time you run an experiment, artifacts are stored in your workspace.
 
 For an example of a simple experiment, see [Quickstart: Prepare and visualize data without writing code in Azure Machine Learning](ui-quickstart-run-experiment.md).
 
@@ -64,6 +64,8 @@ A dataset is data that has been uploaded to the visual interface to use in the m
 A module is an algorithm that you can perform on your data. The visual interface has a number of modules ranging from data ingress functions to training, scoring, and validation processes.
 
 A module may have a set of parameters that you can use to configure the module's internal algorithms. When you select a module on the canvas, the module's parameters are displayed in the Properties pane to the right of the canvas. You can modify the parameters in that pane to tune your model.
+
+![Module properties](media/ui-concept-visual-interface/properties.png)
 
 For some help navigating through the library of machine learning algorithms available, see [Algorithm & module reference overview](../algorithm-module-reference/module-reference.md)
 
