@@ -50,7 +50,6 @@ aks_target.wait_for_deployment()
 > [!IMPORTANT]
 > Azure will bill you as long as the AKS cluster is provisioned. Make sure to delete your AKS cluster once you are done using it.
 
-
 ## Write entry script
 
 Save the following to your working directory as `score.py`. 
