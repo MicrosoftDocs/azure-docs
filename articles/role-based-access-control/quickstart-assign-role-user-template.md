@@ -12,7 +12,7 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/09/2019
+ms.date: 05/13/2019
 ms.author: rolyon
 
 #Customer intent: As a new user, I want to see how to grant access to resources by using Azure Resource Manager template so that I can start granting access to others.
@@ -56,8 +56,8 @@ $principalId = (Get-AzAdUser -Mail $emailAddress).id
 $roleDefinitionId = (Get-AzRoleDefinition -name "Virtual Machine Contributor").id
 $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-rbac-builtinrole-resourcegroup/azuredeploy.json"
 
+New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -roleAssignmentName $roleAssignmentName -roleDefinitionID $roleDefinitionId -principalId $principalId
-
 ```
 
 ## Clean up
