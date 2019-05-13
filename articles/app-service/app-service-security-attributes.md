@@ -20,52 +20,46 @@ This article documents the common security attributes built into Azure App Servi
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes | Web site file content is stored in Azure Storage, which automatically encrypts the content at rest.  See [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).<br>Customer supplied secrets are encrypted at rest. The secrets are encrypted at rest while stored in App Service configuration databases.<br?
-Locally attached disks can optionally be used as temporary storage by websites (D:\local and %TMP%). Locally attached disks are not encrypted at rest.  
- |
-| Encryption in Transit (such as ExpressRoute encryption, in Vnet encryption, and VNet-VNet encryption )| Yes | All Azure Cosmos DB data is encrypted at transit. |
-| Encryption Key Handling (CMK, BYOK, etc.)| No |  |
-| Column Level Encryption (Azure Data Services)| Yes | Only in the Tables API Premium. Not all APIs support this feature. See [Introduction to Azure Cosmos DB: Table API](table-introduction,md). |
-| API calls encrypted| Yes | All connections to Azure Cosmos DB support HTTPS. Azure Cosmos DB also supports TLS 1.2 connections, but this is not yet enforced. If customers turn off lower level TLS on their end, they can ensure to connect to Cosmos DB  |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes | Web site file content is stored in Azure Storage, which automatically encrypts the content at rest. See [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).<br>Customer supplied secrets are encrypted at rest. The secrets are encrypted at rest while stored in App Service configuration databases.<br?
+Locally attached disks can optionally be used as temporary storage by websites (D:\local and %TMP%). Locally attached disks are not encrypted at rest. |
+| Encryption in Transit (such as ExpressRoute encryption, in Vnet encryption, and VNet-VNet encryption )| Yes | Customers can configure web sites to require and use HTTPS for inbound traffic. See the blog post [How to make an Azure App Service HTTPS only](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/). |
+| Encryption Key Handling (CMK, BYOK, etc.)| Yes | Customers can choose to store application secrets in Key Vault and retrieve them at runtime. See [Use Key Vault references for App Service and Azure Functions (preview)](app-service-key-vault-references.md).|
+| Column Level Encryption (Azure Data Services)| N/A | |
+| API calls encrypted| Yes | Management calls to configure App Service occur via [Azure Resource Manager](../azure-resource-manager/index.yml) calls over HTTPS. |
 
 ## Network segmentation
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Service Endpoint support| Yes |  |
-| vNET Injection support| Yes | With VNet service endpoint, you can configure an Azure Cosmos DB account to allow access only from a specific subnet of a virtual network (VNet). You can also combine VNet access with firewall rules.  See [Access Azure Cosmos DB from virtual networks](vnet-service-endpoint). |
-| Network Isolation and Firewalling support| Yes | With firewall support, you can configure your Azure Cosmos account to allow access only from an approved set of IP addresses, a range of IP addresses and/or cloud services. See [Configure IP firewall in Azure Cosmos DB](how-to-configure-firewall).|
-| Support for forced tunneling |  |  |
+| Service Endpoint support| Yes | Currently available in preview for App Service. See [Azure App Service Access Restrictions](app-service-ip-restrictions.md). |
+| vNET Injection support| Yes | App Service Environments are private implementations of App Service dedicated to a single customer injected into a customer's virtual network. See [Introduction to the App Service Environments](environment/intro.md). |
+| Network Isolation and Firewalling support| Yes | For the public multi-tenant variation of App Service, customers can configure network ACLs (IP Restrictions) to lock down allowed inbound traffic.  See [Azure App Service Access Restrictions](app-service-ip-restrictions.md).  App Service Environments are deployed directly into virtual networks and hence can be secured with NSGs. |
+| Support for forced tunneling | Yes | App Service Environments can be deployed into a customer's virtual network where forced tunneling is configured. Customers need to follow the directions in [Configure your App Service Environment with forced tunneling](environment/forced-tunnel-support.md). |
 
 ## Detection
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| Yes | All requests that are sent to Azure Cosmos DB are logged. [Azure Monitoring](../azure-monitor/overview.md), Azure Metrics, Azure Audit Logging are supported.  You can log information corresponding to data plane requests, query runtime statistics, query text, MongoDB requests. You can also setup alerts. |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | App Service integrates with Application Insights for languages that support Application Insights (Full .NET Framework, .NET Core, Java and Node.JS).  See [Monitor Azure App Service performance}(../ure-monitor/app/azure-web-apps.md). App Service also sends application metrics into Azure Monitor. See [Monitor apps in Azure App Service](web-sites-monitor.md). |
 
 ## Identity and access management
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Authentication| Yes | Yes at the Database Account Level; at the data plane level, Cosmos DB uses resource tokens and key access. |
-| Authorization| Yes | Supported at the Azure Cosmos account with Master keys (primary and secondary) and Resource tokens. You can get read/write or read only access to data with master keys. Resource tokens allow limited time access to resources such as documents and containers.  |
+| Authentication| Yes | Customers can build applications on App Service that automatically integrate with [Azure Active Directory (AAD)](../azure-active-directory/index.yml) as well as other OAuth compatible identity providers; see [Authentication and authorization in Azure App Service](overview-authentication-authorization.md). For management access to App Service assets, all access is controlled by a combination of AAD authenticated principal and ARM RBAC roles. |
+| Authorization| Yes | For management access to App Service assets, all access is controlled by a combination of AAD authenticated principal and ARM RBAC roles.  |
 
 
 ## Audit trail
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Control/Management Plan Logging and Audit| Yes | Azure Activity log for account level operations such as Firewalls, VNets, Keys access, and IAM. |
-| Data plane Logging and Audit | Yes | Diagnostics monitoring logging for container level operations such as create container, provision throughput, Indexing policies, and CRUD operations on documents. |
+| Control/Management Plan Logging and Audit| Yes | All management operations performed on App Service objects occur via [Azure Resource Manager](../azure-resource-manager/index.yml). Historical logs of these operations are available both in the portal and via the CLI; see [Azure Resource Manager resource provider operations](../role-based-access-control/resource-provider-operations#microsoftweb) and [az monitor activity-log](/cli/azure/monitor/activity-log). |
+| Data plane Logging and Audit | Yes | The data plane for App Service is a remote file share containing a customer’s deployed web site content.  There is no auditing of the remote file share. |
 
 ## Configuration management
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Configuration management support (versioning of configuration, etc.)| No  | | 
+| Configuration management support (versioning of configuration, etc.)| For management access to App Service assets, all access is controlled by a combination of AAD authenticated principal and Azure Resource Manager RBAC roles. | | 
 
-## Additional security attributes for SQL Database
-
-| Security Attribute | Yes/No | Notes|
-|---|---|--|
-| Cross Origin Resource Sharing (CORS) | Yes | See [Configure Cross-Origin Resource Sharing (CORS)](how-to-configure-cross-origin-resource-sharing.md). |
