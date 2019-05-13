@@ -21,7 +21,7 @@ This quickstart helps you begin using the .NET SDK and C# to analyze language. A
 > [!NOTE]
 > The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/TextAnalytics).
 
-For technical details, refer to the [API definitions](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
+For technical details, refer to the [Text Analytics .NET SDK reference](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet).
 
 ## Prerequisites
 
@@ -130,7 +130,7 @@ In the `Main` function of your project, call the sample method that you want to 
     }
 ```
 
-The following sections describe how to call each API feature.
+The following sections describe how to call each service feature.
 
 ## Perform sentiment analysis
 
