@@ -114,12 +114,13 @@ DO $$
       ('{200,404}'::int[])[ceil(random()*2)],
       5+trunc(random()*150)
     );
+    COMMIT;
     PERFORM pg_sleep(random() * 0.25);
   END LOOP;
 END $$;
 ```
 
-The query adds a row approximately every quarter second. The rows are stored on different worker nodes as directed by the distribution column, `site_id`.
+The query adds a row approximately every eighth second. The rows are stored on different worker nodes as directed by the distribution column, `site_id`.
 
    > [!NOTE]
    > Leave the data generation query running, and open a second psql
