@@ -45,7 +45,7 @@ Failover and failback have four stages:
 
 ## Verify VM properties
 
-Before you run a failover, verify VM properties, and make sure that the VMs meet [Azure requirements](vmware-physical-azure-support-matrix.md#replicated-machines).
+Before you run a failover, check the VM properties to make sure that the VMs meet [Azure requirements](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 Verify properties as follows:
 
@@ -59,7 +59,7 @@ Verify properties as follows:
     * Resource group
     * Target size
     * [Availability set](../virtual-machines/windows/tutorial-availability-sets.md)
-    * Managed disk settings.
+    * Managed disk settings
 
 4. You can view and modify network settings, including:
 
@@ -79,14 +79,14 @@ Verify properties as follows:
 
 3. Select **Shut down machine before beginning failover** to attempt to shut down source VMs before triggering the failover. Failover continues even if the shutdown fails. You can follow the failover progress on the **Jobs** page.
 
-In some scenarios, failover requires additional processing that takes around eight to ten minutes to complete. You might notice longer test failover times for:
+In some scenarios, failover requires additional processing that takes around 8 to 10 minutes to complete. You might notice longer test failover times for:
 
 * VMware VMs running a Mobility service version older than 9.8.
 * Physical servers.
 * VMware Linux VMs.
 * Hyper-V VMs protected as physical servers.
 * VMware VMs that don't have the DHCP service enabled.
-* VMware VMs that don't have the following boot drivers: storvsc, vmbus, storflt, intelide, and atapi.
+* VMware VMs that don't have the following boot drivers: storvsc, vmbus, storflt, intelide, atapi.
 
 > [!WARNING]
 > Don't cancel a failover in progress. Before failover is started, VM replication is stopped. If you cancel a failover in progress, failover stops, but the VM won't replicate again.
@@ -108,4 +108,4 @@ After failover, reprotect the Azure VMs to on-premises. Then, after the VMs are 
 
 > [!div class="nextstepaction"]
 > [Reprotect Azure VMs](vmware-azure-reprotect.md)
-> [Fail back from Azure](vmware-azure-failback.md) 
+> [Fail back from Azure](vmware-azure-failback.md)

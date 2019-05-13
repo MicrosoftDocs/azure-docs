@@ -58,34 +58,33 @@ When you set up the source environment, you install the Azure Site Recovery Prov
 1. In **Prepare Infrastructure**, select **Source**.
 2. In **Prepare source**, select **+ VMM** to add a VMM server. In **Add Server**, check that **System Center VMM server** appears in **Server type**.
 3. Download the installer for the Microsoft Azure Site Recovery Provider.
-4. Download the vault registration key. You need this when you run Provider setup. The key is valid for five days after you generate it.
+4. Download the vault registration key. You need this key when you run the Provider setup. The key is valid for five days after you generate it.
 5. Download the installer for the Microsoft Azure Recovery Services agent.
 
-    ![Download](./media/hyper-v-vmm-azure-tutorial/download-vmm.png)
+    ![Download Provider, registration key, and agent](./media/hyper-v-vmm-azure-tutorial/download-vmm.png)
 
 ### Install the Provider on the VMM server
 
 1. In the Azure Site Recovery Provider Setup wizard > **Microsoft Update**, opt in to use Microsoft Update to check for Provider updates.
-2. In **Installation**, accept the default installation location for the Provider, and select **Install**. 
+2. In **Installation**, accept the default installation location for the Provider and select **Install**.
 3. After installation, in the Microsoft Azure Site Recovery Registration Wizard > **Vault Settings**, select **Browse**, and in **Key file**, select the vault key file that you downloaded.
 4. Specify the Azure Site Recovery subscription, and the vault name (**ContosoVMVault**). Specify a friendly name for the VMM server, to identify it in the vault.
 5. In **Proxy Settings**, select **Connect directly to Azure Site Recovery without a proxy**.
 6. Accept the default location for the certificate that's used to encrypt data. Encrypted data will be decrypted when you fail over.
-7. In **Synchronize cloud metadata**, select **Sync cloud meta data to Site Recovery portal**. This action only needs to happen once on each server. Then select **Register**.
+7. In **Synchronize cloud metadata**, select **Sync cloud meta data to Site Recovery portal**. This action needs to happen only once on each server. Then, select **Register**.
 8. After the server is registered in the vault, select **Finish**.
 
 After registration finishes, metadata from the server is retrieved by Azure Site Recovery, and the VMM server is displayed in **Site Recovery Infrastructure**.
 
 ### Install the Recovery Services agent on Hyper-V hosts
 
-Install the agent on each Hyper-V host containing VMs you want to replicate.
+Install the agent on each Hyper-V host containing VMs that you want to replicate.
 
-1. In the Microsoft Azure Recovery Services Agent Setup Wizard > **Prerequisites Check**, select **Next**. Any missing prerequisites will automatically be installed.
-2. In **Installation Settings**, accept the installation location, and the cache location. The cache drive needs at least 5 GB of storage. We recommend a drive with 600 GB or more of free space. Then select **Install**.
+1. In the Microsoft Azure Recovery Services Agent Setup Wizard > **Prerequisites Check**, select **Next**. Any missing prerequisites will be installed automatically.
+2. In **Installation Settings**, accept the installation location and the cache location. The cache drive needs at least 5 GB of storage. We recommend a drive with 600 GB or more of free space. Then, select **Install**.
 3. In **Installation**, when installation finishes, select **Close** to finish the wizard.
 
     ![Install agent](./media/hyper-v-vmm-azure-tutorial/mars-install.png)
-    
 
 ## Set up the target environment
 
@@ -95,14 +94,13 @@ Install the agent on each Hyper-V host containing VMs you want to replicate.
 
 Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
 
-
 ## Configure network mapping
 
 1. In **Site Recovery Infrastructure** > **Network mappings** > **Network Mapping**, select the **+Network Mapping** icon.
 2. In **Add network mapping**, select the source VMM server. Select **Azure** as the target.
 3. Verify the subscription and the deployment model after failover.
 4. In **Source network**, select the source on-premises VM network.
-5. In **Target network**, select the Azure network in which replica Azure VMs will be located when they're created after failover. Then select **OK**.
+5. In **Target network**, select the Azure network in which replica Azure VMs will be located when they're created after failover. Then, select **OK**.
 
     ![Network mapping](./media/hyper-v-vmm-azure-tutorial/network-mapping-vmm.png)
 
@@ -111,24 +109,22 @@ Site Recovery checks that you have one or more compatible Azure storage accounts
 1. Select **Prepare infrastructure** > **Replication Settings** > **+Create and associate**.
 2. In **Create and associate policy**, specify a policy name. We're using **ContosoReplicationPolicy**.
 3. Leave the default settings and select **OK**.
-    - **Copy frequency** indicates that delta data (after initial replication) will replicate every five minutes.
-    - **Recovery point retention** indicates for each recovery point will be retained for two hours.
+    - **Copy frequency** indicates that, after initial replication, delta data will replicate every five minutes.
+    - **Recovery point retention** indicates that each recovery point will be retained for two hours.
     - **App-consistent snapshot frequency** indicates that recovery points containing app-consistent snapshots will be created every hour.
-    - **Initial replication start time**, indicates that initial replication will start immediately.
-    - **Encrypt data stored on Azure** - the default **Off** setting indicates that at rest data in Azure isn't encrypted.
-4. After the policy is created, select **OK**. When you create a new policy it's automatically associated with the VMM cloud.
+    - **Initial replication start time** indicates that initial replication will start immediately.
+    - **Encrypt data stored on Azure** is set to the default (**Off**) and indicates that at-rest data in Azure isn't encrypted.
+4. After the policy is created, select **OK**. When you create a new policy, it's automatically associated with the VMM cloud.
 
 ## Enable replication
 
-1. In **Replicate application**, select **Source**. 
-2. In **Source**, select the VMM cloud. Then select **OK**.
-3. In **Target**, verify Azure as the target, the vault subscription, and select the **Resource Manager** model.
-4. Select the **contosovmsacct1910171607** storage account, and the **ContosoASRnet** Azure network.
-5. In **Virtual machines** > **Select**, select the VM you want to replicate. Then select **OK**.
+1. In **Replicate application**, select **Source**.
+2. In **Source**, select the VMM cloud. Then, select **OK**.
+3. In **Target**, verify the target (Azure), the vault subscription, and select the **Resource Manager** model.
+4. Select the **contosovmsacct1910171607** storage account and the **ContosoASRnet** Azure network.
+5. In **Virtual machines** > **Select**, select the VM that you want to replicate. Then, select **OK**.
 
-   You can track progress of the **Enable Protection** action in **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job completes, the initial replication is complete, and the VM is ready for failover.
-
-
+   You can track progress of the **Enable Protection** action in **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job finishes, the initial replication is complete, and the VM is ready for failover.
 
 ## Next steps
 > [!div class="nextstepaction"]
