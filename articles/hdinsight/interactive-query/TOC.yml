@@ -7,7 +7,7 @@
     maintainContext: true
   - name: HDInsight 4.0
     href: ../hdinsight-version-release.md
-    maintainContext: true
+    maintainContext: true 
 - name: Quickstarts
   items:
   - name: Execute Apache Hive queries - Apache Zeppelin
