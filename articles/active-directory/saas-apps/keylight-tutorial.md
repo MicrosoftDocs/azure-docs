@@ -170,11 +170,11 @@ To configure Azure AD single sign-on with LockPath Keylight, perform the followi
 
     j. Set **Auto-provision security config**, select **Standard User Configuration**.
 
-    k. In the **Email attribute** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    k. In the **Email attribute** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    l. In the **First name attribute** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    l. In the **First name attribute** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    m. In the **Last name attribute** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    m. In the **Last name attribute** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
     n. Click **Save**.
 
