@@ -95,8 +95,6 @@ Follow these recommendations for better results.
 
 * Make the Reward Wait Time as short as you can, while leaving enough time to get user feedback. 
 
-* Setting a Reward Wait Time too high will cause Personalizer to unnecessarily store more data counts against storage quota.
-
 <!--@Edjez - storage quota? -->
 
 * Don't choose a duration that is shorter than the time needed to get feedback. For example, if some of your rewards come in after a user has watched 1 minute of a video, the experiment length should be at least double that.
