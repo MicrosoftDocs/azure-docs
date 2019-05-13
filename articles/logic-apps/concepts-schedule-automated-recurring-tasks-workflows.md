@@ -45,11 +45,11 @@ Here are the differences between these triggers:
 
 * **Recurrence**: Runs your workflow at regular time intervals based on your specified schedule. If you select "Day", you can specify hours and minutes of the day, for example, every day at 2:30. If you select "Week", you can select days of the week, such as Wednesday and Saturday, along with specifying hours and minutes of the day.
 
-  If any recurrences are missed, the Recurrence trigger doesn't "go back in time" to process those missed recurrences. This trigger waits and restarts recurrences at the next specified interval. For more information, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence.md).
+  If any recurrences are missed, the Reccurrence trigger waits and restarts recurrences at the next specified interval. This trigger doesn't process the past missed recurrences. For more information, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence.md).
 
-* **Sliding Window**: Runs your workflow at regular, non-overlapping, sequential time intervals. You can specify a start date and time, time zone, and a delay for any frequency. However, this trigger doesn't provide options to specify hours and minutes of the day or for days of the week.
+* **Sliding Window**: Runs your workflow at regular, non-overlapping, sequential time intervals. You can specify a start date and time, time zone, and a duration to delay the workflow. However, this trigger doesn't provide options to specify hours and minutes of the day or for days of the week.
 
-  If any recurrences are missed, the Sliding Window trigger "goes back in time" to process those missed recurrences.
+  If any recurrences are missed, the Sliding Window trigger processes those past missed recurrences.
 
 ## Schedule actions
 
