@@ -20,7 +20,7 @@ ms.author: glenga
 | Custom domains per app</a> |0 (azurewebsites.net subdomain only)|500 |500 |
 | Custom domain [SSL support](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Not supported, wildcard certificate for *.azurewebsites.net available by default| Unlimited SNI SSL and 1 IP SSL connections included |Unlimited SNI SSL and 1 IP SSL connections included | 
 
-<sup>1</sup>For specific limits for the various App Service plan options, see the [App Service plan limits](#app-service-limits).  
+<sup>1</sup>For specific limits for the various App Service plan options, see the [App Service plan limits](../articles/azure-subscription-service-limits.md#app-service-limits).  
 <sup>2</sup>The default timeout for the Functions 1.x runtime in the App Service plan is `unlimited`.  
 <sup>3</sup>Requires the App Service plan be set to [Always On](../articles/azure-functions/functions-scale.md#always-on). Pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/).  
 <sup>4</sup> These limits are [set in the host](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  
