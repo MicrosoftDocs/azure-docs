@@ -3,7 +3,7 @@ title: Translator Text API V2.0
 titleSuffix: Azure Cognitive Services
 description: Reference documentation for the V2.0 Translator Text API.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 
 ms.service: cognitive-services
@@ -41,7 +41,7 @@ If you want to avoid getting profanity in the translation, regardless of the pre
 |ProfanityAction	|Action	|Example Source (Japanese)	|Example Translation (English)	|
 |:--|:--|:--|:--|
 |NoAction	|Default. Same as not setting the option. Profanity will pass from source to target.		|彼はジャッカスです。		|He is a jackass.	|
-|Marked		|Profane words will be surrounded by XML tags <profanity> and </profanity>.		|彼はジャッカスです。	|He is a <profanity>jackass</profanity>.	|
+|Marked		|Profane words will be surrounded by XML tags \<profanity> and \</profanity>.		|彼はジャッカスです。	|He is a \<profanity>jackass\</profanity>.	|
 |Deleted	|Profane words will be removed from the output without replacement.		|彼はジャッカスです。	|He is a.	|
 
 	

@@ -2,15 +2,15 @@
 title: What is Apache Hive and HiveQL - Azure HDInsight 
 description: Apache Hive is a data warehouse system for Apache Hadoop. You can query data stored in Hive using HiveQL, which similar to Transact-SQL. In this document, learn how to use Hive and HiveQL with Azure HDInsight.
 keywords: hiveql,what is hive,hadoop hiveql,how to use hive,learn hive,what is hive
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 03/26/2019
 ---
+
 # What is Apache Hive and HiveQL on Azure HDInsight?
 
 [Apache Hive](https://hive.apache.org/) is a data warehouse system for Apache Hadoop. Hive enables data summarization, querying, and analysis of data. Hive queries are written in HiveQL, which is a query language similar to SQL.
@@ -31,17 +31,15 @@ HDInsight provides several cluster types, which are tuned for specific workloads
 
 Use the following table to discover the different ways to use Hive with HDInsight:
 
-| **Use this method** if you want... | ...**interactive** queries | ...**batch** processing | ...with this **cluster operating system** | ...from this **client operating system** |
+| **Use this method** if you want... | ...**interactive** queries | ...**batch** processing | ...from this **client operating system** |
 |:--- |:---:|:---:|:--- |:--- |
-| [HDInsight tools for Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux, Unix, Mac OS X, or Windows |
-| [HDInsight tools for Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Linux or Windows* |Windows |
-| [Hive View](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |Any (browser based) |
-| [Beeline client](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X, or Windows |
-| [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux or Windows* |Linux, Unix, Mac OS X, or Windows |
-| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux or Windows* |Windows |
+| [HDInsight tools for Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ | Linux, Unix, Mac OS X, or Windows |
+| [HDInsight tools for Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
+| [Hive View](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Any (browser based) |
+| [Beeline client](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux, Unix, Mac OS X, or Windows |
+| [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, Mac OS X, or Windows |
+| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
 
-> [!IMPORTANT]
-> \* Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## HiveQL language reference
 
@@ -113,7 +111,6 @@ Hive on HDInsight comes pre-loaded with an internal table named `hivesampletable
 The following HiveQL statements project columns onto the `/example/data/sample.log` file:
 
 ```hiveql
-set hive.execution.engine=tez;
 DROP TABLE log4jLogs;
 CREATE EXTERNAL TABLE log4jLogs (
     t1 string,
@@ -132,10 +129,6 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 In the previous example, the HiveQL statements perform the following actions:
 
-* `set hive.execution.engine=tez;`: Sets the execution engine to use Apache Tez. Using Tez can provide an increase in query performance. For more information on Tez, see the [Use Apache Tez for improved performance](#usetez) section.
-
-    > [!NOTE]  
-    > This statement is only required when using a Windows-based HDInsight cluster. Tez is the default execution engine for Linux-based HDInsight.
 
 * `DROP TABLE`: If the table already exists, delete it.
 
@@ -157,7 +150,6 @@ In the previous example, the HiveQL statements perform the following actions:
 To create an **internal** table instead of external, use the following HiveQL:
 
 ```hiveql
-set hive.execution.engine=tez;
 CREATE TABLE IF NOT EXISTS errorLogs (
     t1 string,
     t2 string,
@@ -187,16 +179,7 @@ These statements perform the following actions:
 
 ### <a id="usetez"></a>Apache Tez
 
-[Apache Tez](https://tez.apache.org) is a framework that allows data intensive applications, such as Hive, to run much more efficiently at scale. Tez is enabled by default for Linux-based HDInsight clusters.
-
-> [!NOTE]  
-> Tez is currently off by default for Windows-based HDInsight clusters and it must be enabled. To take advantage of Tez, the following value must be set for a Hive query:
->
-> `set hive.execution.engine=tez;`
->
-> Tez is the default engine for Linux-based HDInsight clusters.
-
-The [Apache Hive on Tez design documents](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contains details about the implementation choices and tuning configurations.
+[Apache Tez](https://tez.apache.org) is a framework that allows data intensive applications, such as Hive, to run much more efficiently at scale. Tez is enabled by default.  The [Apache Hive on Tez design documents](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contains details about the implementation choices and tuning configurations.
 
 ### Low Latency Analytical Processing (LLAP)
 

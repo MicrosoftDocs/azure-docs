@@ -2,15 +2,11 @@
 title: Key Vault versions
 description: The various versions of Azure Key Vault
 services: key-vault
-documentationcenter:
 author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 
-ms.assetid: e8622dcc-59a3-4f4b-9f63-cd2232515a65
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin

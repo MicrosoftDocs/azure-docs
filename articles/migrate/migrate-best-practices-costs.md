@@ -328,7 +328,7 @@ After migration, after a thorough review of these types of tasks you might consi
 
 **Learn more:**
 - [Learn about](https://azure.microsoft.com/services/functions/) Azure Functions
-- [Learn more about](https://azure.microsoft.com/en-us/services/batch/) Azure Batch
+- [Learn more about](https://azure.microsoft.com/services/batch/) Azure Batch
   
 ## Next steps 
 

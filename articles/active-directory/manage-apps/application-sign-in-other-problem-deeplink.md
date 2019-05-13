@@ -110,7 +110,7 @@ You may also download the extension for Chrome and Firefox from these direct lin
 
 To configure an application from the Azure AD gallery, you must:
 
--   [Add an application from the Azure AD gallery](#add-an-application-from-the-Azure-AD-gallery)
+-   [Add an application from the Azure AD gallery](#add-an-application-from-the-azure-ad-gallery)
 
 -   [Configure the application for password single sign-on](#configure-the-application-for-password-single-sign-on)
 

@@ -3,8 +3,8 @@ title: Azure Active Directory authentication and authorization error codes | Mic
 description: Learn about the AADSTS error codes that are returned from the Azure AD security token service (STS).
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 02/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
@@ -54,7 +54,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS50007 | PartnerEncryptionCertificateMissing - The partner encryption certificate was not found for this app. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) with Microsoft to get this fixed. |
 | AADSTS50008 | InvalidSamlToken - SAML assertion is missing or misconfigured in the token. Contact your federation provider. |
 | AADSTS50010 | AudienceUriValidationFailed - Audience URI validation for the app failed since no token audiences were configured. |
-| AADSTS50011 | InvalidReplyTo - The reply address is missing, misconfigured, or does not match reply addresses configured for the app. Try out the resolution listed at [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). If you still see issues, contact the app owner or app admin. |
+| AADSTS50011 | InvalidReplyTo - The reply address is missing, misconfigured, or does not match reply addresses configured for the app.  As a resolution ensure to add this missing reply address to the Azure Active Directory application or have someone with the permissions to manage your application in Active Directory do this for you.|
 | AADSTS50012 | AuthenticationFailed - Authentication failed for one of the following reasons:<ul><li>The subject name of the signing certificate is not authorized</li><li>A matching trusted authority policy was not found for the authorized subject name</li><li>The certificate chain is not valid</li><li>The signing certificate is not valid</li><li>Policy is not configured on the tenant</li><li>Thumbprint of the signing certificate is not authorized</li><li>Client assertion contains an invalid signature</li></ul> |
 | AADSTS50013 | InvalidAssertion - Assertion is invalid because of various reasons - The token issuer doesn't match the api version within its valid time range -expired -malformed - Refresh token in the assertion is not a primary refresh token. |
 | AADSTS50014 | GuestUserInPendingState - The user's redemption is in a pending state. The guest user account is not fully created yet. |

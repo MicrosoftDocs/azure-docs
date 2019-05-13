@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/07/2019
 ms.author: diberry
 ---
 
@@ -39,6 +39,10 @@ To start the iterative process in the [LUIS portal](https://www.luis.ai), you fi
 >[!NOTE]
 >If you have one or more intents in your app that do not contain example utterances, you cannot train your app. Add utterances for all your intents. For more information, see [Add example utterances](luis-how-to-add-example-utterances.md).
 
+## Training date and time
+
+Training date and time is GMT + 2. 
+
 ## Train with all data
 
 Training uses a small percentage of negative sampling. If you want to use all data instead of the small negative sampling, use the [Version settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) with the `UseAllTrainingData` set to true to turn off this feature. 
@@ -55,5 +59,5 @@ In order to know when training is complete, you have to poll the status until al
 
 ## Next steps
 
-* [Label suggested utterances with LUIS](luis-how-to-review-endoint-utt.md) 
+* [Label suggested utterances with LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) 

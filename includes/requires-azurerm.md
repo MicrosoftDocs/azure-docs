@@ -14,6 +14,6 @@ ms.topic: include
 > 
 > 1. Disable AzureRM aliases in `Az` (if enabled) with `Disable-AzAlias`. Running this command without
 >    `Az` installed or with aliases disabled is harmless.
-> 2. Follow the [latest install instructions for AzureRM](/powershell/azure/azurerm/install-Az-ps). Even if you
+> 2. Follow the [latest install instructions for AzureRM](/powershell/azure/install-az-ps). Even if you
 >    have `AzureRM` installed, update to the latest version.
 

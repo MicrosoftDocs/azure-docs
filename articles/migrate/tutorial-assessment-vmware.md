@@ -191,6 +191,9 @@ will be hosted.
     - In **User name** and **Password**, specify the read-only account credentials that the collector will use to discover VMs on the vCenter server.
     - In **Collection scope**, select a scope for VM discovery. The collector can only discover VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster. It shouldn't contain more than 1500 VMs. [Learn more](how-to-scale-assessment.md) about how you can discover a larger environment.
 
+       > [!NOTE]
+       > **Collection scope** lists only folders of hosts and clusters. Folders of VMs cannot be directly selected as collection scope. However, you can discover by using a vCenter account that has access to the individual VMs. [Learn more](https://docs.microsoft.com/azure/migrate/how-to-scale-assessment#set-up-permissions) about how to scope to a folder of VMs.
+
 7. In **Specify migration project**, specify the Azure Migrate project ID and key that you copied from the portal. If didn't copy them, open the Azure portal from the collector VM. In the project **Overview** page, click **Discover Machines**, and copy the values.  
 8. In **View collection progress**, monitor discovery status. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-collector) about what data is collected by the Azure Migrate collector.
 

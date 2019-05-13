@@ -130,8 +130,8 @@ To configure Azure AD single sign-on with Meta Networks Connector, perform the f
 	| ---------------| --------------- | -------- |
 	| firstname | user.givenname | |
 	| lastname | user.surname | |
-	| emailaddress| user.mail| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-	| name | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+	| emailaddress| user.mail| `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+	| name | user.userprincipalname| `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
 	| phone | user.telephonenumber | |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
@@ -275,9 +275,9 @@ When you click the Meta Networks Connector tile in the Access Panel, you should 
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

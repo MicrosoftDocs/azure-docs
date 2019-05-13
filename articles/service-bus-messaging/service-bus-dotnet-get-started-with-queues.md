@@ -13,33 +13,24 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 04/10/2019
 ms.author: aschhab
 
 ---
 # Get started with Service Bus queues
-
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-
-This tutorial covers the following steps:
-
-1. Create a Service Bus namespace, using the Azure portal.
-2. Create a Service Bus queue, using the Azure portal.
-3. Write a .NET Core console application to send a set of messages to the queue.
-4. Write a .NET Core console application to receive those messages from the queue.
+In this tutorial, you create .NET Core console applications to send messages to and receive messages from a Service Bus queue. 
 
 ## Prerequisites
 
 1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
-2. An Azure subscription.
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
-
+2. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+3. If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue.
+    1. Read the quick **overview** of Service Bus **queues**. 
+    2. Create a Service Bus **namespace**. 
+    3. Get the **connection string**. 
+    4. Create a Service Bus **queue**. 
 
 ## Send messages to the queue
 
@@ -202,7 +193,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
 
 ## Receive messages from the queue
 
-To receive the messages you just sent, create another .NET Core console application and install the **Microsoft.Azure.ServiceBus** NuGet package, similar to the previous sender application.
+To receive the messages you sent, create another .NET Core console application and install the **Microsoft.Azure.ServiceBus** NuGet package, similar to the previous sender application.
 
 ### Write code to receive messages from the queue
 

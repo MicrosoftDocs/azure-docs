@@ -4,7 +4,7 @@ description: Describes the common exceptions and errors which can be thrown by t
 services: service-fabric
 documentationcenter: .net
 author: oanapl
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: bb821313-b221-479f-b08e-36cf07e60a07

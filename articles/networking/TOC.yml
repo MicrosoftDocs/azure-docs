@@ -113,7 +113,7 @@
   - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/network
   - name: Azure PowerShell
-    href: https://docs.microsoft.com/powershell/module/azurerm.network/
+    href: https://docs.microsoft.com/powershell/module/az.network/
   - name: .Net
     href: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview
   - name: Node.js

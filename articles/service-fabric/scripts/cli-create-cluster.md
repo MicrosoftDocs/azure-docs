@@ -4,7 +4,7 @@ description: Create a secure Service Fabric Linux cluster in Azure using the Azu
 services: service-fabric
 documentationcenter: 
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: 
 tags: azure-service-management
 

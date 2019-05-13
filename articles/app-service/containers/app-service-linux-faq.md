@@ -34,13 +34,15 @@ You can find all Docker files on [GitHub](https://github.com/azure-app-service).
 
 **What are the expected values for the Startup File section when I configure the runtime stack?**
 
-| Stack     | Expected Value                                                                |
-|-----------|-------------------------------------------------------------------------------|
-| Java SE   | a command to start your `.jar` application                                    |
-| Tomcat    | the location of a script to execute any  configurations for your app          |
-| Node.js   | the PM2 configuration file or your script file                                |
-| .Net Core | the compiled DLL name as `dotnet <myapp>.dll`                                 |
-| Ruby      | the Ruby script that you want to initialize your app with                     |
+| Stack           | Expected Value                                                                         |
+|-----------------|----------------------------------------------------------------------------------------|
+| Java SE         | the command to start your JAR app (for example, `java -jar my-app.jar --server.port=80`) |
+| Tomcat, Wildfly | the location of a script to perform any necessary configurations (for example, `/home/site/deployments/tools/startup_script.sh`)          |
+| Node.js         | the PM2 configuration file or your script file                                |
+| .Net Core       | the compiled DLL name as `dotnet <myapp>.dll`                                 |
+| Ruby            | the Ruby script that you want to initialize your app with                     |
+
+These commands or scripts are executed after the built-in Docker container is started, but before your application code is started.
 
 ## Management
 
@@ -131,7 +133,7 @@ Add the full image name, including the private registry URL (for example, myacr.
 
 **Can I expose more than one port on my custom container image?**
 
-We do not currently support exposing more than one port.
+We don't support exposing more than one port.
 
 **Can I bring my own storage?**
 
@@ -149,16 +151,16 @@ We have automatic port detection. You can also specify an app setting called *WE
 
 No, the platform handles HTTPS termination at the shared front ends.
 
-## Multi-container with Docker Compose and Kubernetes
+## Multi-container with Docker Compose
 
 **How do I configure Azure Container Registry (ACR) to use with multi-container?**
 
-In order to use ACR with multi-container, **all container images** need to be hosted on the same ACR registry server. Once they are on the same registry server, you will need to create application settings and then update the Docker Compose or Kubernetes configuration file to include the ACR image name.
+In order to use ACR with multi-container, **all container images** need to be hosted on the same ACR registry server. Once they are on the same registry server, you will need to create application settings and then update the Docker Compose configuration file to include the ACR image name.
 
 Create the following application settings:
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (full URL, ex: https://<server-name>.azurecr.io)
+- DOCKER_REGISTRY_SERVER_URL (full URL, ex: `https://<server-name>.azurecr.io`)
 - DOCKER_REGISTRY_SERVER_PASSWORD (enable admin access in ACR settings)
 
 Within the configuration file, reference your ACR image like the following example:

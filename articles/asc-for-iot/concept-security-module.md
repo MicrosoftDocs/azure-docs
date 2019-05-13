@@ -1,10 +1,11 @@
 ---
-title: Understand ASC for IoT security module twins Preview| Microsoft Docs
-description: Learn about the concept of security module twins and how they are used in ASC for IoT.
-services: ascforiot
+title: Understand Azure Security Center for IoT security module twins Preview| Microsoft Docs
+description: Learn about the concept of security module twins and how they are used in Azure Security Center for IoT.
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
@@ -21,11 +22,11 @@ ms.author: mlottner
 # Security module
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article explains how ASC for IoT uses device twins and modules. 
+This article explains how Azure Security Center (ASC) for IoT uses device twins and modules. 
 
 ## Device twins
 

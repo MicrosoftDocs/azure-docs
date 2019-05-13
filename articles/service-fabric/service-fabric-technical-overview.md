@@ -4,7 +4,7 @@ description: A terminology overview of Service Fabric. Discusses key terminology
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: chackdan;subramar
 
 ms.assetid: 3a970679-e19e-43b3-9be8-71773f307c57

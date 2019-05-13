@@ -1,25 +1,18 @@
 ---
-title: Azure IoT Edge module SKUs | Microsoft Docs
+title: Azure IoT Edge module SKUs | Azure Marketplace
 description: Create SKUs for an IoT Edge module.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # IoT Edge module SKUs tab
 
 The **SKUs** tab of the **New Offer** page enables you to create one or more SKUs and associate them to your new offer.  You can use different SKUs to differentiate a solution by feature sets, billing models, or some other characteristic.
+
 
 ## SKU Settings
 
@@ -37,7 +30,9 @@ The **SKUs** tab is refreshed and displays the fields that you edit to configure
 
 |  **Field**       |     **Description**                                                          |
 |  ---------       |     ---------------                                                          |
-| **SKU ID**       | Identifier for this SKU. This name has a maximum of 50 characters, consisting of lowercase alphanumeric characters or dashes (-), but can't end with a dash. **Note:** You can't change this name after the offer's published. The name is publicly visible in product URLs. |
+| **SKU ID\***       | Identifier for this SKU. This name has a maximum of 50 characters, consisting of lowercase alphanumeric characters or dashes (-), but can't end with a dash. **Note:** You can't change this name after the offer's published. The name is publicly visible in product URLs. |
+|  |  |
+
 
 ## SKU Details
 
@@ -45,24 +40,28 @@ Configure the **SKU Details** to define how your SKU will be displayed on the Az
 
 ![IoT Edge module sku metadata](media/iot-edge-module-skus-tab-metadata.png)
 
-The following table describes the purpose, content, and formatting for fields under **SKU Details**.
+The following table describes the purpose, content, and formatting for fields under **SKU Details**. Required fields are indicted by an asterisk (*).
 
 |  **Field**       |     **Description**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Title**        | Title for this SKU. Maximum length of 50 characters. <br/> It will be shown in the Azure Portal and will be used as a default module name (without spaces and special characters) when it's deployed. See the pictures below to see exactly where this field is displayed.|
-| **Summary**      | Short summary of this SKU. Maximum length of 100 characters. Do **NOT** summarize the offer, just the SKU.  This summary will be shown in the Azure Marketplace. See the pictures below to see exactly where this field is displayed.|
-| **Description**  | Short description of this SKU.Maximum length of 3000 characters. Do NOT describe the offer but just this SKU. It will be shown in the azure marketplace and in the Azure portal. In the Azure portal, it will be appended to the Marketplace Description describing the offer defined in the Marketplace tab.  It can be the same as the SKU Summary. See the pictures below to see exactly where this field is displayed.|
-| **Hide this SKU** | Keep the default setting, which is **No**. |
+| **Title\***        | Title for this SKU. Maximum length of 50 characters. <br/> It will be shown in the Azure Portal and will be used as a default module name (without spaces and special characters) when it's deployed. See the pictures below to see exactly where this field is displayed.|
+| **Summary\***      | Short summary of this SKU. Maximum length of 100 characters. Do **NOT** summarize the offer, just the SKU.  This summary will be shown in the Azure Marketplace. See the pictures below to see exactly where this field is displayed.|
+| **Description\***  | Short description of this SKU.Maximum length of 3000 characters. Do NOT describe the offer but just this SKU. It will be shown in the azure marketplace and in the Azure portal. In the Azure portal, it will be appended to the Marketplace Description describing the offer defined in the Marketplace tab.  It can be the same as the SKU Summary. See the pictures below to see exactly where this field is displayed.|
+| **Hide this SKU\*** | Keep the default setting, which is **No**. |
+|  |  |
+
 
 ### SKU example
 
  The following examples show how the SKU **Title**, **Summary**,  and **Description** fields appear in different views.
  
+
 #### On the Azure Marketplace website:
 
 - When looking at SKU details:
 
     ![How SKUs are displayed in Azure Marketplace website](media/iot-edge-module-ampdotcom-pdp-plans.png)
+
 
 #### On the Azure Portal website:
 
@@ -84,6 +83,7 @@ The following table describes the purpose, content, and formatting for fields un
     
     ![How IoT Edge module shows up when being deployed](./media/iot-edge-module-deployment.png)
 
+
 ## SKU content
 
 Under **Edge Module Images**, provide the information we need to upload your IoT Edge module.
@@ -94,24 +94,24 @@ You can target multiple platforms and provide several versions through tags. Lea
 
 ![IoT Edge Module Images](./media/iot-edge-module-skus-tab-acr.png)
 
-The following table describes the purpose, contents, and formatting of the fields for:
+The following table describes the purpose, contents, and formatting of the fields for the sections **Image Repository Details** and **Image Version**.  Required fields are indicted by an asterisk (*).
 
-- **Image Repository Details**
-- **Image Version**
 
 |  **Field**       |     **Description**                                                          |
 |  ---------       |     ---------------                                                          |
-|  ***Image Repository Details***   |  |
-| **Subscription ID**        | The Azure subscription ID of your ACR.|
-| **Resource group name**      | The resource group name of your ACR.|
-| **Registry name**  | Your ACR registry name. Only copy the registry name, NOT the login server name (for example, without the `azurecr.io`.) |
-| **Repository name**  | The repository name of your ACR that contains your IoT Edge module. **Note:** After the name is set, it can't be changed  later. Use a unique name to ensure that no other offer in your account has the same name. |
-| **Username** | The username associated with your ACR (admin username). |
-| **Password** | The password associated with your ACR. |
-|  ***Image Version***   |  |
-| **Image Tag or Digest** | It must at least include a `latest` tag and a version tag (for example, starting with `xx.xx.xx-` where xx is a number). They should be [manifest tags](https://github.com/estesp/manifest-tool) to target multiple platforms. All tags referenced by a manifest tag must also be added so we can upload them. You can add several versions of an IoT Edge module using tags. All manifest tags (except `latest`) must start with either `X.Y-` or `X.Y.Z-` where X, Y, Z are integers. Learn more about [tags and versioning in "Prepare your IoT Edge module technical assets"](./cpp-create-technical-assets.md). <br/> For example, if a `latest` tag points to  that points to `1.0.1-linux-x64`, `1.0.1-linux-arm32`,  , and `1.0.1-windows-arm32`, these 6 tags needs to be added here. |
+|  |  ***Image Repository Details***    |
+| **Subscription ID\***        | The Azure subscription ID of your ACR.|
+| **Resource group name\***      | The resource group name of your ACR.|
+| **Registry name\***  | Your ACR registry name. Only copy the registry name, NOT the login server name (for example, without the `azurecr.io`.) |
+| **Repository name\***  | The repository name of your ACR that contains your IoT Edge module. **Note:** After the name is set, it can't be changed  later. Use a unique name to ensure that no other offer in your account has the same name. |
+| **Username\*** | The username associated with your ACR (admin username). |
+| **Password\*** | The password associated with your ACR. |
+|    |  ***Image Version***   |
+| **Image Tag or Digest\*** | It must at least include a `latest` tag and a version tag (for example, starting with `xx.xx.xx-` where xx is a number). They should be [manifest tags](https://github.com/estesp/manifest-tool) to target multiple platforms. All tags referenced by a manifest tag must also be added so we can upload them. You can add several versions of an IoT Edge module using tags. All manifest tags (except `latest`) must start with either `X.Y-` or `X.Y.Z-` where X, Y, Z are integers. Learn more about [tags and versioning in "Prepare your IoT Edge module technical assets"](./cpp-create-technical-assets.md). <br/> For example, if a `latest` tag points to  that points to `1.0.1-linux-x64`, `1.0.1-linux-arm32`,  , and `1.0.1-windows-arm32`, these 6 tags needs to be added here. |
+|  |  |
 
-### Help your customers launch your IoT Edge module by using default settings
+
+### Help your customers launch by using default settings
 
 Define the most common settings to deploy your IoT Edge module. Optimize customer deployments by letting them launch your IoT Edge module out-of-the-box with these defaults.
 
@@ -125,8 +125,10 @@ The following table describes the purpose, contents, and formatting of the field
 | **Default twin desired properties**      | Each default twin desired properties name and value must be fewer than 512 characters. You can define up to 5 name/value twin desired properties. Values of twin desired properties must be valid JSON, non-escaped, without arrays and with a maximum nested hierarchy of 4. Learn more about [twin desired properties](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties). <br/> For example, if a module supports a dynamically configurable refresh rate via twin desired properties, it makes sense to define the following default twin desired property:<br/> - Name #1: `RefreshRate`<br/>- Value #1: `60`|
 | **Default environment variables**  | Each default environment variables name and value must be fewer than 512 characters. You can define up to 5 name/value environment variables. <br/>For example, if a module requires to accept terms of use before being started, you can define the following environment variable:<br/> - Name #1: `ACCEPT_EULA`<br/>- Value #1: `Y`|
 | **Default createOptions**  | The createOptions must be fewer than 512 characters. It must be valid JSON, non-escaped. Learn more about [createOptions](https://docs.microsoft.com/azure/iot-edge/module-composition#configure-modules). <br/> For example, if a module requires bind a port, you can define the following createOptions:<br/>  `"HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}]}`|
+|   |   |
 
-<br/> Select **Save** to save your SKU settings. 
+Select **Save** to save your SKU settings. 
+
 
 ## Next steps
 

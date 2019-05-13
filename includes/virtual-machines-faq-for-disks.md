@@ -136,6 +136,20 @@ For managed disks you cannot rename them. However, you may rename an unmanaged d
 
 GPT partitioning can be used only on data disks, not OS disks. OS disks must use the MBR partition style.
 
+## Uploading to a managed disk
+
+**Can I upload data to an existing managed disk?**
+
+No, upload can only be used during the creation of a new empty disk with the **ReadyToUpload** state.
+
+**Can I attach a disk to a VM while it is in an upload state?**
+
+No.
+
+**Can I take a snapshot of a manged disk in an upload state?**
+
+No.
+
 ## Standard SSD disks
 
 **What are Azure Standard SSD disks?**
@@ -214,7 +228,7 @@ Yes, you can choose to failover to a VM with Managed Disks.
 
 **Is there any impact of migration on Azure VMs protected by Azure Site Recovery via Azure to Azure replication?**
 
-Yes. Currently, Azure Site Recovery Azure to Azure protection for VMs with Managed Disks is only available as a public preview service.
+Yes. Currently, Azure Site Recovery Azure to Azure protection for VMs with Managed Disks is available as a GA service.
 
 **Can I migrate VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?**
 
@@ -334,7 +348,7 @@ Yes.
 
 **What are the largest disk sizes supported by Azure Backup and Azure Site Recovery service?**
 
-The largest disk size supported by Azure Backup and Azure Site Recovery service is 4 TiB. Suport for the larger disks up to 32 TiB will be added soon.
+The largest disk size supported by Azure Backup and Azure Site Recovery service is 4 TiB. Support for the larger disks up to 32 TiB will be added soon.
 
 **What are the recommended VM sizes for larger disk sizes (>4 TiB) for Standard SSD and Standard HDD disks to achieve optimized disk IOPS and Bandwidth?**
 

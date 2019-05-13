@@ -1,12 +1,11 @@
 ﻿---
-ms.assetid:
 title: Azure Key Vault managed storage account - CLI
 description: Storage account keys provide a seamless integration between Azure Key Vault and key based access to Azure Storage Account.
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
-author: prashanthyv
-ms.author: prashanthyv
+author: msmbaldwin
+ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
 # Customer intent: As a developer I want storage credentials and SAS tokens to be managed securely by Azure Key Vault.
@@ -14,7 +13,7 @@ ms.date: 03/01/2019
 # Azure Key Vault managed storage account - CLI
 
 > [!NOTE]
-> [Azure storage integration with Azure Active Directory (Azure AD) is now in preview](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). We recommend using Azure AD for authentication and authorization, which provides OAuth2 token-based access to Azure storage, just like Azure Key Vault. This allows you to:
+> [Azure storage integration with Azure Active Directory (Azure AD)] is Microsoft's cloud-based identity and access management service. Azure AD integration is available for the Blob and Queue services.(https://docs.microsoft.com/azure/storage/common/storage-auth-aad). We recommend using Azure AD for authentication and authorization, which provides OAuth2 token-based access to Azure storage, just like Azure Key Vault. This allows you to:
 > - Authenticate your client application using an application or user identity, instead of storage account credentials. 
 > - Use an [Azure AD managed identity](/azure/active-directory/managed-identities-azure-resources/) when running on Azure. Managed identities remove the need for client authentication all together, and storing credentials in or with your application.
 > - Use Role Based Access Control (RBAC) for managing authorization, which is also supported by Key Vault.
@@ -106,7 +105,7 @@ You can also ask Key Vault to generate SAS (Shared Access Signature) tokens. A s
 Once you've completed the steps listed above you can run the following commands to ask Key Vault to generate SAS tokens for you. 
 
 The list of things that would be accomplished in the below steps are
-- Sets an account SAS definition named '<YourSASDefinitionName>' on a KeyVault-managed storage account '<YourStorageAccountName>' in    your vault '<VaultName>'. 
+- Sets an account SAS definition named `<YourSASDefinitionName>` on a KeyVault-managed storage account `<YourStorageAccountName>` in    your vault `<VaultName>`. 
 - Creates an account SAS token for services Blob, File, Table and Queue, for resource types Service, Container and Object, with all permissions, over https and with the specified start and end dates
 - Sets a KeyVault-managed storage SAS definition in the vault, with the template uri as the SAS token created above, of SAS type 'account' and valid for N days
 - Retrieves the actual access token from the KeyVault secret corresponding to the SAS definition

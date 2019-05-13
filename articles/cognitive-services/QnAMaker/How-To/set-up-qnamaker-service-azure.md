@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/02/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
@@ -56,6 +56,10 @@ This procedure deploys a few Azure resources. Together, these resources manage t
 1. Once the deployment is done, you will see the following resources created in your subscription.
 
     ![Resource created a new QnA Maker service](../media/qnamaker-how-to-setup-service/resources-created.png)
+
+## Region of management service
+
+The management service of QnA Maker, only used for the portal & for initial data processing, is available only in West US. No customer data is stored in this West US service.
 
 ## Next steps
 

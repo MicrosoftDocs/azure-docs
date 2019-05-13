@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
 ---
@@ -33,29 +33,9 @@ ms.custom: seodec18
 
 -----
 
-**Question**: *Which languages are supported with Computer Vision?*
-
-**Answer**:
-Supported languages include:
-
-| | | Supported Languages | | |
-|---------------- |------------------ |------------------ |--------------------------- |--------------------
-| Danish (da-DK)  | Dutch (nl-NL)     | English           | Finnish (fi-FI)            |French (fr-FR)
-| German (de-DE)  | Greek (el-GR)     | Hungarian (hu-HU) | Italian (it-IT)            | Japanese (ja-JP)
-| Korean (ko-KR)  | Norwegian (nb-NO) | Polish (pl-PL)    | Portuguese (pt-BR) (pt-PT) | Russian (ru-RU)
-| Spanish (es-ES)	| Swedish (sv-SV)	  | Turkish (tr-TR)   |                            |
-
------
-
 **Question**: *Can Computer Vision be used to read license plates?*
 
 **Answer**: The Vision API offers good text-detection with OCR, but it is not currently optimized for license plates. We are constantly trying to improve our services and have added OCR for auto license plate recognition to our list of feature requests.
-
------
-
-**Question**: *Which languages are supported for handwriting recognition?*
-
-**Answer**: Currently, only English is supported.
 
 -----
 
