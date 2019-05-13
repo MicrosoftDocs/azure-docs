@@ -1,7 +1,7 @@
 ---
-title: "Reward score - Personalizer" 
+title: Reward score - Personalizer
 titleSuffix: Azure Cognitive Services
-description: 
+description: The reward score indicates how well the personalization choice, RewardActionID, resulted for the user. The value of the reward score is determined by your business logic, based on observations of user behavior. Personalizer trains it's machine learning models by evaluating the rewards.
 services: cognitive-services
 author: edjez
 manager: nitinme
