@@ -74,7 +74,14 @@ SELECT create_distributed_table('github_events', 'user_id');
 SELECT create_distributed_table('github_users', 'user_id');
 ```
 
-We're ready to load data. Download the two example files [users.csv](https://examples.citusdata.com/users.csv) and [events.csv](https://examples.citusdata.com/events.csv). After downloading the files, connect to the database using psql, being careful to run psql from the directory containing the files you downloaded. Load the data with the `\copy` command:
+We're ready to load data. In psql still, shell out to download the files:
+
+```sql
+\! curl -O https://examples.citusdata.com/users.csv
+\! curl -O https://examples.citusdata.com/events.csv
+```
+
+Next, load the data from the files into the distributed tables:
 
 ```sql
 \copy github_events from 'events.csv' WITH CSV
