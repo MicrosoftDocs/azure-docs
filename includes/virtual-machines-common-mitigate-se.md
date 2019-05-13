@@ -92,14 +92,12 @@ If the number of logical processors is greater than physical processors (cores),
 All VMs should show:
 
 ```
-branch target injection mitigation is enabled: True
-
-kernel VA shadow is enabled: True  
-
-L1TFWindowsSupportEnabled: True
+Windows OS support for branch target injection mitigation is enabled: True
+Windows OS support for kernel VA shadow is enabled: True
+Windows OS support for speculative store bypass disable is enabled system-wide: False
+Windows OS support for L1 terminal fault mitigation is enabled: True
+Windows OS support for MDS mitigation is enabled: True
 ```
-
-New one: True/ False
 
 If you don’t have the latest microcode --- check to see if it is available
 
