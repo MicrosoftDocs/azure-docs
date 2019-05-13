@@ -46,7 +46,7 @@ Locally attached disks can optionally be used as temporary storage by websites (
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Authentication| Yes | Customers can build applications on App Service that automatically integrate with [Azure Active Directory (AAD)](../azure-active-directory/index.yml) as well as other OAuth compatible identity providers; see [Authentication and authorization in Azure App Service](overview-authentication-authorization.md). For management access to App Service assets, all access is controlled by a combination of AAD authenticated principal and ARM RBAC roles. |
+| Authentication| Yes | Customers can build applications on App Service that automatically integrate with [Azure Active Directory (AAD)](../active-directory/index.yml) as well as other OAuth compatible identity providers; see [Authentication and authorization in Azure App Service](overview-authentication-authorization.md). For management access to App Service assets, all access is controlled by a combination of AAD authenticated principal and ARM RBAC roles. |
 | Authorization| Yes | For management access to App Service assets, all access is controlled by a combination of AAD authenticated principal and ARM RBAC roles.  |
 
 
@@ -54,7 +54,7 @@ Locally attached disks can optionally be used as temporary storage by websites (
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Control/Management Plan Logging and Audit| Yes | All management operations performed on App Service objects occur via [Azure Resource Manager](../azure-resource-manager/index.yml). Historical logs of these operations are available both in the portal and via the CLI; see [Azure Resource Manager resource provider operations](../role-based-access-control/resource-provider-operations#microsoftweb) and [az monitor activity-log](/cli/azure/monitor/activity-log). |
+| Control/Management Plan Logging and Audit| Yes | All management operations performed on App Service objects occur via [Azure Resource Manager](../azure-resource-manager/index.yml). Historical logs of these operations are available both in the portal and via the CLI; see [Azure Resource Manager resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftweb) and [az monitor activity-log](/cli/azure/monitor/activity-log). |
 | Data plane Logging and Audit | Yes | The data plane for App Service is a remote file share containing a customer’s deployed web site content.  There is no auditing of the remote file share. |
 
 ## Configuration management
