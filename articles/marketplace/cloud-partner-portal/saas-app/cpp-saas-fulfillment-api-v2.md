@@ -550,7 +550,6 @@ Unsubscribe and delete the specified subscription.
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   Content-Type     |  `application/json` |
 |  x-ms-requestid    |   A unique string value for tracking the request from the client, preferably a GUID. If this value isn't provided, one will be generated and provided in the response headers.   |
 |  x-ms-correlationid  |  A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.   |
 |  authorization     |  [Get JSON web token (JWT) bearer token.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
@@ -803,7 +802,7 @@ Where action can be one of these:
        ChangePlan, (When the change plan operation has completed)
        ChangeQuantity, (When the change quantity operation has completed),
        Suspend, (When resource has been suspended)
-	   Reinstate, (When resource has been reinstated after suspension)
+       Reinstate, (When resource has been reinstated after suspension)
 
 
 Where status can be one of these:
