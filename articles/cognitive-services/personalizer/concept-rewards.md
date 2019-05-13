@@ -14,13 +14,13 @@ ms.author: edjez
 
 # Reward scores indicate success of personalization
 
-The reward score indicates how well the personalization choice, [RewardActionID](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/personalizer/events/rank#rankresponse), resulted for the user. The value of the reward score is determined by your business logic, based on observations of user behavior.
+The reward score indicates how well the personalization choice, [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/rank#rankresponse), resulted for the user. The value of the reward score is determined by your business logic, based on observations of user behavior.
 
 Personalizer trains its machine learning models by evaluating the rewards. 
 
 ## Use Reward API to send reward score to Personalizer
 
-Rewards are sent to Personalizer by the [Reward API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/personalizer/events/reward). A reward is a number from -1 and 1. Personalizer trains the model to achieve the highest possible sum of rewards over time.
+Rewards are sent to Personalizer by the [Reward API](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward). A reward is a number from -1 and 1. Personalizer trains the model to achieve the highest possible sum of rewards over time.
 
 Rewards are sent after the user behavior has happened, which could be days later. The maximum amount of time Personalizer will wait until an event is considered to have no reward or a default reward is configured with the [Reward Wait Time](#reward-wait-time) in the Azure portal.
 
