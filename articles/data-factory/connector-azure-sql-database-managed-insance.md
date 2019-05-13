@@ -139,7 +139,7 @@ The following properties are supported for the Azure SQL Database Managed Instan
 
 For a full list of sections and properties available for use to define datasets, see the datasets article. This section provides a list of properties supported by the Azure SQL Database Managed Instance dataset.
 
-To copy data to and from Azure SQL Database Managed Instance, set the type property of the dataset to **SqlServerTable**. The following properties are supported:
+To copy data to and from Azure SQL Database Managed Instance, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -158,6 +158,7 @@ To copy data to and from Azure SQL Database Managed Instance, set the type prope
             "referenceName": "<Managed Instance linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -279,7 +280,7 @@ To copy data to Azure SQL Database Managed Instance, set the sink type in the co
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to **SqlSink**. | Yes. |
-| writeBatchSize |Number of rows to inserts into the SQL table **per batch**.<br/>Allowed values are integers for the number of rows. |No (default: 10,000). |
+| writeBatchSize |Number of rows to inserts into the SQL table **per batch**.<br/>Allowed values are integers for the number of rows. By default, Data Factory dynamically determine the appropriate batch size based on the row size.  |No |
 | writeBatchTimeout |This property specifies the wait time for the batch insert operation to complete before it times out.<br/>Allowed values are for the time span. An example is “00:30:00,” which is 30 minutes. |No. |
 | preCopyScript |This property specifies a SQL query for the copy activity to execute before writing data into the managed instance. It's invoked only once per copy run. You can use this property to clean up preloaded data. |No. |
 | sqlWriterStoredProcedureName |This name is for the stored procedure that defines how to apply source data into the target table. Examples of procedures are to do upserts or transforms by using your own business logic. <br/><br/>This stored procedure is *invoked per batch*. To do an operation that runs only once and has nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property. |No. |

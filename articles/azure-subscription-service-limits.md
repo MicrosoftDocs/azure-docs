@@ -50,6 +50,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Azure DNS](#azure-dns-limits)
 * [Azure Firewall](#azure-firewall-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
+* [Azure Machine Learning Service](#azure-machine-learning-service-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
@@ -119,6 +120,13 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
+#### Shared Image Gallery limits
+
+There are limits, per subscription, for deploying resources using Shared Image Galleries:
+- 100 shared image galleries, per subscription, per region
+- 1,000 image definitions, per subscription, per region
+- 10,000 image versions, per subscription, per region
+
 ### Virtual machine scale sets limits
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
@@ -132,6 +140,11 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ### Azure Kubernetes Service limits
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
+
+### Azure Machine Learning Service limits
+The latest values for Azure Machine Learning Compute quotas can be found in the [Azure Machine Learning quota page](../articles/machine-learning/service/how-to-manage-quotas.md)
+
+[!INCLUDE [how-to-manage-quotas](../articles/machine-learning/service/how-to-manage-quotas.md)]
 
 ### Networking limits
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]

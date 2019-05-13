@@ -143,11 +143,11 @@ If your organization doesn't have legacy clients, you should not allow your user
 
 **Q: My users say that sometimes they don't receive the text message, or they reply to two-way text messages but the verification times out.**
 
-Delivery of text messages and receipt of replies in two-way SMS are not guaranteed because there are uncontrollable factors that might affect the reliability of the service. These factors include the destination country, the mobile phone carrier, and the signal strength.
+Delivery of text messages and receipt of replies in two-way SMS are not guaranteed because there are uncontrollable factors that might affect the reliability of the service. These factors include the destination country/region, the mobile phone carrier, and the signal strength.
 
 If your users often have problems with reliably receiving text messages, tell them to use the mobile app or phone call method instead. The mobile app can receive notifications both over cellular and Wi-Fi connections. In addition, the mobile app can generate verification codes even when the device has no signal at all. The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073), and [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
 
-If you must use text messages, we recommend using one-way SMS rather than two-way SMS when possible. One-way SMS is more reliable and it prevents users from incurring global SMS charges from replying to a text message that was sent from another country.
+If you must use text messages, we recommend using one-way SMS rather than two-way SMS when possible. One-way SMS is more reliable and it prevents users from incurring global SMS charges from replying to a text message that was sent from another country/region.
 
 **Q: Can I change the amount of time my users have to enter the verification code from a text message before the system times out?**
 
