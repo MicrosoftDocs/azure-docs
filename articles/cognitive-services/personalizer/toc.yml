@@ -30,6 +30,8 @@
     - name: Reinforcement learning
       href: concepts-reinforcement-learning.md
       displayName: RL, contextual bandits, Vowpal Wabbit
+    - name: Exploration
+      href: concepts-exploration.md
   - name: Analysis
     items: 
     - name: Offline evaluation
