@@ -1,6 +1,6 @@
 ---
 title: Create a Windows Virtual Desktop preview host pool to validate service updates  - Azure
-description: How to create a validation host pool to monitor service updates before rolling out to production.
+description: How to create a validation host pool to monitor service updates before rolling out updates to production.
 services: virtual-desktop
 author: ChJenk
 
