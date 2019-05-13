@@ -4,7 +4,7 @@ description: Learn how to add app roles in an application registered in Azure Ac
 services: active-directory
 documentationcenter: ''
 author: kkrishna
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -47,7 +47,9 @@ These application roles are defined in the [Azure portal](https://portal.azure.c
 1. Edit the app manifest by locating the `appRoles` setting and adding all your Application Roles.
 
      > [!NOTE]
-     > Each role definition in this manifest must have a different valid **Guid** for the "Id" property. The `"value"` property of each role should exactly match the strings are used in the code in the application.
+     > Each app role definition in this manifest must have a different valid GUID for the `id` property. 
+     > 
+     > The `value` property of each app role definition should exactly match the strings that are used in the code in the application. The `value` property can't contain spaces. If it does, you'll receive an error when you save the manifest.
      
 1. Save the manifest.
 

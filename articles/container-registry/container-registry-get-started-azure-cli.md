@@ -90,13 +90,13 @@ Output:
 ```
 Result
 ----------------
-busybox
+hello-world
 ```
 
-The following example lists the tags on the **busybox** repository.
+The following example lists the tags on the **hello-world** repository.
 
 ```azurecli
-az acr repository show-tags --name <acrName> --repository busybox --output table
+az acr repository show-tags --name <acrName> --repository hello-world --output table
 ```
 
 Output:

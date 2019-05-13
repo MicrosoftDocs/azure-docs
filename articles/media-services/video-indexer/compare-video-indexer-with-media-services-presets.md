@@ -8,6 +8,7 @@ manager: femila
 editor: ''
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na

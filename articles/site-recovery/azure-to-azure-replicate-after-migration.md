@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/16/2019
 ms.author: raynew
 ---
 
 # Set up disaster recovery for Azure VMs after migration to Azure 
 
 
-Use this article if you've [migrated on-premises machines to Azure VMs](tutorial-migrate-on-premises-to-azure.md) using the [Site Recovery](site-recovery-overview.md) service, and you now want to get the VMs set up for disaster recovery to a secondary Azure region. The article describes how to ensure that the Azure VM agent is installed on migrated VMs, and how to remove the Site Recovery Mobility service that's no longer needed after migration.
+Follow this article if you've [migrated on-premises machines to Azure VMs](tutorial-migrate-on-premises-to-azure.md) using the [Site Recovery](site-recovery-overview.md) service, and you now want to get the VMs set up for disaster recovery to a secondary Azure region. The article describes how to ensure that the Azure VM agent is installed on migrated VMs, and how to remove the Site Recovery Mobility service that's no longer needed after migration.
 
 
 
@@ -72,7 +72,7 @@ Install the [Azure Linux VM](../virtual-machines/extensions/agent-linux.md) agen
         ```
     - For Linux, sign in as a root user. In a terminal, go to **/user/local/ASR**, and run the following command:
         ```
-        uninstall.sh -Y
+        ./uninstall.sh -Y
         ```
 2. Restart the VM before you configure replication.
 
