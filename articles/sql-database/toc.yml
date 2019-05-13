@@ -101,14 +101,14 @@
     href: sql-database-get-started-sql-data-sync.md
   - name: Machine Learning Services
     items:
-    - name: Build and deploy a predictive model
+    - name: Build and deploy a predictive model in R
       items:
       - name: 1 - Prepare the data
-        href: sql-database-tutorial-build-deploy-model-1.md
+        href: sql-database-tutorial-build-deploy-model-R-1.md
       - name: 2 - Create the model
-        href: sql-database-tutorial-build-deploy-model-2.md
+        href: sql-database-tutorial-build-deploy-model-R-2.md
       - name: 3 - Deploy the model
-        href: sql-database-tutorial-build-deploy-model-3.md
+        href: sql-database-tutorial-build-deploy-model-R-3.md
 - name: Samples
   items:
   - name: Code samples

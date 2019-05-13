@@ -31,19 +31,19 @@ In part three, you'll learn how to:
 > * Create a stored procedure that makes predictions using the model
 > * Execute the model with new data
 
-In [part one](sql-database-tutorial-build-deploy-model-1.md), you learned how how to import a sample database into an Azure SQL database, and then prepare the data to be used for training a predictive model in R.
+In [part one](sql-database-tutorial-build-deploy-model-R-1.md), you learned how how to import a sample database into an Azure SQL database, and then prepare the data to be used for training a predictive model in R.
 
-In [part two](sql-database-tutorial-build-deploy-model-2.md), you learned how to create and train multiple models, and then choose the most accurate one.
+In [part two](sql-database-tutorial-build-deploy-model-R-2.md), you learned how to create and train multiple models, and then choose the most accurate one.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## Prerequisites
 
-* Part three of this tutorial series assumes you have completed [**part one**](sql-database-tutorial-build-deploy-model-1.md) and [**part two**](sql-database-tutorial-build-deploy-model-2.md).
+* Part three of this tutorial series assumes you have completed [**part one**](sql-database-tutorial-build-deploy-model-R-1.md) and [**part two**](sql-database-tutorial-build-deploy-model-R-2.md).
 
 ## Create a stored procedure that generates the model
 
-In [part two](sql-database-tutorial-build-deploy-model-2.md#compare-the-results) of this tutorial series, you decided that a decision tree (dtree) model was the most accurate. Now create a stored procedure (`generate_rental_rx_model`) that trains and generates the dtree model using rxDTree from the RevoScaleR package.
+In [part two](sql-database-tutorial-build-deploy-model-R-2.md#compare-the-results) of this tutorial series, you decided that a decision tree (dtree) model was the most accurate. Now create a stored procedure (`generate_rental_rx_model`) that trains and generates the dtree model using rxDTree from the RevoScaleR package.
 
 Run the following commands in Azure Data Studio or SSMS.
 
