@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.author: estfan
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/10/2019
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -173,7 +173,7 @@ Here are the limits for custom connectors that you can create from web APIs.
 
 | Name | Limit |
 | ---- | ----- |
-| Number of logic apps with system-assigned managed identities per Azure subscription | 10 |
+| Number of logic apps with system-assigned managed identities per Azure subscription | 100 |
 |||
 
 <a name="integration-account-limits"></a>

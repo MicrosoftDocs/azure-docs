@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: mvc
-ms.date: 05/01/2019
+ms.date: 05/09/2019
 ms.author: juliako
 ---
 
@@ -56,5 +56,5 @@ Make sure to remember the values that you used for the resource group name and M
 
 The Streaming Endpoint from which you want to stream content has to be in the Running state. The following CLI command starts your default Streaming Endpoint:
 
-
 `az ams streaming-endpoint start -n default -a <amsaccount> -g <amsResourceGroup>`
+
