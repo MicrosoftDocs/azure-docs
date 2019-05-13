@@ -155,7 +155,7 @@ In Data Factory, ADLS Gen1 connector supports Service Principal and Managed Iden
 
 ### Preserve ACLs from Data Lake Storage Gen1
 
-If you want to replicate the ACLs along with data files when upgrading from Data Lake Storage Gen1 to Gen2, refer to [Preserve ACLs from Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preservce-acls-from-data-lake-storage-gen1). 
+If you want to replicate the ACLs along with data files when upgrading from Data Lake Storage Gen1 to Gen2, refer to [Preserve ACLs from Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls-from-data-lake-storage-gen1). 
 
 ### Incremental copy 
 
