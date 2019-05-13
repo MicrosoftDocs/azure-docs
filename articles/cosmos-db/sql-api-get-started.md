@@ -144,13 +144,14 @@ Now, get started writing some code. The complete *Project.cs* file for this tuto
 
    > [!TIP]
    > If you are using a proxy object to connect to Azure Cosmos DB, you should use the following code block to create the DocumentClient object:
-    HttpClientHandler handler = new HttpClientHandler()
-    {
-       Proxy = proxyObject
-       UseProxy = true,
-    };
-    //Pass handler to the constructor of DocumentClient.
-     DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey, handler);
+   >
+   > HttpClientHandler handler = new HttpClientHandler()
+   > {
+   >    Proxy = proxyObject
+   >   UseProxy = true,
+   > };
+   > //Pass handler to the constructor of DocumentClient.
+   > DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey, handler);
 
    
 1. Add the following code to the `Main` method to run the `GetStartedDemo` task. The `Main` method catches exceptions and writes them to the console.
