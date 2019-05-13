@@ -20,9 +20,9 @@ There is no programming required, you visually connect [datasets](#dataset) and 
 
 The visual interface uses your Azure Machine Learning service [workspace](concept-workspace.md) to:
 
-+ Access the [compute targets](#compute-target) to run [experiments](#experiment).
-+ Write the results of experiment runs into the [workspace](concept-workspace.md).
++ Write the results of [experiment](#experiment) runs into the workspace.
 + Access [datasets](#dataset).
++ Use the [compute resources](#compute-target) in the workspace to run the experiment. 
 + Register [models](concept-azure-machine-learning-architecture.md#model) 
 + [Deploy](#deployment) models.
 
@@ -69,9 +69,9 @@ A module may have a set of parameters that you can use to configure the module's
 
 For some help navigating through the library of machine learning algorithms available, see [Algorithm & module reference overview](../algorithm-module-reference/module-reference.md)
 
-## Compute target
+## Compute resources
 
-A compute target is the compute resource that you use to run your experiment or host your service deployment. The supported compute targets are:
+Use compute resources from your workspace to run your experiment or host your deployed models as web services. The supported compute targets are:
 
 
 | Compute target | Training | Deployment |
