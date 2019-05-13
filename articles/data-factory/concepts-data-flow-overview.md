@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ---
 
-# What are Mapping Data Flows in Azure Data Factory?
+# What are Mapping Data Flows?
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Mapping Data Flows allow data engineers to develop graphical data transformation logic without writing code. The resulting data flows are executed as activities within Azure Data Factory Pipelines using scaled-out Azure Databricks clusters.
+Mapping Data Flows are visually-designed data transformation in Azure Data Factory. Data Flows allow data engineers to develop graphical data transformation logic without writing code. The resulting data flows are executed as activities within Azure Data Factory Pipelines using scaled-out Azure Databricks clusters.
 
 The intent of Azure Data Factory Data Flow is to provide a fully visual experience with no coding required. Your Data Flows will execute on your own execution cluster for scaled-out data processing. Azure Data Factory handles all of the code translation, path optimization, and execution of your data flow jobs.
 

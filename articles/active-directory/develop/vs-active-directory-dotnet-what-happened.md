@@ -139,7 +139,7 @@ Additional changes if you selected the **Read directory data** option:
 
 ### File backup (Visual Studio 2015)
 
-When adding the connected service, Visual Studio 2015 backs up changed and removed files. All affected files are saved in the folder `Backup/AzureAD`. Visual Studio 2017 does not create backups.
+When adding the connected service, Visual Studio 2015 backs up changed and removed files. All affected files are saved in the folder `Backup/AzureAD`. Visual Studio 2017 and later does not create backups.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`

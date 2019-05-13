@@ -41,7 +41,9 @@ The Shared Image Gallery feature has multiple resource types. We will be using o
 
 ## Before you begin
 
-To complete the example in this article, you must have an existing managed image. You can follow [Tutorial: Create a custom image of an Azure VM with Azure PowerShell](tutorial-custom-images.md) to create one if needed. When working through this article, replace the resource group and VM names where needed.
+To complete the example in this article, you must have an existing managed image. You can follow [Tutorial: Create a custom image of an Azure VM with Azure PowerShell](tutorial-custom-images.md) to create one if needed. If the managed image contains a data disk, the data disk size cannot be more than 1 TB.
+
+When working through this article, replace the resource group and VM names where needed.
 
  
 [!INCLUDE [virtual-machines-common-shared-images-portal](../../../includes/virtual-machines-common-shared-images-portal.md)]
