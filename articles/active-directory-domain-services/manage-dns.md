@@ -1,9 +1,9 @@
 ---
-title: 'Azure Active Directory Domain Services: Administer DNS on managed domains | Microsoft Docs'
-description: Administer DNS on Azure Active Directory Domain Services managed domains
+title: 'Manage DNS for Azure AD Domain Services | Microsoft Docs'
+description: Manage DNS for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
-ms.author: ergreenl
+ms.date: 05/10/2019
+ms.author: mstephen
 
 ---
 # Administer DNS on an Azure AD Domain Services managed domain
@@ -100,5 +100,5 @@ For more information about managing DNS, see the [DNS tools article on Technet](
 ## Related Content
 * [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
 * [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
+* [Manage an Azure AD Domain Services domain](manage-domain.md)
 * [DNS administration tools](https://technet.microsoft.com/library/cc753579.aspx)

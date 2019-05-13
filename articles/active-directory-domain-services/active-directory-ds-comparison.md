@@ -3,7 +3,7 @@ title: 'Azure AD Domain Services: Compare Azure AD Domain Services to DIY domain
 description: Comparing Azure Active Directory Domain Services to DIY domain controllers
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/07/2017
-ms.author: ergreenl
+ms.date: 05/10/2019
+ms.author: mstephen
 
 ---
 # How to decide if Azure AD Domain Services is right for your use-case
@@ -56,7 +56,7 @@ The managed domain is securely locked down as per Microsoft’s security recomme
 
 #### DNS server
 An Azure AD Domain Services managed domain includes managed DNS services. Members of the 'AAD DC Administrators' group can manage DNS on the managed domain. Members of this group are given full DNS Administration privileges for the managed domain. DNS management can be performed using the 'DNS Administration console' included in the Remote Server Administration Tools (RSAT) package.
-[More information](active-directory-ds-admin-guide-administer-dns.md)
+[More information](manage-dns.md)
 
 #### Domain or Enterprise Administrator privileges
 These elevated privileges are not offered on an AAD-DS managed domain. Applications that require these elevated privileges cannot be deployed against AAD-DS managed domains. A smaller subset of administrative privileges is available to members of the delegated administration group called ‘AAD DC Administrators’. These privileges include privileges to configure DNS, configure group policy, gain administrator privileges on domain-joined machines etc.
@@ -93,7 +93,7 @@ The managed domain is read-only for user objects. Therefore, applications that p
 
 #### Group policy
 There is a built-in GPO each for the "AADDC Computers" and "AADDC Users" containers. You can customize these built-in GPOs to configure group policy. Members of the 'AAD DC Administrators' group can also create custom GPOs and link them to existing OUs (including custom OUs).
-[More information](active-directory-ds-admin-guide-administer-group-policy.md)
+[More information](manage-group-policy.md)
 
 #### Geo-dispersed deployments
 Azure AD Domain Services managed domains are available in a single virtual network in Azure. For scenarios that require domain controllers to be available in multiple Azure regions across the world, setting up domain controllers in Azure IaaS VMs might be the better alternative.

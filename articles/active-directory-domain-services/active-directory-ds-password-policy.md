@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Password policy | Microsoft Docs
 description: Understand password policies on managed domains
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
-ms.author: ergreenl
+ms.date: 05/10/2019
+ms.author: mstephen
 
 ---
 # Password and account lockout policies on managed domains
@@ -76,7 +76,7 @@ You can configure a custom FGPP for the following reasons:
 * To configure a default password lifetime setting for the managed domain.
 
 To create a custom FGPP on your managed domain:
-1. Sign in to the Windows VM you use to administer your managed domain. If you don't have one, follow the instructions to [administer a managed domain](active-directory-ds-admin-guide-administer-domain.md)
+1. Sign in to the Windows VM you use to administer your managed domain. If you don't have one, follow the instructions to [Manage an Azure AD Domain Services domain](manage-domain.md).
 2. Launch the **Active Directory Administrative Center** on the VM.
 3. Click the domain name (for example, 'contoso100.com').
 4. Double-click **System** to open the System container.
