@@ -5,7 +5,7 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/10/2019
+ms.date: 05/13/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
