@@ -29,7 +29,7 @@ In this tutorial series you learn how to:
 ## Prerequisites
 
 > [!IMPORTANT]
-> This tutorial requires version 2.0.65 of the Azure CLI (coming soon)
+> This tutorial requires version 2.0.65 of the Azure CLI
 
 Before you begin this tutorial:
 

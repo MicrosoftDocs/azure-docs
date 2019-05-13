@@ -44,13 +44,13 @@ To grant cluster admin access, the memberships in an Azure AD security group are
 4. Set **Group type** to **Security**.
 5. Set **Membership type** to **Assigned**.
 
-Add the Azure AD user that you created in the earlier step to this security group.
+    Add the Azure AD user that you created in the earlier step to this security group.
 
 6. Click **Members** to open the **Select members** pane.
 7. In the members list, select the Azure AD user that you created above.
 8. At the bottom of the portal, click on **Select** and then **Create** to create the security group.
 
-Write down the Group ID value
+    Write down the Group ID value
 
 9. When the group is created, you will see it in the list of all groups. Click on the new group.
 10. On the page that appears, copy down the **Object ID**. We will refer to this value as `GROUPID` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
