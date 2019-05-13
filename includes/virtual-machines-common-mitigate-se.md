@@ -24,19 +24,23 @@ More information about how security is integrated into every aspect of Azure is 
 > [!NOTE] 
 > Since this document was first published, multiple variants of this vulnerability class have been disclosed. Microsoft continues to be heavily invested in protecting our customers and providing guidance. This page will be updated as we continue to release further fixes. 
 > 
-> On May 14, 2019, Intel disclosed a new set of speculative execution side channel vulnerability known as Microarchitectural Data Sampling (MDS see the Microsoft Security Guidance [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), which has been assigned multiple CVEs: 
+> On May 14, 2019, [Intel disclosed](https://www.intel.com/content/www/us/en/homepage.html) a new set of speculative execution side channel vulnerability known as Microarchitectural Data Sampling (MDS see the Microsoft Security Guidance [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), which has been assigned multiple CVEs: 
+> - CVE-2018-11091 - Microarchitectural Data Sampling Uncacheable Memory (MDSUM)
 > - CVE-2018-12126 - Microarchitectural Store Buffer Data Sampling (MSBDS) 
 > - CVE-2018-12127 - Microarchitectural Load Port Data Sampling (MLPDS)
 > - CVE-2018-12130 - Microarchitectural Fill Buffer Data Sampling (MFBDS)
 >
-> This vulnerability affects Intel® Core® processors and Intel® Xeon® processors.  Microsoft has released operating system and Intel microcode updates to help mitigate these vulnerabilities across our cloud services.  Please refer to Intel’s release schedule of available microcode for Microarchitectural Data Sampling vulnerabilities.  Customers that are running untrusted code within their VM need to take action to protect against these vulnerabilities. Other customers should evaluate these vulnerabilities from a Defense in Depth perspective and consider the security and performance implications of their chosen configuration.
-> Please read below for additional guidance to protect against Microarchitectural Data Sampling and previous speculative execution side-channel vulnerabilities (Microsoft Advisories ADV [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018), and [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
+> This vulnerability affects Intel® Core® processors and Intel® Xeon® processors.  Microsoft Azure has released operating system updates and is deploying new microcode, as it is made available by Intel, throughout our fleet to protect our customers against these new vulnerabilities.   Azure is closely working with Intel to test and validate the new microcode prior to its official release on the platform. 
+>
+> Customers that are running untrusted code within their VM need to take action to protect against these vulnerabilities by reading below for additional guidance on all speculative execution side-channel vulnerabilities (Microsoft Advisories ADV [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018), and [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
+>
+> Other customers should evaluate these vulnerabilities from a Defense in Depth perspective and consider the security and performance implications of their chosen configuration.
 
 
 
-## Keeping your Operating Systems up-to-date
+## Keeping your operating systems up-to-date
 
-While an OS update is not required to isolate your applications running on Azure from other Azure customers, it is always a best practice to keep your software up-to-date. The latest Security Rollups for Windows contain mitigations for several speculative execution side channel vulnerabilities. Similarly, Linux distributions have released multiple updates to address these vulnerabilities. Here are our recommended actions to update your Operating System:
+While an OS update is not required to isolate your applications running on Azure from other Azure customers, it is always a best practice to keep your software up-to-date. The latest Security Rollups for Windows contain mitigations for several speculative execution side channel vulnerabilities. Similarly, Linux distributions have released multiple updates to address these vulnerabilities. Here are our recommended actions to update your operating system:
 
 | Offering | Recommended Action  |
 |----------|---------------------|
@@ -62,7 +66,7 @@ Customers who do not implement a scenario involving untrusted code do not need t
 
 ## Enabling additional security 
 
-You can enable additional security features inside your VM or Cloud Service.
+You can enable additional security features inside your VM or Cloud Service if you are running untrusted code.
 
 In parallel, ensure your operating system is up-to-date to enable security features inside your VM or Cloud Service
 
@@ -71,7 +75,7 @@ In parallel, ensure your operating system is up-to-date to enable security featu
 Your target operating system must be up-to-date to enable these additional security features. While numerous speculative execution side channel mitigations are enabled by default, the additional features described here must be enabled manually and may cause a performance impact. 
 
 
-**Step 1: Disable hyperthreading on the VM** - Customers running untrusted code on a hyperthreaded VM will need to disable hyperthreading or move to a non-hyperthreaded VM.  To check if your VM has hyperthreading enabled, please refer to the below script using the Windows command line from within the VM.
+**Step 1: Disable hyperthreading on the VM** - Customers running untrusted code on a hyperthreaded VM will need to disable hyperthreading or move to a non-hyperthreaded VM size. To check if your VM has hyperthreading enabled, please refer to the below script using the Windows command line from within the VM.
 
 Type `wmic` to enter the interactive interface. Then type the below to view the amount of physical and logical processors on the VM.
 
@@ -99,11 +103,11 @@ Windows OS support for L1 terminal fault mitigation is enabled: True
 Windows OS support for MDS mitigation is enabled: True
 ```
 
-If you don’t have the latest microcode --- check to see if it is available
+If Microarchitectural Data Sampling enabled: False, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) for available mitigation options.
 
 
 
-**Step 3**: If Enable Kernel Virtual Address Shadowing (KVAS) and Branch Target Injection (BTI) OS support are `False`, follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections via the `Session Manager` registry keys. A reboot is required.
+**Step 3**: Enable Kernel Virtual Address Shadowing (KVAS) and Branch Target Injection (BTI) OS support. Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections using the `Session Manager` registry keys. A reboot is required.
 
 
 **Step 4**: For deployments that are using [nested virtualization](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 and E3 only): These instructions apply inside the VM you are using as a Hyper-V host.
@@ -143,19 +147,30 @@ NUMA node(s):          1
 If you are running a hyperthreaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyperthreading disabled.  Note: Once hyperthreading is disabled, **support will require a full VM reboot**.
 
 
-**Step 2**: Enable Branch Target Injection (BTI) OS support to mitigate CVE-2017-5715 (Spectre Variant 2) by following your operating system provider’s documentation.
-
-
-**Step 3**: Enable Kernel Page Table Isolation (KPTI) to mitigate CVE-2017-5754 (Meltdown Variant 3) by following your operating system provider’s documentation.
-
-More information is available from your operating system’s provider:  
+**Step 2**: To mitigate against any of the below speculative execution side-channel vulnerabilities, refer to your operating system provider’s documentation:   
  
-- [Redhat and CentOS](https://access.redhat.com/security/vulnerabilities/speculativeexecution) 
-- [Suse](https://www.suse.com/support/kb/doc/?id=7022512) 
-- [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SpectreAndMeltdown) 
-
-
+- [Redhat and CentOS](https://access.redhat.com/security/vulnerabilities) 
+- [Suse](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
+- [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
 
 ## Next steps
 
-To learn more, see [Securing Azure customers from CPU vulnerability](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/).
+This article provides guidance to the below speculative execution side-channel attacks that affect many modern processors:
+
+[Spectre Meltdown](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002):
+•	CVE-2017-5715 - Branch Target Injection (BTI)  
+•	CVE-2017-5754 - Kernel Page Table Isolation (KPTI)
+•	CVE-2018-3639 – Speculative Store Bypass (KPTI) 
+ 
+[L1 Terminal Fault (L1TF)](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180018):
+•	CVE-2018-3615 - Intel Software Guard Extensions (Intel SGX)
+•	CVE-2018-3620 - Operating Systems (OS) and System Management Mode (SMM)
+•	CVE-2018-3646 – impacts Virtual Machine Manager (VMM)
+
+[Microarchitectural Data Sampling](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV190013): 
+•	CVE-2018-11091 - Microarchitectural Data Sampling Uncacheable Memory (MDSUM)
+•	CVE-2018-12126 - Microarchitectural Store Buffer Data Sampling (MSBDS) 
+
+
+
+
