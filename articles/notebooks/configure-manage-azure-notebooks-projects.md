@@ -33,32 +33,8 @@ Azure Notebooks starts the underlying virtual machine whenever you run a noteboo
 
 ## Compute tier
 
-The **Run** drop-down list on the project dashboard is where you select the compute tier on which the project runs. By default, projects run on the **Free Compute** tier, which is limited to 4GB of memory and 1GB of data to prevent abuse:
-
-![Compute tier drop-down list on the project dashboard](media/project-compute-tier-list.png)
-
-You can bypass these limitations by using a different virtual machine that you've provisioned in an Azure subscription. You must install and run JupyterHub on that virtual machine. The [Data Science Virtual Machine (DSVM) for Linux (Ubuntu)](/azure/machine-learning/data-science-virtual-machine) image is a good choice because it's supported, it includes a compatible JupyterHub by default, and it's automatically discovered by Azure Notebooks.
-
-Once you have a suitably configured Azure virtual machine, select the **Direct Compute** option in the drop-down list, which prompts you for a name (to show in the list), the VM's IP address and port (typically 8000, the default port to which JupyterHub listens), and the VM credentials:
-
-![Prompt to collect server information for the Direct Compute option](media/project-compute-tier-direct.png)
-
-If the following conditions are true, the drop-down list also shows DSVM instances. (If any of these conditions aren't met, you can still connect to the DSVM using the Direct Compute option and enter the values obtained from the Azure portal.)
-
-- You're signed into Azure Notebooks with an account that uses Azure Active Directory (AAD), such as a company account.
-- Your account is connected to an Azure subscription.
-- You have one or more virtual machines in that subscription, with at least Reader access, that use the Data Science Virtual Machine for Linux (Ubuntu) image.)
-
-![Data Science Virtual Machine instances in the drop-down list on the project dashboard](media/project-compute-tier-dsvm.png)
-
-When you select a DSVM instance, Azure Notebooks may prompt you for the specific machine credentials used when you created the VM.
-
-To create a new DSVM instance, follow the instructions on [Create an Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Use the **Data Science Virtual Machine for Linux (Ubuntu)** image if you want the DSVM to appear in the drop-down list in Azure Notebooks.
-
-> [!NOTE]
-> When a project is run on a VM, the files are mounted on the root directory of the Jupyter server (the directory shown in JupyterHub), replacing the default Azure Notebooks files. When you shut down the VM using the **Shutdown** button on the notebook UI, Azure Notebooks restores the default files.
->
-> ![Shutdown button in Azure Notebooks](media/shutdown.png)
+By default, projects run on the Free Compute tier, which is limited to 4GB of memory and 1GB of data to prevent abuse. You can bypass these limitations by using a different virtual machine that you've provisioned in an Azure subscription. Connecting to a DSVM can increase your compute power.
+See [how to use Data Science Virtual Machines](use-data-science-virtual-machine.md).
 
 ## Edit project metadata
 
