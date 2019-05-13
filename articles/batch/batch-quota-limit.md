@@ -13,11 +13,12 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 05/13/2019
 ms.author: lahugh
 ms.custom: seodec18
 
 ---
+
 # Batch service quotas and limits
 
 As with other Azure services, there are limits on certain resources associated with the Batch service. Many of these limits are default quotas applied by Azure at the subscription or account level. This article discusses those defaults, and how you can request quota increases.
@@ -30,8 +31,6 @@ If you plan to run production workloads in Batch, you may need to increase one o
 
 > [!NOTE]
 > A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, please contact Azure support.
-> 
-> 
 
 ## Resource quotas
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
@@ -80,20 +79,18 @@ View your Batch account quotas in the [Azure portal][portal].
 
 Follow these steps to request a quota increase for your Batch account or your subscription using the [Azure portal][portal]. The type of quota increase depends on the pool allocation mode of your Batch account. To request a quota increase, you must include the VM series you would like to increase the quota for. When the quota increase is applied, it is applied to all series of VMs.
 
-### Increase a Batch cores quota 
+### Increase cores quota in Batch 
 
 1. Select the **Help + support** tile on your portal dashboard, or the question mark (**?**) in the upper-right corner of the portal.
 1. Select **New support request** > **Basics**.
 1. In **Basics**:
    
-    a. **Issue Type** > **Quota**
+    a. **Issue Type** > **Service and subscription limits (quotas)**
    
     b. Select your subscription.
    
     c. **Quota type** > **Batch**
-   
-    d. **Support plan** > **Quota support - Included**
-   
+      
     Select **Next**.
     
 1. In **Details**:
@@ -102,12 +99,15 @@ Follow these steps to request a quota increase for your Batch account or your su
     
     ![Batch quota increase][quota_increase]
 
-    Note that the "Per batch account" quota type includes dedicated and low priority cores, active jobs, job schedules, and pools on a per Batch account basis.
+    Quota types include:
 
-    If you're increasing the number of dedicated cores, note that the total computed value applies to all VM series.  
+    * **Per Batch account**  
+        Values specific to a single Batch account, including dedicated and low-priority cores, and number of jobs and pools.
+        
+    * **Per region**  
+        Values that apply to all Batch accounts in a region and includes the number of Batch accounts per region per subscription.
 
-    If you need to increase the number of Batch accounts per region, specify "All accounts in this region" in the quota type.
-
+    Low-priority quota is a single value across all VM series. If you need contrained SKUs, you must select "Low-priority cores" and include the VM families to request.
 
     b. Select a **Severity** according to your [business impact][support_sev].
 
@@ -121,7 +121,7 @@ Follow these steps to request a quota increase for your Batch account or your su
    
     Select **Create** to submit the support request.
 
-Once you've submitted your support request, Azure support will contact you. Completing a quota increase request can take one to two business days, depending on the scope of the request.
+Once you've submitted your support request, Azure support will contact you. Quota requests may be completed within a few minutes or up to two business days.
 
 ## Related quotas for VM pools
 
