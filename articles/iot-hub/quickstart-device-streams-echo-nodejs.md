@@ -39,7 +39,7 @@ The preview of device streams is currently only supported for IoT Hubs created i
   - **Central US**
   - **Central US EUAP**
 
-To run the service-side application in this quickstart you need Node.js v4.x.x or later on your development machine.
+To run the service-side application in this quickstart you need Node.js v10.x.x or later on your development machine.
 
 You can download Node.js for multiple platforms from [Node.js.org](https://nodejs.org).
 

@@ -103,22 +103,21 @@ Follow these general troubleshooting instructions for client connection error co
 1. Confirm user name and time when issue was experienced.
 2. Open **PowerShell** and establish connection to the Windows Virtual Desktop tenant where the issue was reported.
 3. Confirm connection to the correct tenant with **Get-RdsTenant.**
-4. If needed, set the tenant group context with **Set-RdsContext –TenantGroupt\<TenantGroup\>**.
-5. Using **Get-RdsHostPool** and **Get-RdsSessionHost** cmdlets, confirm that troubleshooting is being done on the correct host pool.
-6. Execute the command below to get a list of all failed activities of type connection for the specified time window:
+4. Using **Get-RdsHostPool** and **Get-RdsSessionHost** cmdlets, confirm that troubleshooting is being done on the correct host pool.
+5. Execute the command below to get a list of all failed activities of type connection for the specified time window:
 
     ```cmd
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
-7. Using the **ActivityId** from the previous cmdlet output, run the command below:
+6. Using the **ActivityId** from the previous cmdlet output, run the command below:
 
     ```
     (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
     ```
 
-8. The command produces output similar to the output shown below. Use **ErrorCodeSymbolic** and **ErrorMessage** to troubleshoot the root cause.
+7. The command produces output similar to the output shown below. Use **ErrorCodeSymbolic** and **ErrorMessage** to troubleshoot the root cause.
 
     ```
     ErrorSource       : <Source>
