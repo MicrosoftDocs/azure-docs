@@ -47,9 +47,9 @@ The Azure Database for PostgreSQL – Hyperscale (Citus) (preview) service uses 
 
 3. Click **Firewall** under **Security** in the left-hand menu.
 
-4. Click the link **+ Add firewall rule for current client IP address**. Finally, click the **Save** button.
+4. Click the link **+ Add firewall rule for current client IP address**.
 
-5. Click **Save**.
+5. Finally, click the **Save** button.
 
    > [!NOTE]
    > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 5432.
