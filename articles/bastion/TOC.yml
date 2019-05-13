@@ -1,0 +1,22 @@
+- name: Bastion Documentation
+  href: index.yml
+- name: How-to guides
+  items:
+  - name: Create a bastion host
+    href: bastion-create-host-portal.md
+- name: Reference
+  items:
+  - name: Azure PowerShell
+    href: /powershell/module/az.network#vpn
+- name: Resources
+  items:
+  - name: Bastion FAQ
+    href: bastion-faq.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/networking
+  - name: Forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: SLA
+    href: https://azure.microsoft.com/support/legal/sla

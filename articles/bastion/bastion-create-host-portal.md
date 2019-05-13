@@ -8,7 +8,7 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to create an Azure Bastion host.
+# Customer intent: As someone with a networking background, I want to create an Azure Bastion host.
 
 ---
 
