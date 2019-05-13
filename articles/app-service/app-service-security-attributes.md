@@ -12,6 +12,8 @@ ms.date: 05/08/2019
 ms.author: mbaldwin
 
 ---
+# Security attributes for Azure App Service
+
 This article documents the common security attributes built into Azure App Service.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
@@ -20,8 +22,7 @@ This article documents the common security attributes built into Azure App Servi
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes | Web site file content is stored in Azure Storage, which automatically encrypts the content at rest. See [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).<br>Customer supplied secrets are encrypted at rest. The secrets are encrypted at rest while stored in App Service configuration databases.<br?
-Locally attached disks can optionally be used as temporary storage by websites (D:\local and %TMP%). Locally attached disks are not encrypted at rest. |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes | Web site file content is stored in Azure Storage, which automatically encrypts the content at rest. See [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).<br><br>Customer supplied secrets are encrypted at rest. The secrets are encrypted at rest while stored in App Service configuration databases.<br><br>Locally attached disks can optionally be used as temporary storage by websites (D:\local and %TMP%). Locally attached disks are not encrypted at rest. |
 | Encryption in Transit (such as ExpressRoute encryption, in Vnet encryption, and VNet-VNet encryption )| Yes | Customers can configure web sites to require and use HTTPS for inbound traffic. See the blog post [How to make an Azure App Service HTTPS only](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/). |
 | Encryption Key Handling (CMK, BYOK, etc.)| Yes | Customers can choose to store application secrets in Key Vault and retrieve them at runtime. See [Use Key Vault references for App Service and Azure Functions (preview)](app-service-key-vault-references.md).|
 | Column Level Encryption (Azure Data Services)| N/A | |
@@ -40,7 +41,7 @@ Locally attached disks can optionally be used as temporary storage by websites (
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| Yes | App Service integrates with Application Insights for languages that support Application Insights (Full .NET Framework, .NET Core, Java and Node.JS).  See [Monitor Azure App Service performance}(../ure-monitor/app/azure-web-apps.md). App Service also sends application metrics into Azure Monitor. See [Monitor apps in Azure App Service](web-sites-monitor.md). |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | App Service integrates with Application Insights for languages that support Application Insights (Full .NET Framework, .NET Core, Java and Node.JS).  See [Monitor Azure App Service performance](../azure-monitor/app/azure-web-apps.md). App Service also sends application metrics into Azure Monitor. See [Monitor apps in Azure App Service](web-sites-monitor.md). |
 
 ## Identity and access management
 
