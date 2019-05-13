@@ -38,6 +38,8 @@ Device-to-cloud messaging with IoT Hub has the following characteristics:
 
 * As explained in [Control access to IoT Hub](iot-hub-devguide-security.md), IoT Hub enables per-device authentication and access control.
 
+* You can stamp messages with information that goes into the application properties. For more information, please see [message enrichments](iot-hub-message-enrichments-overview.md).
+
 For more information about how to encode and decode messages sent using different protocols, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
 The following table lists the set of system properties in IoT Hub messages.

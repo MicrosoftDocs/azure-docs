@@ -66,6 +66,8 @@
         href: tutorial-routing-config-message-routing-PowerShell.md
     - name: Part 2 - View message routing results
       href: tutorial-routing-view-message-routing-results.md 
+  - name: Message enrichments
+    href: tutorial-message-enrichments.md
   - name: Use metrics and diagnostic logs
     href: tutorial-use-metrics-and-diags.md
   - name: Perform manual failover
@@ -78,6 +80,8 @@
     href: tutorial-connectivity.md
 - name: Concepts
   items:
+  - name: Message enrichments overview
+    href: iot-hub-message-enrichments-overview.md
   - name: Overview of device management
     href: iot-hub-device-management-overview.md
   - name: Compare IoT Hub and Event Hubs
