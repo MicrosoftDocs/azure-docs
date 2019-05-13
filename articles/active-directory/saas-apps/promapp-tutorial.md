@@ -113,8 +113,8 @@ To configure Azure AD single sign-on with Promapp, take these steps:
 	    | `https://ca.promapp.com/TENANTNAME/`|
 	    |   |
 
-	> [!NOTE] 
-	> Presently Azure AD integration with Promapp has only been configured for service initiated authentication e.g. going to a Promapp URL initiates the authentication process. However the Reply URL is a required field.
+	   > [!NOTE] 
+	   > Presently Azure AD integration with Promapp has only been configured for service initiated authentication e.g. going to a Promapp URL initiates the authentication process. However the Reply URL is a required field.
 
     1. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<DOMAINNAME>.promapp.com/TENANTNAME/saml/authenticate.aspx`
