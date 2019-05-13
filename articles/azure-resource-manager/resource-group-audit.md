@@ -4,7 +4,7 @@ description: Use the activity logs to review user actions and errors. Shows Azur
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 05/13/2019
 ms.author: tomfitz
 
 ---
