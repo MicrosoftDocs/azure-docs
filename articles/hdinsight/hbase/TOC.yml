@@ -1,8 +1,8 @@
 - name: Azure HDInsight Documentation
   href: /azure/hdinsight
-- name: Apache HBase on HDInsight
+- name: Overview
   items:
-  - name: Overview
+  - name: Apache HBase in HDInsight
     href: apache-hbase-overview.md
   - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
@@ -10,6 +10,10 @@
   - name: HDInsight 4.0
     href: ../hdinsight-version-release.md
     maintainContext: true
+- name: Quickstarts
+  items:
+  - name: Query Apache HBase - HBase Shell
+    href: ./query-hbase-with-hbase-shell.md
 - name: Get started
   items:
   - name: Start with Apache HBase & NoSQL

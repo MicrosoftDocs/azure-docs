@@ -23,9 +23,9 @@ The Voice Tuning tool supports Microsoft's [standard](language-support.md#standa
 Before you can start fine-tuning the text-to-speech output with the Voice Tuning tool, you'll need to complete these steps:
 
 1. Create a [free Microsoft account](https://account.microsoft.com/account) if you don't already have one.
-2. Create a [free Azure account](https://azure.microsoft.com/en-us/free/) if you don't already have one. Click **Start Free**, and create a new Azure account using your Microsoft account.
+2. Create a [free Azure account](https://azure.microsoft.com/free/) if you don't already have one. Click **Start Free**, and create a new Azure account using your Microsoft account.
 
-3. Create a Speech Services subscription in the Azure portal. Step-by-step instructions for [how to create a speech resource](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) are available.
+3. Create a Speech Services subscription in the Azure portal. Step-by-step instructions for [how to create a speech resource](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) are available.
    >[!NOTE]
    >When you create a speech resource in the Azure portal, the Azure location information needs to match with the TTS voice region. Neural TTS voice supports a sub set of Azure locations. For a full list of support, see [Regions](regions.md#text-to-speech).
 
@@ -65,6 +65,6 @@ Neural Voice tuning is slightly different than tuning for Standard and Custom vo
 > The Voice Tuning tool provides contextual information about features and tuning.
 
 ## Next steps
-* [Create a Speech resource in Azure](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
+* [Create a Speech resource in Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
 * [Start Voice Tuning](https://speech.microsoft.com/app.html#/VoiceTuning)
 * [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)

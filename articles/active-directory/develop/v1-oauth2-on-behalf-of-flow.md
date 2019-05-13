@@ -4,7 +4,7 @@ description: This article describes how to use HTTP messages to implement servic
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
