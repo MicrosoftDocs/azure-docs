@@ -343,4 +343,18 @@ In this tutorial, you learned how to:
 > * Understand how client code maps to the application
 > * Configure client code for the real device
 
-Now that you've connected a real device to your Azure IoT Central application, the suggested next step is to learn how to [Send custom notifications](tutorial-custom-notifications.md).
+Now that you've connected a real device to your Azure IoT Central application, here are some suggested next steps.
+
+As an operator, you can learn how to:
+
+* [Manage your devices](howto-manage-devices.md)
+* [Use device sets](howto-use-device-sets.md)
+* [Create custom analytics](howto-use-device-sets.md)
+
+As a device developer, you can learn how to:
+
+* [Prepare and connect a DevKit device (C)](howto-connect-devkit.md)
+* [Prepare and connect a Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)
+* [Prepare and connect a Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md)
+* [Prepare and connect a Windows 10 IoT core device (C#)](howto-connect-windowsiotcore.md)
+* [Connect a generic Node.js client to your Azure IoT Central application](howto-connect-nodejs.md)

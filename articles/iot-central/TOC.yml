@@ -25,8 +25,6 @@
     href: tutorial-monitor-devices.md
   - name: 5 - Add a device
     href: tutorial-add-device.md
-  - name: 6 - Custom notifications
-    href: tutorial-custom-notifications.md
 - name: Concepts
   items:
   - name: Architecture
@@ -91,6 +89,8 @@
           href: howto-export-data-event-hubs-service-bus.md
         - name: Export to Blob Storage
           href: howto-export-data-blob-storage.md
+      - name: Create custom rules
+        href: howto-create-custom-rules.md
       - name: Visualize your data in Power BI
         href: howto-connect-powerbi.md
       - name: Connect other IoT clouds
