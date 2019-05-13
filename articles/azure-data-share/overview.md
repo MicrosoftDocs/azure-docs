@@ -15,7 +15,7 @@ Azure Data Share is a first party resource provider that enables customers to ea
 
 ## Key capabilities
 
-With Azure Data Share, as a Data Provider, you can:
+Azure Data Share enables Data Providers to do the following:
 
 * Share data from Azure Storage, Azure Data Lake Gen1 & Azure Data Lake Gen2 with customers and partners outside of your organization;
 
@@ -23,7 +23,7 @@ With Azure Data Share, as a Data Provider, you can:
 
 * Allow your customers to pull the latest version of your data as needed, or allow them to automatically receive         incremental changes to your data at an interval defined by you;
 
-As a Data Consumer, Azure Data Share allows you to:
+Azure Data Share enables Data Consumers to do the following: 
 
 * View and Accept or Reject an Azure Data Share invitation, including a description of the type of data being shared and the Terms of Use; 
 
@@ -34,7 +34,7 @@ As a Data Consumer, Azure Data Share allows you to:
 * Accept data shared with you into an Azure Blob Storage or Azure Data Lake Gen2 account; 
 
 All key capabilities listed above are supported through the Azure Portal or via REST APIs. For more details on using Azure Data Share through REST APIs, click here. 
-
+    ![Supported Scenarios](./media/supportedscenarios.png "Supported Scenarios")
 ## Next steps
 
 * Get Started with Azure Data Share using Azure Portal | REST APIs
