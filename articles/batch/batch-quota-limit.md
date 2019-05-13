@@ -63,7 +63,7 @@ If you created a Batch account with pool allocation mode set to **user subscript
 | Application packages per pool | 10 |
 | Maximum task lifetime | 180 days<sup>1</sup> |
 
-<sup>1</sup> The maximum lifetime of a task, from when it is added to the job to when it completes, is 180 days. Completed tasks persist for 7 days; data for tasks not completed within the maximum lifetime is not accessible.
+<sup>1</sup> The maximum lifetime of a task, from when it is added to the job to when it completes, is 180 days. Completed tasks persist for seven days; data for tasks not completed within the maximum lifetime is not accessible.
 
 ## View Batch quotas
 
@@ -107,7 +107,7 @@ Follow these steps to request a quota increase for your Batch account or your su
     * **Per region**  
         Values that apply to all Batch accounts in a region and includes the number of Batch accounts per region per subscription.
 
-    Low-priority quota is a single value across all VM series. If you need contrained SKUs, you must select "Low-priority cores" and include the VM families to request.
+    Low-priority quota is a single value across all VM series. If you need constrained SKUs, you must select **Low-priority cores** and include the VM families to request.
 
     b. Select a **Severity** according to your [business impact][support_sev].
 
@@ -127,9 +127,9 @@ Once you've submitted your support request, Azure support will contact you. Quot
 
 Batch pools in the Virtual Machine Configuration deployed in an Azure virtual network automatically allocate additional Azure networking resources. The following resources are needed for each 50 pool nodes in a virtual network:
 
-* 1 [network security group](../virtual-network/security-overview.md#network-security-groups)
-* 1 [public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-* 1 [load balancer](../load-balancer/load-balancer-overview.md)
+* One [network security group](../virtual-network/security-overview.md#network-security-groups)
+* One [public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* One [load balancer](../load-balancer/load-balancer-overview.md)
 
 These resources are allocated in the subscription that contains the virtual network supplied when creating the Batch pool. These resources are limited by the subscription's [resource quotas](../azure-subscription-service-limits.md). If you plan large pool deployments in a virtual network, check the subscription's quotas for these resources. If needed, request an increase in the Azure portal by selecting **Help + support**.
 
