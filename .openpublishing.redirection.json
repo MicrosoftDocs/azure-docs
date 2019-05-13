@@ -38935,7 +38935,7 @@
     },
     {
       "source_path" : "articles/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy.md",
-      "redirect_url" : "azure/active-directory-domain-services/manage-group-policy",
+      "redirect_url" : "/azure/active-directory-domain-services/manage-group-policy",
       "redirect_document_id": true
     }
 
