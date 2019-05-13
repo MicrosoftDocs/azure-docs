@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Enable kerberos constrained dele
 description: Enable kerberos constrained delegation on Azure Active Directory Domain Services managed domains
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
-ms.author: ergreenl
+ms.date: 05/13/2019
+ms.author: mstephen
 
 ---
 
@@ -46,7 +46,7 @@ Resource-based KCD is configured using PowerShell. You use the `Set-ADComputer` 
 ### Configure resource-based KCD for a computer account on a managed domain
 Assume you have a web app running on the computer 'contoso100-webapp.contoso100.com'. It needs to access the resource (a web API running on 'contoso100-api.contoso100.com') in the context of domain users. Here's how you would set up resource-based KCD for this scenario:
 
-1. [Create a custom OU](active-directory-ds-admin-guide-create-ou.md). You can delegate permissions to manage this custom OU to users within the managed domain.
+1. [Create a custom OU](create-ou.md). You can delegate permissions to manage this custom OU to users within the managed domain.
 2. Join both virtual machines (the one running the web app and the one running the web API) to the managed domain. Create these computer accounts within the custom OU.
 3. Now, configure resource-based KCD using the following PowerShell command:
 
@@ -62,7 +62,7 @@ Set-ADComputer contoso100-api.contoso100.com -PrincipalsAllowedToDelegateToAccou
 ### Configure resource-based KCD for a user account on a managed domain
 Assume you have a web app running as a service account 'appsvc' and it needs to access the resource (a web API running as a service account - 'backendsvc') in the context of domain users. Here's how you would set up resource-based KCD for this scenario.
 
-1. [Create a custom OU](active-directory-ds-admin-guide-create-ou.md). You can delegate permissions to manage this custom OU to users within the managed domain.
+1. [Create a custom OU](create-ou.md). You can delegate permissions to manage this custom OU to users within the managed domain.
 2. Join the virtual machine running the backend web API/resource to the managed domain. Create its computer account within the custom OU.
 3. Create the service account (for example, 'appsvc') used to run the web app within the custom OU.
 4. Now, configure resource-based KCD using the following PowerShell command:

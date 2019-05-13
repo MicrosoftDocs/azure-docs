@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Synchronization in managed domai
 description: Understand synchronization in an Azure Active Directory Domain Services managed domain
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.author: ergreenl
+ms.date: 05/13/2019
+ms.author: mstephen
 
 ---
 # Synchronization in an Azure AD Domain Services managed domain
@@ -51,7 +51,7 @@ The following objects or attributes are not synchronized to your Azure AD tenant
 * **Sysvol share:** Similarly, the contents of the Sysvol share on your on-premises domain are not synchronized to your managed domain.
 * **Computer objects:** Computer objects for computers joined to your on-premises domain are not synchronized to your managed domain. These computers do not have a trust relationship with your managed domain and belong to your on-premises domain only. In your managed domain, you find computer objects only for computers you have explicitly domain-joined to the managed domain.
 * **SidHistory attributes for users and groups:** The primary user and primary group SIDs from your on-premises domain are synchronized to your managed domain. However, existing SidHistory attributes for users and groups are not synchronized from your on-premises domain to your managed domain.
-* **Organization Units (OU) structures:** Organizational Units defined in your on-premises domain do not synchronize to your managed domain. There are two built-in OUs in your managed domain. By default, your managed domain has a flat OU structure. You may however choose to [create a custom OU in your managed domain](active-directory-ds-admin-guide-create-ou.md).
+* **Organization Units (OU) structures:** Organizational Units defined in your on-premises domain do not synchronize to your managed domain. There are two built-in OUs in your managed domain. By default, your managed domain has a flat OU structure. You may however choose to [create a custom OU in your managed domain](create-ou.md).
 
 ## How specific attributes are synchronized to your managed domain
 The following table lists some common attributes and describes how they are synchronized to your managed domain.
@@ -119,7 +119,7 @@ For user accounts synced from on-premises AD using Azure AD Connect Sync, you ne
 The NTLM and Kerberos compatible password hashes are always stored in an encrypted manner in Azure AD. These hashes are encrypted such that only Azure AD Domain Services has access to the decryption keys. No other service or component in Azure AD has access to the decryption keys. The encryption keys are unique per-Azure AD tenant. Azure AD Domain Services synchronizes the password hashes into the domain controllers for your managed domain. These password hashes are stored and secured on these domain controllers similar to how passwords are stored and secured on Windows Server AD domain controllers. The disks for these managed domain controllers are encrypted at rest.
 
 ## Objects that are not synchronized to your Azure AD tenant from your managed domain
-As described in a preceding section of this article, there is no synchronization from your managed domain back to your Azure AD tenant. You may choose to [create a custom Organizational Unit (OU)](active-directory-ds-admin-guide-create-ou.md) in your managed domain. Further, you can create other OUs, users, groups, or service accounts within these custom OUs. None of the objects created within custom OUs are synchronized back to your Azure AD tenant. These objects are available for use only within your managed domain. Therefore, these objects are not visible using Azure AD PowerShell cmdlets, Azure AD Graph API or using the Azure AD management UI.
+As described in a preceding section of this article, there is no synchronization from your managed domain back to your Azure AD tenant. You may choose to [create a custom Organizational Unit (OU)](create-ou.md) in your managed domain. Further, you can create other OUs, users, groups, or service accounts within these custom OUs. None of the objects created within custom OUs are synchronized back to your Azure AD tenant. These objects are available for use only within your managed domain. Therefore, these objects are not visible using Azure AD PowerShell cmdlets, Azure AD Graph API or using the Azure AD management UI.
 
 ## Related Content
 * [Features - Azure AD Domain Services](active-directory-ds-features.md)

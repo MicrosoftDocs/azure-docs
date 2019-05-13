@@ -3902,7 +3902,7 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-admin-guide-create-ou.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-create-ou",
+      "redirect_url": "/azure/active-directory-domain-services/create-ou.md",
       "redirect_document_id": false
     },
     {

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 05/13/2019
 ms.author: mstephen
 ---
 
@@ -81,7 +81,7 @@ You do not have 'Domain Administrator' privileges on an Active Directory Domain 
 #### Custom OU structure
 
 Members of the 'AAD DC Administrators' group can create custom OUs within the managed domain. Users who create custom OUs are granted full administrative privileges over the OU.
-[More information](active-directory-ds-admin-guide-create-ou.md)
+[More information](create-ou.md)
 
 #### Schema extensions
 

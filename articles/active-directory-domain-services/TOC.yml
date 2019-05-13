@@ -48,7 +48,7 @@
         - name: Secure your managed domain
           href: active-directory-ds-secure-your-domain.md
         - name: Create an OU on a managed domain
-          href: active-directory-ds-admin-guide-create-ou.md
+          href: create-ou.md
         - name: Create a group managed service account on a managed domain
           href: active-directory-ds-create-gmsa.md
         - name: Manage Group Policy for Azure AD Domain Services
