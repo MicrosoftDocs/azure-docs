@@ -1,5 +1,5 @@
 ---
-title: Generation 2 VMs (preview) | Microsoft Docs
+title: Generation 2 VMs (preview) on Azure | Microsoft Docs
 description: Overview of Azure Generation 2 VMs
 services: virtual-machines-linux
 documentationcenter: ''
@@ -26,7 +26,9 @@ ms.author: lahugh
 
 Support for generation 2 virtual machines (VMs) is now available in public preview on Azure. You can't change a virtual machine's generation after you've created it. So, we recommend that you review the considerations [here](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) as well as the information on this page before choosing a generation.
 
-Generation 2 VMs support key features like: increased memory, Intel® Software Guard Extensions (SGX), and virtual persistent memory (vPMEM), which are not supported on generation 1 VMs. Generation 2 VMs have some features that aren't supported on Azure yet. For more information, see the [Features and capabilities](#features-and-capabilities) section. Generation 2 VMs use the new UEFI-based Boot architecture vs the BIOS-based architecture used by generation 1 VMs. Compared to generation 1 VMs, generation 2 VMs may have improved boot and installation times. For an overview of generation 2 VMs and some of the key differences between generation 1 and generation 2, see [Should I create a generation 1 or 2 virtual machine in Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+Generation 2 VMs support key features like: increased memory, Intel® Software Guard Extensions (SGX), and virtual persistent memory (vPMEM), which are not supported on generation 1 VMs. Generation 2 VMs have some features that aren't supported on Azure yet. For more information, see the [Features and capabilities](#features-and-capabilities) section. 
+
+Generation 2 VMs use the new UEFI-based Boot architecture vs the BIOS-based architecture used by generation 1 VMs. Compared to generation 1 VMs, generation 2 VMs may have improved boot and installation times. For an overview of generation 2 VMs and some of the key differences between generation 1 and generation 2, see [Should I create a generation 1 or 2 virtual machine in Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 ## Generation 2 VM sizes
 
@@ -37,6 +39,7 @@ Generation 1 VMs are supported by all VM sizes in Azure. Azure now offers Genera
 * [Fsv2-series](/sizes-compute.md#fsv2-series-1)
 * [GS-series](/sizes-memory.md#gs-series)
 * [Ls-series](/sizes-storage.md#ls-series) and [Lsv2-series](/sizes-storage.md#lsv2-series)
+* [Mv2-series](/sizes-memory.md)
 
 ## Generation 2 VM images in Azure Marketplace
 
@@ -118,3 +121,7 @@ Generation 2 VMs can also be created using virtual machine scale sets. You can c
 
 * **Can I migrate from generation 1 to generation 2 VMs?**  
     No, you can't change the generation of a VM after you've created it. If you need to switch between VM generations, you need to create a new VM of a different generation.
+
+## Next steps
+
+* Learn more about [generation 2 virtual machines in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
