@@ -38,7 +38,7 @@ Guidance 2
 
 ## Next steps
 
-[Bulk add users](users-bulk-add.md)
-[Bulk delete users](users-bulk-delete.md)
-[Download list of groups](groups-bulk-download.md)
+- [Bulk add users](users-bulk-add.md)
+- [Bulk delete users](users-bulk-delete.md)
+- [Download list of groups](groups-bulk-download.md)
 
