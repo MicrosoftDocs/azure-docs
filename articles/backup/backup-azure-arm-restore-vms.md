@@ -41,8 +41,8 @@ Some details about storage accounts:
 - **Replace disk**: When you replace a disk on an existing VM, Azure Backup takes a snapshot of the existing VM before replacing the disk. The snapshot is stored in the staging location (storage account) you specify. This storage account is used to temporarily store the snapshot during the restore process, and we recommend that you create a new account to do this, that can be easily removed afterwards.
 - **Storage account location** : The storage account must be in the same region as the vault. Only these accounts are displayed. If there are no storage accounts in the location, you need to create one.
 - **Storage type** : Blob storage isn't supported.
+- **Storage redundancy**: Zone redundant storage (ZRS) isn't supported. The replication and redundancy information for the account is shown in parentheses after the account name. 
 - **Premium storage**:
-    - Zone redundant storage (ZRS) isn't supported for premium storage. The replication and redundancy information for the account is shown in parentheses after the account name. 
     - When restoring non-premium VMs, premium storage accounts aren't supported.
     - When restoring managed VMs, premium storage accounts configured with network rules aren't supported.
 
