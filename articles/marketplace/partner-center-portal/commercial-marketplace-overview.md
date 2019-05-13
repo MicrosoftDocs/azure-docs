@@ -1,6 +1,6 @@
 ---
-title: 
-description: 
+title: Overview of the Commercial Marketplace portal in Partner Center
+description: Learn more about the Commercial Marketplace portal in Partner Center and how to list and sell offers on Azure Marketplace, AppSource, and through the Cloud Solution Provider (CSP) program.
 author: mattwojo 
 manager: evansma
 ms.author: mattwoj 
@@ -13,7 +13,7 @@ ms.date: 05/30/2019
 
 Welcome to the Commercial Marketplace portal in Microsoft Partner Center. The [Commercial Marketplace in Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/) is designed to help you monetize your products and services, reach customers, and grow your business.
 
-In this documentation, we will cover the basics of creating and using your Partner Center account, managing your existing SaaS offers, creating new SaaS offers that can be listed on [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [AppSource](https://appsource.microsoft.com/), and providing resources to assist you with questions and to collect your feedback. 
+In this documentation, we will cover the basics of creating and using your Partner Center account, creating new Software as a Service (SaaS) offers that can be listed on [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [AppSource](https://appsource.microsoft.com/), managing your existing SaaS offers, and providing resources to assist you with questions and to collect your feedback. 
 
 ## About Microsoft's Commercial Marketplace
 
@@ -27,14 +27,24 @@ Partner Center is evolving to better integrate all aspects of Microsoft’s rela
 
 **Currently, Partner Center only supports the creation and management of Software-as-a-Service (SaaS) offers.**
 
-Existing marketplace publishers will find a familiar but improved user experience with an intuitive interface. Notifications in the portal and via email will inform publishers of the migration, users will be seamlessly directed to the appropriate location, and customers will not be impacted by the partner experience upgrade. 
+Existing marketplace publishers will find a familiar but improved user experience with an intuitive interface. Notifications in the portal and via email will inform publishers of the migration. Users will be seamlessly directed to the appropriate location. Customers will not be impacted by this partner experience upgrade. 
 
-With the transition to Partner Center, new functionality is available to publishers, in addition to improvements on the user experience. SaaS offerings, which can be billed monthly or annually, supports per-user licensing in addition to per-site. This new monetization model is ideal for business software and the introduction of SaaS per-user licensing aligns with new functionality allowing customers to complete purchases in AppSource, Microsoft’s commercial marketplace for business and industry solutions. 
+### Improvements on user experience and billing
+
+With the transition to Partner Center, new functionality is available to publishers, in addition to improvements on the user experience. SaaS offerings, which can be billed monthly or annually, support per-user licensing (seat-based) in addition to per-site (flat-rate). This new monetization model is ideal for business software. The introduction of SaaS per-user licensing aligns with new functionality allowing customers to complete purchases in AppSource, Microsoft’s commercial marketplace for business and industry solutions. 
+
+### Account and user management updates
 
 Account and user management in Partner Center make it easy for individuals to access the portal and for administrators to apply appropriate permissions. Compared to prior offer management portals, the role-based access control capabilities in Partner Center provide security enhancements that will make the publishing process simpler for large organizations. 
 
-Partner Center will also bring an improved certification experience. Certification will now leverage automation and machine learning for improved turnaround times and quicker processing. Maintaining accuracy will remain a top priority, ensuring that the cloud marketplace is safe and contains valuable offers for our customers. Requirements will not change, but now when you submit offers through Partner Center, you will receive more detailed and descriptive certification reports referencing [public-facing policies](https://docs.microsoft.com/legal/marketplace/certification-policies). 
+### Improved certification experience
 
-Analytics provide a view into offer performance, and the reporting is also improved in Partner Center. With data visualization and insightful graphs, publishers can monitor sales, act on performance to optimize listings, and maintain relationships with customers and resellers. 
+Partner Center provides an improved certification experience. Certification will now leverage automation and machine learning for improved turnaround times and quicker processing. Maintaining accuracy will remain a top priority, ensuring that the cloud marketplace is safe and contains valuable offers for our customers. Requirements will not change, but now when you submit offers through Partner Center, you will receive more detailed and descriptive certification reports referencing [public-facing policies](https://docs.microsoft.com/legal/marketplace/certification-policies). 
+
+### Analytics for performance reporting
+
+Partner Center analytics provides a view into the performance of your offers and improved reporting tools. Publishers can monitor sales using the data visualization and insight graphs to optimize listings. The improved analytics tools enable you to act on performance results and maintain better relationships with customers and resellers. 
+
+## View the roadmap and join the conversation
 
 Learn more about recent and future releases by visiting the [marketplace roadmap](https://aka.ms/publicmarketplaceroadmap), or join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/). 
