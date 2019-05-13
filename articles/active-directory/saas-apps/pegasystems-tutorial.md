@@ -76,7 +76,7 @@ To configure and test Azure AD single sign-on with Pega Systems, you need to com
 2. **[Configure Pega Systems single sign-on](#configure-pega-systems-single-sign-on)** on the application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Azure AD single sign-on for the user.
-5. **[Create a Pega Systems test user](#create-a-peg-asystems-test-user)** that's linked to the Azure AD representation of the user.
+5. **[Create a Pega Systems test user](#create-a-pega-systems-test-user)** that's linked to the Azure AD representation of the user.
 6. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
 
 ### Configure Azure AD single sign-on
