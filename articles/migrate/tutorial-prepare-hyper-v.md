@@ -242,11 +242,6 @@ Note the following:
     - For performance data, the appliance collects real-time data points every 20 seconds for each performance metrics, and rolls them up to a single five minute data point. The appliance sends the five-minute data point to Azure every hour for assessment calculation.  
  
 
-## Next steps
-
-After the appliance is up and running, and continuously discovering VMs, you can:
-> [!div class="nextstepaction"]
-> [Run an assessment](azure-to-azure-tutorial-failover-failback.md)
 
 ## Next steps
 

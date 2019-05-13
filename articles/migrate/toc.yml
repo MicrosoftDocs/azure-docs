@@ -9,7 +9,7 @@
   - name: VMware VM assessment and migration
     items:
     - name: Deploy Azure Migrate and start discovery
-      href: tutorial-deploy-discover-vmware.md
+      href: tutorial-deploy-appliance-vmware.md
     - name: Assess VMware VMs for migration
       href: tutorial-assess-vmware.md
     - name: Migrate VMware VMs
