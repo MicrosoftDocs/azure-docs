@@ -132,7 +132,7 @@ In the `Main` function of your project, call the sample method that you want to 
 
 The following sections describe how to call each API feature.
 
-## Sentiment analysis
+## Perform sentiment analysis
 
 1. Create a new function `SentimentAnalysisExample()` that takes the client that you created earlier.
 2. Generate a list of `MultiLanguageInput` objects that contains the documents that you want to analyze.
@@ -174,7 +174,7 @@ Document ID: 3 , Sentiment Score: 0.44
 Document ID: 4 , Sentiment Score: 1.00
 ```
 
-## Language detection
+## Perform language detection
 
 1. Create a new function `DetectLanguageExample()` that takes the client that you created earlier.
 2. Generate a list of `LanguageInput` objects that contains your documents.
@@ -216,7 +216,7 @@ Document ID: 2 , Language: Spanish
 Document ID: 3 , Language: Chinese_Simplified
 ```
 
-## Entity recognition
+## Perform entity recognition
 
 1. Create a new function `RecognizeEntitiesExample()` that takes the client that you created earlier.
 2. Generate a list of `MultiLanguageBatchInput` objects that contains your documents.
@@ -289,7 +289,7 @@ Document ID: 2
                         Offset: 88,     Length: 7,      Score: 1.000
 ```
 
-## Key phrase extraction
+## Perform key phrase extraction
 
 1. Create a new function `KeyPhraseExtractionExample()` that takes the client that you created earlier.
 2. Generate a list of `MultiLanguageBatchInput` objects that contains your documents.
