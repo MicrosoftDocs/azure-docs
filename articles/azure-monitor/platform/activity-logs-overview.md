@@ -5,7 +5,7 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/12/2018
+ms.date: 05/13/2019
 ms.author: bwren
 ms.subservice: logs
 ---
