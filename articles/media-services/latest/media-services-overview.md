@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/07/2019
+ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: mvc
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
@@ -72,7 +72,6 @@ Articles contain code samples that demonstrate how to complete a task. In this s
 
 * [Create an account - CLI](create-account-cli-how-to.md)
 * [Access APIs - CLI](access-api-cli-how-to.md)
-* [Start developing with SDKs](developers-guide.md)
 * [Encode with HTTPS as job input - .NET](job-input-from-http-how-to.md)  
 * [Monitor events - Portal](monitor-events-portal-how-to.md)
 * [Encrypt dynamically with multi-DRM - .NET](protect-with-drm.md) 
