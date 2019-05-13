@@ -37,7 +37,7 @@ The three hosting plans available in Azure Functions provide two different level
 * _Generally available (GA)_ - Fully supported and approved for production use.
 * _Preview_ - Not yet supported but is expected to reach GA status in the future.
 
-| | Consumption plan | Premium plan | App Service plan |
+| | Consumption plan | Premium plan | Dedicated plan |
 |-|:----------------:|:------------:|:----------------:|
 | Windows | GA | Preview | GA |
 | Linux | Preview | N/A | GA |
@@ -80,7 +80,7 @@ Consider the Azure Functions premium plan in the following situations:
 
 When running JavaScript functions on a Premium plan, you should choose an instance that has fewer vCPUs. For more information, see the [Choose single-core Premium plans](functions-reference-node.md#considerations-for-javascript-functions).  
 
-## App Service plan
+## Dedicated (App Service) plan
 
 Your function apps can also run on the same dedicated VMs as other App Service apps (Basic, Standard, Premium, and Isolated SKUs).
 

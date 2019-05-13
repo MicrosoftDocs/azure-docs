@@ -16,7 +16,7 @@ ms.author: cotresne
 
 # Deployment Technologies in Azure Functions
 
-There are a few different technologies capable of deploying to Azure Functions. This article provides an exhaustive list of those technologies, informs which technologies are available for which flavors of Functions, explains what's actually happening when each method is used, and provides recommendations for the best method to use in various scenarios.
+There are a few different technologies capable of deploying to Azure Functions. This article provides an exhaustive list of those technologies, informs which technologies are available for which flavors of Functions, explains what's actually happening when each method is used, and provides recommendations for the best method to use in various scenarios. The various tools which support deploying to Azure Functions are tuned to the right technology based on their context.
 
 ## Deployment Technology Availability for Azure Functions
 
@@ -69,11 +69,11 @@ This is the only deployment method supported for Azure Functions running on Linu
 
 #### What it does
 
-This deployment technology allows you to push a zip from one location to your function app in Azure. You can also optionally specify to have your app start in your app in [Run-From-Package](run-functions-from-deployment-package.md) mode.
+This deployment technology allows you to push a zip file to your function app in Azure. You can also optionally specify to have your app start in your app in [Run-From-Package](run-functions-from-deployment-package.md) mode.
 
 #### How to use it
 
-To deploy a zip to your function app, send an HTTP request to the `https://{functionappname}.scm.azurewebsites.net/api/zipdeploy` endpoint. This can either include zip contents directly, or point to the URL where a zip file is hosted. The expected request structure is as follows:
+To deploy a zip to your function app, send an HTTP request to the `https://{functionappname}.scm.azurewebsites.net/api/zipdeploy` endpoint. This request can either include zip contents directly, or point to the URL where a zip file is hosted. The expected request structure is as follows:
 
 | Verb | Arguments |
 | ---- | --------- |
@@ -87,7 +87,7 @@ curl -X POST -u <user> https://{sitename}.scm.azurewebsites.net/api/zipdeploy -T
 curl -X PUT -u <user> https://{sitename}.scm.azurewebsites.net/api/zipdeploy -H "Content-Type: application/json" -d "{'packageUri':'<zipUrl>'}"
 ```
 
-Additionally, when deploying through zip deploy, users can specify to run their app from in [Run-From-Package](run-functions-from-deployment-package.md) mode by setting the `WEBSITE_RUN_FROM_PACKAGE` application setting value as `1`. This option will yield faster loading times for your applications, since unzipping all files is no longer necessary.
+Additionally, when deploying through zip deploy, users can specify to run their app from in [Run-From-Package](run-functions-from-deployment-package.md) mode by setting the `WEBSITE_RUN_FROM_PACKAGE` application setting value as `1`. This option is suggested and will yield faster loading times for your applications.
 
 #### When to use it
 
@@ -107,7 +107,7 @@ Alternatively, call the MSDeploy.exe directly after downloading [Web Deploy 3.6]
 
 #### When to use it
 
-This deployment technology is supported and has no issues, but the preferred mechanism is now [Zip Deploy & Run From Package](#zip-deploy). To learn more, visit the [Visual Studio development guide](functions-develop-vs.md#publish-to-azure).
+This deployment technology is supported and has no issues, but the preferred mechanism is now [Zip Deploy with Run From Package enabled](#zip-deploy). To learn more, visit the [Visual Studio development guide](functions-develop-vs.md#publish-to-azure).
 
 ### Docker Container
 
@@ -117,12 +117,12 @@ This deployment technology allows you to specify a container image which Azure F
 
 #### How to use it
 
-To use this deployment technique, specify which container to use on creation of a function app. There are two ways to do this:
+To use this deployment technique, you must create a Linux function app in the Dedicated plan. You can do this in two ways:
 
 1. Create a Linux Dedicated function app in the Azure portal. Select `Docker Image` for Publish, and configure the container, providing the location where the image is hosted.
 2. Create a Linux Dedicated function app through the Azure CLI. Learn more about this [here](functions-create-function-linux-custom-image.md#create-and-deploy-the-custom-image).
 
-Alternatively, to deploy to an existing app using a custom container, use the [`func deploy`](functions-run-local.md#publish) command of the [Azure Functions Core Tools](functions-run-local.md).
+To deploy to an existing app using a custom container, use the [`func deploy`](functions-run-local.md#publish) command of the [Azure Functions Core Tools](functions-run-local.md).
 
 #### When to use it
 

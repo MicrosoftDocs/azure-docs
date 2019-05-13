@@ -14,10 +14,10 @@ ms.custom: include file
 
 2. Select **Azure Function App**, choose **Create New**, and then select **Publish**.
 
-    ![Pick a publish target](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
+    ![Pick a publish target](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png) 
 
-    When you enable **Run from Zip**, your function app in Azure goes into read-only mode and is run directly from the deployment package. For more information, see [Run your Azure Functions from a package file](../articles/azure-functions/run-functions-from-deployment-package.md).
-     
+    When you click **Run from a package file (recommended)**, your function app will be deployed using [Zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) mode enabled. This is the recommended way of running your functions, and will result in better performance.
+
     >[!CAUTION]
     >When you choose **Select Existing**, all files in the existing function app in Azure are overwritten by files from the local project. Only use this option when republishing updates to an existing function app.
 
