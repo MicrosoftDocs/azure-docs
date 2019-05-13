@@ -14,7 +14,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/11/2019
 ms.author: jowargo
 ---
 
@@ -49,17 +49,6 @@ For Basic and Standard Notification Hubs tiers, properly configured applications
 
 > [!NOTE]
 > Because push notifications depend on third-party Platform Notification Systems (such as Apple APNS and Google FCM), there is no SLA guarantee for the delivery of these messages. After Notification Hubs sends the batches to Platform Notification Systems (SLA guaranteed), it is the responsibility of the Platform Notification Systems to deliver the pushes (no SLA guaranteed).
-
-### Which customers are using Notification Hubs?
-
-Many customers use Notification Hubs. Some notable ones are listed here:
-
-* Sochi 2014: Hundreds of interest groups, 3+ million devices, and 150+ million notifications dispatched in two weeks. [Case study: Sochi]
-* Skanska: [Case study: Skanska]
-* Seattle Times: [Case study: Seattle Times]
-* Mural.ly: [Case study: Mural.ly]
-* 7Digital: [Case study: 7Digital]
-* Bing Apps: Tens of millions of devices send 3 million notifications per day.
 
 ### How do I upgrade or downgrade my hub or namespace to a different tier?
 
@@ -202,28 +191,30 @@ Azure Notification Hubs provides several features for troubleshooting, particula
 
 Azure Notification Hubs enables viewing telemetry data in the [Azure portal]. Details of the metrics are available on the [Notification Hubs Metrics] page.
 
+You can also programmatically access metrics. For more information, see the following articles:
+
+- [Retrieve Azure Monitor metrics with .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). This sample uses the user name and password. To use a certificate, overload the FromServicePrincipal method to provide a certificate as shown in [this example](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
+- [Getting metrics and activity logs for a resource](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
+- [Azure Monitoring REST API walkthrough](../azure-monitor/platform/rest-api-walkthrough.md)
+
+
 > [!NOTE]
 > Successful notifications mean simply that push notifications have been delivered to the external PNS (for example, APNS for Apple or FCM for Google). It is the responsibility of the PNS to deliver the notifications to target devices. Typically, the PNS does not expose delivery metrics to third parties.  
 
 [Azure portal]: https://portal.azure.com
-[Notification Hubs Pricing]: http://azure.microsoft.com/pricing/details/notification-hubs/
-[Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
-[Case Study: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
-[Case Study: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
-[Case Study: Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
-[Case Study: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
-[Case Study: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
+[Notification Hubs Pricing]: https://azure.microsoft.com/pricing/details/notification-hubs/
+[Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Notification Hubs REST APIs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[Notification Hubs Getting Started tutorials]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Chrome Apps tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
-[Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
+[Notification Hubs Getting Started tutorials]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Chrome Apps tutorial]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
+[Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [Backend Registration guidance]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Backend Registration guidance 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
 [Notification Hubs security model]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Notification Hubs Secure Push tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[Notification Hubs troubleshooting]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Notification Hubs Secure Push tutorial]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
+[Notification Hubs troubleshooting]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Notification Hubs Metrics]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[Registrations Export/Import]: https://msdn.microsoft.com/library/dn790624.aspx
+[Registrations Export/Import]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
 [Azure portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/

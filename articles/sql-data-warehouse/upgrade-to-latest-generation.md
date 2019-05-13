@@ -13,21 +13,24 @@ ms.reviewer: jrasnick
 ---
 
 # Optimize performance by upgrading SQL Data Warehouse
+
 Upgrade Azure SQL Data Warehouse to latest generation of Azure hardware and storage architecture.
 
 ## Why upgrade?
+
 You can now seamlessly upgrade to the SQL Data Warehouse Compute Optimized Gen2 tier in the Azure portal for [supported regions](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). If your region does not support self-upgrade, you can upgrade to a supported region or wait for self-upgrade to be available in your region. Upgrade now to take advantage of the latest generation of Azure hardware and enhanced storage architecture including faster performance, higher scalability, and unlimited columnar storage. 
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## Applies to
+
 This upgrade applies to Compute Optimized Gen1 tier data warehouses in [supported regions](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
 
 ## Before you begin
 
 1. Check if your [region](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) is supported for GEN1 to GEN2 migration. Note the automatic migration dates. To avoid conflicts with the automated process, plan your manual migration prior to the automated process start date.
-2. If you are in a region that is not yet supported, continue to check for your region to be added or [upgrade using restore](#Upgrade-from-an-Azure-geographical-region-using-restore-through-the-Azure-portal) to a supported region.
-3. If your region is supported, [upgrade through the Azure portal](#Upgrade-in-a-supported-region-using-the-Azure-portal)
+2. If you are in a region that is not yet supported, continue to check for your region to be added or [upgrade using restore](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) to a supported region.
+3. If your region is supported, [upgrade through the Azure portal](#upgrade-in-a-supported-region-using-the-azure-portal)
 4. **Select the suggested performance level** for the data warehouse based on your current performance level on Compute Optimized Gen1 tier by using the mapping below:
 
    | Compute Optimized Gen1 tier | Compute Optimized Gen2 tier |
@@ -44,10 +47,15 @@ This upgrade applies to Compute Optimized Gen1 tier data warehouses in [supporte
    |           DW2000            |           DW2000c           |
    |           DW3000            |           DW3000c           |
    |           DW6000            |           DW6000c           |
->[!Note]
->Suggested performance levels are not a direct conversion. For example, we recommend going from DW600 to DW500c.
+
+> [!Note]
+> Suggested performance levels are not a direct conversion. For example, we recommend going from DW600 to DW500c.
 
 ## Upgrade in a supported region using the Azure portal
+
+## Before you begin
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
 > Migration from Gen1 to Gen2 through the Azure portal is permanent. There is not a process for returning to Gen1.  
@@ -68,13 +76,13 @@ Sign in to the [Azure portal](https://portal.azure.com/).
    Original Gen1 PowerShell command:
 
    ```powershell
-   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+   Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
    ```
 
    Modified to:
 
    ```powershell
-   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
+   Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
    ```
 
    > [!NOTE] 
@@ -95,8 +103,6 @@ Sign in to the [Azure portal](https://portal.azure.com/).
    > [!NOTE] 
    > SERVICE_OBJECTIVE = 'DW300' is changed to SERVICE_OBJECTIVE = 'DW300**c**'
 
-
-
 ## Start the upgrade
 
 1. Go to your Compute Optimized Gen1 tier data warehouse in the Azure portal. If the Compute Optimized Gen1 tier data warehouse to be upgraded is paused, [resume the data warehouse](pause-and-resume-compute-portal.md). 
@@ -106,7 +112,6 @@ Sign in to the [Azure portal](https://portal.azure.com/).
     > [!NOTE]
     > If you do not see the **Upgrade to Gen2** card under the Tasks tab, your subscription type is limited in the current region.
     > [Submit a support ticket](sql-data-warehouse-get-started-create-support-ticket.md) to get your subscription whitelisted.
-
 
 3. Ensure your workload has completed running and quiesced before upgrading. You'll experience downtime for a few minutes before your data warehouse is back online as a Compute Optimized Gen2 tier data warehouse. **Select Upgrade**:
 
@@ -170,6 +175,7 @@ FROM   sys.indexes idx
                        AND idx.object_id = part.object_id 
 WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE'; 
 ```
+
 ## Upgrade from an Azure geographical region using restore through the Azure portal
 
 ## Create a user-defined restore point using the Azure portal
@@ -187,6 +193,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
     ![Name of Restore Point](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_1.png)
 
 ## Restore an active or paused database using the Azure portal
+
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Navigate to the SQL data warehouse that you want to restore from.
 3. At the top of the Overview section, select **Restore**.
@@ -202,11 +209,13 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
     ![User-defined Restore Points](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
 
 ## Restore from an Azure geographical region using PowerShell
-To recover a database, use the [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) cmdlet.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+To recover a database, use the [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) cmdlet.
 
 > [!NOTE]
 > You can perform a geo-restore to Gen2! To do so, specify an Gen2 ServiceObjectiveName (e.g. DW1000**c**) as an optional parameter.
->
 
 1. Open Windows PowerShell.
 2. Connect to your Azure account and list all the subscriptions associated with your account.
@@ -216,15 +225,15 @@ To recover a database, use the [Restore-AzureRmSqlDatabase](/powershell/module/a
 6. Verify the status of the geo-restored database.
 
 ```Powershell
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
+Connect-AzAccount
+Get-AzSubscription
+Select-AzSubscription -SubscriptionName "<Subscription_name>"
 
 # Get the database you want to recover
-$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
+$GeoBackup = Get-AzSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
 
 # Recover database
-$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID -ServiceObjectiveName "<YourTargetServiceLevel>" -RequestedServiceObjectiveName "DW300c"
+$GeoRestoredDatabase = Restore-AzSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID -ServiceObjectiveName "<YourTargetServiceLevel>" -RequestedServiceObjectiveName "DW300c"
 
 # Verify that the geo-restored database is online
 $GeoRestoredDatabase.status
@@ -232,7 +241,6 @@ $GeoRestoredDatabase.status
 
 > [!NOTE]
 > To configure your database after the restore has completed, see [Configure your database after recovery](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
->
 
 The recovered database will be TDE-enabled if the source database is TDE-enabled.
 
@@ -240,4 +248,5 @@ The recovered database will be TDE-enabled if the source database is TDE-enabled
 If you experience any issues with your data warehouse, create a [support request](sql-data-warehouse-get-started-create-support-ticket.md) and reference “Gen2 upgrade” as the possible cause.
 
 ## Next steps
+
 Your upgraded data warehouse is online. To take advantage of the enhanced architecture, see [Resource classes for Workload Management](resource-classes-for-workload-management.md).

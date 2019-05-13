@@ -98,7 +98,7 @@ import org.eclipse.jetty.websocket.common.scopes.*;
     https://docs.oracle.com/javaee/7/api/javax/websocket/Session.html
     https://docs.oracle.com/javaee/7/api/javax/websocket/RemoteEndpoint.Basic.html
     https://docs.oracle.com/javaee/7/api/javax/websocket/OnMessage.html
-    http://www.oracle.com/technetwork/articles/java/jsr356-1937161.html
+    https://www.oracle.com/technetwork/articles/java/jsr356-1937161.html
 */
 
 @ClientEndpoint(configurator = Config.class)

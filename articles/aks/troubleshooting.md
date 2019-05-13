@@ -85,4 +85,32 @@ This error occurs when clusters enter a failed state for multiple reasons. Follo
 Cluster operations are limited when active upgrade operations are occurring or an upgrade was attempted, but subsequently failed. To diagnose the issue run `az aks show -g myResourceGroup -n myAKSCluster -o table` to retrieve detailed status on your cluster. Based on the result:
 
 * If cluster is actively upgrading, wait until the operation terminates. If it succeeded, try the previously failed operation again.
-* If cluster has failed upgrade, follow steps outlined [above](#im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade-directed-from-httpsakamsaks-pending-upgrade)
+* If cluster has failed upgrade, follow steps outlined above
+
+## Can I move my cluster to a different subscription or my subscription with my cluster to a new tenant?
+
+If you have moved your AKS cluster to a different subscription or the cluster owning subscription to a new tenant, the cluster will lose functionality due to losing role assignments and service principals rights. **AKS does not support moving clusters across subscriptions or tenants** due to the this constraint.
+
+## I'm receiving errors trying to use features that require virtual machine scale sets
+
+*This troubleshooting assistance is directed from aka.ms/aks-vmss-enablement*
+
+You may receive errors that indicate your AKS cluster is not on a virtual machine scale set, such as the following example:
+
+**AgentPool 'agentpool' has set auto scaling as enabled but is not on Virtual Machine Scale Sets**
+
+To use features such as the cluster autoscaler or multiple node pools, AKS clusters must be created that use virtual machine scale sets. Errors are returned if you try to use features that depend on virtual machine scale sets and you target a regular, non-virtual machine scale set AKS cluster. Virtual machine scale set support is currently in preview in AKS.
+
+Follow the *Before you begin* steps in the appropriate doc to correctly register for the virtual machine scale set feature preview and create an AKS cluster:
+
+* [Use the cluster autoscaler](cluster-autoscaler.md)
+* [Create and use multiple node pools](use-multiple-node-pools.md)
+ 
+## What naming restrictions are enforced for AKS resources and parameters?
+
+*This troubleshooting assistance is directed from aka.ms/aks-naming-rules*
+
+Naming restrictions are implemented by both the Azure platform and AKS. If a resource name or parameter breaks one of these restrictions, an error is returned that asks you provide a different input. The following common naming guidelines apply:
+
+* The AKS *MC_* resource group name combines resource group name and resource name. The auto-generated syntax of `MC_resourceGroupName_resourceName_AzureRegion` must be no greater than 80 chars. If needed, reduce the length of your resource group name or AKS cluster name.
+* The *dnsPrefix* must start and end with alphanumeric values. Valid characters include alphanumeric values and hyphens (-). The *dnsPrefix* can't include special characters such as a period (.).

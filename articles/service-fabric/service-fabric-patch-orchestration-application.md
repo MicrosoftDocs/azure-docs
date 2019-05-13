@@ -4,7 +4,7 @@ description: Application to automate operating system patching on a Service Fabr
 services: service-fabric
 documentationcenter: .net
 author: khandelwalbrijeshiitr
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
@@ -20,11 +20,10 @@ ms.author: brkhande
 
 # Patch the Windows operating system in your Service Fabric cluster
 
-> [!div class="op_single_selector"]
-> * [Windows](service-fabric-patch-orchestration-application.md)
-> * [Linux](service-fabric-patch-orchestration-application-linux.md)
->
->
+> 
+> [!IMPORTANT]
+> Application version 1.2.* is going out of support on 30 April 2019. Please upgrade to the latest version.
+
 
 [Azure virtual machine scale set automatic OS image upgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) is the best practice for keeping your operating systems patched in Azure, and the Patch Orchestration Application (POA) is a wrapper around Service Fabrics RepairManager Systems service that enables configuration based OS patch scheduling for non-Azure hosted clusters. POA is not required for non-Azure hosted clusters, but scheduling patch installation by Upgrade Domains, is required to patch Service Fabric clusters hosts without downtime.
 
@@ -57,6 +56,9 @@ The patch orchestration app is composed of the following subcomponents:
 > The patch orchestration app uses the Service Fabric repair manager system service to disable or enable the node and perform health checks. The repair task created by the patch orchestration app tracks the Windows Update progress for each node.
 
 ## Prerequisites
+
+> [!NOTE]
+> Minimum .NET framework version required is 4.6.
 
 ### Enable the repair manager service (if it's not running already)
 
@@ -232,7 +234,7 @@ RebootRequired | true - reboot was required<br> false - reboot was not required 
 
 If no update is scheduled yet, the result JSON is empty.
 
-Log in to the cluster to query Windows Update results. Then find out the replica address for the primary of the Coordinator Service, and hit the URL from the browser:
+Sign in to the cluster to query Windows Update results. Then find out the replica address for the primary of the Coordinator Service, and hit the URL from the browser:
 http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults.
 
 The REST endpoint for the Coordinator Service has a dynamic port. To check the exact URL, refer to the Service Fabric Explorer. For example, the results are available at
@@ -257,7 +259,7 @@ To enable the reverse proxy on the cluster, follow the steps in [Reverse proxy i
 
 Patch orchestration app logs are collected as part of Service Fabric runtime logs.
 
-In case you want to capture logs via diagnostic tool/pipeline of your choice. Patch orchestration application uses below fixed provider IDs to log events via [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
+In case you want to capture logs via diagnostic tool/pipeline of your choice. Patch orchestration application uses below fixed provider IDs to log events via [event source](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -306,7 +308,7 @@ Q. **What can I do if my cluster is unhealthy and I need to do an urgent operati
 
 A. The patch orchestration app does not install updates while the cluster is unhealthy. Try to bring your cluster to a healthy state to unblock the patch orchestration app workflow.
 
-Q. **Should i set TaskApprovalPolicy as 'NodeWise' or 'UpgradeDomainWise' for my cluster?**
+Q. **Should I set TaskApprovalPolicy as 'NodeWise' or 'UpgradeDomainWise' for my cluster?**
 
 A. 'UpgradeDomainWise' makes the overall cluster patching faster by patching all the nodes belonging to an upgrade domain in parallel. This means that nodes belonging to an entire upgrade domain would be unavailable (in [Disabled](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) state) during the patching process.
 
@@ -316,7 +318,7 @@ If your cluster can tolerate running on N-1 number of upgrade domains during pat
 
 Q. **How much time does it take to patch a node?**
 
-A. Patching a node may take minutes (for example: [Windows Defender definition updates](https://www.microsoft.com/wdsi/definitions)) to hours (for example: [Windows Cumulative updates](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Time required to patch a node depends mostly on 
+A. Patching a node may take minutes (for example: [Windows Defender definition updates](https://www.microsoft.com/en-us/wdsi/definitions)) to hours (for example: [Windows Cumulative updates](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Time required to patch a node depends mostly on 
  - The size of updates
  - Number of updates, which have to be applied in a patching window
  - Time it takes to install the updates, reboot the node (if required), and finish post-reboot installation steps.
@@ -340,6 +342,10 @@ A. Some product updates would only appear in their respective update/patch histo
 Q. **Can Patch Orchestration app be used to patch my dev cluster (one-node cluster)?**
 
 A. No, Patch orchestration app cannot be used to patch one-node cluster. This limitation is by design, as [service fabric system services](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) or any customer apps will face downtime and hence any repair job for patching would never get approved by repair manager.
+
+Q. **How do I patch cluster nodes on Linux?**
+
+A. See [Azure virtual machine scale set automatic OS image upgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) for orchestrating updates on linux.
 
 ## Disclaimers
 
@@ -407,7 +413,7 @@ An administrator must intervene and determine why the application or cluster bec
 
 - Setting InstallWindowsOSOnlyUpdates to false now installs all the available updates.
 - Changed the logic of disabling automatic updates. This fixes a bug where Automatic updates were not getting disabled on Server 2016 and above.
-- Parameterized placement constraint for both the microservices of POA for advanced usecases.
+- Parameterized placement constraint for both the microservices of POA for advanced use cases.
 
 ### Version 1.3.1
 - Fixing regression where POA 1.3.0 won't work on Windows Server 2012 R2 or lower due to failure in disabling automatic updates. 
@@ -415,4 +421,4 @@ An administrator must intervene and determine why the application or cluster bec
 - Changing default value of InstallWindowsOSOnlyUpdates to False.
 
 ### Version 1.3.2
-- Fixing an issue which effected the patching lifecyle on a node in case there are nodes with name which is subset of the current node name. For such nodes, its possible, patching is missed or reboot is pending. 
+- Fixing an issue which effected the patching lifecycle on a node in case there are nodes with name which is subset of the current node name. For such nodes, its possible, patching is missed or reboot is pending. 

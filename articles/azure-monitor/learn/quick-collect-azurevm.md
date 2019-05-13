@@ -31,11 +31,11 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
 
 2. Click **Create**, and then select choices for the following items:
 
-  * Provide a name for the new **Log Analyics workspace**, such as *DefaultLAWorkspace*. OMS workspaces are now referred to as Log Analytics workspaces.  
-  * Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
-  * For **Resource Group**, select an existing resource group that contains one or more Azure virtual machines.  
-  * Select the **Location** your VMs are deployed to.  For additional information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).
-  * If you are creating a workspace in a new subscription created after April 2, 2018, it will automatically use the *Per GB* pricing plan and the option to select a pricing tier will not be available.  If you are creating a workspace for an existing subscription created before April 2, or to subscription that was tied to an existing EA enrollment, select your preferred pricing tier.  For additional information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
+   * Provide a name for the new **Log Analytics workspace**, such as *DefaultLAWorkspace*. OMS workspaces are now referred to as Log Analytics workspaces.  
+   * Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
+   * For **Resource Group**, select an existing resource group that contains one or more Azure virtual machines.  
+   * Select the **Location** your VMs are deployed to.  For additional information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).
+   * If you are creating a workspace in a new subscription created after April 2, 2018, it will automatically use the *Per GB* pricing plan and the option to select a pricing tier will not be available.  If you are creating a workspace for an existing subscription created before April 2, or to subscription that was tied to an existing EA enrollment, select your preferred pricing tier.  For additional information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
   
         ![Create Log Analytics resource blade](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
 

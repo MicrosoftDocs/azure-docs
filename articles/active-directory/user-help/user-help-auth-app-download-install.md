@@ -30,13 +30,13 @@ You can use the Microsoft Authenticator app in multiple ways, including:
 
 - **Code generation.** As a code generator for any other accounts that support authenticator apps.
 
->[!Important]
->The Microsoft Authenticator app works with any account that uses two-factor verification and supports the time-based one-time password (TOTP) standards.
-
->Your organization might require you to use an authenticator app to sign-in and access your organizational data and documents. Although your user name might appear in the app, the account isn't actually set up to act as a verification method until you complete the registration process. For more information, see [Add your work or school account](user-help-auth-app-add-work-school-account.md).
-
->[!NOTE]
->If you're having issues signing in to your account, see [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) for help.  Get more info about what to do when you receive the [“That Microsoft account doesn't exist”](https://support.microsoft.com/help/13811) message when you try to sign in to your Microsoft account.
+> [!Important]
+> The Microsoft Authenticator app works with any account that uses two-factor verification and supports the time-based one-time password (TOTP) standards.
+> 
+> Your organization might require you to use an authenticator app to sign-in and access your organizational data and documents. Although your user name might appear in the app, the account isn't actually set up to act as a verification method until you complete the registration process. For more information, see [Add your work or school account](user-help-auth-app-add-work-school-account.md).
+> 
+> [!NOTE]
+> If you're having issues signing in to your account, see [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) for help.  Get more info about what to do when you receive the [“That Microsoft account doesn't exist”](https://support.microsoft.com/help/13811) message when you try to sign in to your Microsoft account.
 
 ## Download and install the app
 Install the latest version of the Microsoft Authenticator app, based on your operating system:
@@ -45,7 +45,7 @@ Install the latest version of the Microsoft Authenticator app, based on your ope
 
 - **Apple iOS.** On your Apple iOS device, go to the App Store to [download and install the Microsoft Authenticator app](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
->[Important]
+>[!Important]
 >If you're not currently on your mobile device, you can still get the Microsoft Authenticator app by sending yourself a download link from the [Microsoft Authenticator page](https://www.microsoft.com/en-us/account/authenticator).
 
 ## Next steps

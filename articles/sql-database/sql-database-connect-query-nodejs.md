@@ -10,7 +10,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 02/12/2019
+ms.date: 03/25/2019
 ---
 # Quickstart: Use Node.js to query an Azure SQL database
 
@@ -26,11 +26,11 @@ To complete this sample, make sure you have the following prerequisites:
   |:--- |:--- |:---|
   | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md)| [Connectivity from a VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connectivity from on-site](sql-database-managed-instance-configure-p2s.md)
   |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
@@ -61,8 +61,8 @@ Open a command prompt and create a folder named *sqltest*. Navigate to the folde
 
   ```bash
   npm init -y
-  npm install tedious
-  npm install async
+  npm install tedious@5.0.3
+  npm install async@2.6.2
   ```
 
 ## Add code to query database
@@ -78,8 +78,13 @@ Open a command prompt and create a folder named *sqltest*. Navigate to the folde
     // Create connection to database
     var config =
     {
-        userName: 'your_username', // update me
-        password: 'your_password', // update me
+        authentication: {
+            options: {
+                userName: 'userName', // update me
+                password: 'password' // update me
+            },
+            type: 'default'
+        },
         server: 'your_server.database.windows.net', // update me
         options:
         {

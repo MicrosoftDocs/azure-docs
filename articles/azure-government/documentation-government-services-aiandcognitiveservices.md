@@ -97,16 +97,16 @@ The service URL endpoints for Azure Bot Service apps created in Azure Government
 Some Bot Service features available in the public cloud are not yet available in Azure Government:
 - BotBuilder V3 Bot Templates
 - Channels
- - Cortana channel
- - Skype for Business Channel
- - Teams Channel
- - Slack Channel
- - Office 365 Email Channel
- - Facebook Messenger Channel
- - Telegram Channel
- - Kik Messenger Channel
- - GroupMe Channel
- - Skype Channel
+  - Cortana channel
+  - Skype for Business Channel
+  - Teams Channel
+  - Slack Channel
+  - Office 365 Email Channel
+  - Facebook Messenger Channel
+  - Telegram Channel
+  - Kik Messenger Channel
+  - GroupMe Channel
+  - Skype Channel
 - Application Insights related capabilities including the Analytics Tab 
 - Speech Priming Feature
 - Payment Card Feature

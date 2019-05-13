@@ -2,15 +2,11 @@
 title: How to generate and transfer HSM-protected keys for Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Use this article to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault. Also known as BYOK or bring your own key.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
 
-ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
@@ -20,7 +16,7 @@ ms.author: barclayn
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. The HSMs are FIPS 140-2 Level 2 validated. Azure Key Vault uses Thales nShield family of HSMs to protect your keys.
+For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. The HSMs are FIPS 140-2 Level 2 validated. Azure Key Vault uses nCipher nShield family of HSMs to protect your keys.
 
 Use the information in this topic to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault.
 
@@ -34,16 +30,16 @@ More information about generating and transferring an HSM-protected key over the
 
 * You generate the key from an offline workstation, which reduces the attack surface.
 * The key is encrypted with a Key Exchange Key (KEK), which stays encrypted until it is transferred to the Azure Key Vault HSMs. Only the encrypted version of your key leaves the original workstation.
-* The toolset sets properties on your tenant key that binds your key to the Azure Key Vault security world. So after the Azure Key Vault HSMs receive and decrypt your key, only these HSMs can use it. Your key cannot be exported. This binding is enforced by the Thales HSMs.
-* The Key Exchange Key (KEK) that is used to encrypt your key is generated inside the Azure Key Vault HSMs and is not exportable. The HSMs enforce that there can be no clear version of the KEK outside the HSMs. In addition, the toolset includes attestation from Thales that the KEK is not exportable and was generated inside a genuine HSM that was manufactured by Thales.
-* The toolset includes attestation from Thales that the Azure Key Vault security world was also generated on a genuine HSM manufactured by Thales. This attestation proves to you that Microsoft is using genuine hardware.
+* The toolset sets properties on your tenant key that binds your key to the Azure Key Vault security world. So after the Azure Key Vault HSMs receive and decrypt your key, only these HSMs can use it. Your key cannot be exported. This binding is enforced by the nCipher  HSMs.
+* The Key Exchange Key (KEK) that is used to encrypt your key is generated inside the Azure Key Vault HSMs and is not exportable. The HSMs enforce that there can be no clear version of the KEK outside the HSMs. In addition, the toolset includes attestation from nCipher that the KEK is not exportable and was generated inside a genuine HSM that was manufactured by nCipher.
+* The toolset includes attestation from nCipher that the Azure Key Vault security world was also generated on a genuine HSM manufactured by nCipher. This attestation proves to you that Microsoft is using genuine hardware.
 * Microsoft uses separate KEKs and separate Security Worlds in each geographical region. This separation ensures that your key can be used only in data centers in the region in which you encrypted it. For example, a key from a European customer cannot be used in data centers in North American or Asia.
 
-## More information about Thales HSMs and Microsoft services
+## More information about nCipher HSMs and Microsoft services
 
-Thales e-Security is a leading global provider of data encryption and cyber security solutions to the financial services, high technology, manufacturing, government, and technology sectors. With a 40-year track record of protecting corporate and government information, Thales solutions are used by four of the five largest energy and aerospace companies. Their solutions are also used by 22 NATO countries, and secure more than 80 per cent of worldwide payment transactions.
+nCipher Security is a leading global provider of data encryption and cyber security solutions to the financial services, high technology, manufacturing, government, and technology sectors. With a 40-year track record of protecting corporate and government information, nCipher Security cryptographic solutions are used by four of the five largest energy and aerospace companies. Their solutions are also used by 22 NATO countries/regions, and secure more than 80 per cent of worldwide payment transactions.
 
-Microsoft has collaborated with Thales to enhance the state of art for HSMs. These enhancements enable you to get the typical benefits of hosted services without relinquishing control over your keys. Specifically, these enhancements let Microsoft manage the HSMs so that you do not have to. As a cloud service, Azure Key Vault scales up at short notice to meet your organization’s usage spikes. At the same time, your key is protected inside Microsoft’s HSMs: You retain control over the key lifecycle because you generate the key and transfer it to Microsoft’s HSMs.
+Microsoft has collaborated with nCipher Security to enhance the state of art for HSMs. These enhancements enable you to get the typical benefits of hosted services without relinquishing control over your keys. Specifically, these enhancements let Microsoft manage the HSMs so that you do not have to. As a cloud service, Azure Key Vault scales up at short notice to meet your organization’s usage spikes. At the same time, your key is protected inside Microsoft’s HSMs: You retain control over the key lifecycle because you generate the key and transfer it to Microsoft’s HSMs.
 
 ## Implementing bring your own key (BYOK) for Azure Key Vault
 
@@ -57,8 +53,8 @@ See the following table for a list of prerequisites for bring your own key (BYOK
 | --- | --- |
 | A subscription to Azure |To create an Azure Key Vault, you need an Azure subscription: [Sign up for free trial](https://azure.microsoft.com/pricing/free-trial/) |
 | The Azure Key Vault Premium service tier to support HSM-protected keys |For more information about the service tiers and capabilities for Azure Key Vault, see the [Azure Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/) website. |
-| Thales HSM, smartcards, and support software |You must have access to a Thales Hardware Security Module and basic operational knowledge of Thales HSMs. See [Thales Hardware Security Module](https://www.thales-esecurity.com/msrms/buy) for the list of compatible models, or to purchase an HSM if you do not have one. |
-| The following hardware and software:<ol><li>An offline x64 workstation with a minimum Windows operation system of Windows 7 and Thales nShield software that is at least version 11.50.<br/><br/>If this workstation runs Windows 7, you must [install Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>A workstation that is connected to the Internet and has a minimum Windows operating system of Windows 7 and [Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **minimum version 1.1.0** installed.</li><li>A USB drive or other portable storage device that has at least 16 MB free space.</li></ol> |For security reasons, we recommend that the first workstation is not connected to a network. However, this recommendation is not programmatically enforced.<br/><br/>In the instructions that follow, this workstation is referred to as the disconnected workstation.</p></blockquote><br/>In addition, if your tenant key is for a production network, we recommend that you use a second, separate workstation to download the toolset, and upload the tenant key. But for testing purposes, you can use the same workstation as the first one.<br/><br/>In the instructions that follow, this second workstation is referred to as the Internet-connected workstation.</p></blockquote><br/> |
+| nCipher nShield HSMs, smartcards, and support software |You must have access to a nCipher Hardware Security Module and basic operational knowledge of nCipher nShield HSMs. See [nCipher nShield Hardware Security Module](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/how-to-buy) for the list of compatible models, or to purchase an HSM if you do not have one. |
+| The following hardware and software:<ol><li>An offline x64 workstation with a minimum Windows operation system of Windows 7 and nCipher nShield software that is at least version 11.50.<br/><br/>If this workstation runs Windows 7, you must [install Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>A workstation that is connected to the Internet and has a minimum Windows operating system of Windows 7 and [Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **minimum version 1.1.0** installed.</li><li>A USB drive or other portable storage device that has at least 16 MB free space.</li></ol> |For security reasons, we recommend that the first workstation is not connected to a network. However, this recommendation is not programmatically enforced.<br/><br/>In the instructions that follow, this workstation is referred to as the disconnected workstation.</p></blockquote><br/>In addition, if your tenant key is for a production network, we recommend that you use a second, separate workstation to download the toolset, and upload the tenant key. But for testing purposes, you can use the same workstation as the first one.<br/><br/>In the instructions that follow, this second workstation is referred to as the Internet-connected workstation.</p></blockquote><br/> |
 
 ## Generate and transfer your key to Azure Key Vault HSM
 
@@ -232,17 +228,17 @@ Copy the package to a USB drive or other portable storage.
 
 For this second step, do the following procedures on the workstation that is not connected to a network (either the Internet or your internal network).
 
-### Step 2.1: Prepare the disconnected workstation with Thales HSM
+### Step 2.1: Prepare the disconnected workstation with nCipher nShield HSM
 
-Install the nCipher (Thales) support software on a Windows computer, and then attach a Thales HSM to that computer.
+Install the nCipher support software on a Windows computer, and then attach a nCipher nShield HSM to that computer.
 
-Ensure that the Thales tools are in your path (**%nfast_home%\bin**). For example, type the following:
+Ensure that the nCipher tools are in your path (**%nfast_home%\bin**). For example, type the following:
 
   ```cmd
   set PATH=%PATH%;"%nfast_home%\bin"
   ```
 
-For more information, see the user guide included with the Thales HSM.
+For more information, see the user guide included with the nShield HSM.
 
 ### Step 2.2: Install the BYOK toolset on the disconnected workstation
 
@@ -258,11 +254,11 @@ For this third step, do the following procedures on the disconnected workstation
 
 ### Step 3.1: Change the HSM mode to 'I'
 
-If you are using Thales nShield Edge, to change the mode: 1. Use the Mode button to highlight the required mode. 2. Within a few seconds, press and hold the Clear button for a couple of seconds. If the mode changes, the new mode’s LED stops flashing and remains lit. The Status LED might flash irregularly for a few seconds and then flashes regularly when the device is ready. Otherwise, the device remains in the current mode, with the appropriate mode LED lit.
+If you are using nCipher nShield Edge, to change the mode: 1. Use the Mode button to highlight the required mode. 2. Within a few seconds, press and hold the Clear button for a couple of seconds. If the mode changes, the new mode’s LED stops flashing and remains lit. The Status LED might flash irregularly for a few seconds and then flashes regularly when the device is ready. Otherwise, the device remains in the current mode, with the appropriate mode LED lit.
 
 ### Step 3.2: Create a security world
 
-Start a command prompt and run the Thales new-world program.
+Start a command prompt and run the nCipher new-world program.
 
    ```cmd
     new-world.exe --initialize --cipher-suite=DLf3072s256mRijndael --module=1 --acs-quorum=2/3
@@ -279,14 +275,14 @@ Then do the following:
 
 ### Step 3.3: Change the HSM mode to 'O'
 
-If you are using Thales nShield Edge, to change the mode: 1. Use the Mode button to highlight the required mode. 2. Within a few seconds, press and hold the Clear button for a couple of seconds. If the mode changes, the new mode’s LED stops flashing and remains lit. The Status LED might flash irregularly for a few seconds and then flashes regularly when the device is ready. Otherwise, the device remains in the current mode, with the appropriate mode LED lit.
+If you are using nCipher nShield Edge, to change the mode: 1. Use the Mode button to highlight the required mode. 2. Within a few seconds, press and hold the Clear button for a couple of seconds. If the mode changes, the new mode’s LED stops flashing and remains lit. The Status LED might flash irregularly for a few seconds and then flashes regularly when the device is ready. Otherwise, the device remains in the current mode, with the appropriate mode LED lit.
 
 ### Step 3.4: Validate the downloaded package
 
 This step is optional but recommended so that you can validate the following:
 
-* The Key Exchange Key that is included in the toolset has been generated from a genuine Thales HSM.
-* The hash of the Security World that is included in the toolset has been generated in a genuine Thales HSM.
+* The Key Exchange Key that is included in the toolset has been generated from a genuine nCipher nShield HSM.
+* The hash of the Security World that is included in the toolset has been generated in a genuine nCipher nShield HSM.
 * The Key Exchange Key is non-exportable.
 
 > [!NOTE]
@@ -346,18 +342,18 @@ To validate the downloaded package:
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UK-1 -w BYOK-SecurityWorld-pkg-UK-1
 
      > [!TIP]
-     > The Thales software includes python at %NFAST_HOME%\python\bin
+     > The nCipher nShield software includes python at %NFAST_HOME%\python\bin
      >
      >
 2. Confirm that you see the following, which indicates successful validation: **Result: SUCCESS**
 
-This script validates the signer chain up to the Thales root key. The hash of this root key is embedded in the script and its value should be **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. You can also confirm this value separately by visiting the [Thales website](http://www.thalesesec.com/).
+This script validates the signer chain up to the nShield root key. The hash of this root key is embedded in the script and its value should be **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. You can also confirm this value separately by visiting the [nCipher website](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/validation).
 
 You’re now ready to create a new key.
 
 ### Step 3.5: Create a new key
 
-Generate a key by using the Thales **generatekey** program.
+Generate a key by using the nCipher nShield **generatekey** program.
 
 Run the following command to generate the key:
 
@@ -367,14 +363,14 @@ When you run this command, use these instructions:
 
 * The parameter *protect* must be set to the value **module**, as shown. This creates a module-protected key. The BYOK toolset does not support OCS-protected keys.
 * Replace the value of *contosokey* for the **ident** and **plainname** with any string value. To minimize administrative overheads and reduce the risk of errors, we recommend that you use the same value for both. The **ident** value must contain only numbers, dashes, and lower case letters.
-* The pubexp is left blank (default) in this example, but you can specify specific values. For more information, see the Thales documentation.
+* The pubexp is left blank (default) in this example, but you can specify specific values. For more information, see the [nCipher documentation.](https://www.ncipher.com/resources/solution-briefs/protect-sensitive-data-rest-and-use-across-premises-and-azure-based)
 
 This command creates a Tokenized Key file in your %NFAST_KMDATA%\local folder with a name starting with **key_simple_**, followed by the **ident** that was specified in the command. For example: **key_simple_contosokey**. This file contains an encrypted key.
 
 Back up this Tokenized Key File in a safe location.
 
 > [!IMPORTANT]
-> When you later transfer your key to Azure Key Vault, Microsoft cannot export this key back to you so it becomes extremely important that you back up your key and security world safely. Contact Thales for guidance and best practices for backing up your key.
+> When you later transfer your key to Azure Key Vault, Microsoft cannot export this key back to you so it becomes extremely important that you back up your key and security world safely. Contact [nCipher](https://www.ncipher.com/about-us/contact-us) for guidance and best practices for backing up your key.
 >
 
 
@@ -442,9 +438,9 @@ When you run this command, replace *contosokey* with the same value you specifie
 
 You are asked to plug in your security world admin cards.
 
-When the command completes, you see **Result: SUCCESS** and the copy of your key with reduced permissions are in the file named key_xferacId_<contosokey>.
+When the command completes, you see **Result: SUCCESS** and the copy of your key with reduced permissions are in the file named key_xferacId_\<contosokey>.
 
-You may inspects the ACLS using following commands using the Thales utilities:
+You may inspects the ACLS using following commands using the nCipher nShield utilities:
 
 * aclprint.py:
 
@@ -531,4 +527,4 @@ If the upload is successful, you see displayed the properties of the key that yo
 
 ## Next steps
 
-You can now use this HSM-protected key in your key vault. For more information, see the **If you want to use a hardware security module (HSM)** section in the [Getting started with Azure Key Vault](key-vault-overview.md) tutorial.
+You can now use this HSM-protected key in your key vault. For more information, see this price and feature [comparison](https://azure.microsoft.com/pricing/details/key-vault/).

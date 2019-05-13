@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory user authentication
+title: Azure Active Directory user authentication - Azure Active Directory
 description: As an Azure AD Administrator how do I protect user authentication while reducing end-user impact?
 
 services: active-directory

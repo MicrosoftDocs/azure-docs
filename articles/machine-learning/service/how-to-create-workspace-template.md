@@ -1,5 +1,5 @@
 ---
-title: Use a template to create a workspace
+title: Use an Azure Resource Manager template to create a workspace
 titleSuffix: Azure Machine Learning service
 description: Learn how to use an Azure Resource Manager template to create a new Azure Machine Learning service workspace.
 services: machine-learning
@@ -7,157 +7,32 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 
-ms.reviewer: larryfr
-ms.author: haining
-author: hning86
-ms.date: 02/11/2019
+ms.author: larryfr
+author: Blackmist
+ms.date: 04/16/2019
+
+ms.custom: seoapril2019
 
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning service by using templates.
 ---
 
-# Create an Azure Machine Learning service workspace by using a template
+# Use an Azure Resource Manager template to create a workspace for Azure Machine Learning service
 
-In this article, you learn several ways to create an Azure Machine Learning service workspace using Azure Resource Manager templates. 
+In this article, you learn several ways to create an Azure Machine Learning service workspace using Azure Resource Manager templates. A Resource Manager template makes it easy to create resources as a single, coordinated operation. A template is a JSON document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the template.
 
 For more information, see [Deploy an application with Azure Resource Manager template](../../azure-resource-manager/resource-group-template-deploy.md).
 
 ## Prerequisites
 
-* An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree).
+* An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree).
 
 * To use a template from a CLI, you need either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) or the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Resource Manager template
 
-A Resource Manager template makes it easy to create resources as a single, coordinated operation. A template is a JSON document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the template.
+The following Resource Manager template can be used to create an Azure Machine Learning service workspace and associated Azure resources:
 
-The following template can be used to create an Azure Machine Learning service workspace and associated Azure resources:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "workspaceName": {
-            "type": "string",
-            "metadata": {
-                "description": "The name of the Azure Machine Learning service workspace."
-            }
-        },
-        "location": {
-            "type": "string",
-            "allowedValues": [
-                "eastus",
-                "eastus2",
-                "southcentralus",
-                "southeastasia",
-                "westcentralus",
-                "westeurope",
-                "westus2"
-            ],
-            "metadata": {
-                "description": "The location where the workspace will be created."
-            }
-        }
-    },
-    "variables": {
-        "storageAccount": {
-            "name": "[concat('sa',uniqueString(resourceGroup().id))]",
-            "type": "Standard_LRS"
-        },
-        "keyVault": {
-            "name": "[concat('kv',uniqueString(resourceGroup().id))]",
-            "tenantId": "[subscription().tenantId]"
-        },
-        "applicationInsightsName": "[concat('ai',uniqueString(resourceGroup().id))]",
-        "containerRegistryName": "[concat('cr',uniqueString(resourceGroup().id))]"
-    },
-    "resources": [
-        {
-            "name": "[variables('storageAccount').name]",
-            "type": "Microsoft.Storage/storageAccounts",
-            "location": "[parameters('location')]",
-            "apiVersion": "2018-07-01",
-            "sku": {
-                "name": "[variables('storageAccount').type]"
-            },
-            "kind": "StorageV2",
-            "properties": {
-                "encryption": {
-                    "services": {
-                        "blob": {
-                            "enabled": true
-                        },
-                        "file": {
-                            "enabled": true
-                        }
-                    },
-                    "keySource": "Microsoft.Storage"
-                },
-                "supportHttpsTrafficOnly": true
-            }
-        },
-        {
-            "name": "[variables('keyVault').name]",
-            "type": "Microsoft.KeyVault/vaults",
-            "apiVersion": "2018-02-14",
-            "location": "[parameters('location')]",
-            "properties": {
-                "tenantId": "[variables('keyVault').tenantId]",
-                "sku": {
-                    "name": "standard",
-                    "family": "A"
-                },
-                "accessPolicies": []
-            }
-        },
-        {
-            "name": "[variables('applicationInsightsName')]",
-            "type": "Microsoft.Insights/components",
-            "apiVersion": "2015-05-01",
-            "location": "[if(or(equals(parameters('location'),'eastus2'),equals(parameters('location'),'westcentralus')),'southcentralus',parameters('location'))]",
-            "kind": "web",
-            "properties": {
-                "Application_Type": "web"
-            }
-        },
-        {
-            "name": "[variables('containerRegistryName')]",
-            "type": "Microsoft.ContainerRegistry/registries",
-            "apiVersion": "2017-10-01",
-            "location": "[parameters('location')]",
-            "sku": {
-                "name": "Standard"
-            },
-            "properties": {
-                "adminUserEnabled": true
-            }
-        },
-        {
-            "name": "[parameters('workspaceName')]",
-            "type": "Microsoft.MachineLearningServices/workspaces",
-            "apiVersion": "2018-11-19",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[variables('storageAccount').name]",
-                "[variables('keyVault').name]",
-                "[variables('applicationInsightsName')]",
-                "[variables('containerRegistryName')]"
-            ],
-            "identity": {
-                "type": "systemAssigned"
-            },
-            "properties": {
-                "friendlyName": "[parameters('workspaceName')]",
-                "keyVault": "[resourceId('Microsoft.KeyVault/vaults',variables('keyVault').name)]",
-                "applicationInsights": "[resourceId('Microsoft.Insights/components',variables('applicationInsightsName'))]",
-                "containerRegistry": "[resourceId('Microsoft.ContainerRegistry/registries',variables('containerRegistryName'))]",
-                "storageAccount": "[resourceId('Microsoft.Storage/storageAccounts/',variables('storageAccount').name)]"
-            }
-        }
-    ]
-}
-```
+[!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
 
 This template creates the following Azure services:
 
@@ -191,12 +66,12 @@ For more information on templates, see the following articles:
 1. Follow the steps in [Deploy resources from custom template](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). When you arrive at the __Edit template__ screen, paste in the template from this document.
 1. Select __Save__ to use the template. Provide the following information and agree to the listed terms and conditions:
 
-    * Subscription: Select the Azure subscription to use for these resources.
-    * Resource group: Select or create a resource group to contain the services.
-    * Workspace name: The name to use for the Azure Machine Learning workspace that will be created. The workspace name must be between 3 and 33 characters. It may only contain alphanumeric characters and '-'.
-    * Location: Select the location where the resources will be created.
+   * Subscription: Select the Azure subscription to use for these resources.
+   * Resource group: Select or create a resource group to contain the services.
+   * Workspace name: The name to use for the Azure Machine Learning workspace that will be created. The workspace name must be between 3 and 33 characters. It may only contain alphanumeric characters and '-'.
+   * Location: Select the location where the resources will be created.
 
-    ![The template parameters in the Azure portal](media/how-to-create-workspace-template/template-parameters.png)
+     ![The template parameters in the Azure portal](media/how-to-create-workspace-template/template-parameters.png)
 
 For more information, see [Deploy resources from custom template](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 

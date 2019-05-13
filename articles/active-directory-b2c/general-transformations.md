@@ -3,7 +3,7 @@ title: General claims transformation examples for the Identity Experience Framew
 description: General claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
@@ -44,7 +44,7 @@ Use this claims transformation to check if a claim exists or contains any value.
 ### Example
 
 - Input claims:
-    - **inputClaim**: someone@contoso.com
+  - **inputClaim**: someone@contoso.com
 - Output claims: 
     - **outputClaim**: true
 

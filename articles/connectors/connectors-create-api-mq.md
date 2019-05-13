@@ -1,9 +1,8 @@
 ---
 # required metadata
 title: Connect to MQ server - Azure Logic Apps | Microsoft Docs
-description: Send and retrieve messages with an Azure or on-premises MQ server and Azure Logic Apps 
-author: valthom
-manager: jeconnoc
+description: Send and retrieve messages with an Azure or on-premises MQ server and Azure Logic Apps
+author: valrobb
 ms.author: valthom
 ms.date: 06/01/2017
 ms.topic: article
@@ -16,45 +15,45 @@ ms.suite: integration
 tags: connectors
 ---
 
-# Connect to an IBM MQ server from logic apps using the MQ connector 
+# Connect to an IBM MQ server from logic apps using the MQ connector
 
-Microsoft Connector for MQ sends and retrieves messages stored in an MQ Server on-premises, or in Azure. This connector includes a Microsoft MQ client that communicates with a remote IBM MQ server across a TCP/IP network. This document is a starter guide to use the MQ connector. We recommended you begin by browsing a single message on a queue, and then trying the other actions.    
+Microsoft Connector for MQ sends and retrieves messages stored in an MQ Server on-premises, or in Azure. This connector includes a Microsoft MQ client that communicates with a remote IBM MQ server across a TCP/IP network. This document is a starter guide to use the MQ connector. We recommended you begin by browsing a single message on a queue, and then trying the other actions.
 
 The MQ connector includes the following actions. There are no triggers.
 
--	Browse a single message without deleting the message from the IBM MQ Server
--	Browse a batch of messages without deleting the messages from the IBM MQ Server
--	Receive a single message and delete the message from the IBM MQ Server
--	Receive a batch of messages and delete the messages from the IBM MQ Server
--	Send a single message to the IBM MQ Server 
+- Browse a single message without deleting the message from the IBM MQ Server
+- Browse a batch of messages without deleting the messages from the IBM MQ Server
+- Receive a single message and delete the message from the IBM MQ Server
+- Receive a batch of messages and delete the messages from the IBM MQ Server
+- Send a single message to the IBM MQ Server
 
 ## Prerequisites
 
 * If using an on-premises MQ server, [install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a server within your network. If the MQ Server is publicly available, or available within Azure, then the data gateway is not used or required.
 
     > [!NOTE]
-    > The server where the On-Premises Data Gateway is installed must also have .Net Framework 4.6 installed for the MQ Connector to function.
+    > The server where the On-Premises Data Gateway is installed must also have .NET Framework 4.6 installed for the MQ Connector to function.
 
 * Create the Azure resource for the on-premises data gateway - [Set up the data gateway connection](../logic-apps/logic-apps-gateway-connection.md).
 
 * Officially supported IBM WebSphere MQ versions:
-   * MQ 7.5
-   * MQ 8.0
+    * MQ 7.5
+    * MQ 8.0
 
 ## Create a logic app
 
-1. In the **Azure start board**, select **+** (plus sign), **Web + Mobile**, and then **Logic App**. 
+1. In the **Azure start board**, select **+** (plus sign), **Web + Mobile**, and then **Logic App**.
 2. Enter the **Name**, such as MQTestApp, **Subscription**, **Resource group**, and **Location** (use the location where the on-premises Data Gateway connection is configured). Select **Pin to dashboard**, and select **Create**.  
 ![Create Logic App](media/connectors-create-api-mq/Create_Logic_App.png)
 
 ## Add a trigger
 
 > [!NOTE]
-> The MQ Connector does not have any triggers. So, use another trigger to start your logic app, such as the **Recurrence** trigger. 
+> The MQ Connector does not have any triggers. So, use another trigger to start your logic app, such as the **Recurrence** trigger.
 
 1. The **Logic Apps Designer** opens, select **Recurrence** in the list of common triggers.
-2. Select **Edit** within the Recurrence Trigger. 
-3. Set the **Frequency** to **Day**, and set the **Interval** to **7**. 
+2. Select **Edit** within the Recurrence Trigger.
+3. Set the **Frequency** to **Day**, and set the **Interval** to **7**.
 
 ## Browse a single message
 1. Select **+ New step**, and select **Add an action**.
@@ -64,9 +63,9 @@ The MQ connector includes the following actions. There are no triggers.
 3. If there isn't an existing MQ connection, then create the connection:  
 
     1. Select **Connect via on-premises data gateway**, and enter the properties of your MQ server.  
-    For **Server**, you can enter the MQ server name, or enter the IP address followed by a colon and the port number. 
+    For **Server**, you can enter the MQ server name, or enter the IP address followed by a colon and the port number.
     2. The **gateway** dropdown lists any existing gateway connections that have been configured. Select your gateway.
-    3. Select **Create** when finished. Your connection looks similar to the following:   
+    3. Select **Create** when finished. Your connection looks similar to the following:  
     ![Connection Properties](media/connectors-create-api-mq/Connection_Properties.png)
 
 4. In the action properties, you can:  
@@ -98,12 +97,10 @@ The **Browse messages** action includes a **BatchSize** option to indicate how m
 ![Browse messages output](media/connectors-create-api-mq/Browse_messages_output.png)
 
 ## Receive a single message
-The **Receive message** action has the same inputs and outputs as the **Browse message** action. When using 
-**Receive message**, the message is deleted from the queue.
+The **Receive message** action has the same inputs and outputs as the **Browse message** action. When using **Receive message**, the message is deleted from the queue.
 
 ## Receive multiple messages
-The **Receive messages** action has the same inputs and outputs as the **Browse messages** action. When using 
-**Receive messages**, the messages are deleted from the queue.
+The **Receive messages** action has the same inputs and outputs as the **Browse messages** action. When using **Receive messages**, the messages are deleted from the queue.
 
 If there are no messages in the queue when doing a browse or a receive, the step fails with the following output:  
 ![MQ No Message Error](media/connectors-create-api-mq/MQ_No_Msg_Error.png)

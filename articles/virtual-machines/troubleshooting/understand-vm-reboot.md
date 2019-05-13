@@ -99,7 +99,7 @@ All VMs on that host are automatically relocated to a different, healthy host se
 
 On rare occasions, the Azure operations team might need to perform maintenance activities to ensure the overall health of the Azure platform. This behavior might affect VM availability, and it usually results in the same auto-recovery action as described earlier.  
 
-Unplanned maintenances include the following:
+Unplanned maintenance include the following:
 
 - Urgent node defragmentation
 - Urgent network switch updates

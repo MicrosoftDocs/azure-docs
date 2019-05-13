@@ -59,7 +59,7 @@ The old dataset and the new dataset must be combined in a single .zip file (for 
 
 **A**: Deployments will NOT be automatically updated.
 
-If you have adapted and deployed a model with baseline V1.0, that deployment will remain as is. Customers can decommision the deployed model, re-adapt using the newer version of the baseline and re-deploy.
+If you have adapted and deployed a model with baseline V1.0, that deployment will remain as is. Customers can decommission the deployed model, re-adapt using the newer version of the baseline and re-deploy.
 
 **Q: What if I need higher concurrency for my deployed model than what is offered in the portal?**
 

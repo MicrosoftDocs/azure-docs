@@ -3,7 +3,7 @@ title: Persist files for Bash in Azure Cloud Shell | Microsoft Docs
 description: Walkthrough of how Bash in Azure Cloud Shell persists files.
 services: azure
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
  
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
-ms.author: juluk
+ms.author: damaerte
 ---
 
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]

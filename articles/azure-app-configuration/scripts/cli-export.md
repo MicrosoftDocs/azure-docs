@@ -48,7 +48,7 @@ This script uses the following commands to export an app configuration store. Ea
 
 | Command | Notes |
 |---|---|
-| [az appconfig export](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-export) | Exports from an app configuration store resource. |
+| [az appconfig export](/cli/azure/ext/appconfig/appconfig) | Exports from an app configuration store resource. |
 
 ## Next steps
 

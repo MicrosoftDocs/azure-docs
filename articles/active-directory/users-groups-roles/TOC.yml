@@ -66,8 +66,6 @@
       href: domains-admin-takeover.md
     - name: Azure AD Connect    
       href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Configure company branding    
-      href: /azure/active-directory/fundamentals/customize-branding?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Manage groups    
     items: 
     - name: Manage access with groups    
@@ -122,10 +120,12 @@
       href: licensing-service-plan-reference.md
   - name: Azure AD administrator roles    
     items: 
-    - name: Roles and permissions 
+    - name: Roles and permissions
       href: directory-assign-admin-roles.md
     - name: View and assign roles   
       href: directory-manage-roles-portal.md
+    - name: Assign roles with PowerShell
+      href: roles-assign-powershell.md
     - name: Delegate app admin roles
       href: roles-delegate-app-roles.md
     - name: Least-privileged roles by task   
@@ -140,6 +140,14 @@
         href: directory-emergency-access.md
     - name: Administrative units    
       href: directory-administrative-units.md
+  - name: Manage sign-in
+    items:    
+    - name: Customize company branding    
+      href: /azure/active-directory/fundamentals/customize-branding?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Sign-in options
+      href: signin-account-support.md
+    - name: Home Realm Discovery
+      href: signin-realm-discovery.md
   - name: Integrate services with Azure AD
     items: 
     - name: Integrate LinkedIn with Azure AD    

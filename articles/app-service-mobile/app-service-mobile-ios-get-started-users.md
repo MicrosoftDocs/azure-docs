@@ -120,7 +120,7 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
     ```
 
    Add this code directly before the line reading `#pragma mark - Core Data stack`.  Replace the
-   _appname_ wih the urlScheme value that you used in step 1.
+   _appname_ with the urlScheme value that you used in step 1.
 
 5. Open the `AppName-Info.plist` file (replacing AppName with the name of your app), and add the following code:
 
@@ -208,7 +208,7 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
     }
     ```
 
-    Replace the _appname_ wih the urlScheme value that you used in step 1.
+    Replace the _appname_ with the urlScheme value that you used in step 1.
 
 4. Open the `AppName-Info.plist` file (replacing AppName with the name of your app), and add the following code:
 

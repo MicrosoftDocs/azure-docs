@@ -7,12 +7,11 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: "Active"
-ms.date: 02/15/2019
+ms.date: 05/07/2019
 ---
 # Tutorial: Extract, transform, and load data by using Azure Databricks
 
-In this tutorial, you perform an ETL (extract, transform, and load data) operation by using Azure Databricks. You extract data from Azure Data Lake Storage Gen2 into Azure Databricks, run transformations on the data in Azure Databricks, and then load the transformed data into Azure SQL Data Warehouse.
+In this tutorial, you perform an ETL (extract, transform, and load data) operation by using Azure Databricks. You extract data from Azure Data Lake Storage Gen2 into Azure Databricks, run transformations on the data in Azure Databricks, and load the transformed data into Azure SQL Data Warehouse.
 
 The steps in this tutorial use the SQL Data Warehouse connector for Azure Databricks to transfer data to Azure Databricks. This connector, in turn, uses Azure Blob Storage as temporary storage for the data being transferred between an Azure Databricks cluster and Azure SQL Data Warehouse.
 
@@ -34,17 +33,21 @@ This tutorial covers the following tasks:
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+> [!Note]
+> This tutorial cannot be carried out using **Azure Free Trial Subscription**.
+> To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/).
+     
 ## Prerequisites
 
 Complete these tasks before you begin this tutorial:
 
-* Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. See [Quickstart: Create an Azure SQL data warehouse](../sql-data-warehouse/create-data-warehouse-portal.md).
+* Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. See [Quickstart: Create and query an Azure SQL data warehouse in the Azure portal](../sql-data-warehouse/create-data-warehouse-portal.md).
 
 * Create a database master key for the Azure SQL data warehouse. See [Create a database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
-* Create an Azure Blob storage account, and a container within it. Also, retrieve the access key to access the storage account. See [Quickstart: Create an Azure Blob storage account](../storage/blobs/storage-quickstart-blobs-portal.md).
+* Create an Azure Blob storage account, and a container within it. Also, retrieve the access key to access the storage account. See [Quickstart: Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-* Create an Azure Data Lake Storage Gen2 storage account. See [Create a Azure Data Lake Storage Gen2 account](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+* Create an Azure Data Lake Storage Gen2 storage account. See [Quickstart: Create an Azure Data Lake Storage Gen2 storage account](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
 *  Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
@@ -345,6 +348,11 @@ As mentioned earlier, the SQL Data Warehouse connector uses Azure Blob storage a
        .mode("overwrite")
        .save()
    ```
+
+   > [!NOTE]
+   > This sample uses the `forward_spark_azure_storage_credentials` flag, which causes SQL Data Warehouse to access data from blob storage using an Access Key. This is the only supported method of authentication.
+   >
+   > If your Azure Blob Storage is restricted to select virtual networks, SQL Data Warehouse requires [Managed Service Identity instead of Access Keys](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). This will cause the error "This request is not authorized to perform this operation."
 
 6. Connect to the SQL database and verify that you see a database named **SampleTable**.
 

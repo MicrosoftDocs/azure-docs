@@ -27,7 +27,7 @@ Use Azure Batch to run large-scale parallel and high-performance computing (HPC)
 > * Monitor task execution
 > * Retrieve output files
 
-In this tutorial, you convert MP4 media files in parallel to MP3 format using the [ffmpeg](http://ffmpeg.org/) open-source tool. 
+In this tutorial, you convert MP4 media files in parallel to MP3 format using the [ffmpeg](https://ffmpeg.org/) open-source tool. 
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -136,7 +136,7 @@ The following sections break down the sample application into the steps that it 
 
 ### Authenticate Blob and Batch clients
 
-To interact with the linked storage account, the app uses the Azure Storage Client Library for .NET. It creates a reference to the account with [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount), authenticating using shared key authentication. Then, it creates a [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient).
+To interact with the linked storage account, the app uses the Azure Storage Client Library for .NET. It creates a reference to the account with [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount), authenticating using shared key authentication. Then, it creates a [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient).
 
 ```csharp
 // Construct the Storage account connection string

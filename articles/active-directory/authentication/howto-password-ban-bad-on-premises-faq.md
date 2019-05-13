@@ -1,5 +1,5 @@
 ---
-title: On-premises Azure AD Password Protection FAQ
+title: On-premises Azure AD Password Protection FAQ - Azure Active Directory
 description: On-premises Azure AD Password Protection FAQ
 
 services: active-directory
@@ -15,12 +15,7 @@ ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---
 
-# Preview: Azure AD Password Protection on-premises - Frequently asked questions
-
-|     |
-| --- |
-| Azure AD Password Protection is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# Azure AD Password Protection on-premises - Frequently asked questions
 
 ## General questions
 
@@ -44,7 +39,7 @@ A password change is when a user chooses a new password after proving they have 
 
 A password set (sometimes called a password reset) is when an administrator replaces the password on an account with a new password, for example by using the Active Directory Users and Computers management tool. This operation requires a high level of privilege (usually Domain Admin), and the person performing the operation usually does not have knowledge of the old password. Help-desk scenarios often do this, for instance when assisting a user who has forgotten their password. You will also see password set events when a brand new user account is being created for the first time with a password.
 
-The password validation policy behaves the same regardless of whether a password change or set is being done. The Azure AD Password Protection DC Agent service does log different events to inform you whether a password change or set operation was done.  See [Azure AD Password Protection monitoring and logging](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+The password validation policy behaves the same regardless of whether a password change or set is being done. The Azure AD Password Protection DC Agent service does log different events to inform you whether a password change or set operation was done.  See [Azure AD Password Protection monitoring and logging](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **Q: Is it supported to install Azure AD Password Protection side by side with other password-filter-based products?**
 
@@ -84,6 +79,10 @@ No. Since the proxy server is stateless, it's not important which specific proxy
 
 Yes. The Azure AD Password Protection Proxy service and Azure AD Connect should never conflict directly with each other.
 
+**Q: In what order should the DC agents and proxies be installed and registered?**
+
+Any ordering of Proxy agent installation, DC agent installation, forest registration, and Proxy registration  is supported.
+
 **Q: Should I be concerned about the performance hit on my domain controllers from deploying this feature?**
 
 The Azure AD Password Protection DC Agent service shouldn't significantly impact domain controller performance in an existing healthy Active Directory deployment.
@@ -108,9 +107,15 @@ In summary, deployment of the Azure AD Password Protection DC Agent service on t
 
 No.
 
+**Q: Why is Azure still rejecting weak passwords even though I've configured the policy to be in Audit mode?**
+
+Audit mode is only supported in the on-premises Active Directory environment. Azure is implicitly always in "enforce" mode when it evaluates passwords.
+
 ## Additional content
 
 The following links are not part of the core Azure AD Password Protection documentation but may be a useful source of additional information on the feature.
+
+[Azure AD Password Protection is now generally available!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
 
 [Email Phishing Protection Guide – Part 15: Implement the Microsoft Azure AD Password Protection Service (for On-Premises too!)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
 

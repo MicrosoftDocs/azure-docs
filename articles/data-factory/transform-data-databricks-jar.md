@@ -3,17 +3,15 @@ title: Transform data with Databricks Jar - Azure | Microsoft Docs
 description: Learn how to process or transform data by running a Databricks Jar.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-
 ms.assetid: 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.author: douglasl
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 ---
 # Transform data by running a Jar activity in Azure Databricks
 
@@ -91,7 +89,7 @@ In the above Databricks activity definition you specify these library types: *ja
         {
             "cran": {
                 "package": "ada",
-                "repo": "http://cran.us.r-project.org"
+                "repo": "https://cran.us.r-project.org"
             }
         }
     ]

@@ -4,7 +4,7 @@ description: Differences between the Azure Service Fabric on Linux and Azure Ser
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6

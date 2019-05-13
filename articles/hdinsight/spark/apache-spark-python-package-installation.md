@@ -1,23 +1,20 @@
 ---
 title: Script action - Install Python packages with Jupyter on Azure HDInsight 
 description: Step-by-step instructions on how to use script action to configure Jupyter notebooks available with HDInsight Spark clusters to use external python packages.
-services: hdinsight
 author: hrasheed-msft
-ms.reviewer: jasonh
-
-ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 11/06/2018
 ms.author: hrasheed
-
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.date: 04/22/2019
 ---
+
 # Use Script Action to install external Python packages for Jupyter notebooks in Apache Spark clusters on HDInsight
 > [!div class="op_single_selector"]
 > * [Using cell magic](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Using Script Action](apache-spark-python-package-installation.md)
 
-Learn how to use Script Actions to configure an [Apache Spark](https://spark.apache.org/) cluster on HDInsight (Linux) to use external, community-contributed **python** packages that are not included out-of-the-box in the cluster.
+Learn how to use Script Actions to configure an [Apache Spark](https://spark.apache.org/) cluster on HDInsight to use external, community-contributed **python** packages that are not included out-of-the-box in the cluster.
 
 > [!NOTE]  
 > You can also configure a Jupyter notebook by using `%%configure` magic to use external packages. For instructions, see [Use external packages with Jupyter notebooks in Apache Spark clusters on HDInsight](apache-spark-jupyter-notebook-use-external-packages.md).
@@ -44,7 +41,7 @@ There are two types of open-source components that are available in the HDInsigh
 * **Built-in components** - These components are pre-installed on HDInsight clusters and provide core functionality of the cluster. For example, Apache Hadoop YARN ResourceManager, the Apache Hive query language (HiveQL), and the Mahout library belong to this category. A full list of cluster components is available in [What's new in the Apache Hadoop cluster versions provided by HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
 * **Custom components** - You, as a user of the cluster, can install or use in your workload any component available in the community or created by you.
 
-> [!WARNING]   
+> [!IMPORTANT]   
 > Components provided with the HDInsight cluster are fully supported. Microsoft Support helps to isolate and resolve issues related to these components.
 >
 > Custom components receive commercially reasonable support to help you to further troubleshoot the issue. Microsoft support may be able to resolve the issue OR they may ask you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Also Apache projects have project sites on [https://apache.org](https://apache.org), for example: [Hadoop](https://hadoop.apache.org/).
@@ -52,34 +49,52 @@ There are two types of open-source components that are available in the HDInsigh
 
 ## Use external packages with Jupyter notebooks
 
-1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
+1. From the [Azure portal](https://portal.azure.com/), navigate to your cluster.  
 
-2. From the Spark cluster blade, click **Script Actions** from the left pane. Use the script type "Custom" and enter a friendly name for the script action. Run the script on the **head and worker nodes** and leave the parameters field blank. The bash script can be referenced from: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh
-Visit the documentation on [how to use custom script actions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+2. With your cluster selected, from the left pane, under **Settings**, select  **Script actions**.
 
-   > [!NOTE]  
-   > There are two python installations in the cluster. Spark will use the Anaconda python installation located at `/usr/bin/anaconda/bin` and will default to the Python 2.7 environment. To use Python 3.x and install packages in the PySpark3 kernel, use the path to the `conda` executable for that environment and use the `-n` parameter to specify the environment. For example, the command `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35`, installs the `ggplot` package to the Python 3.5 environment using the `conda-forge` channel.
+3. Select **+ Submit new**.
 
-3. Open a PySpark Jupyter notebook
+4. Enter the following values for the **Submit script action** window:  
+
+
+    |Parameter | Value |
+    |---|---|
+    |Script type | Select **- Custom** from the drop-down list.|
+    |Name |Enter `tensorflow` in the text box.|
+    |Bash script URI |Enter `https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh` in the text box. |
+    |Node type(s) | Select the **Head**, and **Worker** check boxes. |
+
+    `tensorflowinstall.sh` contains the following commands:
+
+    ```bash
+    #!/usr/bin/env bash
+    /usr/bin/anaconda/bin/conda install --yes tensorflow
+    ```
+
+5. Select **Create**.  Visit the documentation on [how to use custom script actions](../hdinsight-hadoop-customize-cluster-linux.md).
+
+6. Wait for the script to complete.  The  **Script actions** pane will state **New script actions can be submitted after the current cluster operation finishes** while the script is executing.  A progress bar can be viewed from the Ambari UI **Background Operations** window.
+
+7. Open a PySpark Jupyter notebook.  See [Create a Jupyter notebook on Spark HDInsight](./apache-spark-jupyter-notebook-kernels.md#create-a-jupyter-notebook-on-spark-hdinsight) for steps.
 
     ![Create a new Jupyter notebook](./media/apache-spark-python-package-installation/hdinsight-spark-create-notebook.png "Create a new Jupyter notebook")
 
-4. A new notebook is created and opened with the name Untitled.pynb. Click the notebook name at the top, and enter a friendly name.
+8. You will now `import tensorflow` and run a hello world example. Enter the following code:
 
-    ![Provide a name for the notebook](./media/apache-spark-python-package-installation/hdinsight-spark-name-notebook.png "Provide a name for the notebook")
-
-5. You will now `import tensorflow` and run a hello world example. 
-
-    Code to copy:
-
-	    import tensorflow as tf
-	    hello = tf.constant('Hello, TensorFlow!')
-	    sess = tf.Session()
-	    print(sess.run(hello))
+    ```
+    import tensorflow as tf
+    hello = tf.constant('Hello, TensorFlow!')
+    sess = tf.Session()
+    print(sess.run(hello))
+    ```
 
 	The result looks like this:
 	
 	![TensorFlow code execution](./media/apache-spark-python-package-installation/execution.png "Execute TensorFlow code")
+
+> [!NOTE]  
+> There are two python installations in the cluster. Spark will use the Anaconda python installation located at `/usr/bin/anaconda/bin` and will default to the Python 2.7 environment. To use Python 3.x and install packages in the PySpark3 kernel, use the path to the `conda` executable for that environment and use the `-n` parameter to specify the environment. For example, the command `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35`, installs the `ggplot` package to the Python 3.5 environment using the `conda-forge` channel.
 
 ## <a name="seealso"></a>See also
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)

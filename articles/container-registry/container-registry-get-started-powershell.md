@@ -97,7 +97,7 @@ In this quickstart, you created an Azure Container Registry with Azure PowerShel
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- Links - internal -->
-[Connect-AzAccount]: /powershell/module/az.profile/connect-azaccount
+[Connect-AzAccount]: /powershell/module/az.accounts/connect-azaccount
 [Get-AzContainerRegistryCredential]: /powershell/module/az.containerregistry/get-azcontainerregistrycredential
 [Get-Module]: /powershell/module/microsoft.powershell.core/get-module
 [New-AzContainerRegistry]: /powershell/module/az.containerregistry/New-AzContainerRegistry

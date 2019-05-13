@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -19,6 +19,8 @@ ms.author: jgao
 # Tutorial: Create multiple resource instances with Resource Manager templates
 
 Learn how to iterate in your Azure Resource Manager template to create multiple instances of an Azure resource. In this tutorial, you modify a template to create three storage account instances.
+
+![Azure Resource Manager creates multiple instances diagram](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
 
 This tutorial covers the following tasks:
 
@@ -149,7 +151,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you learned how to create multiple storage account instances. In the next tutorial, you learn how to move a resource from one resource group to another resource group.
+In this tutorial, you learned how to create multiple storage account instances.  In the next tutorial, you develop a template with multiple resources and multiple resource types. Some of the resources have dependent resources.
 
 > [!div class="nextstepaction"]
-> [Move resources](./resource-manager-tutorial-move-resources.md)
+> [Create dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)

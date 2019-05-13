@@ -54,13 +54,17 @@
     - name: Create variables for saving values
       href: logic-apps-create-variables-store-values.md
     - name: Perform data operations
-      href: logic-apps-perform-data-operations.md  
-    - name: Add custom code with Azure Functions
+      href: logic-apps-perform-data-operations.md
+    - name: Add and run code snippets with inline code
+      href: logic-apps-add-run-inline-code.md
+    - name: Add and run code with Azure Functions
       href: logic-apps-azure-functions.md
     - name: Call logic apps with Azure Functions
       href: logic-apps-scenario-function-sb-trigger.md
     - name: Call, trigger, or nest logic apps
       href: logic-apps-http-endpoint.md
+    - name: Get bulk data with pagination
+      href: logic-apps-exceed-default-page-size-with-pagination.md  
     - name: Batch process messages
       href: logic-apps-batch-process-send-receive-messages.md
     - name: Author JSON definitions
@@ -103,11 +107,8 @@
         href: logic-apps-enterprise-integration-b2b.md
       - name: Exchange AS2 messages
         href: logic-apps-enterprise-integration-as2.md
-        items: 
-        - name: AS2 encoding
-          href: logic-apps-enterprise-integration-as2-encode.md
-        - name: AS2 decoding
-          href: logic-apps-enterprise-integration-as2-decode.md
+      - name: AS2 message settings
+        href: logic-apps-enterprise-integration-as2-message-settings.md
       - name: Exchange EDIFACT messages
         href: logic-apps-enterprise-integration-edifact.md
         items: 
@@ -204,6 +205,8 @@
         href: ../connectors/connectors-native-http-swagger.md
       - name: HTTP Webhook
         href: ../connectors/connectors-native-webhook.md
+      - name: IBM 3270
+        href: ../connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270.md
       - name: Informix
         href: ../connectors/connectors-create-api-informix.md
       - name: Integration Account
@@ -281,13 +284,17 @@
     - name: Manage integration accounts
       href: logic-apps-enterprise-integration-accounts.md
     - name: Migrate to latest schema
-      href: ../connectors/connectors-schema-migration.md  
+      href: ../connectors/connectors-schema-migration.md
+  - name: Test
+    items:
+      - name: Test logic apps with mock data
+        href: test-logic-apps-mock-data-static-results.md
   - name: Deploy
     items:
-      - name: Define and deploy logic apps
-        href: logic-apps-create-deploy-azure-resource-manager-templates.md
-      - name: Create deployment templates - Visual Studio
+      - name: Create logic app templates
         href: logic-apps-create-deploy-template.md
+      - name: Deploy logic app templates
+        href: logic-apps-create-deploy-azure-resource-manager-templates.md        
   - name: Monitor
     items: 
       - name: Monitor logic apps
@@ -317,7 +324,6 @@
 - name: Reference
   items:
   - name: Architecture patterns
-    href: /azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration
     items:
     - name: Basic enterprise integration
       href: /azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration
@@ -361,7 +367,7 @@
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-logic-apps
+    href: https://stackoverflow.com/questions/tagged/azure-logic-apps
   - name: Twitter
     href: https://twitter.com/logicappsio
   - name: Pricing

@@ -7,7 +7,7 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 03/01/2019
 ms.author: erhopf
 ---
 
@@ -23,6 +23,8 @@ Each request to an Azure Cognitive Service must include an authentication header
 
 Before you make a request, you need an Azure account and an Azure Cognitive Services subscription. If you already have an account, go ahead and skip to the next section. If you don't have an account, we have a guide to get you set up in minutes: [Create a Cognitive Services account for Azure](cognitive-services-apis-create-account.md).
 
+You can get your subscription key from the [Azure portal](cognitive-services-apis-create-account.md#access-your-resource) after creating your account, or activating a [free trial](https://azure.microsoft.com/try/cognitive-services/my-apis).
+ 
 ## Authentication headers
 
 Let's quickly review the authentication headers available for use with Azure Cognitive Services.

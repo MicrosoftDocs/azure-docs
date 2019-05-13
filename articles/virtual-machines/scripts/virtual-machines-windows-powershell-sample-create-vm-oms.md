@@ -1,6 +1,6 @@
 ﻿---
-title: Azure PowerShell Script Sample - Log Analytics | Microsoft Docs
-description: Azure PowerShell Script Sample - Log Analytics
+title: Azure PowerShell Script Sample - Azure Monitor logs | Microsoft Docs
+description: Azure PowerShell Script Sample - Azure Monitor logs
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -19,13 +19,13 @@ ms.author: cynthn
 ms.custom: mvc
 ---
 
-# Create a Log Analytics-monitored VM with PowerShell 
+# Create an Azure Monitor VM with PowerShell 
 
 This script creates an Azure Virtual Machine, installs the Log Analytics agent, and enrolls the system with a Log Analytics workspace. Once the script has run, the virtual machine will be visible in Azure Monitor. Also, you need to update the Log Analytics workspace ID and workspace key.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Sample script
 

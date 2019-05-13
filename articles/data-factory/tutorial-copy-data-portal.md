@@ -49,7 +49,7 @@ Now, prepare your Blob storage and SQL database for the tutorial by performing t
     Jane,Doe
 	```
 
-1. Create a container named **adftutorial** in your Blob storage. Create a folder named **input** in this container. Then, upload the **emp.txt** file to the **input** folder. Use the Azure portal or tools such as [Azure Storage Explorer](http://storageexplorer.com/) to do these tasks.
+1. Create a container named **adftutorial** in your Blob storage. Create a folder named **input** in this container. Then, upload the **emp.txt** file to the **input** folder. Use the Azure portal or tools such as [Azure Storage Explorer](https://storageexplorer.com/) to do these tasks.
 
 #### Create a sink SQL table
 
@@ -79,9 +79,10 @@ Now, prepare your Blob storage and SQL database for the tutorial by performing t
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory. 
 
 1. Open **Microsoft Edge** or **Google Chrome**. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-2. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**. 
+2. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
   
-   ![New data factory creation](./media/tutorial-copy-data-portal/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 3. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**. 
       
      ![New data factory](./media/tutorial-copy-data-portal/new-azure-data-factory.png)
@@ -172,7 +173,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 1. Go to the **Sink** tab, and select **+ New** to create a sink dataset. 
 
     ![Sink dataset](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
-1. In the **New Dataset** window, input "SQL" in the searchbox to filter the connectors, then select **Azure SQL Database**, and then select **Finish**. In this tutorial, you copy data to a SQL database. 
+1. In the **New Dataset** window, input "SQL" in the search box to filter the connectors, then select **Azure SQL Database**, and then select **Finish**. In this tutorial, you copy data to a SQL database. 
 
     ![SQL database selection](./media/tutorial-copy-data-portal/select-azure-sql-dataset.png)
 1. On the **General** tab of the **Properties** window, in **Name**, enter **OutputSqlDataset**. 
@@ -228,7 +229,7 @@ You can debug a pipeline before you publish artifacts (linked services, datasets
 
 1. To debug the pipeline, select **Debug** on the toolbar. You see the status of the pipeline run in the **Output** tab at the bottom of the window. 
 
-1. Once the pipeline can run successfually, in the top toolbar, select **Publish All**. This action publishes entities (datasets, and pipelines) you created to Data Factory.
+1. Once the pipeline can run successfully, in the top toolbar, select **Publish All**. This action publishes entities (datasets, and pipelines) you created to Data Factory.
 
     ![Publish](./media/tutorial-copy-data-portal/publish-button.png)
 

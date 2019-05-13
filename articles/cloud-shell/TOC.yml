@@ -1,0 +1,52 @@
+- name: Overview
+  href: overview.md
+- name: Quickstart
+  items:
+  - name: Bash - Quickstart
+    href: quickstart.md
+  - name: PowerShell - Quickstart
+    href: quickstart-powershell.md
+- name: Features & tooling
+  items:
+  - name: Features & tools
+    href: features.md
+- name: Tutorials
+  items:
+  - name: Ansible
+    items:
+    - name: Run Ansible playbook
+      href: /azure/ansible/ansible-run-playbook-in-cloudshell?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+    - name: Manage your Azure dynamic inventories
+      href: /azure/ansible/ansible-manage-azure-dynamic-inventories?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+  - name: Terraform
+    items:
+    - name: Create an execution plan
+      href: example-terraform-bash.md
+- name: How-to guides
+  items:
+  - name: PowerShell Cloud Shell for Windows users
+    href: cloud-shell-windows-users.md
+  - name: Persist files in storage
+    href: persisting-shell-storage.md
+  - name: Use the window
+    href: using-the-shell-window.md
+  - name: Use MSI in Cloud Shell
+    href: msi-authorization.md
+  - name: Embed Cloud Shell
+    href: embed-cloud-shell.md
+- name: Use the Cloud Shell editor
+  href: using-cloud-shell-editor.md
+- name: Troubleshooting & limitations
+  href: troubleshooting.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure
+  - name: Azure PowerShell
+    href: /powershell/azure
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/

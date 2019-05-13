@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: e28d6191-c375-43c6-b2df-22daa88d9939
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -64,7 +64,7 @@ To configure the integration of Kronos into Azure AD, you need to add Kronos fro
 4. In the search box, type **Kronos**, select **Kronos** from result panel then click **Add** button to add the application.
 
 	 ![Kronos in the results list](common/search-new-app.png)
-## Configure and test Azure AD single sign-on
+   ## Configure and test Azure AD single sign-on
 
 In this section, you configure and test Azure AD single sign-on with Kronos based on a test user called **Britta Simon**.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in Kronos needs to be established.
@@ -153,7 +153,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

@@ -3,10 +3,12 @@ title: Calling Azure Storage Services REST API operations including authenticati
 description: Calling Azure Storage Services REST API operations including authentication
 services: storage
 author: tamram
+
 ms.service: storage
-ms.topic: how-to
-ms.date: 05/22/2018
+ms.topic: conceptual
+ms.date: 03/21/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
@@ -41,7 +43,7 @@ This command clones the repository to your local git folder. To open the Visual 
 
 ## What is REST?
 
-REST means *representational state transfer*. For a specific definition, check out [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer).
+REST means *representational state transfer*. For a specific definition, check out [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer).
 
 Basically, REST is an architecture you can use when calling APIs or making APIs available to be called. It is independent of what's happening on either side, and what other software is being used when sending or receiving the REST calls. You can write an application that runs on a Mac, Windows, Linux, an Android phone or tablet, iPhone, iPod, or web site, and use the same REST API for all of those platforms. Data can be passed in and/or out when the REST API is called. The REST API doesn't care from what platform it's called – what's important is the information passed in the request and the data provided in the response.
 
@@ -79,7 +81,7 @@ This section lists the required and optional request headers. Three of the heade
 There is no request body for ListContainers. Request Body is used on all of the PUT operations when uploading blobs, as well as SetContainerAccessPolicy, which allows you to send in an XML list of stored access policies to apply. Stored access policies are discussed in the article [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 [Response Status Code](/rest/api/storageservices/List-Containers2#status-code)**:**
-Tells of any status codes you need to know. In this example, an HTTP status code of 200 is ok. For a complete list of HTTP status codes, check out [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). To see error codes specific to the Storage REST APIs, see [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes)
+Tells of any status codes you need to know. In this example, an HTTP status code of 200 is ok. For a complete list of HTTP status codes, check out [Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). To see error codes specific to the Storage REST APIs, see [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes)
 
 [Response Headers](/rest/api/storageservices/List-Containers2#response-headers)**:**
 These include *Content Type*; *x-ms-request-id* (the request id you passed in, if applicable); *x-ms-version* (indicates the version of the Blob service used), and the *Date* (UTC, tells what time the request was made).
@@ -89,7 +91,7 @@ This field is an XML structure providing the data requested. In this example, th
 
 ## Creating the REST request
 
-A couple of notes before starting – for security when running in production, always use HTTPS rather than HTTP. For the purposes of this exercise, you should use HTTP so you can view the request and response data. To view the request and response information in the actual REST calls, you can download [Fiddler](http://www.telerik.com/fiddler) or a similar application. In the Visual Studio solution, the storage account name and key are hardcoded in the class, and the ListContainersAsyncREST method passes the storage account name and storage account key to the methods that are used to create the various components of the REST request. In a real world application, the storage account name and key would reside in a configuration file, environment variables, or be retrieved from an Azure Key Vault.
+A couple of notes before starting – for security when running in production, always use HTTPS rather than HTTP. For the purposes of this exercise, you should use HTTP so you can view the request and response data. To view the request and response information in the actual REST calls, you can download [Fiddler](https://www.telerik.com/fiddler) or a similar application. In the Visual Studio solution, the storage account name and key are hardcoded in the class, and the ListContainersAsyncREST method passes the storage account name and storage account key to the methods that are used to create the various components of the REST request. In a real world application, the storage account name and key would reside in a configuration file, environment variables, or be retrieved from an Azure Key Vault.
 
 In our sample project, the code for creating the Authorization header is in a separate class, with the idea that you could take the whole class and add it to your own solution and use it "as is." The Authorization header code works for most REST API calls to Azure Storage.
 
@@ -267,7 +269,7 @@ Now that you understand how to create the request, call the service, and parse t
 ## Creating the authorization header
 
 > [!TIP]
-> Azure Storage now supports Azure Active Directory (Azure AD) integration for the Blob and Queue services (Preview). Azure AD offers a much simpler experience for authorizing a request to Azure Storage. For more information on using Azure AD to authorize REST operations, see [Authenticate with Azure Active Directory (Preview)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). For an overview of Azure AD integration with Azure Storage, see [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md).
+> Azure Storage now supports Azure Active Directory (Azure AD) integration for blobs and queues. Azure AD offers a much simpler experience for authorizing a request to Azure Storage. For more information on using Azure AD to authorize REST operations, see [Authenticate with Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). For an overview of Azure AD integration with Azure Storage, see [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md).
 
 There is an article that explains conceptually (no code) how to perform [Authentication for the Azure Storage Services](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services).
 Let's distill that article down to exactly is needed and show the code.
@@ -301,7 +303,7 @@ StringToSign = VERB + "\n" +
 
 Most of these fields are rarely used. For Blob storage, you specify VERB, md5, content length, Canonicalized Headers, and Canonicalized Resource. You can leave the others blank (but put in the `\n` so it knows they are blank).
 
-What are CanonicalizedHeaders and CanonicalizedResource? Good question. In fact, what does canonicalized mean? Microsoft Word doesn't even recognize it as a word. Here's what [Wikipedia says about canonicalization](http://en.wikipedia.org/wiki/Canonicalization): *In computer science, canonicalization (sometimes standardization or normalization) is a process for converting data that has more than one possible representation into a "standard", "normal", or canonical form.* In normal-speak, this means to take the list of items (such as headers in the case of Canonicalized Headers) and standardize them into a required format. Basically, Microsoft decided on a format and you need to match it.
+What are CanonicalizedHeaders and CanonicalizedResource? Good question. In fact, what does canonicalized mean? Microsoft Word doesn't even recognize it as a word. Here's what [Wikipedia says about canonicalization](https://en.wikipedia.org/wiki/Canonicalization): *In computer science, canonicalization (sometimes standardization or normalization) is a process for converting data that has more than one possible representation into a "standard", "normal", or canonical form.* In normal-speak, this means to take the list of items (such as headers in the case of Canonicalized Headers) and standardize them into a required format. Basically, Microsoft decided on a format and you need to match it.
 
 Let's start with those two canonicalized fields, because they are required to create the Authorization header.
 
@@ -319,33 +321,35 @@ Here's the code used to create that output:
 private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMessage)
 {
     var headers = from kvp in httpRequestMessage.Headers
-                    where kvp.Key.StartsWith("x-ms-", StringComparison.OrdinalIgnoreCase)
-                    orderby kvp.Key
-                    select new { Key = kvp.Key.ToLowerInvariant(), kvp.Value };
+        where kvp.Key.StartsWith("x-ms-", StringComparison.OrdinalIgnoreCase)
+        orderby kvp.Key
+        select new { Key = kvp.Key.ToLowerInvariant(), kvp.Value };
 
-    StringBuilder sb = new StringBuilder();
+    StringBuilder headersBuilder = new StringBuilder();
 
     // Create the string in the right format; this is what makes the headers "canonicalized" --
-    //   it means put in a standard format. http://en.wikipedia.org/wiki/Canonicalization
+    //   it means put in a standard format. https://en.wikipedia.org/wiki/Canonicalization
     foreach (var kvp in headers)
     {
-        StringBuilder headerBuilder = new StringBuilder(kvp.Key);
+        headersBuilder.Append(kvp.Key);
         char separator = ':';
 
         // Get the value for each header, strip out \r\n if found, then append it with the key.
-        foreach (string headerValues in kvp.Value)
+        foreach (string headerValue in kvp.Value)
         {
-            string trimmedValue = headerValues.TrimStart().Replace("\r\n", String.Empty);
-            headerBuilder.Append(separator).Append(trimmedValue);
+            string trimmedValue = headerValue.TrimStart().Replace("\r\n", string.Empty);
+            headersBuilder.Append(separator).Append(trimmedValue);
 
-            // Set this to a comma; this will only be used 
-            //   if there are multiple values for one of the headers.
+            // Set this to a comma; this will only be used
+            // if there are multiple values for one of the headers.
             separator = ',';
         }
-        sb.Append(headerBuilder.ToString()).Append("\n");
+
+        headersBuilder.Append("\n");
     }
-    return sb.ToString();
-}      
+
+    return headersBuilder.ToString();
+}
 ```
 
 **Canonicalized Resource**
@@ -484,7 +488,7 @@ GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 05:16:48 GMT
 SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 ```
 
-The following values are from [Fiddler](http://www.telerik.com/fiddler):
+The following values are from [Fiddler](https://www.telerik.com/fiddler):
 
 **Request:**
 

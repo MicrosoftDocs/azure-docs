@@ -2,6 +2,7 @@
 title: Rendering capabilities - Azure Batch
 description: How to use Azure Batch rendering capabilities
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018

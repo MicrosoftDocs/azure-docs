@@ -14,7 +14,7 @@ ms.author: chlandsi
 
 # Select an audio input device with the Speech SDK
 
-Version 1.3.0 of the Speech SDK introduces an API to select the audio input
+Version 1.3.0 of the Speech SDK introduces an API to select the audio input.
 This article describes how to obtain the IDs of the audio devices connected to a system.
 These can then be used in the Speech SDK by configuring the audio device through the `AudioConfig` object:
 
@@ -38,8 +38,11 @@ audioConfig = AudioConfiguration.FromMicrophoneInput("<device id>");
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
 
-> [!NOTE]
-> This functionality is not yet available from JavaScript.
+```JavaScript
+audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
+```
+>[!Note]
+> Microphone usage is not available for JavaScript running in Node.js
 
 ## Audio device IDs on Windows for Desktop applications
 
@@ -219,7 +222,7 @@ A sample device ID is `\\\\?\\SWD#MMDEVAPI#{0.0.1.00000000}.{5f23ab69-6181-4f4a-
 
 The device IDs are selected using standard ALSA device IDs.
 The IDs of the inputs attached to the system are contained in the output of the command `arecord -L`.
-Alternatively, they can be obtained using the [ALSA C library](http://www.alsa-project.org/alsa-doc/alsa-lib/).
+Alternatively, they can be obtained using the [ALSA C library](https://www.alsa-project.org/alsa-doc/alsa-lib/).
 Sample IDs are `hw:1,0` and `hw:CARD=CC,DEV=0`.
 
 ## Audio device IDs on macOS
@@ -363,6 +366,10 @@ For example, the instruction
 ```
 
 enables the use of a Bluetooth headset for a speech-enabled app.
+
+## Audio device IDs in JavaScript
+
+In JavaScript the [MediaDevices.enumerateDevices()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) method can be used to enumerate the media devices and find a device ID to pass to `fromMicrophone(...)`.
 
 ## Next steps
 

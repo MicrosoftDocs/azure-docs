@@ -21,7 +21,9 @@
       "version": 0
     }
   ],
-  "notification_subscribers": [],
+  "notification_subscribers": [
+    "azure-docs-publish@microsoft.com"
+  ],
   "sync_notification_subscribers": [
     "tysonn@microsoft.com"
   ],
@@ -32,6 +34,12 @@
   "need_preview_pull_request": true,
   "contribution_branch_mappings": {},
   "dependent_repositories": [
+    {
+      "path_to_root": "quickstart-templates",
+      "url": "https://github.com/Azure/azure-quickstart-templates",
+      "branch": "master",
+      "branch_mapping": {}
+    },
     {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
@@ -68,11 +76,13 @@
       "path_to_root": "policy-templates",
       "url": "https://github.com/Azure/azure-policy",
       "branch": "master",
-      "branch_mapping": {
-        "release-build-mysql": "release-build",
-        "release-build-postgresql": "release-build",
-        "release-build-stellar": "release-build"
-      }
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "blueprints-templates",
+      "url": "https://github.com/Azure/azure-blueprints",
+      "branch": "master",
+      "branch_mapping": {}
     },
     {
       "path_to_root": "azure-docs-json-samples",
@@ -201,6 +211,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "samples-tsi",
+      "url": "https://github.com/Azure-Samples/Azure-Time-Series-Insights",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "media-services-v3-dotnet-core-tutorials",
       "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials",
       "branch": "master",
@@ -315,8 +331,20 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "samples-fbPageModeration",
+      "url": "https://github.com/MicrosoftContentModerator/samples-fbPageModeration",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "AIVisualProvision",
       "url": "https://github.com/Microsoft/AIVisualProvision",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "VideoReviewConsoleApp",
+      "url": "https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp",
       "branch": "master",
       "branch_mapping": {}
     }

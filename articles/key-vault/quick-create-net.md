@@ -1,8 +1,8 @@
 ---
-title: 'Quickstart: Set and retrieve a secret from Azure Key Vault by using a node web app - Azure Key Vault | Microsoft Docs'
+title: 'Quickstart: Set and retrieve a secret from Azure Key Vault by using a .NET web app - Azure Key Vault | Microsoft Docs'
 description: In this quickstart, you set and retrieve a secret from Azure Key Vault by using a .NET web app
 services: key-vault
-author: prashanthyv
+author: msmbaldwin
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
@@ -168,7 +168,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ```
 
-Now when you run the application, you should see your secret value retrieved. In the preceding command, you're giving the identity of the app aervice permissions to do **get** and **list** operations on your key vault.
+Now when you run the application, you should see your secret value retrieved. In the preceding command, you're giving the identity of the app service permissions to do **get** and **list** operations on your key vault.
 
 ## Clean up resources
 Delete the resource group, virtual machine, and all related resources when you no longer need them. To do so, select the resource group for the VM and select **Delete**.

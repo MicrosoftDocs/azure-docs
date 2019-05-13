@@ -6,13 +6,16 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/26/2019
+ms.date: 05/08/2019
 ms.topic: conceptual
 manager: carmonm
 ---
 # Start/Stop VMs during off-hours solution in Azure Automation
 
 The Start/Stop VMs during off-hours solution starts and stops your Azure virtual machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/platform/action-groups.md). It supports both Azure Resource Manager and classic VMs for most scenarios.
+
+> [!NOTE]
+> The Start/Stop VMs during off-hours solution has been tested with the Azure modules that are imported into your Automation Account when you deploy the solution. The solution does currently not work with newer versions of the Azure module. This only affects the Automation Account that you use to run the Start/Stop VMs during off-hours solution. You can still use newer versions of the Azure module in your other Automation Accounts, as described in [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md)
 
 This solution provides a decentralized low-cost automation option for users who want to optimize their VM costs. With this solution, you can:
 
@@ -38,6 +41,74 @@ The runbooks for this solution work with an [Azure Run As account](automation-cr
 
 It is recommended to use a separate Automation Account for the Start/Stop VM solution. This is because Azure module versions are frequently upgraded, and their parameters may change. The Start/Stop VM solution is not upgraded on the same cadence so it may not work with newer versions of the cmdlets that it uses. It is recommended to test module updates in a test Automation Account prior to importing them in your production Automation Account.
 
+### Permissions needed to deploy
+
+There are certain permissions that a user must have to deploy the Start/Stop VMs during off hours solution. These permissions are different if using a pre-created Automation Account and Log Analytics workspace or creating new ones during deployment.
+
+#### Pre-existing Automation Account and Log Analytics account
+
+To deploy the Start/Stop VMs during off hours solution to an Automation Account and Log Analytics the user deploying the solution requires the following permissions on the **Resource Group**. To learn more about roles, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
+
+| Permission | Scope|
+| --- | --- |
+| Microsoft.Automation/automationAccounts/read | Resource Group |
+| Microsoft.Automation/automationAccounts/variables/write | Resource Group |
+| Microsoft.Automation/automationAccounts/schedules/write | Resource Group |
+| Microsoft.Automation/automationAccounts/runbooks/write | Resource Group |
+| Microsoft.Automation/automationAccounts/connections/write | Resource Group |
+| Microsoft.Automation/automationAccounts/certificates/write | Resource Group |
+| Microsoft.Automation/automationAccounts/modules/write | Resource Group |
+| Microsoft.Automation/automationAccounts/modules/read | Resource Group |
+| Microsoft.automation/automationAccounts/jobSchedules/write | Resource Group |
+| Microsoft.Automation/automationAccounts/jobs/write | Resource Group |
+| Microsoft.Automation/automationAccounts/jobs/read | Resource Group |
+| Microsoft.OperationsManagement/solutions/write | Resource Group |
+| Microsoft.OperationalInsights/workspaces/* | Resource Group |
+| Microsoft.Insights/diagnosticSettings/write | Resource Group |
+| Microsoft.Insights/ActionGroups/WriteMicrosoft.Insights/ActionGroups/read | Resource Group |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Resource Group |
+| Microsoft.Resources/deployments/* | Resource Group |
+
+#### New Automation Account and a new Log Analytics workspace
+
+To deploy the Start/Stop VMs during off hours solution to a new Automation Account and Log Analytics workspace the user deploying the solution needs the permissions defined in the preceding section as well as the following permissions:
+
+- Co-administrator on subscription - This is needed to create the Classic Run As Account
+- Be part of the **Application Developer** role. For more details on configuring Run As Accounts, see [Permissions to configure Run As accounts](manage-runas-account.md#permissions).
+
+| Permission |Scope|
+| --- | --- |
+| Microsoft.Authorization/roleAssignments/read | Subscription |
+| Microsoft.Authorization/roleAssignments/write | Subscription |
+| Microsoft.Automation/automationAccounts/connections/read | Resource Group |
+| Microsoft.Automation/automationAccounts/certificates/read | Resource Group |
+| Microsoft.Automation/automationAccounts/write | Resource Group |
+| Microsoft.OperationalInsights/workspaces/write | Resource Group |
+
+### Region mappings
+
+When enabling Start/Stop VMs during off-hours, only certain regions are supported for linking a Log Analytics workspace and an Automation Account.
+
+The following table shows the supported mappings:
+
+|**Log Analytics Workspace Region**|**Azure Automation Region**|
+|---|---|
+|AustraliaSoutheast|AustraliaSoutheast|
+|CanadaCentral|CanadaCentral|
+|CentralIndia|CentralIndia|
+|EastUS<sup>1</sup>|EastUS2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
+|WestEurope|WestEurope|
+|UKSouth|UKSouth|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> EastUS2EUAP and EastUS mappings for Log Analytics workspaces to Automation Accounts are not an exact region to region mapping but is the correct mapping.
+
+<sup>2</sup> Due to capacity restraints the region is not available when creating new resources. This includes Automation Accounts and Log Analytics workspaces. However, preexisting linked resources in the region should continue to work.
+
 ## Deploy the solution
 
 Perform the following steps to add the Start/Stop VMs during off-hours solution to your Automation account, and then configure the variables to customize the solution.
@@ -48,6 +119,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
 
    > [!NOTE]
    > You can also create it from anywhere in the Azure portal, by clicking **Create a resource**. In the Marketplace page, type a keyword such as **Start** or **Start/Stop**. As you begin typing, the list filters based on your input. Alternatively, you can type in one or more keywords from the full name of the solution and then press Enter. Select **Start/Stop VMs during off-hours** from the search results.
+
 2. In the **Start/Stop VMs during off-hours** page for the selected solution, review the summary information and then click **Create**.
 
    ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)
@@ -56,8 +128,8 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
 
    ![VM Management Add Solution page](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-4. On the **Add Solution** page, select **Workspace**. Select a Log Analytics workspace that's linked to the same Azure subscription that the Automation account is in. If you don't have a workspace, select **Create New Workspace**. On the **Log Analytics Workspace** page, perform the following steps:
-   - Specify a name for the new **Log Analytics Workspace**, such as "ContosoLAWorkspace".
+4. On the **Add Solution** page, select **Workspace**. Select a Log Analytics workspace that's linked to the same Azure subscription that the Automation account is in. If you don't have a workspace, select **Create New Workspace**. On the **Log Analytics workspace** page, perform the following steps:
+   - Specify a name for the new **Log Analytics workspace**, such as "ContosoLAWorkspace".
    - Select a **Subscription** to link to by selecting from the drop-down list, if the default selected is not appropriate.
    - For **Resource Group**, you can create a new resource group or select an existing one.
    - Select a **Location**. Currently, the only locations available are **Australia Southeast**, **Canada Central**, **Central India**, **East US**, **Japan East**, **Southeast Asia**, **UK South**, **West Europe**, and **West US 2**.
@@ -67,7 +139,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
 6. On the **Add Solution** page, select **Automation account**. If you're creating a new Log Analytics workspace, you can create a new Automation account to be associated with it, or select an existing Automation Account that is not already linked to a Log Analytics workspace. Select an existing Automation Account or click **Create an Automation account**, and on the **Add Automation account** page, provide the following information:
    - In the **Name** field, enter the name of the Automation account.
 
-    All other options are automatically populated based on the Log Analytics workspace selected. These options cannot be modified. An Azure Run As account is the default authentication method for the runbooks included in this solution. After you click **OK**, the configuration options are validated and the Automation account is created. You can track its progress under **Notifications** from the menu.
+     All other options are automatically populated based on the Log Analytics workspace selected. These options cannot be modified. An Azure Run As account is the default authentication method for the runbooks included in this solution. After you click **OK**, the configuration options are validated and the Automation account is created. You can track its progress under **Notifications** from the menu.
 
 7. Finally, on the **Add Solution** page, select **Configuration**. The **Parameters** page appears.
 
@@ -89,7 +161,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
 8. After you have configured the initial settings required for the solution, click **OK** to close the **Parameters** page and select **Create**. After all settings are validated, the solution is deployed to your subscription. This process can take several seconds to finish, and you can track its progress under **Notifications** from the menu.
 
 > [!NOTE]
-> If you have a Azure Cloud Solution Provider (Azure CSP) subscription, after deployment is complete, in your Automation Account, go to **Variables** under **Shared Resources** and set the [**External_EnableClassicVMs**](#variables) variable to **False**. This stops the solution from looking for Classic VM resources.
+> If you have an Azure Cloud Solution Provider (Azure CSP) subscription, after deployment is complete, in your Automation Account, go to **Variables** under **Shared Resources** and set the [**External_EnableClassicVMs**](#variables) variable to **False**. This stops the solution from looking for Classic VM resources.
 
 ## Scenarios
 
@@ -283,8 +355,8 @@ The following table provides sample log searches for job records collected by th
 
 |Query | Description|
 |----------|----------|
-|Find jobs for runbook ScheduledStartStop_Parent that have finished successfully | ```search Category == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | where ( ResultType == "Completed" )  | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
-|Find jobs for runbook SequencedStartStop_Parent that have finished successfully | ```search Category == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | where ( ResultType == "Completed" ) | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
+|Find jobs for runbook ScheduledStartStop_Parent that have finished successfully | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Find jobs for runbook SequencedStartStop_Parent that have finished successfully | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 
 ## Viewing the solution
 
@@ -294,7 +366,7 @@ Selecting the solution displays the **Start-Stop-VM[workspace]** solution page. 
 
 ![Automation Update Management solution page](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
-From here, you can perform further analysis of the job records by clicking the donut tile. The solution dashboard shows job history and pre-defined log search queries. Switch to the Log Analytics Advanced portal to search based on your search queries.
+From here, you can perform further analysis of the job records by clicking the donut tile. The solution dashboard shows job history and pre-defined log search queries. Switch to the log analytics advanced portal to search based on your search queries.
 
 ## Configure email notifications
 

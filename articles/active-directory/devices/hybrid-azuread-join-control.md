@@ -3,7 +3,7 @@ title: Control the hybrid Azure AD join of your devices | Microsoft Docs
 description: Learn how to control the hybrid Azure AD join of your devices in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
@@ -95,16 +95,16 @@ You can control the device registration behavior of your current devices by conf
 
 To configure the client setting:
 
-1.	Open **Configuration Manager**, and then go to **Cloud Services**.
+1.	Open **Configuration Manager**, select **Administration**, and then go to **Client Settings**.
 
-2.	Under **Device Settings**, select one of the following settings for **Automatically register new Windows 10 domain joined devices with Azure Active Directory**:
+2.	Open the properties for **Default Client Settings** and select **Cloud Services**.
+
+3.	Under **Device Settings**, select one of the following settings for **Automatically register new Windows 10 domain joined devices with Azure Active Directory**:
 
     - **No**: To prevent automatic device registration.
     - **Yes**: To enable automatic device registration.
 
-
-3.	Select **OK**.
-	
+4.	Select **OK**.
 
 You need to link this client setting to a location of your choice. For example, to configure this client setting for all Windows current devices in your organization, link the client setting to the domain. To do a controlled deployment, you can configure the client setting to domain-joined Windows current devices that belong to an organizational unit or a security group.
 

@@ -1,20 +1,12 @@
 ---
-title: Create Marketplace Offers - Azure Marketplace | Microsoft Docs
+title: Create Marketplace Offers | Azure Marketplace 
 description: Create offers on the Azure and AppSource Marketplaces using the Cloud Partner Portal
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Create Azure Marketplace and AppSource offers
@@ -51,7 +43,7 @@ When creating an offer, you supply the required and optional data in each tab lo
 |      --------       |   -------                                                            |
 | **Offer Settings**  | Collects offer and publisher identity information.                    |
 | **SKUs**            | Defines the technical and business characteristics for each stock-keeping unit (SKU) version of your offer |
-| **Test Drive**      | For those types that support this optional feature, defines a demonstration for your offer.  For more information, see [What is Test Drive?](../../cloud-partner-portal-orig/what-is-test-drive.md)  |
+| **Test Drive**      | For those types that support this optional feature, defines a demonstration for your offer.  For more information, see [What is Test Drive?](../test-drive/what-is-test-drive.md)  |
 | **Marketplace** or **Storefront** | Collects text strings, documents, and images used to list the offer in the marketplace |
 | **Support**         | Collects contact information for customer, engineering, and online support  |
 |  |  |

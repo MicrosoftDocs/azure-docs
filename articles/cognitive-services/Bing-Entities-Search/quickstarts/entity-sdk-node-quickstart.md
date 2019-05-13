@@ -49,7 +49,7 @@ To install the Bing Entity Search SDK:
 
 ## Send a request and receive a response
 
-2. Send an entities search request with `entitiesOperations.search()`. After receiving a response, print out the `queryContext`, number of returned results, and the description of the first result.
+1. Send an entities search request with `entitiesOperations.search()`. After receiving a response, print out the `queryContext`, number of returned results, and the description of the first result.
       
     ```javascript
     entitySearchApiClient.entitiesOperations.search('seahawks').then((result) => {

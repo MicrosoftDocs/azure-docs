@@ -1,20 +1,12 @@
 ---
-title: Azure SaaS application offer | Microsoft Docs
+title: Azure SaaS application offer | Azure Marketplace
 description: Overview of the process for publishing an Azure SaaS application offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Azure SaaS application offer
@@ -32,6 +24,9 @@ Some of the benefits of listing your applications on a Microsoft marketplace inc
 - Extending your sales team: reach business users worldwide and gain a sales channel that engages end users, helps generate leads, and initiates conversations with new customers across industries.
 
 - Getting actionable insights: we will share insights into how your app is performing on AppSource, what works well, and how to further improve your sales procedures.
+ 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](../../cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
 
 ## Publishing process workflow 
 
