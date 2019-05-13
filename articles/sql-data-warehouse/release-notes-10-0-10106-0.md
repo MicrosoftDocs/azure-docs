@@ -18,7 +18,7 @@ This article summarizes the new features and improvements in the recent releases
 
 ## Checking the code version that has been applied to your data warehouse
 
-To confirm which release has been as been applied to your data warehouse. Connect to your data warehouse via SSMS and run the following syntax to return the current version of SQL Data Warehouse.
+To confirm which release has been applied to your data warehouse. Connect to your data warehouse via SQL Server Management Studio (SSMS) and run the following syntax to return the current version of SQL Data Warehouse.
 
 ```sql
 SELECT @@VERSION AS 'SQL Data Warehouse';
@@ -27,18 +27,18 @@ SELECT @@VERSION AS 'SQL Data Warehouse';
 Example output:
 ![SQL Data Warehouse version](./media/release-notes/sql_data_warehouse_version.png)
 
-Please use the date identified to confirm which release has been applied to your Azure SQL Data Warehouse.
+Use the date identified to confirm which release has been applied to your Azure SQL Data Warehouse.
 
 ## May 2019
 
 | Service improvements | Details |
 | --- | --- |
-|**Dynamic data masking**|Dynamic data masking provides an additional capability to limit access to your sensitive data.  For mor information see [SQL Database dynamic data masking](/azure/sql-database/sql-database-dynamic-data-masking-get-started).|
-|**Workload importance now Generally Available for Gen2**|Workload Management Classification and Importance provides the ability to influence the run oder for queries. For more information on workload importance, see the [Classification](sql-data-warehouse-workload-classification.md) and [Importance](sql-data-warehouse-workload-importance.md) overview articles in the documentation. Check out the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) doc as well.<br/><br/>See workload importance in action in the below videos:<br/>[Workload Management concepts](  https://www.youtube.com/embed/QcCRBAhoXpM)<br/>[Workload Management scenarios](https://www.youtube.com/embed/_2rLMljOjw8)|
+|**Dynamic data masking**|Dynamic data masking provides an additional capability to limit access to your sensitive data.  For more information, see [SQL Database dynamic data masking](/azure/sql-database/sql-database-dynamic-data-masking-get-started).|
+|**Workload importance now Generally Available for Gen2**|Workload Management Classification and Importance provide the ability to influence the run order of queries. For more information on workload importance, see the [Classification](sql-data-warehouse-workload-classification.md) and [Importance](sql-data-warehouse-workload-importance.md) overview articles in the documentation. Check out the [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) doc as well.<br/><br/>See workload importance in action in the below videos:<br/>[Workload Management concepts](  https://www.youtube.com/embed/QcCRBAhoXpM)<br/>[Workload Management scenarios](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**Additional T-SQL support**|The T-SQL language surface area for SQL Data Warehouse has been extended to include support for: </br> - [AT TIME ZONE](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
 |**JSON functions**|Additional JSON functions supported include:</br> - [ISJSON](https://docs.microsoft.com/en-us/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](https://docs.microsoft.com/en-us/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
-|**Result set caching (Preview)**|Result-set caching enables instant query response times while reducing time-to-insight for business analysts and reporting users. For more information see [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest), [ALTER DATABASE SET Options (Transact SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest), [SET RESULT SET CACHING (Transact-SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)and SET Statement (Transact-SQL) articles.  |
-|**Ordered clustered columnstore index (Preview)**|For details, see CREATE TABLE and CREATE COLUMNSTORE INDEX (TSQL).|
+|**Result set caching (Preview)**|Result-set caching enables instant query response times while reducing time-to-insight for business analysts and reporting users. For more information, see:</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [ALTER DATABASE SET Options (Transact SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [SET RESULT SET CACHING (Transact-SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET Statement (Transact-SQL)](/sql/t-sql/statements/set-statements-transact-sql)|
+|**Ordered clustered columnstore index (Preview)**|For more information, see [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest) and [CREATE COLUMNSTORE INDEX (Transact-SQL)](/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest).|
 
 ## March 2019
 
