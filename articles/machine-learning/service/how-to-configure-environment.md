@@ -73,6 +73,7 @@ The notebook VM offers:
 
 + **Customizable**. While a managed and secure VM offering, you retain full access to the hardware capabilities and customize it to your heart’s desire. For example, quickly create the latest NVidia V100 powered VM to perform step-by-step debugging of novel Neural Network architecture.
 
+To stop incurring notebook VM charges, [stop the notebook VM](quickstart-run-cloud-notebook.md#stop-the-notebook-vm). 
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
@@ -405,4 +406,3 @@ You can create the configuration file in three ways:
 - [Train a model](tutorial-train-models-with-aml.md) on Azure Machine Learning with the MNIST dataset
 - View the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) reference
 - Learn about the [data prep package for Azure Machine Learning](https://aka.ms/data-prep-sdk)
-- 
