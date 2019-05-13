@@ -99,7 +99,7 @@ You can define app roles to target `users`, `applications`, or both. When availa
 "availableToOtherTenants": false,
 ```
 
-The number of roles defined affects the limits that the application manifest has. They have been discussed in detail on the [manifest limits](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest#manifest-limits) page.
+The number of roles defined affects the limits that the application manifest has. They have been discussed in detail on the [manifest limits](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) page.
 
 ### Assign users and groups to roles
 
