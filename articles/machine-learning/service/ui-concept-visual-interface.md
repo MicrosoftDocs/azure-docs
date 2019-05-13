@@ -48,7 +48,7 @@ An experiment consists of datasets that provide data to analytical modules, whic
 * All input ports for modules must have some connection to the data flow.
 * All required parameters for each module must be set.
 
-Create a training experiment from scratch, or use an existing sample experiment as a template.
+Create a training experiment from scratch, or use an existing sample experiment as a template.  Each time you run an experiment, artifacts are stored in your workspace.
 
 For an example of a simple experiment, see [Quickstart: Prepare and visualize data without writing code in Azure Machine Learning](ui-quickstart-run-experiment.md).
 
