@@ -53,6 +53,7 @@ You can associate the following resources to a static public IP address from a p
 
 - You can't specify the IP addresses for the prefix. Azure allocates the IP addresses for the prefix, based on the size that you specify.
 - The default size of a prefix is /28 or 16 public IP addresses.
+- The minimum size of a prefix is /31 or 2 public IP addresses, and the maximum is /28 or 16 public IP addresses.
 - You can't change the range, once you've created the prefix.
 - The range is for IPv4 addresses only. The range does not contain IPv6 addresses.
 - Only static public IP addresses created with the Standard SKU can be assigned from the prefix's range. To learn more about public IP address SKUs, see [public IP address](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
