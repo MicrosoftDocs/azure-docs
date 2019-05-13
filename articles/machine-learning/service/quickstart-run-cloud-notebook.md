@@ -127,7 +127,7 @@ Stop the notebook VM when you are not using it to reduce cost.
 
 1. Select **Stop**.
 
-1. When you're ready to user the server again, select **Start**.
+1. When you're ready to use the server again, select **Start**.
 
 ### Delete everything
 
