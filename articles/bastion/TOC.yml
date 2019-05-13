@@ -3,7 +3,7 @@
 - name: Overview
   items: 
   - name: About Azure Bastion
-  - href: bastion-overview.md
+    href: bastion-overview.md
 - name: How-to guides
   items:
   - name: Create a bastion host
