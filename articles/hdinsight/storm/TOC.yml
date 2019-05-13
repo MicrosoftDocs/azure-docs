@@ -1,15 +1,9 @@
 - name: Azure HDInsight documentation
   href: /azure/hdinsight
-- name: Apache Storm on HDInsight
+- name: Overview
   items:
-  - name: Overview
+  - name: What is Apache Storm in HDInsight?
     href: apache-storm-overview.md
-  - name: Apache Hadoop components on HDInsight
-    href: ../hdinsight-component-versioning.md
-    maintainContext: true
-  - name: HDInsight 4.0
-    href: ../hdinsight-version-release.md
-    maintainContext: true
 - name: Get started
   items:
   - name: Create an Apache Storm cluster
@@ -19,6 +13,14 @@
     maintainContext: true
   - name: Capacity planning
     href: ../hdinsight-capacity-planning.md
+    maintainContext: true
+- name: Concepts
+  items:
+  - name: Apache Hadoop components on HDInsight
+    href: ../hdinsight-component-versioning.md
+    maintainContext: true
+  - name: HDInsight 4.0
+    href: ../hdinsight-version-release.md
     maintainContext: true
 - name: How to
   items:
@@ -215,6 +217,46 @@
       - name: Enable heap dumps for Apache Hadoop services
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
+- name: Reference
+  items:
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=hdinsight
+  - name: Azure PowerShell
+    href: /powershell/module/az.hdinsight
+  - name: SDK for .NET
+    href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
+  - name: SDK for Python
+    href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+  - name: SDK for Java
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+  - name: SDK for Go
+    href: ../hdinsight-go-sdk-overview.md
+  - name: .NET (Apache HBase)
+    href: https://www.nuget.org/packages/Microsoft.HBase.Client/
+  - name: REST
+    href: /rest/api/hdinsight/
+  - name: REST (Apache Spark)
+    href: /rest/api/hdinsightspark/
+  - name: Resource Manager template
+    displayName: resource manager template, arm template, resource manager group
+    href: /azure/templates/microsoft.hdinsight/allversions
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
+  - name: Get help on the forum
+    href: https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight
+  - name: Learning path
+    href: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
+  - name: Microsoft Professional Program for Big Data
+    href: https://academy.microsoft.com/en-us/professional-program/tracks/big-data/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Windows tools for HDInsight
+    href: ../hdinsight-hadoop-windows-tools.md
+    maintainContext: true
+  - name: Changes to cluster configuration access
+    href: ../hdinsight-migrate-granular-access-cluster-configurations.md
 - name: Enterprise readiness
   items:
   - name: Securing data
@@ -239,29 +281,6 @@
     - name: Monitor cluster performance
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true 
-- name: Reference
-  items:
-  - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=hdinsight
-  - name: Azure PowerShell
-    href: /powershell/module/az.hdinsight
-  - name: SDK for .NET
-    href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
-  - name: SDK for Python
-    href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
-  - name: SDK for Java
-    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
-  - name: SDK for Go
-    href: ../hdinsight-go-sdk-overview.md
-  - name: .NET (Apache HBase)
-    href: https://www.nuget.org/packages/Microsoft.HBase.Client/
-  - name: REST
-    href: /rest/api/hdinsight/
-  - name: REST (Apache Spark)
-    href: /rest/api/hdinsightspark/
-  - name: Resource Manager template
-    displayName: resource manager template, arm template, resource manager group
-    href: /azure/templates/microsoft.hdinsight/allversions
 - name: Related
   items:
   - name: Windows clusters
@@ -272,20 +291,3 @@
     - name: Migrate .NET solutions to Linux clusters
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
       maintainContext: true
-- name: Resources
-  items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
-  - name: Get help on the forum
-    href: https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight
-  - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
-  - name: Microsoft Professional Program for Big Data
-    href: https://academy.microsoft.com/en-us/professional-program/tracks/big-data/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Windows tools for HDInsight
-    href: ../hdinsight-hadoop-windows-tools.md
-    maintainContext: true
-  - name: Changes to cluster configuration access
-    href: ../hdinsight-migrate-granular-access-cluster-configurations.md
