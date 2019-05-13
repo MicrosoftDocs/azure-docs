@@ -18,13 +18,13 @@ ms.custom: seodec18
 
 The visual interface (preview) for Azure Machine Learning service enables you to prep data, train, test, deploy, manage, and track machine learning models without writing code.
 
-There is no programming required, you visually connect [datasets](#datasets) and [modules](#modules) to construct your model.
+There is no programming required, you visually connect [datasets](#dataset) and [modules](#module) to construct your model.
 
 The visual interface uses your Azure Machine Learning service [workspace](concept-workspace.md) to:
 
-+ Access the [compute targets](#compute-targets) to run [experiments](#experiments).
++ Access the [compute targets](#compute-target) to run [experiments](#experiment).
 + Write the results of experiment runs into the workspace.
-+ Access [datasets](#datasets).
++ Access [datasets](#dataset).
 + Register models and create deployments.
 
 ![Overview of the visual interface](media/ui-concept-visual-interface/overview.png)
@@ -35,7 +35,7 @@ You typically use data from one or more sources to develop a predictive analysis
 
 The visual interface gives you an interactive, visual workspace to quickly build, test, and iterate on a model. 
 
-+ You drag-and-drop [datasets](#datasets) and analysis [modules](#modules) onto the canvas.
++ You drag-and-drop [datasets](#dataset) and analysis [modules](#module) onto the canvas.
 + Connect the modules together to form an [experiment](#experiment).
 + Run the experiment using the compute resource of the Machine Learning Service workspace.
 + Iterate on your model design by editing the experiment and running it again.
@@ -78,11 +78,11 @@ The web services provide an interface between an application and your scoring mo
 
 To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the visual interface](ui-tutorial-automobile-price-deploy.md).
 
-## Datasets
+## Dataset
 
 A dataset is data that has been uploaded to the visual interface to use in the modeling process. A number of sample datasets are included for you to experiment with, and you can upload more datasets as you need them.
 
-## Modules
+## Module
 
 A module is an algorithm that you can perform on your data. The visual interface has a number of modules ranging from data ingress functions to training, scoring, and validation processes.
 
