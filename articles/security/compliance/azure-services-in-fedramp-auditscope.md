@@ -9,12 +9,19 @@ ms.service: security
 ms.reviewer: rochiou
 ---
 
-# Azure Services by FedRAMP and DoD SRG Audit Scope
+# Azure Services by FedRAMP and DoD CC SRG Audit Scope
 
-## Azure Public Services in DoD SRG Level 2 and FedRAMP Moderate Audit Scope
-_Last Updated: April 2019_
+#### Terminology/Symbols Used
 
-| Azure Service| DoD SRG Level 2 | FedRAMP Moderate | FedRAMP High | Planned 2019 |
+* DoD CC SRG = Department of Defense Cloud Computing Security Requirements Guide
+* IIL = Information Impact Level
+* FedRAMP = Federal Risk and Authorization Management Program  
+* :heavy_check_mark: = indicates the service has achieved this audit scope.
+
+## Azure Public Services in DoD CC SRG IIL 2 and FedRAMP Moderate Audit Scope
+| _Last Updated: April 2019_ |
+
+| Azure Service| DoD CC SRG IIL 2 | FedRAMP Moderate | FedRAMP High | Planned 2019 |
 | ------------ |:---------------:|:----------------:|:------------:|:------------:|
 | API Management | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | App Service: API Apps | :heavy_check_mark: | :heavy_check_mark: |  |  |
@@ -128,21 +135,21 @@ _Last Updated: April 2019_
 | Virtual Network | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | VPN Gateway | :heavy_check_mark: | :heavy_check_mark: |  |  |
 
-&ast C5 Certification is applicable to Azure Germany
+&ast; C5 Certification is applicable to Azure Germany
 
-&ast&ast Azure Databricks SOC attestation includes SOC 2 Type 2 report only
+&ast;&ast; Azure Databricks SOC attestation includes SOC 2 Type 2 report only
 
-## Azure Government Services in DoD SRG Level 2, 4, 5 and FedRAMP High Audit Scope
-_Last Updated: April 2019_
+## Azure Government Services in DoD CC SRG IIL 2, 4, 5 and FedRAMP High Audit Scope
+| _Last Updated: April 2019_ |
 
-| Azure Service | DoD SRG Level 2 | DoD SRG Level 4 | DoD SRG Level 5 | FedRAMP High | Planned 2019
+| Azure Service | DoD CC SRG IIL 2 | DoD CC SRG IIL 4 | DoD CC SRG IIL 5 | FedRAMP High | Planned 2019
 | ------------- |:---------------:|:---------------:|:---------------:|:------------:|:------------:
 | API Management | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | App Service: API Apps | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | App Service: Mobile Apps | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | App Service: Web Apps | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Application Gateway | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| Automation | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:&ast |  |
+| Automation | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:&ast; |  |
 | Azure Active Directory (Free and Basic) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Active Directory (Premium P1 + P2) | :heavy_check_mark: |  |  | :heavy_check_mark: | :heavy_check_mark:
 | Azure Advisor |  |  |  |  |
@@ -155,7 +162,7 @@ _Last Updated: April 2019_
 | Azure DNS | :heavy_check_mark: |  |  | :heavy_check_mark: |
 | Azure File Sync |  |  |  |  | :heavy_check_mark:
 | Azure Front Door | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Information Protection | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:&ast | :heavy_check_mark: |
+| Azure Information Protection | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:&ast; | :heavy_check_mark: |
 | Azure Lab Services |  |  |  |  | :heavy_check_mark:
 | Azure Migrate |  |  |  |  | :heavy_check_mark:
 | Azure Monitor | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -171,7 +178,7 @@ _Last Updated: April 2019_
 | Cognitive Services: Translator Speech |  |  |  |  |
 | Cognitive Services: Translator Text |  |  |  |  | :heavy_check_mark:
 | Event Hubs | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| ExpressRoute | :heavy_check_mark: | :heavy_check_mark: |:heavy_check_mark: | :heavy_check_mark: |
+| ExpressRoute | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Flow |  |  |  |  | :heavy_check_mark:
 | Functions | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | HDInsight | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -182,13 +189,13 @@ _Last Updated: April 2019_
 | Log Analytics | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | Logic Apps | :heavy_check_mark: |  |  | :heavy_check_mark: |
 | Media Services | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Microsoft Azure Portal | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:&ast | :heavy_check_mark: |
+| Microsoft Azure Portal | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:&ast; | :heavy_check_mark: |
 | Microsoft Graph | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | Microsoft PowerApps |  |  |  |  | :heavy_check_mark:
 | Microsoft Stream | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | Multi-Factor Authentication | :heavy_check_mark: |  |  | :heavy_check_mark: |
 | Network Watcher | :heavy_check_mark: |  |  | :heavy_check_mark: |
-| Notification Hubs | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:&ast | :heavy_check_mark: |
+| Notification Hubs | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:&ast; | :heavy_check_mark: |
 | Power BI Embedded | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Redis Cache | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | Scheduler | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
@@ -209,4 +216,4 @@ _Last Updated: April 2019_
 | Virtual Network | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | VPN Gateway | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
-&ast Some services such as Azure Portal and Azure Resource Manager do not store or process DoD SRG IL5 content, however still inherit the IL5 control set.
+&ast; Some services such as Azure Portal and Azure Resource Manager do not store or process DoD CC SRG IIL 5 content, however still inherit the IIL5 control set.
