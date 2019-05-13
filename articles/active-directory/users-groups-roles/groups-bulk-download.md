@@ -42,5 +42,4 @@ Guidance 2
 
 [Bulk add users](users-bulk-add.md)
 [Bulk delete users](users-bulk-delete.md)
-Download list of groups
-Download list of group members
+[Download list of groups](groups-bulk-download.md)
