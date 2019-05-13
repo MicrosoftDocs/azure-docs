@@ -101,6 +101,9 @@ The folder contains multiple files and subfolders. The executable file is ASRDep
     E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### Update to the latest version of Deployment Planner
+
+The latest updates are summarized in the Deployment Planner [version history](site-recovery-deployment-planner-history.md).
+
 If you have a previous version of Deployment Planner, do either of the following:
  * If the latest version doesn't contain a profiling fix and profiling is already in progress on your current version of the planner, continue the profiling.
  * If the latest version does contain a profiling fix, we recommend that you stop profiling on your current version and restart the profiling with the new version.

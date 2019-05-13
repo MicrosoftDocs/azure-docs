@@ -49,17 +49,21 @@ ms.custom: include file
 1. In the `index.html` file created during project setup, add the application registration information. Add the following code at the top within the `<script></script>` tags in the body of your `index.html` file:
 
     ```javascript
-    var applicationConfig = {
-        clientID: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
-        graphScopes: ["user.read"],
-        graphEndpoint: "https://graph.microsoft.com/v1.0/me"
+    var msalConfig = {
+        auth: {
+            clientId: "Enter_the_Application_Id_here",
+            authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+        },
+        cache: {
+            cacheLocation: "localStorage",
+            storeAuthStateInCookie: true
+        }
     };
     ```
 
     Where:
     - `Enter_the_Application_Id_here` - is the **Application (client) ID** for the application you registered.
     - `Enter_the_Tenant_Info_Here` - is set to one of the following options:
-       - If your application supports **Accounts in this organizational directory**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
+       - If your application supports **Accounts in this organizational directory**, replace this value with the **Tenant ID** or **Tenant name** (for example, contoso.microsoft.com)
        - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
-       - If your application supports **Accounts in any organizational directory and personal Microsoft accounts**, replace this value with `common`
+       - If your application supports **Accounts in any organizational directory and personal Microsoft accounts**, replace this value with `common`. To restrict support to *Personal Microsoft accounts only*, replace this value with `consumers`.

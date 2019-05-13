@@ -51,17 +51,17 @@ Install-Module -Name Az.FrontDoor
 Create a Front Door profile by following the instructions described in [Quickstart: Create a Front Door profile](quickstart-create-front-door.md)
 
 ## Define url match conditions
-Define a URL match condition (URL contains /promo) using [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject).
+Define a URL match condition (URL contains /promo) using [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject).
 The following example matches */promo* as the value of the *RequestUri* variable:
 
 ```powershell-interactive
-   $promoMatchCondition = New-AzFrontDoorMatchConditionObject `
+   $promoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
      -MatchVariable RequestUri `
      -OperatorProperty Contains `
      -MatchValue "/promo"
 ```
 ## Create a custom rate limit rule
-Set a rate limit using [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-AzFrontDoorCustomRuleObject). 
+Set a rate limit using [New-AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject). 
 In the following example, the limit is set to 1000. Requests from any client to the promo page exceeding 1000 during one minute are blocked until the next minute starts.
 
 ```powershell-interactive
@@ -76,14 +76,14 @@ In the following example, the limit is set to 1000. Requests from any client to 
 
 ## Configure a security policy
 
-Find the name of the resource group that contains the Front Door profile using `Get-AzureRmResourceGroup`. Next, configure a security policy with a custom rate limit rule using [New-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) in the specified resource group that contains the Front Door profile.
+Find the name of the resource group that contains the Front Door profile using `Get-AzureRmResourceGroup`. Next, configure a security policy with a custom rate limit rule using [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) in the specified resource group that contains the Front Door profile.
 
 The below example uses the Resource Group name *myResourceGroupFD1* with the assumption that you have created the Front Door profile using instructions provided in the [Quickstart: Create a Front Door](quickstart-create-front-door.md) article.
 
- using [New-AzFrontDoorFireWallPolicy](/powershell/module/Az.FrontDoor/New-AzFrontDoorFireWallPolicy).
+ using [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell-interactive
-   $ratePolicy = New-AzFrontDoorFireWallPolicy `
+   $ratePolicy = New-AzFrontDoorWafPolicy `
      -Name "RateLimitPolicyExamplePS" `
      -resourceGroupName myResourceGroupFD1 `
      -Customrule $promoRateLimitRule `
