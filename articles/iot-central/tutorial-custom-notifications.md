@@ -1,5 +1,5 @@
 ---
-title: Get notified about stopped Azure IoT Central device | Microsoft Docs
+title: Extend Azure IoT Central with custom rules and notifications | Microsoft Docs
 description: As a solution developer, configure an IoT Central application to send email notifications when a device stops sending telemetry. This solution uses Azure Stream Analytics and Azure Functions.
 author: dominicbetts
 ms.author: dobett
@@ -11,9 +11,11 @@ ms.custom: mvc
 manager: philmea
 ---
 
-# Tutorial: Send custom notifications when a device stops sending telemetry to Azure IoT Central
+# Tutorial: Extend Azure IoT Central with custom rules that send notifications about stopped devices
 
-This tutorial shows you, as a solution developer, how to extend your IoT Central application to send custom notifications. The example shows sending a notification to an operator when a device stops sending telemetry. The solution uses an [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) query to detect when a device has stopped sending telemetry. The Stream Analytics job uses [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) to send notification emails using [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
+This tutorial shows you, as a solution developer, how to extend your IoT Central application with custom rules and notifications. The example shows sending a notification to an operator when a device stops sending telemetry. The solution uses an [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) query to detect when a device has stopped sending telemetry. The Stream Analytics job uses [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) to send notification emails using [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
+
+This tutorial shows you how to extend IoT Central beyond what it can already do with its built-in rules and actions.
 
 In this tutorial, you learn how to:
 
@@ -129,7 +131,7 @@ Your function app needs a SendGrid API key to send email messages. To create a S
 1. On the **Create API Key** page, create a key named **AzureFunctionAccess** with **Full Access** permissions.
 1. Make a note of the API Key, you need it when you configure your function app.
 
-## Define function
+## Define the function
 
 This solution uses an Azure Functions app to send an email notification when the Stream Analytics job detects a stopped device. To create your function app:
 
@@ -142,7 +144,7 @@ The portal creates a default function called **HttpTrigger1**:
 
 ![Default HTTP trigger function](media/tutorial-custom-notifications/default-function.png)
 
-### Configure bindings
+### Configure function bindings
 
 To send emails with SendGrid, you need to configure the bindings for your function as follows:
 
@@ -156,7 +158,7 @@ The integrate settings look like the following screenshot:
 
 ![Function app integrations](media/tutorial-custom-notifications/function-integrate.png)
 
-### Add storage extension
+### Add storage extension to function
 
 To build your function, you need to add the storage extension as follows:
 
@@ -257,7 +259,7 @@ test-device-2	2019-05-02T14:23:50.717Z
 test-device-3	2019-05-02T14:24:28.919Z
 ```
 
-## Add query
+## Add Stream Analytics query
 
 This solution uses a Stream Analytics query to detect when a device stops sending telemetry for more than 120 seconds. The query uses the telemetry from the event hub as its input. The job sends the  query results to the function app. In this section, you configure the Stream Analytics job:
 
@@ -327,7 +329,7 @@ This solution uses a Stream Analytics query to detect when a device stops sendin
 
     ![Stream Analytics](media/tutorial-custom-notifications/stream-analytics.png)
 
-## Configure export
+## Configure export in IoT Central
 
 Navigate to the [IoT Central application](https://aka.ms/iotcentral) you created from the Contoso template. In this section, you configure the application to stream the telemetry from its simulated devices to your event hub. To configure the export:
 
