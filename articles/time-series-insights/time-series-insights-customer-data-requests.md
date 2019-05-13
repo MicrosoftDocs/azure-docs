@@ -4,7 +4,7 @@ description: Summary of Azure Time Series Insights customer data request feature
 author: ashannon7
 ms.author: anshan
 manager: cshankar
-ms.date: 05/17/2018
+ms.date: 05/08/2019
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
@@ -60,3 +60,11 @@ For more information, see [Azure Time Series Insights explorer](time-series-insi
 Currently, Time Series Insights does not support granular deletion of data. However, Time Series Insights provides the ability to remove customer data stored within Time Series Insights by configuring retention policies. You can adjust the retention period of the entire Time Series Insights environment to any number of days to support your deletion requirements.
 
 For more information, see [Configuring retention in Time Series Insights](time-series-insights-how-to-configure-retention.md).
+
+## Next steps
+
+* Read more about [granting data access to your TSI environment](./time-series-insights-data-access.md).
+
+* View the [Azure Time Series Insights explorer](time-series-insights-explorer.md).
+
+* Learn about [Configuring retention in Time Series Insights](time-series-insights-how-to-configure-retention.md).
