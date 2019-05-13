@@ -142,7 +142,7 @@ If your account is not assigned to one of the previous roles, it must be assigne
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Required to create a peering from virtual network A to virtual network B. Virtual network A must be a virtual network (Resource Manager)          |
 | Microsoft.Network/virtualNetworks/peer/action                   | Required to create a peering from virtual network B (Resource Manager) to virtual network A                                                       |
-| Microsoft.ClassicNetwork/virtualNetworks/peer                   | Required to create a peering from virtual network B (classic) to virtual network A                                                                |
+| Microsoft.ClassicNetwork/virtualNetworks/peer/action                   | Required to create a peering from virtual network B (classic) to virtual network A                                                                |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read   | Read a virtual network peering   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete | Delete a virtual network peering |
 
