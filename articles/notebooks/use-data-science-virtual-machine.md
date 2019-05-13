@@ -1,6 +1,6 @@
 ---
 title: Use Azure Data Science Virtual Machines
-description: Connect to a Azure Data Science Virtual Machine (DSVM) to extend the compute power available to Azure Notebooks.
+description: Connect to an Azure Data Science Virtual Machine (DSVM) to extend the compute power available to Azure Notebooks.
 services: app-service
 documentationcenter: ''
 author: getroyer
@@ -18,14 +18,14 @@ ms.author: getroyer
 
 # Use Azure Data Science Virtual Machines
 
-By default, projects run on the **Free Compute** tier, which is limited to 4GB of memory and 1GB of data to prevent abuse. You can bypass these limitations by using a different virtual machine that you've provisioned in an Azure subscription. For this purpose, the best choice is an Azure Data Science Virtual Machine (DSVM) using the **Data Science Virtual Machine for Linux (Ubuntu)** image. Such a DSVM comes pre-configured with everything you need for Azure Notebooks and appears automatically on the **Run** drop-down list in Azure Notebooks.
+By default, projects run on the **Free Compute** tier, which is limited to 4 GB of memory and 1 GB of data to prevent abuse. You can bypass these limitations by using a different virtual machine that you've provisioned in an Azure subscription. For this purpose, the best choice is an Azure Data Science Virtual Machine (DSVM) using the **Data Science Virtual Machine for Linux (Ubuntu)** image. Such a DSVM comes pre-configured with everything you need for Azure Notebooks and appears automatically on the **Run** drop-down list in Azure Notebooks.
 
 > [!Note]
 > Azure Notebooks is supported only on DSVMs created with the on Linux Ubuntu image. Notebooks are not supported on Windows 2012, Windows 2016, or Linux CentOS images.
 
 ## Create a DSVM instance
 
-To create a new DSVM instance, follow the instructions on [Create an Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). For additional information including pricing details, see [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
+To create a new DSVM instance, follow the instructions on [Create an Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). For more information including pricing details, see [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
 ## Connect to the DSVM
 
@@ -33,7 +33,7 @@ Once you're created the DSVM, select the **Run** drop-down list on the Azure Not
 
 - You're signed into Azure Notebooks with an account that uses Azure Active Directory (AAD), such as a company account.
 - Your account is connected to an Azure subscription.
-- You have one or more virtual machines in that subscription, with at least Reader access, that use the Data Science Virtual Machine for Linux (Ubuntu) image.)
+- You have one or more virtual machines in that subscription, with at least Reader access, that uses the Data Science Virtual Machine for Linux (Ubuntu) image.)
 
 ![Data Science Virtual Machine instances in the drop-down list on the project dashboard](media/project-compute-tier-dsvm.png)
 
@@ -48,7 +48,7 @@ You obtain these values from the DSVM page in the Azure portal.
 
 ## Accessing Azure Notebooks files from the DSVM
 
-To preserve parity of file paths with the **Free Compute** tier, you are able to only open one project at a time on a DSVM. To open a new project, you myst shut down the open project first.
+To preserve parity of file paths with the **Free Compute** tier, you are able to only open one project at a time on a DSVM. To open a new project, you must shut down the open project first.
 
 ![Shutdown button in Azure Notebooks](media/shutdown.png)
 
