@@ -41,7 +41,8 @@ To access the data from the usage and insights report, you need:
 2. Select the right directory, then select **Azure Active Directory** and choose **Enterprise applications**.
 3. From the **Activity** section, select **Usage & insights** to open the report. 
 
-![Usage and Insights report](./media/concept-usage-insights/main-menu.png)
+![Usage and Insights report](./media/concept-usage-insights-report/main-menu1.png)
+                                     
 
 ## Use the report
 
@@ -53,7 +54,7 @@ You can also set the focus on a specific application. Select **view sign-in acti
 
 When you select a day in the application usage usage graph, you get a detailed list of the sign-in activities for the application.  
 
-![Usage and Insights report](./media/concept-usage-insights/usage-and-insights-report.png)
+![Usage and Insights report](./media/concept-usage-insights-report/usage-and-insights-report1.png)
 
 ## Next steps
 
