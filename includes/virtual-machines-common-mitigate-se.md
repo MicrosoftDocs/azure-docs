@@ -5,13 +5,13 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 08/14/2018
+ ms.date: 05/14/2019
  ms.author: cynthn;kareni
  ms.custom: include file
 ---
 
 
-**Last document update**: 14 August 2018 10:00 AM PST.
+**Last document update**: 14 May 2019 10:00 AM PST.
 
 The disclosure of a [new class of CPU vulnerabilities](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) known as speculative execution side-channel attacks has resulted in questions from customers seeking more clarity.  
 
@@ -24,11 +24,13 @@ More information about how security is integrated into every aspect of Azure is 
 > [!NOTE] 
 > Since this document was first published, multiple variants of this vulnerability class have been disclosed. Microsoft continues to be heavily invested in protecting our customers and providing guidance. This page will be updated as we continue to release further fixes. 
 > 
-> On August 14, 2018, the industry disclosed a new speculative execution side channel vulnerability known as [L1 Terminal Fault](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180018) (L1TF) which has been assigned multiple CVEs ([CVE-2018-3615, CVE-2018-3620, and CVE-2018-3646](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00161.html)). This vulnerability affects Intel® Core® processors and Intel® Xeon® processors. Microsoft has deployed mitigations across our cloud services which reinforce the isolation between customers. Please read below for additional guidance to protect against L1TF and previous vulnerabilities ([Spectre Variant 2 CVE-2017-5715 and Meltdown Variant 3 CVE-2017-5754](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution)).
->  
-
-
-
+> On May 14, 2019, Intel disclosed a new set of speculative execution side channel vulnerability known as Microarchitectural Data Sampling (MDS see the Microsoft Security Guidance [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), which has been assigned multiple CVEs: 
+> - CVE-2018-12126 - Microarchitectural Store Buffer Data Sampling (MSBDS) 
+> - CVE-2018-12127 - Microarchitectural Load Port Data Sampling (MLPDS)
+> - CVE-2018-12130 - Microarchitectural Fill Buffer Data Sampling (MFBDS)
+>
+> This vulnerability affects Intel® Core® processors and Intel® Xeon® processors.  Microsoft has released operating system and Intel microcode updates to help mitigate these vulnerabilities across our cloud services.  Please refer to Intel’s release schedule of available microcode for Microarchitectural Data Sampling vulnerabilities.  Customers that are running untrusted code within their VM need to take action to protect against these vulnerabilities. Other customers should evaluate these vulnerabilities from a Defense in Depth perspective and consider the security and performance implications of their chosen configuration.
+> Please read below for additional guidance to protect against Microarchitectural Data Sampling and previous speculative execution side-channel vulnerabilities (Microsoft Advisories ADV [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018), and [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
 
 
 
@@ -62,26 +64,30 @@ Customers who do not implement a scenario involving untrusted code do not need t
 
 You can enable additional security features inside your VM or Cloud Service.
 
+In parallel, ensure your operating system is up-to-date to enable security features inside your VM or Cloud Service
+
 ### Windows 
 
 Your target operating system must be up-to-date to enable these additional security features. While numerous speculative execution side channel mitigations are enabled by default, the additional features described here must be enabled manually and may cause a performance impact. 
 
-**Step 1**: [Contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to expose updated firmware (microcode) into your Virtual Machines. 
 
-**Step 2**: Enable Kernel Virtual Address Shadowing (KVAS) and Branch Target Injection (BTI) OS support. Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections via the `Session Manager` registry keys. A reboot is required. 
+**Step 1: Disable hyperthreading on the VM** - Customers running untrusted code on a hyperthreaded VM will need to disable hyperthreading or move to a non-hyperthreaded VM.  To check if your VM has hyperthreading enabled, please refer to the below script using the Windows command line from within the VM.
 
-**Step 3**: For deployments that are using [nested virtualization](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 and E3 only): 
-These instructions apply inside the VM you are using as a Hyper-V host. 
+Type `wmic` to enter the interactive wmic interface. Then type the below to view the amount of physical and logical processors on the VM.
 
-1. Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections via the `MinVmVersionForCpuBasedMitigations` registry keys.  
- 
-1. Set the hypervisor scheduler type to **Core** by following the instructions [here](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types). 
+```console
+CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
+```
 
-**Step 4**: Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to verify protections are enabled using the [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell module. 
+If the number of logical processors is greater than physical processors (cores), then hyperthreading is enabled.  If you are running a hyperthreaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyperthreading disabled.  Once hyperthreading is disabled, **support will require a full VM reboot**. 
+
+
+**Step 2**: In parallel to Step 1, follow the instructions in KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to verify protections are enabled using the [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell module.
 
 > [!NOTE]
 > If you previously downloaded this module, you will need to install the newest version.
 >
+
 
 All VMs should show:
 
@@ -93,22 +99,63 @@ kernel VA shadow is enabled: True
 L1TFWindowsSupportEnabled: True
 ```
 
+New one: True/ False
+
+If you don’t have the latest microcode --- check to see if it is available
+
+
+
+**Step 3**: If Enable Kernel Virtual Address Shadowing (KVAS) and Branch Target Injection (BTI) OS support are `False`, follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections via the `Session Manager` registry keys. A reboot is required.
+
+
+**Step 4**: For deployments that are using [nested virtualization](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 and E3 only): These instructions apply inside the VM you are using as a Hyper-V host.
+
+1.	Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections using the `MinVmVersionForCpuBasedMitigations` registry keys.
+2.	Set the hypervisor scheduler type to `Core` by following the instructions [here](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
+
 
 ### Linux
 
 <a name="linux"></a>Enabling the set of additional security features inside requires that the target operating system be fully up-to-date. Some mitigations will be enabled by default. The following section describes the features which are off by default and/or reliant on hardware support (microcode). Enabling these features may cause a performance impact. Reference your operating system provider’s documentation for further instructions
+
+
+**Step 1: Disable hyperthreading on the VM** - Customers running untrusted code on a hyperthreaded VM will need to disable hyperthreading or move to a non-hyperthreaded VM.  To check if you are running a hyperthreaded VM, run the `lspcu` command in the Linux VM. 
+
+If Thread(s) per core = 2, then hyperthreading has been enabled. 
+
+If Thread(s) per core = 1, then hyperthreading has been disabled. 
+
  
-**Step 1**: [Contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to expose updated firmware (microcode) into your Virtual Machines.
- 
-**Step 2**: Enable Branch Target Injection (BTI) OS support to mitigate CVE-2017-5715 (Spectre Variant 2) by following your operating system provider’s documentation. 
- 
-**Step 3**: Enable Kernel Page Table Isolation (KPTI) to mitigate CVE-2017-5754 (Meltdown Variant 3) by following your operating system provider’s documentation. 
- 
+Sample output for a VM with hyperthreading enabled: 
+
+```console
+CPU Architecture:      x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                8
+On-line CPU(s) list:   0,2,4,6
+Off-line CPU(s) list:  1,3,5,7
+Thread(s) per core:    2
+Core(s) per socket:    4
+Socket(s):             1
+NUMA node(s):          1
+
+```
+
+If you are running a hyperthreaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyperthreading disabled.  Note: Once hyperthreading is disabled, **support will require a full VM reboot**.
+
+
+**Step 2**: Enable Branch Target Injection (BTI) OS support to mitigate CVE-2017-5715 (Spectre Variant 2) by following your operating system provider’s documentation.
+
+
+**Step 3**: Enable Kernel Page Table Isolation (KPTI) to mitigate CVE-2017-5754 (Meltdown Variant 3) by following your operating system provider’s documentation.
+
 More information is available from your operating system’s provider:  
  
 - [Redhat and CentOS](https://access.redhat.com/security/vulnerabilities/speculativeexecution) 
 - [Suse](https://www.suse.com/support/kb/doc/?id=7022512) 
 - [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SpectreAndMeltdown) 
+
 
 
 ## Next steps
