@@ -227,7 +227,7 @@ Below are some examples of both types of shared access signatures, account SAS a
 To run these C# examples, you need to reference the following NuGet packages in your project:
 
 * [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage), version 6.x or later (to use account SAS).
-* [Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
+* [Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager)
 
 For additional examples that show how to create and test a SAS, see [Azure Code Samples for Storage](https://azure.microsoft.com/documentation/samples/?service=storage).
 

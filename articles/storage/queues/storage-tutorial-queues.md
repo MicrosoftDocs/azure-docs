@@ -126,18 +126,19 @@ Since the app uses cloud resources, the code runs asynchronously. However, C#'s 
 
 ## Create a queue
 
-1. Install the **WindowsAzure. Storage** package to the project with the `dotnet add package` command. Execute the following dotnet command from the project folder in the console window.
+1. Install the **Microsoft.Azure.Storage.Common** and **Microsoft.Azure.Storage.Queue** packages to the project with the `dotnet add package` command. Execute the following dotnet commands from the project folder in the console window.
 
    ```console
-   dotnet add package WindowsAzure.Storage
+   dotnet add package Microsoft.Azure.Storage.Common
+   dotnet add package Microsoft.Azure.Storage.Queue
    ```
 
 2. At the top of the **Program.cs** file, add the following namespaces right after the `using System;` statement. This app uses types from these namespaces to connect to Azure Storage and work with queues.
 
    ```csharp
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
    ```
 
 3. Save the **Program.cs** file.
@@ -340,8 +341,8 @@ Here is the complete code listing for this project.
    ```csharp
    using System;
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
 
    namespace QueueApp
    {

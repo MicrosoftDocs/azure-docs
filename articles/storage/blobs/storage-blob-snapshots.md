@@ -30,7 +30,7 @@ Any leases associated with the base blob do not affect the snapshot. You cannot 
 A VHD file is used to store the current information and status for a VM disk. You can detach a disk from within the VM or shut down the VM, and then take a snapshot of its VHD file. You can use that snapshot file later to retrieve the VHD file at that point in time and recreate the VM.
 
 ## Create a snapshot
-The following code example shows how to create a snapshot by using the [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). This example specifies additional metadata for the snapshot when it is created.
+The following code example shows how to create a snapshot by using the [Azure Storage Client Library for .NET](/dotnet/api/overview/azure/storage/client). This example specifies additional metadata for the snapshot when it is created.
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)

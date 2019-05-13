@@ -50,9 +50,9 @@ To explore the Node.js samples, download the [Node.js Storage Client Library](ht
 ## C++ samples
 To explore the C++ samples, download the [C++ Storage Client Library](https://www.nuget.org/packages/wastorage/) from NuGet.
 
-* [Get started with blobs](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted)
-* [Get started with tables](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
-* [Get started with queues](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
+* [Get started with blobs](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.Azure.Storage/samples/BlobsGettingStarted)
+* [Get started with tables](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.Azure.Storage/samples/TablesGettingStarted)
+* [Get started with queues](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.Azure.Storage/samples/QueuesGettingStarted)
 
 ## API reference and source code
 
