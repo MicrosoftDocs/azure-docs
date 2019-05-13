@@ -17,7 +17,7 @@ In this documentation, we will cover the basics of creating and using your Partn
 
 ## About Microsoft's Commercial Marketplace
 
-Enterprises, governments, and organizations of all sizes find business solutions, innovative technology, and enablement services through the [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [AppSource](https://appsource.microsoft.com/) web stores, [Azure portal’s in-product experience](https://ms.portal.azure.com), [Cloud Solution Providers](https://partner.microsoft.com/cloud-solution-provider), and Microsoft Sales teams. 
+Enterprises, governments, and organizations of all sizes find business solutions, innovative technology, and enablement services through the [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [AppSource](https://appsource.microsoft.com/) web stores, [Azure portal’s in-product experience](https://portal.azure.com), [Cloud Solution Providers](https://partner.microsoft.com/cloud-solution-provider), and Microsoft Sales teams. 
 
 Partner Center is the hub of a Microsoft partner’s experience. For organizations who go to market with Microsoft and leverage the marketplace, Partner Center is the portal through which publishers create and manage offerings, as well as view analytics on offer performance. 
 
