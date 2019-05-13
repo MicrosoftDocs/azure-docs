@@ -1,33 +1,34 @@
 ---
-title: Deploy the Azure Migrate appliance for discovery and assessment of Hyper-V VMs to Azure with the Azure Migrate Server Assessment | Microsoft Docs
-description: Describes how to deploy the Azure Migrate appliance to discover and assess on-premises Hyper-V VMs to Azure, using Azure Migrate Server Assessment.
+title: Prepare to assess and migrate Hyper-V VMs to Azure with Azure Migrate | Microsoft Docs
+description: Describes how to prepare for assessment and migration of on-premises Hyper-V VMs to Azure using Azure Migrate.
 author: rayne-wiselman
+manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 05/13/2019
 ms.author: raynew
 ms.custom: mvc
 ---
 
-# Discover and assess on-premises Hyper-V VMs for migration to Azure with the Server Assessment Service
+# Prepare to assess and migrate Hyper-V VMs to Azure
 
-As you move on-premises resources to the cloud, use [Azure Migrate](migrate-overview.md) to discover, assess, and migrate machines and workloads to Microsoft Azure. This article describes how to set up the Azure Migrate appliance to discover and assess on-premises Hyper-V VMs to Azure. After the appliance is deployed, you can run assessments.
+This article describes how to prepare your on-premises environment and Azure resources  for migration of on-premises Hyper-V VMs to Azure with [Azure Migrate](migrate-services-overview.md) services.
 
-
-> [!NOTE]
-> Azure Migrate Server Assessment for Hyper-V VMs currently in public preview. 
 
 In this tutorial, you learn how to:
-
 > [!div class="checklist"]
-> * Create an Azure subscription if you don't have one, and make sure it has the correct permissions.
-> * Create an account that Azure Migrate can use to discover VMs on Hyper-V hosts/clusters.
-> * Create the appliance VM by downloading a zipped VHD template, and importing it to a Hyper-V host to create the VM. Make sure the the appliance VM can connect to the required Azure Migrate URLs.
-> * Set up the appliance for the first time, and start discovery. Verify that the discovered VMs appear in the Azure portal.
+> * Create an Azure subscription if you don't have one, and make sure it has the required permissions.
+> * Verify on-premises Hyper-V requirements
+> * Set up an account that Azure Migrate will use to discover VMs on Hyper-V hosts and clusters.
+> * Create an Azure Migrate project.
+> * Set up a lightweight Azure Migrate appliance that runs on-premises to discover and assess VMs. 
+> * Start continuous discovery.
 
 
-## Before you start
+This article is the first tutorial in a series that shows you how to assess and migrate Hyper-V VMs. After you've completed this tutorial, you can run an assessment for Hyper-V VMs, and migrate them to Azure.
 
+> [!NOTE]
+> Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof-of-concept. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the How Tos for Hyper-V assessment and migration.
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
@@ -35,21 +36,18 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
+Here's what you need before you can start assessing and migrating Hyper-V VMs
+
 - **Azure account permissions**: When you log into Azure to set up discovery and assessment, your Azure account needs permission to create Azure Active Directory (Azure AD) apps.
-- **Hyper-V host requirements**: Requirements are as follows:
-    - The Hyper-V host should running Windows Server 2012 R2 or 2016, with the latest updates. In a cluster, all hosts should run one of these operating systems.
-    - PowerShell remoting should be enabled on each host. Run this command as an admin in the PowerShell console: **Enable-PSRemoting -force**.
-- **Account for discovery**: You need a domain or local account with admin permissions on the Hyper-V hosts/cluster. Azure Migrate uses this account to discover the on-premises VMs.
-- **Azure Migrate appliance**: The Azure Migrate appliance runs on a Hyper-V VM. It's deployed using a zipped VHD file that you download from the Azure portal. This VHD runs Hyper-V VM version 5.0.
-    - You need permissions to import this VM on a Hyper-V host.
-    - The Hyper-V host on which the appliance VM is located must be running Windows Server 2012 R2 or later, with the latest updates. 
-    - You should have enough capacity to allocate 16 GB RAM, four virtual processors, and one external virtual switch for the VM.
-    - The appliance VM can have a static or dynamic IP address.
-    - The appliance VM requires internet access.
-- **Requirements for VHDs on SMB**: If you run VHDs on SMB in your on-premises site, you need to enable delegation of credentials from the appliance VM to the Hyper-V hosts/cluster running the VMs that you want to discover. This enables Azure Migrate to capture required information from the discovered machines.
+- **Hyper-V requirements for VM migration**: Verify Hyper-V hosts are supported, and enable PowerShell remoting on each host
+- **Account for discovery**: Set up a domain or local account with admin permissions on the Hyper-V hosts/cluster that Azure Migrate can use to discover the on-premises VMs.
+- **Azure Migrate project** You need to set up an Azure Migrate project in the Azure portal.
+- **Verify appliance requirements**: 
+- **Azure Migrate appliance**: Azure Migrate runs a lightweight appliance on a Hyper-V VM. This appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate. To set up the appliance you need to:<br/><br/> Verify requirements for the appliance.<br/><r/> Set up the appliance as a Hyper-V VM by downloading a compressed VM from Azure Migrate in the Azure portal.<br/><br/> Check that the appliance can reach Azure.<br/><br/> Configure the appliance for the first time, and register it with Azure Migrate.
+- **Allow for VHDs on SMB**: If you run VHDs on SMB in your on-premises site, enable delegation of credentials from the appliance VM to the Hyper-V hosts/cluster running the VMs that you want to discover. This enables Azure Migrate to capture required information from the discovered machines.
 
 
-## Set up Azure permissions
+## Set up Azure account permissions
 
 Either a tenant/global admin can assign permissions to create Azure AD apps to the account, or assign the Application Developer role (that has the permissions) to the account.
 
@@ -60,38 +58,68 @@ The tenant/global admin can grant permissions as follows
 1. In Azure AD, the tenant/global admin should navigate to **Azure Active Directory** > **Users** > **User Settings**.
 2. The admin should set **App registrations** to **Yes**.
 
-    ![Azure AD permissions](./media/tutorial-deploy-discover-hyper-v/aad.png)
+    ![Azure AD permissions](./media/tutorial-prepare-hyper-v/aad.png)
 
 > [!NOTE]
 > This is a default setting that isn't sensitive. [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
-
 
 
 ### Assign Application Developer role 
 
 The tenant/global admin has permissions to assign the role to the account. [Learn more](https://docs.microsoft.comazure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
+## Verify Hyper-V host settings for VM migration
 
+1. Make sure that Hyper-V hosts that run VMs you want to migrate are running Windows Server 2012 R2 or 2016, with the latest updates. In a cluster, all hosts should run one of these operating systems.
+2. Set up PowerShell remoting on each host. To do this, run this command as an admin in the PowerShell console on the host machine: **Enable-PSRemoting -force**.
 
-## Set up an account to access Hyper-V hosts
+## Set up an account for VM discovery
 
 Create an account that the Azure Migrate appliance can use to access Hyper-V hosts and cluster for VM discovery.
 
 - A single set of credentials is required for all hosts and clusters that you want to include in the discovery.
 - The account can be  a local or domain account, and needs admin privileges on Hyper-V host/cluster servers.
 
-
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Open Azure Migrate
 
-1. In the Azure portal, click **All services**.
-2. Search for **Azure Migrate**, and select **Azure Migrate - PREVIEW**  in the search results. This opens the Azure Migrate dashboard.
+## Set up an Azure Migrate project
 
+1. In the Azure portal, search for **Azure Migrate**.
+2. In the search results, under **Services**, select **Migration projects**.
+3. In **Migration projects**, click **Add**
+4. In **Create migration project**, specify a project name.
+1. Select the subscription and create a new resource group.
+2. Specify the geography/region in which you want to create the project. You can create an Azure Migrate project in the regions summarized in the table.
+    - The region specified for the project is only used to store the metadata gathered from on-premises VMs.
+    - You can select any target region for the actual migration.
+    
+    **Geography** | **Region**
+    --- | ---
+    Asia | Southeast Asia
+    Europe | North Europe or West Europe
+    Unites States | East US or West Central US
+
+6. Click **Create**.
+
+    ![Create an Azure Migrate project](./media/tutorial-prepare-hyper-v/migrate-project.png)
+
+## Verify appliance requirements
+
+Before you set up the appliance as an on-premises Hyper-V VMs, make sure you have the following:
+
+- The VHD you download to set up the appliance runs Hyper-V VM version 5.0.
+- You need permissions to import this VM on a Hyper-V host.
+- The Hyper-V host on which the appliance VM is located must be running Windows Server 2012 R2 or later, with the latest updates. 
+- You should have enough capacity to allocate 16 GB RAM, four virtual processors, and one external virtual switch for the VM.
+- The appliance VM can have a static or dynamic IP address.
+- The appliance VM requires internet access.
 
 ## Set up the appliance VM
+
+To set up the appliance VM for Hyper-V VM discovery and assessment, you download a zipped VHD template, and import it to the Hyper-V host to create the VM. 
 
 Deploy the Azure Migrate appliance as a Hyper-V VM:
 
@@ -104,7 +132,7 @@ Deploy the Azure Migrate appliance as a Hyper-V VM:
 2. In **Discover machines** > **Are your machines virtualized?**, click **Yes, with Hyper-V**.
 3. Click **Download** to download the zipped VHD.
 
-
+    ![Download VM](./media/tutorial-prepare-hyper-v/download-appliance-hyperv.png)
 
 
 ### Verify security
@@ -133,18 +161,21 @@ Import the downloaded file to the Hyper-V host, and create a VM from it.
 
 1. Extract the zipped VHD file to a folder on the Hyper-V host on which you'll set up the appliance VM.
 2. Open Hyper-V Manager. In **Actions**, click **Import Virtual Machine**.
-3. In the Import Virtual Machine Wizard > **Before you begin**, click **Next**.
-4. In **Locate Folder**, specify the folder in which the extracted VHD is located. Then click **Next**.
-5. In **Select Virtual Machine**, click **Next**.
-6. In **Choose Import Type**, click **Copy the virtual machine (dreate a new unique ID)**. Then click **Next**.
-7. In **Choose Destination**, leave the default setting unless you want a specific location. Click **Next**.
-8. In **Storage Folders**, leave the default setting unless you need to modify. Click **Next**.
-9. In **Choose Network**, specify the virtual switch that the VM will use. The switch needs internet connectivity to send data to Azure.
-10. In **Summary**, review settings. Then click **Finish**.
-11. In Hyper-V Manager > **Virtual Machines**, start the VM.
+
+    ![Deploy VHD](./media/tutorial-prepare-hyper-v/deploy-vhd.png)
+
+2. In the Import Virtual Machine Wizard > **Before you begin**, click **Next**.
+3. In **Locate Folder**, specify the folder in which the extracted VHD is located. Then click **Next**.
+1. In **Select Virtual Machine**, click **Next**.
+2. In **Choose Import Type**, click **Copy the virtual machine (dreate a new unique ID)**. Then click **Next**.
+3. In **Choose Destination**, leave the default setting unless you want a specific location. Click **Next**.
+4. In **Storage Folders**, leave the default setting unless you need to modify. Click **Next**.
+5. In **Choose Network**, specify the virtual switch that the VM will use. The switch needs internet connectivity to send data to Azure.
+6. In **Summary**, review settings. Then click **Finish**.
+7. In Hyper-V Manager > **Virtual Machines**, start the VM.
 
 
-### Verify internet connectivity
+### Verify appliance access to Azure
 
 The appliance VM needs internet connectivity to Azure. If you're using a URL-based proxy to control outbound connectivity, make sure these URLs are allowed.
 
@@ -156,7 +187,7 @@ management.azure.com | Communicate with Azure Resource Manager to set up Azure M
 dc.services.visualstudio.com | Upload app logs for internal monitoring.
 *.vault.azure.net | Communication between agent and service (persistent secrets).
 
-## Set up the appliance
+## Configure and register the appliance
 
 Set up the appliance for the first time, and register it with Azure Migrate.
 
@@ -182,9 +213,9 @@ Set up the appliance for the first time, and register it with Azure Migrate.
 5. Select a site name. A site gathers together a group of discovered VMs.
 
 
-## Start discovery
+## Start continuous discovery
 
-Now, connect to the Hyper-V host/cluster, and start discovery.
+Now, connect to the Hyper-V host/cluster, and start VM discovery.
 
 1. In **User name** and **Password**, specify the account credentials that you created for the appliance to discover VMs on the Hyper-V host/cluster. Specify a friendly name for the credentials, and click **Save details**.
 2. Click **Add host**, and specify the Hyper-V hosts/clusters on which you want to discover VMs. Click **Validate**. After validation, the number of VMs that can be discovered on each host/cluster is shown.
@@ -211,10 +242,18 @@ Note the following:
     - For performance data, the appliance collects real-time data points every 20 seconds for each performance metrics, and rolls them up to a single five minute data point. The appliance sends the five-minute data point to Azure every hour for assessment calculation.  
  
 
+
 ## Next steps
 
-After discovery, you can run assessments, and migrate VMware VMs to Azure:
+In this tutorial, you used the Azure portal to: 
+ 
+> [!div class="checklist"] 
+> * Prepare for Hyper-V VM assessment and migration
+> * Set up an Azure Migrate project
+> * Set up an on-premises appliance
+> * Kicked off continuous VM discovery
 
-- [Learn](tutorial-assess-hyper-v.md) how to create assessments for Hyper-V VMs.
-- [Learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) about the data that's collected by the appliance.
+Continue to the next tutorial to assess Hyper-V VMs for migration to Azure
 
+> [!div class="nextstepaction"] 
+> [Assess Hyper-V VMs](./tutorial-server-assessment-hyper-v.md) 

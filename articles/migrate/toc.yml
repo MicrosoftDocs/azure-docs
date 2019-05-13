@@ -9,21 +9,23 @@
   - name: VMware VM assessment and migration
     items:
     - name: Deploy Azure Migrate and start discovery
-      href: tutorial-deploy-discover-vmware.md
+      href: tutorial-deploy-appliance-vmware.md
     - name: Assess VMware VMs for migration
       href: tutorial-assess-vmware.md
     - name: Migrate VMware VMs
       href: tutorial-server-migration-vmware.md
     - name: Assess VMware VMs with Azure Migrate classic version
       href: tutorial-assessment-vmware-classic.md
-  - name: Hyper-V assessment
+  - name: Hyper-V assessment and migration
     items:
-    - name: Deploy Azure Migrate and start discovery
-      href: tutorial-deploy-discover-hyper-v.md
+    - name: Prepare Hyper-V for assessment and migration
+      href: tutorial-prepare-hyper-v.md
     - name: Assess Hyper-V VMs for migration
       href: tutorial-assess-hyper-v.md
 - name: Concepts
   items:
+  - name: Azure Migrate architecture
+    href: migrate-architecture.md
   - name: Azure Migrate support matrix
     href: migrate-support-matrix.md
   - name: About the collector
