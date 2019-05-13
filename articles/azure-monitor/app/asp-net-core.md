@@ -20,7 +20,7 @@ This article describes the steps of enabling Application Insights for an [ASP.NE
 
 ## Supported scenarios
 
-The Application Insights SDK (Software Development Kit) for ASP.NET Core can monitor your applications irrespective of where or how the application is run. If your application is running, and has network connectivity to Azure, telemetry can be collected. This support includes, but is not limited to any operating system (Windows, Linux, Mac), hosting method (in-process vs out-of-process), deployment method (framework-dependent vs self-contained), Web Server (IIS, Kestrel), platform (Azure Web Apps, Azure VM, Docker, AKS and so on.) or IDE (Visual Studio, VS Code, command line.)
+The Application Insights SDK (Software Development Kit) for ASP.NET Core can monitor your applications irrespective of where or how the application is run. If your application is running, and has network connectivity to Azure, telemetry can be collected. This support includes, but is not limited to any operating system (Windows, Linux, Mac), hosting method (in-process vs out-of-process), deployment method (framework-dependent vs self-contained), Web Server (IIS, Kestrel), platform (Azure Web Apps, Azure VM, Docker, Azure Kubernetes Service (AKS), and so on.) or IDE (Visual Studio, VS Code, command line.)
 
 ## Enable Application Insights server-side telemetry (Visual Studio)
 
@@ -40,7 +40,7 @@ The Application Insights SDK (Software Development Kit) for ASP.NET Core can mon
 
 1. Install the Application Insights SDK NuGet package for ASP.NET Core. It is recommended to always use the latest stable version. Some of the functionality described in this article may not be available in older versions. Full release notes for the SDK can be found [here](https://github.com/Microsoft/ApplicationInsights-aspnetcore/releases).
 
-    The following shows the changes to be added to your project's .csproj file.
+    The following snippet shows the changes to be added to your project's `.csproj` file.
 
     ```xml
         <ItemGroup>
@@ -123,7 +123,7 @@ It may take a few minutes for telemetry to start appearing in portal. To quickly
 
 ## Enable Client-side Telemetry for Web Applications
 
-The steps above are sufficient to start collecting server side telemetry. If your application has client side components, then follow steps below to start collecting [usage telemetry](https://docs.microsoft.com/azure/azure-monitor/app/usage-overview) from there.
+The steps above are sufficient to start collecting server-side telemetry. If your application has client-side components, then follow steps below to start collecting [usage telemetry](https://docs.microsoft.com/azure/azure-monitor/app/usage-overview) from there.
 
 1. In _ViewImports.cshtml, add injection:
 
@@ -327,7 +327,7 @@ public class HomeController : Controller
 
 ### I have an ASP.NET Core 2.0 Application? Isn't Application Insights automatically enabled for them without me doing anything?*
 
-* `Microsoft.AspNetCore.All` 2.0 metapackage included Application Insights SDK (version 2.1.0), and if you run the application under Visual Studio debugger, Visual Studio enables Application Insights and shows telemetry locally in the IDE itself. Telemetry was not sent to the Application Insights service, unless an instrumentation key is explicitly specified. We recommended to follow instructions in this article to enable Application Insights, even for 2.0 apps.
+* `Microsoft.AspNetCore.All` 2.0 metapackage included Application Insights SDK (version 2.1.0), and if you run the application under Visual Studio debugger, Visual Studio enables Application Insights and shows telemetry locally in the IDE itself. Telemetry was not sent to the Application Insights service, unless an instrumentation key is explicitly specified. We recommend following the instructions in this article to enable Application Insights, even for 2.0 apps.
 
 ### I run my application in Linux. Are all features supported in Linux as well?*
 
