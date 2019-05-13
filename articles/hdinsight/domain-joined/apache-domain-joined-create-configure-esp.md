@@ -53,17 +53,11 @@ Overview: In this section, you will use an Azure Quick Deployment template to cr
 
 Overview: In this section, you will create the users that will have access to the HDInsight cluster by the end of this guide.
 
-1. Connect to the domain controller using Remote Desktop. If you used the template mentioned at the beginning, the domain controller is a VM called **adVM** in the `OnPremADVRG` resource group.
-
-    1. Go to the Azure portal > **Resource groups** > **OnPremADVRG** > **adVM** > **Connect** > **RDP** > **Download RDP File**. Save the file to your computer and open it.
-
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image012.png)
+1. Connect to the domain controller using Remote Desktop. If you used the template mentioned at the beginning, the domain controller is a VM called **adVM** in the `OnPremADVRG` resource group. Go to the Azure portal > **Resource groups** > **OnPremADVRG** > **adVM** > **Connect** > **RDP** > **Download RDP File**. Save the file to your computer and open it.
 
 1. When prompted for credentials, use `HDIFabrikam\HDIFabrikamAdmin` as the username and then enter the password that you chose for the admin account.
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image014.png)
-
-1. Once your Remote Desktop session opens on the domain controller VM, launch **Active Directory Users and Computers** from the **Server Manager** dashboard. <TODO: How to launch server manager>
+1. Once your Remote Desktop session opens on the domain controller VM, launch **Active Directory Users and Computers** from the **Server Manager** dashboard. Click **Tools** in the upper right and then **Active Directory Users and Computers** from the dropdown.
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image016.png)
 
