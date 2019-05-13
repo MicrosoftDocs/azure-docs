@@ -99,9 +99,9 @@ First, let's view the [HTML and JavaScript source code](https://github.com/Micro
 
 The Time Series Insights client library (*tsclient.js*) provides abstractions for two important JavaScript functionalities:
 
-* **Wrapper methods for calling the Time Series Insights Query APIs**: REST APIs that allow you to query for Time Series Insights data by using aggregate expressions. The methods are organized under the `TsiClient.Server` namespace of the library.
+* **Wrapper methods for calling the Time Series Insights Query APIs**: REST APIs you can use to query for Time Series Insights data by using aggregate expressions. The methods are organized under the TsiClient.Server namespace of the library.
 
-* **Methods for creating and populating several types of charting controls**: Methods that are used to render the Time Series Insights aggregate data in a webpage. The methods are organized under the `TsiClient.UX` namespace of the library.
+* **Methods for creating and populating several types of charting controls**: Methods you can use to render the Time Series Insights aggregate data in a webpage. The methods are organized under the TsiClient.UX namespace of the library.
 
 Through these simplifications, developers can more easily build UI graph and chart components that are powered with Time Series Insights data.
 
@@ -218,7 +218,7 @@ Recall from step 3 of the [Page source and structure section](#page-source-and-s
 
 [!code-html[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
 
-The following section of JavaScript code uses patterns that were outlined earlier: build Time Series Insights aggregate expressions, use them to query for Time Series Insights data, and then render the three charts. Three chart types are used from the `tsiClient.ux` namespace: `LineChart`, `BarChart`, and `PieChart`. The chart types are used to create and render the respective charts. All three charts can use the same aggregate expression data `transformedResult`:
+The following section of JavaScript code uses patterns that were outlined earlier: build Time Series Insights aggregate expressions, use them to query for Time Series Insights data, and then render the three charts. Three chart types are used from the tsiClient.ux namespace: `LineChart`, `BarChart`, and `PieChart`. The chart types are used to create and render the respective charts. All three charts can use the same aggregate expression data `transformedResult`:
 
 [!code-javascript[code-sample2-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=241-262&highlight=13-14,16-17,19-20)]
 
