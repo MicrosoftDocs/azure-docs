@@ -45,7 +45,7 @@ Here are the differences between these triggers:
 
 * **Recurrence**: Runs your workflow at regular time intervals based on your specified schedule. If you select "Day", you can specify hours and minutes of the day, for example, every day at 2:30. If you select "Week", you can select days of the week, such as Wednesday and Saturday, along with specifying hours and minutes of the day.
 
-  If any recurrences are missed, the Reccurrence trigger waits and restarts recurrences at the next specified interval. This trigger doesn't process the past missed recurrences. For more information, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence.md).
+  If any recurrences are missed, the Recurrence trigger waits and restarts recurrences at the next specified interval. This trigger doesn't process the past missed recurrences. For more information, see [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](../connectors/connectors-native-recurrence.md).
 
 * **Sliding Window**: Runs your workflow at regular, non-overlapping, sequential time intervals. You can specify a start date and time, time zone, and a duration to delay the workflow. However, this trigger doesn't provide options to specify hours and minutes of the day or for days of the week.
 
@@ -63,7 +63,7 @@ After any action in your logic app workflow, you can use the Delay and Delay Unt
 
 <a name="start-time"></a>
 
-Here are some patterns that show how you can control recurrence with the start date and time, and how the Logic Apps services executes these recurrences:
+Here are some patterns that show how you can control recurrence with the start date and time, and how the Logic Apps services runs these recurrences:
 
 | Start time | Recurrence without schedule | Recurrence with schedule (Recurrence trigger only) |
 |------------|-----------------------------|----------------------------------------------------|
@@ -123,7 +123,7 @@ Here are various example recurrences that you can set up for the triggers that s
 
 ## Run one time only
 
-If you want to run your logic app only at one time in the future you can use the **Scheduler: Run once jobs** template. After you create a new logic app but before opening the Logic Apps Designer, under the **Templates** section, from the **Category** list, select **Schedule**, and then select this template:
+If you want to run your logic app only at one time in the future, you can use the **Scheduler: Run once jobs** template. After you create a new logic app but before opening the Logic Apps Designer, under the **Templates** section, from the **Category** list, select **Schedule**, and then select this template:
 
 ![Select "Scheduler: Run once jobs" template](./media/concepts-schedule-automated-recurring-tasks-workflows/choose-run-once-template.png)
 
