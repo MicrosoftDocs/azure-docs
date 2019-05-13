@@ -17,6 +17,7 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: mstephen
 ---
+# Create a .PFX file with the secure LDAP (LDAPS) certificate for a managed domain
 
 ## Before you begin
 
