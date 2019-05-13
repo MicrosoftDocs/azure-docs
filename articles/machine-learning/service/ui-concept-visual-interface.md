@@ -20,11 +20,11 @@ There is no programming required, you visually connect [datasets](#dataset) and 
 
 The visual interface uses your Azure Machine Learning service [workspace](concept-workspace.md) to:
 
-+ Write the results of [experiment](#experiment) runs into the workspace.
++ Write artifacts of [experiment](#experiment) runs into the workspace.
 + Access [datasets](#dataset).
 + Use the [compute resources](#compute-target) in the workspace to run the experiment. 
-+ Register [models](concept-azure-machine-learning-architecture.md#model) 
-+ [Deploy](#deployment) models.
++ Register [models](concept-azure-machine-learning-architecture.md#model).
++ [Deploy](#deployment) models as web services on compute resources in the workspace.
 
 ![Overview of the visual interface](media/ui-concept-visual-interface/overview.png)
 
