@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview 
   items:
-  - name: What is Azure Monitor?
+  - name: What is Azure Monitor? Explained here
     href: overview.md
   - name: Terminology changes
     href: azure-monitor-rebrand.md
@@ -85,7 +85,7 @@
       href: platform/data-ingestion-time.md  
     - name: Custom metrics to metric store
       href: platform/metrics-custom-overview.md       
-  - name: Data security
+  - name: Data security (Very important)
     items:
     - name: Log data
       href: platform/data-security.md
@@ -237,7 +237,7 @@
           href: platform/vmext-troubleshoot.md
         - name: Log Analytics Linux agent
           href: platform/agent-linux-troubleshoot.md
-    - name: Agent data sources
+    - name: Agent data sources and eveything
       items:
       - name: Overview
         href: platform/agent-data-sources.md
