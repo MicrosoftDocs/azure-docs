@@ -10,7 +10,7 @@ ms.reviewer: sngun
 
 ---
 
-# Work with Azure Cosmos DB databases, containers, and items
+# Work with databases, containers, and items in Azure Cosmos DB
 
 After you create an [Azure Cosmos DB account](account-overview.md) under your Azure subscription, you can manage data in your account by creating databases, containers, and items. This article describes each of these entities. 
 
@@ -47,13 +47,13 @@ An Azure Cosmos container is the unit of scalability both for provisioned throug
 
 When you create an Azure Cosmos container, you configure throughput in one of the following modes:
 
-* **Dedicated provisioned throughput mode**: The throughput provisioned on a container is exclusively reserved for that container and it is backed by the SLAs. To learn more, see [Provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
+* **Dedicated provisioned throughput mode**: The throughput provisioned on a container is exclusively reserved for that container and it is backed by the SLAs. To learn more, see [How to provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
 
-* **Shared provisioned throughput mode**: These containers share the provisioned throughput with the other containers in the same database (excluding containers that have been configured with dedicated provisioned throughput). In other words, the provisioned throughput on the database is shared among all the “shared throughput” containers. To learn more, see [Provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
+* **Shared provisioned throughput mode**: These containers share the provisioned throughput with the other containers in the same database (excluding containers that have been configured with dedicated provisioned throughput). In other words, the provisioned throughput on the database is shared among all the “shared throughput” containers. To learn more, see [How to provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
 
 An Azure Cosmos container can scale elastically, whether you create containers by using dedicated or shared provisioned throughput modes.
 
-An Azure Cosmos container is a schema-agnostic container of items. Items in a container can have arbitrary schemas. For example, an item that represents a person and an item that represents an automobile can be placed in the *same container*. By default, all items that you add to a container are automatically indexed without explicit index or schema management. You can customize the indexing behavior by configuring the [indexing policy](index-overview.md) on a container. 
+An Azure Cosmos container is a schema-agnostic container of items. Items in a container can have arbitrary schemas. For example, an item that represents a person and an item that represents an automobile can be placed in the *same container*. By default, all items that you add to a container are automatically indexed without requiring explicit index or schema management. You can customize the indexing behavior by configuring the [indexing policy](index-overview.md) on a container. 
 
 You can set [Time to Live (TTL)](time-to-live.md) on selected items in an Azure Cosmos container or for the entire container to gracefully purge those items from the system. Azure Cosmos DB automatically deletes the items when they expire. It also guarantees that a query performed on the container doesn't return the expired items within a fixed bound. To learn more, see [Configure TTL on your container](how-to-time-to-live.md).
 
@@ -75,10 +75,10 @@ An Azure Cosmos container has a set of system-defined properties. Depending on w
 
 | System-defined property | System-generated or user-configurable | Purpose | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|_id | System-generated | Unique identifier of container | Yes | No | No | No | No |
-|_etag | System-generated | Entity tag used for optimistic concurrency control | Yes | No | No | No | No |
-|_ts | System-generated | Last updated timestamp of the container | Yes | No | No | No | No |
-|_self | System-generated | Addressable URI of the container | Yes | No | No | No | No |
+|\_id | System-generated | Unique identifier of container | Yes | No | No | No | No |
+|\_etag | System-generated | Entity tag used for optimistic concurrency control | Yes | No | No | No | No |
+|\_ts | System-generated | Last updated timestamp of the container | Yes | No | No | No | No |
+|\_self | System-generated | Addressable URI of the container | Yes | No | No | No | No |
 |id | User-configurable | User-defined unique name of the container | Yes | Yes | Yes | Yes | Yes |
 |indexingPolicy | User-configurable | Provides the ability to change the index path, index type, and index mode | Yes | No | No | No | Yes |
 |TimeToLive | User-configurable | Provides the ability to delete items automatically from a container after a set time period. For details, see [Time to Live](time-to-live.md). | Yes | No | No | No | Yes |
@@ -111,10 +111,10 @@ Every Azure Cosmos item has the following system-defined properties. Depending o
 
 | System-defined property | System-generated or user-configurable| Purpose | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|_id | System-generated | Unique identifier of the item | Yes | No | No | No | No |
-|_etag | System-generated | Entity tag used for optimistic concurrency control | Yes | No | No | No | No |
-|_ts | System-generated | Timestamp of the last update of the item | Yes | No | No | No | No |
-|_self | System-generated | Addressable URI of the item | Yes | No | No | No | No |
+|\_id | System-generated | Unique identifier of the item | Yes | No | No | No | No |
+|\_etag | System-generated | Entity tag used for optimistic concurrency control | Yes | No | No | No | No |
+|\_ts | System-generated | Timestamp of the last update of the item | Yes | No | No | No | No |
+|\_self | System-generated | Addressable URI of the item | Yes | No | No | No | No |
 |id | Either | User-defined unique name in a logical partition. If the user doesn’t specify the ID, the system automatically generates one. | Yes | Yes | Yes | Yes | Yes |
 |Arbitrary user-defined properties | User-defined | User-defined properties represented in API-native representation (including JSON, BSON, and CQL) | Yes | Yes | Yes | Yes | Yes |
 
