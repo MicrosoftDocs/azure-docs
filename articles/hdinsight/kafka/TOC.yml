@@ -2,14 +2,8 @@
   href: /azure/hdinsight
 - name: Overview
   items:
-  - name: About Apache Kafka on HDInsight
+  - name: What is Apache Kafka in HDInsight?
     href: apache-kafka-introduction.md
-  - name: Apache Hadoop components on HDInsight
-    href: ../hdinsight-component-versioning.md
-    maintainContext: true
-  - name: HDInsight 4.0
-    href: ../hdinsight-version-release.md
-    maintainContext: true
 - name: Quickstarts
   items:
   - name: Create an Apache Kafka cluster - Portal
@@ -42,6 +36,12 @@
     href: apache-kafka-high-availability.md
   - name: Performance tuning
     href: apache-kafka-performance-tuning.md
+  - name: Apache Hadoop components on HDInsight
+    href: ../hdinsight-component-versioning.md
+    maintainContext: true
+  - name: HDInsight 4.0
+    href: ../hdinsight-version-release.md
+    maintainContext: true
 - name: How to
   items:
   - name: Enable auto topic creation
@@ -221,30 +221,6 @@
       - name: Enable heap dumps for Apache Hadoop services
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
-- name: Enterprise readiness
-  items:
-  - name: Securing data
-    href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-    maintainContext: true
-  - name: Network access
-    items:
-    - name: HDInsight in Azure VNet
-      href: ../hdinsight-extend-hadoop-virtual-network.md
-      maintainContext: true
-    - name: Connect HDInsight with on-premises network
-      href: ../connect-on-premises-network.md
-      maintainContext: true
-  - name: Monitoring using Azure Monitor logs
-    items:
-    - name: Use Azure Monitor logs
-      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Use queries with Azure Monitor logs
-      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-      maintainContext: true
-    - name: Monitor cluster performance
-      href: ../hdinsight-key-scenarios-to-monitor.md
-      maintainContext: true 
 - name: Reference
   items:
   - name: Code samples
@@ -281,3 +257,27 @@
   - name: Windows tools for HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
+- name: Enterprise readiness
+  items:
+  - name: Securing data
+    href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+    maintainContext: true
+  - name: Network access
+    items:
+    - name: HDInsight in Azure VNet
+      href: ../hdinsight-extend-hadoop-virtual-network.md
+      maintainContext: true
+    - name: Connect HDInsight with on-premises network
+      href: ../connect-on-premises-network.md
+      maintainContext: true
+  - name: Monitoring using Azure Monitor logs
+    items:
+    - name: Use Azure Monitor logs
+      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+      maintainContext: true
+    - name: Use queries with Azure Monitor logs
+      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+      maintainContext: true
+    - name: Monitor cluster performance
+      href: ../hdinsight-key-scenarios-to-monitor.md
+      maintainContext: true 
