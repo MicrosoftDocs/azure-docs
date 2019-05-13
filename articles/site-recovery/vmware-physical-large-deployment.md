@@ -93,7 +93,7 @@ What does comply mean? To start an Azure VM, Azure requires some drivers to be i
 - For machines running Windows, you can proactively check compliance, and make them compliant if needed. [Learn more](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010).
 - Linux machines are only brought into compliance at the time of failover.
 
-**Machines complies with Azure?** | **Azure VM limits (managed disk failover)**
+**Machine complies with Azure?** | **Azure VM limits (managed disk failover)**
 --- | --- 
 Yes | 2000
 No | 1000
@@ -136,7 +136,7 @@ Configuration server capacity is affected by the number of machines replicating,
 If you need to add a new configuration server, follow these instructions:
 
 - [Set up a configuration server](vmware-azure-deploy-configuration-server.md) for VMware VM disaster recovery, using an OVF template.
-- [Set up a configuration server](physical-azure-set-up-source.md) manually for physical servers, or for VMware deployments that can't use a OVF template.
+- [Set up a configuration server](physical-azure-set-up-source.md) manually for physical servers, or for VMware deployments that can't use an OVF template.
 
 >[!NOTE]
 > When you set up a configuration server, it's important to consider the subscription and vault within which it resides, since these shouldn't be changed after setup. If you do need to change the vault, you have to disassociate the configuration server from the vault, and reregister it. This stops replication of VMs in the vault.
@@ -146,9 +146,8 @@ If you need to add a new configuration server, follow these instructions:
 
 Process server capacity is affected by data churn rates, and not by the number of machines enabled for replication.
 
-- For large deployments you should always have at least one 
-scale-out process server.
-- To figure out whether you need additional scale-out process servers, use the following table.
+- For large deployments you should always have at least one scale-out process server.
+- To figure out whether you need additional servers, use the following table.
 - We recommend that you add a server with the highest spec. 
 
 **CPU** | **Memory** | **Cache disk** | **Churn rate**
@@ -167,7 +166,7 @@ Set up the process server as follows:
 
 ## Enable large-scale replication
 
-After planning capacity and deploying the required components and infrastructure, you can enable replication for large numbers of VMs.
+After planning capacity and deploying the required components and infrastructure, enable replication for large numbers of VMs.
 
 1. Sort machines into batches. You enable replication for VMs within a batch, and then move on to the next batch.
 
