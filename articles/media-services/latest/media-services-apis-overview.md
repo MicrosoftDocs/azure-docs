@@ -19,6 +19,8 @@ ms.custom: seodec18
 
 # Developing with Media Services v3 APIs
 
+As a developer, you can use Media Services [REST API](https://aka.ms/ams-v3-rest-ref) or client libraries that allow you to interact with the REST API to easily create, manage, and maintain custom media workflows. The [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API is based on the OpenAPI specification (formerly known as a Swagger).
+
 This article discusses rules that apply to entities and APIs when developing with Media Services v3.
 
 ## Accessing the Azure Media Services API
@@ -96,6 +98,26 @@ Media Services has the following long-running operations:
 * Start StreamingEndpoint
 * Stop StreamingEndpoint
 * Scale StreamingEndpoint
+
+
+## SDKs
+
+> [!NOTE]
+> The Azure Media Services v3 SDKs are not guaranteed to be thread-safe. When developing a multi-threaded application, you should add your own thread synchronization logic to protect the client or use a new AzureMediaServicesClient object per thread. You should also be careful of multi-threading issues introduced by optional objects provided by your code to the client (like an HttpClient instance in .NET).
+
+|SDK|Reference|
+|---|---|
+|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET ref](https://aka.ms/ams-v3-dotnet-ref)|
+|[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Java ref](https://aka.ms/ams-v3-java-ref)|
+|[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Python ref](https://aka.ms/ams-v3-python-ref)|
+|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Node.js ref](https://aka.ms/ams-v3-nodejs-ref)| 
+|[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Go ref](https://aka.ms/ams-v3-go-ref)|
+|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
+
+### See also
+
+- [EventGrid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
+- [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
 
 ## Filtering, ordering, paging of Media Services entities
 
