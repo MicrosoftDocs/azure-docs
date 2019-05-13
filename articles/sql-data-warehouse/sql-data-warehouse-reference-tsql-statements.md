@@ -47,6 +47,7 @@ Links to the documentation for T-SQL statements supported in Azure SQL Data Ware
 * [DROP VIEW](https://msdn.microsoft.com/library/ms173492.aspx)
 * [DROP WORKLOAD CLASSIFIER](/sql/t-sql/statements/drop-workload-classifier-transact-sql)
 * [RENAME](https://msdn.microsoft.com/library/mt631611.aspx)
+* [SET RESULT_SET_CACHING](/sql/t-sql/statements/set-statements-transact-sql) (Preview)
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 
