@@ -105,7 +105,6 @@ SSH enables secure communication between a container and a client. In order for 
 - [Use persistent storage in Docker Compose](#use-persistent-storage-in-docker-compose)
 - [Preview limitations](#preview-limitations)
 - [Docker Compose options](#docker-compose-options)
-- [Kubernetes configuration options](#kubernetes-configuration-options)
 
 ### Use persistent storage in Docker Compose
 
@@ -128,19 +127,6 @@ wordpress:
   - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
   - ${WEBAPP_STORAGE_HOME}/phpmyadmin:/var/www/phpmyadmin
   - ${WEBAPP_STORAGE_HOME}/LogFiles:/var/log
-```
-
-### Use custom storage in Docker Compose
-
-Azure Storage (Azure Files or Azure Blob) can be mounted with multi-container apps using the custom-id. To view the custom-id name, run [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
-
-In your *docker-compose.yml* file, map the `volumes` option to `custom-id`. For example:
-
-```yaml
-wordpress:
-  image: wordpress:latest
-  volumes:
-  - <custom-id>:<path_in_container>
 ```
 
 ### Preview limitations
@@ -175,22 +161,6 @@ The following lists show supported and unsupported Docker Compose configuration 
 
 > [!NOTE]
 > Any other options not explicitly called out are ignored in Public Preview.
-
-### Kubernetes configuration options
-
-The following configuration options are supported for Kubernetes:
-
-- args
-- command
-- containers
-- image
-- name
-- ports
-- spec
-
-> [!NOTE]
-> Any other options not explicitly called out aren't supported in Public Preview.
->
 
 ## Next steps
 
