@@ -135,4 +135,7 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## Next steps
 
-[Start developing with Media Services v3 API using SDKs/tools](developers-guide.md)
+* [Connect to Media Services with Java](configure-connect-java-howto.md)
+* [Connect to Media Services with .NET](configure-connect-dotnet-howto.md)
+* [Connect to Media Services with Node.js](configure-connect-nodejs-howto.md)
+* [Connect to Media Services with Python](configure-connect-python-howto.md)
