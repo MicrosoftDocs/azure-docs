@@ -4,7 +4,7 @@ description: An overview of Azure Data Share
 services: azure-data-share
 author: joannapea
 
-ms.service: azure-ata-share
+ms.service: azure-data-share
 ms.topic: overview
 ms.date: 07/14/2019
 ms.author: joannapea
