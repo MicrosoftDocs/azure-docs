@@ -803,8 +803,7 @@ Where action can be one of these:
        ChangePlan, (When the change plan operation has completed)
        ChangeQuantity, (When the change quantity operation has completed),
        Suspend, (When resource has been suspended)
-	   Reinstate, (When resource has been reinstated after suspension),
-	   Renew (When a resource subscription is renewed)
+	   Reinstate, (When resource has been reinstated after suspension)
 
 
 Where status can be one of these:
