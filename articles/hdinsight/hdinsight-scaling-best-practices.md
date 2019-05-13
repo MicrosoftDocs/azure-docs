@@ -1,6 +1,6 @@
 ---
 title: Scale cluster sizes - Azure HDInsight
-description: Scale an HDInsight cluster elasticity your workload.
+description: Scale an Azure HDInsight cluster elastically to match your workload.
 author: ashishthaps
 ms.author: ashish
 ms.reviewer: jasonh
