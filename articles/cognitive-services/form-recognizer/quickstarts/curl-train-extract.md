@@ -30,7 +30,7 @@ To complete this quickstart, you must have:
 
 First, you'll need a set of training data. You can use data in an Azure blob or your own local training data. You should have a minimum of five sample forms (PDF documents and/or images) of the same type/structure as your main input data. Or you can use a single empty form. The form's file name needs to include the word "empty."
 
-To train a Form Recognizer model by using the documents in your Azure blob container, call the Train API by running the cURL command that follows. Before you run the command, make these changes:
+To train a Form Recognizer model by using the documents in your Azure blob container, call the **Train** API by running the cURL command that follows. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<SAS URL>` with an Azure Blob storage container shared access signature (SAS) URL of the location of the training data.  
@@ -85,7 +85,7 @@ Note the `"modelId"` value. You'll need it in the following steps.
   
 ## Extract key-value pairs and tables from forms
 
-Next, you'll analyze a document and extract key-value pairs and tables from it. Call the Model - Analyze API by running the cURL command that follows. Before you run the command, make these changes:
+Next, you'll analyze a document and extract key-value pairs and tables from it. Call the **Model - Analyze** API by running the cURL command that follows. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<modelID>` with the model ID that you received in the previous section.

@@ -102,7 +102,7 @@ Note the `"modelId"` value. You'll need it for the following steps.
   
 ## Extract key-value pairs and tables from forms
 
-Next, you'll analyze a document and extract key-value pairs and tables from it. Call the Model - Analyze API by running the Python script that follows. Before you run the command, make these changes:
+Next, you'll analyze a document and extract key-value pairs and tables from it. Call the **Model - Analyze** API by running the Python script that follows. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<File Path>` with the file path or URL of the location of the form from which to extract data.
