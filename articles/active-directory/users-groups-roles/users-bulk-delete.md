@@ -16,11 +16,11 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Bulk add users in the Azure Active Directory portal
+# Bulk delete users in the Azure Active Directory portal
 
 Azure Active Directory (Azure AD) supports bulk user create and delete operations, bulk invite for guests, and supports downloading lists of users, groups, and group members.
 
-## To bulk add users
+## To bulk delete users
 
 1. Sign in to your Azure AD organization with an account that is a User administrator in the organization.
 1. In Azure AD, select **Users** > **Bulk delete**.
@@ -32,18 +32,18 @@ Azure Active Directory (Azure AD) supports bulk user create and delete operation
 1. When the file contents are validated, you must fix any errors before the upload job is submitted.
 1. When your file passes validation, select **Submit** to start the Azure batch job that adds the new user information. Job notifications are generated to apprise you of progress to completion.
 
-## Verify guest users in the directory
+## Verify deleted users in the directory
 
 You can check to see that the users you deleted are no longer in the directory either in the Azure portal or by using PowerShell.
 
-### View guest users in the Azure portal
+### View users in the Azure portal
 
 1. Sign in to the Azure portal with an account that is a User administrator in the organization.
 2. In the navigation pane, select Azure Active Directory.
 3. Under **Manage**, select **Users**.
 4. Under **Show**, select **All users** only and verify that the users you deleted are no longer listed.
 
-### View guest users with PowerShell
+### View users with PowerShell
 
 Run the following command:
 ``` PowerShell
@@ -52,7 +52,7 @@ Get-AzureADUser -Filter "UserType eq 'Member'"
 
 You should see the users that you invited listed, with a user principal name (UPN) in the format emailaddress#EXT#@domain. For example, lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
 
-## Troubleshoot bulk user addition
+## Troubleshoot bulk user deletion
 
 The causes of your troubles are many. Let us make them few. Specific actions can address the causes of many  potential error states during the bulk add process.
 
