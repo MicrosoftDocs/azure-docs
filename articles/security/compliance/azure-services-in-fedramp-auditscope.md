@@ -149,20 +149,20 @@ ms.reviewer: rochiou
 | App Service: Mobile Apps | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | App Service: Web Apps | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Application Gateway | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| Automation | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:&ast; |  |
+| Automation | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:**&ast;** |  |
 | Azure Active Directory (Free and Basic) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Active Directory (Premium P1 + P2) | :heavy_check_mark: |  |  | :heavy_check_mark: | :heavy_check_mark:
+| Azure Active Directory (Premium P1 + P2) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 | Azure Advisor |  |  |  |  |
-| Azure Analysis Services | :heavy_check_mark: |  |  | :heavy_check_mark: |
+| Azure Analysis Services | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Batch AI |  |  |  |  |
-| Azure Cosmos DB | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Cosmos DB | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Azure DB for MySQL |  |  |  |  | :heavy_check_mark:
 | Azure DB for PostgreSQL |  |  |  |  | :heavy_check_mark:
 | Azure DDoS Protection |  |  |  |  | :heavy_check_mark:
-| Azure DNS | :heavy_check_mark: |  |  | :heavy_check_mark: |
+| Azure DNS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Azure File Sync |  |  |  |  | :heavy_check_mark:
 | Azure Front Door | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Information Protection | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:&ast; | :heavy_check_mark: |
+| Azure Information Protection | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:**&ast;** | :heavy_check_mark: |
 | Azure Lab Services |  |  |  |  | :heavy_check_mark:
 | Azure Migrate |  |  |  |  | :heavy_check_mark:
 | Azure Monitor | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -170,35 +170,36 @@ ms.reviewer: rochiou
 | Azure Resource Manager | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Security Center |  |  |  |  | :heavy_check_mark:
 | Azure Service Health |  |  |  |  |
+| Azure Service Manager (RDFE) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Site Recovery | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Backup | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Batch | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Cloud Services | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
+| Cloud Services | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Cognitive Services: Custom Speech |  |  |  |  |
 | Cognitive Services: Translator Speech |  |  |  |  |
 | Cognitive Services: Translator Text |  |  |  |  | :heavy_check_mark:
 | Event Hubs | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | ExpressRoute | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Flow |  |  |  |  | :heavy_check_mark:
-| Functions | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
+| Functions | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | HDInsight | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Import / Export | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| IoT Hub | :heavy_check_mark: |  |  | :heavy_check_mark: |
+| IoT Hub | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | Key Vault | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Load Balancer | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Log Analytics | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| Logic Apps | :heavy_check_mark: |  |  | :heavy_check_mark: |
+| Logic Apps | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
 | Media Services | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Microsoft Azure Portal | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:&ast; | :heavy_check_mark: |
-| Microsoft Graph | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| Microsoft Azure Portal | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:**&ast;** | :heavy_check_mark: |
+| Microsoft Graph | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Microsoft PowerApps |  |  |  |  | :heavy_check_mark:
 | Microsoft Stream | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| Multi-Factor Authentication | :heavy_check_mark: |  |  | :heavy_check_mark: |
-| Network Watcher | :heavy_check_mark: |  |  | :heavy_check_mark: |
-| Notification Hubs | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:&ast; | :heavy_check_mark: |
+| Multi-Factor Authentication | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
+| Network Watcher | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Notification Hubs | :heavy_check_mark: | :heavy_check_mark: | | :heavy_check_mark: |
 | Power BI Embedded | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Redis Cache | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
-| Scheduler | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: |
+| Redis Cache | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Scheduler | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Service Bus | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Service Fabric | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | SQL Data Warehouse | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -216,4 +217,4 @@ ms.reviewer: rochiou
 | Virtual Network | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | VPN Gateway | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
-&ast; Some services such as Azure Portal and Azure Resource Manager do not store or process DoD CC SRG IIL 5 content, however still inherit the IIL5 control set.
+**&ast;** Some services such as Azure Portal and Azure Resource Manager do not store or process DoD CC SRG IIL 5 content, however still inherit the IIL5 control set.
