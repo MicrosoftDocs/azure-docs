@@ -87,8 +87,6 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 
 ## Mv2-series
 
-ACU: TBD<sup>1</sup>
-
 Premium Storage: Supported
 
 Premium Storage caching: Supported
@@ -97,12 +95,12 @@ Write Accelerator: [Supported](https://docs.microsoft.com/azure/virtual-machines
 
 |Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M208ms_v22 | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
-| Standard_M208s_v22 | 208 | 2850 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
+| Standard_M208ms_v22<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
+| Standard_M208s_v22<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
 
-<sup>1</sup> M-series VM’s feature Intel® Hyper-Threading Technology  
+Mv2-series VM’s feature Intel® Hyper-Threading Technology  
 
-<sup>2</sup> These large vCPU’s require one of these supported guest OSes: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15 and RHEL 7.6
+<sup>1</sup> These large vCPU’s require one of these supported guest OSes: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15 and RHEL 7.6
 
 
 ## M-series 
