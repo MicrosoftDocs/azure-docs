@@ -80,7 +80,7 @@
   - name: Packaging and delivery
     items:
     - name: Dynamic packaging
-      displayName: origin, packager, HLS, DASH, CMAF, and Smooth      
+      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest      
       href: dynamic-packaging-overview.md
     - name: Dynamic manifests
       href: filters-dynamic-manifest-overview.md 

@@ -133,7 +133,7 @@
       - name: Use cURL and the Azure REST API
         href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
         maintainContext: true      
-      - name: Use the Azure Classic CLI
+      - name: Use the Azure CLI
         href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
         maintainContext: true
       - name: Create on-demand clusters
