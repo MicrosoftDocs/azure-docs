@@ -49,7 +49,7 @@ You can further investigate the alert by pivoting to Windows Defender ATP. There
 
 ## Platform support
 
-This feature supports detection on Windows Server 2012 R2 and Windows Server 2016.
+This feature supports detection on Windows Server 2008 R2 SP1, 2012 R2 and Windows Server 2016.
 
 Only servers in subscriptions for the standard service tier are supported.
 
