@@ -103,7 +103,7 @@ For the most current list of services, see the [Products available by region](ht
 
 ## Security + Identity
 
-* [Azure Security Center](documentation-government-services-securityandidentity.md#azure-security-center) (Preview)
+* [Azure Security Center](documentation-government-services-securityandidentity.md#azure-security-center) 
 * [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory)
 * [Azure Active Directory Premium](documentation-government-services-securityandidentity.md#azure-active-directory-premium-p1-and-p2)
 * [Key Vault](documentation-government-services-securityandidentity.md#key-vault)
