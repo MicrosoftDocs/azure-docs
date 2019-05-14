@@ -58,7 +58,7 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
     ```
 
-8. For **Client Id**, enter the application ID that you previously recorded and for **Client secret**, enter the client secret that you previously recorded.
+8. For **Client ID**, enter the application ID that you previously recorded and for **Client secret**, enter the client secret that you previously recorded.
 9. Optionally, enter a value for **Domain_hint**. For example, `ContosoAD`. This is the value to use when referring to this identity provider using *domain_hint* in the request. 
 10. Click **OK**.
 11. Select **Map this identity provider's claims** and set the following claims:
