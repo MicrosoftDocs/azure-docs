@@ -18,8 +18,8 @@ This article shows you how to create an Azure Bastion host. Once you provision t
 
 There are two ways that you can create a Bastion host resource:
 
-* Create a bastion resource using the Azure portal.
-* Create a bastion resource in the Azure portal by using existing VM settings.
+* Create a Bastion resource using the Azure portal.
+* Create a Bastion resource in the Azure portal by using existing VM settings.
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
@@ -48,7 +48,7 @@ This section helps you create a new Azure Bastion resource from the Azure portal
 
 1. On the **Bastion (preview)** page, click **Create** to open the **Create a bastion** page.
 
-1. On the **Create a bastion** page, configure a new Bastion resource. Specify the configuration settings for your bastion resource.
+1. On the **Create a bastion** page, configure a new Bastion resource. Specify the configuration settings for your Bastion resource.
 
     ![Virtual WAN diagram](./media/bastion-create-host-portal/settings.png)
 
