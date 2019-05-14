@@ -31,6 +31,20 @@ You can filter Activity Log events by the following fields:
 
 ![View Activity Log](./media/activity-logs-overview/view-activity-log.png)
 
+### View change history
+
+When reviewing the Activity Log, it can help to see what changes happened during that event time. You can view this information with Change history.
+
+Navigate to Activity Log using the menu on the left side of the portal. Select an event from the Activity Log you want to look deeper into. Select the **Change history (Preview)** tab to view any associated changes with the event.
+
+![Change history list for an event](media/activity-logs-overview/change-history-event.png)
+
+If there are any associated changes with the event, you'll see a list of changes that you can select. This opens up the **Change history (Preview)** page. On this page you see the changes to the resource. As you can see from the following example, we are able to see not only that the VM changed sizes, but what the previous VM size was before the change and what it was changed to.
+
+![Change history page showing differences](media/activity-logs-overview/change-history-event-details.png)
+
+To learn more about Change history, see [Get resource changes](../../governance/resource-graph/how-to/get-resource-changes.md).
+
 
 ## Log Analytics workspace
 Click **Logs** at the top of the **Activity Log** page to open the [Activity Log Analytics monitoring solution](activity-log-collect.md) for the subscription. This will allow you to view analytics for the Activity Log and to run [log queries](../log-query/log-query-overview.md). If your Activity Log isn't connected to a Log Analytics workspace, you will be prompted to perform this configuration.
