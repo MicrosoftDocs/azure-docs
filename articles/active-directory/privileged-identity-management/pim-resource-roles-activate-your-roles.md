@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 05/14/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -122,13 +122,6 @@ If you do not require activation of a role that requires approval, you can cance
 When you activate a role in PIM, it takes at least 10 minutes before you can access the desired administrative portal or perform functions within a specific administrative workload. Once the activation is complete, sign out of the Azure portal and sign back in to start using the newly activated role.
 
 For additional troubleshooting steps, see [Troubleshooting Elevated Permissions](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
-
-### Cannot activate a role due to a resource lock
-
-If you receive a message that an Azure resource is locked when you try to activate a role, it might be because a resource within the scope of a role assignment has a resource lock. Locks protect resources from accidental deletion or unexpected changes. A lock also prevents PIM from removing a role assignment on the resource at the end of the activation period. Since PIM is unable to function properly when a lock is applied, PIM prohibits users from activating roles on the resource. There are two ways that you can address this issue:
-
-- Delete the lock as described in [Lock resources to prevent unexpected changes](../../azure-resource-manager/resource-group-lock-resources.md).
-- If you want to keep the lock, make the role assignment permanent or use a break-glass account.
 
 ## Next steps
 
