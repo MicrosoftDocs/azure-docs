@@ -18,7 +18,7 @@ ms.author: byvinyal
 ms.custom: seodec18
 
 ---
-## High-density hosting on Azure App Service using per-app scaling
+# High-density hosting on Azure App Service using per-app scaling
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -147,7 +147,7 @@ Follow these steps to configure high-density hosting for your apps:
    - A high-use app can set **numberOfWorkers** to **3** to have more processing capacity for that app.
    - Low-use apps would set **numberOfWorkers** to **1**.
 
-## Next Steps
+## Next steps
 
 - [Azure App Service plans in-depth overview](overview-hosting-plans.md)
 - [Introduction to App Service Environment](environment/app-service-app-service-environment-intro.md)
