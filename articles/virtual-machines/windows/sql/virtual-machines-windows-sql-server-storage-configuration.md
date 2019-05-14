@@ -63,24 +63,22 @@ If you use the following Resource Manager templates, two premium data disks are 
 
 ## Existing VMs
 
-For existing SQL Server VMs, you can modify some storage settings in the Azure portal. Select your VM, go to the Settings area, and then select SQL Server Configuration. The SQL Server Configuration blade shows the current storage usage of your VM. All drives that exist on your VM are displayed in this chart. For each drive, the storage space displays in four sections:
+For existing SQL Server VMs, you can modify some storage settings in the Azure portal. Open your [SQL VM management blade](virtual-machines-windows-sql-manage-portal.md#sql-vm-management-blade), and select **Overview**. The SQL Server Overview page shows the current storage usage of your VM. All drives that exist on your VM are displayed in this chart. For each drive, the storage space displays in four sections:
 
 * SQL data
 * SQL log
 * Other (non-SQL storage)
 * Available
 
-![Configure Storage for Existing SQL Server VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
+To modify the storage settings, select **Configure** under **Settings**. 
 
-To configure the storage to add a new drive or extend an existing drive, click the Edit link above the chart.
+![Configure Storage for Existing SQL Server VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
 
 The configuration options that you see varies depending on whether you have used this feature before. When using for the first time, you can specify your storage requirements for a new drive. If you previously used this feature to create a drive, you can choose to extend that drive’s storage.
 
 ### Use for the first time
 
 If it is your first time using this feature, you can specify the storage size and performance limits for a new drive. This experience is similar to what you would see at provisioning time. The main difference is that you are not permitted to specify the workload type. This restriction prevents disrupting any existing SQL Server configurations on the virtual machine.
-
-![Configure SQL Server Storage Sliders](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-usage-sliders.png)
 
 Azure creates a new drive based on your specifications. In this scenario, Azure performs the following storage configuration tasks:
 
@@ -94,8 +92,6 @@ For further details on how Azure configures storage settings, see the [Storage c
 ### Add a new drive
 
 If you have already configured storage on your SQL Server VM, expanding storage brings up two new options. The first option is to add a new drive, which can increase the performance level of your VM.
-
-![Add a new drive to a SQL VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-add-new-drive.png)
 
 However, after adding the drive, you must perform some extra manual configuration to achieve the performance increase.
 
