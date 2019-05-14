@@ -122,7 +122,7 @@ You can use the Azure portal to configure Automated Backup v2 during provisionin
 
 Use the Azure portal to configure Automated Backup v2 when you create a new SQL Server 2016 or 2017 Virtual Machine in the Resource Manager deployment model.
 
-In the **SQL Server settings** pane, select **Automated backup**. The following Azure portal screenshot shows the **SQL Automated Backup** settings.
+In the **SQL Server settings** pane, select **Enable** under **Automated backup**. The following Azure portal screenshot shows the **SQL Automated Backup** settings.
 
 ![SQL Automated Backup configuration in Azure portal](./media/virtual-machines-windows-sql-automated-backup-v2/automated-backup-blade.png)
 

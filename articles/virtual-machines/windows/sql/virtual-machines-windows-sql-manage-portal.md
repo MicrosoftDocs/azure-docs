@@ -1,6 +1,6 @@
 ---
 title: Manage SQL Server VMs in Azure using the Azure portal | Microsoft Docs
-description: Learn how to access the SQL VM management blade in the Azure Portal for a SQL Server VM hosted on Azure. 
+description: Learn how to access the SQL VM management blade in the Azure portal for a SQL Server VM hosted on Azure. 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -18,19 +18,20 @@ ms.reviewer: jroth
 ---
 # Manage SQL Server VMs in Azure using the Azure portal
 
-There are now two different access points to manage your SQL Server VM on Azure using the [Azure Portal](https://portal.azure.com). 
+There are now two different access points to manage your SQL Server VM on Azure using the [Azure portal](https://portal.azure.com). 
 
 The first is the **SQL VM management blade**, which is now an independent management service and is meant to modify settings dedicated to SQL Server: 
 
 ![SQL VM management blade](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
 
 The second is the **SQL Server configuration tab** found within the typical virtual machine management blade: 
-![SQL Server configuration](media/virtual-machines-windows-sql-manage-portal/sql-vm-configuration.png).
+
+![SQL Server configuration](media/virtual-machines-windows-sql-manage-portal/sql-vm-configuration.png)
 
 
 ## Remarks
 
-- The SQL VM management blade is only available to SQL Server VMs that have [registered with the SQL VM resource provider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider). 
+The SQL VM management blade is only available to SQL Server VMs that have [registered with the SQL VM resource provider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider). 
 
 
 ## Which to use
@@ -56,18 +57,21 @@ To access the SQL VM management blade, do the following:
 1. (Optional): Select the star next to **SQL virtual machines** to add this option to your Favorites menu. 
 1. Select **SQL virtual machines**. 
 
-![Find SQL VM virtual machines in all services](media/virtual-machines-windows-sql-manage-portal/sql-vm-search.png)
+   ![Find SQL VM virtual machines in all services](media/virtual-machines-windows-sql-manage-portal/sql-vm-search.png)
 
 1. This will list all SQL Server VMs available within the subscription. Select the one you would like to manage to launch the **SQL VM management blade**. Use the search box if your SQL Server VM is not readily apparent. 
 
 ![All available SQL VMs](media/virtual-machines-windows-sql-manage-portal/all-sql-vms.png)
+
+Selecting your SQL Server VM will open the SQL VM management blade: 
+
 
 ![SQL VM management blade](media/virtual-machines-windows-sql-manage-portal/sql-vm-management-blade.png)
 
   > [!TIP]
   > The management blade is for dedicated SQL Server settings. Select the name of the VM in the **Virtual machine** field to navigate to settings that are specific to the VM, but not exclusive to SQL Server. 
 
-### SQL server configuration tab
+### SQL Server configuration tab
 To access the SQL server configuration tab, you'll need to navigate to the management blade for the virtual machine. To do so, do the following:
 
 1. Open the [Azure portal](https://portal.azure.com). 
@@ -76,10 +80,12 @@ To access the SQL server configuration tab, you'll need to navigate to the manag
 1. (Optional): Select the star next to **Virtual machines** to add this option to your Favorites menu. 
 1. Select **Virtual machines**. 
 
-![Search for virtual machines](media/virtual-machines-windows-sql-manage-portal/vm-search.png)
+   ![Search for virtual machines](media/virtual-machines-windows-sql-manage-portal/vm-search.png)
 
 1. This will list all virtual machines in the subscription. Select the one you would like to manage to launch the **VM management blade**. Use the search box if your SQL Server VM is not readily apparent. 
 1. Select **SQL Server configuration** in the **Settings** pane to manage your SQL Server. 
+
+![SQL Server configuration](media/virtual-machines-windows-sql-manage-portal/sql-vm-configuration.png)
 
 ## Next steps
 
