@@ -36,7 +36,7 @@ For devices running the Windows desktop operating system, the supported version 
 
 To control this behavior on Windows current devices, you need to:
 
-1. Clear the SCP entry from Active Directory (AD) if it exists.
+1. Clear the SCP entry from Active Directory (AD) if it exists
 1. Configure client-side registry setting for SCP on your domain-joined computers using a Group Policy Object (GPO)
 1. If you are using AD FS, you must also:
    1. Configure the client-side registry setting for SCP on you’re an AD FS server using a GPO  
