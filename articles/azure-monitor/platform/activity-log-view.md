@@ -11,7 +11,7 @@ ms.subservice: logs
 ---
 # View and retrieve Azure Activity log events
 
-The [Azure Activity Log](activity-log-overview.md) provides insight into subscription-level events that have occurred in Azure. This article provides details on different methods for viewing and retrieving Activity Log events.
+The [Azure Activity Log](activity-logs-overview.md) provides insight into subscription-level events that have occurred in Azure. This article provides details on different methods for viewing and retrieving Activity Log events.
 
 ## Azure portal
 View the Activity Log for all resources from the **Monitor** menu in the Azure portal. View the Activity Log for a particular resource from the **Activity Log** option in that resource's menu.
@@ -19,7 +19,7 @@ View the Activity Log for all resources from the **Monitor** menu in the Azure p
 You can filter Activity Log events by the following fields:
 
 * **Timespan**: The start and end time for events.
-* **Category**: The event category as described in [Categories in the Activity Log](activity-log-overview.md#categories-in-the-activity-log).
+* **Category**: The event category as described in [Categories in the Activity Log](activity-logs-overview.md#categories-in-the-activity-log).
 * **Subscription**: One or more Azure subscription names.
 * **Resource group**: One or more resource groups within the selected subscriptions.
 * **Resource (name)**: - The name of a specific resource.
