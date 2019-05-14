@@ -244,4 +244,4 @@ The previous instructions help you configure Azure Firewall for restricting outb
 
 ## Next steps
 
-* [Azure HDInsight virtual network architecture](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-virtual-network-architecture)
+* [Azure HDInsight virtual network architecture](hdinsight-virtual-network-architecture.md)
