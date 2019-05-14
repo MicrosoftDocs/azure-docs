@@ -202,13 +202,15 @@ The patch orchestration app exposes REST APIs to display the historical results 
       {
         "OperationResult": 0,
         "NodeName": "_stg1vm_1",
-        "OperationTime": "2017-05-21T11:46:52.1953713Z",
+        "OperationTime": "2019-05-13T08:44:56.4836889Z",
+        "OperationStartTime": "2019-05-13T08:44:33.5285601Z",
         "UpdateDetails": [
           {
             "UpdateId": "7392acaf-6a85-427c-8a8d-058c25beb0d6",
             "Title": "Cumulative Security Update for Internet Explorer 11 for Windows Server 2012 R2 (KB3185319)",
             "Description": "A security issue has been identified in a Microsoft software product that could affect your system. You can help protect your system by installing this update from Microsoft. For a complete listing of the issues that are included in this update, see the associated Microsoft Knowledge Base article. After you install this update, you may have to restart your system.",
-            "ResultCode": 0
+            "ResultCode": 0,
+            "HResult": 0
           }
         ],
         "OperationType": 1,
@@ -231,6 +233,9 @@ ResultCode | Same as OperationResult | This field indicates result of installati
 OperationType | 1 - Installation<br> 0 - Search and Download.| Installation is the only OperationType that would be shown in the results by default.
 WindowsUpdateQuery | Default is "IsInstalled=0" |Windows update query that was used to search for updates. For more information, see [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 RebootRequired | true - reboot was required<br> false - reboot was not required | Indicates if reboot was required to complete installation of updates.
+OperationStartTime | DateTime | Indicates the time at which operation(Download/Installation) started.
+OperationTime | DateTime | Indicates the time at which operation(Download/Installation) completed.
+HResult | 0 - Successful<br> other - failure| Indicates the reason of failure of the windows update with updateID "7392acaf-6a85-427c-8a8d-058c25beb0d6".
 
 If no update is scheduled yet, the result JSON is empty.
 
@@ -255,6 +260,52 @@ To enable the reverse proxy on the cluster, follow the steps in [Reverse proxy i
 
 ## Diagnostics/health events
 
+With diagnostic improvements in the latest version of Patch Orchestration Application it is a piece of cake to debug the issues with update orchestration on Service fabric cluster.
+
+NodeAgentNTService creates repair tasks to install updates on the nodes. Each task is then prepared by CoordinatorService according to your task approval policy. The prepared tasks are finally approved by Repair manager which will not approve any task if cluster is unhealthy. Lets go step by step to understand how updates proceed on a node.
+
+1. Firstly, NodeAgentNTService on a node tries to download the updates at the scheduled time.
+2. If there are updates to be installed, then, NodeAgentNTService creates Repair task like "POS__poanode_1_57230088-ab5e-49d1-8e3d-44ec1c57d30b".
+3. The Node on which update is getting installed, will be in disabled state with intent "Restart" and reason will have repair task listed on the node on SF explorer.
+4. Latest version of POA posts events with property "ClusterPatchingStatus" on CoordinaterService to display the nodes which are being patched. Below image shows that updates are getting installed on _poanode_0:
+
+    ![Image of Cluster patching status](media/service-fabric-patch-orchestration-application/ClusterPatchingStatus.png)
+
+5. In the latest version of application, to find the status of the update on any node, you can go to NodeAgentService and see the health events with property "WUOperationStatus+nodeName". Like in below mentioned the images, highlighted sections show the status of windows update on node 'poanode_0' and 'poanode_2':
+
+   ![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/WUOperationStatusA.png)
+
+   ![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/WUOperationStatusA.png)
+
+6. But if latest version of the application is not being used or one wants to know the exact status of update on the node, then, connect to the cluster using powershell and find out the status of repair task using Get-ServiceFabricRepairTask -TaskId "POS__nodeName_57230088-ab5e-49d1-8e3d-44ec1c57d30b". Like below example shows that "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15" task is in DownloadComplete state. It means that updates have been downloaded on the node "poanode_2" and installation will be attempted.
+
+   ``` powershell
+    D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k = Get-ServiceFabricRepairTask -TaskId "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15"
+
+    D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k.ExecutorData
+    {"ExecutorSubState":2,"ExecutorTimeoutInMinutes":90,"RestartRequestedTime":"0001-01-01T00:00:00"}
+    ```
+
+7. The above mentioned repair task can only have these executor sub-states:
+
+      ExecutorSubState | Detail
+    -- | -- | -- 
+      None=1 |  implies that there wasn't an ongoing operation on the node. Possible state transitions.
+      DownloadCompleted=2 | implies download operation has completed with success, partial failure, or failure.
+      InstallationApproved=3 | implies download operation was completed earlier and RM has approved the installation.
+      InstallationInProgress=4 | corresponds to RM state of Executing.
+      InstallationCompleted=5 | implies installation completed with success, partial success, or failure.
+      RestartRequested=6 | implies restart has been requested and the intention would be marked in repair task.
+      RestartNotNeeded=7 |  implies that restart was not needed after completed of installation.
+      RestartCompleted=8 | implies that restart completed successfully.
+      OperationCompleted=9 | windows update operation completed successfully.
+      OperationAborted=10 | implies that windows update operation is aborted.
+
+8. One can try to figure out the issue after looking at state of repair task and sign in to specific VM to dig deep on the issue using Windows event logs.
+9. In latest version of the application, after the update is complete on any node, an event with property "WUOperationStatus+nodeName" is posted on the NodeAgentService to notify when will the next attempt, to download and install update, start. See the image below:
+
+     ![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/WUOperationStatusC.png)
+
 ### Diagnostic logs
 
 Patch orchestration app logs are collected as part of Service Fabric runtime logs.
@@ -270,12 +321,6 @@ In case you want to capture logs via diagnostic tool/pipeline of your choice. Pa
 
 The patch orchestration app also publishes health reports against the Coordinator Service or the Node Agent Service in the following cases:
 
-#### A Windows Update operation failed
-
-If a Windows Update operation fails on a node, a health report is generated against the Node Agent Service. Details of the health report contain the problematic node name.
-
-After patching is successfully completed on the problematic node, the report is automatically cleared.
-
 #### The Node Agent NTService is down
 
 If the Node Agent NTService is down on a node, a warning-level health report is generated against the Node Agent Service.
@@ -283,6 +328,7 @@ If the Node Agent NTService is down on a node, a warning-level health report is 
 #### The repair manager service is not enabled
 
 If the repair manager service is not found on the cluster, a warning-level health report is generated for the Coordinator Service.
+
 
 ## Frequently asked questions
 
@@ -346,6 +392,10 @@ A. No, Patch orchestration app cannot be used to patch one-node cluster. This li
 Q. **How do I patch cluster nodes on Linux?**
 
 A. See [Azure virtual machine scale set automatic OS image upgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) for orchestrating updates on linux.
+
+Q.**Why is update cycle taking so long??**
+
+A. Query for the result Json, then, go through the entry of the update cycle for all nodes and then, you can try to find out the time taken by update installation on every node using OperationStartTime and OperationTime(OperationCompletionTime). If one finds a large time window in which no update was going on, it could be because your cluster was in error state and because of that repair manager did not approve any other POA repair tasks. If update installation took long on any node, then, it could be possible that node was not updated from long time and a lot of updates were pending installation which took time.
 
 ## Disclaimers
 
