@@ -94,7 +94,7 @@ To configure Azure AD single sign-on with monday.com in the Azure portal:
 
     ![Configure single sign-on option](common/select-sso.png)
 
-1. In the **Select a Single sign-on method** pane, select **SAML/WS-Fed** mode to enable single sign-on.
+1. In the **Select a single sign-on method** pane, select **SAML** or **SAML/WS-Fed** mode to enable single sign-on.
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
@@ -102,63 +102,57 @@ To configure Azure AD single sign-on with monday.com in the Azure portal:
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. In the **Basic SAML Configuration** pane, if you have a Service Provider metadata file and you want to configure *IDP-initiated mode*, complete the following steps:
+1. In the **Basic SAML Configuration** pane, if you have a service provider metadata file and you want to configure *IDP-initiated mode*, complete the following steps:
 
 	1. Select **Upload metadata file**.
 
        ![The Upload metadata file option](common/upload-metadata.png)
 
-	1. Select the folder logo to select the metadata file, and then select **Upload**.
+	1. To select the metadata file, select the folder icon, and then select **Upload**.
 
 	   ![Select the metadata file and then select the Upload button](common/browse-upload-metadata.png)
 
-	1. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values are auto populated in the **Basic SAML Configuration** pane:
+	1. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values are automatically populated in the **Basic SAML Configuration** pane:
 
 	   ![The IDP values in the Basic SAML Configuration pane](common/idp-intiated.png)
 
 	   > [!Note]
-	   > If the **Identifier** and **Reply URL** values aren't auto populated, enter the values manually.
+	   > If the **Identifier** and **Reply URL** values aren't automatically populated, enter the values manually.
 
 1. To configure the application in *SP-initiated mode*, complete the following steps:
 
-	![The Set additional URLs option](common/metadata-upload-additional-signon.png)
-
-	1. Select **Set additional URLs**.
+    1. Select **Set additional URLs**.
 	
-	1. In the **Sign-on URL** box, enter a URL that has the following pattern: https:\//\<your_domain>.monday.com.
+	1. In the **Sign-on URL** box, enter a URL that has the following pattern: https:\//\<your-domain>.monday.com.
 
 	   > [!NOTE]
        > The sign-on URL value in the preceding image is an example. It's not an actual value. Update this value with the actual sign-on URL. Contact the [monday.com client support team](mailto:support@monday.com) to get this value.
 
-1. The monday.com application expects the SAML assertions to be in a specific format. Configure the following claims for this application. To manage the values of these attributes, in the **Set up Single Sign-On with SAML** pane, select **Edit** to open the **User attributes** pane.
+	![The Set additional URLs option](common/metadata-upload-additional-signon.png)
+
+1. The monday.com application expects the SAML assertions to be in a specific format. Configure the following claims for this application. To manage these attribute values, in the **Set up Single Sign-On with SAML** pane, select **Edit** to open the **User Attributes** pane.
 
 	![The User attributes pane](common/edit-attribute.png)
 
-1. Under **User claims**, edit the claims by using **Edit** (pencil) icon. You also can add the claims by selecting **Add new claim** to configure the SAML token attribute as shown in the preceding image. Then, complete the following steps: 
-
-	| Name | Source attribute|
-	| -------| ---------|
-	| Email | user.mail |
-	| FirstName | user.givenname |
-	| LastName | user.surname |
+1. Under **User claims**, edit the claims by using the **Edit** (pencil) icon. To add a claim, select **Add new claim**, and then configure the SAML token attribute as shown in the preceding image. Then, complete the following steps: 
 
 	1. Select **Add new claim**.
 
 	    ![The Add new claim option in the User claims pane](common/new-save-attribute.png)
 
-	    The **Manage user claims** pane opens.
+	1. In the **Manage user claims** pane, set the following values:
 		
-		![The Manage user claims](common/new-attribute-details.png)
+	   1. In the **Name** box, enter the attribute name shown for that row.
 
-	1. In the **Name** box, enter the attribute name shown for that row.
+       1. Leave **Namespace** blank.
 
-	1. Leave the **Namespace** blank.
+	   1. For **Attribute**, select **Source**.
 
-	1. For **Attribute**, select **Source**.
+	   1. In the **Source attribute** list, select the attribute value shown for that row.
 
-	1. In the **Source attribute** list, select the attribute value shown for that row.
+	   1. Select **OK**, and then select **Save**.
 
-	1. Select **OK**, and then select **Save**.
+       ![The Manage user claims](common/new-attribute-details.png)
 
 1. In the **Set up Single Sign-On with SAML** pane, in the **SAML Signing Certificate** section, select **Download** next to **Certificate (Base64)**. Select a download option based on your requirements. Save the certificate on your computer.
 
@@ -190,8 +184,6 @@ In this section, you create a test user named Britta Simon in the Azure portal.
 
 1. In the **User** pane, complete the following steps:
 
-    ![The User pane](common/user-properties.png)
-
     1. In the **Name** box, enter **BrittaSimon**.
   
     1. In the **User name** box, enter **brittasimon\@\<your-company-domain>.\<extension>**. For example, **BrittaSimon\@contoso.com**.
@@ -199,6 +191,8 @@ In this section, you create a test user named Britta Simon in the Azure portal.
     1. Select the **Show password** check box. Write down the value that's displayed in **Password**.
 
     1. Select **Create**.
+
+	![The User pane](common/user-properties.png)
 
 ### Assign the Azure AD test user
 
@@ -234,12 +228,12 @@ In this section, a user named Britta Simon is created in the monday.com applicat
 
 In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
 
-After you set up single sign-on, when you select **monday.com** in the My Apps portal, you should be automatically signed in to monday.com. For more information about the My Apps portal, see [Access and use apps in the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+After you set up single sign-on, when you select **monday.com** in the My Apps portal, you are automatically signed in to monday.com. For more information about the My Apps portal, see [Access and use apps in the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
 To learn more, review these articles:
 
 - [List of tutorials for integrating SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
