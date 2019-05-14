@@ -1,4 +1,4 @@
-﻿---
+---
 title: Article about known troubleshooting common issues/errors associated with using Azure Database Migration Service | Microsoft Docs
 description: Learn about how to troubleshoot common known issues/errors associated with using Azure Database Migration Service.
 services: database-migration
