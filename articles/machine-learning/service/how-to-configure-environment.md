@@ -54,7 +54,7 @@ To install the SDK environment for your [local computer](#local), [Jupyter Noteb
 
 The notebook virtual machine (Preview) is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter notebook server, JupyterLab, and a fully prepared ML environment. 
 
-The notebook VM offers: 
+The notebook VM is: 
 
 + **Secure**. Since VM and notebook access is secured with HTTPS and Azure Active Directory by default, IT Pros can easily enforce single sign-on and other security features such as multi-factor authentication.
 
@@ -65,7 +65,7 @@ The notebook VM offers:
   + JupyterLab notebook IDE
   + Preconfigured GPU drivers 
   + A selection of deep learning frameworks
-  + more...
+ 
 
   If you are into code, the VM includes tutorials and samples to help you explore and learn how to use Azure Machine Learning service. The sample notebooks are stored in the Azure Blob Storage account of your workspace making them shareable across VMs. When run, they also have access to the data stores and compute resources of your workspace. 
 

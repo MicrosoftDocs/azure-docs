@@ -4,6 +4,7 @@
   items:
   - name: Apache HBase in HDInsight
     href: apache-hbase-overview.md
+    maintainContext: true
   - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
