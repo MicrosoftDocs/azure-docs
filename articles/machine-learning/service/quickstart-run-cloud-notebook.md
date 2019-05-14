@@ -8,16 +8,16 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/02/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
 
 ---
 
 # Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning
 
-Create a cloud-based notebook server, then use it.  In this quickstart, you run Python code that logs values in the [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md). The workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. 
+In this quickstart, you run Python code from a cloud-based Jupyter notebook that logs values in the [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md). The workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. 
 
-This quickstart shows how to create a cloud resource in your Azure Machine Learning workspace, configured with the Python environment necessary to run Azure Machine Learning. To use your own environment instead, see [Quickstart: Use your own notebook server to get started with Azure Machine Learning](quickstart-run-local-notebook.md).  
+This quickstart shows how to create a cloud virtual machine in your Azure Machine Learning workspace, configured with the Python environment necessary to run Azure Machine Learning. The [notebook VM (Preview)](how-to-configure-environment.md#notebookvm) is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter notebook server, JupyterLab, and a fully prepared ML environment. If you prefer to work locally, you can also [use your own notebook server](quickstart-run-local-notebook.md).  
 
 In this quickstart, you take the following actions:
 
@@ -127,7 +127,7 @@ Stop the notebook VM when you are not using it to reduce cost.
 
 1. Select **Stop**.
 
-1. When you're ready to user the server again, select **Start**.
+1. When you're ready to use the server again, select **Start**.
 
 ### Delete everything
 
