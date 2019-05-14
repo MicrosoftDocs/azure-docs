@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2018
+ms.date: 05/14/2019
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: jeedes
@@ -44,11 +44,12 @@ To find more tutorials, use the table of contents on the left.
 ## Cloud Integrations
 
 | Logo | Application tutorial for single sign-on |
-| -- | :-- |
-| ![logo](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [G Suite](google-apps-tutorial.md)|
+| :--- | :--- |
+| ![logo](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Amazon Web Services (AWS)](amazon-web-service-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba](alibaba-cloud-service-role-based-sso-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP](saphana-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba Cloud Service (Role bases SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP Cloud Identity Platform](saphana-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)|
 
 ## Next steps
 
