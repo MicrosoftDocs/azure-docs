@@ -181,17 +181,23 @@ From the actions list, select this action: **Condition**
 
    ![Empty condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/empty-condition.png)
 
-1. Rename the condition title to `Condition: If a virtual machine in your resource group has changed`. On the condition's title bar, choose the ellipses (**...**) button, and select **Rename**.
+1. Rename the condition title to `If a virtual machine in your resource group has changed`. On the condition's title bar, choose the ellipses (**...**) button, and select **Rename**.
 
    ![Rename condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/rename-condition.png)
 
 1. Create a condition that checks the event `body` for a `data` object where the `operationName` property is equal to the `Microsoft.Compute/virtualMachines/write` operation. Learn more about [Event Grid event schema](../event-grid/event-schema.md).
 
-   1. On the first row under **And**, click inside the left box. In the dynamic content list that appears, choose **Expression**. 
+   1. On the first row under **And**, click inside the left box. In the dynamic content list that appears, choose **Expression**.
 
-   1. In the expression editor, enter this expression: 
+      ![Choose "Expression"](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-choose-expression.png)
+
+   1. In the expression editor, enter this expression, and choose **OK**: 
 
       `triggerBody()?['data']['operationName']`
+
+      For example:
+
+      ![Choose "Expression"](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-add-data-operation-name.png)
 
    1. In the middle box, keep the operator **is equal to**.
 
@@ -199,72 +205,62 @@ From the actions list, select this action: **Condition**
 
       `Microsoft.Compute/virtualMachines/write`
 
-   Your condition now looks like this example:
+   Your finished condition now looks like this example:
 
-   ![Completed condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-expression.png)
+   ![Completed condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/complete-condition.png)
 
-1. To provide a description for the condition, 
-choose the **ellipses** (**...**) button on the condition shape, 
-then choose **Rename**.
+1. Save your logic app.
 
-   > [!NOTE] 
-   > The later examples in this tutorial also provide 
-   > descriptions for steps in the logic app workflow.
-
-1. Now choose **Edit in basic mode** so that the expression 
-automatically resolves as shown:
-
-   ![Logic app condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-1.png)
-
-5. Save your logic app.
-
-## Send email when your virtual machine changes
+## Send email notifications
 
 Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 so that you get an email when the specified condition is true.
 
 1. In the condition's **If true** box, choose **Add an action**.
 
-   ![Add action for when condition is true](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-2.png)
+   ![Add action for when condition is true](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-true-add-action.png)
 
-2. In the search box, enter "email" as your filter. 
+1. In the search box, enter "send an email" as your filter. 
 Based on your email provider, find and select the matching connector. 
 Then select the "send email" action for your connector. 
 For example: 
 
    * For an Azure work or school account, 
    select the Office 365 Outlook connector. 
+
    * For personal Microsoft accounts, 
    select the Outlook.com connector. 
+
    * For Gmail accounts, select the Gmail connector. 
 
-   We're going to continue with the Office 365 Outlook connector. 
+   This tutorial continues with the Office 365 Outlook connector. 
    If you use a different provider, the steps remain the same, 
-   but your UI might appear different. 
+   but your UI might appear slightly different. 
 
    ![Select "send email" action](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email.png)
 
-3. If you don't already have a connection for your email provider, 
+1. If you don't already have a connection for your email provider, 
 sign in to your email account when you're asked for authentication.
 
-4. Provide details for the email 
-as specified in the following table:
+1. Rename the send email title to this title: `Send email when virtual machine updated`. 
+
+1. Provide details for the email as specified in the following table:
 
    ![Empty email action](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-empty-email-action.png)
 
    > [!TIP]
-   > To select from fields available in your workflow, 
-   > click in an edit box so that the **Dynamic content** list opens, 
+   > To select from results from previous steps in your workflow, 
+   > click in an edit box so that the dynamic content list appears, 
    > or choose **Add dynamic content**. 
-   > For more fields, choose **See more** for each section in the list. 
-   > To close the **Dynamic content** list, choose **Add dynamic content**.
+   > For more results, choose **See more** for each section in the list. 
+   > To close the dynamic content list, choose **Add dynamic content** again.
 
-   | Setting | Suggested value | Description | 
-   | ------- | --------------- | ----------- | 
-   | **To** | *{recipient-email-address}* |Enter the recipient's email address. For testing purposes, you can use your own email address. | 
-   | **Subject** | Resource updated: **Subject**| Enter the content for the email's subject. For this tutorial, enter the suggested text and select the event's **Subject** field. Here, your email subject includes the name for the updated resource (virtual machine). | 
-   | **Body** | Resource group: **Topic** <p>Event type: **Event Type**<p>Event ID: **ID**<p>Time: **Event Time** | Enter the content for the email's body. For this tutorial, enter the suggested text and select the event's **Topic**, **Event Type**, **ID**, and **Event Time** fields so that your email includes the resource group name, event type, event timestamp, and event ID for the update. <p>To add blank lines in your content, press Shift + Enter. | 
-   | | | 
+   | Property | Required | Value | Description |
+   | -------- | -------- | ----- | ----------- |
+   | **To** | Yes | <*recipient@domain*> | Enter the recipient's email address. For testing purposes, you can use your own email address. |
+   | **Subject** | Yes | Resource updated: **Subject** | Enter the content for the email's subject. For this tutorial, enter the specified text, and select the event's **Subject** field. Here, your email subject includes the name for the updated resource (virtual machine). |
+   | **Body** | Yes | Resource group: **Topic** <p>Event type: **Event Type**<p>Event ID: **ID**<p>Time: **Event Time** | Enter the content for the email's body. For this tutorial, enter the specified text and select the event's **Topic**, **Event Type**, **ID**, and **Event Time** fields so that your email includes the resource group name, event type, event timestamp, and event ID for the update. <p>To add blank lines in your content, press Shift + Enter. |
+   ||||
 
    > [!NOTE] 
    > If you select a field that represents an array, 
@@ -280,7 +276,7 @@ as specified in the following table:
 
    ![Finished logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
 
-5. Save your logic app. To collapse and hide each action's 
+1. Save your logic app. To collapse and hide each action's 
 details in your logic app, choose the action's title bar.
 
    ![Save your logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save-completed.png)
