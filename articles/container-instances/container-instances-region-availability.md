@@ -26,11 +26,11 @@ The following regions and resources are available to container groups with Linux
 
 | Location | OS | CPU | Memory (GB) |
 | -------- | -- | :---: | :-----------: |
-| Canada Central, Central India, Central US, East Asia, East US, East US 2, North Europe, South Central US, Southeast Asia, West US, UK South | Linux | 4 | 16 |
+| Canada Central, Central India, Central US, East Asia, East US, East US 2, North Europe, South Central US, Southeast Asia, UK South, West US | Linux | 4 | 16 |
 | West Europe, West US 2 | Linux | 4 | 14 |
 | Australia East, Japan East | Linux | 2 | 8 |
 | North Central US, South India | Linux | 2 | 3.5 |
-| West Europe, West US 2 | Windows | 4 | 16 |
+| West Europe | Windows | 4 | 16 |
 | East US, West US | Windows | 4 | 14 |
 | Australia East, Canada Central, Central India, Central US, East Asia, East US 2, Japan East, North Central US, North Europe, South Central US, Southeast Asia, South India, UK South, West US 2 | Windows | 2 | 3.5 |
 
