@@ -111,7 +111,7 @@ You also need the ID for your application and an authentication key. To get thos
 
    ![Save secret](./media/howto-create-service-principal-portal/save-secret.png)
 
-   After saving the secret, the value of the secret is displayed. Copy this value because you aren't able to retrieve the key later. You provide the key value with the application ID to sign in as the application. Store the key value where your application can retrieve it.
+   After saving the client secret, the value of the client secret is displayed. Copy this value because you aren't able to retrieve the key later. You provide the key value with the application ID to sign in as the application. Store the key value where your application can retrieve it.
 
    ![Copy secret](./media/howto-create-service-principal-portal/copy-secret.png)
 
