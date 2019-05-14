@@ -63,9 +63,9 @@ When the self-service phase ends, the *scheduled maintenance phase* begins. Duri
 
 For more information on managing maintenance that requires a reboot, see [Handling planned maintenance notifications for Linux](../articles/virtual-machines/linux/maintenance-notifications.md) or the corresponding article for [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
 
-### Availability during scheduled maintenance 
+### Availability considerations during scheduled maintenance 
 
-If you decide to wait until the scheduled maintenance phase, you should consider how to maintain high VM availability during the maintenance. 
+If you decide to wait until the scheduled maintenance phase, there are a few things you should consider to maintain the highest availability of your VMs. 
 
 #### Paired regions
 
