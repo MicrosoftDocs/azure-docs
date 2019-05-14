@@ -10919,7 +10919,7 @@
       "source_path": "articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dedicated-overview",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
@@ -11064,6 +11064,11 @@
       "source_path": "articles/hdinsight/hdinsight-apache-storm-tutorial-get-started.md",
       "redirect_url": "/azure/hdinsight/hdinsight-apache-storm-tutorial-get-started-linux",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-connect-hive-zeppelin.md",
+      "redirect_url": "/azure/hdinsight/interactive-query/hdinsight-connect-hive-zeppelin",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-create-windows-clusters-arm-templates.md",
@@ -38947,6 +38952,17 @@
       "source_path": "articles/active-directory/reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-splunk",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/developers-guide.md",
+      "redirect_url": "/azure/media-services/latest/media-services-apis-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-create-new.md",
+      "redirect_url": "/azure/media-services/video-indexer/use-editor-create-project",
+      "redirect_document_id": false
     }
+
   ]
 }
