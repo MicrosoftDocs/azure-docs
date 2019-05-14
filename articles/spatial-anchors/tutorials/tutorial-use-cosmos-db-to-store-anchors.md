@@ -67,7 +67,7 @@ Locate the `StorageConnectionString` property, and set the value to be the same 
 
 ## Next steps
 
-In this tutorial, you've used Azure Cosmos DB to share anchor identifiers across devices. To learn more about how to use Azure Spatial Anchors in a new Android app, continue to the next tutorial.
+In this tutorial, you've used Azure Cosmos DB to share anchor identifiers across devices. To learn more about how to use Azure Spatial Anchors in a new Unity HoloLens app, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Starting a new Android app](./tutorial-new-android-app.md)
+> [Starting a new Android app](./tutorial-new-unity-hololens-app.md)
