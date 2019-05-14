@@ -156,7 +156,7 @@ Now use your RDP client program and connect to service proxy on port 2222 (this 
 > [!NOTE]
 > Ensure that your device proxy is configured correctly for RDP and configured with RDP port 3389.
 
-![RDP client connects to service-local proxy](./media/quickstart-device-streams-proxy-nodejs/rdp-screen-capture.PNG)
+![RDP client connects to service-local proxy](./media/quickstart-device-streams-proxy-nodejs/rdp-screen-capture.png)
 
 ## Clean up resources
 
