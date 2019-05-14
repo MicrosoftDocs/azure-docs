@@ -26,10 +26,15 @@
     items: 
     - name: "Features: Action and context"
       href: concepts-features.md
-      displayName: action, context, feature, namespace, JSON, best practice, set 
+      displayName: action, context, feature, namespace, JSON, best practice, set
+    - name: Rewards
+      href: concept-rewards.md
+      displayName: reward, wait time, default reward 
     - name: Reinforcement learning
       href: concepts-reinforcement-learning.md
       displayName: RL, contextual bandits, Vowpal Wabbit
+    - name: Exploration
+      href: concepts-exploration.md
   - name: Analysis
     items: 
     - name: Offline evaluation
