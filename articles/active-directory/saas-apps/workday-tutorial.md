@@ -9,11 +9,12 @@ ms.reviewer: barbkess
 
 ms.assetid: e9da692e-4a65-4231-8ab3-bc9a87b10bca
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 05/15/2019
 ms.author: jeedes
 
 ---
@@ -33,14 +34,14 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To configure Azure AD integration with Workday, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
 * Workday single sign-on enabled subscription
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Workday supports **SP** and **IDP** initiated SSO
+* Workday supports **SP** initiated SSO
 
 ## Adding Workday from the gallery
 
@@ -98,24 +99,20 @@ To configure Azure AD single sign-on with Workday, perform the following steps:
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![Workday Domain and URLs single sign-on information](common/sp-identifier.png)
+    ![Workday Domain and URLs single sign-on information](common/sp-identifier-reply.png)
 
 	a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https:\//impl.workday.com/<tenant>/login-saml2.flex`
+    `https://impl.workday.com/<tenant>/login-saml2.flex`
 
     b. In the **Identifier** text box, type a URL using the following pattern:
     `https://www.workday.com`
 
-5. Click **Set additional URLs** and perform the following step:
-
-    ![Workday Domain and URLs single sign-on information](./media/workday-tutorial/reply.png)
-
-	In the **Reply URL** text box, type a URL using the following pattern:
-    `https:\//impl.workday.com/<tenant>/login-saml.htmld`
+	c. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://impl.workday.com/<tenant>/login-saml.htmld`
 
 	> [!NOTE]
 	> These values are not the real. Update these values with the actual Sign-on URL and Reply URL. Your reply URL must have a subdomain for example: www, wd2, wd3, wd3-impl, wd5, wd5-impl).
-    > Using something like `https://www.myworkday.com` works but `https://myworkday.com` does not. Contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > Using something like `http://www.myworkday.com` works but `http://myworkday.com` does not. Contact [Workday Client support team](https://www.workday.com/partners-services/services/support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. Your Workday application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. Workday application expects **nameidentifier** to be mapped with **user.mail**, **UPN** etc, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
@@ -128,7 +125,17 @@ To configure Azure AD single sign-on with Workday, perform the following steps:
 
 	![The Certificate download link](common/certificatebase64.png)
 
-8. On the **Set up Workday** section, copy the appropriate URL(s) as per your requirement.
+8. To modify the **Signing** options as per your requirement, click **Edit** button to open **SAML Signing Certificate** dialog.
+
+	![image](common/edit-certificate.png) 
+
+	![image](./media/workday-tutorial/signing-option.png)
+
+	a. Select **Sign SAML response and assertion** for **Signing Option**.
+
+	b. Click **Save**
+
+9. On the **Set up Workday** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -140,7 +147,7 @@ To configure Azure AD single sign-on with Workday, perform the following steps:
 
 ### Configure Workday Single Sign-On
 
-1. In a different web browser window, log in to your Workday company site as an administrator.
+1. In a different web browser window, sign in to your Workday company site as an administrator.
 
 2. In the **Search box** search with the name **Edit Tenant Setup – Security** on the top left side of the home page.
 
@@ -152,16 +159,16 @@ To configure Azure AD single sign-on with Workday, perform the following steps:
 
     a. Click **Add Row**.
 
-    b. In the **Login Redirect URL** textbox and the **Mobile Redirect URL** textbox, type the **Sign-on URL** you have entered on the **Basic SAML Configuration** section of the Azure portal.
+    b. In the **Login Redirect URL**, **Timeout Redirect URL** and **Mobile Redirect URL** textbox, paste the **Login URL** which you have copied from the **Set up Workday** section of Azure portal.
 
-    c. In the Azure portal, on the **Set up Workday** section, copy the **Logout URL**, and then paste it into the **Logout Redirect URL** textbox.
+    c. In the **Logout Redirect URL** textbox, paste the **Logout URL** which you have copied from the **Set up Workday** section of Azure portal.
 
     d. In **Used for Environments** textbox, select the environment name.  
 
    > [!NOTE]
    > The value of the Environment attribute is tied to the value of the tenant URL:  
    > -If the domain name of the Workday tenant URL starts with impl for example: *https:\//impl.workday.com/\<tenant\>/login-saml2.flex*), the **Environment** attribute must be set to Implementation.  
-   > -If the domain name starts with something else, you need to contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get the matching **Environment** value.
+   > -If the domain name starts with something else, you need to contact [Workday Client support team](https://www.workday.com/partners-services/services/support.html) to get the matching **Environment** value.
 
 4. In the **SAML Setup** section, perform the following steps:
 
@@ -280,11 +287,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
     ![The Add Assignment pane](common/add-assign-user.png)
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+5. In the **Users and groups** dialog, select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
 6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+7. In the **Add Assignment** dialog, click the **Assign** button.
 
 ### Create Workday test user
 
