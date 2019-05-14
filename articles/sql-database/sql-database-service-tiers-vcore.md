@@ -40,61 +40,63 @@ The following table explains the differences between the three tiers:
 |Memory|Gen4: 7 GB per core<br>Gen5: 5.1 GB per core | Gen4: 7 GB per core<br>Gen5: 5.1 GB per core |Gen4: 7 GB per core<br>Gen5: 5.1 GB per core|
 |Storage|Uses remote storage.<br/>Single database: 5 GB – 4 TB<br/>Managed instance: 32 GB - 8 TB |Uses local SSD storage.<br/>Single database: 5 GB – 4 TB<br/>Managed instance: 32 GB - 4 TB |Flexible autogrow of storage as needed. Supports up to 100 TB of storage and beyond. Uses local SSD storage for local buffer-pool cache and local data storage. Uses Azure remote storage as final long-term data store. |
 |I/O throughput (approximate)|Single database: 500 IOPS per vCore with 7000 maximum IOPS.<br/>Managed instance: Depends on [size of file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS per core with 200,000 maximum IOPS|TBD|
-|Availability|1 replica, no read-scale|3 replicas, 1 [read-scale replica](sql-database-read-scale-out.md),<br/>zone-redundant HA|1 read/write replica plus 0-4 [read-scale replicas](sql-database-read-scale-out.md)|
-|Backups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|snapshot-based backup in Azure remote storage and restores use these snapshots for fast recovery. Backups are instantaneous and do not impact the IO performance of Compute. Restores are very fast and are not a size of data operation (taking minutes rather than hours or days).|
-|In-Memory|Not supported|Supported|Not supported|
+|Availability|1 replica, no read-scale replicas|3 replicas, 1 [read-scale replica](sql-database-read-scale-out.md),<br/>zone-redundant high availability (HA)|1 read-write replica, plus 0-4 [read-scale replicas](sql-database-read-scale-out.md)|
+|Backups|[Read-access geo-redundant storage (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|Snapshot-based backups in Azure remote storage. Restores use these snapshots for fast recovery. Backups are instantaneous and do not impact compute I/O performance. Restores are very fast and are not a size-of-data operation (taking minutes rather than hours or days).|
+|In-memory|Not supported|Supported|Not supported|
 |||
 
 > [!NOTE]
-> You can get a free Azure SQL database at the Basic service tier in conjunction with an Azure free account to explore Azure. For information, see [Create a managed cloud database with your Azure free account](https://azure.microsoft.com/free/services/sql-database/).
+> You can get a free Azure SQL database at the basic service tier in conjunction with an Azure free account to explore Azure. For more information, see [Create a managed cloud database with your Azure free account](https://azure.microsoft.com/free/services/sql-database/).
 
-- For more information, see [vCore resource limits in single database](sql-database-vcore-resource-limits-single-databases.md) and [vCore resource limits in Managed Instance](sql-database-managed-instance.md#vcore-based-purchasing-model).
-- For more information about the General Purpose and Business Critical service tiers, see [General Purpose and Business Critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md).
-- For details on the Hyperscale service tier in the vCore-based purchasing model, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md).  
+- For more information, see [vCore resource limits in a single database](sql-database-vcore-resource-limits-single-databases.md) and [vCore resource limits in a managed instance](sql-database-managed-instance.md#vcore-based-purchasing-model).
+- For more information about the general-purpose and business-critical service tiers, see [General-purpose and business-critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md).
+- For more information about the hyperscale service tier in the vCore-based purchasing model, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md).  
 
 ## Azure Hybrid Benefit
 
-In the provisioned computer tier of the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on SQL Database using the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to use your on-premises SQL Server licenses to save up to 30% on Azure SQL Database using your on-premises SQL Server licenses with Software Assurance.
+In the provisioned compute tier of the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on SQL Database by using the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to save up to 30 percent on Azure SQL Database by using your on-premises SQL Server licenses with Software Assurance.
 
 ![pricing](./media/sql-database-service-tiers/pricing.png)
 
-With the Azure Hybrid Benefit, you can choose to only pay for the underlying Azure infrastructure using your existing SQL Server license for the SQL database engine itself (**BasePrice**) or pay for both the underlying infrastructure and the SQL Server license (**LicenseIncluded**).
+With the Azure Hybrid Benefit, you can choose to pay only for the underlying Azure infrastructure by using your existing SQL Server license for the SQL database engine itself (Base Compute pricing), or you can pay for both the underlying infrastructure and the SQL Server license (License-Included pricing).
 
+You can choose or change your licensing model by using the Azure portal or by using one of the following APIs.
 
-You can choose or change your licensing model using the Azure portal or using one of the following APIs.
+- To set or update the license type by using PowerShell:
 
-- To set or update the license type using PowerShell:
-
-  - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase):
-  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql)
+  - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)
+  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
   - [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
-  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql)
+  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)
 
-- To set or update the license type using Azure CLI:
+- To set or update the license type by using the Azure CLI:
 
   - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
   - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
   - [az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
   - [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
 
-- To set or update the license type using the REST API:
+- To set or update the license type by using the REST API:
 
   - [Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
   - [Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)
   - [Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
   - [Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
 
-## Migration from DTU model to vCore model
+## Migrate from the DTU-based purchasing model to the vCore-based purchasing model
 
-### Migration of a database
+### Migrate a database
 
-Migrating a database from the DTU-based purchasing model to the vCore-based purchasing model is similar to upgrading or downgrading between Standard and Premium databases in the DTU-based purchasing model.
+Migrating a database from the DTU-based purchasing model to the vCore-based purchasing model is similar to upgrading or downgrading between the standard and premium service tiers in the DTU-based purchasing model.
 
-### Migration of databases with geo-replication links
+### Migrate databases with geo-replication links
 
-Migrating from the DTU-based model to the vCore-based model is similar to upgrading or downgrading the geo-replication relationships between Standard and Premium databases. It does not require terminating geo-replication but the user must observe the sequencing rules. When upgrading, you must upgrade the secondary database first, and then upgrade the primary. When downgrading, reverse the order: you must downgrade the primary database first, and then downgrade the secondary.
+Migrating from the DTU-based model to the vCore-based purchasing model is similar to upgrading or downgrading the geo-replication relationships between databases in the standard and premium service tiers. During migration, you don't have to terminate geo-replication, but you must observe the sequencing rules:
 
-When using geo-replication between two elastic pools, it is recommended that you designate one pool as the primary and the other – as the secondary. In that case, migrating elastic pools should use the same guidance.  However, it is technically it is possible that an elastic pool contains both primary and secondary databases. In this case, to properly migrate you should treat the pool with the higher utilization as “primary” and follow the sequencing rules accordingly.  
+- When upgrading, you must upgrade the secondary database first, and then upgrade the primary.
+- When downgrading, reverse the order: you must downgrade the primary database first, and then downgrade the secondary.
+
+When you're using geo-replication between two elastic pools, we recommend that you designate one pool as the primary and the other as the secondary. In that case, when you're migrating elastic pools you should use the same sequencing guidance. However, if you have elastic pools that contain both primary and secondary databases, treat the pool with the higher utilization as the primary and follow the sequencing rules accordingly.  
 
 The following table provides guidance for the specific migration scenarios:
 
