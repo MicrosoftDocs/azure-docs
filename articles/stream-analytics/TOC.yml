@@ -34,6 +34,8 @@
     href: https://azure.microsoft.com/resources/samples/?service=stream-analytics
 - name: Concepts
   items:
+  - name: Choose a streaming analytics technology
+    href: streaming-technologies.md
   - name: Input types for a job
     items:
     - name: Inputs overview
@@ -175,6 +177,8 @@
       href: stream-analytics-troubleshoot-query.md
     - name: Activity and diagnostic logs
       href: stream-analytics-job-diagnostic-logs.md
+    - name: Data errors
+      href: data-errors.md
   - name: Integrate with machine learning
     items:
     - name: Sentiment analysis with ML models
