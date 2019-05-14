@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -58,9 +58,9 @@ In this section, use your web tool of choice to set up connections to Azure Sear
 
 For either tool, you need to choose a command (GET, POST, PUT, and so forth), provide a URL endpoint, and for some tasks, provide JSON in the body of the request. A full URL looks similar to the following:
 
-    https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11
+    https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06
 
-Notice the HTTPS prefix, the name of the service, the name of an object (in this case, the indexes collection), and the [api-version](search-api-versions.md). The api-version is a required, lowercase string specified as "?api-version=2017-11-11" for the current version. API versions are updated regularly. Including the api-version on each request gives you full control over which one is used.  
+Notice the HTTPS prefix, the name of the service, the name of an object (in this case, the indexes collection), and the [api-version](search-api-versions.md). The api-version is a required, lowercase string specified as `?api-version=2019-05-06` for the current version. API versions are updated regularly. Including the api-version on each request gives you full control over which one is used.  
 
 Request header composition includes two elements, content type, plus the api-key used to authenticate to Azure Search:
 
@@ -80,7 +80,7 @@ The URL is extended to include the `hotel` index name.
 To do this in Postman:
 
 1. Change the verb to **PUT**
-2. Copy in this URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`
+2. Copy in this URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06`
 3. Provide the index definition (shown below) in the body of the request
 4. Click **Send**
 
@@ -124,7 +124,7 @@ The URL is extended to include the `docs` collections and `index` operation.
 To do this in Postman:
 
 1. Change the verb to **POST**
-2. Copy in this URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
+2. Copy in this URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06`
 3. Provide the JSON documents (shown below) in the body of the request
 4. Click **Send**
 
@@ -214,7 +214,7 @@ The URL is extended to include a query string, specified using the search operat
 To do this in Postman:
 
 + Change the verb to **GET**
-+ Copy in this URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
++ Copy in this URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2019-05-06`
 + Click **Send**
 
 This query searches on the term "motel" and returns a count of the documents in the search results. The request and response should look similar to the following screenshot for Postman after you click **Send**. The status code should be 200.
@@ -223,7 +223,7 @@ This query searches on the term "motel" and returns a count of the documents in 
 
 
 ## Get index properties
-You can also query system information to get document counts and storage consumption: `https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
+You can also query system information to get document counts and storage consumption: `https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2019-05-06`
 
 In Postman, your request should look similar to the following, and the response includes a document count and space used in bytes.
 
@@ -242,7 +242,7 @@ This section is equivalent to previous sections, only with Fiddler screenshots a
 
 Formulate a request that looks like the following screenshot. Choose **GET** as the verb. Fiddler adds `User-Agent=Fiddler`. You can paste the two additional request headers on new lines below it. Include the content type and api-key for your service, using the admin access key for your service.
 
-For the target, copy in a modified version of this URL: `https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11`
+For the target, copy in a modified version of this URL: `https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06`
 
 ![Fiddler request header][1]
 
@@ -251,7 +251,7 @@ For the target, copy in a modified version of this URL: `https://<placeholder-fo
 
 ### 1 - Create an index
 
-Change the verb to **PUT**. Copy in a modified version of this URL: `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`. Copy the index definition provided above to the request body. Your page should look similar to the following screenshot. Click **Execute** on the top right to send the completed request.
+Change the verb to **PUT**. Copy in a modified version of this URL: `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06`. Copy the index definition provided above to the request body. Your page should look similar to the following screenshot. Click **Execute** on the top right to send the completed request.
 
 ![Fiddler request body][7]
 
@@ -267,11 +267,11 @@ The following example query is from the [Search Index operation (Azure Search AP
 
 **Before spaces are replaced (in lastRenovationDate desc):**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2019-05-06
 
 **After spaces are replaced with + (in lastRenovationDate+desc):**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2019-05-06
 
 ### Tips for viewing index statistic in Fiddler
 

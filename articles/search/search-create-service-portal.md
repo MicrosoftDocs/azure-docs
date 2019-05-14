@@ -6,7 +6,7 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -61,11 +61,13 @@ If you aren't combining resources into a single group, or if existing resource g
 > [!TIP]
 > Deleting a resource group also deletes the services within it. For prototype projects utilizing multiple services, putting all of them in the same resource group makes cleanup easier after the project is over.
 
-## Select a hosting location
+## Select a location
 
 As an Azure service, Azure Search can be hosted in datacenters around the world. [Prices can differ](https://azure.microsoft.com/pricing/details/search/) by geography.
 
-If you are indexing content located in an Azure service (Azure storage, Azure Cosmos DB, Azure SQL Database), create your Azure Search service in the same region as your data to avoid bandwidth charges. There are no charges for outbound data when services are in the same region.
+If you are indexing data provided by another Azure service (Azure storage, Azure Cosmos DB, Azure SQL Database), create your Azure Search service in the same region to avoid bandwidth charges. There are no charges for outbound data when services are in the same region.
+
+If you are using cognitive search AI enrichments, create your service in the same region as your Cognitive Services resource. Co-location of services is a requirement for AI enrichment.
 
 ## Select a pricing tier (SKU)
 

@@ -1,7 +1,7 @@
 ---
 title: 'Architecture & key concepts'
 titleSuffix: Azure Machine Learning service
-description: Learn about the architecture, terms, concepts and workflow that make up Azure Machine Learning service.
+description: Learn about the architecture, terms, concepts, and workflow that make up Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -29,9 +29,7 @@ The machine learning workflow generally follows this sequence:
 1. **Submit the scripts** to the configured compute target to run in that environment. During training, the scripts can read from or write to **datastore**. And the records of execution are saved as **runs** in the **workspace** and grouped under **experiments**.
 1. **Query the experiment** for logged metrics from the current and past runs. If the metrics don't indicate a desired outcome, loop back to step 1 and iterate on your scripts.
 1. After a satisfactory run is found, register the persisted model in the **model registry**.
-1. Develop a scoring script.
-1. **Create an image** and register it in the **image registry**.
-1. **Deploy the image** as a **web service** in Azure.
+1. Develop a scoring script that uses the model and **Deploy the model** as a **web service** in Azure, or to an **IoT Edge device**.
 
 
 > [!NOTE]
@@ -43,7 +41,7 @@ The workspace is the top-level resource for Azure Machine Learning service. It p
 
 The workspace keeps a list of compute targets that you can use to train your model. It also keeps a history of the training runs, including logs, metrics, output, and a snapshot of your scripts. You use this information to determine which training run produces the best model.
 
-You register models with the workspace. You use a registered model and scoring scripts to create an image. You can then deploy the image to Azure Container Instances, Azure Kubernetes Service, or to a field-programmable gate array (FPGA) as a REST-based HTTP endpoint. You can also deploy the image to an Azure IoT Edge device as a module.
+You register models with the workspace. You use a registered model and scoring scripts to deploy a model to Azure Container Instances, Azure Kubernetes Service, or to a field-programmable gate array (FPGA) as a REST-based HTTP endpoint. You can also deploy the image to an Azure IoT Edge device as a module. Internally, a docker image is created to host the deployed image. If needed, you can specify your own image.
 
 You can create multiple workspaces, and each workspace can be shared by multiple people. When you share a workspace, you can control access to it by assigning users to the following roles:
 
@@ -65,7 +63,7 @@ When you create a new workspace, it automatically creates several Azure resource
 
 A taxonomy of the workspace is illustrated in the following diagram:
 
-[![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## Experiment
 
@@ -91,7 +89,7 @@ Models are identified by name and version. Each time you register a model with t
 
 When you register the model, you can provide additional metadata tags and then use the tags when you search for models.
 
-You can't delete models that are being used by an image.
+You can't delete models that are being used by an active deployment.
 
 For an example of registering a model, see [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
@@ -102,6 +100,16 @@ A run configuration is a set of instructions that defines how a script should be
 A run configuration can be persisted into a file inside the directory that contains your training script, or it can be constructed as an in-memory object and used to submit a run.
 
 For example run configurations, see [Select and use a compute target to train your model](how-to-set-up-training-targets.md).
+
+## Dataset
+
+Azure Machine Learning Datasets (preview) make it easier to access and work with your data. Datasets manage data in various scenarios such as model training and pipeline creation. Using the Azure Machine Learning SDK, you can access underlying storage, explore and prepare data, manage the life cycle of different Dataset definitions, and compare between Datasets used in training and in production.
+
+Datasets provides methods for working with data in popular formats, such as using `from_delimited_files()` or `to_pandas_dataframe()`.
+
+For more information, see [Create and register Azure Machine Learning Datasets](how-to-create-register-datasets.md).
+
+For an example of using Datasets, see the [sample notebooks](https://aka.ms/dataset-tutorial).
 
 ## Datastore
 
@@ -124,7 +132,7 @@ A compute target is the compute resource that you use to run your training scrip
 | Azure Container Instances | &nbsp; | ✓ |
 | Azure Kubernetes Service | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
-| Project Brainwave</br>(Field-programmable gate array) | &nbsp; | ✓ |
+| Field-programmable gate array (FPGA) | &nbsp; | ✓ |
 
 Compute targets are attached to a workspace. Compute targets other than the local machine are shared by users of the workspace.
 
@@ -187,8 +195,6 @@ Azure Machine Learning can create two types of images:
 
 The Azure Machine Learning service provides a base image, which is used by default. You can also provide your own custom images.
 
-For more information, see the configure and register image section of [Deploy models](how-to-deploy-and-where.md#configureimage).
-
 For an example of creating an image, see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
 ### Image registry
@@ -197,11 +203,11 @@ The image registry keeps track of images that are created from your models. You 
 
 ## Deployment
 
-A deployment is an instantiation of your image into either a web service that can be hosted in the cloud or an IoT module for integrated device deployments.
+A deployment is an instantiation of your model into either a web service that can be hosted in the cloud or an IoT module for integrated device deployments.
 
 ### Web service
 
-A deployed web service can use Azure Container Instances, Azure Kubernetes Service, or FPGAs. You create the service from an image that encapsulates your model, script, and associated files. The image has a load-balanced, HTTP endpoint that receives scoring requests that are sent to the web service.
+A deployed web service can use Azure Container Instances, Azure Kubernetes Service, or FPGAs. You create the service from your model, script, and associated files. These are encapsulated in an image, which provides the run time environment for the web service. The image has a load-balanced, HTTP endpoint that receives scoring requests that are sent to the web service.
 
 Azure helps you monitor your web service deployment by collecting Application Insights telemetry or model telemetry, if you've chosen to enable this feature. The telemetry data is accessible only to you, and it's stored in your Application Insights and storage account instances.
 

@@ -212,9 +212,13 @@ You may only want to be notified when a resource becomes unhealthy, in which cas
                     "field": "status",
                     "equals": "InProgress"
                 },
-                        {
+                {
                     "field": "status",
                     "equals": "Resolved"
+                },
+                {
+                    "field": "status",
+                    "equals": "Updated"
                 }
             ]
         }
@@ -400,6 +404,11 @@ Here is what we suggest you use:
                                 {
                                     "field": "status",
                                     "equals": "InProgress",
+                                    "containsAny": null
+                                },
+                                {
+                                    "field": "status",
+                                    "equals": "Updated",
                                     "containsAny": null
                                 }
                             ]

@@ -3,8 +3,8 @@ title: Convert Azure managed disks storage from Standard to Premium or Premium t
 description: How to convert Azure managed disks from Standard to Premium or Premium to Standard by using Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
-author: ramankumarlive
-manager: kavithag
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
-ms.author: ramankum
+ms.author: rogarana
 ms.subservice: disks
 ---
 
@@ -23,7 +23,7 @@ ms.subservice: disks
 
 There are four options for Azure managed disks: Azure Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD. You can switch between these storage types based on your performance needs with little downtime. This functionality is not supported for unmanaged disks. But you can easily [convert an unmanaged disk to a managed disk](convert-unmanaged-to-managed-disks.md) to be able to switch between disk types.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Prerequisites
 

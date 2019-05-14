@@ -33,7 +33,7 @@ As another example, you might use [named locations](../conditional-access/locati
 
 ![Named locations](./media/conditional-access-exclusion/named-locations.png)
 
-However, in some cases, users might have a legitimate reason to sign in from these blocked countries. For example, users might be traveling for work or personal reasons. In this example, the conditional access policy to block these countries could have a dedicated cloud security group for the users who are excluded from the policy. Users who need access while traveling, can add themselves to the group using [Azure AD self-service Group management](../users-groups-roles/groups-self-service-management.md).
+However, in some cases, users might have a legitimate reason to sign in from these blocked countries/regions. For example, users might be traveling for work or personal reasons. In this example, the conditional access policy to block these countries/regions could have a dedicated cloud security group for the users who are excluded from the policy. Users who need access while traveling, can add themselves to the group using [Azure AD self-service Group management](../users-groups-roles/groups-self-service-management.md).
 
 Another example might be that you have a conditional access policy that [blocks legacy authentication for the vast majority of your users](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). Microsoft strongly recommends that you block the use of legacy protocols in your tenant to improve your security posture. However, if you have some users that absolutely need to use legacy authentication methods to access your resources via Office 2010 or IMAP/SMTP/POP based clients, then you can exclude these users from the policy that block legacy authentication methods.
 
@@ -92,9 +92,9 @@ Now you can create a conditional access policy that uses this exclusion group.
 
 Let's cover two examples where you can use access reviews to manage exclusions in conditional access policies.
 
-## Example 1: Access review for users accessing from blocked countries
+## Example 1: Access review for users accessing from blocked countries/regions
 
-Let's say you have a conditional access policy that blocks access from certain countries. It includes a group that is excluded from the policy. Here is a recommended access review where members of the group are reviewed.
+Let's say you have a conditional access policy that blocks access from certain countries/regions. It includes a group that is excluded from the policy. Here is a recommended access review where members of the group are reviewed.
 
 > [!NOTE]
 > A Global administrator or User administrator role is required to create access reviews.
@@ -105,9 +105,9 @@ Let's say you have a conditional access policy that blocks access from certain c
 
 3. All members of this group will be in scope for the review.
 
-4. Each user will have to self-attest that they still need to have access from these blocked countries, therefore they still need to be a member of the group.
+4. Each user will have to self-attest that they still need to have access from these blocked countries/regions, therefore they still need to be a member of the group.
 
-5. If the user doesn't respond to the review request, they will be automatically removed from the group, and therefore, can no longer access the tenant while traveling to these countries.
+5. If the user doesn't respond to the review request, they will be automatically removed from the group, and therefore, can no longer access the tenant while traveling to these countries/regions.
 
 6. Enable mail notifications so users are notified about the start and completion of the access review.
 

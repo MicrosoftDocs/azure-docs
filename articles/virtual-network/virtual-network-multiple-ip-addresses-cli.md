@@ -4,14 +4,15 @@ titlesuffix: Azure Virtual Network
 description: Learn how to assign multiple IP addresses to a virtual machine using the Azure command-line interface (CLI).
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
-ms.author: jimdial
+ms.author: kumud
 
 ---
 # Assign multiple IP addresses to virtual machines using the Azure CLI

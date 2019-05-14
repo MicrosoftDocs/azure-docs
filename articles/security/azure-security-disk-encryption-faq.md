@@ -42,9 +42,7 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 
 2 GB for 64-bit images
 
-Note: 2GB for standard 30GB disk image with higher amounts of memory for larger disks.
-
-https://www.microsoft.com/en-US/windows/windows-10-specifications
+Note: 2GB for standard 30GB disk image with higher amounts of memory for larger disks.  see [How to Find Windows 10 Computer Specifications & Systems Requirements](https://www.microsoft.com/en-US/windows/windows-10-specifications).
 
 ### Volume Size:
 
