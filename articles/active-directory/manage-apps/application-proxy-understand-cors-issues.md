@@ -39,11 +39,11 @@ The following URLs have different origins than the previous two:
 
 The following examples show a **Webservice**, which hosts a web API controller, and a **WebClient**, which calls **Webservice**. There is an AJAX request from **WebClient** to **WebService**.
 
-![On-premises same-origin request](./media/media/application-proxy-understand-cors-issues/image1.png)
+![On-premises same-origin request](./media/application-proxy-understand-cors-issues/image1.png)
 
 The WebClient app seems to work when you host it on premises, but it either fails to load or errors out when you publish it via the Azure AD Application Proxy. Since you published the two apps separately through Application Proxy, they're hosted at different domains, so the AJAX request from WebClient to WebService is cross-origin and fails.
 
-![Application Proxy CORS request](./media/media/application-proxy-understand-cors-issues/image2.png)
+![Application Proxy CORS request](./media/application-proxy-understand-cors-issues/image2.png)
 
 You can identify CORS issues by using browser debug tools:
 
@@ -54,7 +54,7 @@ You can identify CORS issues by using browser debug tools:
 
 In the following example, the cross-origin call happens on the **Try It** button click. Instead of the expected test message, you see an error that *https:\//corwebclient-allmylab.msappproxy.net* is missing from the **Access-Control-Allow-Origin** header.
 
-![CORS issue](./media/media/application-proxy-understand-cors-issues/image3.png)
+![CORS issue](./media/application-proxy-understand-cors-issues/image3.png)
 
 ## Solutions for Application Proxy CORS issues
 
@@ -68,11 +68,11 @@ Publish the parent directory of both apps. This solution works especially well i
 
 App published individually:
 
-![Publish app individually](./media/media/application-proxy-understand-cors-issues/image6.png)
+![Publish app individually](./media/application-proxy-understand-cors-issues/image6.png)
 
 Instead, publish the parent directory:
 
-![Publish parent directory](./media/media/application-proxy-understand-cors-issues/image6.png)
+![Publish parent directory](./media/application-proxy-understand-cors-issues/image6.png)
 
 The resulting URLs effectively resolve the CORS issues:
 
@@ -83,7 +83,7 @@ The resulting URLs effectively resolve the CORS issues:
 
 Add a custom HTTP response header on the web service to match the origin request. For example, you can use IIS Manager to modify the header for websites running in Internet Information Services (IIS):
 
-![Add custom response header in IIS Manager](./media/media/application-proxy-understand-cors-issues/image6.png)
+![Add custom response header in IIS Manager](./media/application-proxy-understand-cors-issues/image6.png)
 
 This modification doesn't require any code changes. You can verify it in the Fiddler traces.
 
