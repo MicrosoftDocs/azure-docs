@@ -17,7 +17,7 @@ ms.reviewer: japere
 
 Browser security usually prevents a web page from making AJAX requests to another domain. This restriction is called the *same-origin policy*, and prevents a malicious site from reading sensitive data from another site. However, sometimes you might want to let other sites call your web API. [Cross-origin resource sharing (CORS)](http://www.w3.org/TR/cors/) is a W3C standard that lets a server relax the same-origin policy. Using CORS, a server can explicitly allow some cross-origin requests while rejecting others.
 
-CORS can sometimes present challenges for the apps and APIs you publish through the Azure AD Application Proxy. This article provides an understanding of CORS in Azure AD Application Proxy, and options to resolve Application Proxy CORS issues.
+CORS can sometimes present challenges for the apps and APIs you publish through the Azure AD Application Proxy. This article discusses Azure AD Application Proxy CORS issues and solutions.
 
 ## CORS challenges with Application Proxy
 
@@ -37,7 +37,7 @@ The following examples show a **WebService**, which hosts a web API controller, 
 
 ![On-premises same-origin request](./media/application-proxy-understand-cors-issues/image1.png)
 
-The WebClient app seems to work when you host it on premises, but it either fails to load or errors out when you publish it via the Azure AD Application Proxy. Since you published the two apps separately through Application Proxy, they're hosted at different domains, so the AJAX request from WebClient to WebService is cross-origin and fails.
+The WebClient app seems to work when you host it on premises, but it either fails to load or errors out when you publish it via the Azure AD Application Proxy. Since you published the two apps separately through Application Proxy, they're hosted at different domains, so the AJAX request from WebClient to WebService is cross-origin and it fails.
 
 ![Application Proxy CORS request](./media/application-proxy-understand-cors-issues/image2.png)
 
@@ -45,43 +45,44 @@ You can identify CORS issues by using browser debug tools:
 
 1. Launch the browser and browse to the web app.
 1. Press **F12** to bring up the debug console or developer tools.
-1. Try to reproduce the transaction, and review the console. 
-   If there is a CORS violation, the console gives an error about the origin.
+1. Try to reproduce the transaction, and review the console message. A CORS violation gives a console error about origin.
 
-In the following example, the cross-origin call happens on the **Try It** button click. Instead of the expected test message, you see an error that *https:\//corwebclient-allmylab.msappproxy.net* is missing from the **Access-Control-Allow-Origin** header.
+In the following example, the cross-origin call happens on the **Try It** button click. Instead of the test message, there's an error that *https:\//corwebclient-allmylab.msappproxy.net* is missing from the **Access-Control-Allow-Origin** header.
 
 ![CORS issue](./media/application-proxy-understand-cors-issues/image3.png)
 
 ## Solutions for Application Proxy CORS issues
 
+You can resolve the preceding CORS issue in any one of several ways.
+
 ### Option 1: Custom domains
 
-You can use an Azure AD Application Proxy [custom domain](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-custom-domains), without having to make any changes to origins, apps, or headers. 
+Use an Azure AD Application Proxy [custom domain](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-custom-domains) to publish from the same origin without having to make any changes to origins, apps, or headers. 
 
 ### Option 2: Publish the parent directory
 
-You can publish the parent directory of both apps. This solution works especially well if you only have two apps on the web server. Instead of publishing each app separately, publishing the common parent directory results in the same origin.
+Publish the parent directory of both apps. This solution works especially well if you only have two apps on the web server. Instead of publishing each app's folder separately, publish the common parent directory to give both apps the same origin.
 
-App published individually:
+- App with individually published directory:
+  
+  ![Publish app individually](./media/application-proxy-understand-cors-issues/image4.png)
+  
+- App with parent directory published:
 
-![Publish app individually](./media/application-proxy-understand-cors-issues/image4.png)
-
-Instead, publish the parent directory:
-
-![Publish parent directory](./media/application-proxy-understand-cors-issues/image5.png)
-
-The resulting URLs effectively resolve the CORS issues:
-
-- https:\//corswebclient-allmylab.msappproxy.net/CORSWebService
-- https:\//corswebclient-allmylab.msappproxy.net/CORSWebClient
+  ![Publish parent directory](./media/application-proxy-understand-cors-issues/image5.png)
+  
+  The resulting app URLs effectively resolve the CORS issue:
+  
+  - https:\//corswebclient-allmylab.msappproxy.net/CORSWebService
+  - https:\//corswebclient-allmylab.msappproxy.net/CORSWebClient
 
 ### Option 3: Update HTTP headers
 
-You can add a custom HTTP response header on the web service to match the origin request. For example, you can use IIS Manager to modify the header for websites running in Internet Information Services (IIS):
+Add a custom HTTP response header on the web service to match the origin request. For example, you can use IIS Manager to modify the header for websites running in Internet Information Services (IIS):
 
 ![Add custom response header in IIS Manager](./media/application-proxy-understand-cors-issues/image6.png)
 
-This modification doesn't require any code changes. You can verify it in the Fiddler traces.
+This modification doesn't require any code changes. You can verify it in the Fiddler traces:
 
 **Post the Header Addition**\
 HTTP/1.1 200 OK\
