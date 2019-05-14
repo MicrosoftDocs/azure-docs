@@ -1,6 +1,6 @@
 ---
 title: Managed Application with Managed Identity
-description: Learn how to configure a Managed Application to contain a Managed Identity. This can be used to allow the customer to grant the Managed Application access to additional existing resources.
+description: Learn how to configure a Managed Application with a Managed Identity. This can be used to allow the customer to grant the Managed Application access to additional existing resources.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
@@ -93,7 +93,7 @@ Once a Managed Application is granted an identity it can be granted access to ex
 > [!NOTE]
 > A **user-assigned identity** must be [configured](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) before deploying the Managed Application.
 
-Managed Identity can also be used to deploy a Managed Application that requires access to existing resources during its deployment. When the Managed Application is provisioned by the customer **user-assigned identities** can be added to provide additional authorizations to the **mainTemplate** deployment. A sample CreateUIDefinition for a customer to input a **user-assigned identity** might look like:
+Managed Identity can also be used to deploy a Managed Application that requires access to existing resources during its deployment. When the Managed Application is provisioned by the customer, **user-assigned identities** can be added to provide additional authorizations to the **mainTemplate** deployment. A sample CreateUIDefinition for a customer to input a **user-assigned identity** might look like:
 
 ```json
 {
@@ -130,7 +130,7 @@ Managed Identity can also be used to deploy a Managed Application that requires 
 }
 ```
 
-This can be used to solve scenarios like deploying Azure virtual machines (VMs) that is attached to an [existing network interface](../virtual-network/virtual-network-network-interface-vm.md) and others that require access to resources outside the **managed resource group**.
+This can be used to solve scenarios like deploying Azure virtual machines (VMs) within the **managed resource group** that are attached to an [existing network interface](../virtual-network/virtual-network-network-interface-vm.md).
 
 ## Accessing the Managed Application Managed Identity token
 
