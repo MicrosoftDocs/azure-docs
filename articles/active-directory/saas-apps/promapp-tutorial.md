@@ -69,7 +69,7 @@ To set up the integration of Promapp into Azure AD, you need to add Promapp from
 ## Configure and test Azure AD single sign-on
 
 In this section, you'll configure and test Azure AD single sign-on with Promapp by using a test user named Britta Simon.
-To enable single sign-on, you need to establish relationship between an Azure AD user and the corresponding user in Promapp.
+To enable single sign-on, you need to establish a relationship between an Azure AD user and the corresponding user in Promapp.
 
 To configure and test Azure AD single sign-on with Promapp, you need to complete these steps:
 
@@ -77,8 +77,7 @@ To configure and test Azure AD single sign-on with Promapp, you need to complete
 2. **[Configure Promapp single sign-on](#configure-promapp-single-sign-on)** on the application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Azure AD single sign-on for the user.
-5. **[Create a Promapp test user](#create-a-promapp-test-user)** that's linked to the Azure AD representation of the user.
-6. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
+5. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -86,7 +85,7 @@ In this section, you'll enable Azure AD single sign-on in the Azure portal.
 
 To configure Azure AD single sign-on with Promapp, take these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Promapp** application integration page, select **Single sign-on**:
+1. In the [Azure portal](https://portal.azure.com/), on the Promapp application integration page, select **Single sign-on**:
 
     ![Select single sign-on](common/select-sso.png)
 
@@ -131,7 +130,7 @@ To configure Azure AD single sign-on with Promapp, take these steps:
 	> [!NOTE]
 	> These values are placeholders. You need to use the actual identifier, reply URL, and sign-on URL. Contact the [Promapp support team](https://www.promapp.com/about-us/contact-us/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.
 
-6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Base64)**, per your requirements, and save the certificate on your computer.
+6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Base64)**, per your requirements, and save the certificate on your computer:
 
 	![Certificate download link](common/certificatebase64.png)
 
@@ -168,7 +167,7 @@ To configure Azure AD single sign-on with Promapp, take these steps:
 	   > [!NOTE]
 	   > Optional mode is for testing only. After you're happy with the configuration, select **Required** in the **SSO - Single Sign-on Mode** list to force all users to authenticate with Azure AD.
 
-	1. In Notepad, open the  certificate that you downloaded in the previous section. Copy the contents of the certificate without the first line (**-----BEGIN CERTIFICATE-----**) or the last line (**-----END CERTIFICATE-----**). Paste the certificate content into the **SSO-x.509 Certificate** box, and then select **Save**.
+	1. In Notepad, open the certificate that you downloaded in the previous section. Copy the contents of the certificate without the first line (**-----BEGIN CERTIFICATE-----**) or the last line (**-----END CERTIFICATE-----**). Paste the certificate content into the **SSO-x.509 Certificate** box, and then select **Save**.
 
 ### Create an Azure AD test user
 
@@ -186,53 +185,53 @@ In this section, you'll create a test user named Britta Simon in the Azure porta
 
     ![User dialog box](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    1. In the **Name** box, enter **BrittaSimon**.
   
-    b. In the **User name** field type brittasimon@yourcompanydomain.extension. For example, BrittaSimon@contoso.com
+    1. In the **User name** box, enter **BrittaSimon@\<yourcompanydomain>.\<extension>**. (For example, BrittaSimon@contoso.com.)
 
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
+    1. Select **Show Password**, and then write down the value that's in the **Password** box.
 
-    d. Click **Create**.
+    1. Select **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Promapp.
+In this section, you'll enable Britta Simon to use Azure single sign-on by granting her access to Promapp.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Promapp**.
+1. In the Azure portal, select **Enterprise applications**, select **All applications**, and then select **Promapp**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Promapp**.
+2. In the list of applications, select **Promapp**.
 
-	![The Promapp link in the Applications list](common/all-applications.png)
+	![List of applications](common/all-applications.png)
 
-3. In the menu on the left, select **Users and groups**.
+3. In the left pane, select **Users and groups**:
 
-    ![The "Users and groups" link](common/users-groups-blade.png)
+    ![Select Users and groups](common/users-groups-blade.png)
 
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
+4. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
 
-    ![The Add Assignment pane](common/add-assign-user.png)
+    ![Select Add user](common/add-assign-user.png)
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+5. In the **Users and groups** dialog box, select **Britta Simon** in the users list, and then click the **Select** button at the bottom of the screen.
 
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
+6. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the screen.
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+7. In the **Add Assignment** dialog box, select **Assign**.
 
-### Create Promapp test user
+### Just-in-time user provisioning
 
-In this section, a user called Britta Simon is created in Promapp. Promapp supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Promapp, a new one is created after authentication.
+Promapp supports just-in-time user provisioning. This feature is enabled by default. If a user doesn't already exist in Promapp, a new one is created after authentication.
 
-### Test single sign-on 
+### Test single sign-on
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+Now you need to test your Azure AD single sign-on configuration by using the Access Panel.
 
-When you click the Promapp tile in the Access Panel, you should be automatically signed in to the Promapp for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Promapp tile in the Access Panel, you should be automatically signed in to the Promapp instance for which you set up SSO. For more information about the Access Panel, see [Access and use apps on the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials for integrating SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
