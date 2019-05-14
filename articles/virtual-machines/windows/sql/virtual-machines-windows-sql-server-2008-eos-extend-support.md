@@ -17,7 +17,7 @@ ms.reviewer: jroth
 ---
 # Extend support for SQL Server 2008 and SQL Server 2008 R2 with Azure
 
-SQL Server 2008 and SQL Server 2008 R2 are both approaching the [end of their support (EOS) life cycle](https://www.microsoft.com/en-us/sql-server/sql-server-2008). Since many of our customers are still using both versions, we are providing several options to continue getting support. You can migrate your on-premises SQL Server instances to Azure virtual machines (VMs), migrate to Azure SQL Database, or stay on-premises and purchase extended security updates. This article covers these options for extending support for SQL Server 2008 and 2008 R2 instances.  
+SQL Server 2008 and SQL Server 2008 R2 are both approaching the [end of their support (EOS) life cycle](https://www.microsoft.com/en-us/sql-server/sql-server-2008). Since many of our customers are still using both versions, we are providing several options to continue getting support. You can migrate your on-premises SQL Server instances to Azure virtual machines (VMs), migrate to Azure SQL Database, or stay on-premises and purchase extended security updates.
 
 Unlike with a managed instance, migrating to an Azure VM does not require recertifying your applications. And unlike with staying on-premises, you will receive free extended security patches by migrating to an Azure VM. 
 
@@ -39,7 +39,7 @@ Pay-as-you-go SQL Server 2008R2 deployments can convert to [Azure Hybrid Benefit
 
 To convert a Software Assurance (SA) based license to pay-as-you-go, customers should register with the SQL VM [resource provider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider). Once registered with the SQL VM resource provider, the SQL license type will be interchangeable between AHB and pay-as-you-go. 
 
-Self-installed SQL EOS images are able to register with the SQL resource provider and convert their images to pay-as-you-go.
+Self-installed SQL Server 2008 or SQL Server 2008 R2 instances on Azure VM can register with the SQL resource provider and convert their license type to pay-as-you-go.
 
 ## Migration
 You can migrate EOS SQL Server instances to an Azure VM with manual backup/restore methods; this is the most common migration method from on-premises to an Azure VM.
@@ -52,7 +52,7 @@ SQL Server requires app-consistent Azure Site Recovery snapshots to guarantee re
 
 ### Database Migration Service
 
-The [Database Migration Service](/dms/dms-overview) is an option for customers on Windows Server 2012 and greater. 
+The [Database Migration Service](/dms/dms-overview) is an option for customers if migrating from on-premises to Azure VM by upgrading SQL Server to  SQL Server 2012 and greater
 
 ## Disaster recovery
 
