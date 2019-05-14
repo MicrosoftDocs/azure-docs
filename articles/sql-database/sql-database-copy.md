@@ -7,7 +7,7 @@ ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
+author: stevestein
 ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
