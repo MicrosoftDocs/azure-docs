@@ -9,7 +9,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop-msft
-ms.reviewer:
+ms.reviewer: sstein
 manager: craigg
 ms.date: 03/12/2019
 ---
@@ -35,9 +35,9 @@ Instance name, SQL Administrator user name, VNet/subnet, and collation cannot be
 
 ## Prerequisites
 
-This sample assumes that you have [created a valid network environment](../sql-database-managed-instance-create-vnet-subnet.md) or [modified existing VNet](../sql-database-managed-instance-configure-vnet-subnet.md) for your Managed Instance. The sample uses the commandlets [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) and [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) so make sure that you have installed the following PowerShell modules:
+This sample assumes that you have [created a valid network environment](../sql-database-managed-instance-create-vnet-subnet.md) or [modified existing VNet](../sql-database-managed-instance-configure-vnet-subnet.md) for your Managed Instance. The sample uses the cmdlets [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) and [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) so make sure that you have installed the following PowerShell modules:
 
-```
+```powershell
 Install-Module Az.Network
 Install-Module Az.Resources
 ```
@@ -46,7 +46,7 @@ Install-Module Az.Resources
 
 The following content should be placed in a file that represents a template that will be used to create the instance:
 
-```
+```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.1",

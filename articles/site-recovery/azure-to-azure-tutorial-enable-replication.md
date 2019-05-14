@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/12/2019
+ms.date: 04/16/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -19,7 +19,7 @@ This tutorial shows you how to set up disaster recovery for Azure VMs by replica
 > [!div class="checklist"]
 > * Create a Recovery Services vault
 > * Verify target resource settings
-> * Set up outbound access for VMs
+> * Set up outbound network connectivity for VMs
 > * Enable replication for a VM
 
 > [!NOTE]
@@ -32,7 +32,7 @@ To complete this tutorial:
 - Make sure that you understand the [scenario architecture and components](concepts-azure-to-azure-architecture.md).
 - Review the [support requirements](site-recovery-support-matrix-azure-to-azure.md) before you start.
 
-## Create a vault
+## Create a Recovery Services vault
 
 Create the vault in any region, except the source region.
 
@@ -50,13 +50,13 @@ Create the vault in any region, except the source region.
 
    The new vault is added to the **Dashboard** under **All resources**, and on the main **Recovery Services vaults** page.
 
-## Verify target resources
+## Verify target resource settings
 
 1. Verify that your Azure subscription allows you to create VMs in the target region. Contact support to enable the required quota.
 2. Make sure your subscription has enough resources to support VM sizes that match your source
    VMs. Site Recovery picks the same size, or the closest possible size, for the target VM.
 
-## Configure outbound network connectivity
+## Set up outbound network connectivity for VMs
 
 For Site Recovery to work as expected, you need to modify outbound network connectivity from the VMs that you want to replicate.
 
@@ -85,7 +85,7 @@ If you want to control outbound connectivity using IP addresses instead of URLs,
   - [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery service endpoint IP addresses](https://aka.ms/site-recovery-public-ips)
 
-You can use this [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) to create the required NSG rules.
+If you're using NSG you can create a storage service tag NSG rules for the source region. [Learn more](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
 
 ## Verify Azure VM certificates
 
@@ -117,7 +117,7 @@ Azure Site Recovery provides three built-in roles to control Site Recovery manag
 
 Learn more about [Azure RBAC built-in roles](../role-based-access-control/built-in-roles.md).
 
-## Enable replication
+## Enable replication for a VM
 
 ### Select the source
 

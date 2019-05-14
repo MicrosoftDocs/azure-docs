@@ -3,7 +3,6 @@ title: Azure Data Factory Mapping Data Flow Expression Builder
 description: The Expression Builder for Azure Data Factory Mapping Data Flows
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019

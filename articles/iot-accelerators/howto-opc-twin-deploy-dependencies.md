@@ -1,5 +1,5 @@
 ---
-title: How to deploy Azure IoT OPC UA device management cloud dependencies | Microsoft Docs
+title: How to deploy OPC Twin cloud dependencies in Azure | Microsoft Docs
 description: How to deploy OPC Twin Azure dependencies.
 author: dominicbetts
 ms.author: dobett
@@ -47,7 +47,7 @@ The deployment script tries to register AAD applications in Azure Active Directo
 
 ## Next steps
 
-Now that you have successfully deployed OPC Device Management services to an existing project, here is the suggested next step:
+Now that you have successfully deployed OPC Twin services to an existing project, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Learn about how to deploy OPC Device Management modules](howto-opc-twin-deploy-modules.md)
+> [Learn about how to deploy OPC Twin modules](howto-opc-twin-deploy-modules.md)

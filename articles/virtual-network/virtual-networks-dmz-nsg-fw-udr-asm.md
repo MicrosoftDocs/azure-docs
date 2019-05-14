@@ -392,7 +392,7 @@ Here are the specifics of each rule required to complete this example:
     > [!TIP]
     > Although this example rule uses `<explicit-dest>` reference, you should use a consistent approach throughout the firewall configuration. We recommended using a named Network Object for easier readability and supportability. The `<explicit-dest>` shown here is only to show an alternative reference method. We don't generally recommended it, especially for complex configurations.
 
-* **Outbound-to-internet rule**: This pass rule allows traffic from any Source network to pass to the selected Destination networks. The Barracuda NextGen firewall usually has this this rule "on" by default, but in a disabled state. Right-click on this rule to access the **Activate Rule** command. Modify the rule shown in the screenshot to add the network objects for back-end and front-end subnets to the Source attribute of this rule. You created these network objects in the prerequisite section of this article.
+* **Outbound-to-internet rule**: This pass rule allows traffic from any Source network to pass to the selected Destination networks. The Barracuda NextGen firewall usually has this rule "on" by default, but in a disabled state. Right-click on this rule to access the **Activate Rule** command. Modify the rule shown in the screenshot to add the network objects for back-end and front-end subnets to the Source attribute of this rule. You created these network objects in the prerequisite section of this article.
   
     ![Firewall Outbound Rule][14]
 
@@ -985,7 +985,7 @@ Run this PowerShell script locally on an internet connected PC or server.
 Save this XML file with updated location. Change the `$NetworkConfigFile` variable in the full script above to link to the saved network config file.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

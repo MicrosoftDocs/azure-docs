@@ -18,18 +18,17 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 
   Example use cases include development and test servers, low traffic web servers, small to medium databases, proof-of-concepts, and code repositories.
 
-- Dv2-series, a follow-on to the original D-series, features a more powerful CPU and optimal CPU-to-memory configuration making them suitable for most production workloads. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) or E5-2673 v4 2.3 GHz  (Broadwell) processors, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+- Dv2-series, a follow-on to the original D-series, features a more powerful CPU and optimal CPU-to-memory configuration making them suitable for most production workloads. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) or E5-2673 v4 2.3 GHz (Broadwell) processors, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 
 - The Dv3-series features the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor or the latest 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor in a hyper-threaded configuration, providing a better value proposition for most general purpose workloads.  Memory has been expanded (from ~3.5 GiB/vCPU to 4 GiB/vCPU) while disk and network limits have been adjusted on a per core basis to align with the move to hyperthreading.  The Dv3 no longer has the high memory VM sizes of the D/Dv2 families, those have been moved to the new Ev3 family.
 
-  Example D-series use cases include  enterprise-grade applications, relational databases, in-memory caching, and analytics. 
+  Example D-series use cases include enterprise-grade applications, relational databases, in-memory caching, and analytics. 
   
-
 ## B-series
 
 Premium Storage:  Supported
 
-Premium Storage Caching:  Not Supported
+Premium Storage caching:  Not Supported
 
 The B-series burstable VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, small databases and development and test environments. These workloads typically have burstable performance requirements. The B-Series provides these customers the ability to purchase a VM size with a price conscious baseline performance that allows the VM instance to build up credits when the VM is utilizing less than its base performance. When the VM has accumulated credit, the VM can burst above the VM’s baseline using up to 100% of the CPU when your application requires the higher CPU performance.
 
@@ -54,7 +53,7 @@ ACU: 160-190
 
 Premium Storage:  Supported
 
-Premium Storage Caching:  Supported
+Premium Storage caching:  Supported
 
 Dsv3-series sizes are based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor or the latest 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor that can achieve 3.5GHz with Intel Turbo Boost Technology 2.0 and use premium storage. The Dsv3-series sizes offer a combination of vCPU, memory, and temporary storage for most production workloads.
 
@@ -76,7 +75,7 @@ ACU: 160-190
 
 Premium Storage:  Not Supported
 
-Premium Storage Caching:  Not Supported
+Premium Storage caching:  Not Supported
 
 Dv3-series sizes are based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor or 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor that can achieve 3.5GHz with Intel Turbo Boost Technology 2.0. The Dv3-series sizes offer a combination of vCPU, memory, and temporary storage for most production workloads.
 
@@ -94,14 +93,13 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 
 <sup>1</sup> Dv3-series VM’s feature Intel® Hyper-Threading Technology
 
-
 ## DSv2-series
 
 ACU: 210-250
 
 Premium Storage:  Supported
 
-Premium Storage Caching:  Supported
+Premium Storage caching:  Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -111,15 +109,13 @@ Premium Storage Caching:  Supported
 | Standard_DS4_v2 |8 |28 |56 |32 |32,000 / 256 (344) |25,600 / 384 |8 / 6000 |
 | Standard_DS5_v2 |16 |56 |112 |64 |64,000 / 512 (688) |51,200 / 768 |8 / 12000 |
 
-
-
 ## Dv2-series
 
 ACU: 210-250
 
 Premium Storage:  Not Supported
 
-Premium Storage Caching:  Not Supported
+Premium Storage caching:  Not Supported
 
 | Size           | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks | Throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) |
 |----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
@@ -129,14 +125,13 @@ Premium Storage Caching:  Not Supported
 | Standard_D4_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 32             | 32x500           | 8 / 6000                                       |
 | Standard_D5_v2 | 16   | 56          | 800                    | 48000 / 750 / 375                                          | 64             | 64x500           | 8 / 12000                                    |
 
-
 ## Av2-series
 
 ACU: 100
 
 Premium Storage:  Not Supported
 
-Premium Storage Caching:  Not Supported
+Premium Storage caching:  Not Supported
 
 
 | Size            | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) | 
@@ -149,14 +144,11 @@ Premium Storage Caching:  Not Supported
 | Standard_A4m_v2 | 4         | 32          | 40             | 4000 / 80 / 40                                           | 8 / 8x500               | 4 / 1000                     |
 | Standard_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16 / 16x500             | 8 / 2000                     |
 
-<br>
-
-
 ## DC-series
 
 Premium Storage: Supported
 
-Premium Storage Caching: Supported
+Premium Storage caching: Supported
 
 
 

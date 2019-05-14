@@ -121,7 +121,7 @@ Learn more about deploying and managing AKS with the Azure CLI quickstart.
 
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md
-[aks-aad]: ./aad-integration.md
+[aks-aad]: ./azure-ad-integration.md
 [aks-cli]: ./kubernetes-walkthrough.md
 [aks-gpu]: ./gpu-cluster.md
 [aks-http-routing]: ./http-application-routing.md

@@ -6,7 +6,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/15/2019
 ms.author: mayg
 
 ---
@@ -57,7 +57,7 @@ For Woodgrove to be able to replicate its VMs to Azure while retaining the IP ad
 
 1. Create Azure virtual network in which the Azure VMs will be created after failover of on-premises machines. It should be an extension of the on-premises network, so that applications can fail over seamlessly.
 2. Before failover, in Site Recovery, they assign the same IP address in the machine properties. After failover, Site Recovery assigns this address to the Azure VM.
-3. After failover runs and the Azure VMs are created with the same IP address, they connect to the network using a [Vnet to Vnet connection](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). This action can be scripted.
+3. After failover runs and the Azure VMs are created with the same IP address, they connect to the network using a [Vnet to Vnet connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). This action can be scripted.
 4. They need to modify routes, to reflect that 192.168.1.0/24 has now moved to Azure.
 
 

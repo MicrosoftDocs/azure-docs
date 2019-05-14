@@ -131,7 +131,7 @@ To update the list of charts, use the [helm repo update][helm-repo-update] comma
 ```console
 $ helm repo update
 
-Hang tight while we grab the latest from your chart repositories...
+Hold tight while we grab the latest from your chart repositories...
 ...Skip local chart repository
 ...Successfully got an update from the "stable" chart repository
 Update Complete. ⎈ Happy Helming!⎈

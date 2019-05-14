@@ -117,21 +117,21 @@ Once the group is created, it is recommended to install agents on all the machin
 
 ## Query dependency data from Azure Monitor logs
 
-Dependency data captured by Service Map is available for querying in Log Analytics workspace associated with your Azure Migrate project. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) about the Service Map data tables to query in Azure Monitor logs. 
+Dependency data captured by Service Map is available for querying in the Log Analytics workspace associated with your Azure Migrate project. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) about the Service Map data tables to query in Azure Monitor logs. 
 
 To run the Kusto queries:
 
 1. After you install the agents, go to the portal and click **Overview**.
 2. In **Overview**, go to **Essentials** section of the project and click on workspace name provided next to **OMS Workspace**.
 3. On the Log Analytics workspace page, click **General** > **Logs**.
-4. Write your query to gather dependency data using Azure Monitor logs. Sample queries to gather dependency data are available [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Write your query to gather dependency data using Azure Monitor logs. Find sample queries in the next section.
 5. Run your query by clicking on Run. 
 
 [Learn more](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) about how to write Kusto queries. 
 
 ### Sample Azure Monitor logs queries
 
-Following are sample queries you can use to extract dependency data. Note that the queries can be modified to extract your preferred data points. An exhaustive list of the fields in dependency data records is available [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)
+Following are sample queries you can use to extract dependency data. You can modify the queries to extract your preferred data points. An exhaustive list of the fields in dependency data records is available [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). Find more sample queries [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 
 #### Summarize inbound connections on a set of machines
 

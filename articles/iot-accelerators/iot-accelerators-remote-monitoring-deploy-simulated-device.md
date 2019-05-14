@@ -72,13 +72,9 @@ In this section, you configure Docker to load the device model files from the **
       depends_on:
         - storageadapter
       environment:
-        - PCS_IOTHUB_CONNSTRING
-        - PCS_STORAGEADAPTER_WEBSERVICE_URL=http://storageadapter:9022/v1
-        - PCS_AUTH_ISSUER
-        - PCS_AUTH_AUDIENCE
-        - PCS_AUTH_REQUIRED
-        - PCS_CORS_WHITELIST
-        - PCS_APPLICATION_SECRET
+        - PCS_KEYVAULT_NAME
+        - PCS_AAD_APPID
+        - PCS_AAD_APPSECRET
       # How one could mount custom device models
       volumes:
         - /tmp/devicemodels:/app/webservice/data/devicemodels:ro

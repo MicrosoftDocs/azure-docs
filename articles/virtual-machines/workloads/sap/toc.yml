@@ -122,8 +122,10 @@
       href: dbms_guide_sqlserver.md
     - name: Oracle Azure Virtual Machines DBMS deployment for SAP workload
       href: dbms_guide_oracle.md
-    - name: IBM DB2 Azure Virtual Machines DBMS deployment for SAP workload
+    - name: IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload
       href: dbms_guide_ibm.md
+    - name: High availability of IBM Db2 LUW on Azure VMs on SUSE Linux Enterprise Server
+      href: dbms-guide-ha-ibm.md
     - name: SAP ASE Azure Virtual Machines DBMS deployment for SAP workload
       href: dbms_guide_sapase.md
     - name: SAP MaxDB, liveCache and Content Server deployment on Azure

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 01/16/2019
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim 
 ms.collection: M365-identity-device-management

@@ -165,7 +165,7 @@ This application has an option to change these values. Add the following `<div>`
                 <option value="fi-FI">Finland (Finnish)</option>
                 <option value="fr-FR">France (French)</option>
                 <option value="de-DE">Germany (German)</option>
-                <option value="zh-HK">Hong Kong (Traditional Chinese)</option>
+                <option value="zh-HK">Hong Kong SAR(Traditional Chinese)</option>
                 <option value="en-IN">India (English)</option>
                 <option value="en-ID">Indonesia (English)</option>
                 <option value="it-IT">Italy (Italian)</option>
@@ -768,4 +768,5 @@ Add the following `<style>` section to the `<head>` tag to organize the layout o
 
 ## Next steps
 
-* [Tutorial: Find similar images from previous searches using ImageInsightsToken](./tutorial-visual-search-insights-token.md).
+>[!div class="nextstepaction"]
+> [Tutorial: Find similar images from previous searches using ImageInsightsToken](./tutorial-visual-search-insights-token.md)

@@ -2,11 +2,11 @@
 title: Add/remove an Azure File Sync server endpoint | Microsoft Docs
 description: Learn what to consider when planning for an Azure Files deployment.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
 ---
 

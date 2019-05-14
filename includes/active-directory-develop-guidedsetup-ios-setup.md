@@ -58,7 +58,7 @@ Copy and paste the below. This command fetches dependencies into a Carthage/Chec
 carthage update
 ```
 
-> The process above is used to download and build the Microsoft Authentication Library (MSAL). MSAL handles acquiring, caching and refreshing user tokens used to access APIs protected by the Azure Active Directory v2.0.
+> The process above is used to download and build the Microsoft Authentication Library (MSAL). MSAL handles acquiring, caching and refreshing user tokens used to access APIs protected by Microsoft identity platform.
 
 ## Add the MSAL framework to your application
 
