@@ -167,7 +167,7 @@ To configure the single sign-on with SAML SSO for Jira by resolution GmbH, perfo
 	
 	d. Click **Next**.
 	
-11. On the the **Identity provider configuration** page, click **Next**.
+11. On the **Identity provider configuration** page, click **Next**.
  
 	![Configure Single Sign-On](./media/samlssojira-tutorial/addon5b.png)
 

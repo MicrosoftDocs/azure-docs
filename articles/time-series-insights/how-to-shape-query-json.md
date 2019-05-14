@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # How to shape JSON to maximize query performance 
 
-This article provides guidance for shaping JSON, to maximize the efficiency of your Azure Time Series Insights (TSI) queries.
+This article provides guidance for shaping JSON, to maximize the efficiency of your Azure Time Series Insights queries.
 
 ## Video
 
@@ -29,7 +29,7 @@ It's important to think about how you send events to Time Series Insights. Namel
 
 1. Send data over the network as efficiently as possible.
 1. Ensure your data is stored in a way that enables you to perform aggregations suitable for your scenario.
-1. Ensure you don't hit TSI's maximum property limits of:
+1. Ensure you don't hit Time Series Insights's maximum property limits of:
    - 600 properties (columns) for S1 environments.
    - 800 properties (columns) for S2 environments.
 
@@ -39,7 +39,7 @@ The following guidance helps ensure the best possible query performance:
 1. Don't send unnecessary properties. If a query property isn't required, it's best not to send it, and avoid storage limitations.
 1. Use [reference data](time-series-insights-add-reference-data-set.md), to avoid sending static data over the network.
 1. Share dimension properties among multiple events, to send data over the network more efficiently.
-1. Don't use deep array nesting. TSI supports up to two levels of nested arrays that contain objects. TSI flattens arrays in the messages, into multiple events with property value pairs.
+1. Don't use deep array nesting. Time Series Insights supports up to two levels of nested arrays that contain objects. Time Series Insights flattens arrays in the messages, into multiple events with property value pairs.
 1. If only a few measures exist for all or most events, it's better to send these measures as separate properties within the same object. Sending them separately reduces the number of events, and may make queries more performant as fewer events need to be processed. When there are several measures, sending them as values in a single property minimizes the possibility of hitting the maximum property limit.
 
 ## Example overview
@@ -107,9 +107,9 @@ Above:
 
 - Unnecessary properties are avoided, for example, make and model information, etc. Since they won't be queried in the future, eliminating them enables better network and storage efficiency.
 
-- Reference data is used to reduce the number of bytes transferred over the network. Two attributes, **messageId** and **deviceLocation**, are joined using the key property, **deviceId**. This data is joined with the telemetry data at ingress time, and subsequently stored in TSI for querying.
+- Reference data is used to reduce the number of bytes transferred over the network. Two attributes, **messageId** and **deviceLocation**, are joined using the key property, **deviceId**. This data is joined with the telemetry data at ingress time, and subsequently stored in Time Series Insights for querying.
 
-- Two layers of nesting are used, which is the maximum amount of nesting supported by TSI. It's critical to avoid deeply nested arrays.
+- Two layers of nesting are used, which is the maximum amount of nesting supported by Time Series Insights. It's critical to avoid deeply nested arrays.
 
 - Measures are sent as separate properties within same object, since there are few measures. Here, **series.Flow Rate psi** and **series.Engine Oil Pressure ft3/s** are unique columns.
 
@@ -187,7 +187,7 @@ Above:
 
 - Unnecessary properties were avoided, for the reason cited in the first example.
 
-- Reference data is used to reduce the number of bytes transferred over the network by introducing **deviceId**, for a unique pair of **messageId** and **deviceLocation**. A composite key is used, **series.tagId**,  for the unique pair of **type** and **unit.**. The composite key allows the  **deviceId** and **series.tagId** pair to be used, to refer to four values: **messageId, deviceLocation, type,** and **unit**. This data is joined with the telemetry data at ingress time, and subsequently stored in TSI for querying.
+- Reference data is used to reduce the number of bytes transferred over the network by introducing **deviceId**, for a unique pair of **messageId** and **deviceLocation**. A composite key is used, **series.tagId**,  for the unique pair of **type** and **unit.**. The composite key allows the  **deviceId** and **series.tagId** pair to be used, to refer to four values: **messageId, deviceLocation, type,** and **unit**. This data is joined with the telemetry data at ingress time, and subsequently stored in Time Series Insights for querying.
 
 - Two layers of nesting are used, for the reason cited in the first example.
 
@@ -200,6 +200,6 @@ If you have a property with a large number of possible values, it's best to send
 
 ## Next steps
 
-- Read [Azure Time Series Insights query syntax](/rest/api/time-series-insights/ga-query-syntax) to learn more about the query syntax for the TSI data access REST API.
+- Read [Azure Time Series Insights query syntax](/rest/api/time-series-insights/ga-query-syntax) to learn more about the query syntax for the Time Series Insights data access REST API.
 
 - Learn [How to shape events](./time-series-insights-send-events.md).
