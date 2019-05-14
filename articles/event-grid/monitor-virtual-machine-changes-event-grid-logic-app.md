@@ -130,9 +130,9 @@ as specified in the following table:
 
    | Property | Required | Value | Description |
    | -------- | -------- | ----- | ----------- |
-   | **Subscription** | Yes | <*event-publisher-Azure-subscription-ID*> | Specify the Azure subscription ID for the event publisher. For this tutorial, enter the Azure subscription ID for your virtual machine. |
-   | **Resource Type** | Yes | Microsoft.Resources.resourceGroups | Select the resource type for the event publisher. For this tutorial, select the specified value so your logic app monitors only resource groups. |
-   | **Resource Name** |  Yes | <*event-publisher-Azure-resource-group-path-name*> | Specify the Azure resource group path and name for the event publisher. For this tutorial, specify the Azure resource group path and name for your virtual machine, for example: <p><p>`/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>` |
+   | **Subscription** | Yes | <*event-publisher-Azure-subscription-name*> | Select the name for the Azure subscription associated with the event publisher. For this tutorial, select the Azure subscription name for your virtual machine. |
+   | **Resource Type** | Yes | <*event-publisher-Azure-resource-type*> | Select the resource type for the event publisher. For this tutorial, select this value so that your logic app monitors only resource groups: <p><p>**Microsoft.Resources.resourceGroups** |
+   | **Resource Name** |  Yes | <*event-publisher-Azure-resource-name*> | Select the name for the Azure resource associated with the event publisher. For this tutorial, select the name for the Azure resource group associated with for your virtual machine. |
    | **Event Type Item** |  No | <*event-types*> | Select one or more specific event types that you want to monitor. For this tutorial, leave this property empty. |
    | **Subscription Name** | No | <*event-subscription-name*> | Provide a unique name for your event subscription. |
    | For optional settings, choose **Add new parameter**. | No | {see descriptions} | * **Prefix Filter**: For this tutorial, leave this property empty. The default behavior matches all values. However, you can specify a prefix string as a filter, for example, a path and a parameter for a specific resource. <p>* **Suffix Filter**: For this tutorial, leave this property empty. The default behavior matches all values. However, you can specify a suffix string as a filter, for example, a file name extension, when you want only specific file types. |
@@ -158,7 +158,7 @@ choose the action's title bar.
 Your logic app is now live and listens to events from the event grid, 
 but doesn't do anything until you add actions to the workflow. 
 
-## Add a condition that checks for virtual machine changes
+## Add condition
 
 To run your logic app workflow only when a specific event happens, 
 add a condition that checks for virtual machine "write" operations. 
@@ -166,31 +166,44 @@ When this condition is true, your logic app sends you email with
 details about the updated virtual machine.
 
 1. In Logic App Designer, under the event grid trigger, 
-choose **New step** > **Add a condition**.
+choose **New step**.
 
-   ![Add a condition to your logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-add-condition-step.png)
+   ![Choose "New step"](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-new-step-condition.png)
+
+1. In the search box, enter "condition" as your filter. 
+From the actions list, select this action: **Condition**
+
+   ![Add a condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/select-condition.png)
 
    The Logic App Designer adds an empty condition to your workflow, 
    including action paths to follow based whether the 
    condition is true or false.
 
-   ![Empty condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-add-empty-condition.png)
+   ![Empty condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/empty-condition.png)
 
-2. In the **Condition** box, choose **Edit in advanced mode**.
-Enter this expression:
+1. Rename the condition title to `Condition: If a virtual machine in your resource group has changed`. On the condition's title bar, choose the ellipses (**...**) button, and select **Rename**.
 
-   `@equals(triggerBody()?['data']['operationName'], 'Microsoft.Compute/virtualMachines/write')`
+   ![Rename condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/rename-condition.png)
+
+1. Create a condition that checks the event `body` for a `data` object where the `operationName` property is equal to the `Microsoft.Compute/virtualMachines/write` operation. Learn more about [Event Grid event schema](../event-grid/event-schema.md).
+
+   1. On the first row under **And**, click inside the left box. In the dynamic content list that appears, choose **Expression**. 
+
+   1. In the expression editor, enter this expression: 
+
+      `triggerBody()?['data']['operationName']`
+
+   1. In the middle box, keep the operator **is equal to**.
+
+   1. In the right box, enter this value:
+
+      `Microsoft.Compute/virtualMachines/write`
 
    Your condition now looks like this example:
 
-   ![Empty condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-expression.png)
+   ![Completed condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-expression.png)
 
-   This expression checks the event `body` for a `data` object 
-   where the `operationName` property is the 
-   `Microsoft.Compute/virtualMachines/write` operation. 
-   Learn more about [Event Grid event schema](../event-grid/event-schema.md).
-
-3. To provide a description for the condition, 
+1. To provide a description for the condition, 
 choose the **ellipses** (**...**) button on the condition shape, 
 then choose **Rename**.
 
@@ -198,7 +211,7 @@ then choose **Rename**.
    > The later examples in this tutorial also provide 
    > descriptions for steps in the logic app workflow.
 
-4. Now choose **Edit in basic mode** so that the expression 
+1. Now choose **Edit in basic mode** so that the expression 
 automatically resolves as shown:
 
    ![Logic app condition](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-1.png)
