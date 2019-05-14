@@ -15,23 +15,24 @@ ms.custom: seodec18
 
 # How to use MLflow with Azure Machine Learning service (Preview)
 
+[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. Whether you run your experiments locally, on a virtual machine, or on a remote compute cluster, [MLFlow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) logs and tracks your training run metrics and model artifacts. If you already use MLflow Tracking with your experiments, the [Azure Machine Learning Workspace](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace) provides a centralized, secure, and scalable location to store your training metrics and models.
+
 This article demonstrates how to use MLflow Tracking with Azure Machine Learning to track and log your experiment metrics and artifacts in your workspace.
 
-[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. Whether you run your experiments locally, on a virtual machine, or on a remote compute cluster. [MLFlow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) is a component of MLflow that logs and tracks your training run metrics and model artifacts. If you already use MLflow Tracking with your experiments, the [Azure Machine Learning Workspace](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace) provides a centralized, secure, and scalable location to store your training metrics and models.
-
 ![mlflow with azure machine learning diagram](media/how-to-use-mlflow/mlflow-diagram.png)
-## Compare MLflow Tracking and Azure Machine Learning service clients
+
+## Comparison of MLflow and other Azure Machine Learning service clients
 
 Azure Machine Learning service can be used through different clients:
 
 * MLflow
 * Azure Machine Learning Python SDK
 * Azure Machine Learning CLI
-* Azure portal 
+* Azure Portal 
 
-The following table summarizes the use cases for each client. MLflow is best suited for data science experimentation and instrumenting  training code. For managing your workspace and its resources, use the SDK, CLI, or Azure portal.
+Following table summarizes the use cases for each client. The MLflow is best suited for data science experimentation and instrumenting the training code. For managing the workspace and its resources, such as data, compute and deployments, use Azure Machine Learning Python SDK, CLI, or Azure Portal.
 
-| | MLflow Tracking | Azure Machine<br>Learning Python SDK |  Azure Machine<br> Learning CLI | Azure portal|
+| | MLflow | Azure Machine<br>Learning Python SDK |  Azure Machine<br> Learning CLI | Azure Portal|
 |-|-|-|-|-|
 | Manage workspace |   | ✓ |  ✓ | ✓  |
 | Use data stores  |   | ✓ |  ✓ |    |
@@ -40,6 +41,7 @@ The following table summarizes the use cases for each client. MLflow is best sui
 | View metrics     | ✓ | ✓ | ✓  | ✓ |
 | Manage compute   |   | ✓ | ✓  | ✓ |
 | Deploy models    |   | ✓ |   ✓ | ✓ |
+
 
 ## Prerequisites
 
