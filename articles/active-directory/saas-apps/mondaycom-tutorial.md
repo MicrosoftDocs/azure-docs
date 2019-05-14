@@ -123,7 +123,7 @@ In this section, you configure Azure AD single sign-on with monday.com in the Az
 
     1. Select **Set additional URLs**.
 	
-	1. In the **Sign-on URL** box, enter a URL that has the following pattern: https:\//\<your-domain>.monday.com. Contact the [monday.com client support team](mailto:support@monday.com) to get the sign-on URL.
+	1. In the **Sign on URL** box, enter a URL that has the following pattern: https:\//\<your-domain>.monday.com. Contact the [monday.com client support team](mailto:support@monday.com) to get the sign-on URL.
 
 		![The Set additional URLs option](common/metadata-upload-additional-signon.png)
 
@@ -155,7 +155,7 @@ In this section, you configure Azure AD single sign-on with monday.com in the Az
 
 	![The Certificate (Base64) download option](common/certificatebase64.png)
 
-1. In the **Set up monday.com** section, copy the following URLs based on your requirements.
+1. In the **Set up monday.com** section, copy the following URLs based on your requirements:
 
 	* Login URL
 	* Azure AD Identifier
