@@ -13,18 +13,25 @@ ms.author: alkohli
 
 # Tracking and event logging for your Azure Data Box
 
-This article details information on how through the different stages of your Data Box order:
+A Data Box order goes through the following steps: order, set up, data copy, return, upload to Azure and verify, and data erasure. Corresponding to each step in the order, you can take multiple actions to control the access to the order, audit the events, track the order, and interpret the various logs that are generated.
 
-- You control who can access your order.
-- You track your order.
-- Events are logged.
-- You can interpret the logs.
+The following table shows a summary of the Data Box order steps and the tools available to track and audit the order during each step.
+
+| Data Box order stage       | Tool to track and audit                                                                        |
+|----------------------------|------------------------------------------------------------------------------------------------|
+| Create order               | [Set up access control on the order via RBAC](#set-up-access-control-on-the-order)                                                    |
+| Order processed            | [Track the order](#track-the-order) through <ul><li> Azure portal </li><li> Shipping carrier website </li><li>Email notifications</ul> |
+| Set up device              | Device credentials access logged in [Activity logs](#query-activity-logs)                                              |
+| Data copy to device        | [View *error.xml* files](#view-error-log-during-data-copy-to-data-box) for data copy                                                             |
+| Prepare to ship            | [Inspect the BOM files](#inspect-bom-during-prepare-to-ship) or the manifest files on the device                                      |
+| Data upload to Azure       | [Review *copylogs*](#review-copy-log-during-upload-to-azure) for errors during data upload at Azure datacenter                         |
+| Data erasure from device   | [View chain of custody logs](#get-chain-of-custody-logs-after-data-erasure) including audit logs and order history                                                   |
+
+This article describes in detail the various mechanisms or tools available to track and audit Data Box order.
 
 ## Set up access control on the order
 
-You can control who can access your order when the order is first created. Set up Role-based Access Control (RBAC) roles at various scopes to control the access to the Data Box order. An RBAC role determines the type of access – read/write, read only, read/write to a subset of operations.
-
-Scope determines the extent of access of a given role within the Azure hierarchy. For example, a role granted access at a subscription level has access to *all* resources within that subscription. The type of access itself is defined by the role definition.
+You can control who can access your order when the order is first created. Set up Role-based Access Control (RBAC) roles at various scopes to control the access to the Data Box order. An RBAC role determines the type of access – read-write, read-only, read-write to a subset of operations.
 
 The two Data Box roles that can be defined are:
 
@@ -42,18 +49,18 @@ For more information on suggested RBAC use, see [Best practices for RBAC](../rol
 
 You can track your order through the Azure portal and through the shipping carrier website. The following mechanisms are in place to track the Data Box order at any time:
 
-- To track the order while the device is in transit, go to the regional carrier website, for example, UPS  website in US. Provide the tracking number associated with your order.
 - To track the order when the device is in Azure datacenter or your premises, go to your **Data Box order > Overview** in Azure portal.
 
     ![View order status and tracking no](media/data-box-logs/overview-view-status-1.png)
 
+- To track the order while the device is in transit, go to the regional carrier website, for example, UPS  website in US. Provide the tracking number associated with your order.
 - Data Box also sends email notifications anytime the order status changes based on the emails provided when the order was created. For a list of all the Data Box order statuses, see [View order status](data-box-portal-admin.md#view-order-status). To change the notification settings associated with the order, see [Edit notification details](data-box-portal-admin.md#edit-notification-details).
 
 ## Query activity logs during setup
 
 - Your Data Box arrives on your premises in a locked state. You can use the device credentials available in the Azure portal for your order.  
 
-    When a Data Box is set up, you may need to know who all accessed the device credentials. To figure out who accessed the device credentials blade, you can query the Activity logs.  Any action that involves accessing **Device details > Credentials** blade is logged into the activity logs as `ListCredentials` action.
+    When a Data Box is set up, you may need to know who all accessed the device credentials. To figure out who accessed the **Device credentials** blade, you can query the Activity logs.  Any action that involves accessing **Device details > Credentials** blade is logged into the activity logs as `ListCredentials` action.
 
     ![Query Activity logs](media/data-box-logs/query-activity-log-1.png)
 
@@ -70,22 +77,78 @@ Make sure that the copy jobs have finished with no errors. If there are errors d
 - If you copied a file that is not 512 bytes aligned to a managed disk folder on your Data Box, the file isn't uploaded as page blob to your staging storage account. You will see an error in the logs. Remove the file and copy a file that is 512 bytes aligned.
 - If you copied a VHDX, or a dynamic VHD, or a differencing VHD (these files are not supported), you will see an error in the logs.
 
-Here is a sample of the *error.xml* that shows the above error types.
+Here is a sample of the *error.xml* for different errors when copying to managed disks.
 
-```
+```xml
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\differencing-vhd-022019.vhd</file>
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\dynamic-vhd-022019.vhd</file>
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\insidefixedvhdx-022019.vhdx</file>
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\insidediffvhd-022019.vhd</file>
 ```
 
-Resolve the errors before you proceed to the next step.
+Here is a sample of the *error.xml* for different errors when copying to page blobs.
 
-<!--Insert snippet from Santosh-->
+```xml
+<file error="ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT">\PageBlob512NotAligned\File100Bytes</file>
+<file error="ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT">\PageBlob512NotAligned\File786Bytes</file>
+<file error="ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT">\PageBlob512NotAligned\File513Bytes</file>
+<file error="ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT">\PageBlob512NotAligned\File10Bytes</file>
+<file error="ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT">\PageBlob512NotAligned\File500Bytes</file>
+```
+
+
+Here is a sample of the *error.xml* for different errors when copying to block blobs.
+
+```xml
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_LENGTH">\ab</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\invalid dns name</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_LENGTH">\morethan63charactersfortestingmorethan63charactersfortestingmorethan63charactersfortestingmorethan63charactersfortestingmorethan63charactersfortestingmorethan63charactersfortesting</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\testdirectory-~!@#$%^&amp;()_+{}</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\test__doubleunderscore</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_IMPROPER_DASH">\-startingwith-hyphen</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\Starting with Capital</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\_startingwith_underscore</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_IMPROPER_DASH">\55555555--4444--3333--2222--111111111111</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_LENGTH">\1</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\11111111-_2222-_3333-_4444-_555555555555</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_IMPROPER_DASH">\test--doublehyphen</file>
+<file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTI5Ni3vv70=</file>
+<file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTMwMS3vv70=</file>
+<file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTMwMy3vv70=</file>
+<file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_CONTROL">\InvalidUnicodeFiles\Ã.txt</file>
+<file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTMwNS3vv70=</file>
+<file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTI5OS3vv70=</file>
+<file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTMwMi3vv70=</file>
+<file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTMwNC3vv70=</file>
+<file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTI5OC3vv70=</file>
+<file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTMwMC3vv70=</file>
+<file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTI5Ny3vv70=</file>
+```
+
+
+Here is a sample of the *error.xml* for different errors when copying to Azure Files.
+
+```xml
+<file error="ERROR_BLOB_OR_FILE_SIZE_LIMIT">\AzFileMorethan1TB\AzFile1.2TB</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\testdirectory-~!@#$%^&amp;()_+{}</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_IMPROPER_DASH">\55555555--4444--3333--2222--111111111111</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_IMPROPER_DASH">\-startingwith-hyphen</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\11111111-_2222-_3333-_4444-_555555555555</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_IMPROPER_DASH">\test--doublehyphen</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_LENGTH">\ab</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\invalid dns name</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\test__doubleunderscore</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_LENGTH">\morethan63charactersfortestingmorethan63charactersfortestingmorethan63charactersfortestingmorethan63charactersfortestingmorethan63charactersfortestingmorethan63charactersfortesting</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\_startingwith_underscore</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_LENGTH">\1</file>
+<file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\Starting with Capital</file>
+```
+
+In each of the above cases, resolve the errors before you proceed to the next step.
 
 ## Inspect BOM during prepare to ship
 
-During prepare to ship, a list of files known as the BOM or manifest file is created.
+During prepare to ship, a list of files known as the Bill of Materials (BOM) or manifest file is created.
 
 - Use this file to verify against the actual names and the number of files that were copied to the Data Box.
 - Use this file to verify against the actual sizes of the files.
@@ -133,13 +196,17 @@ During the data upload to Azure, a copylog is created.
 
 ### Copylog
 
-For each order that is processed, the Data Box service creates copylog in the associated storage account. The copylog has the total number of files that were uploaded and the number of files that errored out during the data copy from Data Box to your Azure storage account. 
+For each order that is processed, the Data Box service creates copylog in the associated storage account. The copylog has the total number of files that were uploaded and the number of files that errored out during the data copy from Data Box to your Azure storage account.
 
 A Cyclic Redundancy Check (crc) computation is done during the upload to Azure. The CRCs from the data copy and after the data upload are compared. A CRC mismatch indicates that the corresponding files failed to upload.
 
-By default, logs are written to a container named copylog. The logs are stored as block blobs with the following naming convention: `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
+By default, logs are written to a container named copylog. The logs are stored as block blobs with the following naming convention:
 
-The copylog path is also displayed on the overview blade for the portal.
+`storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
+
+The copylog path is also displayed on the **Overview** blade for the portal.
+
+![Path to copylog in Overview blade when completed](media/data-box-logs/copy-log-path-1.png)
 
 The following sample describes the general format of a copylog file for a Data Box upload that completed successfully:
 
@@ -152,9 +219,30 @@ The following sample describes the general format of a copylog file for a Data B
 </CopyLog>
 ```
 
+Upload to Azure may also complete with errors.
+
+![Path to copylog in Overview blade when completed with errors](media/data-box-logs/copy-log-path-2.png)
+
 Here is an example of a copylog where the upload completed with errors:
 
-<!--Insert snippet from Santosh-->
+```xml
+<ErroredEntity Path="iso\samsungssd.iso">
+  <Category>UploadErrorCloudHttp</Category>
+  <ErrorCode>409</ErrorCode>
+  <ErrorMessage>The blob type is invalid for this operation.</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="iso\iSCSI_Software_Target_33.iso">
+  <Category>UploadErrorCloudHttp</Category>
+  <ErrorCode>409</ErrorCode>
+  <ErrorMessage>The blob type is invalid for this operation.</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><CopyLog Summary="Summary">
+  <Status>Failed</Status>
+  <TotalFiles_Blobs>72</TotalFiles_Blobs>
+  <FilesErrored>2</FilesErrored>
+</CopyLog>
+```
+
 
 ## Get chain of custody logs after data erasure
 
