@@ -92,7 +92,7 @@ When importing the PDF document, QnA Maker determines follow-up prompts from the
 1. Select **Add follow-up prompt** in that row.
 1. In the pop-up dialog, enter the question text in the search box. All matches are returned. Select the question you want as the follow-up, and check **Context-only**, then select **Save**. 
 
-    Once ou have added the follow-up prompt, remember to select **Save and train**.
+    Once you have added the follow-up prompt, remember to select **Save and train**.
   
 ## Add metadata to follow-up prompts 
 
