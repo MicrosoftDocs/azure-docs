@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Bastion Documentation
+title: Azure Bastion Documentation
 metadata:
   document_id: 
   title: Bastion
@@ -13,7 +13,7 @@ metadata:
 abstract:
   description:  Learn how to use Azure Bastion to connect to a virtual machine.
 sections:
-- title: How to create and manage Azure Bastion.
+- title: Create and manage Bastion
   items:
   - type: paragraph
     text: Learn how to configure and manage a Bastion host.
@@ -28,7 +28,7 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: Command-Line
-      html: <p><a href="/powershell/module/az.network/#expressroute">PowerShell</a></p><p><a href="/cli/azure/network/express-route">Azure CLI</a></p>
+    - title: Command-line interface
+      html: <p><a href="/powershell/module/az.network/#expressroute">PowerShell</a></p><p><a href="/cli/azure/network/express-route">The Azure CLI</a></p>
     - title: REST
       html: <p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API Reference</a></p><p><a href="https://msdn.microsoft.com/library/azure/dn606310">Classic REST API Reference</a></p>

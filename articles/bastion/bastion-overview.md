@@ -13,7 +13,7 @@ ms.author: cherylmc
 ---
 # What is Azure Bastion? (preview)
 
-Azure Bastion Host Service lets you to securely and seamlessly RDP & SSH directly to your VMs in an Azure virtual network without using a VM public IP. You connect to the VM directly from the Azure portal, without the need of any additional client, agent, or any piece of software.
+Azure Bastion lets you to securely and seamlessly RDP & SSH directly to your VMs in an Azure virtual network without using a VM public IP. You connect to the VM directly from the Azure portal, without the need of any additional client, agent, or any piece of software.
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.

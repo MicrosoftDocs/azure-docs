@@ -13,7 +13,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/az.network#vpn
+    href: /powershell/module/az.network
 - name: Resources
   items:
   - name: Bastion FAQ
