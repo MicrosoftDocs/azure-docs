@@ -282,7 +282,7 @@ However, when a resource reports "Unknown", it's likely that its health status h
 
 In this example, we are only notifying on events where the current and previous health status does not have "Unknown". This change may be a useful addition if your alerts are sent directly to your mobile phone or email. 
 
-Note that it is possible for the currentHealthStatus and previousHealthStatus properties to be null in some events. For example, when an Updated event occurs it's likely that the health status of the resource has not changed since the last report, only that additional event information is available (e.g. cause). Therefore, using the clause above will result in an alert not being triggered, because the properties.currentHealthStatus and properties.previousHealthStatus values will be set to null.
+Note that it is possible for the currentHealthStatus and previousHealthStatus properties to be null in some events. For example, when an Updated event occurs it's likely that the health status of the resource has not changed since the last report, only that additional event information is available (e.g. cause). Therefore, using the clause above may result in some alerts not being triggered, because the properties.currentHealthStatus and properties.previousHealthStatus values will be set to null.
 
 ### Adjusting the alert to avoid User Initiated events
 
@@ -302,7 +302,7 @@ It's easy to configure your alert to filter for only these kinds of events:
     ]
 }
 ```
-Note that it is possible for the cause field to be null in some events. That is, a health transition takes place (e.g. available to unavailable) and the event is logged immediately to prevent notification delays. Using the clause above will result in an alert not being triggered, because the properties.clause property value will be set to null.
+Note that it is possible for the cause field to be null in some events. That is, a health transition takes place (e.g. available to unavailable) and the event is logged immediately to prevent notification delays. Therefore, using the clause above may result in an alert not being triggered, because the properties.clause property value will be set to null.
 
 ## Complete Resource Health alert template
 
