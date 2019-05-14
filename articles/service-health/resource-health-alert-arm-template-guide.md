@@ -39,7 +39,7 @@ To follow the instructions on this page, you'll need to set up a few things in a
 
         (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
-3. Create and save a Resource Manager template for Resource Health alerts as `resourcehealthalert.json` ([see details below](#resource-manager-template-for-resource-health-alerts))
+3. Create and save a Resource Manager template for Resource Health alerts as `resourcehealthalert.json` ([see details below](#resource-manager-template-options-for-resource-health-alerts))
 
 4. Create a new Azure Resource Manager deployment using this template
 
