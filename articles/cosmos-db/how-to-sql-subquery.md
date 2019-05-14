@@ -55,7 +55,7 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-For this query, the index will match any document that has a tag with the name "infant formula." It's a nutrient item with a value between 0 and 10 and a serving item with an amount greater than 1. The JOIN expression here will perform the cross-product of all items of tags, nutrients, and servings arrays for each matching document before any filter is applied. 
+For this query, the index will match any document that has a tag with the name "infant formula." It's a nutrient item with a value between 0 and 10, and a serving item with an amount greater than 1. The JOIN expression here will perform the cross-product of all items of tags, nutrients, and servings arrays for each matching document before any filter is applied. 
 
 The WHERE clause will then apply the filter predicate on each <c, t, n, s> tuple. For instance, if a matching document had 10 items in each of the three arrays, it will expand to 1 x 10 x 10 x 10 (that is, 1,000) tuples. Using subqueries here can help in filtering out joined array items before joining with the next expression.
 
@@ -73,9 +73,9 @@ Assume that only one item in the tags array matches the filter, and there are fi
 
 ### Evaluate once and reference many times
 
-Subqueries can help optimize queries with expensive expressions such as user-defined functions (UDFs), or complex strings or arithmetic expressions. You can use a subquery along with a JOIN expression to evaluate the expression once but reference it many times.
+Subqueries can help optimize queries with expensive expressions such as user-defined functions (UDFs), complex strings, or arithmetic expressions. You can use a subquery along with a JOIN expression to evaluate the expression once but reference it many times.
 
-The following query runs the UDF GetMaxNutritionValue twice:
+The following query runs the UDF `GetMaxNutritionValue` twice:
 
 ```sql
 SELECT c.id, udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue
@@ -116,7 +116,7 @@ WHERE AvgNutritionValue > 80
 
 ### Mimic join with external reference data
 
-You might often need to reference static data that rarely changes, such as units of measurements or country codes. It’s better not to duplicate such data for each document. Avoiding this duplication will save on storage and improve write performance by keeping the document size smaller. You can use a subquery to mimic inner-join semantics with a collection of reference data.
+You might often need to reference static data that rarely changes, such as units of measurement or country codes. It’s better not to duplicate such data for each document. Avoiding this duplication will save on storage and improve write performance by keeping the document size smaller. You can use a subquery to mimic inner-join semantics with a collection of reference data.
 
 For instance, consider this set of reference data:
 
@@ -289,7 +289,7 @@ Query output:
 
 **Example 2**
 
-A subquery with multiple aggregate function expressions:
+Here's a subquery with multiple aggregate function expressions:
 
 ```sql
 SELECT TOP 5 f.id, (
@@ -395,7 +395,7 @@ WHERE n.units= "mg" AND n.nutritionValue > 0
 
 For each of the documents in the collection, a cross-product is performed with its array elements. This JOIN operation makes it possible to filter on properties within the array. However, this query’s RU consumption will be significant. For instance, if 1,000 documents had 100 items in each array, it will expand to 1,000 x 100 (that is, 100,000) tuples.
 
-Using `EXISTS` can help to avoid this expensive cross-product:
+Using EXISTS can help to avoid this expensive cross-product:
 
 ```sql
 SELECT VALUE c.description
@@ -407,7 +407,7 @@ WHERE EXISTS(
 )
 ```
 
-In this case, you filter on array elements within the EXISTS subquery. If an array element matches the filter, then you project it and `EXISTS` evaluates to true.
+In this case, you filter on array elements within the EXISTS subquery. If an array element matches the filter, then you project it and EXISTS evaluates to true.
 
 You can also alias EXISTS and reference it in the projection:
 
@@ -432,7 +432,7 @@ Query output:
 
 #### ARRAY expression
 
-You can use the `ARRAY` expression to project the results of a query as an array. You can use this expression only within the SELECT clause of the query.
+You can use the ARRAY expression to project the results of a query as an array. You can use this expression only within the SELECT clause of the query.
 
 ```sql
 SELECT TOP 1   f.id, ARRAY(SELECT VALUE t.name FROM t in f.tags) AS tagNames
@@ -455,7 +455,7 @@ Query output:
 ]
 ```
 
-As with other subqueries, filters with the `ARRAY` expression are possible.
+As with other subqueries, filters with the ARRAY expression are possible.
 
 ```sql
 SELECT TOP 1 c.id, ARRAY(SELECT VALUE t FROM t in c.tags WHERE t.name != 'infant formula') AS tagNames
