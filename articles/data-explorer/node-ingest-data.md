@@ -30,7 +30,7 @@ In addition to an Azure subscription, you need the following to complete this qu
 Install *azure-kusto-ingest* and *azure-kusto-data*
 
 ```bash
-npm i --save azure-kusto-ingest azure-kusto-data
+npm i azure-kusto-ingest azure-kusto-data
 ```
 
 ## Add import statements and constants
