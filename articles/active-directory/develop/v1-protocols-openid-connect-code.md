@@ -103,7 +103,7 @@ At this point, the user is asked to enter their credentials and complete the aut
 
 ### Sample response
 
-A sample response, after the user has authenticated, could look like this:
+A sample response, sent to the `redirect_uri` specified in the sign-in request after the user has authenticated, could look like this:
 
 ```
 POST / HTTP/1.1
@@ -212,7 +212,7 @@ By including permission scopes in the request and using `response_type=code+id_t
 
 ### Successful response
 
-A successful response using `response_mode=form_post` looks like:
+A successful response, sent to the `redirect_uri` using `response_mode=form_post`, looks like:
 
 ```
 POST /myapp/ HTTP/1.1

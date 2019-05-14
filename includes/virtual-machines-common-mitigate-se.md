@@ -25,7 +25,7 @@ More information about how security is integrated into every aspect of Azure is 
 > Since this document was first published, multiple variants of this vulnerability class have been disclosed. Microsoft continues to be heavily invested in protecting our customers and providing guidance. This page will be updated as we continue to release further fixes. 
 > 
 > On May 14, 2019, [Intel disclosed](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) a new set of speculative execution side channel vulnerability known as Microarchitectural Data Sampling (MDS see the Microsoft Security Guidance [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), which has been assigned multiple CVEs: 
-> - CVE-2018-11091 - Microarchitectural Data Sampling Uncacheable Memory (MDSUM)
+> - CVE-2019-11091 - Microarchitectural Data Sampling Uncacheable Memory (MDSUM)
 > - CVE-2018-12126 - Microarchitectural Store Buffer Data Sampling (MSBDS) 
 > - CVE-2018-12127 - Microarchitectural Load Port Data Sampling (MLPDS)
 > - CVE-2018-12130 - Microarchitectural Fill Buffer Data Sampling (MFBDS)
@@ -166,7 +166,7 @@ This article provides guidance to the below speculative execution side-channel a
 - CVE-2018-3646 – impacts Virtual Machine Manager (VMM)
 
 [Microarchitectural Data Sampling](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV190013): 
-- CVE-2018-11091 - Microarchitectural Data Sampling Uncacheable Memory (MDSUM)
+- CVE-2019-11091 - Microarchitectural Data Sampling Uncacheable Memory (MDSUM)
 - CVE-2018-12126 - Microarchitectural Store Buffer Data Sampling (MSBDS)
 - CVE-2018-12127 - Microarchitectural Load Port Data Sampling (MLPDS)
 - CVE-2018-12130 - Microarchitectural Fill Buffer Data Sampling (MFBDS)
