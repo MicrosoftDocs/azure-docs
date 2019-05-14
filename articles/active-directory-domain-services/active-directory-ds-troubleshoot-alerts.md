@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Troubleshoot alerts | Microsoft 
 description: Troubleshoot alerts for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager:
 editor:
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
-ms.author: ergreenl
+ms.date: 05/13/2019
+ms.author: mstephen
 
 ---
 # Azure AD Domain Services - Troubleshoot alerts
@@ -107,7 +107,7 @@ Inside the virtual network, machines may make requests to Azure resources that a
    6. Click on the subnet you wish to edit in the table.
    7. Update the address range and save your changes.
 3. Follow [the Getting Started Using Azure AD Domain Services guide](active-directory-ds-getting-started.md) to recreate your managed domain. Ensure that you pick a virtual network with a private IP address range.
-4. To domain-join your virtual machines to your new domain, follow [this guide](active-directory-ds-admin-guide-join-windows-vm-portal.md).
+4. To domain-join your virtual machines to your new domain, follow [this guide](join-windows-vm.md).
 8. To ensure the alert is resolved, check your domain's health in two hours.
 
 ## AADDS106: Your Azure subscription is not found
