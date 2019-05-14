@@ -19,10 +19,10 @@ ms.author: sajaya
 - [Is there security vulnerability scanning for images in ACR?](#is-there-security-vulnerability-scanning-for-images-in-acr)
 - [How to configure Kubernetes with Azure Container Registry?](#how-to-configure-kubernetes-with-azure-container-registry)
 - [How to get admin credentials for a container registry?](#how-to-get-admin-credentials-for-a-container-registry)
-- [How to get admin credentials in a Resource Manager template?](#how-to-get-login-credentials-in-a-resource-manager-template)
-- [Delete of replication fails with Forbidden status although the replication gets deleted using the Azure CLI or Azure PowerShell](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powerShell)
+- [How to get admin credentials in a Resource Manager template?](#how-to-get-admin-credentials-in-a-resource-manager-template)
+- [Delete of replication fails with Forbidden status although the replication gets deleted using the Azure CLI or Azure PowerShell](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell)
 
-### Can I create Azure Container Registry using a Resource Manager template?
+### Can I create an Azure Container Registry using a Resource Manager template?
 
 Yes. Here is [a template](ttps://github.com/Azure/azure-cli/blob/master/src/command_modules/azure-cli-acr/azure/cli/command_modules/acr/template.json) that you can use to create a registry.
 
@@ -77,7 +77,7 @@ To get the second password:
 }
 ```
 
-### Delete of replication fails with Forbidden status, although the replication gets deleted using the Azure CLI or Azure PowerShell
+### Delete of replication fails with Forbidden status although the replication gets deleted using the Azure CLI or Azure PowerShell
 
 The error is seen when the user has permissions on a registry but doesn't have Reader-level permissions on the subscription. To resolve this issue, assign Reader permissions on the subscription to the user:
 
@@ -92,7 +92,7 @@ az role assignment create --role "Reader" --assignee user@contoso.com --scope /s
 - [How to delete all manifests that are not referenced by any tag in a repository?](#how-to-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository)
 - [Why does the registry quota usage not reduce after deleting images?](#why-does-the-registry-quota-usage-not-reduce-after-deleting-images)
 - [How do I validate storage quota changes?](#how-do-i-validate-storage-quota-changes)
-- [How to authenticate with my registry when running the CLI in a container?](#how-to-authentiate-with-my-registry-when-running-the-cli-in-a-container)
+- [How to authenticate with my registry when running the CLI in a container?](#how-to-authenticate-with-my-registry-when-running-the-cli-in-a-container)
 - [Does Azure Container Registry offer TLS v1.2 only configuration and how to enable TLS v1.2?](#does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12)
 - [Does Azure Container Registry support Content Trust?](#does-azure-container-registry-support-content-trust)
 - [How to grant access to pull or push images without the permission to manage the registry resource](#how-to-grant-access-to-pull-or-push-images-without-the-permission-to-manage-the-registry-resource)
@@ -127,7 +127,7 @@ This situation can happen if the underlying layers are still being referenced by
 
 ### How do I validate storage quota changes?
 
-Create an image with a 1GB layer using the following docker file. This ensures that the image has has a layer that is not shared by any other image in the registry.
+Create an image with a 1GB layer using the following docker file. This ensures that the image has a layer that is not shared by any other image in the registry.
 
 ```dockerfile
 FROM alpine
@@ -156,7 +156,7 @@ az acr repository delete -n myregistry --image 1gb
 
 ### How to authenticate with my registry when running the CLI in a container?
 
-You need to run the CLI container by mounting the Docker socket:
+You need to run the Azure CLI container by mounting the Docker socket:
 
 ```bash
 docker run -it -v /var/run/docker.sock:/var/run/docker.sock azuresdk/azure-cli-python:dev
@@ -183,7 +183,7 @@ Yes. Enable TLS by using any recent docker client (version 18.03.0 and above).
 Yes, you can use trusted images in Azure Container Registry, since the [Docker Notary](https://docs.docker.com/notary/getting_started/) has been integrated and can be enabled. For details, see [Content Trust in Azure Container Registry](container-registry-content-trust.md).
 
 
-####  Where is the file for the thumbprint located ?
+####  Where is the file for the thumbprint located?
 
 Under `~/.docker/trust/tuf/myregistry.azurecr.io/myrepository/metadata`:
 
@@ -197,7 +197,7 @@ It is suggested to verify those public keys and certificates after the overall T
 ACR supports [custom roles](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-roles) that provide different levels of permissions. Specifically, `AcrPull` and `AcrPush` roles allow users to pull and/or push images without the permission to manage the registry resource in Azure.
 
 * Azure Portal: Your registry -> Access Control (IAM) -> Add (Select `AcrPull` or `AcrPush` for the Role).
-* Azure CLI: Find the resource id `id` of the registry by runnin the following command:
+* Azure CLI: Find the resource id `id` of the registry by running the following command:
 
   ```azurecli
   az acr show -n myRegistry
@@ -235,7 +235,7 @@ The assignee is then able to authenticate and access images in the registry.
   docker pull myregistry.azurecr.io/hello-world
   ```
 
-Note that with the use of only the `AcrPull` or `AcrPush` role, the assignee doesn't have the permission to manage the registry resource in Azure. For example, `az acr list` or `az acr show -n myRegistry` won't show the registry.
+With the use of only the `AcrPull` or `AcrPush` role, the assignee doesn't have the permission to manage the registry resource in Azure. For example, `az acr list` or `az acr show -n myRegistry` won't show the registry.
 
 ### How to enable automatic image quarantine for a registry
 
@@ -246,7 +246,7 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 
 - [docker pull fails with error: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [docker push succeeds but docker pull fails with error: unauthorized: authentication required](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
-- [Enable and get the debug logs of docker daemon](#enable-and-get-the-debug-logs-of-docker-daemon)	
+- [Enable and get the debug logs of the docker daemon](#enable-and-get-the-debug-logs-of-the-docker-daemon)	
 - [New user permissions may not be effective immediately after updating](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Authentication information is not given in the correct format on direct REST API calls](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 
@@ -284,7 +284,7 @@ To resolve the error:
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
   ```
-2. Restart the docker daemon service by running the folowing command:
+2. Restart the docker daemon service by running the following command:
 
   ```bash
   sudo systemctl restart docker.service
