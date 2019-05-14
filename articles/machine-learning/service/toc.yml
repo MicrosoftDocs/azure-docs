@@ -74,7 +74,7 @@
       href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
     - name: "Predict churn"
       displayName: Basic Sample, training, classification, sample 5
-      href:  ui-sample-regression-predict-churn.md
+      href:  ui-sample-classification-predict-churn.md
 - name: Concepts
   items:
   - name: How the service works
