@@ -229,7 +229,7 @@ In this section, you add a custom module to the IoT Edge device that you created
 
     ![Add custom module](./media/data-box-edge-deploy-configure-compute-advanced/add-module-10.png)
 
-### Verify data transform and transfer
+## Verify data transform, transfer
 
 The final step is to ensure that the module is connected and running as expected. The run-time status of the module should be running for your IoT Edge device in the IoT Hub resource.
 
