@@ -78,14 +78,18 @@ Software licensing fees are presented as a monthly, recurring site-based subscri
 |**Your license cost**|**$100 per month**|
 |:---|:---|
 |Azure usage cost (D1/1-Core)|Billed directly to the publisher, not the customer|
-|Customer is billed by Microsoft|$100.00 per month (Note: publisher must account for any incurred or pass-through infrastructure costs in the license fee)|
+|Customer is billed by Microsoft|$100.00 per month (Publisher must account for any incurred or pass-through infrastructure costs in the license fee)|
 
 - In this scenario, Microsoft bills $100.00 for your software license and pays out $80.00 to the publisher.
 - Partners who have qualified for the **Reduced Marketplace Service Fee** will see a reduced transaction fee on the SaaS offers from May 2019 until June 2020. In this scenario, Microsoft bills $100.00 for your software license and pays out $90.00 to the publisher.
 
+> [!NOTE]
+> **Reduced Marketplace Service Fee**: For certain SaaS offers that you have published on our Commercial Marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. In order for your offer to qualify, at least one of your offers must have been designated by Microsoft as being either IP co-sell ready or IP co-sell prioritized.  Eligibility must be met at least five (5) business days before the end of each calendar month in order to receive this reduced Marketplace Service Fee for the month.  The Reduced Marketplace Service Fee does not apply to VMs, Managed Apps or any other products made available through our Commercial Marketplace.  The Reduced Marketplace Service Fee will only be available to qualified offers for license charges collected by Microsoft between May 31, 2019 and June 30, 2020.  After this time, the Marketplace Service Fee will return to its normal amount. 
+
 |**Microsoft bills**|**$100 per month**|
 |:---|:---|
 |Microsoft pays you 80% of your license cost <br>**For qualified SaaS apps, Microsoft pays 90% of your license cost*|$80.00 per month <br>*$*90.00 per month*|
+
 
 #### CSP Program Opt-in
 The [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) program enables software offers to reach millions of qualified Microsoft customers with minimal marketing and sales investment.
@@ -129,7 +133,7 @@ By enabling test drive, you will be asked to configure a demonstration environme
 #### Additional test drive resources
 - [Test Drive Technical Best Practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Test Drive Marketing Best Practices](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [Test Drive Overview One Pager](./media/test-drive-one-pager.pdf)
+- [Test Drive Overview One Pager](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
 
 ## Connect lead management
 
@@ -149,7 +153,7 @@ Partner Center supports the following CRM systems for lead management. Select th
 #### Additional lead management resources
 - [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
 - [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Lead Management Overview One Pager](./media/lead-management-one-pager.pdf)
+- [Lead Management Overview One Pager](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
 Remember to **Save** before moving on to the next section!
 
