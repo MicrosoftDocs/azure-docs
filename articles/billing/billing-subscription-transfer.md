@@ -114,7 +114,7 @@ All your resources like VMs, disks, and websites transfer to the new owner. Howe
 
 ### <a id="no-button"></a> Why don't I see the "Transfer subscription" button?
 
-Unfortunately, self-serve subscription transfer isn't available for your offer or country. To transfer your subscription, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Unfortunately, self-serve subscription transfer isn't available for your offer or country/region. To transfer your subscription, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### Does a subscription transfer result in any service downtime?
 
@@ -151,9 +151,9 @@ The sender is responsible for payment for any usage that was reported up to the 
 
 The offer must remain the same. To change your offer, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md).
 
-### Can I transfer a subscription to a user account in another country?
+### Can I transfer a subscription to a user account in another country/region?
 
-No, transferring a subscription to a user account in another country is not supported. The recipient's user account must be in the same country.
+No, transferring a subscription to a user account in another country/region is not supported. The recipient's user account must be in the same country/region.
 
 ### Can the recipient use a different payment method?
 
