@@ -11066,6 +11066,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/hdinsight/hdinsight-connect-hive-zeppelin.md",
+      "redirect_url": "/azure/hdinsight/interactive-query/hdinsight-connect-hive-zeppelin",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/hdinsight/hdinsight-hadoop-create-windows-clusters-arm-templates.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-arm-templates",
       "redirect_document_id": false
