@@ -117,7 +117,7 @@ Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 a
    azcopy login
    ```
 
-   Follow the instructions the appear in the command prompt window to authenticate your user account.
+   Follow the instructions that appear in the command prompt window to authenticate your user account.
 
 2. To copy data from the *.csv* account, enter the following command.
 
