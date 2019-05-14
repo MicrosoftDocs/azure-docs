@@ -67,12 +67,12 @@ First, let's view the [HTML and JavaScript source code](https://github.com/Micro
 1. Expand the `<head>` and `<body>` elements and observe the following sections:
 
    * Under the `<head>` element, you'll find page metadata and dependencies that enable the app to run:
-     * A `<script>` element that's used to reference the Azure Active Directory Authentication Library (Azure AD Authentication Library) file *adal.min.js*. Azure AD Authentication Library is a JavaScript library that provides OAuth 2.0 authentication (sign-in) and token acquisition for accessing APIs.
+     * A `<script>` element that's used to reference the Azure Active Directory Authentication Library (ADAL) file *adal.min.js*. ADAL is a JavaScript library that provides OAuth 2.0 authentication (sign-in) and token acquisition for accessing APIs.
      * Multiple `<link>` elements for style sheets (also known as *CSS*) like *sampleStyles.css* and *tsiclient.css*. The style sheets control visual page styling details, such as colors, fonts, and spacing.
      * A `<script>` element that's used to reference the Time Series Insights JavaScript client library *tsiclient.js*. The page uses the library to call Time Series Insights service APIs and to render chart controls on the page.
 
      >[!NOTE]
-     > * The source code for the Azure AD Authentication Library JavaScript library is available in the [azure-activedirectory-library-for-js repository](https://github.com/AzureAD/azure-activedirectory-library-for-js).
+     > * The source code for the ADAL JavaScript library is available in the [azure-activedirectory-library-for-js repository](https://github.com/AzureAD/azure-activedirectory-library-for-js).
      > * The source code for the Time Series Insights JavaScript client library is available in the [tsiclient repository](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 
    * Under the `<body>` element, you'll find `<div>` elements, which help define the layout of items on the page, and another `<script>` element:
@@ -107,12 +107,12 @@ Through these simplifications, developers can more easily build UI graph and cha
 
 ### Authentication
 
-The [Time Series Insights sample application](https://insights.timeseries.azure.com/clientsample) is a single-page app that has Azure AD Authentication Library OAuth 2.0 user authentication support:
+The [Time Series Insights sample application](https://insights.timeseries.azure.com/clientsample) is a single-page app that has ADAL OAuth 2.0 user authentication support:
 
-1. When you use Azure AD Authentication Library for authentication, the client app must be registered in Azure Active Directory (Azure AD). In fact, the single-page app is registered to use the [OAuth 2.0 implicit grant flow](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-implicit-grant-flow).
+1. When you use ADAL for authentication, the client app must be registered in Azure Active Directory (Azure AD). In fact, the single-page app is registered to use the [OAuth 2.0 implicit grant flow](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-implicit-grant-flow).
 1. The application must specify some of the registration properties at runtime. The properties include the client GUID (`clientId`) and the redirect URI (`postLogoutRedirectUri`).
 1. Later, the app requests an *access token* from Azure AD. The access token is issued for a finite set of permissions for a specific service or API identifier (https:\//api.timeseries.azure.com). The token permissions are issued on behalf of the signed-in user. The identifier for the service or API is another property that's contained in the app's Azure AD registration.
-1. After Azure AD Authentication Library returns the access token to the app, it's passed as a *bearer token* when it accesses the Time Series Insights service APIs.
+1. After ADAL returns the access token to the app, it's passed as a *bearer token* when it accesses the Time Series Insights service APIs.
 
    [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=3-7,34-37)]
 
@@ -296,8 +296,8 @@ The code that's used to illustrate brushes is shown in the `Line Chart with Cont
 * Brush actions are similar to a context menu in that they define a series of custom actions for the brush. Each action contains an array that has one or more elements. Each element defines a single context menu item:
    * `name`: The text that's used for the menu item: "Print parameters to console."
    * `action`: The action that's associated with the menu item, which is always an anonymous function that takes two arguments. In this case, the arguments are written to the browser console window:
-      * `fromTime`: The `from` timestamp of the brush selection.
-      * `toTime`: The `to` timestamp of the brush selection.
+     * `fromTime`: The `from` timestamp of the brush selection.
+     * `toTime`: The `to` timestamp of the brush selection.
 
 * Brush actions are added as another chart option property. The `brushContextMenuActions: brushActions` property is passed to the `linechart.Render` call.
 
