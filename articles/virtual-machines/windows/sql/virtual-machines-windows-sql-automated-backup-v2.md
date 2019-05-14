@@ -131,15 +131,14 @@ In the **SQL Server settings** pane, select **Automated backup**. The following 
 
 ## Configure existing VMs
 
-For existing SQL Server virtual machines, select your SQL Server virtual machine. Then select the **SQL Server configuration** section of the VM **Settings**.
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-use-new-management-blade.md)]
+
+For existing SQL Server virtual machines, navigate to the [SQL VM management blade](virtual-machines-windows-sql-manage-portal.md#sql-vm-management-blade) and then select **Backups** to configure your automated backups.
 
 ![SQL Automated Backup for existing VMs](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration.png)
 
-In the **SQL Server configuration** settings, click the **Edit** button in the Automated backup section.
 
-![Configure SQL Automated Backup for existing VMs](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration-edit.png)
-
-When finished, click the **OK** button on the bottom of the **SQL Server configuration** settings to save your changes.
+When finished, click the **Apply** button on the bottom of the **Backups** settings page to save your changes.
 
 If you are enabling Automated Backup for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal might not show that Automated Backup is configured. Wait several minutes for the agent to be installed, configured. After that, the Azure portal will reflect the new settings.
 

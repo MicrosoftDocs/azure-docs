@@ -91,11 +91,11 @@ Server=mysqlvm;Integrated Security=true
 
 You can change the connectivity settings for your SQL Server virtual machine in the Azure portal.
 
-1. In the Azure portal, select **Virtual Machines**.
+1. In the Azure portal, select **SQL virtual machines**.
 
 2. Select your SQL Server VM.
 
-3. Under **Settings**, click **SQL Server configuration**.
+3. Under **Settings**, select **Security**.
 
 4. Change the **SQL connectivity level** to your required setting. You can optionally use this area to change the SQL Server port or the SQL Authentication settings.
 

@@ -18,6 +18,23 @@ ms.date: 2/13/2019
 
 Azure allows you to deploy a virtual machine with an image of SQL Server built in. This article summarizes the new features and improvements in the recent releases of [SQL Server on Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). The article also lists notable content updates that are not directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates)
 
+## May 2019
+
+### Service improvements
+
+| Service improvements | Details |
+| --- | --- |
+| **New SQL VM management in Azure portal** | There is now a new way to manage your SQL Server VM in the Azure Portal. For more information, see [Manage SQL Server VM in the Azure Portal](virtual-machines-windows-sql-manage-portal.md).  | 
+| &nbsp; | &nbsp; |
+
+### Documentation improvements
+
+| Documentation | Details |
+| --- | --- |
+| **New SQL VM portal** | About a dozen articles were updated to the new SQL VM portal experience. | 
+| &nbsp; | &nbsp; |
+
+
 ## March 2019
 
 ### Service improvements

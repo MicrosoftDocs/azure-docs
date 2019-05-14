@@ -71,7 +71,7 @@ You can use Azure CLI to change your licensing model.
 
 The following code snippet switches your pay-as-you-go license model to BYOL (or using Azure Hybrid Benefit):
 
-```azurecli
+```azurecli-interactive
 # Switch your SQL Server VM license from pay-as-you-go to bring-your-own
 # example: az sql vm update -n AHBTest -g AHBTest --license-type AHUB
 
@@ -80,18 +80,19 @@ az sql vm update -n <VMName> -g <ResourceGroupName> --license-type AHUB
 
 The following code snippet switches your bring-your-own-license model to pay-as-you-go: 
 
-```azurecli
+```azurecli-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
 # example: az sql vm update -n AHBTest -g AHBTest --license-type PAYG
 
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 ```
+
 ## With PowerShell
 You can use PowerShell to change your licensing model.
 
 The following code snippet switches your pay-as-you-go license model to BYOL (or using Azure Hybrid Benefit):
 
-```powershell
+```powershell-interactive
 # Switch your SQL Server VM license from pay-as-you-go to bring-your-own
 #example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
 $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
@@ -105,7 +106,7 @@ $SqlVm | Set-AzResource -Force
 
 The following code snippet switches your BYOL model to pay-as-you-go:
 
-```powershell
+```powershell-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
 #example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
 $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
@@ -140,7 +141,7 @@ The following steps will register the SQL resource provider to your Azure subscr
 #### With Azure CLI
 The following code snippet will register the SQL VM resource provider to your Azure subscription. 
 
-```azurecli
+```azurecli-interactive
 # Register the new SQL resource provider to your subscription 
 az provider register --namespace Microsoft.SqlVirtualMachine 
 ```
@@ -149,7 +150,7 @@ az provider register --namespace Microsoft.SqlVirtualMachine
 
 The following code snippet will register the SQL resource provider to your Azure subscription.
 
-```powershell
+```powershell-interactive
 # Register the new SQL resource provider to your subscription
 Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
@@ -160,14 +161,15 @@ Once the SQL VM resource provider has been registered to your subscription, you 
 #### With Azure CLI
 Register SQL Server VM using Azure CLI with the following code snippet: 
 
-```azurecli
+```azurecli-interactive
 # Register your existing SQL Server VM with the new resource provider
 az sql vm create -n <VMName> -g <ResourceGroupName> -l <VMLocation>
 ```
+
 #### With PowerShell
 Register SQL Server VM using PowerShell with the following code snippet:
 
-```powershell
+```powershell-interactive
 # Register your existing SQL Server VM with the new resource provider
 # example: $vm=Get-AzVm -ResourceGroupName AHBTest -Name AHBTest
 $vm=Get-AzVm -ResourceGroupName <ResourceGroupName> -Name <VMName>
@@ -206,7 +208,7 @@ $SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new()
 
 Use the following code to verify your Azure PowerShell version:
 
-```powershell
+```powershell-interactive
 Get-Module -ListAvailable -Name Azure -Refresh
 ```
 
