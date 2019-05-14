@@ -248,7 +248,7 @@ For example:
 1. If you don't already have a connection for your email provider, 
 sign in to your email account when you're asked for authentication.
 
-1. Rename the send email title to this title: `Send email when virtual machine updated`. 
+1. Rename the send email title to this title: `Send email when virtual machine updated`
 
 1. Provide details for the email as specified in the following table:
 
