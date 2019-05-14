@@ -34,7 +34,7 @@ Service Bus topics and subscriptions enable you to scale to process a large numb
 
 
 ## Next steps
-To learn how to send messages to a topic and reiceve those messages via a subscription, see the following article: select the programming language in the TOC. 
+To learn how to send messages to a topic and receive those messages via a subscription, see the following article: select the programming language in the TOC. 
 
 > [!div class="nextstepaction"]
 > [Publish and subscribe for messages](service-bus-dotnet-how-to-use-topics-subscriptions.md)

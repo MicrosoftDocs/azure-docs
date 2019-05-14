@@ -5,14 +5,16 @@
  author: jonbeck7
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 07/06/2018
+ ms.date: 05/13/2019
  ms.author: azcspmt;jonbeck;cynthn
  ms.custom: include file
 ---
 
 Memory optimized VM sizes offer a high memory-to-CPU ratio that are great for relational database servers, medium to large caches, and in-memory analytics. This article provides information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for each size in this grouping. 
 
-* The M-Series offers the highest vCPU count (up to 128 vCPUs) and largest memory (up to 3.8 TiB) of any VM in the cloud.  It’s ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory.
+* The Mv2-Series offers the highest vCPU count (up to 208 vCPUs) and largest memory (up to 5.7 TiB) of any VM in the cloud. It’s ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory.
+ 
+* The M-Series offers a high vCPU count (up to 128 vCPUs) and a large amount of memory (up to 3.8 TiB). It’s also ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory.
 
 * Dv2-series, G-series, and the DSv2/GS counterparts are ideal for applications that demand faster vCPUs, better temporary storage performance, or have higher memory demands. They offer a powerful combination for many enterprise-grade applications.
 
@@ -28,7 +30,7 @@ ACU: 160-190 <sup>1</sup>
 
 Premium Storage:  Supported
 
-Premium Storage Caching:  Supported
+Premium Storage caching:  Supported
 
 ESv3-series instances are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor and can achieve 3.5GHz with Intel Turbo Boost Technology 2.0 and use premium storage. Ev3-series instances are ideal for memory-intensive enterprise applications.
 
@@ -58,7 +60,7 @@ ACU: 160 - 190 <sup>1</sup>
 
 Premium Storage:  Not Supported
 
-Premium Storage Caching:  Not Supported
+Premium Storage caching:  Not Supported
 
 Ev3-series instances are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor and can achieve 3.5GHz with Intel Turbo Boost Technology 2.0. Ev3-series instances are ideal for memory-intensive enterprise applications.
 
@@ -83,13 +85,31 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 <sup>3</sup> Instance is isolated to hardware dedicated to a single customer.
 
 
+## Mv2-series
+
+Premium Storage: Supported
+
+Premium Storage caching: Supported
+
+Write Accelerator: [Supported](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+
+|Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
+|-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
+| Standard_M208ms_v22<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
+| Standard_M208s_v22<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
+
+Mv2-series VM’s feature Intel® Hyper-Threading Technology  
+
+<sup>1</sup> These large vCPU’s require one of these supported guest OSes: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15 and RHEL 7.6
+
+
 ## M-series 
 
 ACU: 160-180 <sup>1</sup>
 
 Premium Storage:  Supported
 
-Premium Storage Caching:  Supported
+Premium Storage caching:  Supported
 
 Write Accelerator:  [Supported](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
@@ -127,7 +147,7 @@ ACU: 180 - 240 <sup>1</sup>
 
 Premium Storage:  Supported
 
-Premium Storage Caching:  Supported
+Premium Storage caching:  Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -151,7 +171,7 @@ ACU: 180 - 240
 
 Premium Storage:  Not Supported
 
-Premium Storage Caching:  Not Supported
+Premium Storage caching:  Not Supported
 
 | Size         | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -170,7 +190,7 @@ ACU: 210 - 250 <sup>1</sup>
 
 Premium Storage:  Supported
 
-Premium Storage Caching:  Supported
+Premium Storage caching:  Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -193,7 +213,7 @@ ACU: 210 - 250
 
 Premium Storage:  Not Supported
 
-Premium Storage Caching:  Not Supported
+Premium Storage caching:  Not Supported
 
 | Size              | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

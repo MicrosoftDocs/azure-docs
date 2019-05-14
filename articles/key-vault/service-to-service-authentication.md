@@ -10,7 +10,6 @@ ms.author: mbaldwin
 ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
 
 ---
 

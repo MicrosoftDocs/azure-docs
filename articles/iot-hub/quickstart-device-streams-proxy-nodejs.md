@@ -38,7 +38,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
    * **Central US EUAP**
 
-To run the service-local application in this quickstart you need Node.js v4.x.x or later on your development machine.
+To run the service-local application in this quickstart you need Node.js v10.x.x or later on your development machine.
 
 * Download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
 

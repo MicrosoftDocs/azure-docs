@@ -1,20 +1,12 @@
 ---
-title: Pricing for virtual machine offers | Microsoft Docs
+title: Pricing for virtual machine offers | Azure Marketplace
 description: Explains the three methods of specifying the pricing of virtual machine offers.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 

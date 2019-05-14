@@ -1,7 +1,6 @@
 ---
 title: Azure HDInsight architecture with Enterprise Security Package
 description: Learn how to plan HDInsight security with Enterprise Security Package.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -61,7 +60,7 @@ If federation is being used and password hashes are synced correctly, but you ar
 1. Install the Azure AD PowerShell module.
 
    ```
-   Install-Module AzureAD
+   Install-Module AzureADPreview
    ```
 
 2. Enter `Connect-AzureAD` by using global administrator (tenant administrator) credentials.

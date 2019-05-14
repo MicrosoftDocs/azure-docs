@@ -294,7 +294,7 @@ As an example, you can apply these guidelines to SQL Server running on Premium S
 1. Configure "None" cache on premium storage disks hosting the log files.  
    a.  Log files have primarily write-heavy operations. Therefore, they do not benefit from the ReadOnly cache.
 
-### Optimize performance on Linux VMs
+## Optimize performance on Linux VMs
 
 For all premium SSDs or ultra disks with cache set to **ReadOnly** or **None**, you must disable "barriers" when you mount the file system. You don't need barriers in this scenario because the writes to premium storage disks are durable for these cache settings. When the write request successfully finishes, data has been written to the persistent store. To disable "barriers," use one of the following methods. Choose the one for your file system:
   
@@ -323,7 +323,7 @@ Some of the versions require the latest Linux Integration Services (LIS), v4.0, 
 | Oracle | 7.0-7.1 | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 | Oracle | 6.4-6.7 | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
-## LIS drivers for OpenLogic CentOS
+### LIS drivers for OpenLogic CentOS
 
 If you're running OpenLogic CentOS VMs, run the following command to install the latest drivers:
 
