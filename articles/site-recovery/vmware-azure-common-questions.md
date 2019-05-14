@@ -22,7 +22,6 @@ This article provides answers to common questions when you're deploying disaster
 
 Yes, in addition to using Site Recovery to set up full disaster recovery for VMware VMs, you can also use Site Recovery to migrate on-premises VMware VMs to Azure. In this scenario you replicate on-premises VMware VMs to Azure storage. Then, you fail over from on-premises to Azure. After failover, your apps and workloads are available and running on Azure VMs. The process is similar to setting up full disaster recovery, except that in a migration you can't fail back from Azure.
 
-
 ### Does my Azure account need permissions to create VMs?
 If you're a subscription administrator, you have the replication permissions you need. If you're not, you need permissions to create an Azure VM in the resource group and virtual network you specify when you configure Site Recovery, and permissions to write to the selected storage account or managed disk based on your configuration. [Learn more](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
@@ -267,7 +266,7 @@ Yes, you can change the type or size of the VM anytime before failover on the Co
 For VMware to Azure the oldest recovery point you can use is 72 hours.
 
 ### How do I access Azure VMs after failover?
-After failover, you can access Azure VMs over a secure Internet connection, over a site-to-site VPN, or over Azure ExpressRoute. You'll need to prepare a number of things in order to connect. [Learn more](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+After failover, you can access Azure VMs over a secure Internet connection, over a site-to-site VPN, or over Azure ExpressRoute with Private Peering. You'll need to prepare a number of things in order to connect. [Learn more](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 ### Is failed over data resilient?
 
