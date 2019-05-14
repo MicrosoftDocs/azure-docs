@@ -3917,7 +3917,7 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-comparison.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-comparison",
+      "redirect_url": "/azure/active-directory-domain-services/comparison",
       "redirect_document_id": false
     },
     {
@@ -38935,7 +38935,7 @@
     },
     {
       "source_path" : "articles/active-directory-domain-services/active-directory-ds-check-health.md",
-      "redirect_url" : "/azure/active-directory-domain-services/check-health.md",
+      "redirect_url" : "/azure/active-directory-domain-services/check-health",
       "redirect_document_id": true
     },
     {

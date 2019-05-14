@@ -3,7 +3,7 @@ title: 'Compare Azure AD Join and Azure Active Directory Domain Services | Micro
 description: Deciding between Azure AD Join and Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/26/2017
-ms.author: ergreenl
+ms.date: 05/14/2019
+ms.author: mstephen
 ---
 
 # Choose between Azure Active Directory join and Azure Active Directory Domain Services
@@ -65,7 +65,7 @@ On a domain-joined machine, user authentication happens using NTLM or Kerberos a
 * [Overview of Azure AD Domain Services](active-directory-ds-overview.md)
 * [Features](active-directory-ds-features.md)
 * [Deployment scenarios](active-directory-ds-scenarios.md)
-* [Find out if Azure AD Domain Services suits your use-cases](active-directory-ds-comparison.md)
+* [Find out if Azure AD Domain Services suits your use-cases](comparison.md)
 * [Understand how Azure AD Domain Services synchronizes with your Azure AD directory](active-directory-ds-synchronization.md)
 
 ### Learn more about Azure AD Join
