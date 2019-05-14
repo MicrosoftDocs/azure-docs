@@ -3,7 +3,7 @@ title: Protecting Azure SQL service and data in Azure Security Center  | Microso
 description: This document addresses recommendations in Azure Security Center that help you protect your data and Azure SQL service and stay in compliance with security policies.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
+ms.date: 3/13/2019
+ms.author: monhaber
 
 ---
 # Protecting Azure SQL service and data in Azure Security Center
@@ -56,8 +56,8 @@ To enable auditing, select **ON** under the **Auditing** option.
 |SQL|15|Enable auditing on SQL databases|Enable auditing for Azure SQL databases. (Azure SQL service only. Doesn't include SQL running on your virtual machines.)|
 |Data lake analytics|15|Enable encryption at rest of the Data Lake Analytics|Enable transparent data encryption to secure data at rest in your Data Lake Analytics. Encryption at rest is transparent, meaning that the Data Lake Analytics automatically encrypts data prior to persisting, and decrypts data prior to retrieval. There are no changes required in the in applications and services that interact with Data Lake Analytics because of encryption. Encryption at rest minimizes the risk of data loss from physical theft and also helps meet regulatory compliance requirements.|
 |Data lake store|15|Enable encryption at rest for the Data Lake Store|Enable transparent data encryption to secure data at rest in your Data Lake Store. Encryption at rest is transparent, meaning that the Data Lake Store automatically encrypts data prior to persisting, and decrypts data prior to retrieval. You don't have to make any changes in the applications and services that interact with Data Lake Store to accommodate encryption. Encryption at rest minimizes the risk of data loss from physical theft and also helps meet regulatory compliance requirements.|
-|Data lake analytics|5|Enable diagnostics logs in Data Lake Analytics|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
-|Data lake store|5|Enable diagnostics logs in Azure Data Lake Store|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
+|Data lake analytics|5|Diagnostics logs in Data Lake Analytics should be enabled|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
+|Data lake store|5|Diagnostics logs in Azure Data Lake Store should be enabled|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
 |SQL|30|Remediate vulnerabilities on your SQL databases|SQL Vulnerability Assessment scans your database for security vulnerabilities and exposes any deviations from best practices such as misconfigurations, excessive permissions and unprotected sensitive data. Resolving the vulnerabilities found can greatly improve your database security stature.|
 |SQL|20|Provision an Azure AD administrator for SQL server|Provision an Azure AD administrator for your SQL server to enable Azure AD authentication. Azure AD authentication enables simplified permission management and centralized identity management of database users and other Microsoft services.|
 |Storage account|15|Disable unrestricted network access to storage account|Audit unrestricted network access in your storage account firewall settings. Instead, configure network rules so only applications from allowed networks can access the storage account. To allow connections from specific Internet or on-premises clients, you can grant access to traffic from specific Azure virtual networks or to public Internet IP address ranges.|

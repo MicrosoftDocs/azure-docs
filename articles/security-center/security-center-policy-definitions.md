@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
+ms.date: 5/12/2019
 ms.author: rkarlin
 
 ---
@@ -27,7 +27,7 @@ To learn about the built-in policies that are monitored by Security Center, see 
 | Policy | What the policy does |
 | --- | --- |
 |Audit enabling of diagnostics logs in Azure Service Fabric and virtual machine scale sets|We recommend that you enable logs so that an activity trail is available for investigation after an incident or compromise.|
-|Audit authorization rules on Event Hubs namespaces|Azure Event Hubs clients shouldn't use a namespace-level access policy that provides access to all queues and topics in a namespace. To align with the least-privilege security model, you should create access policies at the entity level for queues and topics to provide access to only the specific entity.|
+|All authorization rules except RootManageSharedAccessKey should be removed from Event Hub namespace|Azure Event Hubs clients shouldn't use a namespace-level access policy that provides access to all queues and topics in a namespace. To align with the least-privilege security model, you should create access policies at the entity level for queues and topics to provide access to only the specific entity.|
 |Audit existence of authorization rules on Event Hubs entities|Audit the existence of authorization rules on Event Hubs entities to grant least-privilege access.|
 |Audit unrestricted network access to storage accounts|Audit unrestricted network access in your storage account firewall settings. Configure network rules so that only applications from allowed networks can access the storage account. To allow connections from specific internet or on-premises clients, grant access to traffic from specific Azure virtual networks or to public internet IP address ranges.|
 |Audit usage of custom RBAC rules|Audit built-in roles, such as "Owner, Contributor, Reader" instead of custom role-based access control (RBAC) roles, which are error prone. Use of custom roles is treated as an exception and requires rigorous review and threat modeling.|
@@ -38,19 +38,19 @@ To learn about the built-in policies that are monitored by Security Center, see 
 |Audit enabling of diagnostic logs in Service Bus|Audit enabling of logs and keep them up for to a year. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
 |Audit the setting of ClusterProtectionLevel property to EncryptAndSign in Service Fabric|Service Fabric provides three levels of protection for node-to-node communication that uses a primary cluster certificate: None, Sign, and EncryptAndSign. Set the protection level to ensure that all node-to-node messages are encrypted and digitally signed.|
 |Audit usage of Azure Active Directory for client authentication in Service Fabric|Audit use of client authentication only via Azure AD in Service Fabric.|
-|Audit enabling of diagnostic logs for Search service|Audit enabling of logs and keep them for up to a year. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
+|Diagnostics logs in Search services should be enabled|Audit enabling of logs and keep them for up to a year. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
 |Audit enabling of only secure connections to Azure Cache for Redis|Audit enabling only of connections via SSL to Azure Cache for Redis. Use of secure connections ensures authentication between the server and the service. It also protects data in transit from network layer attacks, such as man-in-the-middle, eavesdropping, and session-hijacking.|
 |Audit enabling of diagnostic logs in Logic Apps|Audit enabling of logs and keep them for up to a year. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
 |Audit enabling of diagnostic logs in Key Vault|Audit enabling of logs and keep them for up to a year. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
-|Audit enabling of diagnostic logs in Event Hubs|Audit enabling of logs and keep them for up to a year. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
-|Audit enabling of diagnostic logs in Azure Data Lake Store|Audit enabling of logs and keep them up to a year. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
-|Audit enabling of diagnostic logs in Data Lake Analytics|Audit enabling of logs and  keep them for up to a year. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
+|Diagnostics logs in Event Hub should be enabled|Audit enabling of logs and keep them for up to a year. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
+|Diagnostics logs in Azure Data Lake Store should be enabled|Audit enabling of logs and keep them up to a year. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
+|Diagnostics logs in Data Lake Analytics should be enabled|Audit enabling of logs and  keep them for up to a year. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
 |Audit use of classic storage accounts|Use Azure Resource Manager for your storage accounts to provide security enhancements. These include: <br>- Stronger access control (RBAC)<br>- Better auditing<br>- Azure Resource Manager-based deployment and governance<br>- Access to managed identities<br>- Access to Azure Key Vault for secrets<br>- Azure AD-based authentication<br>- Support for tags and resource groups for easier security management|
 |Audit use of classic virtual machines|Use Azure Resource Manager for your virtual machines to provide security enhancements.  These include: <br>- Stronger access control (RBAC)<br>- Better auditing<br>- Azure Resource Manager-based deployment and governance<br>- Access to managed identities<br>- Access to Azure Key Vault for secrets<br>- Azure AD-based authentication<br>- Support for tags and resource groups for easier security management|
-|Audit configuration of metric alert rules on Batch accounts|Audit configuration of metric alert rules on Azure Batch accounts to enable the required metric.|
+|Metric alert rules should be configured on Batch accounts|Audit configuration of metric alert rules on Azure Batch accounts to enable the required metric.|
 |Audit enabling of diagnostic logs in Batch accounts|Audit enabling of logs and keep them for up to a year. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
-|Audit enabling of encryption of Automation account variables|It's important to enable encryption of Azure Automation account variable assets when you store sensitive data.|
-|Audit enabling of diagnostic logs in App Service|Audit enabling of diagnostic logs on the app. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
+|Encryption should be enabled on Automation account variables|It's important to enable encryption of Azure Automation account variable assets when you store sensitive data.|
+|Diagnostics logs in App Services should be enabled|Audit enabling of diagnostic logs on the app. This creates activity trails for investigation when a security incident occurs or your network is compromised.|
 |Audit transparent data encryption status|Audit transparent data encryption status for SQL databases.|
 |Audit SQL Server-level Auditing settings|Audit the existence of SQL auditing at the server level.|
 |\[Preview]: Monitor unencrypted SQL database in Azure Security Center|Azure Security Center monitors unencrypted SQL servers or databases as recommended.|
