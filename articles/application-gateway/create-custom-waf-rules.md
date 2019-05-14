@@ -19,11 +19,11 @@ The Azure Application Gateway web application firewall (WAF) provides protection
 
 ## Example 1
 
-You know there's a bot named *evilbot* that you want to block from crawling your website. In this case, you’ll block on the User-Agent “evilbot” in the request headers.
+You know there's a bot named *evilbot* that you want to block from crawling your website. In this case, you’ll block on the User-Agent *evilbot* in the request headers.
 
 Here's the Azure PowerShell to do that:
 
-```azure-powershell
+```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
    -VariableName RequestHeaders `
    -Selector User-Agent
@@ -72,7 +72,7 @@ Object:
 
 You can accomplish the same thing using a regular expression:
 
-```azure-powershell
+```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
    -VariableName RequestHeaders `
    -Selector User-Agent
@@ -123,7 +123,7 @@ For this example, you want to block if the request is either outside of the IP a
 
 Here's the logic you’ll use: **not (p and q) = not p or not q**.
 
-```azure-powershell
+```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
    -VariableName RemoteAddr
 
