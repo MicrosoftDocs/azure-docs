@@ -238,16 +238,11 @@ Take the following steps to verify data transform and transfer to Azure.
 
     ![Verify data transform](./media/data-box-edge-deploy-configure-compute-advanced/verify-data-4.png)  
 
-    The data is then pushed from the cloud share to the storage account. To view the data, go to the Storage Explorer. You can view the uploaded data in your storage account.
+    The data is then pushed from the cloud share to the storage account. To view the data, go to your storage account and then select **Storage Explorer**. You can view the uploaded data in your storage account.
 
     ![Verify data transform](./media/data-box-edge-deploy-configure-compute-advanced/verify-data-5.png)
  
 You have completed the validation process.
-
-## Enable network interface for compute
-
-## Deploy a web server module
-
 
 ## Next steps
 
