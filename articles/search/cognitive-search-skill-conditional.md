@@ -16,7 +16,7 @@ ms.author: luisca
 
 #	Conditional skill
 
-The *conditional skill* enables Azure Search scenarios that require a Boolean operation to determine the data to assign to an output. These scenarios include: filtering, assigning a default value, and merging data based on a condition.
+The *conditional skill* enables Azure Search scenarios that require a Boolean operation to determine the data to assign to an output. These scenarios include filtering, assigning a default value, and merging data based on a condition.
 
 The following pseudocode demonstrates what the conditional skill accomplishes:
 
@@ -79,7 +79,7 @@ The following items are valid values of an expression:
         "= $(/document/lengthInMeters) / 0.3049" // division
     ```
 
-Because the conditional skill supports evaluation, you can use it in minor-transformation scenarios. See example, see [skill definition 4](#transformation-example).
+Because the conditional skill supports evaluation, you can use it in minor-transformation scenarios. For example, see [skill definition 4](#transformation-example).
 
 ## Skill inputs
 Inputs are case-sensitive.
@@ -91,7 +91,7 @@ Inputs are case-sensitive.
 | whenFalse   | This input is an [evaluated field](#evaluated-fields) that represents the value to return if the condition is evaluated to *false*. <br/>Sample values: <br/> "= 'contract'"<br/>"= $(/document/contractType)" <br/> "= $(/document/entities/\*)" <br/>
 
 ## Skill outputs
-There's a single output that's called "output." It returns the value *whenFalse* if the condition is false or *whenTrue* if the condition is true.
+There's a single output that's simply called "output." It returns the value *whenFalse* if the condition is false or *whenTrue* if the condition is true.
 
 ## Examples
 
