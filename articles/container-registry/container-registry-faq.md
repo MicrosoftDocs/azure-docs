@@ -13,7 +13,7 @@ ms.author: sajaya
 
 # Frequently asked questions about Azure Container Registry
 
-## Resource Management
+## Resource management
 
 - [Can I create an Azure container registry using a Resource Manager template?](#can-i-create-an-azure-container-registry-using-a-resource-manager-template)
 - [Is there security vulnerability scanning for images in ACR?](#is-there-security-vulnerability-scanning-for-images-in-acr)
@@ -24,7 +24,7 @@ ms.author: sajaya
 
 ### Can I create an Azure Container Registry using a Resource Manager template?
 
-Yes. Here is [a template](ttps://github.com/Azure/azure-cli/blob/master/src/command_modules/azure-cli-acr/azure/cli/command_modules/acr/template.json) that you can use to create a registry.
+Yes. Here is [a template](https://github.com/Azure/azure-cli/blob/master/src/command_modules/azure-cli-acr/azure/cli/command_modules/acr/template.json) that you can use to create a registry.
 
 ### Is there security vulnerability scanning for images in ACR?
 
@@ -86,7 +86,7 @@ The error is seen when the user has permissions on a registry but doesn't have R
 az role assignment create --role "Reader" --assignee user@contoso.com --scope /subscriptions/<subscription_id> 
 ```
 
-## Registry Operations
+## Registry operations
 
 - [How to access Docker Registry HTTP API V2?](#how-to-access-docker-registry-http-api-v2)
 - [How to delete all manifests that are not referenced by any tag in a repository?](#how-to-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository)
