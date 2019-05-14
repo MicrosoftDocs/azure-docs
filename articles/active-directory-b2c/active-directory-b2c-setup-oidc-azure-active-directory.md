@@ -41,7 +41,7 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 8. Click **Register**. Copy the **Application (client) ID** to be used later.
 9. Select **Certificates & secrets** in the application menu, and then select **New client secret**.
 10. Enter a name for the client secret. For example, `Azure AD B2C App Secret`.
-11. Select the expriation period. For this application, accept the selection of **In 1 year**.
+11. Select the expiration period. For this application, accept the selection of **In 1 year**.
 12. Select **Add** and copy the value of the new client secret that is displayed to be used later.
 
 ## Configure Azure AD as an identity provider
@@ -58,7 +58,7 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
     ```
 
-8. For **Client id**, enter the application ID that you previously recorded and for **Client secret**, enter the client secret that you previously recorded.
+8. For **Client Id**, enter the application ID that you previously recorded and for **Client secret**, enter the client secret that you previously recorded.
 9. Optionally, enter a value for **Domain_hint**. For example, `ContosoAD`. This is the value to use when referring to this identity provider using *domain_hint* in the request. 
 10. Click **OK**.
 11. Select **Map this identity provider's claims** and set the following claims:
