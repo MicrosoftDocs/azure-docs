@@ -4,6 +4,7 @@
   items:
   - name: About Apache Spark on HDInsight
     href: apache-spark-overview.md
+    maintainContext: true
   - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
@@ -252,7 +253,7 @@
         - name: Use cURL and the Azure REST API
           href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
           maintainContext: true      
-        - name: Use the Azure Classic CLI
+        - name: Use the Azure CLI
           href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
           maintainContext: true
         - name: Create on-demand clusters
