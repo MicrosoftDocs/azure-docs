@@ -122,7 +122,7 @@
     - name: Service updates
       href: https://azure.microsoft.com/updates/?product=active-directory-ds
     - name: Compatible third-party software
-      href: active-directory-ds-compatible-software.md
+      href: compatible-software.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/active-directory-ds/
     - name: Azure AD feedback forum
