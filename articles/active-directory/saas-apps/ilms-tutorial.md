@@ -173,7 +173,7 @@ To configure Azure AD single sign-on with iLMS, perform the following steps:
 
 4. Under **Identity Provider** section, click **Import Metadata**.
 
-5. Select the **Federation Metadata** file downloaded from Azure Portal from **SAML Signing Certificate** section.
+5. Select the **Federation Metadata** file downloaded from Azure portal from **SAML Signing Certificate** section.
 
     ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
 
