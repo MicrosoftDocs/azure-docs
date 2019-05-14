@@ -73,6 +73,8 @@
       href: waf-overview.md
     - name: WAF configuration
       href: application-gateway-waf-configuration.md
+    - name: Custom rules
+      href: custom-waf-rules-overview.md
   - name: Health monitoring
     items: 
     - name: Health probe

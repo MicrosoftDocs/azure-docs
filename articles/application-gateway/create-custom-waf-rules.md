@@ -2,6 +2,7 @@
 title: Create and use Azure custom web application firewall (WAF) rules
 description: This article provides information on how to create web application firewall (WAF) custom rules in Azure Application Gateway.
 services: application-gateway
+ms.topic: article
 author: vhorne
 ms.service: application-gateway
 ms.date: 5/15/2019
@@ -10,7 +11,10 @@ ms.author: victorh
 
 # Create and use custom web application firewall rules
 
-The Azure Application Gateway web application firewall (WAF) provides protection for web applications. This protection is provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). In some cases, you may need to create your own custom rules to meet your specific needs. This article shows you some example custom rules that you can create and use with your WAF.
+The Azure Application Gateway web application firewall (WAF) provides protection for web applications. This protection is provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). In some cases, you may need to create your own custom rules to meet your specific needs. For more information about WAF custom rules, see [Custom web application firewall rules overview](custom-waf-rules-overview.md).
+
+
+This article shows you some example custom rules that you can create and use with your WAF.
 
 >[!NOTE]
 > If your application gateway is not using the WAF tier, the option to upgrade the application gateway to the WAF tier appears in the right pane.
@@ -19,9 +23,63 @@ The Azure Application Gateway web application firewall (WAF) provides protection
 
 ## Example 1
 
+You want to block all requests from IP addresses in the range 198.168.5.4/24.
+
+In this example, you'll block all traffic that comes from an IP addresses range. The name of the rule is *myrule1* and the priority is set to *100*.
+
+Logic: **p**
+
+```azurepowershell
+$variable1 = New-AzApplicationGatewayFirewallMatchVariable `
+   -VariableName RemoteAddr
+
+$condition1 = New-AzApplicationGatewayFirewallCondition `
+   -MatchVariable $variable1 `
+   -Operator Contains `
+   -MatchValue "192.168.5.4/24” `
+   -NegationCondition $False
+
+$rule = New-AzApplicationGatewayFirewallCustomRule `
+   -Name myrule1 `
+   -Priority 100 `
+   -RuleType MatchRule `
+   -MatchCondition $condition1 `
+   -Action Block
+```
+
+Here's the corresponding JSON:
+
+```json
+JSON Object:
+  {
+    "customRules": [
+      {
+        "name": "myrule1",
+        "ruleType": "MatchRule",
+        "priority": 100,
+        "action": "Block",
+        "matchConditions": [
+          {
+            "matchVariable": "RemoteAddr",
+            "operator": "IPMatch",
+            "matchValues": [
+              "192.168.5.4/24"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+```
+
+Corresponding CRS rule:
+  `SecRule REMOTE_ADDR "@ipMatch 192.168.5.4/24" "id:7001,deny"`
+
+## Example 2
+
 You know there's a bot named *evilbot* that you want to block from crawling your website. In this case, you’ll block on the User-Agent *evilbot* in the request headers.
 
-Here's the Azure PowerShell to do that:
+Logic: **p**
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -46,7 +104,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
 And here is the corresponding JSON:
 
 ```json
-Object:
+JSON Object:
   {
     "customRules": [
       {
@@ -68,7 +126,7 @@ Object:
   }
 ```
 
-### Example 1a
+### Example 2a
 
 You can accomplish the same thing using a regular expression:
 
@@ -117,11 +175,11 @@ Object:
   }
 ```
 
-## Example 2
+## Example 3
 
 For this example, you want to block if the request is either outside of the IP address range *192.168.5.4/24*, or the user agent string isn't *chrome* (meaning the user isn’t using the Chrome browser). Since this logic uses *or*, the two conditions are in separate rules.
 
-Here's the logic you’ll use: **not (p and q) = not p or not q**.
+Logic: **not (p and q) = not p or not q**.
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -195,6 +253,170 @@ And the corresponding JSON:
     ]
   }
 ```
+
+## Example 4
+
+You want to block custom SQLI.
+
+Logic: **p or q or r**
+
+```azurepowershell
+$variable1 = New-AzApplicationGatewayFirewallMatchVariable `
+   -VariableName RequestU*ri 
+$condition1 = New-AzApplicationGatewayFirewallCondition `
+   -MatchVariable $variable1 `
+   -Operator Contains `
+   -MatchValue "1=1”, “drop tables”, “’—" `
+   -NegationCondition $False
+
+$rule1 = New-AzApplicationGatewayFirewallCustomRule `
+   -Name myrule4 `
+   -Priority 100 `
+   -RuleType MatchRule `
+   -MatchCondition $condition1 `
+   -Action Block
+```
+
+Corresponding JSON:
+
+```json
+Object:
+  {
+    "customRules": [
+      {
+        "name": "myrule4",
+        "ruleType": "MatchRule",
+        “priority”: 100
+        "action": "block",
+        "matchConditions": [
+          {
+            "matchVariable": "RequestUri",
+            "operator": "Contains",
+            "matchValues": [
+              "1=1",
+              "drop tables",
+              "'--"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+```
+
+Alternative Azure PowerShell:
+
+```azurepowershell
+$variable1 = New-AzApplicationGatewayFirewallMatchVariable `
+   -VariableName RequestUri 
+$condition1 = New-AzApplicationGatewayFirewallCondition `
+   -MatchVariable $variable1 `
+   -Operator Contains `
+   -MatchValue "1=1” `
+   -NegationCondition $False
+
+$rule1 = New-AzApplicationGatewayFirewallCustomRule `
+   -Name myrule1 `
+   -Priority 100 `
+   -RuleType MatchRule `
+   -MatchCondition $condition1 `
+-Action Block
+
+$variable2 = New-AzApplicationGatewayFirewallMatchVariable `
+   -VariableName RequestUri
+
+$condition2 = New-AzApplicationGatewayFirewallCondition `
+   -MatchVariable $variable2 `
+   -Operator Contains `
+   -MatchValue “drop tables” `
+   -NegationCondition $False
+
+$rule2 = New-AzApplicationGatewayFirewallCustomRule `
+   -Name myrule2 `
+   -Priority 100 `
+   -RuleType MatchRule `
+   -MatchCondition $condition2 `
+   -Action Block
+
+$variable3 = New-AzApplicationGatewayFirewallMatchVariable `
+   -VariableName RequestUri
+
+$condition3 = New-AzApplicationGatewayFirewallCondition `
+   -MatchVariable $variable3 `
+   -Operator Contains `
+   -MatchValue “’—" `
+   -NegationCondition $False
+
+$rule3 = New-AzApplicationGatewayFirewallCustomRule `
+   -Name myrule3 `
+   -Priority 100 `
+   -RuleType MatchRule `
+   -MatchCondition $condition3 `
+   -Action Block
+```
+
+Corresponding JSON:
+
+```json
+Alternative object:
+  {
+    "customRules": [
+      {
+        "name": "myrule4",
+        "ruleType": "MatchRule",
+        "action": "block",
+        "matchConditions": [
+          {
+            "matchVariable": "RequestUri",
+            "operator": "Contains",
+            "matchValues": [
+              "1=1"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "myrule5",
+        "ruleType": "MatchRule",
+        "action": "block",
+        "matchConditions": [
+          {
+            "matchVariable": "RequestUri",
+            "operator": "Contains",
+            "transforms": [
+              "Lowercase"
+            ],
+            "matchValues": [
+              "drop tables"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "myrule6",
+        "ruleType": "MatchRule",
+        "action": "block",
+        "matchConditions": [
+          {
+            "matchVariable": "RequestUri",
+            "operator": "Contains",
+            "matchValues": [
+              "'--"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+```
+
+Corresponding ModSecurity rule:
+
+`SecRule REQUEST_URI "@contains 1-1" "id:7001,deny"`
+
+`SecRule REQUEST_URI "@contains --" "id:7001,deny"`
+
+`SecRule REQUEST_URI "@contains drop tables" "id:7001,deny"`
 
 ## Next steps
 
