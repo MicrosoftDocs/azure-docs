@@ -13,9 +13,9 @@ manager: carmonm
 
 # How to update Azure PowerShell modules in Azure Automation
 
-To update the Azure modules in your Automation Account you need to use the [Update Azure modules runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), which is now open source. To start using the **Update-AutomationAzureModulesForAccount** runbook to update your Azure modules, download it from the [Update Azure modules runbook repository](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) on GitHub. You can then import it into your Automation Account or run it as a script. The instructions on how to do this can be found in the [Update Azure modules runbook repository](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update).
+To update the Azure modules in your Automation Account you need to use the [Update Azure modules runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), which is available as open source. To start using the **Update-AutomationAzureModulesForAccount** runbook to update your Azure modules, download it from the [Update Azure modules runbook repository](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) on GitHub. You can then import it into your Automation Account or run it as a script. The instructions on how to do this can be found in the [Update Azure modules runbook repository](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update).
 
-The most common Azure PowerShell modules are provided by default in each Automation account. The Azure team updates the Azure modules regularly. In your Automation account, you're provided a way to update the modules in the account when new versions are available from the portal.
+The most common AzureRM PowerShell modules are provided by default in each Automation account. The Azure team updates the Azure modules regularly, therefore to keep up to date you will want to use the [Update-AutomationAzureModulesForAccount](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) runbook to update the modules in your Automation accounts.
 
 Because modules are updated regularly by the product group, changes can occur with the included cmdlets. This action may negatively impact your runbooks depending on the type of change, such as renaming a parameter or deprecating a cmdlet entirely.
 
@@ -30,7 +30,7 @@ If you develop your scripts locally, it's recommended to have the same module ve
 
 The following are some considerations to take into account when using this process to update your Azure Modules:
 
-* This runbook supports updating only the **Azure** and **AzureRm** modules currently. [Azure PowerShell Az modules](/powershell/azure/new-azureps-module-az) are supported in Automation accounts, but cannot be updated with this runbook.
+* This runbook supports updating only the **Azure** and **AzureRm** modules currently. [Azure PowerShell Az modules](/powershell/azure/new-azureps-module-az) are supported in Automation accounts, but cannot be updated with this runbook. There are important factors that you need to take into account when using the `Az` modules in your Automation Account, to learn more, see [Using Az modules in your Automation Account](az-modules.md).
 
 * Avoid starting this runbook on Automation accounts that contain Az modules.
 
