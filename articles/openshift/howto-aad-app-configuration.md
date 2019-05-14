@@ -36,27 +36,28 @@ Create a new Azure Active Directory global administrator user to sign in to your
 
 ## Create an Azure AD security group
 
-Before you can create a cluster, you need an Azure AD security group. This group references the users that will have the customer-admin role on the cluster.
+To grant cluster admin access, the memberships in an Azure AD security group are synced into the OpenShift group "osa-customer-admins". If not specified, no cluster admin access will be granted.
 
-1. Open the [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) blade.
-2. In the **Manage** section, click **Groups** to open the **Groups-All groups** page.
-3. Click **+New Group**
-4. Provide a group name and description.
-5. Set **Group type** to **Security**.
-6. Set **Membership type** to **Assigned**.
+1. Open the [Azure Active Directory groups](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups) blade.
+2. Click **+New Group**
+3. Provide a group name and description.
+4. Set **Group type** to **Security**.
+5. Set **Membership type** to **Assigned**.
 
-Add the Azure AD user that you created in the earlier step to this security group.
+    Add the Azure AD user that you created in the earlier step to this security group.
 
-7. Click **Members** to open the **Select members** pane.
-8. In the members list, select the Azure AD user that you created above.
-9. At the bottom of the portal, click on **Select** and then **Create** to create the security group.
+6. Click **Members** to open the **Select members** pane.
+7. In the members list, select the Azure AD user that you created above.
+8. At the bottom of the portal, click on **Select** and then **Create** to create the security group.
 
-Save the Group ID value
+    Write down the Group ID value
 
-10. When the group is created, you will see it in the list of all groups. Click on the new group.
-11. On the page that appears, copy down the **Object ID**. We will refer to this value as `GROUPID` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
+9. When the group is created, you will see it in the list of all groups. Click on the new group.
+10. On the page that appears, copy down the **Object ID**. We will refer to this value as `GROUPID` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
 
 ## Create an Azure AD app registration
+
+You can automatically create an Azure Active Directory (Azure AD) app registration client as part of creating the cluster by omitting the `--aad-client-app-id` flag to the `az openshoft create` command. This tutorial shows you how to create the Azure AD app registration for completeness.
 
 If your organization doesn't already have an Azure Active Directory (Azure AD) app registration to use as a service principal, follow these instructions to create one.
 
@@ -64,7 +65,7 @@ If your organization doesn't already have an Azure Active Directory (Azure AD) a
 2. In the **Register an application** pane, enter a name for your application registration.
 3. Ensure that under **Supported account types** that **Accounts in this organizational directory only** is selected. This is the most secure choice.
 4. We will add a redirect URI later once we know the URI of the cluster. Click the **Register** button to create the Azure AD application registration.
-5. On the page that appears displaying the created app registration, copy down the **Application (client) ID**. We will refer to this value as `APPID` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
+5. On the page that appears, copy down the **Application (client) ID**. We will refer to this value as `APPID` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
 
 ![Screenshot of app object page](./media/howto-create-tenant/get-app-id.png)
 

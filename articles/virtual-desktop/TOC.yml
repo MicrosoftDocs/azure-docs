@@ -14,6 +14,8 @@
     href: create-host-pools-azure-marketplace.md
   - name: 4. Manage app groups
     href: manage-app-groups.md
+  - name: 5. Create a host pool to validate service updates
+    href: create-validation-host-pool.md
 - name: How-to
   items:
   - name: Connect to Windows Virtual Desktop resources
