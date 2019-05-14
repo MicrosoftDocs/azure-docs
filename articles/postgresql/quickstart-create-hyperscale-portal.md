@@ -13,7 +13,7 @@ ms.date: 05/09/2019
 
 # Quickstart: Create an Azure Database for PostgreSQL - Hyperscale (Citus) (preview) in the Azure portal
 
-Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This Quickstart shows you how to create an Azure Database for PostgreSQL - Hyperscale (Citus) (preview) server group using the Azure portal. You will explore distributed data: sharding tables across nodes, ingesting sample data, and running queries that execute on multiple nodes.
+Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This Quickstart shows you how to create an Azure Database for PostgreSQL - Hyperscale (Citus) (preview) server group using the Azure portal. You'll explore distributed data: sharding tables across nodes, ingesting sample data, and running queries that execute on multiple nodes.
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
@@ -27,11 +27,11 @@ Within Hyperscale servers there are three types of tables:
 - Reference tables (multiple copies maintained)
 - Local tables (often used for internal admin tables)
 
-In this quickstart we'll primarily focus on distributed tables and getting familiar with them.
+In this quickstart, we'll primarily focus on distributed tables and getting familiar with them.
 
 The data model we're going to work with is simple: user and event data from GitHub. Events include fork creation, git commits related to an organization, and more.
 
-Once you've connected via psql let's create our tables. In the psql console run:
+Once you've connected via psql, let's create our tables. In the psql console run:
 
 ```sql
 CREATE TABLE github_events
@@ -58,9 +58,9 @@ CREATE TABLE github_users
 );
 ```
 
-The `payload` field of `github_events` has a JSONB datatype. JSONB is the JSON datatype in binary form in Postgres. This makes it easy to store a more flexible schema in a single column.
+The `payload` field of `github_events` has a JSONB datatype. JSONB is the JSON datatype in binary form in Postgres. The datatype makes it easy to store a flexible schema in a single column.
 
-Postgres can create a `GIN` index on this type which will index every key and value within it. With a  index, it becomes fast and easy to query the payload with various conditions. Let's go ahead and create a couple of indexes before we load our data. In psql:
+Postgres can create a `GIN` index on this type, which will index every key and value within it. With an  index, it becomes fast and easy to query the payload with various conditions. Let's go ahead and create a couple of indexes before we load our data. In psql:
 
 ```sql
 CREATE INDEX event_type_index ON github_events (event_type);

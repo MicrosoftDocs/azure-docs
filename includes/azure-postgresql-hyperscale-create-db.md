@@ -25,8 +25,8 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 4. Fill out the new server details form with the following information:
    - Resource group: click the **Create new** link below the text box for this field. Enter a name such as **myresourcegroup**.
    - Server group name: enter a unique name for the new server group, which will also be used for a server subdomain.
-   - Admin username: this is currently required to be the value "citus" and cannot be changed.
-   - Password: must be at least eight characters in length and must contain characters from three of the following categories – English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, etc.)
+   - Admin username: currently required to be the value **citus**, and can't be changed.
+   - Password: must be at least eight characters long and contain characters from three of the following categories – English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on.)
    - Location: use the location that is closest to your users to give them the fastest access to the data.
 
    > [!IMPORTANT]
@@ -43,7 +43,7 @@ The Azure Database for PostgreSQL – Hyperscale (Citus) (preview) service uses 
 
 1. From the **Outputs** section where you previously copied the coordinator node hostname, click back into the **Overview** menu item.
 
-2. Find the name of your deployment's server group and click it. (The server group name will *not* have a suffix. Items with names ending in e.g. "-c", "-w0", or "-w1" are not the server group.)
+2. Find the name of your deployment's server group and click it. (The server group name will *not* have a suffix. Items with names ending in, for example, "-c", "-w0", or "-w1" are not the server group.)
 
 3. Click **Firewall** under **Security** in the left-hand menu.
 
@@ -57,15 +57,15 @@ The Azure Database for PostgreSQL – Hyperscale (Citus) (preview) service uses 
 
 ## Connect to the database using psql
 
-When you create your Azure Database for PostgreSQL server, a default database named **citus** is created. To connect to your database server, you need a connection string and admin login credentials.
+When you create your Azure Database for PostgreSQL server, a default database named **citus** is created. To connect to your database server, you need a connection string and the admin password.
 
-1. Obtain the connection string. Click the **Connection strings** menu item under **Settings** in the left-hand menu of your server group page. Find the string marked **C++ (libpq)**. It will be of the form:
+1. Obtain the connection string. In the server group page click the **Connection strings** menu item. (It's under **Settings**.) Find the string marked **C++ (libpq)**. It will be of the form:
 
    ```
    host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require
    ```
 
-   Copy the string. You will need to replace "{your\_password}" with the administrative password you chose earlier. The system does not store your plaintext password and is unable to display it in the connection string you copied.
+   Copy the string. You will need to replace "{your\_password}" with the administrative password you chose earlier. The system doesn't store your plaintext password and so can't display it for you in the connection string.
 
 2. Open a terminal window on your local computer.
 

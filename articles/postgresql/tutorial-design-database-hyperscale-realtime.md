@@ -48,7 +48,7 @@ CREATE TABLE http_request (
 );
 ```
 
-We're also going to create a table that will hold our per-minute aggregates, and a table that maintains the position of our last rollup. Run the following in psql as well:
+We're also going to create a table that will hold our per-minute aggregates, and a table that maintains the position of our last rollup. Run the following commands in psql as well:
 
 ```sql
 CREATE TABLE http_request_1min (
@@ -150,20 +150,15 @@ GROUP BY site_id, minute
 ORDER BY minute ASC;
 ```
 
-## Performing rollups
+## Rolling up data
 
-The above query works fine in the early stages, but its performance
-will decrease as your data scales. Even with distributed processing
-it's faster to pre-compute this data than recalculate it repeatedly.
+The previous query works fine in the early stages, but its performance
+degrades as your data scales. Even with distributed processing, it's faster to pre-compute the data than to recalculate it repeatedly.
 
 We can ensure our dashboard stays fast by regularly rolling up the
-raw data into an aggregate table. In this case we will roll up into
-our one minute aggregation table, but you could also have aggregations
-of 5 minutes, 15 minutes, one hour, and so on.
+raw data into an aggregate table. You can experiment with the aggregation duration. We used a per-minute aggregation table, but you could break data into 5, 15, or 60 minutes instead.
 
-Because we will continually run this roll-up we're going to create
-a function to perform it. Run these commands in psql to create the
-`rollup_http_request` function.
+To run this roll-up more easily, we're going to put it into a plpgsql function. Run these commands in psql to create the `rollup_http_request` function.
 
 ```sql
 -- initialize to a time long ago
@@ -205,7 +200,7 @@ SELECT rollup_http_request();
 ```
 
 And with our data in a pre-aggregated form we can query the rollup
-table to get the same report as earlier. Run the following:
+table to get the same report as earlier. Run the following query:
 
 ```sql
 SELECT site_id, ingest_time as minute, request_count,
@@ -216,14 +211,14 @@ SELECT site_id, ingest_time as minute, request_count,
 
 ## Expiring old data
 
-The rollups make queries faster, but we still need to expire old data to avoid unbounded storage costs. Simply decide how long you’d like to keep data for each granularity, and use standard queries to delete expired data. In the following example, we decided to keep raw data for one day, and per-minute aggregations for one month:
+The rollups make queries faster, but we still need to expire old data to avoid unbounded storage costs. Decide how long you’d like to keep data for each granularity, and use standard queries to delete expired data. In the following example, we decided to keep raw data for one day, and per-minute aggregations for one month:
 
 ```sql
 DELETE FROM http_request WHERE ingest_time < now() - interval '1 day';
 DELETE FROM http_request_1min WHERE ingest_time < now() - interval '1 month';
 ```
 
-In production you could wrap these queries in a function and call it every minute in a cron job.
+In production, you could wrap these queries in a function and call it every minute in a cron job.
 
 ## Clean up resources
 

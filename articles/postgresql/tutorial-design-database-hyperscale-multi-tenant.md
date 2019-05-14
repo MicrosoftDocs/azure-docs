@@ -191,7 +191,7 @@ and can be shared. For instance, all companies in the example ad
 platform might want to get geographical information for their
 audience based on IP addresses.
 
-Create a table to hold shared geographic information. Run this in psql:
+Create a table to hold shared geographic information. Run the following commands in psql:
 
 ```sql
 CREATE TABLE geo_ips (
@@ -210,7 +210,7 @@ table on every worker node.
 SELECT create_reference_table('geo_ips');
 ```
 
-Load it with example data. Remember to run this in psql from inside the directory where you downloaded the dataset.
+Load it with example data. Remember to run this command in psql from inside the directory where you downloaded the dataset.
 
 ```sql
 \copy geo_ips from 'geo_ips.csv' with csv
