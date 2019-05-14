@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/14/2019
 ms.author: mstephen
 
 ---
@@ -262,7 +262,7 @@ This error is unrecoverable. To resolve, you must [delete your existing managed 
 
 **Resolution:**
 
-[Check your domain's health](active-directory-ds-check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. Sometimes, problems with your configuration can block Microsoft's ability to synchronize your managed domain. If you are able to resolve any alerts, wait two hours and check back to see if the synchronization has completed.
+[Check your domain's health](check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. Sometimes, problems with your configuration can block Microsoft's ability to synchronize your managed domain. If you are able to resolve any alerts, wait two hours and check back to see if the synchronization has completed.
 
 Here are some common reasons why synchronization stops on managed domains:
 - Network connection is blocked on the managed domain. To learn more about checking your network for problems, read how to [troubleshoot Network Security Groups](active-directory-ds-troubleshoot-nsg.md) and [network requirements for Azure AD Domain Services](active-directory-ds-networking.md).
@@ -276,7 +276,7 @@ Here are some common reasons why synchronization stops on managed domains:
 
 **Resolution:**
 
-[Check your domain's health](active-directory-ds-check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. Sometimes, problems with your configuration can block Microsoft's ability to back up your managed domain. If you are able to resolve any alerts, wait two hours and check back to see if the backup has completed.
+[Check your domain's health](check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. Sometimes, problems with your configuration can block Microsoft's ability to back up your managed domain. If you are able to resolve any alerts, wait two hours and check back to see if the backup has completed.
 
 
 ## AADDS503: Suspension due to disabled subscription
@@ -303,7 +303,7 @@ To restore your service, [renew your Azure subscription](https://docs.microsoft.
 > [!WARNING]
 > If your managed domain is suspended for an extended period of time, it is in danger of being deleted. It is best to address the suspension as quickly as possible. To read more, visit [this article](active-directory-ds-suspension.md).
 
-[Check your domain's health](active-directory-ds-check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. If you can resolve any of these alerts, do so. After, contact support to re-enable your subscription.
+[Check your domain's health](check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. If you can resolve any of these alerts, do so. After, contact support to re-enable your subscription.
 
 
 ## Contact us
