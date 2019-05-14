@@ -54,7 +54,7 @@ The IP address plan for an AKS cluster consists of a virtual network, at least o
 
 ## Maximum pods per node
 
-The maximum number of pods per node in an AKS cluster is 110. The *default* maximum number of pods per node varies between *kubenet* and *Azure CNI* networking, and the method of cluster deployment.
+The maximum number of pods per node in an AKS cluster is 250. The *default* maximum number of pods per node varies between *kubenet* and *Azure CNI* networking, and the method of cluster deployment.
 
 | Deployment method | Kubenet default | Azure CNI default | Configurable at deployment |
 | -- | :--: | :--: | -- |
