@@ -9,7 +9,7 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
-ms.date: 01/09/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
 ---
 # What happened to Azure Machine Learning Workbench?

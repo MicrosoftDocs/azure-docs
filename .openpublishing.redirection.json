@@ -106,7 +106,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/machine-learning-service/concept-accelerate-inferencing-with-gpus.md",
+      "source_path": "articles/machine-learning/service/concept-accelerate-inferencing-with-gpus.md",
       "redirect_url": "/azure/machine-learning/service/how-to-deploy-inferencing-gpus",
       "redirect_document_id": true
     },
@@ -4008,6 +4008,21 @@
     {
       "source_path": "articles/app-service/overview-compare.md",
       "redirect_url": "/azure/architecture/guide/technology-choices/compute-decision-tree",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/app-service-linux-java.md",
+      "redirect_url": "/azure/app-service/containers/configure-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/app-service-java-enterprise.md",
+      "redirect_url": "/azure/app-service/containers/configure-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/how-to-java-apm-monitoring.md",
+      "redirect_url": "/azure/app-service/containers/configure-language-java",
       "redirect_document_id": false
     },
     {
@@ -11051,6 +11066,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/hdinsight/hdinsight-connect-hive-zeppelin.md",
+      "redirect_url": "/azure/hdinsight/interactive-query/hdinsight-connect-hive-zeppelin",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/hdinsight/hdinsight-hadoop-create-windows-clusters-arm-templates.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-arm-templates",
       "redirect_document_id": false
@@ -13587,12 +13607,12 @@
     },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-security-threat-detection.md",
-      "redirect_url": "/sql-database/sql-database-threat-detection-overview",
+      "redirect_url": "/azure/sql-database/sql-database-threat-detection-overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-overview.md",
-      "redirect_url": "/sql-database/sql-database-auditing",
+      "redirect_url": "/azure/sql-database/sql-database-auditing",
       "redirect_document_id": false
     },
     {
@@ -35789,6 +35809,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/data-sources-alerts-nagios-zabbix.md",
+      "redirect_url": "/azure/azure-monitor/platform/data-sources-custom-logs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -38922,6 +38947,11 @@
       "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-datafu-udf.md",
       "redirect_url": "/azure/hdinsight/",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-splunk",
+      "redirect_document_id": false
     }
   ]
 }
