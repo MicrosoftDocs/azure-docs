@@ -40,7 +40,7 @@ The Microsoft identity platform provides two mechanisms to register applications
 
 An application that uses a modern protocol like [OpenId Connect/OAuth](../develop/active-directory-v2-protocols.md) to authenticate its users is registered using the [Application registration portal](../develop/quickstart-register-app.md).
 
-To register applications using all other types of [supported authentication mechanisms](what-is-single-sign-on.md), like the [SAML](../develop/single-sign-on-saml-protocol.md) protocol, use the **Enterprise Applications** blade to connect themselves with the Microsoft identity platform.
+To register applications using all other types of [supported authentication mechanisms](what-is-single-sign-on.md), like the [SAML](../develop/single-sign-on-saml-protocol.md) protocol, use the **Enterprise Applications** blade to connect them with the Microsoft identity platform.
 
 To connect an unlisted application using an app integration template, do these steps:
 
