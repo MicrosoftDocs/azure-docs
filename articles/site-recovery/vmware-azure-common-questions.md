@@ -266,7 +266,7 @@ Yes, you can change the type or size of the VM anytime before failover on the Co
 For VMware to Azure the oldest recovery point you can use is 72 hours.
 
 ### How do I access Azure VMs after failover?
-After failover, you can access Azure VMs over a secure Internet connection, over a site-to-site VPN, or over Azure ExpressRoute with Private Peering. You'll need to prepare a number of things in order to connect. [Learn more](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+After failover, you can access Azure VMs over a secure Internet connection, over a site-to-site VPN, or over Azure ExpressRoute. You'll need to prepare a number of things in order to connect. [Learn more](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 ### Is failed over data resilient?
 
@@ -278,7 +278,7 @@ Azure is designed for resilience. Site Recovery is engineered for failover to a 
 ### Can I fail back to a different location?
 Yes, if you failed over to Azure, you can fail back to a different location if the original one isn't available. [Learn more](concepts-types-of-failback.md#alternate-location-recovery-alr).
 
-### Why do I need a VPN or ExpressRoute to fail back?
+### Why do I need a VPN or ExpressRoute with Private Peering to fail back?
 When you fail back from Azure, data from Azure is copied back to your on-premises VM and private access is required.
 
 ### Can I resize the Azure VM after failover?
