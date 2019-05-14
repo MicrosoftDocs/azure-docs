@@ -17,7 +17,7 @@ ms.reviewer: jroth
 ---
 # Extend support for SQL Server 2008 and SQL Server 2008 R2 with Azure
 
-SQL Server 2008 and SQL Server 2008 R2 are both approaching the [end of their support (EOS) life cycle](https://www.microsoft.com/en-us/sql-server/sql-server-2008). Since many of our customers are still using both versions, we are providing several options to continue getting support. You can migrate your on-premises SQL Server instances to Azure virtual machines (VMs), migrate to Azure SQL Database, or stay on-premises and purchase extended security updates.
+SQL Server 2008 and SQL Server 2008 R2 are both approaching the [end of their support (EOS) life cycle](https://www.microsoft.com/sql-server/sql-server-2008). Since many of our customers are still using both versions, we are providing several options to continue getting support. You can migrate your on-premises SQL Server instances to Azure virtual machines (VMs), migrate to Azure SQL Database, or stay on-premises and purchase extended security updates.
 
 Unlike with a managed instance, migrating to an Azure VM does not require recertifying your applications. And unlike with staying on-premises, you will receive free extended security patches by migrating to an Azure VM. 
 
@@ -35,7 +35,7 @@ Images deployed through the Marketplace come with the SQL IaaS extension pre-ins
   > While the SQL Server `Create` and `Manage` blades will work with the SQL Server 2008R2 image in the Azure portal, the following features are _not supported_: Automatic backups, Azure Key Vault integration, R Services, and Storage configuration.
 
 ## Licensing
-Pay-as-you-go SQL Server 2008R2 deployments can convert to [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/).
+Pay-as-you-go SQL Server 2008R2 deployments can convert to [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 To convert a Software Assurance (SA) based license to pay-as-you-go, customers should register with the SQL VM [resource provider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider). Once registered with the SQL VM resource provider, the SQL license type will be interchangeable between AHB and pay-as-you-go. 
 
@@ -52,7 +52,7 @@ SQL Server requires app-consistent Azure Site Recovery snapshots to guarantee re
 
 ### Database Migration Service
 
-The [Database Migration Service](/dms/dms-overview) is an option for customers if migrating from on-premises to Azure VM by upgrading SQL Server to  SQL Server 2012 and greater
+The [Database Migration Service](/dms/dms-overview) is an option for customers if migrating from on-premises to Azure VM by upgrading SQL Server to  SQL Server 2012 and greater.
 
 ## Disaster recovery
 
@@ -62,7 +62,7 @@ Disaster recovery solutions for EOS SQL Server on Azure VM are as follows:
 - **Log shipping**: You can create a log shipping replica in another zone or Azure region with continuous restores to reduce the RTO. Customers will need to manually configure log shipping.
 - **Azure Site Recovery**: You can replicate your VM between zones and regions through Azure Site Recovery replication. SQL Server requires App Consistent Snapshots to guarantee recovery in case of a disaster. Azure Site Recovery offers minimum 1-hour RPO and 2 hour + SQL Server recovery time RTO for EOS SQL Server DR.
 
-## Security Patching
+## Security patching
 Extended security updates for SQL Server VMs will be delivered through the Microsoft Update channels once the SQL Server VM has been registered with the SQL [resource provider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider). Patches can either be downloaded manually, or automatically if the SQL IaaS extension is installed. 
 
 
