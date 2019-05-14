@@ -19,7 +19,7 @@ In this guide, you will learn how to:
 - Deploy a large application with multiple microservices to a dev space.
 - Test a single microservice in an isolated dev space within the context of the full application.
 
-![Azure Dev Spaces Bike Sharing sample application](media/quickstart-team-development/bikeshare.png)
+![Azure Dev Spaces team development](media/azure-dev-spaces/collaborate-graphic.gif)
 
 ## Prerequisites
 
@@ -119,7 +119,9 @@ http://dev.bikesharingweb.fedcab0987.eus.azds.io/  Available
 http://dev.gateway.fedcab0987.eus.azds.io/         Available
 ```
 
-Navigate to the *bikesharingweb* service by opening the public URL from the `azds list-uris` command. In the above example, the public URL for the *bikesharingweb* service is *http://dev.bikesharingweb.fedcab0987.eus.azds.io/*. Select *Aurelia Briggs (customer)* as the user. Verify you see the text *Hi Aurelia Briggs | Sign Out* at the top.
+Navigate to the *bikesharingweb* service by opening the public URL from the `azds list-uris` command. In the above example, the public URL for the *bikesharingweb* service is `http://dev.bikesharingweb.fedcab0987.eus.azds.io/`. Select *Aurelia Briggs (customer)* as the user. Verify you see the text *Hi Aurelia Briggs | Sign Out* at the top.
+
+![Azure Dev Spaces Bike Sharing sample application](media/quickstart-team-development/bikeshare.png)
 
 ## Create child dev spaces
 
@@ -156,7 +158,7 @@ http://azureuser2.s.dev.gateway.fedcab0987.eus.azds.io/         Available
 
 Confirm that the URLs displayed by the `azds list-uris` command have the *azureuser2.s.dev* prefix. This prefix confirms that the current space selected is *azureuser2*, which is a child of *dev*.
 
-Navigate to the *bikesharingweb* service for the *dev/azureuser2* dev space by opening the public URL from the `azds list-uris` command. In the above example, the public URL for the *bikesharingweb* service is *http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/*. Select *Aurelia Briggs (customer)* as the user. Verify you see the text *Hi Aurelia Briggs | Sign out* at the top.
+Navigate to the *bikesharingweb* service for the *dev/azureuser2* dev space by opening the public URL from the `azds list-uris` command. In the above example, the public URL for the *bikesharingweb* service is `http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/`. Select *Aurelia Briggs (customer)* as the user. Verify you see the text *Hi Aurelia Briggs | Sign out* at the top.
 
 ## Update code
 

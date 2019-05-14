@@ -8,30 +8,32 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/02/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
 
 ---
 
 # Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning
 
-Create a cloud-based notebook server, then use it.  In this quickstart, you run Python code that logs values in the [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md). The workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. 
+In this quickstart, you run Python code from a cloud-based Jupyter notebook that logs values in the [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md). The workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. 
 
-This quickstart shows how to create a cloud resource in your Azure Machine Learning workspace, configured with the Python environment necessary to run Azure Machine Learning. To use your own environment instead, see [Quickstart: Use your own notebook server to get started with Azure Machine Learning](quickstart-run-local-notebook.md).  
- 
+This quickstart shows how to create a cloud virtual machine in your Azure Machine Learning workspace, configured with the Python environment necessary to run Azure Machine Learning. The [notebook VM (Preview)](how-to-configure-environment.md#notebookvm) is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter notebook server, JupyterLab, and a fully prepared ML environment. If you prefer to work locally, you can also [use your own notebook server](quickstart-run-local-notebook.md).  
+
 In this quickstart, you take the following actions:
 
 * Create a new cloud-based notebook server in your workspace.
 * Launch the Jupyter web interface.
 * Open a notebook that contains code to estimate pi and logs errors at each iteration.
 * Run the notebook.
-* View the logged error values in your workspace. This example shows how the workspace can help you keep track of information generated in a script. 
+* View the logged error values in your workspace. This example shows how the workspace can help you keep track of information generated in a script.
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
-## Prerequisites
+## Create a workspace
 
-- An Azure Machine Learning workspace.  [Create your workspace](setup-create-workspace.md#portal) now if you don't have one.
+If you have an Azure Machine Learning service workspace, skip to the [next section](#create-a-cloud-based-notebook-server). Otherwise, create one now.
+
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
 ## Create a cloud-based notebook server
 
@@ -53,7 +55,6 @@ If you don’t have an Azure subscription, create a free account before you begi
     ![Create a new VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Wait approximately 4-5 minutes, until the status changes to **Running**.
-
 
 ## Launch Jupyter web interface
 
@@ -98,10 +99,9 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
     In the largest code cell, you see `run.log`  used in multiple places. Each `run.log` adds its value to your workspace.
 
-
 ## View logged values
 
-1. The output from the `run` cell contains a link back to the Azure portal to view the experiment results in your workspace. 
+1. The output from the `run` cell contains a link back to the Azure portal to view the experiment results in your workspace.
 
     ![View experiments](./media/quickstart-run-cloud-notebook/view-exp.png)
 
@@ -113,7 +113,7 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
 Because the code to approximate pi uses random values, your plots will show different values.  
 
-## Clean up resources 
+## Clean up resources
 
 ### Stop the notebook VM
 
@@ -127,7 +127,7 @@ Stop the notebook VM when you are not using it to reduce cost.
 
 1. Select **Stop**.
 
-1. When you're ready to user the server again, select **Start**.
+1. When you're ready to use the server again, select **Start**.
 
 ### Delete everything
 
