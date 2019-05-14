@@ -34,7 +34,7 @@ To do this quickstart, install a supported [Java Development Kit (JDK)](https://
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Key/Value Explorer** > **+ Create** to add the following key-value pairs:
+6. Select **Configuration Explorer** > **+ Create** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|

@@ -2,12 +2,12 @@
 title: Soft delete for Azure Storage blobs | Microsoft Docs
 description: Azure Storage now offers soft delete for blob objects so that you can more easily recover your data when it is erroneously modified or deleted by an application or other storage account user.
 services: storage
-author: MichaelHauss
+author: tamram
 
 ms.service: storage
 ms.topic: article
 ms.date: 04/23/2019
-ms.author: mihauss
+ms.author: tamram
 ms.subservice: blobs
 ---
 

@@ -44,7 +44,8 @@ az account set --subscription mySubscriptionId
  
 ## Next steps
 
-[Stream a file](stream-files-dotnet-quickstart.md)
+* [Access v3 APIs](access-api-cli-how-to.md)
+* [Stream a file](stream-files-dotnet-quickstart.md)
 
 ## See also
 
