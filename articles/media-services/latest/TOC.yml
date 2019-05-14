@@ -182,7 +182,6 @@
       - name: Connect with Postman
         href: media-rest-apis-with-postman.md       
     - name: Develop with SDKs
-      href: developers-guide.md
       items:
       - name: Connect with Java
         href: configure-connect-java-howto.md
