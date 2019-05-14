@@ -197,7 +197,7 @@ If you do not enable SQL Server Authentication, then you can use the local Admin
 
 ### Azure Key Vault integration
 
-To store security secrets in Azure for encryption, click **Azure key vault integration** and click **Enable**.
+To store security secrets in Azure for encryption, select **SQL Server settings**, and scroll down to  **Azure key vault integration**. Select **Enable** and fill in the requested information. 
 
 ![Azure Key Vault integration](media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
 

@@ -47,25 +47,22 @@ If you are provisioning a new SQL Server virtual machine with Resource Manager, 
 For a detailed walkthrough of provisioning, see [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### Existing VMs
-For existing SQL Server virtual machines, select your SQL Server virtual machine. Then select the **SQL Server configuration** section of the **Settings** blade.
+
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-use-new-management-blade.md)]
+
+For existing SQL Server virtual machines, open your [SQL VM management blade](virtual-machines-windows-sql-manage-portal.md#sql-vm-management-blade) and select **Security** under **Settings**. Select **Enable** to enable Azure Key Vault integration. 
 
 ![SQL AKV Integration for existing VMs](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-existing-vms.png)
 
-In the **SQL Server configuration** blade, click the **Edit** button in the Automated Key Vault integration section.
-
-![Configure SQL AKV Integration for existing VMs](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-rm-akv-configuration.png)
-
-When finished, click the **OK** button on the bottom of the **SQL Server configuration** blade to save your changes.
+When finished, select the **Apply** button on the bottom of the **Security** page to save your changes.
 
 > [!NOTE]
-> The credential name we created here will be mapped to an SQL login later. This allows the SQL login to access the key vault. 
->
->
+> The credential name we created here will be mapped to a SQL login later. This allows the SQL login to access the key vault. 
+
 
 > [!NOTE]
 > You can also configure AKV integration using a template. For more information, see [Azure quickstart template for Azure Key Vault integration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-keyvault-update).
-> 
-> 
+
 
 [!INCLUDE [AKV Integration Next Steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 

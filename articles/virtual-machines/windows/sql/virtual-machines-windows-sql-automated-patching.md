@@ -79,13 +79,13 @@ In the **SQL Server settings** blade, select **Automated patching**. The followi
 For context, see the complete topic on [provisioning a SQL Server virtual machine in Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### Existing VMs
-For existing SQL Server virtual machines, select your SQL Server virtual machine. Then select the **SQL Server configuration** section of the **Settings** blade.
+
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-use-new-management-blade.md)]
+
+For existing SQL Server virtual machines, open your [SQL VM management blade](virtual-machines-windows-sql-manage-portal.md#sql-vm-management-blade) and select **Patching** under **Settings**. 
 
 ![SQL Automatic Patching for existing VMs](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-existing-vms.png)
 
-In the **SQL Server configuration** blade, click the **Edit** button in the Automated patching section.
-
-![Configure SQL Automated Patching for existing VMs](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-configuration.png)
 
 When finished, click the **OK** button on the bottom of the **SQL Server configuration** blade to save your changes.
 
@@ -99,7 +99,7 @@ In the following example, PowerShell is used to configure Automated Patching on 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
     $aps = New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
-
+s
     Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
 > [!IMPORTANT]

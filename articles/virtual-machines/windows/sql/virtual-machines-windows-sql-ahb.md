@@ -56,9 +56,10 @@ The use of the SQL VM resource provider requires the SQL IaaS extension. As such
 
 You can modify the licensing model directly from the portal. 
 
-1. Navigate to your SQL Server VM within the [Azure portal](https://portal.azure.com). 
-1. Select **SQL Server configuration** in the **Settings** pane. 
-1. Select **Edit** in the **SQL Server License** pane to modify the license. 
+1. Open the [Azure portal](https://portal.azure.com and launch the [SQL VM management blade](virtual-machines-windows-sql-manage-portal.md#sql-vm-management-blade) for your SQL Server VM. 
+1. Select **Configure** under **Settings**. 
+1. Select the **Azure Hybrid Benefit** option and confirm that you have a SQL Server license with Software Assurance. 
+1. Select **Apply** at the bottom of the **Configure** page. 
 
 ![AHB in Portal](media/virtual-machines-windows-sql-ahb/ahb-in-portal.png)
 
