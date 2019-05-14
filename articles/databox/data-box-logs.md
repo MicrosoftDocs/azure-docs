@@ -21,7 +21,7 @@ The following table shows a summary of the Data Box order steps and the tools av
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Create order               | [Set up access control on the order via RBAC](#set-up-access-control-on-the-order)                                                    |
 | Order processed            | [Track the order](#track-the-order) through <ul><li> Azure portal </li><li> Shipping carrier website </li><li>Email notifications</ul> |
-| Set up device              | Device credentials access logged in [Activity logs](#query-activity-logs)                                              |
+| Set up device              | Device credentials access logged in [Activity logs](#query-activity-logs-during-setup)                                              |
 | Data copy to device        | [View *error.xml* files](#view-error-log-during-data-copy-to-data-box) for data copy                                                             |
 | Prepare to ship            | [Inspect the BOM files](#inspect-bom-during-prepare-to-ship) or the manifest files on the device                                      |
 | Data upload to Azure       | [Review *copylogs*](#review-copy-log-during-upload-to-azure) for errors during data upload at Azure datacenter                         |
@@ -125,7 +125,6 @@ Here is a sample of the *error.xml* for different errors when copying to block b
 <file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTI5Ny3vv70=</file>
 ```
 
-
 Here is a sample of the *error.xml* for different errors when copying to Azure Files.
 
 ```xml
@@ -144,7 +143,7 @@ Here is a sample of the *error.xml* for different errors when copying to Azure F
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\Starting with Capital</file>
 ```
 
-In each of the above cases, resolve the errors before you proceed to the next step.
+In each of the above cases, resolve the errors before you proceed to the next step. For more information on the errors received during data copy to Data Box via SMB or NFS protocols, go to [Troubleshoot Data Box issues](data-box-troubleshoot.md). For information on errors received during data copy to Data Box via REST, go to [Troubleshoot Data Box Blob storage issues](data-box-troubleshoot-rest.md).
 
 ## Inspect BOM during prepare to ship
 
@@ -196,9 +195,9 @@ During the data upload to Azure, a copylog is created.
 
 ### Copylog
 
-For each order that is processed, the Data Box service creates copylog in the associated storage account. The copylog has the total number of files that were uploaded and the number of files that errored out during the data copy from Data Box to your Azure storage account.
+For each order that is processed, the Data Box service creates *copylog* in the associated storage account. The *copylog* has the total number of files that were uploaded and the number of files that errored out during the data copy from Data Box to your Azure storage account.
 
-A Cyclic Redundancy Check (crc) computation is done during the upload to Azure. The CRCs from the data copy and after the data upload are compared. A CRC mismatch indicates that the corresponding files failed to upload.
+A Cyclic Redundancy Check (CRC) computation is done during the upload to Azure. The CRCs from the data copy and after the data upload are compared. A CRC mismatch indicates that the corresponding files failed to upload.
 
 By default, logs are written to a container named copylog. The logs are stored as block blobs with the following naming convention:
 
