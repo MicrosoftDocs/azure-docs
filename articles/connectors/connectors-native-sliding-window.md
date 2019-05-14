@@ -7,20 +7,25 @@ ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: deli, klam, LADocs
-tags: connectors
-ms.topic: article
-ms.date: 05/10/2019
+ms.topic: conceptual
+ms.date: 05/15/2019
 ---
 
 # Create, schedule, and run recurring tasks and workflows with the Sliding Window trigger in Azure Logic Apps
 
-To regularly run tasks, processes, or jobs at recurring intervals, you can start your logic app workflow with the [built-in](../connectors/apis-list.md) **Sliding Window - Schedule** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). You can set a date and time for starting the workflow and a recurrence interval for repeating that workflow. This trigger supports many patterns, for example:
+To run tasks, processes, or jobs at regularly recurring intervals, you can start your logic app workflow with the [built-in](../connectors/apis-list.md) **Sliding Window - Schedule** [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts). You can set a date and time for starting the workflow and a recurrence interval for repeating that workflow. If any recurrences are missed, this trigger processes those past missed recurrences. For example, to synchronize information between your database and backup storage, use the Sliding Window trigger so that your data .
+
+Here are some patterns that this trigger supports:
 
 * Run immediately and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
 * Start at a specific date and time, then run and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
-* Delay for a specific amount of time, then run and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
+* Delay for a specific duration, then run and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
 
-If any recurrences are missed, this trigger processes those past missed recurrences. To trigger your logic app and run only one time in the future, see [Run jobs one time only](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once). For differences between this trigger and the Recurrence trigger or for more information about scheduling workflows, see [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
+For differences between this trigger and the Recurrence trigger or for more information about scheduling recurring workflows, see [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+
+> [!TIP]
+> If you want to trigger your logic app and run only one time in the future, see 
+> [Run jobs one time only](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once).
 
 ## Prerequisites
 
