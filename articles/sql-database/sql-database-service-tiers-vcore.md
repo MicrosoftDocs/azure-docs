@@ -1,6 +1,6 @@
 ---
 title: 'Azure SQL Database service - vCore | Microsoft Docs'
-description: The vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price.  
+description: The vCore-based purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price.  
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -15,33 +15,32 @@ ms.date: 05/06/2019
 ---
 # Choose among the vCore service tiers and migrate from DTU service tiers
 
-The vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. It also enables you to choose generation of hardware:
+The virtual core (vCore)-based purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price. It also lets you choose the generation of hardware:
 
-- Gen4 - Up to 24 logical CPUs based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors, vCore = 1 PP (physical core), 7 GB per core, attached SSD
-- Gen5 - Up to 80 logical CPUs based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, vCore=1 LP (hyper-thread), 5.1 GB per core, fast eNVM SSD
-
+- **Gen4**: Up to 24 logical CPUs based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors, vCore = 1 PP (physical core), 7 GB per core, attached SSD
+- **Gen5**: Up to 80 logical CPUs based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, vCore = 1 LP (hyper-thread), 5.1 GB per core, fast eNVM SSD
 
 Gen4 hardware offers substantially more memory per vCore. However, Gen5 hardware allows you to scale up compute resources much higher.
 
 > [!NOTE]
 > For information about DTU-based service tiers, see [DTU-based service tiers](sql-database-service-tiers-dtu.md). For information about differentiating DTU-based service tiers and vCore-based service tiers, see [Azure SQL Database purchasing models](sql-database-purchase-models.md).
 
-## Service tier characteristics
+## Service-tier characteristics
 
-The vCore model provides three service tiers General Purpose, Hyperscale and Business Critical. Service tiers are differentiated by a range of compute sizes, high availability design, fault isolation, types and size of storage and IO range. You must separately configure the required storage and retention period for backups. In the Azure portal, go to Server (not the database) > Managed Backups > Configure Policy > Point In Time Restore Configuration > 7 - 35 days.
+The vCore-based purchasing model provides three service tiers: general purpose, hyperscale, and business critical. These service tiers are differentiated by a range of compute sizes, high-availability design, fault isolation, types and size of storage, and I/O range. You must separately configure the required storage and retention period for backups. To set up the backup-retention period, open the Azure portal, go to **Server** (not the database) > **Managed Backups** > **Configure Policy** > **Point In Time Restore Configuration** > **7 - 35 days**.
 
-The following table helps you understand the differences between the three tiers:
+The following table explains the differences between the three tiers:
 
-||**General Purpose**|**Business Critical**|**Hyperscale**|
+||**General purpose**|**Business critical**|**Hyperscale**|
 |---|---|---|---|
-|Best for|Most business workloads. Offers budget oriented balanced and scalable compute and storage options.|Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.|Most business workloads with highly scalable storage and read-scale requirements|
-|Compute|**Provisioned compute**:<br/>Gen4: 1 to 24 vCore<br/>Gen5: 2 to 80 vCore<br/>**Serverless compute**<br/>Gen5: 0.5 - 4 vCore|**Provisioned compute**:<br/>Gen4: 1 to 24 vCore<br/>Gen5: 2 to 80 vCore|**Provisioned compute**:<br/>Gen4: 1 to 24 vCore<br/>Gen5: 2 to 80 vCore|
-|Memory|**Provisioned compute**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore<br/>**Serverless compute**<br/>Gen5: 3 GB per vCore|**Provisioned compute**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore |**Provisioned compute**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore|
-|Storage|Uses remote storage:<br/>**Single database provisioned compute**:<br/>5 GB – 4 TB<br/>**Single database serverless compute**:<br/>5 GB - 1 TB<br/>**Managed Instance**: 32 GB - 8 TB |Uses local SSD storage:<br/>**Single database provisioned compute**:<br/>5 GB – 4 TB<br/>**Managed Instance**:<br/>32 GB - 4 TB |Flexible, autogrow of storage as needed. Supports up to 100 TB storage and beyond. Local SSD storage for local buffer pool cache and local data storage. Azure remote storage as final long-term data store. |
+|Best for|Most business workloads. Offers budget-oriented, balanced and scalable compute and storage options.|Business applications with high I/O requirements. Offers highest resilience to failures by using several isolated replicas.|Most business workloads with highly scalable storage and read-scale requirements.|
+|Compute|**Provisioned compute**:<br/>Gen4: 1 to 24 vCores<br/>Gen5: 2 to 80 vCores<br/>**Serverless compute**:<br/>Gen5: 0.5 - 4 vCores|**Provisioned compute**:<br/>Gen4: 1 to 24 vCores<br/>Gen5: 2 to 80 vCores|**Provisioned compute**:<br/>Gen4: 1 to 24 vCores<br/>Gen5: 2 to 80 vCores|
+|Memory|**Provisioned compute**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore<br/>**Serverless compute**:<br/>Gen5: 3 GB per vCore|**Provisioned compute**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore |**Provisioned compute**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore|
+|Storage|Uses remote storage.<br/>**Single database provisioned compute**:<br/>5 GB – 4 TB<br/>**Single database serverless compute**:<br/>5 GB - 1 TB<br/>**Managed instance**: 32 GB - 8 TB |Uses local SSD storage.<br/>**Single database provisioned compute**:<br/>5 GB – 4 TB<br/>**Managed instance**:<br/>32 GB - 4 TB |Flexible autogrow of storage as needed. Supports up to 100 TB of storage and beyond. Uses local SSD storage for local buffer-pool cache and local data storage. Uses Azure remote storage as final long-term data store. |
 |Memory|Gen4: 7 GB per core<br>Gen5: 5.1 GB per core | Gen4: 7 GB per core<br>Gen5: 5.1 GB per core |Gen4: 7 GB per core<br>Gen5: 5.1 GB per core|
-|Storage|Uses remote storage:<br/>Single database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 8 TB |Uses local SSD storage:<br/>Single database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 4 TB |Flexible, autogrow of storage as needed. Supports up to 100 TB storage and beyond. Local SSD storage for local buffer pool cache and local data storage. Azure remote storage as final long-term data store. |
-|IO throughput (approximate)|Single database: 500 IOPS per vCore with 7000 maximum IOPS</br>Managed Instance: Depends on [size of file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS per core with 200,000 maximum IOPS|TBD|
-|Availability|1 replica, no read-scale|3 replicas, 1 [read-scale replica](sql-database-read-scale-out.md),<br/>zone redundant HA|1 read/write replica plus 0-4 [read-scale replicas](sql-database-read-scale-out.md)|
+|Storage|Uses remote storage.<br/>Single database: 5 GB – 4 TB<br/>Managed instance: 32 GB - 8 TB |Uses local SSD storage.<br/>Single database: 5 GB – 4 TB<br/>Managed instance: 32 GB - 4 TB |Flexible autogrow of storage as needed. Supports up to 100 TB of storage and beyond. Uses local SSD storage for local buffer-pool cache and local data storage. Uses Azure remote storage as final long-term data store. |
+|I/O throughput (approximate)|Single database: 500 IOPS per vCore with 7000 maximum IOPS.<br/>Managed instance: Depends on [size of file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS per core with 200,000 maximum IOPS|TBD|
+|Availability|1 replica, no read-scale|3 replicas, 1 [read-scale replica](sql-database-read-scale-out.md),<br/>zone-redundant HA|1 read/write replica plus 0-4 [read-scale replicas](sql-database-read-scale-out.md)|
 |Backups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|snapshot-based backup in Azure remote storage and restores use these snapshots for fast recovery. Backups are instantaneous and do not impact the IO performance of Compute. Restores are very fast and are not a size of data operation (taking minutes rather than hours or days).|
 |In-Memory|Not supported|Supported|Not supported|
 |||
