@@ -4,7 +4,7 @@ description: Learn about the differences between Microsoft Authentication Librar
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: celested
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

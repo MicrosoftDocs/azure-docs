@@ -35,7 +35,7 @@ In this tutorial, you:
 Skip to [Set up your development environment](#start) to read through the notebook steps, or use the instructions below to get the notebook and run it on Azure Notebooks or your own notebook server. To run the notebook you will need:
 
 * A Python 3.6 notebook server with the following installed:
-    * The Azure Machine Learning Data Prep SDK for Python
+    *  azureml-dataprep package from the Azure Machine Learning SDK for Python
 * The tutorial notebook
 
 * Use a [cloud notebook server in your workspace](#azure) 
@@ -53,8 +53,8 @@ It's easy to get started with your own cloud-based notebook server. The [Azure M
 
 Use these steps to create a local Jupyter Notebook server on your computer.  After you complete the steps, run the **tutorials/regression-part1-data-prep.ipynb** notebook.
 
-1. Complete the installation steps in [[Azure Machine Learning Python quickstart](quickstart-run-local-notebook.md)](setup-create-workspace.md#python) to create a Miniconda environment.  Feel free to skip the **Create a workspace** section if you wish, but you will need it for [part 2](tutorial-auto-train-models.md) of this tutorial series.
-1. Install the Data Prep SDK in your environment using `pip install azureml-dataprep`.
+1. Complete the installation steps in [Azure Machine Learning Python quickstart](setup-create-workspace.md#sdk) to create a Miniconda environment.  Feel free to skip the **Create a workspace** section if you wish, but you will need it for [part 2](tutorial-auto-train-models.md) of this tutorial series.
+1. Install the azureml-dataprep in your environment using `pip install azureml-dataprep`.
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
 
     ```
