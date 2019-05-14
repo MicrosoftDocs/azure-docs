@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
-ms.date: 01/12/2019
+ms.date: 05/14/2019
 ---
 
 # Tutorial: Monitor virtual machine changes with Azure Event Grid and Logic Apps
@@ -279,8 +279,6 @@ sign in to your email account when you're asked for authentication.
 1. Save your logic app. To collapse and hide each action's 
 details in your logic app, choose the action's title bar.
 
-   ![Save your logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save-completed.png)
-
    Your logic app is now live, but waits for changes 
    to your virtual machine before doing anything. 
    To test your logic app now, continue to the next section.
@@ -288,26 +286,26 @@ details in your logic app, choose the action's title bar.
 ## Test your logic app workflow
 
 1. To check that your logic app is getting the specified events, 
-update your virtual machine. 
+update your virtual machine.
 
    For example, you can resize your virtual machine in the Azure portal 
-   or [resize your VM with Azure PowerShell](../virtual-machines/windows/resize-vm.md). 
+   or [resize your VM with Azure PowerShell](../virtual-machines/windows/resize-vm.md).
 
    After a few moments, you should get an email. For example:
 
    ![Email about virtual machine update](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
 
-2. To review the runs and trigger history for your logic app, 
-on your logic app menu, choose **Overview**. 
-To view more details about a run, choose the row for that run.
+1. To review the runs and trigger history for your logic app, 
+on your logic app menu, select **Overview**. 
+To view more details about a run, select the row for that run.
 
    ![Logic app runs history](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history.png)
 
-3. To view the inputs and outputs for each step, 
+1. To view the inputs and outputs for each step, 
 expand the step that you want to review. 
 This information can help you diagnose and debug 
 problems in your logic app.
- 
+
    ![Logic app run history details](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history-details.png)
 
 Congratulations, you've created and run a logic app 
@@ -333,7 +331,7 @@ make sure that you disable or delete any resources
 where you don't want to incur charges.
 
 * To stop running your logic app without deleting your work, 
-disable your app. On your logic app menu, choose **Overview**. 
+disable your app. On your logic app menu, select **Overview**. 
 On the toolbar, choose **Disable**.
 
   ![Turn off your logic app](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
@@ -344,8 +342,8 @@ On the toolbar, choose **Disable**.
   > and reopen your logic app.
 
 * To permanently delete your logic app, on the logic app menu, 
-choose **Overview**. On the toolbar, choose **Delete**. 
-Confirm that you want to delete your logic app, then choose **Delete**.
+select **Overview**. On the toolbar, choose **Delete**. 
+Confirm that you want to delete your logic app, and choose **Delete**.
 
 ## Next steps
 
