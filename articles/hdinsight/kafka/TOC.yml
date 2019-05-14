@@ -4,6 +4,7 @@
   items:
   - name: About Apache Kafka on HDInsight
     href: apache-kafka-introduction.md
+    maintainContext: true
   - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
