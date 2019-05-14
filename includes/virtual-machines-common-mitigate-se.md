@@ -24,7 +24,7 @@ More information about how security is integrated into every aspect of Azure is 
 > [!NOTE] 
 > Since this document was first published, multiple variants of this vulnerability class have been disclosed. Microsoft continues to be heavily invested in protecting our customers and providing guidance. This page will be updated as we continue to release further fixes. 
 > 
-> On May 14, 2019, [Intel disclosed](https://www.intel.com/content/www/us/en/homepage.html) a new set of speculative execution side channel vulnerability known as Microarchitectural Data Sampling (MDS see the Microsoft Security Guidance [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), which has been assigned multiple CVEs: 
+> On May 14, 2019, [Intel disclosed](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) a new set of speculative execution side channel vulnerability known as Microarchitectural Data Sampling (MDS see the Microsoft Security Guidance [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), which has been assigned multiple CVEs: 
 > - CVE-2018-11091 - Microarchitectural Data Sampling Uncacheable Memory (MDSUM)
 > - CVE-2018-12126 - Microarchitectural Store Buffer Data Sampling (MSBDS) 
 > - CVE-2018-12127 - Microarchitectural Load Port Data Sampling (MLPDS)
@@ -32,7 +32,7 @@ More information about how security is integrated into every aspect of Azure is 
 >
 > This vulnerability affects Intel® Core® processors and Intel® Xeon® processors.  Microsoft Azure has released operating system updates and is deploying new microcode, as it is made available by Intel, throughout our fleet to protect our customers against these new vulnerabilities.   Azure is closely working with Intel to test and validate the new microcode prior to its official release on the platform. 
 >
-> Customers that are running untrusted code within their VM need to take action to protect against these vulnerabilities by reading below for additional guidance on all speculative execution side-channel vulnerabilities (Microsoft Advisories ADV [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018), and [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
+> **Customers that are running untrusted code within their VM** need to take action to protect against these vulnerabilities by reading below for additional guidance on all speculative execution side-channel vulnerabilities (Microsoft Advisories ADV [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018), and [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
 >
 > Other customers should evaluate these vulnerabilities from a Defense in Depth perspective and consider the security and performance implications of their chosen configuration.
 
@@ -66,9 +66,7 @@ Customers who do not implement a scenario involving untrusted code do not need t
 
 ## Enabling additional security 
 
-You can enable additional security features inside your VM or Cloud Service if you are running untrusted code.
-
-In parallel, ensure your operating system is up-to-date to enable security features inside your VM or Cloud Service
+You can enable additional security features inside your VM or Cloud Service if you are running untrusted code. In parallel, ensure your operating system is up-to-date to enable security features inside your VM or Cloud Service
 
 ### Windows 
 
@@ -86,14 +84,14 @@ CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 If the number of logical processors is greater than physical processors (cores), then hyperthreading is enabled.  If you are running a hyperthreaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyperthreading disabled.  Once hyperthreading is disabled, **support will require a full VM reboot**. 
 
 
-**Step 2**: In parallel to Step 1, follow the instructions in KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to verify protections are enabled using the [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell module.
+**Step 2**: In parallel to Step 1, follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to verify protections are enabled using the [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell module.
 
 > [!NOTE]
 > If you previously downloaded this module, you will need to install the newest version.
 >
 
 
-All VMs should show:
+The output of the PowerShell script should have the below values to validate enabled protections against these vulnerabilities:
 
 ```
 Windows OS support for branch target injection mitigation is enabled: True
@@ -103,11 +101,11 @@ Windows OS support for L1 terminal fault mitigation is enabled: True
 Windows OS support for MDS mitigation is enabled: True
 ```
 
-If Microarchitectural Data Sampling enabled: False, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) for available mitigation options.
+If the output shows `MDS mitigation is enabled: False`, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) for available mitigation options.
 
 
 
-**Step 3**: Enable Kernel Virtual Address Shadowing (KVAS) and Branch Target Injection (BTI) OS support. Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections using the `Session Manager` registry keys. A reboot is required.
+**Step 3**: To enable Kernel Virtual Address Shadowing (KVAS) and Branch Target Injection (BTI) OS support, follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections using the `Session Manager` registry keys. A reboot is required.
 
 
 **Step 4**: For deployments that are using [nested virtualization](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 and E3 only): These instructions apply inside the VM you are using as a Hyper-V host.
@@ -123,9 +121,9 @@ If Microarchitectural Data Sampling enabled: False, please [contact Azure Suppor
 
 **Step 1: Disable hyperthreading on the VM** - Customers running untrusted code on a hyperthreaded VM will need to disable hyperthreading or move to a non-hyperthreaded VM.  To check if you are running a hyperthreaded VM, run the `lspcu` command in the Linux VM. 
 
-If Thread(s) per core = 2, then hyperthreading has been enabled. 
+If `Thread(s) per core = 2`, then hyperthreading has been enabled. 
 
-If Thread(s) per core = 1, then hyperthreading has been disabled. 
+If `Thread(s) per core = 1`, then hyperthreading has been disabled. 
 
  
 Sample output for a VM with hyperthreading enabled: 
@@ -150,7 +148,7 @@ If you are running a hyperthreaded VM, please [contact Azure Support](https://ak
 **Step 2**: To mitigate against any of the below speculative execution side-channel vulnerabilities, refer to your operating system provider’s documentation:   
  
 - [Redhat and CentOS](https://access.redhat.com/security/vulnerabilities) 
-- [Suse](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
+- [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
 - [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
 
 ## Next steps
@@ -158,18 +156,24 @@ If you are running a hyperthreaded VM, please [contact Azure Support](https://ak
 This article provides guidance to the below speculative execution side-channel attacks that affect many modern processors:
 
 [Spectre Meltdown](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002):
-•	CVE-2017-5715 - Branch Target Injection (BTI)  
-•	CVE-2017-5754 - Kernel Page Table Isolation (KPTI)
-•	CVE-2018-3639 – Speculative Store Bypass (KPTI) 
+- CVE-2017-5715 - Branch Target Injection (BTI)  
+- CVE-2017-5754 - Kernel Page Table Isolation (KPTI)
+- CVE-2018-3639 – Speculative Store Bypass (KPTI) 
  
 [L1 Terminal Fault (L1TF)](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180018):
-•	CVE-2018-3615 - Intel Software Guard Extensions (Intel SGX)
-•	CVE-2018-3620 - Operating Systems (OS) and System Management Mode (SMM)
-•	CVE-2018-3646 – impacts Virtual Machine Manager (VMM)
+- CVE-2018-3615 - Intel Software Guard Extensions (Intel SGX)
+- CVE-2018-3620 - Operating Systems (OS) and System Management Mode (SMM)
+- CVE-2018-3646 – impacts Virtual Machine Manager (VMM)
 
 [Microarchitectural Data Sampling](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV190013): 
-•	CVE-2018-11091 - Microarchitectural Data Sampling Uncacheable Memory (MDSUM)
-•	CVE-2018-12126 - Microarchitectural Store Buffer Data Sampling (MSBDS) 
+- CVE-2018-11091 - Microarchitectural Data Sampling Uncacheable Memory (MDSUM)
+- CVE-2018-12126 - Microarchitectural Store Buffer Data Sampling (MSBDS)
+- CVE-2018-12127 - Microarchitectural Load Port Data Sampling (MLPDS)
+- CVE-2018-12130 - Microarchitectural Fill Buffer Data Sampling (MFBDS)
+
+
+
+
 
 
 
