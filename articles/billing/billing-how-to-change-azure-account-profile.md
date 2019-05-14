@@ -45,9 +45,9 @@ Updating the profile email address doesn't update your sign-in email address. To
 
 To learn how to update your billing information, see [Change the credit card used to pay for an Azure subscription](billing-how-to-change-credit-card.md).
 
-### You can't update your country
+### You can't update your country/region
 
-Because of technical constraints, we cannot change the country for an existing account. However, you can create an account in the desired country and then contact Azure support to migrate your services to that account.
+Because of technical constraints, we cannot change the country/region for an existing account. However, you can create an account in the desired country/region and then contact Azure support to migrate your services to that account.
 
 ## Service and marketing emails
 

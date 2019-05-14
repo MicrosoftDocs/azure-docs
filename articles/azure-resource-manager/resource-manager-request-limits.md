@@ -1,17 +1,10 @@
 ---
 title: Request limits and throttling - Azure Resource Manager
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits have been reached.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-
-ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/05/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ---
@@ -27,7 +20,7 @@ If your application or script reaches these limits, you need to throttle your re
 
 When you reach the limit, you receive the HTTP status code **429 Too many requests**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Azure Resource Graph limits the number of requests to its operations. The steps in this article to determine the remaining requests and how to respond when the limit is reached also apply to Resource Graph. However, Resource Graph sets its own limit and reset rate. For more information, see [Throttle in Azure Resource Graph](../governance/resource-graph/overview.md#throttling).
 
 ## Remaining requests
 You can determine the number of remaining requests by examining response headers. Read requests return a value in the header for the number of remaining read requests. Write requests include a value for the number of remaining write requests. The following table describes the response headers you can examine for those values:
