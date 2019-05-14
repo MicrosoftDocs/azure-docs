@@ -39,7 +39,7 @@ Compare the data retention behavior:
 
 ## Purge old data
 
-- This behavior is the default behavior Time Series Insights environments and exhibits the same behavior Time Series Insights environments has exhibited since it launched in to public preview.  
+- This behavior is the default behavior for Time Series Insights environments.  
 - This behavior is preferred when users want to always see their *most recent data* in their Time Series Insights environment.
 - This behavior *purges* data once the environment’s limits (retention time, size, or count, whichever comes first) are reached. Retention is set to 30 days by default.
 - The oldest ingested data is purged first (FIFO approach).
