@@ -1,7 +1,7 @@
 ---
 title: Configure Linux Java apps - Azure App Service | Microsoft Docs
 description: Learn how to configure Java apps running in Azure App Service on Linux.
-keywords: azure app service, web app, linux, oss, java
+keywords: azure app service, web app, linux, oss, java, java ee, jee, javaee
 services: app-service
 author: rloutlaw
 manager: angerobe
@@ -22,6 +22,17 @@ Azure App Service on Linux lets Java developers to quickly build, deploy, and sc
 
 This guide provides key concepts and instructions for Java developers who use a built-in Linux container in App Service. If you've never used Azure App Service, follow the [Java quickstart](quickstart-java.md) and [Java with PostgreSQL tutorial](tutorial-java-enterprise-postgresql-app.md) first.
 
+## Deploying your app
+
+You can use [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) to deploy both .jar and .war files. Deployment with popular IDEs is also supported with [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) or [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
+
+Otherwise, your deployment method will depend on your archive type:
+
+- To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
+- To deploy .jar files on the Java SE images, use the `/api/zipdeploy/` endpoint of the Kudu site. For more information on this API, please see [this documentation](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
+
+Do not deploy your .war or .jar using FTP. The FTP tool is designed to upload startup scripts, dependencies, or other runtime files. It is not the optimal choice for deploying web apps.
+
 ## Logging and debugging apps
 
 Performance reports, traffic visualizations, and health checkups are available for each app through the Azure portal. For more information, see [Azure App Service diagnostics overview](../overview-diagnostics.md).
@@ -38,9 +49,13 @@ For more information, see [Streaming logs with the Azure CLI](../troubleshoot-di
 
 ### App logging
 
-Enable [application logging](../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enablediag) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after it is configured. If you need longer retention, configure the application to write output to a Blob storage container.
+Enable [application logging](../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enablediag) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after it is configured. If you need longer retention, configure the application to write output to a Blob storage container. Your Java and Tomcat app logs can be found in the `/home/LogFiles/Application/` directory.
 
 If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](/azure/application-insights/app-insights-java-trace-logs).
+
+### Troubleshooting tools
+
+The built-in Java images are based on the [Alpine Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) operating system. Use the `apk` package manager to install any troubleshooting tools or commands.
 
 ## Customization and tuning
 
@@ -50,32 +65,34 @@ Azure App Service for Linux supports out of the box tuning and customization thr
 - [Set up a custom domain](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Enable SSL](../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Add a CDN](../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configure the Kudu site](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
 ### Set Java runtime options
 
-To set allocated memory or other JVM runtime options in both the Tomcat and Java SE environments, set the JAVA_OPTS as shown below as an [application setting](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings). App Service Linux passes this setting as an environment variable to the Java runtime when it starts.
+To set allocated memory or other JVM runtime options in both the Tomcat and Java SE environments, create an [application setting](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) named `JAVA_OPTS` with the options. App Service Linux passes this setting as an environment variable to the Java runtime when it starts.
 
-In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` that includes the additional settings, such as `$JAVA_OPTS -Xms512m -Xmx1204m`.
+In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` that includes the additional settings, such as `-Xms512m -Xmx1204m`.
 
-To configure the app setting from the Azure App Service Linux Maven plugin, add setting/value tags in the Azure plugin section. The following example sets a specific minimum and maximum Java heap size:
+To configure the app setting from the Maven plugin, add setting/value tags in the Azure plugin section. The following example sets a specific minimum and maximum Java heap size:
 
 ```xml
 <appSettings>
     <property>
         <name>JAVA_OPTS</name>
-        <value>$JAVA_OPTS -Xms512m -Xmx1204m</value>
+        <value>-Xms512m -Xmx1204m</value>
     </property>
 </appSettings>
 ```
 
 Developers running a single application with one deployment slot in their App Service plan can use the following options:
 
-- B1 and S1 instances: -Xms1024m -Xmx1024m
-- B2 and S2 instances: -Xms3072m -Xmx3072m
-- B3 and S3 instances: -Xms6144m -Xmx6144m
-
+- B1 and S1 instances: `-Xms1024m -Xmx1024m`
+- B2 and S2 instances: `-Xms3072m -Xmx3072m`
+- B3 and S3 instances: `-Xms6144m -Xmx6144m`
 
 When tuning application heap settings, review your App Service plan details and take into account multiple applications and deployment slot needs to find the optimal allocation of memory.
+
+If you are deploying a JAR application, it should be named `app.jar` so that the built-in image can correctly identify your app. (The Maven plugin does this renaming automatically.) If you do not wish to rename your JAR to `app.jar`, you can upload a shell script with the command to run your JAR. Then paste the full path to this script in the [Startup File](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file) textbox in the Configuration section of the portal.
 
 ### Turn on web sockets
 
@@ -96,7 +113,7 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 
 ### Set default character encoding
 
-In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` with value `$JAVA_OPTS -Dfile.encoding=UTF-8`.
+In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` with value `-Dfile.encoding=UTF-8`.
 
 Alternatively, you can configure the app setting using the App Service Maven plugin. Add the setting name and value tags in the plugin configuration:
 
@@ -104,10 +121,14 @@ Alternatively, you can configure the app setting using the App Service Maven plu
 <appSettings>
     <property>
         <name>JAVA_OPTS</name>
-        <value>$JAVA_OPTS -Dfile.encoding=UTF-8</value>
+        <value>-Dfile.encoding=UTF-8</value>
     </property>
 </appSettings>
 ```
+
+### Adjust startup timeout
+
+If your Java application is particularly large, you should increase the startup time limit. To do this, create an application setting, `WEBSITES_CONTAINER_START_TIME_LIMIT` and set it to the number of seconds that App Service should wait before timing out. The maximum value is `1800` seconds.
 
 ## Secure applications
 
@@ -119,11 +140,19 @@ Set up app authentication in the Azure portal with the **Authentication and Auth
 
 If you need to enable multiple sign-in providers, follow the instructions in the [customize App Service authentication](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) article.
 
- Spring Boot developers can use the [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) to secure applications using familiar Spring Security annotations and APIs.
+ Spring Boot developers can use the [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) to secure applications using familiar Spring Security annotations and APIs. Be sure to increase the maximum header size in your `application.properties` file. We suggest a value of `16384`.
 
 ### Configure TLS/SSL
 
 Follow the instructions in the [Bind an existing custom SSL certificate](../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to upload an existing SSL certificate and bind it to your application's domain name. By default your application will still allow HTTP connections-follow the specific steps in the tutorial to enforce SSL and TLS.
+
+### Use KeyVault References
+
+[Azure KeyVault](../../key-vault/key-vault-overview.md) provides centralized secret management with access policies and audit history. You can store secrets (such as passwords or connection strings) in KeyVault and access these secrets in your application through environment variables.
+
+First, follow the instructions for [granting your app access to Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) and [making a KeyVault reference to your secret in an Application Setting](../app-service-key-vault-references.md#reference-syntax). You can validate that the reference resolves to the secret by printing the environment variable while remotely accessing the App Service terminal.
+
+To inject these secrets in your Spring or Tomcat configuration file, use environment variable injection syntax (`${MY_ENV_VAR}`). For Spring configuration files, please see this documentation on [externalized configurations](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
 ## Configure APM platforms
 
@@ -176,12 +205,9 @@ App Service Linux routes incoming requests to port 80, so your application shoul
 - [Vertx](https://vertx.io/docs/vertx-core/java/#_start_the_server_listening)
 - [Quarkus](https://quarkus.io/guides/application-configuration-guide)
 
-## Configure Tomcat
+## Data sources
 
-### Connect to data sources
-
->[!NOTE]
-> If your application uses the Spring Framework or Spring Boot, you can set database connection information for Spring Data JPA as environment variables [in your application properties file]. Then use [app settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) to define these values for your application in the Azure portal or CLI.
+### Tomcat
 
 These instructions apply to all database connections. You will need to fill placeholders with your chosen database's driver class name and JAR file. Provided is a table with class names and driver downloads for common databases.
 
@@ -293,7 +319,31 @@ Finally, place the driver JARs in the Tomcat classpath and restart your App Serv
 
 2. If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_HOME` to `/home/tomcat/conf` and use the updated configuration.
 
-## Configure WildFly server
+### Spring Boot
+
+To connect to data sources in Spring Boot applications, we suggest creating connection strings and injecting them into your `application.properties` file.
+
+1. In the "Application Settings" section of the App Service blade, set a name for the string, paste your JDBC connection string into the value field, and set the type to "Custom". You can optionally set this connection string as slot setting.
+
+    ![Creating a connection string in the Portal.]
+    
+
+    This connection string is accessible to our application as an environment variable named `CUSTOMCONNSTR_<your-string-name>`. For example, the connection string we created above will be named `CUSTOMCONNSTR_exampledb`.
+
+2. In your `application.properties` file, reference this connection string with the environment variable name. For our example, we would use the following.
+
+    ```yml
+    app.datasource.url=${CUSTOMCONNSTR_exampledb}
+    ```
+
+Please see the [Spring Boot documentation on data access](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-data-access.html) and [externalized configurations](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) for more information on this topic.
+
+## Configure Java EE (WildFly)
+
+> [!NOTE]
+> Java Enterprise Edition on App Service Linux is currently in Preview. This stack is **not** recommended for production-facing work. information on our Java SE and Tomcat stacks.
+
+Azure App Service on Linux lets Java developers to build, deploy, and scale Java Enterprise (Java EE) applications on a fully managed Linux-based service.  The underlying Java Enterprise runtime environment is the open-source [Wildfly](https://wildfly.org/) application server.
 
 [Scale with App Service](#scale-with-app-service)
 [Customize application server configuration](#customize-application-server-configuration)
@@ -335,7 +385,7 @@ Supply [app settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcon
 
 To install modules and their dependencies into the Wildfly classpath via the JBoss CLI, you will need to create the following files in their own directory. Some modules and dependencies might need additional configuration such as JNDI naming or other API-specific configuration, so this list is a minimum set of what you'll need to configure a dependency in most cases.
 
-- An [XML module descriptor](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). This XML file defines the name, attributes, and dependencies of your module. This [example module.xml file](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) defines a Postgres module, its JAR file JDBC dependency, and other module dependencies required.
+- An [XML module descriptor](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). This XML file defines the name, attributes, and dependencies of your module. This [example module.xml file](https://access.redhat.com/documentation/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) defines a Postgres module, its JAR file JDBC dependency, and other module dependencies required.
 - Any necessary JAR file dependencies for your module.
 - A script with your JBoss CLI commands to configure the new module. This file will contain your commands to be executed by the JBoss CLI to configure the server to use the dependency. For documentation on the commands to add modules, datasources, and messaging providers, refer to [this document](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
 - A Bash startup script to call the JBoss CLI and execute the script in the previous step. This file will be executed when your App Service instance is restarted or when new instances are provisioned during a scale-out. This startup script is where you can perform any other configurations for your application as the JBoss commands are passed to the JBoss CLI. At minimum, this file can be a single command to pass your JBoss CLI command script to the JBoss CLI:
@@ -348,9 +398,9 @@ Once you have the files and content for your module, follow the steps below to a
 
 1. FTP your files to `/home/site/deployments/tools` in your App Service instance. See this document for instructions on getting your FTP credentials.
 2. In the Application Settings blade of the Azure portal, set the “Startup Script” field to the location of your startup shell script, for example `/home/site/deployments/tools/your-startup-script.sh` .
-3. Restart your App Service instance by pressing the **Restart** button in the **Overview** section of the Portal or using the Azure CLI.
+3. Restart your App Service instance by pressing the **Restart** button in the **Overview** section of the portal or using the Azure CLI.
 
-### Data sources
+### Configure data source connections
 
 To configure Wildfly for a data source connection, follow the same process outlined above in the Installing Modules and Dependencies section. You can follow the same steps for any Azure Database service.
 
@@ -426,3 +476,4 @@ Developers can [open an issue](/azure/azure-supportability/how-to-create-azure-s
 Visit the [Azure for Java Developers](/java/azure/) center to find Azure quickstarts, tutorials, and Java reference documentation.
 
 General questions about using App Service for Linux that aren't specific to the Java development are answered in the [App Service Linux FAQ](app-service-linux-faq.md).
+
