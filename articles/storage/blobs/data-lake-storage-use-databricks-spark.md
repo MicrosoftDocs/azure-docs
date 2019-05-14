@@ -171,7 +171,7 @@ Use these values to replace the mentioned placeholders.
 
    * The `storage-account-name` is the name of your Azure Data Lake Storage Gen2 storage account.
 
-   * The `file-system-name` is the name of the File System you created on ADLS Gen2.
+   * Replace the `file-system-name` placeholder with any name that you want to give your file system.
 
    > [!NOTE]
    > In a production setting, consider storing your authentication key in Azure Databricks. Then, add a look up key to your code block instead of the authentication key. After you've completed this quickstart, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.
