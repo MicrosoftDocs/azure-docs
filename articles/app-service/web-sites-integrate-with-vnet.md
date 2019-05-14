@@ -268,9 +268,9 @@ The new version is in Preview and has the following characteristics.
 * You can access resources across ExpressRoute connections without any additional configuration beyond integrating with the ExpressRoute connected VNet.
 * The app and the VNet must be in the same region
 * The new feature requires an unused subnet in your Resource Manager VNet.
+* Your app must be in an Azure App Service deployment that is capable of scaling up to Premium v2.
 * Your App Service plan must be a Standard, Premium, or PremiumV2 plan
 * Production workloads are not supported on the new feature while it is in Preview
-* Your app must be in an Azure App Service deployment that is capable of scaling up to Premium v2.
 * The new VNet Integration feature doesn't work for apps in an App Service Environment.
 * You cannot delete a VNet with an integrated app.  
 * Route tables and global peering are not yet available with the new VNet Integration.  

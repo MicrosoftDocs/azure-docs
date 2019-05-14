@@ -116,8 +116,8 @@
     href: functions-networking-options.md
   - name: IP addresses
     href: ip-addresses.md 
-  - name: On-premises functions
-    href: functions-runtime-overview.md 
+  - name: Functions in Kubernetes
+    href: functions-kubernetes-keda.md 
 - name: How-to guides
   items:
   - name: Develop
@@ -138,6 +138,10 @@
       href: functions-create-maven-eclipse.md
     - name: Create Linux function app  
       href: create-function-app-linux-app-service-plan.md
+    - name: Debug local PowerShell functions
+      href: functions-debug-powershell-local.md
+    - name: Dependency injection
+      href: functions-dotnet-dependency-injection.md
     - name: Manage connections
       href: manage-connections.md
     - name: Error handling
@@ -167,6 +171,7 @@
     items:
     - name: Manage a function app 
       href: functions-how-to-use-azure-function-app-settings.md
+      displayName: app setting, application setting
     - name: Set the runtime version 
       href: set-runtime-version.md
     - name: Manually register an extension 

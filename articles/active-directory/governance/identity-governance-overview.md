@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/02/2019
+ms.date: 04/29/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -71,6 +71,10 @@ While there is no perfect solution or recommendation for every customer, the fol
 
 - [Identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Securing privileged access](../users-groups-roles/directory-admin-roles-secure.md)
+
+You can also check out the Getting started tab of **Identity Governance** in the Azure portal to start using entitlement management, access reviews, Privileged Identity Management, and Terms of use.
+
+![Identity Governance getting started](./media/identity-governance-overview/getting-started.png)
 
 ## Next steps
 
