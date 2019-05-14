@@ -5,10 +5,10 @@ metadata:
   title: Azure AD Domain Services documentation
   description: Learn how to use Active Directory Domain Services to join Azure virtual machines to a domain without using domain controllers. Tutorials and other documentation show you how to manage virtual machines using group policies.
   keywords: Azure AD, Azure, domain join, group policy, LDAP, Kerberos, domain controller, DC, lift and shift
-  author: mahesh-unnikrishnan
-  ms.author: maheshu
+  author: MikeStephens-MS
+  ms.author: mstephen
   manager: daveba
-  ms.date: 6/1/2018
+  ms.date: 05/14/2019
   ms.topic: landing-page
   ms.devlang: na
   ms.service: active-directory
@@ -33,7 +33,7 @@ sections:
       image:
         src: https://docs.microsoft.com/media/common/i_deploy.svg
       title: Get started
-    - href: active-directory-ds-contact-us.md
+    - href: contact-us.md
       html: <p>Receive help when you need it.</p>
       image:
         src: https://docs.microsoft.com/media/common/i_support.svg

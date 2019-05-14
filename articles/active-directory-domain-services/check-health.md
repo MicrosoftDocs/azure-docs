@@ -3,7 +3,7 @@ title: Azure AD Domain Services - Check the health of your managed domain | Micr
 description: Check the health of your managed domain using the health page in the Azure portal.
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/12/2018
-ms.author: ergreenl
+ms.date: 05/14/2019
+ms.author: mstephen
 
 ---
 # Check the health of an Azure AD Domain Services managed domain
@@ -57,13 +57,13 @@ This monitors whether regular backups of your managed domain are being performed
 
 | Detail value | Explanation |
 | --- | --- |
-|"Never backed up" | This state is normal for a newly created managed domain. Generally, the first backup is created 24 hours after your managed domain is provisioned. If your managed domain is not newly created or you see this state for an abnormal amount of time, [contact support](active-directory-ds-contact-us.md). |
+|"Never backed up" | This state is normal for a newly created managed domain. Generally, the first backup is created 24 hours after your managed domain is provisioned. If your managed domain is not newly created or you see this state for an abnormal amount of time, [contact support](contact-us.md). |
 | Last backup was taken 1 to 14 days ago | In general, this value is expected for the backup monitor. |
-| Last backup was taken more than 14 days ago. | Any time longer than two weeks is an unusually long time since your last backup. Active critical alerts may prevent your managed domain from being backed up on a regular basis. First, resolve any active alerts for your managed domain, and then if the issue still persists, [contact support](active-directory-ds-contact-us.md). |
+| Last backup was taken more than 14 days ago. | Any time longer than two weeks is an unusually long time since your last backup. Active critical alerts may prevent your managed domain from being backed up on a regular basis. First, resolve any active alerts for your managed domain, and then if the issue still persists, [contact support](contact-us.md). |
 
 
 ### The 'synchronization with Azure AD' monitor
-Microsoft monitors how often your managed domain is synchronized with Azure Active Directory. The number of objects (users & groups) and the number of changes made in your Azure AD directory since the last sync can both affect how long a synchronization period can take. If your managed domain was last synchronized over three days ago, [contact support](active-directory-ds-contact-us.md).
+Microsoft monitors how often your managed domain is synchronized with Azure Active Directory. The number of objects (users & groups) and the number of changes made in your Azure AD directory since the last sync can both affect how long a synchronization period can take. If your managed domain was last synchronized over three days ago, [contact support](contact-us.md).
 
 ## Alerts
 Alerts are generated for issues on your managed domain that need to be addressed in order for Azure AD Domain Services to run. Each alert explains the issue and provides a resolution URL that outlines specific steps to resolve the issue. To view all alerts and their resolutions, visit the [Troubleshoot alerts](active-directory-ds-troubleshoot-alerts.md) article.
@@ -78,4 +78,4 @@ Alerts are categorized into three different levels of severity: critical, warnin
 ## Next steps
 - [Resolve alerts on your managed domain](active-directory-ds-troubleshoot-alerts.md)
 - [Read more about Azure AD Domain Services](active-directory-ds-overview.md)
-- [Contact the product team](active-directory-ds-contact-us.md)
+- [Contact the product team](contact-us.md)

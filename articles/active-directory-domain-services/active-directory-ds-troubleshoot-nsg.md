@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Troubleshooting Network Security
 description: Troubleshooting NSG configuration for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager:
 editor:
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2018
-ms.author: ergreenl
+ms.date: 05/14/2019
+ms.author: mstephen
 
 ---
 # Troubleshoot invalid networking configuration for your managed domain
@@ -54,4 +54,4 @@ If you do not want to use PowerShell, you can manually add single rules to NSGs 
 
 
 ## Need help?
-Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).
+Contact the Azure Active Directory Domain Services product team to [share feedback or for support](contact-us.md).

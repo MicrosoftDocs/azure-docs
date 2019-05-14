@@ -124,7 +124,7 @@ You may have deployment use-cases where you need some of the capabilities offere
 * **Extend your on-premises domain to Azure:** You can connect an Azure virtual network to your on-premises network using a VPN/ExpressRoute connection. This setup enables Azure VMs to be joined to your on-premises AD. Another alternative is to promote replica domain controllers of your on-premises domain in Azure as a VM. You can then set it up to replicate over a VPN/ExpressRoute connection to your on-premises directory. This deployment mode effectively extends your on-premises domain to Azure.
 
 > [!NOTE]
-> You may determine that a DIY option is better suited for your deployment use-cases. Consider [sharing feedback](active-directory-ds-contact-us.md) to help us understand what features would help you chose Azure AD Domain Services in the future. This feedback helps us evolve the service to better suit your deployment needs and use-cases.
+> You may determine that a DIY option is better suited for your deployment use-cases. Consider [sharing feedback](contact-us.md) to help us understand what features would help you chose Azure AD Domain Services in the future. This feedback helps us evolve the service to better suit your deployment needs and use-cases.
 >
 >
 

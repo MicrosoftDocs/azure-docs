@@ -92,7 +92,7 @@ Check your spam or junk folder in your email for the notification and make sure 
 ## Next steps
 - [Resolve alerts on your managed domain](active-directory-ds-troubleshoot-alerts.md)
 - [Read more about Azure AD Domain Services](active-directory-ds-overview.md)
-- [Contact the product team](active-directory-ds-contact-us.md)
+- [Contact the product team](contact-us.md)
 
 ## Contact us
-Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).
+Contact the Azure Active Directory Domain Services product team to [share feedback or for support](contact-us.md).

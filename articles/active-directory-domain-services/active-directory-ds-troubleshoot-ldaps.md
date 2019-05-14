@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 05/14/2019
 ms.author: mstephen
 
 ---
@@ -61,4 +61,4 @@ When secure LDAP is enabled, we recommend creating additional rules to allow inb
 Create a new secure LDAP certificate by following the steps outlined in the [Configure secure LDAP](configure-ldaps.md) article.
 
 ## Contact us
-Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).
+Contact the Azure Active Directory Domain Services product team to [share feedback or for support](contact-us.md).

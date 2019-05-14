@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Suspended domains | Microsoft Do
 description: Managed domain suspension and deletion
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/20/2018
-ms.author: ergreenl
+ms.date: 05/14/2019
+ms.author: mstephen
 
 ---
 # Suspended domains
@@ -109,7 +109,7 @@ Your managed domain can only be restored to the date of the last backup. The dat
 ## Next steps
 - [Resolve alerts for your managed domain](active-directory-ds-troubleshoot-alerts.md)
 - [Read more about Azure Active Directory Domain Services](active-directory-ds-overview.md)
-- [Contact the product team](active-directory-ds-contact-us.md)
+- [Contact the product team](contact-us.md)
 
 ## Contact us
-Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).
+Contact the Azure Active Directory Domain Services product team to [share feedback or for support](contact-us.md).

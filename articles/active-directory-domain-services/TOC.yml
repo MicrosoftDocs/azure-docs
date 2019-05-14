@@ -128,6 +128,6 @@
     - name: Azure AD feedback forum
       href: https://feedback.azure.com/forums/169401-azure-active-directory
     - name: Contact us
-      href: active-directory-ds-contact-us.md
+      href: contact-us.md
     - name: Use Azure AD Domain Services in Azure CSP subscriptions
       href: active-directory-ds-csp.md
