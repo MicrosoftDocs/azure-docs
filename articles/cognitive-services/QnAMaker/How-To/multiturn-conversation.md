@@ -72,7 +72,6 @@ When importing the PDF document, QnA Maker determines follow-up prompts from the
     ![Create new prompt QnA](../media/conversational-context/create-child-prompt-from-parent.png)
 
 1. Check **Context-only**. The **Context-only** option indicates that this user text will be understood _only_ if given in response to the previous question. For this scenario, the prompt text doesn't make any sense as a stand-alone question, it only makes sense from the context of the previous question.
-1. In the **Link to answer** text box, enter the answer, `How would you rate QnA Maker?`.
 1. Select **Create new** then select **Save**. 
 
     This created a new question-and-answer pair and linked the selected question as a follow-up prompt. The **Context** column, for both questions, indicates a follow-up prompt relationship. 
