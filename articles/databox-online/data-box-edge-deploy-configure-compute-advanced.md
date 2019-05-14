@@ -16,13 +16,14 @@ Customer intent: As an IT admin, I need to understand how to configure compute o
 
 This tutorial describes how to configure a compute role on your Azure Data Box Edge device. After you configure the compute role, Data Box Edge can transform data before sending it to Azure.
 
-This procedure can take around 10 to 15 minutes to complete.
+This procedure can take around 15 to 30 minutes to complete.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Configure compute
 > * Add shares
+> * Add a trigger
 > * Add a compute module
 > * Verify data transform and transfer
 
@@ -101,7 +102,8 @@ For the advanced deployment in this tutorial, you'll need two shares: one Edge s
 
     ![The "Local mount point for Edge compute modules" box](./media/data-box-edge-deploy-configure-compute-advanced/add-edge-share-4.png)
  
-1. On an existing cloud share that was created on your Data Box Edge device, in the **Local mount point for Edge compute modules** box, copy the local mount point for Edge compute modules for this cloud share.  
+5. On an existing cloud share that was created on your Data Box Edge device, in the **Local mount point for Edge compute modules** box, copy the local mount point for Edge compute modules for this cloud share.  
+
     You'll use this local mount point when you deploy the module.
 
     ![Add custom module](./media/data-box-edge-deploy-configure-compute-advanced/add-edge-share-5.png)
@@ -196,7 +198,7 @@ In this section, you add a custom module to the IoT Edge device that you created
  
     4. If necessary, configure the advanced Edge runtime settings, and then click **Next**.
 
-    ![Add custom module](./media/data-box-edge-deploy-configure-compute-advanced/add-module-6.png)
+        ![Add custom module](./media/data-box-edge-deploy-configure-compute-advanced/add-module-6.png)
  
 5.	Under **Specify Routes**, set routes between modules.  
     
@@ -204,7 +206,9 @@ In this section, you add a custom module to the IoT Edge device that you created
 
     You can replace *route* with the following route string that you copied earlier. In this example, enter the name of the local share that will push data to the cloud share. Replace the `modulename` with the name of the module. Select **Next**.
         
-    `"route": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/filemove/inputs/input1\")"`
+    ```
+    "route": "FROM /* WHERE topic = 'mydbesmbedgelocalshare1' INTO BrokeredEndpoint(\"/modules/filemove/inputs/input1\")"
+    ```
 
     ![The Specify Routes section](./media/data-box-edge-deploy-configure-compute-advanced/add-module-8.png)
 
@@ -220,11 +224,7 @@ In this section, you add a custom module to the IoT Edge device that you created
 
 The final step is to ensure that the module is connected and running as expected. The run-time status of the module should be running for your IoT Edge device in the IoT Hub resource.
 
-To verify that the module is running, do the following:
-
-1. Select the **Add module** tile. This takes you to the **Modules** blade. In the list of modules, identify the module you deployed. The runtime status of the module you added should be *running*.
-
-    ![Verify data transform](./media/data-box-edge-deploy-configure-compute-advanced/verify-data-1.png)
+Take the following steps to verify data transform and transfer to Azure.
  
 1.	In File Explorer, connect to both the Edge local and Edge shares you created previously.
 
@@ -238,11 +238,15 @@ To verify that the module is running, do the following:
 
     ![Verify data transform](./media/data-box-edge-deploy-configure-compute-advanced/verify-data-4.png)  
 
-    The data is then pushed from the cloud share to the storage account. To view the data, go to the Storage Explorer.
+    The data is then pushed from the cloud share to the storage account. To view the data, go to the Storage Explorer. You can view the uploaded data in your storage account.
 
     ![Verify data transform](./media/data-box-edge-deploy-configure-compute-advanced/verify-data-5.png)
  
 You have completed the validation process.
+
+## Enable network interface for compute
+
+## Deploy a web server module
 
 
 ## Next steps
@@ -252,6 +256,7 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Configure compute
 > * Add shares
+> * Add a trigger
 > * Add a compute module
 > * Verify data transform and transfer
 
