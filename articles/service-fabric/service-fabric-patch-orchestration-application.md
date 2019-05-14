@@ -472,3 +472,8 @@ An administrator must intervene and determine why the application or cluster bec
 
 ### Version 1.3.2
 - Fixing an issue which effected the patching lifecyle on a node in case there are nodes with name which is subset of the current node name. For such nodes, its possible, patching is missed or reboot is pending. 
+
+### Version 1.4.0
+- Fixes an issue in which repair task, in post installation state, was not garbage collected if node gets deleted while installation of update.
+- Fixes an issue in which updates were stuck due to TimerCheckPoint.txt file was empty on some of the nodes.
+- A lot of Diagnostic improvements are introduced to help customers diagnose the issue themselves.
