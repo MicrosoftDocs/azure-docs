@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 05/14/2019
 ms.author: raynew
 
 
@@ -24,7 +24,7 @@ As part of your business continuity and disaster recovery (BCDR) strategy, you d
 
 ## Best practices
 
-Some general best practices for large-scale disaster recovery:
+Some general best practices for large-scale disaster recovery. These best practices are discussed in more detail in the next sections of the document.
 
 - **Identify target requirements**: Estimate out capacity and resource needs in Azure before you set up disaster recovery.
 - **Plan for Site Recovery components**: Figure out what Site Recovery components (configuration server, process servers) you need to meet your estimated capacity.
@@ -32,6 +32,7 @@ Some general best practices for large-scale disaster recovery:
 - **Run the latest updates**: The Site Recovery team releases new versions of Site Recovery components on a regular basis, and you should make sure you're running the latest versions. To help with that, track [what's new](site-recovery-whats-new.md) for updates, and [enable and install updates](service-updates-how-to.md) as they release.
 - **Monitor proactively**: As you get disaster recovery up and running, you should proactively monitor the status and health of replicated machines, and infrastructure resources.
 - **Disaster recovery drills**: You should run disaster recovery drills on a regular basis. These don't impact on your production environment, but do help ensure that failover to Azure will work as expected when needed.
+
 
 
 ## Gather capacity planning information
@@ -76,7 +77,7 @@ You can use these recommendations to plan for Azure resources, network bandwidth
 
 ## Plan Azure subscriptions and quotas
 
-We want to make sure that we have available quotas in the target subscription to handle failover.
+We want to make sure that available quotas in the target subscription are sufficient to handle failover.
 
 **Task** | **Details** | **Action**
 --- | --- | ---
@@ -112,18 +113,14 @@ After failover to Azure you need your workloads to operate as they did on-premis
 
 ## Plan for source capacity and requirements
 
-On-premises, do the following:
-
-- **Plan for configuration servers**: Make sure you have sufficient configuration servers, in accordance with sizing recommendations below.
-- **Plan for process servers**: Make sure you've set up one or more scale-out process servers.
-    - You shouldn't use the process server that's running by default on the configuration server.
-    - Figure out many scale-out process servers you need in accordance with size limits below.
+It's important that you have sufficient configuration servers and scale-out process servers to meet capacity requirements. As you begin your large-scale deployment, start off with a single configuration server, and a single scale-out process server. As you reach the prescribed limits, add additional servers.
 
 >[!NOTE]
 > For VMware VMs, the Deployment Planner makes some recommendations about the configuration and process servers you need. We recommend that you use the tables included in the following procedures, instead of following the Deployment Planner recommendation. 
 
-## Plan for configuration servers
 
+## Set up a configuration server
+ 
 Configuration server capacity is affected by the number of machines replicating, and not by data churn rate. To figure out whether you need additional configuration servers, use these defined VM limits.
 
 **CPU** | **Memory** | **Cache disk** | **Replicated machine limit**
@@ -138,17 +135,19 @@ If you need to add a new configuration server, follow these instructions:
 - [Set up a configuration server](vmware-azure-deploy-configuration-server.md) for VMware VM disaster recovery, using an OVF template.
 - [Set up a configuration server](physical-azure-set-up-source.md) manually for physical servers, or for VMware deployments that can't use an OVF template.
 
->[!NOTE]
-> When you set up a configuration server, it's important to consider the subscription and vault within which it resides, since these shouldn't be changed after setup. If you do need to change the vault, you have to disassociate the configuration server from the vault, and reregister it. This stops replication of VMs in the vault.
-> If you want to set up a configuration server with multiple network adapters, you should do this during set up. You can't do this after the registering the configuration server in the vault.
+As you set up a configuration server, note that:
 
-## Plan for process servers
+- When you set up a configuration server, it's important to consider the subscription and vault within which it resides, since these shouldn't be changed after setup. If you do need to change the vault, you have to disassociate the configuration server from the vault, and reregister it. This stops replication of VMs in the vault.
+- If you want to set up a configuration server with multiple network adapters, you should do this during set up. You can't do this after the registering the configuration server in the vault.
+
+## Set up a process server
 
 Process server capacity is affected by data churn rates, and not by the number of machines enabled for replication.
 
 - For large deployments you should always have at least one scale-out process server.
 - To figure out whether you need additional servers, use the following table.
 - We recommend that you add a server with the highest spec. 
+
 
 **CPU** | **Memory** | **Cache disk** | **Churn rate**
  --- | --- | --- | --- 
