@@ -125,7 +125,7 @@ You can get the public key from the transaction node list. Copy the public key f
 ### Transaction node endpoint addresses
 
 1. In the Azure portal, navigate to each transaction node and select **Transaction nodes > Connection strings**.
-1. Copy and save the endpoint URL from **HTTPS (Access key 1) for each transaction node. You need the endpoint addresses for the smart contract configuration file later in the tutorial.
+1. Copy and save the endpoint URL from **HTTPS (Access key 1)** for each transaction node. You need the endpoint addresses for the smart contract configuration file later in the tutorial.
 
     ![Transaction endpoint address](./media/send-transaction/endpoint.png)
 
