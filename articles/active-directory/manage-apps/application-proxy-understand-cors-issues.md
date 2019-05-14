@@ -39,11 +39,11 @@ The following URLs have different origins than the previous two:
 
 The following examples show a **Webservice**, which hosts a web API controller, and a **WebClient**, which calls **Webservice**. There is an AJAX request from **WebClient** to **WebService**.
 
-![CORS Application Sample](./media/media/image1.png)
+![On-premises same-origin request](./media/media/application-proxy-understand-cors-issues/image1.png)
 
 The WebClient app seems to work when you host it on premises, but it either fails to load or errors out when you publish it via the Azure AD Application Proxy. Since you published the two apps separately through Application Proxy, they're hosted at different domains, so the AJAX request from WebClient to WebService is cross-origin and fails.
 
-![CORS Application Sample](./media/media/image2.png)
+![Application Proxy CORS request](./media/media/application-proxy-understand-cors-issues/image2.png)
 
 You can identify CORS issues by using browser debug tools:
 
@@ -54,7 +54,7 @@ You can identify CORS issues by using browser debug tools:
 
 In the following example, the cross-origin call happens on the **Try It** button click. Instead of the expected test message, you see an error that *https:\//corwebclient-allmylab.msappproxy.net* is missing from the **Access-Control-Allow-Origin** header.
 
-![C:\\Users\\japere.REDMOND\\Microsoft\\AAD IAM Cloud Access and Self-Service PM Team - Application Proxy\\Blogs and Docs\\Blogs Migrated\\Understanding CORS Issues – Application Proxy Blog\_files\\IIS.png](./media/media/image3.png){width="6.5in" height="3.4625in"}
+![CORS issue](./media/media/application-proxy-understand-cors-issues/image3.png)
 
 ## Solutions for Application Proxy CORS issues
 
@@ -64,15 +64,15 @@ Use an Azure AD Application Proxy [custom domain](https://docs.microsoft.com/en-
 
 ### Option 2: Publish the parent directory
 
-Publish the parent directory of both apps. This works especially well if you only have two apps on the web server. Instead of publishing each app separately, publish the common parent directory, resulting in the same origin.
+Publish the parent directory of both apps. This solution works especially well if you only have two apps on the web server. Instead of publishing each app separately, publish the common parent directory, resulting in the same origin.
 
 App published individually:
 
-![CORS Application 3](./media/media/image4.png){width="6.5in" height="2.0236111111111112in"}
+![Publish app individually](./media/media/application-proxy-understand-cors-issues/image6.png)
 
 Instead, publish the parent directory:
 
-![CORS Application 4](./media/media/image5.png){width="6.5in" height="2.1020833333333333in"}
+![Publish parent directory](./media/media/application-proxy-understand-cors-issues/image6.png)
 
 The resulting URLs effectively resolve the CORS issues:
 
@@ -81,9 +81,9 @@ The resulting URLs effectively resolve the CORS issues:
 
 ## Option 3: Update HTTP headers
 
-Add the HTTP response header on the web service to match the origin request. For example, you can use IIS Manager to modify the header for websites running in Internet Information Services (IIS):
+Add a custom HTTP response header on the web service to match the origin request. For example, you can use IIS Manager to modify the header for websites running in Internet Information Services (IIS):
 
-![CORS Application 5](./media/media/image6.png){width="6.5in" height="4.822916666666667in"}
+![Add custom response header in IIS Manager](./media/media/application-proxy-understand-cors-issues/image6.png)
 
 This modification doesn't require any code changes. You can verify it in the Fiddler traces.
 
@@ -102,4 +102,4 @@ Content-Length: 17
 
 ## Option 4: Modify the app
 
-You can change your app to support CORS by adding the *Access-Control-Allow-Origin* header, with appropriate values. The way to do this depends on the app's code language. This is the least recommended option, because it requires the most effort.
+You can change your app to support CORS by adding the *Access-Control-Allow-Origin* header, with appropriate values. The way to add the header depends on the app's code language. Changing the code is the least recommended option, because it requires the most effort.
