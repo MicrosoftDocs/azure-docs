@@ -11,8 +11,7 @@
 - name: Quickstarts
   items:
   - name: Execute Apache Hive queries - Apache Zeppelin
-    href: ../hdinsight-connect-hive-zeppelin.md
-    maintainContext: true
+    href: ./hdinsight-connect-hive-zeppelin.md
 - name: Get started
   items:
   - name: Start with Interactive Query
