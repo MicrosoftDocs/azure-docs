@@ -16,7 +16,7 @@ ms.date: 05/10/2019
 
 Learn how to build a machine learning regression model without writing a single line of code using the visual interface.
 
-This experiment trains a **decision forest regressor** to predict a car's price based on its technical features such as make, model, horsepower, and size. Because we're trying to answer the question "How much?" this is called a regression. However, you can apply the same fundamental steps in this experiment to tackle any type of machine learning problem whether it be regression, classification, clustering, etc.
+This experiment trains a **decision forest regressor** to predict a car's price based on technical features such as make, model, horsepower, and size. Because we're trying to answer the question "How much?" this is called a regression problem. However, you can apply the same fundamental steps in this experiment to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
 
 The fundamental steps of a training machine learning model are:
 
@@ -25,7 +25,7 @@ The fundamental steps of a training machine learning model are:
 1. Train the model
 1. Evaluate the model
 
-Here's the completed graph of the experiment:
+Here's the final, completed graph of the experiment we'll be working on. We'll provide the rationale for all the modules so you can make similar decisions on your own.
 
 ![Graph of the experiment](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 

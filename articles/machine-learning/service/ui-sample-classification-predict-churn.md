@@ -14,13 +14,13 @@ ms.date: 05/10/2019
 
 # Sample 5 - Classification: Predict churn, appetency, and up-selling 
 
-Learn to build a complex machine learning experiment without writing a single line of code using the visual interface.
+Learn how to build a complex machine learning experiment without writing a single line of code using the visual interface.
 
-This experiment trains three, **two-class boosted decision tree** classifiers to predict churn, appetency, and up-selling, which are common tasks for customer relationship management (CRM) systems. The data values and labels are split across multiple data sources and scrambled to anonymize customer information, however, we can still train a model without knowing the unscrambled values.
+This experiment trains three, **two-class boosted decision tree** classifiers to predict common tasks for customer relationship management (CRM) systems: churn, appetency, and up-selling. The data values and labels are split across multiple data sources and scrambled to anonymize customer information, however, we can still use the visual interface to combine data sets and train a model using the scrambled values.
 
-Because we're trying to answer the question "Which one?" this is called a classification problem. However, you can apply the same steps in this experiment to tackle any type of machine learning problem whether it be regression, classification, clustering, etc.
+Because we're trying to answer the question "Which one?" this is called a classification problem. However, you can apply the same steps in this experiment to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
 
-Here's the final, completed graph of the experiment:
+Here's the completed graph for this experiment:
 
 ![Experiment graph](./media/ui-sample-classification-predict-churn/experiment-graph.png)
 

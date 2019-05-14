@@ -12,15 +12,15 @@ ms.reviewer: sgilley
 ms.date: 05/10/2019
 ---
 
-# Advanced Sample - Classification: Predict credit risk (cost sensitive)
+# Sample 4 - Classification: Predict credit risk (cost sensitive)
 
-This article shows you how to build a complex machine learning experiment using the visual interface. You'll learn how to implement custom Python scripts and compare multiple models to choose the best option.
+This article shows you how to build a complex machine learning experiment using the visual interface. You'll learn how to implement custom logic using Python scripts and compare multiple models to choose the best option.
 
-This sample trains a classifier to predict credit risk using credit application information such as credit history, employment duration, age, and number of credit cards. However, can apply the concepts presented in this article to tackle your own machine learning problems.
+This sample trains a classifier to predict credit risk using credit application information such as credit history, age, and number of credit cards. However, you can apply the concepts in this article to tackle your own machine learning problems.
 
-If you're just getting started with machine learning, you can take a look at the [basic version](ui-sample-classification-predict-credit-risk-basic.md) to see a basic classifier.
+If you're just getting started with machine learning, you can take a look at the [basic classifier sample](ui-sample-classification-predict-credit-risk-basic.md) first.
 
-Here's the final, completed graph of the experiment:
+Here's the completed graph for this experiment:
 
 [![Graph of the experiment](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 

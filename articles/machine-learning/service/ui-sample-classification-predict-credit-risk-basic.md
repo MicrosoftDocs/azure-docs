@@ -14,11 +14,11 @@ ms.date: 05/10/2019
 
 # Sample 3 - Classification: Predict credit risk
 
-Learn how to build a machine learning classifier without writing a single line of code using the visual interface.
+Learn how to build a machine learning classifier without writing a single line of code using the visual interface. This sample trains a **two-class boosted decision tree** to predict credit risk (high or low) based on credit application information such as credit history, age, and number of credit cards.
 
-This sample trains a **two-class boosted decision tree** to predict credit risk (high or low) based on credit application information such as credit history, employment duration, age, and number of credit cards. Because we're trying to answer the question "Which one?" this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem whether it be regression, classification, clustering, etc.
+Because we're trying to answer the question "Which one?" this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
 
-Here's the final, completed graph of the experiment.
+Here's the completed graph for this experiment:
 
 ![Graph of the experiment](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
