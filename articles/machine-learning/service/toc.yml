@@ -89,8 +89,6 @@
   - name: Model interpretability
     displayName: explainability
     href: machine-learning-interpretability-explainability.md
-  - name: Accelerate with GPUs
-    href: concept-accelerate-inferencing-with-gpus.md
   - name: Accelerate with FPGAs
     href: concept-accelerate-with-fpgas.md
   - name: Optimize with ONNX and ONNX Runtime
@@ -200,6 +198,8 @@
     - name: Where and how to deploy
       displayName: publish azure kubernetes azure container instances
       href: how-to-deploy-and-where.md
+    - name: GPUs
+      href: how-to-deploy-inferencing-gpus.md
     - name: FPGAs
       href: how-to-deploy-fpga-web-service.md
     - name: IoT Edge
@@ -227,8 +227,9 @@
     items:
     - name: Create an ML pipeline
       href: how-to-create-your-first-pipeline.md  
-    - name: Train and deploy ML models with Azure Pipelines
-      href: /azure/devops/pipelines/targets/azure-machine-learning?view=azure-devop
+    - name: 'CI/CD of ML workflows with Azure Pipelines'
+      displayName: continuous, integration, delivery
+      href: /azure/devops/pipelines/targets/azure-machine-learning
       mainContext: true
   - name: Manage resource quotas
     displayName: limits
@@ -241,9 +242,6 @@
   - name: Machine learning SDK
     displayName: api core package python data prep
     href: https://aka.ms/aml-sdk
-  - name: Data prep SDK
-    displayName: api core package python data prep
-    href: https://aka.ms/data-prep-sdk
   - name: Monitoring SDK
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
