@@ -9,21 +9,18 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ---
 
 # Sample 5 - Classification: Predict churn, appetency, and up-selling 
 
-Learn how to build a machine learning classifier that to predict churn, appetency, and up-selling that predicts an automobile's price without writing a single line of code.
+Learn to build a complex machine learning experiment without writing a single line of code using the visual interface.
 
-You'll use the visual interface to perform the basic steps of any machine learning model development project:
+This experiment trains three, **two-class boosted decision tree** classifiers to predict churn, appetency, and up-selling, which are common tasks for customer relationship management (CRM) systems. The data values and labels are split across multiple data sources and scrambled to anonymize customer information, however, we can still train a model without knowing the unscrambled values.
 
-1. Get the data
-1. Pre-process the data
-1. Train the model
-1. Evaluate the model
+Because we're trying to answer the question "Which one?" this is called a classification problem. However, you can apply the same steps in this experiment to tackle any type of machine learning problem whether it be regression, classification, clustering, etc.
 
-Here's the final, completed graph of the experiment. This article provides the rationale  for every module so you can make similar decisions when creating your own models.
+Here's the final, completed graph of the experiment:
 
 ![Experiment graph](./media/ui-sample-classification-predict-churn/experiment-graph.png)
 
@@ -37,11 +34,11 @@ Here's the final, completed graph of the experiment. This article provides the r
 
 ## Data
 
-The data we use for this experiment is from KDD Cup 2009. The dataset has 50,000 rows and 230 feature columns. The task is to predict churn, appetency, and up-selling for customers who use these features. See the [KDD website](https://www.kdd.org/kdd-cup/view/kdd-cup-2009) for more details about the data and the task.
+The data we use for this experiment is from KDD Cup 2009. The dataset has 50,000 rows and 230 feature columns. The task is to predict churn, appetency, and up-selling for customers who use these features. For more information about the data and the task, see the [KDD website](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
 
 ## Experiment summary
 
-This visual interface sample experiment shows binary classifier prediction of churn, appetency and up-selling, a common task for customer relationship management (CRM).
+This visual interface sample experiment shows binary classifier prediction of churn, appetency, and up-selling, a common task for customer relationship management (CRM).
 
 First, we do some simple data processing.
 
@@ -50,11 +47,10 @@ First, we do some simple data processing.
     ![Clean the dataset](./media/ui-sample-classification-predict-churn/cleaned-dataset.png)
 
 - The features and the corresponding churn, appetency, and up-selling labels are in different datasets. We use the **Add Columns** module to append the label columns to the feature columns. The first column, **Col1**, is the label column. The rest of the columns, **Var1**, **Var2**, and so on, are the feature columns.
- 
+
     ![Add the column dataset](./media/ui-sample-classification-predict-churn/added-column1.png)
 
 - We use the **Split Data** module to split the dataset into train and test sets.
-
 
     We then use the Boosted Decision Tree binary classifier with the default parameters to build the prediction models. We build one model per task, that is, one model each to predict up-selling, appetency, and churn.
 

@@ -12,13 +12,13 @@ ms.reviewer: sgilley
 ms.date: 05/10/2019
 ---
 
-# Basic Sample - Regression: Predict price
+# Sample 1 - Regression: Predict price
 
-This article shows you how to build a machine learning model without writing a single line of code using the Azure Machine Learning service visual interface.
+Learn how to build a machine learning regression model without writing a single line of code using the visual interface.
 
-This particular sample trains a **decision forest regression** to predict a car's price based on its technical features. However, you'll be able to apply these same fundamental steps to any machine learning problem whether it be classification, regression, clustering, etc. This article provides the rationale for the decisions involved in making our sample so you'll be able to make similar decisions on your own.
+This experiment trains a **decision forest regressor** to predict a car's price based on its technical features such as make, model, horsepower, and size. Because we're trying to answer the question "How much?" this is called a regression. However, you can apply the same fundamental steps in this experiment to tackle any type of machine learning problem whether it be regression, classification, clustering, etc.
 
-The fundamental steps of training machine learning model are:
+The fundamental steps of a training machine learning model are:
 
 1. Get the data
 1. Pre-process the data
@@ -77,6 +77,9 @@ We then pass the scores to the **Evaluate Model** module to generate evaluation 
 
 ## Next steps
 
-Create and deploy your own machine learning model using the visual interface:
+Explore the other samples available for the visual interface:
 
-- [Tutorial: Automobile price prediction](ui-tutorial-automobile-price-train-score.md)
+- [Sample 2 - Regression: Compare algorithms for automobile price prediction](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Sample 3 - Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
+- [Sample 4 - Classification: Predict credit risk (cost sensitive)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Sample 5 - Classification: Predict churn](ui-sample-classification-predict-churn.md)

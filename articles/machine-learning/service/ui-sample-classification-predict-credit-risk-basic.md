@@ -1,7 +1,7 @@
 ---
 title: "Classification: Predict credit risk"
 titleSuffix: Azure Machine Learning service
-description: This visual interface sample experiment demonstrates how to perform binary classification to predict credit risk based on information provided in a credit application.
+description: Learn how to build a machine learning classifier without writing a single line of code using the visual interface.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,21 +9,16 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ---
 
 # Sample 3 - Classification: Predict credit risk
 
-Learn how to build a machine learning classifier to predict whether credit risk based on a credit application without writing a single line of code.
+Learn how to build a machine learning classifier without writing a single line of code using the visual interface.
 
-You will use the visual interface to perform the basic steps of any machine learning model development project:
+This sample trains a **two-class boosted decision tree** to predict credit risk (high or low) based on credit application information such as credit history, employment duration, age, and number of credit cards. Because we're trying to answer the question "Which one?" this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem whether it be regression, classification, clustering, etc.
 
-1. Get the data
-1. Pre-process the data
-1. Train the model
-1. Evaluate the model
-
-Here's the final, completed graph of the experiment. This article highlights the key decisions in creating this model so you can make similar decisions when creating your own classifier.
+Here's the final, completed graph of the experiment.
 
 ![Graph of the experiment](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 

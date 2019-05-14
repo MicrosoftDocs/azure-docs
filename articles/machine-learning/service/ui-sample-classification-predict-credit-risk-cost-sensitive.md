@@ -1,7 +1,7 @@
 ---
 title: "Classification: Predict credit risk (cost sensitive)"
 titleSuffix: Azure Machine Learning service
-description: Learn how to incorporate Python code in the visual interface to create a machine learning classification model. Then, learn how to quickly compare algorithms to choose the best one for you.
+description: This article shows you how to build a complex machine learning experiment using the visual interface. You'll learn how to implement custom Python scripts and compare multiple models to choose the best option.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,9 +14,11 @@ ms.date: 05/10/2019
 
 # Advanced Sample - Classification: Predict credit risk (cost sensitive)
 
-Learn how to build a complex machine learning experiment using the visual interface. In this article, you learn how to quickly compare algorithms to choose the best option and implement custom logic using Python scripts. This particular sample predicts credit risk based on credit applications. However, you'll be able to apply these same steps to solve your own machine learning problems in the visual interface.
+This article shows you how to build a complex machine learning experiment using the visual interface. You'll learn how to implement custom Python scripts and compare multiple models to choose the best option.
 
-If you're just getting started with machine learning, you can take a look at our [basic sample](ui-sample-regression-predict-automobile-price-basic.md) first to learn more about the fundamental steps in building a machine learning model.
+This sample trains a classifier to predict credit risk using credit application information such as credit history, employment duration, age, and number of credit cards. However, can apply the concepts presented in this article to tackle your own machine learning problems.
+
+If you're just getting started with machine learning, you can take a look at the [basic version](ui-sample-classification-predict-credit-risk-basic.md) to see a basic classifier.
 
 Here's the final, completed graph of the experiment:
 
@@ -66,7 +68,7 @@ To reflect this cost function, we generate a new dataset. In the new dataset, ea
 
 To replicate the high-risk data, we put this Python code into an **Execute Python Script** module:
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -99,7 +101,7 @@ We use the standard experimental workflow to create, train, and test the models:
 
 1. Initialize the learning algorithms, using **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
 1. Use **Train Model** to apply the algorithm to the data and create the actual model.
-3. Use **Score Model** to produce scores by using the test examples.
+1. Use **Score Model** to produce scores by using the test examples.
 
 The following diagram shows a portion of this experiment, in which the original and replicated training sets are used to train two different SVM models. **Train Model** is connected to the training set, and **Score Model** is connected to the test set.
 
@@ -115,7 +117,7 @@ Notice that the replicated test dataset is used as the input for **Score Model**
 
 The **Evaluate Model** module produces a table with a single row that contains various metrics. To create a single set of accuracy results, we first use **Add Rows** to combine the results into a single table. We then use the following Python script in the **Execute Python Script** module to add the model name and training approach for each row in the table of results:
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -151,6 +153,9 @@ From these results, you can see that the best accuracy is provided by the model 
 
 ## Next steps
 
-Create and deploy your own machine learning model using the visual interface:
+Explore the other samples available for the visual interface:
 
-- [Tutorial: Automobile price prediction](ui-tutorial-automobile-price-train-score.md)
+- [Sample 1 - Regression: Predict an automobile's price](ui-sample-regression-predict-automobile-price-basic.md)
+- [Sample 2 - Regression: Compare algorithms for automobile price prediction](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Sample 3 - Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
+- [Sample 5 - Classification: Predict churn](ui-sample-classification-predict-churn.md)
