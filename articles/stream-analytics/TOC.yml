@@ -175,6 +175,8 @@
       href: stream-analytics-troubleshoot-query.md
     - name: Activity and diagnostic logs
       href: stream-analytics-job-diagnostic-logs.md
+    - name: Data errors
+      href: data-errors.md
   - name: Integrate with machine learning
     items:
     - name: Sentiment analysis with ML models
@@ -441,6 +443,9 @@
               maintainContext: true
             - name: Tumbling Window
               href: /stream-analytics-query/tumbling-window-azure-stream-analytics
+              maintainContext: true
+            - name: Aggregate Windowing functions
+              href: /stream-analytics-query/windows-azure-stream-analytics
               maintainContext: true
     - name: Data Types
       items:
