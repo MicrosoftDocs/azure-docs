@@ -38934,6 +38934,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-create-gmsa.md",
+      "redirect_url" : "/azure/active-directory-domain-services/create-gmsa",
+      "redirect_document_id": true
+    },
+    {
       "source_path" : "articles/active-directory-domain-services/active-directory-ds-check-health.md",
       "redirect_url" : "/azure/active-directory-domain-services/check-health",
       "redirect_document_id": true
