@@ -85,9 +85,7 @@ The following examples show you to register an Azure Blob Container or an Azure 
 
 ## Change access keys
 
-For security purposes, you may need to change the access key or other authentication value for an Azure service. For example, regenerating the access key for an Azure Storage account. 
-
-When you change the authentication value, any datastore registered for the changed service will no longer be able to access data stored there. The datastore is using the old authentication value.
+For security purposes, you may need to change the authentication value for an Azure service. For example, regenerating the access key for an Azure Storage account. When you change the authentication value, any datastore registered for the service will lose access to data stored there. The datastore was registered using the old authentication value.
 
 To update the datastore to use the new value, register it again using the new authentication value and the `overwrite = True` parameter. The following example demonstrates updating a datastore for an Azure Blob to use a new access key:
 
