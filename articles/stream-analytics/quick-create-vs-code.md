@@ -30,7 +30,7 @@ This quickstart shows you how to create and run a Stream Analytics job using the
 
 3. Once the extension is installed, verify that **Azure Stream Analytics Tools** is visible in your **Enabled Extensions**.
 
-    <img src="./media/quick-create-vs-code/enabled-extensions.png" width="500">
+    <img src="./media/quick-create-vs-code/enabled-extensions.png" width="500" alt="Azure Stream Analytics Tools under enabled extensions in Visual Studio Code">
 
 ## Activate the Azure Stream Analytics extension
 
