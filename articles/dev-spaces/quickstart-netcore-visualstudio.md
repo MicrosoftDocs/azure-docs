@@ -91,6 +91,8 @@ Completed warmup for project 'webfrontend' in 125 seconds.
 
 In the above example, the public URL is http://webfrontend.1234567890abcdef1234.eus.azds.io/. Navigate to your service's public URL and interact with the service running in your dev space.
 
+This process may have disabled public access to your service. To enable public access, you can update the [ingress value in the *values.yaml*][ingress-update].
+
 ## Update code
 
 If Visual Studio 2017 is still connected to your dev space, click the stop button. Change line 20 in `Controllers/HomeController.cs` to:
@@ -125,3 +127,5 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](multi-service-netcore-visualstudio.md)
+
+[ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
