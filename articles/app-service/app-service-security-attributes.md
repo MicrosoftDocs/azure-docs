@@ -16,11 +16,11 @@ ms.author: mbaldwin
 
 This article documents the common security attributes built into Azure App Service.
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+[!INCLUDE [Security attributes header](../../includes/security-attributes-header.md)]
 
 ## Preventative
 
-| Security Attribute | Yes/No | Notes |
+| Security attribute | Yes/No | Notes |
 |---|---|--|
 | Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes | Web site file content is stored in Azure Storage, which automatically encrypts the content at rest. See [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).<br><br>Customer supplied secrets are encrypted at rest. The secrets are encrypted at rest while stored in App Service configuration databases.<br><br>Locally attached disks can optionally be used as temporary storage by websites (D:\local and %TMP%). Locally attached disks are not encrypted at rest. |
 | Encryption in Transit (such as ExpressRoute encryption, in Vnet encryption, and VNet-VNet encryption )| Yes | Customers can configure web sites to require and use HTTPS for inbound traffic. See the blog post [How to make an Azure App Service HTTPS only](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/). |
@@ -30,7 +30,7 @@ This article documents the common security attributes built into Azure App Servi
 
 ## Network segmentation
 
-| Security Attribute | Yes/No | Notes |
+| Security attribute | Yes/No | Notes |
 |---|---|--|
 | Service Endpoint support| Yes | Currently available in preview for App Service. See [Azure App Service Access Restrictions](app-service-ip-restrictions.md). |
 | vNET Injection support| Yes | App Service Environments are private implementations of App Service dedicated to a single customer injected into a customer's virtual network. See [Introduction to the App Service Environments](environment/intro.md). |
@@ -39,28 +39,28 @@ This article documents the common security attributes built into Azure App Servi
 
 ## Detection
 
-| Security Attribute | Yes/No | Notes|
+| Security attribute | Yes/No | Notes|
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | App Service integrates with Application Insights for languages that support Application Insights (Full .NET Framework, .NET Core, Java and Node.JS).  See [Monitor Azure App Service performance](../azure-monitor/app/azure-web-apps.md). App Service also sends application metrics into Azure Monitor. See [Monitor apps in Azure App Service](web-sites-monitor.md). |
 
 ## Identity and access management
 
-| Security Attribute | Yes/No | Notes|
+| Security attribute | Yes/No | Notes|
 |---|---|--|
-| Authentication| Yes | Customers can build applications on App Service that automatically integrate with [Azure Active Directory (AAD)](../active-directory/index.md) as well as other OAuth compatible identity providers; see [Authentication and authorization in Azure App Service](overview-authentication-authorization.md). For management access to App Service assets, all access is controlled by a combination of AAD authenticated principal and ARM RBAC roles. |
-| Authorization| Yes | For management access to App Service assets, all access is controlled by a combination of AAD authenticated principal and ARM RBAC roles.  |
+| Authentication| Yes | Customers can build applications on App Service that automatically integrate with [Azure Active Directory (Azure AD)](../active-directory/index.md) as well as other OAuth compatible identity providers; see [Authentication and authorization in Azure App Service](overview-authentication-authorization.md). For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure Resource Manager RBAC roles. |
+| Authorization| Yes | For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure Resource Manager RBAC roles.  |
 
 
 ## Audit trail
 
-| Security Attribute | Yes/No | Notes|
+| Security attribute | Yes/No | Notes|
 |---|---|--|
 | Control/Management Plan Logging and Audit| Yes | All management operations performed on App Service objects occur via [Azure Resource Manager](../azure-resource-manager/index.yml). Historical logs of these operations are available both in the portal and via the CLI; see [Azure Resource Manager resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftweb) and [az monitor activity-log](/cli/azure/monitor/activity-log). |
 | Data plane Logging and Audit | No | The data plane for App Service is a remote file share containing a customer’s deployed web site content.  There is no auditing of the remote file share. |
 
 ## Configuration management
 
-| Security Attribute | Yes/No | Notes|
+| Security attribute | Yes/No | Notes|
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes | For management operations, the state of an App Service configuration can be exported as an Azure Resource Manager template and versioned over time. For runtime operations, customers can maintain multiple different live versions of an application using the App Service deployment slots feature. | 
 
