@@ -1,5 +1,5 @@
 ---
-title: Tutorial to filter, analyze data with compute on Azure Data Box Edge | Microsoft Docs
+title: Tutorial to filter, analyze data for advanced deployment with compute on Azure Data Box Edge | Microsoft Docs
 description: Learn how to configure compute role on Data Box Edge and use it to transform data for advanced deployment flow before sending to Azure.
 services: databox
 author: alkohli
@@ -9,14 +9,23 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 05/13/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
+Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
 ---
 
 # Tutorial: Transform data with Azure Data Box Edge for advanced deployment flow
 
-This tutorial describes how to configure a compute role on your Azure Data Box Edge device. After you configure the compute role, Data Box Edge can transform data before sending it to Azure.
+This tutorial describes how to configure a compute role for an advanced deployment flow on your Azure Data Box Edge device. After you configure the compute role, Data Box Edge can transform data before sending it to Azure.
 
-This procedure can take around 15 to 30 minutes to complete.
+Compute can be configured for simple or advanced deployment flow on your device.
+
+|                  | Simple deployment                                | Advanced deployment                   |
+|------------------|--------------------------------------------------|---------------------------------------|
+| Intended for     | IT administrators                                | Developers                            |
+| Type             | Use Data Box Edge service to deploy modules      | Use IoT Hub service to deploy modules |
+| Modules deployed | Single                                           | Chained or multiple modules           |
+
+
+This procedure can take around 20 to 30 minutes to complete.
 
 In this tutorial, you learn how to:
 
@@ -39,7 +48,7 @@ Before you set up a compute role on your Data Box Edge device, make sure that:
 
 To configure compute on your Data Box Edge, you'll create an IoT Hub resource.
 
-1. In the Azure portal of your Data Box Edge resource, go to Overview. In the right-pane, on the **Compute** tile, select **Get started**.
+1. In the Azure portal of your Data Box Edge resource, go to **Overview**. In the right-pane, on the **Compute** tile, select **Get started**.
 
     ![Get started with compute](./media/data-box-edge-deploy-configure-compute-advanced/configure-compute-1.png)
 
