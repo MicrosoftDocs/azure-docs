@@ -5,8 +5,8 @@ author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.author: zarhoads
-ms.date: "04/25/2019"
-ms.topic: "quickstart"
+ms.date: 04/25/2019
+ms.topic: quickstart
 description: "Team Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: jeconnoc
