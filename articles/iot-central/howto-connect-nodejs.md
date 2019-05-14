@@ -31,7 +31,7 @@ Add the following telemetry on the **Measurements** page:
 
 | Display Name | Field Name  | Units | Min | Max | Decimal Places |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
-| Temperature  | temperature | F     | 60  | 110 | 0              |
+| Temperature  | temp        | F     | 60  | 110 | 0              |
 | Humidity     | humidity    | %     | 0   | 100 | 0              |
 | Pressure     | pressure    | kPa   | 80  | 110 | 0              |
 
@@ -154,7 +154,7 @@ The following steps show how to create a client application that implements the 
       var pressure = 90 + (Math.random() * 5);
       var fanmode = 0;
       var data = JSON.stringify({
-        temperature: temperature,
+        temp: temperature,
         humidity: humidity,
         pressure: pressure,
         fanmode: (temperature > 25) ? "1" : "0",
