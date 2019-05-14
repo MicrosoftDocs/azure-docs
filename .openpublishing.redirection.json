@@ -38829,6 +38829,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/devices-sdk-third-party-notices.md",
+      "redirect_url": "https://aka.ms/sdsdk-toctpn",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-license.md",
+      "redirect_url": "https://aka.ms/sdsdk-license",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/develop/app-registration-portal-content.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-v2-register-an-app",
       "redirect_document_id": false
