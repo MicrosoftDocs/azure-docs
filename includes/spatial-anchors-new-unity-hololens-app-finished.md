@@ -1,6 +1,6 @@
 ---
-author: jparismorgan
-manager: vicenterivera
+author: julianparismorgan
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.date: 05/07/2019
