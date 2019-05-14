@@ -50,7 +50,7 @@ This section helps you create a new Azure Bastion resource from the Azure portal
 
 1. On the **Create a bastion** page, configure a new Bastion resource. Specify the configuration settings for your Bastion resource.
 
-    ![Virtual WAN diagram](./media/bastion-create-host-portal/settings.png)
+    ![create a bastion](./media/bastion-create-host-portal/settings.png)
 
     * **Subscription**: This is the Azure subscription you want to use to create a new Bastion resource.
     * **Resource Group**: This is the Azure resource group in which the new Bastion resource will be created in. If you don’t have an existing resource group, you can create a new one.
