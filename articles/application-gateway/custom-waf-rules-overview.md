@@ -15,13 +15,13 @@ ms.author: victorh
 > Azure Application Gateway WAF custom rules is currently a public preview. **Custom rules are available only for the WAF_v2 SKU**.
 > This public preview is provided without a service-level agreement and shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-The Azure Application Gateway web application firewall (WAF) comes with a pre-configured, platform managed ruleset that offers protection from many different types of attacks. These attacks include cross site scripting, SQL injection, and others. If you are a WAF admin, you might may want to write you own rules to augment the CRS rules. Your rules can either block or allow requested traffic based on matching criteria.
+The Azure Application Gateway web application firewall (WAF) comes with a pre-configured, platform-managed ruleset that offers protection from many different types of attacks. These attacks include cross site scripting, SQL injection, and others. If you're a WAF admin, you may want to write you own rules to augment the CRS rules. Your rules can either block or allow requested traffic based on matching criteria.
 
 Custom rules allow you to create your own rules that are evaluated for each request that passes through the WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. The custom rules have an action (to allow or block), a match condition, and an operator to allow full customization.
 
-For example, you can block all requests from an IP address in the range 192.168.5.4/24. In this rule, the operator is *IPMatch*, the matchValues is the IP address range (192.168.5.4/24), and the action is to block the traffic You also set the rule’s name and priority.
+For example, you can block all requests from an IP address in the range 192.168.5.4/24. In this rule, the operator is *IPMatch*, the matchValues is the IP address range (192.168.5.4/24), and the action is to block the traffic. You also set the rule’s name and priority.
 
-You can use compounding logic, for example **(i and j) or k)** to make more advanced rules that address your security needs. An important distinction is that if you want to **and** two different conditions (for example, block traffic from a specific IP address, and only if they’re using a certain browser), those conditions must be in the same rule. If you want to **or** two different conditions (for example, block traffic from a specific IP address or block traffic if they’re using a specific browser), the two conditions must be in different rules. Regular expressions are also supported in custom rules, just like in the CRS rulesets.
+You can use compounding logic, for example **(i and j) or k)** to make more advanced rules that address your security needs. An important distinction is that if you want to **and** two different conditions, those conditions must be in the same rule. For example, block traffic from a specific IP address, and only if they’re using a certain browser. If you want to **or** two different conditions, the two conditions must be in different rules. For example, block traffic from a specific IP address or block traffic if they’re using a specific browser. Regular expressions are also supported in custom rules, just like in the CRS rulesets.
 
 ## Allowing vs. Blocking
 
@@ -64,10 +64,10 @@ Currently, must be **MatchRule**.
 
 ### Match variable [required]
 
-Must be one of the following:
+Must be one of the variables:
 
 - RemoteAddr – IP Address/hostname of the remote computer connection
-- RequestMethod – HTTP Request method (GET, POST, PUT, DELETE, etc.)
+- RequestMethod – HTTP Request method (GET, POST, PUT, DELETE, and so on.)
 - QueryString – Variable in the URI
 - PostArgs – Arguments sent in the POST body
 - RequestUri – URI of the request
@@ -81,7 +81,7 @@ Describes the field of the matchVariable collection. For example, if the matchVa
 
 ### Operator [required]
 
-Must be one of the following:
+Must be one of the following operators:
 
 - IPMatch - only used when Match Variable is *RemoteAddr*
 - Equals – input is the same as the MatchValue
@@ -100,7 +100,7 @@ Negates the current condition.
 
 ### Transform [optional]
 
-A list of strings with names of transformations to do before the match is attempted. These can be the following:
+A list of strings with names of transformations to do before the match is attempted. These can be the following transformations:
 
 - Lowercase
 - Trim
