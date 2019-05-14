@@ -104,7 +104,7 @@ Throughout this process, you are notified via email on all status changes.
 
 ## Region availability
 
-Data Box Heavy can transfer data based on the region in which service is deployed, country to which the device is shipped, and the target Azure storage account where you transfer the data. 
+Data Box Heavy can transfer data based on the region in which service is deployed, country/region to which the device is shipped, and the target Azure storage account where you transfer the data. 
 
 - **Service availability** - For this release, Data Box Heavy is available in the following regions:
     - All public cloud regions in the United States - West Central US, West US2, West US, South Central US, Central US, North Central US, East US, and East US2.
@@ -131,7 +131,7 @@ Data Box Heavy is in preview and you need to sign up. Perform the following step
 
    <!--![The Data Box Heavy sign up 3]()-->
 
-5. Answer the questions regarding data residence country, time-frame, target Azure service for data transfer, network bandwidth, and data transfer frequency. Review Privacy and terms and select the checkbox against Microsoft can use your email address to contact you.
+5. Answer the questions regarding data residence country/region, time-frame, target Azure service for data transfer, network bandwidth, and data transfer frequency. Review Privacy and terms and select the checkbox against Microsoft can use your email address to contact you.
 
     <!--![The Data Box Heavy sign up 4]()-->
 

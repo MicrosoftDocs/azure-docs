@@ -4011,6 +4011,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/app-service/containers/app-service-linux-java.md",
+      "redirect_url": "/azure/app-service/containers/configure-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/app-service-java-enterprise.md",
+      "redirect_url": "/azure/app-service/containers/configure-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/how-to-java-apm-monitoring.md",
+      "redirect_url": "/azure/app-service/containers/configure-language-java",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service/containers/tutorial-ruby-mysql-app.md",
       "redirect_url": "/azure/app-service/containers/tutorial-ruby-postgres-app",
       "redirect_document_id": false
@@ -11049,6 +11064,11 @@
       "source_path": "articles/hdinsight/hdinsight-apache-storm-tutorial-get-started.md",
       "redirect_url": "/azure/hdinsight/hdinsight-apache-storm-tutorial-get-started-linux",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-connect-hive-zeppelin.md",
+      "redirect_url": "/azure/hdinsight/interactive-query/hdinsight-connect-hive-zeppelin",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-create-windows-clusters-arm-templates.md",
@@ -35786,6 +35806,11 @@
     {
       "source_path": "articles/azure-monitor/platform/quick-audit-notify-action-subscription.md",
       "redirect_url": "/azure/azure-monitor/platform/alerts-activity-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/data-sources-alerts-nagios-zabbix.md",
+      "redirect_url": "/azure/azure-monitor/platform/data-sources-custom-logs",
       "redirect_document_id": false
     },
     {

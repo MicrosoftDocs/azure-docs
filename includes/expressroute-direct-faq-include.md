@@ -35,6 +35,7 @@ The available ports will be dynamic and will be available by PowerShell to view 
 * Toronto
 * San Antonio
 * Seattle
+* Seoul
 * Silicon Valley
 * Singapore 
 
