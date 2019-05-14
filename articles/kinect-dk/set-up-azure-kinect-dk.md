@@ -15,7 +15,7 @@ This page provides guidance about how to set up your Azure Kinect DK setup, test
 
 ## System requirements
 
-Check [system requirements](system-requirements.md) to verify that your host PC configuration meets all Azure Kinect DK minimum requirements.
+Check System requirements to verify that your host PC configuration meets all Azure Kinect DK minimum requirements.
 
 ## Set up hardware
 
@@ -24,16 +24,14 @@ Check [system requirements](system-requirements.md) to verify that your host PC 
 3. Verify the power indicator LED next to the USB cable is solid white.
 4. Device power on takes a few seconds and is ready to use when the front-facing LED streaming indicator turns off.
 
-![AzureKinect DK connected](images/azurekinectdk-connected2.png)
-
 ## Download the SDK
 
-5. Select the link to [Download the SDK](download-sdk.md).
+5. Select the link to Download the SDK
 6. Install the SDK on your PC.
 
 ## Update device firmware
 
-7. The firmware version shipped with the SDK is newer than the hardware version. To ensure you have the latest version, perform a [Firmware Update](azurekinect-fw-update.md) as Azure Kinect does not automatically update firmware. 
+7. The firmware version shipped with the SDK is newer than the hardware version. To ensure you have the latest version, perform a Firmware Update as Azure Kinect does not automatically update firmware. 
 
 ## Verify device streams data
 
@@ -41,26 +39,22 @@ Check [system requirements](system-requirements.md) to verify that your host PC 
 
 9. Select **Open Device**, then **Start**.
 
-    ![Viewer Configuration](images/AzureKinectViewer-Configuration.png)
-
 10. Verify that all device sensors stream data (Depth, RGB, IMU, and microphones) are visualized in the tool.
-
-    ![K4AViewer Screenshot](images/k4aViewer-ExampleScreenshot.png)
 
 11. Your are done with your Kinect setup.  Now you can start developing your application or integrating services.
 
-See [here](index.md) about what you can do next!
+See index about what you can do next!
 
-If you have any issues, check [troubleshooting](troubleshooting.md).
+If you have any issues, check Troubleshooting. 
 
 ## Next steps
 
-* See [code samples](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples) and develop your first application. (**Coming soon!**)
-* Try [recording a sensor stream to file](k4a-recordplayback.md) and open with the video player.
+* See code samples in GitHub and develop your first application. (**Coming soon!**)
+* Try recording sensor streams to file  and open with the video player.
 
 ## See also
 
-* [Azure Kinect Homepage](index.md)
-* [Azure Kinect DK hardware information](azure-kinect-devkit.md)
-* [Update device firmware](azurekinect-fw-update.md)
-* Learn more about [Kinect for Azure viewer](k4a-viewer.md)
+* Azure Kinect Homepage
+* Azure Kinect DK hardware information
+* Update device firmware
+* Learn more about Kinect for Azure viewer
