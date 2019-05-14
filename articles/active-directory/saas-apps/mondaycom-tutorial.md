@@ -49,9 +49,9 @@ monday.com supports the following features:
 * IDP-initiated single sign-on
 * Just-in-time user provisioning
 
-## Add monday.com from the gallery
+## Add monday.com in the Azure portal
 
-To integrate monday.com with Azure AD, you must add monday.com from the Azure Marketplace to your list of managed SaaS apps:
+To integrate monday.com with Azure AD, you must add monday.com to your list of managed SaaS apps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
