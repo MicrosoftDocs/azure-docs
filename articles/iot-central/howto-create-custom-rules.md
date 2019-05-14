@@ -157,36 +157,6 @@ The integrate settings look like the following screenshot:
 
 ![Function app integrations](media/howto-create-custom-rules/function-integrate.png)
 
-### Add storage extension to function
-
-To build your function, you need to add the storage extension as follows:
-
-1. Select your function app, then on the **Overview** page choose **Stop**.
-1. Then select **Platform features**, and then **Advanced tools (Kudu)**.
-1. On the Kudu **Environment** page, select **Debug console** and then **CMD**.
-1. In the console on the Kudu **Diagnostic Console** page, enter the command `cd d:\home\site\wwwroot`. Then select the edit icon next to the **extensions.csproj** file. To include the storage extension, modify the **ItemGroup** section to look like the following snippet:
-
-    ```csproj
-    <ItemGroup>
-        <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.SendGrid" Version="3.0.0" />
-        <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.4" />
-        <PackageReference Include="Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator" Version="1.0.*" />
-    </ItemGroup>
-    ```
-
-    Then choose **Save**.
-1. To rebuild the function, run the following command in the console window:
-
-    ```cmd
-    dotnet build extensions.csproj -o bin --no-incremental --packages D:\home\.nuget
-    ```
-
-    ![Kudu diagnostics console](media/howto-create-custom-rules/kudu-diagnostics.png)
-
-1. Navigate back to your function app in the Azure portal, select **Overview**, and choose **Start**:
-
-    ![Function app start](media/howto-create-custom-rules/function-app-overview.png)
-
 ### Add the function code
 
 To implement your function, add the C# code to parse the incoming HTTP request and send the emails as follows:
@@ -195,7 +165,7 @@ To implement your function, add the C# code to parse the incoming HTTP request a
 
     ```csharp
     #r "Newtonsoft.Json"
-    #r "SendGrid"
+    #r "..\bin\SendGrid.dll"
 
     using System;
     using SendGrid.Helpers.Mail;
