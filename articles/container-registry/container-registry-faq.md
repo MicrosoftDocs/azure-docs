@@ -404,6 +404,12 @@ If you pass a local source folder to the `az acr build` command, the `.git` fold
 
 This setting also applies to the `az acr run` command.
 
+## CI/CD integration
+
+- [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
+- [GitHub Actions](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
+
+
 ## Next steps
 
 * [Learn more](container-registry-intro.md) about Azure Container Instances.
