@@ -81,6 +81,25 @@ The following examples show you to register an Azure Blob Container or an Azure 
                                            create_if_not_exists=True)
   ```
 
+<a name="changeaccesskey"></a>
+
+## Change access keys
+
+For security purposes, you may need to change the access key, SAS token, client token, password, or other means of authenticating to Azure services. For example, regenerating the access key for an Azure Storage account. When you make a change like this, any datastore registered for the changed service will no longer be able to access data stored there. This happens because the datastore is using the old authentication value.
+
+To update the datastore to use the new value, register it again using the new authentication value and the `overwrite = True` parameter. This will udate the current registration to use the new authentication value. The following example demonstrates updating a datastore for an Azure Blob to use a new access key:
+
+```python
+ds = Datastore.register_azure_blob_container(workspace=ws, 
+                                              datastore_name='your datastore name', 
+                                              container_name='your azure blob container name',
+                                              account_name='your storage account name', 
+                                              account_key='new storage account key',
+                                              overwrite=True)
+```
+
+For more information on registering datastores, see the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class reference.
+
 <a name="get"></a>
 
 ## Find & define datastores
