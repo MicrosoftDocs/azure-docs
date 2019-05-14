@@ -25,7 +25,7 @@ To use an Azure Active Directory (Azure AD) as an [identity provider](active-dir
 To enable sign-in for users from a specific Azure AD organization, you need to register an application within the organizational Azure AD tenant, which is not the same as your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD tenant by clicking the Directory and subscription filter in the top menu and choosing the directory that contains your Azure AD tenant.
+2. Make sure you're using the directory that contains your Azure AD tenant. Select the **Directory and subscription filter** in the top menu and choose the directory that contains your Azure AD tenant. This is not the same tenant as your Azure AD B2C tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 4. Select **New registration**.
 5. Enter a name for your application. For example, `Azure AD B2C App`.
@@ -49,7 +49,7 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 1. Make sure you're using the directory that contains Azure AD B2C tenant. Select the **Directory and subscription filter** in the top menu and choose the directory that contains your Azure AD B2C tenant.
 2. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 3. Select **Identity providers**, and then select **Add**.
-4. Enter a **Name**. For example, enter "Contoso Azure AD".
+4. Enter a **Name**. For example, enter `Contoso Azure AD`.
 5. Select **Identity provider type**, select **Open ID Connect (Preview)**, and then click **OK**.
 6. Select **Set up this identity provider**
 7. For **Metadata url**, enter the following URL replacing `your-AD-tenant-domain` with the domain name of your Azure AD tenant. For example `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`:
