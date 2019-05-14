@@ -139,7 +139,7 @@ as specified in the following table:
    |||
 
    When you're done, your Event Grid trigger might look like this example:
-   
+
    ![Example Event Grid trigger details](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
 
 1. Save your logic app. On the designer toolbar, choose **Save**. 
@@ -257,7 +257,7 @@ sign in to your email account when you're asked for authentication.
 
    | Property | Required | Value | Description |
    | -------- | -------- | ----- | ----------- |
-   | **To** | Yes | <*recipient@domain*> | Enter the recipient's email address. For testing purposes, you can use your own email address. |
+   | **To** | Yes | <*recipient\@domain*> | Enter the recipient's email address. For testing purposes, you can use your own email address. |
    | **Subject** | Yes | Resource updated: **Subject** | Enter the content for the email's subject. For this tutorial, enter the specified text, and select the event's **Subject** field. Here, your email subject includes the name for the updated resource (virtual machine). |
    | **Body** | Yes | Resource group: **Topic** <p>Event type: **Event Type**<p>Event ID: **ID**<p>Time: **Event Time** | Enter the content for the email's body. For this tutorial, enter the specified text and select the event's **Topic**, **Event Type**, **ID**, and **Event Time** fields so that your email includes the resource group name, event type, event timestamp, and event ID for the update. <p>To add blank lines in your content, press Shift + Enter. |
    ||||
