@@ -9,11 +9,12 @@ ms.reviewer: barbkess
 
 ms.assetid: d6e11639-6cea-48c9-b008-246cf686e726
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/20/2019
+ms.date: 05/14/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -97,7 +98,7 @@ To configure Azure AD single sign-on with iLMS, perform the following steps:
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     ![iLMS Domain and URLs single sign-on information](common/idp-intiated.png)
 
@@ -116,7 +117,7 @@ To configure Azure AD single sign-on with iLMS, perform the following steps:
 	![image](common/edit-attribute.png)
 
 	> [!NOTE]
-	> You have to enable **Create Un-recognized User Account** in iLMS to map these attributes. Follow the instructions [here](http://support.inspiredelearning.com/customer/portal/articles/2204526) to get an idea on the attributes configuration.
+	> You have to enable **Create Un-recognized User Account** in iLMS to map these attributes. Follow the instructions [here](https://support.inspiredelearning.com/help/adding-updating-and-managing-users#just-in-time-provisioning-with-saml-single-signon) to get an idea on the attributes configuration.
 
 7. In addition to above, iLMS application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
@@ -154,13 +155,13 @@ To configure Azure AD single sign-on with iLMS, perform the following steps:
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
 ### Configure iLMS Single Sign-On
 
-1. In a different web browser window, log in to your **iLMS admin portal** as an administrator.
+1. In a different web browser window, sign in to your **iLMS admin portal** as an administrator.
 
 2. Click **SSO:SAML** under **Settings** tab to open SAML settings and perform the following steps:
 
@@ -218,8 +219,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
@@ -257,7 +257,7 @@ Application supports Just in time user provisioning and after authentication use
 
 If you need to create an user manually, then follow below steps:
 
-1. Log in to your iLMS company site as an administrator.
+1. Sign in to your iLMS company site as an administrator.
 
 2. Click **Register User** under **Users** tab to open **Register User** page.
 
