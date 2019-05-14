@@ -473,5 +473,15 @@
     items:
     - name: Create a new Partner Center account
       href: ./partner-center-portal/create-account.md
+    - name: Manage your Partner Center account
+      href: ./partner-center-portal/manage-account.md
     - name: Find or create a company work account
       href: ./partner-center-portal/company-work-accounts.md
+  - name: Create a new offer
+    items:
+    - name: Create a SaaS offer
+      href: ./partner-center-portal/create-new-saas-offer.md
+  - name: Publishing status
+    href: ./partner-center-portal/publishing-status.md
+  - name: Update existing offers
+    href: ./partner-center-portal/update-existing-offer.md
