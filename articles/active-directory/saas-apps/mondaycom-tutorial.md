@@ -24,13 +24,13 @@ ms.collection: M365-identity-device-management
 
 In this tutorial, you learn how to integrate monday.com with Azure Active Directory (Azure AD).
 
-Integrating monday.com with Azure AD provides you with the following benefits:
+Integrating monday.com with Azure AD gives you the following benefits:
 
-* In Azure AD, you can control who has access to monday.com.
-* Your users can be automatically signed in to monday.com (single sign-on) with their Azure AD accounts.
+* You can use Azure AD to control who has access to monday.com.
+* Users can be automatically signed in to monday.com (single sign-on) with their Azure AD accounts.
 * You can manage your accounts in one central location, the Azure portal.
 
-For more information about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+For more information about software as a service (SaaS) app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 ## Prerequisites
 
@@ -67,7 +67,7 @@ To integrate monday.com with Azure AD, you must add monday.com from the Azure Ma
 
 	![The New application option](common/add-new-app.png)
 
-1. In the search box, enter **monday.com**. In the search results, select **monday.com**, and then select **Add** to add the application.
+1. In the search box, enter **monday.com**. In the search results, select **monday.com**, and then select **Add**.
 
 	![monday.com in the results list](common/search-new-app.png)
 
@@ -83,12 +83,12 @@ To configure and test Azure AD single sign-on with monday.com, you must complete
 | **[Configure monday.com single sign-on](#configure-mondaycom-single-sign-on)** | Configures the single sign-on settings in the application. |
 | **[Create an Azure AD test user](#create-an-azure-ad-test-user)** | Tests Azure AD single sign-on for a user named Britta Simon. |
 | **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** | Enables Britta Simon to use Azure AD single sign-on. |
-| **[Create a monday.com test user](#create-mondaycom-test-user)** | Creates a counterpart of Britta Simon in monday.com that is linked to the Azure AD representation of the user. |
+| **[Create a monday.com test user](#create-a-mondaycom-test-user)** | Creates a counterpart of Britta Simon in monday.com that is linked to the Azure AD representation of the user. |
 | **[Test single sign-on](#test-single-sign-on)** | Verifies that the configuration works. |
 
 ### Configure Azure AD single sign-on
 
-To configure Azure AD single sign-on with monday.com in the Azure portal:
+In this section, you configure Azure AD single sign-on with monday.com in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com/), on the **monday.com** application integration page, select **Single sign-on**.
 
@@ -123,12 +123,9 @@ To configure Azure AD single sign-on with monday.com in the Azure portal:
 
     1. Select **Set additional URLs**.
 	
-	1. In the **Sign-on URL** box, enter a URL that has the following pattern: https:\//\<your-domain>.monday.com.
+	1. In the **Sign-on URL** box, enter a URL that has the following pattern: https:\//\<your-domain>.monday.com. Contact the [monday.com client support team](mailto:support@monday.com) to get the sign-on URL.
 
-	   > [!NOTE]
-       > The sign-on URL value in the preceding image is an example. It's not an actual value. Update this value with the actual sign-on URL. Contact the [monday.com client support team](mailto:support@monday.com) to get this value.
-
-	![The Set additional URLs option](common/metadata-upload-additional-signon.png)
+		![The Set additional URLs option](common/metadata-upload-additional-signon.png)
 
 1. The monday.com application expects the SAML assertions to be in a specific format. Configure the following claims for this application. To manage these attribute values, in the **Set up Single Sign-On with SAML** pane, select **Edit** to open the **User Attributes** pane.
 
@@ -146,9 +143,9 @@ To configure Azure AD single sign-on with monday.com in the Azure portal:
 
        1. Leave **Namespace** blank.
 
-	   1. For **Attribute**, select **Source**.
+	   1. For **Source**, select **Attribute**.
 
-	   1. In the **Source attribute** list, select the attribute value shown for that row.
+	   1. In the **Source attribute** list, select the attribute value shown for the user claim row.
 
 	   1. Select **OK**, and then select **Save**.
 
@@ -196,7 +193,7 @@ In this section, you create a test user named Britta Simon in the Azure portal.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to monday.com.
+In this section, you grant Britta Simon access to monday.com so she can use Azure single sign-on.
 
 1. In the Azure portal, select **Enterprise applications** > **All applications** > **monday.com**.
 
@@ -206,7 +203,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	![monday.com in the applications list](common/all-applications.png)
 
-1. In the menu, under **MANAGE**, select **Users and groups**.
+1. In the menu, select **Users and groups**.
 
     ![The Users and groups option](common/users-groups-blade.png)
 
