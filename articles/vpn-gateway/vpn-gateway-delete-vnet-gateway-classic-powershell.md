@@ -66,7 +66,7 @@ Remove-AzureVNetGateway -VNetName "Group ClassicRG1 ClassicVNet1"
 If successful, the return shows:
 
 ```
-Status : Successful
+OperationStatus : Succeeded
 ```
 
 ## <a name="modify"></a>Step 4: Modify the network configuration file
