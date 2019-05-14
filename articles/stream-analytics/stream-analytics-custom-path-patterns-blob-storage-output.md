@@ -55,9 +55,11 @@ Notice that each record in the blob has a **client_id** column matching the fold
    * cluster1/{aFieldInMyData}  
    * cluster1/{date}/{time}/{aFieldInMyData}  
 
+    Note:Partition keys must be NVARCHAR(MAX). When using custom column {aFieldInMyData} for partition key. It should be converted to NVARCHAR(MAX) in the query.
+
 2. Partition keys are case insensitive, so partition keys like "John" and "john" are equivalent. Also, expressions cannot be used as partition keys. For example, **{columnA + columnB}** does not work.  
 
-3. When an input stream consists of records with a partition key cardinality under 8000, the records will be appended to existing blobs and only create new blobs when necessary. If the cardinality is over 8000 there is no guarantee existing blobs will be written to and new blobs won't be created for an arbitrary number of records with the same partition key.  
+3. When an input stream consists of records with a partition key cardinality under 8000, the records will be appended to existing blobs and only create new blobs when necessary. If the cardinality is over 8000 there is no guarantee existing blobs will be written to and new blobs won't be created for an arbitrary number of records with the same partition key.
 
 ## Custom DateTime path patterns
 
