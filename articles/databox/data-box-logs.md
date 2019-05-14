@@ -308,7 +308,7 @@ The authentication information fields provide detailed information about this sp
 
 Order history is available in Azure portal. If the order is complete and the device cleanup (data erasure from the disks) is complete, then go to **Data Box order > Order details**. **Download order history** option is available. For more information, see [Download order history](data-box-portal-admin.md#download-order-history). 
 
-If you scroll to the bottom of the history, you see:
+If you scroll through the order history, you see:
 
 - Carrier tracking information for your device.
 - Events with *SecureErase* activity. These events correspond to the erasure of the data on the disk.
