@@ -96,7 +96,7 @@ Scroll past the video and triggers.
    The Logic Apps Designer now shows you [*triggers*](../logic-apps/logic-apps-overview.md#logic-app-concepts) that you can use to 
    start your logic app. Every logic app must start with a trigger, 
    which fires when a specific event happens or when a specific condition is met. 
-   Each time the trigger fires, Azure Logic Apps create a workflow instance 
+   Each time the trigger fires, Azure Logic Apps creates a workflow instance 
    that runs your logic app.
 
 ## Add Event Grid trigger 
@@ -132,7 +132,7 @@ as specified in the following table:
    | -------- | -------- | ----- | ----------- |
    | **Subscription** | Yes | <*event-publisher-Azure-subscription-name*> | Select the name for the Azure subscription associated with the event publisher. For this tutorial, select the Azure subscription name for your virtual machine. |
    | **Resource Type** | Yes | <*event-publisher-Azure-resource-type*> | Select the resource type for the event publisher. For this tutorial, select this value so that your logic app monitors only resource groups: <p><p>**Microsoft.Resources.resourceGroups** |
-   | **Resource Name** |  Yes | <*event-publisher-Azure-resource-name*> | Select the name for the Azure resource associated with the event publisher. For this tutorial, select the name for the Azure resource group associated with for your virtual machine. |
+   | **Resource Name** |  Yes | <*event-publisher-Azure-resource-name*> | Select the name for the Azure resource associated with the event publisher. For example, this resource might be an Event Grid topic. For this tutorial, select the name for the Azure resource group associated with for your virtual machine. |
    | **Event Type Item** |  No | <*event-types*> | Select one or more specific event types that you want to monitor. For this tutorial, leave this property empty. |
    | **Subscription Name** | No | <*event-subscription-name*> | Provide a unique name for your event subscription. |
    | For optional settings, choose **Add new parameter**. | No | {see descriptions} | * **Prefix Filter**: For this tutorial, leave this property empty. The default behavior matches all values. However, you can specify a prefix string as a filter, for example, a path and a parameter for a specific resource. <p>* **Suffix Filter**: For this tutorial, leave this property empty. The default behavior matches all values. However, you can specify a suffix string as a filter, for example, a file name extension, when you want only specific file types. |
