@@ -10,7 +10,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 05/13/2019
 ms.author: anavin
 ---
 
@@ -19,9 +19,6 @@ ms.author: anavin
 Learn about a public IP address prefix and how to create, change, and delete one. A public IP address prefix is a contiguous range of addresses based on the number of public IP addresses you specify. The addresses are assigned to your subscription. When you create a public IP address resource, you can assign a static public IP address from the prefix and associate the address to virtual machines, load balancers, or other resources, to enable internet connectivity. If you're not familiar with public IP address prefixes, see [Public IP address prefix overview](public-ip-address-prefix.md)
 
 ## Before you begin
-
-> [!IMPORTANT]
-> Public IP Prefix is in a public preview in limited regions. You can [learn what it means to be in preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Public IP prefix is currently available in: West Central US, West US, West US 2, Central US, North Europe, West Europe, and Southeast Asia. For an updated list of regions, please see [Azure updates](https://azure.microsoft.com/updates/?product=virtual-network).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -63,7 +60,7 @@ Once you create a prefix, you must create static IP addresses from the prefix. I
 
 1. In the box that contains the text *Search resources* at the top of the Azure portal, type *public ip address prefix*. When **Public IP address prefixes** appear in the search results, select it.
 2. Select the prefix you want to create public IPs from.
-3. When it appears in the search results, select it and click on **+Add IP address** in the Overview section. In case you don't see this, make sure you are using the right link for preview: https://aka.ms/publicipprefixportal
+3. When it appears in the search results, select it and click on **+Add IP address** in the Overview section.
 4. Enter or select values for the following settings under **Create public IP address**. Since a prefix is for Standard SKU, IPv4, and static, you only need to provide the following information:
 
    |Setting|Required?|Details|
