@@ -43,7 +43,7 @@ If the resource group is [locked](resource-group-lock-resources.md), complete mo
 
 In incremental mode, Resource Manager **leaves unchanged** resources that exist in the resource group but aren't specified in the template.
 
-However, the outcome is a different when redeploying an existing resource in incremental mode. In that case, specify all property values for the resource, not just the ones you're updating. A common mistake is to provide just the properties that are being updated, while assuming the other properties are unchanged. If you don't specify certain properties, Resource Manager interprets the update as overwriting those values.
+However, when redeploying an existing resource in incremental mode, the outcome is a different. Specify all properties for the resource, not just the ones you're updating. A common misunderstanding is to think properties that are not specified are left unchanged. If you don't specify certain properties, Resource Manager interprets the update as overwriting those values.
 
 ## Example result
 
