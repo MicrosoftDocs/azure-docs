@@ -11,7 +11,7 @@ ms.author: v-chjenk
 ---
 # Tutorial: Create a host pool to validate service updates
 
-Host pools are a collection of one or more identical virtual machine within Windows Virtual Desktop Preview tenant environments. Before deploying host pools to your production environment, we highly recommend you create a validation host pool. Updates are applied to validation host pools before other host pools so you can monitor service updates before rolling them out to your production environment. Without a validation host pool, you may not discover changes that introduce errors, which could result in downtime for users in your production environment.
+Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop Preview tenant environments. Before deploying host pools to your production environment, we highly recommend you create a validation host pool. Updates are applied first to validation host pools, letting you monitor service updates before rolling them out to your production environment. Without a validation host pool, you may not discover changes that introduce errors, which could result in downtime for users in your production environment.
 
 To ensure your apps work with the latest updates, the validation host pool should be as similar to host pools in your production environment as possible. Users should connect as frequently to the validation host pool as they do to the production host pool. If you have automated testing on your host pool, you should include automated testing on the validation host pool.
 
@@ -20,7 +20,7 @@ You can debug issues in the validation host pool with either the diagnostics ser
 >[!NOTE]
 > We recommend that you leave the validation host pool in place to test all future updates.
 
-Before you begin, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session, if you haven't already.
+Before you begin, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview), if you haven't already.
 
 ## Create your host pool
 
@@ -44,19 +44,20 @@ Run the following PowerShell cmdlet to confirm that the validation property has 
 Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool" -ValidationEnv $true
 ```
 
-Your output should look like this:
+The results from the cmdlet should look similar to this output:
+
 ```
-TenantName          : contoso 
-TenantGroupName     : Default Tenant Group
-HostPoolName		: contosoHostPool
-FriendlyName		:
-Description	        :
-Persistent          : False 
-CustomRdpProperty	: use multimon:i:0;
-MaxSessionLimit	    : 10
-LoadBalancerType	: BreadthFirst
-ValidationEnv		: True 
-Ring                :
+    TenantName          : contoso 
+    TenantGroupName     : Default Tenant Group
+    HostPoolName        : contosoHostPool
+    FriendlyName        :
+    Description         :
+    Persistent          : False 
+    CustomRdpProperty	: use multimon:i:0;
+    MaxSessionLimit     : 10
+    LoadBalancerType	: BreadthFirst
+    ValidationEnv       : True
+    Ring                :
 ```
 
 ## Update schedule
