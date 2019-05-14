@@ -11,7 +11,7 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/26/2019
+ms.date: 05/14/2019
 ---
 # An overview of Azure SQL Database security capabilities
 
@@ -126,10 +126,6 @@ In Azure, all newly created SQL databases are encrypted by default and the datab
 #### Dynamic data masking
 
 SQL Database dynamic data masking limits sensitive data exposure by masking it to non-privileged users. Dynamic data masking automatically discovers potentially sensitive data in Azure SQL Database and provides actionable recommendations to mask these fields, with minimal impact on the application layer. It works by obfuscating the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed. For more information, see [Get started with SQL Database dynamic data masking](sql-database-dynamic-data-masking-get-started.md).
-
-#### Static data masking
-
-[Static Data Masking](/sql/relational-databases/security/static-data-masking) is a client-side tool available in [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 18.0 preview 5 and higher.  Static Data Masking allows users to create a copy of a database where the data in selected columns has been permanently masked. The masking functions available include NULL masking, single value masking, shuffle and group shuffle masking, and string composite masking. With the masked copy of the database, organizations are able to separate production and test environments by sharing the masked copy. The sensitive data is sufficiently protected and all other database characteristics have been maintained. Masking databases is recommended where third-party access to databases is required.
 
 ## Security management
 
