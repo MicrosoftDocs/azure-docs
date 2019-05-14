@@ -198,11 +198,11 @@ Modifying the maximum vCores is performed by using the [Set-AzSqlDatabase](https
 
 ### Minimum vCores
 
-Modifying the maximum vCores is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `MinVcore` argument.
+Modifying the minimum vCores is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `MinVcore` argument.
 
 ### Autopause delay
 
-Modifying the maximum vCores is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `AutoPauseDelay` argument.
+Modifying the autopause delay is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `AutoPauseDelay` argument.
 
 ## Monitor serverless database
 
