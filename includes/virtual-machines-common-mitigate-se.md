@@ -142,7 +142,7 @@ NUMA node(s):          1
 
 ```
 
-If you are running a hyperthreaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyperthreading disabled.  Note: Once hyperthreading is disabled, **support will require a full VM reboot**.
+If you are running a hyperthreaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyperthreading disabled.  Once hyperthreading is disabled, **support will require a full VM reboot**.
 
 
 **Step 2**: To mitigate against any of the below speculative execution side-channel vulnerabilities, refer to your operating system provider’s documentation:   
