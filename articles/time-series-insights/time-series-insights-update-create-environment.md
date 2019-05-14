@@ -14,7 +14,9 @@ ms.custom: seodec18
 
 # Tutorial: Set up an Azure Time Series Insights Preview environment
 
-This tutorial guides you through the process of creating an Azure Time Series Insights Preview pay-as-you-go (PAYG) environment. In this tutorial, you learn how to:
+This tutorial guides you through the process of creating an Azure Time Series Insights Preview pay-as-you-go (PAYG) environment. 
+
+In this tutorial, you learn how to:
 
 * Create an Azure Time Series Insights Preview environment.
 * Connect the Azure Time Series Insights Preview environment to an event hub in Azure Event Hubs.
