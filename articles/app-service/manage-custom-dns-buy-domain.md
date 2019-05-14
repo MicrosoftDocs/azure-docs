@@ -20,7 +20,7 @@ ms.custom: seodec18
 ---
 # Buy a custom domain name for Azure App Service
 
-App Service domains (preview) are top-level domains that are managed directly in Azure. They make it easy to manage custom domains for [Azure App Service](overview.md). This tutorial shows you how to buy an App Service domain and assign DNS names to Azure App Service.
+App Service domains are top-level domains that are managed directly in Azure. They make it easy to manage custom domains for [Azure App Service](overview.md). This tutorial shows you how to buy an App Service domain and assign DNS names to Azure App Service.
 
 For Azure VM or Azure Storage, see [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/). For Cloud Services, see 
 [Configuring a custom domain name for an Azure cloud service](../cloud-services/cloud-services-custom-domain-name-portal.md).
@@ -275,7 +275,3 @@ After the operation is complete, the domain is released from your subscription a
 ## Direct default URL to a custom directory
 
 By default, App Service directs web requests to the root directory of your app code. To direct them to a subdirectory, such as `public`, see [Direct default URL to a custom directory](app-service-web-tutorial-custom-domain.md#virtualdir).
-
-## More resources
-
-[FAQ : App Service Domain (preview) and Custom Domains](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)
