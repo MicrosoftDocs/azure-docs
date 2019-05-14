@@ -99,12 +99,6 @@ New-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -SkuName Standard_LRS `
     -Kind StorageV2 `
     -EnableAzureFilesAadIntegrationForSMB $true
-
-# Update an existing storage account
-# Supported for storage accounts created after September 24, 2018 only
-Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
-    -Name "<storage-account-name>" `
-    -EnableAzureFilesAadIntegrationForSMB $true```
 ```
 
 ### Azure CLI
@@ -120,10 +114,6 @@ Next, create a new storage account, then call [az storage account update](https:
 ```azurecli-interactive
 # Create a new storage account
 az storage account create -n <storage-account-name> -g <resource-group-name> --file-aad true
-
-# Update an existing storage account
-# Supported for storage accounts created after September 24, 2018 only
-az storage account update -n <storage-account-name> -g <resource-group-name> --file-aad true
 ```
 
 ## Assign access permissions to an identity 
