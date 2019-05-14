@@ -106,7 +106,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/machine-learning-service/concept-accelerate-inferencing-with-gpus.md",
+      "source_path": "articles/machine-learning/service/concept-accelerate-inferencing-with-gpus.md",
       "redirect_url": "/azure/machine-learning/service/how-to-deploy-inferencing-gpus",
       "redirect_document_id": true
     },
@@ -3881,19 +3881,9 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-administer-dns.md",
-      "redirect_url": "/azure/active-directory-domain-services/manage-dns",
-      "redirect_document_id":true
-    },
-    {
       "source_path": "articles/active-directory-ds/active-directory-ds-admin-guide-administer-domain.md",
       "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain.md",
-      "redirect_url": "/azure/active-directory-domain-services/manage-domain",
-      "redirect_document_id":true
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-admin-guide-configure-secure-ldap.md",
@@ -13597,12 +13587,12 @@
     },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-security-threat-detection.md",
-      "redirect_url": "/sql-database/sql-database-threat-detection-overview",
+      "redirect_url": "/azure/sql-database/sql-database-threat-detection-overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-overview.md",
-      "redirect_url": "/sql-database/sql-database-auditing",
+      "redirect_url": "/azure/sql-database/sql-database-auditing",
       "redirect_document_id": false
     },
     {
@@ -38937,7 +38927,11 @@
       "source_path" : "articles/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy.md",
       "redirect_url" : "/azure/active-directory-domain-services/manage-group-policy",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-splunk",
+      "redirect_document_id": false
     }
-
   ]
 }
