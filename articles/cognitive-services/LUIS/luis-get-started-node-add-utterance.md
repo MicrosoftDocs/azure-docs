@@ -16,7 +16,7 @@ ms.author: diberry
 
 # Quickstart: Change model using Node.js
 
-[!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 
 ## Prerequisites
 
