@@ -122,7 +122,7 @@ dependencies:
   - python=3.6.2
   - pip:
     - azureml-defaults
-    - scikit-learn
+    - scikit-learn==0.20.0
     - inference-schema[numpy-support]
 ```
 
