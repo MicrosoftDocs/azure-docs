@@ -174,6 +174,8 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## Next steps
 
+Check out
+
 > [!div class="nextstepaction"]
-> Check out how to [protect with AES-128](protect-with-aes128.md)
+> [Protect with AES-128](protect-with-aes128.md)
 

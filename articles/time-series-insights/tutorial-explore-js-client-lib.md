@@ -6,7 +6,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 05/06/2019
 ms.author: anshan
 ms.custom: seodec18
 # Customer intent: As a developer, I want to learn about the TSI JavaScript client library, so I can use the APIs in my own applications.
@@ -28,6 +28,7 @@ Specifically, you'll learn about:
 > [!NOTE]
 > * The Tutorial uses a free, hosted, [Time Series Insights web demo](https://insights.timeseries.azure.com/clientsample).
 > * The Time Series Insights sample app source files are provided in the [GitHub sample repository](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
+> * Read the [TSI client reference documentation](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
 
 ## Video
 
@@ -317,3 +318,8 @@ Or view the TSI sample application source files:
 
 > [!div class="nextstepaction"]
 > [TSI sample app repository](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)
+
+Read the TSI client API reference documentation:
+
+> [!div class="nextstepaction"]
+> [TSI API reference documentation](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)

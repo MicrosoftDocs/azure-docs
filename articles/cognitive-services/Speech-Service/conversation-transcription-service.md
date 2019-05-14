@@ -49,7 +49,7 @@ Next, you'll need to send the audio recordings you've collected to the Signature
 To create a user profile, you'll need to use the `GenerateVoiceSignature` API. Specification details and sample code are available:
 
 > [!NOTE]
-> Conversation Transcription is currently available in the following regions: `centralus` and `eastasia`.
+> Conversation Transcription is currently available in "en-US" and "zh-CN" in the following regions: `centralus` and `eastasia`.
 
 * [REST specification](https://aka.ms/cts/signaturegenservice)
 * [How to use Conversation Transcription](https://aka.ms/cts/howto)

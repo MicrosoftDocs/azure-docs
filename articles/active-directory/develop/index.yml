@@ -6,7 +6,7 @@ metadata:
   description: Learn how you can use the Microsoft identity platform to build apps that securely sign in users in all Microsoft identities, get tokens to call Microsoft Graph, other Microsoft APIs, or APIs that developers that developers have built. 
   services: active-directory
   author: CelesteDG
-  manager: mtillman
+  manager: CelesteDG
   ms.service: active-directory
   ms.subservice: develop
   ms.tgt_pltfrm: na

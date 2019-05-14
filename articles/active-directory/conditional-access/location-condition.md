@@ -30,7 +30,7 @@ Azure AD enables single sign-on to devices, apps, and services from anywhere on 
 - Requiring multi-factor authentication for users accessing a service when they are off the corporate network.
 - Blocking access for users accessing a service from specific countries or regions.
 
-A location is a label for a network location that either represents a named location or multi-factor authentication trusted IPs.
+A location is a label for a network location that either represents a named location or multi-factor authentication Trusted IPs.
 
 ## Named locations
 
@@ -52,7 +52,7 @@ A named location has the following components:
 
 - **Mark as trusted location** - A flag you can set for a named location to indicate a trusted location. Typically, trusted locations are network areas that are controlled by your IT department. In addition to conditional access, trusted named locations are also used by Azure Identity Protection and Azure AD security reports to reduce [false positives](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Countries/Regions** - This option enables you to select one or more country or region to define a named location.
-- **Include unknown areas** - Some IP addresses are not mapped to a specific country. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
+- **Include unknown areas** - Some IP addresses are not mapped to a specific country or region. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
 
 The number of named locations you can configure is constrained by the size of the related object in Azure AD. Organizations can configure up to 90 named locations, each configured with up to 12000 IP ranges.
 
@@ -65,9 +65,9 @@ If a policy is configured to apply to “Any location”, it will apply to IPv4 
 
 ## Trusted IPs
 
-You can also configure IP address ranges representing your organization's local intranet in the [multi-factor authentication service settings](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). This feature enables you to configure up to 50 IP address ranges. The IP address ranges are in CIDR format. For more information, see [trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
+You can also configure IP address ranges representing your organization's local intranet in the [multi-factor authentication service settings](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). This feature enables you to configure up to 50 IP address ranges. The IP address ranges are in CIDR format. For more information, see [Trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
-If you have trusted IPs configured, they show up as **MFA Trusted IPS** in the list of locations for the location condition.
+If you have Trusted IPs configured, they show up as **MFA Trusted IPS** in the list of locations for the location condition.
 
 ### Skipping multi-factor authentication
 
