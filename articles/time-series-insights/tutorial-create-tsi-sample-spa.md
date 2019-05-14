@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Create an Azure Time Series Insights single-page web app | Microsoft Docs'
 description: Learn how to create a single-page web application that queries and renders data from an Azure Time Series Insights environment.
 author: ashannon7
@@ -8,6 +8,7 @@ ms.date: 04/25/2019
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
+
 # Customer intent: As a developer, I want learn how to create a Time Series Insights single-page web application (SPA), so I can apply the principles to building my own SPA.
 ---
 
@@ -69,11 +70,11 @@ Before you build the application, you must register it with Azure AD. Registrati
 
    [![Azure portal - The Add option for adding Azure AD permissions](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png#lightbox)
 
-1. In the **Add API access** pane, select **1 Select an API** to specify the Azure Time Series Insights API. In the **Select an API** pane, in the search box, enter **azure time**. Then, select **Azure Time Series Insights** in the results list. Choose the **Select** button.
+1. In the **Add API access** pane, select **1 Select an API** to specify the Azure Time Series Insights API. In the **Select an API** pane, in the search box, enter **azure time**. Then, select **Azure Time Series Insights** in the results list. Choose **Select**.
 
    [![Azure portal - The search option for adding Azure AD permissions](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png#lightbox)
 
-1. To select a scope for the API, in the **Add API access** pane, select **2 Select permissions**. In the **Enable Access** pane, select the **Access Azure Time Series Insights service** scope. Choose the **Select** button. You're returned to the **Add API access** pane. Select **Done**.
+1. To select a scope for the API, in the **Add API access** pane, select **2 Select permissions**. In the **Enable Access** pane, select the **Access Azure Time Series Insights service** scope. Choose **Select**. You're returned to the **Add API access** pane. Select **Done**.
 
    [![Azure portal - Set a scope for adding Azure AD permissions](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png#lightbox)
 
