@@ -811,6 +811,8 @@ Where status can be one of these:
         Succeeded,
         Failed,
         Conflict
+        
+Actionable statuses are Succeeded and Failed in a webhook notification. An operation's lifecycle is from NotStarted to a terminal state like Succeeded/Failed/Conflict. If you receive Not started or in progress, please continue to request the status via GET operation API until the operation reaches a terminal state before taking any action. 
 ```
 
 
