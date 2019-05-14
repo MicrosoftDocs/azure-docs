@@ -3,14 +3,14 @@ title: "Quickstart: Check spelling with the Bing Spell Check SDK for C#"
 titlesuffix: Azure Cognitive Services
 description: Get started using the Bing Spell Check REST API to check spelling and grammar.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
-ms.author: v-gedod
+ms.author: aahi
 ---
 
 # Quickstart: Check spelling with the Bing Spell Check SDK for C#
