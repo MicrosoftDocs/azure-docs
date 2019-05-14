@@ -6,12 +6,7 @@ services:  Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
 author: yijenj
 manager: nuno costa
 
-
-
 ms.service: marketplace
-
-
-
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
@@ -139,11 +134,12 @@ This option must be configured to sell through Microsoft and can be priced using
 |*Customer is billed by Microsoft*    |  *$100.00 per month (note: publisher must account for any incurred or pass-through infrastructure costs in the license fee)*  |
 
 * In this scenario, Microsoft bills $100.00 for your software license and pays out $80.00 to the publisher.
+* Partners who have qualified for the Reduced Marketplace Service Fee will see a reduced transaction fee on the SaaS offers from May 2019 until June 2020. In this scenario, Microsoft bills $100.00 for your software license and pays out $90.00 to the publisher.
 
 |Microsoft bills  | $100.00 per month  |
 |---------|---------|
-|Microsoft pays you 80% of your license cost    |   $80.00 per month     |
-|Microsoft keeps 20% of your license cost   |  $20.00 per month       |
+|Microsoft pays you 80% of your license cost <br> \* Microsoft pays you 90% of your license cost for any qualified SaaS apps   |   $80.00 per month <br> \* $90.00 per month    |
+|Microsoft keeps 20% of your license cost <br> \* Microsoft keeps 10% of your license cost for any qualified SaaS apps.  |  $20.00 per month <br> \* $10.00     |
 
 ### Customer invoicing, payment, billing, and collections
 
