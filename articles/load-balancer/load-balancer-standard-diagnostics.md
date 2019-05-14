@@ -96,9 +96,13 @@ Use **Average** as the aggregation for most scenarios.
 
 The health probe status metric describes the health of your application deployment as configured by you when you configure the health probe of your load balancer. The load balancer uses the status of the health probe to determine where to send new flows. Health probes originate from an Azure infrastructure address and are visible within the guest OS of the VM.
 
-To get the DIP availability for your Standard Load Balancer resources:
+To get the health probe status for your Standard Load Balancer resources:
 1. Select the **Health Probe Status** metric with **Avg** aggregation type. 
 2. Apply a filter on the required Frontend IP address or port (or both).
+
+![Health Probe Status](./media/load-balancer-standard-diagnostics/health-probe-status.png)
+
+*Figure: Health Probe Status*
 
 Health probes fail for the following reasons:
 - You configure a health probe to a port that is not listening or not responding or is using the wrong protocol. If your service is using direct server return (DSR, or floating IP) rules, make sure that the service is listening on the IP address of the NIC's IP configuration and not just on the loopback that's configured with the front-end IP address.
@@ -156,13 +160,13 @@ You can use health probe metrics to understand how Azure views the health of you
 
 You can take it a step further and use VIP availability metrics to gain insight into how Azure views the health of the underlying data plane that's responsible for your specific deployment. When you combine both metrics, you can isolate where the fault might be, as illustrated in this example:
 
-![VIP diagnostics](./media/load-balancer-standard-diagnostics/LBMetrics-DIPnVIPAvailability-2.png)
+![VIP diagnostics](./media/load-balancer-standard-diagnostics/LBMetrics-DIPnVIPAvailability-2b.png)
 
 *Figure: Combining Data Path Availability and Health Probe Status metrics*
 
 The chart displays the following information:
-- The infrastructure itself was healthy, the infrastructure hosting your VMs was reachable, and more than one VM was placed in the back end. This information is indicated by the blue trace for VIP availability, which is 100 percent. 
-- However, the health probe status (DIP availability) is at 0 percent at the beginning of the chart, as indicated by the orange trace. The circled area in green highlights where the status (DIP availability) became healthy, and at which point the customer's deployment was able to accept new flows.
+- The infrastructure itself was healthy, the infrastructure hosting your VMs was reachable, and more than one VM was placed in the back end. This information is indicated by the blue trace for data path availability (VIP availability), which is 100 percent. 
+- The health probe status (DIP availability), indicated by the purple trace, is at 0 percent at the beginning of the chart. The circled area in green highlights where the status (DIP availability) became healthy, and at which point the customer's deployment was able to accept new flows.
 
 The chart allows customers to troubleshoot the deployment on their own without having to guess or ask support whether other issues are occurring. The service was unavailable because health probes were failing due to either a misconfiguration or a failed application.
 
