@@ -64,7 +64,7 @@ A Managed Application can be configured with Managed Identity through the [Creat
 
 #### When to use CreateUIDefinition for Managed Identity
 
-Bellow are some recommendations on when to use CreateUIDefinition for enabling Managed Identity on Managed Applications.
+Below are some recommendations on when to use CreateUIDefinition for enabling Managed Identity on Managed Applications.
 
 - The Managed Application creation goes through the Azure portal or marketplace.
 - The Managed Identity requires complex consumer input.
@@ -94,7 +94,7 @@ A basic CreateUIDefinition that enables the SystemAssigned identity for the Mana
 
 #### UserAssigned CreateUIDefinition
 
-A basic CreateUIDefinition that takes an **user-assigned identity** resource as input and enables the UserAssigned identity for the Managed Application.
+A basic CreateUIDefinition that takes a **user-assigned identity** resource as input and enables the UserAssigned identity for the Managed Application.
 
 ```json
 {
@@ -144,10 +144,10 @@ The Managed Identity can also be enabled through Azure Resource Manager template
 
 #### When to use Azure Resource Manager templates for Managed Identity
 
-Bellow are some recommendations on when to use Azure Resource Manager templates for enabling Managed Identity on Managed Applications.
+Below are some recommendations on when to use Azure Resource Manager templates for enabling Managed Identity on Managed Applications.
 
 - Managed Applications can be programmatically deployed based on a template.
-- Custom role assignments for the Managed Application need to provisioned with the Managed Identity.
+- Custom role assignments for the Managed Identity are needed to provision the Managed Application.
 - The Managed Application does not need the Azure portal and marketplace creation flow.
 
 #### SystemAssigned template
@@ -220,7 +220,7 @@ Managed Identity can also be used to deploy a Managed Application that requires 
 
 When linking the deployment of the Managed Application to existing resources, both the existing Azure resource and a **user-assigned identity** with the applicable role assignment on that resource must be provided.
 
- A sample CreateUIDefinition that requires two inputs: a network interface resource id and a user assigned identity resource id.
+ A sample CreateUIDefinition that requires two inputs: a network interface resource ID and a user assigned identity resource id.
 
 ```json
 {
@@ -268,11 +268,11 @@ When linking the deployment of the Managed Application to existing resources, bo
 }
 ```
 
-![Sample CreateUIDefinition with two inputs: a network interface resource id and a user assigned identity resource id](./media/publish-managed-identity/network-interface-cuid.png)
+![Sample CreateUIDefinition with two inputs: a network interface resource ID and a user assigned identity resource ID](./media/publish-managed-identity/network-interface-cuid.png)
 
 #### Authoring the mainTemplate with a linked resource
 
-In addition to updating the CreateUIDefinition, the main template also needs to be updated to accept the passed in linked resource id. The main template can be updated to accept the new output by adding a new parameter. Since, the `managedIdentity` output overrides the value on the generated Managed Application template it is not passed to the main template and should not be included in the parameters section.
+In addition to updating the CreateUIDefinition, the main template also needs to be updated to accept the passed in linked resource ID. The main template can be updated to accept the new output by adding a new parameter. Since the `managedIdentity` output overrides the value on the generated Managed Application template, it is not passed to the main template and should not be included in the parameters section.
 
 A sample main template that sets the network profile to an existing network interface provided by the CreateUIDefinition.
 
@@ -308,15 +308,15 @@ A sample main template that sets the network profile to an existing network inte
 
 #### Consuming the Managed Application with a linked resource
 
-Once the Managed Application package is created, the Managed Application can be consumed through the Azure portal. Before it can be consumed there are several prerequisite steps that need to take place.
+Once the Managed Application package is created, the Managed Application can be consumed through the Azure portal. Before it can be consumed, there are several prerequisite steps.
 
 - An instance of the required linked Azure resource must be created.
 - The **user-assigned identity** must be [created and given role assignments](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) to the linked resource.
-- The existing linked resource id and the **user-assigned identity** id are provided to the CreateUIDefinition.
+- The existing linked resource ID and the **user-assigned identity** ID are provided to the CreateUIDefinition.
 
 ## Accessing the Managed Application Managed Identity token
 
-The token of the Managed Application can now be accessed through the `listTokens` api from the publisher tenant. An example request might look like the following:
+The token of the Managed Application can now be accessed through the `listTokens` api from the publisher tenant. An example request might look like:
 
 ``` HTTP
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}?api-version=2018-09-01-preview HTTP/1.1
