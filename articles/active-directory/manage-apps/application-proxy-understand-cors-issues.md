@@ -13,31 +13,27 @@ ms.author: celested
 ms.reviewer: japere
 ---
 
-# Understand and solve Azure AD Application Proxy CORS issues
+# Understand and solve Azure Active Directory Application Proxy CORS issues
 
-Browser security prevents a web page from making AJAX requests to another domain. This restriction is called the *same-origin policy*, and prevents a malicious site from reading sensitive data from another site. However, sometimes you might want to let other sites call your web API. [Cross-origin resource sharing (CORS)](http://www.w3.org/TR/cors/) is a W3C standard that lets a server relax the same-origin policy. Using CORS, a server can explicitly allow some cross-origin requests while rejecting others.
+Browser security usually prevents a web page from making AJAX requests to another domain. This restriction is called the *same-origin policy*, and prevents a malicious site from reading sensitive data from another site. However, sometimes you might want to let other sites call your web API. [Cross-origin resource sharing (CORS)](http://www.w3.org/TR/cors/) is a W3C standard that lets a server relax the same-origin policy. Using CORS, a server can explicitly allow some cross-origin requests while rejecting others.
 
-CORS can sometimes present challenges for the apps and APIs you publish through the Azure AD Application Proxy. This article provides an understanding of CORS in Application Proxy, and options to resolve CORS issues.
+CORS can sometimes present challenges for the apps and APIs you publish through the Azure AD Application Proxy. This article provides an understanding of CORS in Azure AD Application Proxy, and options to resolve Application Proxy CORS issues.
 
 ## CORS challenges with Application Proxy
 
 Two URLs have the same origin if they have identical schemes, hosts, and ports ([RFC 6454](https://tools.ietf.org/html/rfc6454)), such as:
 
 -   http:\//contoso.com/foo.html
-
 -   http:\//contoso.com/bar.html
 
 The following URLs have different origins than the previous two:
 
 -   http:\//consoto.net - Different domain
-
 -   http:\//contoso.com:9000/foo.html - Different port
-
 -   https:\//contoso.com/foo.html - Different scheme
-
 -   http:\//www.contoso.com/foo.html - Different subdomain
 
-The following examples show a **Webservice**, which hosts a web API controller, and a **WebClient**, which calls **Webservice**. There is an AJAX request from **WebClient** to **WebService**.
+The following examples show a **WebService**, which hosts a web API controller, and a **WebClient**, which calls **WebService**. There is an AJAX request from **WebClient** to **WebService**.
 
 ![On-premises same-origin request](./media/application-proxy-understand-cors-issues/image1.png)
 
@@ -60,28 +56,28 @@ In the following example, the cross-origin call happens on the **Try It** button
 
 ### Option 1: Custom domains
 
-Use an Azure AD Application Proxy [custom domain](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-custom-domains) name, without having to make any changes to origins, apps, or headers. 
+You can use an Azure AD Application Proxy [custom domain](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-custom-domains), without having to make any changes to origins, apps, or headers. 
 
 ### Option 2: Publish the parent directory
 
-Publish the parent directory of both apps. This solution works especially well if you only have two apps on the web server. Instead of publishing each app separately, publish the common parent directory, resulting in the same origin.
+You can publish the parent directory of both apps. This solution works especially well if you only have two apps on the web server. Instead of publishing each app separately, publishing the common parent directory results in the same origin.
 
 App published individually:
 
-![Publish app individually](./media/application-proxy-understand-cors-issues/image6.png)
+![Publish app individually](./media/application-proxy-understand-cors-issues/image4.png)
 
 Instead, publish the parent directory:
 
-![Publish parent directory](./media/application-proxy-understand-cors-issues/image6.png)
+![Publish parent directory](./media/application-proxy-understand-cors-issues/image5.png)
 
 The resulting URLs effectively resolve the CORS issues:
 
 - https:\//corswebclient-allmylab.msappproxy.net/CORSWebService
 - https:\//corswebclient-allmylab.msappproxy.net/CORSWebClient
 
-## Option 3: Update HTTP headers
+### Option 3: Update HTTP headers
 
-Add a custom HTTP response header on the web service to match the origin request. For example, you can use IIS Manager to modify the header for websites running in Internet Information Services (IIS):
+You can add a custom HTTP response header on the web service to match the origin request. For example, you can use IIS Manager to modify the header for websites running in Internet Information Services (IIS):
 
 ![Add custom response header in IIS Manager](./media/application-proxy-understand-cors-issues/image6.png)
 
@@ -100,6 +96,6 @@ X-AspNet-Version: 4.0.30319\
 X-Powered-By: ASP.NET\
 Content-Length: 17
 
-## Option 4: Modify the app
+### Option 4: Modify the app
 
 You can change your app to support CORS by adding the *Access-Control-Allow-Origin* header, with appropriate values. The way to add the header depends on the app's code language. Changing the code is the least recommended option, because it requires the most effort.
