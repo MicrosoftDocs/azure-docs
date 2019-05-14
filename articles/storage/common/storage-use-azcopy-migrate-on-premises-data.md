@@ -3,10 +3,9 @@ title: 'Tutorial: Migrate on-premises data to Azure Storage by using AzCopy| Mic
 description: In this tutorial, you use AzCopy to migrate data or copy data to or from blob, table, and file content. Easily migrate data from your local storage to Azure Storage.
 services: storage
 author: normesta
-
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/14/2017
+ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
@@ -50,7 +49,7 @@ Container names must start with a letter or number. They can contain only letter
 
 ## Download AzCopy
 
-First, download the AzCopy V10 executable file.
+Download the AzCopy V10 executable file.
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
