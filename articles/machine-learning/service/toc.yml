@@ -61,11 +61,20 @@
   - name: Visual interface experiments
     items:
     - name: "Predict price"
-      displayName: Basic Sample, training, regression
+      displayName: Basic Sample, training, regression, sample 1
       href:  ui-sample-regression-predict-automobile-price-basic.md
+    - name: "Predict price (advanced)"
+      displayName: Advanced Sample, training, regression, sample 2
+      href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
+    - name: "Predict credit risk"
+      displayName: Basic Sample, training, classification, sample 3
+      href:  ui-sample-classification-predict-credit-risk-basic.md
     - name: "Predict credit risk (advanced)"
-      displayName: Advanced Sample, training, classification
+      displayName: Advanced Sample, training, classification, sample 4
       href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
+    - name: "Predict churn"
+      displayName: Basic Sample, training, classification, sample 5
+      href:  ui-sample-regression-predict-churn.md
 - name: Concepts
   items:
   - name: How the service works
