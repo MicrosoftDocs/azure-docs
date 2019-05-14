@@ -1,7 +1,6 @@
 ---
 title: Use C# with Apache Hive and Apache Pig on Apache Hadoop in HDInsight - Azure 
 description: Learn how to use C# user-defined functions (UDF) with Apache Hive and Apache Pig streaming in Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight

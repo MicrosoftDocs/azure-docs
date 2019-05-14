@@ -83,9 +83,10 @@
 - name: Resources
   items:
   - name: Release notes
-    href: ../hdinsight-release-notes.md
-    maintainContext: true
     items:
+    - name: Current release notes
+      href: ../hdinsight-release-notes.md
+      maintainContext: true
     - name: Archived release notes
       href: ../hdinsight-release-notes-archive.md
       maintainContext: true

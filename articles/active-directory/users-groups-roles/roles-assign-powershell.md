@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ---
 # Assign Azure Active Directory admin roles using PowerShell
 
-You can automate how you assign roles to user accounts using Azure PowerShell. This article uses the [Azure Active Directory PowerShell Version 2](https:/docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module.
+You can automate how you assign roles to user accounts using Azure PowerShell. This article uses the [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module.
 
 ## Prepare PowerShell
 

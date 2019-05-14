@@ -88,7 +88,7 @@ Typically enterprise deployments have workloads split across multiple Azure VNet
 - **Hub vNet**. There's a hub vNet **Source Hub vNet**: 10.10.10.0/24.
   - This hub vNet acts as the gatekeeper.
   - All communications across subnets go through this hub.
-    - ****Hub vNet subnets**. The hub vNet has two subnets:
+    - **Hub vNet subnets**. The hub vNet has two subnets:
     - **NVA subnet**: 10.10.10.0/25. This subnet contains an NVA (10.10.10.10).
     - **Gateway subnet**: 10.10.10.128/25. This subnet contains an ExpressRoute gateway connected to an ExpressRoute connection that routes to the on-premises site via a private peering routing domain.
 - The on-premises datacenter has an ExpressRoute circuit connection through a partner edge in Hong Kong.

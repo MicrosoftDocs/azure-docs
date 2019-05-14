@@ -1,20 +1,12 @@
 ---
-title: SaaS Sell through Azure - APIs | Microsoft Docs
+title: SaaS Sell through Azure APIs | Azure Marketplace
 description: Explains how to create a SaaS offer through marketplace APIs.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: reference
 ms.date: 09/17/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 

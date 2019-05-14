@@ -110,6 +110,4 @@ Toggle settings
 
 ## Next steps
 
-Now that you've learned how to connect a Raspberry Pi to your Azure IoT Central application, here are the suggested next steps:
-
-* [Connect a generic Node.js client application to Azure IoT Central](howto-connect-nodejs.md)
+Now that you've learned how to connect a Raspberry Pi to your Azure IoT Central application, the suggested next step is to learn how to [set up a custom device template](howto-set-up-template.md) for your own IoT device.

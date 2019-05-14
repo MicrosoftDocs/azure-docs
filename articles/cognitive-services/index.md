@@ -7,7 +7,7 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 02/21/2019
+ms.date: 05/02/2019
 ms.topic: hub-page
 ---
 
@@ -290,9 +290,10 @@ ms.topic: hub-page
                     <div class="cardText">
                         <h3>Vision API</h3>
                         <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
-                        <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
                         <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Custom Vision Service</a></p>
                         <p><a href="/azure/cognitive-services/face/">Face API</a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088514"><span>Form Recognizer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088323"><span>Ink Recognizer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
                     </div>
                 </div>
@@ -305,7 +306,7 @@ ms.topic: hub-page
                 <div class="card">
                     <div class="cardText">
                         <h3>Speech API</h3>
-						<p><a href="/azure/cognitive-services/speech-service">Speech Service API</a></p>
+						<p><a href="/azure/cognitive-services/speech-service">Speech Services</a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speech/home"><span>Bing Speech API&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/translator-speech/"><span>Translator Speech&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
@@ -320,22 +321,10 @@ ms.topic: hub-page
                 <div class="card">
                     <div class="cardText">
                         <h3>Language API</h3>
-                        <p><a href="/azure/cognitive-services/bing-spell-check/">Bing Spell Check</a></p>
                         <p><a href="/azure/cognitive-services/luis/">Language Understanding (LUIS)</a></p>
+                        <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                         <p><a href="/azure/cognitive-services/text-analytics/">Text Analytics</a></p>
                         <p><a href="/azure/cognitive-services/translator/">Translator Text</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Knowledge API</h3>
-                            <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                     </div>
                 </div>
             </div>
@@ -355,6 +344,7 @@ ms.topic: hub-page
                         <p><a href="/azure/cognitive-services/bing-entities-search/">Bing Entity Search</a></p>
                         <p><a href="/azure/cognitive-services/bing-image-search">Bing Image Search</a></p>
                         <p><a href="/azure/cognitive-services/bing-visual-search">Bing Visual Search</a></p>
+                        <p><a href="/azure/cognitive-services/bing-spell-check/">Bing Spell Check</a></p>
                         <p><a href="/azure/cognitive-services/bing-local-business-search"><span>Bing Local Business Search&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                     </div>
                 </div>
@@ -366,8 +356,10 @@ ms.topic: hub-page
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Anomaly Detection</h3>
-                        <p><a href="/azure/cognitive-services/anomaly-detector/"><span>Anomaly Detector&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>               
+                        <h3>Decision API</h3>
+                        <p><a href="/azure/cognitive-services/anomaly-detector/"><span>Anomaly Detector&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088324"><span>Personalizer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                     </div>
                 </div>
             </div>

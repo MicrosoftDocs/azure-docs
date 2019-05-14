@@ -3,7 +3,7 @@ title: String claims transformation examples for the Identity Experience Framewo
 description: String claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity

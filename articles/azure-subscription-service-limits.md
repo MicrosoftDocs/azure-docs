@@ -8,7 +8,7 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 04/19/2019
 ms.author: byvinyal
 
 ---
@@ -50,6 +50,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Azure DNS](#azure-dns-limits)
 * [Azure Firewall](#azure-firewall-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
+* [Azure Machine Learning Service](#azure-machine-learning-service-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
@@ -72,6 +73,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
+* [Load Balancer](#load-balancer)
 * [Log Analytics](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Services](#mobile-services-limits)
@@ -79,6 +81,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Networking](#networking-limits)
 * [Network Watcher](#network-watcher-limits)
 * [Notification Hubs](#notification-hubs-limits)
+* [Public IP address](#publicip-address)
 * [Resource group](#resource-group-limits)
 * [Role-based access control](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
@@ -117,6 +120,13 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
+#### Shared Image Gallery limits
+
+There are limits, per subscription, for deploying resources using Shared Image Galleries:
+- 100 shared image galleries, per subscription, per region
+- 1,000 image definitions, per subscription, per region
+- 10,000 image versions, per subscription, per region
+
 ### Virtual machine scale sets limits
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
@@ -131,11 +141,16 @@ The following table details the features and limits of the Basic, Standard, and 
 ### Azure Kubernetes Service limits
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
-### Networking limits
-[!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
+### Azure Machine Learning Service limits
+The latest values for Azure Machine Learning Compute quotas can be found in the [Azure Machine Learning quota page](../articles/machine-learning/service/how-to-manage-quotas.md)
 
-#### Networking limits
+[!INCLUDE [how-to-manage-quotas](../articles/machine-learning/service/how-to-manage-quotas.md)]
+
+### Networking limits
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
+
+#### ExpressRoute limits
+[!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
 #### Application Gateway limits
 

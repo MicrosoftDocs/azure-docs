@@ -1,6 +1,6 @@
 ---
-title: "Understand how voluntary alerts migration tool in Azure Monitor works"
-description: Understand how the alert migration tool works and troubleshoot if you run into issues.
+title: "Understand how the voluntary migration tool works for Azure Monitor alerts"
+description: Understand how the alerts migration tool works and troubleshoot problems.
 author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
@@ -10,32 +10,32 @@ ms.subservice: alerts
 ---
 # Understand how the migration tool works
 
-As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are being retired in July 2019. The migration tool to trigger migration voluntarily is available in Azure portal and is rolling out to customers who use classic alert rules.
+As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are being retired in July 2019. A migration tool is available in the Azure portal to customers who use classic alert rules and who want to trigger migration themselves.
 
-This article will walk you through how the voluntary migration tool works. It also describes remediation for some common issues.
+This article explains how the voluntary migration tool works. It also describes remedies for some common problems.
 
 ## Which classic alert rules can be migrated?
 
-While almost all classic alert rules can be migrated using the tool, there are some exceptions. The following alert rules won't be migrated using the tool (or during the automatic migration in July 2019)
+Although the tool can migrate almost all classic alert rules, there are some exceptions. The following alert rules won't be migrated by using the tool (or during the automatic migration in July 2019):
 
-- Classic alert rules on virtual machine guest metrics (both Windows and Linux). [See guidance on how to recreate such alert rules in new metric alerts](#guest-metrics-on-virtual-machines)
-- Classic alert rules on classic storage metrics. [See guidance on monitoring your classic storage accounts](https://azure.microsoft.com/blog/modernize-alerting-using-arm-storage-accounts/)
-- Classic alert rules on some storage account metrics. [Details below](#storage-account-metrics)
+- Classic alert rules on virtual-machine guest metrics (both Windows and Linux). See the [guidance for recreating such alert rules in new metric alerts](#guest-metrics-on-virtual-machines) later in this article.
+- Classic alert rules on classic storage metrics. See the [guidance for monitoring your classic storage accounts](https://azure.microsoft.com/blog/modernize-alerting-using-arm-storage-accounts/).
+- Classic alert rules on some storage account metrics. See [details](#storage-account-metrics) later in this article.
 
-If your subscription has any such classic rules, rest of the rules will be migrated but these rules will need to be manually migrated. As we can't provide an automatic migration, any such existing classic metric alerts will continue working up to June 2020 to provide you time to move over to new alerts. However, no new classic alerts can be created post June 2019.
+If your subscription has any such classic rules, you must migrate them manually. Because we can't provide an automatic migration, any existing, classic metric alerts of these types will continue to work until June 2020. This extension gives you time to move over to new alerts. However, no new classic alerts can be created after June 2019.
 
 ### Guest metrics on virtual machines
 
-To be able to create new metric alerts on guest metrics, the guest metrics need to be sent to the Azure Monitor custom metrics store. Follow the instructions below to enable the Azure Monitor sink in diagnostic settings.
+Before you can create new metric alerts on guest metrics, the guest metrics must be sent to the Azure Monitor custom metrics store. Follow these instructions to enable the Azure Monitor sink in diagnostic settings:
 
 - [Enabling guest metrics for Windows VMs](collect-custom-metrics-guestos-resource-manager-vm.md)
-- [Enabling guest metrics for Linux VMs](https://docs.microsoft.com/azure/azure-monitor/platform/collect-custom-metrics-linux-telegraf)
+- [Enabling guest metrics for Linux VMs](collect-custom-metrics-linux-telegraf.md)
 
-Once the above steps are done, new metric alerts can be created on guest metrics. Once you have recreated new metric alerts, classic alerts can be deleted.
+After these steps are done, you can create new metric alerts on guest metrics. And after you have created new metric alerts, you can delete classic alerts.
 
 ### Storage account metrics
 
-All classic alerts on storage accounts can be migrated except those alerts on the following metrics:
+All classic alerts on storage accounts can be migrated except alerts on these metrics:
 
 - PercentAuthorizationError
 - PercentClientOtherError
@@ -47,18 +47,18 @@ All classic alerts on storage accounts can be migrated except those alerts on th
 - AnonymousThrottlingError
 - SASThrottlingError
 
-Classic alert rules on Percent metrics will need to be migrated based on [the mapping between old and new storage metrics](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Thresholds will need to be appropriately modified as the new metric available is an absolute one.
+Classic alert rules on Percent metrics must be migrated based on [the mapping between old and new storage metrics](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Thresholds will need to be modified appropriately because the new metric available is an absolute one.
 
-Classic alert rules AnonymousThrottlingError and SASThrottlingError will need to be split into two new alerts as there is no combined metric that provides the same functionality. Thresholds will need to be appropriately adapted.
+Classic alert rules on AnonymousThrottlingError and SASThrottlingError must be split into two new alerts because there is no combined metric that provides the same functionality. Thresholds will need to be adapted appropriately.
 
-## Roll-out phases
+## Rollout phases
 
-The migration tool is rolling out in phases to customers that use classic alert rules. **Subscription Owners** will receive an email when the subscription is ready to be migrated using the tool.
+The migration tool is rolling out in phases to customers that use classic alert rules. Subscription owners will receive an email when the subscription is ready to be migrated by using the tool.
 
 > [!NOTE]
-> As the tool is being rolled out in phases, in early phases, you might see that most of your subscriptions are not yet ready to be migrated.
+> Because the tool is being rolled out in phases, you might see that most of your subscriptions are not yet ready to be migrated during the early phases.
 
-Currently a **subset** of subscriptions, which **only** have classic alert rules on following resource types are marked as ready for migration. Support for more resource types will be added in upcoming phases.
+Currently a subset of subscriptions is marked as ready for migration. The subset includes those subscriptions that have classic alert rules only on the following resource types. Support for more resource types will be added in upcoming phases.
 
 - Microsoft.apimanagement/service
 - Microsoft.batch/batchaccounts
@@ -86,26 +86,26 @@ Currently a **subset** of subscriptions, which **only** have classic alert rules
 
 ## Who can trigger the migration?
 
-Any user who has the built-in role of **Monitoring Contributor** at the subscription level will be able to trigger the migration. Users with a custom role with the following permissions can also trigger the migration:
+Any user who has the built-in role of Monitoring Contributor at the subscription level can trigger the migration. Users who have a custom role with the following permissions can also trigger the migration:
 
 - */read
 - Microsoft.Insights/actiongroups/*
 - Microsoft.Insights/AlertRules/*
 - Microsoft.Insights/metricAlerts/*
 
-## Common issues and remediations
+## Common problems and remedies
 
-Once you [trigger the migration](alerts-using-migration-tool.md), we will use the email address(es) provided to notify you of completion of migration or if there is an action needed from you. The following section describes some common issues and how to remediate them
+After you [trigger the migration](alerts-using-migration-tool.md), you'll receive email at the addresses you provided to notify you that migration is complete or if any action is needed from you. This section describes some common problems and how to deal with them.
 
 ### Validation failed
 
-Due to some recent changes to classic alert rules in your subscription, the subscription cannot be migrated. This is a temporary issue. You can restart the migration once the migration status moves back **Ready for migration** in a few days.
+Due to some recent changes to classic alert rules in your subscription, the subscription cannot be migrated. This problem is temporary. You can restart the migration after the migration status moves back **Ready for migration** in a few days.
 
-### Policy/scope lock preventing us from migrating your rules
+### Policy or scope lock preventing us from migrating your rules
 
-As part of the migration, new metric alerts and new action groups will be created and classic alert rules will be deleted (once new rules are created). However, there is either a policy or scope lock preventing us from creating resources. Depending on the policy or scope lock, some or all rules could not be migrated. You can resolve this issue by removing the scope lock/policy temporarily and trigger the migration again.
+As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, there's either a policy or scope lock preventing us from creating resources. Depending on the policy or scope lock, some or all rules could not be migrated. You can resolve this problem by removing the scope lock or policy temporarily and triggering the migration again.
 
 ## Next steps
 
 - [How to use the migration tool](alerts-using-migration-tool.md)
-- [Prepare for migration](alerts-prepare-migration.md)
+- [Prepare for the migration](alerts-prepare-migration.md)

@@ -1,6 +1,6 @@
 ---
-title: Stream Azure Active Directory logs to Azure Monitor logs (preview)  | Microsoft Docs
-description: Learn how to integrate Azure Active Directory logs with Azure Monitor logs (preview)
+title: Stream Azure Active Directory logs to Azure Monitor logs | Microsoft Docs
+description: Learn how to integrate Azure Active Directory logs with Azure Monitor logs
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -14,14 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
 ---
 
-# Integrate Azure AD logs with Azure Monitor logs (preview)
+# Integrate Azure AD logs with Azure Monitor logs
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Azure Monitor logs allows you to query data to find particular events, analyze trends, and perform correlation across various data sources. With the integration of Azure AD activity logs in Azure Monitor logs, you can now perform tasks like:
 
@@ -34,8 +36,6 @@ The following video from an Ignite session demonstrates the benefits of using Az
 > [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
 
 In this article, you learn how to integrate Azure Active Directory (Azure AD) logs with Azure Monitor.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Supported reports
 
@@ -57,7 +57,7 @@ To use this feature, you need:
 * A user who's a *global administrator* or *security administrator* for the Azure AD tenant.
 * A Log Analytics workspace in your Azure subscription. Learn how to [create a Log Analytics workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
-## Send logs to Azure Monitor logs
+## Send logs to Azure Monitor
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
@@ -77,7 +77,7 @@ To use this feature, you need:
 
 7. After about 15 minutes, verify that events are streamed to your Log Analytics workspace.
 
-## Next Steps
+## Next steps
 
 * [Analyze Azure AD activity logs with Azure Monitor logs](howto-analyze-activity-logs-log-analytics.md)
 * [Install and use the log analytics views for Azure Active Directory](howto-install-use-log-analytics-views.md)
