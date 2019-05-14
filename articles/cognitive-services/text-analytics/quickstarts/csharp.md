@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Call the Text Analytics service by using the .NET SDK and C#'
+title: 'Quickstart: Call the Text Analytics service by using the Azure SDK for .NET and C#'
 titleSuffix: Azure Cognitive Services
 description: Information and code samples to help you start using the Text Analytics service and C#.
 services: cognitive-services
@@ -16,12 +16,12 @@ ms.author: assafi
 # Quickstart: Use the .NET SDK and C# to call the Text Analytics service
 <a name="HOLTop"></a>
 
-This quickstart helps you begin using the .NET SDK and C# to analyze language. Although the [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications.
+This quickstart helps you begin using the Azure SDK for .NET and C# to analyze language. Although the [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications.
 
 > [!NOTE]
 > The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/TextAnalytics).
 
-For technical details, refer to the [Text Analytics .NET SDK reference](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet).
+For technical details, refer to the SDK for .NET [Text Analytics reference](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet).
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ You also need the [endpoint and access key](../How-tos/text-analytics-how-to-acc
 >  While you can call the [HTTP endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) directly from C#, the Microsoft.Azure.CognitiveServices.Language SDK makes it much easier to call the service without having to serialize and deserialize JSON.
 >
 > A few useful links:
-> - [SDK Nuget page](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+> - [SDK NuGet page](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
 > - [SDK code](https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
 ## Create the Visual Studio solution and install the SDK
