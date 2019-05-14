@@ -225,7 +225,7 @@ Using all the preceding steps, create the application gateway. The creation of t
 ```powershell
 $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
-## Renew the Backend Http Certificate
+## Use this procedure to apply a new certificate if the backend certificate it is expired
 These step will help in case the Backend certificate it is expired and you need to apply a new certificate
 
 1. Retrieve the application gateway to update.
@@ -254,7 +254,7 @@ These step will help in case the Backend certificate it is expired and you need 
    Set-AzApplicationGateway -ApplicationGateway $gw  
    ```
 
-## Remove Expired Bakend HTTPS Certificate
+## Use this procedure to remove an unused expired certificate from HTTP Settings
 
 This procedure can be used to remove unused expired certificated from HTTP Settings using powershell
 
