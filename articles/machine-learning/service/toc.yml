@@ -217,7 +217,7 @@
       href: how-to-create-your-first-pipeline.md  
     - name: 'CI/CD of ML workflows with Azure Pipelines'
       displayName: continuous, integration, delivery
-      href: /azure/devops/pipelines/targets/azure-machine-learning?view=azure-devop
+      href: /azure/devops/pipelines/targets/azure-machine-learning
       mainContext: true
   - name: Manage resource quotas
     displayName: limits
