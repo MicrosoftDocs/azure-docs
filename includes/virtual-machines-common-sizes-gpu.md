@@ -55,10 +55,10 @@ NCv2-series VMs are powered by [NVIDIA Tesla P100](https://www.nvidia.com/en-us/
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs |
 | --- | --- | --- | --- | --- | --- | ---  | ---| --- |
-| Standard_NC6s_v2 | 6 |112 | 736 | 1 | 16 | 12 |  | 4 |
-| Standard_NC12s_v2 | 12 |224 | 1474 | 2 | 32 | 24 |  | 8 |
-| Standard_NC24s_v2 | 24 |448 | 2948 | 4 | 64 | 32 |  | 8 |
-| Standard_NC24rs_v2* | 24 |448 | 2948 | 4 | 64 | 32 |  | 8 |
+| Standard_NC6s_v2 | 6 |112 | 736 | 1 | 16 | 12 | 20000/ 200 | 4 |
+| Standard_NC12s_v2 | 12 |224 | 1474 | 2 | 32 | 24 | 40000 / 400 | 8 |
+| Standard_NC24s_v2 | 24 |448 | 2948 | 4 | 64 | 32 | 80000 / 800 | 8 |
+| Standard_NC24rs_v2* | 24 |448 | 2948 | 4 | 64 | 32 | 80000 / 800 | 8 |
 
 1 GPU = one P100 card.
 
