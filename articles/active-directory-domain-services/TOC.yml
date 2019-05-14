@@ -130,4 +130,4 @@
     - name: Contact us
       href: contact-us.md
     - name: Use Azure AD Domain Services in Azure CSP subscriptions
-      href: active-directory-ds-csp.md
+      href: csp.md

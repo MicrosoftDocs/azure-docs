@@ -75,7 +75,7 @@ sections:
     style: unordered
     items:
     - html: <a href="check-health.md">Check a managed domain’s health </a>
-    - html: <a href="active-directory-ds-csp.md">Azure CSP Subscriptions and Azure AD Domain Services</a>
+    - html: <a href="csp.md">Azure CSP Subscriptions and Azure AD Domain Services</a>
     - html: <a href="manage-dns.md">Manage DNS</a>
     - html: <a href="active-directory-ds-networking.md">Select a Virtual network</a>
     - html: <a href="configure-ldaps.md">Configure Secure LDAP</a>
