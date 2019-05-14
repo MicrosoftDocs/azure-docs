@@ -164,7 +164,7 @@ In the previous section, you created a skeleton Node.js project for an applicati
     // Send device telemetry.
     function sendTelemetry() {
       var temperature = targetTemperature + (Math.random() * 15);
-      var data = JSON.stringify({ temperature: temperature });
+      var data = JSON.stringify({ temp: temperature });
       var message = new Message(data);
       client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
         (err ? `; error: ${err.toString()}` : '') +
