@@ -27,7 +27,7 @@ For more information about about Application Proxy and using its connectors, see
 - [Application Proxy connectors](application-proxy-connectors.md)
 - [Install and register a connector](application-proxy-add-on-premises-application.md) 
 
-## Flowchart for connector issues
+## Flowchart for application issues
 
 This flowchart walks you through the steps for debugging issues with connecting to the application. For details about each step, see the table following the flowchart.
 
@@ -36,8 +36,8 @@ This flowchart walks you through the steps for debugging issues with connecting 
 |  | Action | Description | 
 |---------|---------|---------|
 |1 | Open a browser, access the app, and enter your credentials | Try using your credentials to sign in to the app, and check for any user-related errors, like "[This corporate app can't be accessed](application-proxy-sign-in-bad-gateway-timeout-error.md)." To learn more about preparing for remote application access, see  [Tutorial: Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md). |
-|2 | Verify user assignment to the app | Make sure your user account has permissions to access the application from inside the corporate network, and then verify assigned to the application for testing. For details, see [Test the application](application-proxy-add-on-premises-application.md#test-the-application) in the tutorial for adding an application. |
-|3 | Open a browser, access the app, and use F12 for developer tools |  |
+|2 | Verify user assignment to the app | Make sure your user account has permissions to access the application from inside the corporate network, and then verify assigned to the application for testing. For details, see [Test the application]. (application-proxy-add-on-premises-application.md#test-the-application) in the tutorial for adding an application. |
+|3 | Open a browser and try to access the app |  |
 |4 | Check the browser developer tools console for issues | For information about display issues, see to [Application page does not display correctly for an Application Proxy application](application-proxy-page-appearance-broken-problem.md) |
 |5 | Publish all resources for the page as part of your application | When publishing a path to the application, make sure the path includes all the necessary images, scripts, and style sheets for your application. For details, see [Add an on-premises app to Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). about adding and publishing an application, see help with issues Check for publishing issues as described in   |
 |6 | Review options for resolving broken links | For troubleshooting options, see [Links on the page don't work for an Application Proxy application](application-proxy-page-links-broken-problem.md) |
