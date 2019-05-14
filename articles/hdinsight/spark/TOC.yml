@@ -4,6 +4,7 @@
   items:
   - name: About Apache Spark on HDInsight
     href: apache-spark-overview.md
+    maintainContext: true
   - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true

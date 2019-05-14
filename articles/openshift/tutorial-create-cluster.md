@@ -29,7 +29,7 @@ In this tutorial series you learn how to:
 ## Prerequisites
 
 > [!IMPORTANT]
-> This tutorial requires version 2.0.65 of the Azure CLI.
+> This tutorial requires version 2.0.65 of the Azure CLI
 
 Before you begin this tutorial:
 
@@ -73,7 +73,7 @@ Set  `APPID` to the value you saved in step 5 of [Create an Azure AD app registr
 APPID=<app ID value>
 ```
 
-Set 'GROUPID' to the value you saved in step 11 of [Create an Azure AD security group](howto-aad-app-configuration.md#create-an-azure-ad-security-group).
+Set 'GROUPID' to the value you saved in step 10 of [Create an Azure AD security group](howto-aad-app-configuration.md#create-an-azure-ad-security-group).
 
 ```bash
 GROUPID=<group ID value>
@@ -116,7 +116,7 @@ For example: `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResourceGr
 
 ### Create the cluster
 
-You're now ready to create a cluster.
+You're now ready to create a cluster. The following will create the cluster in the specified Azure AD tenant, specify the Azure AD app object and secret to use as a security principal, and the security group that contains the members that have admin access to the cluster.
 
 If you are **not** peering your cluster to a virtual network, use the following command:
 
@@ -124,7 +124,7 @@ If you are **not** peering your cluster to a virtual network, use the following 
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID
 ```
 
-If you **are** peering your cluster to a virtual network, use the following command:
+If you **are** peering your cluster to a virtual network, use the following command which adds the `--vnet-peer` flag:
  
 ```bash
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --vnet-peer $VNET_ID
