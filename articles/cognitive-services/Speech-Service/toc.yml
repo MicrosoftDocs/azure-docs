@@ -221,7 +221,7 @@
       href: speech-sdk.md
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
     - name: Scenario availability
-      href: scenario-availability.md  
+      href: scenario-availability.md
     - name: Release notes
       href: releasenotes.md
     - name: C++
@@ -257,6 +257,9 @@
     - name: Batch transcription & customization
       href: https://westus.cris.ai/swagger/ui/index
       displayName: Batch transcription, transcription, custom models, customization, model management
+    - name: Conversation transcription
+      href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
+      displayName: Conversation transcription, signature generation
     - name: Webhooks
       href: webhooks.md
       displayName: Webhooks
