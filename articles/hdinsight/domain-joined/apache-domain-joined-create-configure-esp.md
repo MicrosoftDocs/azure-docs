@@ -27,7 +27,7 @@ Overview: In this section, you will use an Azure Quick Deployment template to cr
 
 1. Go to [Create an Azure VM with a new AD Forest](https://azure.microsoft.com/resources/templates/active-directory-new-domain/), to view the quick deployment template.
 
-1. Click on **Deploying to Azure**.
+1. Click on **Deploy to Azure**.
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image004.png)
 
@@ -43,7 +43,7 @@ Overview: In this section, you will use an Azure Quick Deployment template to cr
         * **Domain**: HDIFabrikam.com
         * **Dns Prefix**: hdifabrikam
 
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image006.png)
+        ![Template Create Azure VM and AD Forest](./media/apache-domain-joined-create-configure-esp/create-azure-vm-ad-forest.png)
 
     1. Click **Purchase**
     1. Monitor the deployment and wait for it to complete.
@@ -53,55 +53,51 @@ Overview: In this section, you will use an Azure Quick Deployment template to cr
 
 Overview: In this section, you will create the users that will have access to the HDInsight cluster by the end of this guide.
 
-1. Connect to the domain controller using Remote Desktop. If you used the template mentioned at the beginning, the domain controller is a VM called **adVM** in the `OnPremADVRG` resource group. Go to the Azure portal > **Resource groups** > **OnPremADVRG** > **adVM** > **Connect** > **RDP** > **Download RDP File**. Save the file to your computer and open it.
-
-1. When prompted for credentials, use `HDIFabrikam\HDIFabrikamAdmin` as the username and then enter the password that you chose for the admin account.
+1. Connect to the domain controller using Remote Desktop.
+    1. If you used the template mentioned at the beginning, the domain controller is a VM called **adVM** in the `OnPremADVRG` resource group.
+    1. Go to the Azure portal > **Resource groups** > **OnPremADVRG** > **adVM** > **Connect**.
+    1. Click the **RDP** tab and then click **Download RDP File**.
+    1. Save the file to your computer and open it.
+    1. When prompted for credentials, use `HDIFabrikam\HDIFabrikamAdmin` as the username and then enter the password that you chose for the admin account.
 
 1. Once your Remote Desktop session opens on the domain controller VM, launch **Active Directory Users and Computers** from the **Server Manager** dashboard. Click **Tools** in the upper right and then **Active Directory Users and Computers** from the dropdown.
 
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image016.png)
+    ![Server Manager Open Active Directory Management](./media/apache-domain-joined-create-configure-esp/server-manager-active-directory-screen.png)
 
-1. Create two new users, **HDIAdmin**, **HDIUser** as the usernames. These two users will be used to sign in to HDInsight clusters.
+1. Create two new users, **HDIAdmin**, **HDIUser**. These two users will be used to sign in to HDInsight clusters.
 
-    1. In the **Active Directory Users and Computers** screen, right-click in the right pane and then select **User** > **New**.
+    1. In the **Active Directory Users and Computers** screen, click **Action** > **New** > **User**.
 
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image018.png)
 
     1. In the **New Object - User** screen, enter `HDIUser` as the **User logon name** and click **Next**.
 
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image020.png)
+        ![Create first admin user](./media/apache-domain-joined-create-configure-esp/image020.png)
 
-    1. In the popup that appears, enter the desired password for the new account. Click **OK**.
+    1. In the popup that appears, enter the desired password for the new account. Check the box that says **Password never expires**. HDIClick **OK**.
     1. Click **Finish** to create the new account.
+    1. Create another user `HDIAdmin`.
 
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image022.png)
+        ![Create second Admin User](./media/apache-domain-joined-create-configure-esp/image024.png)
 
-    1. Repeat the account creation steps 1-4 for the second new account `HDIAdmin`.
+1. In the **Active Directory Users and Computers** screen, click **Action** > **New** > **Group**. Create `HDIUserGroup` as a new Group.
 
-        ![Second Admin User](./media/apache-domain-joined-create-configure-esp/image024.png)
-
-1. Create `HDIUserGroup` as a new Group.
-
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image026.png)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/create-new-group.png)
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image028.png)
 
 1. Add the **HDIUser** created in the previous step to the **HDIUserGroup** as a member.
 
-    1. Go to properties of the **HDIUserGroup**.
-
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image030.png)
-
-    1. Go to **Members** and click **Add**.
-
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image032.png)
-
+    1. Right click on the **HDIUserGroup** and click **Properties**.
+    1. Go to **Members** tab and click **Add**.
     1. Enter `HDIUser` in the box labeled **Enter the object names to select** and click **OK**.
+    1. Repeat the previous steps for the other account `HDIAdmin`
 
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image034.png)
+        ![alt-text](./media/apache-domain-joined-create-configure-esp/active-directory-add-users-to-group.png)
 
+You have now created your Active Directory environment, along with two users and a user group for accessing the HDInsight cluster.
 
-Now that we have our Active Directory environment setup, with the Users and User group will be create on the AD environment that will be synchronized with Azure AD.
+These users will be synchronized with Azure AD.
 
 ## Configure your Azure AD tenant
 
@@ -231,7 +227,7 @@ Lightweight Directory Access Protocol (LDAP) is used to read from and write to A
 
 For more information on secure LDAP, see [Configure secure LDAP (LDAPS) for an Azure AD Domain Services managed domain](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap).
 
-In this section, you create a self-signed certificate, download the certificate and configure secure LDAP (LDAPS) for the **hdifabrikam** Azure AD Domain Services managed domain.
+In this section, you create a self-signed certificate, download the certificate and configure secure LDAP (LDAPS) for the **hdifabrikam** Azure AD-DS managed domain.
 
 The following script creates a certificate for hdifabrikam. The certificate is saved under the path "LocalMachine".
 
@@ -244,9 +240,6 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
 -Type SSLServerAuthentication -DnsName *.hdifabrikam.com, hdifabrikam.com
 ```
-
-![alt-text](./media/apache-domain-joined-create-configure-esp/image100.jpg)
-
 Verify that the certificate is installed in the computer\'s Personal store. Complete the following steps:
 
 1. Start Microsoft Management Console (MMC).
@@ -257,26 +250,21 @@ Verify that the certificate is installed in the computer\'s Personal store. Comp
 
 1. In the right pane, right-click the certificate that you created in the previous step, point to **All Tasks**, and then click **Export**.
 
-1. On the **Export Private Key** page, click **Yes, export the private, key]**. The private key is required for the encrypted messages to be read from the computer where the key will be imported.
+1. On the **Export Private Key** page, click **Yes, export the private, key**. The private key is required for the encrypted messages to be read from the computer where the key will be imported.
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image103.png)
 
-1. On the **Export File Format** page, leave the default settings, and then click **Next**. On the **Password** page, type password for the private key.
-
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image105.png)
-
+1. On the **Export File Format** page, leave the default settings, and then click **Next**. 
+1. On the **Password** page, type a password for the private key, select **TripleDES-SHA1** for **Encryption** and click **Next**.
 1. On the **File to Export** page, type the path and the name for the exported certificate file, and then
 click **Next**.
-
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image107.png)
-
 1. The file name has to be .pfx extension, this file is configured on Azure Portal to establish secure connection.
-
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image109.png)
-    
-    ![alt-text](./media/apache-domain-joined-create-configure-esp/image111.png)
-
-1. Enable secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
+1. Enable secure LDAP (LDAPS) for an Azure AD Domain Services managed domain.
+    1. Select the domain **HDIFabrikam.com** from the Azure portal.
+    1. Click **Secure LDAP** under **Manage**.
+    1. On the **Secure LDAP** screen, click **Enable** under **Secure LDAP**.
+    1. Browse for the .pfx certificate file that you exported on your computer.
+    1. Enter the certificate password.
 
     ![alt-text](./media/apache-domain-joined-create-configure-esp/image113.png)
 
