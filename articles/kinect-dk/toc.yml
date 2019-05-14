@@ -6,7 +6,7 @@
   items:
   - name: Set up Azure Kinect DK
     href: set-up-azure-kinect-dk.md
-  - name: Record sensor streams to a file
-    href: record-sensor-streams-to-a-file.md
+  - name: Record sensor streams to file
+    href: record-sensor-streams-to-file.md
   - name: Recognize speech
     href: recognize-speech.md
