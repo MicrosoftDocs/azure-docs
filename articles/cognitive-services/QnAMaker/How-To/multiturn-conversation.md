@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article 
-ms.date: 05/07/2019
+ms.date: 05/14/2019
 ms.author: diberry
 #
 ---
