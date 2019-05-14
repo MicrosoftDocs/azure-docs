@@ -324,31 +324,30 @@ This Step requires 3 Pre-requisites.
 
         ![alt-text](./media/apache-domain-joined-create-configure-esp/image125.jpg)
 
-    1. Under section 2 **Security + Networking**, click **Enabled** under **Enterprise Security Package**.
-    1. Click **Cluster admin user** and select the **HDIAdmin** account that you created earlier as the on-premises admin user. Click **Select**.
+    1. Under section 2 **Security + Networking**, complete the following steps:
+        1. Click **Enabled** under **Enterprise Security Package**.
+        2. Click **Cluster admin user** and select the **HDIAdmin** account that you created earlier as the on-premises admin user. Click **Select**.
 
-        ![select cluster admin user](./media/apache-domain-joined-create-configure-esp/image127.jpg)
+            ![select cluster admin user](./media/apache-domain-joined-create-configure-esp/image127.jpg)
 
-    1. Click **Cluster access group** and then select **HDIUserGroup**. Any user that you add to this group in the future will be able to access HDInsight clusters.
+        1. Click **Cluster access group** and then select **HDIUserGroup**. Any user that you add to this group in the future will be able to access HDInsight clusters.
 
-        ![select cluster access group](./media/apache-domain-joined-create-configure-esp/image129.jpg)
+            ![select cluster access group](./media/apache-domain-joined-create-configure-esp/image129.jpg)
 
-    1. Complete the other steps of the cluster configuration and verify the details on the **Cluster summary**.
+    1. Complete the other steps of the cluster configuration and verify the details on the **Cluster summary**. Click **Create**.
 
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image133.jpg)
+1. Sign in to the Ambari UI for the newly created cluster at `https://CLUSTERNAME.azurehdinsight.net` by using your admin user name `hdiadmin@hdifabrikam.com` and password.
 
-    1. Login to the Ambari UI for the newly created cluster using your admin user name and password.
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image135.jpg)
 
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image135.jpg)
+1. Click **Roles** from the cluster dashboard.
+1. On the **Roles** page, enter the group **hdiusergroup** to assign it to the **Cluster Administrator** role under **Assign roles to these**.
 
-    1. Click **Roles** from the cluster dashboard.
-    1. On the **Roles** page, enter the group **hdiusergroup** to assign it to the **Cluster Administrator** role under **Assign roles to these**.
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image137.jpg)
 
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image137.jpg)
+1. Open your SSH client and login to the cluster using the **hdiuser** that you created previously in the on-premises Active Directory.
 
-    1. Open your SSH client and login to the cluster using the **hdiuser** that you created previously in the on-premises Active Directory.
-
-        ![alt-text](./media/apache-domain-joined-create-configure-esp/image139.jpg)
+    ![alt-text](./media/apache-domain-joined-create-configure-esp/image139.jpg)
 
 If you are able to login with this account, then you have configured your ESP cluster correctly to sync with your on-premises active directory.
 
