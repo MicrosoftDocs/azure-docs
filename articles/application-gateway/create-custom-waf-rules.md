@@ -126,6 +126,7 @@ Here's the logic you’ll use: **not (p and q) = not p or not q**.
 ```azure-powershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
    -VariableName RemoteAddr
+
 $variable2 = New-AzApplicationGatewayFirewallMatchVariable `
    -VariableName RequestHeaders `
    -Selector User-Agent
