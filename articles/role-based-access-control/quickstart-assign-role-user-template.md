@@ -12,7 +12,7 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/13/2019
+ms.date: 05/14/2019
 ms.author: rolyon
 
 #Customer intent: As a new user, I want to see how to grant access to resources by using Azure Resource Manager template so that I can start granting access to others.
@@ -36,8 +36,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To add and remove role assignments, you must have:
 
-- `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
-
+* `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 
 ## Grant access
 
@@ -51,7 +50,7 @@ $emailAddress = Read-Host -Prompt "Enter your email address that is associated w
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 
 $resourceGroupName = "${projectName}rg"
-$roleAssignmentName = "${projectName}Assignment"
+$roleAssignmentName = New-Guid
 $principalId = (Get-AzAdUser -Mail $emailAddress).id
 $roleDefinitionId = (Get-AzRoleDefinition -name "Virtual Machine Contributor").id
 $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-rbac-builtinrole-resourcegroup/azuredeploy.json"
@@ -59,6 +58,14 @@ $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templat
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -roleAssignmentName $roleAssignmentName -roleDefinitionID $roleDefinitionId -principalId $principalId
 ```
+
+## Validate the deployment
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Open the resource group created in the last procedure. The default name is the project name with **rg** appended.
+1. Select **Access control (IAM)** from the left menu.
+1. Select **Role assignments**. 
+1. In **Name**, enter the email address you typed in the last procedure. You shall see the user with the email address has the **Virtual Machine Contributor** role.
 
 ## Clean up
 
@@ -75,4 +82,3 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 > [!div class="nextstepaction"]
 > [Tutorial: Grant a user access to Azure resources using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-
