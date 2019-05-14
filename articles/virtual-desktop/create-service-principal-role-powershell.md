@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
 ---
 # Tutorial: Create service principals and role assignments with PowerShell
@@ -36,7 +36,6 @@ Before you can create service principals and role assignments, you’ll need to 
 2. Run the following cmdlets with the values in quotes replaced by the values relevant to your session.
 
     ```powershell
-    $myTenantGroupName = "<my-tenant-group-name>"
     $myTenantName = "<my-tenant-name>"
     ```
 
@@ -63,8 +62,7 @@ Run the following PowerShell cmdlets to connect to Windows Virtual Desktop and c
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-Set-RdsContext -TenantGroupName $myTenantGroupName
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantGroupName $myTenantGroupName -TenantName $myTenantName
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
 ```
 
 ## Sign in with the service principal
@@ -104,7 +102,7 @@ Here are the three credentials you should write down and the cmdlets you need to
 
 ## Next steps
 
-In this tutorial, you learned how to create a service principal and sign in to Windows Virtual Desktop with it. To learn more about how to sign in to Windows Virtual Desktop, continue to the Connect to Windows Virtual Desktop How-tos.
+Once you've created the service principal and assigned it a role in your Windows Virtual Desktop tenant, you can use it to create a host pool. To learn more about host pools, continue to the tutorial for creating a host pool in Windows Virtual Desktop.
 
-- [Connect to the Remote Desktop client on Windows 7 and Windows 10](connect-windows-7-and-10.md)
-- [Connect to the Windows Virtual Desktop Preview web client](connect-web.md)
+ > [!div class="nextstepaction"]
+ > [Windows Virtual Desktop host pool tutorial](./create-host-pools-azure-marketplace.md)

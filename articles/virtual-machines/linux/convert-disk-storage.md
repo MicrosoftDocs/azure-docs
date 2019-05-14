@@ -3,8 +3,8 @@ title: Convert Azure managed disks storage from Standard to Premium or Premium t
 description: How to convert Azure managed disks storage from Standard to Premium or Premium to Standard by using the Azure CLI.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
-ms.author: cynthn
+ms.author: rogarana
 ms.subservice: disks
 ---
 

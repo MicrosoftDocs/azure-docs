@@ -20,7 +20,7 @@
 | DNS servers per subscription |9 |100 |
 | Reserved IPs per subscription |20 |100 |
 | [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription |256 |256 |
-
+| Subscription name length (characters) | 64 | 64 |
 
 <sup>1</sup>Extra small instances count as one vCPU toward the vCPU limit despite using a partial CPU core.
 

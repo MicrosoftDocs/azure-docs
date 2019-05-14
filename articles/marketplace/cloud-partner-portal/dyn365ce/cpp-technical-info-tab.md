@@ -1,20 +1,12 @@
 ---
-title: Dynamics 365 for Customer Engagement Technical Info tab - Azure Marketplace | Microsoft Docs
+title: Dynamics 365 for Customer Engagement Technical Info tab | Azure Marketplace 
 description: How to specify the technical information for a Dynamics 365 for Customer Engagement application on the AppSource Marketplace. 
 services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
-ms.date: 03/05/2019
-ms.author: pbutlerm
+ms.date: 04/24/2019
+ms.author: pabutler
 ---
 
 # Dynamics 365 for Customer Engagement Technical Info tab
@@ -28,13 +20,13 @@ You will provide details about your Dynamics 365 application in this section.
 
 ![Application Info section of the Technical Info tab](./media/dynce-technical-info-tab1.png)
 
-The following table describes these fields.
+The following table describes these fields. Required fields are indicted by an asterisk (*).
 
 |      Field                    |    Description                  |
 |    ---------                  |  ---------------                |
-|   Base license model          |  License model determines how customers are assigned  your application in the Dynamics 365 Admin Center. **Resource** licensing is instance-based, whereas **User** licenses are assigned one per tenant.  |
-|  S2S outbound & CRM Secure Store Access |  Enables configuration of CRM Secure Store or Server-to-Server (S2S) outbound access. *This feature requires specialized consideration from the Dynamics 365 Team during the certification phase.* Microsoft will contact you to complete additional steps to support this feature.  |
-| Subscribe to CRM life-cycle events | Integration with Dynamics 365 Life Cycle events requires you to provide a dedicated service that is registered through a special agreement with Microsoft. *This feature requires specialized consideration from the Dynamics 365 Team during the certification phase.* You will be contacted to complete additional steps to support this capability.  |
+|   Base license model\*          |  License model determines how customers are assigned  your application in the Dynamics 365 Admin Center. **Resource** licensing is instance-based, whereas **User** licenses are assigned one per tenant.  |
+|  S2S outbound & CRM Secure Store Access\* |  Enables configuration of CRM Secure Store or Server-to-Server (S2S) outbound access. *This feature requires specialized consideration from the Dynamics 365 Team during the certification phase.* Microsoft will contact you to complete additional steps to support this feature.  |
+| Subscribe to CRM life-cycle events\* | Integration with Dynamics 365 Life Cycle events requires you to provide a dedicated service that is registered through a special agreement with Microsoft. *This feature requires specialized consideration from the Dynamics 365 Team during the certification phase.* You will be contacted to complete additional steps to support this capability.  |
 | Application Configuration Url | URL of the web page that enables the user to configure the application |
 | Applicable Dynamics 365 products  | Select the Dynamics 365 products that this offer applies to. This offer will show up under selected products in AppSource.  |
 | Marketing Only Change         | Setting this option to Yes indicates that only marketing/descriptive changes have been made to the existing offer.  Such changes allow the offer to bypass the certification and provisioning stages.  |
@@ -47,14 +39,14 @@ You will provide details about your AppSource package file in this section.  Thi
 
 ![CRM Package section of the Technical Info tab](./media/dynce-technical-info-tab2.png)
 
-The following table describes these fields.
+The following table describes these fields.  Required fields are indicted by an asterisk (*).
 
 |      Field                    |    Description                  |
 |    ---------                  |  ---------------                |
-|  Filename of your package     |  Filename of your package (.zip).  This name is *not* public and will be used internally by Dynamics 365 certification team.  |
-|  Url                          |  URL of an Azure Storage account that contains the uploaded package file. This URL should include a read-only SAS key to allow our team to pick up your package for verification.  |
-| More than one crm package     | Select Yes ONLY if you are supporting multiple versions of crm with different packages.  Each version will have a corresponding package file tht you must create individually.  |
-| Scenario and use case asset   | Enables the upload of a functional specification document for your application, for use by the Dynamics 365 validation team.  The preferred format for this spec is the [E2E User Scenario Template](https://isvdocumentation.blob.core.windows.net/d365documentation/Power%20Platform%20E2E%20document.docx).  |
+|  Filename of your package\*     |  Filename of your package (.zip).  This name is *not* public and will be used internally by Dynamics 365 certification team.  |
+|  Url of package location\*      |  URL of an Azure Storage account that contains the uploaded package file. This URL should include a read-only SAS key to allow our team to pick up your package for verification.  |
+| More than one crm package\*     | Select Yes ONLY if you are supporting multiple versions of crm with different packages.  Each version will have a corresponding package file tht you must create individually.  |
+| Scenario and use case asset\*   | Enables the upload of a functional specification document for your application, for use by the Dynamics 365 validation team.  The preferred format for this spec is the [E2E User Scenario Template](https://isvdocumentation.blob.core.windows.net/d365documentation/Power%20Platform%20E2E%20document.docx).  |
 |  |  |
 
 

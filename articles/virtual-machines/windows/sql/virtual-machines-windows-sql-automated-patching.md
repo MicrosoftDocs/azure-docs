@@ -91,11 +91,6 @@ When finished, click the **OK** button on the bottom of the **SQL Server configu
 
 If you are enabling Automated Patching for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal might not show that Automated Patching is configured. Wait several minutes for the agent to be installed, configured. After that the Azure portal reflects the new settings.
 
-> [!NOTE]
-> You can also configure Automated Patching using a template. For more information, see [Azure quickstart template for Automated Patching](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autopatching-update).
-> 
-> 
-
 ## Configuration with PowerShell
 After provisioning your SQL VM, use PowerShell to configure Automated Patching.
 

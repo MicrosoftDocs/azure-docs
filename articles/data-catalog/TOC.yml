@@ -8,6 +8,10 @@
   items:
   - name: Create an Azure Data Catalog
     href: data-catalog-get-started.md
+- name: Tutorials
+  items:
+  - name: Register data assets
+    href: register-data-assets-tutorial.md
 - name: Concepts
   items:
   - name: Common scenarios
@@ -46,6 +50,8 @@
     href: data-catalog-how-to-secure-catalog.md
   - name: View related data assets
     href: data-catalog-how-to-view-related-data-assets.md
+  - name: Troubleshoot 
+    href: troubleshoot-policy-configuration.md
 - name: Reference
   items:
   - name: Code samples

@@ -35,7 +35,7 @@ To simplify some of the steps involved in configuring Azure AD with a Service Fa
 2. Right-click the zip file, select **Properties**, select the **Unblock** check box, and then click **Apply**.
 3. Extract the zip file.
 
-## Create Azure AD applications and asssign users to roles
+## Create Azure AD applications and assign users to roles
 Create two Azure AD applications to control access to the cluster: one web application and one native application. After you have created the applications to represent your cluster, assign your users to the [roles supported by Service Fabric](service-fabric-cluster-security-roles.md): read-only and admin.
 
 Run `SetupApplications.ps1`, and provide the tenant ID, cluster name, and web application reply URL as parameters.  Also specify usernames and passwords for the users.  For example:

@@ -26,7 +26,7 @@ With managed identities, the Azure platform manages this runtime identity. You d
 
 ## Service Bus roles and permissions
 
-You can only add a managed identity to the "Owner" or "Contributor" roles of a Service Bus namespace. It grants the identity full control on all entities in the namespace. However, management operations that change the namespace topology are initially supported only though Azure Resource Manager. It is not through the native Service Bus REST management interface. This support also means that you cannot use the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) object within a managed identity.
+You can only add a managed identity to the "Owner" or "Contributor" roles of a Service Bus namespace. It grants the identity full control on all entities in the namespace. However, management operations that change the namespace topology are initially supported only though Azure Resource Manager. It is not through the native Service Bus REST management interface. This support also means that you cannot use the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) or the .NET Standard client [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) objects within a managed identity.
 
 ## Use Service Bus with managed identities for Azure resources
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 04/15/2019
 ms.author: aahi
 ---
 
@@ -77,11 +77,11 @@ In the following sections, we'll build our sample application within this class.
 This code constructs the search query.
 
 ```csharp
-public static void WebResults(WebSearchAPI client)
+public static async void WebResults(WebSearchClient client)
 {
     try
     {
-        var webData = client.Web.Search(query: "Yosemite National Park");
+        var webData = await client.Web.SearchAsync(query: "Yosemite National Park");
         Console.WriteLine("Searching for \"Yosemite National Park\"");
 
         // Code for handling responses is provided in the next section...
@@ -206,7 +206,7 @@ In this application, the main method includes code that instantiates the client,
 ```csharp
 static void Main(string[] args)
 {
-    var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
+    var client = new WebSearchClient(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
 
     WebResults(client);
 
@@ -234,11 +234,11 @@ This sample uses the `count` and `offset` parameters to limit the number of resu
 1. Add this code to your console project:
 
     ```csharp
-    public static void WebResultsWithCountAndOffset(WebSearchAPI client)
+    public static async void WebResultsWithCountAndOffset(WebSearchClient client)
     {
         try
         {
-            var webData = client.Web.SearchAsync(query: "Best restaurants in Seattle", offset: 10, count: 20).Result;
+            var webData = await client.Web.SearchAsync(query: "Best restaurants in Seattle", offset: 10, count: 20).Result;
             Console.WriteLine("\r\nSearching for \" Best restaurants in Seattle \"");
 
             if (webData?.WebPages?.Value?.Count > 0)
@@ -273,7 +273,7 @@ This sample uses the `count` and `offset` parameters to limit the number of resu
     ```csharp
     static void Main(string[] args)
     {
-        var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
+        var client = new WebSearchClient(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
 
         WebResults(client);
         // Search with count and offset...
@@ -293,12 +293,12 @@ This sample uses the `response_filter` parameter to filter search results. The s
 1. Add this code to your console project:
 
     ```csharp
-    public static void WebSearchWithResponseFilter(WebSearchAPI client)
+    public static async void WebSearchWithResponseFilter(WebSearchClient client)
     {
         try
         {
             IList<string> responseFilterstrings = new List<string>() { "news" };
-            var webData = client.Web.SearchAsync(query: "Microsoft", responseFilter: responseFilterstrings).Result;
+            var webData = await client.Web.SearchAsync(query: "Microsoft", responseFilter: responseFilterstrings).Result;
             Console.WriteLine("\r\nSearching for \" Microsoft \" with response filter \"news\"");
 
             if (webData?.News?.Value?.Count > 0)
@@ -334,7 +334,7 @@ This sample uses the `response_filter` parameter to filter search results. The s
     ```csharp
     static void Main(string[] args)
     {
-        var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
+        var client = new WebSearchClient(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
 
         WebResults(client);
         // Search with count and offset...
@@ -356,12 +356,12 @@ This sample uses the `answer_count`, `promote`, and `safe_search` parameters to 
 1. Add this code to your console project:
 
     ```csharp
-    public static void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchAPI client)
+    public static async void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchClient client)
     {
         try
         {
             IList<string> promoteAnswertypeStrings = new List<string>() { "videos" };
-            var webData = client.Web.SearchAsync(query: "Music Videos", answerCount: 2, promote: promoteAnswertypeStrings, safeSearch: SafeSearch.Strict).Result;
+            var webData = await client.Web.SearchAsync(query: "Music Videos", answerCount: 2, promote: promoteAnswertypeStrings, safeSearch: SafeSearch.Strict).Result;
             Console.WriteLine("\r\nSearching for \"Music Videos\"");
 
             if (webData?.Videos?.Value?.Count > 0)
@@ -396,7 +396,7 @@ This sample uses the `answer_count`, `promote`, and `safe_search` parameters to 
     ```csharp
     static void Main(string[] args)
     {
-        var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
+        var client = new WebSearchClient(new ApiKeyServiceClientCredentials("YOUR_SUBSCRIPTION_KEY"));
 
         WebResults(client);
         // Search with count and offset...

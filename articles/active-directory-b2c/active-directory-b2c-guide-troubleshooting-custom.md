@@ -3,7 +3,7 @@ title: Troubleshoot custom policies in Azure Active Directory B2C | Microsoft Do
 description: Learn about approaches to solving errors when working with custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity

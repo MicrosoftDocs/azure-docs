@@ -26,7 +26,10 @@ To see an overview of Cognitive Services on Azure Government, [click here](docum
 > Billing for the Computer Vision API, Face API, and Translator Text API will begin on 11/1/2018.
 
 ## Prerequisites
-* Install and Configure [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+* Install and Configure [Azure PowerShell](/powershell/azure/install-az-ps)
 * Connect [PowerShell with Azure Government](documentation-government-get-started-connect-with-ps.md)
 
 ## Part 1: Provision Cognitive Services Accounts
@@ -43,11 +46,11 @@ In order to access any of the Cognitive Services APIs, you must first provision 
    You can do this by **running the following PowerShell command:**
 
    ```powershell
-   Get-AzureRmResourceProvider
+   Get-AzResourceProvider
    ```
    If you do **not see `Microsoft.CognitiveServices`**, you have to register the resource provider by **running the following command**:
    ```powershell
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.CognitiveServices
+   Register-AzResourceProvider -ProviderNamespace Microsoft.CognitiveServices
    ```
 2. In the PowerShell command below, replace "rg-name", "name-of-your-api", and "location-of-resourcegroup" with your relevant account information. 
 
@@ -57,12 +60,12 @@ In order to access any of the Cognitive Services APIs, you must first provision 
    * TextTranslation
 
    ```powershell
-   New-AzureRmCognitiveServicesAccount -ResourceGroupName 'rg-name' -name 'name-of-your-api' -Type <type of API> -SkuName S0 -Location 'location-of-resourcegroup'
+   New-AzCognitiveServicesAccount -ResourceGroupName 'rg-name' -name 'name-of-your-api' -Type <type of API> -SkuName S0 -Location 'location-of-resourcegroup'
    ```
    Example: 
 
    ```powershell
-   New-AzureRmCognitiveServicesAccount -ResourceGroupName 'resourcegrouptest' -name 'myFaceAPI' -Type Face -SkuName S0 -Location 'usgovvirginia'
+   New-AzCognitiveServicesAccount -ResourceGroupName 'resourcegrouptest' -name 'myFaceAPI' -Type Face -SkuName S0 -Location 'usgovvirginia'
    ```
 
    After you run the command, you should see something like this: 
@@ -78,12 +81,12 @@ You must retrieve an account key to access the specific API.
 In the PowerShell command below, replace the "youraccountname" tag with the name that you gave the Account that you created above. Replace the 'rg-name' tag with the name of your resource group.
 
 ```powershell
-Get-AzureRmCognitiveServicesAccountKey -Name <youraccountname> -ResourceGroupName 'rg-name'
+Get-AzCognitiveServicesAccountKey -Name <youraccountname> -ResourceGroupName 'rg-name'
 ```
 
 Example:
 ```powershell
-Get-AzureRmCognitiveServicesAccountKey -Name myFaceAPI -ResourceGroupName 'resourcegrouptest'
+Get-AzCognitiveServicesAccountKey -Name myFaceAPI -ResourceGroupName 'resourcegrouptest'
 ```
 Copy and save the first key somewhere as you will need it to make calls to the API.
 

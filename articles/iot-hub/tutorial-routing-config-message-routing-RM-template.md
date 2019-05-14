@@ -51,7 +51,7 @@ Most of these parameters have default values. The ones ending with **_in** are c
 
 **location**: This field is the Azure region into which you are deploying, such as "westus".
 
-**consumer_group**: This field is the consumer group set for messages coming through the routing endpoint. It is used to filter results in Azure Steam Analytics. For example, there is the whole stream where you get everything, or if you have data coming through with consumer_group set to **Contoso**, then you can set up an Azure Stream Analytics stream (and Power BI report) to show only those entries. This field is used in part 2 of this tutorial.
+**consumer_group**: This field is the consumer group set for messages coming through the routing endpoint. It is used to filter results in Azure Stream Analytics. For example, there is the whole stream where you get everything, or if you have data coming through with consumer_group set to **Contoso**, then you can set up an Azure Stream Analytics stream (and Power BI report) to show only those entries. This field is used in part 2 of this tutorial.
 
 **sku_name**: This field is the scaling for the IoT Hub. This value must be S1 or above; a free tier does not work for this tutorial because it does not allow multiple endpoints.
 

@@ -1,5 +1,5 @@
 ---
-title: Ship Microsoft Azure Data Box Disk back| Microsoft Docs
+title: Tutorial to ship Azure Data Box Disk back| Microsoft Docs
 description: Use this tutorial to learn how to ship your Azure Data Box Disk to Microsoft
 services: databox
 author: alkohli
@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/07/2019
+ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -50,7 +50,12 @@ Take the following steps if returning the device in US or Canada.
     - Affix the label on the device.
 
 2. Seal the shipping box and ensure that the return shipping label is visible.
-3. Schedule a pickup with UPS.
+3. Schedule a pickup with UPS. To schedule a pickup:
+
+    - Call the local UPS (country/region-specific toll free number).
+    - In your call, quote the reverse shipment tracking number as shown in your printed label.
+    - If the tracking number is not quoted, UPS will require you to pay an additional charge during pickup.
+    - Instead of scheduling the pickup, you can also drop off the Data Box Disk at the nearest drop-off location.
 
 
 ### Pick up in Europe
@@ -69,7 +74,7 @@ Take the following steps if returning the device in Europe.
 
 2. Seal the shipping box and ensure that the return shipping label is visible.
 3. If you are returning the device in Europe with DHL, request for pickup from DHL by visiting their website and specifying the airway bill number.
-4. Go to the country DHL Express website and choose **Book a Courier Collection > eReturn Shipment**.
+4. Go to the country/region DHL Express website and choose **Book a Courier Collection > eReturn Shipment**.
 
     ![DHL return shipment](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     
@@ -79,7 +84,18 @@ Take the following steps if returning the device in Europe.
 
 ### Pick up in Asia-Pacific region
 
-This region includes instructions for pickup in Japan and Korea.
+This region includes instructions for pickup in Japan, Korea, and Australia.
+
+#### Pick up in Australia
+
+Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps for pickup in Australia.
+
+1. Email `adbops@microsoft.com` to request shipment label with unique inbound ID or the TAU code. Place the request at least 3 days in advance of the planned ship date to get the label in time.
+2. The email subject should be - *Request for reverse shipping label with TAU code*. Make sure to include the following details in the email: 
+
+    - Order name
+    - Address
+    - Contact name
 
 #### Pick up in Japan
 
@@ -89,11 +105,11 @@ This region includes instructions for pickup in Japan and Korea.
     - Available times for pickup request depend on the respective post offices.
     - Inform that the shipment is for Japan Post Chakubarai Yu-Pack.
     - Use the Chakubarai connote which was included.
-4. If Japan Post Chakubarai connote was not included, email Quantium Solutions. Quantium Solutions will request Japan Post to pick up and ask them to bring the connote upon pickup.
+4. If Japan Post Chakubarai connote was not included, email *Quantium Solutions* at `Customerservice.JP@quantiumsolutions.com`. *Quantium Solutions* will request Japan Post to pick up and ask them to bring the connote upon pickup.
     - Indicate the reference number on the Chakubarai connote remark column that Japan Post will bring.
     - Enter the delivery address as shown below:   
         ```
-        3F N7 Prologis Park Tokyo Ohta, 1-4-3 Tokai Ohta-ku, Tokyo 143-0001
+        3F N7 Prologis Park Tokyo Ohta, 1-3-6 Tokai Ohta-ku, Tokyo 143-0001
         Microsoft Service Center c/o Quantium Solutions Japan
         TEL: 03-5755-0150
         ```
@@ -118,7 +134,7 @@ Body:
 1. Make sure to include the return connote.
 2. To request pickup:
     1. Call *Quantium Solutions International* hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote *Microsoft pickup* and the connote number to arrange for a collection.  
-    2. If the hotline is busy, email microsoft@rocketparcel.com\, with the email subject *Microsoft Pickup* and the connote number as reference.
+    2. If the hotline is busy, email `microsoft@rocketparcel.com`, with the email subject *Microsoft Pickup* and the connote number as reference.
     3. If the courier does not arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements. 
 
 ## Verify data upload to Azure

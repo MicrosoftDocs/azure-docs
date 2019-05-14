@@ -66,7 +66,7 @@ To create the JSP application:
    
     ![Make a New JSP File - Java Web Application Tutorial](./media/sql-api-java-application/image11.png)
 5. In the **Select JSP Template** dialog box, for the purpose of this tutorial select **New JSP File (html)**, and then click **Finish**.
-6. When the index.jsp file opens in Eclipse, add text to display **Hello World!** within the existing <body> element. The updated <body> content should look like the following code:
+6. When the index.jsp file opens in Eclipse, add text to display **Hello World!** within the existing `<body>` element. The updated `<body>` content should look like the following code:
    
         <body>
             <% out.println("Hello World!"); %>
@@ -94,12 +94,13 @@ To do this, you will need to convert your project to a maven project by completi
    ![Install SQL Java Application SDK](./media/sql-api-java-application/image13.png)
      
    * Or add the dependency XML for Group Id and Artifact Id directly to the pom.xml via a text editor:
-     
+        ```xml
         <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-documentdb</artifactId>
             <version>1.9.1</version>
         </dependency>
+        ```
 6. Click **OK** and Maven will install the SQL Java SDK.
 7. Save the pom.xml file.
 
