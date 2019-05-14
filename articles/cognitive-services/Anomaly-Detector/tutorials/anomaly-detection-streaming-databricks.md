@@ -1,6 +1,7 @@
 ---
 title: "Tutorial: Anomaly detection on streaming data using Azure Databricks"
 description: Use the Anomaly Detector API and Azure Databricks to monitor anomalies in your data.
+titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -61,11 +62,8 @@ In this section, you create an Azure Databricks workspace using the [Azure porta
 
     ![Databricks on Azure portal](../media/tutorials/azure-databricks-on-portal.png "Databricks on Azure portal")
 
-3. Under **Azure Databricks Service**, provide the values to create a Databricks workspace.
+3. Under **Azure Databricks Service**, provide the following values to create a Databricks workspace:
 
-    ![Create an Azure Databricks workspace](../media/tutorials/create-databricks-workspace.png "Create an Azure Databricks workspace")
-
-    Provide the following values:
 
     |Property  |Description  |
     |---------|---------|
@@ -159,14 +157,12 @@ In this tutorial, you use the [Azure Cognitive Services Anomaly Detector APIs](.
 
 4. In the **Create** dialog box, provide the following values:
 
-    ![Create Anomaly Detector resource](../media/tutorials/create-cognitive-services-account.png "Create Anomaly Detector resource")
-    
     |Value |Description  |
     |---------|---------|
     |Name     | A name for the Anomaly Detector resource.        |
     |Subscription     | The Azure subscription the resource will be associated with.        |
     |Location     | An Azure location.        |
-    |Pricing tier     | A pricing tier for the service. For more information about Anomaly Detector pricing, see [pricing page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/anomaly-detector/).        |
+    |Pricing tier     | A pricing tier for the service. For more information about Anomaly Detector pricing, see [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).        |
     |Resource group     | Specify whether you want to create a new resource group or select an existing one.        |
 
 

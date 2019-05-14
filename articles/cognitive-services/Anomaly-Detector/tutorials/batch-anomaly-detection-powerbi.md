@@ -1,5 +1,6 @@
 ---
-title: "Tutorial: Visualize anomalies as a batch using Power BI"
+title: "Visualize anomalies using batch detection and Power BI"
+titlesuffix: Azure Cognitive Services
 description: Use the Anomaly Detector API and Power BI to visualize anomalies throughout your time series data.
 services: cognitive-services
 author: aahill
@@ -113,7 +114,7 @@ Invoke the query on your data sheet by selecting `Sheet1` below **Enter Paramete
 ## Data source privacy and authentication
 
 > [!NOTE]
-> Be aware of your organization's policies for data privacy and access. See [Power BI Desktop privacy levels](https://docs.microsoft.com/en-us/power-bi/desktop-privacy-levels) for more information.
+> Be aware of your organization's policies for data privacy and access. See [Power BI Desktop privacy levels](https://docs.microsoft.com/power-bi/desktop-privacy-levels) for more information.
 
 You may get a warning message when you attempt to run the query since it utilizes an external data source. 
 
@@ -169,4 +170,4 @@ Apply colors to your chart by clicking on the **Format** tool and **Data colors*
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Streaming anomaly detection with Azure Databricks](anomaly-detection-on-streaming-data.md)
+>[Streaming anomaly detection with Azure Databricks](anomaly-detection-streaming-databricks.md)
