@@ -6,9 +6,6 @@
   - name: What is Azure Machine Learning service?
     displayName: AML services overview
     href: overview-what-is-azure-ml.md
-  - name: What happened to Workbench
-    displayName: desktop ui Workbench upgrade update transfer
-    href: overview-what-happened-to-workbench.md
 - name: Setup
   items:
   - name: Create a workspace
@@ -117,6 +114,7 @@
     - name: Use portal for workspaces
       href: how-to-manage-workspace.md
     - name: Use a Resource Manager template
+      displayName: arm
       href: how-to-create-workspace-template.md
   - name: Set up development environment 
     items:
@@ -197,6 +195,8 @@
     - name: Where and how to deploy
       displayName: publish azure kubernetes azure container instances
       href: how-to-deploy-and-where.md
+    - name: GPUs
+      href: how-to-deploy-inferencing-gpus.md
     - name: FPGAs
       href: how-to-deploy-fpga-web-service.md
     - name: IoT Edge
@@ -224,6 +224,10 @@
     items:
     - name: Create an ML pipeline
       href: how-to-create-your-first-pipeline.md  
+    - name: 'CI/CD of ML workflows with Azure Pipelines'
+      displayName: continuous, integration, delivery
+      href: /azure/devops/pipelines/targets/azure-machine-learning
+      mainContext: true
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
@@ -235,9 +239,6 @@
   - name: Machine learning SDK
     displayName: api core package python data prep
     href: https://aka.ms/aml-sdk
-  - name: Data prep SDK
-    displayName: api core package python data prep
-    href: https://aka.ms/data-prep-sdk
   - name: Monitoring SDK
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
@@ -352,3 +353,6 @@
   - name: Compare our ML products
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
     maintainContext: true
+  - name: What happened to Workbench
+    displayName: desktop ui Workbench upgrade update transfer
+    href: overview-what-happened-to-workbench.md

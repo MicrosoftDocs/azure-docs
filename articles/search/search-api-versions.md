@@ -28,8 +28,8 @@ Below is a snapshot of the current versions of all programming interfaces to Azu
 
 | Interfaces | Most recent major version | Status |
 | --- | --- | --- |
-| [.NET SDK](https://aka.ms/search-sdk) |9.0 |Generally Available, released May 2019. Content is still under construction.  |
-| [.NET SDK Preview](https://aka.ms/search-sdk-preview) |8.0.0-preview |Preview, released April 2019. Content is still under construction.|
+| [.NET SDK](https://aka.ms/search-sdk) |9.0 |Generally Available, released May 2019 |
+| [.NET SDK Preview](https://aka.ms/search-sdk-preview) |8.0-preview |Preview, released April 2019 |
 | [Service REST API](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Generally Available |
 | [Service REST API 2019-05-06-Preview](search-api-preview.md) |2019-05-06-Preview |Preview |
 | [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |3.0 |Generally Available |
@@ -53,6 +53,6 @@ Preview features are available for testing and experimentation, with the goal of
 
 For these reasons, we recommend against writing production code that takes a dependency on preview versions. If you're using an older preview version, we recommend migrating to the generally available (GA) version.
 
-For the .NET SDK: Guidance for code migration can be found at [Upgrade the .NET SDK](search-dotnet-sdk-migration.md).
+For the .NET SDK: Guidance for code migration can be found at [Upgrade the .NET SDK](search-dotnet-sdk-migration-version-9.md).
 
 General availability means that Azure Search is now under the service level agreement (SLA). The SLA can be found at [Azure Search Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).

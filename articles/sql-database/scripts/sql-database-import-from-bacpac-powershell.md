@@ -7,8 +7,8 @@ ms.subservice: data-movement
 ms.custom: load & move data
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019

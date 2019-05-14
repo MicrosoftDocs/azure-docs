@@ -226,7 +226,7 @@ To use managed identity authentication, follow these steps:
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) article. This section provides a list of properties supported by the Azure SQL Data Warehouse dataset.
 
-To copy data from or to Azure SQL Data Warehouse, set the **type** property of the dataset to **AzureSqlDWTable**. The following properties are supported:
+To copy data from or to Azure SQL Data Warehouse, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -245,6 +245,7 @@ To copy data from or to Azure SQL Data Warehouse, set the **type** property of t
             "referenceName": "<Azure SQL Data Warehouse linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -372,7 +373,7 @@ To copy data to Azure SQL Data Warehouse, set the sink type in Copy Activity to 
 | rejectType | Specifies whether the **rejectValue** option is a literal value or a percentage.<br/><br/>Allowed values are **Value** (default) and **Percentage**. | No |
 | rejectSampleValue | Determines the number of rows to retrieve before PolyBase recalculates the percentage of rejected rows.<br/><br/>Allowed values are 1, 2, etc. | Yes, if the **rejectType** is **percentage**. |
 | useTypeDefault | Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.<br/><br/>Learn more about this property from the Arguments section in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Allowed values are **True** and **False** (default). | No |
-| writeBatchSize | Inserts data into the SQL table when the buffer size reaches **writeBatchSize**. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **integer** (number of rows). | No. The default is 10000. |
+| writeBatchSize | Number of rows to inserts into the SQL table **per batch**. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **integer** (number of rows). By default, Data Factory dynamically determine the appropriate batch size based on the row size. | No |
 | writeBatchTimeout | Wait time for the batch insert operation to finish before it times out. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **timespan**. Example: “00:30:00” (30 minutes). | No |
 | preCopyScript | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Data Warehouse in each run. Use this property to clean up the preloaded data. | No |
 
@@ -420,12 +421,13 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 
 2. The **source data format** is of **Parquet**, **ORC**, or **Delimited text**, with the following configurations:
 
-   1. `folderPath` and `fileName` don't contain wildcard filter.
-   2. `rowDelimiter` must be **\n**.
-   3. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is left as default or set to true.
-   4. `encodingName` is set to **utf-8**, which is the default value.
-   5. `escapeChar`, `quoteChar` and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
-   6. `compression` can be **no compression**, **GZip**, or **Deflate**.
+   1. Folder path don't contain wildcard filter.
+   2. File name points to a single file or is `*` or `*.*`.
+   3. `rowDelimiter` must be **\n**.
+   4. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is left as default or set to true.
+   5. `encodingName` is set to **utf-8**, which is the default value.
+   6. `quoteChar`, `escapeChar`, and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
+   7. `compression` can be **no compression**, **GZip**, or **Deflate**.
 
 ```json
 "activities":[
