@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 1055bba6-f4df-462e-bc9b-1ad5ada0f638
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -101,12 +101,14 @@ To configure Azure AD single sign-on with FreshGrade, perform the following step
     ![FreshGrade Domain and URLs single sign-on information](common/sp-identifier.png)
 
      a. In the **Sign-on URL** textbox, type a URL using the following patterns:
+
 	  | |
 	  |--|
 	  | `https://<subdomain>.freshgrade.com/login` |
 	  | `https://<subdomain>.onboarding.freshgrade.com/login` |
 
 	b. In the **Identifier (Entity ID)** textbox, type a URL using the following patterns:
+	
 	  | |
 	  |--|
 	  | `https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>` |
@@ -141,7 +143,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

@@ -60,9 +60,9 @@ Choose your names now, and write them down.
 ### Steps
 
 1. Click the following blue **Deploy to Azure** button.
-    - It opens the Azure portal with the Wingtip Tickets SaaS deployment template.
+   - It opens the Azure portal with the Wingtip Tickets SaaS deployment template.
 
-    [![Button for Deploy to Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
+     [![Button for Deploy to Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
 1. Enter the required parameter values for the deployment.
 
@@ -119,9 +119,9 @@ Each venue gets a personalized web app to list their events and sell tickets. Ea
 A central **Events Hub** webpage provides a list of links to the tenants in your particular deployment. Use the following steps to experience the **Events Hub** webpage and an individual web app:
 
 1. Open the **Events Hub** in your web browser:
-    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(Replace &lt;user&gt; with your deployment's user value.)*
+   - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(Replace &lt;user&gt; with your deployment's user value.)*
 
-    ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
+     ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
 2. Click **Fabrikam Jazz Club** in the **Events Hub**.
 
@@ -202,7 +202,7 @@ Next, we provision another tenant, this time in its own database:
 
 Now we look at some of the resources that were deployed:
 
-1. In the [Azure portal](http://portal.azure.com), browse to the list of resource groups. Open the resource group you created when you deployed the application.
+1. In the [Azure portal](https://portal.azure.com), browse to the list of resource groups. Open the resource group you created when you deployed the application.
 
    ![resource group](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
@@ -269,7 +269,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 -->
 
-[link-aka-ms-deploywtp-mtapp-52k]: http://aka.ms/deploywtp-mtapp
+[link-aka-ms-deploywtp-mtapp-52k]: https://aka.ms/deploywtp-mtapp
 
 
 [link-azure-get-started-powershell-41q]: https://docs.microsoft.com/powershell/azure/get-started-azureps
@@ -280,7 +280,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 <!--  Image references.
 
-[image-deploy-to-azure-blue-48d]: http://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
+[image-deploy-to-azure-blue-48d]: https://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
 -->
 
 [image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png "Button for deploying to Azure."

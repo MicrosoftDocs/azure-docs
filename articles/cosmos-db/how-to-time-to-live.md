@@ -67,6 +67,20 @@ DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionA
     new RequestOptions { OfferThroughput = 20000 });
 ```
 
+### <a id="nodejs-enable-withexpiry"></a>NodeJS SDK
+
+```javascript
+const containerDefinition = {
+          id: "sample container1",
+        };
+
+async function createcontainerWithTTL(db: Database, containerDefinition: ContainerDefinition, collId: any, defaultTtl: number) {
+      containerDefinition.id = collId;
+      containerDefinition.defaultTtl = defaultTtl;
+      await db.containers.create(containerDefinition);
+}
+```
+
 ## Set time to live on an item
 
 In addition to setting a default time to live on a container, you can set a time to live for an item. Setting time to live at the item level will override the default TTL of the item in that container.
@@ -96,8 +110,8 @@ Use the following steps to enable time to live on an item:
 
 5. Next navigate to the item for which you want to set time to live, add the `ttl` property and select **Update**. 
 
-  ```json
-  {
+   ```json
+   {
     "id": "1",
     "_rid": "Jic9ANWdO-EFAAAAAAAAAA==",
     "_self": "dbs/Jic9AA==/colls/Jic9ANWdO-E=/docs/Jic9ANWdO-EFAAAAAAAAAA==/",
@@ -105,8 +119,8 @@ Use the following steps to enable time to live on an item:
     "_attachments": "attachments/",
     "ttl": 10,
     "_ts": 1551307496
-  }
-  ```
+   }
+   ```
 
 ### <a id="dotnet-set-ttl-item"></a>.NET SDK
 
@@ -132,6 +146,18 @@ SalesOrder salesOrder = new SalesOrder
     ttl = 60 * 60 * 24 * 30;  // Expire sales orders in 30 days
 };
 ```
+
+### <a id="nodejs-set-ttl-item"></a>NodeJS SDK
+
+```javascript
+const itemDefinition = {
+          id: "doc",
+          name: "sample Item",
+          key: "value", 
+          ttl: 2
+        };
+```
+
 
 ## Reset time to live
 
@@ -172,7 +198,7 @@ response = await client.ReplaceDocumentAsync(readDocument);
 
 ## Disable time to live
 
-To disable time to live on a container and stop the background process from checking for expired items, the `DefaultTimeToLive` property on the container should be deleted. Deleting this property is different from setting it to -1. When you set it to -1, new items added to the container will live forever, however you can override this value on specific items in the container. When you remove the TTL property from the container the items will expire, even if there are they have explicitly overridden the previous default TTL value.
+To disable time to live on a container and stop the background process from checking for expired items, the `DefaultTimeToLive` property on the container should be deleted. Deleting this property is different from setting it to -1. When you set it to -1, new items added to the container will live forever, however you can override this value on specific items in the container. When you remove the TTL property from the container the items will never expire, even if there are they have explicitly overridden the previous default TTL value.
 
 ### <a id="dotnet-disable-ttl"></a>.NET SDK
 

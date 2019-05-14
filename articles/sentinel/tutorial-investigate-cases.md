@@ -4,7 +4,7 @@ description: Use this tutorial to learn how to investigate cases with Azure Sent
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: a493cd67-dc70-4163-81b8-04a9bc0232ac
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/6/2019
 ms.author: rkarlin
 
 ---
@@ -40,7 +40,7 @@ After you let Azure Sentinel know what kinds of threats you're looking for and h
 
 1. Select **Cases**. The **Cases** page lets you know how many cases you have, how many are open, how many you've set to **In progress**, and how many are closed. For each case, you can see the time it occurred, and the status of the case. Look at the severity to decide what to handle first. In the **Cases** page, click the **Alerts** tab to see all the alerts that are related to a case. Entities that you mapped earlier as part of the case can be viewed in the **Entities** tab.  You can filter the cases as needed, for example by status or severity. When you look at the **Cases** tab, you'll see open cases that contain alerts triggered by your detection rules defined in **Analytics**. Across the top you'll see your active cases, new cases and in progress cases. You can also see an overview of all your cases by severity.
 
-  ![Alert dashboard](./media/tutorial-detect-threats/alert-dashboard.png)
+   ![Alert dashboard](./media/tutorial-investigate-cases/cases.png)
 
 2. To begin an investigation, click on a specific case. On the right, you can see detailed information for the case including its severity, summary of the number of entities involved (based on your mapping). Each case has a unique ID. The severity of the case is determined according to the most severe alert included in the case.  
 

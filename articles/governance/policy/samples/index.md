@@ -1,12 +1,11 @@
 ---
 title: Index of policy samples
 description: Index of samples for Azure Policy. Categories include naming, tags, Key Vault, networking, storage, and more.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 01/26/2019
+ms.date: 03/19/2019
 ms.author: dacoulte
 ---
 # Azure Policy Samples
@@ -18,6 +17,8 @@ The following table includes links to samples for Azure Policy. These samples ar
 [!INCLUDE [azure-policy-samples-compute](../../../../includes/azure-policy-samples-compute.md)]
 
 [!INCLUDE [azure-policy-samples-datalake](../../../../includes/azure-policy-samples-datalake.md)]
+
+[!INCLUDE [azure-policy-samples-guest-configuration](../../../../includes/azure-policy-samples-guest-configuration.md)]
 
 [!INCLUDE [azure-policy-samples-keyvault](../../../../includes/azure-policy-samples-keyvault.md)]
 

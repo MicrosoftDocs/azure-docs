@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 03/13/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
@@ -20,9 +20,38 @@ To watch an introductory video, see [Introduction to Azure Cloudyn](https://azur
 
 Azure Cost Management offers similar functionality to Cloudyn. Azure Cost Management is a native Azure cost management solution. It helps you analyze costs, create and manage budgets, export data, and review and act on optimization recommendations to save money. For more information, see [Azure Cost Management](overview-cost-mgt.md).
 
+## Cloudyn features moving to Azure Cost Management
+
+Microsoft acquired Cloudyn and is migrating its cost management features from the Cloudyn portal natively into Azure. To use the new features, sign-in to the Azure portal and navigate to [Cost Management and Billing](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) in the list of Azure services. Compared to Cloudyn, the native experience offers improved performance and lower data latency of about eight hours.
+
+Key feature migration for Enterprise Agreement, Pay-As-You-Go, and MSDN offer categories to Azure Cost Management is complete. CSP subscriptions are in the process of being migrated over to Azure Cost Management.
+
+If you have an offer category not yet migrated, you should continue to use the Cloudyn portal. Everyone else can use Azure Cost Management.
+
+| Microsoft Azure offers and features | Recommended cost management service |
+| --- | --- |
+| Azure Enterprise Agreement | [Azure Cost Management](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| Azure Web Direct (PAYG/MSDN) | [Azure Cost Management](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| Azure Government | [Azure Cost Management](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| Azure CSP | [Cloudyn](https://azure.cloudyn.com) |
+| Cross-cloud cost analysis support for AWS (in preview) | [Azure Cost Management](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| AWS recommendations | [Cloudyn](https://azure.cloudyn.com) |
+
+Some of the following features are available in Cloudyn, but all of them are available now in Azure Cost Management.
+
+- APIs
+- Azure compute recommendations
+- Azure Reservation recommendations
+- Budgets
+- Cost analysis
+- Export data to an Azure storage account
+- Lower latency
+- Power BI content pack and connector
+- Resource tag support
+
 ## Monitor usage and spending
 
-Monitoring your usage and spending is critically important for cloud infrastructures because organizations pay for the resources they consume over time. When usage exceeds agreement thresholds, unexpected cost overages can quickly occur. A few important factors can make ad-hoc monitoring difficult. First, projecting costs based on average usage assumes that your consumption remains consistent over a given billing period. Second, when costs are near or exceed your budget, it's important you get notifications proactively to adjust your spending. And, cloud service providers might not offer cost projection vs. thresholds or period to period comparison reports.
+Monitoring your usage and spending is critically important for cloud infrastructures because organizations pay for the resources they consume over time. When usage exceeds agreement thresholds, unexpected cost overages can quickly occur. A few important factors can make ad hoc monitoring difficult. First, projecting costs based on average usage assumes that your consumption remains consistent over a given billing period. Second, when costs are near or exceed your budget, it's important you get notifications proactively to adjust your spending. And, cloud service providers might not offer cost projection vs. thresholds or period to period comparison reports.
 
 Reports help you monitor spending to analyze and track cloud usage, costs, and trends. Using Over Time reports, you can detect anomalies that differ from normal trends. Inefficiencies in your cloud deployment are visible in optimization reports. You can also notice inefficiencies in cost analysis reports.
 
@@ -41,6 +70,7 @@ Alerting helps manage costs by notifying you automatically when unusual spending
 You can determine optimal VM usage and identify idle VMs or remove idle VMs and unattached disks with Cloudyn. Using information in Sizing Optimization and Inefficiency reports, you can create a plan to down-size or remove idle VMs. However, optimization reports are not currently supported for CSP partner accounts or subscriptions.
 
 If you provisioned AWS Reserved Instances, you can improve your reserved instances utilization with Optimization reports where you can view buying recommendations, modify unused reservations, and plan provisioning.
+
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
 title: Tutorial deploy an Azure Stream Analytics job to a device - Azure IoT Edge | Microsoft Docs 
-description: In this tutorial, you deploy Azure Stream Analytics as a module to an Iot Edge device
+description: In this tutorial, you deploy Azure Stream Analytics as a module to an IoT Edge device
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -28,6 +28,7 @@ In this tutorial, you learn how to:
 > * Deploy the Azure Stream Analytics job to an IoT Edge device from the Azure portal.
 
 <center>
+
 ![Diagram - Tutorial architecture, stage and deploy ASA job](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
@@ -38,7 +39,7 @@ In this tutorial, you learn how to:
 
 An Azure IoT Edge device:
 
-* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+* You can use an Azure virtual machine as an IoT Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
 
 Cloud resources:
 
@@ -210,9 +211,9 @@ Now you can go to your IoT Edge device to check out the interaction between the 
    ```cmd/sh
    iotedge list  
    ```
-<!--
+   <!--
    ![Docker output](./media/tutorial-deploy-stream-analytics/docker_output.png)
--->
+   -->
 1. View all system logs and metrics data. Use the Stream Analytics module name:
 
    ```cmd/sh
@@ -227,11 +228,9 @@ You should be able to watch the machine's temperature gradually rise until it re
 
 If you plan to continue to the next recommended article, you can keep the resources and configurations that you created and reuse them. You can also keep using the same IoT Edge device as a test device. 
 
-Otherwise, you can delete the local configurations and the Azure resources that you created in this article to avoid charges. 
+Otherwise, you can delete the local configurations and the Azure resources that you used in this article to avoid charges. 
  
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 ## Next steps

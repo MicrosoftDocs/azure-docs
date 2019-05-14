@@ -22,7 +22,7 @@ The Wingtip Tickets SaaS Multi-tenant Database app uses a sharded multi-tenant d
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
-
+> 
 > * Simulate usage on a sharded multi-tenant database by running a provided load generator
 > * Monitor the database as it responds to the increase in load
 > * Scale up the database in response to the increased database load
@@ -72,10 +72,10 @@ The *Demo-PerformanceMonitoringAndManagement.ps1* script is provided that simula
 
 | Demo | Scenario |
 |:--|:--|
-| 2 | Generate normal intensity load (approx 30 DTU) |
+| 2 | Generate normal intensity load (approximately 30 DTU) |
 | 3 | Generate load with longer bursts per tenant|
-| 4 | Generate load with higher DTU bursts per tenant (approx 70 DTU)|
-| 5 | Generate a high intensity (approx 90 DTU) on a single tenant plus a normal intensity load on all other tenants |
+| 4 | Generate load with higher DTU bursts per tenant (approximately 70 DTU)|
+| 5 | Generate a high intensity (approximately 90 DTU) on a single tenant plus a normal intensity load on all other tenants |
 
 The load generator applies a *synthetic* CPU-only load to every tenant database. The generator starts a job for each tenant database, which calls a stored procedure periodically that generates the load. The load levels (in DTUs), duration, and intervals are varied across all databases, simulating unpredictable tenant activity.
 
@@ -162,7 +162,7 @@ If a single tenant within a multi-tenant database experiences a sustained high l
 This exercise simulates the effect of Salix Salsa experiencing a high load when tickets go on sale for a popular event.
 
 1. Open the …\\*Demo-PerformanceMonitoringAndManagement.ps1* script.
-1. Set **$DemoScenario = 5**, _Generate a normal load plus a high load on a single tenant (approx 90 DTU)._
+1. Set **$DemoScenario = 5**, _Generate a normal load plus a high load on a single tenant (approximately 90 DTU)._
 1. Set **$SingleTenantName = Salix Salsa**
 1. Execute the script using **F5**.
 

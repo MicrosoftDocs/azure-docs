@@ -39,7 +39,7 @@ Azure Table storage has these SDKs available for development:
 - [Python SDK](table-sdk-python.md). The Azure Cosmos DB Table SDK for Python also supports the storage Table service.
 - [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java). This Azure Storage SDK provides a client library in Java to consume Azure Table storage.
 - [Node.js SDK](table-sdk-nodejs.md). This SDK provides a Node.js package and a browser-compatible JavaScript client library to consume the storage Table service.
-- [AzureRmStorageTable PowerShell module](https://www.powershellgallery.com/packages/AzureRmStorageTable/1.0.0.7). This PowerShell module has cmdlets to work with storage Tables.
+- [AzureRmStorageTable PowerShell module](https://www.powershellgallery.com/packages/AzureRmStorageTable). This PowerShell module has cmdlets to work with storage Tables.
 - [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/). This library enables you to build applications against Azure Storage.
 - [Azure Storage Table Client Library for Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). This project provides a Ruby package that makes it easy to access Azure storage Table services.
 - [Azure Storage Table PHP Client Library](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table). This project provides a PHP client library that makes it easy to access Azure storage Table services.

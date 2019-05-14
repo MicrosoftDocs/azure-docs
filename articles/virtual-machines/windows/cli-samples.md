@@ -32,7 +32,7 @@ The following table includes links to bash scripts built using the Azure CLI tha
 | [Create a VM and run configuration script](./../scripts/virtual-machines-windows-cli-sample-create-vm-iis.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates a virtual machine and uses the Azure Custom Script extension to install IIS. |
 | [Create a VM and run DSC configuration](./../scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates a virtual machine and uses the Azure Desired State Configuration (DSC) extension to install IIS. |
 |**Manage storage**||
-| [Create managed disk from a VHD](../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates a managed disk from a specialized VHD as a OS disk or from a data VHD as data disk.  |
+| [Create managed disk from a VHD](../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates a managed disk from a specialized VHD as an OS disk or from a data VHD as data disk.  |
 | [Create a managed disk from a snapshot](../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates a managed disk from a snapshot. |
 | [Copy managed disk to same or different subscription](../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Copies managed disk to same or different subscription but in the same region as the parent managed disk. 
 | [Export a snapshot as VHD to a storage account](../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Exports a managed snapshot as VHD to a storage account in different region. |
@@ -43,5 +43,5 @@ The following table includes links to bash scripts built using the Azure CLI tha
 |**Secure virtual machines**||
 | [Encrypt a VM and data disks](./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates an Azure Key Vault, encryption key, and service principal, then encrypts a VM. |
 |**Monitor virtual machines**||
-| [Monitor a VM with Log Analytics](./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates a virtual machine, installs the Log Analytics agent, and enrolls the VM in a Log Analytics workspace.  |
+| [Monitor a VM with Azure Monitor](./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Creates a virtual machine, installs the Log Analytics agent, and enrolls the VM in a Log Analytics workspace.  |
 | | |

@@ -62,9 +62,9 @@ Perform the following steps to create a clone of your volume from the backup cat
    3. Specify the time range.
    4. Click **Apply** to execute this query.
 
-    The backups associated with the selected volume or backup policy should appear in the list of backup sets.
+      The backups associated with the selected volume or backup policy should appear in the list of backup sets.
    
-    ![Backup set list](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
+      ![Backup set list](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
 3. Expand the backup set to view the associated volume and select a volume in a backup set. Right-click and then from the context menu, select **Clone**.
 
@@ -72,21 +72,21 @@ Perform the following steps to create a clone of your volume from the backup cat
 
 3. In the **Clone** blade, do the following steps:
    
-    1. Identify a target device. This is the location where the clone will be created. You can choose the same device or specify another device.
+   1. Identify a target device. This is the location where the clone will be created. You can choose the same device or specify another device.
 
       > [!NOTE]
       > Make sure that the capacity required for the clone is lower than the capacity available on the target device.
        
-    2. Specify a unique volume name for your clone. The name must contain between 3 and 127 characters.
+   2. Specify a unique volume name for your clone. The name must contain between 3 and 127 characters.
       
-        > [!NOTE]
-        > The **Clone Volume As** field will be **Tiered** even if you are cloning a locally pinned volume. You cannot change this setting; however, if you need the cloned volume to be locally pinned as well, you can convert the clone to a locally pinned volume after you successfully create the clone. For information about converting a tiered volume to a locally pinned volume, go to [Change the volume type](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
+       > [!NOTE]
+       > The **Clone Volume As** field will be **Tiered** even if you are cloning a locally pinned volume. You cannot change this setting; however, if you need the cloned volume to be locally pinned as well, you can convert the clone to a locally pinned volume after you successfully create the clone. For information about converting a tiered volume to a locally pinned volume, go to [Change the volume type](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
           
-    3. Under **Connected hosts**, specify an access control record (ACR) for the clone. You can add a new ACR or choose from the existing list. The ACR will determine which hosts can access this clone.
+   3. Under **Connected hosts**, specify an access control record (ACR) for the clone. You can add a new ACR or choose from the existing list. The ACR will determine which hosts can access this clone.
       
-        ![Backup set list](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
+       ![Backup set list](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
 
-    4. Click **Clone** to complete the operation.
+   4. Click **Clone** to complete the operation.
 
 4. A clone job is initiated and you are notified when the clone is successfully created. Click the job notification or go to **Jobs** blade to monitor the clone job.
 

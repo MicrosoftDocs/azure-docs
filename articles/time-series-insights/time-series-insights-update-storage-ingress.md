@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Data storage and ingress in Azure Time Series Insights Preview | Microsoft Docs'
 description: Understanding data storage and ingress in Azure Time Series Insights Preview.
 author: ashannon7
@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
 ---
 
@@ -46,7 +46,7 @@ Time Series Insights chose Parquet because it provides efficient data compressio
 
 For a better understanding of the Parquet file format, see [Parquet documentation](https://parquet.apache.org/documentation/latest/).
 
-## Event structure in Parquet
+### Event structure in Parquet
 
 Time Series Insights creates and stores copies of blobs in the following two formats:
 
@@ -74,18 +74,18 @@ Time Series Insights events are mapped to Parquet file contents as follows:
 
 ## Partitions
 
-Each Time Series Insights Preview environment must have a Time Series ID property and a Timestamp property that uniquely identify it. Your Time Series ID acts as a logical partition for your data and gives the Time Series Insights Preview environment a natural boundary for distributing data across physical partitions. Physical partition management is managed by Time Series Insights Preview in an Azure storage account.
+Each Time Series Insights Preview environment must have a **Time Series ID** property and a **Timestamp** property that uniquely identify it. Your Time Series ID acts as a logical partition for your data and gives the Time Series Insights Preview environment a natural boundary for distributing data across physical partitions. Physical partition management is managed by Time Series Insights Preview in an Azure storage account.
 
 Time Series Insights uses dynamic partitioning to optimize storage and query performance by dropping and re-creating partitions. The Time Series Insights Preview dynamic partitioning algorithm tries to prevent a single physical partition from having data for multiple, distinct, logical partitions. In other words, the partitioning algorithm keeps all data specific to a single Time Series ID exclusively present in Parquet files without being interleaved with other Time Series IDs. The dynamic partitioning algorithm also tries to preserve the original order of events within a single Time Series ID.
 
 Initially, at ingress time, data is partitioned by the Timestamp so that a single, logical partition within a given time range can be spread across multiple physical partitions. A single physical partition might also contain many or all logical partitions. Because of blob size limitations, even with optimal partitioning, a single logical partition can occupy multiple physical partitions.
 
 > [!NOTE]
-> By default, the Timestamp value is the message *Enqueued Time* in your configured event source. 
+> By default, the Timestamp value is the message *Enqueued Time* in your configured event source.
 
 If you're uploading historical data or batch messages, assign the value you want to store with your data to the Timestamp property that maps to the appropriate Timestamp. The Timestamp property is case-sensitive. For more information, see [Time Series Model](./time-series-insights-update-tsm.md).
 
-## Physical partitions
+### Physical partitions
 
 A physical partition is a block blob that's stored in your storage account. The actual size of the blobs can vary because the size depends on the push rate. However, we expect blobs to be approximately 20 MB to 50 MB in size. This expectation led the Time Series Insights team to select 20 MB as the size to optimize query performance. This size could change over time, depending on file size and the velocity of data ingress.
 
@@ -94,7 +94,7 @@ A physical partition is a block blob that's stored in your storage account. The 
 > * Azure blobs are occasionally repartitioned for better performance by being dropped and re-created.
 > * Also, the same Time Series Insights data can be present in two or more blobs.
 
-## Logical partitions
+### Logical partitions
 
 A logical partition is a partition within a physical partition that stores all the data associated with a single partition key value. Time Series Insights Preview logically partitions each blob based on two properties:
 
@@ -105,13 +105,13 @@ Time Series Insights Preview provides performant queries that are based on these
 
 It's important to select an appropriate Time Series ID, because it's an immutable property. For more information, see [Choose Time Series IDs](./time-series-insights-update-how-to-id.md).
 
-## Your Azure storage account
+## Azure storage
 
-### Storage
+### Your Storage account
 
 When you create a Time Series Insights pay-as-you-go environment, you create two resources: a Time Series Insights environment and an Azure Storage general-purpose V1 account where the data will be stored. We chose to make Azure Storage general-purpose V1 the default resource because of its interoperability, price, and performance. 
 
-Time Series Insights publishes up to two copies of each event in your Azure storage account. The initial copy is always preserved so that you can query it performantly by using other services. You can easily use Spark, Hadoop, and other familiar tools across Time Series IDs over raw Parquet files, because these engines support basic file-name filtering. Grouping blobs by year and month is a useful way to list blobs within a specific time range for a custom job. 
+Time Series Insights publishes up to two copies of each event in your Azure storage account. The initial copy is always preserved so that you can quickly query it by using other services. You can easily use Spark, Hadoop, and other familiar tools across Time Series IDs over raw Parquet files, because these engines support basic file-name filtering. Grouping blobs by year and month is a useful way to list blobs within a specific time range for a custom job. 
 
 Additionally, Time Series Insights repartitions the Parquet files to optimize for the Time Series Insights APIs. The most recently repartitioned file is also saved.
 
@@ -127,37 +127,25 @@ You might want to access data stored in the Time Series Insights Preview explore
 
 You can access your data in three general ways:
 
-* From the Time Series Insights Preview explorer.
-* From the Time Series Insights Preview APIs.
-* Directly from an Azure storage account.
-
-#### From the Time Series Insights Preview explorer
-
-You can export data as a CSV file from the Time Series Insights Preview explorer. For more information, see [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
-
-#### From the Time Series Insights Preview APIs
-
-The API endpoint can be reached at `/getRecorded`. To learn more about this API, see [Time Series Query](./time-series-insights-update-tsq.md).
+* From the Time Series Insights Preview explorer: you can export data as a CSV file from the Time Series Insights Preview explorer. For more information, see [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
+* From the Time Series Insights Preview APIs: the API endpoint can be reached at `/getRecorded`. To learn more about this API, see [Time Series Query](./time-series-insights-update-tsq.md).
+* Directly from an Azure storage account (below).
 
 #### From an Azure storage account
 
 * You need read access to whatever account you're using to access your Time Series Insights data. For more information, see [Manage access to your storage account resources](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources).
-
 * For more information about direct ways to read data from Azure Blob storage, see [Moving data to and from your storage account](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
 * To export data from an Azure storage account:
-
     * First make sure that your account meets the necessary requirements for exporting data. For more information, see [Storage import and export requirements](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements).
-
     * To learn about other ways to export data from your Azure storage account, see [Import and export data from blobs](https://docs.microsoft.com/azure/storage/common/storage-import-export-data-from-blobs).
 
 ### Data deletion
 
 Don't delete blobs, because Time Series Insights Preview maintains metadata about the blobs within it.
 
-## Ingress
+## Time Series Insights data ingress
 
-### Time Series Insights ingress policies
+### Ingress policies
 
 Time Series Insights Preview supports the same event sources and file types that Time Series Insights currently supports.
 
@@ -179,7 +167,7 @@ Time Series Insights Preview indexes data by using a blob-size optimization stra
 
 > [!IMPORTANT]
 > * The Time Series Insights general availability (GA) release will make data available within 60 seconds of hitting an event source. 
-> * During the preview, expect a longer period before the data is made available. 
+> * During the preview, expect a longer period before the data is made available.
 > * If you experience any significant latency, be sure to contact us.
 
 ### Scale
@@ -188,9 +176,9 @@ Time Series Insights Preview supports an initial ingress scale of up to 6 Mega B
 
 ## Next steps
 
-Read the [Azure Time Series Insights Preview Storage and Ingress](./time-series-insights-update-storage-ingress.md).
+- Read the [Azure Time Series Insights Preview Storage and Ingress](./time-series-insights-update-storage-ingress.md).
 
-Read about the new [Data modeling](./time-series-insights-update-tsm.md).
+- Read about the new [Data modeling](./time-series-insights-update-tsm.md).
 
 <!-- Images -->
 [1]: media/v2-update-storage-ingress/storage-architecture.png

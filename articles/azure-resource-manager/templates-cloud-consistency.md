@@ -45,8 +45,6 @@ The rest of this guide describes the areas to consider when planning to develop 
 
 For an introduction to Azure Resource Manger templates, see [Template deployment](resource-group-overview.md#template-deployment).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Ensure template functions work
 
 The basic syntax of a Resource Manager template is JSON. Templates use a superset of JSON, extending the syntax with expressions and functions. The template language processor is frequently updated to support additional template functions. For a detailed explanation of the available template functions, see [Azure Resource Manager template functions](resource-group-template-functions.md).
@@ -61,13 +59,13 @@ Azure Resource Manager capabilities will always be introduced to global Azure fi
 
 1. Import the psm1 module and execute the Test-AzureRmureRmTemplateFunctions cmdlet:
 
-  ```powershell
-  # Import the module
-  Import-module <path to local clone>\AzTemplateFunctions.psm1
+   ```powershell
+   # Import the module
+   Import-module <path to local clone>\AzTemplateFunctions.psm1
 
-  # Execute the Test-AzureRmTemplateFunctions cmdlet
-  Test-AzureRmTemplateFunctions -path <path to local clone>
-  ```
+   # Execute the Test-AzureRmTemplateFunctions cmdlet
+   Test-AzureRmTemplateFunctions -path <path to local clone>
+   ```
 
 The script deploys multiple, minimized templates, each containing only unique template functions. The output of the script reports the supported and unavailable template functions.
 
@@ -671,5 +669,5 @@ Consider the following tips for testing and automation:
 
 ## Next steps
 
-* [Azure Resource Manager template considerations](../azure-stack/user/azure-stack-develop-templates.md)
+* [Azure Resource Manager template considerations](/azure-stack/user/azure-stack-develop-templates)
 * [Best practices for Azure Resource Manager templates](resource-group-authoring-templates.md)

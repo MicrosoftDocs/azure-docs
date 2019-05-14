@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 12/27/2018
+ms.date: 02/01/2019
 ms.author: alkohli
 ---
 # Use the local web UI to administer your Data Box
@@ -20,6 +20,7 @@ This article includes the following tutorials:
 
 - Generate a Support package
 - Shut down or restart your device
+- Download BOM or manifest files
 - View available capacity of the device
 - Skip checksum validation 
 
@@ -99,6 +100,8 @@ Before you begin, make sure that your Data Box has completed **Prepare to ship**
     |databoxe2etest_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
     |databoxe2etest_PageBlock_Rest-BOM.txt     |Page blobs         |REST        |
     |databoxe2etest_BlockBlock_Rest-BOM.txt    |Block blobs         |REST         |
+    |mydbmdrg1_MDisk-BOM.txt    |Managed Disk         |SMB/NFS         |
+    |mydbmdrg2_MDisk-BOM.txt     |Managed Disk         |SMB/NFS         |
 
 You use this list to verify the files uploaded into the Azure Storage account after the Data Box returns to the Azure datacenter. A sample manifest file is shown below.
 

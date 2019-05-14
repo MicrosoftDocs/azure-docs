@@ -107,7 +107,7 @@ Scroll to the bottom of the window on the right and click **Create**. In the **B
 |Password|A password| Choose a password that you will remember!|
 |Subscription|Your subscription||
 |Resource group|vnettestgroup|Choose existing resource, same group as you created earlier.|
-|Location|USGov Virginia|Our virtual network is hosted in Virginia, so this VM has to be in the US Virginia region as well.||
+|Location|USGov Virginia|Our virtual network is hosted in Virginia, so this VM has to be in the US Virginia region as well.|
 
 Open the Supported disk type dropdown box and select HDD. Click **View All** in the options at the top right corner. Scroll down the A4_v2 size and select it. Click on Select.
 

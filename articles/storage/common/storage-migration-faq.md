@@ -311,7 +311,7 @@ To give other people access to the storage resources:
 
     - **SAS token**: Use an SAS token to access data from the endpoint. For more information, see [Using shared access signatures](storage-dotnet-shared-access-signature-part-1.md).
 
-**How do I use an HTTPS custom domain with my storage account? For example, how do I make "https://mystorageaccountname.blob.core.windows.net/images/image.gif" appear as "https://www.contoso.com/images/image.gif"?**
+**How do I use an HTTPS custom domain with my storage account? For example, how do I make "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif" appear as "https:\//www.contoso.com/images/image.gif"?**
 
 SSL is not currently supported on storage accounts with custom domains.
 But you can use non-HTTPS custom domains. For more information,

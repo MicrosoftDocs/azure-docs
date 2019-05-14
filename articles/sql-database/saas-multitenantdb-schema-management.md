@@ -47,7 +47,7 @@ In this tutorial you learn how to:
 - Azure PowerShell must be installed. For details, see [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> This tutorial uses features of the Azure SQL Database service that are in a limited preview ([Elastic Database jobs](sql-database-elastic-database-client-library.md)). If you wish to do this tutorial, provide your subscription ID to *SaaSFeedback@microsoft.com* with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, [download and install the latest pre-release jobs cmdlets](https://github.com/jaredmoo/azure-powershell/releases). This preview is limited, so contact *SaaSFeedback@microsoft.com* for related questions or support.
+> This tutorial uses features of the Azure SQL Database service that are in a limited preview ([Elastic Database jobs](sql-database-elastic-database-client-library.md)). If you wish to do this tutorial, provide your subscription ID to *SaaSFeedback\@microsoft.com* with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, [download and install the latest pre-release jobs cmdlets](https://github.com/jaredmoo/azure-powershell/releases). This preview is limited, so contact *SaaSFeedback\@microsoft.com* for related questions or support.
 
 ## Introduction to SaaS schema management patterns
 
@@ -167,5 +167,5 @@ In this tutorial you learned how to:
 > * Update reference data in all tenant databases
 > * Create an index on a table in all tenant databases
 
-Next, try the [Ad-hoc reporting tutorial](saas-multitenantdb-adhoc-reporting.md) to explore running distributed queries across tenant databases.
+Next, try the [Ad hoc reporting tutorial](saas-multitenantdb-adhoc-reporting.md) to explore running distributed queries across tenant databases.
 

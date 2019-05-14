@@ -1,10 +1,10 @@
 ---
-title: Terms of Service and privacy statement for Azure AD apps | Microsoft Docs
+title: Terms of Service and privacy statement for apps | Azure
 description: Learn how you can configure the terms of service and privacy statement for apps registered to use Azure AD.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Terms of service and privacy statement for registered Azure Active Directory apps
+# How to: Configure terms of service and privacy statement for an app
 
 Developers who build and manage apps that integrate with Azure Active Directory (Azure AD) and Microsoft accounts should include links to the app's terms of service and privacy statement. The terms of service and privacy statement are surfaced to users through the user consent experience. They help your users know that they can trust your app. The terms of service and privacy statement are especially critical for user-facing multi-tenant apps--apps that are used by multiple directories or are available to any Microsoft account.
 
@@ -43,7 +43,7 @@ Before you add links to your app's terms of service and privacy statement docume
 | Guideline     | Description                           |
 |---------------|---------------------------------------|
 | Format        | Valid URL                             |
-| Valid schemas | HTTP and HTTPS</br>We recommend HTTPS |
+| Valid schemas | HTTP and HTTPS<br/>We recommend HTTPS |
 | Max length    | 2048 characters                       |
 
 Examples: `https://myapp.com/terms-of-service` and `https://myapp.com/privacy-statement`

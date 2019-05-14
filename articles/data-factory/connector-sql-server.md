@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 04/08/2019
 ms.author: jingwang
 
 ---
@@ -141,7 +141,7 @@ The following properties are supported for SQL Server linked service:
 
 For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by SQL Server dataset.
 
-To copy data from/to SQL Server database, set the type property of the dataset to **SqlServerTable**. The following properties are supported:
+To copy data from/to SQL Server database, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -160,6 +160,7 @@ To copy data from/to SQL Server database, set the type property of the dataset t
             "referenceName": "<SQL Server linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -281,7 +282,7 @@ To copy data to SQL Server, set the sink type in the copy activity to **SqlSink*
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to: **SqlSink** | Yes |
-| writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize.<br/>Allowed values are: integer (number of rows). |No (default: 10000) |
+| writeBatchSize |Number of rows to inserts into the SQL table **per batch**.<br/>Allowed values are: integer (number of rows). By default, Data Factory dynamically determine the appropriate batch size based on the row size. |No |
 | writeBatchTimeout |Wait time for the batch insert operation to complete before it times out.<br/>Allowed values are: timespan. Example: “00:30:00” (30 minutes). |No |
 | preCopyScript |Specify a SQL query for Copy Activity to execute before writing data into SQL Server. It will only be invoked once per copy run. You can use this property to clean up the pre-loaded data. |No |
 | sqlWriterStoredProcedureName |Name of the stored procedure that defines how to apply source data into target table, e.g. to do upserts or transform using your own business logic. <br/><br/>Note this stored procedure will be **invoked per batch**. If you want to do operation that only runs once and has nothing to do with source data e.g. delete/truncate, use `preCopyScript` property. |No |
@@ -437,9 +438,9 @@ When copying data into SQL Server database, a user specified stored procedure co
 
 A stored procedure can be used when built-in copy mechanisms do not serve the purpose. It is typically used when upsert (insert + update) or extra processing (merging columns, looking up additional values, insertion into multiple tables, etc.) needs to be done before the final insertion of source data in the destination table.
 
-The following sample shows how to use a stored procedure to do an upsert into a table in the SQL Server database. Assuming input data and the sink "Marketing" table each has three columns: ProfileID, State, and Category. Perform upsert based on the “ProfileID” column and only apply for a specific category.
+The following sample shows how to use a stored procedure to do an upsert into a table in the SQL Server database. Assume that input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column, and only apply it for a specific category.
 
-**Output dataset**
+**Output dataset:** the "tableName" should be the same table type parameter name in your stored procedure (see below stored procedure script).
 
 ```json
 {
@@ -458,7 +459,7 @@ The following sample shows how to use a stored procedure to do an upsert into a 
 }
 ```
 
-Define the SqlSink section in copy activity as follows.
+Define the **SQL sink** section in copy activity as follows.
 
 ```json
 "sink": {
@@ -473,7 +474,7 @@ Define the SqlSink section in copy activity as follows.
 }
 ```
 
-In your database, define the stored procedure with the same name as SqlWriterStoredProcedureName. It handles input data from your specified source, and merge into the output table. The parameter name of the table type in the stored procedure should be the same as the "tableName" defined in dataset.
+In your database, define the stored procedure with the same name as the **SqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. The parameter name of the table type in the stored procedure should be the same as the **tableName** defined in the dataset.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -486,7 +487,7 @@ BEGIN
       UPDATE SET State = source.State
   WHEN NOT MATCHED THEN
       INSERT (ProfileID, State, Category)
-      VALUES (source.ProfileID, source.State, source.Category)
+      VALUES (source.ProfileID, source.State, source.Category);
 END
 ```
 
@@ -496,14 +497,11 @@ In your database, define the table type with the same name as sqlWriterTableType
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
     [ProfileID] [varchar](256) NOT NULL,
     [State] [varchar](256) NOT NULL，
-    [Category] [varchar](256) NOT NULL，
+    [Category] [varchar](256) NOT NULL
 )
 ```
 
 The stored procedure feature takes advantage of [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx).
-
->[!NOTE]
->If you write to Money/Smallmoney data type by invoking Stored Procedure, values may be rounded. Specify the corresponding data type in TVP as Decimal instead of Money/Smallmoney to mitigate.
 
 ## Data type mapping for SQL server
 

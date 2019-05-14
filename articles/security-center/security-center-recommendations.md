@@ -64,10 +64,10 @@ You can filter recommendations. To filter the recommendations, select **Filter**
 
 > [!NOTE]
 > You will want to understand the [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
->
->
-### Apply recommendations
-After reviewing all recommendations, decide which one you should apply first. We recommend that you use the severity rating as the main parameter to evaluate which recommendations should be applied first.
+> 
+> 
+> ### Apply recommendations
+> After reviewing all recommendations, decide which one you should apply first. We recommend that you use the severity rating as the main parameter to evaluate which recommendations should be applied first.
 
 
 

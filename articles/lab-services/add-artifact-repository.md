@@ -70,11 +70,11 @@ This section provides steps to add an artifact repository to a lab in the Azure 
 
     ![The Add repository button](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. On the **Repositories** page, specify the following information:
-  1. **Name**. Enter a name for the repository.
-  2. **Git Clone Url**. Enter the Git HTTPS clone URL that you copied earlier from either GitHub or Azure DevOps Services.
-  3. **Branch**. To get your definitions, enter the branch.
-  4. **Personal Access Token**. Enter the personal access token that you got earlier from either GitHub or Azure DevOps Services.
-  5. **Folder Paths**. Enter at least one folder path relative to the clone URL that contains your artifact or Resource Manager template definitions. When you specify a subdirectory, make sure you include the forward slash in the folder path.
+   1. **Name**. Enter a name for the repository.
+   2. **Git Clone Url**. Enter the Git HTTPS clone URL that you copied earlier from either GitHub or Azure DevOps Services.
+   3. **Branch**. To get your definitions, enter the branch.
+   4. **Personal Access Token**. Enter the personal access token that you got earlier from either GitHub or Azure DevOps Services.
+   5. **Folder Paths**. Enter at least one folder path relative to the clone URL that contains your artifact or Resource Manager template definitions. When you specify a subdirectory, make sure you include the forward slash in the folder path.
 
         ![Repositories area](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 6. Select **Save**.
@@ -228,7 +228,7 @@ Folder under which artifacts can be found. Defaults to '/Artifacts'
 
 .PARAMETER PersonalAccessToken
 Security token for access to GitHub or VSOGit repository.
-See https://azure.microsoft.com/en-us/documentation/articles/devtest-lab-add-artifact-repo/ for instructions to get personal access token
+See https://azure.microsoft.com/documentation/articles/devtest-lab-add-artifact-repo/ for instructions to get personal access token
 
 .PARAMETER SourceType
 Whether artifact is VSOGit or GitHub repository.
@@ -373,7 +373,7 @@ if ($ArtifactRepositoryName -eq $null){
 
 The script adds a new resource to the current subscription. Use [Get-AzContext](/powershell/module/az.accounts/get-azcontext) to see this information. Use [Set-AzContext](/powershell/module/az.accounts/set-azcontext) to set the current tenant and subscription.
 
-The best way to discover the resource name and resource type information is to use the [Test Drive Azure REST APIs](https://azure.github.io/projects/apis/) website. Check out the [DevTest Labs – 2016-05-15](http://aka.ms/dtlrestapis) provider to see the available REST APIs for the DevTest Labs provider. The script users the following resource ID. 
+The best way to discover the resource name and resource type information is to use the [Test Drive Azure REST APIs](https://azure.github.io/projects/apis/) website. Check out the [DevTest Labs – 2016-05-15](https://aka.ms/dtlrestapis) provider to see the available REST APIs for the DevTest Labs provider. The script users the following resource ID. 
 
 ```powershell
 "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"

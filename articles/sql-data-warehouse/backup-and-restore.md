@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/01/2019
+ms.date: 04/30/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -20,7 +20,7 @@ Learn how to use backup and restore in Azure SQL Data Warehouse. Use data wareho
 
 A *data warehouse snapshot* creates a restore point you can leverage to recover or copy your data warehouse to a previous state.  Since SQL Data Warehouse is a distributed system, a data warehouse snapshot consists of many files that are located in Azure storage. Snapshots capture incremental changes from the data stored in your data warehouse.
 
-A *data warehouse restore* is a new data warehouse that is created from a restore point of an existing or deleted data warehouse. Restoring your data warehouse is an essential part of any business continuity and disaster recovery strategy because it re-creates your data after accidental corruption or deletion. Data warehouse is also a powerful mechanism to create copies of your data warehouse for test or development purposes.  SQL Data Warehouse uses fast restore mechanisms within the same region which has been measured to take less than 20 minutes for any data size.
+A *data warehouse restore* is a new data warehouse that is created from a restore point of an existing or deleted data warehouse. Restoring your data warehouse is an essential part of any business continuity and disaster recovery strategy because it re-creates your data after accidental corruption or deletion. Data warehouse is also a powerful mechanism to create copies of your data warehouse for test or development purposes.  SQL Data Warehouse restore rates can vary depending on the database size and location of the source and target data warehouse. On average within the same region, restore rates typically take around 20 minutes. 
 
 ## Automatic Restore Points
 
@@ -39,11 +39,10 @@ order by run_id desc
 
 ## User-Defined Restore Points
 
-This feature enables you to manually trigger snapshots to create restore points of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time. User-defined restore points are available for seven days and are automatically deleted on your behalf. You cannot change the retention period of user-defined restore points. **42 user-defined restore points** are guaranteed at any point in time so they must be [deleted](https://go.microsoft.com/fwlink/?linkid=875299) before creating another restore point. You can trigger snapshots to create user-defined restore points through [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) or the Azure portal.
+This feature enables you to manually trigger snapshots to create restore points of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time. User-defined restore points are available for seven days and are automatically deleted on your behalf. You cannot change the retention period of user-defined restore points. **42 user-defined restore points** are guaranteed at any point in time so they must be [deleted](https://go.microsoft.com/fwlink/?linkid=875299) before creating another restore point. You can trigger snapshots to create user-defined restore points through [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint#examples) or the Azure portal.
 
 > [!NOTE]
 > If you require restore points longer than 7 days, please vote for this capability [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). You can also create a user-defined restore point and restore from the newly created restore point to a new data warehouse. Once you have restored, you have the data warehouse online and can pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Premium Storage rate. If you need an active copy of the restored data warehouse, you can resume which should take only a few minutes.
->
 
 ### Restore point retention
 
@@ -61,17 +60,15 @@ When you drop a data warehouse, SQL Data Warehouse creates a final snapshot and 
 
 > [!IMPORTANT]
 > If you delete a logical SQL server instance, all databases that belong to the instance are also deleted and cannot be recovered. You cannot restore a deleted server.
->
 
 ## Geo-backups and disaster recovery
 
 SQL Data Warehouse performs a geo-backup once per day to a [paired data center](../best-practices-availability-paired-regions.md). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where SQL Data Warehouse is supported. A geo-backup ensures you can restore data warehouse in case you cannot access the restore points in your primary region.
 
-Geo-backups are on by default. If your data warehouse is Gen1, you can [opt out](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) if you wish. You cannot opt out of geo-backups for Gen2 as data protection is a built-in guaranteed.
+Geo-backups are on by default. If your data warehouse is Gen1, you can [opt out](/powershell/module/az.sql/set-azsqldatabasegeobackuppolicy) if you wish. You cannot opt out of geo-backups for Gen2 as data protection is a built-in guaranteed.
 
 > [!NOTE]
 > If you require a shorter RPO for geo-backups, vote for this capability [here](https://feedback.azure.com/forums/307516-sql-data-warehouse). You can also create a user-defined restore point and restore from the newly created restore point to a new data warehouse in a different region. Once you have restored, you have the data warehouse online and can pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Premium Storage rate. Should you need an active copy of the data warehouse, you can resume which should take only a few minutes.
->
 
 ## Backup and restore costs
 
@@ -81,7 +78,7 @@ The total cost for your primary data warehouse and seven days of snapshot change
 
 If you are using geo-redundant storage, you receive a separate storage charge. The geo-redundant storage is billed at the standard Read-Access Geographically Redundant Storage (RA-GRS) rate.
 
-For more information about SQL Data Warehouse pricing, see [SQL Data Warehouse Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) and [egress charges](https://azure.microsoft.com/pricing/details/bandwidth/) when restoring cross region.
+For more information about SQL Data Warehouse pricing, see [SQL Data Warehouse Pricing]. You are not charged for data egress when restoring across regions.
 
 ## Restoring from restore points
 
@@ -103,7 +100,6 @@ You can [restore your data warehouse](https://docs.microsoft.com/azure/sql-data-
 
 > [!NOTE]
 > To perform a geo-redundant restore you must not have opted out of this feature.
->
 
 ## Next steps
 

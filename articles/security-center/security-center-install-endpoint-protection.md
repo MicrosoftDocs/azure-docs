@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 03/28/2019
 ms.author: rkarlin
 
 ---
@@ -26,15 +26,15 @@ Security Center reports the following endpoint protection issues:
 - Endpoint protection not installed on non-Azure computers – A supported antimalware is not installed on these non-Azure computers.
 - Endpoint protection health:
 
-   - Signature out of date – An antimalware solution is installed on these VMs and computers, but the solution does not have the latest antimalware signatures.
-   - No real time protection – An antimalware solution is installed on these VMs and computers, but it is not configured for real-time protection.   The service may be disabled or Security Center may be unable to obtain the status because the solution is not supported. See [partner integration](security-center-partner-integration.md) for a list of supported solutions.
-   - Not reporting – An antimalware solution is installed but not reporting data.
-   - Unknown –  An antimalware solution is installed but its status is unknown or reporting an unknown error.
+  - Signature out of date – An antimalware solution is installed on these VMs and computers, but the solution does not have the latest antimalware signatures.
+  - No real time protection – An antimalware solution is installed on these VMs and computers, but it is not configured for real-time protection.   The service may be disabled or Security Center may be unable to obtain the status because the solution is not supported. See [partner integration](security-center-os-coverage.md#supported-endpoint-protection-solutions) for a list of supported solutions.
+  - Not reporting – An antimalware solution is installed but not reporting data.
+  - Unknown –  An antimalware solution is installed but its status is unknown or reporting an unknown error.
 
-   > [!NOTE]
-   > See [Integrate security solutions](security-center-partner-integration.md#integrated-azure-security-solutions) for a list of endpoint protection security solutions integrated with Security Center.
-   >
-   >
+    > [!NOTE]
+    > See [Integrate security solutions](security-center-os-coverage.md#supported-endpoint-protection-solutions) for a list of endpoint protection security solutions integrated with Security Center.
+    >
+    >
 
 ## Implement the recommendation
 Endpoint protection issues is presented as a recommendation in Security Center.  If your environment is vulnerable to antimalware threats, this recommendation will be displayed under **Recommendations** and under **Compute**. To see the **Endpoint protection issues dashboard**, you need to follow the Compute workflow.
@@ -43,7 +43,7 @@ In this example, we will use **Compute**.  We will look at how to install antima
 
 ## Install antimalware on Azure VMs
 
-1. Select **Compute** under the Security Center main menu or **Overview**.
+1. Select **Compute & apps** under the Security Center main menu or **Overview**.
 
    ![Select Compute][1]
 
@@ -56,7 +56,7 @@ In this example, we will use **Compute**.  We will look at how to install antima
    - Installed endpoint protection providers - Lists the different providers identified by Security Center.
    - Installed endpoint protection health state - Shows the health state of VMs and computers that have an endpoint protection solution installed. The chart shows the number of VMs and computers that are healthy and the number with insufficient protection.
    - Malware detected – Shows the number of VMs and computers where Security Center is reporting detected malware.
-   - Attacked computers – Shows the number of VMs and computers where Security Center is reporting attacks by malwares.
+   - Attacked computers – Shows the number of VMs and computers where Security Center is reporting attacks by malware.
 
    At the bottom of the dashboard there is a list of endpoint protection issues which includes the following information:  
 

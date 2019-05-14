@@ -3,7 +3,7 @@ title: How to plan your Azure Active Directory (Azure AD) join implementation | 
 description: Explains the steps that are required to implement Azure AD joined devices in your environment.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
@@ -37,7 +37,7 @@ This article assumes that you are familiar with the [Introduction to device mana
 
 ## Plan your implementation
 
-To plan your hybrid Azure AD implementation, you should familiarize yourself with:
+To plan your Azure AD join implementation, you should familiarize yourself with:
 
 |   |   |
 |---|---|
@@ -132,7 +132,11 @@ Azure AD join:
 
 ### Management platform
 
-Device management for Azure AD joined devices is based on an MDM platform such as Intune) and MDM CSPs. Windows 10 has a built-in MDM agent that works with all compatible MDM solutions.
+Device management for Azure AD joined devices is based on an MDM platform such as Intune, and MDM CSPs. Windows 10 has a built-in MDM agent that works with all compatible MDM solutions.
+
+> [!NOTE]
+> Group policies are not supported in Azure AD joined devices as they are not connected to on-premises Active Directory. Management of Azure AD joined devices is only possible through MDM
+
 
 There are two approaches for managing Azure AD joined devices:
 
@@ -140,7 +144,6 @@ There are two approaches for managing Azure AD joined devices:
 
 - **Co-management** -  A device is managed by an MDM provider and SCCM. In this approach, the SCCM agent is installed on an MDM-managed device to administer certain aspects.
 
-Because Azure AD joined devices are not connected to on-premises Active Directory, group policies are not supported.
 
 
 If you are using group policies, evaluate your MDM policy parity by using the [MDM Migration Analysis Tool (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 

@@ -30,7 +30,7 @@ Create a new HTML file, *detectFaces.html*, and add the following code.
 <html>
     <head>
         <title>Detect Faces Sample</title>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     </head>
     <body></body>
 </html>

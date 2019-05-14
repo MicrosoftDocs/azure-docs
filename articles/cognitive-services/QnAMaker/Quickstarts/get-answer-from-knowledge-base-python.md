@@ -55,7 +55,7 @@ The following code makes an HTTPS request to the QnA Maker API to send the quest
 
 [!code-python[Add a POST request to send question to knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/get-answer/get-answer-3x.py?range=27-48 "Add a POST request to send question to knowledge base")]
 
-The `Authorization` header's value includes the string `EndpointKey `. 
+The `Authorization` header's value includes the string `EndpointKey`. 
 
 ## Run the program
 
@@ -69,6 +69,7 @@ python get-answer-3x.py
 
 [!INCLUDE [JSON request and response](../../../../includes/cognitive-services-qnamaker-quickstart-get-answer-json.md)] 
 
+Learn more about the [request](../how-to/metadata-generateanswer-usage.md#generateanswer-request) and [response](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
 
 [!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 

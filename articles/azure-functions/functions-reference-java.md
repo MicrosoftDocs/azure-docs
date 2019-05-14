@@ -19,11 +19,15 @@ ms.author: routlaw
 
 The Azure Functions runtime supports [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/).
 
-## Programming model
+This guide contains information about the intricacies of writing Azure Functions with Java.
+
+A Java function is a `public` method decorated with annotation `@FunctionName`. This method defines the entry for a java function and must be unique in a given package. 
+
+This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). You should also complete the Functions quickstart to create your first function, using [Visual Studio Code](functions-create-first-function-vs-code.md) or [using maven](functions-create-first-java-maven.md).
+
+## Programming model 
 
 The concepts of [triggers and bindings](functions-triggers-bindings.md) are fundamental to Azure Functions. Triggers start the execution of your code. Bindings give you a way to pass data to and return data from a function, without having to write custom data access code.
-
-A function should be a stateless method to process input and produce output. Your function should not depend on any instance fields of the class. All the function methods should be `public` and method with annotation @FunctionName must be unique as method name defines the entry for a function.
 
 ## Folder structure
 
@@ -59,7 +63,7 @@ You can put more than one function in a project. Avoid putting your functions in
 
  Azure functions are invoked by a trigger, such as an HTTP request, a timer, or an update to data. Your function needs to process that trigger and any other inputs to produce one or more outputs.
 
-Use the Java annotations included in the [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) package to bind input and outputs to your methods. For more information see [Java reference docs](/java/api/com.microsoft.azure.functions.annotation).
+Use the Java annotations included in the [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) package to bind input and outputs to your methods. For more information, see [Java reference docs](/java/api/com.microsoft.azure.functions.annotation).
 
 > [!IMPORTANT] 
 > You must configure an Azure Storage account in your [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) to run Azure Storage Blob, Queue, or Table triggers locally.
@@ -104,7 +108,38 @@ here is the generated corresponding `function.json` by the [azure-functions-mave
 
 Download and use the [Azul Zulu Enterprise for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDKs from [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) for local development of Java function apps. Azure Functions uses the Azul Java 8 JDK runtime when you deploy your function apps to the cloud.
 
-[Azure support](https://azure.microsoft.com/en-us/support/) for issues with the JDKs and Function apps is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
+[Azure support](https://azure.microsoft.com/support/) for issues with the JDKs and Function apps is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
+
+## Customize JVM
+
+Functions lets you customize the Java virtual machine (JVM) used to execute your Java functions. The [following JVM options](https://github.com/Azure/azure-functions-java-worker/blob/master/worker.config.json#L7) are used by default:
+
+* `-XX:+TieredCompilation`
+* `-XX:TieredStopAtLevel=1`
+* `-noverify` 
+* `-Djava.net.preferIPv4Stack=true`
+* `-jar`
+
+You can provide additional arguments in an app setting named `JAVA_OPTS`. You can add app settings to your function app deployed to Azure in one of these ways:
+
+### Azure portal
+
+In the [Azure portal](https://portal.azure.com), use the [Application Settings tab](functions-how-to-use-azure-function-app-settings.md#settings) to add the `JAVA_OPTS` setting.
+
+### Azure CLI
+
+The [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) command can be used to set `JAVA_OPTS`, as in the following example:
+
+    ```azurecli-interactive
+    az functionapp config appsettings set --name <APP_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --settings "JAVA_OPTS=-Djava.awt.headless=true"
+    ```
+This example enables headless mode. Replace `<APP_NAME>` with the name of your function app and `<RESOURCE_GROUP> ` with the resource group.
+
+> [!WARNING]  
+> When running in a [Consumption plan](functions-scale.md#consumption-plan), you must add the  `WEBSITE_USE_PLACEHOLDER` setting with a value of `0`.  
+This setting does increase the cold start times for Java functions.
 
 ## Third-party libraries 
 
@@ -182,7 +217,7 @@ This function is invoked with an HTTP request.
 - HTTP request payload is passed as a `String` for the argument `inputReq`
 - One entry is retrieved from the Azure Table Storage and is passed as `TestInputData` to the argument `inputData`.
 
-To receive a batch of inputs, you can bind to `String[]`, `POJO[]`, `List<String>` or `List<POJO>`.
+To receive a batch of inputs, you can bind to `String[]`, `POJO[]`, `List<String>`, or `List<POJO>`.
 
 ```java
 @FunctionName("ProcessIotMessages")
@@ -256,7 +291,7 @@ To send multiple output values, use `OutputBinding<T>` defined in the `azure-fun
     }
 ```
 
-Above function is invoked on an HttpRequest and writes multiple values to the Azure Queue
+This function is invoked on an HttpRequest and writes multiple values to the Azure Queue.
 
 ## HttpRequestMessage and HttpResponseMessage
 
@@ -356,7 +391,7 @@ To download the log files as a single ZIP file using the Azure CLI, open a new c
 az webapp log download --resource-group resourcegroupname --name functionappname
 ```
 
-You must have enabled file system logging in the Azure Portal or Azure CLI before running this command.
+You must have enabled file system logging in the Azure portal or Azure CLI before running this command.
 
 ## Environment variables
 
@@ -384,6 +419,6 @@ For more information about Azure Function Java development, see the following re
 * [Best practices for Azure Functions](functions-best-practices.md)
 * [Azure Functions developer reference](functions-reference.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
-- Local development and debug with [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md), and [Eclipse](functions-create-maven-eclipse.md). 
+* Local development and debug with [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md), and [Eclipse](functions-create-maven-eclipse.md). 
 * [Remote Debug Java Azure Functions with Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
 * [Maven plugin for Azure Functions](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) - Streamline function creation through the `azure-functions:add` goal and prepare a staging directory for [ZIP file deployment](deployment-zip-push.md).

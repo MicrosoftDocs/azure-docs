@@ -28,7 +28,7 @@ With the latest cloud API release, Chef provides seamless integration with Azure
 In this article, you set up your Chef environment to provision Azure virtual machines and walk through creating a policy or “Cookbook” and then deploying this cookbook to an Azure virtual machine.
 
 ## Chef basics
-Before you begin, [review the basic concepts of Chef](http://www.chef.io/chef).
+Before you begin, [review the basic concepts of Chef](https://www.chef.io/chef).
 
 The following diagram depicts the high-level Chef architecture.
 
@@ -131,7 +131,8 @@ cookbook_path       ["#{current_dir}/cookbooks"]
 Add the following information to your knife.rb:
 
 validation_client_name   "myorg-validator"
-validation_key           ""#{current_dir}/myorg.pem"
+
+validation_key           "#{current_dir}/myorg.pem"
 
 Also add the following line reflecting the name of your Azure publish settings file.
 
@@ -172,7 +173,7 @@ knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
 Next, [download and install](https://downloads.chef.io/chef-workstation/) Chef Workstation.
 Install Chef Workstation the default location. This installation may take a few minutes.
 
-On the desktop, you'll see a "CW PowerShell", which is an environment loaded with the tool you'll need for interacting with the Chef products. The CW PowerShell makes new ad-hoc commands available, such as `chef-run` as well as traditional Chef CLI commands, such as `chef`. See your installed version of Chef Workstation and the Chef tools with `chef -v`. You can also check your Workstation version by selecting "About Chef Workstation" from the Chef Workstation App.
+On the desktop, you'll see a "CW PowerShell", which is an environment loaded with the tool you'll need for interacting with the Chef products. The CW PowerShell makes new ad hoc commands available, such as `chef-run` as well as traditional Chef CLI commands, such as `chef`. See your installed version of Chef Workstation and the Chef tools with `chef -v`. You can also check your Workstation version by selecting "About Chef Workstation" from the Chef Workstation App.
 
 `chef --version` should return something like:
 

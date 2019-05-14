@@ -15,7 +15,7 @@ ms.date: 02/05/2019
 ms.author: bwren
 ---
 
-# Computer groups in Azure Monitor log quereies
+# Computer groups in Azure Monitor log queries
 Computer groups in Azure Monitor allow you to scope [log queries](../log-query/log-query-overview.md) to a particular set of computers.  Each group is populated with computers either using a query that you define or by importing groups from different sources.  When the group is included in a log query, the results are limited to records that match the computers in the group.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -122,15 +122,15 @@ A record is created in the Log Analytics workspace for each computer group membe
 
 | Property | Description |
 |:--- |:--- |
-| Type |*ComputerGroup* |
-| SourceSystem |*SourceSystem* |
-| Computer |Name of the member computer. |
-| Group |Name of the group. |
-| GroupFullName |Full path to the group including the source and source name. |
-| GroupSource |Source that group was collected from. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName |Name of the source that the group was collected from.  For Active Directory, this is the domain name. |
-| ManagementGroupName |Name of the management group for SCOM agents.  For other agents, this is AOI-\<workspace ID\> |
-| TimeGenerated |Date and time the computer group was created or updated. |
+| `Type` |*ComputerGroup* |
+| `SourceSystem` |*SourceSystem* |
+| `Computer` |Name of the member computer. |
+| `Group` |Name of the group. |
+| `GroupFullName` |Full path to the group including the source and source name. |
+| `GroupSource` |Source that group was collected from. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
+| `GroupSourceName` |Name of the source that the group was collected from.  For Active Directory, this is the domain name. |
+| `ManagementGroupName` |Name of the management group for SCOM agents.  For other agents, this is AOI-\<workspace ID\> |
+| `TimeGenerated` |Date and time the computer group was created or updated. |
 
 ## Next steps
 * Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.  

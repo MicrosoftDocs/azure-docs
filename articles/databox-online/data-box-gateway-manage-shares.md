@@ -6,17 +6,13 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: gateway
-ms.topic: overview
-ms.date: 10/09/2018
+ms.topic: article
+ms.date: 03/25/2019
 ms.author: alkohli
 ---
 # Use the Azure portal to manage shares on your Azure Data Box Gateway 
 
 This article describes how to manage shares on your Azure Data Box Gateway. You can manage the Azure Data Box Gateway via the Azure portal or via the local web UI. Use the Azure portal to add, delete, refresh shares or sync storage key for storage account associated with the shares.
-
-> [!IMPORTANT]
-> - Data Box Gateway is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
-
 
 ## About shares
 
@@ -83,6 +79,9 @@ The list of shares is updated to reflect the deletion.
 
 The refresh feature allows you to refresh the contents of an on-premises share. When you refresh a share, a search is initiated to find all the Azure objects including blobs and files that were added to the cloud since the last refresh. These additional files are then used to refresh the contents of the on-premises share on the device. 
 
+> [!NOTE]
+> Permissions and access control lists (ACLs) are not preserved across a refresh operation. 
+
 Do the following steps in the Azure portal to refresh a share.
 
 1.	In the Azure portal, go to **Shares**. Select and click the share that you want to refresh.
@@ -106,7 +105,7 @@ Do the following steps in the Azure portal to refresh a share.
 If there is a failure, an alert is raised. The alert details the cause and the recommendation to fix the issue. The alert also links to a file that has the complete summary of the failures including the files that failed to update or delete.
 
 >[!IMPORTANT]
-> In this preview release, do not refresh more than a single share at a time.
+> In this release, do not refresh more than a single share at a time.
 
 ## Sync storage keys
 

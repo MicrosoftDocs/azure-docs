@@ -45,7 +45,7 @@ ms.custom: H1Hack27Feb2017
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -250,7 +250,7 @@ Remove the SAPMNT file share on *both* ASCS/SCS cluster nodes.
 
 Execute the following PowerShell script:
 
-```PowerShell
+```powershell
 Remove-SmbShare sapmnt -ScopeName * -Force
  ```
 
@@ -258,7 +258,7 @@ If the SAPLOC share does not exist, create one on *both* ASCS/SCS cluster nodes.
 
 Execute the following PowerShell script:
 
-```PowerShell
+```powershell
 #Create SAPLOC share and set security
 $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
@@ -275,7 +275,7 @@ New-SmbShare -Name saploc -Path c:\usr\sap -FullAccess "BUILTIN\Administrators",
 
 Create the following volume and file share on the SOFS cluster:
 
-* SAP GLOBALHOST file C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS\ structure on SOFS cluster shared volume (CSV)
+* SAP GLOBALHOST file `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\` structure on SOFS cluster shared volume (CSV)
 
 * SAPMNT file share
 
@@ -286,12 +286,12 @@ Create the following volume and file share on the SOFS cluster:
 To create a CSV volume with mirror resiliency, execute the following PowerShell cmdlet on one of the SOFS cluster nodes:
 
 
-```PowerShell
+```powershell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR1 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 To create SAPMNT and set folder and share security, execute the following PowerShell script on one of the SOFS cluster nodes:
 
-```PowerShell
+```powershell
 # Create SAPMNT on file share
 $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
@@ -344,14 +344,14 @@ Execute the following steps:
 ## Move the \SYS\... folder to the SOFS cluster
 
 Execute the following steps:
-1. Copy the SYS folder (for example, C:\usr\sap\\<SID>\SYS) from one of the ASCS/SCS cluster nodes to the SOFS cluster (for example, to C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS).
-2. Delete the C:\usr\sap\\<SID>\SYS folder from both ASCS/SCS cluster nodes.
+1. Copy the SYS folder (for example, `C:\usr\sap\<SID>\SYS`) from one of the ASCS/SCS cluster nodes to the SOFS cluster (for example, to `C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS`).
+2. Delete the `C:\usr\sap\<SID>\SYS` folder from both ASCS/SCS cluster nodes.
 
 ## Update the cluster security setting on the SAP ASCS/SCS cluster
 
 Execute the following PowerShell script on one of the SAP ASCS/SCS cluster nodes:
 
-```PowerShell
+```powershell
 # Grant <DOMAIN>\SAP_<SID>_GlobalAdmin group access to the cluster
 
 $SAPSID = "PR1"
@@ -371,7 +371,7 @@ Create an SAP ASCS/SCS cluster network name (for example, **pr1-ascs [10.0.6.7]*
 
 ## Update the default and SAP ASCS/SCS instance profile
 
-To use the new SAP ASCS/SCS virtual host name and SAP global host name, you must update the default and SAP ASCS/SCS instance profile \<SID>_ASCS/SCS\<Nr>_<Host>.
+To use the new SAP ASCS/SCS virtual host name and SAP global host name, you must update the default and SAP ASCS/SCS instance profile \<SID>_ASCS/SCS\<Nr>_\<Host>.
 
 
 | Old values |  |
@@ -416,7 +416,7 @@ To use the new SAP ASCS/SCS virtual host name and SAP global host name, you must
 
 Copy [**SAPScripts.psm1**][sap-powershell-scrips] to your local drive C:\tmp, and run the following PowerShell cmdlet:
 
-```PowerShell
+```powershell
 Import-Module C:\tmp\SAPScripts.psm1
 
 Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_ascs-1 -NewASCSHostName pr1-ascs -NewSAPGlobalHostName sapglobal -Verbose  
@@ -456,11 +456,11 @@ The new saprc.dll file is installed on both ASCS/SCS cluster nodes.
 
 For more information, see [SAP Note 1596496 - How to update SAP resource type DLLs for Cluster Resource Monitor][1596496].
 
-## Create a SAP <SID> cluster group, network name, and IP
+## Create a SAP \<SID> cluster group, network name, and IP
 
 To create a SAP \<SID> cluster group, an ASCS/SCS network name, and a corresponding IP address, run the following PowerShell cmdlet:
 
-```PowerShell
+```powershell
 # Create SAP Cluster Group
 $SAPSID = "PR1"
 $SAPClusterGroupName = "SAP $SAPSID"
@@ -530,7 +530,7 @@ To finalize the creation of resources of the SAP SAP\<SID> cluster group, create
 
 Run the following PowerShell cmdlet:
 
-```PowerShell
+```powershell
 $SAPSID = "PR1"
 $SAPInstanceNumber = "00"
 $SAPNetworkNameClusterResourceName = "pr1-ascs"

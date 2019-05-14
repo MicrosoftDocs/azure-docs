@@ -4,7 +4,7 @@ description: In this tutorial, you configure Azure Monitor logs for monitoring a
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 

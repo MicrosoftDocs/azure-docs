@@ -29,7 +29,7 @@ If there is no working Connector in a Connector Group for your application, ther
 
 -   If you have no connectors in the group, you can:
 
-    -   Download a new Connector on the right on-prem server, and assign it to this group
+    -   Download a new Connector on the right on premises server, and assign it to this group
 
     -   Move an active Connector into the group
 

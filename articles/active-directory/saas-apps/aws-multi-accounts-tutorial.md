@@ -211,7 +211,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
   
     d. Click **Next: Permissions**.
 
-9. On the **Attach Permissions Policies** dialog, please attach appropriate policy as per your organisation. Click **Next: Review**.  
+9. On the **Attach Permissions Policies** dialog, please attach appropriate policy as per your organization. Click **Next: Review**.  
 
     ![Configure Single Sign-On Policy][33]
 

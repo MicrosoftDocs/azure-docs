@@ -9,13 +9,13 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2017
+ms.date: 03/12/2019
 ms.author: mbullwin
 ---
 
 # Automate Azure Application Insights processes with the connector for Microsoft Flow
 
-Do you find yourself repeatedly running the same queries on your telemetry data to check that your service is functioning properly? Are you looking to automate these queries for finding trends and anomalies and then build your own workflows around them? The Azure Application Insights connector (preview) for Microsoft Flow is the right tool for these purposes.
+Do you find yourself repeatedly running the same queries on your telemetry data to check that your service is functioning properly? Are you looking to automate these queries for finding trends and anomalies and then build your own workflows around them? The Azure Application Insights connector for Microsoft Flow is the right tool for these purposes.
 
 With this integration, you can now automate numerous processes without writing a single line of code. After you create a flow by using an Application Insights action, the flow automatically runs your Application Insights Analytics query. 
 
@@ -29,38 +29,45 @@ In this tutorial, you will learn how to create a flow that uses the Analytics au
 
 ### Step 1: Create a flow
 1. Sign in to [Microsoft Flow](https://flow.microsoft.com), and then select **My Flows**.
-2. Click **Create a flow from blank**.
+2. Click **New** then **Create from blank**.
+
+    ![Create new flow from blank](./media/automate-with-flow/1createflow.png)
 
 ### Step 2: Create a trigger for your flow
-1. Select **Schedule**, and then select **Schedule - Recurrence**.
-1. In the **Frequency** box, select **Day**, and in the **Interval** box, enter **1**.
+1. In the Build-in tab select **Schedule**, and then select **Schedule - Recurrence**.
 
-    ![Microsoft Flow trigger dialog box](./media/automate-with-flow/flow1.png)
+    ![Select schedule under build it](./media/automate-with-flow/2schedule.png)
+
+1. In the **Interval** box, enter **1**, and in the **Frequency** box, select **Day**.
+2. Click **New step**
+
+    ![Set up schedule recurrence with entering frequency and interval](./media/automate-with-flow/3schedulerecurrence.png)
 
 
 ### Step 3: Add an Application Insights action
-1. Click **New step**, and then click **Add an action**.
 1. Search for **Azure Application Insights**.
-1. Click **Azure Application Insights - Visualize Analytics query Preview**.
-
-    ![Run Analytics query window](./media/automate-with-flow/flow2.png)
+2. Click **Azure Application Insights - Visualize Analytics query**.
+ 
+    ![Choose an action: Azure Application Insights Visualize Analytics query](./media/automate-with-flow/4visualize.png)
 
 ### Step 4: Connect to an Application Insights resource
 
 To complete this step, you need an application ID and an API key for your resource. You can retrieve them from the Azure portal, as shown in the following diagram:
 
-![Application ID in the Azure portal](./media/automate-with-flow/appid.png) 
+![Application ID in the Azure portal](./media/automate-with-flow/5apiaccess.png)
+
+![API Key in the Azure portal](./media/automate-with-flow/6apikey.png)
 
 - Provide a name for your connection, along with the application ID and API key.
 
-    ![Microsoft Flow connection window](./media/automate-with-flow/flow3.png)
+    ![Microsoft Flow connection window](./media/automate-with-flow/7connection.png)
 
 ### Step 5: Specify the Analytics query and chart type
 This example query selects the failed requests within the last day and correlates them with exceptions that occurred as part of the operation. Analytics correlates them based on the operation_Id identifier. The query then segments the results by using the autocluster algorithm. 
 
 When you create your own queries, verify that they are working properly in Analytics before you add it to your flow.
 
-- Add the following Analytics query, and then select the HTML table chart type. 
+- Add the following Analytics query, and select the HTML table chart type. Then select **New step**.
 
     ```
     requests
@@ -73,15 +80,14 @@ When you create your own queries, verify that they are working properly in Analy
     | evaluate autocluster()
     ```
     
-    ![Analytics query configuration window](./media/automate-with-flow/flow4.png)
+    ![Analytics query configuration window](./media/automate-with-flow/8query.png)
 
 ### Step 6: Configure the flow to send email
 
-1. Click **New step**, and then click **Add an action**.
 1. Search for **Office 365 Outlook**.
-1. Click **Office 365 Outlook - Send an email**.
+2. Click **Office 365 Outlook - Send an email**.
 
-    ![Office 365 Outlook selection window](./media/automate-with-flow/flow2b.png)
+    ![Office 365 Outlook selection window](./media/automate-with-flow/9outlookaction.png)
 
 1. In the **Send an email** window, do the following:
 
@@ -93,7 +99,7 @@ When you create your own queries, verify that they are working properly in Analy
 
    d. Click **Show advanced options**.
 
-    ![Office 365 Outlook configuration](./media/automate-with-flow/flow5.png)
+    ![Office 365 Outlook configuration](./media/automate-with-flow/10sendemailbody.png)
 
 1. On the dynamic content menu, do the following:
 
@@ -103,12 +109,12 @@ When you create your own queries, verify that they are working properly in Analy
     
     c. In the **Is HTML** box, select **Yes**.
 
-    ![Office 365 email configuration window](./media/automate-with-flow/flow7.png)
+    ![Office 365 email configuration window](./media/automate-with-flow/11emailattachment.png)
 
 ### Step 7: Save and test your flow
-- In the **Flow name** box, add a name for your flow, and then click **Create flow**.
+- In the **Flow name** box, add a name for your flow, and then click **Save**.
 
-    ![Flow-creation window](./media/automate-with-flow/flow8.png)
+    ![Name flow and save](./media/automate-with-flow/12nameflow.png)
 
 You can wait for the trigger to run this action, or you can run the flow immediately by [running the trigger on demand](https://flow.microsoft.com/blog/run-now-and-six-more-services/).
 

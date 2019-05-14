@@ -53,14 +53,41 @@ public static async Task<HttpResponseMessage> RunSingle(
 
 ### JavaScript (Functions 2.x only)
 
+Here's the function.json file:
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "orchestrators/{functionName}/{instanceId}",
+      "methods": ["post"]
+    },
+    {
+      "name": "starter",
+      "type": "orchestrationClient",
+      "direction": "in"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ]
+}
+```
+
+Here's the JavaScript code:
 ```javascript
 const df = require("durable-functions");
 
-modules.exports = async function(context, req) {
+module.exports = async function(context, req) {
     const client = df.getClient(context);
 
     const instanceId = req.params.instanceId;
-    const functionName = req.params.functionsName;
+    const functionName = req.params.functionName;
 
     // Check if an instance with the specified ID already exists.
     const existingInstance = await client.getStatus(instanceId);

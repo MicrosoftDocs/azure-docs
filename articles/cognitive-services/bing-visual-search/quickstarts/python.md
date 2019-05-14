@@ -9,15 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 5/16/2018
+ms.date: 4/02/2019
 ms.author: scottwhi
 ---
 
-# Quickstart: Your first Bing Visual Search query in Python
+# Quickstart: Get image insights using the Bing Visual Search REST API and Python
 
-Use this quickstart to make your first call to the Bing Visual Search API and view the search results. This simple JavaScript application uploads an image to the API, and displays the information returned about it. While this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
+Use this quickstart to make your first call to the Bing Visual Search API and view the results. This Python application uploads an image to the API and displays the information it returns. Though this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
-When uploading a local image, the POST form data must include the Content-Disposition header. Its `name` parameter must be set to "image" and the `filename` parameter may be set to any string. The contents of the form is the binary of the image. The maximum image size you may upload is 1 MB.
+When you upload a local image, the form data must include the `Content-Disposition` header. You must set its `name` parameter to "image", and you can set the `filename` parameter to any string. The contents of the form include the binary data of the image. The maximum image size you can upload is 1 MB.
 
 ```
 --boundary_1234-abcd
@@ -32,18 +32,17 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 * [Python 3.x](https://www.python.org/)
 
-
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Initialize the application
 
-1. Create a new Python file in your favorite IDE or editor, and add the following import statement.
+1. Create a new Python file in your favorite IDE or editor, and add the following `import` statement:
 
     ```python
     import requests, json
     ```
 
-2. Create variables for your subscription key, endpoint, and the path to the image you're uploading.
+2. Create variables for your subscription key, endpoint, and the path to the image you're uploading:
 
     ```python
 
@@ -52,13 +51,13 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     imagePath = 'your-image-path'
     ```
 
-3. Create a dictionary object to hold your requests' header information. Bind your subscription key to the string `Ocp-Apim-Subscription-Key`, as shown below.
+3. Create a dictionary object to hold your request's header information. Bind your subscription key to the string `Ocp-Apim-Subscription-Key`, as shown below:
 
     ```python
     HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
     ```
 
-4. Create another dictionary to contain your image, which will be opened and uploaded when you send the request. 
+4. Create another dictionary to contain your image, which is opened and uploaded when you send the request:
 
     ```python
     file = {'image' : ('myfile', open(imagePath, 'rb'))}
@@ -66,7 +65,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 ## Parse the JSON response
 
-1. Create a method called `print_json()` to take in the API response, and print the JSON.
+1. Create a method called `print_json()` to take in the API response, and print the JSON:
 
     ```python
     def print_json(obj):
@@ -76,7 +75,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 ## Send the request
 
-1. Use `requests.post()` to send a request to the Bing Visual Search API. Include the string for your endpoint, header, and file information. Print `response.json()` with `print_json()`
+1. Use `requests.post()` to send a request to the Bing Visual Search API. Include the string for your endpoint, header, and file information. Print `response.json()` with `print_json()`:
 
     ```python
     try:
@@ -91,4 +90,4 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a Custom Search web app](../tutorial-bing-visual-search-single-page-app.md)
+> [Create a Visual Search single-page web app](../tutorial-bing-visual-search-single-page-app.md)

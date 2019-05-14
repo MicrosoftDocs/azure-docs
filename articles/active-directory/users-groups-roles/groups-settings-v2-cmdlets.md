@@ -215,28 +215,28 @@ To disable group creation for non-admin users:
 
 1. Verify that non-admin users are allowed to create groups:
    
-  ```
-  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-  ```
+   ```
+   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+   ```
   
 2. If it returns `UsersPermissionToCreateGroupsEnabled : True`, then non-admin users can create groups. To disable this feature:
   
-  ``` 
-  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-  ```
+   ``` 
+   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+   ```
   
 ## Manage owners of groups
 To add owners to a group, use the Add-AzureADGroupOwner cmdlet:
 
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
-The -ObjectId parameter is the ObjectID of the group to which we want to add an owner, and the -RefObjectId is the ObjectID of the user we want to add as an owner of the group.
+The -ObjectId parameter is the ObjectID of the group to which we want to add an owner, and the -RefObjectId is the ObjectID of the user or service principal we want to add as an owner of the group.
 
 To retrieve the owners of a group, use the Get-AzureADGroupOwner cmdlet:
 
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
 
-The cmdlet returns the list of owners for the specified group:
+The cmdlet returns the list of owners (users and service principals) for the specified group:
 
     DeletionTimeStamp ObjectId                             ObjectType
     ----------------- --------                             ----------
@@ -248,7 +248,7 @@ If you want to remove an owner from a group, use the Remove-AzureADGroupOwner cm
 
 ## Reserved aliases 
 When a group is created, certain endpoints allow the end user to specify a mailNickname or alias to be used as part of the email address of the group. Groups with the following highly privileged email aliases can only be created by an Azure AD global administrator. 
-  
+  
 * abuse 
 * admin 
 * administrator 

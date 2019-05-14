@@ -3,7 +3,7 @@ title: How to manage the local administrators group on Azure AD joined devices |
 description: Learn how to assign Azure roles to the local administrators group of a Windows device.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: ravenn
 
-#Customer intent: As a IT admin, I want to manage the local administrators group assignment during an Azure AD join, so that I can control who can manage Azure AD joined devices
+#Customer intent: As an IT admin, I want to manage the local administrators group assignment during an Azure AD join, so that I can control who can manage Azure AD joined devices
 
 ms.collection: M365-identity-device-management
 ---

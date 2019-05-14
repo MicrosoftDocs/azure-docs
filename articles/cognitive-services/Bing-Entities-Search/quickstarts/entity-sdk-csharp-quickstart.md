@@ -22,7 +22,7 @@ Use this quickstart to begin searching for entities with the Bing Entity Search 
 
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
-* If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+* If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 * The [Bing News Search SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0). Installing this package also installs the following:
     * Microsoft.Rest.ClientRuntime
     * Microsoft.Rest.ClientRuntime.Azure
@@ -48,13 +48,13 @@ To add the Bing Entity Search SDK to your Visual Studio project, use the `Manage
 
 ## Create a client and send a search request
 
-2. Create a new search client. Add your subscription key by creating a new `ApiKeyServiceClientCredentials`.
+1. Create a new search client. Add your subscription key by creating a new `ApiKeyServiceClientCredentials`.
 
     ```csharp
     var client = new EntitySearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
     ```
 
-3. Use the client's `Entities.Search()` function to search for your query:
+1. Use the client's `Entities.Search()` function to search for your query:
     
     ```csharp
     var entityData = client.Entities.Search(query: "Satya Nadella");

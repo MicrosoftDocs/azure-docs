@@ -23,7 +23,7 @@ ms.custom:
 
 This article steps through using the Azure CLI to create a Linux VM in an Azure availability zone. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
-To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
+To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-overview.md#services-support-by-region).
 
 Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-cli2) and logged in to an Azure account with [az login](/cli/azure/reference-index).
 
@@ -98,7 +98,7 @@ It may take a few minutes to create the VM. Once the VM has been created, the Az
 
 When the VM is deployed in an availability zone, a managed disk for the VM is created in the same availability zone. By default, a public IP address is also created in that zone. The following examples get information about these resources.
 
-To verify that the VM's managed disk is in the availability zone, use the [az vm show](/cli/azure/vm) command to return the disk id. In this example, the disk id is stored in a variable that is used in a later step. 
+To verify that the VM's managed disk is in the availability zone, use the [az vm show](/cli/azure/vm) command to return the disk ID. In this example, the disk ID is stored in a variable that is used in a later step. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)

@@ -191,7 +191,7 @@ If you have a URL, you can enter the URL into the address path in File Explorer 
 
 
 ## Next steps
-* View the [latest Storage Explorer release notes and videos](http://www.storageexplorer.com).
+* View the [latest Storage Explorer release notes and videos](https://www.storageexplorer.com).
 * Learn how to [manage Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
 * [Get started with Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 * [Get started with Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).

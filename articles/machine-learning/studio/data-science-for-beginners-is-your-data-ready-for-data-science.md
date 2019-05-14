@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: garyericson
-ms.author: garye
+author: sdgilley
+ms.author: sgilleye
 ms.custom: seodec18
-ms.date: 01/03/2018
+ms.date: 03/22/2019
 ---
 # Is your data ready for data science?
 ## Video 2: Data Science for Beginners series

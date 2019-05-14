@@ -39,7 +39,7 @@ In this example, we will use **Compute**.
     - The total number of critical updates missing across your VMs and computers.
     - The total number of security updates missing across your VMs and computers.
 
-  The bottom of the dashboard lists all missing updates across your VMs and computers, and the severity of the missing update.  The list includes:
+   The bottom of the dashboard lists all missing updates across your VMs and computers, and the severity of the missing update.  The list includes:
 
     - NAME: Name of the missing update.
     - NO. OF VMs & COMPUTERS: Total number of VMs and computers that are missing this update.

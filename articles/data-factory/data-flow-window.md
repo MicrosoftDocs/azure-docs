@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ---
 
-# Azure Data Factory Mapping Data Flow Window Transformation
+# Azure Data Factory Window Transformation
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -34,10 +34,13 @@ The window slider has two values to set: the values before the current row and t
 
 ![Window options](media/data-flow/windows6.png "windows 6")
 
-## Window Columns
+## Window columns
 Lastly, use the Expression Builder to define the aggregations you wish to use with the data windows such as RANK, COUNT, MIN, MAX, DENSE RANK, LEAD, LAG, etc.
 
 ![Window options](media/data-flow/windows7.png "windows 7")
 
 The full list of aggregation and analytical functions available for you to use in the ADF Data Flow Expression Language via the Expression Builder are listed here: https://aka.ms/dataflowexpressions.
 
+## Next steps
+
+If you are looking for a simple group-by aggregation, use the [Aggregate transformation](data-flow-aggregate.md)

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 03/27/2019
 ms.author: pafarley
 ---
 # Quickstart: Detect faces in an image using the REST API and PHP
@@ -19,7 +19,9 @@ In this quickstart, you will use the Azure Face REST API with PHP to detect huma
 ## Prerequisites
 
 - A Face API subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face API service and get your key.
-- A code editor such as [Visual Studio Code](https://code.visualstudio.com/download)
+- A code editor such as [Visual Studio Code](https://code.visualstudio.com/download).
+- The PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) package.
+- A PHP-enabled web browser. If you have not set this up, you can do so by installing and setting up [XAMPP](https://www.apachefriends.org/) on your machine.
 
 ## Initialize the HTML file
 
@@ -52,7 +54,7 @@ $imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
 
 // This sample uses the PHP5 HTTP_Request2 package
-// (http://pear.php.net/package/HTTP_Request2).
+// (https://pear.php.net/package/HTTP_Request2).
 require_once 'HTTP/Request2.php';
 
 $request = new Http_Request2($uriBase . '/detect');

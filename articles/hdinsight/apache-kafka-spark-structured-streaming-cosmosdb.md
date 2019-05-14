@@ -1,7 +1,6 @@
 ---
 title: Apache Spark Structured Streaming from Apache Kafka to Azure Cosmos DB - Azure HDInsight 
 description: Learn how to use Apache Spark Structured Streaming to read data from Apache Kafka and then store it into Azure Cosmos DB. In this example, you stream data using a Jupyter notebook from Spark on HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -46,19 +45,19 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
     This template creates the following resources:
 
-    * A Kafka on HDInsight 3.6 cluster.
+   * A Kafka on HDInsight 3.6 cluster.
 
-    * A Spark on HDInsight 3.6 cluster.
+   * A Spark on HDInsight 3.6 cluster.
 
-    * An Azure Virtual Network, which contains the HDInsight clusters.
+   * An Azure Virtual Network, which contains the HDInsight clusters.
 
-        > [!NOTE]  
-        > The virtual network created by the template uses the 10.0.0.0/16 address space.
+       > [!NOTE]  
+       > The virtual network created by the template uses the 10.0.0.0/16 address space.
 
-    * An Azure Cosmos DB SQL API database.
+   * An Azure Cosmos DB SQL API database.
 
-    > [!IMPORTANT]  
-    > The structured streaming notebook used in this example requires Spark on HDInsight 3.6. If you use an earlier version of Spark on HDInsight, you receive errors when using the notebook.
+     > [!IMPORTANT]  
+     > The structured streaming notebook used in this example requires Spark on HDInsight 3.6. If you use an earlier version of Spark on HDInsight, you receive errors when using the notebook.
 
 2. Use the following information to populate the entries on the **Custom deployment** section:
    

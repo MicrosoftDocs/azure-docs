@@ -91,6 +91,7 @@ To copy data from QuickBooks Online, set the type property of the dataset to **Q
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **QuickBooksObject** | Yes |
 | tableName | Name of the table. | No (if "query" in activity source is specified) |
+
 **Example**
 
 ```json

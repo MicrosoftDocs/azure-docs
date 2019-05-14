@@ -2,12 +2,14 @@
 title: 'Tutorial: Perform extract, transform, load (ETL) operations by using Apache Hive on Azure HDInsight'
 description: In this tutorial, you learn how to extract data from a raw CSV dataset, transform it by using Apache Hive on Azure HDInsight, and then load the transformed data into Azure SQL Database by using Sqoop.
 services: storage
-author: jamesbak
+author: normesta
+
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 ms.date: 02/21/2019
-ms.author: jamesbak
+ms.author: normesta
+ms.reviewer: jamesbak
 #Customer intent: As an analytics user, I want to perform an ETL operation so that I can work with my data in my preferred environment.
 ---
 
@@ -54,6 +56,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
    | Filter Year |2013 |
    | Filter Period |January |
    | Fields |Year, FlightDate, Reporting_Airline, IATA_CODE_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   
    Clear all other fields.
 
 3. Select **Download**. You get a .zip file with the data fields you selected.
@@ -342,4 +345,4 @@ All resources used in this tutorial are preexisting. No cleanup is necessary.
 To learn more ways to work with data in HDInsight, see the following article:
 
 > [!div class="nextstepaction"]
-> [Extract, transform, and load data by using Azure Databricks](./data-lake-storage-use-hdi-cluster.md)
+> [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

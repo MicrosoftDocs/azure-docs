@@ -1,6 +1,6 @@
 ---
-title: Complete an access review of groups or applications in Azure AD Access Reviews | Microsoft Docs
-description: Learn how to complete an access review of group members or application access in Azure AD Access Reviews.
+title: Complete an access review of groups or applications - Azure Active Directory | Microsoft Docs
+description: Learn how to complete an access review of group members or application access in Azure Active Directory access reviews.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -18,7 +18,7 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# Complete an access review of groups or applications in Azure AD Access Reviews
+# Complete an access review of groups or applications in Azure AD access reviews
 
 Administrators can use Azure Active Directory (Azure AD) to [create an access review](create-access-review.md) for group members or users assigned to an application. Azure AD automatically sends reviewers an email that prompts them to review access. If a user didn't get an email, you can send them the instructions
 in [review access to groups or applications](perform-access-review.md). (Note that guests who are assigned as reviewers but have not accepted the invite will not receive an email from access reviews, as they must first accept an invite prior to reviewing.) After the access review period is over or if an administrator stops the access review, follow the steps in this article to see and apply the results.

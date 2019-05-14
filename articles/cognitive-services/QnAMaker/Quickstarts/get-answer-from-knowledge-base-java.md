@@ -21,7 +21,7 @@ This quickstart walks you through programmatically getting an answer from a publ
 ## Prerequisites
 
 * [JDK SE](https://aka.ms/azure-jdks)  (Java Development Kit, Standard Edition)
-* This sample uses the Apache [HTTP client](http://hc.apache.org/httpcomponents-client-ga/) from HTTP Components. You need to add the following Apache HTTP client libraries to your project: 
+* This sample uses the Apache [HTTP client](https://hc.apache.org/httpcomponents-client-ga/) from HTTP Components. You need to add the following Apache HTTP client libraries to your project: 
     * httpclient-4.5.3.jar
     * httpcore-4.4.6.jar
     * commons-logging-1.2.jar
@@ -67,7 +67,9 @@ The following code makes an HTTPS request to the QnA Maker API to send the quest
 
 [!code-java[Add a POST request to send question to knowledge base](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=44-72 "Add a POST request to send question to knowledge base")]
 
-The `Authorization` header's value includes the string `EndpointKey `. 
+The `Authorization` header's value includes the string `EndpointKey`. 
+
+Learn more about the [request](../how-to/metadata-generateanswer-usage.md#generateanswer-request) and [response](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
 
 ## Build and run the program
 

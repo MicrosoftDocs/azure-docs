@@ -94,7 +94,7 @@ Before you start the TelcoGenerator app, you should configure it to send data to
 1. Extract the contents of [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) file.
 2. Open the `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` file in a text editor of your choice (There is more than one .config file, so be sure that you open the right one.)
 
-3. Update the <appSettings> element in the config file with the following details:
+3. Update the `<appSettings>` element in the config file with the following details:
 
    * Set the value of the *EventHubName* key to the value of the EntityPath in the connection string.
    * Set the value of the *Microsoft.ServiceBus.ConnectionString* key to the connection string without the EntityPath value.
@@ -178,7 +178,7 @@ The last step is to define an output sink for the job where it can write the tra
 3. Select **+ Add** > **Power BI**. Then fill the form with the following details and select **Authorize**:
 
    |**Setting**  |**Suggested value**  |
-   |---------|---------|---------|
+   |---------|---------|
    |Output alias  |  MyPBIoutput  |
    |Dataset name  |   ASAdataset  |
    |Table name |  ASATable  |
@@ -234,7 +234,7 @@ You can test a query from the query editor using sample data. Run the following 
 
 4. Select **Test** to test the query. You should see the following results:
 
-   ![Out put from Stream Analytics query test](media/stream-analytics-manage-job/sample-test-output-restuls.png)
+   ![Output from Stream Analytics query test](media/stream-analytics-manage-job/sample-test-output-restuls.png)
 
 ## Start the job and visualize output
 

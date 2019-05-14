@@ -65,7 +65,7 @@ profile k8s-apparmor-example-deny-write flags=(attach_disconnected) {
   #include <abstractions/base>
   
   file,
-  # Deny all file writes.
+  # Deny all file writes.
   deny /** w,
 }
 ```
@@ -134,7 +134,7 @@ From your local machine, now create a pod manifest named *aks-seccomp.yaml* and 
 ```yaml
 apiVersion: v1
 kind: Pod
-metadata:
+metadata:
   name: chmod-prevented
   annotations:
     seccomp.security.alpha.kubernetes.io/pod: localhost/prevent-chmod
@@ -184,7 +184,7 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 You can then upgrade your AKS cluster using the [az aks upgrade][az-aks-upgrade] command. The upgrade process safely cordons and drains one node at a time, schedules pods on remaining nodes, and then deploys a new node running the latest OS and Kubernetes versions.
 
 ```azurecli-interactive
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.3
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.8
 ```
 
 For more information about upgrades in AKS, see [Supported Kubernetes versions in AKS][aks-supported-versions] and [Upgrade an AKS cluster][aks-upgrade].
@@ -226,7 +226,7 @@ This article focused on how to secure your AKS cluster. To implement some of the
 [aks-upgrade]: upgrade-cluster.md
 [aks-best-practices-identity]: concepts-identity.md
 [aks-kured]: node-updates-kured.md
-[aks-aad]: aad-integration.md
+[aks-aad]: azure-ad-integration.md
 [best-practices-container-image-management]: operator-best-practices-container-image-management.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources

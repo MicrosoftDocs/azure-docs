@@ -1,17 +1,17 @@
 ---
-title: Become a Publisher in the storefronts on the marketplace | Azure
+title: Become a Publisher in the storefronts on the marketplace | Azure Marketplace
 description: This article describes how to become a publisher on the marketplace.  
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
+
 author: ellacroi
 manager: nunoc
-editor:
 
-ms.assetid: 
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
@@ -42,18 +42,20 @@ After registering, record the Microsoft Partner Network ID for your organization
 *	Learn about the benefits of the [Microsoft Partner Network](https://partner.microsoft.com/commercial)
 *	If your organization has an existing membership, then you will join your organization during registration. If you use [Partner Center](https://partnercenter.microsoft.com/partner/home), you will be able to see the ID in your Partner Center account. If you use [Partner Membership Center (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), you will be able to see it in your Partner Membership Center account. 
 
+Open a ticket with Microsoft [partner support](https://partner.microsoft.com/support) for issues with MPN registration.
+
 ---
 
 ## 2. Create a Microsoft Account  
 | 15 min |  
-A Microsoft account, e.g. *@outlook.com or @live.com*, is used to access many Microsoft devices and services. It is required for Azure Marketplace transact offers, and we recommend its use to all cloud publishers. For more information on the benefits and uses of a Microsoft account, [visit this page](https://account.microsoft.com/account/). You will use a personal Microsoft account to access the Cloud Partner Portal, the publishing platform that you will use to create and manage your marketplace offers. 
+A Microsoft account, e.g. *\@outlook.com or \@live.com*, is used to access many Microsoft devices and services. It is required for Azure Marketplace transact offers, and we recommend its use to all cloud publishers. For more information on the benefits and uses of a Microsoft account, [visit this page](https://account.microsoft.com/account/). You will use a personal Microsoft account to access the Cloud Partner Portal, the publishing platform that you will use to create and manage your marketplace offers. 
 
 [! IMPORTANT] Please note that a Microsoft account associated with your work email will not allow you to access the portal.
 
->[!Note]
->If you already have a Microsoft account, review the [Guidelines for creating a Microsoft ID to manage a marketplace account](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) to determine if it can be used for marketplace publishing. 
-
->Users with an Azure Active Directory federated corporate account should read [this article](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) before attempting to create or use your existing Microsoft Account.
+> [!Note]
+> If you already have a Microsoft account, review the [Guidelines for creating a Microsoft ID to manage a marketplace account](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) to determine if it can be used for marketplace publishing. 
+> 
+> Users with an Azure Active Directory federated corporate account should read [this article](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) before attempting to create or use your existing Microsoft Account.
 
 *	For help creating or managing your Microsoft account, visit the [Microsoft account help support pages](https://support.microsoft.com/products/microsoft-account?category=manage-account).
 

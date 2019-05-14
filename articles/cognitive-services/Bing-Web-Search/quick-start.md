@@ -9,7 +9,7 @@ ms.assetid: 27B4B51A-D017-44C8-8E4E-9684DC553886
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 04/15/2017
+ms.date: 03/17/2019
 ms.author: scottwhi
 ---
 

@@ -76,22 +76,22 @@ However, the older metric alerts do not use action groups. Instead, you can conf
 - Call a webhook, which enables you to launch additional automation actions.
 
 Webhooks enables automation and remediation, for example, using:
-    - Azure Automation Runbook
-    - Azure Function
-    - Azure Logic App
-    - a third-party service
+- Azure Automation Runbook
+- Azure Function
+- Azure Logic App
+- a third-party service
 
 ## Next steps
 Get information about alert rules and configuring them by using:
 
-* Learn more about [Metrics](../../azure-monitor/platform/data-collection.md)
+* Learn more about [Metrics](data-platform.md)
 * Configure [classic Metric Alerts via Azure portal](alerts-classic-portal.md)
 * Configure [classic Metric Alerts PowerShell](alerts-classic-portal.md)
 * Configure [classic Metric Alerts Command-line interface (CLI)](alerts-classic-portal.md)
 * Configure [classic Metric Alerts Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* Learn more about [Activity Log](../../azure-monitor/platform/activity-logs-overview.md)
-* Configure [Activity Log Alerts via Azure portal](../../azure-monitor/platform/activity-log-alerts.md)
+* Learn more about [Activity Log](activity-logs-overview.md)
+* Configure [Activity Log Alerts via Azure portal](activity-log-alerts.md)
 * Configure [Activity Log Alerts via Resource Manager](alerts-activity-log.md)
-* Review the [activity log alert webhook schema](../../azure-monitor/platform/activity-log-alerts-webhook.md)
-* Learn more about [Action groups](../../azure-monitor/platform/action-groups.md)
-* Configure [newer Alerts](../../azure-monitor/platform/alerts-metric.md)
+* Review the [activity log alert webhook schema](activity-log-alerts-webhook.md)
+* Learn more about [Action groups](action-groups.md)
+* Configure [newer Alerts](alerts-metric.md)

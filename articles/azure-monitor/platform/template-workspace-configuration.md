@@ -15,8 +15,11 @@ ms.date: 02/21/2019
 ms.author: magoedte
 ---
 
-# Manage Log Analytics using Azure Resource Manager templates
-You can use [Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces. Examples of the tasks you can perform with templates include:
+# Manage Log Analytics workspace using Azure Resource Manager templates
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+You can use [Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces in Azure Monitor. Examples of the tasks you can perform with templates include:
 
 * Create a workspace including setting pricing tier 
 * Add a solution
@@ -35,7 +38,7 @@ This article provides template samples that illustrate some of the configuration
 The following table lists the API version for the resources used in this example.
 
 | Resource | Resource type | API version |
-|:---|:---|:---|:---|
+|:---|:---|:---|
 | Workspace   | workspaces    | 2017-03-15-preview |
 | Search      | savedSearches | 2015-03-20 |
 | Data source | datasources   | 2015-11-01-preview |
@@ -119,7 +122,7 @@ The following parameters set a default value:
    * For PowerShell use the following commands from the folder containing the template:
    
         ```powershell
-        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
         ```
 
    * For command line, use the following commands from the folder containing the template:
@@ -497,7 +500,7 @@ To deploy the sample template:
 
 #### PowerShell
 ```powershell
-New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
+New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
 #### Command line
