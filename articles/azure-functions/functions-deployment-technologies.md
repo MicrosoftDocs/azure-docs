@@ -132,7 +132,7 @@ If you want to run Functions from a custom container, this is the way to do it. 
 
 #### What it does
 
-This deployment technology allows you to hook up your function app with a git repository, such that any pushes to that repository will trigger a publish. For more information, take a look at the [Kudu Wiki](https://github.com/projectkudu/kudu/wiki/Deploying-from-GitHub).
+This deployment technology allows you to hook up your function app with a git repository, such that any pushes to that repository will trigger a publish. For more information, take a look at the [Kudu Wiki](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments).
 
 #### How to use it
 
