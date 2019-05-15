@@ -48,3 +48,8 @@ Partner Center analytics provides a view into the performance of your offers and
 ## View the roadmap and join the conversation
 
 Learn more about recent and future releases by visiting the [marketplace roadmap](https://aka.ms/publicmarketplaceroadmap), or join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/). 
+
+## Next steps
+
+- For brand new Microsoft partners interested in publishing a SaaS offer to the marketplaces, see [Create a Commercial Marketplace account in Partner Center](./create-account.md).
+- For existing partners who have previously published offers in the Cloud Partner Portal, [Manage your Commercial Marketplace account in Partner Center](./manage-account.md). 

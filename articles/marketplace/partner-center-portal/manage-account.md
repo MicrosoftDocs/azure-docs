@@ -370,3 +370,7 @@ The **Agreements** section of Partner Center (under **Account Settings**) let's 
 **Actions needed** may appear at the top of this page if there are agreement updates that need your attention. To accept an updated agreement, first read the linked Agreement Version, then select **Accept agreement**. 
 
 For information about Cloud Solution Provider (CSP) agreements in Partner Center, visit [Microsoft Cloud Agreements by region and language](https://docs.microsoft.com/partner-center/agreements).
+
+## Next steps
+
+- [Create a new SaaS offer](./create-new-saas-offer.md)

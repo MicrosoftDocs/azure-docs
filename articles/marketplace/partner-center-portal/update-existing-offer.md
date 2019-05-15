@@ -82,7 +82,7 @@ If you decide to list or sell this offer or plan again, follow the instructions 
 
 To remove offers from existing customers, [log a support request](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). Select your specific offer type from the **Problem type** list and then select **Remove a published offer** in the **Category** list. Submit the request. The support team will guide you through the offer removal process.
 
-## Sync Private Plan Audiences
+## Sync private plan audiences
 
 If your offer includes one or more plans that are configured to only be available to a private restricted audience, it's possible to update only the audience who can access that private plan without publishing other changes to the offer. 
 
@@ -92,3 +92,7 @@ To update and sync the private audience for your plan(s):
 - Select **Sync private audience** from the **Plan overview** page.
 
 This will publish only the changes to your private audiences, without publishing any other updates you might have made to the draft offer.
+
+## Next steps
+
+- [Check the publishing status of your Commercial Marketplace offer](./publishing-status.md)

@@ -46,3 +46,7 @@ To learn more about adding custom domains in Azure Active Directory, see [Add or
 If you’re having trouble signing in to your work account (also known as your Azure AD tenant), find the scenario on the diagram below that best matches your situation and follow the recommended steps.
 
 ![Diagram for troubleshooting work account sign-in](./media/onboarding-aad-flow.png)
+
+## Next steps
+
+- [Manage your Commercial Marketplace account in Partner Center](./manage-account.md) 

@@ -94,7 +94,7 @@ If your offer is already live and available to the public in the marketplace, an
 
 ### Publish offer to the public
 
-Log in to Partner Center and access the offer. You will be redirected to the **Offer overview** page. At the top of this page, you will see an option for **Go live**. Select **Go live,** and after confirming, the offer will start getting published to the public. You will receive an email notification when the offer is live.
+Sign in to Partner Center and access the offer. You will be redirected to the **Offer overview** page. At the top of this page, you will see an option for **Go live**. Select **Go live,** and after confirming, the offer will start getting published to the public. You will receive an email notification when the offer is live.
 
 ## Publish
 
@@ -123,3 +123,7 @@ In this step, we ensure that your offer becomes publicly available in the market
 ## Update existing marketplace offers
 
 If you want to make changes to an offer you've already published, you'll need to first update the existing offer and then publish it again.
+
+## Next steps
+
+- [Update an existing offer in the Commercial Marketplace](./update-existing-offer.md)

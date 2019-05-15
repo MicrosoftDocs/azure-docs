@@ -15,7 +15,7 @@ In order to publish offers to [Azure Marketplace](https://azuremarketplace.micro
 
 In this article, we'll cover how to create a Partner Center account, including how to: 
 
-- [Register using the Partner Center enrollment page](#register-for-an-account-using-the-partner-center-enrollment-page)
+- [Register using the Partner Center enrollment page](#register-for-an-account-using-the-enrollment-page)
 - [Sign in with a work account](#sign-in-with-a-work-account)
 - [Agree to the terms and conditions](#agree-to-terms-and-conditions) 
 - [Provide your publisher profile](#provide-your-publisher-profile)
@@ -31,7 +31,7 @@ To create an account on Partner Center, make sure you have:
 
 We’ll verify this information during the account creation process.
 
-## Register for an account using the Partner Center enrollment page 
+## Register for an account using the enrollment page 
 
 Visit the [**Welcome to Microsoft Partner Center**](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) enrollment page and review the registration information found there.
 
@@ -66,3 +66,7 @@ Once you've enabled your new Partner Center account by visiting this customized 
 The publishing agreement and company profile information will be migrated to your new Partner Center account, along with any previously set up account payout profile information, user accounts and permissions, and active offers associated with your CPP account. 
 
 Once your account is migrated from CPP to Partner Center, the Partner Center account becomes the master account to be used for any account updates, user management, permissions, and payout management. These account updates will automatically be synced back to your read-only CPP account until the CPP portal is eventually deprecated. 
+
+## Next steps
+
+- [Manage your Commercial Marketplace account in Partner Center](./manage-account.md) 
