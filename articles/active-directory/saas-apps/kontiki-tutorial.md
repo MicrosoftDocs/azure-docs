@@ -175,9 +175,9 @@ In this section, you grant Britta Simon access to Kontiki so she can use Azure s
 
 1. In the **Add Assignment** pane, select **Assign**.
 
-### Create Kontiki test user
+### Create a Kontiki test user
 
-There is no action item for you to configure user provisioning to Kontiki. When an assigned user tries to sign in to Kontiki using the access panel, Kontiki checks whether the user exists. If there is no user account available yet, it is automatically created by Kontiki.
+There's no action item for you to configure user provisioning in Kontiki. When an assigned user tries to sign in to Kontiki by using the My Apps portal, Kontiki checks whether the user exists. If no user account is found, Kontiki automatically creates the user account.
 
 ### Test single sign-on
 

@@ -82,7 +82,7 @@ To configure and test Azure AD single sign-on with SAP Fiori, you must complete 
 | **[Configure SAP Fiori single sign-on](#configure-sap-fiori-single-sign-on)** | Configures the single sign-on settings in the application. |
 | **[Create an Azure AD test user](#create-an-azure-ad-test-user)** | Tests Azure AD single sign-on for a user named Britta Simon. |
 | **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** | Enables Britta Simon to use Azure AD single sign-on. |
-| **[Create a SAP Fiori test user](#create-a-sap-fiori-test-user)** | Creates a counterpart of Britta Simon in SAP Fiori that is linked to the Azure AD representation of the user. |
+| **[Create an SAP Fiori test user](#create-an-sap-fiori-test-user)** | Creates a counterpart of Britta Simon in SAP Fiori that is linked to the Azure AD representation of the user. |
 | **[Test single sign-on](#test-single-sign-on)** | Verifies that the configuration works. |
 
 ### Configure Azure AD single sign-on
