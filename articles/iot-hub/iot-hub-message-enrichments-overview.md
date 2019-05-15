@@ -28,7 +28,7 @@ The key can be any string.
 
 The value can be any of the following examples:
 
-* Any static string. Dynamic values such as conditions, logic, operations, and functions are not allowed. For example, if you develop a SaaS application that is used by several customers, you can assign an identifier to each customer and make that available in the application. When the application runs, IoT Hub will stamp the device telemetry messages with the customer's identifier, making it possible to process the messages differently for each customer.
+* Any static string. Dynamic values such as conditions, logic, operations, and functions are not allowed. For example, if you develop a SaaS application that is used by several customers, you can assign an identifier to each customer and make that identifier available in the application. When the application runs, IoT Hub will stamp the device telemetry messages with the customer's identifier, making it possible to process the messages differently for each customer.
 
 * Information from the device twin, such as its path. Examples would be *$twin.tags.field* and *$twin.tags.latitude*.
 
@@ -50,9 +50,9 @@ To see how to try out message enrichments, see the [message enrichments tutorial
 
 ## Limitations
 
-* You can add up to 10 enrichments per IoT Hub for those in the standard or basic tier. For IoT Hubs in the free tier, you can add up to 2 enrichments.
+* You can add up to 10 enrichments per IoT Hub for those hubs in the standard or basic tier. For IoT Hubs in the free tier, you can add up to 2 enrichments.
 
-* In some cases, if you are applying an enrichment with a value set to a tag or property in the device twin, the value will be stamped as a string value. For example, if an enrichment value is set to $twin.tags.field, the messages will be stamped with the string "$twin.tags.field" rather than the value of that field from the twin. This applies to the following cases:
+* In some cases, if you are applying an enrichment with a value set to a tag or property in the device twin, the value will be stamped as a string value. For example, if an enrichment value is set to $twin.tags.field, the messages will be stamped with the string "$twin.tags.field" rather than the value of that field from the twin. This happens in the following cases:
 
    * Your IoT Hub is in the basic tier. Basic tier IoT hubs do not support device twins.
 
@@ -62,7 +62,7 @@ To see how to try out message enrichments, see the [message enrichments tutorial
 
 * Updates to a device twin can take up to five minutes to be reflected in the corresponding enrichment value.
 
-* The total message size, including the enrichments, can't exceed 256 KB If a message size exceeds 256 KB, the IoT Hub will drop the message. You can use [IoT Hub metrics](iot-hub-metrics.md) to identify and debug errors when messages are dropped. For example, you can monitor d2c.telemetry.egress.invalid.
+* The total message size, including the enrichments, can't exceed 256 KB. If a message size exceeds 256 KB, the IoT Hub will drop the message. You can use [IoT Hub metrics](iot-hub-metrics.md) to identify and debug errors when messages are dropped. For example, you can monitor d2c.telemetry.egress.invalid.
 
 ## Pricing
 
