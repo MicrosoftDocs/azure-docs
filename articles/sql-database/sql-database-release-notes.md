@@ -39,7 +39,7 @@ This article lists the new features and improvements in the SQL Database service
 |Table Variable Deferred Compilation (under compatibility level 150)|For information, see [Table Variable Deferred Compilation](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
 |SQL Analytics|For information, see [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)|
 | Time zone support for managed instances|For more information, see [Time Zone in Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
-|||
+| &nbsp; |
 
 ## May 2019
 
@@ -47,9 +47,10 @@ This article lists the new features and improvements in the SQL Database service
 
 | Service improvements | Details |
 | --- | --- |
-|Hyperscale service tier goes GA| For more information, see [Hyperscale service tier for up to 100 TB](sql-database-service-tier-hyperscale.md).|
+|Hyperscale service tier goes GA| For more information, see [Hyperscale service tier for up to 100 TB](sql-database-service-tier-hyperscale.md) and [Get high-performance scaling for your Azure database workloads with Hyperscale](https://azure.microsoft.com/en-us/blog/get-high-performance-scaling-for-your-azure-database-workloads-with-hyperscale/).|
 |Serverless compute tier released for public preview | For more information, see [SQL Database serverless (preview)](sql-database-serverless.md).|
 | Transaction log rates and target IOPS increased for databases using the vCore-based purchasing model| For more information, see [Resource limits for single databases using the vCore-based purchasing model](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) and [Resource limits for single databases using the DTU-based purchasing model](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases).
+| &nbsp; |
 
 ### Documentation improvements
 
@@ -57,6 +58,7 @@ This article lists the new features and improvements in the SQL Database service
 | --- | --- |
 | Hyperscale service tier docs updated for GA release| For more information, see [Hyperscale service tier for up to 100 TB](sql-database-service-tier-hyperscale.md).|
 |Serverless compute tier docs released with public preview| For more information, see [SQL Database serverless (preview)](sql-database-serverless.md).|
+| &nbsp; |
 
 ## April 2019
 
@@ -66,13 +68,16 @@ This article lists the new features and improvements in the SQL Database service
 | --- | --- |
 | Public endpoints for managed instance | For more information, see [Using Azure SQL Database managed instance securely with public endpoint](sql-database-managed-instance-public-endpoint-securely.md)
 | Time zone support for managed instance | For more information, see [Time Zone in Azure SQL Database Managed Instance (Preview)](sql-database-managed-instance-timezone.md)
+| Securing Azure SQL Databases with managed identities | See [Securing Azure SQL Databases with managed identities just got easier](https://azure.microsoft.com/en-us/blog/securing-azure-sql-databases-with-managed-identities-just-got-easier/).
+| &nbsp; |
 
 ### Documentation improvements
 
 | Documentation improvements | Details |
 | --- | --- |
 | Public endpoints for managed instance | For more information, see [Using Azure SQL Database managed instance securely with public endpoint](sql-database-managed-instance-public-endpoint-securely.md)
-| Time zone support for managed instance | For more information, see [Time Zone in Azure SQL Database Managed Instance (Preview)](sql-database-managed-instance-timezone.md)
+| Time zone support for managed instance | For more information, see [Time Zone in Azure SQL Database Managed Instance (Preview)](sql-database-managed-instance-timezone.md) |
+| Resource governance in Azure SQL Database | For more information, see [Resource governance in Azure SQL Database](https://azure.microsoft.com/blog/resource-governance-in-azure-sql-database/). | &nbsp; |
 
 ## March 2019
 
@@ -103,7 +108,7 @@ This article lists the new features and improvements in the SQL Database service
 |Creating a resumable online index is now generally available| For more information, see [Create Index](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql).|
 |Managed instance support for route tables improved| For more information, see [Network requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements).|
 |Database rename supported in managed instance | For more details, see the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) and [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql) syntax.|
-|SQL Database as a source of reference data for Stream Analytics. | For more information, see [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).|
+|SQL Database as a source of reference data for Stream Analytics. | For more information, see [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) and [Azure Stream Analytics now supports Azure SQL Database as reference data input](https://azure.microsoft.com/blog/azure-stream-analytics-now-supports-azure-sql-database-as-reference-data-input/).|
 |Data Migration Assistance adds support for managed instance. |For more information, see [What's new in DMA](https://docs.microsoft.com/sql/dma/dma-whatsnew).|
 |SQL Server Migration Assistant adds support for target readiness assessment for managed instance. | For more information, see [SQL Server Migration Assistant](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant).
 |Data migration service supports migrating from Amazon RDS to managed instance | For more information, see [Tutorial: Migrate RDS SQL Server to Azure SQL Database or an Azure SQL Database managed instance online using DMS](../dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md).|
@@ -117,7 +122,6 @@ This article lists the new features and improvements in the SQL Database service
 |Updated tempdb sizes for DTU-based purchasing model | For more information, see [Tempdb database in SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
 |Updated import and export with bacpac file for managed instance support| For more information, see [Import from BACPAC](sql-database-import.md) and [Export to BACPAC](sql-database-export.md). |
 | &nbsp; |
-
 
 ## January 2019
 
