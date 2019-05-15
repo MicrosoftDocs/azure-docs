@@ -24,7 +24,7 @@ Organizations may not want to enable Azure AD join across their entire organizat
 
 When all of the pre-requisites are in place, by default all Windows 10 version 1607 or later devices will automatically register as devices in your Azure AD tenant. The state of these device identities in Azure AD is referred as hybrid Azure AD join. More information about the concepts covered in this article can be found in the articles [Introduction to device management in Azure Active Directory](overview.md) and [Plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).
 
-## Control Windows 10 devices
+## Control hybrid Azure AD join on Windows 10 devices
 
 Windows 10 devices, running Windows 10 version 1607 or later, are supported in hybrid Azure AD joined environments. For the best experience we recommend organizations upgrade to the latest version.
 
