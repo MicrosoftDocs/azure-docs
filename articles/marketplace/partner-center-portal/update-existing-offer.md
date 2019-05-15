@@ -16,7 +16,7 @@ You can view your existing offers on the **Offers** tab of the [Commercial Marke
 To update an existing offer that is currently live in the marketplace: 
 
 1. Select the name of the offer you would like to update. The status of the offer may be listed as **Live**, **Publish in progress**, **Draft**, **Attention needed**, or **Not being sold in the marketplace** (if you've previously chosen to stop selling the offer). Once selected, the **Offer overview** page for that offer will open.
-2. Select **Update** from the overview card, or the menu item from the left navigation, for the area that you would like to update. This might include **Offer setup**, **Properties**, **Offer listing**, **Preview**, **Technical configuration**, **Plan overview**, or **Test drive**. 
+2. Select **Update** from the overview card, or the menu item from the left navigation, for the area that you would like to update. You may want to update the **Offer setup**, **Properties**, **Offer listing**, **Preview**, **Technical configuration**, **Plan overview**, or **Test drive**. 
 3. Make your changes and then select **Save**. Repeat this process until all your changes are complete.
 
 ## Review and publish an updated offer
@@ -43,13 +43,13 @@ To make changes to a plan within an existing offer that you've already published
 
 ## Delete a draft offer
 
-You can delete a draft offer (one that has not been published) by selecting **Delete draft** from the **Offer overview** page. This option will not be available to you if you have previously published the offer.
+You can delete a draft offer (one that hasn't been published) by selecting **Delete draft** from the **Offer overview** page. This option won't be available to you if you've previously published the offer.
 
 After you confirm that you want to delete the draft offer, the offer will no longer be visible or accessible in Partner Center and the **All Offers** page will open.
 
 ## Delete a draft plan
 
-To delete a plan that has not been published, select **Delete draft** from the **Plan overview** page. This option will not be available to you if you have previously published the offer.
+To delete a plan that hasn't been published, select **Delete draft** from the **Plan overview** page. This option will not be available to you if you've previously published the offer.
 
 After you confirm that you want to delete the draft plan, the plan will no longer be visible or accessible in Partner Center.
 
@@ -70,13 +70,13 @@ If you want to publish the offer at a later time, you'll need to start the publi
 
 To stop selling an offer after you've already published it, select **Stop selling** from the **Offer overview** page. To stop selling a plan, select **Stop selling** from the **Plan overview** page. (The option to stop selling a plan is only available if you have more than one plan in the offer. You can choose to stop selling one plan without impacting other plans within your offer.)
 
-Once you confirm that you want to stop selling the offer or plan, within a few hours it will no longer be visible in the marketplace and no new customers will be able to download it. 
+Once you confirm that you want to stop selling the offer or plan, within a few hours it will no longer be visible in the marketplace and no new customers can download it. 
 
-Any customers who previously acquired the offer or plan will still be able to use it. They can download it again, but will not get updates if you update and re-publish the offer or plan at a later time. 
+Any customers who previously acquired the offer or plan can still use it. They can download it again, but will not get updates if you update and re-publish the offer or plan at a later time. 
 
 After your request to stop selling the offer/plan has been completed, you'll still see it in the Commercial Marketplace portal on Partner Center. To delete the draft, select **Delete draft** from either the **Offer overview** or **Plan overview** page. 
 
-If you decide to list or sell this offer or plan again, follow the instructions to [update an existing offer](#update-an-existing-offer-in-the-commercial-marketplace), this includes **re-publishing**. After making any updates to an offer or plan, you'll always need to submit it again for publishing.
+If you decide to list or sell this offer or plan again, follow the instructions to [update an existing offer](#update-an-existing-offer-in-the-commercial-marketplace). Don't forget that you will need to **publish** the offer or plan again after making any changes.
 
 ## Remove offers from existing customers
 
@@ -91,7 +91,7 @@ To update and sync the private audience for your plan(s):
 - Modify the audience in one or more private plans using the + **Add ID** or **Import customers (csv)** button and then save the changes.
 - Select **Sync private audience** from the **Plan overview** page.
 
-This will publish only the changes to your private audiences, without publishing any other updates you might have made to the draft offer.
+**Sync private audience** will publish only the changes to your private audiences, without publishing any other updates you might have made to the draft offer.
 
 ## Next steps
 
