@@ -284,10 +284,7 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
 
 ## Displaying prompts and sending context in the client application 
 
-The client application displays all the questions with an option for the user to display the prompts as suggested actions or buttons. The client application then stores the current QnA ID and the previous query as context to be passed on with the next user query. 
-
-Use this [Bot Framework sample](https://aka.ms/qnamakermultiturnsample) to see multi-turn dialog working end-to-end in a QnA Maker bot.
-
+If you have added prompts in your knowledge base and have tested the flow in the test pane, the prompts will not automatically start showing up in the client applications. You can show the prompts as suggested actions or buttons as part of the answer to user’s query in client applications by including this [Bot Framework sample](https://aka.ms/qnamakermultiturnsample) in your code. The client application shall store the current QnA Id and the user query, and pass them in the [context object of the GenerateAnswer API](#json-response-to-return-initial-answer-and-follow-up-prompts) for the next user query.”
 
 ## Display order supported in API
 
