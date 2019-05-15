@@ -34,7 +34,7 @@ ms.author: jonbeck;amverma
 
   On non-SR-IOV enabled VMs, supported MPI implementations use the Microsoft Network Direct (ND) interface to communicate between instances. The SR-IOV enabled VM sizes (HB and HC-series) on Azure allow almost any version of MPI to be used with Mellanox OFED. 
 
-* **InfiniBandDriverWindows VM extension** - On RDMA-capable VMs, add the InfiniBandDriverWindows extension to enable InfiniBand. This Windows VM extension installs Windows Network Direct drivers (on non-SR-IOV VMs)or Mellanox OFED drivers (on SR-IOV VMs) for RDMA connectivity.
+* **InfiniBandDriverWindows VM extension** - On RDMA-capable VMs, add the InfiniBandDriverWindows extension to enable InfiniBand. This Windows VM extension installs Windows Network Direct drivers (on non-SR-IOV VMs) or Mellanox OFED drivers (on SR-IOV VMs) for RDMA connectivity.
 In certain deployments of A8 and A9 instances, the HpcVmDrivers extension is added automatically. Note that the HpcVmDrivers VM extension is being deprecated; it will not be updated. To add the VM extension to a VM, you can use [Azure PowerShell](/powershell/azure/overview) cmdlets. 
 
   The following command installs the latest version 1.0 InfiniBandDriverWindows extension on an existing RDMA-capable VM named *myVM* deployed in the resource group named *myResourceGroup* in the *West US* region:
