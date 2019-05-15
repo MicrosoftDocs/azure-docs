@@ -1,5 +1,5 @@
 ---
-title: Update an existing Commercial Marketplace offer | Azure
+title: Update an existing Commercial Marketplace offer
 description: How to make updates to an existing Commercial Marketplace offer, including editing, deleting a draft, cancelling a publish request, stop selling an offer or plan, and syncing private audiences. 
 author: mattwojo 
 manager: evansma
