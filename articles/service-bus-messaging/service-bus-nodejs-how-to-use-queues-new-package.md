@@ -47,25 +47,29 @@ Interacting with a Service Bus queue starts with instantiating the `ServiceBusCl
 
     ```javascript
     const { ServiceBusClient } = require("@azure/service-bus"); 
+    
     // Define connection string and related Service Bus entity names here
     const connectionString = "";
     const queueName = ""; 
+    
     async function main(){
       const sbClient = ServiceBusClient.createFromConnectionString(connectionString); 
-      const queueClient = ns.createQueueClient(queueName);
-      const sender = client.createSender();
+      const queueClient = sbClient.createQueueClient(queueName);
+      const sender = queueClient.createSender();
+      
       try {
         for (let i = 0; i < 10; i++) {
           const message= {
-            body: "my message contents",
-            label: "my message label",
+            body: `Hello world! ${i}`,
+            label: `test`,
             userProperties: {
-                myCustomPropertyName: “my custom property value”
+                myCustomPropertyName: `my custom property value ${i}`
            }
           };
-          console.log(`Sending message: ${message.body} - ${message.label}`);
+          console.log(`Sending message: ${message.body}`);
           await sender.send(message);
         }
+        
         await queueClient.close();
       } finally {
         await sbClient.close();
@@ -91,20 +95,29 @@ Interacting with a Service Bus queue starts with instantiating the `ServiceBusCl
 
     ```javascript
     const { ServiceBusClient, ReceiveMode } = require("@azure/service-bus"); 
+    
     // Define connection string and related Service Bus entity names here
     const connectionString = "";
     const queueName = ""; 
+    
     async function main(){
       const sbClient = ServiceBusClient.createFromConnectionString(connectionString); 
-      const queueClient = ns.createQueueClient(queueName);
+      const queueClient = sbClient.createQueueClient(queueName);
       const receiver = queueClient.createReceiver(ReceiveMode.ReceiveAndDelete);
       try {
-    const messages = await receiver.receiveMessages(10)
-    console.log(`Received messages: ${messages.map(message => message.body)}`);
+        const messages = await receiver.receiveMessages(10)
+        console.log("Received messages:");
+        console.log(messages.map(message => message.body));
+         
         await queueClient.close();
       } finally {
         await sbClient.close();
       }
+    }
+    
+    main().catch((err) => {
+      console.log("Error occurred: ", err);
+    });
     ```
 3. Enter the connection string and name of your queue in the above code.
 4. Then run the command `node receiveMessages.js` in a command prompt to execute this file. This command will try to receive a maximum of 10 messages from your queue. The actual count you receive may depend on the number of messages in the queue and network latency.
