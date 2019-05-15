@@ -1,18 +1,18 @@
 ---
 title: Tutorial - Grant a user access to Azure resources using RBAC and Resource Manager template | Microsoft Docs
 description: Learn how to grant a user access to Azure resources using role-based access control (RBAC) by using Azure Resource Manager template.
-services: role-based-access-control
+services: role-based-access-control,azure-resource-manager
 documentationCenter: ''
 author: rolyon
 manager: mtillman
 editor: ''
 
-ms.service: role-based-access-control
+ms.service: role-based-access-control,azure-resource-manager
 ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/14/2019
+ms.date: 05/15/2019
 ms.author: rolyon
 
 #Customer intent: As a new user, I want to see how to grant access to resources by using Azure Resource Manager template so that I can start granting access to others.
@@ -28,6 +28,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Grant access for a user at a resource group scope
+> * Validate the deployment
 > * Clean up
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
