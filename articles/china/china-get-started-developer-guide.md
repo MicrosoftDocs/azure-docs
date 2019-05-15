@@ -9,7 +9,6 @@ manager: edprice
 
 ms.assetid: na
 ms.service: china
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -58,7 +57,8 @@ See also:
 | Azure storage | \*.blob.core.windows.net \*.queue.core.windows.net \*.table.core.windows.net | \*.blob.core.chinacloudapi.cn \*.queue.core.chinacloudapi.cn \*.table.core.chinacloudapi.cn |
 | Azure service management | https://management.core.windows.net | [https://management.core.chinacloudapi.cn](https://management.core.chinacloudapi.cn/) |
 | Azure Resource Manager | [https://management.azure.com](https://management.azure.com/) | [https://management.chinacloudapi.cn](https://management.chinacloudapi.cn/) |
-| Azure management portal | [https://portal.azure.com](https://portal.azure.com/) | [https://portal.azure.cn](https://portal.azure.cn/) |
+| Azure portal | [https://portal.azure.com](https://portal.azure.com/) | [https://portal.azure.cn](https://portal.azure.cn/) |
+| Azure Traffic Manager DNS suffix | \*.trafficmanager.net | \*.trafficmanager.cn |
 | SQL Database | \*.database.windows.net | \*.database.chinacloudapi.cn |
 | SQL Azure DB management API | [https://management.database.windows.net](https://management.database.windows.net/) | [https://management.database.chinacloudapi.cn](https://management.database.chinacloudapi.cn/) |
 | Azure Service Bus | \*.servicebus.windows.net | \*.servicebus.chinacloudapi.cn |
@@ -66,14 +66,14 @@ See also:
 | Azure HDInsight | \*.azurehdinsight.net | \*.azurehdinsight.cn |
 | SQL DB import/export service endpoint | |  1. China East [https://sh1prod-dacsvc.chinacloudapp.cn/dacwebservice.svc](https://sh1prod-dacsvc.chinacloudapp.cn/dacwebservice.svc) <br>2. China North [https://bj1prod-dacsvc.chinacloudapp.cn/dacwebservice.svc](https://bj1prod-dacsvc.chinacloudapp.cn/dacwebservice.svc) |
 | MySQL PaaS | | \*.mysqldb.chinacloudapi.cn |
-| Azure Service Fabric cluster | \*.cloudapp.azure.com | \*.chinaeast.chinacloudapp.cn |
+| Azure Service Fabric cluster | \*.cloudapp.azure.com | \*.cloudapp.chinacloudapi.cn |
 | Azure Active Directory (AD) | \*.onmicrosoft.com | \*.partner.onmschina.cn |
-| Azure AD logon | [https://login.microsoftonline.com](https://login.windows.net/) | [https://login.partner.microsoftonline.cn](https://login.chinacloudapi.cn/) |
+| Azure AD login | [https://login.microsoftonline.com](https://login.windows.net/) | [https://login.partner.microsoftonline.cn](https://login.chinacloudapi.cn/) |
 | Azure AD Graph API | [https://graph.windows.net](https://graph.windows.net/) | [https://graph.chinacloudapi.cn](https://graph.chinacloudapi.cn/) |
 | Microsoft Graph | [https://graph.microsoft.com](https://graph.microsoft.com/) | [https://microsoftgraph.chinacloudapi.cn](https://microsoftgraph.chinacloudapi.cn/) |
 | Cognitive Services | <https://api.projectoxford.ai/face/v1.0> | <https://api.cognitive.azure.cn/face/v1.0> |
 | Azure Key Vault API | \*.vault.azure.net | \*.vault.azure.cn |
-| Logon with PowerShell: <br>- Classic Azure <br>- Azure Resource Manager <br>- Azure AD| - Add-AzureAccount<br>- Connect-AzureRmAccount <br> - Connect-msolservice |  - Add-AzureAccount -Environment AzureChinaCloud <br> - Connect-AzureRmAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud |
+| Sign in with PowerShell: <br>- Classic Azure <br>- Azure Resource Manager <br>- Azure AD| - Add-AzureAccount<br>- Connect-AzureRmAccount <br> - Connect-msolservice |  - Add-AzureAccount -Environment AzureChinaCloud <br> - Connect-AzureRmAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud |
 
 ## Next steps
 - [Developers Guide](https://www.azure.cn/documentation/articles/developerdifferences/#dev-guide) (in Chinese)
