@@ -58,11 +58,11 @@ Now let's clone a SQL API app from GitHub, set the connection string, and run it
     ```cmd
     md "git-samples"
     ```
-  If you are using a bash prompt, you should instead use the following command:
+   If you are using a bash prompt, you should instead use the following command:
 
-    ```bash
-    mkdir "git-samples"
-    ```
+   ```bash
+   mkdir "git-samples"
+   ```
 
 2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
 
