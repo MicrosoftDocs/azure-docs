@@ -27,33 +27,33 @@ Currently, Bastion assumes that you are using RDP to connect to a Windows VM and
 
 Verify that you have set up your Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](bastion-create-host-portal.md).
 
-## <a name="rdp"></a>Connect using RDP
+## <a name="rdp"></a>Connect using RDP (Windows)
 
-Once Bastion service is provisioned/deployed in your virtual network, you can use it to seamlessly connect to any VM in this virtual network.  For the same, please navigate to the Bastion preview [Azure portal](http://aka.ms/BastionHost).
+Once the Bastion service is provisioned and deployed in your virtual network, you can use it to seamlessly connect to any VM in this virtual network. For the same, please navigate to the Bastion preview [Azure portal](http://aka.ms/BastionHost).
 
-1. Navigate to your Virtual Machine that you wish to connect to using RDP and select the Connect button – please note that this VM should be a Windows VM. 
+1. In the [Azure portal](http://aka.ms/BastionHost) for the Bastion preview, navigate to the virtual machine that you want to connect to, then click **Connect**. Note that the VM should be a Windows virtual machine when using an RDP connection.
 
     ![VM connect](./media/bastion-connect-to-vm/connectrdp.png)
 
-1. Once you click the Connect button, a side bar will appear that will have three tabs – RDP (legacy), SSH (legacy) and Bastion (new). If you have Bastion provisioned for this Virtual Network, then Bastion tab will be active by default.
+1. After you click Connect, a side bar appears that has three tabs – RDP (legacy), SSH (legacy) and Bastion (new). If Bastion was provisioned for the virtual network, the Bastion tab is active by default.
 
     ![VM connect](./media/bastion-connect-to-vm/bastionrdp.png)
 
-1. Enter the username and password for RDP to your virtual machine and select the Connect button (or hit enter).  Once you hit Connect, RDP to this virtual machine should directly open in the Azure portal (over HTML5) using port 443 on the Bastion service.
+1. Enter the username and password for your virtual machine, then click **Connect**. The RDP connection to this virtual machine via Bastion will directly open in the Azure portal (over HTML5) using port 443 and the Bastion service.
 
     ![VM connect](./media/bastion-connect-to-vm/443rdp.png)
  
-## <a name="ssh"></a>Connect using SSH
+## <a name="ssh"></a>Connect using SSH (Linux)
 
-1. Navigate to your Virtual Machine that you wish to connect to using SSH and select the Connect button – please note that this VM should be a Linux VM.
+1. In the [Azure portal](http://aka.ms/BastionHost) for the Bastion preview, navigate to the virtual machine that you want to connect to, then click **Connect**. Note that the VM should be a Linux virtual machine when using an SSH connection.
 
     ![VM connect](./media/bastion-connect-to-vm/connectssh.png)
 
-1. Once you click the Connect button, a side bar will appear that will have three tabs – RDP (legacy), SSH (legacy) and Bastion (new).  If you have Bastion provisioned for this Virtual Network, then Bastion tab will be active by default.
+1. After you click Connect, a side bar appears that has three tabs – RDP (legacy), SSH (legacy) and Bastion (new). If Bastion was provisioned for the virtual network, the Bastion tab is active by default.
 
     ![VM connect](./media/bastion-connect-to-vm/bastionssh.png)
 
-1. Enter the username and password for SSH to your virtual machine and select the Connect button (or hit enter).  Once you hit Connect, SSH to this virtual machine should directly open in the Azure portal (over HTML5) using port 443 on the Bastion service, over private IP of your virtual network.
+1. Enter the username and password for your virtual machine, then click **Connect**. The SSH connection to this virtual machine via Bastion will directly open in the Azure portal (over HTML5) using port 443 and the Bastion service.
 
     ![VM connect](./media/bastion-connect-to-vm/443ssh.png)
 
