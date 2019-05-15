@@ -59,7 +59,7 @@ In AKS, there are two sets of ports and addresses:
 * The [optional recommended addresses and ports for AKS clusters](#optional-recommended-addresses-and-ports-for-aks-clusters) aren't required for all scenarios, but integration with other services such as Azure Monitor won't work correctly. Review this list of optional ports and FQDNs, and authorize any of the services and components used in your AKS cluster.
 
 > [!NOTE]
-> Limiting egress traffic only works on new AKS clusters created after you enable the feature flag registration. You can't limit egress traffic on an existing AKS cluster created before the feature flag was registered.
+> Limiting egress traffic only works on new AKS clusters created after you enable the feature flag registration. For existing clusters, [perform a cluster upgrade operation][aks-upgrade] using the `az aks upgrade` command before you limit the egress traffic.
 
 ## Required ports and addresses for AKS clusters
 
@@ -115,3 +115,4 @@ In this article, you learned what ports and addresses to allow if you restrict e
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[aks-upgrade]: upgrade-cluster.md
