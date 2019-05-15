@@ -30,7 +30,7 @@ Integrating monday.com with Azure AD gives you the following benefits:
 * Users can be automatically signed in to monday.com (single sign-on) with their Azure AD accounts.
 * You can manage your accounts in one central location, the Azure portal.
 
-For more information about software as a service (SaaS) app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+For more information about software as a service (SaaS) app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ To integrate monday.com with Azure AD, you must add monday.com to your list of m
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the left pane, select **Azure Active Directory**.
+1. In the left menu, select **Azure Active Directory**.
 
 	![The Azure Active Directory option](common/select-azuread.png)
 
@@ -63,7 +63,7 @@ To integrate monday.com with Azure AD, you must add monday.com to your list of m
 
 	![The Enterprise applications pane](common/enterprise-applications.png)
 
-1. To add a new application, select **New application**.
+1. To add an application, select **New application**.
 
 	![The New application option](common/add-new-app.png)
 
@@ -73,11 +73,11 @@ To integrate monday.com with Azure AD, you must add monday.com to your list of m
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with monday.com based on a test user named **Britta Simon**. For single sign-on to work, you must establish a link relationship between an Azure AD user and the related user in monday.com.
+In this section, you configure and test Azure AD single sign-on with monday.com based on a test user named **Britta Simon**. For single sign-on to work, you must establish a linked relationship between an Azure AD user and the related user in monday.com.
 
 To configure and test Azure AD single sign-on with monday.com, you must complete the following building blocks:
 
-| Task | Purpose |
+| Task | Description |
 | --- | --- |
 | **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** | Enables your users to use this feature. |
 | **[Configure monday.com single sign-on](#configure-mondaycom-single-sign-on)** | Configures the single sign-on settings in the application. |
@@ -90,7 +90,7 @@ To configure and test Azure AD single sign-on with monday.com, you must complete
 
 In this section, you configure Azure AD single sign-on with monday.com in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **monday.com** application integration page, select **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), in the **monday.com** application integration pane, select **Single sign-on**.
 
     ![Configure single sign-on option](common/select-sso.png)
 
@@ -119,7 +119,7 @@ In this section, you configure Azure AD single sign-on with monday.com in the Az
 	   > [!Note]
 	   > If the **Identifier** and **Reply URL** values aren't automatically populated, enter the values manually.
 
-1. To configure the application in *SP-initiated mode*, complete the following steps:
+1. To configure the application in *SP-initiated mode*:
 
     1. Select **Set additional URLs**.
 	
@@ -151,7 +151,7 @@ In this section, you configure Azure AD single sign-on with monday.com in the Az
 
        ![The Manage user claims](common/new-attribute-details.png)
 
-1. In the **Set up Single Sign-On with SAML** pane, in the **SAML Signing Certificate** section, select **Download** next to **Certificate (Base64)**. Select a download option based on your requirements. Save the certificate on your computer.
+1. In the **Set up Single Sign-On with SAML** pane, under **SAML Signing Certificate**, select **Download** next to **Certificate (Base64)**. Select a download option based on your requirements. Save the certificate on your computer.
 
 	![The Certificate (Base64) download option](common/certificatebase64.png)
 
@@ -165,7 +165,7 @@ In this section, you configure Azure AD single sign-on with monday.com in the Az
 
 ### Configure monday.com single sign-on
 
-To configure single sign-on on in the monday.com application, send the downloaded Certificate (Base64) file and the relevant URLs that you copied from the Azure portal to the [monday.com support team](mailto:support@monday.com). The monday.com support team uses the information you send them to ensure that the SAML SSO connection is set properly on both sides.
+To configure single sign-on on the monday.com side, send the downloaded Certificate (Base64) file and the relevant URLs that you copied from the Azure portal to the [monday.com support team](mailto:support@monday.com). The monday.com support team uses the information you send them to ensure that the SAML single sign-on connection is set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -185,7 +185,7 @@ In this section, you create a test user named Britta Simon in the Azure portal.
   
     1. In the **User name** box, enter **brittasimon\@\<your-company-domain>.\<extension>**. For example, **BrittaSimon\@contoso.com**.
 
-    1. Select the **Show password** check box. Write down the value that's displayed in **Password**.
+    1. Select the **Show password** check box. Write down the value that's displayed in the **Password** box.
 
     1. Select **Create**.
 

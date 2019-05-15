@@ -29,8 +29,7 @@ Integrating Sectigo Certificate Manager with Azure AD gives you the following be
 * Users can be automatically signed in to Sectigo Certificate Manager (single sign-on) with their Azure AD accounts.
 * You can manage your accounts in one central location, the Azure portal.
 
-
-For more information about software as a service (SaaS) app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+For more information about software as a service (SaaS) app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Prerequisites
 
@@ -54,7 +53,7 @@ To integrate Sectigo Certificate Manager with Azure AD, you must add Sectigo Cer
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the left pane, select **Azure Active Directory**.
+1. In the left menu, select **Azure Active Directory**.
 
 	![The Azure Active Directory option](common/select-azuread.png)
 
@@ -62,7 +61,7 @@ To integrate Sectigo Certificate Manager with Azure AD, you must add Sectigo Cer
 
 	![The Enterprise applications pane](common/enterprise-applications.png)
 
-1. To add a new application, select **New application**.
+1. To add an application, select **New application**.
 
 	![The New application option](common/add-new-app.png)
 
@@ -72,11 +71,11 @@ To integrate Sectigo Certificate Manager with Azure AD, you must add Sectigo Cer
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Sectigo Certificate Manager based on a test user named **Britta Simon**. For single sign-on to work, you must establish a link relationship between an Azure AD user and the related user in Sectigo Certificate Manager.
+In this section, you configure and test Azure AD single sign-on with Sectigo Certificate Manager based on a test user named **Britta Simon**. For single sign-on to work, you must establish a linked relationship between an Azure AD user and the related user in Sectigo Certificate Manager.
 
 To configure and test Azure AD single sign-on with Sectigo Certificate Manager, you must complete the following building blocks:
 
-| Task | Purpose |
+| Task | Description |
 | --- | --- |
 | **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** | Enables your users to use this feature. |
 | **[Configure Sectigo Certificate Manager single sign-on](#configure-sectigo-certificate-manager-single-sign-on)** | Configures the single sign-on settings in the application. |
@@ -87,13 +86,9 @@ To configure and test Azure AD single sign-on with Sectigo Certificate Manager, 
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
-
-To configure Azure AD single sign-on with Sectigo Certificate Manager, perform the following steps:
-
 In this section, you configure Azure AD single sign-on with Sectigo Certificate Manager in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Sectigo Certificate Manager** application integration page, select **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), in the **Sectigo Certificate Manager** application integration pane, select **Single sign-on**.
 
     ![Configure single sign-on option](common/select-sso.png)
 
@@ -106,8 +101,6 @@ In this section, you configure Azure AD single sign-on with Sectigo Certificate 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. In the **Basic SAML Configuration** pane, to configure *IDP-initiated mode*, complete the following steps:
-
-    ![Sectigo Certificate Manager domain and URLs single sign-on information](common/idp-relay.png)
 
     1. In the **Identifier** box, enter one of these URLs:
 	   * https:\//cert-manager.com/shibboleth
@@ -123,6 +116,8 @@ In this section, you configure Azure AD single sign-on with Sectigo Certificate 
 	   * https:\//cert-manager.com/customer/SSLSupport/idp
 	   * https:\//hard.cert-manager.com/customer/SSLSupport/idp
 
+    ![Sectigo Certificate Manager domain and URLs single sign-on information](common/idp-relay.png)
+
 1.  To configure the application in *SP-initiated mode*, complete the following steps:
 
 	* In the **Sign on URL** box, enter one of these URLs:
@@ -135,7 +130,7 @@ In this section, you configure Azure AD single sign-on with Sectigo Certificate 
 
 	![The Certificate (Base64) download option](common/certificatebase64.png)
 
-1. On the **Set up Sectigo Certificate Manager** section, copy the following URLs based on your requirements:
+1. In the **Set up Sectigo Certificate Manager** section, copy the following URLs based on your requirements:
 
 	* Login URL
 	* Azure AD Identifier
@@ -145,7 +140,7 @@ In this section, you configure Azure AD single sign-on with Sectigo Certificate 
 
 ### Configure Sectigo Certificate Manager single sign-on
 
-To configure single sign-on in the Sectigo Certificate Manager application, send the downloaded Certificate (Base64) file and the relevant URLs that you copied from the Azure portal to the [Sectigo Certificate Manager support team](https://sectigo.com/support). The Sectigo Certificate Manager support team uses the information you send them to ensure that the SAML SSO connection is set properly on both sides.
+To configure single sign-on on the Sectigo Certificate Manager side, send the downloaded Certificate (Base64) file and the relevant URLs that you copied from the Azure portal to the [Sectigo Certificate Manager support team](https://sectigo.com/support). The Sectigo Certificate Manager support team uses the information you send them to ensure that the SAML single sign-on connection is set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -165,7 +160,7 @@ In this section, you create a test user named Britta Simon in the Azure portal.
   
     1. In the **User name** box, enter **brittasimon\@\<your-company-domain>.\<extension>**. For example, **BrittaSimon\@contoso.com**.
 
-    1. Select the **Show password** check box. Write down the value that's displayed in **Password**.
+    1. Select the **Show password** check box. Write down the value that's displayed in the **Password** box.
 
     1. Select **Create**.
 
