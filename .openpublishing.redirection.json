@@ -10919,7 +10919,7 @@
       "source_path": "articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dedicated-overview",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
@@ -11064,6 +11064,11 @@
       "source_path": "articles/hdinsight/hdinsight-apache-storm-tutorial-get-started.md",
       "redirect_url": "/azure/hdinsight/hdinsight-apache-storm-tutorial-get-started-linux",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-connect-hive-zeppelin.md",
+      "redirect_url": "/azure/hdinsight/interactive-query/hdinsight-connect-hive-zeppelin",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-create-windows-clusters-arm-templates.md",
@@ -23055,6 +23060,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/blobs/storage-dotnet-shared-access-signature-part-2.md",
+      "redirect_url": "/azure/storage/common/storage-dotnet-shared-access-signature-part-1",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/storage-e2e-troubleshooting.md",
       "redirect_url": "/azure/storage/common/storage-e2e-troubleshooting",
       "redirect_document_id": true
@@ -27412,6 +27422,11 @@
     {
       "source_path": "articles/azure-stack/azure-stack-register.md",
       "redirect_url": "/azure/azure-stack/azure-stack-registration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/release-notes.md", 
+      "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
       "redirect_document_id": false
     },
     {
@@ -35804,6 +35819,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/data-sources-alerts-nagios-zabbix.md",
+      "redirect_url": "/azure/azure-monitor/platform/data-sources-custom-logs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -38942,6 +38962,17 @@
       "source_path": "articles/active-directory/reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md",
       "redirect_url": "/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-splunk",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/latest/developers-guide.md",
+      "redirect_url": "/azure/media-services/latest/media-services-apis-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/video-indexer/video-indexer-create-new.md",
+      "redirect_url": "/azure/media-services/video-indexer/use-editor-create-project",
+      "redirect_document_id": false
     }
+
   ]
 }

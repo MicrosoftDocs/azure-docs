@@ -171,7 +171,7 @@ Lists all the SaaS subscriptions for a publisher.
 
 *Response codes:*
 
-Code: 200<br>
+Code: 200 <br/>
 Based on the auth token, get the publisher and corresponding subscriptions for all the publisher's offers.<br> 
 Response payload:<br>
 
@@ -203,7 +203,6 @@ Response payload:<br>
 ```
 
 The continuation token will only be present if there are additional "pages" of plans to retrieve. 
-
 
 Code: 403 <br>
 Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher. 
@@ -372,7 +371,7 @@ Internal Server Error<br>
 
 *Response codes:*
 
-Code: 202<br>
+Code: 200<br>
 Activates the subscription.<br>
 
 Code: 404<br>
@@ -552,7 +551,7 @@ Unsubscribe and delete the specified subscription.
 
 *Response codes:*
 
-Code: 200<br>
+Code: 202<br>
 ISV initiated call to indicate unsubscribe on a SaaS subscription.<br>
 
 Code: 404<br>
@@ -790,27 +789,27 @@ The publisher must implement a webhook in this SaaS service to proactively notif
     "action": "Subscribe",
     "timeStamp": "2018-12-01T00:00:00"
 }
+```
 
 Where action can be one of these: 
-       Subscribe, (When the resource has been activated)
-       Unsubscribe, (When the resource has been deleted)
-       ChangePlan, (When the change plan operation has completed)
-       ChangeQuantity, (When the change quantity operation has completed),
-       Suspend, (When resource has been suspended)
-       Reinstate, (When resource has been reinstated after suspension)
-```
+- `Subscribe`  (When the resource has been activated)
+- `Unsubscribe` (When the resource has been deleted)
+- `ChangePlan` (When the change plan operation has completed)
+- `ChangeQuantity` (When the change quantity operation has completed)
+- `Suspend` (When the resource has been suspended)
+- `Reinstate` (When resource has been reinstated after suspension)
 
 
 ## Mock API
 
 You can use our mock APIs to help you get started with development, particularly prototyping, and testing projects. 
 
-Host Endpoint: `https://marketplaceapi.microsoft.com/api`
-API Version: `2018-09-15`
-No authentication required
-Sample Uri: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15`
+Host Endpoint: `https://marketplaceapi.microsoft.com/api` <br/>
+API Version: `2018-09-15` <br/>
+No authentication required <br/>
+Sample Uri: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15` <br/>
 
-Any of the API calls in this article can be made to the mock host endpoint. You can expect to get mock data back as a response.
+Note that mock API invocations use a different API version (date) than the production API.  Any of the API calls in this article can be made to the mock host endpoint. In general, you can expect to get mock data back as a response. Calls to the update subscription methods on the mock API always return 500. 
 
 
 ## Next steps
