@@ -103,7 +103,7 @@ If you've mapped a storage endpoint to a custom domain and omit that endpoint fr
 >
 
 ### Create a connection string with an endpoint suffix
-To create a connection string for a storage service in regions or instances with different endpoint suffixes, such as for Azure China or Azure Government, use the following connection string format. Indicate whether you want to connect to the storage account through HTTPS (recommended) or HTTP, replace `myAccountName` with the name of your storage account, replace `myAccountKey` with your account access key, and replace `mySuffix` with the URI suffix:
+To create a connection string for a storage service in regions or instances with different endpoint suffixes, such as for Azure China 21Vianet or Azure Government, use the following connection string format. Indicate whether you want to connect to the storage account through HTTPS (recommended) or HTTP, replace `myAccountName` with the name of your storage account, replace `myAccountKey` with your account access key, and replace `mySuffix` with the URI suffix:
 
 ```
 DefaultEndpointsProtocol=[http|https];
@@ -112,7 +112,7 @@ AccountKey=myAccountKey;
 EndpointSuffix=mySuffix;
 ```
 
-Here's an example connection string for storage services in Azure China:
+Here's an example connection string for storage services in Azure China 21Vianet:
 
 ```
 DefaultEndpointsProtocol=https;
