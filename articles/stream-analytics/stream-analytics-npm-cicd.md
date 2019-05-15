@@ -1,5 +1,5 @@
 ---
-title:  Continuously integrate and develop with Stream Analytics CI/CD NPM package 
+title:  Continuously integrate and develop with Azure Stream Analytics CI/CD NPM package 
 description: This article describes how to use Azure Stream Analytics CI/CD NPM package to set up a continuous integration and deployment process.
 services: stream-analytics
 author: su-jie
