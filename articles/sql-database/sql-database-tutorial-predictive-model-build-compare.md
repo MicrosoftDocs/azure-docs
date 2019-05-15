@@ -42,8 +42,10 @@ In [part three](sql-database-tutorial-predictive-model-deploy.md), you'll learn 
 
 To find the best model for the ski rental data, create two different models (linear regression and decision tree) and see which one is predicting more accurately. You'll use the data frame `rentaldata` that you created in part one of this series.
 
+<!-- Tutorials don't generally have Tips and Notes
 > [!TIP]
 > Finding the right type of model for a specific problem requires some experimentation. The [Machine Learning Algorithm Cheat Sheet](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-algorithm-choice/#the-machine-learning-algorithm-cheat-sheet) can be nice to have as a guide.
+-->
 
 ```r
 #First, split the dataset into two different sets:
