@@ -307,15 +307,15 @@ In this example, you create a policy that requires users to authenticate less fr
 
 2. Assign the policy to your web API. You also need to get the **ObjectId** of your application. Use the [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) cmdlet to find your app's **ObjectId**, or use the [Azure portal](https://portal.azure.com/).
 
-   Get the **ObjectId** of your app and assign the policy:
+    Get the **ObjectId** of your app and assign the policy:
 
-        ```powershell
-        # Get the application
-        $app = Get-AzureADApplication -Filter "DisplayName eq 'Fourth Coffee Web API'"
+    ```powershell
+    # Get the application
+    $app = Get-AzureADApplication -Filter "DisplayName eq 'Fourth Coffee Web API'"
 
-        # Assign the policy to your web API.
-        Add-AzureADApplicationPolicy -Id $app.ObjectId -RefObjectId $policy.Id
-        ```
+    # Assign the policy to your web API.
+    Add-AzureADApplicationPolicy -Id $app.ObjectId -RefObjectId $policy.Id
+    ```
 
 ### Example: Manage an advanced policy
 In this example, you create a few policies to learn how the priority system works. You also learn how to manage multiple policies that are applied to several objects.
