@@ -8,5 +8,3 @@
     href: set-up-azure-kinect-dk.md
   - name: Record sensor streams file
     href: record-sensor-streams-file.md
-  - name: Recognize speech
-    href: recognize-speech.md
