@@ -69,7 +69,7 @@ The Azure Marketplace has many Linux distributions that supports RDMA connectivi
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]  
 
-  For more details on enabling InfiniBand, setting up MPI, see [Enable InfiniBand](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/hpc/enable-infiniband-with-sriov).
+  For more details on enabling InfiniBand, setting up MPI, see [Enable InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband-with-sriov).
 
 
 ### Cluster configuration options
