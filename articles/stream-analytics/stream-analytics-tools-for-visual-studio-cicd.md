@@ -1,5 +1,5 @@
 ---
-title:  Continuously integrate and develop with Stream Analytics CI/CD NuGet package 
+title:  Continuously integrate and develop with Azure Stream Analytics CI/CD NuGet package 
 description: This article describes how to use Azure Stream Analytics CI/CD NuGet package to set up a continuous integration and deployment process.
 services: stream-analytics
 author: su-jie
@@ -7,7 +7,7 @@ ms.author: sujie
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/27/2017
+ms.date: 05/15/2019
 ---
 # Continuously integrate and develop with Azure Stream Analytics CI/CD NuGet package
 This article describes how to use the Azure Stream Analytics CI/CD NuGet package to set up a continuous integration and deployment process.

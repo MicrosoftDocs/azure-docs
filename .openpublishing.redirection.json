@@ -15156,6 +15156,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/stream-analytics/vs-code-how-to.md",
+      "redirect_url": "/azure/stream-analytics/vscode-explore-jobs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/stream-analytics/custom-deserializer.md",
       "redirect_url": "https://aka.ms/asapreview1",
       "redirect_document_id": false
