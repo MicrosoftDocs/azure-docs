@@ -60,6 +60,66 @@ Before you work through the entire scenario, set up at least a small test functi
 
 Then, do the following steps: 
 
+
+# [Azure Functions V2](#tab/v2)
+
+1. Expand **Functions** in the tree view, and select your function. Replace the code for the function with the following code: 
+
+    ```CSharp
+    #r "Newtonsoft.Json"
+    
+    using System.Net;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Primitives;
+    using Newtonsoft.Json;
+    
+    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
+    {
+        log.LogInformation("C# HTTP trigger function processed a request.");
+        var content = req.Body;
+        string jsonContent = await new StreamReader(content).ReadToEndAsync();
+        log.LogInformation($"Received Event with payload: {jsonContent}");
+    
+        IEnumerable<string> headerValues;
+        headerValues = req.Headers.GetCommaSeparatedValues("Aeg-Event-Type");
+    
+        if (headerValues.Count() != 0)
+        {
+            var validationHeaderValue = headerValues.FirstOrDefault();
+            if(validationHeaderValue == "SubscriptionValidation")
+            {
+                var events = JsonConvert.DeserializeObject<GridEvent[]>(jsonContent);
+                var code = events[0].Data["validationCode"];
+                log.LogInformation("Validation code: {code}");
+                return (ActionResult) new OkObjectResult(new { validationResponse = code });
+            }
+        }
+    
+        return jsonContent == null
+            ? new BadRequestObjectResult("Please pass a name on the query string or in the request body")
+            : (ActionResult)new OkObjectResult($"Hello, {jsonContent}");
+    }
+    
+    public class GridEvent
+    {
+        public string Id { get; set; }
+        public string EventType { get; set; }
+        public string Subject { get; set; }
+        public DateTime EventTime { get; set; }
+        public Dictionary<string, string> Data { get; set; }
+        public string Topic { get; set; }
+    }
+    
+    ```
+2. Select **Save and run**.
+
+    ![Function app output](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
+3. Select **Get function URL** and note down the URL. 
+
+    ![Get function URL](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
+
+# [Azure Functions V1](#tab/v1)
+
 1. Configure the function to use **V1** version: 
     1. Select your function app in the tree view, and select **Function app settings**. 
 
@@ -116,6 +176,8 @@ Then, do the following steps:
 4. Select **Get function URL** and note down the URL. 
 
     ![Get function URL](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
+
+---
 
 ## Connect the function and namespace via Event Grid
 In this section, you tie together the function and the Service Bus namespace by using the Azure portal. 
