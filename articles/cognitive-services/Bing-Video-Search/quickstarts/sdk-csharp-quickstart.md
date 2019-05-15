@@ -19,10 +19,10 @@ Use this quickstart to begin searching for news with the Bing Video Search SDK f
 
 ## Prerequisites
 
-* Any edition of [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
+* Any edition of [Visual Studio 2017 or later](https://visualstudio.microsoft.com/downloads/).
 * The Json.NET framework, available [as a NuGet package](https://www.nuget.org/packages/Newtonsoft.Json/).
 
-To add the Bing Video Search SDK to your project, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.VideoSearch` package.
+To add the Bing Video Search SDK to your project, select **Manage NuGet Packages** from **Solution Explorer** in Visual Studio. Add the `Microsoft.Azure.CognitiveServices.Search.VideoSearch` package.
 
 Installing the [[NuGet Video Search SDK package]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) also installs the following dependencies:
 
