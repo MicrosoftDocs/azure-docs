@@ -294,7 +294,7 @@ You should delete the index if you no longer need it. A free service is limited 
   response  = requests.delete(url, headers=headers)
    ```
 
-You can verify index deletion by returning a list of existing indexes. If hotels-py is gone, then you know your reques succeedd.
+You can verify index deletion by returning a list of existing indexes. If hotels-py is gone, then you know your request succeeded.
 
 ```python
 url = endpoint + "indexes" + api_version + "&$select=name"
