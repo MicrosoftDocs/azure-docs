@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 After you've registered your web API, you can configure the code for the application.
 
-The code to configure your web API so that it calls downstream web APIs builds on top of the code used to project a web API. For more info, see [Protected web API - app configuration](scenario-protected-web-api-app-configuration.md).
+The code to configure your web API so that it calls downstream web APIs builds on top of the code used to protect a web API. For more info, see [Protected web API - app configuration](scenario-protected-web-api-app-configuration.md).
 
 ## Code subscribed to OnTokenValidated
 
