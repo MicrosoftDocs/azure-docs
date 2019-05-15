@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Deploy Azure Active Directory Ap
 description: Use Azure AD Application Proxy on Azure Active Directory Domain Services managed domains
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
-ms.author: ergreenl
+ms.date: 05/14/2019
+ms.author: mstephen
 
 ---
 
@@ -106,7 +106,7 @@ Enable single sign-on to your applications using Integrated Windows Authenticati
 ### Enable resource-based Kerberos constrained delegation for the Azure AD Application Proxy connector
 The Azure Application Proxy connector should be configured for Kerberos constrained delegation (KCD), so it can impersonate users on the managed domain. On an Azure AD Domain Services managed domain, you do not have domain administrator privileges. Therefore, **traditional account-level KCD cannot be configured on a managed domain**.
 
-Use resource-based KCD as described in this [article](active-directory-ds-enable-kcd.md).
+Use resource-based KCD as described in this [article](deploy-kcd.md).
 
 > [!NOTE]
 > You need to be a member of the 'AAD DC Administrators' group, to administer the managed domain using AD PowerShell cmdlets.
@@ -128,5 +128,5 @@ If you have deployed multiple Application Proxy connectors on your managed domai
 
 ## Related Content
 * [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
-* [Configure Kerberos Constrained Delegation on a managed domain](active-directory-ds-enable-kcd.md)
+* [Configure Kerberos Constrained Delegation on a managed domain](deploy-kcd.md)
 * [Kerberos Constrained Delegation Overview](https://technet.microsoft.com/library/jj553400.aspx)

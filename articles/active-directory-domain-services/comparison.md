@@ -78,7 +78,7 @@ With Azure AD Domain Services, you can use your corporate credentials to authent
 #### Kerberos constrained delegation
 
 You do not have 'Domain Administrator' privileges on an Active Directory Domain Services managed domain. Therefore, you cannot configure account-based (traditional) Kerberos constrained delegation. However, you can configure the more secure resource-based constrained delegation.
-[More information](active-directory-ds-enable-kcd.md)
+[More information](deploy-kcd.md)
 
 #### Custom OU structure
 

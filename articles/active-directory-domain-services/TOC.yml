@@ -79,7 +79,7 @@
         - name: Configure support for profile synchronization for SharePoint Server
           href: active-directory-ds-enable-sharepoint-profile-sync.md
         - name: Configure Kerberos Constrained Delegation
-          href: active-directory-ds-enable-kcd.md
+          href: deploy-kcd.md
         - name: Deploy Azure AD Application Proxy
           href: deploy-azure-app-proxy.md
     - name: Join virtual machines to Azure AD DS
