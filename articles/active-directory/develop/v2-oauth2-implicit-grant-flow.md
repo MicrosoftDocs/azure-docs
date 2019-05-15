@@ -3,8 +3,8 @@ title: Secure single-page applications using the Microsoft identity platform imp
 description: Building web applications using Microsoft identity platform implementation of the implicit flow for single-page apps.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management

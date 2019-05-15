@@ -4,7 +4,7 @@ description: Learn about providing your own HttpClient and proxy to connect to A
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: celested
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
