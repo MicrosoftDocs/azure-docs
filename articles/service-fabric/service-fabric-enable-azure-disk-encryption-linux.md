@@ -177,7 +177,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 ### Mount a data disk to a Linux instance
-Before you continue with encryption on a virtual machine scale set in Linux, ensure that the added data disk is correctly mounted. Sign in to the Linux cluster VM and run the **LSBLK** command. The output should show that added data disk in the **Mount Point** column.
+Before you continue with encryption on a virtual machine scale set, ensure the added data disk is correctly mounted. Sign in to the Linux cluster VM and run the **LSBLK** command. The output should show that added data disk in the **Mount Point** column.
 
 
 ### Deploy application to a Service Fabric cluster in Linux
