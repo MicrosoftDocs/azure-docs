@@ -61,12 +61,12 @@ Public clients cannot securely store a client password (secret). For example, an
 ID tokens are passed to websites and native clients. ID tokens contain profile information about a user. An ID token is bound to a specific combination of user and client. ID tokens are considered valid until their expiry. Usually, a web application matches a user’s session lifetime in the application to the lifetime of the ID token issued for the user. You can adjust the lifetime of an ID token to control how often the web application expires the application session, and how often it requires the user to be reauthenticated with Azure AD (either silently or interactively).
 
 ### Single sign-on session tokens
-When a user authenticates with Azure AD, a single sign-on session (SSO) is established with the user’s browser and Azure AD. The SSO token, in the form of a cookie, represents this session. Note that the SSO session token is not bound to a specific resource/client application. SSO session tokens can be revoked, and their validity is checked every time they are used.
+When a user authenticates with Azure AD, a single sign-on session (SSO) is established with the user’s browser and Azure AD. The SSO token, in the form of a cookie, represents this session. The SSO session token is not bound to a specific resource/client application. SSO session tokens can be revoked, and their validity is checked every time they are used.
 
 Azure AD uses two kinds of SSO session tokens: persistent and nonpersistent. Persistent session tokens are stored as persistent cookies by the browser. Nonpersistent session tokens are stored as session cookies. (Session cookies are destroyed when the browser is closed.)
 Usually, a nonpersistent session token is stored. But, when the user selects the **Keep me signed in** check box during authentication, a persistent session token is stored.
 
-Nonpersistent session tokens have a lifetime of 24 hours. Persistent tokens have a lifetime of 180 days. Any time an SSO session token is used within its validity period, the validity period is extended another 24 hours or 180 days, depending on the token type. If an SSO session token is not used within its validity period, it is considered expired and is no longer accepted.
+Nonpersistent session tokens have a lifetime of 24 hours. Persistent tokens have a lifetime of 180 days. Anytime an SSO session token is used within its validity period, the validity period is extended another 24 hours or 180 days, depending on the token type. If an SSO session token is not used within its validity period, it is considered expired and is no longer accepted.
 
 You can use a policy to set the time after the first session token was issued beyond which the session token is no longer accepted. (To do this, use the Session Token Max Age property.) You can adjust the lifetime of a session token to control when and how often a user is required to reenter credentials, instead of being silently authenticated, when using a web application.
 
@@ -218,7 +218,7 @@ To get started, do the following steps:
     ```
 
 ### Example: Manage an organization's default policy
-In this example, you create a policy that lets your users sign in less frequently across your entire organization. To do this, create a token lifetime policy for Single-Factor Refresh Tokens, which is applied across your organization. The policy is applied to every application in your organization, and to each service principal that doesn’t already have a policy set.
+In this example, you create a policy that lets your users' sign in less frequently across your entire organization. To do this, create a token lifetime policy for Single-Factor Refresh Tokens, which is applied across your organization. The policy is applied to every application in your organization, and to each service principal that doesn’t already have a policy set.
 
 1. Create a token lifetime policy.
 
@@ -396,7 +396,7 @@ Get-AzureADPolicy
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| <code>&#8209;Id</code> [Optional] |**ObjectId (Id)** of the policy you want. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [Optional] |**ObjectId (ID)** of the policy you want. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -422,7 +422,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** of the policy you want. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** of the policy you want. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |String of the policy name. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;Definition</code> [Optional] |Array of stringified JSON that contains all the policy's rules. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;IsOrganizationDefault</code> [Optional] |If true, sets the policy as the organization's default policy. If false, does nothing. |`-IsOrganizationDefault $true` |
@@ -440,7 +440,7 @@ Deletes the specified policy.
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** of the policy you want. | `-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** of the policy you want. | `-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -456,7 +456,7 @@ Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectI
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** of the application. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** of the application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** of the policy. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -470,7 +470,7 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** of the application. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** of the application. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -483,7 +483,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** of the application. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** of the application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** of the policy. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
@@ -500,7 +500,7 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectI
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** of the application. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** of the application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** of the policy. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -514,7 +514,7 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** of the application. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** of the application. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -527,5 +527,5 @@ Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -Policy
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** of the application. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** of the application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** of the policy. | `-PolicyId <ObjectId of Policy>` |
