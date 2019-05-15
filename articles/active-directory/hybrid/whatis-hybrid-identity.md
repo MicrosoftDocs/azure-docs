@@ -56,7 +56,7 @@ Here are some common hybrid identity and access management scenarios with recomm
 > 
 
 ## License requirements for using Azure AD Connect
-Azure AD Connect is free but it requires an Azure AD tenant to synchronize with.  
+
 [!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
 ## Next Steps 
