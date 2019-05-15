@@ -529,6 +529,9 @@ To explore more installation and configuration options for Istio, see the follow
 
 You can also follow additional scenarios using the [Istio Bookinfo Application example][istio-bookinfo-example].
 
+To learn how to monitor your AKS application using Application Insights and Istio, see the following Azure Monitor documentation:
+- [Zero instrumentation application monitoring for Kubernetes hosted applications][app-insights]
+
 <!-- LINKS - external -->
 [istio]: https://istio.io
 [helm]: https://helm.sh
@@ -554,6 +557,8 @@ You can also follow additional scenarios using the [Istio Bookinfo Application e
 [prometheus]: https://prometheus.io/
 [jaeger]: https://www.jaegertracing.io/
 [kiali]: https://www.kiali.io/
+
+[app-insights]: https://docs.microsoft.com/azure/azure-monitor/app/kubernetes
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md

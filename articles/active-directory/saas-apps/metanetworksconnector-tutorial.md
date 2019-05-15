@@ -130,8 +130,8 @@ To configure Azure AD single sign-on with Meta Networks Connector, perform the f
 	| ---------------| --------------- | -------- |
 	| firstname | user.givenname | |
 	| lastname | user.surname | |
-	| emailaddress| user.mail| `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-	| name | user.userprincipalname| `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+	| emailaddress| user.mail| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+	| name | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
 	| phone | user.telephonenumber | |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
