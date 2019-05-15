@@ -15,8 +15,6 @@ ms.custom: "include file"
 
 3. In the search box, type **Mobile Apps**.
 
-    [![Azure portal with Mobile Apps Quickstart highlighted][quickstart]](./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart-zoom.png#lightbox)
-
 4. In the results list, select **Mobile App**, and then select **Create**.
 
 5. Choose a unique **App name**. This will also be part of the domain name for your App Service.

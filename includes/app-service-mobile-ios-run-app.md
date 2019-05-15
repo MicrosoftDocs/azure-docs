@@ -14,21 +14,21 @@ ms.author: crdun
 
 4. In `viewDidLoad()` method, replace `ZUMOAPPURL` parameter with public endpoint above.
 
-    let client = MSClient(applicationURLString: "ZUMOAPPURL")
+    `let client = MSClient(applicationURLString: "ZUMOAPPURL")`
 
         becomes
     
-    let client = MSClient(applicationURLString: "https://test123.azurewebsites.net")
+    `let client = MSClient(applicationURLString: "https://test123.azurewebsites.net")`
     
 5. For Objective-C project, open the file `QSTodoService.m` in this folder - ZUMOAPPNAME/ZUMOAPPNAME. The application name is `ZUMOAPPNAME`.
 
 6. In `init` method, replace `ZUMOAPPURL` parameter with public endpoint above.
 
-    self.client = [MSClient clientWithApplicationURLString:@"ZUMOAPPURL"];
+    `self.client = [MSClient clientWithApplicationURLString:@"ZUMOAPPURL"];`
 
         becomes
     
-    self.client = [MSClient clientWithApplicationURLString:@"https://test123.azurewebsites.net"];
+    `self.client = [MSClient clientWithApplicationURLString:@"https://test123.azurewebsites.net"];`
 
 7. Press the **Run** button to build the project and start the app in the iOS simulator.
 
