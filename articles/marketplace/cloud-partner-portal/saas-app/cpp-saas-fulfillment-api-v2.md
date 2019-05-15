@@ -811,10 +811,7 @@ Sample Uri: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-ver
 
 The API endpoint paths are the same across both Mock and Real APIs, but the API versions are different. The version is 2018-09-15 for Mock and 2018-08-31 for the production version. 
 
-Any of the API calls in this article can be made to the mock host endpoint. You can expect to get mock data back as a response.
-
-Note that mock API invocations use a different API version (date) than the production API.  Any of the API calls in this article can be made to the mock host endpoint. In general, you can expect to get mock data back as a response. Calls to the update subscription methods on the mock API always return 500. 
->>>>>>> 9d43325a41255cac370d7e4e121c97bbbe81499d
+Any of the API calls in this article can be made to the mock host endpoint. You can expect to get mock data back as a response. In general, you can expect to get mock data back as a response. Calls to the update subscription methods on the mock API always return 500. 
 
 ## Next steps
 
