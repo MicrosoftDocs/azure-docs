@@ -59,6 +59,9 @@ print(model.name, model.id, model.version, sep='\t')
 ```
 
 ### Register an externally created model
+
+[!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
+
 You can register an externally created model by providing a **local path** to the model. You can provide either a folder or a single file.
 
 **ONNX example with the Python SDK:**
@@ -119,7 +122,7 @@ dependencies:
   - python=3.6.2
   - pip:
     - azureml-defaults
-    - scikit-learn
+    - scikit-learn==0.20.0
     - inference-schema[numpy-support]
 ```
 

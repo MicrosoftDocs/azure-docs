@@ -54,12 +54,7 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | CentOS | 7.4 | OS and data disk |
 | CentOS | 7.3 | OS and data disk |
 | CentOS | 7.2n | OS and data disk |
-| CentOS | 6.8 | OS and data disk |
-| CentOS | 7.1 | Data disk |
-| CentOS | 7.0 | Data disk |
-| CentOS | 6.7 | Data disk |
-| CentOS | 6.6 | Data disk |
-| CentOS | 6.5 | Data disk |
+| CentOS | 6.8 | Data disk |
 | openSUSE | 42.3 | Data disk |
 | SLES | 12-SP4 | Data disk |
 | SLES | 12-SP3 | Data disk |
@@ -154,7 +149,7 @@ On Linux, ADE uses the decrypt default of aes-xts-plain64 with a 256-bit volume 
 No, data won't be erased from data drives that are already encrypted using Azure Disk Encryption. Similar to how EncryptFormatAll didn't re-encrypt the OS drive, it won't re-encrypt the already encrypted data drive. For more information, see the [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
 
 ## Is XFS filesystem supported?
-XFS volumes are supported for data disk encryption only with the EncryptFormalAll. This will reformat the volume, erasing any data previously there. For more information, see the [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
+XFS volumes are supported for data disk encryption only with the EncryptFormatAll. This will reformat the volume, erasing any data previously there. For more information, see the [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
 
 ## Can I backup and restore an encrypted VM? 
 

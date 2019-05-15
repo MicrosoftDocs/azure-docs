@@ -6,7 +6,7 @@ author: mhopkins-msft
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 4/29/2019
+ms.date: 05/09/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
@@ -39,7 +39,7 @@ The lifecycle management feature is available in all global Azure regions.
 
 ## Add or remove a policy
 
-You can add, edit, or remove a policy by using any of the following methods.
+You can add, edit, or remove a policy by using any of the following methods:
 
 * [Azure portal](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
@@ -127,7 +127,7 @@ You can define lifecycle management by using Azure Resource Manager templates. H
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {
