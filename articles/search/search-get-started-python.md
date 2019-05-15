@@ -21,11 +21,9 @@ ms.custom: seodec2018
 > * [Portal](search-create-index-portal.md)
 > 
 
-Build a Jupyter notebook that creates, loads, and queries an Azure Search [index](search-what-is-an-index.md) using Python and the [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/). 
+Build a Jupyter notebook that creates, loads, and queries an Azure Search [index](search-what-is-an-index.md) using Python and the [Azure Search Service REST APIs](https://docs.microsoft.com/rest/api/searchservice/). 
 
-This article explains how to build your own notebook step by step. 
-
-Optionally, you can run a finished notebook. To download a copy, go to [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples).
+This article explains how to build your own notebook step by step. Optionally, you can run a finished notebook. To download a copy, go to [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples).
 
 ## Prerequisites
 
@@ -83,17 +81,19 @@ Open a Jupyter notebook and verify the connection from your local workstation by
 
    ![Python script in Jupyter notebook with HTTP requests to Azure Search](media/search-get-started-python/connect-azure-search.png "Python script in Jupyter notebook with HTTP requests to Azure Search")
 
-An empty index collection returns this response: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
+   An empty index collection returns this response: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
-On a free service, you are limited to three indexes, indexers, and data sources. This quickstart creates one of each. Make sure you have room to create new objects before going any further.
+> [!Tip]
+> On a free service, you are limited to three indexes, indexers, and data sources. This quickstart creates one of each. Make sure you have room to create new objects before going any further.
 
 ## 1 - Create an index
 
-Unless you are using the portal, an index must exist on the service before you can load data. This step uses the [Create Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) to push an index schema to the service
+Unless you are using the portal, an index must exist on the service before you can load data. This step uses the [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) to push an index schema to the service
 
 The fields collection defines the structure of a *document*. Required elements of an index include a name and a fields collection. Each field has a name, type, and attributes that determine how it's used (for example, whether it is full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document identity.
 
-This index is named "hotels-py" and has the field definitions you see below. The index definition specifies a [language analyzer](index-add-language-analyzers.md) for the `description_fr` field because it stores French strings.
+This index is named "hotels-py" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) used in other walkthroughs. We trimmed it for this quickstart for brevity.
+
 
 1. In the next cell, paste the following example into a cell to provide the schema. 
 
@@ -145,7 +145,7 @@ This index is named "hotels-py" and has the field definitions you see below. The
 
 ## 2 - Load documents
 
-To push documents, use an HTTP POST request to your index's URL endpoint. The REST API for this task is [Add, Update, or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+To push documents, use an HTTP POST request to your index's URL endpoint. The REST API is [Add, Update, or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). Documents originate from [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) on GitHub.
 
 1. In a new cell, provide three documents that conform to the index schema. Specify an upload action for each document.
 
@@ -208,8 +208,8 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
             "PostalCode": "30326",
             "Country": "USA"
         }
-        }
-    ]
+      }
+     ]
     }
     ```
 
@@ -243,7 +243,7 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
 
 ## 3 - Search an index
 
-This step shows you how to query an index using the [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+This step shows you how to query an index using the [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 
 1. In a new cell, provide a query expression. The following example searches on the terms "hotels" and "wifi". It also returns a *count* of documents that match, and *selects* which fields to include in the search results.
@@ -287,14 +287,14 @@ This step shows you how to query an index using the [Search Documents API](https
 
 ## Clean up 
 
-You should delete the index if you no longer need it. A free service is limited to three indexes. You might want to delete any indexes you are not actively using so that you can step through other tutorials.
+You should delete the index if you no longer need it. A free service is limited to three indexes. You might want to delete any indexes you are not actively using to make room for other tutorials.
 
    ```python
   url = endpoint + "indexes/hotels-py" + api_version
   response  = requests.delete(url, headers=headers)
    ```
 
-You can verify index deletion by returning a list of existing indexes. If hotels-py is gone, then you know it was deleted.
+You can verify index deletion by returning a list of existing indexes. If hotels-py is gone, then you know your reques succeedd.
 
 ```python
 url = endpoint + "indexes" + api_version + "&$select=name"
