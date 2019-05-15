@@ -49,6 +49,7 @@ The Large partition keys are supported with the following minimum versions of SD
 |.Net     |    1.18     |
 |Java sync     |   2.4.0      |
 |Java Async   |  2.5.0        |
+| REST API | version higher than `2017-05-03` by using the `x-ms-version` request header.|
  
 ## Next steps
 
