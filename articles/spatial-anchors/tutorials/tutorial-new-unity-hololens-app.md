@@ -83,7 +83,7 @@ To test out that everything is working, build your app in **Unity** and deploy i
 ## Place an object in the real world
 Let's create & place an object using your app. Open the Visual Studio solution that we created when we [deployed our app](#trying-it-out). 
 
-First, add the following imports into your `<SolutionName>\Assembly-CSharp (Universal Windows)\Scripts\AzureSpatialAnchorsScript.cs`:
+First, add the following imports into your `Assembly-CSharp (Universal Windows)\Scripts\AzureSpatialAnchorsScript.cs`:
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=19-24)]
 
@@ -93,7 +93,7 @@ Then, add the following members variables into your `AzureSpatialAnchorsScript` 
 
 Next, add the following code into your `Start()` method. This code will hook up `GestureRecognizer`, which will detect when there is an air tap and call `HandleTap`.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=76-85,88&highlight=4,6,8,10))]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=76-85,88&highlight=4-10)]
 
 We now have to add the following `HandleTap()` method below `Update()`. It will do a ray cast and get a hit point at which to place a sphere. 
 
@@ -155,7 +155,7 @@ Now, let's hook your `initializeSession()` method into your `Start()` method.
 
 Finally, add the following code into your `CreateAndSaveSphere()` method. It will attach a local Azure Spatial Anchor to the sphere that we're placing in the real world.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=311-337,390&highlight=16-32)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=311-337,390&highlight=16-31)]
 
 Before proceeding any further, you'll need to create an Azure Spatial Anchors account Identifier and Key, if you don't already have them. Follow the following section to obtain them.
 
