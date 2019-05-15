@@ -28,7 +28,7 @@ Two URLs have the same origin if they have identical schemes, hosts, and ports (
 
 The following URLs have different origins than the previous two:
 
--   http:\//consoto.net - Different domain
+-   http:\//contoso.net - Different domain
 -   http:\//contoso.com:9000/foo.html - Different port
 -   https:\//contoso.com/foo.html - Different scheme
 -   http:\//www.contoso.com/foo.html - Different subdomain
@@ -61,13 +61,13 @@ Use an Azure AD Application Proxy [custom domain](https://docs.microsoft.com/en-
 
 ### Option 2: Publish the parent directory
 
-Publish the parent directory of both apps. This solution works especially well if you only have two apps on the web server. Instead of publishing each app's folder separately, publish the common parent directory to give both apps the same origin.
+Publish the parent directory of both apps. This solution works especially well if you only have two apps on the web server. Instead of publishing each app separately, publish the common parent directory to give both apps the same origin.
 
-- App with individually published directory:
+- App directory published individually:
   
   ![Publish app individually](./media/application-proxy-understand-cors-issues/image4.png)
   
-- App with parent directory published:
+- Instead publish the parent directory:
 
   ![Publish parent directory](./media/application-proxy-understand-cors-issues/image5.png)
   
@@ -99,4 +99,9 @@ Content-Length: 17
 
 ### Option 4: Modify the app
 
-You can change your app to support CORS by adding the *Access-Control-Allow-Origin* header, with appropriate values. The way to add the header depends on the app's code language. Changing the code is the least recommended option, because it requires the most effort.
+You can change your app to support CORS by adding the **Access-Control-Allow-Origin** header, with appropriate values. The way to add the header depends on the app's code language. Changing the code is the least recommended option, because it requires the most effort.
+
+## See also
+[Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md) 
+[Plan an Azure AD Application Proxy deployment](application-proxy-deployment-plan.md) 
+[Remote access to on-premises applications through Azure Active Directory Application Proxy](application-proxy.md) 
