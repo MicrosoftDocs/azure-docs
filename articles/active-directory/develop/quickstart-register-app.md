@@ -1,5 +1,5 @@
 ---
-title: Register an app with the Microsoft identity platform (Preview) | Azure
+title: Register an app with the Microsoft identity platform - Microsoft identity platform
 description: Learn how to add and register an application with the Microsoft identity platform.
 services: active-directory
 documentationcenter: ''
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2018
+ms.date: 04/30/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 #Customer intent: As an enterprise developer and software-as-a-service provider, I want to know how to add and register my application with the Microsoft identity platform.
 ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Register an application with the Microsoft identity platform (Preview)
+# Quickstart: Register an application with the Microsoft identity platform
 
 Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line-of-business applications that can be integrated with Microsoft identity platform to provide secure sign-in and authorization for their services.
 
-This quickstart shows you how to add and register an application using the **App registrations (Preview)** experience in the Azure portal so that your app can be integrated with the Microsoft identity platform. To learn more about the new features and improvements in the new app registrations experience, see [this blog post](https://developer.microsoft.com/graph/blogs/new-app-registration/). 
+This quickstart shows you how to add and register an application using the **App registrations** experience in the Azure portal so that your app can be integrated with the Microsoft identity platform. To learn more about the new features and improvements in the new app registrations experience, see [this blog post](https://developer.microsoft.com/graph/blogs/new-app-registration/).
 
 ## Prerequisite
 

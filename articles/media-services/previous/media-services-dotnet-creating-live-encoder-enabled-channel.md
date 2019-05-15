@@ -206,7 +206,7 @@ namespace EncodeLiveStreamWithAmsClear
             IOperation channelCreateOperation = _context.Channels.SendCreateOperation(options);
             string channelId = TrackOperation(channelCreateOperation, "Channel create");
 
-            IChannel channel = _context.Channels.Where(c => c.Id == channelId).FirstOrDefault();
+            IChannel channel = _context.Channels.FirstOrDefault(c => c.Id == channelId);
 
             Log("Starting channel");
             var channelStartOperation = channel.SendStartOperation();
@@ -395,8 +395,7 @@ namespace EncodeLiveStreamWithAmsClear
             {
                 foreach (var program in channel.Programs)
                 {
-                    asset = _context.Assets.Where(se => se.Id == program.AssetId)
-                                .FirstOrDefault();
+                    asset = _context.Assets.FirstOrDefault(se => se.Id == program.AssetId);
 
                     Log("Stopping program");
                     var programStopOperation = program.SendStopOperation();

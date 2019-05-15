@@ -6,7 +6,7 @@ author: xyh1
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/02/2019
+ms.date: 04/18/2019
 ms.author: hux
 ms.subservice: blobs
 ---
@@ -25,7 +25,7 @@ Typical applications include:
 
 - **Secure document retention**: Immutable storage for Azure Blob storage ensures that data can't be modified or deleted by any user, including users with account administrative privileges.
 
-- **Legal hold**: Immutable storage for Azure Blob storage enables users to store sensitive information that's critical to litigation or business use in a tamper-proof state for the desired duration until the hold is removed. This feature is not limited only to legal use cases but can also be thought of as an event-based hold or an enterprise lock, where the need to protect data based on event triggers or corporate policy is required.
+- **Legal hold**: Immutable storage for Azure Blob storage enables users to store sensitive information that is critical to litigation or business use in a tamper-proof state for the desired duration until the hold is removed. This feature is not limited only to legal use cases but can also be thought of as an event-based hold or an enterprise lock, where the need to protect data based on event triggers or corporate policy is required.
 
 Immutable storage supports the following:
 
@@ -37,11 +37,13 @@ Immutable storage supports the following:
 
 - **Container-level configuration**: Users can configure time-based retention policies and legal hold tags at the container level. By using simple container-level settings, users can create and lock time-based retention policies, extend retention intervals, set and clear legal holds, and more. These policies apply to all the blobs in the container, both existing and new.
 
-- **Audit logging support**: Each container includes an audit log. It shows up to five time-based retention commands for locked time-based retention policies, with a maximum of three logs for retention interval extensions. For time-based retention, the log contains the user ID, command type, time stamps, and retention interval. For legal holds, the log contains the user ID, command type, time stamps, and legal hold tags. This log is retained for the lifetime of the container, in accordance with the SEC 17a-4(f) regulatory guidelines. The [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md) shows a more comprehensive log of all the control plane activities; while enabling [Azure Diagnostic Logs](../../azure-monitor/platform/diagnostic-logs-overview.md) retains and shows data plane operations. It is the user's responsibility to store those logs persistently, as might be required for regulatory or other purposes.
+- **Audit logging support**: Each container includes a policy audit log. It shows up to seven time-based retention commands for locked time-based retention policies and contains the user ID, command type, time stamps, and retention interval. For legal holds, the log contains the user ID, command type, time stamps, and legal hold tags. This log is retained for the lifetime of the policy, in accordance with the SEC 17a-4(f) regulatory guidelines. The [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md) shows a more comprehensive log of all the control plane activities; while enabling [Azure Diagnostic Logs](../../azure-monitor/platform/diagnostic-logs-overview.md) retains and shows data plane operations. It is the user's responsibility to store those logs persistently, as might be required for regulatory or other purposes.
 
 ## How it works
 
 Immutable storage for Azure Blob storage supports two types of WORM or immutable policies: time-based retention and legal holds. When a time-based retention policy or legal hold is applied on a container, all existing blobs move into an immutable WORM state in less than 30 seconds. All new blobs that are uploaded to that container will also move into the immutable state. Once all blobs have moved into the immutable state, the immutable policy is confirmed and all overwrite or delete operations for existing and new objects in the immutable container are not allowed.
+
+Container and Account deletion are also not allowed if there are any blobs protected by an immutable policy. The Delete Container operation will fail if at least one blob exists with a locked time-based retention policy or a legal hold. The storage account deletion will fail if there is at least one WORM container with a legal hold or a blob with an active retention interval. 
 
 ### Time-based retention
 
@@ -76,17 +78,28 @@ The following table shows the types of blob operations that are disabled for the
 
 <sup>1</sup> The application allows these operations to create a new blob once. All subsequent overwrite operations on an existing blob path in an immutable container are not allowed.
 
+## Supported values
+
+### Time-based retention
+- For a storage account, the maximum number of containers with locked time-based immutable policies is 1,000.
+- The minimum retention interval is 1 day. The maximum is 146,000 days (400 years).
+- For a container, the maximum number of edits to extend a retention interval for locked time-based immutable policies is 5.
+- For a container, a maximum of 7 time-based retention policy audit logs are retained for the duration of the policy.
+
+### Legal hold
+- For a storage account, the maximum number of containers with a legal hold setting is 1,000.
+- For a container, the maximum number of legal hold tags is 10.
+- The minimum length of a legal hold tag is 3 alphanumeric characters. The maximum length is 23 alphanumeric characters.
+- For a container, a maximum of 10 legal hold policy audit logs are retained for the duration of the policy.
+
 ## Pricing
 
 There is no additional charge for using this feature. Immutable data is priced in the same way as regular, mutable data. For pricing details on Azure Blob Storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Getting started
+Immutable storage is available only for General Purpose v2 and Blob Storage Accounts. These accounts must be managed through [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). For information on upgrading an existing General Purpose v1 storage account, see [Upgrade a storage account](../common/storage-account-upgrade.md).
 
 The most recent releases of the [Azure portal](https://portal.azure.com), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), and [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) support immutable storage for Azure Blob storage. [Client library support](#client-libraries) is also provided.
-
-> [!NOTE]
->
-> Immutable storage is available only for General Purpose v2 and Blob Storage Accounts. These account must be managed through [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). For information on upgrading an existing General Purpose v1 storage account, see [Upgrade a storage account](../common/storage-account-upgrade.md).
 
 ### Azure portal
 
@@ -110,17 +123,19 @@ The most recent releases of the [Azure portal](https://portal.azure.com), [Azure
 
     !["Lock policy" on the menu](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
 
-    Select **Lock Policy**. The policy is now locked and cannot be deleted, only extensions of the retention interval will be allowed.
+6. Select **Lock Policy** and confirm the lock. The policy is now locked and cannot be deleted, only extensions of the retention interval will be allowed. Blob deletes and overrides are not permitted. 
 
-6. To enable legal holds, select **+ Add Policy**. Select **Legal hold** from the drop-down menu.
+    ![Confirm "Lock policy" on the menu](media/storage-blob-immutable-storage/portal-image-5-lock-policy.png)
+
+7. To enable legal holds, select **+ Add Policy**. Select **Legal hold** from the drop-down menu.
 
     !["Legal hold" on the menu under "Policy type"](media/storage-blob-immutable-storage/portal-image-legal-hold-selection-7.png)
 
-7. Create a legal hold with one or more tags.
+8. Create a legal hold with one or more tags.
 
     !["Tag name" box under the policy type](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
 
-8. To clear a legal hold, simply remove the applied legal hold identifier tag.
+9. To clear a legal hold, simply remove the applied legal hold identifier tag.
 
 ### Azure CLI
 
@@ -147,16 +162,6 @@ The following client libraries support immutable storage for Azure Blob storage:
 - [Python Client Library version 2.0.0 Release Candidate 2 and later](https://pypi.org/project/azure-mgmt-storage/2.0.0rc2/)
 - [Java Client Library](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/storage/resource-manager/Microsoft.Storage/preview/2018-03-01-preview)
 
-## Supported values
-
-- The minimum retention interval is one day. The maximum is 146,000 days (400 years).
-- For a storage account, the maximum number of containers with locked immutable policies is 1,000.
-- For a storage account, the maximum number of containers with a legal hold setting is 1,000.
-- For a container, the maximum number of legal hold tags is 10.
-- The maximum length of a legal hold tag is 23 alphanumeric characters. The minimum length is three characters.
-- For a container, the maximum number of allowable retention interval extensions for locked immutable policies is three.
-- For a container with a locked immutable policy, a maximum of five time-based retention policy logs and a maximum of 10 legal hold policy logs are retained for the duration of the container.
-
 ## FAQ
 
 **Can you provide documentation of WORM compliance?**
@@ -167,13 +172,13 @@ Yes. To document compliance, Microsoft retained a leading independent assessment
 
 Immutable storage can be used with any blob type, but we recommend that you use it mostly for block blobs. Unlike block blobs, page blobs and append blobs need to be created outside a WORM container, and then copied in. After you copy these blobs into a WORM container, no further *appends* to an append blob or changes to a page blob are allowed.
 
-**Do I need to always create a new storage account to use this feature?**
+**Do I need to create a new storage account to use this feature?**
 
-You can use immutable storage with any existing or newly created General Purpose v2 or Blob Storage accounts. This feature is intended for usage with block blobs in GPv2 and Blob Storage accounts.
+No, you can use immutable storage with any existing or newly created General Purpose v2 or Blob storage accounts. This feature is intended for usage with block blobs in GPv2 and Blob Storage accounts. General Purpose v1 storage accounts are not supported but can be easily upgraded to General Purpose v2. For information on upgrading an existing General Purpose v1 storage account, see [Upgrade a storage account](../common/storage-account-upgrade.md).
 
 **Can I apply both a legal hold and time-based retention policy?**
 
-A container can have both a legal hold and a time-based retention policy at the same time. All blobs in that container stay in the immutable state until all legal holds are cleared, even if their effective retention period has expired. Conversely, a blob stays in an immutable state until the effective retention period expires, even though all legal holds have been cleared.
+Yes, a container can have both a legal hold and a time-based retention policy at the same time. All blobs in that container stay in the immutable state until all legal holds are cleared, even if their effective retention period has expired. Conversely, a blob stays in an immutable state until the effective retention period expires, even though all legal holds have been cleared.
 
 **Are legal hold policies only for legal proceedings or are there other use scenarios?**
 
@@ -185,7 +190,7 @@ The Delete Container operation will fail if at least one blob exists with a lock
 
 **What happens if I try to delete a storage account with a WORM container that has a *locked* time-based retention policy or legal hold?**
 
-The storage account deletion will fail if there is at least one WORM container with a legal hold or a blob with an active retention interval.  You must delete all WORM containers before you can delete the storage account. For information on container deletion, see the preceding question.
+The storage account deletion will fail if there is at least one WORM container with a legal hold or a blob with an active retention interval. You must delete all WORM containers before you can delete the storage account. For information on container deletion, see the preceding question.
 
 **Can I move the data across different blob tiers (hot, cool, cold) when the blob is in the immutable state?**
 
@@ -197,13 +202,13 @@ In the case of non-payment, normal data retention policies will apply as stipula
 
 **Do you offer a trial or grace period for just trying out the feature?**
 
-Yes. When a time-based retention policy is first created, it's in an *unlocked* state. In this state, you can make any desired change to the retention interval, such as increase or decrease and even delete the policy. After the policy is locked, it stays locked until the retention interval expires. This locked policy prevents deletion and modification to the retention interval. We strongly recommend that you use the *unlocked* state only for trial purposes and lock the policy within a 24-hour period. These practices help you comply with SEC 17a-4(f) and other regulations.
+Yes. When a time-based retention policy is first created, it is in an *unlocked* state. In this state, you can make any desired change to the retention interval, such as increase or decrease and even delete the policy. After the policy is locked, it stays locked until the retention interval expires. This locked policy prevents deletion and modification to the retention interval. We strongly recommend that you use the *unlocked* state only for trial purposes and lock the policy within a 24-hour period. These practices help you comply with SEC 17a-4(f) and other regulations.
 
 **Can I use soft delete alongside Immutable blob policies?**
 
 Yes. [Soft delete for Azure Blob storage](storage-blob-soft-delete.md) applies for all containers within a storage account regardless of a legal hold or time-based retention policy. We recommend enabling soft delete for additional protection before any immutable WORM policies are applied and confirmed. 
 
-**Is the feature available in national and government clouds?**
+**Where is the feature available?**
 
 Immutable storage is available in Azure Public, China, and Government regions. If Immutable storage is not available in your region, please contact support and email azurestoragefeedback@microsoft.com.
 

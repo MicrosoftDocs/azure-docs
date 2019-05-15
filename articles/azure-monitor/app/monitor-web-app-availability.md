@@ -62,7 +62,7 @@ Open the Availability blade and add a test.
 
     **HTTP response**: The returned status code that is counted as a success. 200 is the code that indicates that a normal web page has been returned.
 
-    **Content match**: a string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it.
+    **Content match**: a string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it. **Only English characters are currently supported with content match.** 
 
 * **Alert location threshold**: We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations** - 2, with a minimum of five test locations.
 
@@ -87,7 +87,7 @@ Use Visual Studio Enterprise to record a web session.
 
     ![In Visual Studio Enterprise edition, create a project from the Web Performance and Load Test template.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
-   * *Don't see the Web Performance and Load Test template?* - Close Visual Studio Enterprise. Open **Visual Studio Installer** to modify your Visual Studio Enterprise installation. Under **Individual Components**, select **Web Performance and load testing tools**.
+ * *Don't see the Web Performance and Load Test template?* - Close Visual Studio Enterprise. Open **Visual Studio Installer** to modify your Visual Studio Enterprise installation. Under **Individual Components**, select **Web Performance and load testing tools**.
 
 2. Open the .webtest file and start recording.
 
@@ -162,7 +162,7 @@ You can apply filters on the test name, location to analyze trends of a particul
 
 ## <a name="edit"></a> Inspect and edit tests
 
-From the details tab, on a specific test select the ellipsis on the far right to edit, temporarily disable, delete or download web test.
+From the details tab, on a specific test select the ellipsis on the far right to edit, temporarily disable, delete or download web test. It may take up to 20 minutes for configuration changes to propagate.
 
 Select **View test details** from a specific test to see its scatter plot and specific test location details.
 
@@ -269,6 +269,9 @@ If your test must sign in using OAuth, the general approach is:
   (Visual Studio attempts to parameterize the test, but does not correctly parameterize the tokens.)
 
 ## Performance tests
+> [!NOTE]  
+> The cloud-based load testing service is deprecated. More information about the deprecation, the service availability, and alternative services can be found [here](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops).
+
 You can run a load test on your website. Like the availability test, you can send either simple requests or multi-step requests from our points around the world. Unlike an availability test, many requests are sent, simulating multiple simultaneous users.
 
 Under **Configure**, go to **Performance Testing** and click new to create a test.

@@ -1,5 +1,4 @@
 ---
-ms.assetid: 
 title: Virtual network service endpoints for Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Overview of virtual network service endpoints for Key Vault
 services: key-vault
@@ -8,7 +7,6 @@ ms.author: ambapat
 manager: barbkess
 ms.date: 01/02/2019
 ms.service: key-vault
-ms.workload: identity
 ms.topic: conceptual
 ---
 # Virtual network service endpoints for Azure Key Vault
@@ -49,7 +47,7 @@ For more information, see [Configure Azure Key Vault firewalls and virtual netwo
 > Be aware of the following configuration limitations:
 > * A maximum of 127 virtual network rules and 127 IPv4 rules are allowed. 
 > * Small address ranges that use the "/31" or "/32" prefix sizes are not supported. Instead, configure these ranges by using individual IP address rules.
-> * IP network rules are only allowed for public IP addresses. IP address ranges reserved for private networks (as defined in RFC 1918) are not allowed in IP rules. Private networks include addresses that start with **10.**, **172.16.**, and **192.168.**. 
+> * IP network rules are only allowed for public IP addresses. IP address ranges reserved for private networks (as defined in RFC 1918) are not allowed in IP rules. Private networks include addresses that start with **10.**, **172.16-31**, and **192.168.**. 
 > * Only IPv4 addresses are supported at this time.
 
 ## Trusted services

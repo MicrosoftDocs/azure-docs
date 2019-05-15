@@ -4,7 +4,7 @@ description: Use the periodic backup and restore feature in Service Fabric for r
 services: service-fabric
 documentationcenter: .net
 author: aagup
-manager: timlt
+manager: chackdan
 editor: aagup
 
 ms.assetid: 802F55B6-6575-4AE1-8A8E-C9B03512FF88

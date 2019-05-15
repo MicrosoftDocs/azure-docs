@@ -197,4 +197,4 @@ If you have a property with a large number of possible values, it's best to send
 
 ## Next steps
 
-To put these guidelines into practice, see [Azure Time Series Insights query syntax](/rest/api/time-series-insights/ga-query-syntax) to learn more about the query syntax for the TSI data access REST API.
+- To put these guidelines into practice, see [Azure Time Series Insights query syntax](/rest/api/time-series-insights/ga-query-syntax) to learn more about the query syntax for the TSI data access REST API.

@@ -104,7 +104,8 @@ This problem might occur if your environment doesn’t have a Time Series Model 
 ## Next steps
 
 - Read [Work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
-- Read [Supported JSON shapes](./how-to-shape-query-json.md).
+
+- Learn about [supported JSON shapes](./how-to-shape-query-json.md).
 
 <!-- Images -->
 [1]: media/v2-update-diagnose-and-troubleshoot/environment.png

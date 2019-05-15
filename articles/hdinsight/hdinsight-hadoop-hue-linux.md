@@ -2,7 +2,6 @@
 title: Hue with Hadoop on HDInsight Linux-based clusters - Azure 
 description: Learn how to install Hue on HDInsight clusters and use tunneling to route the requests to Hue. Use Hue to browse storage and run Hive or Pig.
 keywords: hue hadoop
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -91,7 +90,7 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
     This is the hostname of the primary headnode where the Hue website is located.
-4. Use the browser to open the Hue portal at http://HOSTNAME:8888. Replace HOSTNAME with the name you obtained in the previous step.
+4. Use the browser to open the Hue portal at http:\//HOSTNAME:8888. Replace HOSTNAME with the name you obtained in the previous step.
 
    > [!NOTE]  
    > When you log in for the first time, you will be prompted to create an account to log in to the Hue portal. The credentials you specify here will be limited to the portal and are not related to the admin or SSH user credentials you specified while provision the cluster.

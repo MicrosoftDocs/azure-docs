@@ -23,7 +23,7 @@
     href: quickstart-python.md
   - name: Create Ruby app
     href: quickstart-ruby.md
-  - name: Create Docker/Go app
+  - name: Run custom container
     href: quickstart-docker-go.md
   - name: Create multi-container app
     href: quickstart-multi-container.md
@@ -47,7 +47,7 @@
       href: tutorial-java-enterprise-postgresql-app.md
   - name: Multi-container app
     href: tutorial-multi-container-app.md
-  - name: Custom Docker image
+  - name: Run container from ACR
     href: tutorial-custom-docker-image.md
   - name: Map Custom Domain
     href: ../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
@@ -71,10 +71,6 @@
     href: ../overview-hosting-plans.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: App Service Environment
     href: ../environment/intro.md
-  - name: Java developer guide
-    href: app-service-linux-java.md
-  - name: Java Enterprise  guide
-    href: app-service-java-enterprise.md
   - name: Inbound and outbound IPs
     href: ../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Authentication and authorization
@@ -87,10 +83,22 @@
   items:
   - name: Configure app
     items:
-    - name: Python image
-      href: how-to-configure-python.md
     - name: Use app settings
       href: ../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Configure ASP.NET Core
+      href: configure-language-dotnetcore.md
+    - name: Configure Node.js
+      href: configure-language-nodejs.md
+    - name: Configure PHP
+      href: configure-language-php.md
+    - name: Configure Java
+      href: configure-language-java.md
+    - name: Configure Python
+      href: how-to-configure-python.md
+    - name: Configure Ruby
+      href: configure-language-ruby.md
+    - name: Configure custom container
+      href: configure-custom-container.md
     - name: Serve content with Storage
       href: how-to-serve-content-from-azure-storage.md
   - name: Deploy to Azure
@@ -157,8 +165,6 @@
       href: ../web-sites-monitor.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Enable logs
       href: ../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Java APM integrations
-      href: how-to-java-apm-monitoring.md
   - name: Manage app
     items:
     - name: Back up an app

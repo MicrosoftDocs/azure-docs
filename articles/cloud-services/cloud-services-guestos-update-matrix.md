@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/12/2019
+ms.date: 3/26/2019
 ms.author: raiye
 
 ---
@@ -39,6 +39,9 @@ Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
 
+###### **March 26, 2019**
+The March Guest OS has released.
+
 ###### **March 12, 2019**
 The February Guest OS has released.
 
@@ -59,9 +62,6 @@ The October Guest OS has released.
 
 ###### **October 12, 2018**
 The September Guest OS has released.
-
-###### **September 12, 2018**
-The August Guest OS has released.
 
 ## Releases
 
@@ -85,9 +85,10 @@ The August Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+| WA-GUEST-OS-6.5_201903-01 |March 26, 2019 |Post 6.7 |
 | WA-GUEST-OS-6.4_201902-01 |March 12, 2019 |Post 6.6 |
-| WA-GUEST-OS-6.3_201901-01 |February 5, 2019 |Post 6.5 |
-|~~WA-GUEST-OS-6.2_201812-01~~|January 24, 2019 |March 12, 2019 |
+|~~WA-GUEST-OS-6.3_201901-01~~ |February 5, 2019 |March 26, 2019 |
+|~~WA-GUEST-OS-6.2_201812-01~~ |January 24, 2019 |March 12, 2019 |
 |~~WA-GUEST-OS-6.1_201811-01~~ |January 24, 2019 |February 5, 2019 |
 
 ## Family 5 releases
@@ -102,13 +103,13 @@ The August Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+| WA-GUEST-OS-5.29_201903-01 |March 26, 2019 |Post 5.31 |
 | WA-GUEST-OS-5.28_201902-01 |March 12, 2019 |Post 5.30 |
-| WA-GUEST-OS-5.27_201901-01 |February 5, 2019 |Post 5.29 |
-|~~WA-GUEST-OS-5.26_201812-01~~|January 7, 2019 |March 12, 2019 |
+|~~WA-GUEST-OS-5.27_201901-01~~ |February 5, 2019 |March 26, 2019 |
+|~~WA-GUEST-OS-5.26_201812-01~~ |January 7, 2019 |March 12, 2019 |
 |~~WA-GUEST-OS-5.25_201811-01~~ |December 14, 2018 |February 5, 2019 |
 |~~WA-GUEST-OS-5.24_201810-01~~ |November 8, 2018 |January 7, 2019 |
 |~~WA-GUEST-OS-5.23_201809-01~~ |October 12, 2018 |December 14, 2018 |
-|~~WA-GUEST-OS-5.22_201808-01~~ |September 12, 2018 |November 8, 2018 |
 
 ## Family 4 releases
 **Windows Server 2012 R2**
@@ -117,13 +118,13 @@ The August Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+| WA-GUEST-OS-4.64_201903-01 |March 26, 2019 |Post 4.66 |
 | WA-GUEST-OS-4.63_201902-01 |March 12, 2019 |Post 4.65 |
-| WA-GUEST-OS-4.62_201901-01 |February 5, 2019 |Post 4.64 |
-|~~WA-GUEST-OS-4.61_201812-01~~|January 7, 2019 |March 12, 2019 |
+|~~WA-GUEST-OS-4.62_201901-01~~ |February 5, 2019 |March 26, 2019 |
+|~~WA-GUEST-OS-4.61_201812-01~~ |January 7, 2019 |March 12, 2019 |
 |~~WA-GUEST-OS-4.60_201811-01~~ |December 14, 2018 |February 5, 2019 |
 |~~WA-GUEST-OS-4.59_201810-01~~ |November 8, 2018 |January 7, 2019 |
 |~~WA-GUEST-OS-4.58_201809-01~~ |October 12, 2018 |December 14, 2018 |
-|~~WA-GUEST-OS-4.57_201808-01~~ |September 12, 2018 |November 8, 2018 |
 
 ## Family 3 releases
 **Windows Server 2012**
@@ -132,13 +133,13 @@ The August Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+| WA-GUEST-OS-3.71_201903-01 |March 26, 2019 |Post 3.73 |
 | WA-GUEST-OS-3.70_201902-01 |March 12, 2019 |Post 3.72 |
-| WA-GUEST-OS-3.69_201901-01 |February 5, 2019 |Post 3.71 |
-|~~WA-GUEST-OS-3.68_201812-01~~|January 7, 2019 |March 12, 2019 |
+|~~WA-GUEST-OS-3.69_201901-01~~ |February 5, 2019 |March 26, 2019 |
+|~~WA-GUEST-OS-3.68_201812-01~~ |January 7, 2019 |March 12, 2019 |
 |~~WA-GUEST-OS-3.67_201811-01~~ |December 14, 2018 |February 5, 2019 |
 |~~WA-GUEST-OS-3.66_201810-01~~ |November 8, 2018 |January 7, 2019 |
 |~~WA-GUEST-OS-3.65_201809-01~~ |October 12, 2018 |December 14, 2018 |
-|~~WA-GUEST-OS-3.64_201808-01~~ |September 12, 2018 |November 8, 2018 |
 
 ## Family 2 releases
 **Windows Server 2008 R2 SP1**
@@ -147,13 +148,13 @@ The August Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+| WA-GUEST-OS-2.84_201903-01 |March 26, 2019 |Post 2.86 |
 | WA-GUEST-OS-2.83_201902-01 |March 12, 2019 |Post 2.85 |
-| WA-GUEST-OS-2.82_201901-01 |February 5, 2019 |Post 2.84 |
+|~~WA-GUEST-OS-2.82_201901-01~~ |February 5, 2019 |March 26, 2019 |
 |~~WA-GUEST-OS-2.81_201812-01~~ |January 7, 2019 |March 12, 2019 |
 |~~WA-GUEST-OS-2.80_201811-01~~ |December 14, 2018 |February 5, 2019 |
 |~~WA-GUEST-OS-2.79_201810-01~~ |November 8, 2018 |January 7, 2019 |
 |~~WA-GUEST-OS-2.78_201809-01~~ |October 12, 2018 |December 14, 2018 |
-|~~WA-GUEST-OS-2.77_201808-01~~ |September 12, 2018 |November 8, 2018 |
 
 ## MSRC patch updates
 The list of patches that are included with each monthly Guest OS release is available [here][patches].

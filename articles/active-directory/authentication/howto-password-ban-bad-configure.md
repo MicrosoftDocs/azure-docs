@@ -1,5 +1,5 @@
 ---
-title: How to ban passwords in Azure AD
+title: How to ban weak passwords in Azure AD - Azure Active Directory
 description: Ban weak passwords from your envirionment with Azure AD dynamically banned passwrords
 
 services: active-directory

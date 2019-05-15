@@ -3,8 +3,8 @@ title: Overview of Azure Service Fabric Mesh | Microsoft Docs
 description: Learn about Azure Service Fabric Mesh. With Service Fabric Mesh, you can deploy and scale your application without worrying about the infrastructure needs of your application.
 services: service-fabric-mesh
 keywords: 
-author: rwike77
-ms.author: ryanwi
+author: dkkapur
+ms.author: dekapur
 ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh

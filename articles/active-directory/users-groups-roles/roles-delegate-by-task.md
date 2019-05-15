@@ -233,13 +233,13 @@ Read all configuration | Global Administrator |
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Configure authentication methods | Global Administrator | 
-Configure customization | Global Administrator | 
-Configure notification | Global Administrator | 
-Configure on-premises integration | Global Administrator | 
-Configure password reset properties | Global Administrator | 
-Configure registration | Global Administrator | 
-Read all configuration | Security Administrator	User Administrator | 
+Configure authentication methods | Global Administrator |
+Configure customization | Global Administrator |
+Configure notification | Global Administrator |
+Configure on-premises integration | Global Administrator |
+Configure password reset properties | User Administrator | Global Administrator
+Configure registration | Global Administrator |
+Read all configuration | Security Administrator | User Administrator |
 
 ## Privileged identity management
 

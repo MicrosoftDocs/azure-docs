@@ -58,10 +58,10 @@ This section takes an example script and details the various steps required to r
 Before you begin, ensure that you have:
 
 *	Azure PowerShell installed. To install Azure PowerShell modules:
-    * In a Windows environment, follow the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0). You can install Azure PowerShell on your Windows Server host for your StorSimple if using one.
-    * In a Linux or MacOS environment, follow the steps in [Install and configure Azure PowerShell on MacOS or Linux](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux?view=azurermps-4.4.0).
+    * In a Windows environment, follow the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). You can install Azure PowerShell on your Windows Server host for your StorSimple if using one.
+    * In a Linux or MacOS environment, follow the steps in [Install and configure Azure PowerShell on MacOS or Linux](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux).
 
-For more information about using Azure PowerShell, go to [Get started with using Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
+For more information about using Azure PowerShell, go to [Get started with using Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ### Run Azure PowerShell script
 

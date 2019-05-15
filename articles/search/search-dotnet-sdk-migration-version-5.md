@@ -7,11 +7,16 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/24/2019
+ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
 ---
 # Upgrading to the Azure Search .NET SDK version 5
+
+> [!Important]
+> This content is still under construction. Version 9.0 of the Azure Search .NET SDK is available on NuGet. We are working on this article to explain how to upgrade to 9.0. 
+> 
+
 If you're using version 4.0-preview or older of the [Azure Search .NET SDK](https://aka.ms/search-sdk), this article will help you upgrade your application to use version 5.
 
 For a more general walkthrough of the SDK including examples, see [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.md).

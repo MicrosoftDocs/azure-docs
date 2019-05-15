@@ -2,13 +2,10 @@
 title: Tutorial - Use Azure Key Vault with a Windows virtual machine in .NET | Microsoft Docs
 description: In this tutorial, you configure an ASP.NET core application to read a secret from your key vault.
 services: key-vault
-documentationcenter: 
-author: prashanthyv
+author: mbaldwin
 manager: rajvijan
 
-ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
-ms.workload: key-vault
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
@@ -144,7 +141,7 @@ Open a command prompt.
 
 You can print "Hello World" to the console by running the following commands:
 
-```
+```batch
 dotnet new console -o helloworldapp
 cd helloworldapp
 dotnet run
@@ -154,7 +151,7 @@ dotnet run
 
 Open the *Program.cs* file and add these packages:
 
-```
+```csharp
 using System;
 using System.IO;
 using System.Net;
@@ -168,7 +165,7 @@ Edit the class file to contain the code in the following two-step process:
 1. Fetch a token from the local MSI endpoint on the VM. Doing so also fetches a token from Azure AD.
 1. Pass the token to your key vault, and then fetch your secret. 
 
-```
+```csharp
  class Program
     {
         static void Main(string[] args)

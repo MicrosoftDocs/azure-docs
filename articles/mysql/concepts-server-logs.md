@@ -47,31 +47,31 @@ The following table describes what's in each log. Depending on the output method
 
 | **Property** | **Description** |
 |---|---|
-| TenantId | Your tenant ID |
-| SourceSystem | `Azure` |
-| TimeGenerated [UTC] | Time stamp when the log was recorded in UTC |
-| Type | Type of the log. Always `AzureDiagnostics` |
-| SubscriptionId | GUID for the subscription that the server belongs to |
-| ResourceGroup | Name of the resource group the server belongs to |
-| ResourceProvider | Name of the resource provider. Always `MICROSOFT.DBFORMYSQL` |
-| ResourceType | `Servers` |
-| ResourceId | Resource URI |
-| Resource | Name of the server |
-| Category | `MySqlSlowLogs` |
-| OperationName | `LogEvent` |
-| Logical_server_name_s | Name of the server |
-| start_time_t [UTC] | Time the query began |
-| query_time_s | Total time the query took to execute |
-| lock_time_s | Total time the query was locked |
-| user_host_s | Username |
-| rows_sent_s | Number of rows sent |
-| rows_examined_s | Number of rows examined |
-| last_insert_id_s | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| insert_id_s | Insert id |
-| sql_text_s | Full query |
-| server_id_s | The server's id |
-| thread_id_s | Thread id |
-| \_ResourceId | Resource URI |
+| `TenantId` | Your tenant ID |
+| `SourceSystem` | `Azure` |
+| `TimeGenerated` [UTC] | Time stamp when the log was recorded in UTC |
+| `Type` | Type of the log. Always `AzureDiagnostics` |
+| `SubscriptionId` | GUID for the subscription that the server belongs to |
+| `ResourceGroup` | Name of the resource group the server belongs to |
+| `ResourceProvider` | Name of the resource provider. Always `MICROSOFT.DBFORMYSQL` |
+| `ResourceType` | `Servers` |
+| `ResourceId` | Resource URI |
+| `Resource` | Name of the server |
+| `Category` | `MySqlSlowLogs` |
+| `OperationName` | `LogEvent` |
+| `Logical_server_name_s` | Name of the server |
+| `start_time_t` [UTC] | Time the query began |
+| `query_time_s` | Total time the query took to execute |
+| `lock_time_s` | Total time the query was locked |
+| `user_host_s` | Username |
+| `rows_sent_s` | Number of rows sent |
+| `rows_examined_s` | Number of rows examined |
+| `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
+| `insert_id_s` | Insert id |
+| `sql_text_s` | Full query |
+| `server_id_s` | The server's id |
+| `thread_id_s` | Thread id |
+| `\_ResourceId` | Resource URI |
 
 ## Next Steps
 - [How to configure and access server logs from the Azure CLI](howto-configure-server-logs-in-cli.md).

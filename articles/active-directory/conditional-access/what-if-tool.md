@@ -4,7 +4,7 @@ description: Learn how you can understand the impact of your conditional access 
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: nigu
 
 #Customer intent: As an IT admin, I want to know how to use the What If tool for my existing conditional access policies, so that I can understand the impact they have on my environment. 

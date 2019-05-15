@@ -35,6 +35,11 @@
   - name: Work with large data sets
     displayName: page, first, skip, token
     href: ./concepts/work-with-data.md
+- name: How-to guides
+  items:
+  - name: Get resource changes
+    displayName: resource, change, history, snapshot, details
+    href: ./how-to/get-resource-changes.md
 - name: Reference
   items:
   - name: Azure CLI

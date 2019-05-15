@@ -16,6 +16,7 @@ ms.date: 02/20/2019
 ms.author: jingwang
 ---
 # Copy data from Azure Blob to Azure SQL Database using Azure Data Factory
+
 In this tutorial, you create a Data Factory pipeline that copies data from Azure Blob Storage to Azure SQL Database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 You perform the following steps in this tutorial:
@@ -93,7 +94,7 @@ Using Visual Studio 2015/2017, create a C# .NET console application.
 1. Click **Tools** -> **NuGet Package Manager** -> **Package Manager Console**.
 2. In the **Package Manager Console**, run the following commands to install packages. Refer to [Microsoft.Azure.Management.DataFactory nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) with details.
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -113,6 +114,7 @@ Using Visual Studio 2015/2017, create a C# .NET console application.
     using Microsoft.Azure.Management.DataFactory.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
+
     
 2. Add the following code to the **Main** method that sets variables. Replace place-holders with your own values. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
@@ -509,6 +511,7 @@ Press any key to exit...
 
 
 ## Next steps
+
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. You learned how to: 
 
 > [!div class="checklist"]

@@ -125,21 +125,21 @@ Some queries always run in the smallrc resource class even though the user is a 
 
 The following statements are exempt from resource classes and always run in smallrc:
 
--CREATE or DROP TABLE
--ALTER TABLE ... SWITCH, SPLIT, or MERGE PARTITION
--ALTER INDEX DISABLE
--DROP INDEX
--CREATE, UPDATE, or DROP STATISTICS
--TRUNCATE TABLE
--ALTER AUTHORIZATION
--CREATE LOGIN
--CREATE, ALTER, or DROP USER
--CREATE, ALTER, or DROP PROCEDURE
--CREATE or DROP VIEW
--INSERT VALUES
--SELECT from system views and DMVs
--EXPLAIN
--DBCC
+- CREATE or DROP TABLE
+- ALTER TABLE ... SWITCH, SPLIT, or MERGE PARTITION
+- ALTER INDEX DISABLE
+- DROP INDEX
+- CREATE, UPDATE, or DROP STATISTICS
+- TRUNCATE TABLE
+- ALTER AUTHORIZATION
+- CREATE LOGIN
+- CREATE, ALTER, or DROP USER
+- CREATE, ALTER, or DROP PROCEDURE
+- CREATE or DROP VIEW
+- INSERT VALUES
+- SELECT from system views and DMVs
+- EXPLAIN
+- DBCC
 
 <!--
 Removed as these two are not confirmed / supported under SQL DW

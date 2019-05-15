@@ -60,7 +60,7 @@ U-SQL scripts in a U-SQL project might have query statements for U-SQL database 
 Learn more about [U-SQL database project](data-lake-analytics-data-lake-tools-develop-usql-database.md).
 
 >[!NOTE]
->U-SQL database project is currently in public preview. If you have DROP statement in the project, the build fails. The DROP statement will be allowed soon.
+>DROP statement may cause accident deletion issue. To enable DROP statement, you need to explicitly specify the MSBuild arguments. **AllowDropStatement** will enable non-data related DROP operation, like drop assembly and drop table valued function. **AllowDataDropStatement** will enable data related DROP operation, like drop table and drop schema. You have to enable AllowDropStatement before using AllowDataDropStatement.
 >
 
 ### Build a U-SQL project with the MSBuild command line
@@ -73,11 +73,11 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 The arguments definition and values are as follows:
 
-* **USQLSDKPath=<U-SQL Nuget package>\build\runtime**. This parameter refers to the installation path of the NuGet package for the U-SQL language service.
+* **USQLSDKPath=\<U-SQL Nuget package>\build\runtime**. This parameter refers to the installation path of the NuGet package for the U-SQL language service.
 * **USQLTargetType=Merge or SyntaxCheck**:
     * **Merge**. Merge mode compiles code-behind files. Examples are **.cs**, **.py**, and **.r** files. It inlines the resulting user-defined code library into the U-SQL script. Examples are a dll binary, Python, or R code.
     * **SyntaxCheck**. SyntaxCheck mode first merges code-behind files into the U-SQL script. Then it compiles the U-SQL script to validate your code.
-* **DataRoot=<DataRoot path>**. DataRoot is needed only for SyntaxCheck mode. When it builds the script with SyntaxCheck mode, MSBuild checks the references to database objects in the script. Before building, set up a matching local environment that contains the referenced objects from the U-SQL database in the build machine's DataRoot folder. You can also manage these database dependencies by [referencing a U-SQL database project](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild only checks database object references, not files.
+* **DataRoot=\<DataRoot path>**. DataRoot is needed only for SyntaxCheck mode. When it builds the script with SyntaxCheck mode, MSBuild checks the references to database objects in the script. Before building, set up a matching local environment that contains the referenced objects from the U-SQL database in the build machine's DataRoot folder. You can also manage these database dependencies by [referencing a U-SQL database project](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild only checks database object references, not files.
 * **EnableDeployment=true** or **false**. EnableDeployment indicates if it's allowed to deploy referenced U-SQL databases during the build process. If you reference a U-SQL database project and consume the database objects in your U-SQL script, set this parameter to **true**.
 
 ### Continuous integration through Azure Pipelines

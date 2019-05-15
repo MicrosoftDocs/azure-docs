@@ -193,6 +193,9 @@ Like StatefulSets, a DaemonSet is defined as part of a YAML definition using `ki
 
 For more information, see [Kubernetes DaemonSets][kubernetes-daemonset].
 
+> [!NOTE]
+> If using the [Virtual Nodes add-on](virtual-nodes-cli.md#enable-virtual-nodes-addon), DaemonSets will not create pods on the virtual node.
+
 ## Namespaces
 
 Kubernetes resources, such as pods and Deployments, are logically grouped into a *namespace*. These groupings provide a way to logically divide an AKS cluster and restrict access to create, view, or manage resources. You can create namespaces to separate business groups, for example. Users can only interact with resources within their assigned namespaces.

@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
-ms.author: robin.shahan
+ms.author: robinsh
 ---
 
 # Schedule and broadcast jobs (.NET/.NET)

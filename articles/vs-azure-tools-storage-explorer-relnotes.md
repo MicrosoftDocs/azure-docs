@@ -33,7 +33,7 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 ### New
 
 * You can now change the owner and owning group when managing access for an ADLS Gen2 container, file, or folder.
-* On Windows, updating Storage Explorer from within the product is now an incremental install. This should result in a faster update experience. If you prefer a clean install, then you can download the [installer](https://azure.microsoft.com/en-us/features/storage-explorer/) yourself and then install manually. #1089
+* On Windows, updating Storage Explorer from within the product is now an incremental install. This should result in a faster update experience. If you prefer a clean install, then you can download the [installer](https://azure.microsoft.com/features/storage-explorer/) yourself and then install manually. #1089
 
 ### Preview Features
 
@@ -54,7 +54,7 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 
 ### Known Issues
 
-* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) for more info.
+* When using RBAC, Storage Explorer requires some management layer permissions in order to access your storage resources. See the [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) for more info.
 * Attempting to access ADLS Gen2 Blobs when behind a proxy may fail.
 * Detaching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. See #537 for more information.
 * Detaching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. For more information, see #537.

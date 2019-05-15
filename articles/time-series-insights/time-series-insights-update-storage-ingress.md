@@ -188,9 +188,9 @@ Time Series Insights Preview supports an initial ingress scale of up to 6 Mega B
 
 ## Next steps
 
-Read the [Azure Time Series Insights Preview Storage and Ingress](./time-series-insights-update-storage-ingress.md).
+- Read the [Azure Time Series Insights Preview Storage and Ingress](./time-series-insights-update-storage-ingress.md).
 
-Read about the new [Data modeling](./time-series-insights-update-tsm.md).
+- Read about the new [Data modeling](./time-series-insights-update-tsm.md).
 
 <!-- Images -->
 [1]: media/v2-update-storage-ingress/storage-architecture.png

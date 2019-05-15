@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
 ---
 
@@ -25,7 +25,7 @@ In an interactive title, as the sounds and listener move throughout the 3D space
 
 3D titles use lighting and kinematic physics systems that are physics-motivated but designer-adjusted to achieve a mix of immersion and gameplay goals. A visual designer doesn't set individual pixel values, but rather adjusts 3D models, materials, and light transport systems that are all physically-based to trade off visual aesthetics and CPU costs. What would be the equivalent process for audio? Project Acoustics is a first step in the exploration of this question. First we'll touch on what it means to transport acoustical energy through a space.
 
-![reverb zones](media/reverb-zones-altspace.png)
+![Screenshot of AltSpace scene overlaid with reverb zones](media/reverb-zones-altspace.png)
 
 ## Impulse responses: Acoustically connecting two points in space
 
@@ -41,7 +41,7 @@ An impulse response contains every interesting (and every uninteresting)  acoust
 
 But if the simulation is connected directly to the audio DSP parameters, where is the designer adjustment? What did we gain? Well, we gain a significant amount of memory back by discarding impulse responses and retaining a few DSP parameters. And to give the designer some power over the final result, we need only find a way to insert the designer between the simulation and the audio DSP.
 
-![impulse response parameters](media/acoustic-parameters.png)
+![Graph with stylized impulse response with parameters overlaid](media/acoustic-parameters.png)
 
 ## Sound design by transforming audio DSP parameters from simulation
 

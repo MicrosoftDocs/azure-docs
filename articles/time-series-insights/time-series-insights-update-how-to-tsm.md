@@ -127,7 +127,9 @@ Select the instance, and select **Delete**. If no events are associated with the
 ## Next steps
 
 - For more information about Time Series Models, read [Data modeling](./time-series-insights-update-tsm.md).
+
 - To learn more about the preview, read [Visualize data in the Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
+
 - To learn about supported JSON shapes, read [Supported JSON Shapes](./time-series-insights-send-events.md#json).
 
 <!-- Images -->

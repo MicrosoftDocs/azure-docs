@@ -46,7 +46,7 @@ The Workday user provisioning workflows supported by the Azure AD user provision
 
 ### Who is this user provisioning solution best suited for?
 
-This Workday user provisioning solution is presently in public preview, and is ideally suited for:
+This Workday user provisioning solution is ideally suited for:
 
 * Organizations that desire a pre-built, cloud-based solution for Workday user provisioning
 
@@ -458,7 +458,7 @@ In this section, you will configure how user data flows from Workday to Active D
 2. In the **Source Object Scope** field, you can select which sets of  users in Workday should be in scope for provisioning to AD, by defining a set of attribute-based filters. The default scope is “all users in Workday”. Example filters:
 
    * Example: Scope to users with Worker IDs between 1000000 and
-        2000000
+        2000000 (excluding 2000000)
 
       * Attribute: WorkerID
 

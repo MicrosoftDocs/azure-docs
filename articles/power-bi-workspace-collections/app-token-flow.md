@@ -1,17 +1,15 @@
 ---
 title: Authenticating and authorizing with Power BI Workspace Collections | Microsoft Docs
 description: Authenticating and authorizing with Power BI Workspace Collections.
-services: power-bi-embedded
-author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
-ms.service: power-bi-embedded
+services: power-bi-workspace-collections
+author: rkarlin
+ms.author: rkarlin
+ms.service: power-bi-workspace-collections
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
-
 ---
+
 # Authenticating and authorizing with Power BI Workspace Collections
 
 Power BI Workspace Collections use **Keys** and **App Tokens** for authentication and authorization, instead of explicit end-user authentication. In this model, your application manages authentication and authorization for your end users. When necessary, your app creates and sends the app tokens that tell our service to render the requested report. This design doesn't require your app to use Azure Active Directory for user authentication and authorization, although you still can.

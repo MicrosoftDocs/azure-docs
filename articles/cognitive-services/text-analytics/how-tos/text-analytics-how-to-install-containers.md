@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/16/2019
 ms.author: diberry
 ---
 
@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-In order to run any of the Text Analytics containers, you must have the following:
+In order to run any of the Text Analytics containers, you must have the host computer and container environments.
 
 ## Preparation
 
@@ -31,23 +31,26 @@ You must meet the following prerequisites before using Text Analytics containers
 |--|--|
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
-|Text Analytics resource |In order to use the container, you must have:<br><br>A [_Text Analytics_](text-analytics-how-to-access-key.md) Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's Text Analytics Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|`Cognitive Services` resource |In order to use the container, you must have:<br><br>A [_Cognitive Services_](text-analytics-how-to-access-key.md) Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's Cognitive Services Overview and Keys pages and are required to start the container. You need to add the `text/analytics/v2.0` routing to the endpoint URI as shown in the following BILLING_ENDPOINT_URI example.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 ### The host computer
 
-[!INCLUDE [Request access to private preview](../../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### Container requirements and recommendations
 
 The following table describes the minimum and recommended CPU cores, at least 2.6 gigahertz (GHz) or faster, and memory, in gigabytes (GB), to allocate for each Text Analytics container.
 
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
-|Key Phrase Extraction | 1 core, 2 GB memory | 1 core, 4 GB memory |
-|Language Detection | 1 core, 2 GB memory | 1 core, 4 GB memory |
-|Sentiment Analysis | 1 core, 2 GB memory | 1 core, 4 GB memory |
+| Container | Minimum | Recommended | TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|Key Phrase Extraction | 1 core, 2 GB memory | 1 core, 4 GB memory |15, 30|
+|Language Detection | 1 core, 2 GB memory | 1 core, 4 GB memory |15, 30|
+|Sentiment Analysis | 1 core, 2 GB memory | 1 core, 4 GB memory |15, 30|
 
-Core and memory correspond to the `--cpus` and `--memory` settings which are used as part of the `docker run` command.
+* Each core must be at least 2.6 gigahertz (GHz) or faster.
+* TPS - transactions per second
+
+Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
 
@@ -59,7 +62,7 @@ Container images for Text Analytics are available from Microsoft Container Regis
 |Language Detection | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Sentiment Analysis | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry..
+Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
 
 For a full description of available tags for the Text Analytics containers, see the following containers on the Docker Hub:
 
@@ -104,8 +107,10 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 | Placeholder | Value |
 |-------------|-------|
-|{BILLING_KEY} | This key is used to start the container, and is available on the Azure portal's Text Analytics Keys page.  |
-|{BILLING_ENDPOINT_URI} | The billing endpoint URI value is available on the Azure portal's Text Analytics Overview page.|
+|{BILLING_KEY} | This key is used to start the container, and is available on the Azure portal's `Cognitive Services` Keys page.  |
+|{BILLING_ENDPOINT_URI} | The billing endpoint URI value is available on the Azure `Cognitive Services` Overview page. <br><br>Example:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+
+You need to add the `text/analytics/v2.0` routing to the endpoint URI as shown in the preceding BILLING_ENDPOINT_URI example.
 
 Replace these parameters with your own values in the following example `docker run` command.
 
@@ -120,7 +125,7 @@ ApiKey={BILLING_KEY}
 This command:
 
 * Runs a key phrase container from the container image
-* Allocates one CPU cores and 4 gigabytes (GB) of memory
+* Allocates one CPU core and 4 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits. The container image is still available on the host computer. 
 
@@ -137,6 +142,10 @@ The container provides REST-based query prediction endpoint APIs.
 
 Use the host, `https://localhost:5000`, for container APIs.
 
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## Stop the container
 
 [!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
@@ -145,13 +154,9 @@ Use the host, `https://localhost:5000`, for container APIs.
 
 If you run the container with an output [mount](../text-analytics-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
 
-## Container's API documentation
-
-[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
-
 ## Billing
 
-The Text Analytics containers send billing information to Azure, using a _Text Analytics_ resource on your Azure account. 
+The Text Analytics containers send billing information to Azure, using a _Cognitive Services_ resource on your Azure account. 
 
 [!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 

@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: dfc634fd-1b55-4ba8-94a8-b8288429b6a9
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -34,7 +35,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To configure Azure AD integration with BlueJeans, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
 * BlueJeans single sign-on enabled subscription
 
 ## Scenario description
@@ -101,15 +102,17 @@ To configure Azure AD single sign-on with BlueJeans, perform the following steps
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![BlueJeans Domain and URLs single sign-on information](common/sp-signonurl.png)
+    ![BlueJeans Domain and URLs single sign-on information](common/sp-identifier.png)
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<companyname>.BlueJeans.com`
 
-	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [BlueJeans Client support team](https://support.bluejeans.com/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    b. In the **Identifier** text box, type a URL: `http://samlsp.bluejeans.com`
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+	> [!NOTE]
+	> The Sign-on URL value is not real. Update the value with the actual Sign-On URL. Contact [BlueJeans Client support team](https://support.bluejeans.com/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
@@ -119,21 +122,21 @@ To configure Azure AD single sign-on with BlueJeans, perform the following steps
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
 ### Configure BlueJeans Single Sign-On
 
-1. In a different web browser window, log in to your **BlueJeans** company site as an administrator.
+1. In a different web browser window, sign in to your **BlueJeans** company site as an administrator.
 
 2. Go to **ADMIN \> GROUP SETTINGS \> SECURITY**.
 
-	![Admin](./media/bluejeans-tutorial/IC785868.png "Admin")
+	![Admin](./media/bluejeans-tutorial/ic785868.png "Admin")
 
 3. In the **SECURITY** section, perform the following steps:
 
-	![SAML Single Sign On](./media/bluejeans-tutorial/IC785869.png "SAML Single Sign On")
+	![SAML Single Sign On](./media/bluejeans-tutorial/ic785869.png "SAML Single Sign On")
 
 	a. Select **SAML Single Sign On**.
 
@@ -141,7 +144,7 @@ To configure Azure AD single sign-on with BlueJeans, perform the following steps
 
 4. Move on with the following steps:
 
-	![Certificate Path](./media/bluejeans-tutorial/IC785870.png "Certificate Path")
+	![Certificate Path](./media/bluejeans-tutorial/ic785870.png "Certificate Path")
 
 	a. Click **Choose File**, to upload the base-64 encoded certificate that you have downloaded from the Azure portal.
 
@@ -153,9 +156,9 @@ To configure Azure AD single sign-on with BlueJeans, perform the following steps
 
 5. Move on with the following steps:
 
-	![Save Changes](./media/bluejeans-tutorial/IC785874.png "Save Changes")
+	![Save Changes](./media/bluejeans-tutorial/ic785874.png "Save Changes")
 
-	a. In the **User id** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+	a. In the **User Id** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     b. In the **Email** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
@@ -179,8 +182,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon\@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
@@ -218,22 +220,22 @@ The objective of this section is to create a user called Britta Simon in BlueJea
 
 **If you need to create user manually, perform following steps:**
 
-1. Log in to your **BlueJeans** company site as an administrator.
+1. Sign in to your **BlueJeans** company site as an administrator.
 
 2. Go to **ADMIN \> MANAGE USERS \> ADD USER**.
 
-	![Admin](./media/bluejeans-tutorial/IC785877.png "Admin")
+	![Admin](./media/bluejeans-tutorial/ic785877.png "Admin")
 
-	>[!IMPORTANT]
-	>The **ADD USER** tab is only available if, in the **SECUTIRY tab**, **Enable automatic provisioning** is unchecked. 
+	> [!IMPORTANT]
+	> The **ADD USER** tab is only available if, in the **SECUTIRY tab**, **Enable automatic provisioning** is unchecked.
 
 3. In the **ADD USER** section, perform the following steps:
 
-	![Add User](./media/bluejeans-tutorial/IC785886.png "Add User")
+	![Add User](./media/bluejeans-tutorial/ic785886.png "Add User")
 
 	a. In **First Name** text box, enter the first name of user like **Britta**.
 
-	b. In **Last Name** text box, enter the last name of user like **simon**.
+	b. In **Last Name** text box, enter the last name of user like **Simon**.
 
 	c. In **Pick a BlueJeans Username** text box, enter the username of user like **Brittasimon**
 
@@ -241,7 +243,7 @@ The objective of this section is to create a user called Britta Simon in BlueJea
 
 	e. In **Company** text box, enter your Company.
 
-	f. In **Email Address** text box, enter the email of user like **brittasimon\@contoso.com**.
+	f. In **Email Address** text box, enter the email of user like `brittasimon\@contoso.com`.
 
 	g. In **Create a BlueJeans Meeting I.D** text box, enter your meeting ID.
 
@@ -249,7 +251,7 @@ The objective of this section is to create a user called Britta Simon in BlueJea
 
 	i. Click **CONTINUE**.
 
-	![Add User](./media/bluejeans-tutorial/IC785887.png "Add User")
+	![Add User](./media/bluejeans-tutorial/ic785887.png "Add User")
 
 	J. Click **ADD USER**.
 
@@ -269,4 +271,3 @@ When you click the BlueJeans tile in the Access Panel, you should be automatical
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

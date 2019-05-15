@@ -10,7 +10,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 03/26/2019
 ms.author: jgao
 
 ---
@@ -118,7 +118,7 @@ There are two ways to export a template:
 
 This method exports the templates for certain deployments. If you have changed the resources from the portal, or added/removed resource in multiple deployments, see [Export templates from resource groups](#export-templates-from-resource-groups).
 
-1. Open the resource group you want to delete.  See [Open resource groups](#open-resource-groups).
+1. Open the resource group you want to export.  See [Open resource groups](#open-resource-groups).
 2. In the left pane, select **Deployments**, or select the link under **Deployments**.  On the following screenshot, it shows **4 Succeeded** because there were four separated deployments with four different deployment names. You might see **1 Succeeded**.
 
     ![azure resource group export templates](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
@@ -144,8 +144,8 @@ This method exports the templates for certain deployments. If you have changed t
 
 If you've changed your resources from the portal, or added/remove resources in multiple deployments, retrieving a template from the deployment history doesn't reflect the current state of the resource group. This section shows you how to export a template that reflects the current state of the resource group. It is intended as a snapshot of the resource group, which you can use to redeploy to the same resource group. To use the exported template for other solutions, you must significantly modify it.
 
-1. Open the resource group you want to delete.  See [Open resource groups](#open-resource-groups).
-2. In the left pane, select **Automation script**. Resource Manager retrieves the following six files for you:
+1. Open the resource group you want to export.  See [Open resource groups](#open-resource-groups).
+2. In the left pane, select **Export template**. Resource Manager retrieves the following six files for you:
 
    - **Template** - The template that defines the infrastructure for your solution. When you created the storage account through the portal, Resource Manager used a template to deploy it and saved that template for future reference.
    - **Parameters** - A parameter file that you can use to pass in values during deployment. It contains the values that you provided during the first deployment. You can change any of these values when you redeploy the template.

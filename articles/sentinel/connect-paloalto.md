@@ -1,6 +1,6 @@
 ---
-title: Collect Palo Alto data in Azure Sentinel Preview| Microsoft Docs
-description: Learn how to collect Palo Alto data in Azure Sentinel.
+title: Connect Palo Alto Networks data to Azure Sentinel Preview| Microsoft Docs
+description: Learn how to connect Palo Alto Networks data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
 
 ---
@@ -24,14 +24,14 @@ ms.author: rkarlin
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can connect Azure Sentinel to any Palo Alto Networks appliance by saving the log files as Syslog CEF. The integration with Azure Sentinel enables you to easily run analytics and queries across the log file data from Palo Alto. For more information on how Azure Sentinel ingests CEF data, see [Connect CEF appliances](connect-common-event-format.md).
+You can connect Azure Sentinel to any Palo Alto Networks appliance by saving the log files as Syslog CEF. The integration with Azure Sentinel enables you to easily run analytics and queries across the log file data from Palo Alto Networks. For more information on how Azure Sentinel ingests CEF data, see [Connect CEF appliances](connect-common-event-format.md).
 
 > [!NOTE]
-> - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
+> Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
-## Step 1: Connect your Palo Alto appliance using an agent
+## Step 1: Connect your Palo Alto Networks appliance using an agent
 
-To connect your Palo Alto appliance to Azure Sentinel, you need to deploy an agent on a dedicated machine (VM or on premises) to support the communication between the appliance and Azure Sentinel. You can deploy the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
+To connect your Palo Alto Networks appliance to Azure Sentinel, you need to deploy an agent on a dedicated machine (VM or on premises) to support the communication between the appliance and Azure Sentinel. You can deploy the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
 
 Alternatively, you can deploy the agent manually on an existing Azure VM, on a VM in another cloud, or on an on-premises machine.
 
@@ -40,10 +40,10 @@ To see a network diagram of both options, see [Connect data sources](connect-dat
 
 ### Deploy the agent in Azure
 
-1. In the Azure Sentinel portal, click **Data collection** and select your appliance type. 
+1. In the Azure Sentinel portal, click **Data connectors** and select your appliance type. 
 
 1. Under **Linux Syslog agent configuration**:
-   - Choose **Automatic deployment** if you want to create a new machine that is pre-installed with the Azure Sentinel agent, and includes all the configuration necessary, as described above. Select **Automatic deployment** and click **Automatic agent deployment**. This takes you to the purchase page for a dedicated VM that is automatically connected to your workspace, is . The VM is a **standard D2s v3 (2 vcpus, 8 GB memory)** and has a public IP address.
+   - Choose **Automatic deployment** if you want to create a new machine that is pre-installed with the Azure Sentinel agent, and includes all the configuration necessary, as described above. Select **Automatic deployment** and click **Automatic agent deployment**. This takes you to the purchase page for a dedicated VM that is automatically connected to your workspace, is . The VM is a **standard D2s v3 (2 vCPUs, 8 GB memory)** and has a public IP address.
       1. In the **Custom deployment** page, provide your details and choose a username and a password and if you agree to the terms and conditions, purchase the VM.
       1. Configure your appliance to send logs using the settings listed in the connection page. For the Generic Common Event Format connector, use these settings:
          - Protocol = UDP
@@ -77,7 +77,7 @@ To see a network diagram of both options, see [Connect data sources](connect-dat
 If you aren't using Azure, manually deploy the Azure Sentinel agent to run on a dedicated Linux server.
 
 
-1. In the Azure Sentinel portal, click **Data collection** and select your appliance type.
+1. In the Azure Sentinel portal, click **Data connectors** and select your appliance type.
 1. To create a dedicated Linux VM, under **Linux Syslog agent configuration** choose **Manual deployment**.
    1. Under **Download and install the Syslog agent**, select **Non-Azure Linux machine**. 
    1. In the **Direct agent** screen that opens, select **Agent for Linux** to download the agent or run this command to download it on your Linux machine:
@@ -96,12 +96,12 @@ If you aren't using Azure, manually deploy the Azure Sentinel agent to run on a 
       1. Restart the Syslog agent using this command: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Confirm that there are no errors in the agent log by running this command: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
-## Step 2: Forward Palo Alto logs to the Syslog agent
+## Step 2: Forward Palo Alto Networks logs to the Syslog agent
 
 Configure Palo Alto Networks to forward Syslog messages in CEF format to your Azure workspace via the Syslog agent:
-1.  Go to [Common Event Format (CEF) Configuration Guides](https://docs.paloaltonetworks.com/resources/cef) and download the pdf for your appliance type. Follow all the instructions in the guide to set up your Palo Alto appliance to collect CEF events. 
+1.  Go to [Common Event Format (CEF) Configuration Guides](https://docs.paloaltonetworks.com/resources/cef) and download the pdf for your appliance type. Follow all the instructions in the guide to set up your Palo Alto Networks appliance to collect CEF events. 
 
-1.  Go to [Configure Syslog monitoring](https://aka.ms/asi-syslog-paloalto-forwarding) and follow steps 2 and 3 to configure CEF event forwarding from your Palo Alto appliance to Azure Sentinel.
+1.  Go to [Configure Syslog monitoring](https://aka.ms/asi-syslog-paloalto-forwarding) and follow steps 2 and 3 to configure CEF event forwarding from your Palo Alto Networks appliance to Azure Sentinel.
 
     1. Make sure to set the **Syslog server format** to **BSD**.
     1. Make sure you set the **Facility number** to the same value you set in the Syslog agent.
@@ -117,9 +117,10 @@ It may take upwards of 20 minutes until your logs start to appear in Log Analyti
 
 1. Make sure that your logs are getting to the right port in the Syslog agent. Run this command the Syslog agent machine: `tcpdump -A -ni any  port 514 -vv` This command shows you the logs that streams from the device to the Syslog machine.Make sure that logs are being received from the source appliance on the right port and right facility.
 2. Check that there is communication between the Syslog daemon and the agent. Run this command the Syslog agent machine: `tcpdump -A -ni any  port 25226 -vv` This command shows you the logs that streams from the device to the Syslog machine.Make sure that the logs are also being received on the agent.
-3. If both of those commands provided successful results, check Log Analytics to see if your logs are arriving. All events streamed from these appliances appear in raw form in Log Analytics under `CommonSecurityLog ` type.
+3. If both of those commands provided successful results, check Log Analytics to see if your logs are arriving. All events streamed from these appliances appear in raw form in Log Analytics under `CommonSecurityLog` type.
 1. To check if there are errors or if the logs aren't arriving, look in `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 4. Make sure that your Syslog message default size is limited to 2048 bytes (2KB). If logs are too long, update the security_events.conf using this command: `message_length_limit 4096`
+6. To use the relevant schema in Log Analytics for the Palo Alto Networks events, search for **CommonSecurityLog**.
 
 
 
@@ -128,7 +129,7 @@ It may take upwards of 20 minutes until your logs start to appear in Log Analyti
 
 
 ## Next steps
-In this document, you learned how to connect Palo Alto appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+In this document, you learned how to connect Palo Alto Networks appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
 

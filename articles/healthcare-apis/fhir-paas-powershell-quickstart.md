@@ -17,12 +17,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Register the Azure API for FHIR resource provider
 
 If the `Microsoft.HealthcareApis` resource provider is not already registered for your subscription, you can register it with:
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.HealthcareApis
+Register-AzResourceProvider -ProviderNamespace Microsoft.HealthcareApis
 ```
 
 ## Create Azure Resource Manager template
@@ -52,13 +54,13 @@ Read the how-to guide on [finding identity object IDs](find-identity-object-ids.
 ## Create Azure resource group
 
 ```azurepowershell-interactive
-$rg = New-AzureRmResourceGroup -Name "myResourceGroupName" -Location westus2
+$rg = New-AzResourceGroup -Name "myResourceGroupName" -Location westus2
 ```
 
 ## Deploy template
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroup $rg.ResourceGroupName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
+New-AzResourceGroupDeployment -ResourceGroup $rg.ResourceGroupName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
 ```
 
 ## Fetch capability statement
@@ -75,7 +77,7 @@ $metadata.RawContent
 If you're not going to continue to use this application, delete the resource group with the following steps:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $rg.ResourceGroupName
+Remove-AzResourceGroup -Name $rg.ResourceGroupName
 ```
 
 ## Next steps

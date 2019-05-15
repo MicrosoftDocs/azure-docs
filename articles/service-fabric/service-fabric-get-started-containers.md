@@ -28,6 +28,9 @@ Running an existing application in a Windows container on a Service Fabric clust
 > [!NOTE]
 > This article applies to a Windows development environment.  The Service Fabric cluster runtime and the Docker runtime must be running on the same OS.  You cannot run Windows containers on a Linux cluster.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 * A development computer running:
@@ -149,7 +152,7 @@ If that command does not return anything, run the following command and inspect 
 docker inspect my-web-site
 ```
 
-Connect to the running container. Open a web browser pointing to the IP address returned, for example "<http://172.31.194.61>". You should see the heading "Hello World!" display in the browser.
+Connect to the running container. Open a web browser pointing to the IP address returned, for example "http:\//172.31.194.61". You should see the heading "Hello World!" display in the browser.
 
 To stop your container, run:
 
@@ -289,9 +292,9 @@ $clustername = "mycluster"
 
 $subscriptionId = "subscription ID"
 
-Login-AzureRmAccount
+Login-AzAccount
 
-Select-AzureRmSubscription -SubscriptionId $subscriptionId
+Select-AzSubscription -SubscriptionId $subscriptionId
 
 # Create a self signed cert, export to PFX file.
 New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject $subjectname -Provider 'Microsoft Enhanced Cryptographic Provider v1.0' `
@@ -300,10 +303,10 @@ New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEnciphermen
 # Import the certificate to an existing key vault. The key vault must be enabled for deployment.
 $cer = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certificateName -FilePath $filepath -Password $certpwd
 
-Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
+Set-AzKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
 
 # Add the certificate to all the VMs in the cluster.
-Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
+Add-AzServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
 ```
 Encrypt the password using the [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) cmdlet.
 
@@ -356,10 +359,12 @@ Service Fabric then uses the default repository credentials which you can specif
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
 * DefaultContainerRepositoryPasswordType (string) --- Supported starting with the 6.4 runtime
 
-Here is an example of what you can add inside the `Hosting` section in the ClusterManifestTemplate.json file. For more information, see [Change Azure Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md) and [Manage Azure Service Fabric application secrets](service-fabric-application-secret-management.md)
+Here is an example of what you can add inside the `Hosting` section in the ClusterManifestTemplate.json file. The `Hosting` section can be added at cluster creation or later in a configuration upgrade. For more information, see [Change Azure Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md) and [Manage Azure Service Fabric application secrets](service-fabric-application-secret-management.md)
 
 ```json
-      {
+"fabricSettings": [
+	...,
+	{
         "name": "Hosting",
         "parameters": [
           {
@@ -384,6 +389,7 @@ Here is an example of what you can add inside the `Hosting` section in the Clust
           }
         ]
       },
+]
 ```
 
 ## Configure isolation mode
@@ -616,10 +622,12 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## Configure time interval before container is force terminated
 
-You can configure a time interval for the runtime to wait before the container is removed after the service deletion (or a move to another node) has started. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.  For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified under the `Hosting` section. The following cluster manifest snippet shows how to set the wait interval:
+You can configure a time interval for the runtime to wait before the container is removed after the service deletion (or a move to another node) has started. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.  For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified under the `Hosting` section. The `Hosting` section can be added at cluster creation or later in a configuration upgrade. The following cluster manifest snippet shows how to set the wait interval:
 
 ```json
-{
+"fabricSettings": [
+	...,
+	{
         "name": "Hosting",
         "parameters": [
           {
@@ -628,7 +636,8 @@ You can configure a time interval for the runtime to wait before the container i
           },
 	      ...
         ]
-}
+	}
+]
 ```
 The default time interval is set to 10 seconds. Since this configuration is dynamic, a config only upgrade on the cluster updates the timeout. 
 
@@ -639,7 +648,9 @@ You can configure the Service Fabric cluster to remove unused container images f
 
 
 ```json
-{
+"fabricSettings": [
+	...,
+	{
         "name": "Hosting",
         "parameters": [
           {
@@ -653,7 +664,8 @@ You can configure the Service Fabric cluster to remove unused container images f
           ...
           }
         ]
-} 
+	} 
+]
 ```
 
 For images that shouldn't be deleted, you can specify them under the `ContainerImagesToSkip` parameter.  
@@ -664,7 +676,9 @@ For images that shouldn't be deleted, you can specify them under the `ContainerI
 The Service Fabric runtime allocates 20 minutes to download and extract container images, which work for the majority of container images. For large images, or when the network connection is slow, it might be necessary to increase the time to wait before aborting the image download and extraction. This time out is set using the **ContainerImageDownloadTimeout** attribute in the **Hosting** section of the cluster manifest as shown in the following snippet:
 
 ```json
-{
+"fabricSettings": [
+	...,
+	{
         "name": "Hosting",
         "parameters": [
           {
@@ -672,7 +686,8 @@ The Service Fabric runtime allocates 20 minutes to download and extract containe
               "value": "1200"
           }
         ]
-}
+	}
+]
 ```
 
 
@@ -693,7 +708,9 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
  
 
 ```json
-{ 
+"fabricSettings": [
+	...,
+	{ 
         "name": "Hosting", 
         "parameters": [ 
           { 
@@ -701,13 +718,22 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
             "value": "-H localhost:1234 -H unix:///var/run/docker.sock" 
           } 
         ] 
-} 
-
+	} 
+]
 ```
 
 ## Next steps
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
 * Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
+* Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
+* Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-containers) on GitHub.
+
+[1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
+[2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png
+[3]: ./media/service-fabric-get-started-containers/HealthCheckHealthy.png
+[4]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_App.png
+[5]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_Dsp.png
+c-host-app-in-a-container.md) tutorial.
 * Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
 * Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-containers) on GitHub.
 

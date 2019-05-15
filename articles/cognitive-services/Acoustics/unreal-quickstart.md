@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
 ---
 
@@ -17,11 +17,11 @@ ms.author: kegodin
 In this quickstart, you'll experiment with Project Acoustics design controls using provided sample content for the Unreal Engine and Wwise.
 
 Software requirements:
-* [Unreal Engine 4.21](https://www.unrealengine.com/)
-* [Wwise 2018.1.6](https://www.audiokinetic.com/products/wwise/)
+* [Unreal Engine](https://www.unrealengine.com/) 4.21
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6
 
 ## Download the sample package
-Download the [Project Acoustics Unreal + Wwise sample package](http://www.microsoft.com/downloads/details.aspx?FamilyID=f03dff5a-5780-462e-87ef-e6d039d0748d). The sample package contains an Unreal Engine project, the Wwise project for that Unreal project, and the Project Acoustics Wwise plugin.
+Download the [Project Acoustics Unreal + Wwise sample package](https://www.microsoft.com/download/details.aspx?id=58090). The sample package contains an Unreal Engine project, the Wwise project for that Unreal project, and the Project Acoustics Wwise plugin.
 
 ## Set up the Project Acoustics sample project
 To set up the Project Acoustics Unreal/Wwise sample project, you'll need to first install the Project Acoustics plugin into Wwise. Then deploy the Wwise binaries to the Unreal project, and adjust the Wwise's Unreal plugin to support Project Acoustics.
@@ -29,26 +29,26 @@ To set up the Project Acoustics Unreal/Wwise sample project, you'll need to firs
 ### Install the Project Acoustics Wwise plugin
 Open Wwise Launcher, then in the **Plugins** tab, under **Install New Plugins**, select **Add From Directory**. Choose the `AcousticsWwisePlugin\ProjectAcoustics` directory that was included in the package you downloaded.
 
-![Install Wwise Plugin](media/wwise-install-new-plugin.png)
+![Screenshot of Wwise Launcher showing Install Wwise Plugin option](media/wwise-install-new-plugin.png)
 
 ### Add Wwise binaries to the Project Acoustics Unreal sample project
 From Wwise Launcher, click the **Unreal Engine** tab, then click the hamburger menu next to **Recent Unreal Engine Projects** and select **Browse for project**. Open the sample Unreal project `.uproject` file in the package `AcousticsSample\AcousticsGame\AcousticsGame.uproject`.
 
-![Wwise Unreal tab](media/wwise-unreal-tab.png)
+![Screenshot of Wwise Launcher Unreal tab](media/wwise-unreal-tab.png)
 
 Then, next to the Project Acoustics sample project, click **Integrate Wwise in Project**.
 
-![Wwise Acoustics Game Unreal Project](media/wwise-acoustics-game-project.png)
+![Screenshot of Wwise Launcher showing Acoustics Game Unreal Project](media/wwise-acoustics-game-project.png)
 
 ### Extend Wwise's Unreal plugin functionality
 The Project Acoustics Unreal plugin requires additional behavior be exposed from the Wwise Unreal plugin API. Run the batch file provided with the Project Acoustics Unreal plugin to automate these modifications:
 * Inside `AcousticsGame\Plugins\ProjectAcoustics\Resources`, run `PatchWwise.bat`.
 
-    ![Patch Wwise Script](media/patch-wwise-script.png)
+    ![Screenshot of Windows Explorer window showing script to patch Wwise project](media/patch-wwise-script.png)
 
 * If you don't have the DirectX SDK installed, you'll need to comment out the line containing DXSDK_DIR in `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
 
-    ![DXSDK Comment out](media/directx-sdk-comment.png)
+    ![Screenshot of code editor showing DXSDK commented out](media/directx-sdk-comment.png)
 
 ### Open the Unreal Project. 
 It will ask you to rebuild modules; click Yes.
@@ -61,7 +61,7 @@ Listen to how the scene sounds by clicking the play button in the Unreal editor.
 ### Modify occlusion and transmission
 There are per-source Project Acoustics design controls on each Unreal sound actor:
 
-![DemoSceneSoundSourceDesignControls](media/demo-scene-sound-source-design-controls.png)
+![Screenshot of Unreal Editor Acoustics design controls](media/demo-scene-sound-source-design-controls.png)
 
 If the **Occlusion** multiplier is greater than 1 (the default is 1), occlusion will be exaggerated. Setting it less than 1 makes the occlusion effect more subtle.
 
@@ -75,7 +75,7 @@ Increase the decay time throughout the space by adjusting **Decay Time Scale**. 
 ### Modify distance-based attenuation
 The Project Acoustics Wwise mixer plugin respects the per-source distance-based attenuation built in Wwise. Changing this curve will change the dry-path level. The Project Acoustics plugin will adjust the wet level to maintain the wet-dry mix specified by simulation and design controls.
 
-![DemoSoundsAttenuation](media/demo-sounds-attenuation.png)
+![Screenshot of Wwise attenuation curve panel with attenuation going to zero before simulation boundary](media/demo-sounds-attenuation.png)
 
 Project Acoustics does computation in a "simulation region" box centered around each simulated player location. The acoustics assets in the sample package were baked with a simulation region radius of 45 m, and the attenuations were designed to fall to 0 before 45 m. While this falloff isn't a strict requirement, it carries the caveat that only geometry within 45 m of the listener will occlude sounds.
 

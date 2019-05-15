@@ -3,7 +3,7 @@ title: Configure hybrid Azure Active Directory join for federated domains | Micr
 description: Learn how to configure hybrid Azure Active Directory join for federated domains.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/08/2019
-ms.author: markvi
+ms.date: 03/20/2019
+ms.author: joflore
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to setup hybrid Azure AD joined devices for federated domains so that I can automatically bring AD domain-joined devices under control
@@ -228,7 +228,7 @@ If you are experiencing issues with completing hybrid Azure AD join for domain j
 
 > [!div class="nextstepaction"]
 > [Configure hybrid Azure Active Directory join for managed domains](hybrid-azuread-join-managed-domains.md)
-> [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual-steps.md)
+> [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual.md)
 
 
 

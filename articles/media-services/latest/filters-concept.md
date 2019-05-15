@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
@@ -54,7 +54,7 @@ You use the following properties to describe the filters.
 |Name|Description|
 |---|---|
 |firstQuality|The first quality bitrate of the filter.|
-|presentationTimeRange|The presentation time range. This property is used for filtering manifest start/end points, presentation window length, and the live start position. <br/>For more information, see [PresentationTimeRange](#PresentationTimeRange).|
+|presentationTimeRange|The presentation time range. This property is used for filtering manifest start/end points, presentation window length, and the live start position. <br/>For more information, see [PresentationTimeRange](#presentationtimerange).|
 |tracks|The tracks selection conditions. For more information, see [tracks](#tracks)|
 
 ### presentationTimeRange
@@ -84,7 +84,11 @@ Filter track property conditions describe track types, values (described in the 
 |**Name**|Use the name of the track for filtering.|
 |**Type**|Use the type of the track for filtering.<br/><br/>The following values are allowed: "video", "audio", or "text".|
 
-## Example
+## Associate filters with Streaming Locator
+
+You can specify a list of asset or account filters, which would apply to your Streaming Locator. The [dynamic packager](dynamic-packaging-overview.md) applies this list of filters together with those your client specifies in the URL. This combination generates a [dyanamic manifest](filters-dynamic-manifest-overview.md), which is based on filters in the URL + filters you specify on Streaming Locator. We recommend that you use this feature if you want to apply filters but do not want to expose the filter names in the URL.
+
+## Definition example
 
 ```json
 {

@@ -19,10 +19,6 @@ When you [fail over](site-recovery-failover.md) Azure VMs from one region to ano
 - Reprotect the VMs in the secondary region, so that they start to replicate to the primary region.
 - After reprotection completes and the VMs are replicating, you can fail them over from the secondary to primary region.
 
-> [!WARNING]
-> If you've [migrated](migrate-overview.md#what-do-we-mean-by-migration) machines from the primary to the secondary region, moved the VM to another resource group, or deleted the Azure VM, you can't reprotect the VM, or fail it back.
-
-
 ## Prerequisites
 1. The VM failover from the primary to secondary region must be committed.
 2. The primary target site should be available, and you should be able to access or create resources in that region.

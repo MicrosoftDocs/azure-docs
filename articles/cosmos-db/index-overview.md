@@ -1,59 +1,94 @@
 ---
 title: Indexing in Azure Cosmos DB 
 description: Understand how indexing works in Azure Cosmos DB.
-author: markjbrown
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.author: mjbrown
+ms.date: 04/08/2019
+ms.author: thweiss
 ---
 
-# Indexing in Azure Cosmos DB - overview
+# Indexing in Azure Cosmos DB - Overview
 
-Azure Cosmos DB is a schema-agnostic database and allows you to iterate on your application quickly without having to deal with schema or index management. By default, Azure Cosmos DB automatically indexes all items in your container without requiring schema or secondary indexes from developers.
+Azure Cosmos DB is a schema-agnostic database that allows you to iterate on your application without having to deal with schema or index management. By default, Azure Cosmos DB automatically indexes every property for all items in your [container](databases-containers-items.md#azure-cosmos-containers) without having to define any schema or configure secondary indexes.
 
-## Items as trees
+The goal of this article is to explain how Azure Cosmos DB indexes data and how it uses indexes to improve query performance. It is recommended to go through this section before exploring how to customize [indexing policies](index-policy.md).
 
-By projecting items in a container as JSON documents and representing them as trees, Azure Cosmos DB normalizes both the structure and the instance values across items into the unifying concept of a **dynamically encoded path structure**. In this representation, each label in a JSON document, which includes both the property names and their values becomes a node of the tree. The leaves of the tree contain actual values and the intermediate nodes contain the schema information. The following image represents the trees created for two items(1 and 2) in a container:
+## From items to trees
 
-![Tree representation for two different items in an Azure Cosmos container](./media/index-overview/indexing-as-tree.png)
+Every time an item is stored in a container, its content is projected as a JSON document, then converted into a tree representation. What that means is that every property of that item gets represented as a node in a tree. A pseudo root node is created as a parent to all the first-level properties of the item. The leaf nodes contain the actual scalar values carried by an item.
 
-A pseudo root node is created as a parent to the actual nodes corresponding to the labels in the document underneath. The nested data structures drive the hierarchy in the tree. Intermediate artificial nodes labeled with numeric values (for example, 0, 1, ...) are employed for representing enumerations, and array indices.
+As an example, consider this item:
 
-## Index paths
+    {
+        "locations": [
+            { "country": "Germany", "city": "Berlin" },
+            { "country": "France", "city": "Paris" }
+        ],
+        "headquarters": { "country": "Belgium", "employees": 250 },
+        "exports": [
+            { "city": "Moscow" },
+            { "city": "Athens" }
+        ]
+    }
 
-Azure Cosmos DB projects items as JSON documents and index as trees. You can then tune to the policies for paths within the tree. You can choose to include or exclude paths from indexing. This can offer improved write performance and lower the index storage for scenarios where the query patterns are known ahead. to learn more, see [Index Paths](index-paths.md).
+It would be represented by the following tree:
 
-## Indexing: Under the hood
+![The previous item represented as a tree](./media/index-overview/item-as-tree.png)
 
-Azure Cosmos database applies automatic indexing to the data, where every path in a tree is indexed unless you configure to exclude certain paths.
+Note how arrays are encoded in the tree: every entry in an array gets an intermediate node labeled with the index of that entry within the array (0, 1 etc.).
 
-Azure Cosmos database employs inverted index data structure to store the information of each item and to facilitate efficient representation for querying. The index tree is a document that is constructed with the union of all of the trees representing individual items in the container. The index tree grows over time as new items are added or existing items are updated in the container. Unlike relational database indexing, Azure Cosmos DB doesn't restart the indexing from scratch as new fields are introduced, new items are added to the existing structure. 
+## From trees to property paths
 
-Each node of the index tree is an index entry containing the label and position values, called the term, and the ids of the items, called the postings. The postings in the curly brackets (for example {1,2}) in the inverted index figure correspond to the items such as Document1 and Document2 containing the given label value. An important implication of treating both the schema labels and instance values uniformly is that everything is packed inside a large index. An instance value that is still in the leaves is not repeated, it can be in different roles across items, with different schema labels, but it is the same value. The following image shows inverted indexing for different items:
+The reason why Azure Cosmos DB transforms items into trees is because it allows properties to be referenced by their paths within those trees. To get the path for a property, we can traverse the tree from the root node to that property, and concatenate the labels of each traversed node.
 
-![Indexing under the hood, inverted Index](./media/index-overview/inverted-index.png)
+Here are the paths for each property from the example item described above:
 
-> [!NOTE]
-> The inverted index may appear similar to the indexing structures used in a search engine in the information retrieval domain. With this method, Azure Cosmos DB allows you to search your database for any item regardless of its schema structure.
+    /locations/0/country: "Germany"
+    /locations/0/city: "Berlin"
+    /locations/1/country: "France"
+    /locations/1/city: "Paris"
+    /headquarters/country: "Belgium"
+    /headquarters/employees: 250
+    /exports/0/city: "Moscow"
+    /exports/1/city: "Athens"
 
-For the normalized path, the index encodes the forward path all the way from the root to the value, along with the type information of the value. The path and the value are encoded to provide various types of indexing such as range, spatial kinds. The value encoding is designed to provide unique value or a composition of a set of paths.
+When an item is written, Azure Cosmos DB effectively indexes each property's path and its corresponding value.
+
+## Index kinds
+
+Azure Cosmos DB currently supports two kinds of indexes:
+
+The **range** index kind is used for:
+
+- equality queries: `SELECT * FROM container c WHERE c.property = 'value'`
+- range queries: `SELECT * FROM container c WHERE c.property > 'value'` (works for `>`, `<`, `>=`, `<=`, `!=`)
+- `ORDER BY` queries: `SELECT * FROM container c ORDER BY c.property`
+- `JOIN` queries: `SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'`
+
+Range indexes can be used on scalar values (string or number).
+
+The **spatial** index kind is used for:
+
+- geospatial distance queries: `SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40`
+- geospatial within queries: `SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })`
+
+Spatial indexes can be used on correctly formatted [GeoJSON](geospatial.md) objects. Points, LineStrings and Polygons are currently supported.
 
 ## Querying with indexes
 
-The inverted index allows a query to identify the documents that match the query predicate quickly. By treating both the schema and instance values uniformly in terms of paths, the inverted index is also a tree. Thus, the index and the results can be serialized to a valid JSON document and returned as documents themselves as they are returned in the tree representation. This method enables recursing over the results for additional querying. The following image illustrates an example of indexing in a point query:  
+The paths extracted when indexing data make it easy to lookup the index when processing a query. By matching the `WHERE` clause of a query with the list of indexed paths, it is possible to identify the items that match the query predicate very quickly.
 
-![Point query example](./media/index-overview/index-point-query.png)
+For example, consider the following query: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. The query predicate (filtering on items, where any location has "France" as its country) would match the path highlighted in red below:
 
-For a range query, GermanTax is a user-defined function executed as part of query processing. The user-defined function is any registered, Javascript function that can provide rich programming logic integrated into the query. The following image illustrates an example of indexing in a range query:
+![Matching a specific path within a tree](./media/index-overview/matching-path.png)
 
-![Range query example](./media/index-overview/index-range-query.png)
+> [!NOTE]
+> An `ORDER BY` clause *always* needs a range index and will fail if the path it references doesn't have one.
 
 ## Next steps
 
 Read more about indexing in the following articles:
 
 - [Indexing policy](index-policy.md)
-- [Index types](index-types.md)
-- [Index paths](index-paths.md)
 - [How to manage indexing policy](how-to-manage-indexing-policy.md)

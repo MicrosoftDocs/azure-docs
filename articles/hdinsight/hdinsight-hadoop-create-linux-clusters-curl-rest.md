@@ -1,7 +1,6 @@
 ---
 title: Create Apache Hadoop clusters using Azure REST API - Azure 
 description: Learn how to create HDInsight clusters by submitting Azure Resource Manager templates to the Azure REST API.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 

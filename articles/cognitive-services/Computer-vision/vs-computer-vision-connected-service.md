@@ -33,15 +33,15 @@ This article and its companion articles provide details for using the Visual Stu
 1. In **Solution Explorer**, choose **Add** > **Connected Service**.
    The Connected Service page appears with services you can add to your project.
 
-   ![Screenshot of a right-click menu on a Visual Studio project: Add > Connected Service](../media/vs-common/Connected-Service-Menu.PNG)
+   ![right-click menu on a Visual Studio project: Add > Connected Service](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. In the menu of available services, choose **Cognitive Services Computer Vision API**.
 
-   ![the Connected Services menu, highlighting Analyze Images with Computer Vision](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![Connected Services menu: Analyze Images... is outlined](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
    If you've signed into Visual Studio, and have an Azure subscription associated with your account, a page appears with a dropdown list with your subscriptions.
 
-   ![A "Computer Vision API" Visual Studio window with the Subscription dropdown highlighted](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![Computer Vision API window with the Subscription dropdown highlighted](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. Select the subscription you want to use, and then choose a name for the Computer Vision API, or choose the Edit link to modify the automatically generated name, choose the resource group, and the Pricing Tier.
 
@@ -93,7 +93,7 @@ This article and its companion articles provide details for using the Visual Stu
 
 1. Right-click on the image file, choose Properties, and then choose **Copy if newer**. 
 
-   ![An image properties window; Copy to Output Directory is set to Copy if Newer](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
+   ![image properties window; Copy to Output Directory set to Copy if newer](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
 1. Replace the Configure method with the following code to access the Computer Vision API and test an image.
 
@@ -251,7 +251,7 @@ This article and its companion articles provide details for using the Visual Stu
 
 When no longer needed, delete the resource group. This deletes the cognitive service and related resources. To delete the resource group through the portal:
 
-1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this QuickStart in the search results, select it.
+1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this quickstart in the search results, select it.
 2. Select **Delete resource group**.
 3. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
 

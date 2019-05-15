@@ -20,3 +20,10 @@ The Exists transformation is a row filtering transformation that stops or allows
 Choose the second source for your Exists so that Data Flow can compare values from Stream 1 against Stream 2.
 
 Select the column from Source 1 and from Source 2 whose values you wish to check against for Exists or Not Exists.
+
+## Multiple exists conditions
+
+Next to each row in your column conditions for Exsits, you will find a + sign available when you hover over reach row. This will allow you to add multiple rows for Exists conditions.
+
+## Next steps
+

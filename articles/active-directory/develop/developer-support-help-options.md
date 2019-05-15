@@ -51,7 +51,6 @@ Where *{Your Search Terms}* correspond to your search keywords.
 | Tool  | Description  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Paste an ID or access token to decode the claims names and values. |
-| [Error code analyzer](https://apps.dev.microsoft.com/portal/tools/errors)| Paste an error code received during sign-in or consent pages to see possible causes and resolutions. |
 | [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Tool that lets you make requests and see responses against the Microsoft Graph API. |
 
 ## Post a question to Stack Overflow

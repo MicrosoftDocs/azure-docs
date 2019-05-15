@@ -6,8 +6,8 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: overview
-ms.date: 03/12/2019
+ms.topic: article
+ms.date: 03/22/2019
 ms.author: alkohli
 ---
 # Use the Azure portal to manage bandwidth schedules on your Azure Data Box Edge  
@@ -15,9 +15,6 @@ ms.author: alkohli
 This article describes how to manage users on your Azure Data Box Edge. Bandwidth schedules allow you to configure network bandwidth usage across multiple time-of-day schedules. These schedules can be applied to the upload and download operations from your device to the cloud.
 
 You can add, modify, or delete the bandwidth schedules for your Data Box Edge via the Azure portal.
-
-> [!IMPORTANT]
-> Data Box Edge is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
 
 In this article, you learn how to:
 

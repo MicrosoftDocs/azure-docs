@@ -4,8 +4,8 @@ titlesuffix: Azure Virtual Network
 description: Learn how to use Azure DDoS Protection Standard telemetry in Azure Monitor to mitigate an attack.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
-ms.author: jdial
+ms.author: kumud
 
 ---
 

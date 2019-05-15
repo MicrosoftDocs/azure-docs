@@ -81,6 +81,9 @@ To request a deployment:
 
 5.  You can view the status of your model in the “Status” column.
 
+>[!Note]
+>Custom Translator supports 10 deployed models within a workspace at any point in time.
+
 ## Update deployment settings
 
 To update deployment settings:

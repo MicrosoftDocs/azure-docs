@@ -1,7 +1,6 @@
 ---
 title: Understand the query language
 description: Describes the available Kusto operators and functions usable with Azure Resource Graph.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 12/11/2018

@@ -88,7 +88,9 @@ Time Series Insights bridges the gap between IoT data and advanced analytics in 
 ## Next steps
 
 - Learn more about the [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
+
 - To plan out your environment, read [Time Series Insights Preview planning](./time-series-insights-update-plan.md).
+
 - Read the [Time Series Insights client](https://github.com/Microsoft/tsiclient) documentation.
 
 <!-- Images -->

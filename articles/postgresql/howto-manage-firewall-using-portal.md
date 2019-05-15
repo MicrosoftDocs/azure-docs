@@ -5,10 +5,12 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
+ms.date: 04/09/2019
 ---
 # Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal
-Server-level firewall rules enable administrators to access an Azure Database for PostgreSQL Server from a specified IP address or range of IP addresses. 
+Server-level firewall rules can be used to manage access to an Azure Database for PostgreSQL Server from a specified IP address or range of IP addresses.
+
+Virtual Network (VNet) rules can also be used to secure access to your server. Learn more about [creating and managing Virtual Network service endpoints and rules using the Azure portal](howto-manage-vnet-using-portal.md).
 
 ## Prerequisites
 To step through this how-to guide, you need:
@@ -28,7 +30,7 @@ To step through this how-to guide, you need:
 
    ![Bing search for What is my IP](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. Add additional address ranges. In the firewall rules for the Azure Database for PostgreSQL, you can specify a single IP address, or a range of addresses. If you want to limit the rule to a single IP address, type the same address in the field for Start IP and End IP. Opening the firewall enables administrators, users, and applications to log in to any database on the PostgreSQL server to which they have valid credentials.
+4. Add additional address ranges. In the firewall rules for the Azure Database for PostgreSQL, you can specify a single IP address, or a range of addresses. If you want to limit the rule to a single IP address, type the same address in the field for Start IP and End IP. Opening the firewall enables administrators, users, and applications to access any database on the PostgreSQL server to which they have valid credentials.
 
    ![Azure portal - firewall rules](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
@@ -52,4 +54,5 @@ Repeat the steps to manage the firewall rules.
 
 ## Next steps
 - Similarly, you can script to [Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI](howto-manage-firewall-using-cli.md).
+- Further secure access to your server by [creating and managing Virtual Network service endpoints and rules using the Azure portal](howto-manage-vnet-using-portal.md).
 - For help in connecting to an Azure Database for PostgreSQL server, see [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md).

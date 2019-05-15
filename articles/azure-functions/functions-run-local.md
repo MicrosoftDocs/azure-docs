@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
 experimental: true
-experiment_id: c80d19c3-428d-4b
+experiment_id: 80e4ff38-5174-43
 ---
 
 # Work with Azure Functions Core Tools
@@ -39,6 +39,10 @@ Unless otherwise noted, the examples in this article are for version 2.x.
 ### <a name="v2"></a>Version 2.x
 
 Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core 2.x supports, including [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). You must first install the .NET Core 2.x SDK.
+
+> [!IMPORTANT]
+> When you enable extension bundles in the project's host.json file, you do not need to install the .NET Core 2.x SDK. For more information, see [Local development with Azure Functions Core Tools and extension bundles
+](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Extension bundles requires version 2.6.1071 of the Core Tools, or a later version.
 
 #### <a name="windows-npm"></a>Windows
 
@@ -308,6 +312,7 @@ The `host` command is only required in version 1.x.
 | **`--script-root --prefix`** | Used to specify the path to the root of the function app that is to be run or deployed. This is used for compiled projects that generate project files into a subfolder. For example, when you build a C# class library project, the host.json, local.settings.json, and function.json files are generated in a *root* subfolder with a path like `MyProject/bin/Debug/netstandard2.0`. In this case, set the prefix as `--script-root MyProject/bin/Debug/netstandard2.0`. This is the root of the function app when running in Azure. |
 | **`--timeout -t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
+| **`--enableAuth`** | Enable full authentication handling pipeline.|
 
 For a C# class library project (.csproj), you must include the `--build` option to generate the library .dll.
 
@@ -400,10 +405,6 @@ For example, to call an HTTP-triggered function and pass content body, run the f
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
-### Viewing log files locally
-
-[!INCLUDE [functions-local-logs-location](../../includes/functions-local-logs-location.md)]
-
 ## <a name="publish"></a>Publish to Azure
 
 Core Tools supports two types of deployment, deploying function project files directly to your function app and deploying a custom Linux container, which is supported only in version 2.x. You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create).
@@ -468,6 +469,16 @@ The following custom container deployment options are available:
 | **`--max`**  | Optionally, sets the maximum number of function app instances to deploy to. |
 | **`--min`**  | Optionally, sets the minimum number of function app instances to deploy to. |
 | **`--config`** | Sets an optional deployment configuration file. |
+
+## Monitoring functions
+
+The recommended way to monitor the execution of your functions is by integrating with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app by using the Azure CLI, the integration in your function app in Azure isn't done.
+
+To enable Application Insights for your function app:
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+To learn more, see [Monitor Azure Functions](functions-monitoring.md).
 
 ## Next steps
 

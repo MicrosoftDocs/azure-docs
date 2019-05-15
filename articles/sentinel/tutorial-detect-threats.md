@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 03/20/2019
 ms.author: rkarlin
 
 ---
@@ -24,18 +24,21 @@ ms.author: rkarlin
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This tutorial helps you detect threats with Azure Sentinel.
-
 After you [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Azure Sentinel lets you create advanced alert rules, that generate cases that you can assign and use to deeply investigate anomalies and threats in your environment. 
 
-
+This tutorial helps you detect threats with Azure Sentinel.
 > [!div class="checklist"]
 > * Create detection rules
 > * Respond to threats
 
 ## Create detection rules
 
-To investigate cases, you first have to create detection rules. Detection rules are based on the types of threats and anomalies that could be suspicious in your environment that you want to know about right away, ensuring they are surfaced, investigated, and remediated. 
+To investigate cases, you first have to create detection rules. 
+
+> [!NOTE]
+> Alerts generated in Azure Sentinel are available through [Microsoft Graph Security](https://aka.ms/securitygraphdocs). Refer to the [Microsoft Graph Security alerts documentation](https://aka.ms/graphsecurityreferencebetadocs) for further details and integration partners.
+
+Detection rules are based on the types of threats and anomalies that could be suspicious in your environment that you want to know about right away, ensuring they are surfaced, investigated, and remediated. 
 
 1. In the Azure portal under Azure Sentinel, select **Analytics**.
 
@@ -84,7 +87,9 @@ Azure Sentinel gives you two primary options for responding to threats using pla
 
 
 ## Next steps
-In this tutorial, you learned how to get started detecting threats using Azure Sentinel. Continue to the tutorial for [how to respond to threats using automated playbooks](tutorial-respond-threats-playbook.md).
+In this tutorial, you learned how to get started detecting threats using Azure Sentinel. 
+
+To learn how to automate your responses to threats, [how to respond to threats using automated playbooks](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
 > [Respond to threats](tutorial-respond-threats-playbook.md) to automate your responses to threats.
 

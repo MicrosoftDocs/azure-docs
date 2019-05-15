@@ -18,8 +18,8 @@ Testing your QnA Maker knowledge base is an important part of an iterative proce
 
 ## Test answer matching
 
-1.  Access your knowledge base by selecting its name on the **My knowledge bases** page.
-2.  To access the Test slide-out panel, select **Test** in your application's top panel.
+1.  Access your knowledge base by selecting its name on the **My knowledge bases** page.
+2.  To access the Test slide-out panel, select **Test** in your application's top panel.
 
     ![Access Test panel](../media/qnamaker-how-to-test-kb/access-test.png)
 
@@ -29,21 +29,21 @@ Testing your QnA Maker knowledge base is an important part of an iterative proce
 
 ## Clear test panel
 
-To clear all the entered test queries and their results from the test console, select **Start over** at the upper-left corner of the Test panel.
+To clear all the entered test queries and their results from the test console, select **Start over** at the upper-left corner of the Test panel.
 
 ## Close test panel
 
-To close the Test panel, select the **Test** button again. While the Test panel is open, you cannot edit the Knowledge Base contents.
+To close the Test panel, select the **Test** button again. While the Test panel is open, you cannot edit the Knowledge Base contents.
 
 ## Inspect score
 
-You inspect details of the test result in the Inspect panel.
+You inspect details of the test result in the Inspect panel.
 
-1.  With the Test slide-out panel open, select **Inspect** for more details on that response.
+1.  With the Test slide-out panel open, select **Inspect** for more details on that response.
 
     ![Inspect responses](../media/qnamaker-how-to-test-kb/inspect.png)
 
-2.  The Inspection panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
+2.  The Inspection panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
 
 ## Correct the top scoring answer
 

@@ -1,7 +1,6 @@
 ---
 title: Use Apache Phoenix and SQLLine with HBase in Azure HDInsight 
 description: Learn how to use Apache Phoenix in HDInsight. Also, learn how to install and set up SQLLine on your computer to connect to an HBase cluster in HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -43,7 +42,7 @@ When you connect to an HBase cluster, you need to connect to one of the [Apache 
 
 2. In SSH, use the following commands to run SQLLine:
 
-        cd /usr/hdp/current/phoenix/bin
+        cd /usr/hdp/current/phoenix-client/bin
         ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
 3. To create an HBase table, and insert some data, run the following commands:
 

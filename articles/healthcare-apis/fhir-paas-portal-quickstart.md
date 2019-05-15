@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure API for FHIR using Azure Portal
-description: Deploy Azure API for FHIR using Azure Portal.
+title: Deploy Azure API for FHIR using Azure portal
+description: Deploy Azure API for FHIR using Azure portal.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
@@ -11,7 +11,7 @@ ms.author: mihansen
 
 # Quickstart: Deploy Azure API for FHIR using Azure portal
 
-In this quickstart, you'll learn how to deploy Azure API for FHIR using the Azure Portal.
+In this quickstart, you'll learn how to deploy Azure API for FHIR using the Azure portal.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -43,9 +43,14 @@ Confirm creation and await FHIR API deployment.
 
 ## Additional settings
 
-Click **Next: Additional settings** to configure the identity object IDs that should be allowed to access this Azure API for FHIR:
+Click **Next: Additional settings** to configure the authority, audience, identity object IDs that should be allowed to access this Azure API for FHIR and enable SMART on FHIR if needed:
 
-![Configure allowed object IDs](media/quickstart-paas-portal/configure-allowed-oids.png)
+- **Authority:** You can specify different Azure AD tenant from the one that you are logged into as authentication authority for the service.
+- **Audience:** You can specify audience, that is different from https:\//azurehealthcareapis.com.
+- **Allowed object IDs:** You can specify identity object IDs that should be allowed to access this Azure API for FHIR  
+- **Smart On FHIR proxy:** You can enable SMART on FHIR proxy. For details on how to configure SMART on FHIR proxy see tutorial [Azure API for FHIR SMART on FHIR proxy](https://docs.microsoft.com/azure/healthcare-apis/use-smart-on-fhir-proxy)  
+
+![Configure allowed object IDs](media/quickstart-paas-portal/configure-audience.png)
 
 See [how to find identity object IDs](find-identity-object-ids.md) for details on how to locate identity object IDs for users and service principals.
 

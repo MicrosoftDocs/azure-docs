@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/21/2019
 ms.author: juliako
 
 ---
@@ -154,6 +154,11 @@ Execute the following CLI command:
 ```azurecli
 az group delete --name amsResourceGroup
 ```
+
+## Provide feedback
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
+
 ## Next steps
 
 > [!div class="nextstepaction"]

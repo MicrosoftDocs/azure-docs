@@ -52,8 +52,20 @@
       href: quickstart-device-streams-proxy-c.md
 - name: Tutorials
   items:
-  - name: Routing messages
-    href: tutorial-routing.md
+  - name: Routing messages 
+    items:
+    - name: Part 1 - Configure message routing
+      items:
+      - name: Portal
+        href: tutorial-routing.md
+      - name: Azure RM template
+        href: tutorial-routing-config-message-routing-RM-template.md
+      - name: Azure CLI
+        href: tutorial-routing-config-message-routing-CLI.md
+      - name: PowerShell
+        href: tutorial-routing-config-message-routing-PowerShell.md
+    - name: Part 2 - View message routing results
+      href: tutorial-routing-view-message-routing-results.md 
   - name: Use metrics and diagnostic logs
     href: tutorial-use-metrics-and-diags.md
   - name: Perform manual failover
@@ -171,6 +183,8 @@
           href: iot-hub-device-sdk-c-iothubclient.md
         - name: Use the serializer
           href: iot-hub-device-sdk-c-serializer.md
+      - name: Azure IoT C SDK resource information
+        href: https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md
       - name: Develop for constrained devices
         href: iot-hub-devguide-develop-for-constrained-devices.md
       - name: Develop for mobile devices
@@ -262,6 +276,7 @@
       - name: Use the REST API
         href: iot-hub-rm-rest.md
       - name: Use a template from Azure PowerShell
+        displayName: Azure Resource Manager, ARM
         href: iot-hub-rm-template-powershell.md
       - name: Use a template from .NET
         href: iot-hub-rm-template.md
@@ -285,13 +300,13 @@
       href: iot-hub-distributed-tracing.md  
     - name: Configure IP filtering
       href: iot-hub-ip-filtering.md
-    - name: Configure devices at scale
+    - name: Automatic device management at scale
       items:
       - name: Use Azure portal
-        href: iot-hub-auto-device-config.md
+        href: iot-hub-automatic-device-management.md
       - name: Use Azure CLI
-        href: iot-hub-auto-device-config-cli.md
-    - name: Bulk manage IoT devices
+        href: iot-hub-automatic-device-management-cli.md
+    - name: Bulk import and export IoT devices
       href: iot-hub-bulk-identity-mgmt.md
   - name: Use real devices
     items:

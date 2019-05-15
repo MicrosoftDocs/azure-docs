@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 04/30/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 #Customer intent: As an application developer, I need to know how to modify the accounts supported by my application.
 ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Modify the accounts supported by an application (Preview)
+# Quickstart: Modify the accounts supported by an application
 
 When registering an application in the Microsoft identity platform, you may want your application to be accessed only by users in your organization. Alternatively, you may also want your application to be accessible by users in external organizations, or by users in external organizations as well as users that are not necessarily part of an organization (personal accounts).
 

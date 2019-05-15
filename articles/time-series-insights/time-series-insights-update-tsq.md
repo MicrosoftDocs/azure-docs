@@ -70,11 +70,11 @@ The following Time Series Query APIs are available:
 
 ## Next steps
 
-Read about:
+- Learn more about [storage and ingress](./time-series-insights-update-storage-ingress.md) in the Azure Time Series Insights Preview.
 
-- [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md)
-- [Data modeling](./time-series-insights-update-tsm.md)
-- [Best practices when choosing a Time Series ID](./time-series-insights-update-how-to-id.md)
+- Read the Time Series Insights Preview [data modeling](./time-series-insights-update-tsm.md) article.
+
+- Discover [best practices when choosing a Time Series ID](./time-series-insights-update-how-to-id.md).
 
 <!-- Images -->
 [1]: media/v2-update-tsq/tsq.png

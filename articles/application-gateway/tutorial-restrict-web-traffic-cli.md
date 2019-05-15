@@ -12,7 +12,15 @@ ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
 ---
-# Tutorial: Enable web application firewall using the Azure CLI
+# Enable web application firewall using the Azure CLI
+
+> [!div class="op_single_selector"]
+>
+> - [Azure portal](application-gateway-web-application-firewall-portal.md)
+> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
+> - [Azure CLI](tutorial-restrict-web-traffic-cli.md)
+>
+> 
 
 You can restrict traffic on an [application gateway](overview.md) with a [web application firewall](waf-overview.md) (WAF). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. 
 

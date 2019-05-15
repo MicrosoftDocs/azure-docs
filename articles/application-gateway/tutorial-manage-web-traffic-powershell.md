@@ -3,12 +3,9 @@ title: Manage web traffic - Azure PowerShell
 description: Learn how to create an application gateway with a virtual machine scale set to manage web traffic using Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 6/5/2018
+ms.date: 3/20/2019
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -83,7 +80,7 @@ $vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Name myVNet
 
-$subnet=$vnet.Subnets[0]
+$subnet=$vnet.Subnets[1]
 
 $gipconfig = New-AzApplicationGatewayIPConfiguration `
   -Name myAGIPConfig `
@@ -178,13 +175,13 @@ $backendPool = Get-AzApplicationGatewayBackendAddressPool `
 
 $ipConfig = New-AzVmssIpConfig `
   -Name myVmssIPConfig `
-  -SubnetId $vnet.Subnets[1].Id `
+  -SubnetId $vnet.Subnets[0].Id `
   -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
 
 $vmssConfig = New-AzVmssConfig `
   -Location eastus `
   -SkuCapacity 2 `
-  -SkuName Standard_DS2 `
+  -SkuName Standard_DS2_v2 `
   -UpgradePolicyMode Automatic
 
 Set-AzVmssStorageProfile $vmssConfig `

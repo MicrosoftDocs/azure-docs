@@ -157,7 +157,7 @@
   - name: FAQs and known issues
     href: known-issues.md
   - name: Azure services that support managed identities for Azure resources
-    href: services-support-msi.md
+    href: services-support-managed-identities.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-msi
   - name: AAD Developers forum

@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/4/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
 #As a security operator, I want to see all my logs and alerts in one place so I can monitor and protect my environment.
 
@@ -117,7 +117,22 @@ You might want to create a query that incorporates data from multiples sources. 
 
 You can create different dashboards based on role of person looking at the data and what they're looking for. For example, you can create a dashboard for your network admin that includes the firewall data. You can also create dashboards based on how frequently you want to look at them, whether there are things you want to review daily, and others items you want to check once an hour, for example, you might want to look at your Azure AD sign-ins every hour to search for anomalies. 
 
+## Create new detections
 
+Generate detections on the [data sources that you connected to Azure Sentinel](connect-data-sources.md) to investigate threats in your organization.
+
+When you create a new detection, leverage the built-in detections crafted by Microsoft security researchers that are tailored to the data sources you connected.
+
+1. [In the GitHub community](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) go to the **Detections** folder and select the relevant folders.
+   ![relevant folders](./media/qs-get-visibility/detection-folders.png)
+ 
+3.	Go to the **Analytics** tab and select **add**.
+   ![create rule in Log Analytics](./media/qs-get-visibility/query-params.png)
+
+3.	Copy all parameters to the rule and click **Create**.
+   ![create alert rule](./media/qs-get-visibility/create-alert-rule.png)
+
+ 
 ## Next steps
 In this quickstart, you learned how to get started using Azure Sentinel. Continue to the tutorial for [how to detect threats](tutorial-detect-threats.md).
 > [!div class="nextstepaction"]

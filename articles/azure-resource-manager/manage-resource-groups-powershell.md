@@ -82,6 +82,10 @@ To validate a resource group deployment, see [Test-AzResourceGroupDeployment](ht
 
 You can create a resource group and deploy resources to the group by using a Resource Manager template. For more information, see [Create resource group and deploy resources](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
 
+## Redeploy when deployment fails
+
+This feature is also known as *Rollback on error*. For more information, see [Redeploy when deployment fails](./resource-group-template-deploy.md#redeploy-when-deployment-fails).
+
 ## Move to another resource group or subscription
 
 You can move the resources in the group to another resource group. For more information, see [Move resources to new resource group or subscription](./resource-group-move-resources.md#move-resources).

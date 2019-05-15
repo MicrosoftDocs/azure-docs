@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18 
 ---
@@ -41,16 +41,16 @@ If your app exceeds the LUIS model limits and boundaries, consider using a [LUIS
 
 *Default character max is 50 characters. 
 
-## Intent and entity naming
-Do not use the following characters in intent and entity names:
+<a name="intent-and-entity-naming"></a>
 
-|Character|Name|
+## Object naming
+
+Do not use the following characters in the following names.
+
+|Object|Exclude characters|
 |--|--|
-|`{`|Left curly bracket|
-|`}`|Right curly bracket|
-|`[`|Left bracket|
-|`]`|Right bracket|
-|`\`|Backslash|
+|Intent, entity, and role names|`:`<br>`$`|
+|Version name|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
 ## Key usage
 
