@@ -342,13 +342,13 @@ In this example, you create a few policies to learn how the priority system work
 
     2. When you have the service principal, run the following command:
 
-            ```powershell
-            # Get ID of the service principal
-            $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
+        ```powershell
+        # Get ID of the service principal
+        $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
 
-            # Assign policy to a service principal
-            Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
-            ```
+        # Assign policy to a service principal
+        Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
+        ```
 
 3. Set the `IsOrganizationDefault` flag to false:
 
