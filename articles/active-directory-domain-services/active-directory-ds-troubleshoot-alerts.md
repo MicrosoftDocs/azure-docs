@@ -61,7 +61,7 @@ Pick the troubleshooting steps that correspond to the ID or message in the alert
 
 This error is usually caused by incorrectly moving your Azure subscription to a new Azure AD directory and deleting the old Azure AD directory that is still associated with Azure AD Domain Services.
 
-This error is unrecoverable. To resolve, you must [delete your existing managed domain](active-directory-ds-disable-aadds.md) and recreate it in your new directory. If you are having trouble deleting, contact the Azure Active Directory Domain Services product team [for support](contact-us.md).
+This error is unrecoverable. To resolve, you must [delete your existing managed domain](delete-aadds.md) and recreate it in your new directory. If you are having trouble deleting, contact the Azure Active Directory Domain Services product team [for support](contact-us.md).
 
 ## AADDS101: Azure AD B2C is running in this directory
 **Alert message:**
@@ -75,7 +75,7 @@ This error is unrecoverable. To resolve, you must [delete your existing managed 
 
 To restore your service, follow these steps:
 
-1. [Delete your managed domain](active-directory-ds-disable-aadds.md) from your existing Azure AD directory.
+1. [Delete your managed domain](delete-aadds.md) from your existing Azure AD directory.
 2. Create a new directory that is not an Azure AD B2C directory.
 3. Follow the [Getting Started](active-directory-ds-getting-started.md) guide to recreate a managed domain.
 
@@ -97,7 +97,7 @@ Inside the virtual network, machines may make requests to Azure resources that a
 **If you own the IP address range in the internet that is configured in your virtual network, this alert can be ignored. However, Azure AD Domain Services cannot commit to the [SLA](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/)] with this configuration since it can lead to unpredictable errors.**
 
 
-1. [Delete your managed domain](active-directory-ds-disable-aadds.md) from your directory.
+1. [Delete your managed domain](delete-aadds.md) from your directory.
 2. Fix the IP address range for the subnet
    1. Navigate to the [Virtual Networks page on the Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
    2. Select the virtual network you plan to use for Azure AD Domain Services.
@@ -121,7 +121,7 @@ Inside the virtual network, machines may make requests to Azure resources that a
 Azure AD Domain Services requires a subscription to function and cannot be moved to a different subscription. Because the Azure subscription that your managed domain was associated with has been deleted, you will need to recreate an Azure subscription and Azure AD Domain Services.
 
 1. Create an Azure subscription
-2. [Delete your managed domain](active-directory-ds-disable-aadds.md) from your existing Azure AD directory.
+2. [Delete your managed domain](delete-aadds.md) from your existing Azure AD directory.
 3. Follow the [Getting Started](active-directory-ds-getting-started.md) guide to recreate a managed domain.
 
 ## AADDS107: Your Azure subscription is disabled
@@ -144,7 +144,7 @@ Azure AD Domain Services requires a subscription to function and cannot be moved
 
 **Resolution:**
 
-You can either move the subscription associated with Azure AD Domain Services back to the previous directory, or you need to [delete your managed domain](active-directory-ds-disable-aadds.md) from the existing directory and recreate it in the chosen directory (either with a new subscription or change the directory your Azure AD Domain Services instance is in).
+You can either move the subscription associated with Azure AD Domain Services back to the previous directory, or you need to [delete your managed domain](delete-aadds.md) from the existing directory and recreate it in the chosen directory (either with a new subscription or change the directory your Azure AD Domain Services instance is in).
 
 ## AADDS109: Resources for your managed domain cannot be found
 
@@ -173,7 +173,7 @@ Azure AD Domain Services creates specific resources while deploying in order to 
 
 **Resolution:**
 
-This error is unrecoverable. To resolve, you must [delete your existing managed domain](active-directory-ds-disable-aadds.md) and [recreate your managed domain](active-directory-ds-getting-started.md)
+This error is unrecoverable. To resolve, you must [delete your existing managed domain](delete-aadds.md) and [recreate your managed domain](active-directory-ds-getting-started.md)
 
 ## AADDS111: Service principal unauthorized
 
@@ -218,7 +218,7 @@ Our service principals need access to be able to manage and create resources on 
 
 **Resolution:**
 
-This error is unrecoverable. To resolve, you must [delete your existing managed domain](active-directory-ds-disable-aadds.md) and [recreate your managed domain](active-directory-ds-getting-started.md).
+This error is unrecoverable. To resolve, you must [delete your existing managed domain](delete-aadds.md) and [recreate your managed domain](active-directory-ds-getting-started.md).
 
 ## AADDS114: Subnet invalid
 
@@ -228,7 +228,7 @@ This error is unrecoverable. To resolve, you must [delete your existing managed 
 
 **Resolution:**
 
-This error is unrecoverable. To resolve, you must [delete your existing managed domain](active-directory-ds-disable-aadds.md) and [recreate your managed domain](active-directory-ds-getting-started.md).
+This error is unrecoverable. To resolve, you must [delete your existing managed domain](delete-aadds.md) and [recreate your managed domain](active-directory-ds-getting-started.md).
 
 ## AADDS115: Resources are locked
 

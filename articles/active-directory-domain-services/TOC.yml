@@ -56,7 +56,7 @@
         - name: Configure password polices on a managed domain
           href: active-directory-ds-password-policy.md
         - name: Delete a managed domain
-          href: active-directory-ds-disable-aadds.md
+          href: delete-aadds.md
         - name: Create an Azure AD DS administrative virtual machine
           href: manage-domain.md
         - name: Manage DNS for Azure AD Domain Services
