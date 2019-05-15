@@ -28,7 +28,7 @@ To complete this tutorial:
 
 * Install [Visual Studio Code](https://code.visualstudio.com/download).
 
-* Make sure you have the [latest Azure Functions tools](../functions-develop-vs.md#check-your-tools-version).
+* Make sure you have the latest version of the [Azure Functions Core Tools](../functions-run-local.md).
 
 * On a Windows computer, verify you have the [Azure Storage Emulator](../../storage/common/storage-use-emulator.md) installed and running. On a Mac or Linux computer, you must use an actual Azure storage account.
 
