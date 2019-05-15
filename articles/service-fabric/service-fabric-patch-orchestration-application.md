@@ -260,13 +260,13 @@ To enable the reverse proxy on the cluster, follow the steps in [Reverse proxy i
 
 ## Diagnostics/health events
 
-With diagnostic improvements in the latest version of Patch Orchestration Application it is a piece of cake to debug the issues with update orchestration on Service fabric cluster.
+With diagnostic improvements in the latest version of Patch Orchestration Application it has become easy to debug the issues with update orchestration on Service fabric cluster.
 
-NodeAgentNTService creates repair tasks to install updates on the nodes. Each task is then prepared by CoordinatorService according to task approval policy. The prepared tasks are finally approved by Repair manager which will not approve any task if cluster is unhealthy. Lets go step by step to understand how updates proceed on a node.
+NodeAgentNTService creates repair tasks to install updates on the nodes. Each task is then prepared by CoordinatorService according to task approval policy. The prepared tasks are finally approved by Repair manager which will not approve any task if cluster is in unhealthy state. Lets go step by step to understand how updates proceed on a node.
 
 1. Firstly, NodeAgentNTService on a node tries to download the updates at the scheduled time.
 2. If there are updates to be installed, then, NodeAgentNTService creates Repair task like "POS__poanode_1_57230088-ab5e-49d1-8e3d-44ec1c57d30b".
-3. The Node on which update is getting installed, will be in disabled state with intent "Restart" and reason will have repair task listed on the node on SF explorer.
+3. The Node on which update is getting installed, will be in disabled state with intent "Restart". The information about the repair task can be found on the node in SF Explorer.
 4. Latest version of POA posts events with property "ClusterPatchingStatus" on CoordinaterService to display the nodes which are being patched. Below image shows that updates are getting installed on _poanode_0:
 
     ![Image of Cluster patching status](media/service-fabric-patch-orchestration-application/ClusterPatchingStatus.png)
@@ -301,7 +301,7 @@ NodeAgentNTService creates repair tasks to install updates on the nodes. Each ta
       OperationCompleted=9 | windows update operation completed successfully.
       OperationAborted=10 | implies that windows update operation is aborted.
 
-8. One can try to figure out the issue after looking at state of repair task and sign in to specific VM to dig deep on the issue using Windows event logs.
+8. One can try to figure out the issue after looking at state of repair task and sign in to specific VM to find more about the issue using Windows event logs.
 9. In latest version of the application, after the update is complete on any node, an event with property "WUOperationStatus+nodeName" is posted on the NodeAgentService to notify when will the next attempt, to download and install update, start. See the image below:
 
      ![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/WUOperationStatusC.png)
