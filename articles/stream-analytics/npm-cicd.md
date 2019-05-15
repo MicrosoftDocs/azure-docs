@@ -1,22 +1,22 @@
 ---
-title:  Continuously integrate and develop with Azure Stream Analytics CI/CD NPM package 
-description: This article describes how to use Azure Stream Analytics CI/CD NPM package to set up a continuous integration and deployment process.
+title:  Continuously integrate and develop with Azure Stream Analytics CI/CD npm package 
+description: This article describes how to use Azure Stream Analytics CI/CD npm package to set up a continuous integration and deployment process.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 05/15/2019
 ---
 
 
-# Continuously integrate and develop with Azure Stream Analytics CI/CD NuGet package
-This article describes how to use the Azure Stream Analytics CI/CD NPM package to set up a continuous integration and deployment process.
+# Continuously integrate and develop with Stream Analytics CI/CD npm package
+This article describes how to use the Azure Stream Analytics CI/CD npm package to set up a continuous integration and deployment process.
 
-## Build the Visual Studio Code project
+## build the 
 
-You can enable continuous integration and deployment for Azure Stream Analytics jobs using the [asa-streamanalytics-cicd](https://www.npmjs.com/package/azure-streamanalytics-cicd) NPM package. The NPM package provides the tools to generate Azure Resource Manager templates of [Stream Analytics Visual Studio Code projects](quick-create-vs-code.md). It can be used on Windows, macOS, and Linux without installing Visual Studio Code.
+You can enable continuous integration and deployment for Azure Stream Analytics jobs using the [asa-streamanalytics-cicd]() NPM package. The NPM package provides the tools to generate Azure Resource Manager templates of [Stream Analytics Visual Studio Code projects](quick-create-vs-code.md). It can be used on Windows, macOS, and Linux without installing Visual Studio Code.
 
 Once you have [downloaded the package](https://www.npmjs.com/package/azure-streamanalytics-cicd), use the following command to output the Azure Resource Manager templates. If the **outputPath** is not specified, the templates will be placed in the **Deploy** folder under the project's **bin** folder.
 
