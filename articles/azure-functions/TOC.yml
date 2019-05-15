@@ -175,6 +175,7 @@
     items:
     - name: Manage a function app 
       href: functions-how-to-use-azure-function-app-settings.md
+      displayName: app setting, application setting
     - name: Set the runtime version 
       href: set-runtime-version.md
     - name: Manually register an extension 
