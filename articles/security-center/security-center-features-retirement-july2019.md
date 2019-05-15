@@ -28,13 +28,13 @@ Security Center features to be retired include:
 - [Investigate button in threat protection security alerts](#menu_investigate)
 - [A subset of Security solutions](#menu_solutions)
 - [Edit security configurations for Security policies](#menu_securityconfigurations)
-- [Security & audit dashboard (originally used in OMS portal) for Log Analytics workspaces.](#menu_securityomsdashboard)
+- [Security and audit dashboard (originally used in OMS portal) for Log Analytics workspaces](#menu_securityomsdashboard)
 
 This article provides detailed information for each retired feature and the steps you can take to implement replacement features.
 
 ## Events dashboard<a name="menu_events"></a>
 
-Security Center uses Microsoft Monitoring Agent to collect various security-related configurations and events from your machines. It stores these events in your workspace(s). The [events dashboard](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) lets you view this data and  gives you an entry point to Log Analytics.
+Security Center uses Microsoft Monitoring Agent to collect various security-related configurations and events from your machines. It stores these events in your workspaces. The [events dashboard](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) lets you view this data and  gives you an entry point to Log Analytics.
 
 We're retiring the events dashboard that appears when you select a workspace:
 
@@ -42,7 +42,7 @@ We're retiring the events dashboard that appears when you select a workspace:
 
 ### Events dashboard - the new experience
 
-We encouraged you to use the native capabilities of Azure Log Analytics to view notable events on your workspace(s).
+We encouraged you to use the native capabilities of Azure Log Analytics to view notable events on your workspaces.
 
 If you've created custom notable events in Security Center, they'll be accessible. In Log Analytics, go to **Select workspace** > **Saved Searches**. Your data won't be lost or modified. Native notable events are also available from the same screen in Log Analytics.
 
@@ -176,7 +176,7 @@ The security and audit dashboard was originally used in the OMS portal. In Log A
 
 We advise you to switch to Azure Security Center. It provides the same security overview across multiple subscriptions and the workspaces associated with them, plus a richer feature set.
 
-You can get the original Log Analytics queries that populate the security and audit dashboard in Security Center's [GitHub repository](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
+You can get the original Log Analytics queries that populate the security and audit dashboard in the [GitHub repository](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards) for Security Center.
 
 ## Next steps
 
