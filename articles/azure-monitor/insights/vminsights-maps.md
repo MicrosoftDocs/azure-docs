@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 05/09/2019
 ms.author: magoedte
 ---
 
 # Using Azure Monitor for VMs (preview) Map to understand application components
-Viewing the discovered application components on Windows and Linux virtual machines running in Azure your environment can be observed in two ways with Azure Monitor for VMs, from a virtual machine directly or across groups of VMs from Azure Monitor. 
+Viewing the discovered application components on Windows and Linux virtual machines running in Azure your environment can be observed in two ways with Azure Monitor for VMs, from a virtual machine directly, or across groups of VMs from Azure Monitor. 
 
-This article will help you understand the experience between the two perspectives and how to use the Map feature. For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](vminsights-onboard.md).
+This article will help you understand the experience between the two perspectives and how to use the Map feature. For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](vminsights-enable-overview.md).
 
 ## Sign in to Azure
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
@@ -92,6 +92,21 @@ Map visualizes the VMs dependencies, that is running process groups and processe
 
 ![Direct VM map overview](./media/vminsights-maps/map-direct-vm-01.png)
 
+## View Map directly from a virtual machine scale set
+
+To access Azure Monitor for VMs directly from a virtual machine scale set, perform the following.
+
+1. In the Azure portal, select **Virtual machine scale sets**.
+2. From the list, choose a VM and in the **Monitoring** section choose **Insights (preview)**.  
+3. Select the **Map** tab.
+
+Map visualizes all of the instances in the scale set as a group node along with the group's dependencies. The expanded node lists the instances in the scale set, which you can scroll through ten at a time. To load a map for a specific instance, select that instance on the map, and then click on the ellipsis to it's right and choose **Load Server Map**. This will load the map for that instance, allowing you to see process groups and processes with active network connections over a specified time range. By default, the map shows the last 30 minutes. Using the **TimeRange** selector you can query for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred).  
+
+![Direct VM map overview](./media/vminsights-maps/map-direct-vmss-01.png)
+
+>[!NOTE]
+>You can also access a map for a specific instance from the Instances view for your virtual machine scale set. Navigate to **Instances** under the **Settings** section, and then choose **Insights (preview)**.
+
 ## View Map from Azure Monitor
 From Azure Monitor, the Map feature provides a global view of your virtual machines and their dependencies.  To access the Map feature from Azure Monitor, perform the following. 
 
@@ -101,7 +116,7 @@ From Azure Monitor, the Map feature provides a global view of your virtual machi
 
 ![Azure Monitor multi-VM map overview](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-From the **Workspace** selector at the top of the page, if you have more than one Log Analytics workspace, choose the workspace that is enabled with the solution and has virtual machines reporting to it. The **Group** selector will return subscriptions, resource groups, [computer groups](../../azure-monitor/platform/computer-groups.md), and VM scale sets of computers related to the selected workspace. Your selection only applies to the Map feature and does not carry over to Performance or Map.
+From the **Workspace** selector at the top of the page, if you have more than one Log Analytics workspace, choose the workspace that is enabled with the solution and has virtual machines reporting to it. The **Group** selector will return subscriptions, resource groups, [computer groups](../../azure-monitor/platform/computer-groups.md), and virtual machine scale sets of computers related to the selected workspace. Your selection only applies to the Map feature and does not carry over to Performance or Map.
 
 By default, the map shows the last 30 minutes. Using the **TimeRange** selector, you can query for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred).   
 

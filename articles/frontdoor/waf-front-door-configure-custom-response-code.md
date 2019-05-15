@@ -48,11 +48,11 @@ New-AzResourceGroup -Name myResourceGroupWAF
 
 ## Create a new WAF policy with custom response 
 
-Below is an example of creating a new WAF policy with custom response status code set to 405 and message to **You are blocked.** using [New-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy).
+Below is an example of creating a new WAF policy with custom response status code set to 405 and message to **You are blocked.** using [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```azurepowershell
 # WAF policy setting
-New-AzFrontDoorFireWallPolicy `
+New-AzFrontDoorWafPolicy `
 -Name myWAFPolicy `
 -ResourceGroupName myResourceGroupWAF `
 -EnabledState enabled `

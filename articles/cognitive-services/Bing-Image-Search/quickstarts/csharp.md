@@ -18,7 +18,7 @@ Use this quickstart to start sending search requests to the Bing Image Search AP
 The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) with additional error handling and annotations.
 
 ## Prerequisites
-* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
 * If you're using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 
