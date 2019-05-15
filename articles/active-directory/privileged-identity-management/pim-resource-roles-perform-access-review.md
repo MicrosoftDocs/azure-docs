@@ -41,12 +41,12 @@ Follow these steps to find and complete the access review:
 1. Browse to the Azure AD PIM application.
 2. Select the **Review access** blade.
 
-   ![Screenshot of PIM application, with Review access blade selected](media/azure-pim-resource-rbac/rbac-access-review-complete.png)
+   ![Screenshot of PIM application, with Review access blade selected](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
 
 3. Select the review you want to complete. 
 4. Choose either **Approve** or **Deny**. In the **Provide a reason box**, you might need to include a reason for your decision.
 
-   ![Screenshot of Review details page](media/azure-pim-resource-rbac/rbac-access-review-choice.png)
+   ![Screenshot of Review details page](media/pim-resource-roles-perform-access-review/rbac-access-review-choice.png)
 
 ## Next steps
 

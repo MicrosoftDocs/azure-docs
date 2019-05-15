@@ -134,7 +134,7 @@ The query results are:
     }]
 ```
 
-The following query returns all the given names of children in the family whose `id` matches `WakefieldFamily`, ordered by the city of residence.
+The following query returns all the given names of children in the family whose `id` matches `WakefieldFamily`, ordered by city.
 
 ```sql
     SELECT c.givenName
@@ -862,6 +862,13 @@ The results are:
         ]
       }
     ]
+```
+
+The following SQL query is another example of using array within in subqueries. This query gets all the distinct  given names of children in an arrary.
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
 ```
 
 
