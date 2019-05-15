@@ -1,6 +1,6 @@
 ---
 title: SaaS Fulfillment API V2 | Azure Marketplace 
-description: Explains how to create a SaaS offer on the AppSource and Azure Marketplace using the associated fulfillment V2 APIs.
+description: Explains how to create a SaaS offer on the Azure Marketplace using the associated fulfillment V2 APIs.
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: v-miclar
 ms.service: marketplace
@@ -11,7 +11,7 @@ ms.author: pabutler
 
 # SaaS Fulfillment APIs Version 2 
 
-This article details the API that enables independent software vendors (ISVs) to sell their SaaS applications in the AppSource and Azure Marketplace. This API is a requirement for listing SaaS offers on the AppSource and Azure Marketplace.
+This article details the API that enables independent software vendors (ISVs) to integrate their SaaS applications with the Azure Marketplace. This API enables ISV applications to participate in all commerce enabled channels: direct, partner-led (reseller) and field-led.  This API is a requirement for listing transactable SaaS offers on the Azure Marketplace.
 
 
 ## Managing the SaaS subscription lifecycle
@@ -114,7 +114,7 @@ Resolves the opaque token to a SaaS subscription.<br>
 ```json
 Response body:
 {
-    "id": "<guid>",  
+    "subscriptionId": "<guid>",  
     "subscriptionName": "Contoso Cloud Solution",
     "offerId": "offer1",
     "planId": "silver",
@@ -171,7 +171,7 @@ Lists all the SaaS subscriptions for a publisher.
 
 *Response codes:*
 
-Code: 200<br>
+Code: 200 <br/>
 Based on the auth token, get the publisher and corresponding subscriptions for all the publisher's offers.<br> 
 Response payload:<br>
 
@@ -203,7 +203,6 @@ Response payload:<br>
 ```
 
 The continuation token will only be present if there are additional "pages" of plans to retrieve. 
-
 
 Code: 403 <br>
 Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher. 
@@ -365,13 +364,14 @@ Internal Server Error<br>
 
 ```json
 {
-    "planId": "gold"
+    "planId": "gold",
+    "quantity": ""
 }
 ```
 
 *Response codes:*
 
-Code: 202<br>
+Code: 200<br>
 Activates the subscription.<br>
 
 Code: 404<br>
@@ -449,9 +449,6 @@ Bad request- Validation failures.
 Code: 403<br>
 Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
 
-Code: 409<br>
-Another operation is in progress on the resource. Wait for pending operations to complete then try again.
-
 Code: 500<br>
 Internal Server Error
 
@@ -518,9 +515,6 @@ Bad request- Validation failures.
 Code: 403<br>
 Unauthorized. The auth token wasn't provided, is invalid, or the request is attempting to access an acquisition that doesn’t belong to the current publisher.
 
-Code: 409<br>
-Another operation is in progress on the resource. Wait for pending operations to complete then try again.
-
 Code: 500<br>
 Internal Server Error
 
@@ -550,13 +544,14 @@ Unsubscribe and delete the specified subscription.
  
 |                    |                   |
 |  ---------------   |  ---------------  |
+|   Content-Type     |  `application/json` |
 |  x-ms-requestid    |   A unique string value for tracking the request from the client, preferably a GUID. If this value isn't provided, one will be generated and provided in the response headers.   |
 |  x-ms-correlationid  |  A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.   |
 |  authorization     |  [Get JSON web token (JWT) bearer token.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Response codes:*
 
-Code: 200<br>
+Code: 202<br>
 ISV initiated call to indicate unsubscribe on a SaaS subscription.<br>
 
 Code: 404<br>
@@ -784,48 +779,37 @@ The publisher must implement a webhook in this SaaS service to proactively notif
 
 ```json
 {
-  "id": "<this is a Guid operation id, you can call operations API with this to get status>",
-  "activityId": "<this is a Guid correlation id>",
-  "subscriptionId": "<Guid to uniquely identify this resource>",
-  "publisherId": "<this is the publisher’s name>",
-  "offerId": "<this is the offer name>",
-  "planId": "<this is the plan id>",
-  "quantity": "<the number of seats, will be null if not per-seat saas offer>",
-  "timeStamp": "2019-04-15T20:17:31.7350641Z",
-  "action": "Unsubscribe",
-  "status": "NotStarted"  
+    "operationId": "<guid>",
+    "activityId": "<guid>",
+    "subscriptionId":"<guid>",
+    "offerId": "offer1",
+    "publisherId": "contoso",
+    "planId": "silver",
+    "quantity": "20"  ,
+    "action": "Subscribe",
+    "timeStamp": "2018-12-01T00:00:00"
 }
+```
 
 Where action can be one of these: 
-       Subscribe, (When the resource has been activated)
-       Unsubscribe, (When the resource has been deleted)
-       ChangePlan, (When the change plan operation has completed)
-       ChangeQuantity, (When the change quantity operation has completed),
-       Suspend, (When resource has been suspended)
-       Reinstate, (When resource has been reinstated after suspension)
-
-
-Where status can be one of these:
-        NotStarted,
-        InProgress,
-        Succeeded,
-        Failed,
-        Conflict
-        
-Actionable statuses are Succeeded and Failed in a webhook notification. An operation's lifecycle is from NotStarted to a terminal state like Succeeded/Failed/Conflict. If you receive Not started or in progress, please continue to request the status via GET operation API until the operation reaches a terminal state before taking any action. 
-```
+- `Subscribe`  (When the resource has been activated)
+- `Unsubscribe` (When the resource has been deleted)
+- `ChangePlan` (When the change plan operation has completed)
+- `ChangeQuantity` (When the change quantity operation has completed)
+- `Suspend` (When the resource has been suspended)
+- `Reinstate` (When resource has been reinstated after suspension)
 
 
 ## Mock API
 
 You can use our mock APIs to help you get started with development, particularly prototyping, and testing projects. 
 
-Host Endpoint: `https://marketplaceapi.microsoft.com/api`
-API Version: `2018-09-15`
-No authentication required
-Sample Uri: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15`
+Host Endpoint: `https://marketplaceapi.microsoft.com/api` <br/>
+API Version: `2018-09-15` <br/>
+No authentication required <br/>
+Sample Uri: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15` <br/>
 
-Any of the API calls in this article can be made to the mock host endpoint. You can expect to get mock data back as a response.
+Note that mock API invocations use a different API version (date) than the production API.  Any of the API calls in this article can be made to the mock host endpoint. In general, you can expect to get mock data back as a response. Calls to the update subscription methods on the mock API always return 500. 
 
 
 ## Next steps
