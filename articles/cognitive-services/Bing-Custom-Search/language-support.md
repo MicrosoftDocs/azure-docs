@@ -3,14 +3,14 @@ title: Language support - Bing Custom Search API
 titleSuffix: Azure Cognitive Services
 description: A list of supported languages and regions for the Bing Custom Search API.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: v-gedod
+ms.author: aahi
 ---
 
 # Language and region support for the Bing Custom Search API
