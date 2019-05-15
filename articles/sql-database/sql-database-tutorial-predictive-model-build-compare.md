@@ -28,15 +28,15 @@ In part two, you'll learn how to:
 > * Make predictions from both models
 > * Compare the results to choose the most accurate model
 
-In [part one](sql-database-tutorial-build-deploy-model-R-1.md), you learned how to import a sample database into an Azure SQL database, and then prepare the data to be used for training a predictive model in R.
+In [part one](sql-database-tutorial-predictive-model-prepare-data.md), you learned how to import a sample database into an Azure SQL database, and then prepare the data to be used for training a predictive model in R.
 
-In [part three](sql-database-tutorial-build-deploy-model-R-2.md), you'll learn how to store the model in a database, and then create a stored procedure that can make predictions based on new data.
+In [part three](sql-database-tutorial-predictive-model-deploy.md), you'll learn how to store the model in a database, and then create a stored procedure that can make predictions based on new data.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## Prerequisites
 
-* Part two of this tutorial assumes you have completed [**part one**](sql-database-tutorial-build-deploy-model-R-1.md) and its prerequisites.
+* Part two of this tutorial assumes you have completed [**part one**](sql-database-tutorial-predictive-model-prepare-data.md) and its prerequisites.
 
 ## Train two models
 
@@ -104,7 +104,7 @@ plot(predict_linmod$RentalCount_Pred - predict_linmod$RentalCount, main = "Diffe
 plot(predict_dtree$RentalCount_Pred  - predict_dtree$RentalCount,  main = "Difference between actual and predicted. rxDTree");
 ```
 
-![Comparing the two models](./media/sql-database-tutorial-build-deploy-model-R-2/compare-models.png)
+![Comparing the two models](./media/sql-database-tutorial-predictive-model-build-compare/compare-models.png)
 
 It looks like the decision tree model is the more accurate of the two models.
 
@@ -119,4 +119,4 @@ In part two of this tutorial series, you completed these steps:
 To deploy the machine learning model you've created, follow part three of this tutorial series:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Deploy a predictive model in R with Azure SQL Database Machine Learning Services (preview)](sql-database-tutorial-build-deploy-model-R-3.md)
+> [Tutorial: Deploy a predictive model in R with Azure SQL Database Machine Learning Services (preview)](sql-database-tutorial-predictive-model-deploy.md)

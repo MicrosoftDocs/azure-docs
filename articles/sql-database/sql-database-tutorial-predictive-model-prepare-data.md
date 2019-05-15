@@ -30,9 +30,9 @@ In part one, you'll learn how to:
 > * Load the data from the Azure SQL database into a data frame using R
 > * Prepare the data by identifying some columns as categorical
 
-In [part two](sql-database-tutorial-build-deploy-model-R-2.md), you'll learn how to create and train multiple models, and then choose the most accurate one.
+In [part two](sql-database-tutorial-predictive-model-build-compare.md), you'll learn how to create and train multiple models, and then choose the most accurate one.
 
-In [part three](sql-database-tutorial-build-deploy-model-R-2.md), you'll learn how to store the model in a database, and then create a stored procedure that can make predictions based on new data.
+In [part three](sql-database-tutorial-predictive-model-deploy.md), you'll learn how to store the model in a database, and then create a stored procedure that can make predictions based on new data.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -178,4 +178,4 @@ In part one of this tutorial series, you completed these steps:
 To create a machine learning model that uses data from the TutorialDB database, follow part two of this tutorial series:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create a predictive model in R with Azure SQL Database Machine Learning Services (preview)](sql-database-tutorial-build-deploy-model-R-2.md)
+> [Tutorial: Create a predictive model in R with Azure SQL Database Machine Learning Services (preview)](sql-database-tutorial-predictive-model-build-compare.md)
