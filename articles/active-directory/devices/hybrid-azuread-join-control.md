@@ -70,7 +70,7 @@ Use the following example to create a Group Policy Object (GPO) to deploy a regi
       1. Key Path: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Value name: **TenantId**
       1. Value type: **REG_SZ**
-      1. Value data: The GUID or Directory ID of your Azure AD instance (This value can be found in the **Azure portal** > **Azure Active Directory** > **Properties** **Directory ID**)
+      1. Value data: The GUID or **Directory ID** of your Azure AD instance (This value can be found in the **Azure portal** > **Azure Active Directory** > **Properties** > **Directory ID**)
    1. Click **OK**
 1. Right-click on the Registry and select **New** > **Registry Item**
    1. On the **General** tab, configure the following
@@ -79,14 +79,14 @@ Use the following example to create a Group Policy Object (GPO) to deploy a regi
       1. Key Path: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Value name: **TenantName**
       1. Value type: **REG_SZ**
-      1. Value data: Your verified domain name in Azure AD (for example, contoso.onmicrosoft.com or any other verified domain name in your directory)
+      1. Value data: Your verified **domain name** in Azure AD (for example, `contoso.onmicrosoft.com` or any other verified domain name in your directory)
    1. Click **OK**
 1. Close the editor for the newly created GPO
 1. Link the newly created GPO to the desired OU containing domain-joined computers that belong to your controlled rollout population
 
 ### Configure AD FS settings
 
-If you are using ADFS, you first need to configure client-side SCP using the instructions mentioned above but linking the GPO to your ADFS servers. This configuration is needed for AD FS to establish the source for device identities as Azure AD. In addition, you need to make sure in AD FS that the device purge background task is disabled. To do that:
+If you are using AD FS, you first need to configure client-side SCP using the instructions mentioned above but linking the GPO to your AD FS servers. This configuration is needed for AD FS to establish the source for device identities as Azure AD. In addition, you need to make sure in AD FS that the device purge background task is disabled. To do that:
 
 1. Open **AD FS Management**
 1. Navigate to **Services** > **Device Registration** > **Properties**
