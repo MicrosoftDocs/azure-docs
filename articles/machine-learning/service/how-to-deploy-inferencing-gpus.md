@@ -14,7 +14,7 @@ ms.date: 05/02/2019
 
 # Deploy a deep learning model for GPU inferencing
 
-Learn how to use GPU inferencing for a machine learning model deployed as a web service. In this article, you learn how to use the Azure Machine Learning service to deploy an example Tensorflow deep learning model. You deploy the  model to an Azure Kubernetes Service (AKS) cluster that uses a GPU-enabled virtual machine (VM). When requests are sent to the service, the model uses the GPU to perform inferencing.
+Learn how to run inference workloads on a GPU-enabled machine learning model deployed as a web service. In this article, you learn how to use the Azure Machine Learning service to deploy an example Tensorflow deep learning model. You deploy the  model to an Azure Kubernetes Service (AKS) cluster that uses a GPU-enabled virtual machine (VM). When requests are sent to the service, the model uses the GPU to perform inferencing.
 
 GPUs offer performance advantages over CPUs on highly parallelizable computation. Training and inferencing deep learning models (especially for large batches of requests) are excellent use cases for GPUs.  
 
@@ -33,7 +33,7 @@ This article is based on the Jupyter notebook, [Deploying Tensorflow Models to A
 
 ## Provision an AKS cluster with GPUs
 
-Azure has many different GPU options. You can use any of them for inferencing. See [the list of N Series](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) for a full breakdown of capabilities and costs.
+Azure has many different GPU options. You can use any of them for inferencing. See [the list of N-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) for a full breakdown of capabilities and costs.
 
 For more information on using AKS with Azure Machine Learning service, see [How to deploy and where](how-to-deploy-and-where#create-a-new-cluster).
 
@@ -52,7 +52,7 @@ aks_target.wait_for_deployment()
 > [!IMPORTANT]
 > Azure will bill you as long as the AKS cluster is provisioned. Make sure to delete your AKS cluster when you're done with it.
 
-## Write entry script
+## Write the entry script
 
 Save the following code to your working directory as `score.py`. This file scores images as they are sent to your service. It also loads the TensorFlow saved model, passes the input image to the TensorFlow session on each POST request, and then returns the resulting scores. Other inferencing frameworks require different scoring files.
 
@@ -102,7 +102,7 @@ if __name__ == "__main__":
 
 ```
 
-## Define Conda environment
+## Define the conda environment
 
 Create a conda environment file named `myenv.yml` to specify the dependencies for your service. It's important to specify that you are using `tensorflow-gpu` to achieve accelerated performance.
 
@@ -119,9 +119,9 @@ dependencies:
     - azureml-contrib-services
 ```
 
-## Define GPU InferenceConfig
+## Define the GPU InferenceConfig
 
-Create an [`InferenceConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) which specifies that you are enabling GPU. This will ensure that CUDA is installed with your Image.
+Create an `InferenceConfig class` that enables the GPUs and ensures that CUDA is installed with your VM image.
 
 ```python
 from azureml.core.model import Model
@@ -140,8 +140,9 @@ inference_config = InferenceConfig(runtime= "python",
                                    gpu_enabled=True)
 ```
 
-For more information, see [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) and 
-[AksServiceDeploymentConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py).
+For more information, see:
+- [InferenceConfig class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py)
+- [AksServiceDeploymentConfiguration class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py).
 
 ## Deploy the model
 
@@ -160,13 +161,13 @@ print(aks_service.state)
 ```
 
 > [!NOTE]
-> Azure Machine Learning service will not deploy a model with an `InferenceConfig` that expects GPU to a cluster without GPU.
+> Azure Machine Learning service will not deploy a model with an `InferenceConfig` that expects GPU enabled to a cluster that's not GPU enabled.
 
 For more information, see [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
 ## Issue sample query to deployed model
 
-Issue a sample query to your deployed model. This model will score any jpeg image you send to it as a post request. 
+Issue a sample query to your deployed model. This model will score any jpeg image you send to it as a post request.
 
 ```python
 scoring_url = aks_service.scoring_uri
