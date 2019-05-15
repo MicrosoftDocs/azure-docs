@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/03/2018
+ms.date: 05/15/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -125,7 +125,9 @@ To configure Azure AD single sign-on with Atlassian Cloud, perform the following
     `https://<instancename>.atlassian.net`
 
     > [!NOTE]
-	> The preceding Sign on URL value is not real. Update the value with the actual Sign on URL. Contact [Atlassian Cloud Client support team](https://support.atlassian.com/) to get this value.
+	> The Sign on URL value is not real. Paste the  value from the instance which you use to signin to the Atlassian Cloud admin portal.
+
+    ![Configure single sign-on](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_10.png)
 
 6. Your Atlassian Cloud application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. Atlassian Cloud application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
