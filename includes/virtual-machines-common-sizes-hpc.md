@@ -22,7 +22,7 @@ H-series VMs are optimized for applications driven by high CPU frequencies or la
 
 ## HB-series
 
-[ACU](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/acu): 199-216
+ACU: 199-216
 
 Premium Storage: Supported
 
