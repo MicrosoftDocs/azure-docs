@@ -38,7 +38,7 @@ On non-SR-IOV enabled VMs, only Intel MPI 5.x versions are supported. Later vers
  
 The Azure Marketplace has many Linux distributions that supports RDMA connectivity:
   
-* **CentOS-based HPC** - For non-SR-IOV enabled VMs, CentOS-based 6.5 HPC or a later version, upto 7.5 are suitable. For H-series, versions 7.1 or later, upto 7.5 are recommended. RDMA drivers and Intel MPI 5.1 are installed on the VM.
+* **CentOS-based HPC** - For non-SR-IOV enabled VMs, CentOS-based version 6.5 HPC or a later version, up to 7.5 are suitable. For H-series VMs, versions 7.1 to 7.5 are recommended. RDMA drivers and Intel MPI 5.1 are installed on the VM.
   For SR-IOV VMs, CentOS-HPC 7.6 comes optimized and pre-loaded with the RDMA drivers and various MPI packages installed.
   For other RHEL/CentOS VM images, add the InfiniBandLinux extension to enable InfiniBand. This Linux VM extension installs Mellanox OFED drivers (on SR-IOV VMs) for RDMA connectivity. The following PowerShell cmdlet installs the latest version (version 1.0) of the InfiniBandDriverLinux extension on an existing RDMA-capable VM. The RDMA-capable VM is named *myVM* and is deployed in the resource group named *myResourceGroup* in the *West US* region as follows:
 
