@@ -12,9 +12,9 @@ ms.date: 05/02/2019
 # Customer intent: As a beginner data scientist who does not want to write code, I want to visualize my data so that I can use it to create machine learning models.
 ---
 
-# Quickstart: Prepare and visualize data without writing code
+# Quickstart: Prepare and visualize data without writing code in Azure Machine Learning
 
-Prepare and visualize your data with a drag-and-drop user interface. The data you'll use includes entries for various individual automobiles, including information such as make, model, technical specifications, and price.  
+Prepare and visualize your data in the drag-and-drop visual interface (preview) for Azure Machine Learning. The data you'll use includes entries for various individual automobiles, including information such as make, model, technical specifications, and price.  
 
 In this quickstart you'll explore and prepare data:
 
@@ -95,13 +95,13 @@ Select which columns of data to work with.  To start with, configure the module 
    
 1. Select the **Select Columns in Dataset** module.
 
-1. In the **Properties** pane to the right of the canvas, select **Launch column selector**.
+1. In the **Properties** pane to the right of the canvas, select **Edit columns**.
 
     In the **Select columns** dialog, select **ALL COLUMNS** and include **all features**. The dialog should look like this:
 
      ![column-selector](./media/ui-quickstart-run-experiment/select-all.png)
 
-1. On the lower right, select the check mark (OK) button to close the column selector.
+1. On the lower right, select **OK** to close the column selector.
 
 ## Run the experiment
 
@@ -142,13 +142,13 @@ First,  remove the **normalized-losses** column completely.
 
 1. Select the **Select Columns in Dataset** module.
 
-1. In the **Properties** pane to the right of the canvas, select **Launch column selector**.
+1. In the **Properties** pane to the right of the canvas, select **Edit columns**.
 
     * Leave  **With rules** and **ALL COLUMNS** selected.
 
     * From the drop-downs, select **Exclude** and **column names**, and then click inside the text box. Type **normalized-losses**.
 
-    * On the lower right, select the check mark (OK) button to close the column selector.
+    * On the lower right, select **OK** to close the column selector.
 
     ![Exclude a column](./media/ui-quickstart-run-experiment/exclude-column.png)
         

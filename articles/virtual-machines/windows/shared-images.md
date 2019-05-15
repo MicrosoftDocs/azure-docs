@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: 
 
@@ -42,7 +42,9 @@ The Shared Image Gallery feature has multiple resource types. We will be using o
 
 ## Before you begin
 
-To complete the example in this article, you must have an existing managed image. You can follow [Tutorial: Create a custom image of an Azure VM with Azure PowerShell](tutorial-custom-images.md) to create one if needed. When working through this article, replace the resource group and VM names where needed.
+To complete the example in this article, you must have an existing managed image. You can follow [Tutorial: Create a custom image of an Azure VM with Azure PowerShell](tutorial-custom-images.md) to create one if needed. If the managed image contains a data disk, the data disk size cannot be more than 1 TB.
+
+When working through this article, replace the resource group and VM names where needed.
 
 [!INCLUDE [virtual-machines-common-shared-images-powershell](../../../includes/virtual-machines-common-shared-images-powershell.md)]
  
@@ -70,6 +72,7 @@ New-AzVm `
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 ## Next steps
+[Azure Image Builder (preview)](image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](image-builder-gallery-update-image-version.md). 
 
 You can also create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
 

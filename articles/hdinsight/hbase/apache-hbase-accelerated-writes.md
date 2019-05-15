@@ -32,7 +32,7 @@ The Accelerated Writes feature solves the problem of higher write-latencies caus
 
 To create a new HBase cluster with the Accelerated Writes feature, follow the steps in [Set up clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) until you reach **Step 3, Storage**. Under **Metastore Settings**, click the checkbox next to **Enable Accelerated Writes (preview)**. Then, continue with the remaining steps for cluster creation.
 
-![Enable accelerated writes option for HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/accelerated-writes-cluster-creation.jpg)
+![Enable accelerated writes option for HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/accelerated-writes-cluster-creation.png)
 
 ## Other considerations
 

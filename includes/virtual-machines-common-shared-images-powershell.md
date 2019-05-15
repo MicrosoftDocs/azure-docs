@@ -97,4 +97,7 @@ $job.State
 ```
 
 > [!NOTE]
-> You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version.
+> You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version. 
+>
+> You can also store your image version in [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
+>

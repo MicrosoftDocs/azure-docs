@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article 
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: diberry
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
@@ -72,7 +72,12 @@ In addition, some containers are supported in Cognitive Services [**All-In-One o
 Azure Cognitive Services containers are publicly available through your Azure subscription, and Docker container images can be pulled from either the Microsoft Container Registry or Docker Hub. You can use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the appropriate registry.
 
 > [!IMPORTANT]
-> Currently, you must complete a sign-up process to access the [Face](Face/face-how-to-install-containers.md) and [Recognize Text](Computer-vision/computer-vision-how-to-install-containers.md) containers, in which you fill out and submit a questionnaire with questions about you, your company, and the use case for which you want to implement the containers. Once you're granted access and provided credentials, you can then pull the container images for the Face and Recognize Text containers from a private container registry hosted by Azure Container Registry.
+> Currently, you must complete a sign-up process to access the following containers, in which you fill out and submit a questionnaire with questions about you, your company, and the use case for which you want to implement the containers. Once you're granted access and provided credentials, you can then pull the container images for the Face and Recognize Text containers from a private container registry hosted by Azure Container Registry.
+> * [Anomaly dectector](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
+> * [Face](Face/face-how-to-install-containers.md)
+> * [Form Recognizer](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
+> * [Recognize Text](Computer-vision/computer-vision-how-to-install-containers.md)
+> * [Speech-to-text and Text-to-speech](Speech-Service/speech-container-howto.md#request-access-to-the-container-registry)
 
 ## Prerequisites
 
@@ -91,6 +96,13 @@ Individual containers can have their own requirements, as well, including server
 ## Developer samples
 
 Developer samples are available at our [GitHub repository](https://github.com/Azure-Samples/cognitive-services-containers-samples).
+
+## View webinar 
+
+Join the [webinar](https://info.microsoft.com/AP-AZUREPLAT-WBNR-FY19-03Mar-20-Seamlesslyintegrateapplicationsdataandprocesses-MCW0012283_02OnDemandRegistration-ForminBody.html) to learn about:
+
+* How to deploy Cognitive Services to any machine using Docker
+* How to deploy Cognitive Services to AKS
 
 ## Next steps
 

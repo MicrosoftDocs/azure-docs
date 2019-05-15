@@ -56,6 +56,12 @@ When ready, refresh the registration of the *Microsoft.ContainerService* resourc
 az provider register --namespace Microsoft.ContainerService
 ```
 
+## Limitations
+
+The following limitations apply when you create and manage AKS clusters that use virtual machine scale sets:
+
+* The HTTP application routing add-on can't be used.
+
 ## About the cluster autoscaler
 
 To adjust to changing application demands, such as between the workday and evening or on a weekend, clusters often need a way to automatically scale. AKS clusters can scale in one of two ways:
@@ -97,7 +103,6 @@ az group create --name myResourceGroup --location canadaeast
 az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
-  --kubernetes-version 1.12.6 \
   --node-count 1 \
   --enable-vmss \
   --enable-cluster-autoscaler \

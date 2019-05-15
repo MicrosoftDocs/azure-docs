@@ -76,5 +76,5 @@ Create a virtual machine on your private cloud from vCenter UI. To create a temp
 
 ## Next steps
 
-* [View list of CloudSimple virtual machines](https://docs.azure.cloudsimple.com/azure-manage-vm/)
-* [Manage CloudSimple virtual machine from Azure](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
+* [View list of CloudSimple virtual machines](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
+* [Manage CloudSimple virtual machine from Azure](https://docs.azure.cloudsimple.com/azure-manage-vm/)

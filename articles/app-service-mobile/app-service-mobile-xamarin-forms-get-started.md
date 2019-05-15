@@ -29,9 +29,9 @@ To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For more information, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* Visual Studio Tools for Xamarin, in Visual Studio 2017 or Visual Studio for Mac. See the [Xamarin installation page][Install Xamarin] for instructions.
+* Visual Studio Tools for Xamarin, in Visual Studio 2017 or later, or Visual Studio for Mac. See the [Xamarin installation page][Install Xamarin] for instructions.
 
-* (optional) To build an iOS app, a Mac with Xcode 9.0 or later is required. Visual Studio for Mac can be used to develop iOS apps, or Visual Studio 2017 can be used (so long as the Mac is available on the network).
+* (optional) To build an iOS app, a Mac with Xcode 9.0 or later is required. Visual Studio for Mac can be used to develop iOS apps, or Visual Studio 2017 or later can be used (so long as the Mac is available on the network).
 
 ## Create a new Mobile Apps back end
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
@@ -43,7 +43,23 @@ To complete this tutorial, you need the following:
 
 The Visual Studio Tools for Xamarin are required to open the solution, see the [Xamarin installation instructions][Install Xamarin]. If the tools are already installed, follow these steps to download and open the solution:
 
-### Visual Studio or Visual Studio for Mac
+### Visual Studio
+
+1. Go to the [Azure portal].
+
+2. On the settings blade for your Mobile App, click **Quickstart** (under Deployment) > **Xamarin.Forms**. Under step 3, click  **Create a new app** if it's not already selected.  Next click the **Download** button.
+
+   This action downloads a project that contains a client application that's connected to your mobile app. Save the compressed project file to your local computer, and make a note of where you save it.
+
+3. Extract the project that you downloaded, and then open it in Visual Studio.
+
+   ![Extracted project in Visual Studio][8]
+
+4. Follow the instructions below to run the Android or Windows projects; and if there is a networked Mac computer available, the iOS project.
+
+### Visual Studio for Mac
+
+1. Go to the [Azure portal].
 
 1. Open the downloaded client project in Visual Studio.
 

@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/13/2019
 ms.author: jingwang
 
 ---
@@ -274,7 +274,7 @@ To copy data from ADLS Gen1 in **Parquet or delimited text format**, refer to [P
 | maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No                                            |
 
 > [!NOTE]
-> For Parquet/delimited text format, **AzureDataLakeStoreSource** type copy activity source mentioned in next section is still supported as-is for for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
+> For Parquet/delimited text format, **AzureDataLakeStoreSource** type copy activity source mentioned in next section is still supported as-is for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
@@ -375,7 +375,7 @@ To copy data to ADLS Gen1 in **Parquet or delimited text format**, refer to [Par
 | maxConcurrentConnections | The number of the connections to connect to the data store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
 
 > [!NOTE]
-> For Parquet/delimited text format, **AzureDataLakeStoreSink** type copy activity sink mentioned in next section is still supported as-is for for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
+> For Parquet/delimited text format, **AzureDataLakeStoreSink** type copy activity sink mentioned in next section is still supported as-is for backward compatibility. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 
@@ -477,6 +477,10 @@ This section describes the resulting behavior of the copy operation for differen
 | false |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target Folder1 is created with the following structure:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Subfolder1 with File3, File4, and File5 are not picked up. |
 | false |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target Folder1 is created with the following structure:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;auto-generated name for File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;auto-generated name for File2<br/><br/>Subfolder1 with File3, File4, and File5 are not picked up. |
 | false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target Folder1 is created with the following structure:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 contents are merged into one file with auto-generated file name. auto-generated name for File1<br/><br/>Subfolder1 with File3, File4, and File5 are not picked up. |
+
+## Preserve ACLs to Data Lake Storage Gen2
+
+If you want to replicate the ACLs along with data files when upgrading from Data Lake Storage Gen1 to Gen2, refer to [Preserve ACLs from Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls-from-data-lake-storage-gen1).
 
 ## Mapping Data Flow properties
 

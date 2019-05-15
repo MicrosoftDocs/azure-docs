@@ -30,6 +30,9 @@ To create and register Datasets you need:
 
 * The Azure Machine Learning SDK for Python. To install or update to the latest version of the SDK, see [Install or update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
+> [!Note]
+> Some Dataset classes (preview) have dependencies on the [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) package (GA). For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
+
 ## Create Datasets from local files
 
 Load files from your local machine by specifying the file or folder path with the [`auto_read_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#auto-read-files-path--include-path-false-) method from the `Dataset` class.  This method performs the following steps without requiring you to specify the file type or parsing arguments:
@@ -40,7 +43,7 @@ Load files from your local machine by specifying the file or folder path with th
 * Inferring and converting column data types.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 
 dataset = Dataset.auto_read_files('./data/crime.csv')
 ```
@@ -56,7 +59,9 @@ To create Datasets from an Azure Datastore, be sure to:
 * Import the [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) and [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#definition) and `Dataset` packages from the SDK.
 
 ```Python
-from azureml.core import Workspace, Datastore, Dataset
+from azureml.core.workspace import Workspace
+from azureml.core.datastore import Datastore
+from azureml.core.dataset import Dataset
 
 datastore_name = 'your datastore name'
 
@@ -95,22 +100,23 @@ Use the [`register()`](https://docs.microsoft.com/python/api/azureml-core/azurem
 
 ```Python
 dataset = dataset.register(workspace = workspace,
-                           name = "dataset_crime",
+                           name = 'dataset_crime',
                            description = 'Training data',
                            exist_ok = False
                            )
 ```
 
 >[!NOTE]
-> The default parameter setting for `register()` is `exist_ok = False'. If you try to register a Dataset with the same name without changing this setting an error results.
+> The default parameter setting for `register()` is `exist_ok = False`. If you try to register a Dataset with the same name without changing this setting an error results.
 
 The `register()` method returns the already registered Dataset with the parameter setting, `exist_ok = True`.
 
 ```Python
 dataset = dataset.register(workspace = workspace,
-                           name = "dataset_crime",
+                           name = 'dataset_crime',
                            description = 'Training data',
-                           exist_ok = True)
+                           exist_ok = True
+                           )
 ```
 
 Use `list()` to see all of the registered Datasets in your workspace.

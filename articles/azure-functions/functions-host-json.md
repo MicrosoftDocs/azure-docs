@@ -191,6 +191,9 @@ Controls the logging behaviors of the function app, including Application Insigh
       "Function.MyFunction": "Information",
       "default": "None"
     },
+    "console": {
+        ...
+    },
     "applicationInsights": {
         ...
     }

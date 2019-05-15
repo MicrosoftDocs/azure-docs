@@ -14,7 +14,7 @@ Shared Image Gallery is a service that helps you build structure and organizatio
 
 - Managed global replication of images.
 - Versioning and grouping of images for easier management.
-- Highly available images using Zone Redundant Storage. Even if a data center goes down, you’ll have access to the images in that region.
+- Make your images highly available with Zone Redundant Storage (ZRS) accounts in regions that support Availability Zones. ZRS offers better resilience against zonal failures.
 - Sharing across subscriptions, and even between tenants, using RBAC.
 
 Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within your organization. Shared images can be replicated to multiple regions, for quicker scaling of your deployments.
@@ -85,8 +85,6 @@ Source regions are listed in the table below. All public regions can be target r
 
 
 ## Limits 
-
-With Managed Images, you can only have 600 concurrent VMs per image, with Shared Image Galleries, this is increased to 1000 concurrent VMs per image version.
 
 There are limits, per subscription, for deploying resources using Shared Image Galleries:
 - 100 shared image galleries, per subscription, per region
@@ -263,4 +261,4 @@ To specify the common replica count in CLI, use the **--replica-count** argument
 
 **Q.** What API version should I use to create Shared Image Gallery, Image Definition, Image Version, and VM/VMSS out of the Image Version?
 
- A. For VM and Virtual Machine Scale Set deployments using an image version, we recommend you use API version 2018-04-01 or higher. To work with shared image galleries, image definitions, and image versions, we recommend you use API version 2018-06-01. 
+ A. For VM and Virtual Machine Scale Set deployments using an image version, we recommend you use API version 2018-04-01 or higher. To work with shared image galleries, image definitions, and image versions, we recommend you use API version 2018-06-01. Zone Redundant Storage (ZRS) requires version 2019-03-01 or later.
