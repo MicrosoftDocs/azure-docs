@@ -35,7 +35,7 @@ In this step, we confirm that your lead management system can receive customer l
 
 ## Certification
 
-Before being published, to Preview or Live, on Azure Marketplace and/or AppSource, offers submitted to the Commercial Marketplace in Partner Center must be certified. Submitted offers undergo rigorous testing, some automated and others manual, including a check against the [Azure Marketplace policies and terms](https://docs.microsoft.com/legal/marketplace/general-policies). Offer submissions must first be marked eligible for certification before proceeding to the next step in the publishing flow.
+Before being published, offers submitted to the Commercial Marketplace in Partner Center must be certified. Submitted offers undergo rigorous testing, some automated and others manual, including a check against the [Azure Marketplace certification policies](https://docs.microsoft.com/legal/marketplace/general-policies). Offer submissions must be marked eligible for certification before they proceed to the next step in the publishing flow.
 
 ### Types of validation that take place during certification
 
@@ -47,11 +47,11 @@ There are three levels of validation included in the certification process for e
 
 #### Publisher business eligibility
 
-Each offer type checks a set of base eligibility criteria that the publisher must meet. These may include the publisher's MPN status, competencies held, competency levels, etc.
+Each offer type checks a set of base eligibility criteria that the publisher must meet. Eligibility criteria may include the publisher's MPN status, competencies held, competency levels, etc.
 
 #### Content validation
 
-During content validation, the information entered when you created your offer are checked for quality and relevance, including marketplace listing details, pricing and availability, associated plans, etc. A few things that will be checked for in order to ensure that your offer meets the Azure Marketplace and/or AppSource listing criteria, include:
+During content validation, the information entered when you created your offer are checked for quality and relevance. These checks will review your entries for the marketplace listing details, pricing, availability, associated plans, etc. To meet the Azure Marketplace and/or AppSource listing criteria, we will validate that your offer includes:
 
 - a title that accurately describes the offer;
 - well-written descriptions that provide a thorough overview and value proposition;
@@ -62,9 +62,15 @@ Learn more regarding the content validation criteria by reading the [general lis
 
 #### Technical validation
 
-During technical validation, the offer (package or binary) is scanned for any malware, network calls are monitored, and the package is analyzed, followed by a more thorough scanning of the offer's actual functionality. The offer is tested across various platforms and versions in order to ensure it is robust.
+During technical validation, the offer (package or binary) undergoes the following checks.
+- Scanned for malware
+- Network calls monitored
+- Package analyzed
+- Thorough scanning of the offer's actual functionality
 
-Review the specific configuration details required for your offer in the Technical configuration section of this document.
+The offer is tested across various platforms and versions in order to ensure it is robust.
+
+Review the specific configuration details required for your offer in the [Technical configuration](./create-new-saas-offer#technical-configuration) section of this document.
 
 ### Certification failure report
 
@@ -74,11 +80,11 @@ This report contains descriptions of any policies that failed, along with review
 
 ## Preview creation
 
-In this step, we create a version of the offer that is only accessible by the audience which you specified in the Preview section of your offer.
+During the **Preview creation** step, we create a version of your offer accessible to only the audience that you specified in the [Preview section](./create-new-saas-offer#preview) of your offer.
 
 ## Publisher approval
 
-In this step, you will be emailed with a request for you to review and sign-off on your offer preview prior to the final publishing step.
+In this step, you will be emailed with a request for you to review and approve your offer preview prior to the final publishing step.
 
 If you have selected to sell your offer through Microsoft, you will be able to test the acquisition and deployment of your offer to ensure that it meets your requirements during this preview approval stage. Your offer will not yet be available in the pubic marketplace. Once you test and approve this preview, you will need to select **Go-Live** on the [**Offer Overview**](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) dashboard.
 
@@ -88,7 +94,7 @@ If your offer is already live and available to the public in the marketplace, an
 
 ### Publish offer to the public
 
-Login to Partner Center and access the offer. You will be re-directed to the **Offer overview** page. At the top of this page, you will see an option for **Go live**. Select **Go live,** and after confirming, the offer will start getting published to the public. You will receive an email notification when the offer is live.
+Log in to Partner Center and access the offer. You will be redirected to the **Offer overview** page. At the top of this page, you will see an option for **Go live**. Select **Go live,** and after confirming, the offer will start getting published to the public. You will receive an email notification when the offer is live.
 
 ## Publish
 
@@ -104,7 +110,7 @@ In this step, we validate the data you provided in the test drive Technical conf
 
 - **Test drive provisioning (~30 min)**
 
-In this step, after validating the data and functionality of your test drive in the previous step, we deploy and replicate instances of your test drive so that they are ready for customer use.  This step is only applicable for offers with a test drive enabled.
+In this step, we deploy and replicate instances of your test drive so that they are ready for customer use.  This step is only applicable for offers with a test drive enabled.
 
 - **Lead management validation and registration  (>15 min)**
 
