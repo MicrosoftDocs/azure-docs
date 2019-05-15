@@ -36,7 +36,7 @@ On non-SR-IOV enabled VMs, only Intel MPI 5.x versions are supported. Later vers
 
 ### Supported OS images
  
-The Azure Marketplace has many Linux distributions that supports RDMA connectivity:
+The Azure Marketplace has many Linux distributions that support RDMA connectivity:
   
 * **CentOS-based HPC** - For non-SR-IOV enabled VMs, CentOS-based version 6.5 HPC or a later version, up to 7.5 are suitable. For H-series VMs, versions 7.1 to 7.5 are recommended. RDMA drivers and Intel MPI 5.1 are installed on the VM.
   For SR-IOV VMs, CentOS-HPC 7.6 comes optimized and pre-loaded with the RDMA drivers and various MPI packages installed.
