@@ -46,7 +46,7 @@ This article lists the new features and improvements in the SQL Database service
 
 | Service improvements | Details |
 | --- | --- |
-|Hyperscale service tier released for general availability| For more information, see [Hyperscale service tier for up to 100 TB](sql-database-service-tier-hyperscale.md) and [Get high-performance scaling for your Azure database workloads with Hyperscale](https://azure.microsoft.com/en-us/blog/get-high-performance-scaling-for-your-azure-database-workloads-with-hyperscale/).|
+|Hyperscale service tier released for general availability| For more information, see [Hyperscale service tier for up to 100 TB](sql-database-service-tier-hyperscale.md) and [Get high-performance scaling for your Azure database workloads with Hyperscale](https://azure.microsoft.com/blog/get-high-performance-scaling-for-your-azure-database-workloads-with-hyperscale/).|
 |Serverless compute tier released for public preview | For more information, see [SQL Database serverless (preview)](sql-database-serverless.md).|
 | Transaction log rates and target IOPS increased for databases using the vCore-based purchasing model| For more information, see [Resource limits for single databases using the vCore-based purchasing model](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) and [Resource limits for single databases using the DTU-based purchasing model](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases).
 | &nbsp; |
@@ -67,7 +67,7 @@ This article lists the new features and improvements in the SQL Database service
 | --- | --- |
 | Public endpoints for managed instance in public preview| For more information, see [Using Azure SQL Database managed instance securely with public endpoint](sql-database-managed-instance-public-endpoint-securely.md).|
 | Time zone support for managed instance in public preview| For more information, see [Time Zone in Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md).|
-| Securing Azure SQL Databases with managed identities in second public preview release| See [Securing Azure SQL Databases with managed identities just got easier](https://azure.microsoft.com/en-us/blog/securing-azure-sql-databases-with-managed-identities-just-got-easier/).|
+| Securing Azure SQL Databases with managed identities in second public preview release| See [Securing Azure SQL Databases with managed identities just got easier](https://azure.microsoft.com/blog/securing-azure-sql-databases-with-managed-identities-just-got-easier/).|
 | &nbsp; |
 
 ### Documentation improvements
