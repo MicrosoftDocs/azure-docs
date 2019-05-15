@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 05/15/2019
 ms.author: erhopf
 ms.custom: seodec18
 ---
@@ -120,7 +120,7 @@ Changes are applied at the sentence level, and style vary by voice. If a style i
 **Syntax**
 
 ```xml
-<mstts:express-as type="string"></mstts:express-as>
+<mstts:express-as type="cheerful"></mstts:express-as>
 ```
 
 **Attributes**
@@ -131,8 +131,8 @@ Changes are applied at the sentence level, and style vary by voice. If a style i
 
 Use this table to determine which speaking styles are supported for each neural voice.
 
-| Voice | Style/Type | Description |
-|-------|------------|-------------|
+| Voice | Type | Description |
+|-------|------|-------------|
 | `en-US-JessaNeural` | type=`cheerful` | Expresses an emotion that is positive and happy |
 | | type=`empathy` | Expresses a sense of caring and understanding |
 | `zh-CN-XiaoxiaoNeural` | type=`newscast` | Expresses a formal tone, similar to news broadcasts |
@@ -152,12 +152,67 @@ This SSML snippet illustrates how the `<mstts:express-as>` element is used to ch
 </speak>
 ```
 
-## Add a break
+## Add or remove a break/pause
+
+Use the `break` element to insert pauses (or breaks) between words, or prevent pauses automatically added by the text-to-speech service.
+
+> [!NOTE]
+> Use this element to override the default behavior of text-to-speech (TTS) for a word or phrase if the synthesized speech for that word or phrase sounds unnatural. Set `strength` to `none` to prevent a prosodic break, which is automatically inserted by the tex-to-speech service.
+
+**Syntax**
+
+```xml
+<break strength="weak" />
+<break time="500" />
+```
+
+**Attributes**
+
+| Attribute | Description |
+|-----------|-------------|
+| strength | **Optional.** Specifies the relative duration of a pause using one of the following values:<ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul> |
+| time | **Optional.** Specifies the absolute duration of a pause in seconds or milliseconds. Examples of valid values are 2s and 500|
+
+**Example**
+
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice  name='en-US-Jessa24kRUS'>
-    Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
-</voice> </speak>
+    <voice  name='en-US-Jessa24kRUS'>
+        Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
+    </voice>
+</speak>
+```
+
+## Denote paragraphs and sentences
+
+`p` and `s` elements are used to denote paragraphs and sentences, respectively. In the absence of these elements, the text-to-speech service automatically determines the structure of the SSML document.
+
+The `p` element may contain text and the following elements: `audio`, `break`, `phoneme`, `prosody`, `say-as`, `sub`, and `s`.
+
+The `s` element may contain text and the following elements: `audio`, `break`, `phoneme`, `prosody`, `say-as`, and `sub`.
+
+**Syntax**
+
+```XML
+<p></p>
+<s></s>
+```
+
+**Example**
+
+```XML
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice  name='en-US-Jessa24kRUS'>
+        <p>
+            <s>Introducing the sentence element.</s>
+            <s>Used to mark individual sentences.</s>
+        </p>
+        <p>
+            Another simple paragraph.
+            Sentence structure in this paragraph is not explicitly marked.
+        </p>
+    </voice>
+</speak>
 ```
 
 ## Change speaking rate
@@ -166,10 +221,12 @@ Speaking rate can be applied to standard voices at the word or sentence-level. W
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice  name='en-US-Guy24kRUS'>
-<prosody rate="+30.00%">
-    Welcome to Microsoft Cognitive Services Text-to-Speech API.
-</prosody></voice> </speak>
+    <voice  name='en-US-Guy24kRUS'>
+        <prosody rate="+30.00%">
+            Welcome to Microsoft Cognitive Services Text-to-Speech API.
+        </prosody>
+    </voice>
+</speak>
 ```
 
 ## Pronunciation
