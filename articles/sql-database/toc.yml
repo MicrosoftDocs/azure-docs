@@ -368,7 +368,7 @@
   items:
   - name: Overview
     href: sql-database-howto.md
-  - name: Single database 
+  - name: Single database and elastic pool 
     items: 
     - name: Overview
       href: sql-database-howto-single-database.md
