@@ -199,7 +199,7 @@ For each order that is processed, the Data Box service creates *copylog* in the 
 
 A Cyclic Redundancy Check (CRC) computation is done during the upload to Azure. The CRCs from the data copy and after the data upload are compared. A CRC mismatch indicates that the corresponding files failed to upload.
 
-By default, logs are written to a container named copylog. The logs are stored as block blobs with the following naming convention:
+By default, logs are written to a container named copylog. The logs are stored with the following naming convention:
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
