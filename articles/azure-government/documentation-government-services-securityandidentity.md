@@ -76,7 +76,7 @@ A detailed list of feature variations in the Azure Security Center government of
 **What is the compliance commitment for Azure Security Center in Azure
 Government?** 
 
-Azure Security Center engineering has committed to the FedRAMP-High compliance standard with planned audit participation no later than February 2019. We will provide additional updates on this process and certification as this progresses.
+Azure Security Center in Azure Government has achieved FedRAMP High authorization. 
 
 **Is Azure Security Center available for DoD customers?**
 
