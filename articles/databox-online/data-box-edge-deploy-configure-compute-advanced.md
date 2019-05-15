@@ -111,7 +111,7 @@ For the advanced deployment in this tutorial, you'll need two shares: one Edge s
 
     ![The "Local mount point for Edge compute modules" box](./media/data-box-edge-deploy-configure-compute-advanced/add-edge-share-4.png)
  
-5. On an existing cloud share that was created on your Data Box Edge device, in the **Local mount point for Edge compute modules** box, copy the local mount point for Edge compute modules for this cloud share.  
+5. To view the properties of the Edge share that you created, select the share from the list. In the **Local mount point for Edge compute modules** box, copy the value corresponding to this share.
 
     You'll use this local mount point when you deploy the module.
 
@@ -186,7 +186,7 @@ In this section, you add a custom module to the IoT Edge device that you created
         In the **Container Create Options** box, enter the local mount points for the Edge modules that you copied in the preceding steps for the Edge share and Edge local share.
 
         > [!IMPORTANT]
-        > Use the copied paths; do not create new paths. The local mount points are mapped to the corresponding **InputFolderPath** and the **OutputFolderPath** that you specified in the module when you [updated the module with custom code](data-box-edge-create-iot-edge-module.md#update-the-module-with-custom-code).
+        > The paths used here are mounted into your container, so they must match what the functionality in your container expects. If you're following [Create a custom module](data-box-edge-create-iot-edge-module.md#update-the-module-with-custom-code), the code specified in that module expects the copied paths. Do not modify these paths.
     
         In the **Container Create Options** box, you can paste the following sample:
     
