@@ -10,7 +10,7 @@ ms.service: azure-spatial-anchors
 ---
 ## Putting everything together
 
-Here is how the complete `MainActivity` class file should look like, after all
+Here is how the complete `AzureSpatialAnchorsScript` class file should look like, after all
 the different elements have been put together. You can use it as a reference to
 compare against your own file, and spot if you may have any differences left.
 
@@ -119,7 +119,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
         if (sphere != null)
         {
             Destroy(sphere);
-            sphere = null; // TODO do we need to do this?
+            sphere = null;
         }
 
         if (sphereMaterial != null)
@@ -132,7 +132,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Cleans up obects and stops the CloudSpatialAnchorSessions.
+    /// Cleans up objects and stops the CloudSpatialAnchorSessions.
     /// </summary>
     public void ResetSession(Action completionRoutine = null)
     {
@@ -283,7 +283,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
             {
                 InitializeSession();
 
-                // Create a Watcher to look for the anchor we created
+                // Create a Watcher to look for the anchor we created.
                 AnchorLocateCriteria criteria = new AnchorLocateCriteria();
                 criteria.Identifiers = new string[] { cloudSpatialAnchorId };
                 cloudSpatialAnchorSession.CreateWatcher(criteria);
@@ -314,29 +314,23 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     /// <param name="hitPoint">The hit point.</param>
     protected virtual void CreateAndSaveSphere(Vector3 hitPoint)
     {
-        // Create a white sphere
-        GameObject spherePrimitive = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        sphere = GameObject.Instantiate(spherePrimitive, hitPoint, Quaternion.identity);
+        // Create a white sphere.
+        sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        sphere.transform.position = hitPoint;
         sphere.transform.localScale = new Vector3(0.25F, 0.25F, 0.25F);
         sphere.AddComponent<WorldAnchor>();
         sphereMaterial = sphere.GetComponent<MeshRenderer>().material;
         sphereMaterial.color = Color.white;
         Debug.Log("ASA Info: Created a local anchor.");
 
-        // Create the CloudSpatialAnchor
+        // Create the CloudSpatialAnchor.
         currentCloudAnchor = new CloudSpatialAnchor();
 
         // Set the LocalAnchor property of the CloudSpatialAnchor to the WorldAnchor component of our white sphere.
         WorldAnchor worldAnchor = sphere.GetComponent<WorldAnchor>();
         if (worldAnchor == null)
         {
-            Debug.LogError("ASA Error: Couldn't get the local anchor pointer. Stopping and starting the session again - please try again.");
-            ResetSession(() =>
-            {
-                InitializeSession();
-                tapExecuted = false;
-            });
-            return;
+            throw new Exception("ASA Error: Couldn't get the local anchor pointer.");
         }
 
         // Save the CloudSpatialAnchor to the cloud.
