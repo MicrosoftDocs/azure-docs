@@ -33,7 +33,7 @@ This topic shows you how to view and edit the Video Indexer insights of a video.
 
 ## Next steps
 
-[Learn how to create your own Video Indexer insights based on some other video](video-indexer-create-new.md).
+[Use your videos' deep insights](use-editor-create-project.md)
 
 ## See also
 
