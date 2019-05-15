@@ -2,7 +2,7 @@
 title: 'Quickstart: Create, load, and query an index using Python and the REST API - Azure Search'
 description: Create, load, and query an index using Python, Jupyter Notebooks, and the Azure Search REST API.
 
-ms.date: 05/13/2019
+ms.date: 05/15/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -12,7 +12,7 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ---
-# Quickstart: Create and query an Azure Search index using Python and Jupyter Notebooks
+# Quickstart: Create and query an Azure Search index using Python and Jupyter notebooks
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
@@ -21,7 +21,11 @@ ms.custom: seodec2018
 > * [Portal](search-create-index-portal.md)
 > 
 
-This article walks you through the process of creating, loading, and querying an Azure Search [index](search-what-is-an-index.md) using Python, Jupyter Notebooks, and the [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/). The index definition and searchable content are provided in the request body as well-formed JSON content.
+Build a Jupyter notebook that creates, loads, and queries an Azure Search [index](search-what-is-an-index.md) using Python and the [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/). 
+
+This article explains how to build your own notebook step by step. 
+
+Optionally, you can run a finished notebook. To download a copy, go to [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples).
 
 ## Prerequisites
 
@@ -37,7 +41,7 @@ REST calls require the service URL and an access key on every request. A search 
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
-2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
+1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
 ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
 
@@ -45,7 +49,9 @@ All requests require an api-key on every request sent to your service. Having a 
 
 ## Connect to Azure Search
 
-Open a Jupyter Notebook and verify the connection from your local workstation by requesting a list of indexes on your service. On Windows with Anaconda3, you can use Anaconda Navigator to launch a Jupyter Notebook.
+Open a Jupyter notebook and verify the connection from your local workstation by requesting a list of indexes on your service. On Windows with Anaconda3, you can use Anaconda Navigator to launch a notebook.
+
+1. Create a new Python3 notebook.
 
 1. In the first cell, load the libraries used for working with JSON and formulating HTTP requests.
 
@@ -55,7 +61,7 @@ Open a Jupyter Notebook and verify the connection from your local workstation by
    from pprint import pprint
    ```
 
-2. In the second cell, input the request elements that will be constants on every request. Unchanging elements included on every request are a service endpoint andapi-version. Request headers indicate the content type and provide the api-key authentication token on every request.
+1. In the second cell, input the request elements that will be constants on every request. Unchanging elements included on every request are a service endpoint andapi-version. Request headers indicate the content type and provide the api-key authentication token on every request.
 
    ```python
     endpoint = 'https://<YOUR-SEARCH-SERVICE.search.windows.net/'
@@ -64,7 +70,7 @@ Open a Jupyter Notebook and verify the connection from your local workstation by
            'api-key': '<YOUR-ADMIN-API-KEY' }
    ```
 
-3. In the third cell, formulate the request. This GET request targets the indexes collection of your search service and selects the name property.
+1. In the third cell, formulate the request. This GET request targets the indexes collection of your search service and selects the name property.
 
    ```python
    url = endpoint + "indexes" + api_version + "&$select=name"
@@ -73,7 +79,7 @@ Open a Jupyter Notebook and verify the connection from your local workstation by
    pprint(index_list)
    ```
 
-4. Run each step. If indexes exist, the response contains a list of indexes. In the screenshot below, the service includes an azureblob-index and a realestate-us-sample index.
+1. Run each step. If indexes exist, the response contains a list of indexes. In the screenshot below, the service includes an azureblob-index and a realestate-us-sample index.
 
    ![Python script in Jupyter notebook with HTTP requests to Azure Search](media/search-get-started-python/connect-azure-search.png "Python script in Jupyter notebook with HTTP requests to Azure Search")
 
@@ -240,13 +246,13 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
 This step shows you how to query an index using the [Search Documents API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 
-1. In a new cell, provide a query expression. THe following example searches on the terms "hotels" and "wifi". It also returns a *count* of the matching documents, and *selects* which fields to include in the search results.
+1. In a new cell, provide a query expression. The following example searches on the terms "hotels" and "wifi". It also returns a *count* of documents that match, and *selects* which fields to include in the search results.
 
    ```python
    searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
    ```
 
-2. Formulate a request. This GET request targets the docs collection of the hotels-py index and queries for matches based on the query inputs.
+2. Formulate a request. This GET request targets the docs collection of the hotels-py index, and attaches the query you specified in the previous step.
 
    ```python
    url = endpoint + "indexes/hotels-py/docs" + api_version + searchstring
@@ -277,7 +283,7 @@ This step shows you how to query an index using the [Search Documents API](https
 
    + `searchstring = '&search=hotel&$top=2&$select=HotelId,HotelName,Description'`
 
-   + `searchstring = '&search=pool&$orderby=Address/City&$select=HotelId,HotelName,Address/City,Address/StateProvince'`
+   + `searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'`
 
 ## Clean up 
 
