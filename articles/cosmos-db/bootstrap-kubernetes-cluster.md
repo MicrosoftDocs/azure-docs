@@ -127,6 +127,7 @@ To learn more about etcd API in Azure Cosmos DB, see the [overview](etcd-api-int
      --client-secret <Service_ principal_password> \
      --dns-prefix <Region_unique_dns_name > \
      --location centralus \
+     --resource-group <Resource_Group_Name> \
      --api-model <Fully_qualified_path_to_the_template_file>  \
      --force-overwrite
    ```
