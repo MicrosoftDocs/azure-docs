@@ -160,12 +160,12 @@ You can use health probe metrics to understand how Azure views the health of you
 
 You can take it a step further and use VIP availability metrics to gain insight into how Azure views the health of the underlying data plane that's responsible for your specific deployment. When you combine both metrics, you can isolate where the fault might be, as illustrated in this example:
 
-![VIP diagnostics](./media/load-balancer-standard-diagnostics/LBMetrics-DIPnVIPAvailability-2b.png)
+![Combining Data Path Availability and Health Probe Status metrics](./media/load-balancer-standard-diagnostics/LBMetrics-DIPnVIPAvailability-2b.png)
 
 *Figure: Combining Data Path Availability and Health Probe Status metrics*
 
 The chart displays the following information:
-- The infrastructure itself was healthy, the infrastructure hosting your VMs was reachable, and more than one VM was placed in the back end. This information is indicated by the blue trace for data path availability (VIP availability), which is 100 percent. 
+- The infrastructure hosting your VMs was unavailable and at 0 percent at the beginning of the chart. Later, the infrastructure was healthy and the VMs were reachable, and more than one VM was placed in the back end. This information is indicated by the blue trace for data path availability (VIP availability), which was later at 100 percent. 
 - The health probe status (DIP availability), indicated by the purple trace, is at 0 percent at the beginning of the chart. The circled area in green highlights where the status (DIP availability) became healthy, and at which point the customer's deployment was able to accept new flows.
 
 The chart allows customers to troubleshoot the deployment on their own without having to guess or ask support whether other issues are occurring. The service was unavailable because health probes were failing due to either a misconfiguration or a failed application.
