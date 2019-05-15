@@ -1,7 +1,7 @@
 ---
 # required metadata
 title: Enterprise integration with Azure Logic Apps | Microsoft Docs
-description: This overview describes how you can build enterprise integration solutions by automating tasks, workflows and business processes that integrate apps, data, services, and systems across enterprises and organizations. Create solutions for data integration, system integration, enterprise application integration (EAI), and orchestration scenarios.
+description: This overview describes how you can build enterprise integration solutions by automating tasks, workflows, and business processes that integrate apps, data, services, and systems across enterprises and organizations. Create solutions for data integration, system integration, enterprise application integration (EAI), and orchestration scenarios.
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -255,11 +255,6 @@ If you have an Azure subscription, try this
 [quickstart to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), 
 which monitors new content on a website through an RSS feed 
 and sends email when new content appears.
-
-## Support and feedback
-
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

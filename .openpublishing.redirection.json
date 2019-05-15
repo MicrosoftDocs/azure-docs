@@ -4421,6 +4421,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/logic-apps/logic-apps-create-deploy-template.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/connectors/connectors-overview.md",
       "redirect_url": "/azure/connectors/apis-list",
       "redirect_document_id": true
