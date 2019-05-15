@@ -47,7 +47,7 @@ You can identify CORS issues by using browser debug tools:
 1. Press **F12** to bring up the debug console.
 1. Try to reproduce the transaction, and review the console message. A CORS violation gives a console error about origin.
 
-In the following example, the cross-origin call happens on the **Try It** button click. Instead of the test message, there's an error that *https:\//corswebclient-allmylab.msappproxy.net* is missing from the **Access-Control-Allow-Origin** header.
+In the following example, the cross-origin call happens on the **Try It** button click. Instead of the test message, there's an error that https:\//corswebclient-allmylab.msappproxy.net is missing from the Access-Control-Allow-Origin header.
 
 ![CORS issue](./media/application-proxy-understand-cors-issues/image3.png)
 
@@ -102,6 +102,6 @@ Content-Length: 17
 You can change your app to support CORS by adding the **Access-Control-Allow-Origin** header, with appropriate values. The way to add the header depends on the app's code language. Changing the code is the least recommended option, because it requires the most effort.
 
 ## See also
-[Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md) 
-[Plan an Azure AD Application Proxy deployment](application-proxy-deployment-plan.md) 
-[Remote access to on-premises applications through Azure Active Directory Application Proxy](application-proxy.md) 
+- [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md) 
+- [Plan an Azure AD Application Proxy deployment](application-proxy-deployment-plan.md) 
+- [Remote access to on-premises applications through Azure Active Directory Application Proxy](application-proxy.md) 
