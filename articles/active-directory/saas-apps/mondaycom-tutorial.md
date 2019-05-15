@@ -27,7 +27,7 @@ In this tutorial, you learn how to integrate monday.com with Azure Active Direct
 Integrating monday.com with Azure AD gives you the following benefits:
 
 * You can use Azure AD to control who has access to monday.com.
-* Users can be automatically signed in to monday.com (single sign-on) with their Azure AD accounts.
+* Users can be automatically signed in to monday.com with their Azure AD accounts (single sign-on).
 * You can manage your accounts in one central location, the Azure portal.
 
 For more information about software as a service (SaaS) app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -45,13 +45,13 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 monday.com supports the following features:
 
-* SP-initiated single sign-on
-* IDP-initiated single sign-on
-* Just-in-time user provisioning
+* **SP-initiated single sign-on**
+* **IDP-initiated single sign-on**
+* **Just-in-time user provisioning**
 
 ## Add monday.com in the Azure portal
 
-To integrate monday.com with Azure AD, you must add monday.com to your list of managed SaaS apps:
+To integrate monday.com with Azure AD, you must add monday.com to your list of managed SaaS apps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -131,7 +131,7 @@ In this section, you configure Azure AD single sign-on with monday.com in the Az
 
 	![The User attributes pane](common/edit-attribute.png)
 
-1. Under **User claims**, edit the claims by using the **Edit** (pencil) icon. To add a claim, select **Add new claim**, and then configure the SAML token attribute as shown in the preceding image. Then, complete the following steps: 
+1. Under **User claims**, select **Edit** to edit the claims. To add a claim, select **Add new claim**, and then configure the SAML token attribute as shown in the preceding image. Then, complete the following steps: 
 
 	1. Select **Add new claim**.
 
@@ -139,7 +139,7 @@ In this section, you configure Azure AD single sign-on with monday.com in the Az
 
 	1. In the **Manage user claims** pane, set the following values:
 		
-	   1. In the **Name** box, enter the attribute name shown for that row.
+	   1. In the **Name** box, enter the attribute name shown for the user claim row.
 
        1. Leave **Namespace** blank.
 
@@ -183,7 +183,7 @@ In this section, you create a test user named Britta Simon in the Azure portal.
 
     1. In the **Name** box, enter **BrittaSimon**.
   
-    1. In the **User name** box, enter **brittasimon\@\<your-company-domain>.\<extension>**. For example, **BrittaSimon\@contoso.com**.
+    1. In the **User name** box, enter **brittasimon\@\<your-company-domain>.\<extension>**. For example, **brittasimon\@contoso.com**.
 
     1. Select the **Show password** check box. Write down the value that's displayed in the **Password** box.
 

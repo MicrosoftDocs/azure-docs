@@ -26,7 +26,7 @@ In this tutorial, you learn how to integrate HubSpot with Azure Active Directory
 Integrating HubSpot with Azure AD gives you the following benefits:
 
 * You can use Azure AD to control who has access to HubSpot.
-* Users can be automatically signed in to HubSpot (single sign-on) with their Azure AD accounts.
+* Users can be automatically signed in to HubSpot with their Azure AD accounts (single sign-on).
 * You can manage your accounts in one central location, the Azure portal.
 
 For more information about software as a service (SaaS) app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -44,12 +44,12 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 HubSpot supports the following features:
 
-* SP-initiated single sign-on
-* IDP-initiated single sign-on
+* **SP-initiated single sign-on**
+* **IDP-initiated single sign-on**
 
 ## Add HubSpot in the Azure portal
 
-To integrate HubSpot with Azure AD, you must add HubSpot to your list of managed SaaS apps:
+To integrate HubSpot with Azure AD, you must add HubSpot to your list of managed SaaS apps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -102,11 +102,9 @@ In this section, you configure Azure AD single sign-on with HubSpot in the Azure
 
 1. In the **Basic SAML Configuration** pane, to configure *IDP-initiated mode*, complete the following steps:
 
-    1. In the **Identifier** box, enter a URL that has the following pattern:
-    `https://api.hubspot.com/login-api/v1/saml/login?portalId=<CUSTOMER ID>`
+    1. In the **Identifier** box, enter a URL that has the following pattern: https:\//api.hubspot.com/login-api/v1/saml/login?portalId=\<CUSTOMER ID\>.
 
-    1. In the **Reply URL** box, enter a URL that has the following pattern:
-    `https://api.hubspot.com/login-api/v1/saml/acs?portalId=<CUSTOMER ID>`
+    1. In the **Reply URL** box, enter a URL that has the following pattern: https:\//api.hubspot.com/login-api/v1/saml/acs?portalId=\<CUSTOMER ID\>.
 
 	![HubSpot domain and URLs single sign-on information](common/idp-intiated.png)
 
@@ -151,9 +149,7 @@ In this section, you configure Azure AD single sign-on with HubSpot in the Azure
 
 1. In the **Set up single sign-on** section, complete the following steps:
 
-	![The Set up single sign-on section in HubSpot](./media/hubspot-tutorial/config4.png)
-
-	1. In the **Audience URl(Service Provider Entity ID)** box, select **Copy** to copy the value. In the Azure portal, in the **Basic SAML Configuration** pane, paste the value in the **Identifier** box.
+	1. In the **Audience URl (Service Provider Entity ID)** box, select **Copy** to copy the value. In the Azure portal, in the **Basic SAML Configuration** pane, paste the value in the **Identifier** box.
 
 	1. In the **Sign on URl, ACS, Recipient, or Redirect** box, select **Copy** to copy the value. In the Azure portal, in the **Basic SAML Configuration** pane, paste the value in the **Reply URL** box.
 
@@ -161,9 +157,11 @@ In this section, you configure Azure AD single sign-on with HubSpot in the Azure
 
 	1. In HubSpot, in the **Identity Provider Single Sign-On URL** box, paste the value for **Login URL** that you copied in the Azure portal.
 
-	1. In Notepad, open the Certificate(Base64) file that you downloaded. Select and copy the contents of the file, and then paste it in the **X.509 Certificate** box in HubSpot.
+	1. In Windows Notepad, open the Certificate(Base64) file that you downloaded. Select and copy the contents of the file. Then, in HubSpot, paste it in the **X.509 Certificate** box.
 
 	1. Select **Verify**.
+
+		![The Set up single sign-on section in HubSpot](./media/hubspot-tutorial/config4.png)
 
 ### Create an Azure AD test user
 
@@ -181,7 +179,7 @@ In this section, you create a test user named Britta Simon in the Azure portal.
 
     1. In the **Name** box, enter **BrittaSimon**.
   
-    1. In the **User name** box, enter **brittasimon\@\<your-company-domain>.\<extension>**. For example, **BrittaSimon\@contoso.com**.
+    1. In the **User name** box, enter **brittasimon\@\<your-company-domain>.\<extension\>**. For example, **brittasimon\@contoso.com**.
 
     1. Select the **Show password** check box. Write down the value that's displayed in the **Password** box.
 
@@ -235,7 +233,7 @@ To provision a user account in HubSpot:
 
 	![The Create user option in HubSpot](./media/hubspot-tutorial/user2.png)
 
-1. In the **Add email addess(es)** box, enter the email address of the user in the format `brittasimon@contoso.com`, and then select **Next**.
+1. In the **Add email addess(es)** box, enter the email address of the user in the format brittasimon\@contoso.com, and then select **Next**.
 
 	![The Add email address(es) box in the Create users section in HubSpot](./media/hubspot-tutorial/user3.png)
 
