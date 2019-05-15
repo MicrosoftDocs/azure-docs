@@ -69,7 +69,9 @@ To create and run the sample, do the following steps:
         var uriBase =
             "https://westus.api.cognitive.microsoft.com/vision/v2.0/read/core/asyncBatchAnalyze";
 
-        // Request parameter.
+        // The mode request parameter is optional. If it is left blank, the
+        // service will determine whether to use the printed or handwritten 
+        // recognition model.
         var params = {
             "mode": "Handwritten",
         };

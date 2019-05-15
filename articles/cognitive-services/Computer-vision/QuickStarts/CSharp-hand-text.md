@@ -106,7 +106,9 @@ namespace CSHttpClientSample
                 client.DefaultRequestHeaders.Add(
                     "Ocp-Apim-Subscription-Key", subscriptionKey);
 
-                // Request parameter.
+                // The mode request parameter is optional. If it is left blank, the
+                // service will determine whether to use the printed or handwritten 
+                // recognition model.
                 string requestParameters = "mode=Handwritten";
 
                 // Assemble the URI for the REST API method.
