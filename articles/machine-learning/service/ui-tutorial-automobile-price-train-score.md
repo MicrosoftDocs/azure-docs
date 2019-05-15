@@ -31,7 +31,7 @@ In [part two](ui-tutorial-automobile-price-deploy.md) of the tutorial series, yo
 > A completed version of this tutorial is available as a sample experiment.
 > From the Experiments page, go to **Add New** > **Sample 1 - Regression: Automobile Price Prediction(Basic)**
 
-> [!VIDEO https://www.youtube.com/embed/VDKpDNX96aA]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
 
 ## Create a workspace
