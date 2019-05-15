@@ -476,4 +476,4 @@ An administrator must intervene and determine why the application or cluster bec
 ### Version 1.4.0
 - Fixes an issue in which repair task, in post installation state, was not garbage collected if node gets deleted while installation of update.
 - Fixes an issue in which updates were stuck due to TimerCheckPoint.txt file was empty on some of the nodes.
-- A lot of Diagnostic improvements are introduced to help customers work on the issues themselves.
+- Diagnostics of the application is improved to make the task of debugging quick and easy.
