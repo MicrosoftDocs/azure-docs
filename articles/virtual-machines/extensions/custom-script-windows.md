@@ -9,7 +9,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/15/2019
+ms.date: 05/02/2019
 ms.author: gwallace
 
 ---
@@ -203,6 +203,16 @@ If you want to run the custom script extension more than once, you can only do t
 
 * The extension **Name** parameter is the same as the previous deployment of the extension.
 * Update the configuration otherwise the command won't be re-executed. You can add in a dynamic property into the command, such as a timestamp.
+
+Alternatively, you can set the [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) property to **true**.
+
+### Using Invoke-WebRequest
+
+If you are using [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) in your script, you must specify the parameter `-UseBasicParsing` or else you will receive the following error when checking the detailed status:
+
+```error
+The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
+```
 
 ## Classic VMs
 

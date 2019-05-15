@@ -40,8 +40,6 @@
     href: best-practices.md
   - name: Block legacy authentication
     href: block-legacy-authentication.md
-  - name: Control access to Exchange Online and SharePoint Online
-    href: conditional-access-for-exo-and-spo.md
   - name: Migrate classic policies
     href: policy-migration.md
   - name: Sign-in frequency and browser persistence controls

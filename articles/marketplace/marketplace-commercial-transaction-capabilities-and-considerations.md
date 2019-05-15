@@ -2,16 +2,16 @@
 title: Marketplace ‎Commercial Transaction Capabilities and Considerations | Azure
 description: This article describes the Transact pricing, billing, invoicing, and payout considerations for an offer type.
 services:  Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
-documentationcenter:
+
 author: yijenj
 manager: nuno costa
-editor:
 
-ms.assetid: 
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj

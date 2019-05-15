@@ -91,7 +91,7 @@ There are a number of different DNS caching packages available (such as dnsmasq)
   * Start the dnsmasq service with `systemctl start dnsmasq.service`. 
   * Edit **/etc/sysconfig/network/config**, and change *NETCONFIG_DNS_FORWARDER=""* to *dnsmasq*.
   * Update resolv.conf with `netconfig update`, to set the cache as the local DNS resolver.
-* **OpenLogic (uses NetworkManager)**:
+* **CentOS (uses NetworkManager)**:
   * Install the dnsmasq package with `sudo yum install dnsmasq`.
   * Enable the dnsmasq service with `systemctl enable dnsmasq.service`.
   * Start the dnsmasq service with `systemctl start dnsmasq.service`.
@@ -124,7 +124,7 @@ The resolv.conf file is usually auto-generated, and should not be edited. The sp
 * **SUSE** (uses netconf):
   1. Add *timeout:1 attempts:5* to the **NETCONFIG_DNS_RESOLVER_OPTIONS=""** parameter in **/etc/sysconfig/network/config**.
   2. Run `netconfig update` to update.
-* **OpenLogic** (uses NetworkManager):
+* **CentOS** (uses NetworkManager):
   1. Add *echo "options timeout:1 attempts:5"* to **/etc/NetworkManager/dispatcher.d/11-dhclient**.
   2. Update with `service network restart`.
 
@@ -164,7 +164,7 @@ If forwarding queries to Azure doesn't suit your needs, you should provide your 
 * Be secured against access from the internet, to mitigate threats posed by external agents.
 
 > [!NOTE]
-> For best performance, when you are using Azure VMs as DNS servers, IPv6 should be disabled. A [public IP address](virtual-network-public-ip-address.md) should be assigned to each DNS server VM. For additional performance analysis and optimizations when you are using Windows Server as your DNS server, see [Name resolution performance of a recursive Windows DNS Server 2012 R2](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
+> For best performance, when you are using Azure VMs as DNS servers, IPv6 should be disabled. A [public IP address](virtual-network-public-ip-address.md) should be assigned to each DNS server VM. For additional performance analysis and optimizations when you are using Windows Server as your DNS server, see [Name resolution performance of a recursive Windows DNS Server 2012 R2](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
 > 
 > 
 
