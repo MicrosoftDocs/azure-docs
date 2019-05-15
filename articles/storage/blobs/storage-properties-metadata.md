@@ -12,7 +12,7 @@ ms.author: tamram
 
 # Set and retrieve properties and metadata
 
-Objects in Azure Storage support system properties and user-defined metadata, in addition to the data they contain. This article discusses managing system properties and user-defined metadata with the [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/).
+Objects in Azure Storage support system properties and user-defined metadata, in addition to the data they contain. This article discusses managing system properties and user-defined metadata with the [Azure Storage Client Library for .NET](/dotnet/api/overview/azure/storage/client).
 
 * **System properties**: System properties exist on each storage resource. Some of them can be read or set, while others are read-only. Under the covers, some system properties correspond to certain standard HTTP headers. Azure Storage client libraries maintain these properties for you.
 
@@ -95,5 +95,8 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 ```
 
 ## Next steps
-* [Azure Storage Client Library for .NET reference](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
-* [Azure Storage Client Library for .NET NuGet package](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Azure Storage client library for .NET reference](/dotnet/api/?term=Microsoft.Azure.Storage)
+* [Azure Blob storage client library for .NET package](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+* [Azure Queue storage client library for .NET package](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
+* [Azure File storage client library for .NET package](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/)
+

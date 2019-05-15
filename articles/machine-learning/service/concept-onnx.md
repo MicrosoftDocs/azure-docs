@@ -26,7 +26,7 @@ Microsoft and a community of partners created ONNX as an open standard for repre
 
 The ONNX Runtime is used in high scale Microsoft services such as Bing, Office, and Cognitive Services. Performance gains are dependent on a number of factors but these Microsoft services have seen an __average 2x performance gain on CPU__. ONNX Runtime is also used as part of Windows ML on hundreds of millions of devices. You can use the runtime with Azure Machine Learning services. By using ONNX Runtime, you can benefit from the extensive production-grade optimizations, testing, and ongoing improvements.
 
-[![ONNX flow diagram showing training, converters, and deployment](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
+[![ONNX flow diagram showing training, converters, and deployment](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## Get ONNX models
 

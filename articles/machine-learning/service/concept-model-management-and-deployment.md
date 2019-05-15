@@ -35,6 +35,9 @@ Each step can be performed independently or as part of a single command. Additio
 ## Step 1: Register model
 
 Model registration allows you to store and version your models in the Azure cloud, in your workspace. The model registry makes it easy to organize and keep track of your trained models.
+
+> [!TIP]
+> You can also register models trained outside the Azure Machine Learning service.
  
 Registered models are identified by name and version. Each time you register a model with the same name as an existing one, the registry increments the version. You can also provide additional metadata tags during registration that can be used when searching for models. The Azure Machine Learning service supports any model that can be loaded using Python 3.5.2 or higher.
 
@@ -88,5 +91,7 @@ Deployments must be explicitly updated. For more information, see update section
 ## Next steps
 
 Learn more about [how and where you can deploy models](how-to-deploy-and-where.md) with the Azure Machine Learning service. For an example of deployment, see [Tutorial: Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
+
+Learn how to create [continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning). 
 
 Learn how to create client applications and services that [Consume a model deployed as a web service](how-to-consume-web-service.md).

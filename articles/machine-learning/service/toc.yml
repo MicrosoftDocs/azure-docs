@@ -6,9 +6,6 @@
   - name: What is Azure Machine Learning service?
     displayName: AML services overview
     href: overview-what-is-azure-ml.md
-  - name: What happened to Workbench
-    displayName: desktop ui Workbench upgrade update transfer
-    href: overview-what-happened-to-workbench.md
 - name: Setup
   items:
   - name: Create a workspace
@@ -64,20 +61,20 @@
   - name: Visual interface experiments
     items:
     - name: "Predict price"
-      displayName: Sample 1, training, regression
+      displayName: Basic Sample, training, regression, sample 1
       href:  ui-sample-regression-predict-automobile-price-basic.md
     - name: "Predict price (advanced)"
-      displayName: Sample 2, training, regression
+      displayName: Advanced Sample, training, regression, sample 2
       href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
     - name: "Predict credit risk"
-      displayName: Sample 3, training, classification
-      href: ui-sample-classification-predict-credit-risk-basic.md
+      displayName: Basic Sample, training, classification, sample 3
+      href:  ui-sample-classification-predict-credit-risk-basic.md
     - name: "Predict credit risk (advanced)"
-      displayName: Sample 4, training, classification
+      displayName: Advanced Sample, training, classification, sample 4
       href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
     - name: "Predict churn"
-      displayName: Sample 5, training, CRM, classification
-      href: ui-sample-classification-predict-churn.md
+      displayName: Basic Sample, training, classification, sample 5
+      href:  ui-sample-classification-predict-churn.md
 - name: Concepts
   items:
   - name: How the service works
@@ -117,6 +114,7 @@
     - name: Use portal for workspaces
       href: how-to-manage-workspace.md
     - name: Use a Resource Manager template
+      displayName: arm
       href: how-to-create-workspace-template.md
   - name: Set up development environment 
     items:
@@ -197,6 +195,8 @@
     - name: Where and how to deploy
       displayName: publish azure kubernetes azure container instances
       href: how-to-deploy-and-where.md
+    - name: GPUs
+      href: how-to-deploy-inferencing-gpus.md
     - name: FPGAs
       href: how-to-deploy-fpga-web-service.md
     - name: IoT Edge
@@ -224,6 +224,10 @@
     items:
     - name: Create an ML pipeline
       href: how-to-create-your-first-pipeline.md  
+    - name: 'CI/CD of ML workflows with Azure Pipelines'
+      displayName: continuous, integration, delivery
+      href: /azure/devops/pipelines/targets/azure-machine-learning
+      mainContext: true
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
@@ -235,9 +239,6 @@
   - name: Machine learning SDK
     displayName: api core package python data prep
     href: https://aka.ms/aml-sdk
-  - name: Data prep SDK
-    displayName: api core package python data prep
-    href: https://aka.ms/data-prep-sdk
   - name: Monitoring SDK
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
@@ -352,3 +353,6 @@
   - name: Compare our ML products
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
     maintainContext: true
+  - name: What happened to Workbench
+    displayName: desktop ui Workbench upgrade update transfer
+    href: overview-what-happened-to-workbench.md
