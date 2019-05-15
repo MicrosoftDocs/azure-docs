@@ -7,7 +7,7 @@ ms.author: sujie
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/27/2017
+ms.date: 05/14/2019
 ---
 
 
