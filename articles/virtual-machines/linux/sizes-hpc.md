@@ -104,5 +104,5 @@ Azure provides several options to create clusters of Linux HPC VMs that can comm
 
 ## Next steps
 
-- Learn more about how to setup, optimize and scale [HPC workloads](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/hpc) on Azure.
+- Learn more about how to setup, optimize and scale [HPC workloads](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc) on Azure.
 - Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
