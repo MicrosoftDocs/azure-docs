@@ -30,7 +30,7 @@ A taxonomy of the workspace is illustrated in the following diagram:
 The diagram shows the following components of a workspace:
 
 + A workspace can contain [Notebook VMs](quickstart-run-cloud-notebook.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
-+ You can share your workspace and assign different [user roles](how-to-assign-roles.md).
++ [User roles](how-to-assign-roles.md) enable you to share your workspace with other users, teams or projects.
 + [Compute targets](concept-azure-machine-learning-architecture.md#compute-target) are used to run your experiments.
 + When you create the workspace, [associated resources](#resources) are also created for you.
 + [Experiments](concept-azure-machine-learning-architecture.md#experiment) are training runs you use to build your models.  You can create and run experiments with
