@@ -35,6 +35,9 @@ When running the scaling script, keep the following things in mind:
 - This script doesn't support signing in as an admin to Windows Virtual Desktop with Azure AD user accounts that require multi-factor authentication. We recommend you use service principals to access the Windows Virtual Desktop service and Azure. Follow [this tutorial](create-service-principal-role-powershell.md) to create a service principal and a role assignment with PowerShell.
 - Azure's SLA guarantee applies only to VMs in an availability set. The current version of the document describes an environment with a single VM doing the scaling, which may not meet availability requirements.
 
+>[!NOTE]
+> If you're joining your VMs to an Azure AD Domain Services environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+
 ## Deploy the scaling script
 
 The following procedures will tell you how to deploy the scaling script.

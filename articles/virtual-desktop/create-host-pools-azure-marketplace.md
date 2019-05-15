@@ -63,6 +63,9 @@ For the Virtual machine setting blade:
 
 For the Windows Virtual Desktop tenant information blade:
 
+>[!NOTE]
+> If you're joining your VMs to an Azure AD Domain Services environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+
 1. Enter the **Windows Virtual Desktop tenant group name** for the tenant group that contains your tenant. Leave it as the default unless you were provided a specific tenant group name.
 2. Enter the **Windows Virtual Desktop tenant name** for the tenant you'll be creating this host pool in.
 3. Specify the type of credentials you want to use to authenticate as the Windows Virtual Desktop tenant RDS Owner. If you completed the [Create service principals and role assignments with PowerShell tutorial](./create-service-principal-role-powershell.md), select **Service principal**. You will now need to enter the **Azure AD tenant ID** of the Azure Active Directory that contains the service principal.

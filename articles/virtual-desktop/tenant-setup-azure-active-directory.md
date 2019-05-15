@@ -29,6 +29,9 @@ Here's what you need to set up your Windows Virtual Desktop tenant:
    * The administrator account must be a work or school account.
 * An Azure subscription
 
+>[!NOTE]
+> If you're joining your VMs to an Azure AD Domain Services environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+
 ## Grant Azure Active Directory permissions to the Windows Virtual Desktop Preview service
 
 If you have already granted permissions to Windows Virtual Desktop for this Azure Active Directory, skip this section.
