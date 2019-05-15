@@ -17,9 +17,10 @@ ms.date: 04/15/2019
 ms.author: aschhab
 
 ---
-# How to Use Service Bus topics and subscriptions with Node.js
-
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+# How to Use Service Bus topics and subscriptions with Node.js and the azure-sb package
+> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
 This guide describes how to use Service Bus topics and subscriptions
 from Node.js applications. The scenarios covered include:
