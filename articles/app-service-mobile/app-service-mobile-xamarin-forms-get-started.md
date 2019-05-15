@@ -53,11 +53,11 @@ The Visual Studio Tools for Xamarin are required to open the solution, see the [
 
 4. In `Constants.cs` class, replace `ZUMOAPPURL` variable with public endpoint above.
 
-    public static string ApplicationURL = @"ZUMOAPPURL";
+    `public static string ApplicationURL = @"ZUMOAPPURL";`
 
         becomes
 
-    public static string ApplicationURL = @"https://test123.azurewebsites.net";
+    `public static string ApplicationURL = @"https://test123.azurewebsites.net";`
     
 5. Follow the instructions below to run the Android or Windows projects; and if there is a networked Mac computer available, the iOS project.
 

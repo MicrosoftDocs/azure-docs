@@ -29,7 +29,7 @@ Completing this tutorial is a prerequisite for all other Android tutorials about
 To complete this tutorial, you need the following:
 
 * [Android Developer Tools](https://developer.android.com/sdk/index.html), which includes the Android Studio integrated development environment, and the latest Android platform.
-* Azure Mobile Android SDK, which is automatically referenced as part of the quickstart project you download.
+* Azure Mobile Android SDK.
 * An [active Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Create a new Azure mobile app backend

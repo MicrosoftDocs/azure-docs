@@ -57,11 +57,11 @@ project for a simple "todo list" backend and publish it to Azure.
 
 4. In `ToDoActivity` class, replace `ZUMOAPPURL` variable with public endpoint above.
 
-    const string applicationURL = @"ZUMOAPPURL";
+    `const string applicationURL = @"ZUMOAPPURL";`
 
         becomes
     
-    const string applicationURL = @"https://test123.azurewebsites.net";
+    `const string applicationURL = @"https://test123.azurewebsites.net";`
     
 5. Press the F5 key to deploy and run the app.
 

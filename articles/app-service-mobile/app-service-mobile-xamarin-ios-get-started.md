@@ -49,11 +49,11 @@ To complete this tutorial, you need the following prerequisites:
 
 4. In `QSTodoService` class, replace `ZUMOAPPURL` variable with public endpoint above.
 
-    const string applicationURL = @"ZUMOAPPURL";
+    `const string applicationURL = @"ZUMOAPPURL";`
 
         becomes
     
-    const string applicationURL = @"https://test123.azurewebsites.net";
+    `const string applicationURL = @"https://test123.azurewebsites.net";`
     
 5. Press the F5 key to deploy and run the app in an iPhone emulator.
 
