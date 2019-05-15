@@ -33,11 +33,11 @@ This document assumes that you are familiar with Azure Virtual Networks, and IP 
 > [!IMPORTANT]
 > You can put the storage account that is attached to Azure Machine Learning service workspace behind the virtual network only while doing experimentation. Inferencing requires unrestricted access to the storage account. If you aren't sure if you've modified these settings or not, see __Change the default network access rule__ in [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security). Use the steps to allow access from all networks while doing inferencing.
 
-To use Azure Machine Learning experimentation capablities with Azure Storage behind a virtual network follow the steps below:
+To use Azure Machine Learning experimentation capabilities with Azure Storage behind a virtual network follow the steps below:
 
 1. Create an experimentation compute ex. Machine Learning Compute behind a virtual network or attach an experimentation compute to the workspace ex. HDInsight cluster or virtual machine. For more information, see [Use Machine Learning Compute](#use-machine-learning-compute) and [Use a virtual machine or HDInsight cluster](#use-a-virtual-machine-or-hdinsight-cluster) sections in this document
 2. Go to the storage attached to the workspace ![Image of the Azure portal showing Azure Storage that is attached to the Azure Machine Learning service workspace](./media/how-to-enable-virtual-network/workspace-storage.png)
-3. On the Azure Storage page select __Firewalls and virtual networks__ section ![Image of the Azure portal showing Firewalls and virtual networks section on Azure Storage page](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
+3. On the Azure Storage page, select __Firewalls and virtual networks__ section ![Image of the Azure portal showing Firewalls and virtual networks section on Azure Storage page](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 4. On the __Firewalls and virtual networks__ page select the following:
     - Pick the option __Selected networks__
     - Under the __Virtual networks__ click on __Add existing virtual network__ to add the virtual network where your experimentation compute resides (see step 1 above)
@@ -55,7 +55,7 @@ Key Vault instance associated with the workspace is used by Azure Machine Learni
 * Passwords to Azure Container Repository instances
 * Connection Strings to data stores. 
 
-To use Azure Machine Learning experimentation capablities with Key Vault behind a virtual network follow the steps below:
+To use Azure Machine Learning experimentation capabilities with Key Vault behind a virtual network follow the steps below:
 1. Go to the Key Vault associated with the workspace ![Image of the Azure portal showing Key Vault that is associated with the Azure Machine Learning service workspace](./media/how-to-enable-virtual-network/workspace-key-vault.png)
 2. On the Key Vault page select __Firewalls and virtual networks__ section ![Image of the Azure portal showing Firewalls and virtual networks section on Key Vault page](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
 3. On the __Firewalls and virtual networks__ page select the following:
