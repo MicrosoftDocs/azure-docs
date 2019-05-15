@@ -36,7 +36,7 @@ You can use the k4a-viewer to playback a recording.
 1. Launch k4a-viewer
 2. Unfold the **Open Recording** tab and open your recording.
 
-## See also
+## Next steps
 
 * k4arecorder
 * k4a-viewer
