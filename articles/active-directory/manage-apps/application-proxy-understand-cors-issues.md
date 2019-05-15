@@ -99,7 +99,7 @@ Content-Length: 17
 
 ### Option 4: Modify the app
 
-You can change your app to support CORS by adding the **Access-Control-Allow-Origin** header, with appropriate values. The way to add the header depends on the app's code language. Changing the code is the least recommended option, because it requires the most effort.
+You can change your app to support CORS by adding the Access-Control-Allow-Origin header, with appropriate values. The way to add the header depends on the app's code language. Changing the code is the least recommended option, because it requires the most effort.
 
 ## See also
 - [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md) 
