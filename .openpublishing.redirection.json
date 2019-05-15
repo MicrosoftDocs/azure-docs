@@ -23060,6 +23060,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/blobs/storage-dotnet-shared-access-signature-part-2.md",
+      "redirect_url": "/azure/storage/common/storage-dotnet-shared-access-signature-part-1",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/storage-e2e-troubleshooting.md",
       "redirect_url": "/azure/storage/common/storage-e2e-troubleshooting",
       "redirect_document_id": true
