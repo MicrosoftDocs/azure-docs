@@ -54,6 +54,8 @@ The use of the SQL VM resource provider requires the SQL IaaS extension. As such
 
 ## With the Azure portal
 
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-use-new-management-blade.md)]
+
 You can modify the licensing model directly from the portal. 
 
 1. Open the [Azure portal](https://portal.azure.com) and launch the [SQL VM management blade](virtual-machines-windows-sql-manage-portal.md#sql-vm-management-blade) for your SQL Server VM. 
