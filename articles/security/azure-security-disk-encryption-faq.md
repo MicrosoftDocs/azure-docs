@@ -54,7 +54,7 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | CentOS | 7.4 | OS and data disk |
 | CentOS | 7.3 | OS and data disk |
 | CentOS | 7.2n | OS and data disk |
-| CentOS | 6.8 | OS and data disk |
+| CentOS | 6.8 | Data disk |
 | CentOS | 7.1 | Data disk |
 | CentOS | 7.0 | Data disk |
 | CentOS | 6.7 | Data disk |
