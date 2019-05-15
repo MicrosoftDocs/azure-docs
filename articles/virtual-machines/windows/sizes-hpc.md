@@ -42,7 +42,7 @@ In certain deployments of A8 and A9 instances, the HpcVmDrivers extension is add
   ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
   ```
-  Alternatively, VM extensions can be included in ARM templates for easy deployment, with the following JSON element:
+  Alternatively, VM extensions can be included in Azure Resource Manager templates for easy deployment, with the following JSON element:
   ```json
   "properties":{
   "publisher": "Microsoft.HpcCompute",
