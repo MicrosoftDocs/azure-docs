@@ -17,7 +17,7 @@ ms.date: 05/02/2019
 
 # Tutorial: Prepare data to train a predictive model in R with Azure SQL Database Machine Learning Services (preview)
 
-In this tutorial, you'll learn how to prepare the data to be used for training a predictive model in R. This includes importing a sample database into an Azure SQL database.
+In part one of this three-part tutorial series, you'll prepare the data from an Azure SQL database to train a predictive model in R with Azure SQL Database Machine Learning Services (preview).
 
 For this tutorial series, imagine you own a ski rental business and you want to predict the number of rentals that you'll have on a future date. This information will help you get your stock, staff, and facilities ready.
 
@@ -54,42 +54,17 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Import the sample database
 
-Import the sample dataset used in this tutorial to your own Azure SQL database.
-The sample dataset has been saved to a .bacpac database backup file for you to download and use.
+The sample dataset used in this tutorial has been saved to a **.bacpac** database backup file for you to download and use.
 
-Follow the directions in [Import a BACPAC file to create an Azure SQL database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-import), using these details:
+1. Download the file [TutorialDB.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/TutorialDB.bacpac).
 
-* Download the [TutorialDB.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/TutorialDB.bacpac) file to import
-* During the public preview, choose the **Gen5/vCore** configuration for the new database
-* Name the new database "TutorialDB"
+1. Follow the directions in [Import a BACPAC file to create an Azure SQL database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-import), using these details:
 
-<!-- I don't know that we really need this
-Once the database is created, it should contain a table named rental_data.
-You can verify this table by connecting to the TutorialDB database in Azure Data Studio or SSMS and running the following query.
+   * Import from the **TutorialDB.bacpac** file you downloaded
+   * During the public preview, choose the **Gen5/vCore** configuration for the new database
+   * Name the new database "TutorialDB"
 
-```sql
-USE tutorialdb;
-
-SELECT *
-FROM [dbo].[rental_data];
-```
-
-You should see something similar to this.
-
-```results
-   Year  Month  Day  RentalCount  WeekDay  Holiday  Snow
-1  2014    1     20      445         2        1      0
-2  2014    2     13       40         5        0      0
-3  2013    3     10      456         1        0      0
-4  2014    3     31       38         2        0      0
-5  2014    4     24       23         5        0      0
-6  2015    2     11       42         4        0      0
-7  2013    4     28      310         1        0      0
-8  2014    3      8      240         7        0      0
-```
--->
-
-## Load the data into a data frame using R
+## Load the data into a data frame
 
 To use the data in R, you'll load the data from the Azure SQL database into a data frame (`rentaldata`).
 

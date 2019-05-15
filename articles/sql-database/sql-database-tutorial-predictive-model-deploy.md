@@ -17,8 +17,9 @@ ms.date: 05/02/2019
 
 # Tutorial: Deploy a predictive model in R with Azure SQL Database Machine Learning Services (preview)
 
-In this tutorial, you'll learn how to deploy a predictive model in R with Azure SQL Database Machine Learning Services (preview).
-You'll create a stored procedure with an embedded R script that makes predictions using the model. The database engine takes care of the execution. Because your model executes in the Azure SQL database, it can easily be trained against data stored in the database.
+In part three of this three-part tutorial, you'll deploy a predictive model in R with Azure SQL Database Machine Learning Services (preview).
+
+You'll create a stored procedure with an embedded R script that makes predictions using the model. Because your model executes in the Azure SQL database, it can easily be trained against data stored in the database.
 
 This tutorial is **part three of a three-part tutorial series**.
 
@@ -42,7 +43,7 @@ In [part two](sql-database-tutorial-predictive-model-build-compare.md), you lear
 
 ## Create a stored procedure that generates the model
 
-In [part two](sql-database-tutorial-predictive-model-build-compare.md#compare-the-results) of this tutorial series, you decided that a decision tree (dtree) model was the most accurate. Now create a stored procedure (`generate_rental_rx_model`) that trains and generates the dtree model using rxDTree from the RevoScaleR package.
+In part two of this tutorial series, you decided that a decision tree (dtree) model was the most accurate. Now create a stored procedure (`generate_rental_rx_model`) that trains and generates the dtree model using rxDTree from the RevoScaleR package.
 
 Run the following commands in Azure Data Studio or SSMS.
 

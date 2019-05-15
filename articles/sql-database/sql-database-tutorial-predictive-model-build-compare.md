@@ -17,7 +17,7 @@ ms.date: 05/02/2019
 
 # Tutorial: Create a predictive model in R with Azure SQL Database Machine Learning Services (preview)
 
-In this tutorial, you'll learn how to train two predictive models in R with Azure SQL Database Machine Learning Services (preview), and then choose the most accurate model to deploy. To find the best model for a particular set of data, it's common to train and compare multiple models in order to find the one that fits the data best.
+In part two of this three-part tutorial series, you'll create two predictive models in R with Azure SQL Database Machine Learning Services (preview), and then select the most accurate model.
 
 This tutorial is **part two of a three-part tutorial series**.
 
@@ -42,11 +42,6 @@ In [part three](sql-database-tutorial-predictive-model-deploy.md), you'll learn 
 
 To find the best model for the ski rental data, create two different models (linear regression and decision tree) and see which one is predicting more accurately. You'll use the data frame `rentaldata` that you created in part one of this series.
 
-<!-- Tutorials don't generally have Tips and Notes
-> [!TIP]
-> Finding the right type of model for a specific problem requires some experimentation. The [Machine Learning Algorithm Cheat Sheet](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-algorithm-choice/#the-machine-learning-algorithm-cheat-sheet) can be nice to have as a guide.
--->
-
 ```r
 #First, split the dataset into two different sets:
 # one for training the model and the other for validating it
@@ -65,7 +60,7 @@ model_dtree  <- rxDTree(RentalCount ~ Month + Day + WeekDay + Snow + Holiday, da
 
 ## Make predictions from both models
 
-Now use a predict function to predict the rental counts using each trained model.
+Use a predict function to predict the rental counts using each trained model.
 
 ```r
 #Use both models to make predictions using the test data set.
@@ -97,7 +92,7 @@ head(predict_dtree);
 
 ## Compare the results
 
-Now you want to see which of the models gives the best predictions. A quick and easy way to do this is to plot the difference between the predicted and actual values using a basic plotting function.
+Now you want to see which of the models gives the best predictions. A quick and easy way to do this is to use a basic plotting function to view the difference between the actual values in your training data and the predicted values.
 
 ```r
 #Use the plotting functionality in R to visualize the results from the predictions
