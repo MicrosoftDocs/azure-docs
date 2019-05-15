@@ -36,7 +36,7 @@ $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator Contains `
-   -MatchValue "192.168.5.4/24” `
+   -MatchValue "192.168.5.4/24" `
    -NegationCondition $False
 
 $rule = New-AzApplicationGatewayFirewallCustomRule `
@@ -192,7 +192,7 @@ $variable2 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24” `
+   -MatchValue "192.168.5.4/24" `
    -NegationCondition $False
 
 $condition2 = New-AzApplicationGatewayFirewallCondition `
@@ -262,11 +262,11 @@ Logic: **p or q or r**
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
-   -VariableName RequestU*ri 
+   -VariableName RequestUri 
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator Contains `
-   -MatchValue "1=1”, “drop tables”, “’—" `
+   -MatchValue "1=1", "drop tables", "'—" `
    -NegationCondition $False
 
 $rule1 = New-AzApplicationGatewayFirewallCustomRule `
@@ -312,7 +312,7 @@ $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator Contains `
-   -MatchValue "1=1” `
+   -MatchValue "1=1" `
    -NegationCondition $False
 
 $rule1 = New-AzApplicationGatewayFirewallCustomRule `
@@ -328,7 +328,7 @@ $variable2 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition2 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable2 `
    -Operator Contains `
-   -MatchValue “drop tables” `
+   -MatchValue "drop tables" `
    -NegationCondition $False
 
 $rule2 = New-AzApplicationGatewayFirewallCustomRule `
@@ -344,7 +344,7 @@ $variable3 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition3 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable3 `
    -Operator Contains `
-   -MatchValue “’—" `
+   -MatchValue "’—" `
    -NegationCondition $False
 
 $rule3 = New-AzApplicationGatewayFirewallCustomRule `
