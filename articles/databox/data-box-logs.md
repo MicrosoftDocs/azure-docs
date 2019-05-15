@@ -191,7 +191,7 @@ The BOM or manifest files are also copied to the Azure storage account. You can 
 
 ## Review copy log during upload to Azure
 
-During the data upload to Azure, a copylog is created.
+During the data upload to Azure, a *copylog* is created.
 
 ### Copylog
 
