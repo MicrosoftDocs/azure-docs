@@ -26,9 +26,6 @@ the schema defines attributes in your workflow definition.
 
 A workflow definition always includes a trigger for instantiating your 
 logic app, plus one or more actions that run after the trigger fires.
-
-Here is the high-level structure for a workflow definition:
-
 ```json
 "definition": {
   "$schema": "<workflow-definition-language-schema-version>",
@@ -47,11 +44,14 @@ Here is the high-level structure for a workflow definition:
 | `$schema` | Only when externally referencing a workflow definition | The location for the JSON schema file that describes the Workflow Definition Language version, which you can find here: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
 | `actions` | No | The definitions for one or more actions to execute at workflow runtime. For more information, see [Triggers and actions](#triggers-actions). <p><p>Maximum actions: 250 |
 | `contentVersion` | No | The version number for your workflow definition, which is "1.0.0.0" by default. To help identify and confirm the correct definition when deploying a workflow, specify a value to use. |
-| `outputs` | No | The definitions for the outputs that return from a workflow run. For more information, see [Outputs](#outputs). <p><p>Maximum outputs: 10 |
-| `parameters` | No | The definitions for one or more parameters that pass data into your workflow. For more information, see [Parameters](#parameters). <p><p>Maximum parameters: 50 |
+| `outputs` | No | The definitions for the outputs to return from a workflow run. For more information, see [Outputs](#outputs). <p><p>Maximum outputs: 10 |
+| `parameters` | No | The definitions for one or more parameters that pass values for your workflow to use at workflow runtime. For more information, see [Parameters](#parameters). <p><p>Maximum parameters: 50 |
 | `staticResults` | No | The definitions for one or more static results returned by actions as mock outputs when static results are enabled on those actions. In each action definition, the `runtimeConfiguration.staticResult.name` attribute references the corresponding definition inside `staticResults`. For more information, see [Static results](#static-results). |
 | `triggers` | No | The definitions for one or more triggers that instantiate your workflow. You can define more than one trigger, but only with the Workflow Definition Language, not visually through the Logic Apps Designer. For more information, see [Triggers and actions](#triggers-actions). <p><p>Maximum triggers: 10 |
 ||||
+Here is the high-level structure for a workflow definition:
+
+
 
 <a name="triggers-actions"></a>
 

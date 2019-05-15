@@ -268,51 +268,96 @@ In the `definition` attribute, your logic app's workflow definition has this hig
 
 ```json
 "definition": {
-   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-   "contentVersion": "1.0.0.0",
-   "actions": {<one-or-more-action-definitions>},
-   "outputs": {},
-   "parameters": {},
-   "triggers": {<trigger-definition>}
+  "$schema": "<workflow-definition-language-schema-version>",
+  "actions": { "<action-definitions>" },
+  "contentVersion": "<workflow-definition-version-number>",
+  "outputs": { "<workflow-output-definitions>" },
+  "parameters": { "<workflow-parameter-definitions>" },
+  "staticResults": { "<static-results-definitions>" },
+  "triggers": { "<trigger-definitions>" }
 }
 ```
 
+Here are brief details about these attributes in workflow definitions. For full details, see [Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| `$schema` | Only when externally referencing a workflow definition | The location for the JSON schema file that describes the Workflow Definition Language version |
+| `actions` | No | The definitions for one or more actions to execute at workflow runtime. For more information, see [Triggers and actions](../logic-apps/logic-apps-workflow-definition-language.md#triggers-actions). |
+| `contentVersion` | No | The version number for your workflow definition |
+| `outputs` | No | The definitions for the outputs to return from a workflow run. For more information, see [Outputs](../logic-apps/logic-apps-workflow-definition-language.md#outputs) |
+| `parameters` | No | The definitions for one or more parameters that pass values for your workflow to use at workflow runtime. For more information, see [Parameters](../logic-apps/logic-apps-workflow-definition-language.md#parameters). |
+| `staticResults` | No | The definitions for one or more static results returned by actions as mock outputs when static results are enabled on those actions. For more information, see [Static results](../logic-apps/logic-apps-workflow-definition-language.md#static-results). |
+| `triggers` | No | The definitions for one or more triggers that instantiate your workflow. You can define more than one trigger, but only with the Workflow Definition Language, not visually through the Logic Apps Designer. For more information, see [Triggers and actions](../logic-apps/logic-apps-workflow-definition-language.md#triggers-actions). |
+||||
+
 For example, here's a logic app workflow definition that has these elements:
 
-* A **Recurrence** trigger that fires hourly
-
-* A basic HTTP action that calls a GET operation at a specific URI, `https://test.uri.com`
+* An Office 365 Outlook trigger that fires when a new email arrives
+* An Azure Blob Storage action that creates a blob for the email body and uploads that blob to a storage account
 
 ```json
 "definition": {
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-  "actions": {
-     "HTTP": {
-        "inputs": {
-           "authentication": {
-              "password": "myPassword",
-              "type": "Basic",
-              "username": "myUserName"
-           },
-           "method": "GET",
-           "uri": "https://test.uri.com"
+   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+   "actions": {
+      "Create_blob": {
+         "inputs": {
+            "body": "@triggerBody()?['Body']",
+            "host": {
+               "connection": {
+                  "name": "@parameters('$connections')['azureblob']['connectionId']"
+               }
+            },
+            "method": "post",
+            "path": "/datasets/default/files",
+            "queries": {
+               "folderPath": "/saved-emails",
+               "name": "@triggerBody()?['Subject']",
+               "queryParametersSingleEncoded": true
+            }
          },
          "runAfter": {},
-         "type": "Http"
-     }
-  },
-  "contentVersion": "1.0.0.0",
-  "outputs": {},
-  "parameters": {},
-  "triggers": {
-     "Recurrence": {
-        "recurrence": {
-           "frequency": "Hour",
-           "interval": 1
-        },
-        "type": "Recurrence"
-     }
-  }
+         "runtimeConfiguration": {
+            "contentTransfer": {
+               "transferMode": "Chunked"
+            }
+         },
+         "type": "ApiConnection"
+      }
+   },
+   "contentVersion": "1.0.0.0",
+   "outputs": {},
+   "parameters": {
+      "$connections": {
+         "defaultValue": {},
+         "type": "Object"
+      }
+   },
+   "triggers": {
+      "When_a_new_email_arrives": {
+         "inputs": {
+            "host": {
+               "connection": {
+                  "name": "@parameters('$connections')['office365']['connectionId']"
+               }
+            },
+            "method": "get",
+            "path": "/Mail/OnNewEmail",
+            "queries": {
+               "fetchOnlyWithAttachment": false,
+               "folderPath": "Inbox",
+               "importance": "Any",
+               "includeAttachments": false
+            }
+         },
+         "recurrence": {
+            "frequency": "Day",
+            "interval": 1
+         },
+         "splitOn": "@triggerBody()?['value']",
+         "type": "ApiConnection"
+      }
+   }
 }
 ```
 
@@ -320,9 +365,11 @@ For example, here's a logic app workflow definition that has these elements:
 
 ## Workflow definition parameters
 
-In your logic app workflow definition, you can add and edit any parameters that the workflow definition uses for accepting inputs at runtime. For more information about workflow definition parameters, see [Parameters - Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#parameters).
+In your workflow definition, you can add and edit any parameters that the workflow definition uses for accepting inputs at runtime. For example, 
 
-Note these particular practices for defining workflow definition parameters and to make sure that the Logic Apps Designer can show those parameters correctly:
+
+
+To make sure that the Logic App Designer can correctly show those parameters when you define workflow definition parameters, note these particular practices:
 
 * You can use logic app parameters in these kinds of triggers and actions:
 
@@ -336,6 +383,9 @@ Note these particular practices for defining workflow definition parameters and 
 
   * [Security recommendations for action and input parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters-and-inputs)
   * [Pass secure parameter values with Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+
+For more information about workflow definition parameters, see [Parameters - Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#parameters).
+
 
 For example, suppose your logic app's workflow definition references a resource ID that represents an Azure function or a nested logic app workflow, and you want to deploy that resource ID along with your logic app as a single deployment. You can add that ID as a resource in your template and parameterize that ID. You can use this same approach for references to custom APIs or OpenAPI endpoints (formerly "Swagger") that you want deployed with each Azure resource group.
 
@@ -453,12 +503,6 @@ Here are descriptions for the parameters used in this template:
 }
 ```
 
-## Reference dependent resources
-
-If your logic app has references to dependent resources, you can use [Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions.md), such as `parameters()`, `variables()`, `resourceId()`, `concat()`, and so on, for referencing those dependencies.
-
-For example, suppose your logic app references an Azure function that you want deployed with your logic app. This sample prebuilt template shows how a logic app references that function and how the template deploys that Azure function: [GitHub - azure-quickstart-templates/101-logic-app-and-function-app](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-and-function-app)
-
 ## Authorize OAuth connections
 
 At deployment, your logic app works end-to-end with valid parameters. However, you must still authorize OAuth connections to generate a valid access token.
@@ -466,6 +510,12 @@ At deployment, your logic app works end-to-end with valid parameters. However, y
 * To authorize OAuth connections, open your logic app in Logic App Designer. In the designer, authorize any required connections.
 
 * For automated deployment, you can use a script that provides consent for each OAuth connection. Here's an example script in GitHub in the [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) project.
+
+## Reference dependent resources
+
+If your logic app has references to dependent resources, you can use [Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions.md), such as `parameters()`, `variables()`, `resourceId()`, `concat()`, and so on, for referencing those dependencies.
+
+For example, suppose your logic app references an Azure function that you want deployed with your logic app. This sample prebuilt template shows how a logic app references that function and how the template deploys that Azure function: [GitHub - azure-quickstart-templates/101-logic-app-and-function-app](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-and-function-app)
 
 ## Next steps
 
