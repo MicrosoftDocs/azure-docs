@@ -128,7 +128,7 @@ Use the `principalName` property to identify the account that you want to grant 
 
 Using the values you collected in the first two steps, grant the user or group the RBAC Owner role on the enrollment account.
 
-### [REST](#tab/rest)
+### [REST](#tab/rest-2)
 
 Run the following command, replacing ```<enrollmentAccountObjectId>``` with the `name` you copied in the first step (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Replace ```<userObjectId>``` with the object ID you copied from the second step.
 
@@ -162,7 +162,7 @@ When the Owner role is successfully assigned at the enrollment account scope, Az
 }
 ```
 
-### [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell-2)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -172,7 +172,7 @@ Run the following [New-AzRoleAssignment](../active-directory/role-based-access-c
 New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
 ```
 
-### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli-2)
 
 Run the following [az role assignment create](../active-directory/role-based-access-control-manage-access-azure-cli.md) command, replacing ```<enrollmentAccountObjectId>``` with the `name` you copied in the first step (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Replace ```<userObjectId>``` with the object ID collected in the second step.
 
