@@ -89,6 +89,9 @@ availabilityResults
 
 5. Select the **_Application Insights scheduled digest template_**.
 
+     > [!NOTE]
+     > By default function apps are created with runtime version 2.x, so you need to [target Azure function runtime version](https://docs.microsoft.com/en-us/azure/azure-functions/set-runtime-version) to 1.x to use "Application Insights scheduled digest" template listed below.
+
    ![New Function Application Insights Template screenshot](./media/automate-custom-reports/function-app-04.png)
 
 6. Enter an appropriate recipient e-mail address for your report and select **Create**.
