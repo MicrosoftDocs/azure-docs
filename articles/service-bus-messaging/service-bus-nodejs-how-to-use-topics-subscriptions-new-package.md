@@ -47,29 +47,33 @@ Interacting with a Service Bus topic starts with instantiating the `ServiceBusCl
 
     ```javascript
     const { ServiceBusClient } = require("@azure/service-bus"); 
+    
     // Define connection string and related Service Bus entity names here
     const connectionString = "";
     const topicName = ""; 
+    
     async function main(){
       const sbClient = ServiceBusClient.createFromConnectionString(connectionString); 
-      const topicClient = ns.createTopicClient(topicName);
+      const topicClient = sbClient.createTopicClient(topicName);
       const sender = topicClient.createSender();
-      try {
-        for (let i = 0; i < 10; i++) {
-          const message= {
-            body: "my message contents",
-            label: "my message label",
-            userProperties: {
-                myCustomPropertyName: “my custom property value”
-           }
-          };
-          console.log(`Sending message: ${message.body} - ${message.label}`);
-          await sender.send(message);
-        }
-        await topicClient.close();
-      } finally {
-        await sbClient.close();
-      }
+      
+        try {
+            for (let i = 0; i < 10; i++) {
+              const message= {
+                body: `Hello world! ${i}`,
+                label: `test`,
+                userProperties: {
+                    myCustomPropertyName: `my custom property value ${i}`
+                }
+              };
+              console.log(`Sending message: ${message.body}`);
+              await sender.send(message);
+            }
+
+            await topicClient.close();
+          } finally {
+            await sbClient.close();
+          }
     }
     
     main().catch((err) => {
@@ -90,21 +94,31 @@ Interacting with a Service Bus subscription starts with instantiating the `Servi
 
     ```javascript
     const { ServiceBusClient, ReceiveMode } = require("@azure/service-bus"); 
+    
     // Define connection string and related Service Bus entity names here
     const connectionString = "";
     const topicName = ""; 
     const subscriptionName = ""; 
+    
     async function main(){
       const sbClient = ServiceBusClient.createFromConnectionString(connectionString); 
-      const subscriptionClient = ns.createSubscriptionClient(topicName, subscriptionName);
-      const receiver = queueClient.createReceiver(ReceiveMode.ReceiveAndDelete);
+      const subscriptionClient = sbClient.createSubscriptionClient(topicName, subscriptionName);
+      const receiver = subscriptionClient.createReceiver(ReceiveMode.ReceiveAndDelete);
+      
       try {
-    const messages = await receiver.receiveMessages(10)
-    console.log(`Received messages: ${messages.map(message => message.body)}`);
+        const messages = await receiver.receiveMessages(10);
+        console.log("Received messages:");
+        console.log(messages.map(message => message.body));
+        
         await subscriptionClient.close();
       } finally {
         await sbClient.close();
       }
+    }
+    
+    main().catch((err) => {
+      console.log("Error occurred: ", err);
+    });
     ```
 3. Enter the connection string and names of your topic and subscription in the above code.
 4. Then run the command `node receiveMessages.js` in a command prompt to execute this file. This command will try to receive a maximum of 10 messages from your subscription. The actual count you receive may depend on the number of messages in the subscription and network latency.
