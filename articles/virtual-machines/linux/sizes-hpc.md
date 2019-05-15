@@ -55,7 +55,7 @@ The Azure Marketplace has many Linux distributions that supports RDMA connectivi
   ```
  
   > [!NOTE]
-  > On the CentOS-based HPC images, kernel updates are disabled in the **yum** configuration file. This is because the Linux RDMA drivers are distributed as an RPM package, and driver updates might not work if the kernel is updated.
+  > On the CentOS-based HPC images, kernel updates are disabled in the **yum** configuration file. This is because Linux RDMA drivers are distributed as an RPM package, and driver updates might not work if the kernel is updated.
   >
   
 
