@@ -71,7 +71,7 @@ Your infrastructure needs the following things to support Windows Virtual Deskto
 * An Azure subscription, containing a virtual network that either contains or is connected to the Windows Server Active Directory
   
 >[!NOTE]
->If you're joining your VMs to an Azure AD Domain Services environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group)"
+>If you're joining your VMs to an Azure AD Domain Services environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
 
 
 The Azure virtual machines you create for Windows Virtual Desktop must be:
