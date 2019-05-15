@@ -47,7 +47,7 @@ You can identify CORS issues by using browser debug tools:
 1. Press **F12** to bring up the debug console.
 1. Try to reproduce the transaction, and review the console message. A CORS violation gives a console error about origin.
 
-In the following example, the cross-origin call happens on the **Try It** button click. Instead of the test message, there's an error that *https:\//corwebclient-allmylab.msappproxy.net* is missing from the **Access-Control-Allow-Origin** header.
+In the following example, the cross-origin call happens on the **Try It** button click. Instead of the test message, there's an error that *https:\//corswebclient-allmylab.msappproxy.net* is missing from the **Access-Control-Allow-Origin** header.
 
 ![CORS issue](./media/application-proxy-understand-cors-issues/image3.png)
 
@@ -57,7 +57,7 @@ You can resolve the preceding CORS issue in any one of several ways.
 
 ### Option 1: Custom domains
 
-Use an Azure AD Application Proxy [custom domain](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-custom-domains) to publish from the same origin without having to make any changes to app origins, code, or headers. 
+Use an Azure AD Application Proxy [custom domain](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-custom-domains) to publish from the same origin, without having to make any changes to app origins, code, or headers. 
 
 ### Option 2: Publish the parent directory
 
