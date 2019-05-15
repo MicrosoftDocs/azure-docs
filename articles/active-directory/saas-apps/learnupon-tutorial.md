@@ -162,9 +162,9 @@ To configure Azure AD single sign-on with LearnUpon, perform the following steps
 
      ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
 
-	a. In the **First Name Identifier Format** textbox, type the value that tells us where in your SAML Assertion the users firstname resides - for example: `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+	a. In the **First Name Identifier Format** textbox, type the value that tells us where in your SAML Assertion the users firstname resides - for example: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
   
-	b. In the **Last Name Identifier Format** textbox, type the value that tells us where in your SAML Assertion the users lastname resides - for example: `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+	b. In the **Last Name Identifier Format** textbox, type the value that tells us where in your SAML Assertion the users lastname resides - for example: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
 ### Create an Azure AD test user
 

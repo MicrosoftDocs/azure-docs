@@ -121,7 +121,7 @@ Another option is to provision [reserved IPs](../virtual-network/virtual-network
 
 ### What port do I connect to SQL Database on
 
-Port 1433. SQL Database communicates over this port. To connect from within a corporate network, you have to add an outbound rule in the firewall settings of your organization. As a guideline, avoid exposing port 1433 outside the Azure boundary. You can run SSMS in Azure using [Azure RemoteApp](https://www.microsoft.com/cloud-platform/azure-remoteapp-client-apps). This does not require you to open outgoing connections to port 1433, the IP is static, so the DB can be open to only the RemoteApp and it supports Multi Factor Authentication (MFA).
+Port 1433. SQL Database communicates over this port. To connect from within a corporate network, you have to add an outbound rule in the firewall settings of your organization. As a guideline, avoid exposing port 1433 outside the Azure boundary.
 
 ### How can I monitor and regulate activity on my server and database in SQL Database
 
