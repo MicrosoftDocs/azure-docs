@@ -38,7 +38,7 @@ IoT Hub message routing and Event Grid have similarities too, some of which are 
 
 | Feature | IoT Hub message routing | IoT Hub integration with Event Grid |
 | ------- | --------------- | ---------- |
-| **Maximum message size** | 256 KB, device-to-cloud | 256 KB, plus the Event Grid envelope |
+| **Maximum message size** | 256 KB, device-to-cloud | 256 KB, device-to-cloud |
 | **Reliability** | High: Delivers each message to the endpoint at least once for each route. Expires all messages that are not delivered within one hour. | High: Delivers each message to the webhook at least once for each subscription. Expires all events that are not delivered within 24 hours. | 
 | **Scalability** | High: Optimized to support millions of simultaneously connected devices sending billions of messages. | High: Capable of routing 10,000,000 events per second per region. |
 | **Latency** | Low: Near-real time. | Low: Near-real time. |
@@ -53,7 +53,7 @@ IoT Hub message routing and the IoT Hub integration with Event Grid perform diff
 
    Use IoT Hub message routing when you have to send telemetry data to other services. Message routing also enables querying message application and system properties, message body, device twin tags, and device twin properties.
 
-   The IoT Hub integration with Event Grid works with events that occur in the IoT Hub service. These IoT Hub events include telemetry data, device created, deleted, connected, and disconnected. When subscribing to telemetry events, you can apply additional filters on the data to filter on message properties, message body and device twin in your IoT Hub, before publishing to Event Grid. See [Event Grid subscriptions to telemetry events from IoT Hub](ADD LINK TO HOW TO DOC WHICH DESCRIBES THE DEFAULT ROUTE)
+   The IoT Hub integration with Event Grid works with events that occur in the IoT Hub service. These IoT Hub events include telemetry data, device created, deleted, connected, and disconnected. When subscribing to telemetry events, you can apply additional filters on the data to filter on message properties, message body and device twin in your IoT Hub, before publishing to Event Grid. See [how to filter events](../iot-hub-event-grid.md#filter-events)
 
 * **What endpoints need to receive this information?**
 
