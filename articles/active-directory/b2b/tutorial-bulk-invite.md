@@ -105,7 +105,7 @@ foreach ($email in $invitations)
    {New-AzureADMSInvitation `
       -InvitedUserEmailAddress $email.InvitedUserEmailAddress `
       -InvitedUserDisplayName $email.Name `
-      -InviteRedirectUrl https://myapps.azure.com `
+      -InviteRedirectUrl https://myapps.microsoft.com `
       -InvitedUserMessageInfo $messageInfo `
       -SendInvitationMessage $true
    }
