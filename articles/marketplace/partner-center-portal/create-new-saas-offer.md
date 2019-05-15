@@ -255,7 +255,7 @@ The **Technical configuration** tab defines the technical details (URL path, web
 
 - **Azure AD tenant ID** (required): Inside Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure AD app ID** (required): You also need your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) and an authentication key. To get those values, go to your Azure Active Directory and select **App registrations** , then look for the **Application ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
+- **Azure AD app ID** (required): You also need your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) and an authentication key. To get those values, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
 
  Note that the Azure application ID is associated to your publisher ID, so make sure that the same application ID is used in all your offers.
 
@@ -354,10 +354,10 @@ The **Test drive** tab enables you to set up a demonstration (or "test drive") w
 ### Technical configuration
 The following types of test drives are available, each with their own technical configuration requirements.
 
-- [Azure Resource Manager](#technical-configure-for-azure-resource-manager-test-drive): 
-- [Dynamics 365](#technical-configure-for-dynamics-365-test-drive): Microsoft-hosted for a Business Central, Customer Engagement, or Operations audience.
-- [Logic app](#technical-configure-for-logic-app-test-drive): 
-- [Power BI](#technical-configuration-not-required-for-powerbi-test-drives): Technical configuration not required.
+- [Azure Resource Manager](#technical-configuration-for-azure-resource-manager-test-drive)
+- [Dynamics 365](#technical-configuration-for-dynamics-365-test-drive)
+- [Logic app](#technical-configuration-for-logic-app-test-drive)
+- [Power BI](#technical-configuration-not-required-for-power-bi-test-drives) (Technical configuration not required)
 
 #### Technical configuration for Azure Resource Manager test drive
 
@@ -433,7 +433,7 @@ The **Test Drive listings** option found under the **Test drive** tab displays t
 
 - **Access information** (required for Azure Resource Manager and Logic test drives): Explain what a customer needs to know in order to access and use this test drive. Walk through a scenario for using your offer and exactly what the customer should know to access features throughout the test drive. Up to 10,000 characters of text can be entered in this field.
 
-- **User Manual** (required): This is the in-depth walkthrough of your test drive experience. The User Manual should cover exactly what you want the customer to gain from experiencing the test drive and serve as a reference for any questions that they may have. The file must be in PDF format and be named (255 characters max) after uploading.
+- **User Manual** (required): An in-depth walkthrough of your test drive experience. The User Manual should cover exactly what you want the customer to gain from experiencing the test drive and serve as a reference for any questions that they may have. The file must be in PDF format and be named (255 characters max) after uploading.
 
 - **Videos: Add videos** (optional): Videos can be uploaded to YouTube or Vimeo and referenced here with a link and thumbnail image (533 x 324 pixels) so that a customer can view a walk through of information to help them better understand the test drive, including how to successfully use the features of your offer and understand scenarios that highlight their benefits.
   - **Name** (required)

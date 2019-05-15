@@ -70,7 +70,7 @@ During technical validation, the offer (package or binary) undergoes the followi
 
 The offer is tested across various platforms and versions in order to ensure it is robust.
 
-Review the specific configuration details required for your offer in the [Technical configuration](./create-new-saas-offer#technical-configuration) section of this document.
+Review the specific configuration details required for your offer in the  Technical configuration section of this document.
 
 ### Certification failure report
 
@@ -80,7 +80,7 @@ This report contains descriptions of any policies that failed, along with review
 
 ## Preview creation
 
-During the **Preview creation** step, we create a version of your offer accessible to only the audience that you specified in the [Preview section](./create-new-saas-offer#preview) of your offer.
+During the **Preview creation** step, we create a version of your offer accessible to only the audience that you specified in the Preview section of your offer.
 
 ## Publisher approval
 

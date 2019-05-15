@@ -24,7 +24,7 @@ In this article, we'll dive into how to manage your Partner Center account, incl
 - [Manager groups](#manage-groups)
 - [Manager Azure AD applications](#manage-azure-ad-applications)
 - [Define user roles and permissions](#define-user-roles-and-permissions)
-- [Manage Azure AD tenants (work accounts)](#manage-azure-ad-tenants)
+- [Manage Azure AD tenants (work accounts)](#manage-tenants)
 - [Manager Partner Center Agreements](#agreements)
 
 
@@ -152,16 +152,16 @@ Once you are signed in with your work account (Azure AD tenant), you can:
 - [Add or remove users](#add-or-remove-users)
 - [Change a user password](#change-a-user-password)
 - [Add or remove groups](#add-or-remove-users)
-- [Add or remove Azure AD applications](#add-or-remove-azure-ad-applications)
+- [Add or remove Azure AD applications](#add-new-azure-ad-applications)
 - [Manage keys for an Azure AD application](#manage-keys-for-an-azure-ad-application)
 - [Define user roles and permissions](#define-user-roles-and-permissions)
 
 
-Keep in mind that all Partner Center users (including groups and Azure AD applications) must have an active work account in an [Azure AD tenant](#manage-azure-ad-tenants) that is associated with your Partner Center account. 
+Keep in mind that all Partner Center users (including groups and Azure AD applications) must have an active work account in an [Azure AD tenant](#manage-tenants) that is associated with your Partner Center account. 
 
 ### Add or remove users
 
-Your account must have [**Manager-level**](#define-roles-and-permissions) permissions for the [work account (Azure AD tenant)](./company-work-accounts.md) in which you want to add or edit users.
+Your account must have [**Manager-level**](#define-user-roles-and-permissions) permissions for the [work account (Azure AD tenant)](./company-work-accounts.md) in which you want to add or edit users.
 
 #### Add existing users
 
