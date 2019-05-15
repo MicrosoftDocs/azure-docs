@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article 
-ms.date: 05/13/2019
+ms.date: 05/15/2019
 ms.author: diberry
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
@@ -96,6 +96,13 @@ Individual containers can have their own requirements, as well, including server
 ## Developer samples
 
 Developer samples are available at our [GitHub repository](https://github.com/Azure-Samples/cognitive-services-containers-samples).
+
+## View webinar 
+
+Join the [webinar](https://info.microsoft.com/AP-AZUREPLAT-WBNR-FY19-03Mar-20-Seamlesslyintegrateapplicationsdataandprocesses-MCW0012283_02OnDemandRegistration-ForminBody.html) to learn about:
+
+* How to deploy Cognitive Services to any machine using Docker
+* How to deploy Cognitive Services to AKS
 
 ## Next steps
 
