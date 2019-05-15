@@ -8,8 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
-ms.date: 10/15/2017
+ms.date: 05/15/2019
 ---
 
 # Deploy logic apps with Azure Resource Manager templates
