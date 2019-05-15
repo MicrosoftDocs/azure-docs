@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
 ---
 # Azure Resource Manager deployment modes
@@ -41,7 +41,9 @@ If the resource group is [locked](resource-group-lock-resources.md), complete mo
 
 ## Incremental mode
 
-In incremental mode, Resource Manager **leaves unchanged** resources that exist in the resource group but aren't specified in the template. When redeploying a resource in incremental mode, specify all property values for the resource, not just the ones you're updating. If you don't specify certain properties, Resource Manager interprets the update as overwriting those values.
+In incremental mode, Resource Manager **leaves unchanged** resources that exist in the resource group but aren't specified in the template.
+
+However, when redeploying an existing resource in incremental mode, the outcome is a different. Specify all properties for the resource, not just the ones you're updating. A common misunderstanding is to think properties that are not specified are left unchanged. If you don't specify certain properties, Resource Manager interprets the update as overwriting those values.
 
 ## Example result
 
