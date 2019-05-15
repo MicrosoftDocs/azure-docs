@@ -58,7 +58,7 @@ First, create an HTTP triggered function that starts a durable function orchestr
 
 2. Select the folder with your function app project and select the **Durable Functions HTTP Starter** function template.
 
-    ![Choose the template](./media/quickstart-js-vscode/create-function-choose-template.png)
+    ![Choose the HTTP starter template](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 3. Leave the default name as `DurableFunctionsHttpStart` and press Enter, then select **Anonymous** authentication.
 
@@ -68,7 +68,7 @@ We've now created an entry-point into our Durable Function. Let's add an orchest
 
 ### Orchestrator
 
-Now, we'll create an orchestrator to configure the behavior of our app.
+Now, we'll create an orchestrator to coordinate activity functions.
 
 1. From **Azure: Functions**, choose the Create Function icon.
 
@@ -76,7 +76,7 @@ Now, we'll create an orchestrator to configure the behavior of our app.
 
 2. Select the folder with your function app project and select the **Durable Functions orchestrator** function template. Leave the name as the default "DurableFunctionsOrchestrator"
 
-    ![Choose the template](./media/quickstart-js-vscode/create-function-choose-template.png)
+    ![Choose the orchestrator template](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 We've added an orchestrator to coordinate activity functions. Let's now add the referenced activity function.
 
@@ -90,7 +90,7 @@ Now, we'll create an activity function to actually carry out the work needed.
 
 2. Select the folder with your function app project and select the **Durable Functions activity** function template. Leave the name as the default "Hello".
 
-    ![Choose the template](./media/quickstart-js-vscode/create-function-choose-template.png)
+    ![Choose the activity template](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 We've now added all components needed to start off an orchestration and chain together activity functions.
 
