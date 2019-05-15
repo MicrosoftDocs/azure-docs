@@ -534,7 +534,7 @@ To avoid certificate prompts when users of registered devices authenticate to Az
 
 ### Control Windows down-level devices
 
-To register Windows down-level devices, you need to download and install a Windows Installer package (.msi) from the Download Center. For more information, see [Control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md#control-windows-down-level-devices).
+To register Windows down-level devices, you need to download and install a Windows Installer package (.msi) from the Download Center. For more information, see the section [Microsoft Workplace Join for non-Windows 10 computers](hybrid-azuread-join-control.md#microsoft-workplace-join-for-non-windows-10-computers).
 
 ## Verify joined devices
 
