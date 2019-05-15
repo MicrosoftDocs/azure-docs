@@ -1,5 +1,5 @@
 ---
-title: How to manage a Commercial Marketplace account in Partner Center | Azure
+title: How to manage a Commercial Marketplace account in Partner Center 
 description: Learn how to manage a Commercial Marketplace account in Partner Center. 
 author: mattwojo
 manager: evansma
