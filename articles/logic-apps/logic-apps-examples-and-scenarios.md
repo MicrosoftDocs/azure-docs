@@ -117,7 +117,7 @@ which you can check in to source control for versioning.
 
 * [Create and deploy logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Turn on monitoring, logging, and alerts for existing logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [Create an automated deployment template](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
 ## Content types, conversions, and transformations within a run
 

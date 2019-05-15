@@ -161,9 +161,8 @@ can trigger the nested logic app.
 
 #### Set IP ranges - logic app deployment template
 
-If you're automating logic app deployments by using an 
-[Azure Resource Manager deployment template](../logic-apps/logic-apps-create-deploy-template.md), 
-you can set the IP ranges in that template, for example:
+If you're [automating logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) 
+with an Azure Resource Manager template, you can set the IP ranges in that template, for example:
 
 ``` json
 {
@@ -255,9 +254,8 @@ go to your logic app's settings:
 
 ### Set IP ranges - logic app deployment template
 
-If you're automating logic app deployments by using a 
-[Azure Resource Manager deployment template](../logic-apps/logic-apps-create-deploy-template.md), 
-you can set the IP ranges in that template, for example:
+If you're [automating logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) by using an 
+Azure Resource Manager template, you can set the IP ranges in that template, for example:
 
 ``` json
 {
@@ -567,7 +565,7 @@ access to on-premises systems.
 
 ## Next steps
 
-* [Create a deployment template](logic-apps-create-deploy-template.md)  
 * [Exception handling](logic-apps-exception-handling.md)  
 * [Monitor your logic apps](logic-apps-monitor-your-logic-apps.md)  
 * [Diagnose logic app failures and issues](logic-apps-diagnosing-failures.md)  
+* [Automate logic app deployment](logic-apps-azure-resource-manager-templates-overview.md)
