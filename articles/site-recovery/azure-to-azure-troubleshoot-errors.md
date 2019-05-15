@@ -230,7 +230,7 @@ You can either choose to  protect the disks or ignore the warning to make the re
 ## Unable to see the Azure VM or Resource group  for selection in "enable replication"
 
  **Cause 1:  Resource group and source Virtual machine are in different location** <br>
-Azure Site Recovery currently mandated that source region resource group and virtual machines should be in same location. If that is not the case then you would not be able to find the virtual machine during the time of protection. As a workaround you can Enable replication from the VM itself. Go to Sourece VM > Properties > Disaster Recovery and Enable the replication.
+Azure Site Recovery currently mandates that source region resource group and virtual machines should be in same location. If that is not the case then you would not be able to find the virtual machine during the time of protection. As a workaround, you can Enable replication from the VM instead of the Recovery services vault. Go to Sourece VM > Properties > Disaster Recovery and Enable the replication.
 
 **Cause 2: Resource group is not part of selected subscription** <br>
 You might not be able to find the resource group at the  time of protection if it is not part of the given subscription. Make sure that the resource group belongs to the subscription which is being used.
