@@ -26,7 +26,7 @@ When all of the pre-requisites are in place, by default all Windows 10 version 1
 
 ## Control hybrid Azure AD join on Windows 10 devices
 
-Windows 10 devices, running Windows 10 version 1607 or later, are supported in hybrid Azure AD joined environments. For the best experience we recommend organizations upgrade to the latest version.
+Windows 10 devices, running Windows 10 version 1607 or later, are supported in hybrid Azure AD joined environments. For the best experience, we recommend organizations upgrade to the latest version.
 
 To control this behavior on Windows current devices, you need to:
 
@@ -39,7 +39,7 @@ To control this behavior on Windows current devices, you need to:
 > [!NOTE]
 > Ensure default configuration remains unchanged for “Register domain-joined computers as devices” GPO set to “Not Configured” and “Automatically register new Windows 10 domain joined devices with Azure Active Directory” set to “Yes” when using Configuration Manager.
 
-After you verify that everything works as expected in a controlled environment, you can automatically register the rest of your Windows current devices with Azure AD by configuring SCP using Azure AD Connect.
+After you verify that everything works as expected in a controlled environment, you can automatically register the rest of your Windows current devices with Azure AD by configuring SCP using Azure AD Connect as explained in the section [Complete rollout](#complete-rollout).
 
 ### Clear the SCP from AD
 
@@ -53,9 +53,12 @@ Use the Active Directory Services Interfaces Editor (ADSI Edit) to modify the SC
    1. Select the values of **azureADId** and **azureADName** (one at a time) and click **Remove**
 1. Close **ADSI Edit**
 
+> [!NOTE]
+> If a SCP is not configured in AD, then you should follow the same approach as described to [Configure client-side registry setting for SCP](#configure-client-side-registry-setting-for-scp)) on your domain-joined computers using a Group Policy Object (GPO).
+
 ### Configure client-side registry setting for SCP
 
-Use the following example to create a Group Policy Object (GPO) to deploy a registry setting configuring a SCP entry in the registry of your devices.
+Use the following example to create a Group Policy Object (GPO) to deploy a registry setting configuring an SCP entry in the registry of your devices.
 
 1. Open a Group Policy Management console and create a new Group Policy Object in your domain.
    1. Provide your newly created GPO a name (for example, ClientSideSCP).
@@ -83,7 +86,7 @@ Use the following example to create a Group Policy Object (GPO) to deploy a regi
 
 ### Configure AD FS settings
 
-If you are using ADFS, you first need to configure client-side SCP using the instructions mentioned above but linking the GPO to your ADFS servers. This is needed for AD FS to establish the source for device identities as Azure AD. In addition, you need to make sure in AD FS that the device purge background task is disabled. To do that:
+If you are using ADFS, you first need to configure client-side SCP using the instructions mentioned above but linking the GPO to your ADFS servers. This configuration is needed for AD FS to establish the source for device identities as Azure AD. In addition, you need to make sure in AD FS that the device purge background task is disabled. To do that:
 
 1. Open **AD FS Management**
 1. Navigate to **Services** > **Device Registration** > **Properties**
@@ -98,9 +101,6 @@ You can deploy the package by using a software distribution system like [Syste
 The installer creates a scheduled task on the system that runs in the user context. The task is triggered when the user signs in to Windows. The task silently joins the device with Azure AD with the user credentials after authenticating with Azure AD.
 
 To control the device registration, you should deploy the Windows Installer package to your selected group of Windows down-level devices.  
-
-> [!NOTE]
-> If SCP is not configured in AD, then you should follow the same approach as described above to [Configure client-side registry setting for SCP]([Configure client-side registry setting for SCP](#configure-client-side-registry-setting-for-scp)) on your domain-joined computers using a Group Policy Object (GPO).
 
 ## Complete rollout
 
