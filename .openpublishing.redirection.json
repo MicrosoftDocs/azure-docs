@@ -3907,7 +3907,7 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-comparison.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-comparison",
+      "redirect_url": "/azure/active-directory-domain-services/comparison",
       "redirect_document_id": false
     },
     {
@@ -3917,7 +3917,7 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-contact-us.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-contact-us",
+      "redirect_url": "/azure/active-directory-domain-services/contact-us",
       "redirect_document_id": false
     },
     {
@@ -38921,6 +38921,36 @@
     {
       "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-datafu-udf.md",
       "redirect_url": "/azure/hdinsight/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-enable-kcd.md",
+      "redirect_url" : "/azure/active-directory-domain-services/deploy-kcd",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-disable-aadds.md",
+      "redirect_url" : "/azure/active-directory-domain-services/delete-aadds",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-deploy-azure-app-proxy.md",
+      "redirect_url" : "/azure/active-directory-domain-services/deploy-azure-app-proxy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-csp.md",
+      "redirect_url" : "/azure/active-directory-domain-services/csp",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-create-gmsa.md",
+      "redirect_url" : "/azure/active-directory-domain-services/create-gmsa",
+      "redirect_document_id": true
+    },
+    {
+      "source_path" : "articles/active-directory-domain-services/active-directory-ds-check-health.md",
+      "redirect_url" : "/azure/active-directory-domain-services/check-health",
       "redirect_document_id": true
     },
     {

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 05/14/2019
 ms.author: mstephen
 ---
 
@@ -26,7 +26,7 @@ To decide whether to use Azure AD Domain Services we recommend the following rea
 
 * See the list of [features offered by Azure AD Domain Services](active-directory-ds-features.md).
 * Review common [deployment scenarios for Azure AD Domain Services](active-directory-ds-scenarios.md).
-* Finally, [compare Azure AD Domain Services to a do-it-yourself AD option](active-directory-ds-comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure).
+* Finally, [compare Azure AD Domain Services to a do-it-yourself AD option](comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure).
 
 ## Compare Azure AD Domain Services to DIY AD domain in Azure
 
@@ -34,21 +34,21 @@ The following table helps you decide between using Azure AD Domain Services and 
 
 | **Feature** | **Azure AD Domain Services** | **'Do-it-yourself' AD in Azure VMs** |
 | --- |:---:|:---:|
-| [**Managed service**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
-| [**Secure deployments**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |Administrator needs to secure the deployment. |
-| [**DNS server**](active-directory-ds-comparison.md#dns-server) |**&#x2713;** (managed service) |**&#x2713;** |
-| [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
-| [**Domain join**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
-| [**Domain authentication using NTLM and Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
-| [**Kerberos constrained delegation**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|resource-based|resource-based & account-based|
-| [**Custom OU structure**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
-| [**Schema extensions**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
-| [**AD domain/forest trusts**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
-| [**LDAP read**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
-| [**Secure LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
-| [**LDAP write**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
-| [**Group Policy**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
-| [**Geo-distributed deployments**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
+| [**Managed service**](comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
+| [**Secure deployments**](comparison.md#secure-deployments) |**&#x2713;** |Administrator needs to secure the deployment. |
+| [**DNS server**](comparison.md#dns-server) |**&#x2713;** (managed service) |**&#x2713;** |
+| [**Domain or Enterprise administrator privileges**](comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
+| [**Domain join**](comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
+| [**Domain authentication using NTLM and Kerberos**](comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
+| [**Kerberos constrained delegation**](comparison.md#kerberos-constrained-delegation)|resource-based|resource-based & account-based|
+| [**Custom OU structure**](comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
+| [**Schema extensions**](comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
+| [**AD domain/forest trusts**](comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
+| [**LDAP read**](comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
+| [**Secure LDAP (LDAPS)**](comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
+| [**LDAP write**](comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
+| [**Group Policy**](comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
+| [**Geo-distributed deployments**](comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
 #### Managed service
 
@@ -78,7 +78,7 @@ With Azure AD Domain Services, you can use your corporate credentials to authent
 #### Kerberos constrained delegation
 
 You do not have 'Domain Administrator' privileges on an Active Directory Domain Services managed domain. Therefore, you cannot configure account-based (traditional) Kerberos constrained delegation. However, you can configure the more secure resource-based constrained delegation.
-[More information](active-directory-ds-enable-kcd.md)
+[More information](deploy-kcd.md)
 
 #### Custom OU structure
 
@@ -124,7 +124,7 @@ You may have deployment use-cases where you need some of the capabilities offere
 * **Extend your on-premises domain to Azure:** You can connect an Azure virtual network to your on-premises network using a VPN/ExpressRoute connection. This setup enables Azure VMs to be joined to your on-premises AD. Another alternative is to promote replica domain controllers of your on-premises domain in Azure as a VM. You can then set it up to replicate over a VPN/ExpressRoute connection to your on-premises directory. This deployment mode effectively extends your on-premises domain to Azure.
 
 > [!NOTE]
-> You may determine that a DIY option is better suited for your deployment use-cases. Consider [sharing feedback](active-directory-ds-contact-us.md) to help us understand what features would help you chose Azure AD Domain Services in the future. This feedback helps us evolve the service to better suit your deployment needs and use-cases.
+> You may determine that a DIY option is better suited for your deployment use-cases. Consider [sharing feedback](contact-us.md) to help us understand what features would help you chose Azure AD Domain Services in the future. This feedback helps us evolve the service to better suit your deployment needs and use-cases.
 >
 >
 

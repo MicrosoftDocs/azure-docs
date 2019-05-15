@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Troubleshooting Service Principa
 description: Troubleshooting Service Principal configuration for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager:
 editor:
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/12/2018
-ms.author: ergreenl
+ms.date: 05/14/2019
+ms.author: mstephen
 
 ---
 # Troubleshoot invalid Service Principal configuration for your managed domain
@@ -112,4 +112,4 @@ To address this issue, type the following commands in a PowerShell window:
 
 
 ## Contact Us
-Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).
+Contact the Azure Active Directory Domain Services product team to [share feedback or for support](contact-us.md).

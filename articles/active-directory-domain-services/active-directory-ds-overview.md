@@ -3,7 +3,7 @@ title: Overview of Azure Active Directory Domain Services | Microsoft Docs
 description: Overview of Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 0d47178f-773e-45f9-9ff4-9e8cffa4ffa2
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.author: ergreenl
+ms.date: 05/14/2019
+ms.author: mstephen
 
 ---
 # Azure Active Directory (AD) Domain Services
@@ -91,7 +91,7 @@ With Azure AD Domain Services, you can enjoy the following benefits:
 ### Learn more about Azure AD Domain Services
 * [Features](active-directory-ds-features.md)
 * [Deployment scenarios](active-directory-ds-scenarios.md)
-* [Find out if Azure AD Domain Services suits your use-cases](active-directory-ds-comparison.md)
+* [Find out if Azure AD Domain Services suits your use-cases](comparison.md)
 * [Understand how Azure AD Domain Services synchronizes with your Azure AD directory](active-directory-ds-synchronization.md)
 
 ### Get started with Azure AD Domain Services

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 05/14/2019
 ms.author: mstephen
 
 ---
@@ -31,7 +31,7 @@ If you have trouble connecting to the managed domain using secure LDAP:
 
 
 ## Need help?
-If you still have trouble connecting to the managed domain using secure LDAP, [contact the product team](active-directory-ds-contact-us.md) for help. Include the following information to help diagnose the issue better:
+If you still have trouble connecting to the managed domain using secure LDAP, [contact the product team](contact-us.md) for help. Include the following information to help diagnose the issue better:
 * A screenshot of ldp.exe making the connection and failing.
 * Your Azure AD tenant ID, and the DNS domain name of your managed domain.
 * Exact user name that you're trying to bind as.

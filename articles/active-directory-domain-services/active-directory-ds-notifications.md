@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Notification settings | Microsof
 description: Notification settings for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2018
-ms.author: ergreenl
+ms.date: 05/14/2019
+ms.author: mstephen
 
 ---
 # Notification settings in Azure AD Domain Services
@@ -47,7 +47,7 @@ The email specifies the managed domain that the alert is present on, as well as 
 
 ## Why would I receive email notifications?
 
-Azure AD Domain Services sends email notifications for important updates about your domain.  These notifications are only for urgent matters that will impact your service and should be addressed immediately. Each email notification is triggered by an alert on your managed domain. These alerts will also appear on the Azure portal and can be viewed on the [Azure AD Domain Services health page](active-directory-ds-check-health.md).
+Azure AD Domain Services sends email notifications for important updates about your domain.  These notifications are only for urgent matters that will impact your service and should be addressed immediately. Each email notification is triggered by an alert on your managed domain. These alerts will also appear on the Azure portal and can be viewed on the [Azure AD Domain Services health page](check-health.md).
 
 Azure AD Domain Services does not send emails to this list for advertisement, updates, or sales purposes.
 
@@ -92,7 +92,7 @@ Check your spam or junk folder in your email for the notification and make sure 
 ## Next steps
 - [Resolve alerts on your managed domain](active-directory-ds-troubleshoot-alerts.md)
 - [Read more about Azure AD Domain Services](active-directory-ds-overview.md)
-- [Contact the product team](active-directory-ds-contact-us.md)
+- [Contact the product team](contact-us.md)
 
 ## Contact us
-Contact the Azure Active Directory Domain Services product team to [share feedback or for support](active-directory-ds-contact-us.md).
+Contact the Azure Active Directory Domain Services product team to [share feedback or for support](contact-us.md).

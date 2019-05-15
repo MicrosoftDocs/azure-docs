@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Scoped synchronization | Microso
 description: Configure scoped synchronization from Azure AD to your managed domains
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
-ms.author: ergreenl
+ms.date: 05/14/2019
+ms.author: mstephen
 
 ---
 # Configure scoped synchronization from Azure AD to your managed domain
@@ -29,7 +29,7 @@ The following table helps you determine how to use scoped synchronization:
 
 | **Current state** | **Desired state** | **Required configuration** |
 | --- | --- | --- |
-| Your existing managed domain is configured to synchronize all user accounts and groups. | You want to synchronize only user accounts belonging to specific groups to your managed domain. | [Delete the existing managed domain](active-directory-ds-disable-aadds.md). Then, follow instructions in this article to re-create it with scoped synchronization configured. |
+| Your existing managed domain is configured to synchronize all user accounts and groups. | You want to synchronize only user accounts belonging to specific groups to your managed domain. | [Delete the existing managed domain](delete-aadds.md). Then, follow instructions in this article to re-create it with scoped synchronization configured. |
 | You don't have an existing managed domain. | You want to create a new managed domain and synchronize only user accounts belonging to specific groups. | Follow instructions in this article to create a new managed domain with scoped synchronization configured. |
 | Your existing managed domain is configured to synchronize only accounts belonging to specific groups. | You want to modify the list of groups whose users should be synchronized to the manage domain. | Follow the instructions in this article to modify scoped synchronization. |
 
