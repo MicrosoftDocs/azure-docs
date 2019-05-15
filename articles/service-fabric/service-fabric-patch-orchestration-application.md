@@ -267,17 +267,17 @@ NodeAgentNTService creates repair tasks to install updates on the nodes. Each ta
 1. Firstly, NodeAgentNTService on a node tries to download the updates at the scheduled time.
 2. If there are updates to be installed, then, NodeAgentNTService creates Repair task like "POS__poanode_1_57230088-ab5e-49d1-8e3d-44ec1c57d30b".
 3. The Node on which update is getting installed, will be in disabled state with intent "Restart". The information about the repair task can be found on the node in SF Explorer.
-4. Latest version of POA posts events with property "ClusterPatchingStatus" on CoordinaterService to display the nodes which are being patched. Below image shows that updates are getting installed on _poanode_0:
+4. POA(v1.4.0 and above) posts events with property "ClusterPatchingStatus" on CoordinaterService to display the nodes which are being patched. Below image shows that updates are getting installed on _poanode_0:
 
     ![Image of Cluster patching status](media/service-fabric-patch-orchestration-application/ClusterPatchingStatus.png)
 
-5. In the latest version of application, to find the status of the update on any node, you can go to NodeAgentService and see the health events with property "WUOperationStatus+nodeName". Like in below mentioned the images, highlighted section shows the status of windows update on node 'poanode_0' and 'poanode_2':
+5. In v1.4.0 and above versions of the application, status of the update can be found by looking at the health events on NodeAgentService with property "WUOperationStatus+nodeName". Like in below mentioned the images, highlighted sections show the status of windows update on node 'poanode_0' and 'poanode_2':
 
    ![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/WUOperationStatusA.png)
 
    ![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/WUOperationStatusA.png)
 
-6. But if latest version of the application is not being used or one wants to know the exact status of update on the node, then, connect to the cluster using powershell and find out the status of repair task using Get-ServiceFabricRepairTask -TaskId "POS__nodeName_57230088-ab5e-49d1-8e3d-44ec1c57d30b". Like below example shows that "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15" task is in DownloadComplete state. It means that updates have been downloaded on the node "poanode_2" and installation will be attempted.
+6. But if versions below 1.4.0 are being used or there is a need to know the exact status of update on the node, then, connect to the cluster using powershell and find out the status of repair task using Get-ServiceFabricRepairTask. Like below example shows that "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15" task is in DownloadComplete state. It means that updates have been downloaded on the node "poanode_2" and installation will be attempted.
 
    ``` powershell
     D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k = Get-ServiceFabricRepairTask -TaskId "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15"
@@ -301,8 +301,8 @@ NodeAgentNTService creates repair tasks to install updates on the nodes. Each ta
       OperationCompleted=9 | windows update operation completed successfully.
       OperationAborted=10 | implies that windows update operation is aborted.
 
-8. One can try to figure out the issue after looking at state of repair task and sign in to specific VM to find more about the issue using Windows event logs.
-9. In latest version of the application, after the update is complete on any node, an event with property "WUOperationStatus+nodeName" is posted on the NodeAgentService to notify when will the next attempt, to download and install update, start. See the image below:
+8. If there is still more to be found then, sign in to specific VM/VMs to find more about the issue using Windows event logs.
+9. In v1.4.0 and above of the application, when update attempt on a node completes, an event with property "WUOperationStatus+nodeName" is posted on the NodeAgentService to notify when will the next attempt, to download and install update, start. See the image below:
 
      ![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/WUOperationStatusC.png)
 
