@@ -51,6 +51,9 @@ This article provides instructions for deploying an Azure Blob Storage on IoT Ed
 Watch the video for quick introduction
 > [!VIDEO https://www.youtube.com/embed/wkprcfVidyM]
 
+> [!NOTE]
+> The terms "auto-tiering" and "auto-expiration" used in the video have been replaced by "tiering" and "time-to-live".
+
 ## Prerequisites
 
 An Azure IoT Edge device:
@@ -75,88 +78,139 @@ A standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 
 If you're already comfortable deploying IoT Edge modules, there are just a few details you need to know to successfully deploy Azure Blob Storage on IoT Edge. Where there are differences unique to a particular deployment method, we've described two of the simplest methods: the Azure portal and Visual Studio Code templates.
 
-For detailed instructions on deploying from the Azure portal or Visual Studio Code, see (Deploy the Azure Blob Storage on IoT Edge module to your device)[how-to-deploy-blob.md].
+For detailed instructions on deploying from the Azure portal or Visual Studio Code, see [Deploy the Azure Blob Storage on IoT Edge module to your device](how-to-deploy-blob.md).
 
-- Module name: Although the name of the module is **AzureBlobStorageonIoTEdge**, Azure IoT Edge is case-sensitive when you make calls to modules, and the Storage SDK defaults to lowercase. To ensure that your connections to the Azure Blob Storage on IoT Edge module aren't interrupted, you should use **azureblobstorageoniotedge** as the name of the module.
+- Module name: **azureblobstorageoniotedge**
+  > [!NOTE]
+  > Azure IoT Edge is case-sensitive when you make calls to modules, and the Storage SDK also defaults to lowercase. Although the name of the module in the [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) is **AzureBlobStorageonIoTEdge**, changing the name to lowercase helps to ensure that your connections to the Azure Blob Storage on IoT Edge module aren't interrupted.
 
 - Image URI: **mcr.microsoft.com/azure-blob-storage:latest**
 
-- Container create options: These steps reflect differences between the operating system of your container as well as between deployment paths.
+- Container create options: See [Container create options](#container-create-options), below, for details on the JSON used to specify your local storage name, account key, and storage directory binding.
 
-  - Azure portal: Replace the default JSON for **Container Create Options** with the JSON below.
+- Module twin desired properties: See [Module twin desired properties](#module-twin-desired-properties), below, for details on the JSON used to specify desired tiering and TTL values.
 
-    ```json
-    {
-      "Env":[
-        "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
-        "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>"
+![configure custom module settings](media/how-to-store-data-blob/configure-custom-module-settings.png)
+
+### Container create options
+
+These steps reflect differences between the operating system of your container as well as between deployment paths.
+
+- Azure portal: Replace the default JSON for **Container Create Options** with the JSON below.
+
+  ```json
+  {
+    "Env":[
+      "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
+      "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>"
+    ],
+    "HostConfig":{
+      "Binds":[
+          "<storage directory bind>"
       ],
-      "HostConfig":{
-        "Binds":[
-            "<storage directory bind>"
-        ],
-      "PortBindings":{
-        "11002/tcp":[{"HostPort":"11002"}]
+    "PortBindings":{
+      "11002/tcp":[{"HostPort":"11002"}]
+      }
+    }
+  }
+  ```
+
+- Visual Studio Code template: Copy this JSON into the **createOptions** field.
+
+  ```json
+  "Env": [
+    "LOCAL_STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME","LOCAL_STORAGE_ACCOUNT_KEY=$STORAGE_ACCOUNT_KEY"
+  ],
+  "HostConfig":{
+    "Binds": ["<storage directory bind>"],
+    "PortBindings":{
+      "11002/tcp": [{"HostPort":"11002"}]
+    }
+  }
+  ```
+
+Provide the following details for the local storage account:
+
+- The local storage account name is any name that you can remember. Account names should be 3 to 24 characters long, with lowercase letters and numbers. No spaces.
+- The storage account key is a 64-byte base64 key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). You'll use these credentials to access the blob storage from other modules.
+
+If you're deploying from the Azure portal, you can replace `<your storage account name>` and `<your storage account key>` in the JSON you copied and pasted.
+
+If you're deploying from Visual Studio Code, you edit the *.env* file in your solution workspace to supply this information. Create two environment variables to match what's defined in the JSON you pasted earlier and then enter your account name and account key:
+
+```env
+STORAGE_ACCOUNT_NAME=
+STORAGE_ACCOUNT_KEY=
+```
+
+> [!TIP]
+> Don't include spaces or quotation marks around the values you provide.
+
+For both deployment types, you also need to replace `<storage directory bind>` according to your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to a directory on your IoT Edge device where you want the blob module to store its data. The storage directory bind maps a location on your device that you provide to a set location in the module.  
+
+- For Linux containers, the format is *\<storage path>:/blobroot*. For example, **/srv/containerdata:/blobroot** or **my-volume:/blobroot**.
+- For Windows containers, the format is *\<storage path>:C:/BlobRoot*. For example, **C:/ContainerData:C:/BlobRoot** or **my-volume:C:/blobroot**.
+
+> [!IMPORTANT]
+> Do not change the second half of the storage directory bind value, which points to a specific location in the module. The storage directory bind should always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
+
+### Module twin desired properties
+
+See the list of [tiering](how-to-store-data-blob.md#tiering-properties) and [time-to-live](how-to-store-data-blob.md#time-to-live-properties) properties and their possible values, and then define them for your deployment path:
+
+- Azure portal: Set tiering and time-to-live for your module by copying the following JSON and pasting it into the **Set module twin's desired properties** box. Configure each property with an appropriate value, save it, and continue with the deployment.
+
+  ```json
+  {
+    "properties.desired": {
+      "ttlSettings": {
+        "ttlOn": <true, false>,
+        "timeToLiveInMinutes": <timeToLiveInMinutes>
+      },
+      "tieringSettings": {
+        "tieringOn": <true, false>,
+        "backlogPolicy": "<NewestFirst, OldestFirst>",
+        "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+        "tieredContainers": {
+          "<source container name1>": {
+            "target": "<target container name1>"
+          }
         }
       }
     }
-    ```
-  
-  - Visual Studio Code template: Copy this JSON into the **createOptions** field.
+  }
 
-    ```json
-    "Env": [
-      "LOCAL_STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME","LOCAL_STORAGE_ACCOUNT_KEY=$STORAGE_ACCOUNT_KEY"
-    ],
-    "HostConfig":{
-      "Binds": ["<storage directory bind>"],
-      "PortBindings":{
-        "11002/tcp": [{"HostPort":"11002"}]
-      }
-    }
-    ```
-
-  Provide the following details for the local storage account:
-
-  - The local storage account name is any name that you can remember. Account names should be 3 to 24 characters long, with lowercase letters and numbers. No spaces.
-  - The storage account key is a 64-byte base64 key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). You'll use these credentials to access the blob storage from other modules.
-
-  If you're deploying from the Azure portal, you can replace `<your storage account name>` and `<your storage account key>` in the JSON you copied and pasted.
-
-  If you're deploying from Visual Studio Code, you edit the *.env* file in your solution workspace to supply this information. Create two environment variables to match what's defined in the JSON you pasted earlier and then enter your account name and account key:
-
-  ```env
-  STORAGE_ACCOUNT_NAME=
-  STORAGE_ACCOUNT_KEY=
   ```
 
-  > [!TIP]
-  > Don't include spaces or quotation marks around the values you provide.
+  ![set tiering and time-to-live properties](./media/how-to-store-data-blob/iotedge_custom_module.png)
 
-  For both deployment types, you also need to replace `<storage directory bind>` according to your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to a directory on your IoT Edge device where you want the blob module to store its data. The storage directory bind maps a location on your device that you provide to a set location in the module.  
+- Visual Studio Code template: Configure tiering and time-to-live for your module by adding the following JSON to the *deployment.template.json* file. Configure each property with an appropriate value and save the file.
 
-  - For Linux containers, the format is *\<storage path>:/blobroot*. For example, **/srv/containerdata:/blobroot** or **my-volume:/blobroot**.
-  - For Windows containers, the format is *\<storage path>:C:/BlobRoot*. For example, **C:/ContainerData:C:/BlobRoot** or **my-volume:C:/blobroot**.
+  ```json
+  "<your azureblobstorageoniotedge module name>":{
+    "properties.desired": {
+      "ttlSettings": {
+        "ttlOn": <true, false>,
+        "timeToLiveInMinutes": <timeToLiveInMinutes>
+      },
+      "tieringSettings": {
+        "tieringOn": <true, false>,
+        "backlogPolicy": "<NewestFirst, OldestFirst>",
+        "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+        "tieredContainers": {
+          "<source container name1>": {
+            "target": "<target container name1>"
+          }
+        }
+      }
+    }
+  }
 
-  > [!IMPORTANT]
-  > Do not change the second half of the storage directory bind value, which points to a specific location in the module. The storage directory bind should always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
+  ```
 
-- See the list of [tiering](how-to-store-data-blob.md#tiering-properties) and [time-to-live](how-to-store-data-blob.md#time-to-live-properties) properties and their possible values, and then define them for your deployment path:
+  ![set desired properties for azureblobstorageoniotedge - Visual Studio Code](./media/how-to-store-data-blob/tiering_ttl.png)
 
-  - Azure portal: Set [tiering and time-to-live](#configure-tiering-and-time-to-live-via-azure-portal) in the module twin's desired properties.
-  - Visual Studio Code template: Configure [tiering and time-to-live](#configure-tiering-and-time-to-live-via-visual-studio-code) in the *deployment.template.json* file.
-
-## Connect to your blob storage module
-
-You can use the account name and account key that you configured for your module to access the blob storage on your IoT Edge device.
-
-Specify your IoT Edge device as the blob endpoint for any storage requests that you make to it. You can [Create a connection string for an explicit storage endpoint](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) using the IoT Edge device information and the account name that you configured.
-
-- For modules that are deployed on the same device as where the Azure Blob Storage on IoT Edge module is running, the blob endpoint is: `http://<module name>:11002/<account name>`.
-- For modules that are deployed on a different device than where the Azure Blob Storage on IoT Edge module is running, then depending upon your setup the blob endpoint is one of:
-  - `http://<device IP >:11002/<account name>`
-  - `http://<IoT Edge device hostname>:11002/<account name>`
-  - `http://<fully qualified domain name>:11002/<account name>`
+For more information about container create options, restart policy, and desired status, see [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties).
 
 ## Tiering and time-to-live properties and configuration
 
@@ -181,109 +235,6 @@ The name of this setting is `ttlSettings`
 | ----- | ----- | ---- |
 | ttlOn | true, false | By default it is set to `false`, if you want to turn it On set it to `true`|
 | timeToLiveInMinutes | `<minutes>` | Specify the TTL in minutes. The module will automatically delete your blobs from local storage when TTL expires |
-
-### Configure tiering and time-to-live via Azure portal
-
-Set the desired properties to enable tiering and time-to-live, you can set these values:
-
-- During the initial deployment: Copy the following JSON and paste it into the **Set module twin's desired properties** box. Configure each property with an appropriate value, save it, and continue with the deployment.
-
-   ```json
-   {
-     "properties.desired": {
-       "ttlSettings": {
-         "ttlOn": <true, false>, 
-         "timeToLiveInMinutes": <timeToLiveInMinutes> 
-       },
-       "tieringSettings": {
-         "tieringOn": <true, false>,
-         "backlogPolicy": "<NewestFirst, OldestFirst>",
-         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
-         "tieredContainers": {
-           "<source container name1>": {
-             "target": "<target container name1>"
-           }
-         }
-       }
-     }
-   }
-
-   ```
-
-  ![set tiering and time-to-live properties](./media/how-to-store-data-blob/iotedge_custom_module.png)
-
-- After the module has been deployed: Go to **Module Identity Twin** of this module, copy the JSON under properties desired, configure each property with an appropriate value, and save. In the **Module Identity Twin** JSON, make sure every time you add or update any desired property, the `reported configuration` section reflects the changes, and the `configurationValidation` section reports success for each property.
-
-   ```json
-    "ttlSettings": {
-        "ttlOn": <true, false>, 
-        "timeToLiveInMinutes": <timeToLiveInMinutes>
-    },
-    "tieringSettings": {
-        "tieringOn": <true, false>,
-        "backlogPolicy": "<NewestFirst, OldestFirst>",
-        "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
-        "tieredContainers": {
-            "<source container name1>": {
-                "target": "<target container name1>"
-            }
-        }
-    }
-
-   ```
-
-![tiering+ttl module_identity_twin](./media/how-to-store-data-blob/module_identity_twin.png)
-
-### Configure tiering and time-to-live via Visual Studio Code
-
-- During the initial deployment: Add the JSON below to your *deployment.template.json* to define the desired properties for this module. Configure each property with an appropriate value and save it.
-
-   ```json
-   "<your azureblobstorageoniotedge module name>":{
-     "properties.desired": {
-       "ttlSettings": {
-         "ttlOn": <true, false>, 
-         "timeToLiveInMinutes": <timeToLiveInMinutes>
-       },
-       "tieringSettings": {
-         "tieringOn": <true, false>,
-         "backlogPolicy": "<NewestFirst, OldestFirst>",
-         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
-         "tieredContainers": {
-           "<source container name1>": {
-             "target": "<target container name1>"
-           }
-         }
-       }
-     }
-   }
-
-   ```
-
-Here is an example of desired properties for this module:
- ![set desired properties for azureblobstorageoniotedge - Visual Studio Code](./media/how-to-store-data-blob/tiering_ttl.png)
-
-- After the module has been deployed: [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin) of this module, copy the JSON under properties desired, configure each property with an appropriate value, and save. In the **Module Identity Twin** JSON, make sure every time you add or update any desired property, the `reported configuration` section reflects the changes, and the `configurationValidation` section reports success for each property.
-
-   ```json
-    "ttlSettings": {
-        "ttlOn": <true, false>,
-        "timeToLiveInMinutes": <timeToLiveInMinutes>
-    },
-    "tieringSettings": {
-        "tieringOn": <true, false>,
-        "backlogPolicy": "<NewestFirst, OldestFirst>",
-        "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
-        "tieredContainers": {
-            "<source container name1>": {
-                "target": "<target container name1>"
-            }
-        }
-    }
-
-   ```
-
-For more information about the module twin, see [Define or update desired properties](module-composition.md#define-or-update-desired-properties). For more information about container create options, restart policy, and desired status, see [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties).
 
 ## Supported storage operations
 
@@ -345,6 +296,18 @@ Unsupported:
 
 - Put block from URL
 
+## Connect to your blob storage module
+
+You can use the account name and account key that you configured for your module to access the blob storage on your IoT Edge device.
+
+Specify your IoT Edge device as the blob endpoint for any storage requests that you make to it. You can [Create a connection string for an explicit storage endpoint](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) using the IoT Edge device information and the account name that you configured.
+
+- For modules that are deployed on the same device as where the Azure Blob Storage on IoT Edge module is running, the blob endpoint is: `http://<module name>:11002/<account name>`.
+- For modules that are deployed on a different device than where the Azure Blob Storage on IoT Edge module is running, then depending upon your setup the blob endpoint is one of:
+  - `http://<device IP >:11002/<account name>`
+  - `http://<IoT Edge device hostname>:11002/<account name>`
+  - `http://<fully qualified domain name>:11002/<account name>`
+
 ## Azure Storage Explorer
 
 You can use **Azure Storage Explorer** to connect to your local storage account. It works with [Azure Storage Explorer version 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0).
@@ -372,7 +335,7 @@ You can use **Azure Storage Explorer** to connect to your local storage account.
 
 Your feedback is important to us to make this module and its features useful and easy to use. Please share your feedback and let us know how we can improve.
 
-You can reach us at **absiotfeedback@microsoft.com**
+You can reach us at absiotfeedback@microsoft.com
 
 ## Next steps
 

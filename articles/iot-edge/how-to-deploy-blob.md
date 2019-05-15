@@ -51,7 +51,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    - **Image URI** - mcr.microsoft.com/azure-blob-storage:latest
 
    > [!NOTE]
-   > Although the name of the module is **AzureBlobStorageonIoTEdge**, Azure IoT Edge is case-sensitive when you make calls to modules, and the Storage SDK defaults to lowercase. To ensure that your connections to the Azure Blob Storage on IoT Edge module aren't interrupted, we're using a lowercase name.
+   > Azure IoT Edge is case-sensitive when you make calls to modules, and the Storage SDK also defaults to lowercase. Although the name of the module in the [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) is **AzureBlobStorageonIoTEdge**, changing the name to lowercase helps to ensure that your connections to the Azure Blob Storage on IoT Edge module aren't interrupted.
 
 1. The default **Container Create Options** values define the port bindings that your container needs, but you also need to add your storage account information and a bind for the storage directory on your device. Replace the default JSON in the portal with the JSON below:
 
@@ -88,7 +88,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
     ![Update module container create options - portal](./media/how-to-store-data-blob/edit-module.png)
 
-1. Set [tiering and time-to-live](how-to-store-data-blob.md#configure-tiering-and-time-to-live-via-azure-portal) in the module twin's desired properties. See the list of [tiering](how-to-store-data-blob.md#tiering-properties) and [time-to-live](how-to-store-data-blob.md#time-to-live-properties) properties and their possible values.
+1. Set [tiering and time-to-live](how-to-store-data-blob.md#module-twin-desired-properties) in the module twin's desired properties.
 
    For more information about desired properties, see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
 
@@ -167,7 +167,7 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
       > [!IMPORTANT]
       > Do not change the second half of the storage directory bind value, which points to a specific location in the module. The storage directory bind should always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
 
-1. Configure [tiering and time-to-live](how-to-store-data-blob.md#configure-tiering-and-time-to-live-via-visual-studio-code) in the *deployment.template.json* file. See the list of [tiering](how-to-store-data-blob.md#tiering-properties) and [time-to-live](how-to-store-data-blob.md#time-to-live-properties) properties and their possible values.
+1. Configure [tiering and time-to-live](how-to-store-data-blob.md#module-twin-desired-properties) in the *deployment.template.json* file.
 
    For more information about the module twin, see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
 
