@@ -274,15 +274,16 @@ In this example, you create a policy that requires users to authenticate more fr
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Assign the policy to your service principal. You also need to get the **ObjectId** of your service principal. 
+2. Assign the policy to your service principal. You also need to get the **ObjectId** of your service principal.
 
-    1. To see all your organization's service principals, you use the [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet.  
-    2. When you have the **ObjectId** of your service principal, run the following command:
-
+    1. Use the [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet to see all your organization's service principals or a single service principal.
         ```powershell
         # Get ID of the service principal
         $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
+        ```
 
+    2. When you have the service principal, run the following command:
+        ```powershell
         # Assign policy to a service principal
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
         ```
@@ -292,13 +293,13 @@ In this example, you create a policy that requires users to authenticate less fr
 
 1. Create a token lifetime policy.
 
-    1.  To create a strict policy for a web API, run the following command:
+    1. To create a strict policy for a web API, run the following command:
 
         ```powershell
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2.  To see your new policy, and to get the policy **ObjectId**, run the following command:
+    2. To see your new policy, run the following command:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
@@ -306,7 +307,7 @@ In this example, you create a policy that requires users to authenticate less fr
 
 2. Assign the policy to your web API. You also need to get the **ObjectId** of your application. Use the [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) cmdlet to find your app's **ObjectId**, or use the [Azure portal](https://portal.azure.com/).
 
-   When you have the **ObjectId** of your app, run the following command:
+   Get the **ObjectId** of your app and assign the policy:
 
         ```powershell
         # Get the application
@@ -327,7 +328,7 @@ In this example, you create a few policies to learn how the priority system work
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    2. To see your new policy, and to get the policy's **ObjectId**, run the following command:
+    2. To see your new policy, run the following command:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
@@ -339,7 +340,7 @@ In this example, you create a few policies to learn how the priority system work
 
     1. To see all your organization's service principals, you use the [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet.
 
-    2. When you have the **ObjectId** of your service principal, run the following command:
+    2. When you have the service principal, run the following command:
 
             ```powershell
             # Get ID of the service principal
