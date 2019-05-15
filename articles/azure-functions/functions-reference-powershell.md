@@ -13,7 +13,7 @@ ms.author: tyleonha, glenga
 # Customer intent: As a PowerShell developer, I want to understand Azure Functions so that I can leverage the full power of the platform.
 ---
 
-# Azure Functions PowerShell Developer Guide
+# Azure Functions PowerShell developer guide
 
 This article provides details about how you write Azure Functions using PowerShell.
 
@@ -58,7 +58,7 @@ Certain bindings require the presence of an `extensions.csproj` file. Binding ex
 
 In PowerShell Function Apps, you may optionally have a `profile.ps1` which runs when a function app starts to run (otherwise know as a *[cold start](#cold-start)*. For more information, see [PowerShell profile](#powershell-profile).
 
-## Defining a PowerShell Script as a Function
+## Defining a PowerShell script as a function
 
 By default, the Functions runtime looks for your function in `run.ps1`, where `run.ps1` shares the same parent directory as its corresponding `function.json`.
 
