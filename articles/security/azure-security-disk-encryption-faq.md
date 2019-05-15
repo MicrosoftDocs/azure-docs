@@ -36,57 +36,36 @@ Azure Disk Encryption is supported on a subset of the [Azure-endorsed Linux dist
 
  ![Venn Diagram of Linux server distributions that support Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
 
-Linux server distributions that are not endorsed by Azure do not support Azure Disk Encryption and, of those that are endorsed, only distributions and versions that meet the following requirements support Azure Disk Encryption:
+Linux server distributions that are not endorsed by Azure do not support Azure Disk Encryption and, of those that are endorsed, only the following distributions and versions support Azure Disk Encryption:
 
-### RAM
+| Linux distribution | Version | Volume type supported for encryption|
+| --- | --- |--- |
+| Ubuntu | 18.04| OS and data disk |
+| Ubuntu | 16.04| OS and data disk |
+| Ubuntu | 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS and data disk |
+| RHEL | 7.6 | OS and data disk* |
+| RHEL | 7.5 | OS and data disk* |
+| RHEL | 7.4 | OS and data disk* |
+| RHEL | 7.3 | OS and data disk* |
+| RHEL | 7.2 | OS and data disk* |
+| RHEL | 6.8 | Data disk* |
+| RHEL | 6.7 | Data disk* |
+| CentOS | 7.5 | OS and data disk |
+| CentOS | 7.4 | OS and data disk |
+| CentOS | 7.3 | OS and data disk |
+| CentOS | 7.2n | OS and data disk |
+| CentOS | 6.8 | OS and data disk |
+| CentOS | 7.1 | Data disk |
+| CentOS | 7.0 | Data disk |
+| CentOS | 6.7 | Data disk |
+| CentOS | 6.6 | Data disk |
+| CentOS | 6.5 | Data disk |
+| openSUSE | 42.3 | Data disk |
+| SLES | 12-SP4 | Data disk |
+| SLES | 12-SP3 | Data disk |
 
-2 GB for 64-bit images
-
-Note: 2GB for standard 30GB disk image with higher amounts of memory for larger disks.  see [How to Find Windows 10 Computer Specifications & Systems Requirements](https://www.microsoft.com/en-US/windows/windows-10-specifications).
-
-### Volume Size:
-
-Minimum volume size 64 MB
-Best practice is to allocate 8-10MB free space of bitlocker metadata in a 20GB volume and leave a proportional additional amount of free space available as the volume size increases.
-
-### Partition:
-
-Windows Server 2016 and above:
-Bitlocker can only be enabled in a subset of partition schemas, to meet this requirement bdecfg is a tool that will configure the partition schema to work with bitlocker, below are some of the partition requirements for system partition and WinRE partition.
-
-BitLocker must use a system partition that is separate from the Windows partition, with the following requirements:
-
-- Must be configured as the active partition.
-- Must not be encrypted or used to store user files.
-- Must have at least 350 megabytes (MB) of space.
-- Must have at least 50 MB of free space.
-- May be shared with a recovery partition.
-
-For more information, see [BitLocker Drive Encryption](/windows-hardware/manufacture/desktop/bitlocker-drive-encryption).
-
-For VMs with Win RE partition, Bitlocker has minimum partition requirement inherited from WinRE:
-
-- This partition must be at least 300 MB.
-
-The Windows Recovery Environment (Windows RE) tools require additional free space:
-
-- If the partition is less than 500 MB, it must have at least 50 MB of free space.
-- If the partition is 500 MB or larger, it must have at least 320 MB of free space.
-- If the partition is larger than 1 GB, we recommend that it should have at least 1 GB free.
-
-When calculating free space, note:
-
-- The recovery image, winre.wim, is typically between 250-300MB, depending on what drivers, languages, and customizations you add.
-- The file system itself can take up additional space. For example, NTFS may reserve 5-15MB or more on a 750MB partition.
-- The recovery tools should be in a separate partition than the Windows partition to support automatic failover and to support booting partitions encrypted with Windows BitLocker Drive Encryption.
-
-We recommend that you place this partition immediately after the Windows partition. This allows Windows to modify and recreate the partition later if future updates require a larger recovery image.
-
-For more information, see [UEFI/GPT-based hard drive partitions](/windows-hardware/manufacture/desktop/configure-uefigpt-based-hard-drive-partitions).
-
-Windows Server  2008:
-
-Please follow the requirements documentated in the [Description of the BitLocker Drive Preparation Tool](https://support.microsoft.com/en-us/help/933246/description-of-the-bitlocker-drive-preparation-tool).
+> [!NOTE]
+> New ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. Please also refer to the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article for more information.__
 
 ## How can I start using Azure Disk Encryption?
 
