@@ -53,7 +53,7 @@ IoT Hub message routing and the IoT Hub integration with Event Grid perform diff
 
    Use IoT Hub message routing when you have to send telemetry data to other services. Message routing also enables querying message application and system properties, message body, device twin tags, and device twin properties.
 
-   The IoT Hub integration with Event Grid works with events that occur in the IoT Hub service. These IoT Hub events include telemetry data, device created, deleted, connected, and disconnected. When subscribing to telemetry events, you can apply additional filters on the data to filter on message properties, message body and device twin in your IoT Hub, before publishing to Event Grid. See [how to filter events](../iot-hub-event-grid.md#filter-events).
+   The IoT Hub integration with Event Grid works with events that occur in the IoT Hub service. These IoT Hub events include telemetry data, device created, deleted, connected, and disconnected. When subscribing to telemetry events, you can apply additional filters on the data to filter on message properties, message body and device twin in your IoT Hub, before publishing to Event Grid. See [how to filter events](../iot-hub/iot-hub-event-grid.md#filter-events).
 
 * **What endpoints need to receive this information?**
 
