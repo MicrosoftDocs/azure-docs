@@ -89,7 +89,7 @@ Azure provides several options to create clusters of Linux HPC VMs that can comm
 
 ### Network considerations
 * On non-SR-IOV, RDMA-enabled Linux VMs in Azure, eth1 is reserved for RDMA network traffic. Do not change any eth1 settings or any information in the configuration file referring to this network.
-* On SR-IOV enabled VMs (currently HB and HC series), ib0 is reserved for RDMA network traffic.
+* On SR-IOV enabled VMs (HB and HC-series), ib0 is reserved for RDMA network traffic.
 * The RDMA network in Azure reserves the address space 172.16.0.0/16. To run MPI applications on instances deployed in an Azure virtual network, make sure that the virtual network address space does not overlap the RDMA network.
 * Depending on your choice of cluster management tool, additional system configuration may be needed to run MPI jobs. For example, on a cluster of VMs, you may need to establish trust among the cluster nodes by generating SSH keys or by establishing passwordless SSH logins.
 
