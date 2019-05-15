@@ -27,7 +27,7 @@ This integration provides these benefits:
 * You can enable your users to be automatically signed in to Proxyclick (single sign-on) with their Azure AD accounts.
 * You can manage your accounts in one central location: the Azure portal.
 
-If you want to learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -149,9 +149,9 @@ To configure Azure AD single sign-on with Proxyclick, take these steps:
 
 	![SAML section](./media/proxyclick-tutorial/configure3.png)
 
-	1. Copy the **SAML Consumer URL** value and paste it into the **Reply URL** box in the **Basic SAML Configuration** dialog box on the Azure portal.
+	1. Copy the **SAML Consumer URL** value and paste it into the **Reply URL** box in the **Basic SAML Configuration** dialog box in the Azure portal.
 
-	1. Copy the **SAML SSO Redirect URL** value and paste it into the **Sign on URL** and **Identifier** boxes in the **Basic SAML Configuration** dialog box on the Azure portal.
+	1. Copy the **SAML SSO Redirect URL** value and paste it into the **Sign on URL** and **Identifier** boxes in the **Basic SAML Configuration** dialog box in the Azure portal.
 
 	1. In the **SAML Request Method** list, select **HTTP Redirect**.
 
@@ -207,9 +207,9 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
     ![Select Add user](common/add-assign-user.png)
 
-5. In the **Users and groups** dialog box, select **Britta Simon** in the users list, then click the **Select** button at the bottom of the screen.
+5. In the **Users and groups** dialog box, select **Britta Simon** in the users list, and then click the **Select** button at the bottom of the window.
 
-6. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the screen.
+6. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the window.
 
 7. In the **Add Assignment** dialog box, select **Assign**.
 
@@ -233,11 +233,11 @@ To create a user account, take these steps:
 
 	![Add a colleague section](./media/proxyclick-tutorial/user3.png)
 
-	1. In the **Email** box, enter the email address of the user. In this case, **brittasimon@contoso.com**.
+	1. In the **Email** box, enter the email address of the user. In this case, **brittasimon\@contoso.com**.
 
 	1. In the **First Name** box, enter the first name of the user. In this case, **Britta**.
 
-	1. In the **Last Name** box, type the last name of the user. In this case, **Simon**.
+	1. In the **Last Name** box, enter the last name of the user. In this case, **Simon**.
 
 	1. Select **Add User**.
 

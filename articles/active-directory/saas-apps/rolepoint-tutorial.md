@@ -180,7 +180,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 7. In the **Add Assignment** dialog box, select **Assign**.
 
-### Create RolePoint test user
+### Create a RolePoint test user
 
 Next, you need to create a user named Britta Simon in RolePoint. Work with the [RolePoint support team](mailto:info@rolepoint.com) to add users to RolePoint. Users need to be created and activated before you can use single sign-on.
 

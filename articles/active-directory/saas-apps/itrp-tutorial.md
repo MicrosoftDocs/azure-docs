@@ -115,7 +115,7 @@ To configure Azure AD single sign-on with ITRP, take these steps:
 
 	![Edit icon](common/edit-certificate.png)
 
-6. In the **SAML Signing Certificate** dialog box, copy the **Thumbprint** value and save it.
+6. In the **SAML Signing Certificate** dialog box, copy the **Thumbprint** value and save it:
 
     ![Copy the Thumbprint value](common/copy-thumbprint.png)
 
@@ -129,7 +129,7 @@ To configure Azure AD single sign-on with ITRP, take these steps:
 
 	1. **Logout URL**.
 
-### Configure ITRP Single sign-on
+### Configure ITRP single sign-on
 
 1. In a new web browser window, sign in to your ITRP company site as an admin.
 
@@ -153,7 +153,7 @@ To configure Azure AD single sign-on with ITRP, take these steps:
 
 	1. In the **SAML SSO URL** box, paste the **Login URL** value that you copied from the Azure portal.
 
-	1.In **Certificate fingerprint** box, paste the **Thumbprint** value of the certificate, which you copied from the Azure portal.
+	1. In the **Certificate fingerprint** box, paste the **Thumbprint** value of the certificate, which you copied from the Azure portal.
 
     1. Select **Save**.
 
@@ -201,9 +201,9 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
     ![Select Add user](common/add-assign-user.png)
 
-5. In the **Users and groups** dialog box, select **Britta Simon** in the users list, then click the **Select** button at the bottom of the screen.
+5. In the **Users and groups** dialog box, select **Britta Simon** in the users list, and then click the **Select** button at the bottom of the window.
 
-6. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the screen.
+6. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the window.
 
 7. In the **Add Assignment** dialog box, select **Assign**.
 
@@ -213,7 +213,7 @@ To enable Azure AD users to sign in to ITRP, you need to add them to ITRP. You n
 
 To create a user account, take these steps:
 
-1. Sign in to your **ITRP** tenant.
+1. Sign in to your ITRP tenant.
 
 1. At the top of the window, select the **Records** icon:
 

@@ -152,7 +152,7 @@ In this section, you'll create a test user named Britta Simon in the Azure porta
 
     ![Select All users](common/users.png)
 
-2. Select **New user** at the top of the screen:
+2. Select **New user** at the top of the window:
 
     ![Select New user](common/new-user.png)
 
@@ -188,9 +188,9 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
     ![Select Add user](common/add-assign-user.png)
 
-5. In the **Users and groups** dialog box, select **Britta Simon** in the users list, and then click the **Select** button at the bottom of the screen.
+5. In the **Users and groups** dialog box, select **Britta Simon** in the users list, and then click the **Select** button at the bottom of the window.
 
-6. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the screen.
+6. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Click the **Select** button at the bottom of the window.
 
 7. In the **Add Assignment** dialog box, select **Assign**.
 
@@ -208,7 +208,7 @@ To create a user account, take these steps:
 
 1. Select **Add new User**.
 
-1. Enter the user name, a name or description, and an email address of a valid Azure AD account that you want to provision. Choose a Preset or Group of New Members.
+1. Enter the user name, a name or description, and the email address of a valid Azure AD account that you want to provision. Choose a Preset or Group of New Members.
 
 1. Select **Create**.
 
