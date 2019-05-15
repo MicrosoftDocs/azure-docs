@@ -182,7 +182,8 @@ Then, do the following steps:
 ## Connect the function and namespace via Event Grid
 In this section, you tie together the function and the Service Bus namespace by using the Azure portal. 
 
-To create an Azure Event Grid subscription, do the following:
+To create an Azure Event Grid subscription, follow these steps:
+
 1. In the Azure portal, go to your namespace and then, in the left pane, select **Events**. Your namespace window opens, with two Event Grid subscriptions displayed in the right pane. 
     
     ![Service Bus - events page](./media/service-bus-to-event-grid-integration-example/service-bus-events-page.png)
@@ -253,7 +254,7 @@ In this section, you'll learn how to receive and process messages after you rece
 3. Follow instruction in the [Send messages to the Service Bus topic](#send-messages-to-the-service-bus-topic) section to send messages to the topic and monitor the function. 
 
 ## Receive messages by using Logic Apps
-Connect a logic app with Azure Service Bus and Azure Event Grid by doing the following:
+Connect a logic app with Azure Service Bus and Azure Event Grid by following these steps:
 
 1. Create a logic app in the Azure portal.
     1. Select **+ Create a resource**, select **Integration**, and then select **Logic App**. 
