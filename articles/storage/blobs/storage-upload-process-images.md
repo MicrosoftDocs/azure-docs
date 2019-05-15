@@ -159,7 +159,7 @@ az webapp deployment source config --name $webapp \
 
 # [\.NET](#tab/dotnet)
 
-The sample web app uses the [Azure Storage Client Library](/dotnet/api/overview/azure/storage?view=azure-dotnet) to request access tokens, which are used to upload images. The storage account credentials used by the Storage SDK are set in the app settings for the web app. Add app settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) command.
+The sample web app uses the [Azure Storage Client Library](/dotnet/api/overview/azure/storage) to request access tokens, which are used to upload images. The storage account credentials used by the Storage SDK are set in the app settings for the web app. Add app settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) command.
 
 ```azurecli-interactive
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
@@ -209,7 +209,7 @@ Select the **Upload photos** region to select and upload a file, or drag a file 
 
 ![ImageResizer app](media/storage-upload-process-images/figure1.png)
 
-In the sample code, the `UploadFiletoStorage` task in the *Storagehelper.cs* file is used to upload the images to the *images* container within the storage account using the [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) method. The following code sample contains the `UploadFiletoStorage` task.
+In the sample code, the `UploadFiletoStorage` task in the *Storagehelper.cs* file is used to upload the images to the *images* container within the storage account using the [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) method. The following code sample contains the `UploadFiletoStorage` task.
 
 ```csharp
 public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName, AzureStorageConfig _storageConfig)

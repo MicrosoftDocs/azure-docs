@@ -69,7 +69,7 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 
 #### Resizing a page blob
 
-To resize a page blob after creation, use the [Resize](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize?view=azure-dotnet) method. The requested size should be a multiple of 512 bytes.
+To resize a page blob after creation, use the [Resize](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize) method. The requested size should be a multiple of 512 bytes.
 
 ```csharp
 pageBlob.Resize(32 * OneGigabyteAsBytes);
@@ -77,7 +77,7 @@ pageBlob.Resize(32 * OneGigabyteAsBytes);
 
 #### Writing pages to a page blob
 
-To write pages,  use the [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages) method.  This allows you to write a sequential set of pages up to 4MBs. The offset being written to must start on a 512-byte boundary (startingOffset % 512 == 0), and end on a 512 boundary - 1.  The following code example shows how to call **WritePages** for a blob:
+To write pages,  use the [CloudPageBlob.WritePages](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages) method.  This allows you to write a sequential set of pages up to 4MBs. The offset being written to must start on a 512-byte boundary (startingOffset % 512 == 0), and end on a 512 boundary - 1.  The following code example shows how to call **WritePages** for a blob:
 
 ```csharp
 pageBlob.WritePages(dataStream, startingOffset); 
@@ -94,7 +94,7 @@ The below diagram shows 2 separate write operations:
 
 #### Reading pages from a page blob
 
-To read pages, use the [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray?view=azure-dotnet) method to read a range of bytes from the page blob. This allows you to download the full blob or range of bytes starting from any offset in the blob. When reading, the offset does not have to start on a multiple of 512. When reading bytes from a NUL page, the service returns zero bytes.
+To read pages, use the [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray) method to read a range of bytes from the page blob. This allows you to download the full blob or range of bytes starting from any offset in the blob. When reading, the offset does not have to start on a multiple of 512. When reading bytes from a NUL page, the service returns zero bytes.
 
 ```csharp
 byte[] buffer = new byte[rangeSize];
@@ -105,7 +105,7 @@ The following figure shows a Read operation with an offset of 256 and a range si
 
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
-If you have a sparsely populated blob, you may want to just download the valid page regions to avoid paying for egressing of zero bytes and to reduce download latency.  To determine which pages are backed by data, use [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges?view=azure-dotnet). You can then enumerate the returned ranges and download the data in each range. 
+If you have a sparsely populated blob, you may want to just download the valid page regions to avoid paying for egressing of zero bytes and to reduce download latency.  To determine which pages are backed by data, use [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges). You can then enumerate the returned ranges and download the data in each range. 
 
 ```csharp
 IEnumerable<PageRange> pageRanges = pageBlob.GetPageRanges();
