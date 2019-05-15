@@ -291,10 +291,10 @@ Here are brief details about these attributes in workflow definitions. For full 
 | `triggers` | No | The definitions for one or more triggers that instantiate your workflow. You can define more than one trigger, but only with the Workflow Definition Language, not visually through the Logic Apps Designer. For more information, see [Triggers and actions](../logic-apps/logic-apps-workflow-definition-language.md#triggers-actions). |
 ||||
 
-For example, here's a logic app workflow definition that has these elements:
+For example, here's a logic app workflow definition that has these steps:
 
-* An Office 365 Outlook trigger that fires when a new email arrives
-* An Azure Blob Storage action that creates a blob for the email body and uploads that blob to a storage account
+* An [Office 365 Outlook trigger](/connectors/office365/) that fires when a new email arrives
+* An [Azure Blob Storage action](/connectors/azureblob/) that creates a blob for the email body and uploads that blob to an Azure storage container
 
 ```json
 "definition": {

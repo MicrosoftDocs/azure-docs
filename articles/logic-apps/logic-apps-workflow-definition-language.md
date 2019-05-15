@@ -26,6 +26,9 @@ the schema defines attributes in your workflow definition.
 
 A workflow definition always includes a trigger for instantiating your 
 logic app, plus one or more actions that run after the trigger fires.
+
+Here is the high-level structure for a workflow definition:
+
 ```json
 "definition": {
   "$schema": "<workflow-definition-language-schema-version>",
@@ -49,9 +52,6 @@ logic app, plus one or more actions that run after the trigger fires.
 | `staticResults` | No | The definitions for one or more static results returned by actions as mock outputs when static results are enabled on those actions. In each action definition, the `runtimeConfiguration.staticResult.name` attribute references the corresponding definition inside `staticResults`. For more information, see [Static results](#static-results). |
 | `triggers` | No | The definitions for one or more triggers that instantiate your workflow. You can define more than one trigger, but only with the Workflow Definition Language, not visually through the Logic Apps Designer. For more information, see [Triggers and actions](#triggers-actions). <p><p>Maximum triggers: 10 |
 ||||
-Here is the high-level structure for a workflow definition:
-
-
 
 <a name="triggers-actions"></a>
 
