@@ -55,7 +55,7 @@ Here are some common hybrid identity and access management scenarios with recomm
 > <sup>4</sup> AD FS can be integrated with your enterprise PKI to allow sign-in using certificates. These certificates can be soft-certificates deployed via trusted provisioning channels such as MDM or GPO or smartcard certificates (including PIV/CAC cards) or Hello for Business (cert-trust). For more information about smartcard authentication support, see [this blog](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/). 
 > 
 
-[!INCLUDE [active-directory-p2-license.md](../../includes/active-directory-p1-license.md)]
+[!INCLUDE [active-directory-p2-license.md](../../includes/active-directory-p2-license.md)]
 
 ## Next Steps 
 
