@@ -37,7 +37,9 @@ Here are the tasks you will perform to complete this tutorial:
 
 Download [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) and unzip it. This repository has several applications in it, including the one you will use to send messages to the IoT hub.
 
-It also contains the script for creating the resources used to test message enrichments. The script is in /azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli.azcli.
+This download also contains the script for creating the resources used to test message enrichments. The script is in /azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli.azcli. For now, you can just look at the script and use it. You can also copy the script directly from the article.
+
+When you are ready to start testing, you will use the Device Simulation application from this download to send message to your IoT hub.
 
 ## Set up and configure resources
 
@@ -59,6 +61,21 @@ You can use the script below, or open the script in the /resources folder of the
 There are several resource names that must be globally unique, such as the IoT Hub name and the storage account name. To make this easier, those resource names are appended with a random alphanumeric value called *randomValue*. The randomValue is generated once at the top of the script and appended to the resource names as needed throughout the script. If you don't want it to be random, you can set it to an empty string or to a specific value.
 
 If you haven't already done so, open a [Cloud Shell window for Bash.](https://shell.azure.com). Open the script in the unzipped repository, use Ctrl-A to select all of it, then Ctrl-C to copy it. Alternately, you can copy the following CLI script or open it directly in cloud shell. Paste the script in the Azure cloud shell window by right-clicking on the command line and selecting **Paste**. The script is run one statement at a time. After the script stops running, select **Enter** to make sure it runs the last command. The following shows the script that is used, with comments explaining what it's doing.
+
+Here are the resources created by the script. **Enriched** means that resource is for messages with enrichments. **Original** means that resource is for messages that are not enriched.
+
+| name|value |
+|-----|-----|
+|resourceGroup | ContosoResourcesMsgEn |
+| container name | original  |
+| container name | enriched  |
+| IoT device name | Contoso-Test-Device |
+| IoT Hub name | ContosoTestHubMsgEn |
+| storageAccountName | contosostorage |
+| endpointName1 | ContosoStorageEndpointOriginal |
+| endpointName2 | ContosoStorageEndpointEnriched|
+| routeName1 | ContosoStorageRouteOriginal |
+| routeName2 | ContosoStorageRouteEnriched |
 
 ```azcli-interactive
 # This command retrieves the subscription id of the current Azure account.

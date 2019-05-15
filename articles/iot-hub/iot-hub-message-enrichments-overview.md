@@ -46,11 +46,11 @@ You can add enrichments to messages that are going to the built-in endpoint of a
 
 Enrichments are applied per endpoint. If you specify five enrichments to be stamped for a specific endpoint, all messages going to that endpoint are stamped with the same five enrichments.
 
-Each IoT Hub can have up to 10 enrichments.
-
 To see how to try out message enrichments, see the [message enrichments tutorial](tutorial-message-enrichments.md)
 
 ## Limitations
+
+* You can add up to 10 enrichments per IoT Hub for those in the standard or basic tier. For IoT Hubs in the free tier, you can add up to 2 enrichments.
 
 * In some cases, if you are applying an enrichment with a value set to a tag or property in the device twin, the value will be stamped as a string value. For example, if an enrichment value is set to $twin.tags.field, the messages will be stamped with the string "$twin.tags.field" rather than the value of that field from the twin. This applies to the following cases:
 
