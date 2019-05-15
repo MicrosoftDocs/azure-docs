@@ -36,11 +36,7 @@ This article provides detailed information for each retired feature and the step
 
 Security Center uses Microsoft Monitoring Agent to collect various security-related configurations and events from your machines. It stores these events in your workspace(s). The [events dashboard](https://docs.microsoft.com/azure/security-center/security-center-events-dashboard) lets you view this data and  gives you an entry point to Log Analytics.
 
-We're retiring the events dashboard:
-
-![Events workspace selection screen][1]
-
-We're also retiring the events dashboard that appears when you select a workspace:
+We're retiring the events dashboard that appears when you select a workspace:
 
 ![Events dashboard][2]
 
@@ -48,7 +44,7 @@ We're also retiring the events dashboard that appears when you select a workspac
 
 We encouraged you to use the native capabilities of Azure Log Analytics to view notable events on your workspace(s).
 
-If you've created custom notable events in Security Center, they'll be accessible. In Log Analytics, go to **Select workspace** > **Saved Searches**. Your data won't be lost or modified. Native notable events are also available from the same screen.
+If you've created custom notable events in Security Center, they'll be accessible. In Log Analytics, go to **Select workspace** > **Saved Searches**. Your data won't be lost or modified. Native notable events are also available from the same screen in Log Analytics.
 
 ![Workspace saved searches][3]
 
@@ -60,7 +56,7 @@ Azure Security Center currently uses Azure Monitor logs search to retrieve and a
 
 ### Search menu entry - the new experience
 
-We encourage you to use the Azure Log Analytics native capabilities to perform search queries on your workspaces. Go to Azure Log Analytics and select **Logs**.
+We encourage you to use the Azure Log Analytics native capabilities to perform Search queries on your workspaces. Go to Azure Log Analytics and select **Logs**.
 
 ![Log Analytics logs page][5]
 
@@ -114,7 +110,7 @@ We encourage you to use the alerts map functionality built into Security Center:
 
 ## Custom alert rules (Preview)<a name="menu_customalerts"></a>
 
-We're [retiring the custom alerts experience](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) on June 30, 2019 because its underlying infrastructure is retiring. Until then, you can edit existing custom alert rules, but you aren't able to add new ones. We recommend that you enable [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) to automatically migrate your existing alerts and create new ones. Alternatively, you can set up your alerts with Azure Monitor log alerts.
+We're [retiring the custom alerts experience](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) on June 30, 2019 because its underlying infrastructure is retiring. Until then, you can edit existing custom alert rules, but you aren't able to add new ones. We recommend that you enable [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) to automatically migrate your existing alerts and create new ones. Alternatively, you can create your alerts with Azure Monitor log alerts.
 
 To keep your existing alerts and migrate them to Azure Sentinel:
 
