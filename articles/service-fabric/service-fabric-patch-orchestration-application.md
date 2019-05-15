@@ -262,7 +262,7 @@ To enable the reverse proxy on the cluster, follow the steps in [Reverse proxy i
 
 With diagnostic improvements in the latest version of Patch Orchestration Application it is a piece of cake to debug the issues with update orchestration on Service fabric cluster.
 
-NodeAgentNTService creates repair tasks to install updates on the nodes. Each task is then prepared by CoordinatorService according to your task approval policy. The prepared tasks are finally approved by Repair manager which will not approve any task if cluster is unhealthy. Lets go step by step to understand how updates proceed on a node.
+NodeAgentNTService creates repair tasks to install updates on the nodes. Each task is then prepared by CoordinatorService according to task approval policy. The prepared tasks are finally approved by Repair manager which will not approve any task if cluster is unhealthy. Lets go step by step to understand how updates proceed on a node.
 
 1. Firstly, NodeAgentNTService on a node tries to download the updates at the scheduled time.
 2. If there are updates to be installed, then, NodeAgentNTService creates Repair task like "POS__poanode_1_57230088-ab5e-49d1-8e3d-44ec1c57d30b".
@@ -271,7 +271,7 @@ NodeAgentNTService creates repair tasks to install updates on the nodes. Each ta
 
     ![Image of Cluster patching status](media/service-fabric-patch-orchestration-application/ClusterPatchingStatus.png)
 
-5. In the latest version of application, to find the status of the update on any node, you can go to NodeAgentService and see the health events with property "WUOperationStatus+nodeName". Like in below mentioned the images, highlighted sections show the status of windows update on node 'poanode_0' and 'poanode_2':
+5. In the latest version of application, to find the status of the update on any node, you can go to NodeAgentService and see the health events with property "WUOperationStatus+nodeName". Like in below mentioned the images, highlighted section shows the status of windows update on node 'poanode_0' and 'poanode_2':
 
    ![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/WUOperationStatusA.png)
 
@@ -289,7 +289,7 @@ NodeAgentNTService creates repair tasks to install updates on the nodes. Each ta
 7. The above mentioned repair task can only have these executor sub-states:
 
       ExecutorSubState | Detail
-    -- | -- | -- 
+    -- | -- 
       None=1 |  implies that there wasn't an ongoing operation on the node. Possible state transitions.
       DownloadCompleted=2 | implies download operation has completed with success, partial failure, or failure.
       InstallationApproved=3 | implies download operation was completed earlier and RM has approved the installation.
@@ -395,7 +395,7 @@ A. See [Azure virtual machine scale set automatic OS image upgrades](https://doc
 
 Q.**Why is update cycle taking so long??**
 
-A. Query for the result Json, then, go through the entry of the update cycle for all nodes and then, you can try to find out the time taken by update installation on every node using OperationStartTime and OperationTime(OperationCompletionTime). If one finds a large time window in which no update was going on, it could be because your cluster was in error state and because of that repair manager did not approve any other POA repair tasks. If update installation took long on any node, then, it could be possible that node was not updated from long time and a lot of updates were pending installation which took time.
+A. Query for the result Json, then, go through the entry of the update cycle for all nodes and then, you can try to find out the time taken by update installation on every node using OperationStartTime and OperationTime(OperationCompletionTime). If one finds a large time window in which no update was going on, it could be because your cluster was in error state and because of that repair manager did not approve any other POA repair tasks. If update installation took long on any node, then, it could be possible that node was not updated from long time and a lot of updates were pending installation, which took time.
 
 ## Disclaimers
 
