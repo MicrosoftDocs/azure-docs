@@ -107,7 +107,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
 3. The new project will be added to your workspace. An ASA project consists of the query script **(*.asaql)**, a **JobConfig.json** file, and an **asaproj.json** configuration file.
 
-    <img src="./media/quick-create-vs-code/asa-project-files.png" width="450">  
+    <img src="./media/quick-create-vs-code/asa-project-files.png" width="450" alt="Stream Analytics project files in VS Code">  
 
 4. The **asaproj.json** configuration file contains the inputs, outputs, and job configuration file information needed for submitting the Stream Analytics job to Azure.
 
