@@ -40,8 +40,6 @@ To configure Azure AD integration with Kontiki, you need the following items:
 
 ## Scenario description
 
-## Scenario description
-
 In this tutorial, you configure and test Azure AD single sign-on in a test environment and integrate Kontiki with Azure AD.
 
 Kontiki supports the following features:
