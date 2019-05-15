@@ -11,7 +11,7 @@ ms.date: 05/14/2019
 ---
 
 
-# Continuously integrate and develop with Stream Analytics CI/CD NuGet package
+# Continuously integrate and develop with Azure Stream Analytics CI/CD NuGet package
 This article describes how to use the Azure Stream Analytics CI/CD NPM package to set up a continuous integration and deployment process.
 
 ## Build the Visual Studio Code project
