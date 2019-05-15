@@ -56,7 +56,7 @@ Take the following steps on your local web UI to configure compute settings.
 
         <!--insert the code snippet here-->
 
-        This will allow us to access the module using the compute network IP over http to port 8080 (with the default webserver port being 80).
+        This will allow us to access the module using the compute network IP over *http* on port 8080 (with the default webserver port being 80).
     4. Verify the module is successfully deployed and is running. On the **Device Details** page, on the **Modules** tab, the runtime status of the module should be **running**.  
     5. Connect to the web server app module. Open a browser window and type:
 
