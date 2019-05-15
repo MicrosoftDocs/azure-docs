@@ -28,7 +28,6 @@ As an _operator_, you use the Azure IoT Central UI to manage your Azure IoT Cent
 - Troubleshoot and remediate issues with your devices.
 - Provision new devices.
 
-
 ## Use the left navigation menu
 
 Use the left navigation menu to access the different areas of the application. You can expand or collapse the navigation bar by selecting **<** or **>**:
@@ -46,11 +45,14 @@ The top menu appears on every page:
 - To search for device templates and devices, enter a **Search** value.
 - To change the UI language or theme, choose the **Settings** icon.
 - To sign out of the application, choose the **Account** icon.
-- To get help and support, choose the **Help** drop-down for a list of resources.
+- To get help and support, choose the **Help** drop-down for a list of resources. In a trial application, the support resources include access to [live chat](howto-show-hide-chat.md).
 
 You can choose between a light theme or a dark theme for the UI:
 
 ![Choose a theme for the UI](media/overview-iot-central-tour/themes.png)
+
+> [!NOTE]
+> The option to choose between light and dark themes isn't available if your administrator has configured a custom theme for the application.
 
 ## Dashboard
 

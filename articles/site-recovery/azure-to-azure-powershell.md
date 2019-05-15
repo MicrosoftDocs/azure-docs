@@ -402,8 +402,8 @@ $OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationC
 
 # Data disk
 $datadiskId1  = $vm.StorageProfile.DataDisks[0].ManagedDisk.id
-$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[0]. StorageAccountType
-$RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0]. StorageAccountType
+$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[0].StorageAccountType
+$RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0].StorageAccountType
 
 $DataDisk1ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
          -DiskId $datadiskId1 -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `

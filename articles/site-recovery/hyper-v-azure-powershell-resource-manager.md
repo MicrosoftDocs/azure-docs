@@ -102,7 +102,7 @@ Set the vault context as follows:
 ## Step 5: Install the Provider and agent
 
 1. Download the installer for the latest version of the Provider from [Microsoft](https://aka.ms/downloaddra).
-2. Run the installer on theHyper-V host.
+2. Run the installer on the Hyper-V host.
 3. At the end of the installation continue to the registration step.
 4. When prompted, provide the downloaded key, and complete registration of the Hyper-V host.
 5. Verify that the Hyper-V host is registered to the site as follows:

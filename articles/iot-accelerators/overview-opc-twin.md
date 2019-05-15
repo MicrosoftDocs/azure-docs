@@ -10,7 +10,7 @@ services: iot-industrialiot
 manager: philmea
 ---
 
-# What is Azure IoT Open Platform Communications (OPC) device management?
+# What is OPC Twin?
 
 OPC Twin consists of microservices that use Azure IoT Edge and IoT Hub to connect the cloud and the factory network. OPC Twin provides discovery, registration, and remote control of industrial devices through REST APIs. OPC Twin does not require an OPC Unified Architecture (OPC UA) SDK, is programming language agnostic, and can be included in a serverless workflow. This article describes several OPC Twin use cases.
 

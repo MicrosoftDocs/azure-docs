@@ -3,7 +3,7 @@ title: "Find similar images from previous searches using ImageInsightsToken - Bi
 titleSuffix: Azure Cognitive Services
 description: Use the Bing Visual Search SDK to get URLs of images specified by ImageInsightsToken.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 
 ms.service: cognitive-services

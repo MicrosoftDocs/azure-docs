@@ -181,6 +181,8 @@ Unless you want to use your own certificates (instead of the self-signed certifi
 
 Repeat these steps on any additional NPS servers that you want to set up for load balancing.
 
+If your previous computer certificate has expired, and a new certificate has been generated, you should delete any expired certificates. Having expired certificates can cause issues with the NPS Extension starting.
+
 > [!NOTE]
 > If you use your own certificates instead of generating certificates with the PowerShell script, make sure that they align to the NPS naming convention. The subject name must be **CN=\<TenantID\>,OU=Microsoft NPS Extension**. 
 

@@ -10,10 +10,10 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 05/15/2019
 ---
 
-# Tutorial: Migrate MongoDB to Azure Cosmos DB's API for MongoDB online using DMS (Preview)
+# Tutorial: Migrate MongoDB to Azure Cosmos DB's API for MongoDB online using DMS
 You can use the Azure Database Migration Service to perform an online (minimal downtime) migration of databases from an on-premises or cloud instance of MongoDB to Azure Cosmos DB's API for MongoDB.
 
 In this tutorial, you learn how to:
@@ -43,10 +43,11 @@ To complete this tutorial, you need to:
 - Create an Azure Virtual Network (VNET) for the Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
     > [!NOTE]
-    > During VNET setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
-    > - Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
-    > - Storage endpoint
-    > - Service bus endpoint
+    > During VNet setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
+    >
+    > * Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
+    > * Storage endpoint
+    > * Service bus endpoint
     >
     > This configuration is necessary because the Azure Database Migration Service lacks internet connectivity.
 
@@ -91,9 +92,7 @@ To complete this tutorial, you need to:
     > [!NOTE]
     > Online migrations are supported only when using the Premium tier. For more information on costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
 
-    If you need help with choosing the right Azure Database Migration Service tier, refer to the recommendations in the blog post [here](https://go.microsoft.com/fwlink/?linkid=861067).  
-
-     ![Configure Azure Database Migration Service instance settings](media/tutorial-mongodb-to-cosmosdb-online/dms-settings3.png)
+    ![Configure Azure Database Migration Service instance settings](media/tutorial-mongodb-to-cosmosdb-online/dms-settings3.png)
 
 7.	Select **Create** to create the service.
 

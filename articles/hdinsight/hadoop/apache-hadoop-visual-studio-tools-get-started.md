@@ -2,7 +2,6 @@
 title: Connect to Apache Hadoop using Data Lake Tools for Visual Studio - Azure HDInsight
 description: Learn how to install and use Data Lake Tools for Visual Studio to connect to Apache Hadoop clusters in Azure HDInsight, and then run Hive queries.
 keywords: hadoop tools,hive query,visual studio,visual studio hadoop
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh

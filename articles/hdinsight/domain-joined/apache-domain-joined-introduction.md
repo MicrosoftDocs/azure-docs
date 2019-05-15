@@ -1,7 +1,6 @@
 ---
 title: An introduction to Apache Hadoop security with Enterprise Security Package
 description: Learn how Enterprise Security Package supports the four pillars of enterprise security.
-services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
@@ -10,7 +9,7 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
 ---
-# An introduction to Apache Hadoop security with Enterprise Security Package
+# What is Enterprise Security Package in Azure HDInsight
 
 In the past, Azure HDInsight supported only a single user: local admin. This worked great for smaller application teams or departments. As Apache Hadoop-based workloads gained more popularity in the enterprise sector, the need for enterprise-grade capabilities like Active Directory-based authentication, multi-user support, and role-based access control became increasingly important. 
 

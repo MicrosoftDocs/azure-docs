@@ -129,6 +129,10 @@
       href: platform/activity-log-alerts.md  
     - name: Common alert schema
       href: platform/alerts-common-schema.md
+    - name: Action rules
+      href: platform/alerts-action-rules.md
+    - name: Change analysis
+      href: app/change-analysis.md 
   - name: Visualize data
     href: visualizations.md
   - name: Partner integrations
@@ -245,8 +249,6 @@
         href: platform/data-sources-json.md
       - name: CollectD performance data
         href: platform/data-sources-collectd.md
-      - name: Nagios and Zabbix alerts
-        href: platform/data-sources-alerts-nagios-zabbix.md
       - name: Syslog
         href: platform/data-sources-syslog.md
       - name: Performance counters
@@ -307,8 +309,32 @@
         items:
         - name: Web apps
           href: app/asp-net.md
-        - name: Status Monitor
+        - name: Status Monitor 
           href: app/monitor-performance-live-website-now.md
+        - name: Status Monitor v2
+          items:
+          - name: Overview
+            href: app/status-monitor-v2-overview.md
+          - name: Getting started
+            href: app/status-monitor-v2-get-started.md
+          - name: Detailed instructions
+            href: app/status-monitor-v2-detailed-instructions.md
+          - name: Troubleshooting and known issues
+            href: app/status-monitor-v2-troubleshoot.md
+          - name: API Disable-InstrumentationEngine
+            href: app/status-monitor-v2-api-disable-instrumentation-engine.md
+          - name: API Disable-ApplicationInsightsMonitoring
+            href: app/status-monitor-v2-api-disable-monitoring.md
+          - name: API Enable-InstrumentationEngine
+            href: app/status-monitor-v2-api-enable-instrumentation-engine.md
+          - name: API Enable-ApplicationInsightsMonitoring
+            href: app/status-monitor-v2-api-enable-monitoring.md
+          - name: API Get-ApplicationInsightsMonitoringConfig
+            href: app/status-monitor-v2-api-get-config.md
+          - name: API Get-ApplicationInsightsMonitoringStatus
+            href: app/status-monitor-v2-api-get-status.md
+          - name: API Set-ApplicationInsightsMonitoringConfig
+            href: app/status-monitor-v2-api-set-config.md
         - name: Windows services
           href: app/windows-services.md
         - name: Windows desktop
@@ -530,6 +556,9 @@
           href: app/usage-workbooks.md
       - name: Web App Analytics solution
         href: insights/azure-web-apps-analytics.md
+      - name: Monitor Kubernetes applications
+        displayname: aks, microservice, istio, service mesh, application monitoring
+        href: app/kubernetes.md
     - name: Monitor containers
       items:
       - name: Azure Monitor for containers 
@@ -538,13 +567,19 @@
           href: insights/container-insights-overview.md
         - name: FAQ
           href: insights/container-insights-faq.md
-        - name: Onboard 
-          href: insights/container-insights-onboard.md
+        - name: Enable monitoring
+          items:
+          - name: Enable monitoring overview 
+            href: insights/container-insights-onboard.md
+          - name: Enable for new cluster
+            href: insights/container-insights-enable-new-cluster.md
+          - name: Enable for existing cluster
+            href: insights/container-insights-enable-existing-clusters.md
         - name: Analyze 
           href: insights/container-insights-analyze.md
         - name: Disable monitoring
           href: insights/container-insights-optout.md
-        - name: View container live logs
+        - name: View live logs
           href: insights/container-insights-live-logs.md
         - name: Analyze data with log queries
           href: insights/container-insights-log-search.md
@@ -596,8 +631,18 @@
           href: insights/vminsights-known-issues.md
         - name: FAQ
           href: insights/vminsights-faq.md
-        - name: Onboard
-          href: insights/vminsights-onboard.md
+        - name: Enable monitoring
+          items:
+          - name: Enable monitoring overview
+            href: insights/vminsights-enable-overview.md
+          - name: Enable for single Azure VM
+            href: insights/vminsights-enable-single-vm.md
+          - name: Enable using Azure Policy
+            href: insights/vminsights-enable-at-scale-policy.md
+          - name: Enable using Azure PowerShell
+            href: insights/vminsights-enable-at-scale-powershell.md
+          - name: Enable for Hybrid environment
+            href: insights/vminsights-enable-hybrid-cloud.md
         - name: Monitor health
           href: insights/vminsights-health.md
         - name: Map dependencies
@@ -682,8 +727,10 @@
         href: platform/metrics-getting-started.md
       - name: Advanced features of Metrics Explorer
         href: platform/metrics-charts.md
-      - name: Examples of metrics charts
+      - name: Examples of metric charts
         href: platform/metric-chart-samples.md
+      - name: Troubleshooting metric charts
+        href: platform/metrics-troubleshoot.md
     - name: Logs
       items:
       - name: Log queries

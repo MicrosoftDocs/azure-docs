@@ -43,7 +43,7 @@ If you are using a URL-based firewall proxy to control outbound connectivity, al
 
 **URL** | **Details**  
 --- | ---
-*.blob.core.windows.net | Required so that data can be written to the cache storage account in the source region from the VM. If you know all the cache storage accounts for your VMs, you can whitelist the specifc storage account URLs (Ex: cache1.blob.core.windows.net and cache2.blob.core.windows.net) instead of *.blob.core.windows.net
+*.blob.core.windows.net | Required so that data can be written to the cache storage account in the source region from the VM. If you know all the cache storage accounts for your VMs, you can whitelist the specific storage account URLs (Ex: cache1.blob.core.windows.net and cache2.blob.core.windows.net) instead of *.blob.core.windows.net
 login.microsoftonline.com | Required for authorization and authentication to the Site Recovery service URLs.
 *.hypervrecoverymanager.windowsazure.com | Required so that the Site Recovery service communication can occur from the VM. You can use the corresponding 'Site Recovery IP' if your firewall proxy supports IPs.
 *.servicebus.windows.net | Required so that the Site Recovery monitoring and diagnostics data can be written from the VM. You can use the corresponding 'Site Recovery Monitoring IP' if your firewall proxy supports IPs.
@@ -98,6 +98,12 @@ Site Recovery IP address ranges are as follows:
    Australia Central 2| 20.36.69.62 | 20.36.74.130
    South Africa West | 102.133.72.51 | 102.133.26.128
    South Africa North | 102.133.160.44 | 102.133.154.128
+   US Gov Virginia | 52.227.178.114 | 23.97.0.197
+   US Gov Iowa | 13.72.184.23 | 23.97.16.186
+   US Gov Arizona | 52.244.205.45 | 52.244.48.85
+   US Gov Texas | 52.238.119.218 | 52.238.116.60
+   US DoD East | 52.181.164.103 | 52.181.162.129
+   US DoD Central | 52.182.95.237 | 52.182.90.133
 ## Example NSG configuration
 
 This example shows how to configure NSG rules for a VM to replicate.

@@ -176,7 +176,7 @@ Deploy the cluster using PowerShell:
 
 ```powershell
 $resourceGroupLocation="westus"
-$resourceGroupName="mylinux"
+$resourceGroupName="mycluster"
 $vaultName="myvault"
 $vaultResourceGroupName="myvaultrg"
 $certPassword="Password!1" | ConvertTo-SecureString -AsPlainText -Force 
@@ -228,7 +228,7 @@ Deploy the cluster using PowerShell:
 
 ```powershell
 $resourceGroupLocation="westus"
-$resourceGroupName="mylinux"
+$resourceGroupName="mycluster"
 $vaultName="myvault"
 $vaultResourceGroupName="myvaultrg"
 $certPassword="Password!1" | ConvertTo-SecureString -AsPlainText -Force 
