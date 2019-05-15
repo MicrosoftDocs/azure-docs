@@ -29,6 +29,14 @@ The second is the **SQL Server configuration tab** found within the typical virt
 ![SQL Server configuration](media/virtual-machines-windows-sql-manage-portal/sql-vm-configuration.png)
 
 
+You can use either option to manage the following SQL Server settings, as long as the image supports them:
+- SQL Server license, such as enabling the [Azure hybrid benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)
+- Connectivity and authentication, such as the port and SQL authentication
+- [Automated patching](virtual-machines-windows-sql-automated-patching.md)
+- [Automated backup](virtual-machines-windows-sql-automated-backup-v2.md)
+- [Azure Key Vault integration](virtual-machines-windows-ps-sql-keyvault.md)
+- SQL Server Machine Learning Services (In-Database)
+
 ## Remarks
 
 The SQL VM management blade is only available to SQL Server VMs that have [registered with the SQL VM resource provider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider). 
@@ -38,13 +46,6 @@ The SQL VM management blade is only available to SQL Server VMs that have [regis
 
 The SQL VM management blade is the recommended choice for managing your SQL Server VM. However, managing [end-of-support (EOS)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server VM images is not supported with the new management blade and as such, those SQL Server VM images should be managed with the **SQL Server configuration** tab. 
 
-You can use either option to manage the following SQL Server settings, as long as the image supports them:
-- SQL Server license, such as enabling the [Azure hybrid benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)
-- Connectivity and authentication, such as the port and SQL authentication
-- [Automated patching](virtual-machines-windows-sql-automated-patching.md)
-- [Automated backup](virtual-machines-windows-sql-automated-backup-v2.md)
-- [Azure Key Vault integration](virtual-machines-windows-ps-sql-keyvault.md)
-- SQL Server Machine Learning Services (In-Database)
 
 ## How to access
 

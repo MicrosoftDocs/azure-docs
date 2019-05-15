@@ -143,7 +143,7 @@ On the **Monitoring** tab, configure monitoring and auto-shutdown.
 ![SQL VM management settings](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-management.png)
 
 
-## 3. Configure SQL server settings
+## 3. Configure SQL Server settings
 
 On the **SQL Server settings** tab, configure specific settings and optimizations for SQL Server. The settings that you can configure for SQL Server include the following:
 
