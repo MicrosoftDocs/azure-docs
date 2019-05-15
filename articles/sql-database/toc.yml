@@ -720,6 +720,8 @@
     href: sql-database-glossary-terms.md
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-sql-database
+  - name: SQL Server Blog
+    href: https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Public data sets
