@@ -100,7 +100,7 @@ Write Accelerator: [Supported](https://docs.microsoft.com/azure/virtual-machines
 
 Mv2-series VM’s feature Intel® Hyper-Threading Technology  
 
-<sup>1</sup> These large vCPU’s require one of these supported guest OSes: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15 and RHEL 7.6
+<sup>1</sup> These large VMs require one of these supported guest OSes: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15.
 
 <sup>2</sup> Mv2-series VMs are generation 2 only.
 
