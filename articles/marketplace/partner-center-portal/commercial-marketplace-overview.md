@@ -31,7 +31,7 @@ Existing marketplace publishers will find a familiar but improved user experienc
 
 ### Improvements on user experience and billing
 
-With the transition to Partner Center, new functionality is available to publishers, in addition to improvements on the user experience. SaaS offer,ings which can be billed monthly or annually, support per-user licensing (seat-based) in addition to per-site (flat-rate). This new monetization model is ideal for business software. The introduction of SaaS per-user licensing aligns with new functionality allowing customers to complete purchases in AppSource, Microsoft’s commercial marketplace for business and industry solutions. 
+With the transition to Partner Center, new functionality is available to publishers, in addition to improvements on the user experience. SaaS offerings which can be billed monthly or annually, support per-user licensing (seat-based) in addition to per-site (flat-rate). This new monetization model is ideal for business software. The introduction of SaaS per-user licensing aligns with new functionality allowing customers to complete purchases in AppSource, Microsoft’s commercial marketplace for business and industry solutions. 
 
 ### Account and user management updates
 
