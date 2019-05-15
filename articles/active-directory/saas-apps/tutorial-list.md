@@ -44,7 +44,7 @@ To find more tutorials, use the table of contents on the left.
 ## Cloud Integrations
 
 | Logo | Application tutorial for single sign-on | |
-| :---: | :--- | :--- |
+| :--- | :--- | :--- |
 | ![logo](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)| |
 | ![logo](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Amazon Web Services (AWS) Console](amazon-web-service-tutorial.md)| |
 | ![logo](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba Cloud Service (Role bases SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
