@@ -20,7 +20,7 @@ In this article, you learn how to train a time-series forecasting regression mod
 * Configure specific time-series parameters in an [`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) object
 * Run predictions with time-series data
 
-> [!VIDEO https://www.youtube.com/embed/mGr_c2UnOUI]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
 
 ## Prerequisites
 
