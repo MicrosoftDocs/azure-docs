@@ -23,6 +23,7 @@ ms.author: cynthn
 Create a proximity placement group using [`az ppg create`](/cli/azure/ppg#az-ppg-create). 
 
 ```azurecli-interactive
+az group create --name myPPGGroup --location westus
 az ppg create \
    -n myPPG \
    -g myPPGGroup \

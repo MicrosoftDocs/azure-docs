@@ -28,6 +28,7 @@ Create a proximity placement group using the [New-AzProximityPlacementGroup](htt
 $resourceGroup = "myPPGResourceGroup"
 $location = "East US"
 $ppgName = "myPPG"
+New-AzResourceGroup -Name $resourceGroup -Location $location
 $ppg = New-AzProximityPlacementGroup `
    -Location $location `
    -Name $ppgName `

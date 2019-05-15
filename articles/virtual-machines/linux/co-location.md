@@ -12,9 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/10/2019
+ms.date: 05/14/2019
 ms.author: cynthn
 ---
 
+# Co-location
+
+One of the largest contributors to latency between VMs is simply distance.
+
 [!INCLUDE [virtual-machines-common-ppg-overview](../../../includes/virtual-machines-common-ppg-overview.md)]
+
+## Next steps
+
+Create a [proximity placement group](proximity-placement-groups.md)for your VMs.
 
