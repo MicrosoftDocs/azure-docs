@@ -119,8 +119,8 @@ In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload a
 
 AzCopy V10 is the currently supported version of AzCopy. However, if you need to use the previous version of AzCopy (AzCopy v8.1), see either of the following links:
 
-- [AzCopy on Windows (v8)](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [AzCopy on Linux (v8)](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [AzCopy on Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
+- [AzCopy on Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## Next steps
 
