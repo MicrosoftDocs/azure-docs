@@ -36,7 +36,7 @@ Premium Storage Caching: Supported
 
 ## HC-series
 
-[ACU](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/acu): 297-315
+ACU: 297-315
 
 Premium Storage: Supported
 
