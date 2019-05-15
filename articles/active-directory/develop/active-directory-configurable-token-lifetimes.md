@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2019
+ms.date: 05/15/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
@@ -106,7 +106,7 @@ For more information about the relationship between application objects and serv
 
 A token’s validity is evaluated at the time the token is used. The policy with the highest priority on the application that is being accessed takes effect.
 
-All timespans used here are formatted according to the C# [TimeSpan](https://msdn.microsoft.com/library/system.timespan) object - D.HH:MM:SS.  So 80 days and 30 minutes would be `80.00:30:00`.  The leading D can be dropped if zero, so 90 minutes would be `00:90:00`.  
+All timespans used here are formatted according to the C# [TimeSpan](/dotnet/api/system.timespan) object - D.HH:MM:SS.  So 80 days and 30 minutes would be `80.00:30:00`.  The leading D can be dropped if zero, so 90 minutes would be `00:90:00`.  
 
 > [!NOTE]
 > Here's an example scenario.
@@ -222,7 +222,7 @@ In this example, you create a policy that lets your users sign in less frequentl
 
 1. Create a token lifetime policy.
 
-    1.  Set the Single-Factor Refresh Token to "until-revoked." The token doesn't expire until access is revoked. Create the following policy definition:
+    1. Set the Single-Factor Refresh Token to "until-revoked." The token doesn't expire until access is revoked. Create the following policy definition:
 
         ```powershell
         @('{
@@ -234,16 +234,16 @@ In this example, you create a policy that lets your users sign in less frequentl
         }')
         ```
 
-    2.  To create the policy, run the following command:
+    2. To create the policy, run the following command:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    3.  To see your new policy, and to get the policy's **ObjectId**, run the following command:
+    3. To see your new policy, and to get the policy's **ObjectId**, run the following command:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
 2. Update the policy.
@@ -251,7 +251,7 @@ In this example, you create a policy that lets your users sign in less frequentl
     You might decide that the first policy you set in this example is not as strict as your service requires. To set your Single-Factor Refresh Token to expire in two days, run the following command:
 
     ```powershell
-    Set-AzureADPolicy -Id <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
+    Set-AzureADPolicy -Id $policy.Id -DisplayName $policy.DisplayName -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
 
 ### Example: Create a policy for web sign-in
@@ -262,28 +262,30 @@ In this example, you create a policy that requires users to authenticate more fr
 
     This policy, for web sign-in, sets the access/ID token lifetime and the max single-factor session token age to two hours.
 
-    1.  To create the policy, run this command:
+    1. To create the policy, run this command:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2.  To see your new policy, and to get the policy **ObjectId**, run the following command:
+    2. To see your new policy, and to get the policy **ObjectId**, run the following command:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
-2.  Assign the policy to your service principal. You also need to get the **ObjectId** of your service principal. 
+2. Assign the policy to your service principal. You also need to get the **ObjectId** of your service principal. 
 
-    1.  To see all your organization's service principals, you can query either the [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) or the [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Also, you can test this in the [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/), and the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) by using your Azure AD account.
-
-    2.  When you have the **ObjectId** of your service principal, run the following command:
+    1. To see all your organization's service principals, you use the [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet.  
+    2. When you have the **ObjectId** of your service principal, run the following command:
 
         ```powershell
-        Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-        ```
+        # Get ID of the service principal
+        $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
 
+        # Assign policy to a service principal
+        Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
+        ```
 
 ### Example: Create a policy for a native app that calls a web API
 In this example, you create a policy that requires users to authenticate less frequently. The policy also lengthens the amount of time a user can be inactive before the user must reauthenticate. The policy is applied to the web API. When the native app requests the web API as a resource, this policy is applied.
@@ -293,57 +295,64 @@ In this example, you create a policy that requires users to authenticate less fr
     1.  To create a strict policy for a web API, run the following command:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
     2.  To see your new policy, and to get the policy **ObjectId**, run the following command:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Assign the policy to your web API. You also need to get the **ObjectId** of your application. The best way to find your app's **ObjectId** is to use the [Azure portal](https://portal.azure.com/).
+2. Assign the policy to your web API. You also need to get the **ObjectId** of your application. Use the [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) cmdlet to find your app's **ObjectId**, or use the [Azure portal](https://portal.azure.com/).
 
    When you have the **ObjectId** of your app, run the following command:
 
         ```powershell
-        Add-AzureADApplicationPolicy -Id <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
+        # Get the application
+        $app = Get-AzureADApplication -Filter "DisplayName eq 'Fourth Coffee Web API'"
+
+        # Assign the policy to your web API.
+        Add-AzureADApplicationPolicy -Id $app.ObjectId -RefObjectId $policy.Id
         ```
 
-
 ### Example: Manage an advanced policy
-In this example, you create a few policies, to learn how the priority system works. You also can learn how to manage multiple policies that are applied to several objects.
+In this example, you create a few policies to learn how the priority system works. You also learn how to manage multiple policies that are applied to several objects.
 
 1. Create a token lifetime policy.
 
-    1.  To create an organization default policy that sets the Single-Factor Refresh Token lifetime to 30 days, run the following command:
+    1. To create an organization default policy that sets the Single-Factor Refresh Token lifetime to 30 days, run the following command:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    2.  To see your new policy, and to get the policy's **ObjectId**, run the following command:
+    2. To see your new policy, and to get the policy's **ObjectId**, run the following command:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
 2. Assign the policy to a service principal.
 
     Now, you have a policy that applies to the entire organization. You might want to preserve this 30-day policy for a specific service principal, but change the organization default policy to the upper limit of "until-revoked."
 
-    1.  To see all your organization's service principals, you can query either the [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) or the [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Also, you can test this in the [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/), and the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) by using your Azure AD account.
+    1. To see all your organization's service principals, you use the [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet.
 
-    2.  When you have the **ObjectId** of your service principal, run the following command:
+    2. When you have the **ObjectId** of your service principal, run the following command:
 
             ```powershell
-            Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+            # Get ID of the service principal
+            $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
+
+            # Assign policy to a service principal
+            Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
             ```
-        
+
 3. Set the `IsOrganizationDefault` flag to false:
 
     ```powershell
-    Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
+    Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
 4. Create a new organization default policy:
