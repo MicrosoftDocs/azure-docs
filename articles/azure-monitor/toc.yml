@@ -275,8 +275,6 @@
         href: platform/data-sources-json.md
       - name: CollectD performance data
         href: platform/data-sources-collectd.md
-      - name: Nagios and Zabbix alerts
-        href: platform/data-sources-alerts-nagios-zabbix.md
       - name: Syslog
         href: platform/data-sources-syslog.md
       - name: Performance counters
@@ -557,6 +555,7 @@
       - name: Web App Analytics solution
         href: insights/azure-web-apps-analytics.md
       - name: Monitor Kubernetes applications
+        displayname: aks, microservice, istio, service mesh, application monitoring
         href: app/kubernetes.md
     - name: Monitor containers
       items:

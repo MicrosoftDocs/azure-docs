@@ -4,7 +4,7 @@ description: Understand how to find when a resource was changed and get a list o
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/20/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
@@ -74,7 +74,7 @@ The response looks similar to this example:
 ```json
 {
     "changes": [{
-            "changeId": "2db0ad2d-f6f0-4f46-b529-5c4e8c494648",
+            "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}",
             "beforeSnapshot": {
                 "timestamp": "2019-03-29T01:32:05.993Z"
             },
@@ -114,7 +114,7 @@ Example request body:
 ```json
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
-    "changeId": "53dc0515-b86b-4bc2-979b-e4694ab4a556"
+    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}"
 }
 ```
 
@@ -128,7 +128,7 @@ The response looks similar to this example:
 
 ```json
 {
-    "changeId": "53dc0515-b86b-4bc2-979b-e4694ab4a556",
+    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}",
     "beforeSnapshot": {
         "timestamp": "2019-03-29T01:32:05.993Z",
         "content": {

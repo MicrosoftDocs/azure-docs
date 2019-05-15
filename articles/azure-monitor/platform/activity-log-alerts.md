@@ -22,7 +22,7 @@ Typically, you create activity log alerts to receive notifications when:
 * Specific operations occur on resources in your Azure subscription, often scoped to particular resource groups or resources. For example, you might want to be notified when any virtual machine in myProductionResourceGroup is deleted. Or, you might want to be notified if any new roles are assigned to a user in your subscription.
 * A service health event occurs. Service health events include notification of incidents and maintenance events that apply to resources in your subscription.
 
-A simple analogy for understanding conditions on which alert rules can be created on activity log, is to explore or filter events via [Activity Log in Azure Portal](activity-logs-view.md#azure-portal). In Azure Monitor - Activity Log, one can filter or find necessary event and then create an alert by using the **Add activity log alert** button.
+A simple analogy for understanding conditions on which alert rules can be created on activity log, is to explore or filter events via [Activity Log in Azure Portal](activity-log-view.md#azure-portal). In Azure Monitor - Activity Log, one can filter or find necessary event and then create an alert by using the **Add activity log alert** button.
 
 In either case, an activity log alert monitors only for events in the subscription in which the alert is created.
 

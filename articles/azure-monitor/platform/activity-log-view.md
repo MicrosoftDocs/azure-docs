@@ -33,9 +33,7 @@ You can filter Activity Log events by the following fields:
 
 ### View change history
 
-When reviewing the Activity Log, it can help to see what changes happened during that event time. You can view this information with Change history.
-
-Navigate to Activity Log using the menu on the left side of the portal. Select an event from the Activity Log you want to look deeper into. Select the **Change history (Preview)** tab to view any associated changes with the event.
+When reviewing the Activity Log, it can help to see what changes happened during that event time. You can view this information with **Change history**. Select an event from the Activity Log you want to look deeper into. Select the **Change history (Preview)** tab to view any associated changes with the event.
 
 ![Change history list for an event](media/activity-logs-overview/change-history-event.png)
 
