@@ -37,7 +37,7 @@ Here are the tasks you will perform to complete this tutorial:
 
 Download [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) and unzip it. This repository has several applications in it, including the one you will use to send messages to the IoT hub.
 
-This download also contains the script for creating the resources used to test message enrichments. The script is in /azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli.azcli. For now, you can just look at the script and use it. You can also copy the script directly from the article.
+This download also contains the script for creating the resources used to test message enrichments. The script is in /azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli.azcli. For now, you can look at the script and use it. You can also copy the script directly from the article.
 
 When you are ready to start testing, you will use the Device Simulation application from this download to send message to your IoT hub.
 
@@ -64,18 +64,18 @@ If you haven't already done so, open a [Cloud Shell window for Bash.](https://sh
 
 Here are the resources created by the script. **Enriched** means that resource is for messages with enrichments. **Original** means that resource is for messages that are not enriched.
 
-| name|value |
+| Name | Value |
 |-----|-----|
-|resourceGroup | ContosoResourcesMsgEn |
+| resourceGroup | ContosoResourcesMsgEn |
 | container name | original  |
 | container name | enriched  |
 | IoT device name | Contoso-Test-Device |
 | IoT Hub name | ContosoTestHubMsgEn |
-| storageAccountName | contosostorage |
-| endpointName1 | ContosoStorageEndpointOriginal |
-| endpointName2 | ContosoStorageEndpointEnriched|
-| routeName1 | ContosoStorageRouteOriginal |
-| routeName2 | ContosoStorageRouteEnriched |
+| storage Account Name | contosostorage |
+| endpoint Name 1 | ContosoStorageEndpointOriginal |
+| endpoint Name 2 | ContosoStorageEndpointEnriched|
+| route Name 1 | ContosoStorageRouteOriginal |
+| route Name 2 | ContosoStorageRouteEnriched |
 
 ```azcli-interactive
 # This command retrieves the subscription id of the current Azure account.
