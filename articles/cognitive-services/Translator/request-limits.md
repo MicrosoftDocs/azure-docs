@@ -33,7 +33,7 @@ Your character limit per hour is based on your Translator Text subscription tier
 | S3 / C3 | 120 million characters per hour |
 | S4 / C4 | 200 million characters per hour |
 
-Limits for [multi-service subscriptions](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-reference#authentication) are the same as the S1 tier.
+Limits for [multi-service subscriptions](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) are the same as the S1 tier.
 
 These limits are restricted to Microsoft's standard translation models. Custom translation models that use Custom Translator are limited to 1,800 character per second.
 
