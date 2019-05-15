@@ -15,36 +15,141 @@ ms.custom: seodec18
 
 # Speech Synthesis Markup Language (SSML)
 
-The Speech Synthesis Markup Language (SSML) is an XML-based markup language that provides a way to control the pronunciation and *prosody* of text-to-speech. Prosody refers to the rhythm and pitch of speech—its music, if you will. You can specify words phonetically, provide hints for interpreting numbers, insert pauses, control pitch, volume, and rate, and more. For more information, see [Speech Synthesis Markup Language (SSML) Version 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/). 
+Speech Synthesis Markup Language (SSML) is an XML-based markup language that lets developers specify how input text is converted into synthesized speech using the text-to-speech service. Compared to plain text, SSML allows developers to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the text-to-speech output. Normal punctuation, such as pausing after a period, or using the correct intonation when a sentence ends with a question mark are automatically handled.
 
-For a complete list of supported languages, locales, and voices (neural and standard), see [language support](language-support.md#text-to-speech).
+The Speech Services implementation of SSML is based on World Wide Web Consortium's [Speech Synthesis Markup Language Version 1.0](https://www.w3.org/TR/speech-synthesis).
 
-The following sections provide samples for common speech synthesis tasks.
+## Standard, neural, and custom voices
 
-## Adjust speaking style for neural voices
+Choose from standard and neural voices, or create your own custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in 4 languages and locales. For a complete list of supported languages, locales, and voices (neural and standard), see [language support](language-support.md).
 
-You can use SSML to adjust the speaking style when using one of the neural voices.
+To learn more about standard, neural, and custom voices, see [Text-to-speech overview](text-to-speech.md).
 
-By default, the text-to-speech service synthesizes text in a neutral style. The neural voices extend SSML with an `<mstts:express-as>` element that converts text to synthesized speech in different speaking styles. Currently, the style tags are only supported with these voices:
+## Supported SSML elements
 
-* `en-US-JessaNeural` 
-* `zh-CN-XiaoxiaoNeural`.
+Each SSML document is created with SSML elements (or tags). These elements are used to adjust pitch, prosody, volume, and more. The following sections detail how each element is used, and when an element is required or optional.  
 
-Speaking style changes can be applied at the sentence level. The styles vary by voice. If a style type is not supported, the service will return the synthesized speech as the default neutral style.
+> [!IMPORTANT]
+> Don't forget to use double quotes around attribute values. Standards for well-formed, valid XML requires attribute values to be enclosed in double quotation marks. For example, `<prosody volume="90">` is a well-formed, valid element, but `<prosody volume=90>` is not. SSML may not recognize attribute values that are not in quotes.
 
-| Voice | Style | Description | 
-|-----------|-----------------|----------|
+## Create an SSML document
+
+`speak` is the root element, and is **required** for all SSML documents. The `speak` element contains important information, such as version, language, and the markup vocabulary definition.
+
+**Syntax**
+
+```xml
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US"></speak>
+```
+
+**Attributes**
+
+| Attribute | Description |
+|-----------|-------------|
+| version | **Required.** Indicates the version of the SSML specification used to interpret the document markup. The current version is 1.0. |
+| xml:lang | **Required.** Specifies the language of the root document. The value may contain a lowercase, two-letter language code (for example, **en**), or the language code and uppercase country/region (for example, **en-US**).  |
+| xmlns | **Required.** Specifies the URI to the document that defines the markup vocabulary (the element types and attribute names) of the SSML document. The current URI is https://www.w3.org/2001/10/synthesis. |
+
+## Choose a voice for text-to-speech
+
+The `voice` element is used to specify the voice that is used for text-to-speech.
+
+**Syntax**
+
+```xml
+<voice name='en-US-Jessa24kRUS'>
+    This text will get converted into synthesized speech.
+</voice>
+```
+
+**Attributes**
+
+| Attribute | Description |
+|-----------|-------------|
+| name | **Required.** Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). |
+
+**Example**
+
+> [!NOTE]
+> This example uses the `en-US-Jessa24kRUS` voice. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech).
+
+```XML
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice  name='en-US-Jessa24kRUS'>
+        This is the text that is spoken.
+    </voice>
+</speak>
+```
+
+## Use multiple voices
+
+Within the `speak` element, you can specify multiple voices for text-to-speech output. For each voice, the text must be wrapped in a `voice` element.
+
+**Attributes**
+
+| Attribute | Description |
+|-----------|-------------|
+| name | **Required.** Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). |
+
+**Example**
+
+```xml
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+    <voice  name='en-US-Jessa24kRUS'>
+        Good morning!
+    </voice>
+    <voice  name='en-US-Guy24kRUS'>
+        Good morning to you too Jessa!
+    </voice>
+</speak>
+```
+
+## Speaking styles
+
+> [!WARNING]
+> This feature will only work with neural voices.
+
+By default, the text-to-speech service synthesizes text using a neutral speaking style for both standard and neural voices. With neural voices, you can adjust the speaking style to express cheerfulness, empathy, or sentiment with the `<mstts:express-as>` element.
+
+Currently, speaking style adjustments are supported for these neural voices:
+* `en-US-JessaNeural`
+* `zh-CN-XiaoxiaoNeural`
+
+Changes are applied at the sentence level, and style vary by voice. If a style isn't supported, the service will return speech in the default neutral speaking style.
+
+**Syntax**
+
+```xml
+<mstts:express-as type="string"></mstts:express-as>
+```
+
+**Attributes**
+
+| Attribute | Description |
+|-----------|-------------|
+| type | Specifies the speaking style. Currently, speaking styles are voice specific. |
+
+Use this table to determine which speaking styles are supported for each neural voice.
+
+| Voice | Style/Type | Description |
+|-------|------------|-------------|
 | `en-US-JessaNeural` | type=`cheerful` | Expresses an emotion that is positive and happy |
 | | type=`empathy` | Expresses a sense of caring and understanding |
 | `zh-CN-XiaoxiaoNeural` | type=`newscast` | Expresses a formal tone, similar to news broadcasts |
 | | type=`sentiment ` | Conveys a touching message or a story |
 
+**Example**
+
+This SSML snippet illustrates how the `<mstts:express-as>` element is used to change the speaking style to `cheerful`.
+
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
-<voice name='en-US-JessaNeural'>
-<mstts:express-as type="cheerful"> 
-    That'd be just amazing! 
-</mstts:express-as></voice></speak>
+    <voice name='en-US-JessaNeural'>
+        <mstts:express-as type="cheerful">
+            That'd be just amazing!
+        </mstts:express-as>
+    </voice>
+</speak>
 ```
 
 ## Add a break
