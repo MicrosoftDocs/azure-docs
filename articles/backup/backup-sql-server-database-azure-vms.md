@@ -13,7 +13,7 @@ ms.author: sachdevaswati
 ---
 # Back up SQL Server databases in Azure VMs
 
-SQL Server databases carry critical workloads that require a low recovery-point objective (RPO) and long-term retention. You can back up SQL Server databases running on Azure virtual machines (VMs) by using [Azure Backup](backup-overview.md).
+SQL Server databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. You can back up SQL Server databases running on Azure virtual machines (VMs) by using [Azure Backup](backup-overview.md).
 
 This article shows how to back up a SQL Server database that's running on an Azure VM to an Azure Backup Recovery Services vault.
 
@@ -45,8 +45,10 @@ For all operations, a SQL Server VM requires connectivity to Azure public IP add
 
 Establish connectivity by using either of the following options:
 
-- **Allow the Azure datacenter IP ranges**: This option allows [IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) in the download. To access a network security group (NSG), use the Set-AzureNetworkSecurityRule cmdlet.
-- **Deploy an HTTP proxy server to route traffic**: When you back up a SQL Server database on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Azure Active Directory (Azure AD) for authentication. Route the backup extension traffic for these three services through the HTTP proxy. The extensions are the only component that's configured for access to the public internet.
+- **Allow the Azure datacenter IP ranges**. This option allows [IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) in the download. To access a network security group (NSG), use the Set-AzureNetworkSecurityRule cmdlet. If you're whitelisting only region-specific IPs, you'll also need to whitelist the Azure Active Directory (AD) service tag to enable authentication.
+- **Allow access using NSG tags**. If you're using NSGs to restrict connectivity, this option adds a rule to your NSG that allows outbound access to Azure Backup by using the AzureBackup tag. In addition to this tag, you'll also require corresponding [rules](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags) for Azure AD and Azure Storage to allow connectivity for authentication and data transfer.
+- **Allow access by using Azure Firewall tags**. If you're using Azure Firewall, 
+- **Deploy an HTTP proxy server to route traffic**: When you back up a SQL Server database on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Azure AD for authentication. Route the backup extension traffic for these three services through the HTTP proxy. The extensions are the only component that's configured for access to the public internet.
 
 Both connectivity options include the following advantages and disadvantages:
 
@@ -255,7 +257,7 @@ To enable auto-protection:
 
 If you need to disable auto-protection, select the instance name under **Configure Backup**, and then select **Disable Autoprotect** for the instance. All databases will continue to be backed up, but future databases won't be automatically protected.
 
-![Disable auto protection on that instance](./media/backup-azure-sql-database/disable-auto-protection.png)
+![Disable auto-protection on that instance](./media/backup-azure-sql-database/disable-auto-protection.png)
 
  
 ## Next steps
