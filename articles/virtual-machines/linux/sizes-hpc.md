@@ -45,7 +45,7 @@ The Azure Marketplace has many Linux distributions that support RDMA connectivit
   ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
   ```
-  Alternatively, VM extensions can be included in ARM templates for easy deployment, with the following JSON element:
+  Alternatively, VM extensions can be included in Azure Resource Manager templates for easy deployment with the following JSON element:
   ```json
   "properties":{
   "publisher": "Microsoft.HpcCompute",
