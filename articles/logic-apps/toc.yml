@@ -292,7 +292,7 @@
   - name: Deploy
     items:
       - name: Overview - Automate logic app deployment
-        href: logic-apps-create-azure-resource-manager-templates.md
+        href: logic-apps-azure-resource-manager-templates-overview.md
       - name: Create logic app templates
         href: logic-apps-create-azure-resource-manager-templates.md
       - name: Deploy logic app templates
