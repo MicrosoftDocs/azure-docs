@@ -73,7 +73,7 @@ Not yet. Currently, these are the maximums for a container group. Contact Azure 
 
 ### When will ACI be in a specific region?
 
-Current region availability is published [here](container-instances-region-availability.md#availability---general), and up-to-date information is available through the [List Capabilities](/rest/api/container-instances/listcapabilities) API. If you have a requirement for a specific region, contact Azure Support.
+Current region availability is published [here](container-instances-region-availability.md#availability---general). If you have a requirement for a specific region, contact Azure Support.
 
 ## Features and scenarios
 
