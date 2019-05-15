@@ -277,7 +277,7 @@ NodeAgentNTService creates repair tasks to install updates on the nodes. Each ta
 
    ![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/WUOperationStatusA.png)
 
-6. But if versions below 1.4.0 are being used or there is a need to know the exact status of update on the node, then, connect to the cluster using powershell and find out the status of repair task using Get-ServiceFabricRepairTask. Like below example shows that "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15" task is in DownloadComplete state. It means that updates have been downloaded on the node "poanode_2" and installation will be attempted.
+6. But if versions below 1.4.0 are being used or there is a need to find the exact status of update on the node, then, connect to the cluster using powershell and find out the status of repair task using Get-ServiceFabricRepairTask. Like below example shows that "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15" task is in DownloadComplete state. It means that updates have been downloaded on the node "poanode_2" and installation will be attempted.
 
    ``` powershell
     D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k = Get-ServiceFabricRepairTask -TaskId "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15"
