@@ -61,34 +61,9 @@ Here are brief details about these attributes in Resource Manager templates. For
 
 ## Template parameters
 
-Your Resource Manager template's `parameters` attribute defines the parameters for the values to use when deploying resources. You can also supply these parameter values to the template by using a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). A template that includes a logic app workflow definition has more than one `parameters` attribute, which appears at different levels:
+Your Resource Manager template's `parameters` attribute defines the parameters for the values to use when deploying resources in Azure. Your template's `resources` attribute, which is described later, can then use the values that are passed through your template's parameters for creating and deploying resources in Azure, including your logic app's underlying workflow definition, which is a resource in Azure. 
 
-* Your template has its own `parameters` attribute, which differs from your logic app definition's `parameters` attribute. For example, to reference template parameter values, which are evaluated at deployment, expressions follow this syntax, which uses square brackets (**[ ]**):
-
-  `"<attribute-name>": "[parameters('<template-parameter-name>')]"`
-
-* Your logic app's workflow definition has its own `parameters` attribute where you define the parameters that your workflow definition uses to accept inputs from the template at runtime. To reference workflow definition parameter values, which are evaluated at runtime, expressions follow this syntax, which uses the at sign (**@**):
-
-  `"<attribute-name>": "@parameters('<workflow-definition-parameter-name>')"`
-
-For more information about parameters, see these topics:
-
-* [Parameters - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#parameters)
-* [Best practices for template parameters](../azure-resource-manager/template-best-practices.md#parameters)
-* [Parameters in logic app workflow definitions](#workflow-parameters)
-
-Note these particular practices for defining template parameters:
-
-* Define parameters only for values that vary, based on the resources that you're deploying or based on the environment where you're deploying. Don't define parameters for values that always stay the same.
-
-* Provide default values for parameters except when parameters handle information that is sensitive or require security. To hide or protect sensitive information in template parameters, follow the guidance in these topics:
-  
-  * [Security recommendations for template parameters](../azure-resource-manager/template-best-practices.md#parameters)
-  * [Pass secure parameter values with Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
-
-* Differentiate template parameters from workflow definition parameters by using descriptive names.
-
-The template's `resources` attribute uses the template's parameter values for creating and deploying your logic app. For example, these parameter values include the name for your logic app that the template creates and your logic app's location or region. For example, this Resource Manager template's `parameters` attribute defines the values that are used by the template's `resources` attribute, which is described in a later section, for creating and running the logic app:
+For example, these template parameters define the parameters for the name and location to use when creating and deploying your logic app:
 
 ```json
 {
@@ -119,7 +94,7 @@ The template's `resources` attribute uses the template's parameter values for cr
 }
 ```
 
-Here's another example where the template's `parameters` attribute defines a parameter for an integration account that's linked to your logic app:
+If your logic app is linked to an integration account, here is another example that shows how the template's `parameters` attribute defines the parameter that accepts values to use for that integration account:
 
 ```json
 {
@@ -138,11 +113,39 @@ Here's another example where the template's `parameters` attribute defines a par
   }
   ```
 
+A template that includes a logic app workflow definition has more than one `parameters` attribute, which appears at different levels:
+
+* Your template has its own `parameters` attribute, which differs from your workflow definition's `parameters` attribute. For example, to reference template parameter values, which are evaluated at deployment, expressions follow this syntax, which uses square brackets (**[ ]**):
+
+  `"<attribute-name>": "[parameters('<template-parameter-name>')]"`
+
+  You can supply the values for template parameters by using a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). For more information about template parameters, see these topics:
+
+  * [Parameters - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#parameters)
+  * [Best practices for template parameters](../azure-resource-manager/template-best-practices.md#parameters)
+
+* Your logic app's workflow definition has its own `parameters` attribute, which defines the parameters for accepting the values that are used by your workflow definition during your logic app's runtime. To reference workflow definition parameter values, which are evaluated at runtime, expressions follow this syntax, which uses the at sign (**@**):
+
+  `"<attribute-name>": "@parameters('<workflow-definition-parameter-name>')"`
+
+  You can supply values for these workflow definition parameters through your template's parameters. For more information about workflow defintion parameters, see [Parameters in logic app workflow definitions](#workflow-parameters) later in this topic.
+
+Note these particular practices for defining parameters:
+
+* Define parameters only for values that vary, based on the resources that you're deploying or based on the environment where you're deploying. Don't define parameters for values that always stay the same.
+
+* Provide default values for parameters except when parameters handle information that is sensitive or require security. To hide or protect sensitive information in parameters, follow the guidance in these topics:
+  
+  * [Security recommendations for template parameters](../azure-resource-manager/template-best-practices.md#parameters)
+  * [Pass secure parameter values with Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+
+* Differentiate template parameters from workflow definition parameters by using descriptive names.
+
 <a name="template-parameter-files"></a>
 
 ## Template parameter files
 
-To store values for Resource Manager template parameters, create a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). For example, here is a short parameter file for the template parameters in the previous section:
+To store the values for Resource Manager template parameters, you can create a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). That way, you can use different parameter files based on where you want to create and deploy your logic app. For example, here is a short parameter file for the template parameters described in the previous section:
 
 ```json
 {
@@ -166,12 +169,7 @@ To store values for Resource Manager template parameters, create a [parameter fi
 
 ## Template resources
 
-The Resource Manager template's `resources` attribute declares information about the resources that you want to deploy. This attribute can reference this information in the template's `parameters` attribute by using the `parameters()` function. For more information about template resources, see these topics:
-
-* [Resources - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#resources)
-* [Best practices for template resources](../azure-resource-manager/template-best-practices.md#resources).
-
-Your logic app's workflow definition is an Azure resource. So, inside the template's `resources` attribute, the `properties` attribute contains information for your logic app resource:
+The Resource Manager template's `resources` attribute declares information about each resource that you want to create and deploy. This attribute references the values that are passed through the template's `parameters` attribute by using the `parameters()` function. In the template's `resources` attribute, the `properties` attribute contains the workflow definition for your logic app, references for any connections used by your logic app, and parameters for those connections:
 
 ```json
 "resources": {
@@ -184,7 +182,7 @@ Your logic app's workflow definition is an Azure resource. So, inside the templa
    "apiVersion": "2016-06-01",
    "properties": {
       "$connections" : {<any-managed-connections-in-your-logic-app>},
-      "definition": {<logic-app-workflow-definition>},
+      "definition": {<workflow-definition>},
       "parameters": {}
    },
    "dependsOn": []
@@ -193,18 +191,24 @@ Your logic app's workflow definition is an Azure resource. So, inside the templa
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
-| `$connections` | No | If your logic app uses [managed connectors](../connectors/apis-list.md), the `$connections` attribute references other resources that store metadata about connections that your logic app makes to other services or systems. For more information, see [Connections](#workflow-connections). |
-| `definition` | Yes | Contains your logic app's underlying workflow definition, which describes how the Logic Apps service runs that workflow along with definitions for the trigger, actions, workflow parameters, outputs, schema, and so on. For more information, see [Logic app workflow definition](#workflow-definition). |
-| `parameters` | No | The parameters to use for values used by connections in your logic app as defined by the `$connections` attribute |
+| `$connections` | No | If your logic app uses [managed connectors](../connectors/apis-list.md) for interacting with other services and systems, the `$connections` attribute references the resources for the connections that your logic app creates and uses. For more information, see [Logic app connections](#workflow-connections). |
+| `definition` | Yes | Contains your logic app's underlying workflow definition, which describes how the Logic Apps service runs that workflow along with definitions for the trigger, actions, workflow parameters, outputs, schema, and so on. For more information, see [Logic app workflow definition](#workflow-definition). <p><p>To view the attributes in your logic app's workflow definition, switch from "design view" to "code view" in the Azure portal or Visual Studio, or by using a tool such as [Azure Resource Explorer](http://resources.azure.com). |
+| `parameters` | No | The parameters for the values used by connections in your logic app as defined by the `$connections` attribute |
 ||||
 
-You can view the attributes for your logic app by changing from "design view" to "code view" in the Azure portal or Visual Studio, or by using a tool such as [Azure Resource Explorer](http://resources.azure.com).
+For more information about template resources, see these topics:
+
+* [Resources - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#resources)
+* [Best practices for template resources](../azure-resource-manager/template-best-practices.md#resources).
 
 <a name="workflow-connections"></a>
 
 ## Logic app connections
 
-The `$connections` attribute contains references to resources that securely store metadata about any connections used your logic apps through [managed connectors](../connectors/apis-list.md). Such metadata can include connection strings and access tokens. For example, here is a reference for an Office 365 Outlook connection:
+In the template's `resources` attribute, under the `properties` attribute, the `$connections` attribute contains references to resources that securely store metadata for any connections that your logic app creates and uses through [managed connectors](../connectors/apis-list.md). This metadata can include information such as connection strings and access tokens. Inside your workflow definition, the trigger or action definition that creates the connection references the corresponding resource reference inside `$connections`.
+
+In this example, the `office365` attribute references the resource for an Office 365 Outlook connection. 
+In the [`definition` attribute for your workflow definition](#workflow-definition), the trigger definition contains a `connection` attribute that has a `name` attribute, which uses the `parameters()` function to reference the `office365` attribute along with its `connectionId` attribute:
 
 ```json
 {
@@ -212,6 +216,7 @@ The `$connections` attribute contains references to resources that securely stor
       "properties": {
          "$connections": {
             "value": {
+               // Reference to resource that stores connection metadata
                "office365": {
                   "connectionId": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/connections/office365",
                   "connectionName": "office365",
@@ -219,61 +224,47 @@ The `$connections` attribute contains references to resources that securely stor
                }
             }
          },
-         "definition": {<logic-app-workflow-definition>}
-      }
-   }
-}
-```
-
-Inside your logic app definition, the trigger or action definition references information inside the `$connections` attribute. For example, inside the trigger definition, inside the `connection` attribute, the `name` attribute uses the `parameters()` function to reference the `office365` and `connectionId` attributes inside `$connections`:
-
-```json
-{
-   "definition": {
-      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-      "actions": {<one-or-more-action-definitions>},
-      "contentVersion": "1.0.0.0",
-      "outputs": {},
-      "parameters": {
-         "$connections": {
-            "defaultValue": {},
-            "type": "Object"
+         // Workflow definition
+         "definition": {
+            "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "actions": {<one-or-more-action-definitions>},
+            "contentVersion": "1.0.0.0",
+            "outputs": {},
+            "parameters": {
+               "$connections": {
+                  "defaultValue": {},
+                  "type": "Object"
+               }
+            },
+            "triggers": {
+               // Trigger definition
+               "When_a_new_email_arrives": {
+                   "inputs": {
+                       "host": {
+                          // Reference to connection
+                          "connection": {
+                             "name": "@parameters('$connections')['office365']['connectionId']"
+                          }
+                       },
+                       <...>
+                   },
+                   <...>
+               }
+            }
          }
-      },
-      "triggers": {
-         "When_a_new_email_arrives": {
-             "inputs": {
-                 "host": {
-                     "connection": {
-                         "name": "@parameters('$connections')['office365']['connectionId']"
-                     }
-                 },
-                 "method": "get",
-                 "path": "/Mail/OnNewEmail",
-                 "queries": {
-                     "fetchOnlyWithAttachment": false,
-                     "folderPath": "Inbox",
-                     "importance": "Any",
-                     "includeAttachments": false
-                 }
-             },
-             "recurrence": {
-                 "frequency": "Minute",
-                 "interval": 3
-             },
-             "splitOn": "@triggerBody()?['value']",
-             "type": "ApiConnection"
-           }
       }
    }
 }
 ```
+
+> [!NOTE]
+> Each new instance for a connection creates a resource with a unique name. So, when you have multiple instances for connections to the same service or system, each resource name is appended with a number, which increments with each new instance, for example, `office365`, `office365-1`, and so on. 
 
 <a name="workflow-definition"></a>
 
 ## Logic app workflow definition
 
-Inside the `definition` attribute, your logic app's workflow definition has this high-level structure:
+In the `definition` attribute, your logic app's workflow definition has this high-level structure:
 
 ```json
 "definition": {
