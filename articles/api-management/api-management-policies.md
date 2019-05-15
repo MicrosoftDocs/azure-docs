@@ -78,5 +78,4 @@ For more information working with policies, see:
 
 + [Policies in API Management](api-management-howto-policies.md)
 + [Transform APIs](transform-api.md)
-+ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
 + [Policy samples](policy-samples.md)	

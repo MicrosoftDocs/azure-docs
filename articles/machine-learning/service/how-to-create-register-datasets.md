@@ -30,6 +30,9 @@ To create and register Datasets you need:
 
 * The Azure Machine Learning SDK for Python. To install or update to the latest version of the SDK, see [Install or update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
+> [!Note]
+> Some Dataset classes (preview) have dependencies on the [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) package (GA). For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
+
 ## Create Datasets from local files
 
 Load files from your local machine by specifying the file or folder path with the [`auto_read_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#auto-read-files-path--include-path-false-) method from the `Dataset` class.  This method performs the following steps without requiring you to specify the file type or parsing arguments:

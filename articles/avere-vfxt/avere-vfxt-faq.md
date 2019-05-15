@@ -200,7 +200,7 @@ No, Avere vFXT is meant to be operated in a network environment secured through 
 
 In general, you can configure additional security on your vnet as needed, but some restrictions can interfere with the operation of the cluster.
 
-For example, restricting outbound internet access from your vnet causes problems for the cluster unless you also add rules that explicitly allow access to AzureConnectors and to AzureCloud. This situation is described in [supplemental documentation on GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+For example, restricting outbound internet access from your vnet causes problems for the cluster unless you also add a rule that explicitly allows access to AzureCloud. This situation is described in [supplemental documentation on GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
 
 For help with customized security, contact support as described in [Get help with your system](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
 

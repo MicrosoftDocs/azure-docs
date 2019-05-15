@@ -33,7 +33,7 @@ Getting started with Personalizer involves the following steps:
 
 * You need a [Personalizer service](how-to-settings.md) to get your subscription key and endpoint service url. 
 * [Visual Studio 2015 or 2017](https://visualstudio.microsoft.com/downloads/).
-* The Microsoft.Azure.CognitiveServices.Personalizer SDK NuGet package. Installation instructions are provided below.
+* The [Microsoft.Azure.CognitiveServices.Personalizer](https://go.microsoft.com/fwlink/?linkid=2092272) SDK NuGet package. Installation instructions are provided below.
 
 ## Change the model update frequency
 

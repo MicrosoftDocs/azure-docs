@@ -163,7 +163,7 @@
       - name: Trigger Azure Functions 
         displayName: change feed
         href: change-feed-functions.md
-    - name: Analytics with Apache Spark
+    - name: Built-in analytics with Apache Spark
       href: spark-api-introduction.md
     - name: Server-side programming
       items:
@@ -512,11 +512,15 @@
         href: data-explorer.md
       - name: Manage indexing policies
         href: how-to-manage-indexing-policy.md
+      - name: Define unique keys
+        href: how-to-define-unique-keys.md
       - name: SQL subquery examples
         displayName: subquery, exists
         href: how-to-sql-subquery.md
     - name: Change Feed
       items:
+      - name: Azure Cosmos DB Trigger logs
+        href: how-to-configure-cosmos-db-trigger-logs.md
       - name: Multiple Azure Cosmos DB Triggers
         href: how-to-create-multiple-cosmos-db-triggers.md
       - name: Troubleshoot Azure Cosmos DB Triggers
