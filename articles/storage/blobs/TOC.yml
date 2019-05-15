@@ -451,10 +451,6 @@
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
-    - name: AzCopy on Windows (v8)
-      href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: AzCopy on Linux (v8)
-      href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Resources
     items:
     - name: Azure roadmap

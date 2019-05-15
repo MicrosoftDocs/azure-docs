@@ -185,9 +185,9 @@ This section contains the following examples:
 
 ## Synchronize files
 
-You can synchronize the contents of a source folder to a folder in the destination. 
+You can synchronize the contents of a source folder to a folder in the destination.
 
-The `sync` command compares file names and last modified timestamps. Set the `--delete-destination` optional flag to a value of `true` or `prompt` to delete files in the destination folder if those files no longer exist in the source folder. 
+The `sync` command compares file names and last modified timestamps. Set the `--delete-destination` optional flag to a value of `true` or `prompt` to delete files in the destination folder if those files no longer exist in the source folder.
 
 If you set the `--delete-destination` flag to `true` AzCopy deletes files without providing a prompt. If you want a prompt to appear before AzCopy deletes a file, set the `--delete-destination` flag to `prompt`.
 
@@ -202,7 +202,6 @@ If you set the `--delete-destination` flag to `true` AzCopy deletes files withou
 | **Example** | `azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true` |
 | **Example** (hierarchical namespace) | `azcopy sync "C:\myFolder" "https://<storage-account-name>.dfs.core.windows.net/mycontainer" --recursive=true` |
 
-
 ### Synchronize a container with a local file system
 
 |    |     |
@@ -216,6 +215,8 @@ If you set the `--delete-destination` flag to `true` AzCopy deletes files withou
 See these articles:
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
+
+- [Tutorial: Migrate on-premises data to cloud storage by using AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 
 - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 
