@@ -1,6 +1,6 @@
 ---
-title: Known issues for HB-series VM sizes in Azure | Microsoft Docs
-description: Learn about known issues with HB-series VM sizes in Azure. 
+title: Known issues for HB-series VMs | Microsoft Docs
+description: Learn about known issues with HB and HC-series VMs in Azure. 
 services: virtual-machines
 documentationcenter: ''
 author: githubname
@@ -17,11 +17,7 @@ ms.author: msalias
 
 # Known issues with HB and HC-series VM sizes
 
-<Intro>
-
-## Platform MPI
-
-Platform MPI may not automatically know which PKEY to use for InfiniBand. See Slide 8, Step 1 to discover the necessary PKEY.
+Some known issues with the SR-IOV enabled HB and HC-series VMs are described here.
 
 ## DRAM on HB-series
 
@@ -89,4 +85,4 @@ You can ignore this warning. This is due to a known limitation of the Azure hype
 
 ## Next steps
 
-Learn more about [high-performance computing](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
+Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
