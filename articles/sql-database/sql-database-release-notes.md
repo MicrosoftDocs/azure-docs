@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: sstein
 ---
 # SQL Database release notes
@@ -47,9 +47,16 @@ This article lists the new features and improvements in the SQL Database service
 
 | Service improvements | Details |
 | --- | --- |
-|Hyperscale service tier| For more information, see [Hyperscale service tier for up to 100 TB](sql-database-service-tier-hyperscale.md).|
-|Serverless compute tier| For more information, see [SQL Database serverless (preview)](sql-database-serverless.md).|
+|Hyperscale service tier goes GA| For more information, see [Hyperscale service tier for up to 100 TB](sql-database-service-tier-hyperscale.md).|
+|Serverless compute tier released for public preview | For more information, see [SQL Database serverless (preview)](sql-database-serverless.md).|
+| Transaction log rates and target IOPS increased for databases using the vCore-based purchasing model| For more information, see [Resource limits for single databases using the vCore-based purchasing model](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) and [Resource limits for single databases using the DTU-based purchasing model](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases).
 
+### Documentation improvements
+
+| Documentation improvements | Details |
+| --- | --- |
+| Hyperscale service tier docs updated for GA release| For more information, see [Hyperscale service tier for up to 100 TB](sql-database-service-tier-hyperscale.md).|
+|Serverless compute tier docs released with public preview| For more information, see [SQL Database serverless (preview)](sql-database-serverless.md).|
 
 ## April 2019
 
