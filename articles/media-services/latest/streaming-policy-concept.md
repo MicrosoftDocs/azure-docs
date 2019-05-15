@@ -11,17 +11,26 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 05/15/2019
 ms.author: juliako
 ---
 
 # Streaming Policies
 
-In Azure Media Services v3, [Streaming Policies](https://docs.microsoft.com/rest/api/media/streamingpolicies) enable you to define streaming protocols and encryption options for your [Streaming Locators](streaming-locators-concept.md). You can either use one of the predefined Streaming Policies or created a custom policy. The predefined Streaming Policies currently available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'.
+In Azure Media Services v3, [Streaming Policies](https://docs.microsoft.com/rest/api/media/streamingpolicies) enable you to define streaming protocols and encryption options for your [Streaming Locators](streaming-locators-concept.md). Media Services v3 provides some predefined Streaming Policies so that you can use them directly for trial or production. The predefined Streaming Policies that are currently available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'.
+
+If you have special requirements (for example, need to use a custom key delivery service or need to use a clear audio track), you can create a custom Streaming Policy.  
 
 > [!IMPORTANT]
 > * Properties of **Streaming Policies** that are of the Datetime type are always in UTC format.
 > * You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. 
+
+## Decision tree
+
+The following decision tree will help you choose a predefined Streaming Policy for your scenario.
+
+Click the image to view it full size.  <br/>
+<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/small.png"></a> 
 
 ## Examples
 
