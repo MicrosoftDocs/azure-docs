@@ -1,11 +1,11 @@
-﻿---
+---
 title: Overview of Cloudyn in Azure | Microsoft Docs
 description: Cloudyn is a multi-cloud cost management solution that helps you use Azure and other cloud resources.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/14/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
@@ -19,6 +19,10 @@ Cloudyn, a Microsoft subsidiary, allows you to track cloud usage and expenditure
 To watch an introductory video, see [Introduction to Azure Cloudyn](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
 
 Azure Cost Management offers similar functionality to Cloudyn. Azure Cost Management is a native Azure cost management solution. It helps you analyze costs, create and manage budgets, export data, and review and act on optimization recommendations to save money. For more information, see [Azure Cost Management](overview-cost-mgt.md).
+
+Watch the [Azure Cost Management and Cloudyn video](https://www.youtube.com/watch?v=PmwFWwSluh8) to see recommendations when you should use either Azure Cost Management or Cloudyn, based on your business needs.
+
+>[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
 
 ## Cloudyn features moving to Azure Cost Management
 
