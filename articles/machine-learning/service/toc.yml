@@ -61,20 +61,20 @@
   - name: Visual interface experiments
     items:
     - name: "Predict price"
-      displayName: Sample 1, training, regression
+      displayName: Basic Sample, training, regression, sample 1
       href:  ui-sample-regression-predict-automobile-price-basic.md
     - name: "Predict price (advanced)"
-      displayName: Sample 2, training, regression
+      displayName: Advanced Sample, training, regression, sample 2
       href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
     - name: "Predict credit risk"
-      displayName: Sample 3, training, classification
-      href: ui-sample-classification-predict-credit-risk-basic.md
+      displayName: Basic Sample, training, classification, sample 3
+      href:  ui-sample-classification-predict-credit-risk-basic.md
     - name: "Predict credit risk (advanced)"
-      displayName: Sample 4, training, classification
+      displayName: Advanced Sample, training, classification, sample 4
       href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
     - name: "Predict churn"
-      displayName: Sample 5, training, CRM, classification
-      href: ui-sample-classification-predict-churn.md
+      displayName: Basic Sample, training, classification, sample 5
+      href:  ui-sample-classification-predict-churn.md
 - name: Concepts
   items:
   - name: How the service works
@@ -232,7 +232,7 @@
       href: how-to-create-your-first-pipeline.md  
     - name: 'CI/CD of ML workflows with Azure Pipelines'
       displayName: continuous, integration, delivery
-      href: /azure/devops/pipelines/targets/azure-machine-learning?view=azure-devop
+      href: /azure/devops/pipelines/targets/azure-machine-learning
       mainContext: true
   - name: Manage resource quotas
     displayName: limits
