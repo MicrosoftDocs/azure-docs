@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure end-to-end SSL with Azure Application Gateway
 description: This article describes how to configure end-to-end SSL with Azure Application Gateway by using PowerShell
 services: application-gateway
@@ -225,38 +225,10 @@ Using all the preceding steps, create the application gateway. The creation of t
 ```powershell
 $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
-## Use this procedure to apply a new certificate if the backend certificate it is expired
-These step will help in case the Backend certificate it is expired and you need to apply a new certificate
 
-1. Retrieve the application gateway to update.
+## Apply a new certificate if the back-end certificate is expired
 
-   ```powershell
-   $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
-   ```
-2. Add the new certificate resource from the .cer file which contains the public key of the certificate and can also be the same certificate added to the listener for SSL termination at the application gateway
-
-   ```powershell
-   Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
-   ```
-3. Get the new created Authentication Certificate object into a variable (TypeName: Microsoft.Azure.Commands.Network.Models.PSApplicationGatewayAuthenticationCertificate)
-
-   ```powershell
-   $AuthCert = Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name NewCert
-   ```
- 
- 4. Assign the new created certificate into the BackendHttp Setting referring this with the $AuthCert variable (specify the HTTP setting name you want to change)
-   ```powershell
-   $out= Set-AzApplicationGatewayBackendHttpSetting -ApplicationGateway $gw -Name "HTTP1" -Port 443 -Protocol "Https" -CookieBasedAffinity Disabled -AuthenticationCertificates $Authcert
-   ```
- 5. Commit the Change into the Application Gateway passing the new configuration contained into the $out variable
- 
-   ```powershell
-   Set-AzApplicationGateway -ApplicationGateway $gw  
-   ```
-
-## Use this procedure to remove an unused expired certificate from HTTP Settings
-
-This procedure can be used to remove unused expired certificated from HTTP Settings using powershell
+Use this procedure to apply a new certificate if the back-end certificate is expired.
 
 1. Retrieve the application gateway to update.
 
@@ -264,18 +236,53 @@ This procedure can be used to remove unused expired certificated from HTTP Setti
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
    
-2. List the name of Authentication Certificate you want to remove
+2. Add the new certificate resource from the .cer file, which contains the public key of the certificate and can also be the same certificate added to the listener for SSL termination at the application gateway.
+
+   ```powershell
+   Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
+   ```
+    
+3. Get the new authentication certificate object into a variable (TypeName: Microsoft.Azure.Commands.Network.Models.PSApplicationGatewayAuthenticationCertificate).
+
+   ```powershell
+   $AuthCert = Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name NewCert
+   ```
+ 
+ 4. Assign the new certificate into the **BackendHttp** Setting and refer it with the $AuthCert variable. (Specify the HTTP setting name that you want to change.)
+ 
+   ```powershell
+   $out= Set-AzApplicationGatewayBackendHttpSetting -ApplicationGateway $gw -Name "HTTP1" -Port 443 -Protocol "Https" -CookieBasedAffinity Disabled -AuthenticationCertificates $Authcert
+   ```
+    
+ 5. Commit the change into the application gateway and pass the new configuration contained into the $out variable.
+ 
+   ```powershell
+   Set-AzApplicationGateway -ApplicationGateway $gw  
+   ```
+
+## Remove an unused expired certificate from HTTP Settings
+
+Use this procedure to remove an unused expired certificate from HTTP Settings.
+
+1. Retrieve the application gateway to update.
+
+   ```powershell
+   $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
+   ```
+   
+2. List the name of the authentication certificate that you want to remove.
 
    ```powershell
    Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw | select name
    ```
-3. Removes the authentication certificate from an application gateway
+    
+3. Remove the authentication certificate from an application gateway.
 
    ```powershell
    $gw=Remove-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name ExpiredCert
    ```
  
- 4. Commit the change
+ 4. Commit the change.
  
    ```powershell
    Set-AzApplicationGateway -ApplicationGateway $gw
