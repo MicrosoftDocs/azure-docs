@@ -475,9 +475,9 @@
         href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: NuGet packages
       items:
-      - name: Azure Storage client library for .NET
-        href: https://www.nuget.org/packages/Microsoft.Azure.Storage/
-      - name: Azure Blob storage client library for .NET
+      - name: Azure Storage common client library
+        href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/
+      - name: Azure Blob storage client library
         href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/
       - name: Azure Storage Data Movement Library
         href: https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/
@@ -487,11 +487,11 @@
       items:
       - name: .NET
         items:
-        - name: Blobs, Queues, Tables, and Files
-          href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/client
-        - name: Data movement
+        - name: Blobs, Queues, and Files
+          href: https://github.com/Azure/azure-storage-net
+        - name: Data Movement
           href: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement
-        - name: Resource Manager
+        - name: Storage Resource Provider
           href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management
       - name: Java
         items:

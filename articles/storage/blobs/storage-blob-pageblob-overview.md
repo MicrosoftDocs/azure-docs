@@ -45,13 +45,14 @@ The following diagram describes the overall relationships between account, conta
 To create a page blob, we first create a **CloudBlobClient** object, with the base URI for accessing the blob storage for your storage account (*pbaccount* in figure 1) along with the **StorageCredentialsAccountAndKey** object, as shown in the following example. The example then shows creating a reference to a **CloudBlobContainer** object, and then creating the container (*testvhds*) if it doesn't already exist. Then using the **CloudBlobContainer** object, create a reference to a **CloudPageBlob** object by specifying the page blob name (os4.vhd) to access. To create the page blob, call [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), passing in the max size for the blob to create. The *blobSize* must be a multiple of 512 bytes.
 
 ```csharp
+using Microsoft.Azure;
 using Microsoft.Azure.Storage;
 using Microsoft.Azure.Storage.Blob;
 
 long OneGigabyteAsBytes = 1024 * 1024 * 1024;
 // Retrieve storage account from connection string.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
 // Create the blob client.
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -71,7 +72,7 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 To resize a page blob after creation, use the [Resize](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize?view=azure-dotnet) method. The requested size should be a multiple of 512 bytes.
 
 ```csharp
-pageBlob.Resize(32 * OneGigabyteAsBytes); 
+pageBlob.Resize(32 * OneGigabyteAsBytes);
 ```
 
 #### Writing pages to a page blob
@@ -100,25 +101,27 @@ byte[] buffer = new byte[rangeSize];
 pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, pageBlobOffset, rangeSize); 
 ```
 
-The following figure shows a Read operation with BlobOffSet of 256 and rangeSize of 4352. Data returned is highlighted in Orange. Zeros are returned for NUL pages
+The following figure shows a Read operation with an offset of 256 and a range size of 4352. Data returned is highlighted in orange. Zeros are returned for NUL pages.
 
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
 If you have a sparsely populated blob, you may want to just download the valid page regions to avoid paying for egressing of zero bytes and to reduce download latency.  To determine which pages are backed by data, use [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges?view=azure-dotnet). You can then enumerate the returned ranges and download the data in each range. 
+
 ```csharp
 IEnumerable<PageRange> pageRanges = pageBlob.GetPageRanges();
 
 foreach (PageRange range in pageRanges)
 {
-    // Calculate the rangeSize
+    // Calculate the range size
     int rangeSize = (int)(range.EndOffset + 1 - range.StartOffset);
 
     byte[] buffer = new byte[rangeSize];
 
-    // Read from the correct starting offset in the page blob and place the data in the bufferOffset of the buffer byte array
+    // Read from the correct starting offset in the page blob and
+    // place the data in the bufferOffset of the buffer byte array
     pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, range.StartOffset, rangeSize); 
 
-    // TODO: use the buffer for the page range just read
+    // Then use the buffer for the page range just read
 }
 ```
 
@@ -126,7 +129,7 @@ foreach (PageRange range in pageRanges)
 
 The Lease Blob operation establishes and manages a lock on a blob for write and delete operations. This operation is useful in scenarios where a page blob is being accessed from multiple clients to ensure only one client can write to the blob at a time. Azure Disks, for example,  leverages this leasing mechanism to ensure the disk is only managed by a single VM. The lock duration can be 15 to 60 seconds, or can be infinite. See the documentation [here](/rest/api/storageservices/lease-blob) for more details.
 
-In addition to rich REST APIs, Page blobs also provide shared access, durability, and enhanced security. We will cover those benefits in more detail in the next paragraphs. 
+In addition to rich REST APIs, page blobs also provide shared access, durability, and enhanced security. We will cover those benefits in more detail in the next paragraphs. 
 
 ### Concurrent access
 
@@ -136,9 +139,9 @@ An alternative option is to use the page blobs directly via Azure Storage REST A
 
 ### Durability and high availability
 
-Both Standard and premium storage are durable storage where the page blob data is always replicated to ensure durability and high availability. For more information about Azure Storage Redundancy, see this [documentation](../common/storage-redundancy.md). Azure has consistently delivered enterprise-grade durability for IaaS disks and page blobs, with an industry-leading ZERO % [Annualized Failure Rate](https://en.wikipedia.org/wiki/Annualized_failure_rate). That is, Azure has never lost a customer's page blob data. 
+Both Standard and premium storage are durable storage where the page blob data is always replicated to ensure durability and high availability. For more information about Azure Storage Redundancy, see this [documentation](../common/storage-redundancy.md). Azure has consistently delivered enterprise-grade durability for IaaS disks and page blobs, with an industry-leading zero percent [Annualized Failure Rate](https://en.wikipedia.org/wiki/Annualized_failure_rate).
 
-### Seamless migration to azure
+### Seamless migration to Azure
 
 For the customers and developers who are interested in implementing their own customized backup solution, Azure also offers incremental snapshots that only hold the deltas. This feature avoids the cost of the initial full copy, which greatly lowers the backup cost. Along with the ability to efficiently read and copy differential data, this is another powerful capability that enables even more innovations from developers, leading to a best-in-class backup and disaster recovery (DR) experience on Azure. You can set up your own backup or DR solution for your VMs on Azure using [Blob Snapshot](/rest/api/storageservices/snapshot-blob) along with the [Get Page Ranges](/rest/api/storageservices/get-page-ranges) API and the [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob) API, which you can use for easily copying the incremental data for DR. 
 
