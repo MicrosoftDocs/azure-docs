@@ -119,7 +119,7 @@ If the output shows `MDS mitigation is enabled: False`, please [contact Azure Su
 <a name="linux"></a>Enabling the set of additional security features inside requires that the target operating system be fully up-to-date. Some mitigations will be enabled by default. The following section describes the features which are off by default and/or reliant on hardware support (microcode). Enabling these features may cause a performance impact. Reference your operating system provider’s documentation for further instructions
 
 
-**Step 1: Disable hyperthreading on the VM** - Customers running untrusted code on a hyperthreaded VM will need to disable hyperthreading or move to a non-hyperthreaded VM.  To check if you are running a hyperthreaded VM, run the `lspcu` command in the Linux VM. 
+**Step 1: Disable hyperthreading on the VM** - Customers running untrusted code on a hyperthreaded VM will need to disable hyperthreading or move to a non-hyperthreaded VM.  To check if you are running a hyperthreaded VM, run the `lscpu` command in the Linux VM. 
 
 If `Thread(s) per core = 2`, then hyperthreading has been enabled. 
 
