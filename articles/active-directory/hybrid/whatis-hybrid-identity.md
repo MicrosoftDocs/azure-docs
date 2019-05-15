@@ -55,7 +55,9 @@ Here are some common hybrid identity and access management scenarios with recomm
 > <sup>4</sup> AD FS can be integrated with your enterprise PKI to allow sign-in using certificates. These certificates can be soft-certificates deployed via trusted provisioning channels such as MDM or GPO or smartcard certificates (including PIV/CAC cards) or Hello for Business (cert-trust). For more information about smartcard authentication support, see [this blog](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/). 
 > 
 
-[!INCLUDE [active-directory-p2-license.md](../../../includes/active-directory-p2-license.md)]
+## License requirements for using Azure AD Connect
+Azure AD Connect is free but it requires an Azure AD tenant to synchronize with.  
+[!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
 ## Next Steps 
 
