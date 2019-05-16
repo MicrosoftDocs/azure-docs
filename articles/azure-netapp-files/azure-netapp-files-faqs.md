@@ -39,7 +39,7 @@ See [Guidelines for Azure NetApp Files network planning](https://docs.microsoft.
 Yes, you can, if you create the required DNS entries. Azure NetApp Files supplies the service IP for the provisioned volume. 
 
 > [!NOTE] 
-> Azure NetApp Files can deploy additional IPs for the service as needed.  DNS entries may need to be updated periodically. ]
+> Azure NetApp Files can deploy additional IPs for the service as needed.  DNS entries may need to be updated periodically.
 
 ## Security FAQs
 
@@ -90,7 +90,7 @@ Changing the service level of a volume is not currently supported.
 
 ### How do I monitor Azure NetApp Files performance?
 
-Azure NetApp Files provides volume performance metrics. You can also use Azure Monitor for monitoring usage metrics for Azure NetApp Files.  See Metrics for Azure NetApp Files for the list of performance metrics for Azure NetApp Files.
+Azure NetApp Files provides volume performance metrics. You can also use Azure Monitor for monitoring usage metrics for Azure NetApp Files.  See [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md) for the list of performance metrics for Azure NetApp Files.
 
 ## NFS FAQs
 
@@ -128,7 +128,7 @@ No, it’s not currently supported.  Azure NetApp Files support Active Directory
 
 ### Is an Active Directory connection required for SMB access? 
 
-Yes, you must create an Active Directory connection before deploying an SMB volume. The specified Domain Controllers must be accessible by the delegated subnet of Azure NetApp Files for a successful connection.  See Create an SMB volume for details. 
+Yes, you must create an Active Directory connection before deploying an SMB volume. The specified Domain Controllers must be accessible by the delegated subnet of Azure NetApp Files for a successful connection.  See [Create an SMB volume](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes#create-an-smb-volume) for details. 
 
 ### How many Active Directory connections are supported?
 
@@ -142,7 +142,7 @@ Azure NetApp Files supports Windows Server 2008r2SP1-2016 version of Active Dire
 
 ### How do I monitor usage for capacity pool and volume of Azure NetApp Files? 
 
-Azure NetApp Files provides capacity pool and volume usage metrics. You can also use Azure Monitor to monitor usage for Azure NetApp Files. See Metrics for Azure NetApp Files for details. 
+Azure NetApp Files provides capacity pool and volume usage metrics. You can also use Azure Monitor to monitor usage for Azure NetApp Files. See [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md) for details. 
 
 ### Can I manage Azure NetApp Files through Azure Storage Explorer?
 
@@ -180,11 +180,11 @@ The requirements for replicating an Azure NetApp Files volume to another Azure r
 
 ### Is migration with Azure Data Box supported?
 
-Azure Data Box does not support Azure NetApp Files currently. 
+No. Azure Data Box does not support Azure NetApp Files currently. 
 
 ### Is migration with Azure Import/Export service supported?
 
-Azure Import/Export service does not support Azure NetApp Files currently.
+No. Azure Import/Export service does not support Azure NetApp Files currently.
 
 ## Next steps  
 
