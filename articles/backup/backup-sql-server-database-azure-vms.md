@@ -43,11 +43,11 @@ Before you back up a SQL Server database, check the following criteria:
 
 For all operations, a SQL Server VM requires connectivity to Azure public IP addresses. VM operations (database discovery, configure backups, schedule backups, restore recovery points, and so on) fail without connectivity to Azure public IP addresses.
 
-Establish connectivity by using either of the following options:
+Establish connectivity by using one of the following options:
 
 - **Allow the Azure datacenter IP ranges**. This option allows [IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) in the download. To access a network security group (NSG), use the Set-AzureNetworkSecurityRule cmdlet. If you're whitelisting only region-specific IPs, you'll also need to whitelist the Azure Active Directory (AD) service tag to enable authentication.
 
-- **Allow access using NSG tags**. If you're using NSGs to restrict connectivity, this option adds a rule to your NSG that allows outbound access to Azure Backup by using the AzureBackup tag. In addition to this tag, you'll also need  corresponding [rules](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags) for Azure AD and Azure Storage to allow connectivity for authentication and data transfer. The AzureBackup tag is currently available on PowerShell only. Refer to the following snippet for direction about creating a rule by using the AzureBackup tag:
+- **Allow access using NSG tags**. If you use NSGs to restrict connectivity, this option adds a rule to your NSG that allows outbound access to Azure Backup by using the AzureBackup tag. In addition to this tag, you'll also need corresponding [rules](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags) for Azure AD and Azure Storage to allow connectivity for authentication and data transfer. The AzureBackup tag is currently available on PowerShell only. To create a rule by using the AzureBackup tag:
 
     - Add Azure account credentials and update the national clouds<br/>
     `Add-AzureRmAccount`
@@ -66,20 +66,22 @@ Establish connectivity by using either of the following options:
 - **Allow access by using Azure Firewall tags**. If you're using Azure Firewall, create an application rule by using the AzureBackup [FQDN tag](https://docs.microsoft.com/en-us/azure/firewall/fqdn-tags). This allows outbound access to Azure Backup.
 - **Deploy an HTTP proxy server to route traffic**. When you back up a SQL Server database on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Azure AD for authentication. Route the backup extension traffic for these three services through the HTTP proxy. The extensions are the only component that's configured for access to the public internet.
 
-Both connectivity options include the following advantages and disadvantages:
+Connectivity options include the following advantages and disadvantages:
 
 **Option** | **Advantages** | **Disadvantages**
 --- | --- | ---
 Allow IP ranges | No additional costs | Complex to manage because the IP address ranges change over time <br/><br/> Provides access to the whole of Azure, not just Azure Storage
-Use an HTTP proxy   | Granular control in the proxy over the storage URLs is allowed <br/><br/> Single point of internet access to VMs <br/><br/> Not subject to Azure IP address changes | Additional costs to run a VM with the proxy software
+Use NSG service tags | Easier to manage as range changes are automatically merged <br/><br/> No additional costs <br/><br/> | Can be used with NSGs only <br/><br/> Provides access to the entire service
+Use Azure Firewall FQDN tags | Easier to manage as the required FQDNs are automatically managed | Can be used with Azure Firewall only
+Use an HTTP proxy | Granular control in the proxy over the storage URLs is allowed <br/><br/> Single point of internet access to VMs <br/><br/> Not subject to Azure IP address changes | Additional costs to run a VM with the proxy software
 
 ### Set VM permissions
 
 When you configure a backup for a SQL Server database, Azure Backup does the following:
 
-- It adds the AzureBackupWindowsWorkload extension.
-- It creates an NT SERVICE\AzureWLBackupPluginSvc account to discover databases on the virtual machine. This account is used for a backup and restore and requires SQL sysadmin permissions.
-- To discover databases that are running on a VM, Azure Backup uses the NT AUTHORITY\SYSTEM account. This account must be a public sign-in on SQL.
+- Adds the AzureBackupWindowsWorkload extension.
+- Creates an NT SERVICE\AzureWLBackupPluginSvc account to discover databases on the virtual machine. This account is used for a backup and restore and requires SQL sysadmin permissions.
+- Discovers databases that are running on a VM, Azure Backup uses the NT AUTHORITY\SYSTEM account. This account must be a public sign-in on SQL.
 
 If you didn't create the SQL Server VM in the Azure Marketplace, you might receive a UserErrorSQLNoSysadminMembership error. For more information, see the Feature consideration and limitations section found in [About SQL Server Backup in Azure VMs](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
