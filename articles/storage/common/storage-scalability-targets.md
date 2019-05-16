@@ -38,6 +38,10 @@ When your application reaches the limit of what a partition can handle for your 
 
 For more information on the scale and performance targets for Azure Files and Azure File Sync, see [Azure Files scalability and performance targets](../files/storage-files-scale-targets.md).
 
+> [!NOTE]
+> Standard file shares larger than 5 TiB are in preview and have certain limitations.
+> For a list of limitations, see [Planning for an Azure Files deployment](../files/storage-files-planning.md).
+
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
 ### Premium files scale targets
