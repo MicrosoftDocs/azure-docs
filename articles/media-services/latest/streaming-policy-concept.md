@@ -17,7 +17,9 @@ ms.author: juliako
 
 # Streaming Policies
 
-In Azure Media Services v3, [Streaming Policies](https://docs.microsoft.com/rest/api/media/streamingpolicies) enable you to define streaming protocols and encryption options for your [Streaming Locators](streaming-locators-concept.md). Media Services v3 provides some predefined Streaming Policies so that you can use them directly for trial or production. The predefined Streaming Policies that are currently available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'.
+In Azure Media Services v3, [Streaming Policies](https://docs.microsoft.com/rest/api/media/streamingpolicies) enable you to define streaming protocols and encryption options for your [Streaming Locators](streaming-locators-concept.md). Media Services v3 provides some predefined Streaming Policies so that you can use them directly for trial or production. 
+
+The currently available predefined Streaming Policies:<br/>'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'.
 
 If you have special requirements (for example, need to use a custom key delivery service or need to use a clear audio track), you can create a custom Streaming Policy.  
 
@@ -36,7 +38,7 @@ Click the image to view it full size.  <br/>
 
 ### Not encrypted
 
-If you want to stream your file in-the-clear (non-encrypted), set the predefined clear streaming policy: to 'Predefined_ClearStreamingOnly' (in .NET, you can use PredefinedStreamingPolicy.ClearStreamingOnly).
+If you want to stream your file in-the-clear (non-encrypted), set the predefined clear streaming policy: to 'Predefined_ClearStreamingOnly' (in .NET, you can use the PredefinedStreamingPolicy.ClearStreamingOnly enum).
 
 ```csharp
 StreamingLocator locator = await client.StreamingLocators.CreateAsync(
