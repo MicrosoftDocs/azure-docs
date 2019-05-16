@@ -3,7 +3,7 @@ title: Integrate Azure Functions with an Azure virtual network
 description: A step-by-step tutorial that shows you how to connect a function to an Azure virtual network
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
@@ -79,7 +79,7 @@ Next, create a preconfigured VM that runs WordPress inside a virtual network ([W
     | **Name** | myResourceGroup-vnet | You can use the default name generated for your virtual network. |
     | **Address range** | 10.10.0.0/16 | Use a single address range for the virtual network. |
     | **Subnet name** | Tutorial-Net | Name of the subnet. |
-    | **Address range** | 10.10.1.0/24   | The subnet size determines how many VMs can be used by the App Service plan. A `/24` subnet, which provides 254 host addresses, is used to make it easier to calculate which subnets are available in the 10.10.0.0/16 network.  |
+    | **Address range** (subnet) | 10.10.1.0/24   | The subnet size defines how many interfaces can be added to the subnet. This subnet is used by the WordPress site.  A `/24` subnet provides 254 host addresses. |
 
 1. Select **OK** to create the virtual network.
 
@@ -120,10 +120,10 @@ With a WordPress site running in a VM in a virtual network, you can now connect 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Virtual Network** | MyResourceGroup-vnet | This virtual network is the one you created earlier. |
-    | **Subnet** | Create New Subnet | Create a subnet in the virtual network for your function app to use. It doesn't matter that your function uses a different subnet than your VM. The virtual network automatically routes traffic between the two subnets. |
+    | **Subnet** | Create New Subnet | Create a subnet in the virtual network for your function app to use. VNet Integration must be configured to use an empty subnet. It doesn't matter that your functions use a different subnet than your VM. The virtual network automatically routes traffic between the two subnets. |
     | **Subnet name** | Function-Net | Name of the new subnet. |
-    | **Virtual network address block** | 10.10.0.0/16 | This address block is the default; there is only one defined. | 
-    | **Address range** | 10.10.2.0/24   | The subnet size restricts the total number of VMs that you can add to your App Service plan. |
+    | **Virtual network address block** | 10.10.0.0/16 | Choose the same address block used by the WordPress site. You should only have one address block defined. |
+    | **Address range** | 10.10.2.0/24   | The subnet size restricts the total number of instances that your Premium plan function app can scale out to. This example uses a `/24` subnet with 254 available host addresses. This subnet is over-provisioned, but easy to calculate. |
 
 1. Select **OK** to add the subnet. Close the VNet Integration and Network Feature Status pages to return to your function app page.
 
