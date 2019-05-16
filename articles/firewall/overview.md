@@ -12,7 +12,7 @@ Customer intent: As an administrator, I want to evaluate Azure Firewall so I can
 ---
 # What is Azure Firewall?
 
-Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It is a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. 
+Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. 
 
 ![Firewall overview](media/overview/firewall-threat.png)
 
@@ -26,9 +26,15 @@ Azure Firewall offers the following features:
 
 High availability is built in, so no additional load balancers are required and there's nothing you need to configure.
 
-### Zone redundancy
+### Availability Zones
 
-Azure Firewall can span multiple Availability Zones, removing the need to provision separate firewall instances in each zone with a Traffic Manager. Choose multiple zones for high availability, or choose a single zone for zone-specific deployments.
+Azure Firewall can be configured during deployment to span multiple Availability Zones for increased availability. With Availability Zones, your availability increases to 99.99% uptime. For more information, see the Azure Firewall [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/).
+
+There's no additional cost for Azure Firewall deployed in an Availability Zone. The 99.99% uptime SLA is offered when two or more Availability Zones are selected.
+
+You can also associate Azure Firewall to a specific zone just for proximity reasons, using the service standard 99.95% SLA. In this case, there will be additional inbound/outbound data transfer charges. For more information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
+
+For more information about Availability Zones, see [What are Availability Zones in Azure?](../availability-zones/az-overview.md)
 
 ### Unrestricted cloud scalability
 
