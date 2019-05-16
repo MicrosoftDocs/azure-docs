@@ -366,19 +366,22 @@ To provision to Active Directory on-premises, an agent must be installed on a se
 
 Once you have deployed .NET 4.7.1+, you can download the **[on-premises provisioning agent here](https://go.microsoft.com/fwlink/?linkid=847801)** and follow the steps given below to complete the agent configuration.
 
-1. Log in to the Windows Server where you want to install the new agent.
-2. Launch the Provisioning Agent installer, agree to the terms and click on the **Install** button.
+1. Sign in to the Windows Server where you want to install the new agent.
+
+1. Launch the Provisioning Agent installer, agree to the terms and click on the **Install** button.
 
    ![Install Screen](./media/workday-inbound-tutorial/pa_install_screen_1.png "Install Screen")
-3. After installation is complete, the wizard will launch and you will see the **Connect Azure AD** screen. Click on the **Authenticate** button to connect to your Azure AD instance.
+   
+1. After installation is complete, the wizard will launch and you will see the **Connect Azure AD** screen. Click on the **Authenticate** button to connect to your Azure AD instance.
 
    ![Connect Azure AD](./media/workday-inbound-tutorial/pa_install_screen_2.png "Connect Azure AD")
+   
 1. Authenticate to your Azure AD instance using Global Admin Credentials.
 
    ![Admin Auth](./media/workday-inbound-tutorial/pa_install_screen_3.png "Admin Auth")
 
-> [!NOTE]
-> The Azure AD admin credentials is used only to connect to your Azure AD tenant. The agent does not store the credentials locally on the server.
+   > [!NOTE]
+   > The Azure AD admin credentials is used only to connect to your Azure AD tenant. The agent does not store the credentials locally on the server.
 
 1. After successful authentication with Azure AD, you will see the **Connect Active Directory** screen. In this step, enter your AD domain name and click on the **Add Directory** button.
 
@@ -387,21 +390,27 @@ Once you have deployed .NET 4.7.1+, you can download the **[on-premises provisio
 1. You will now be prompted to enter the credentials required to connect to the AD Domain. On the same screen, you can use the **Select domain controller priority** to specify domain controllers that the agent should use for sending provisioning requests.
 
    ![Domain Credentials](./media/workday-inbound-tutorial/pa_install_screen_5.png)
+   
 1. After configuring the domain, the installer displays a list of configured domains. On this screen, you can repeat step #5 and #6 to add more domains or click on **Next** to proceed to agent registration.
 
    ![Configured Domains](./media/workday-inbound-tutorial/pa_install_screen_6.png "Configured Domains")
 
    > [!NOTE]
-   > If you have multiple AD domains (e.g. na.contoso.com, emea.contoso.com), then please add each domain individually to the list. Only adding the parent domain (e.g. contoso.com) is not sufficient. You must register each child domain with the agent.
+   > If you have multiple AD domains (e.g. na.contoso.com, emea.contoso.com), then please add each domain individually to the list.
+   > Only adding the parent domain (e.g. contoso.com) is not sufficient. You must register each child domain with the agent.
+   
 1. Review the configuration details and click on **Confirm** to register the agent.
   
    ![Confirm Screen](./media/workday-inbound-tutorial/pa_install_screen_7.png "Confirm Screen")
+   
 1. The configuration wizard displays the progress of the agent registration.
   
    ![Agent Registration](./media/workday-inbound-tutorial/pa_install_screen_8.png "Agent Registration")
+   
 1. Once the agent registration is successful, you can click on **Exit** to exit the Wizard.
   
    ![Exit Screen](./media/workday-inbound-tutorial/pa_install_screen_9.png "Exit Screen")
+   
 1. Verify the installation of the Agent and make sure it is running by opening the “Services” Snap-In and look for the Service named “Microsoft Azure AD Connect Provisioning Agent”
   
    ![Services](./media/workday-inbound-tutorial/services.png)
@@ -437,13 +446,14 @@ Once you have deployed .NET 4.7.1+, you can download the **[on-premises provisio
 
    * **Active Directory Container -** Enter the container DN where the agent should create user accounts by default.
         Example: *OU=Standard Users,OU=Users,DC=contoso,DC=test*
+        
      > [!NOTE]
      > This setting only comes into play for user account creations if the *parentDistinguishedName* attribute is not configured in the attribute mappings. This setting is not used for user search or update operations. The entire domain sub tree falls in the scope of the search operation.
 
    * **Notification Email –** Enter your email address, and check the “send email if failure occurs” checkbox.
 
-> [!NOTE]
-> The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
+     > [!NOTE]
+     > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
 
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at  the top. If it fails, double-check that the Workday credentials and the AD credentials configured on the agent setup are valid.
 
@@ -457,7 +467,7 @@ In this section, you will configure how user data flows from Workday to Active D
 
 1. On the Provisioning tab under **Mappings**, click **Synchronize Workday Workers to On Premises Active Directory**.
 
-2. In the **Source Object Scope** field, you can select which sets of  users in Workday should be in scope for provisioning to AD, by defining a set of attribute-based filters. The default scope is “all users in Workday”. Example filters:
+1. In the **Source Object Scope** field, you can select which sets of  users in Workday should be in scope for provisioning to AD, by defining a set of attribute-based filters. The default scope is “all users in Workday”. Example filters:
 
    * Example: Scope to users with Worker IDs between 1000000 and
         2000000
@@ -474,8 +484,8 @@ In this section, you will configure how user data flows from Workday to Active D
 
       * Operator: IS NOT NULL
 
-> [!TIP]
-> When you are configuring the provisioning app for the first time, you will need to test and verify your attribute mappings and expressions to make sure that it is giving you the desired result. Microsoft recommends using the scoping filters under **Source Object Scope** to test your mappings with a few test users from Workday. Once you have verified that the mappings work, then you can either remove the filter or gradually expand it to include more users.
+   > [!TIP]
+   > When you are configuring the provisioning app for the first time, you will need to test and verify your attribute mappings and expressions to make sure that it is giving you the desired result. Microsoft recommends using the scoping filters under **Source Object Scope** to test your mappings with a few test users from Workday. Once you have verified that the mappings work, then you can either remove the filter or gradually expand it to include more users.
 
 1. In the **Target Object Actions** field, you can globally filter what actions are performed on Active Directory. **Create** and **Update** are most common.
 
@@ -834,7 +844,7 @@ When suggesting a new idea, please check to see if someone else has already sugg
 
 #### How do I know the version of my Provisioning Agent?
 
-* Log in to the Windows server where the Provisioning Agent is installed.
+* Sign in to the Windows server where the Provisioning Agent is installed.
 * Go to **Control Panel** -> **Uninstall or Change a Program** menu
 * Look for the version corresponding to the entry **Microsoft Azure AD Connect Provisioning Agent**
 
@@ -886,7 +896,7 @@ Yes, one Provisioning Agent can be configured to handle multiple AD domains as l
 #### How do I de-register the domain associated with my Provisioning Agent?
 
 * From the Azure portal, get the *tenant ID* of your Azure AD tenant.
-* Log in to the Windows server running the Provisioning Agent.
+* Sign in to the Windows server running the Provisioning Agent.
 * Open powershell as Windows Administrator.
 * Change to the directory containing the registration scripts and run the following commands replacing the \[tenant ID\] parameter with the value of your tenant ID.
 
@@ -897,7 +907,7 @@ Yes, one Provisioning Agent can be configured to handle multiple AD domains as l
   ```
 
 * From the list of agents that appear – copy the value of the "id" field from that resource whose *resourceName* equals to your AD domain name.
-* Paste the id into this command and execute it in Powershell.
+* Paste the ID value into this command and execute it in Powershell.
 
   ```powershell
   Remove-PublishedResource -ResourceId "[resource ID]" -TenantId "[tenant ID]"
@@ -908,7 +918,7 @@ Yes, one Provisioning Agent can be configured to handle multiple AD domains as l
 
 #### How do I uninstall the Provisioning Agent?
 
-* Log in to the Windows server where the Provisioning Agent is installed.
+* Sign in to the Windows server where the Provisioning Agent is installed.
 * Go to **Control Panel** -> **Uninstall or Change a Program** menu
 * Uninstall the following programs:
   * Microsoft Azure AD Connect Provisioning Agent
@@ -1058,7 +1068,7 @@ This section covers the following aspects of troubleshooting:
 
 ### Setting up Windows Event Viewer for agent troubleshooting
 
-* Log in to the Windows Server machine where the Provisioning Agent is deployed
+* Sign in to the Windows Server machine where the Provisioning Agent is deployed
 * Open **Windows Server Event Viewer** desktop app.
 * Select **Windows Logs > Application**.
 * Use the **Filter Current Log…** option to view all events logged under the source **AAD.Connect.ProvisioningAgent** and exclude events with Event ID "5", by specifying the filter "-5" as shown below.
@@ -1369,7 +1379,7 @@ In the Microsoft Graph Explorer, run the following GET query replacing [serviceP
 
 You will get a response as shown below. Copy the "id attribute" present in the response. This value is the **ProvisioningJobId** and will be used to retrieve the underlying schema metadata.
 
-   [![Provisioning Job Id](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
+   [![Provisioning Job ID](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
 
 #### Step 4: Download the Provisioning Schema
 
