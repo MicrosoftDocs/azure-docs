@@ -16,9 +16,9 @@ ms.custom: seodec18
 
 # Use SSL to secure web services through Azure Machine Learning
 
-This article shows you how to secure a web service that's deployed through the Azure Machine Learning service. You use [HTTPS)](https://en.wikipedia.org/wiki/HTTPS) to restrict access to web services and secure the data that clients submit.
+This article shows you how to secure a web service that's deployed through the Azure Machine Learning service. You use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to restrict access to web services and secure the data that clients submit.
 
-HTTPS helps secure communications between a client and your web service by encrypting communications between the two. Encryption uses [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still referred to as *Secure Sockets Layer* (SSL), which was the predecessor of TLS.
+HTTPS helps secure communications between a client and a web service by encrypting communications between the two. Encryption uses [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still referred to as *Secure Sockets Layer* (SSL), which was the predecessor of TLS.
 
 > [!TIP]
 > The Azure Machine Learning SDK uses the term "SSL" for properties that are related to secure communications. This doesn't mean that your web service doesn't use TLS. SSL is just a more commonly recognized term.
@@ -36,7 +36,7 @@ This is the general process to secure a web service:
 
 2. Get a digital certificate.
 
-3. Deploy or update the web service with the SSL setting enabled.
+3. Deploy or update the web service with SSL enabled.
 
 4. Update your DNS to point to the web service.
 
@@ -47,7 +47,7 @@ There are slight differences when you secure web services across [deployment tar
 
 ## Get a domain name
 
-If you don't already own a domain name, purchase one from a *domain name registrar*. The process and price differ among registrars. The registrar also provides tools to manage the domain name. You use these tools to map a fully qualified domain name (FQDN) (such as www\.contoso.com) to the IP address that hosts your web service.
+If you don't already own a domain name, purchase one from a *domain name registrar*. The process and price differ among registrars. The registrar provides tools to manage the domain name. You use these tools to map a fully qualified domain name (FQDN) (such as www\.contoso.com) to the IP address that hosts your web service.
 
 ## Get an SSL certificate
 
@@ -136,7 +136,7 @@ Next, you must update your DNS to point to the web service.
 
   Use the tools from your domain name registrar to update the DNS record for your domain name. The record must point to the IP address of the service.
 
-  There can be a delay of minutes to hours before clients can resolve the domain name, depending on the registrar and the "time to live" (TTL) that's configured for the domain name.
+  There can be a delay of minutes or hours before clients can resolve the domain name, depending on the registrar and the "time to live" (TTL) that's configured for the domain name.
 
 + **For AKS:**
 
