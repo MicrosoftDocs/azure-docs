@@ -33,7 +33,7 @@ You can use the job view to interact with Azure Stream Analytics jobs from Visua
 
 2. Expand your job node, you can open and view the job query,  configuration, inputs, outputs and functions. 
 
-3. Right click your job node, and choose the **Open Job View in Portal** node to open the job view in the Azure Portal.
+3. Right click your job node, and choose the **Open Job View in Portal** node to open the job view in the Azure portal.
 
    ![Open job view in portal](./media/vscode-explore-jobs/open-job-view.png)
 

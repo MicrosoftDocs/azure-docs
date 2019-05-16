@@ -170,7 +170,7 @@
     - name: Test with sample data
       href: vscode-local-run.md
     - name: Set up CI/CD pipeline
-      href: npm-cicd.md
+      href: setup-cicd-vs-code.md
     - name: Explore jobs
       href: vscode-explore-jobs.md
   - name: Troubleshoot
