@@ -36184,6 +36184,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/personalizer/personalizer-container-configuration.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/what-is-personalizer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/personalizer/personalizer-container-howto.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/what-is-personalizer",
+      "redirect_document_id": true
+    },        
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-key-phrase.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-reference-prebuilt-keyphrase",
       "redirect_document_id": true
