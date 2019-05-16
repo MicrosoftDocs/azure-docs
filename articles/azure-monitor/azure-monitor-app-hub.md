@@ -77,6 +77,12 @@ ms.author: mbullwin
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
+	                                                    <h3>What's new?</h3>
+                                                        <p>
+                                                            <a href="./app/kubernetes.md">Monitor Kubernetes applications</a><br>
+                                                            <a href="./app/status-monitor-v2-overview.md">Monitor live IIS web apps with Status Monitor v2</a><br>
+														</p>
+														<br><br>
 														<h3>Quickstarts</h3>
                                                         <p>
                                                             <a href="./learn/quick-monitor-portal.md">ASP.NET</a><br>
