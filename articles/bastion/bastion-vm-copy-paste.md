@@ -30,7 +30,7 @@ Only text copy/paste is supported. For direct copy and paste, your browser may p
 
 Make sure that you have set up an Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](bastion-create-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in this virtual network.
 
-## <a name="toremote"></a>Copy and paste to a remote session
+## <a name="to"></a>To a remote session
 
 1. Copy the text/content from the local device into local clipboard.
 1. During the remote session, launch the Bastion clipboard access tool palette by selecting the two arrows. The arrows are located on the left center of the session.
@@ -44,7 +44,7 @@ Make sure that you have set up an Azure Bastion host for the virtual network in 
 
     ![paste](./media/bastion-vm-copy-paste/local.png)
 
-## <a name="fromremote"></a>Copy and paste from a remote session
+## <a name="from"></a>From a remote session
 
 1. Copy the text/content from the remote session into remote clipboard (using Ctrl-C).
 
