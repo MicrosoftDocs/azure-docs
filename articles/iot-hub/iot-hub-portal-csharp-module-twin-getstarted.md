@@ -28,7 +28,7 @@ In this tutorial, you will learn:
 
 To complete this tutorial, you need the following:
 
-* Visual Studio.
+* Visual Studio 2015 or Visual Studio 2017.
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
 ## Create an IoT hub
