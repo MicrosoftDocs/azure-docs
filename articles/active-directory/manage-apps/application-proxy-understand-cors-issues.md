@@ -33,11 +33,11 @@ The following URLs have different origins than the previous two:
 -   https:\//contoso.com/foo.html - Different scheme
 -   http:\//www.contoso.com/foo.html - Different subdomain
 
-The following examples show a **WebService**, which hosts a web API controller, and a **WebClient**, which calls **WebService**. There is an AJAX request from **WebClient** to **WebService**.
+The following examples show a **CORSWebService**, which hosts a web API controller, and a **CORSWebClient**, which calls **CORSWebService**. There is an AJAX request from **CORSWebClient** to **CORSWebService**.
 
 ![On-premises same-origin request](./media/application-proxy-understand-cors-issues/image1.png)
 
-The WebClient app seems to work when you host it on premises, but it either fails to load or errors out when you publish it via the Azure AD Application Proxy. Since you published the two apps separately through Application Proxy, they're hosted at different domains, so the AJAX request from WebClient to WebService is cross-origin and it fails.
+The CORSWebClient app seems to work when you host it on premises, but it either fails to load or errors out when you publish it via the Azure AD Application Proxy. Since you published the two apps separately through Application Proxy, they're hosted at different domains, so the AJAX request from CORSWebClient to CORSWebService is cross-origin and it fails.
 
 ![Application Proxy CORS request](./media/application-proxy-understand-cors-issues/image2.png)
 
@@ -47,7 +47,7 @@ You can identify CORS issues by using browser debug tools:
 1. Press **F12** to bring up the debug console.
 1. Try to reproduce the transaction, and review the console message. A CORS violation gives a console error about origin.
 
-In the following example, the cross-origin call happens on the **Try It** button click. Instead of the test message, there's an error that https:\//corswebclient-allmylab.msappproxy.net is missing from the Access-Control-Allow-Origin header.
+In the following example, the cross-origin call happens on the **Try It** button click. Instead of the test message, there's an error that https:\//corswebclient-contoso.msappproxy.net is missing from the Access-Control-Allow-Origin header.
 
 ![CORS issue](./media/application-proxy-understand-cors-issues/image3.png)
 
@@ -61,20 +61,20 @@ Use an Azure AD Application Proxy [custom domain](https://docs.microsoft.com/en-
 
 ### Option 2: Publish the parent directory
 
-Publish the parent directory of both apps. This solution works especially well if you only have two apps on the web server. Instead of publishing each app separately, publish the common parent directory to give both apps the same origin.
+Publish the parent directory of both apps. This solution works especially well if you only have two apps on the web server. Instead of publishing each app separately, you can publish the common parent directory to result in the same origin.
 
-- App directory published individually:
-  
-  ![Publish app individually](./media/application-proxy-understand-cors-issues/image4.png)
-  
-- Instead publish the parent directory:
+In the following example, the app published from contoso.com/CORSWebClient can't access resources from contoso.com/CORSWebService because of the CORS issue:
 
-  ![Publish parent directory](./media/application-proxy-understand-cors-issues/image5.png)
-  
-  The resulting app URLs effectively resolve the CORS issue:
-  
-  - https:\//corswebclient-allmylab.msappproxy.net/CORSWebService
-  - https:\//corswebclient-allmylab.msappproxy.net/CORSWebClient
+![Publish app individually](./media/application-proxy-understand-cors-issues/image4.png)
+
+Instead, you can publish the parent directory, which includes both the CORSWebClient and CORSWebService folders:
+
+![Publish parent directory](./media/application-proxy-understand-cors-issues/image5.png)
+
+The resulting app URLs effectively resolve the CORS issue:
+
+- https:\//corswebclient-contoso.msappproxy.net/CORSWebService
+- https:\//corswebclient-contoso.msappproxy.net/CORSWebClient
 
 ### Option 3: Update HTTP headers
 
@@ -92,7 +92,7 @@ Content-Type: text/plain; charset=utf-8\
 Expires: -1\
 Vary: Accept-Encoding\
 Server: Microsoft-IIS/8.5 Microsoft-HTTPAPI/2.0\
-**Access-Control-Allow-Origin: https://corswebclient-allmylab.msappproxy.net**\
+**Access-Control-Allow-Origin: https://corswebclient-contoso.msappproxy.net**\
 X-AspNet-Version: 4.0.30319\
 X-Powered-By: ASP.NET\
 Content-Length: 17
