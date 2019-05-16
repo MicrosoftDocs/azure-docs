@@ -4,7 +4,7 @@ description: This article shows you how to export an Azure Stream Analytics job 
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 05/06/2019
+ms.date: 05/15/2019
 ms.topic: conceptual
 ---
 
