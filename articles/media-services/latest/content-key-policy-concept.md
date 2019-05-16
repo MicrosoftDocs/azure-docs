@@ -62,6 +62,66 @@ var streamingLocatorWithUserDefinedContentKeySupport = new StreamingLocator()
 }; 
  ```
 
+## Different content keys for different tracks
+
+You may want to use one Content Key for HD tracks and a different Content Key for other tracks. Currently, Media Services supports multiple Content Keys for CommonEncryptionCenc. FourCC can be used to specify different tracks. Each encryption scheme must specify a default key which is used as a fall back key if a track is not falling into any specified tracks in KeyToTrackMappings. 
+
+The following .NET snippet shows how to specify different content keys for different tracks:
+
+```csharp
+var streamingPolicyWithMutlipleContentKeySupport = new StreamingPolicy 
+{ 
+    CommonEncryptionCenc = new CommonEncryptionCenc() 
+    { 
+        ContentKeys = new StreamingPolicyContentKeys() 
+        { 
+            DefaultKey = new DefaultKey() { Label = "cencKeyDefault" }, 
+            KeyToTrackMappings = new List<StreamingPolicyContentKey>() 
+            { 
+                new StreamingPolicyContentKey() 
+                { 
+                    Label = "cencKeyForHev1", 
+                    Tracks = new List<TrackSelection>() 
+                    { 
+                        new TrackSelection() 
+                        { 
+                            TrackSelections = new List<TrackPropertyCondition> 
+                            { 
+                                new TrackPropertyCondition() 
+                                { 
+                                    Property = TrackPropertyType.FourCC, 
+                                    Operation = TrackPropertyCompareOperation.Equal, 
+                                    Value = "hev1" 
+                                } 
+                            } 
+                        } 
+                    } 
+                }, 
+                new StreamingPolicyContentKey() 
+                { 
+                    Label = "cencKeyForMp4a", 
+                    Tracks = new List<TrackSelection>() 
+                    { 
+                        new TrackSelection() 
+                        { 
+                            TrackSelections = new List<TrackPropertyCondition> 
+                            { 
+                                new TrackPropertyCondition() 
+                                { 
+                                    Property = TrackPropertyType.FourCC, 
+                                    Operation = TrackPropertyCompareOperation.Equal, 
+                                    Value = "mp4a" 
+                                } 
+                            } 
+                        } 
+                    } 
+                } 
+            } 
+        } 
+    } 
+}; 
+```
+
 ## Filtering, ordering, paging
 
 See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
