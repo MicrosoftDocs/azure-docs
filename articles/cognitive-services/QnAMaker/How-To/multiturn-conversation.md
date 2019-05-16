@@ -110,6 +110,8 @@ When importing the PDF document, QnA Maker determines follow-up prompts from the
 
     Once you have added the follow-up prompt, remember to select **Save and train**.
   
+<!--
+
 ## To find best prompt answer, add metadata to follow-up prompts 
 
 If you have several follow-up prompts for a given QnA pair, but you know as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base, then send the metadata from the client application as part of the GenerateAnswer request.
@@ -128,6 +130,8 @@ In the knowledge base, when a question-and-answer pair is linked to follow-up pr
 1. Save and train. 
 
     When you send the question `Give feedback` with the metadata filter `Feature` with a value of `all`, only the QnA pair with that metadata will be returned. Both QnA pairs are not returned because they both do not match the filter. 
+
+-->
 
 ## Test the QnA set to get all the follow-up prompts
 
@@ -284,7 +288,7 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
 
 ## Displaying prompts and sending context in the client application 
 
-If you have added prompts in your knowledge base and have tested the flow in the test pane, the prompts will not automatically start showing up in the client applications. You can show the prompts as suggested actions or buttons as part of the answer to the user’s query in client applications by including this [Bot Framework sample](https://aka.ms/qnamakermultiturnsample) in your code. The client application shall store the current QnA Id and the user query, and pass them in the [context object of the GenerateAnswer API](#json-response-to-return-initial-answer-and-follow-up-prompts) for the next user query.
+If you have added prompts in your knowledge base and have tested the flow in the test pane, the prompts will not automatically start showing up in the client applications. You can show the prompts as suggested actions or buttons as part of the answer to the user’s query in client applications by including this [Bot Framework sample](https://aka.ms/qnamakermultiturnsample) in your code. The client application shall store the current QnA Id and the user query, and pass them in the [context object of the GenerateAnswer API](#json-request-to-return-non-initial-answer-and-follow-up-prompts) for the next user query.
 
 ## Display order supported in API
 
