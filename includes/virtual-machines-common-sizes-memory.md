@@ -104,7 +104,7 @@ Mv2-series VM’s feature Intel® Hyper-Threading Technology
 
 <sup>1</sup> These large VMs require one of these supported guest OSes: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15.
 
-<sup>2</sup> Mv2-series VMs are generation 2 only. If you're using Linux, learn more about selecting a SUSE image at [Generation 2 VMs on Azure](../articles/virtual-machines/linux/generation-2.md).
+<sup>2</sup> Mv2-series VMs are generation 2 only. If you're using Linux, learn more about selecting a SUSE image at [Generation 2 VMs on Azure](../articles/virtual-machines/linux/generation-2.md#find-a-suse-image).
 
 ## M-series 
 
