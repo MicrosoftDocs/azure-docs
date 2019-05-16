@@ -51,11 +51,13 @@ The scope you select is used throughout Cost Management to provide data consolid
 
 The initial cost analysis view includes the following areas:
 
-**Actual cost** – Shows the total costs for the current month, as they are accrued.
+**Accumulated cost view** – Represents the predefined cost analysis view configuration. Each view includes date range, granularity, group by, and filter settings. The default view shows accumulated costs for the current billing period, but can be changed to other built-in views. See [Customize cost views](#customize-cost-views) for more details.
+
+**Actual cost** – Shows the total usage and purchase costs for the current month, as they are accrued and will show on your bill.
 
 **Budget** – Shows the planned spending limit for the selected scope, if available.
 
-**Accumulated cost** – Shows the total aggregate daily spending, starting from the beginning of the month. After you [create a budget](tutorial-acm-create-budgets.md) for your billing account or subscription, you can quickly see your spending trend against the budget. Hover over a date to view the accumulated cost for that day.
+**Accumulated granularity** – Shows the total aggregate daily costs, starting from the beginning of the billing period. After you [create a budget](tutorial-acm-create-budgets.md) for your billing account or subscription, you can quickly see your spending trend against the budget. Hover over a date to view the accumulated cost for that day.
 
 **Pivot (donut) charts** – Provide dynamic pivots, breaking down the total cost by a common set of standard properties. They show the most to least costly for the current month. You can change pivot charts at any time by selecting a different pivot. Costs are categorized by: service (meter category), location (region), and child scope by default. For example, enrollment accounts under billing accounts, resource groups under subscriptions, and resources under resource groups.
 
@@ -92,7 +94,7 @@ Generally, you can expect to see data or notifications for consumed resources wi
 
 Most [Azure resources support tagging](../azure-resource-manager/tag-support.md), however some tags aren't available in Cost Management and billing. Additionally, resource group tags aren't supported. Cost Management only supports resource tags from the date the tags are applied directly to the resource.
 
-Here's a view of Azure service costs for a view of the last month.
+Here's a view of Azure service costs (grouping by meter category) for a view of the last month.
 
 ![Grouped daily accumulated view showing example Azure service costs for last month](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
@@ -117,6 +119,32 @@ When grouping costs by a specific attribute, the top 10 cost contributors are sh
 You can view the full data set for any view. Whatever selections or filters that you apply affect data presented. To see the full data set, click the **chart type** list and then click **Table** view.
 
 ![Data for current view in a table view](./media/quick-acm-cost-analysis/chart-type-table-view.png)
+
+
+## Understanding grouping and filtering options
+
+The following table lists a few of the most common grouping and filtering options as well as when you should use them.
+
+| Property | When to use |
+| --- | --- |
+| **Billing period** | Break down costs by invoice month. Specifically important for pay-as-you-go and dev/test subscriptions which are not bound to calendar months. EA/MCA accounts can use calendar months in the date picker and/or monthly granularity to accomplish the same goal. |
+| **Charge type** | Break down usage, purchase, refund, and unused reservation costs. Note that reservation purchases and refunds are only available when using action costs and not in amortized costs. Unused reservation costs are only available when looking at amortized costs. |
+| **Cloud** | Break down costs by AWS and Azure. AWS costs are only available from management groups, external billing accounts, and external subscriptions. |
+| **Department** / **Invoice section** | Break down costs by EA department or MCA invoice section. Only available for EA/MCA billing accounts and MCA billing profiles. |
+| **Enrollment account** | Break down costs by EA account owner. Only available for EA billing accounts and departments. |
+| **Frequency** | Break down usage-based, one-time, and recurring costs. |
+| **Meter** | Break down cost by Azure usage meter. Only available for Azure usage. All purchases and Marketplace usage will show "Not specified" or "unassigned". |
+| **Publisher type** | Break down AWS, Azure, and Marketplace costs. |
+| **Reservation** | Break down costs by reservation. Any usage which does not include a reservation will show as "Not specified". |
+| **Resource** | Break down costs by resource. All purchases will show as "Not specified" since they are applied at a EA/PAYG billing account or MCA billing profile level.  |
+| **Resource group** | Break down costs by resource group. Only available for non-classic usage. Classic resource usage will show "other" and purchases will show "Not specified". |
+| **Resource type** | Break down costs by resource type. Only available for non-classic usage. Classic resource usage will show "other" and purchases will show "Not specified". |
+| **Service name** or **Meter category** | Break down cost by Azure service. Only available for Azure usage. All purchases and Marketplace usage will show "Not specified" or "unassigned". |
+| **Service tier** or **Meter subcategory** | Break down cost by Azure usage meter subclassification. Only available for Azure usage. All purchases and Marketplace usage will show "Not specified" or "unassigned". |
+| **Subscription** | Break down costs by subscription. All purchases show "Not specified". |
+| **Tag** | Break down costs by tag values for a specific tag key. |
+
+For more information about terms, refer to [Understand the terms used in the Azure usage and charges file](../billing/billing-understand-your-usage).
 
 
 ## Saving and sharing customized views
