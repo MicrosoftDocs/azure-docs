@@ -5,10 +5,6 @@ description: Learn how to create, change, or delete a route table.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: 
-editor: v-miegge
-tags:
-
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
