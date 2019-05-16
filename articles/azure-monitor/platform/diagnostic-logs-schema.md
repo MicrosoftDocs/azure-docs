@@ -1,12 +1,12 @@
 ---
 title: Azure Diagnostic Logs supported services and schemas
 description: Understand the supported services and event schema for Azure Diagnostic Logs.
-author: johnkemnetz
+author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
 ms.date: 10/11/2018
-ms.author: johnkem
+ms.author: robb
 ms.subservice: logs
 ---
 # Supported services, schemas, and categories for Azure Diagnostic Logs

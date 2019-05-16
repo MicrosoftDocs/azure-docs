@@ -30,9 +30,40 @@ This document assumes that you are familiar with Azure Virtual Networks, and IP 
 
 ## Storage account for your workspace
 
-When you create an Azure Machine Learning service workspace, it requires an Azure Storage account. Don't turn on firewall rules for this storage account. The Azure Machine Learning service requires unrestricted access to the storage account.
+> [!IMPORTANT]
+> You can put the storage account that is attached to Azure Machine Learning service workspace behind the virtual network only while doing experimentation. Inferencing requires unrestricted access to the storage account. If you aren't sure if you've modified these settings or not, see __Change the default network access rule__ in [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security). Use the steps to allow access from all networks while doing inferencing.
 
-If you aren't sure if you've modified these settings or not, see __Change the default network access rule__ in [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security). Use the steps to allow access from all networks.
+To use Azure Machine Learning experimentation capabilities with Azure Storage behind a virtual network follow the steps below:
+
+1. Create an experimentation compute ex. Machine Learning Compute behind a virtual network or attach an experimentation compute to the workspace ex. HDInsight cluster or virtual machine. For more information, see [Use Machine Learning Compute](#use-machine-learning-compute) and [Use a virtual machine or HDInsight cluster](#use-a-virtual-machine-or-hdinsight-cluster) sections in this document
+2. Go to the storage attached to the workspace. ![Image of the Azure portal showing Azure Storage that is attached to the Azure Machine Learning service workspace](./media/how-to-enable-virtual-network/workspace-storage.png)
+3. On the Azure Storage page, select __Firewalls and virtual networks__. ![Image of the Azure portal showing Firewalls and virtual networks section on Azure Storage page](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
+4. On the __Firewalls and virtual networks__ page select the following:
+    - Select __Selected networks__.
+    - Under __Virtual networks__ select __Add existing virtual network__ to add the virtual network where your experimentation compute resides. (See step 1.)
+    - Select __Allow trusted Microsoft services to access this storage account__.
+![Image of the Azure portal showing Firewalls and virtual networks page under Azure Storage](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png) 
+
+5. While running experiment, in your experimentation code, change the run config to use blob storage:
+    ```python
+    run_config.source_directory_data_store = "workspaceblobstore"
+    ```
+    
+## Key vault for your workspace
+Key Vault instance associated with the workspace is used by Azure Machine Learning service to store credentials of various kinds:
+* The associated storage account connection string
+* Passwords to Azure Container Repository instances
+* Connection Strings to data stores. 
+
+To use Azure Machine Learning experimentation capabilities with Key Vault behind a virtual network follow the steps below:
+1. Go to the Key Vault associated with the workspace. ![Image of the Azure portal showing Key Vault that is associated with the Azure Machine Learning service workspace](./media/how-to-enable-virtual-network/workspace-key-vault.png)
+2. On the Key Vault page select __Firewalls and virtual networks__ section. ![Image of the Azure portal showing Firewalls and virtual networks section on Key Vault page](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
+3. On the __Firewalls and virtual networks__ page select the following:
+    - Select __Selected networks__.
+    - Under the __Virtual networks__ select __Add existing virtual networks__ to add the virtual network where your experimentation compute resides.
+    - Select __Allow trusted Microsoft services to bypass this firewall__.
+![Image of the Azure portal showing Firewalls and virtual networks page under Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png) 
+
 
 ## Use Machine Learning Compute
 
@@ -70,15 +101,32 @@ Machine Learning Compute currently uses the Azure Batch service to provision VMs
  
 - Outbound traffic on any port to the virtual network.
 
-- Outbound traffic on any port to the internet.
+- Outbound traffic on any port to the internet. 
 
 Exercise caution if you modify or add inbound/outbound rules in Batch-configured NSGs. If an NSG blocks communication to the compute nodes, then the Machine Learning Compute services sets the state of the compute nodes to unusable.
 
-You don't need to specify NSGs at the subnet level because Batch configures its own NSGs. However, if the specified subnet has associated NSGs and/or a firewall, configure the inbound and outbound security rules as mentioned earlier. The following screenshots show how the rule configuration looks in the Azure portal:
+You don't need to specify NSGs at the subnet level because Batch configures its own NSGs. However, if the specified subnet has associated NSGs and/or a firewall, configure the inbound and outbound security rules as mentioned earlier. 
+
+The following screenshot shows how the NSG rule configuration looks in the Azure portal:
 
 ![Screenshot of inbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png)
 
 ![Screenshot of outbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
+
+### <a id="limiting-outbound-from-vnet"></a> Limiting outbound connectivity from the virtual network
+
+If you do not want to use the default outbound rules and want to limit the outbound access of your virtual network, follow the steps below:
+
+- Deny outbound internet connection using the NSG rules 
+
+- Limit outbound traffic to Azure Storage (using __Service Tag__ of __Storage.Region_Name__ ex. Storage.EastUS), Azure Container Registry (using __Service Tag__ of __AzureContainerRegistry.Region_Name__ ex. AzureContainerRegistry.EastUS), and Azure Machine Learning service (using __Service Tag__ of __AzureMachineLearning__)
+
+The following screenshot shows how the NSG rule configuration looks in the Azure portal:
+
+![Screenshot of outbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)
+
+
+
 
 ### Create Machine Learning Compute in a virtual network
 
@@ -171,6 +219,8 @@ To use a virtual machine or Azure HDInsight cluster in a virtual network with yo
    ![Screenshot of inbound rules for doing experimentation on a VM or HDInsight cluster inside a virtual network](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
 
     Keep the default outbound rules for the NSG. For more information, see the default security rules in [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
+
+    If you do not want to use the default outbound rules and want to limit the outbound access of your virtual network, see [Limiting outbound connectivity from the virtual network](#limiting-outbound-from-vnet)
     
 1. Attach the VM or HDInsight cluster to your Azure Machine Learning service workspace. For more information, see [Set up compute targets for model training](how-to-set-up-training-targets.md).
 
@@ -179,12 +229,17 @@ To use a virtual machine or Azure HDInsight cluster in a virtual network with yo
 > [!IMPORTANT]
 > Check the prerequisites and plan IP addressing for your cluster before proceeding with the steps. For more information, see [Configure advanced networking in Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/configure-advanced-networking).
 > 
+
 > Keep the default outbound rules for the NSG. For more information, see the default security rules in [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 >
 > Azure Kubernetes Service and the Azure virtual network should be in the same region.
 
 To add Azure Kubernetes Service in a virtual network to your workspace, follow these steps in the Azure portal:
 
+1. Make sure NSG group that controls the virtual network has inbound rule enabled for Azure Machine Learning service using __Service Tag__ of __AzureMachineLearning__
+
+    ![How to add a compute in Azure Machine Learning service](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)     
+ 
 1. In the [Azure portal](https://portal.azure.com), select your Azure Machine Learning service workspace.
 
 1. In the __Application__ section, select __Compute__. Then select __Add compute__. 
@@ -208,6 +263,10 @@ To add Azure Kubernetes Service in a virtual network to your workspace, follow t
     - __Docker bridge address__: Select the Docker bridge address. This IP address is assigned to Docker Bridge. It must not be in any subnet IP ranges, or the Kubernetes service address range. For example: 172.17.0.1/16.
 
    ![Azure Machine Learning service: Machine Learning Compute virtual network settings](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
+
+1. Make sure NSG group that controls the virtual network has inbound rule enabled for the scoring endpoint so that it can be called from outside of virtual network
+
+    ![How to add a compute in Azure Machine Learning service](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)
 
     > [!TIP]
     > If you already have an AKS cluster in a virtual network, you can attach it to the workspace. For more information, see [How to deploy to AKS](how-to-deploy-to-aks.md).
