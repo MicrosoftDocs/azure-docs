@@ -84,3 +84,9 @@ Example:
 ```
 
 
+
+## Next steps
+
+* [Quickstart: Create an Azure Stream Analytics cloud job in Visual Studio](stream-analytics-quick-create-vs.md)
+* [Test Stream Analytics queries locally with Visual Studio](stream-analytics-vs-tools-local-run.md)
+* [Explore Azure Stream Analytics jobs with Visual Studio](stream-analytics-vs-tools.md)
