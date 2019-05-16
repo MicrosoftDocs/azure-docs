@@ -9,7 +9,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: diberry
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
@@ -289,6 +289,8 @@ The following features were released at the Build 2019 Conference:
 * [Preview of V3 API migration guide](luis-migration-api-v3.md)
 * [Improved analytics dashboard](luis-how-to-use-dashboard.md)
 * [Improved prebuilt domains](luis-reference-prebuilt-domains.md) 
+* [Dynamic list entities](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
+* [External entities](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 ## Next steps
 

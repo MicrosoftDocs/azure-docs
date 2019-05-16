@@ -187,7 +187,7 @@
       href: api-server-authorized-ip-ranges.md
     - name: Update cluster service principal credentials
       href: update-credentials.md
-    - name: Restrict and control cluster egress traffic
+    - name: Restrict and control cluster egress traffic (preview)
       href: limit-egress-traffic.md
     - name: Enable Azure Active Directory integration
       items:
