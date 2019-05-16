@@ -75,10 +75,10 @@ Azure Files offers two performance tiers: standard and premium.
 
 Standard file shares up to 1 TiB in size are available as a GA offering. While, larger file shares, which is any share larger than 1 TiB, up to 100 TiB, are currently in available as a preview offering. While in preview, these larger shares have the following limitations:
 
-    - Can only be created in West US 2, West Europe, and SE Asia
-    - Are LRS only
-    - Require you to create a new storage account (cannot expand existing storage accounts)
-    - Are only available on GPv1 and GPv2 storage accounts
+- Can only be created in West US 2, West Europe, and SE Asia
+- Are LRS only
+- Require you to create a new storage account (cannot expand existing storage accounts)
+- Are only available on GPv1 and GPv2 storage accounts
 
 **Premium file shares (preview)** are backed by solid-state disks (SSDs) that provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for the most IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares.
 
