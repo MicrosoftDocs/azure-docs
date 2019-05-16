@@ -63,6 +63,13 @@ Use the following tips to ensure your input images give the most accurate detect
 * The detectable face size range is 36x36 to 4096x4096 pixels. Faces outside of this range won't be detected.
 * Some faces may not be detected because of technical challenges. Extreme face angles (head pose) or face occlusion (objects such as sunglasses or hands blocking part of the face) can affect detection. Frontal and near-frontal faces give the best results.
 
+Depending on the video camera you use , you may have settings that can optimize your input images:
+* **Smoothing**: Many video cameras come with a smoothing setting enabled. If possible, disable this effect because it creates a blur between frames and reduces clarity.
+* **Shutter Speed**: Faster shutter speed reduces motion between frames. This makes each frame clearer. Fast shutter speeds include anything below 1/60 (for example 1/125, 1/1250). 
+* **Shutter Angle**: Some cameras use "shutter angle" instead of shutter speed. The lower the degrees, the clearer each frame from your video will be. So, a 45 degree shutter angle will be clearer than a 360 degree shutter angle.
+   >[!NOTE]
+   The lower your shutter angle, the less light you let in and the darker the image will be.
+
 ## Next steps
 
 Now that you are familiar with face detection concepts, learn how to write a simple script that detects faces in a given image.
