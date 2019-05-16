@@ -1,4 +1,4 @@
----
+  ---
 title: Create a tenant in Windows Virtual Desktop Preview  - Azure
 description: Describes how to set up Windows Virtual Desktop Preview tenants in Azure Active Directory.
 services: virtual-desktop
@@ -28,9 +28,6 @@ Here's what you need to set up your Windows Virtual Desktop tenant:
    * The administrator account must be sourced from the Azure Active Directory tenant in which you're trying to create the Windows Virtual Desktop tenant. This process doesn't support Azure Active Directory B2B (guest) accounts.
    * The administrator account must be a work or school account.
 * An Azure subscription
-
->[!NOTE]
-> If you're joining your VMs to an Azure AD Domain Services environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
 
 ## Grant Azure Active Directory permissions to the Windows Virtual Desktop Preview service
 
