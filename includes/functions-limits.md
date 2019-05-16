@@ -14,6 +14,8 @@ ms.author: glenga
 | Max request size (MB)<sup>4</sup> | 100 | 100 | 100 |
 | Max query string length<sup>4</sup> | 4096 | 4096 | 4096 |
 | Max request URL length<sup>4</sup> | 8192 | 8192 | 8192 |
+| [ACU](../virtual-machines/windows/acu.md) per instance | 100 | 210-840 | 100-840 |
+| Max memory (GB per instance) | 1.5 | 3.5-14 | 1.75-14 |
 | Function apps per plan |100 |100 |Unlimited<sup>5</sup> |
 | [App Service plans](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 per resource group |100 per resource group |
 | Storage<sup>6</sup> |1 GB |250 GB |50-1000 GB |
