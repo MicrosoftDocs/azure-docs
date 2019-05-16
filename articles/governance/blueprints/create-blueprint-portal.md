@@ -9,7 +9,7 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ---
-# Define and assign a blueprint in the portal
+# Quickstart: Define and assign a blueprint in the portal
 
 When you learn how to create and assign blueprints, you can define common patterns to develop
 reusable and rapidly deployable configurations based on Azure Resource Manager templates, policy,
