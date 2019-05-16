@@ -27,15 +27,15 @@ The following table describes default limits for Azure general-purpose v1, v2, a
 <sup>1</sup>Azure Standard Storage accounts support higher limits for ingress by request. To request an increase in account limits for ingress, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
 <sup>2</sup> [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy) options include:
-* **RA-GRS**: Read-access geo-redundant storage. If RA-GRS is enabled, egress targets for the secondary location are identical to those for the primary location.
-* **GRS**: Geo-redundant storage. 
-* **ZRS**: Zone-redundant storage.
-* **LRS**: Locally redundant storage. 
+- **RA-GRS**: Read-access geo-redundant storage. If RA-GRS is enabled, egress targets for the secondary location are identical to those for the primary location.
+- **GRS**: Geo-redundant storage.
+- **ZRS**: Zone-redundant storage.
+- **LRS**: Locally redundant storage.
 
 > [!NOTE]
 > We recommend that you use a general-purpose v2 storage account for most scenarios. You can easily upgrade a general-purpose v1 or an Azure Blob storage account to a general-purpose v2 account with no downtime and without the need to copy data.
 >
-> For more information on Azure Storage accounts, see [Storage account overview](../articles/storage/common/storage-account-overview.md). 
+> For more information on Azure Storage accounts, see [Storage account overview](../articles/storage/common/storage-account-overview.md).
 
 If the needs of your application exceed the scalability targets of a single storage account, you can build your application to use multiple storage accounts. You can then partition your data objects across those storage accounts. For information on volume pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
