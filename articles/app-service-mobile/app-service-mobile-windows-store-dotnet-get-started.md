@@ -34,7 +34,7 @@ To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * Windows 10.
-* [Visual Studio Community].
+* [Visual Studio Community 2017].
 * Familiarity with UWP app development. Visit the [UWP documentation](https://docs.microsoft.com/windows/uwp/) to learn how to [get set up](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) to build UWP apps.
 
 ## Create a new Azure Mobile App backend
@@ -56,30 +56,16 @@ Follow these steps to create a new Mobile App backend.
 
 4. In `App` class, replace `ZUMOAPPURL` parameter with public endpoint above.
 
-     public static MobileServiceClient MobileService = new MobileServiceClient("ZUMOAPPURL");
+     `public static MobileServiceClient MobileService = new MobileServiceClient("ZUMOAPPURL");`
 
         becomes
     
-    public static MobileServiceClient MobileService = new MobileServiceClient("https://test123.azurewebsites.net");
+    `public static MobileServiceClient MobileService = new MobileServiceClient("https://test123.azurewebsites.net");`
 
-<<<<<<< HEAD
 5. Press the F5 key to deploy and run the app.
-=======
-> [!TIP]
-> You can add the UWP app project to the same solution as the server project if you are using the .NET backend. This makes it easier to debug and test both the app and the backend in the same Visual Studio solution. To add a UWP app project to the backend solution, you must be using Visual Studio 2017 or later.
->>>>>>> master
 
 6. In the app, type meaningful text, such as *Complete the tutorial*, in the **Insert a TodoItem** text box, and then click **Save**.
 
     ![Windows quickstart complete desktop](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
-<<<<<<< HEAD
     This sends a POST request to the new mobile app backend that's hosted in Azure.
-=======
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
-[Mobile App SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
-[Azure portal]: https://portal.azure.com/
-[Visual Studio Community]: https://go.microsoft.com/fwLink/p/?LinkID=534203
->>>>>>> master
