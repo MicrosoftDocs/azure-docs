@@ -8,7 +8,7 @@ ms.author: jroth
 
 | Resource | Default limit |
 | --- | --- |
-| Zones per subscription |200 <sup>1</sup> |
+| Zones per subscription |250 <sup>1</sup> |
 | Record sets per zone |10,000 <sup>1</sup> |
 | Records per record set |20 |
 
