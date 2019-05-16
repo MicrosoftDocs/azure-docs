@@ -46,7 +46,6 @@ You can assign a conditional access policy to the following cloud apps from Micr
 - Microsoft Application Insights Analytics
 - Microsoft Azure Information Protection - [Learn more](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - Microsoft Azure Management - [Learn more](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
-- Microsoft Azure RemoteApp
 - Microsoft Azure Subscription Management
 - Microsoft Cloud App Security
 - Microsoft Commerce Tools Access Control Portal
@@ -165,7 +164,6 @@ This setting has an impact on access attempts made from the following mobile app
 
 | Client apps | Target Service | Platform |
 | --- | --- | --- |
-| Azure Remote app | Azure Remote App service | Windows 10, Windows 8.1, Windows 7, iOS, Android, and macOS |
 | Dynamics CRM app | Dynamics CRM | Windows 10, Windows 8.1, iOS, and Android |
 | Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern authentication)| Office 365 Exchange Online | Windows 10 |
 | MFA and location policy for apps. Device based policies are not supported.| Any My Apps app service| Android and iOS |
