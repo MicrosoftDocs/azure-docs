@@ -119,7 +119,7 @@ If the output shows `MDS mitigation is enabled: False`, please [contact Azure Su
 <a name="linux"></a>Enabling the set of additional security features inside requires that the target operating system be fully up-to-date. Some mitigations will be enabled by default. The following section describes the features which are off by default and/or reliant on hardware support (microcode). Enabling these features may cause a performance impact. Reference your operating system provider’s documentation for further instructions
 
 
-**Step 1: Disable hyperthreading on the VM** - Customers running untrusted code on a hyperthreaded VM will need to disable hyperthreading or move to a non-hyperthreaded VM.  To check if you are running a hyperthreaded VM, run the `lspcu` command in the Linux VM. 
+**Step 1: Disable hyperthreading on the VM** - Customers running untrusted code on a hyperthreaded VM will need to disable hyperthreading or move to a non-hyperthreaded VM.  To check if you are running a hyperthreaded VM, run the `lscpu` command in the Linux VM. 
 
 If `Thread(s) per core = 2`, then hyperthreading has been enabled. 
 
@@ -155,17 +155,17 @@ If you are running a hyperthreaded VM, please [contact Azure Support](https://ak
 
 This article provides guidance to the below speculative execution side-channel attacks that affect many modern processors:
 
-[Spectre Meltdown](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002):
+[Spectre Meltdown](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002):
 - CVE-2017-5715 - Branch Target Injection (BTI)  
 - CVE-2017-5754 - Kernel Page Table Isolation (KPTI)
 - CVE-2018-3639 – Speculative Store Bypass (KPTI) 
  
-[L1 Terminal Fault (L1TF)](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180018):
+[L1 Terminal Fault (L1TF)](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180018):
 - CVE-2018-3615 - Intel Software Guard Extensions (Intel SGX)
 - CVE-2018-3620 - Operating Systems (OS) and System Management Mode (SMM)
 - CVE-2018-3646 – impacts Virtual Machine Manager (VMM)
 
-[Microarchitectural Data Sampling](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV190013): 
+[Microarchitectural Data Sampling](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190013): 
 - CVE-2019-11091 - Microarchitectural Data Sampling Uncacheable Memory (MDSUM)
 - CVE-2018-12126 - Microarchitectural Store Buffer Data Sampling (MSBDS)
 - CVE-2018-12127 - Microarchitectural Load Port Data Sampling (MLPDS)
