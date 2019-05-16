@@ -40,7 +40,7 @@ Some reasons you might not want to autogenerate the Content Key: 
 * You want to implement a high availability service. For example, you might already have services set up in one data center and need to use same Content Keys in another data center so CDN cache can be shared.   
 * To use a custom key delivery service to deliver Content Keys. You might need to do that if your Content Keys have already been generated before adopting Azure Media Service.  
 
-To use your own Content Key ID and value, you need to set a label on the Content Key in the Streaming Policy (all predefined Streaming Policies which use Content Keys already have labels assigned). Then, you can specify the Content Key ID and value setting the label on the **LabelReferenceInStreamingPolicy** property (when creating Streaming Locators).  
+To use your own Content Key ID and value, you need to set a label on the Content Key in the Streaming Policy (all predefined Streaming Policies which use Content Keys already have labels assigned). Then, you can specify the Content Key ID and value setting the label on the `LabelReferenceInStreamingPolicy` property (when creating Streaming Locators).  
 
 The following .NET snippet shows how to set a user specified Content Key on the Streaming Locator:
 
@@ -64,7 +64,7 @@ var streamingLocatorWithUserDefinedContentKeySupport = new StreamingLocator()
 
 ## Different content keys for different tracks
 
-You may want to use one Content Key for HD tracks and a different Content Key for other tracks. Currently, Media Services supports multiple Content Keys for CommonEncryptionCenc. FourCC can be used to specify different tracks. Each encryption scheme must specify a default key which is used as a fall back key if a track is not falling into any specified tracks in KeyToTrackMappings. 
+You may want to use one Content Key for HD tracks and a different Content Key for other tracks. Currently, Media Services supports multiple Content Keys for `CommonEncryptionCenc` (as shown below). `TrackPropertyType.FourCC` can be used to specify different tracks. Each encryption scheme must specify a default key which is used as a fall back key if a track is not falling into any specified tracks in `KeyToTrackMappings`. 
 
 The following .NET snippet shows how to specify different content keys for different tracks:
 
