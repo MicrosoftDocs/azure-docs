@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-An Apache Spark cluster on HDInsight. See [Create an Apache Spark cluster](spark/apache-spark-jupyter-spark-sql-use-portal.md).
+An Apache Spark cluster on HDInsight. See [Create an Apache Spark cluster](./apache-spark-jupyter-spark-sql-use-portal.md).
 
 ## Create a Jupyter notebook
 
