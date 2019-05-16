@@ -269,7 +269,7 @@ To enable auto-protection:
   1. In **Items to backup**, select the instance for which you want to enable auto-protection.
   2. Select the drop-down list under **AUTOPROTECT**, choose **ON**, and then select **OK**.
 
-      ![Enable auto-protection on the AG](./media/backup-azure-sql-database/enable-auto-protection.png)
+      ![Enable auto-protection on the availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
   3. Backup is configured for all the databases together and can be tracked in **Backup Jobs**.
 
