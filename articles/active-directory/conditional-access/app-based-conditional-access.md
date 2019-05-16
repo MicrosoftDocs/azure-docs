@@ -45,7 +45,7 @@ In the conditional access terminology, these client apps are known as **approved
 For a list of approved client apps, see [approved client app requirement](technical-reference.md#approved-client-app-requirement).
 
 
-You can combine app-based conditional access policies with other policies such as [device-based conditional access policies](require-managed-devices.md) to provide flexibility in how to protect data for both personal and corporate devices.
+You can combine app-based conditional access policies with other policies such as [device-based conditional access policies](require-managed-devices.md) to provide flexibility in how to protect data for both personal and corporate devices.Test webhook3
 
  
 
