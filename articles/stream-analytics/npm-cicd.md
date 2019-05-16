@@ -50,5 +50,5 @@ To use Managed Identity for Azure Data Lake Store Gen1 as output sink, you need 
 ## Next steps
 
 * [Quickstart: Create an Azure Stream Analytics cloud job in Visual Studio Code (Preview)](quick-create-vs-code.md)
-* [Test Stream Analytics queries locally with Visual Studio Code](vscode-local-run.md)
-* [Explore Azure Stream Analytics with Visual Studio Code (Preview)](vscode-explore-jobs)
+* [Test Stream Analytics queries locally with Visual Studio Code (Preview)](vscode-local-run.md)
+* [Explore Azure Stream Analytics with Visual Studio Code (Preview)](vscode-explore-jobs.md)
