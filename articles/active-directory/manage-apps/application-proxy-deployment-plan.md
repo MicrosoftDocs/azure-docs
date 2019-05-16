@@ -22,7 +22,7 @@ ms.reviewer:
 
 Azure Active Directory (Azure AD) Application Proxy is a secure and cost-effective remote access solution for on-premises applications. It provides an immediate transition path for “Cloud First” organizations to manage access to legacy on-premises applications that aren’t yet capable of using modern protocols. For additional introductory information, see [What is Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
 
-Application Proxy is recommended for giving remote users access to internal resources. Application Proxy replaces the need for a VPN or reverse proxy for these remote access use cases. It is not intended for users who are on the corporate network. These users who unnecessarily use Application Proxy may experience undesirable performance issues.
+Application Proxy is recommended for giving remote users access to internal resources. Application Proxy replaces the need for a VPN or reverse proxy for these remote access use cases. It is not intended for users who are on the corporate network. These users who use Application Proxy for intranet access may experience undesirable performance issues.
 
 This article includes the resources you need to plan, operate, and manage Azure AD Application Proxy. 
 
@@ -59,9 +59,9 @@ The following core requirements must be met in order to configure and implement 
 
 *  **Azure onboarding**: Before deploying application proxy, user identities must be synchronized from an on-premises directory or created directly within your Azure AD tenants. Identity synchronization allows Azure AD to pre-authenticate users before granting them access to App Proxy published applications and to have the necessary user identifier information to perform single sign-on (SSO).
 
-* **Conditional access requirements**: We recommend using Application Proxy with pre-authentication and conditional access policies for external internet access. We do not recommend using Application Proxy for intranet access since this may lead to high load implications and additional latency that users will be impacted by. An alternative approach to provide conditional access for intranet use is to modernize applications so they can authenticate directly with AAD. Refer to Resources for migrating applications to AAD for more information. 
+* **Conditional access requirements**: We do not recommend using Application Proxy for intranet access because this adds latency that will impact users. We recommend using Application Proxy with pre-authentication and conditional access policies for remote access from the internet.  An  approach to provide conditional access for intranet use is to modernize applications so they can diretly authenticate with AAD. Refer to [Resources for migrating applications to AAD](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) for more information. 
 
-* **Service limits**: To protect against overconsumption of resources by individual tenants there are throttling limits set per application and subscription. To see these limits refer to Azure AD service limits and restrictions. For the Application Proxy service these throttling limits are set at 500 TPS per application and 750 TPS per tenant. When throttled the client will receive a 429 response (too many requests). These throttling limits are based on a benchmark far above typical usage volume.
+* **Service limits**: To protect against overconsumption of resources by individual tenants there are throttling limits set per application and subscription. To see these limits refer to Azure AD service limits and restrictions. These throttling limits are based on a benchmark far above typical usage volume and provides ample buffer for at scale deployments.
 
 * **Public certificate**: If you are using custom domain names, you must procure a public certificate issued by a non-Microsoft trusted certificate authority. Depending on your organizational requirements, getting a certificate can take some time and we recommend beginning the process as early as possible. Azure Application Proxy supports standard, [wildcard](application-proxy-wildcard.md), or SAN-based certificates.
 
@@ -107,7 +107,7 @@ The following are areas for which you should define your organization’s busine
 
  **Access**
 
-* Remote domain and Azure AD users can access published applications securely with seamless single sign-on (SSO) when using any domain joined or Azure AD joined devices.
+* Remote users with domain joined or Azure AD joined devices users can access published applications securely with seamless single sign-on (SSO).
 
 * Remote users with approved personal devices can securely access published applications provided they are enrolled in MFA and have registered the Microsoft Authenticator app on their mobile phone as an authentication method.
 
@@ -176,7 +176,7 @@ You can also publish applications by using [PowerShell](https://docs.microsoft.c
 
 Below are some best practices to follow when publishing an application:
 
-* **Use Connector Groups**: Assign a connector group that has been designated for publishing each respective application. We recommend that each connector group has at least two connectors to provide high availability and scale. If possible three is optimal in the case you may need to service a machine at any point. [See Publish applications on separate networks and locations using connector groups](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-connector-groups) to see how you can also use connector groups to segment your connectors by network or location.
+* **Use Connector Groups**: Assign a connector group that has been designated for publishing each respective application. We recommend that each connector group has at least two connectors to provide high availability and scale. Having three connectors is optimal in case you may need to service a machine at any point. [See Publish applications on separate networks and locations using connector groups](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-connector-groups) to see how you can also use connector groups to segment your connectors by network or location.
 
 * **Set Backend Application Timeout**: This setting is useful in scenarios where the application might require more than 75 seconds to process a client transaction. For example when a client sends a query to a web application that acts as a front end to a database. The front end sends this query to its back-end database server and waits for a response, but by the time it receives a response, the client side of the conversation times out. Setting the timeout to Long provides 180 seconds for longer transactions to complete.
 
