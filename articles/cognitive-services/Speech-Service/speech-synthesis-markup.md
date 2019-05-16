@@ -39,7 +39,7 @@ Each SSML document is created with SSML elements (or tags). These elements are u
 **Syntax**
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US"></speak>
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="string"></speak>
 ```
 
 **Attributes**
@@ -57,7 +57,7 @@ The `voice` element is used to specify the voice that is used for text-to-speech
 **Syntax**
 
 ```xml
-<voice name='en-US-Jessa24kRUS'>
+<voice name="string">
     This text will get converted into synthesized speech.
 </voice>
 ```
@@ -104,7 +104,7 @@ Within the `speak` element, you can specify multiple voices for text-to-speech o
 </speak>
 ```
 
-## Speaking styles
+## Adjust speaking styles
 
 > [!WARNING]
 > This feature will only work with neural voices.
@@ -120,7 +120,7 @@ Changes are applied at the sentence level, and style vary by voice. If a style i
 **Syntax**
 
 ```xml
-<mstts:express-as type="cheerful"></mstts:express-as>
+<mstts:express-as type="string"></mstts:express-as>
 ```
 
 **Attributes**
@@ -162,8 +162,8 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 **Syntax**
 
 ```xml
-<break strength="weak" />
-<break time="500" />
+<break strength="string" />
+<break time="string" />
 ```
 
 **Attributes**
@@ -183,7 +183,7 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 </speak>
 ```
 
-## Denote paragraphs and sentences
+## Specify paragraphs and sentences
 
 `p` and `s` elements are used to denote paragraphs and sentences, respectively. In the absence of these elements, the text-to-speech service automatically determines the structure of the SSML document.
 
@@ -215,9 +215,72 @@ The `s` element may contain text and the following elements: `audio`, `break`, `
 </speak>
 ```
 
-## Change speaking rate
+## Use phonemes to improve pronunciation
+
+The `ph` element is used to for phonetic pronunciation in SSML documents. The `ph` element can only contain text, no other elements. Always provide human-readable speech as a fallback.
+
+Phonetic alphabets are composed of phones, which are made up of letters, numbers, or characters, sometimes in combination. Each phone describes a unique sound of speech. This is in contrast to the Latin alphabet, where any letter may represent multiple spoken sounds. Consider the different pronunciations of the letter "c" in the words "candy" and "cease", or the different pronunciations of the letter combination "th" in the words "thing" and "those".
+
+**Syntax**
+
+```XML
+<phoneme alphabet="string" ph="string"></phoneme>
+```
+
+**Attributes**
+
+| Attribute | Description |
+|-----------|-------------|
+| alphabet | **Optional.** Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you may specify.<ul><li>ipa &ndash; International Phonetic Alphabet</li><li>sapi &ndash; Speech API Phone Set</li><li>ups &ndash; Universal Phone Set</li></ul>The alphabet applies only to the phoneme in the element. For more information, see [Phonetic Alphabet Reference](https://msdn.microsoft.com/en-us/library/hh362879(v=office.14).aspx). |
+| ph |  **Required if using phonemes.** A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, the text-to-speech (TTS) engine rejects the entire SSML document and produces none of the speech output specified in the document. |
+
+**Examples**
+
+```XML
+<speak version="1.0"
+ xmlns="https://www.w3.org/2001/10/synthesis"
+ xml:lang="en-US">
+<voice  name='en-US-Jessa24kRUS'>
+    <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
+</voice>
+</speak>
+```
+
+```xml
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<voice  name='en-US-Jessa24kRUS'>
+    <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
+</voice> </speak>
+```
+
+## Adjust prosody
+
+The `prosody` element is used to specify changes to pitch, countour, range, rate, duration, and volume for the text-to-speech output. The `prosody` element may contain text and the following elements: `audio`, `break`, `p`, `phoneme`, `prosody`, `say-as`, `sub`, and `s`.
+
+Because prosodic attribute values can vary over a wide range, the speech recognizer interprets the assigned values as a suggestion of what the actual prosodic values of the selected voice should be. The text-to-speech service limits or substitutes values that are not supported. Examples of unsupported values are a pitch of 1 MHz or a volume of 120.
+
+**Syntax**
+
+```XML
+<prosody pitch="value" contour="value" range="value" rate="value" duration="value" volume="value"></prosody>
+```
+
+**Attributes**
+
+| Attribute | Description |
+|-----------|-------------|
+| pitch | **Optional.** Indicates the baseline pitch for the text. You may express the pitch as:<ul><li>An absolute value, expressed as a number followed by "Hz" (Hertz). For example, 600Hz.</li><li>A relative value, expressed as a number preceded by "+" or "-" and followed by "Hz" or "st", that specifies an amount to change the pitch. For example: +80Hz or -2st. The "st" indicates the change unit is semitone, which is half of a tone (a half step) on the standard diatonic scale.</li><li>A constant value:<ul><li>x-low</li><li>low</li><li>medium</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul>.
+| contour | **Optional.** Represents changes in pitch for speech content as an array of targets at specified time positions in the speech output. Each target is defined by sets of parameter pairs. For example: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>The first value in each set of parameters specifies the location of the pitch change as a percentage of the duration of the text. The second value specifies the amount to raise or lower the pitch, using a relative value or an enumeration value for pitch (see `pitch`).
+| range  | **Optional.** A value that represents the range of pitch for the text. You may express `range` using the same absolute values, relative values, or enumeration values used to describe `pitch`.
+| rate  | **Optional.** Indicates the speaking rate of the text. You may express `rate` as:<ul><li>A relative value, expressed as a number that acts as a multiplier of the default. For example, a value of *1* results in no change in the rate. A value of *.5* results in a halving of the rate. A value of *3* results in a tripling of the rate.</li><li>A constant value:<ul><li>x-slow</li><li>slow</li><li>medium</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul>
+| duration  | **Optional.** The period of time that should elapse while the speech synthesis (TTS) engine reads the text, in seconds or milliseconds. For example, *2s* or *1800ms*.
+| volume  | **Optional.** Indicates the volume level of the speaking voice. You may express the volume as:<ul><li>An absolute value, expressed as a number in the range of 0.0 to 100.0, from *quietest* to *loudest*. For example, 75. The default is 100.0.</li><li>A relative value, expressed as a number preceded by "+" or "-" that specifies an amount to change the volume. For example +10 or -5.5.</li><li>A constant value:<ul><li>silent</li><li>x-soft</li><li>soft</li><li>medium</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul>
+
+### Change speaking rate
 
 Speaking rate can be applied to standard voices at the word or sentence-level. Whereas speaking rate can only be applied to neural voices at the sentence level.
+
+**Example**
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
@@ -229,17 +292,11 @@ Speaking rate can be applied to standard voices at the word or sentence-level. W
 </speak>
 ```
 
-## Pronunciation
-```xml
-<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice  name='en-US-Jessa24kRUS'>
-    <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
-</voice> </speak>
-```
-
-## Change volume
+### Change volume
 
 Volume changes can be applied to standard voices at the word or sentence-level. Whereas volume changes can only be applied to neural voices at the sentence level.
+
+**Example**
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
@@ -249,9 +306,11 @@ Volume changes can be applied to standard voices at the word or sentence-level. 
 </prosody></voice> </speak>
 ```
 
-## Change pitch
+### Change pitch
 
 Pitch changes can be applied to standard voices at the word or sentence-level. Whereas pitch changes can only be applied to neural voices at the sentence level.
+
+**Example**
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
@@ -265,23 +324,14 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 > [!IMPORTANT]
 > Pitch contour changes aren't supported with neural voices.
 
+**Example**
+
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='en-US-Jessa24kRUS'>
 <prosody contour="(80%,+20%) (90%,+30%)" >
     Good morning.
 </prosody></voice> </speak>
-```
-
-## Use multiple voices
-```xml
-<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice  name='en-US-Jessa24kRUS'>
-    Good morning!
-</voice>
-<voice  name='en-US-Guy24kRUS'>
-    Good morning to you too Jessa!
-</voice> </speak>
 ```
 
 ## Next steps
