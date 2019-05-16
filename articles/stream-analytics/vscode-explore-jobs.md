@@ -37,7 +37,6 @@ You can use the job view to interact with Azure Stream Analytics jobs from Visua
 
 =======
 <img src="./media/vscode-explore-jobs/open-job-view.png" width="320" alt="Open job view in portal">
->>>>>>> Rename files and fix some issues in the content:articles/stream-analytics/vscode-explore-jobs.md
 
 
 ## Next steps
