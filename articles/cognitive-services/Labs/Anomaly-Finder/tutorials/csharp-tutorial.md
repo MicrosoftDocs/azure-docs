@@ -24,7 +24,7 @@ The example submits the time series data to the Anomaly Detection API with your 
 
 ### Platform requirements
 
-The example has been developed for the .NET Framework using [Visual Studio 2017, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
+The example has been developed for the .NET Framework using [Visual Studio 2019, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
 
 ### Subscribe to Anomaly Detection and get a subscription key 
 
