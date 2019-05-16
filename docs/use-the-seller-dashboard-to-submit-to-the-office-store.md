@@ -7,9 +7,9 @@ localization_priority: Priority
 
 # Submit your solution to AppSource via Partner Center
 
-If you want your Office Add-in, Office 365 web app, or Power BI custom visual to appear in AppSource and the in-product Store, you need to submit it to the [Seller Dashboard](http://go.microsoft.com/fwlink/?LinkId=248605) for approval. First, familiarize yourself with the [AppSource validation policies](validation-policies.md). You can add and save your submission as a draft in your Seller Dashboard account until you're ready to submit it for approval.
+If you want your Office or SharePoint add-in appear in AppSource and the in-product Store, you need to submit it to [Partner Center](http://go.microsoft.com/fwlink/?LinkId=248605) for approval. First, familiarize yourself with the [AppSource validation policies](validation-policies.md). You can add and save your submission as a draft in youraccount until you're ready to submit it for approval.
 
-If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and client secret, you can add a client ID and client secret in the Seller Dashboard before you add your add-in. For more information, see [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md).
+If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and client secret, you can add a client ID and client secret before you add your add-in. For more information, see [Create or update client IDs and secrets in Partner Center](create-or-update-client-ids-and-secrets.md).
 
 
 For information about the AppSource approval process, see [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md).
@@ -18,21 +18,22 @@ For information about the AppSource approval process, see [Make your solutions a
 
 This section lists the information that you need to provide when you submit your solution in the Seller Dashboard. 
 
-### Add a new app
+### Solution type
 
-Select **Add a new app**. On the **Listing type** page, select the type of solution that you are submitting:
+On the Office Products page, select **Create a new...**, and select the type of solution that you are submitting:
 
-- Office Add-in
-- Outlook Add-in
-- Power BI custom visual
+- Office Extension
 - SharePoint Add-in
-- Teams app
 
-### Overview page
+In the dialog box, provide a name for your solution and choose **Check availability** to verify that the name is available. For details, see [Reserve a name](https://docs.microsoft.com/en-us/windows/uwp/publish/create-your-app-by-reserving-a-name).
+
+After you've verified that the name you chose is available, choose **Create**.
+
+### Product overview page
 
 |**Field name**|**Notes**|
 |:-------------|:-------|
-|Manifest|Required <br/><br/>For more information, see [Upload your submission package](upload-package.md).|
+|Upload package|Required <br/><br/>For more information, see [Upload your submission package](upload-package.md).|
 |Submission title|Required|
 |Version|Required (autopopulated)|
 |Release date (UTC)|Required. This controls the date on which your add-in will be made available after it passes validation. If this is set to a date in the future, your add-in will not be available until that date. If your submission is an update and you set this field to a date in the future, your existing add-in will be unpublished until the release date you specified.|
