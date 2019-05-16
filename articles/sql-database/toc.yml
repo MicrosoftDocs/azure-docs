@@ -378,7 +378,7 @@
   items:
   - name: Overview
     href: sql-database-howto.md
-  - name: Single database 
+  - name: Single databases and elastic pools
     items: 
     - name: Overview
       href: sql-database-howto-single-database.md
@@ -458,7 +458,7 @@
         href: elastic-jobs-tsql.md
       - name: Migrate (from old Elastic jobs)
         href: elastic-jobs-migrate.md
-  - name: Managed instance
+  - name: Managed instances
     items:
     - name: Overview
       href: sql-database-howto-managed-instance.md
