@@ -84,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	b. Click on **folder logo** to select the metadata file and click **Upload**.
 
-	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Oracle Cloud section textbox.
+	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in **Basic SAML Configuration** section textbox.
 	
 	> [!NOTE]
 	> If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
@@ -155,7 +155,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	>[!NOTE]
 	>In our example, we have used OCIAdmins for the Azure portal group name and the corresponding Administrators group for the OCI GROUP. You can create different groups by using **+ Add Mapping** option, for example OCIAdmins, OCIEveryone etc and set a mapping for each group.
 
-	f. Click **Submit**.
+	g. Click **Submit**.
 
 ### Create an Azure AD test user
 
