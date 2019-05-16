@@ -102,33 +102,9 @@ Here is the example template that this overview uses to illustrate a template's 
       "type": "string",
       "minLength": 1,
       "allowedValues": [
-        "[resourceGroup().location]",
-        "eastasia",
-        "southeastasia",
-        "centralus",
-        "eastus",
-        "eastus2",
-        "westus",
-        "northcentralus",
-        "southcentralus",
-        "northeurope",
-        "westeurope",
-        "japanwest",
-        "japaneast",
-        "brazilsouth",
-        "australiaeast",
-        "australiasoutheast",
-        "southindia",
-        "centralindia",
-        "westindia",
-        "canadacentral",
-        "canadaeast",
-        "uksouth",
-        "ukwest",
-        "westcentralus",
-        "westus2"
+        "[resourceGroup().location]"
       ],
-      "defaultValue": "<logic-app-location>"
+      "defaultValue": "[resourceGroup().location]"
     },
     "LogicAppName": {
       "type": "string",
