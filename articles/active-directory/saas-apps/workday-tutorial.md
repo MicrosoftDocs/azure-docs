@@ -58,14 +58,14 @@ Configure and test Azure AD SSO with Workday using a test user called **Britta S
 
 To configure and test Azure AD SSO with Workday, complete the following building blocks:
 
-1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable your users to use this feature.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
 2. **[Configure Workday](#configure-workday)** to configure the SSO settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
 5. **[Create Workday test user](#create-workday-test-user)** to have a counterpart of Britta Simon in Workday that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** to verify whether the configuration works.
+6. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+### Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -246,7 +246,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 In this section, you create a user called Britta Simon in Workday. Work with [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to add the users in the Workday platform. Users must be created and activated before you use single sign-on.
 
-### Test single sign-on
+### Test SSO
 
 When you select the Workday tile in the Access Panel, you should be automatically signed in to the Workday for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
