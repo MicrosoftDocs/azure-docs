@@ -7,7 +7,7 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 author: zr-msft
 ms.author: zarhoads
-ms.date: 05/15/2019
+ms.date: 07/09/2018
 ms.topic: tutorial
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
@@ -48,7 +48,7 @@ In this guide, you will learn how to:
 1. Select **Review + create** and then **Create** when complete.
 
 ## Get the Visual Studio tools
-1. Install the latest version of [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+1. Install the latest version of [Visual Studio 2017](https://www.visualstudio.com/vs/)
 1. In the Visual Studio installer make sure the following Workload is selected:
     * ASP.NET and web development
 1. Install [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio)
@@ -59,9 +59,13 @@ In this section, you'll create an ASP.NET Core web app and get it running in a c
 
 ### Create an ASP.NET web app
 
-From within Visual Studio 2019, create a new project. Currently, the project must be an **ASP.NET Core Web Application**. Name the project '**webfrontend**'.
+From within Visual Studio 2017, create a new project. Currently, the project must be an **ASP.NET Core Web Application**. Name the project '**webfrontend**'.
 
-Select the **Web Application (Model-View-Controller)** template and be sure you're targeting **.NET Core** and **ASP.NET Core 2.1** in the two dropdowns at the top of the dialog. Then select **Create** to create the project.
+![](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
+
+Select the **Web Application (Model-View-Controller)** template and be sure you're targeting **.NET Core** and **ASP.NET Core 2.0** in the two dropdowns at the top of the dialog. Click **OK** to create the project.
+
+![](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
 
 ### Enable Dev Spaces for an AKS cluster
 
