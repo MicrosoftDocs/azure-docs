@@ -47,6 +47,7 @@ $noMfaConfig = @()
 Set-MsolUser -UserPrincipalName $Upn -StrongAuthenticationMethods $noMfaConfig
 ```
 
+
 ## Delete users existing app passwords
 
 This setting deletes all of the app passwords that a user has created. Non-browser apps that were associated with these app passwords stop working until a new app password is created.
@@ -70,6 +71,21 @@ One of the configurable features of Azure Multi-Factor Authentication is giving 
 Users can opt out of two-step verification for a configurable number of days on their regular devices. If an account is compromised or a trusted device is lost, you need to be able to remove the trusted status and require two-step verification again.
 
 The **Restore multi-factor authentication on all remembered devices** setting means that the user will be challenged to perform two-step verification the next time they sign in, regardless of whether they chose to mark their device as trusted.
+
+#### PowerShell
+If MFA is being enforced against the user account, update the `StrongAuthenticationRequirements.RememberDevicesNotIssuedBefore` attribute(s):
+```powershell
+$Upn = "theuser@domain.com"
+$user = Get-MsolUser -UserPrincipalName $Upn
+$reqs = New-Object System.Collections.Generic.List[Microsoft.Online.Administration.StrongAuthenticationRequirement]
+for ($i=0; $i -lt $user.StrongAuthenticationRequirements.count; $i++) {
+	$req = $user.StrongAuthenticationRequirements[$i]
+	$req.RememberDevicesNotIssuedBefore = (Get-Date)
+	$reqs.Add($req)
+}
+$user | Set-MsolUser -StrongAuthenticationRequirements $reqs
+```
+However, if MFA is configured through Conditional Access and MFA is disabled against the user account, `StrongAuthenticationRequirements` is never set and the above is not applicable.
 
 ### How to restore MFA on all suspended devices for a user
 
