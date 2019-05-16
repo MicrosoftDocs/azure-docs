@@ -101,7 +101,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
    * **Subscription**: Select the subscription where you want to create the Azure Time Series Insights Preview environment. A best practice is to use the subscription where your other IoT resources are created by the device simulator.
    *  **Resource group**: Select an existing resource group or create a new one for the Azure Time Series Insights Preview environment resource. A best practice is to use the subscription where your other IoT resources are created by the device simulator. A resource group is a container for Azure resources.
    * **Location**: A datacenter region for your Azure Time Series Insights Preview environment. To avoid added bandwidth costs and latency, it's best to place the Azure Time Series Insights Preview environment in the same region as other IoT resources.
-   * **Tier**: Select **PAYG**, which stands for *pay-as-you-go*. This is the SKU for the Azure Time Series Insights Preview product.
+   * **Tier**: Select **PAYG** (pay-as-you-go). This is the SKU for the Azure Time Series Insights Preview product.
    * **Property ID**: Enter a value that uniquely identifies your time series. This parameter is immutable and can't be changed later. For this tutorial, enter **iothub-connection-device-id**. To learn more about the Time Series ID, see [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md).
    * **Storage account name**: Enter a globally unique name for a new storage account to create.
 
