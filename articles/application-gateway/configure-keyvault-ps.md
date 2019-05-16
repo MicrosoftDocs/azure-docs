@@ -1,6 +1,6 @@
 ---
-title: Configure SSL termination with Key Vault certificates using Azure PowerShell
-description: Learn how you can integrate Azure application gateway with Key Vault for server certificates that are attached to HTTPS enabled listeners.
+title: Configure SSL termination with Key Vault certificates by using Azure PowerShell
+description: Learn how you can integrate Azure Application Gateway with Key Vault for server certificates that are attached to HTTPS-enabled listeners.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,21 +9,21 @@ ms.date: 4/22/2019
 ms.author: victorh
 ---
 
-# Configure SSL termination with Key Vault certificates using Azure PowerShell
+# Configure SSL termination with Key Vault certificates by using Azure PowerShell
 
-[Azure Key Vault](../key-vault/key-vault-whatis.md) is a platform-managed secret store you can use to safeguard secrets, keys, and SSL certificates. Application Gateway supports integration with Key Vault (in public preview) for server certificates that are attached to HTTPS enabled listeners. This support is limited to the v2 SKU of Application Gateway.
+[Azure Key Vault](../key-vault/key-vault-whatis.md) is a platform-managed secret store that you can use to safeguard secrets, keys, and SSL certificates. Azure Application Gateway supports integration with Key Vault (in public preview) for server certificates that are attached to HTTPS-enabled listeners. This support is limited to the v2 SKU of Application Gateway.
 
 For more information, see [SSL termination with Key Vault certificates](key-vault-certs.md).
 
-This article shows you an Azure PowerShell script to integrate Key Vault with Application Gateway for SSL termination certificates.
+This article shows you how to use an Azure PowerShell script to integrate your key vault with your application gateway for SSL termination certificates.
+
+This article requires Azure PowerShell module version 1.0.0 or later. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). To run the commands in this article, you also need to create a connection with Azure by running `Connect-AzAccount`.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). To run the commands in this article, you also need to run `Connect-AzAccount` to create a connection with Azure.
-
 ## Prerequisites
 
-You must have the ManagedServiceIdentity module installed before you begin.
+Before you begin, you must have the ManagedServiceIdentity module installed:
 
 ```azurepowershell
 Install-Module -Name Az.ManagedServiceIdentity
@@ -42,7 +42,7 @@ $kv = "TestKeyVaultAppGw"
 $appgwName = "AppGwKVIntegration"
 ```
 
-### Create a resource group and a user managed identity
+### Create a resource group and a user-managed identity
 
 ```azurepowershell
 $resourceGroup = New-AzResourceGroup -Name $rgname -Location $location
@@ -50,7 +50,7 @@ $identity = New-AzUserAssignedIdentity -Name "appgwKeyVaultIdentity" `
   -Location $location -ResourceGroupName $rgname
 ```
 
-### Create Key Vault, policy, and certificate to be used by Application Gateway
+### Create a key vault, policy, and certificate to be used by the application gateway
 
 ```azurepowershell
 $keyVault = New-AzKeyVault -Name $kv -ResourceGroupName $rgname -Location $location -EnableSoftDelete 
@@ -64,7 +64,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 
-### Create a VNet
+### Create a virtual network
 
 ```azurepowershell
 $sub1 = New-AzVirtualNetworkSubnetConfig -Name "appgwSubnet" -AddressPrefix "10.0.0.0/24"
@@ -73,14 +73,14 @@ $vnet = New-AzvirtualNetwork -Name "Vnet1" -ResourceGroupName $rgname -Location 
   -AddressPrefix "10.0.0.0/16" -Subnet @($sub1, $sub2)
 ```
 
-### Create static public VIP
+### Create a static public virtual IP (VIP) address
 
 ```azurepowershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name "AppGwIP" `
   -location $location -AllocationMethod Static -Sku Standard
 ```
 
-### Create pool and frontend ports
+### Create pool and front-end ports
 
 ```azurepowershell
 $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "appgwSubnet" -VirtualNetwork $vnet
@@ -93,7 +93,7 @@ $fp01 = New-AzApplicationGatewayFrontendPort -Name "port1" -Port 443
 $fp02 = New-AzApplicationGatewayFrontendPort -Name "port2" -Port 80
 ```
 
-### Point ssl certificate to key vault
+### Point the SSL certificate to your key vault
 
 ```azurepowershell
 $sslCert01 = New-AzApplicationGatewaySslCertificate -Name "SSLCert1" -KeyVaultSecretId $secretId
@@ -116,7 +116,7 @@ $autoscaleConfig = New-AzApplicationGatewayAutoscaleConfiguration -MinCapacity 3
 $sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
 ```
 
-### Assign user managed identity to the application gateway
+### Assign the user-managed identity to the application gateway
 
 ```azurepowershell
 $appgwIdentity = New-AzApplicationGatewayIdentity -UserAssignedIdentityId $identity.Id
@@ -135,4 +135,4 @@ $appgw = New-AzApplicationGateway -Name $appgwName -Identity $appgwIdentity -Res
 
 ## Next steps
 
-[Learn more about SSL termination](ssl-overview.md).
+[Learn more about SSL termination](ssl-overview.md)
