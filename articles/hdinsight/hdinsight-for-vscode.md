@@ -362,40 +362,59 @@ HDInsight for Visual Studio Code supports the following features:
 
     ![HDInsight Tools for Visual Studio Code syntax highlights](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
-## Reader Role
-When user submit job to a cluster that has read only permission (Reader role), Ambari credentials is required.
+## Reader Only Role
+Users with cluster **Reader** **only** **role** can no longer submit job to the HDInsight cluster nor view the Hive database. If you know Ambari credentials, you can follow instruction below to manually link the cluster. Otherwise, you need to contact the cluster administrator to upgrade your role to [**HDInsight** **Cluster** **Operator**](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) in the [Azure Portal](https://ms.portal.azure.com/).
 
-### View the Hive database
+### Link cluster from view Hive database
 
-- When you use the Reader role to extend the spark Gen1 cluster and Hive database cluster, you will be prompted to fill in the appropriate **Ambari** **username** or **ESP** **domain** **credential** and **password**. Then, review OUTPUT view for verification.
-    ![HDInsight Tools for Visual Studio Code username](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-username.png)
-    ![HDinsight Tools for Visual Studio Code password](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-password.png)
+- When you use the reader only role to view Hive database cluster, you will be prompted to fill in the appropriate **Ambari** **username** and **password**. Then, review OUTPUT view for verification.
 
-### View Storage Accounts for Gen2
-
-- Expand the spark Gen2 cluster with Reader role, you need to enter the storage **access** **key**. You can get the access key for storage account from the Azure portal. For information, see [View and copy access keys](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-manage#view-and-copy-access-keys)
-
-    ![HDInsight Tools for Visual Studio Code Access Key](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-AccessKey.png)
-
-### Link cluster from context menu
-
-1. Sign in to your Azure subscription with reader only account.
+1. Sign in with reader only role account.
 2. Click **Azure** icon from leftmost column.
 
-    ![HDInsight Tools for Visual Studio Code azure icon](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-icon.png)
-3. From Azure Explorer, expand the subscription.
+   ![HDInsight Tools for Visual Studio Code Azure Icon](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-icon.png)
 
-4. Expand the Hive database cluster with Reader role, you will be prompted to fill in the appropriate **Ambari** **username** or **ESP** **domain** **credential** and **password**. Then, review OUTPUT view for verification.
-    
-5. If the cluster is linked successfully, check it from **HDInsight: List Cluster**. The stage of the cluster will become **admin**.
-    ![HDInsight Tools for Visual Studio Code Reader Linked](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-reader-linked.png)
+3. Expand the subscription.
+4. Expand the cluster with Reader only role. Enter the **Ambari** **username** and **Password**.
+
+   ![HDInsight Tools for Visual Studio Code User Name](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-username.png)
+
+   ![HDInsight Tools for Visual Studio Code Password](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-password.png)
+
+If the cluster is linked successfully, check it from **HDInsight** **:** **List** **Cluster**. The stage of the cluster will become admin.
+
+![HDInsight Tools for Visual Studio Code Reader Linked](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-reader-linked.png)
 
 ### Submit job to reader role cluster
+- When you submit job to reader role cluster, you will be prompted to fill in the appropriate **Ambari** **username** and **password**. Then, review OUTPUT view for verification.
+ 1. Sign in with reader only role account.
+ 2. Submit job to a reader role cluster.
+ 3. Enter the **Ambari** **username** and **password**.
 
-1. Sign in to your Azure subscription with reader only account.
-2. [Submit interactive Hive queries and Hive batch scripts](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-for-vscode#submit-interactive-hive-queries-hive-batch-scripts), you will be prompted to fill in the appropriate **Ambari** **username** or **ESP** **domain** **credential** and **password**. Then, review OUTPUT view for verification.
-3. [Submit interactive PySpark queries](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-for-vscode#submit-pyspark-batch-job) to spark Gen2 cluster, you need to enter the storage **access** **key**. You can get the access key for storage account from the Azure portal. For information, see [View and copy access keys](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-manage#view-and-copy-access-keys)
-    ![HDInsight Tools for Visual Studio Code Access Key](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-AccessKey.png)
+ If the cluster is successfully linked, the job will be successfully submitted.
+
+ ### View and submit jobs to a Gen2 storage account is a reader only role cluster
+
+ - Expand the cluster of Gen2 storage accounts with reader only role, you need to enter the storage **Access** **key**. You can get the access key for storage account from the Azure portal. For information, see [View and copy access keys](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-manage#view-and-copy-access-keys).
+
+   1. Sign in with reader only role account.
+   2. Expand the Gen2 cluster.
+   3. Expand the **Data** **Lake** **Storage** **Gen2**.
+   4. Enter **Access** **Key**.
+
+   ![HDInsight Tools for Visual Studio Code AccessKey](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-accesskey.png)   
+
+   If you enter a valid access key, expand the **Data** **Lake** **Storage** **Gen2** will succeed.
+
+    ![HDInsight Tools for Visual Studio Code expand DataLakeStorageGen2](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-expand-DataLakeStorageGen2.png) 
+
+- Submit a job to a Gen2 storage account is a reader only role cluster, you need to enter the storage **Access** **key**. You can get the access key for storage account from the Azure portal. For information, see [View and copy access keys](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-manage#view-and-copy-access-keys).
+
+    1. Sign in with reader only role account.
+    2. Submit job to a Gen2 storage account is a reader only role cluster.
+    3. Enter **Access** **Key**.
+
+    If you enter a valid access key, the job will be successfully submitted.
 
 ## Unlink cluster
 
