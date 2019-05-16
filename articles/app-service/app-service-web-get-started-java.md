@@ -24,7 +24,7 @@ ms.custom: seodec18
 Azure App Service provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a Java web app to App Service by using the Eclipse IDE for Java EE Developers.
 
 > [!IMPORTANT]
-> Azure App Service on Linux is also an option to host Java web apps natively on Linux using managed Tomcat, Java SE, and WildFly offerings. If you're interested in getting started with App Service on Linux, see [Quickstart: Create a Java app in App Service on Linux](containers/quickstart-java.md).
+> Azure App Service on Linux is also an option to host Java web apps natively on Linux using managed Tomcat, Java SE, and WildFly offerings. If you're interested in getting started with App Service on Linux, or you prefer command line tools, see tutorial at [Quickstart: Create a Java app in App Service on Linux](containers/quickstart-java.md).
 
 When you have completed this quickstart, your application will look similar to the following illustration when you view it in a web browser:
 
@@ -117,9 +117,9 @@ The **Create App Service** dialog box appears with default values. The number **
 In the **Create App Service** dialog box:
 
 * Enter a unique name for your web app, or keep the generated name. This name must be unique across Azure. The name is part of the URL address for the web app. For example: if the web app name is **MyJavaWebApp**, the URL is *myjavawebapp.azurewebsites.net*.
-* For this quickstart, keep the default web container.
 * Select an Azure subscription.
-* On the **App service plan** tab:
+* In the **Runtime** section, keep the default java version and web container.
+* In the **App service plan** section:
 
   * **Create new**: Keep the default, which is the name of the App Service plan.
   * **Location**: Select **West Europe** or a location near you.
@@ -129,11 +129,9 @@ In the **Create App Service** dialog box:
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-### Resource group tab
+* On the **Resource group** section:
 
-Select the **Resource group** tab. Keep the default generated value for the resource group.
-
-![Resource group tab](./media/app-service-web-get-started-java/create-app-service-resource-group.png)
+  * **Create new**: Keep the default, which is the name of the resource group.
 
 [!INCLUDE [resource-group](../../includes/resource-group.md)]
 
