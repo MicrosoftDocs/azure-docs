@@ -271,19 +271,21 @@ The amount of compute billed is exposed by the following metric:
 
 This quantity is calculated each second and aggregated over 1 minute.
 
-**Example**: Consider a database using GP_S_Gen5_4 with the following usage over a one hour period:
+Consider a serverless database configured with 1 min vcore and 4 max vcores.  This corresponds to around 3 GB min memory and 12 GB max memory.  Suppose the auto-pause delay is set to 6 hours and the database workload is active during the first 2 hours of a 24 hour period and otherwise inactive.    
 
-|Time (hours:minutes)|app_cpu_billed (vCore seconds)|
-|---|---|
-|0:01|63|
-|0:02|123|
-|0:03|95|
-|0:04|54|
-|0:05|41|
-|0:06 - 1:00|1255|
-||Total: 1631|
+In this case, the database is billed for compute and storage during the first 8 hours.  Even though the database is inactive starting after the 2nd hour, it is still billed for compute in the subsequent 6 hours based on the minimum compute provisioned while the database is online.  Only storage is billed during the remainder of the 24 hour period while the database is paused.
 
-Suppose the compute unit price is $0.000073/vCore/second. Then the compute billed for this one hour period is determined using the following formula: **$0.000073/vCore/second * 1631 vCore seconds = $0.1191**
+More precisely, the compute bill in this example is calculated as follows:
+
+|Time Interval|vCores used each second|GB used each second|Compute dimension billed|vCore seconds billed over time interval|
+|---|---|---|---|---|
+|0:00-1:00|4|9|vCores used|4 vCores * 3600 seconds = 14400 vCore seconds|
+|1:00-2:00|1|12|Memory used|12Gb * 1/3 * 3600 seconds = 14400 vCore seconds|
+|2:00-8:00|0|0|Min memory provisioned|3Gb * 1/3 * 21600 seconds = 21600 vCore seconds|
+|8:00-24:00|0|0|No compute billed while paused|0 vCore seconds|
+|Total vCore seconds billed over 24 hours||||50400 vCore seconds|
+
+Suppose the compute unit price is $0.000073/vCore/second.  Then the compute billed for this 24 hour period is the product of the compute unit price and vcore seconds billed: $0.000073/vCore/second * 50400 vCore seconds = $3.68
 
 ## Available regions
 
