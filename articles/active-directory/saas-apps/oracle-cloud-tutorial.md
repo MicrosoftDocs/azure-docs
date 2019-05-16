@@ -212,7 +212,7 @@ To enable Azure AD users to sign in to Oracle Cloud, they must be provisioned in
 	1. In **EMAIL** text box, enter the email of user like `Brittasimon@contoso.com`.
 	1. Click **Create**.
 
-### Test single SSO
+### Test SSO
 
 When you select the Oracle Cloud tile in the Access Panel, you should be automatically signed in to the Oracle Cloud for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
