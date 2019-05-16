@@ -82,6 +82,10 @@ Windows Server 2016  | Server Core, Server with Desktop Experience
 Windows Server 2012 R2 |
 Windows Server 2012 |
 Windows Server 2008 R2 | Running SP1 or later
+Windows 10 (x64) |
+Windows 8.1 (x64) |
+Windows 8 (x64) |
+Windows 7 (x64) | Running SP1 or later (Windows 7 RTM is not supported)
 
 #### Linux
 
