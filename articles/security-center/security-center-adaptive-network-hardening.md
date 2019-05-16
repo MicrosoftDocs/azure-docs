@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2019
+ms.date: 05/16/2019
 ms.author: monhaber
 
 ---
@@ -80,9 +80,9 @@ Some important guidelines for modifying an Adaptive Network Hardening rule:
   > [!NOTE]
   > Creating and modifying “deny” rules is done directly on the NSG For more details, see [Create, change, or delete a network security group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
-* A **Deny all traffic** rule is the only type of “deny” rule that would be listed here, and it cannot be modified. You can, however, can delete it (see [Delete a rule](#delete-rule)).
+* A **Deny all traffic** rule is the only type of “deny” rule that would be listed here, and it cannot be modified. You can, however, delete it (see [Delete a rule](#delete-rule)).
   > [!NOTE]
-  > A **Deny all traffic** rule is recommended when, as a result of running the algorithm, Security Center does not identify traffic that should be allowed, based on the existing NSG configuration. Therefore, the recommended rule is to deny all traffic to the specified port. The name of this type of rule is displayed as “system generated”. After enforcing this rule, its actual name in the NSG will be a string comprised of the protocol, traffic direction, “DENY”, and a random number.
+  > A **Deny all traffic** rule is recommended when, as a result of running the algorithm, Security Center does not identify traffic that should be allowed, based on the existing NSG configuration. Therefore, the recommended rule is to deny all traffic to the specified port. The name of this type of rule is displayed as “*System Generated*”. After enforcing this rule, its actual name in the NSG will be a string comprised of the protocol, traffic direction, “DENY”, and a random number.
 
 *To modify an Adaptive Network Hardening rule:*
 
