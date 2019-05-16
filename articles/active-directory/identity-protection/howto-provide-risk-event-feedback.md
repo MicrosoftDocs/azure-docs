@@ -51,9 +51,9 @@ Here are the scenarios and mechanisms to give risk feedback to Azure AD.
 | **User not compromised (False positive)** <br> ‘Risky users’ report shows at at-risk user but the user is not compromised. | Select the user and click ‘Dismiss user risk’. (This process confirms to Azure AD that the user is not compromised.) | Azure AD moves the user risk to none [Risk state = Dismissed; Risk level = -]. | Clicking ‘Dismiss user risk’ will close all risk on the user and past sign-ins. This action cannot be undone. |
 | I want to close the user risk but I am not sure whether the user is compromised / safe. | Select the user and click ‘Dismiss user risk’. (This process confirms to Azure AD that the user is no longer compromised.) | Azure AD moves the user risk to none [Risk state = Dismissed; Risk level = -]. | Clicking ‘Dismiss user risk’ will close all risk on the user and past sign-ins. This action cannot be undone. We recommend you remediate the user by clicking on ‘Reset password’ or request the user to securely reset/change their credentials. |
 
-![Risk processing state for risky user report](./media/howto-provide-risk-event-feedback/risky-users-provide-feedback.png)
-
 Feedback on user risk events in Identity Protection is processed offline and may take some time to update. The risk processing state column will provide the current state of feedback processing.
+
+![Risk processing state for risky user report](./media/howto-provide-risk-event-feedback/risky-users-provide-feedback.png)
 
 ## Next steps
 
