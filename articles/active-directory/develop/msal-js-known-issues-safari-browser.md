@@ -38,7 +38,7 @@ There is no solution for this issue at this point and we are evaluating options 
 By default the ITP setting is enabled on Safari browser. You can disable this setting by navigating to
 **Preferences** -> **Privacy** and unchecking the **Prevent cross-site tracking** option.
 
-![safari setting](./media/msal-js-known-issues-safari-browser/safari.png)
+![safari setting](./media/msal-js-known-issue-safari-browser/safari.png)
 
 You will need to handle the `acquireTokenSilent` failures with an interactive acquire token call, which prompts the user to sign in.
 To avoid repeated sign-ins, an approach you can implement is to handle the `acquireTokenSilent` failure and provide the user an option to disable the ITP setting in Safari before proceeding with the interactive call. Once the setting is disabled, subsequent silent token renewals should succeed.
