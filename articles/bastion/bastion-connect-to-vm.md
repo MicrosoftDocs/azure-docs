@@ -30,9 +30,9 @@ Once the Bastion service is provisioned and deployed in your virtual network, yo
 
 ## <a name="rdp"></a>Connect using RDP (Windows)
 
-1. In the [Azure portal](http://aka.ms/BastionHost) for the Bastion preview, navigate to the virtual machine that you want to connect to, then click **Connect**. The VM should be a Windows virtual machine when using an RDP connection.
+1. In the [Azure portal](https://aka.ms/BastionHost) for the Bastion preview, navigate to the virtual machine that you want to connect to, then click **Connect**. The VM should be a Windows virtual machine when using an RDP connection.
 
-    ![VM connect](./media/bastion-connect-to-vm/connectrdp.png)
+    ![VM connect](./media/bastion-connect-to-vm/connect.png)
 
 1. After you click Connect, a side bar appears that has three tabs – RDP, SSH, and Bastion. If Bastion was provisioned for the virtual network, the Bastion tab is active by default. If you didn't provision Bastion for the virtual network, you can click the link to configure Bastion. For configuration instructions, see [Configure Bastion](bastion-create-host-portal.md).
 
@@ -44,9 +44,9 @@ Once the Bastion service is provisioned and deployed in your virtual network, yo
  
 ## <a name="ssh"></a>Connect using SSH (Linux)
 
-1. In the [Azure portal](http://aka.ms/BastionHost) for the Bastion preview, navigate to the virtual machine that you want to connect to, then click **Connect**. The VM should be a Linux virtual machine when using an SSH connection.
+1. In the [Azure portal](https://aka.ms/BastionHost) for the Bastion preview, navigate to the virtual machine that you want to connect to, then click **Connect**. The VM should be a Linux virtual machine when using an SSH connection.
 
-    ![VM connect](./media/bastion-connect-to-vm/connectssh.png)
+    ![VM connect](./media/bastion-connect-to-vm/connect.png)
 
 1. After you click Connect, a side bar appears that has three tabs – RDP, SSH, and Bastion (new). If Bastion was provisioned for the virtual network, the Bastion tab is active by default. If you did not provision Bastion for the virtual network, you can click the link to configure Bastion. For configuration instructions, see [Configure Bastion](bastion-create-host-portal.md).
 
