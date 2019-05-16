@@ -145,7 +145,7 @@ When traffic is destined for an IP address outside the address prefixes of any o
 
 See [Routing example](#routing-example) for a comprehensive routing table with explanations of the routes in the table.
 
-## 0.0.0.0/0 address prefix
+## <a name="default-route"></a>0.0.0.0/0 address prefix
 
 A route with the 0.0.0.0/0 address prefix instructs Azure how to route traffic destined for an IP address that is not within the address prefix of any other route in a subnet's route table. When a subnet is created, Azure creates a [default](#default) route to the 0.0.0.0/0 address prefix, with the **Internet** next hop type. If you don't override this route, Azure routes all traffic destined to IP addresses not included in the address prefix of any other route, to the Internet. The exception is that traffic to the public IP addresses of Azure services remains on the Azure backbone network, and is not routed to the Internet. If you override this route, with a [custom](#custom-routes) route, traffic destined to addresses not within the address prefixes of any other route in the route table is sent to a network virtual appliance or virtual network gateway, depending on which you specify in a custom route.
 
