@@ -17,15 +17,15 @@ ms.date: 05/15/2019
 ms.author: rogirdh
 ms.custom: 
 ---
-# Oracle application solutions that integrate Microsoft Azure and Oracle Cloud Infrastructure
+# Oracle application solutions integrating Microsoft Azure and Oracle Cloud Infrastructure
 
 Microsoft and Oracle have partnered to provide low latency, high throughput cross-cloud connectivity, allowing you to take advantage of the best of both clouds. 
 
-Take advantage of this low latency and secure connectivity between the two clouds to host your application tier on Microsoft Azure and your database tier on Oracle Cloud Infrastructure (OCI). The experience is similar to running the entire solution stack in a single cloud.
+Using this cross-cloud connectivity, you can host your application tier on Microsoft Azure and your database tier on Oracle Cloud Infrastructure (OCI). The experience is similar to running the entire solution stack in a single cloud.
 
-## Applications in Microsoft Azure
+## Scenario oveview
 
-Cross-cloud connectivity provides one solution for you to run Oracle’s industry leading applications on Microsoft Azure while enjoying the benefits of the Exadata and Autonomous Database services in OCI. 
+Cross-cloud connectivity provides a solution for you to run Oracle’s industry leading applications on Azure virtual machines while enjoying the benefits of the Exadata and Autonomous Database services in OCI. 
 
 Applications you can run in a cross-cloud configuration include:
 
