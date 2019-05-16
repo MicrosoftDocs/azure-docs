@@ -32,7 +32,7 @@ There are several reasons why you should give Azure AD risk feedback:
 
 1. **You found Azure AD’s user or sign-in risk assessment incorrect**. For example, a sign-in shown in ‘Risky sign-ins’ report was benign and all the detections on that sign-in were false positives.
 1. **You validated that Azure AD’s user or sign-in risk assessment was correct**. For example, a sign-in shown in ‘Risky sign-ins’ report was indeed malicious and you want Azure AD to know that all the detections on that sign-in were true positives.
-1. You remediated the risk on that user outside of Azure AD Identity Protection and you want the user’s risk level to be updated.
+1. **You remediated the risk on that user outside of Azure AD Identity Protection** and you want the user’s risk level to be updated.
 
 ## How does Azure AD use my risk feedback?
 
