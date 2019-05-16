@@ -73,7 +73,9 @@ To deploy (or redeploy) the service with SSL enabled, set the *ssl_enabled* para
   > [!NOTE]
   > The information in this section also applies when you deploy a secure web service for the visual interface. If you aren't familiar with using the Python SDK, see [What is the Azure Machine Learning SDK for Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-  When you deploy to AKS, you can create a new AKS cluster or attach an existing one. If you create a new cluster, you use **[AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none-)**. If you attach an existing cluster, you use **[AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none-)**. Both return a configuration object that has an **enable_ssl** method.
+  When you deploy to AKS, you can create a new AKS cluster or attach an existing one.
+-  If you create a new cluster, you use **[AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none-)**.
+- If you attach an existing cluster, you use **[AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none-)**. Both return a configuration object that has an **enable_ssl** method.
 
   The **enable_ssl** method can use a certificate that's provided by Microsoft or a certificate that you supply.
 
@@ -84,7 +86,7 @@ To deploy (or redeploy) the service with SSL enabled, set the *ssl_enabled* para
     > [!IMPORTANT]
     > When you use a certificate from Microsoft, you don't need to purchase your own certificate or domain name.
 
-    The following example demonstrates how to create configurations that enable an SSL certificate that's provided by Microsoft:
+    The following example demonstrates how to create configurations that enable an SSL certificate from Microsoft:
 
     ```python
     from azureml.core.compute import AksCompute
@@ -134,12 +136,12 @@ Next, you must update your DNS to point to the web service.
 
   Use the tools from your domain name registrar to update the DNS record for your domain name. The record must point to the IP address of the service.
 
-  Depending on the registrar and the "time to live" (TTL) that's configured for the domain name, it can take several minutes to several hours before clients can resolve the domain name.
+  There can be a delay of minutes to hours before clients can resolve the domain name, depending on the registrar and the "time to live" (TTL) that's configured for the domain name.
 
 + **For AKS:**
 
   > [!WARNING]
-  > If you used *leaf_domain_label* to create the service with a certificate from Microsoft, don't manually update the DNS value for the cluster. The value should be set automatically.
+  > If you used *leaf_domain_label* to create the service by using a certificate from Microsoft, don't manually update the DNS value for the cluster. The value should be set automatically.
 
   Update the DNS on the **Configuration** tab of the Public IP Address of the AKS cluster. (See the following image.) The Public IP Address is a resource type that's created under the resource group that contains the AKS agent nodes and other networking resources.
 
