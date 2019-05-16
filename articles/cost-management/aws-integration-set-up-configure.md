@@ -1,6 +1,6 @@
 ---
-title: Set up and configure AWS Cost and Usage report integration with Azure Cost Management by Cloudyn
-description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Azure Cost Management by Cloudyn.
+title: Set up and configure AWS Cost and Usage report integration with Azure Cost Management
+description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Azure Cost Management.
 services: cost-management
 keywords:
 author: bandersmsft
@@ -14,9 +14,9 @@ ms.custom:
 
 # Set up and configure AWS Cost and Usage report integration
 
-With Amazon Web Services (AWS) Cost and Usage report integration, you can monitor and control your AWS spending in Azure Cost Management by Cloudyn. The integration allows a single location in the Azure portal where you can monitor and control spending for both Azure and AWS. This article explains how to set up the integration and configure it so that you use Azure Cost Management by Cloudyn features to analyze costs and review budgets.
+With Amazon Web Services (AWS) Cost and Usage report (CUR) integration, you can monitor and control your AWS spending in Azure Cost Management. The integration allows a single location in the Azure portal where you can monitor and control spending for both Azure and AWS. This article explains how to set up the integration and configure it so that you use Azure Cost Management features to analyze costs and review budgets.
 
-Azure Cost Management by Cloudyn processes the AWS Cost and Usage report stored in an S3 bucket by using your AWS access credentials to get report definitions and download report GZIP CSV files.
+Cost Management processes the AWS Cost and Usage report stored in an S3 bucket by using your AWS access credentials to get report definitions and download report GZIP CSV files.
 
 ## Create a Cost and Usage report in AWS
 
@@ -45,9 +45,9 @@ It can take up to 24 hours for AWS to start delivering reports to your Amazon S3
 
 ## Create a role and policy in AWS
 
-Azure Cost Management by Cloudyn accesses the S3 bucket where the Cost and Usage report is located several times a day. The service needs access to credentials to check for new data. You create a role and policy in AWS to allow Azure Cost Management by Cloudyn to access it.
+Azure Cost Management accesses the S3 bucket where the Cost and Usage report is located several times a day. The service needs access to credentials to check for new data. You create a role and policy in AWS to allow Cost Management to access it.
 
-To enable role-based access to an AWS account in Azure Cost Management by Cloudyn, the role is created in the AWS console. You need to have the _role ARN_ and _external ID_ from the AWS console. Later, you use them on the **Create an AWS connector** page in Azure Cost Management by Cloudyn.
+To enable role-based access to an AWS account in Cost Management, the role is created in the AWS console. You need to have the _role ARN_ and _external ID_ from the AWS console. Later, you use them on the **Create an AWS connector** page in Cost Management.
 
 Use the Create a New Role wizard:
 
@@ -57,7 +57,7 @@ Use the Create a New Role wizard:
 4. On the next page, select **Another AWS account**.
 5. In **Account ID**, enter **432263259397**.
 6. In **Options**, select **Require external ID (Best practice when a third party will assume this role)**.
-7. In **External ID**, enter the external ID. The external ID is a shared passcode between the AWS role and Azure Cost Management by Cloudyn. The same external ID is also used on the **New Connector** page in Azure Cost Management by Cloudyn. For example, an external ID resembles _Companyname1234567890123_.
+7. In **External ID**, enter the external ID. The external ID is a shared passcode between the AWS role and Azure Cost Management. The same external ID is also used on the **New Connector** page in Cost Management. For example, an external ID resembles _Companyname1234567890123_.
     
     > [!NOTE]
     > Don't change the selection for **Require MFA**. It should remain cleared.
@@ -68,7 +68,7 @@ Use the Create a New Role wizard:
 Configure permission for the Cost and Usage report:
 
 1. Enter **Cost and Usage Report**.
-2. Select **Access level** > **Read** > **DescribeReportDefinitions**. This step allows Azure Cost Management by Cloudyn to read what CUR reports are defined and determine if they match the report definition prerequisite.
+2. Select **Access level** > **Read** > **DescribeReportDefinitions**. This step allows Cost Management to read what CUR reports are defined and determine if they match the report definition prerequisite.
 3. Select **Add additional permissions**.
 
 Configure permission for your S3 bucket and objects:
@@ -101,7 +101,7 @@ Add permission for AWS Organizations:
 5. Select **Next:Review**.
 6. Enter a name for the new role. Check that you entered the correct information, and then select **Create Role**.
     
-    Note the role ARN and the external ID used in the preceding steps when you created the role. You'll use them later when you set up the Azure Cost Management by Cloudyn connector.
+    Note the role ARN and the external ID used in the preceding steps when you created the role. You'll use them later when you set up the Azure Cost Management connector.
 
 The policy JSON should resemble the following example. Replace _bucketname_ with the name of your S3 bucket.
 
@@ -172,7 +172,7 @@ When you select a connector on the **Cloud connectors** page, you can:
 - Select **Go to Billing Account** to view information for the AWS consolidated account.
 - Select **Access Control** to manage the role assignment for the connector.
 - Select **Edit** to update the connector. You can't change the AWS account number, because it appears in the role ARN. But you can create a new connector.
-- Select **Verify** to rerun the verification test to make sure that Azure Cost Management by Cloudyn can collect data by using the connector settings.
+- Select **Verify** to rerun the verification test to make sure that Cost Management can collect data by using the connector settings.
 
 ![Example list of created AWS connectors](./media/aws-integration-setup-configure/list-aws-connectors.png)
 
