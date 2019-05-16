@@ -1,4 +1,4 @@
-  ---
+---
 title: Create a tenant in Windows Virtual Desktop Preview  - Azure
 description: Describes how to set up Windows Virtual Desktop Preview tenants in Azure Active Directory.
 services: virtual-desktop
