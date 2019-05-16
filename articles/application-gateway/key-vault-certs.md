@@ -27,8 +27,8 @@ Application Gateway integration with Key Vault offers many benefits, including:
   * Set up application gateways.
   * Control application gateway lifecycles.
   * Grant permissions to selected application gateways to access certificates that are stored in your key vault.
-- Support importing existing certificates into your key vault, or use Key Vault APIs to create and manage new certificates with any of the trusted Key Vault partners.
-- Support automatic renewal of certificates that are stored in your key vault.
+- Support for importing existing certificates into your key vault. Or use Key Vault APIs to create and manage new certificates with any of the trusted Key Vault partners.
+- Support for automatic renewal of certificates that are stored in your key vault.
 
 Application Gateway currently supports software-validated certificates only. Hardware security module (HSM)-validated certificates are not supported. After Application Gateway is configured to use Key Vault certificates, its instances retrieve the certificate from Key Vault and install them locally for SSL termination. The instances also poll Key Vault at 24-hour intervals to retrieve a renewed version of the certificate, if it exists. If an updated certificate is found, the SSL certificate currently associated with the HTTPS listener is automatically rotated.
 
