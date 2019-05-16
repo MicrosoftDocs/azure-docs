@@ -43,10 +43,13 @@ The following information shows the currently supported [Microsoft Azure offers]
 | **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)<sup>4</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | Oct 2, 2018<sup>2</sup> |
 | **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0064P | Oct 2, 2018<sup>2</sup> |
 
-_<small><sup>1</sup> For data before May 2014, visit the [Azure Enterprise portal](https://ea.azure.com).</small>_<br/>
-_<small><sup>2</sup> For data before Oct 2, 2018, visit the [Azure Account Center](https://account.azure.com/subscriptions).</small>_<br/>
-_<small><sup>3</sup> Microsoft Customer Agreements started in Mar 2019 and do not have any historical data before this point.</small>_<br/>
-_<small><sup>4</sup> Historical data for credit-based and pay-in-advance subscriptions might not match your invoice. See [Historical data may not match invoice](#historical-data-might-not-match-invoice) below.</small>_<br/>
+_<sup>**1**</sup> For data before May 2014, visit the [Azure Enterprise portal](https://ea.azure.com)._
+
+_<sup>**2**</sup> For data before Oct 2, 2018, visit the [Azure Account Center](https://account.azure.com/subscriptions)._
+
+_<sup>**3**</sup> Microsoft Customer Agreements started in Mar 2019 and do not have any historical data before this point._
+
+_<sup>**4**</sup> Historical data for credit-based and pay-in-advance subscriptions might not match your invoice. See [Historical data may not match invoice](#historical-data-might-not-match-invoice) below._
 
 The following table shows offers which are not supported yet.
 
@@ -85,9 +88,11 @@ The following tables show data that's included or isn't in Cost Management. All 
 | Marketplace purchases<sup>6</sup>      | Credits - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
 | Reservation purchases<sup>7</sup>      |  |
 
-_<small><sup>5</sup> Azure service usage is based on reservation and negotiated prices.</small>_<br/>
-_<small><sup>6</sup> Marketplace usage and purchases are not available for Pay-As-You-Go, MSDN, and Visual Studio offers at this time.</small>_<br/>
-_<small><sup>7</sup> Reservation purchases are only available for Enterprise Agreement (EA) accounts at this time.</small>_<br/>
+_<sup>**5**</sup> Azure service usage is based on reservation and negotiated prices._
+
+_<sup>**6**</sup> Marketplace usage and purchases are not available for Pay-As-You-Go, MSDN, and Visual Studio offers at this time._
+
+_<sup>**7**</sup> Reservation purchases are only available for Enterprise Agreement (EA) accounts at this time._
 
 **Metadata**
 
@@ -95,7 +100,7 @@ _<small><sup>7</sup> Reservation purchases are only available for Enterprise Agr
 | --- | --- |
 | Resource tags<sup>8</sup> | Resource group tags |
 
-_<small><sup>8</sup> Resource tags are applied as usage is emitted from each service and aren't available retroactively to historical usage.</small>_<br/>
+_<sup>**8**</sup> Resource tags are applied as usage is emitted from each service and aren't available retroactively to historical usage._
 
 ## Rated usage data refresh schedule
 
