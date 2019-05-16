@@ -24,7 +24,7 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
 
 * [Python 3.x](https://python.org)
 
-* The [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
+* The [Text Analytics endpoint and key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
 
 * The Python requests library
     
@@ -48,7 +48,7 @@ from pprint import pprint
 from IPython.display import HTML
 ```
 
-Create variables for your subscription key, and the endpoint for the Text Analytics REST API. Verify that the region in the endpoint corresponds to the one you used when you signed up (for example `westcentralus`). If you're using a free trial key, you don't need to change anything.
+Create variables for your Text Analytics key, and the endpoint for the Text Analytics REST API. Verify that the location in the endpoint corresponds to the one you used when you signed up (for example `westcentralus`). If you're using a free trial key, you don't need to change the location. 
     
 ```python
 subscription_key = "<ADD YOUR KEY HERE>"
