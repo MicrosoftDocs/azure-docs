@@ -27,6 +27,6 @@
        - name: Use Azure Kinect calibration functions
          href: use-azure-kinect-calibration-functions.md
        - name: Capture device synchronization
-         href: capture-device-synchronization .md
+         href: capture-device-synchronization.md
        - name: Record and playback API
          href: record-playback-api .md
