@@ -14,7 +14,7 @@ ms.date: 05/02/2019
 
 # Deploy a deep learning model for GPU inferencing
 
-Learn how to run inference workloads on a GPU-enabled machine learning model deployed as a web service. In this article, you learn how to use the Azure Machine Learning service to deploy an example Tensorflow deep learning model. You deploy the  model to an Azure Kubernetes Service (AKS) cluster that uses a GPU-enabled virtual machine (VM). When requests are sent to the service, the model uses the GPU to perform inferencing.
+Learn how to run inference workloads on a GPU-enabled machine learning model deployed as a web service. This article teaches you how to use the Azure Machine Learning service to deploy an example Tensorflow deep learning model. You deploy the  model to an Azure Kubernetes Service (AKS) cluster that uses a GPU-enabled virtual machine (VM). When requests are sent to the service, the model uses the GPU to perform inferencing.
 
 GPUs offer performance advantages over CPUs on highly parallelizable computation. Training and inferencing deep learning models (especially for large batches of requests) are excellent use cases for GPUs.  
 
@@ -54,7 +54,7 @@ aks_target.wait_for_deployment()
 
 ## Write the entry script
 
-Save the following code to your working directory as `score.py`. This file scores images as they are sent to your service. It also loads the TensorFlow saved model, passes the input image to the TensorFlow session on each POST request, and then returns the resulting scores. Other inferencing frameworks require different scoring files.
+Save the following code to your working directory as `score.py`. This file scores images as they're sent to your service. It also loads the TensorFlow saved model, passes the input image to the TensorFlow session on each POST request, and then returns the resulting scores. Other inferencing frameworks require different scoring files.
 
 ```python
 import tensorflow as tf
@@ -104,7 +104,7 @@ if __name__ == "__main__":
 
 ## Define the conda environment
 
-Create a conda environment file named `myenv.yml` to specify the dependencies for your service. It's important to specify that you are using `tensorflow-gpu` to achieve accelerated performance.
+Create a conda environment file named `myenv.yml` to specify the dependencies for your service. It's important to specify that you're using `tensorflow-gpu` to achieve accelerated performance.
 
 ```yaml
 name: aml-accel-perf
@@ -184,7 +184,7 @@ r = requests.post(scoring_url, data = img_data, headers=headers)
 
 ## Cleaning up the resources
 
-Delete your resources after you are done with this example.
+Delete your resources after you're done with this example.
 
 > [!IMPORTANT]
 > Azure bills you based on how long the AKS cluster is deployed. Make sure to clean it up after you are done with it.
