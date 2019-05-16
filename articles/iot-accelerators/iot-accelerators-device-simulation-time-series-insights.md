@@ -48,7 +48,7 @@ The following steps use the Azure CLI in the Azure Cloud Shell to create the con
 
 ## Create a new Time Series Insights environment
 
-[Azure Time Series Insights](../articles/time-series-insights/time-series-insights-overview.md) is a fully managed analytics, storage, and visualization service for managing IoT-scale time-series data in the cloud. To create a new Time Series Insights environment:
+[Azure Time Series Insights](../../articles/time-series-insights/time-series-insights-overview.md) is a fully managed analytics, storage, and visualization service for managing IoT-scale time-series data in the cloud. To create a new Time Series Insights environment:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -108,7 +108,7 @@ Create a new event source to connect to your IoT hub. Use the consumer group you
 1. Click **Create**.
 
 > [!NOTE]
-> You can [grant additional users access](../articles/time-series-insights/time-series-insights-data-access.md#grant-data-access) to the Time Series Insights explorer.
+> You can [grant additional users access](../../articles/time-series-insights/time-series-insights-data-access.md#grant-data-access) to the Time Series Insights explorer.
 
 ## Start a simulation
 
