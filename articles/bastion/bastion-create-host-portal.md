@@ -64,7 +64,7 @@ This section helps you create a new Azure Bastion resource from the Azure portal
     * **Assignment**: Static
 
 1. When you have finished specifying the settings, click **Review + Create**.
-1. On the validation screen, click **Create**. Wait for about 5 mins for the Bastion resource to be created and deployed. During this time, you may see deployment messages. Wait until the deployment has fully completed. This should take about 5 minutes.
+1. On the validation screen, click **Create**. Wait for about 5 mins for the Bastion resource to be created and deployed. During preview, ignore any "failed" messages until 5 minutes have passed.
 
 ## <a name="createvmset"></a>Create a bastion host using VM settings
 
@@ -81,13 +81,13 @@ If you create a bastion host in the portal by using an existing VM, various sett
 1. On the Bastion page, fill out the following settings fields:
 
     * **Name**: The name of the bastion host you want to create.
-    * **Subnet**: This is the subnet inside your virtual network to which Bastion resource will be deployed. The subnet must be created with the name **AzureBastionSubnet**. This lets Azure know which subnet to deploy the Bastion resource to. This is different than a Gateway subnet. Click **Manage subnet configuration** to create the Azure Bastion Subnet. We highly recommend that you use at least a /27 or larger subnet (/27, /26, etc.). Create the **AzureBastionSubnet** without any Network Security Groups, route tables, or delegations.
+    * **Subnet**: This is the subnet inside your virtual network to which Bastion resource will be deployed. The subnet must be created with the name **AzureBastionSubnet**. This lets Azure know which subnet to deploy the Bastion resource to. This is different than a Gateway subnet. Click **Manage subnet configuration** to create the Azure Bastion Subnet. We highly recommend that you use at least a /27 or larger subnet (/27, /26, etc.). Create the **AzureBastionSubnet** without any Network Security Groups, route tables, or delegations. Click **Create** to create the subnet, then proceed with the next settings.
 
       ![Bastion](./media/bastion-create-host-portal/subnet.png)
       
     * **Public IP address**: This is the public IP of the Bastion resource on which RDP/SSH will be accessed (over port 443). Create a new public IP, or use an existing one. The public IP address must be in the same region as the Bastion resource you are creating.
     * **Public IP address name**: The name of the public IP address resource.
-1. Click **Create** to create and deploy the bastion host.
+1. On the validation screen, click **Create**. Wait for about 5 mins for the Bastion resource to be created and deployed. During preview, ignore any "failed" messages until 5 minutes have passed.
 
 ## Next steps
 
