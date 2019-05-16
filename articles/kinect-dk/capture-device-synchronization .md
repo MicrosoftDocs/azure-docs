@@ -23,7 +23,7 @@ depth and color captures can be adjusted using the ```depth_delay_off_color_usec
 
 ## Device external synchronization
 
-See [setup external synchronization](external-sync-setup.md) for hardware setup. Once the devices are connected together, the software
+See [setup external synchronization](https://aka.ms/AzureKinectAPIDocs/external-sync-setup.md) for hardware setup. Once the devices are connected together, the software
 for each device must be configured to specify if the device is operating in a master or subordinate mode. This
 setting is configured on the [k4a_device_configuration_t](https://aka.ms/AzureKinectAPIDocs/api/k4a-device-configuration-t.md).
 

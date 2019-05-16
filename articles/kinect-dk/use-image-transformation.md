@@ -27,7 +27,7 @@ The following functions are covered:
 
  The function [k4a_transformation_depth_image_to_color_camera()](https://aka.ms/AzureKinectAPIDocs/api/k4a-transformation-depth-image-to-color-camera.md) transforms the depth map from the viewpoint of the depth camera into the viewpoint of the color camera. This function is designed to produce so-called RGB-D images, where D represents an additional image channel recording the depth value. As seen in the figure below, the color image and the output of [k4a_transformation_depth_image_to_color_camera()](https://aka.ms/AzureKinectAPIDocs/api/k4a-transformation-depth-image-to-color-camera.md) look as if they were taken from the same viewpoint, i.e., the viewpoint of the color camera.
 
- ![Result of RGB-D Functions](images/sdk_rgbd.png)
+ ![Result of RGB-D Functions](https://aka.ms/AzureKinectAPIDocs/images/sdk_rgbd.png)
 
 ### Implementation
 
@@ -67,7 +67,7 @@ The function [k4a_transformation_depth_image_to_point_cloud()](https://aka.ms/Az
 
 ## Next steps
 
-* [Coordinate systems](coordinate-systems.md)
+* [Coordinate systems](https://aka.ms/AzureKinectAPIDocs/coordinate-systems.md)
 * [k4a_calibration_t](https://aka.ms/AzureKinectAPIDocs/api/k4a-calibration-t.md)
 * [k4a_device_get_calibration()](https://aka.ms/AzureKinectAPIDocs/api/k4a-device-get-calibration.md)
 * [k4a_transformation_create()](https://aka.ms/AzureKinectAPIDocs/api/k4a-transformation-create.md)
