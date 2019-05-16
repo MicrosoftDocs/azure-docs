@@ -25,8 +25,7 @@ Previously, a self-signed certificate for the gateway (issued behind the scenes 
 Only older gateways are affected by this change. If your gateway certificate needs to be transitioned, you will receive communication or toast in the Azure portal. You can check to see if your gateway is affected by using the steps in this article.
 
 > [!IMPORTANT]
-> * The transition to public CA certificates was completed on May 12, 2019. This document will be removed on May 31, 2019**
-> 
+> The transition to public CA certificates was completed on May 12, 2019. **This document will be removed on May 31, 2019.**
 
 ## 1. Verify your certificate
 
