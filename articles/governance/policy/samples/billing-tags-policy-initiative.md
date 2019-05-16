@@ -20,10 +20,6 @@ This policy set requires specified tag values for cost center and product name. 
 
 You can deploy this template using the [Azure portal](#deploy-with-the-portal) or with  [PowerShell](#deploy-with-powershell).
 
-## Deploy with the portal
-
-[![Deploy the Policy sample to Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
-
 ## Deploy with PowerShell
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
