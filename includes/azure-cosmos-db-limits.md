@@ -17,10 +17,9 @@ Azure Cosmos DB is designed to support large scale globally distributed workload
 | Min RU per container created inside a shared database |100 |
 | Min RU per GB consumed in Cosmos DB |40 |
 | Max RU per container |1000000 <sup>1</sup>|
-| Max RU across all containers per account |1000000 <sup>1</sup>|
+| Max RU per shared database |1000000 <sup>1</sup>|
 | Max RU per partition key |10000 |
 | Max storage across all items per partition key|10GB |
-
 
 ## Control plane operations
 
@@ -56,11 +55,11 @@ Azure Cosmos DB is designed to support large scale globally distributed workload
 | Max execution time for single operations (CRUD or single paginated query)| 5s |
 | Max request size (stored procedure, CRUD)|2MB |
 | Max response size (e.g., paginated query) |4MB |
-| Max pre-triggers per request| 1 <sup>1</sup>|
-| Max post-triggers per request| 1 <sup>1</sup>|
+| Max pre-triggers per request| 1 |
+| Max post-triggers per request| 1 |
 | Max master token expiry time |15min |
 | Min resource token expiry time |10min |
-| Max resource token expiry time |24h |
+| Max resource token expiry time |24h <sup>1</sup>|
 | Max clock skew for token authorization| 15min |
  
 ## SQL query limits
@@ -73,7 +72,7 @@ Azure Cosmos DB is designed to support large scale globally distributed workload
 | Max ORs per query| 2000 <sup>1</sup>|
 | Max UDFs per query| 10 <sup>1</sup>|
 | Max arguments per IN expression| 6000 <sup>1</sup>|
-| Max points per polygon| 256 <sup>1</sup>|
+| Max points per polygon| 4096 <sup>1</sup>|
 
 ## Mongo API-specific limits
 
