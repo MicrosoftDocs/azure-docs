@@ -1,6 +1,6 @@
 ---
 title: Configure network on Azure Data Box Edge to access modules| Microsoft Docs 
-description: Describes how to extend the compute network on your Data Box Edge to access modules via an external network.
+description: Describes how to extend the compute network on your Data Box Edge to access modules via an external IP.
 services: databox
 author: alkohli
 
@@ -46,9 +46,9 @@ Take the following steps on your local web UI to configure compute settings.
 
     ![Enable compute settings](media/data-box-edge-extend-compute-access-modules/enable-compute-setting-2.png)
 
-## Deploy webserver app module
+## Add webserver app module
 
-Take the following steps to run a webserver app module on your Data Box Edge device.
+Take the following steps to add a webserver app module on your Data Box Edge device.
 
 1. Go to the IoT Hub resource associated with your Data Box Edge device and then select **IoT Edge device**.
 2. Select your Data Box Edge device. On the **Device details**, select **Set modules**. On **Add modules**, select **+ Add** and then select **IoT Edge Module**.
