@@ -11,7 +11,7 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
 ---
-
+ 
 # Monitor Azure SQL Database using Azure SQL Analytics (Preview)
 
 ![Azure SQL Analytics symbol](./media/azure-sql/azure-sql-symbol.png)
