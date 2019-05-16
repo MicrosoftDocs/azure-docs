@@ -45,7 +45,7 @@ For all operations, a SQL Server VM requires connectivity to Azure public IP add
 
 Establish connectivity by using one of the following options:
 
-- **Allow the Azure datacenter IP ranges**. This option allows [IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) in the download. To access a network security group (NSG), use the Set-AzureNetworkSecurityRule cmdlet. If you're whitelisting only region-specific IPs, you'll also need to whitelist the Azure Active Directory (AD) service tag to enable authentication.
+- **Allow the Azure datacenter IP ranges**. This option allows [IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) in the download. To access a network security group (NSG), use the Set-AzureNetworkSecurityRule cmdlet. If you're whitelisting only region-specific IPs, you'll also need to whitelist the Azure Active Directory (Azure AD) service tag to enable authentication.
 
 - **Allow access using NSG tags**. If you use NSGs to restrict connectivity, this option adds a rule to your NSG that allows outbound access to Azure Backup by using the AzureBackup tag. In addition to this tag, you'll also need corresponding [rules](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags) for Azure AD and Azure Storage to allow connectivity for authentication and data transfer. The AzureBackup tag is currently available on PowerShell only. To create a rule by using the AzureBackup tag:
 
@@ -136,7 +136,7 @@ How to discover databases running on a VM:
     - Azure Backup creates the service account NT Service\AzureWLBackupPluginSvc on the VM.
       - All backup and restore operations use the service account.
       - NT Service\AzureWLBackupPluginSvc requires SQL sysadmin permissions. All SQL Server VMs created in the Marketplace come with the SqlIaaSExtension installed. The AzureBackupWindowsWorkload extension uses the SQLIaaSExtension to automatically get the required permissions.
-    - If you didn't create the VM from Marketplace, the VM won't have the SqlIaaSExtension installed, and the discovery operation fails with the error message UserErrorSQLNoSysAdminMembership. To fix this issue, follow the [instructions](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+    - If you didn't create the VM from the Marketplace, the VM won't have the SqlIaaSExtension installed, and the discovery operation fails with the error message UserErrorSQLNoSysAdminMembership. To fix this issue, follow the [instructions](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
         ![Select the VM and database](./media/backup-azure-sql-database/registration-errors.png)
 
@@ -146,7 +146,7 @@ How to discover databases running on a VM:
 
    ![Select Configure Backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-2. In **Select items to backup**, you see all the registered availability groups and standalone SQL Servers. Select the arrow to the left of a row to expand the list of all the unprotected databases in that instance or Always On availability group.  
+2. In **Select items to backup**, you see all the registered availability groups and standalone SQL Server instances. Select the arrow to the left of a row to expand the list of all the unprotected databases in that instance or Always On availability group.  
 
     ![Displaying all SQL Server instances with standalone databases](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
