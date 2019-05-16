@@ -31,7 +31,7 @@ This article provides you with an overview of baseline protection in Azure Activ
 
 Users with access to privileged accounts have unrestricted access to your environment. Due to the power these accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification when they are used to sign-in. In Azure Active Directory, you can get a stronger account verification by requiring multi-factor authentication (MFA).  
 
-**Require MFA for admins** is a baseline policy that requires MFA for the following directory roles: 
+**Require MFA for admins** is a baseline policy that requires MFA for the following directory roles:
 
 * Global administrator
 * SharePoint administrator
@@ -46,11 +46,7 @@ Users with access to privileged accounts have unrestricted access to your enviro
 
 This baseline policy provides you with the option to exclude users. You might want to exclude one *[emergency-access administrative account](../users-groups-roles/directory-emergency-access.md)* to ensure you are not locked out of the tenant.
 
-
 ## Enable a baseline policy
-
-While baseline policies are in preview, they are by default not activated. You need to manually enable a policy if you want to activate it. If you explicitly enable the baseline policies at the preview stage, they will remain active when this feature reaches general availability. The planned behavior change is the reason why, in addition to activate and deactivate, you have a third option to set the state of a policy: **Automatically enable policy in the future**. By selecting this option, you can leave the policies disabled during preview, but have Microsoft enable them automatically when this feature reaches general availability. If you do not explicitly enable baseline policies now, and do not select the **Automatically enable policy in the future** option, the policies will remain disabled when this feature reaches general availability.
-
 
 **To enable a baseline policy:**  
 
@@ -69,9 +65,6 @@ While baseline policies are in preview, they are by default not activated. You n
 5. To enable the policy, click **Use policy immediately**.
 
 6. Click **Save**. 
- 
-  
- 
 
 ## What you should know 
 
@@ -83,9 +76,6 @@ If you have privileged accounts that are used in your scripts, you should replac
 
 Baseline policies apply to legacy authentication flows like POP, IMAP, older Office desktop client. 
 
-
-
-
 ## Next steps
 
 For more information, see:
@@ -93,4 +83,3 @@ For more information, see:
 - [Five steps to securing your identity infrastructure](https://docs.microsoft.com/azure/security/azure-ad-secure-steps)
 
 - [What is conditional access in Azure Active Directory?](overview.md) 
-
