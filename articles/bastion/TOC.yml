@@ -14,6 +14,8 @@
       href: bastion-connect-vm-ssh.md
     - name: RDP (Windows)
       href: bastion-connect-vm-rdp.md
+  - name: Copy and paste text
+    href: bastion-vm-copy-paste.md
 - name: Reference
   items:
   - name: REST
