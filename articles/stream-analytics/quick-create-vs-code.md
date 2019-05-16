@@ -35,6 +35,7 @@ This quickstart shows you how to create and run a Stream Analytics job using the
 ## Activate the Azure Stream Analytics extension
 
 1. Select the **Azure** icon on the VS Code activity bar. **Stream Analytics** will be visible in the side bar. Under **Stream Analytics**, select **Sign in to Azure**. 
+
     <img src="./media/quick-create-vs-code/azure-sign-in.png" width="500" alt="Sign in to Azure in Visual Studio Code">
 
 2. When you are signed in, your Azure account name appears on the status bar in the lower-left corner of the VS Code window.
