@@ -235,7 +235,7 @@ The following table shows the limits for Azure BizTalk Services.
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 ### Azure Cosmos DB limits
-Azure Cosmos DB is a global scale database in which throughput and storage can be scaled to handle whatever your application requires. If you have any questions about the scale Azure Cosmos DB provides, send email to askcosmosdb@microsoft.com.
+[!INCLUDE [azure-cosmos-db-limits](../includes/azure-cosmos-db-limits.md)]
 
 ### Azure Database for MySQL
 For Azure Database for MySQL limits, see [Limitations in Azure Database for MySQL](mysql/concepts-limits.md).
