@@ -95,7 +95,7 @@ Create a new event source to connect to your IoT hub. Use the consumer group you
     | Event source Name | The following screenshot uses the name **contoso-iot-hub**. Use your own unique name when you complete this step. |
     | Source | **IoT Hub** |
     | Import option | **Use IoT Hub from available subscriptions** |
-    | Subscription Id | Select your Azure subscription in the drop-down. |
+    | Subscription ID | Select your Azure subscription in the drop-down. |
     | Iot hub name | **contoso-simulation7d894**. Use the name of your IoT hub from your Device Simulation solution accelerator. |
     | Iot hub policy name | **iothubowner** |
     | Iot hub policy key | This field is populated automatically. |
