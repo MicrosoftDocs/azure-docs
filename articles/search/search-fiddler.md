@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Explore REST APIs in Postman - Azure Search'
-description: How to use Postman to issue HTTP requests and REST API calls to Azure Search.
+title: 'Quickstart: Postman and REST APIs - Azure Search'
+description: Learn how to call the Azure Search REST APIs using Postman and sample data and definitions.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -72,10 +72,13 @@ The URL is extended to include the `hotel` index name.
 
 To do this in Postman:
 
-1. Change the verb to **PUT**
-2. Copy in this URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`
-3. Provide the index definition (shown below) in the body of the request
-4. Click **Send**
+1. Change the verb to **PUT**.
+
+2. Copy in this URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`.
+
+3. Provide the index definition (shown below) in the body of the request.
+
+4. Click **Send**.
 
 ![Postman request body][8]
 
@@ -116,10 +119,13 @@ The URL is extended to include the `docs` collections and `index` operation.
 
 To do this in Postman:
 
-1. Change the verb to **POST**
-2. Copy in this URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06`
-3. Provide the JSON documents (shown below) in the body of the request
-4. Click **Send**
+1. Change the verb to **POST**.
+
+2. Copy in this URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06`.
+
+3. Provide the JSON documents (shown below) in the body of the request.
+
+4. Click **Send**.
 
 ![Postman request payload][10]
 
@@ -206,9 +212,11 @@ The URL is extended to include a query string, specified using the search operat
 
 To do this in Postman:
 
-+ Change the verb to **GET**
-+ Copy in this URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2019-05-06`
-+ Click **Send**
+1. Change the verb to **GET**.
+
+2. Copy in this URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2019-05-06`.
+
+3. Click **Send**.
 
 This query searches on the term "motel" and returns a count of the documents in the search results. The request and response should look similar to the following screenshot for Postman after you click **Send**. The status code should be 200.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create, load, and query an index using Python and the REST API - Azure Search'
+title: 'Quickstart: Python and REST APIs - Azure Search'
 description: Create, load, and query an index using Python, Jupyter Notebooks, and the Azure Search REST API.
 
 ms.date: 05/15/2019
@@ -21,9 +21,7 @@ ms.custom: seodec2018
 > * [Portal](search-create-index-portal.md)
 > 
 
-Build a Jupyter notebook that creates, loads, and queries an Azure Search [index](search-what-is-an-index.md) using Python and the [Azure Search Service REST APIs](https://docs.microsoft.com/rest/api/searchservice/). 
-
-This article explains how to build your own notebook step by step. Optionally, you can run a finished notebook. To download a copy, go to [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples).
+Build a Jupyter notebook that creates, loads, and queries an Azure Search [index](search-what-is-an-index.md) using Python and the [Azure Search Service REST APIs](https://docs.microsoft.com/rest/api/searchservice/). This article explains how to build your own notebook step by step. Optionally, you can run a finished notebook. To download a copy, go to [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin and then [sign up for Azure Search](search-create-service-portal.md).
 
