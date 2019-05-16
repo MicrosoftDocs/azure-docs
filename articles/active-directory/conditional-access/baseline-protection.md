@@ -35,16 +35,14 @@ Users with access to privileged accounts have unrestricted access to your enviro
 
 **Require MFA for admins** is a baseline policy that requires MFA for the following directory roles: 
 
-- Global administrator  
-
-- SharePoint administrator  
-
-- Exchange administrator  
-
-- Conditional access administrator  
-
-- Security administrator  
-
+* Global administrator
+* SharePoint administrator
+* Exchange administrator
+* Conditional access administrator
+* Security administrator
+* Helpdesk administrator / Password administrator
+* Billing administrator
+* User administrator
 
 ![Azure Active Directory](./media/baseline-protection/01.png)
 
