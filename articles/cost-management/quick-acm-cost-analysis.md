@@ -51,7 +51,7 @@ The scope you select is used throughout Cost Management to provide data consolid
 
 The initial cost analysis view includes the following areas:
 
-**Accumulated cost view** – Represents the predefined cost analysis view configuration. Each view includes date range, granularity, group by, and filter settings. The default view shows accumulated costs for the current billing period, but can be changed to other built-in views. See [Customize cost views](#customize-cost-views) for more details.
+**Accumulated cost view** – Represents the predefined cost analysis view configuration. Each view includes date range, granularity, group by, and filter settings. The default view shows accumulated costs for the current billing period, but can be changed to other built-in views. For more information, see [Customize cost views](#customize-cost-views).
 
 **Actual cost** – Shows the total usage and purchase costs for the current month, as they are accrued and will show on your bill.
 
@@ -127,15 +127,15 @@ The following table lists a few of the most common grouping and filtering option
 
 | Property | When to use |
 | --- | --- |
-| **Billing period** | Break down costs by invoice month. Specifically important for pay-as-you-go and dev/test subscriptions which are not bound to calendar months. EA/MCA accounts can use calendar months in the date picker and/or monthly granularity to accomplish the same goal. |
-| **Charge type** | Break down usage, purchase, refund, and unused reservation costs. Note that reservation purchases and refunds are only available when using action costs and not in amortized costs. Unused reservation costs are only available when looking at amortized costs. |
+| **Billing period** | Break down costs by invoice month. Important for pay-as-you-go and dev/test subscriptions, which are not bound to calendar months. EA/MCA accounts can use calendar months in the date picker and/or monthly granularity to accomplish the same goal. |
+| **Charge type** | Break down usage, purchase, refund, and unused reservation costs. Reservation purchases and refunds are only available when using action costs and not in amortized costs. Unused reservation costs are only available when looking at amortized costs. |
 | **Cloud** | Break down costs by AWS and Azure. AWS costs are only available from management groups, external billing accounts, and external subscriptions. |
 | **Department** / **Invoice section** | Break down costs by EA department or MCA invoice section. Only available for EA/MCA billing accounts and MCA billing profiles. |
 | **Enrollment account** | Break down costs by EA account owner. Only available for EA billing accounts and departments. |
 | **Frequency** | Break down usage-based, one-time, and recurring costs. |
 | **Meter** | Break down cost by Azure usage meter. Only available for Azure usage. All purchases and Marketplace usage will show "Not specified" or "unassigned". |
 | **Publisher type** | Break down AWS, Azure, and Marketplace costs. |
-| **Reservation** | Break down costs by reservation. Any usage which does not include a reservation will show as "Not specified". |
+| **Reservation** | Break down costs by reservation. Any usage that does not include a reservation will show as "Not specified". |
 | **Resource** | Break down costs by resource. All purchases will show as "Not specified" since they are applied at a EA/PAYG billing account or MCA billing profile level.  |
 | **Resource group** | Break down costs by resource group. Only available for non-classic usage. Classic resource usage will show "other" and purchases will show "Not specified". |
 | **Resource type** | Break down costs by resource type. Only available for non-classic usage. Classic resource usage will show "other" and purchases will show "Not specified". |
@@ -144,7 +144,7 @@ The following table lists a few of the most common grouping and filtering option
 | **Subscription** | Break down costs by subscription. All purchases show "Not specified". |
 | **Tag** | Break down costs by tag values for a specific tag key. |
 
-For more information about terms, refer to [Understand the terms used in the Azure usage and charges file](../billing/billing-understand-your-usage).
+For more information about terms, see [Understand the terms used in the Azure usage and charges file](../billing/billing-understand-your-usage).
 
 
 ## Saving and sharing customized views
@@ -200,7 +200,7 @@ And if you don't need the aggregation and prefer the full, raw dataset:
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?metric=AmortizedCost&$filter=properties/usageStart+ge+'2019-04-01'+AND+properties/usageEnd+le+'2019-04-30'&api-version=2019-04-01-preview
 ```
 
-If you need actual costs to show purchases as they were accrued, change **type**/**metric** to **ActualCost**. For more information about these APIs, see the [Query](/rest/api/cost-management/query) and [UsageDetails](/rest/api/consumption/usageDetails) API documentation. Note the published docs are for the GA version, but they both work the same for the 2019-04-01-preview API version outside of the new type/metric attribute and changed property names. (More on the property names below.)
+If you need actual costs to show purchases as they are accrued, change **type**/**metric** to **ActualCost**. For more information about these APIs, see the [Query](/rest/api/cost-management/query) and [UsageDetails](/rest/api/consumption/usageDetails) API documentation. Note the published docs are for the GA version, but they both work the same for the 2019-04-01-preview API version outside of the new type/metric attribute and changed property names. (More on the property names below.)
  
 Cost Management APIs work across all scopes above resources. Namely, resource group, subscription, and management group via Azure RBAC access, EA billing accounts (enrollments), departments, and enrollment accounts via EA portal access, etc. Learn more about scopes, including how to determine your scope ID and/or manage access, in [Understand and work with scopes](understand-work-scopes.md).
 
