@@ -3,13 +3,13 @@ title: "Create a Kubernetes dev space in the cloud using Java and VS Code"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-author: "stepro"
-ms.author: "stephpr"
+author: stepro
+ms.author: stephpr
 ms.date: 09/26/2018
-ms.topic: "tutorial"
+ms.topic: tutorial
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
-manager: "mmontwil"
+manager: mmontwil
 ---
 # Get started on Azure Dev Spaces with Java
 
