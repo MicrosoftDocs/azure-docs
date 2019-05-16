@@ -256,11 +256,11 @@
               - name: Apply an AAD B2C policy
                 href: msal-net-aad-b2c-considerations.md
             - name: MSAL.js
-                items:
-                  - name: Internet Explorer and Microsoft Edge browsers
-                    href: msal-js-known-issues-ie-edge-browsers.md
-                  - name: Safari browser
-                    href: msal-js-known-issues-safari-browser.md
+              items:
+              - name: Internet Explorer and Microsoft Edge browsers
+                href: msal-js-known-issues-ie-edge-browsers.md
+              - name: Safari browser
+                href: msal-js-known-issues-safari-browser.md
     - name: Authentication
       items:
       - name: Authentication basics
