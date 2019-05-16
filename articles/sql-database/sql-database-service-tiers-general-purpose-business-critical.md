@@ -15,7 +15,7 @@ ms.date: 02/23/2019
 ---
 # Azure SQL Database service tiers
 
-Azure SQL Database is based on SQL Server database engine architecture that is adjusted for the cloud environment to ensure 99.99 percent availability, even if there is an infrastructure failure. Three service tiers are used in Azure SQL Database, each with a different architectural model. These service tiers are:
+Azure SQL Database is based on SQL Server database engine architecture that's adjusted for the cloud environment to ensure 99.99 percent availability, even if there is an infrastructure failure. Three service tiers are used in Azure SQL Database, each with a different architectural model. These service tiers are:
 
 - [General purpose](sql-database-service-tier-general-purpose.md), which is designed for most generic workloads.
 - [Business critical](sql-database-service-tier-business-critical.md), which is designed for low-latency workloads with one readable replica.
@@ -52,7 +52,7 @@ To monitor the current total size of your MDF and LDF files, use [sp_spaceused](
 
 Storage for database backups is allocated to support the point-in-time restore (PITR) and [long-term retention (LTR)](sql-database-long-term-retention.md) capabilities of SQL Database. This storage is allocated separately for each database and billed as two separate per-database charges.
 
-- **PITR**: Individual database backups are copied to [read-access geo-redundant (RA-GRS) storage](../storage/common/storage-designing-ha-apps-with-ragrs.md) automatically. The storage size increases dynamically as new backups are created. The storage is used by weekly full backups, daily differential backups, and transaction log backups, which are copied every 5 minutes. The storage consumption depends on the rate of change of the database and the retention period for backups. You can configure a separate retention period for each database between 7 and 35 days. A minimum storage amount equal to 1x of the database size is provided at no extra charge. For most databases, this amount is enough to store 7 days of backups.
+- **PITR**: Individual database backups are copied to [read-access geo-redundant (RA-GRS) storage](../storage/common/storage-designing-ha-apps-with-ragrs.md) automatically. The storage size increases dynamically as new backups are created. The storage is used by weekly full backups, daily differential backups, and transaction log backups, which are copied every 5 minutes. The storage consumption depends on the rate of change of the database and the retention period for backups. You can configure a separate retention period for each database between 7 and 35 days. A minimum storage amount equal to 100 percent (1x) of the database size is provided at no extra charge. For most databases, this amount is enough to store 7 days of backups.
 - **LTR**: SQL Database offers you the option of configuring long-term retention of full backups for up to 10 years. If you set up an LTR policy, these backups are stored in RA-GRS storage automatically, but you can control how often the backups are copied. To meet different compliance requirements, you can select different retention periods for weekly, monthly, and/or yearly backups. The configuration you choose determines how much storage will be used for LTR backups. To estimate the cost of LTR storage, you can use the LTR pricing calculator. For more information, see [SQL Database long-term retention](sql-database-long-term-retention.md).
 
 ## Next steps

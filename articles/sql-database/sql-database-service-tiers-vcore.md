@@ -27,7 +27,9 @@ Gen4 hardware offers substantially more memory per vCore. However, Gen5 hardware
 
 ## Service-tier characteristics
 
-The vCore-based purchasing model provides three service tiers: general purpose, hyperscale, and business critical. These service tiers are differentiated by a range of compute sizes, high-availability designs, fault-isolation methods, types and sizes of storage, and I/O ranges. You must separately configure the required storage and retention period for backups. To set up the backup-retention period, open the Azure portal, go to the server (not the database), and then go to **Manage Backups** > **Configure Policy** > **Point In Time Restore Configuration** > **7 - 35 days**.
+The vCore-based purchasing model provides three service tiers: general purpose, hyperscale, and business critical. These service tiers are differentiated by a range of compute sizes, high-availability designs, fault-isolation methods, types and sizes of storage, and I/O ranges.
+
+You must separately configure the required storage and retention period for backups. To set the backup-retention period, open the Azure portal, go to the server (not the database), and then go to **Manage Backups** > **Configure Policy** > **Point In Time Restore Configuration** > **7 - 35 days**.
 
 The following table explains the differences between the three tiers:
 
@@ -46,19 +48,19 @@ The following table explains the differences between the three tiers:
 |||
 
 > [!NOTE]
-> You can get a free Azure SQL database at the basic service tier in conjunction with an Azure free account to explore Azure. For more information, see [Create a managed cloud database with your Azure free account](https://azure.microsoft.com/free/services/sql-database/).
+> You can get a free Azure SQL database at the basic service tier in conjunction with an Azure free account. For more information, see [Create a managed cloud database with your Azure free account](https://azure.microsoft.com/free/services/sql-database/).
 
-- For more information, see [vCore resource limits in a single database](sql-database-vcore-resource-limits-single-databases.md) and [vCore resource limits in a managed instance](sql-database-managed-instance.md#vcore-based-purchasing-model).
+- For more information about vCore resource limits, see [vCore resource limits in a single database](sql-database-vcore-resource-limits-single-databases.md) and [vCore resource limits in a managed instance](sql-database-managed-instance.md#vcore-based-purchasing-model).
 - For more information about the general-purpose and business-critical service tiers, see [General-purpose and business-critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md).
 - For more information about the hyperscale service tier in the vCore-based purchasing model, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md).  
 
 ## Azure Hybrid Benefit
 
-In the provisioned compute tier of the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on SQL Database by using the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to save up to 30 percent on Azure SQL Database by using your on-premises SQL Server licenses with Software Assurance.
+In the provisioned compute tier of the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on SQL Database by using [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to save up to 30 percent on Azure SQL Database by using your on-premises SQL Server licenses with Software Assurance.
 
 ![pricing](./media/sql-database-service-tiers/pricing.png)
 
-With the Azure Hybrid Benefit, you can choose to pay only for the underlying Azure infrastructure by using your existing SQL Server license for the SQL database engine itself (Base Compute pricing), or you can pay for both the underlying infrastructure and the SQL Server license (License-Included pricing).
+With Azure Hybrid Benefit, you can choose to pay only for the underlying Azure infrastructure by using your existing SQL Server license for the SQL database engine itself (Base Compute pricing), or you can pay for both the underlying infrastructure and the SQL Server license (License-Included pricing).
 
 You can choose or change your licensing model by using the Azure portal or by using one of the following APIs:
 
@@ -91,7 +93,7 @@ Migrating a database from the DTU-based purchasing model to the vCore-based purc
 
 ### Migrate databases with geo-replication links
 
-Migrating from the DTU-based model to the vCore-based purchasing model is similar to upgrading or downgrading the geo-replication relationships between databases in the standard and premium service tiers. During migration, you don't have to stop geo-replication, but you must observe the sequencing rules:
+Migrating from the DTU-based model to the vCore-based purchasing model is similar to upgrading or downgrading the geo-replication relationships between databases in the standard and premium service tiers. During migration, you don't have to stop geo-replication, but you must follow these sequencing rules:
 
 - When upgrading, you must upgrade the secondary database first, and then upgrade the primary.
 - When downgrading, reverse the order: you must downgrade the primary database first, and then downgrade the secondary.
@@ -130,5 +132,5 @@ You can copy any database with a DTU-based compute size to a database with a vCo
 
 ## Next steps
 
-- For the specific compute sizes and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md).
+- For the specific compute sizes and storage size choices available for single databases, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md).
 - For the specific compute sizes and storage size choices available for elastic pools, see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
