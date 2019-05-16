@@ -15,9 +15,9 @@ ms.reviewer: japere
 
 # Understand and solve Azure Active Directory Application Proxy CORS issues
 
-Browser security usually prevents a web page from making AJAX requests to another domain. This restriction is called the *same-origin policy*, and prevents a malicious site from reading sensitive data from another site. However, sometimes you might want to let other sites call your web API. [Cross-origin resource sharing (CORS)](http://www.w3.org/TR/cors/) is a W3C standard that lets a server relax the same-origin policy. Using CORS, a server can explicitly allow some cross-origin requests while rejecting others.
+[Cross-origin resource sharing (CORS)](http://www.w3.org/TR/cors/) can sometimes present challenges for the apps and APIs you publish through the Azure Active Directory Application Proxy. This article discusses Azure AD Application Proxy CORS issues and solutions.
 
-CORS can sometimes present challenges for the apps and APIs you publish through the Azure AD Application Proxy. This article discusses Azure AD Application Proxy CORS issues and solutions.
+Browser security usually prevents a web page from making AJAX requests to another domain. This restriction is called the *same-origin policy*, and prevents a malicious site from reading sensitive data from another site. However, sometimes you might want to let other sites call your web API. CORS is a W3C standard that lets a server relax the same-origin policy and explicitly allow some cross-origin requests while rejecting others.
 
 ## CORS challenges with Application Proxy
 
@@ -33,11 +33,11 @@ The following URLs have different origins than the previous two:
 -   https:\//contoso.com/foo.html - Different scheme
 -   http:\//www.contoso.com/foo.html - Different subdomain
 
-The following examples show a **CORSWebService**, which hosts a web API controller, and a **CORSWebClient**, which calls **CORSWebService**. There is an AJAX request from **CORSWebClient** to **CORSWebService**.
+The following example shows a typical Azure AD Application Proxy CORS scenario. The internal server hosts a **CORSWebService** web API controller, and a **CORSWebClient** that calls **CORSWebService**. There is an AJAX request from **CORSWebClient** to **CORSWebService**.
 
 ![On-premises same-origin request](./media/application-proxy-understand-cors-issues/image1.png)
 
-The CORSWebClient app seems to work when you host it on premises, but it either fails to load or errors out when you publish it via the Azure AD Application Proxy. Since you published the two apps separately through Application Proxy, they're hosted at different domains, so the AJAX request from CORSWebClient to CORSWebService is cross-origin and it fails.
+The CORSWebClient app may work when you host it on premises, but either fail to load or error out when you publish it via Azure AD Application Proxy. If you published the *CORSWebClient* directory separately through Application Proxy, the AJAX request from *CORSWebClient* to other directories or domains like *CORSWebService* is cross-origin, and it fails.
 
 ![Application Proxy CORS request](./media/application-proxy-understand-cors-issues/image2.png)
 
@@ -63,11 +63,11 @@ Use an Azure AD Application Proxy [custom domain](https://docs.microsoft.com/en-
 
 Publish the parent directory of both apps. This solution works especially well if you only have two apps on the web server. Instead of publishing each app separately, you can publish the common parent directory to result in the same origin.
 
-In the following example, the app published from contoso.com/CORSWebClient can't access resources from contoso.com/CORSWebService because of the CORS issue:
+In the following example, the CORSWebClient app published from *contoso.com/CORSWebClient* can't access resources from *contoso.com/CORSWebService* because of the CORS issue:
 
 ![Publish app individually](./media/application-proxy-understand-cors-issues/image4.png)
 
-Instead, you can publish the parent directory, which includes both the CORSWebClient and CORSWebService folders:
+Instead, you can publish the parent directory, which includes both the *CORSWebClient* and *CORSWebService* directories:
 
 ![Publish parent directory](./media/application-proxy-understand-cors-issues/image5.png)
 
