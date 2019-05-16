@@ -30,13 +30,13 @@ This quickstart shows you how to create and run a Stream Analytics job using the
 
 3. Once the extension is installed, verify that **Azure Stream Analytics Tools** is visible in your **Enabled Extensions**.
 
-    <img src="./media/quick-create-vs-code/enabled-extensions.png" width="500" alt="Azure Stream Analytics Tools under enabled extensions in Visual Studio Code">
+   ![Azure Stream Analytics Tools under enabled extensions in Visual Studio Code](./media/quick-create-vs-code/enabled-extensions.png)
 
 ## Activate the Azure Stream Analytics extension
 
 1. Select the **Azure** icon on the VS Code activity bar. **Stream Analytics** will be visible in the side bar. Under **Stream Analytics**, select **Sign in to Azure**. 
 
-    <img src="./media/quick-create-vs-code/azure-sign-in.png" width="500" alt="Sign in to Azure in Visual Studio Code">
+   ![Sign in to Azure in Visual Studio Code](./media/quick-create-vs-code/azure-sign-in.png)
 
 2. When you are signed in, your Azure account name appears on the status bar in the lower-left corner of the VS Code window.
 
@@ -108,7 +108,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
 3. The new project will be added to your workspace. An ASA project consists of the query script **(*.asaql)**, a **JobConfig.json** file, and an **asaproj.json** configuration file.
 
-    <img src="./media/quick-create-vs-code/asa-project-files.png" width="450" alt="Stream Analytics project files in VS Code">  
+   ![Stream Analytics project files in VS Code](./media/quick-create-vs-code/asa-project-files.png)
 
 4. The **asaproj.json** configuration file contains the inputs, outputs, and job configuration file information needed for submitting the Stream Analytics job to Azure.
 
@@ -226,7 +226,7 @@ There are two ways to trigger script compilation:
 
 2. Right-click on the job name. Then, select **Start** from the context menu.
 
-![Start Stream Analytics job in VS Code](./media/quick-create-vs-code/start-asa-job-vs-code.png)
+   ![Start Stream Analytics job in VS Code](./media/quick-create-vs-code/start-asa-job-vs-code.png)
 
 3. Choose **Now** in the popup window to start the job.
 
