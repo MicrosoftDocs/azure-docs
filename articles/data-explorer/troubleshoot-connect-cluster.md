@@ -1,11 +1,10 @@
 ---
-title: Failure to connect to a cluster in Azure Data Explorer
-description: This article describes troubleshooting steps for connecting to a cluster in Azure.Data Explorer.
+title: Troubleshoot Azure Data Explorer cluster connection failures
+description: This article describes troubleshooting steps for connecting to a cluster in Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ---

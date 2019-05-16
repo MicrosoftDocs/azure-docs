@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 04/22/2019
 ms.author: atsenthi
 ms.custom: mvc
 
@@ -25,7 +25,7 @@ This short video introduces Service Fabric and microservices:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 ## Compliance
-Azure Service Fabric Resource Provider is available in all Azure regions and is compliant with all compliance certs that Azure has; this includes the following: SOC, ISO, PCI DSS, HIPPA, and GDRP. Please review the following for a complete list of compliance certs: 
+Azure Service Fabric Resource Provider is available in all Azure regions and is compliant with all compliance certs that Azure has; this includes the following: SOC, ISO, PCI DSS, HIPAA, and GDRP. Please review the following for a complete list of compliance certs: 
 [Compliance Offerings](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## Applications composed of microservices 

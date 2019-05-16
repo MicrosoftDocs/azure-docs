@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 05/15/2019
 ms.author: aahi
 ---
 
@@ -35,7 +35,7 @@ Alternatively, you can specify the market with the `mkt` query parameter, and a 
 |Finland|FI|
 |France|FR|
 |Germany|DE|
-|Hong Kong|HK|
+|Hong Kong SAR|HK|
 |India|IN|
 |Indonesia|ID|
 |Italy|IT|
@@ -78,7 +78,7 @@ Alternatively, you can specify the market with the `mkt` query parameter, and a 
 |Finland|Finnish|fi-FI|
 |France|French|fr-FR|
 |Germany|German|de-DE|
-|Hong Kong|Traditional Chinese|zh-HK|
+|Hong Kong SAR|Traditional Chinese|zh-HK|
 |India|English|en-IN|
 |Indonesia|English|en-ID|
 |Italy|Italian|it-IT|
@@ -105,3 +105,7 @@ Alternatively, you can specify the market with the `mkt` query parameter, and a 
 |United Kingdom|English|en-GB|
 |United States|English|en-US|
 |United States|Spanish|es-US|
+
+## Next steps
+
+* [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

@@ -1,21 +1,14 @@
 ---
-title: Self-test client to pre-validate a virtual machine - Azure Marketplace | Microsoft Docs
+title: Self-test client to pre-validate a virtual machine | Azure Marketplace 
 description: How to create a self-test client for pre-validating a virtual machine image for the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler
-editor:
-
-ms.assetid:
 ms.service: marketplace
-ms.workload:
-ms.tgt_pltfrm:
-ms.devlang:
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
+
 # Create a self-test client to pre-validate an Azure virtual machine image
 
 Use this article as a guide for creating a client service that consumes the self-test API. You can use the self-test API to pre-validate a virtual machine (VM) to ensure it meets the latest Azure Marketplace publishing requirements. This client service enables you to test a VM before you submit your offer for Microsoft certification.
@@ -46,7 +39,7 @@ The following diagram shows how authorization works for service to service calls
 The self-test API contains a single endpoint that supports only the POST method.  It has the following structure.
 
 ```
-Uri:             https:\//isvapp.azurewebsites.net/selftest-vm
+Uri:             https://isvapp.azurewebsites.net/selftest-vm
 Method:          Post
 Request Header:  Content-Type: “application/json”
 Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
@@ -353,7 +346,7 @@ The following screen capture shows an example of using the curl command to get a
 
 ### To create and get a token using C&#35;
 
-To ask Auth0 for tokens for any of your authorized applications, perform a POST operation to the  [https://soamtenant.auth0.com/oauth/token](https://soamtenant.auth0.com/oauth/token) endpoint with a payload in the following format:
+To ask Auth0 for tokens for any of your authorized applications, perform a POST operation to the https:\//soamtenant.auth0.com/oauth/token endpoint with a payload in the following format:
 
 ```csharp
 string clientId = "Your Application Id";
@@ -376,7 +369,7 @@ var token = JObject.Parse(content)["access_token"];
 
 ### To create and get a token using PowerShell
 
-To ask Auth0 for tokens for any of your authorized applications, perform a POST operation to the  [https://soamtenant.auth0.com/oauth/token](https://soamtenant.auth0.com/oauth/token) endpoint with a payload in the following format:
+To ask Auth0 for tokens for any of your authorized applications, perform a POST operation to the https:\//soamtenant.auth0.com/oauth/token endpoint with a payload in the following format:
 
 ```powershell
 $clientId = "Application Id of AD Client APP";

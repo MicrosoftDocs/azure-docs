@@ -25,10 +25,10 @@ This article guides you through using the Maven command line tool to build and p
 
 To develop functions using Java, you must have the following installed:
 
-- [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
-- [Apache Maven](https://maven.apache.org), version 3.0 or above.
+- [Java Developer Kit](https://aka.ms/azure-jdks), version 8
+- [Apache Maven](https://maven.apache.org), version 3.0 or above
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
-- [Azure Functions Core Tools](functions-run-local.md#v2) (requires **.NET Core 2.x SDK**)
+- [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above
 
 > [!IMPORTANT]
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
@@ -104,6 +104,10 @@ public class Function {
 
 ```
 
+## Reference bindings
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
 ## Run the function locally
 
 Change directory to the newly created project folder and build and run the function with Maven:
@@ -150,6 +154,9 @@ az login
 
 Deploy your code into a new Function app using the `azure-functions:deploy` Maven target.
 
+> [!NOTE]
+> When you use Visual Studio Code to deploy your Function app, remember to choose a non-free subscription, or you will get an error. You can watch your subscription on the left side of the IDE.
+
 ```
 mvn azure-functions:deploy
 ```
@@ -191,7 +198,7 @@ To the following:
 return request.createResponse(200, "Hi, " + name);
 ```
 
-Save the changes and redeploy by running `azure-functions:deploy` from the terminal as before. The function app will be updated and this request:
+Save the changes. Run mvn clean package and redeploy by running `azure-functions:deploy` from the terminal as before. The function app will be updated and this request:
 
 ```bash
 curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java

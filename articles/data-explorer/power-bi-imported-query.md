@@ -1,7 +1,6 @@
 ---
-title: 'Quickstart: Visualize data using a query imported into Power BI'
+title: 'Quickstart: Visualize data from Azure Data Explorer with an imported query in Power BI '
 description: 'In this quickstart, you learn how to use one of the three options for visualizing data in Power BI: importing a query from Azure Data Explorer.'
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe

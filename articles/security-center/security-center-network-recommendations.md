@@ -3,7 +3,7 @@ title: Protecting your network resources in Azure Security Center  | Microsoft D
 description: This document addresses recommendations in Azure Security Center that help you protect your Azure network resources and stay in compliance with security policies.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
+ms.date: 04/05/2019
+ms.author: monhaber
 
 ---
 # Protect your network resources in Azure Security Center
@@ -29,7 +29,7 @@ This article addresses recommendations that apply to your Azure resources from a
 The **Networking** page provides an overview of the sections you can deep dive into, to get more information about the health of your network resources:
 
 - Network map (Azure Security Center Standard tier only)
-- NSG hardening (Coming soon. Register for the preview)
+- Adaptive Network Hardening
 - Networking security recommendations.
 - Legacy **Networking** blade (the previous networking blade) 
  
@@ -45,7 +45,8 @@ To open the Network map:
  
 The default view of the topology map displays:
 - Subscriptions you selected in Azure. The map supports multiple subscriptions.
-- VMs, subnets, and Vnets of the Resource Manager resource type (Classic Azure resources are not supported)
+- VMs, subnets, and VNets of the Resource Manager resource type (Classic Azure resources are not supported)
+- Peered VNets
 - Only resources that have [network recommendations](security-center-recommendations.md) with a high or medium severity  
 - Internet facing resources
 - The map is optimized for the subscriptions you selected in Azure. If you modify your selection, the map is recalculated and re-optimized based on your new settings.  
@@ -94,7 +95,7 @@ For example, you might detect two machines that you weren’t aware could commun
 
 To drill down into a resource:
 1. When you select a specific resource on the map, the right pane opens and gives you general information about the resource, connected security solutions if there are any, and the recommendations relevant to the resource. It's the same type of behavior for each type of resource you select. 
-2. Click **Traffic** to see the list of possible outbound and inbound traffic on the resource - this is a comprehensive list of who can communicate with the resource and who it can communicate with, and through which protocols and ports.
+2. Click **Traffic** to see the list of possible outbound and inbound traffic on the resource - this is a comprehensive list of who can communicate with the resource and who it can communicate with, and through which protocols and ports. For example, when you select a VM, all the VMs it can communicate with are shown, and when you select a subnet, all the subnets which it can communicate with are shown.
 
 **This data is based on analysis of the Network Security Groups as well as advanced machine learning algorithms that analyze multiple rules to understand their crossovers and interactions.** 
 

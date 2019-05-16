@@ -57,8 +57,12 @@ Here are some of the things you can do with the Activity Log:
 * Analyze it in Power BI using the [**Power BI content pack**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Save it to a **Storage Account** for archival or manual inspection](../../azure-monitor/platform/archive-activity-log.md). You can specify the retention time (in days) using the **Log Profile**.
 * Query it via PowerShell Cmdlet, CLI, or REST API.
+* View the [Change history](#view-change-history) for certain events
 
 ## Query the Activity Log in the Azure portal
+
+> [!NOTE] 
+> The Activity Log stores the logs in the backend for 90 days. If you would like to retain the data beyond this, please configure a **Log Profile** as described below. 
 
 Within the Azure portal, you can view your Activity Log in several places:
 * The **Activity Log** that you can access by searching for the Activity Log under **All services** in the left-hand navigation pane.
@@ -89,19 +93,11 @@ A **Log Profile** controls how your Activity Log is exported. Using a Log Profil
 * Which event categories (Write, Delete, Action) should be sent. *The meaning of "category" in Log Profiles and Activity Log events is different. In the Log Profile, "Category" represents the operation type (Write, Delete, Action). In an Activity Log event, the "category" property represents the source or type of event (for example, Administration, ServiceHealth, Alert, and more).*
 * Which regions (locations) should be exported. Make sure to include "global," as many events in the Activity Log are global events.
 * How long the Activity Log should be retained in a Storage Account.
-    - A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
+    - A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 365.
     - If retention policies are set but storing logs in a Storage Account is disabled (for example, if only Event Hubs or Log Analytics options are selected), the retention policies have no effect.
     - Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted. The delete process begins at midnight UTC, but note that it can take up to 24 hours for the logs to be deleted from your storage account.
 
 You can use a storage account or event hub namespace that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate RBAC access to both subscriptions.
-
-> [!NOTE]
->  You cannot currently archive data to a storage account that is behind a secured virtual network.
-
-> [!WARNING]
-> The format of the log data in the storage account changed to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
->
->
 
 These settings can be configured via the “Export” option in the Activity Log blade in the portal. They can also be configured programmatically [using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlets, or CLI. A subscription can only have one log profile.
 
@@ -182,6 +178,20 @@ For the full documentation for creating a monitor profile with the CLI, see the 
 ```azurecli
 az monitor log-profiles delete --name <profile name>
 ```
+
+## View change history
+
+When reviewing the Activity Log, it can help to see what changes happened during that event time. You can view this information with Change history.
+
+Navigate to Activity Log using the menu on the left side of the portal. Select an event from the Activity Log you want to look deeper into. Select the **Change history (Preview)** tab to view any associated changes with the event.
+
+![Change history list for an event](./media/activity-logs-overview/change-history-event.png)
+
+If there are any associated changes with the event, you'll see a list of changes that you can select. This opens up the **Change history (Preview)** page. On this page you see the changes to the resource. As you can see from the following example, we are able to see not only that the VM changed sizes, but what the previous VM size was before the change and what it was changed to.
+
+![Change history page showing differences](./media/activity-logs-overview/change-history-event-details.png)
+
+To learn more about Change history, see [Get resource changes](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## Next Steps
 

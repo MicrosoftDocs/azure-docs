@@ -167,8 +167,8 @@ The following steps create the necessary resources required to deploy your appli
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
-    Your SAS URL for the EventHubs follows the structure: https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. For example,
-    https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
+    Your SAS URL for the EventHubs follows the structure: `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`. For example,
+    `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
 
 12. Open the *sfdeploy.parameters.json* file and replace the following contents from the preceding steps. [SAS-URL-STORAGE-ACCOUNT] was noted in step 8. [SAS-URL-EVENT-HUBS] was noted in step 11.
 

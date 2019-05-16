@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Streaming Endpoints in Azure Media Services | Microsoft Docs
-description: This article gives an explanation of what Streaming Endpoints are, and how they are used by Azure Media Services.
+title: Streaming Endpoints (Origin) in Azure Media Services | Microsoft Docs
+description: In Azure Media Services, a Streaming Endpoint (Origin) represents a dynamic packaging and streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. 
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,16 +11,20 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/27/2019
 ms.author: juliako
 ---
 
-# Streaming Endpoints
+# Streaming Endpoints (Origin)
 
-In Microsoft Azure Media Services (AMS), the [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) entity represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. The outbound stream from a **Streaming Endpoint** service can be a live stream, or a video on-demand Asset in your Media Services account. When you create a Media Services account, a **default** Streaming Endpoint is created for you in a stopped state. You cannot delete the **default** Streaming Endpoint. Additional Streaming Endpoints can be created under the account. 
+In Microsoft Azure Media Services, a [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player application, using one of the common streaming media protocols (HLS or DASH). In addition, the **Streaming Endpoint** provides dynamic (just-in-time) encryption to industry leading DRMs.
+
+When you create a Media Services account, a **default** Streaming Endpoint is created for you in a stopped state. You cannot delete the **default** Streaming Endpoint. Additional Streaming Endpoints can be created under the account (see [Quotas and limitations](limits-quotas-constraints.md)). 
 
 > [!NOTE]
 > To start streaming videos, you need to start the **Streaming Endpoint** from which you want to stream the video. 
+>  
+> You are only billed when your Streaming Endpoint is in running state.
 
 ## Naming convention
 
@@ -30,53 +34,43 @@ For any additional endpoints: `{EndpointName}-{AccountName}-{DatacenterAbbreviat
 
 ## Types  
 
-There are two **Streaming Endpoint** types: **Standard** and **Premium**. The type is defined by the number of scale units (`scaleUnits`) you allocate for the streaming endpoint. 
+There are two **Streaming Endpoint** types: **Standard** (preview) and **Premium**. The type is defined by the number of scale units (`scaleUnits`) you allocate for the streaming endpoint. 
 
 The table describes the types:  
 
 |Type|Scale units|Description|
 |--------|--------|--------|  
-|**Standard Streaming Endpoint** (recommended)|0|The default Streaming Endpoint is a **Standard** type, but can be changed to the Premium type.<br/> The Standard type is the recommended option for virtually all streaming scenarios and audience sizes. The **Standard** type scales outbound bandwidth automatically. The throughput from this type of Streaming Endpoint is up to 600 Mbps. Video fragments cached in the CDN, do not use the Streaming Endpoint bandwidth.<br/>For customers with extremely demanding requirements Media Services offer **Premium** streaming endpoints, which can be used to scale out capacity for the largest internet audiences. If you expect large audiences and concurrent viewers, contact us at amsstreaming\@microsoft.com for guidance on whether you need to move to the **Premium** type. |
-|**Premium Streaming Endpoint**|>0|**Premium** streaming endpoints are suitable for advanced workloads, providing dedicated and scalable bandwidth capacity. You move to a **Premium** type by adjusting `scaleUnits`. `scaleUnits` provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. When using the **Premium** type, each enabled unit provides additional bandwidth capacity to the application. |
- 
-## Comparing streaming types
+|**Standard**|0|The default Streaming Endpoint is a **Standard** type, can be changed to the Premium type by adjusting `scaleUnits`.|
+|**Premium**|>0|**Premium** Streaming Endpoints are suitable for advanced workloads, providing dedicated and scalable bandwidth capacity. You move to a **Premium** type by adjusting `scaleUnits` (streaming units). `scaleUnits` provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. When using the **Premium** type, each enabled unit provides additional bandwidth capacity to the application. |
 
-### Features
+> [!NOTE]
+> For customers looking to deliver content to large internet audiences, we recommend that you enable CDN on the Streaming Endpoint.
+
+For SLA information, see [Pricing and SLA](https://azure.microsoft.com/pricing/details/media-services/).
+
+## Comparing streaming types
 
 Feature|Standard|Premium
 ---|---|---
-Free first 15 days| Yes |No
-Throughput |Up to 600 Mbps when Azure CDN is not used. Scales with CDN.|200 Mbps per streaming unit (SU). Scales with CDN.
-SLA | 99.9|99.9(200 Mbps per SU).
+Free first 15 days <sup>1</sup>| Yes |No
+Throughput |Up to 600 Mbps and can provide a much higher effective throughput when a CDN is used.|200 Mbps per streaming unit (SU). Can provide a much higher effective throughput when a CDN is used.
 CDN|Azure CDN, third party CDN, or no CDN.|Azure CDN, third party CDN, or no CDN.
 Billing is prorated| Daily|Daily
 Dynamic encryption|Yes|Yes
 Dynamic packaging|Yes|Yes
-Scale|Auto scales up to the targeted throughput.|Additional streaming units
-IP filtering/G20/Custom host  <sup>1</sup>|Yes|Yes
+Scale|Auto scales up to the targeted throughput.|Additional SUs
+IP filtering/G20/Custom host  <sup>2</sup>|Yes|Yes
 Progressive download|Yes|Yes
-Recommended usage |Recommended for the vast majority of streaming scenarios.|Professional usage.<br/>If you think you may have needs beyond Standard. Contact us (amsstreaming@microsoft.com) if you expect a concurrent audience size larger than 50,000 viewers.
+Recommended usage |Recommended for the vast majority of streaming scenarios.|Professional usage.
 
-<sup>1</sup> Only used directly on the Streaming Endpoint when the CDN is not enabled on the endpoint.
+<sup>1</sup> The free trial only applies to newly created media services accounts and the default Streaming Endpoint.<br/>
+<sup>2</sup> Only used directly on the Streaming Endpoint when the CDN is not enabled on the endpoint.<br/>
 
-## Working with CDN
-
-In most cases, you should have CDN enabled. However, if you are anticipating max concurrency lower than 500 viewers then it is recommended to disable CDN since CDN scales best with concurrency.
-
-> [!NOTE]
-> The Streaming Endpoint `hostname` and the streaming URL remains the same whether or not you enable CDN.
-
-### Detailed explanation of how caching works
-
-There is no specific bandwidth value when adding the CDN because the amount of bandwidth that is needed for a CDN enabled streaming endpoint varies. A lot depends on the type of content, how popular it is, bitrates, and the protocols. The CDN is only caching what is being requested. That means that popular content will be served directly from the CDN – as long as the video fragment is cached. Live content is likely to be cached because you typically have many people watching the exact same thing. On-demand content can be a bit trickier because you could have some content that is popular and some that is not. If you have millions of video assets where none of them are popular (only 1 or 2 viewers a week) but you have thousands of people watching all different videos, the CDN becomes much less effective. With this cache misses, you increase the load on the streaming endpoint.
- 
-You also need to consider how adaptive streaming works. Each individual video fragment is cached as it's own entity. For example, if the first time a certain video is watched, the person skips around watching only a few seconds here and there only the video fragments associated with what the person watched get cached in the CDN. With adaptive streaming, you typically have 5 to 7 different bitrates of video. If one person is watching one bitrate and another person is watching a different bitrate, then they are each cached separately in the CDN. Even if two people are watching the same bitrate they could be streaming over different protocols. Each protocol (HLS, MPEG-DASH, Smooth Streaming) is cached separately. So each bitrate and protocol are cached separately and only those video fragments that have been requested are cached.
- 
 ## Properties 
 
 This section gives details about some of the Streaming Endpoint's properties. For examples of how to create a new streaming endpoint and descriptions of all properties, see [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create). 
 
-- `accessControl` - Used to configure the following security settings for this streaming endpoint: Akamai signature header authentication keys and IP addresses that are allowed to connect to this endpoint.<br />This property can be set when `cdnEnabled` is set to false.
+- `accessControl` - Used to configure the following security settings for this streaming endpoint: Akamai signature header authentication keys and IP addresses that are allowed to connect to this endpoint.<br />This property can only be set when `cdnEnabled` is set to false.
 - `cdnEnabled` - Indicates whether or not the Azure CDN integration for this streaming endpoint is enabled (disabled by default). If you set `cdnEnabled` to true, the following configurations get disabled: `customHostNames` and `accessControl`.
   
     Not all data centers support the Azure CDN integration. To check whether or not your data center has the Azure CDN integration available, do the following:
@@ -94,7 +88,7 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
 
     The following are the expected DNS zones to be used in the verify record for different Azure regions.
   
-  - North America, Europe, Singapore, Hong Kong, Japan:
+  - North America, Europe, Singapore, Hong Kong SAR, Japan:
       
     - `media.azure.net`
     - `verifydns.media.azure.net`
@@ -125,7 +119,43 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
     - Stopping - is transitioning to the stopped state
     - Deleting - is being deleted
     
-- `scaleUnits ` - Provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. If you need to move to a **Premium** type, adjust `scaleUnits`.
+- `scaleUnits` - Provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. If you need to move to a **Premium** type, adjust `scaleUnits`.
+
+## Working with CDN
+
+In most cases, you should have CDN enabled. However, if you are anticipating max concurrency lower than 500 viewers then it is recommended to disable CDN since CDN scales best with concurrency.
+
+### Considerations
+
+* The Streaming Endpoint `hostname` and the streaming URL remains the same whether or not you enable CDN.
+* If you need the ability to test your content with or without CDN, you can create another Streaming Endpoint that isn't CDN enabled.
+
+### Detailed explanation of how caching works
+
+There is no specific bandwidth value when adding the CDN because the amount of bandwidth that is needed for a CDN enabled streaming endpoint varies. A lot depends on the type of content, how popular it is, bitrates, and the protocols. The CDN is only caching what is being requested. That means that popular content will be served directly from the CDN – as long as the video fragment is cached. Live content is likely to be cached because you typically have many people watching the exact same thing. On-demand content can be a bit trickier because you could have some content that is popular and some that is not. If you have millions of video assets where none of them are popular (only 1 or 2 viewers a week) but you have thousands of people watching all different videos, the CDN becomes much less effective. With this cache misses, you increase the load on the streaming endpoint.
+ 
+You also need to consider how adaptive streaming works. Each individual video fragment is cached as it's own entity. For example, if the first time a certain video is watched, the person skips around watching only a few seconds here and there only the video fragments associated with what the person watched get cached in the CDN. With adaptive streaming, you typically have 5 to 7 different bitrates of video. If one person is watching one bitrate and another person is watching a different bitrate, then they are each cached separately in the CDN. Even if two people are watching the same bitrate they could be streaming over different protocols. Each protocol (HLS, MPEG-DASH, Smooth Streaming) is cached separately. So each bitrate and protocol are cached separately and only those video fragments that have been requested are cached.
+
+### Enable Azure CDN integration
+
+After a Streaming Endpoint is provisioned with CDN enabled there is a defined wait time on Media Services before DNS update is done to map the Streaming Endpoint to CDN endpoint.
+
+If you later want to disable/enable the CDN, your streaming endpoint must be in the **stopped** state. It could take up to two hours for the Azure CDN integration to get enabled and for the changes to be active across all the CDN POPs. However, your can start your streaming endpoint and stream without interruptions from the streaming endpoint and once the integration is complete, the stream is delivered from the CDN. During the provisioning period your streaming endpoint will be in **starting** state and you might observe degraded performance.
+
+When the Standard streaming endpoint is created, it is configured by default with Standard Verizon. You can configure Premium Verizon or Standard Akamai providers using REST APIs. 
+
+CDN integration is enabled in all the Azure data centers except China and Federal Government regions.
+
+> [!IMPORTANT]
+> Azure Media Services integration with Azure CDN is implemented on **Azure CDN from Verizon** for standard streaming endpoints. Premium streaming endpoints can be configured using all **Azure CDN pricing tiers and providers**. For more information about Azure CDN features, see the [CDN overview](../../cdn/cdn-overview.md).
+
+### Determine if DNS change has been made
+
+You can determine if DNS change has been made on a Streaming Endpoint (the traffic is being directed to the Azure CDN) by using https://www.digwebinterface.com. If the results has azureedge.net domain names in the results, the traffic is now being pointed to the CDN.
+
+## Ask questions, give feedback, get updates
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 

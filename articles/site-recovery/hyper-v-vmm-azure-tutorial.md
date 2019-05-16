@@ -5,15 +5,18 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ---
 # Set up disaster recovery of on-premises Hyper-V VMs in VMM clouds to Azure
 
-The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
+This article describes how to enable replication for on-premises Hyper-V VMs managed by System Center Virtual Machine Manager (VMM), for disaster recovery to Azure using the [Azure Site Recovery](site-recovery-overview.md) service. If you aren't using VMM, then [follow this tutorial](hyper-v-azure-tutorial.md).
 
-This tutorial shows you how to set up disaster recovery of on-premises Hyper-V VMs to Azure. The tutorial is relevant for Hyper-V VMs that are managed by System Center Virtual Machine Manager (VMM). In this tutorial, you learn how to:
+This is the third tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. In the previous tutorial, we [prepared the on-premises Hyper-V environment](hyper-v-prepare-on-premises-tutorial.md) for disaster recovery to Azure. 
+
+In this tutorial, you learn how to:
+
 
 > [!div class="checklist"]
 > * Select your replication source and target.
@@ -22,37 +25,46 @@ This tutorial shows you how to set up disaster recovery of on-premises Hyper-V V
 > * Create a replication policy
 > * Enable replication for a VM
 
+
+> [!NOTE]
+> Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the article in the How To section of the Site Recovery Table of Contents.
+
+## Before you begin
+
 This is the third tutorial in a series. This tutorial assumes that you have already completed the tasks in the previous tutorials:
 
 1. [Prepare Azure](tutorial-prepare-azure.md)
 2. [Prepare on-premises Hyper-V](tutorial-prepare-on-premises-hyper-v.md)
-
-Before you start, it's helpful to [review the architecture](concepts-hyper-v-to-azure-architecture.md) for this disaster recovery scenario.
-
+This is the third tutorial in a series. This tutorial assumes that you have already completed the tasks in the previous tutorials:
 
 
 ## Select a replication goal
 
-1. In **All Services** > **Recovery Services vaults**, click the vault name we use in these tutorials, **ContosoVMVault**.
+1. In **Recovery Services vaults**, select the vault. We prepared the vault **ContosoVMVault** in the previous tutorial.
 2. In **Getting Started**, click **Site Recovery**. Then click **Prepare Infrastructure**
-3. In **Protection goal** > **Where are your machines located**, select **On-premises**.
-4. In **Where do you want to replicate your machines**, select **To Azure**.
-5. In **Are your machines virtualized**, select **Yes, with Hyper-V**.
+3. In **Protection goal** > **Where are your machines located?**, select **On-premises**.
+4. In **Where do you want to replicate your machines?**, select **To Azure**.
+5. In **Are your machines virtualized?** select **Yes, with Hyper-V**.
 6. In **Are you using System Center VMM**, select **Yes**. Then click **OK**.
 
     ![Replication goal](./media/hyper-v-vmm-azure-tutorial/replication-goal.png)
 
 
+## Confirm deployment planning
+
+1. In **Deployment planning**, if you're planning a large deployment, download the Deployment Planner for Hyper-V from the link on the page. [Learn more](hyper-v-deployment-planner-overview.md) about Hyper-V deployment planning.
+2. For the purposes of this tutorial, we don't need the deployment planner. In **Have you completed deployment planning?**, select **I will do it later**. Then click **OK**.
+
 
 ## Set up the source environment
 
-When you set up the source environment, you install the Azure Site Recovery Provider and the Azure Recovery Services agent, and register on-premises servers in the vault. 
+When you set up the source environment, you install the Azure Site Recovery Provider on the VMM server, and register the server in the vault. You install the Azure Recovery Services agent on each Hyper-V host. 
 
 1. In **Prepare Infrastructure**, click **Source**.
 2. In **Prepare source**, click **+ VMM** to add a VMM server. In **Add Server**, check that **System Center VMM server** appears in **Server type**.
 3. Download the installer for the Microsoft Azure Site Recovery Provider.
 4. Download the vault registration key. You need this when you run Provider setup. The key is valid for five days after you generate it.
-5. Download the Recovery Services agent.
+5. Download the installer for the Microsoft Azure Recovery Services agent.
 
     ![Download](./media/hyper-v-vmm-azure-tutorial/download-vmm.png)
 
@@ -69,7 +81,7 @@ When you set up the source environment, you install the Azure Site Recovery Prov
 
 After registration finishes, metadata from the server is retrieved by Azure Site Recovery, and the VMM server is displayed in **Site Recovery Infrastructure**.
 
-### Install the Recovery Services agent
+### Install the Recovery Services agent on Hyper-V hosts
 
 Install the agent on each Hyper-V host containing VMs you want to replicate.
 
@@ -84,7 +96,7 @@ Install the agent on each Hyper-V host containing VMs you want to replicate.
 
 1. Click **Prepare infrastructure** > **Target**.
 2. Select the subscription and the resource group (**ContosoRG**) in which the Azure VMs will be created after failover.
-3. Select the **Resource Manager"** deployment model.
+3. Select the **Resource Manager** deployment model.
 
 Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
 
@@ -102,10 +114,10 @@ Site Recovery checks that you have one or more compatible Azure storage accounts
 ## Set up a replication policy
 
 1. Click **Prepare infrastructure** > **Replication Settings** > **+Create and associate**.
-2. In **Create and associate policy**, specify a policy name, **ContosoReplicationPolicy**.
+2. In **Create and associate policy**, specify a policy name. We're using **ContosoReplicationPolicy**.
 3. Leave the default settings and click **OK**.
     - **Copy frequency** indicates that delta data (after initial replication) will replicate every five minutes.
-    - **Recovery point retention** indicates that the retention windows for each recovery point will be two hours.
+    - **Recovery point retention** indicates for each recovery point will be retained for two hours.
     - **App-consistent snapshot frequency** indicates that recovery points containing app-consistent snapshots will be created every hour.
     - **Initial replication start time**, indicates that initial replication will start immediately.
     - **Encrypt data stored on Azure** - the default **Off** setting indicates that at rest data in Azure isn't encrypted.
@@ -122,5 +134,7 @@ Site Recovery checks that you have one or more compatible Azure storage accounts
    You can track progress of the **Enable Protection** action in **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job completes, the initial replication is complete, and the VM is ready for failover.
 
 
+
 ## Next steps
-[Run a disaster recovery drill](tutorial-dr-drill-azure.md)
+> [!div class="nextstepaction"]
+> [Run a disaster recovery drill](tutorial-dr-drill-azure.md)

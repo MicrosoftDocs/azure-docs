@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/05/2019
 ms.author: tulasim
 ---
 
@@ -52,7 +52,7 @@ Once the QnA Maker manager selects the account, the Active Directory administrat
 
 ### Active directory manager: grant file read access to QnA Maker
 
-The Active Directory manager (not the QnA Maker manager) needs to grant access to QnA Maker to access the Sharepoint resource by selecting [this link](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=files.read%20openid%20profile&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) to authorize the QnA Maker Portal Sharepoint enterprise app to have file read permissions. 
+The Active Directory manager (not the QnA Maker manager) needs to grant access to QnA Maker to access the Sharepoint resource by selecting [this link](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=Files.Read%20Files.Read.All%20Sites.Read.All%20User.Read%20User.ReadBasic.All%20profile%20openid%20email&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) to authorize the QnA Maker Portal Sharepoint enterprise app to have file read permissions. 
 
 ![Azure Active Directory manager grants permission interactively](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 
@@ -91,7 +91,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 1. Select **YES** in the pop-up confirmation windows. 
 
     ![Grant required permissions](../media/add-sharepoint-datasources/grant-required-permissions.png)
-
+-->
 ### Grant access from the Azure Active Directory admin center
 
 1. The Active Directory manager signs in to the Azure portal and opens **[Enterprise applications](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)**. 
@@ -106,7 +106,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 1. Select a Sign-On account with permissions to grant permissions for the Active Directory. 
 
--->
+
   
 <!--
 
@@ -137,7 +137,7 @@ Use the following steps to transform the Sharepoint URL into a sharing token.
 
 ### Add or update a Sharepoint File URI to your knowledge base
 
-Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) or [updating a knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600). The following fields are mandatory: name, fileuri, filename, source.
+Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](https://go.microsoft.com/fwlink/?linkid=2092179) or [updating a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following fields are mandatory: name, fileuri, filename, source.
 
 ```
 {

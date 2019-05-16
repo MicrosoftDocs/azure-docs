@@ -9,15 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 04/03/2019
 ms.author: scottwhi
 ---
 
-# Tutorial: Uploading images to the Bing Visual Search API
+# Tutorial: Upload images to the Bing Visual Search API
 
-The Bing Visual Search API enables you to search the web for images similar to ones you upload. Use this tutorial to create a web application that can send an image to the API, and display the insights it returns within the webpage. Note that this application does not adhere to all [Bing Use and Display Requirements](./use-and-display-requirements.md) for using the API.
+The Bing Visual Search API enables you to search the web for images similar to ones you upload. Use this tutorial to create a web application that can send an image to the API, and display the insights it returns within the webpage. Note that this application does not adhere to all [Bing Use and Display Requirements](../bing-web-search/use-display-requirements.md) for using the API.
 
-The full source code for this sample can be found with additional error handling and annotations on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchUploadImage.html).
+You can find the full source code for this sample with additional error handling and annotations on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchUploadImage.html).
 
 The tutorial app illustrates how to:
 
@@ -26,13 +26,13 @@ The tutorial app illustrates how to:
 > * Display image search results in a web application
 > * Explore the different insights provided by the API
 
-## Prerequisites 
+## Prerequisites
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## Create and structure the webpage
 
-Create an HTML page that sends Bing an image and gets back insights and displays them. In your favorite editor or IDE, create a file named, `uploaddemo.html`. Add the following basic HTML structure to the file.
+Create an HTML page that sends an image to the Bing Visual Search API, receives insights, and displays them. In your favorite editor or IDE, create a file named "uploaddemo.html". Add the following basic HTML structure to the file:
 
 ```html
 <!DOCTYPE html>
@@ -43,18 +43,18 @@ Create an HTML page that sends Bing an image and gets back insights and displays
 
     <body>
     </body>
-</html>      
+</html>
 ```
 
-Divide the page into a request section, where the user provides all the information needed to make the request, and a response section where the insights are displayed. Add the following `<div>` tags to the `<body>`. The `<hr>` tag visually separates the request section from the response section.
+Divide the page into a request section, where the user provides all the information required for the request, and a response section where the insights are displayed. Add the following `<div>` tags to the `<body>`. The `<hr>` tag visually separates the request section from the response section:
 
 ```html
 <div id="requestSection"></div>
-<hr />      
+<hr />
 <div id="responseSection"></div>
 ```
 
-Add a `<script>` tag to the `<head>` tag to contain the JavaScript for the application.
+Add a `<script>` tag to the `<head>` tag to contain the JavaScript for the application:
 
 ```html
 <script>
@@ -63,12 +63,11 @@ Add a `<script>` tag to the `<head>` tag to contain the JavaScript for the appli
 
 ## Get the upload file
 
-To let the user select an image to upload, the application uses the `<input>` tag with the type attribute set to `file`. The UI needs to make it clear that the application uses Bing to get the search results. 
+To let the user select an image to upload, the application uses the `<input>` tag with the type attribute set to `file`. The UI needs to make it clear that the application uses Bing to get the search results.
 
-Add the following `<div>` to the requestSection div. The file input accepts a single file of any image type (for example, .jpg, .gif, .png). The `onchange` event specifies the handler that's called when a user selects a file.
+Add the following `<div>` to the `requestSection` `<div>`. The file input accepts a single file of any image type (for example, .jpg, .gif, .png). The `onchange` event specifies the handler that's called when a user selects a file.
 
-The `<output>` tag is used to display a thumbnail of the selected image.
-
+The `<output>` tag is used to display a thumbnail of the selected image:
 
 ```html
 <div>
@@ -80,9 +79,9 @@ The `<output>` tag is used to display a thumbnail of the selected image.
 </div>
 ```
 
-## Create a file handler 
+## Create a file handler
 
-Create a handler function that can read in the image you want to upload. While iterating through the files in the `FileList` object, the handler should make sure the selected file is an image file, and that its size is 1 MB or less. If the image is larger, you must reduce it's size before uploading it. The handler will lastly display a thumbnail of the image.
+Create a handler function that can read in the image you want to upload. While iterating through the files in the `FileList` object, the handler should make sure the selected file is an image file, and that its size is 1 MB or less. If the image is larger, you must reduce its size before uploading it. Lastly, the handler displays a thumbnail of the image:
 
 ```javascript
 function handleFileSelect(selector) {
@@ -132,7 +131,7 @@ function handleFileSelect(selector) {
 
 ## Add and store a subscription key
 
-The application needs a subscription key to make calls to the Bing Visual Search API. For this tutorial, you'll provide it in the UI. Add the following `<input>` tag (with the type attribute set to text) to the `<body>` just below the file's `<output>` tag.
+The application requires a subscription key to make calls to the Bing Visual Search API. For this tutorial, you'll provide it in the UI. Add the following `<input>` tag (with the type attribute set to text) to the `<body>` just below the file's `<output>` tag:
 
 ```html
     <div>
@@ -142,9 +141,9 @@ The application needs a subscription key to make calls to the Bing Visual Search
     </div>
 ```
 
-With the image and the subscription key, you can make the call to Bing Visual Search to get insights about the image. In this tutorial, the call will use the default market (`en-us`) and safe search value (`moderate`).
+With the image and the subscription key, you can make the call to Bing Visual Search to get insights about the image. In this tutorial, the call uses the default market (`en-us`) and safe search value (`moderate`).
 
-This application has an option to change these values. Add the following `<div>` below the subscription key div. The application uses a `<select>` tag to provide a drop-down list for market and safe search values. Both lists display the default value.
+This application has an option to change these values. Add the following `<div>` below the subscription key `<div>`. The application uses a `<select>` tag to provide a drop-down list for market and safe search values. Both lists display the default value.
 
 ```html
 <div>
@@ -166,7 +165,7 @@ This application has an option to change these values. Add the following `<div>`
                 <option value="fi-FI">Finland (Finnish)</option>
                 <option value="fr-FR">France (French)</option>
                 <option value="de-DE">Germany (German)</option>
-                <option value="zh-HK">Hong Kong (Traditional Chinese)</option>
+                <option value="zh-HK">Hong Kong SAR(Traditional Chinese)</option>
                 <option value="en-IN">India (English)</option>
                 <option value="en-ID">Indonesia (English)</option>
                 <option value="it-IT">Italy (Italian)</option>
@@ -206,9 +205,9 @@ This application has an option to change these values. Add the following `<div>`
 </div>
 ```
 
-## Add search options to the webpage 
+## Add search options to the webpage
 
-The application hides the lists in a collapsible div that's controlled by the Query options link. When you click the Query options link, the div expands so you can see and modify the query options. If you click the Query options link again, the div collapses and is hidden. The following shows the Query options link's onclick handler. The handler controls whether the div is expanded or collapsed. Add this handler to the `<script>` section. The handler is used by all collapsible divs in the demo.
+The application hides the lists in a collapsible `<div>` that's controlled by the Query options link. When you click the Query options link, the `<div>` expands so you can see and modify the query options. If you click the Query options link again, the `<div>` collapses and is hidden. The following snippet shows the Query options link's `onclick` handler. The handler controls whether the `<div>` is expanded or collapsed. Add this handler to the `<script>` section. The handler is used by all collapsible `<div>` sections in the demo.
 
 ```javascript
 // Contains the toggle state of divs.
@@ -230,26 +229,26 @@ function expandCollapse(divToToggle) {
 }
 ```
 
-## Call the onclick handler
+## Call the `onclick` handler
 
-Add the following `"Get insights"` button below the options div in the body. The button enables you to initiate the call. When the button is clicked, the cursor is changed to the spinning wait cursor, and the onclick handler is called.
+Add the following `"Get insights"` button below the options `<div>` in the body. The button enables you to initiate the call. When the button is clicked, the cursor is changed to the spinning wait cursor, and the `onclick` handler is called.
 
 ```html
 <p><input type="button" id="query" value="Get insights" onclick="document.body.style.cursor='wait'; handleQuery()" /></p>
 ```
 
-Add the button's onclick handler, `handleQuery()` to the `<script>` tag. 
+Add the button's `onclick` handler, `handleQuery()` to the `<script>` tag.
 
 ## Handle the query
 
-The handler `handleQuery()` makes sure that the subscription key is present and is 32 characters long and that an image was selected. It also clears any insights from a previous query. Afterwards, it calls the `sendRequest()` function to make the call.
+The handler `handleQuery()` ensures the subscription key is present and is 32 characters long, and that an image is selected. It also clears any insights from a previous query. Afterwards, it calls the `sendRequest()` function to make the call.
 
 ```javascript
 function handleQuery() {
     var subscriptionKey = document.getElementById('key').value;
 
     // Make sure user provided a subscription key and image.
-    // For this demo, the user provides the key but typically you'd 
+    // For this demo, the user provides the key but typically you'd
     // get it from secured storage.
     if (subscriptionKey.length !== 32) {
         alert("Subscription key length is not valid. Enter a valid key.");
@@ -281,7 +280,7 @@ function handleQuery() {
 
 ## Send the search request
 
-The `sendRequest()` function formats the endpoint URL, sets the Ocp-Apim-Subscription-Key header to the subscription key, appends the binary of the image to upload, specifies the response handler, and makes the call. 
+The `sendRequest()` function formats the endpoint URL, sets the `Ocp-Apim-Subscription-Key` header to the subscription key, appends the binary of the image to upload, specifies the response handler, and makes the call:
 
 ```javascript
 function sendRequest(file, key) {
@@ -303,7 +302,7 @@ function sendRequest(file, key) {
 
 ## Get and handle the API response
 
-The `handleResponse()` function handles the response from the call to Bing Visual Search. If the call succeeds, it parses the JSON response into the individual tags, which contain the insights. Next, it adds the search results to the page. The application then creates a collapsible div for each tag to manage how much data is displayed. Add the handler to the `<script>` section.
+The `handleResponse()` function handles the response from the call to Bing Visual Search. If the call succeeds, it parses the JSON response into the individual tags, which contain the insights. Next, it adds the search results to the page. The application then creates a collapsible `<div>` for each tag to manage how much data is displayed. Add the handler to the `<script>` section.
 
 ```javascript
 function handleResponse() {
@@ -319,7 +318,7 @@ function handleResponse() {
     document.getElementById('responseSection').appendChild(h4);
     buildTagSections(tags);
 
-    document.body.style.cursor = 'default'; // reset the wait curor set by query insights button
+    document.body.style.cursor = 'default'; // reset the wait cursor set by query insights button
 }
 ```
 
@@ -333,7 +332,7 @@ function parseResponse(json) {
 
     for (var i =0; i < json.tags.length; i++) {
         var tag = json.tags[i];
-        
+
         if (tag.displayName === '') {
             dict['Default'] = JSON.stringify(tag);
         }
@@ -348,7 +347,7 @@ function parseResponse(json) {
 
 ### Build a tag section
 
-The `buildTagSections()` function iterates through the parsed JSON tags and calls the `buildDiv()` function to build a div for each tag. Each tag is displayed as a link. When the link is clicked, the tag expands, showing the insights associated with the tag. Clicking the link again will cause the section to collapse.
+The `buildTagSections()` function iterates through the parsed JSON tags and calls the `buildDiv()` function to build a `<div>` for each tag. Each tag is displayed as a link. When the link is clicked, the tag expands, showing the insights associated with the tag. Clicking the link again causes the section to collapse.
 
 ```javascript
 function buildTagSections(tags) {
@@ -387,11 +386,11 @@ function buildDiv(tags, tag) {
 
 ## Display the search results in the webpage
 
-The `buildDiv()` function calls the addDivContent function to build the contents of each tag's collapsible div.
+The `buildDiv()` function calls the `addDivContent` function to build the contents of each tag's collapsible `<div>`.
 
-A tag's content includes the JSON from the response for the tag. Initially, only the first 100 characters of the JSON is shown but you can click the JSON string to show all the JSON. If you click it again, the JSON string collapses back to 100 characters.
+A tag's content includes the JSON from the response for the tag. Initially, only the first 100 characters of the JSON are shown, but you can click the JSON string to show all the JSON. If you click it again, the JSON string collapses back to 100 characters.
 
-Next, add the action types found in the tag. For each action type, call the appropriate functions to add its insights.
+Next, add the action types found in the tag. For each action type, call the appropriate functions to add its insights:
 
 ```javascript
 function addDivContent(div, tag, json) {
@@ -468,21 +467,21 @@ function addDivContent(div, tag, json) {
 
 ## Display insights for different actions
 
-The following functions display insights for different actions. The functions either provide a clickable image or clickable link that sends you to a webpage with more information about the image. This page is either hosted by Bing.com or the image's original website. Not all of the insights' data is displayed in this application. To see all the fields available for an insight, see the [Bing Visual Search Reference](https://aka.ms/bingvisualsearchreferencedoc).
+The following functions display insights for different actions. The functions either provide a clickable image or clickable link that sends you to a webpage with more information about the image. This page is either hosted by Bing.com or the image's original website. Not all of the insights' data is displayed in this application. To see all the fields available for an insight, see the [Images - Visual Search](https://aka.ms/bingvisualsearchreferencedoc) reference.
 
 > [!NOTE]
-> There's a minimum amount of insight information you must display in the page. See the [Bing Use and Display Requirements](./use-and-display-requirements.md) for more.
+> There's a minimum amount of insight information you must display in the page. See the [Bing Search API use and display requirements](../bing-web-search/use-display-requirements.md) for more.
 
 ### RelatedImages insights
 
-The `addRelatedImages()` function creates a title for each of the websites hosting the related image by iterating through the list of `RelatedImages` actions, and appending an `<img>` tag to the outside `<div>` for each.
+The `addRelatedImages()` function creates a title for each of the websites hosting the related image by iterating through the list of `RelatedImages` actions, and appending an `<img>` tag to the outside `<div>` for each:
 
 ```javascript
     function addRelatedImages(div, images) {
         var length = (images.length > 10) ? 10 : images.length;
 
-        // Set the title to the website that hosts the image. The title displays 
-        // when the user hovers over the image. 
+        // Set the title to the website that hosts the image. The title displays
+        // when the user hovers over the image.
 
         // Make the image clickable. If the user clicks the image, they're taken
         // to the image in Bing.com.
@@ -506,7 +505,7 @@ The `addRelatedImages()` function creates a title for each of the websites hosti
 
 ### PagesIncluding insights
 
-The `addPagesIncluding()` function creates a link for each of the websites hosting the uploaded image by iterating through the list of `PagesIncluding` actions, and appending an `<img>` tag to the outside `<div>` for each.
+The `addPagesIncluding()` function creates a link for each of the websites hosting the uploaded image by iterating through the list of `PagesIncluding` actions, and appending an `<img>` tag to the outside `<div>` for each:
 
 ```javascript
 
@@ -530,7 +529,7 @@ The `addPagesIncluding()` function creates a link for each of the websites hosti
 
 ### RelatedSearches insights
 
-The `addRelatedSearches()` function creates a link for the website hosting the image, by iterating through the list of `RelatedSearches` actions and appending an `<img>` tag to the outside `<div>` for each.
+The `addRelatedSearches()` function creates a link for the website hosting the image, by iterating through the list of `RelatedSearches` actions and appending an `<img>` tag to the outside `<div>` for each:
 
 ```javascript
 
@@ -563,11 +562,11 @@ The `addRelatedSearches()` function creates a link for the website hosting the i
 
 ### Recipes insights
 
-The `addRecipes()` function creates a link for each of recipes returned by iterating through the list of `Recipes` actions, and appending an `<img>` tag to the outside `<div>` for each.
+The `addRecipes()` function creates a link for each of recipes returned by iterating through the list of `Recipes` actions, and appending an `<img>` tag to the outside `<div>` for each:
 
 ```javascript
     // Display links to the first 10 recipes. Include the recipe's rating,
-    // if available. 
+    // if available.
     // TODO: Add 'more' link in case the user wants to see all of them.
     function addRecipes(div, recipes) {
         var length = (recipes.length > 10) ? 10 : recipes.length;
@@ -595,7 +594,7 @@ The `addRecipes()` function creates a link for each of recipes returned by itera
 
 ### Shopping insights
 
-The `addShopping()` function creates a link for any returned shopping results by iterating through the list of `RelatedImages` actions, and appending an `<img>` tag to the outside `<div>` for each.
+The `addShopping()` function creates a link for any returned shopping results by iterating through the list of `RelatedImages` actions, and appending an `<img>` tag to the outside `<div>` for each:
 
 ```javascript
     // Display links for the first 10 shopping offers.
@@ -624,11 +623,11 @@ The `addShopping()` function creates a link for any returned shopping results by
 
 ### Products insights
 
-The `addProducts()` function creates a link for any returned products results by iterating through the list of `Products` actions, and appending an `<img>` tag to the outside `<div>` for each.
+The `addProducts()` function creates a link for any returned products results by iterating through the list of `Products` actions, and appending an `<img>` tag to the outside `<div>` for each:
 
 ```javascript
 
-    // Display the first 10 related products. Display a clickable image of the 
+    // Display the first 10 related products. Display a clickable image of the
     // product that takes the user to Bing.com search results for the product.
     // If there are any offers associated with the product, provide links to the offers.
     // TODO: Add 'more' link in case the user wants to see all of them.
@@ -688,7 +687,7 @@ The `addProducts()` function creates a link for any returned products results by
 
 ### TextResult insights
 
-The `addTextResult()` function will display any text that was recognized in the image.
+The `addTextResult()` function displays any text that was recognized in the image:
 
 ```javascript
 
@@ -699,7 +698,7 @@ The `addTextResult()` function will display any text that was recognized in the 
     }
 ```
 
-The `addEntity()` function will display a link that takes the user to Bing.com where they can get details about the entity type in the image, if any was detected.
+The `addEntity()` function displays a link that takes the user to Bing.com where they can get details about the entity type in the image, if any was detected:
 
 ```javascript
     // If the image is of a person, the tag might include an entity
@@ -715,7 +714,7 @@ The `addEntity()` function will display a link that takes the user to Bing.com w
     }
 ```
 
-The `addImageWithWebSearchUrl()` function will display a clickable image to the div that takes the user to search results on Bing.com. 
+The `addImageWithWebSearchUrl()` function displays a clickable image to the `<div>` that takes the user to search results on Bing.com:
 
 ```javascript
     function addImageWithWebSearchUrl(div, image, action) {
@@ -734,11 +733,11 @@ The `addImageWithWebSearchUrl()` function will display a clickable image to the 
 
 ## Add a CSS style
 
-Add the following `<style>` section to the `<head>` tag to organize the layout of the webpage.
+Add the following `<style>` section to the `<head>` tag to organize the layout of the webpage:
 
 ```html
         <style>
-            
+
             .thumb {
                 height: 75px;
                 border: 1px solid #000;
@@ -769,4 +768,5 @@ Add the following `<style>` section to the `<head>` tag to organize the layout o
 
 ## Next steps
 
-* [Tutorial: Find similar images from previous searches using ImageInsightsToken](./tutorial-visual-search-insights-token.md).
+>[!div class="nextstepaction"]
+> [Tutorial: Find similar images from previous searches using ImageInsightsToken](./tutorial-visual-search-insights-token.md)

@@ -2,10 +2,11 @@
 
 title: Understand Azure Security Center for IoT security recommendations Preview| Microsoft Docs
 description: Learn about the concept of security recommendations and how they are used in Azure Security Center for IoT. 
-services: ascforiot
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: 02ced504-d3aa-4770-9d10-b79f80af366c

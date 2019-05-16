@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/27/2017
+ms.date: 02/22/2019
 ms.author: gokuma
 
 ---
@@ -42,6 +42,10 @@ Enterprise trainers and educators that teach data science classes usually provid
 
 ### On-demand elastic capacity for large-scale projects
 Data science hackathons/competitions or large-scale data modeling and exploration require scaled out hardware capacity, typically for short duration. The Data Science VM can help replicate the data science environment quickly on demand, on scaled out servers that allow experiments requiring high-powered computing resources to be run.
+
+### Custom compute power for Azure Notebooks
+
+[Azure Notebooks](/azure/notebooks/azure-notebooks-overview.md) is a free hosted service to develop, run, and share Jupyter notebooks in the cloud with no installation. The free service  tier, however,  is limited to 4GB of memory and 1GB of data. To release all limits, you can then attach a Notebooks project to a Data Science VM or any other VM running Jupyter server. If you sign into Azure Notebooks with an account using Azure Active Directory (such as a corporate account), Notebooks automatically shows Data Science VMs in any subscriptions associated with that account. For more information, see [Manage and configure projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ### Short-term experimentation and evaluation
 The Data Science VM can be used to evaluate or learn tools such as Microsoft ML Server, SQL Server, Visual Studio tools, Jupyter, deep learning / ML toolkits, and new tools popular in the community with minimal setup effort. Since the Data Science VM can be set up quickly, it can be applied in other short-term usage scenarios like replicating published experiments, executing demos, following walkthroughs in online sessions and conference tutorials.
@@ -84,7 +88,7 @@ The Data Science Virtual Machine has many popular data science and deep learning
 | &nbsp;&nbsp;&nbsp;&nbsp;* Git and GitBash | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* .NET Framework | Y | N |
-| PowerBI Desktop | Y | N |
+| Power BI Desktop | Y | N |
 | SDKs to access Azure and Cortana Intelligence Suite of services | Y | Y |
 | **Data Movement and management Tools** | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Storage Explorer | Y | Y |
@@ -136,4 +140,4 @@ The Data Science Virtual Machine has many popular data science and deep learning
 * For a walkthrough that shows you how to perform several common data science tasks with the Linux VM, both CentOS and Ubuntu, see [Data science on the Linux Data Science Virtual Machine](linux-dsvm-walkthrough.md).
 
 ## Next steps
-[R developer's guide to Azure](../r-developers-guide.md)
+[R developer's guide to Azure](/azure/architecture/data-guide/technology-choices/r-developers-guide)

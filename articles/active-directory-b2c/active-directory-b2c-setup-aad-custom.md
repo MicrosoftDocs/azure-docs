@@ -3,7 +3,7 @@ title: Set up sign-in with an Azure Active Directory account in Azure Active Dir
 description: Set up sign in with an Azure Active Directory account in Azure Active Directory B2C using custom policies.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
@@ -51,7 +51,7 @@ You need to store the application key that you created in your Azure AD B2C tena
 
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
 2. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-3. On the Overview page, select **Identity Experience Framework - PREVIEW**.
+3. On the Overview page, select **Identity Experience Framework**.
 4. Select **Policy Keys** and then select **Add**.
 5. For **Options**, choose `Manual`.
 6. Enter a **Name** for the policy key. For example, `ContosoAppSecret`.  The prefix `B2C_1A_` is added automatically to the name of your key.

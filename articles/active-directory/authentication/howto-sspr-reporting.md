@@ -47,15 +47,14 @@ In the Azure portal experience, we have improved the way that you can view passw
 1. Browse to the [Azure portal](https://portal.azure.com).
 2. Select **All services** in the left pane.
 3. Search for **Azure Active Directory** in the list of services and select it.
-4. Select **Users and groups**.
-5. Select **Audit Logs** from the **Users and groups** menu. This shows you all of the audit events that occurred against all the users in your directory. You can filter this view to see all the password-related events.
-6. To filter this view to see only the password-reset-related events, select the **Filter** button at the top of the pane.
-7. From the **Filter** menu, select the **Category** drop-down list, and change it to the **Self-service Password Management** category type.
-8. Optionally, further filter the list by choosing the specific **Activity** you're interested in.
+4. Select **Users** from the Manage section.
+5. Select **Audit Logs** from the **Users** blade. This shows you all of the audit events that occurred against all the users in your directory. You can filter this view to see all the password-related events.
+6. From the **Filter** menu at the top of the pane, select the **Service** drop-down list, and change it to the **Self-service Password Management** service type.
+7. Optionally, further filter the list by choosing the specific **Activity** you're interested in.
 
 ### Converged registration (preview)
 
-If you are participating in the public preview of converged registration, information regarding user activity in the audit logs will be found under the category **Authentication Methods**.
+If you are participating in the public preview of converged registration, information regarding user activity in the audit logs will be found under the service **Authentication Methods**.
 
 ## Description of the report columns in the Azure portal
 
@@ -115,7 +114,7 @@ The following list explains this activity in detail:
 The following list explains this activity in detail:
 
 * **Activity description**: Indicates that an administrator performed a password reset on behalf of a user from the Azure portal.
-* **Activity actor**: The administrator who performed the password reset on behalf of another end user or administrator. Must be either a global administrator, password administrator, user administrator, or helpdesk administrator.
+* **Activity actor**: The administrator who performed the password reset on behalf of another end user or administrator. Must be a password administrator, user administrator, or helpdesk administrator.
 * **Activity target**: The user whose password was reset. The user can be an end user or a different administrator.
 * **Activity statuses**:
   * _Success_: Indicates that an admin successfully reset a user's password.

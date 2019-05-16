@@ -21,7 +21,7 @@ Azure Data Factory is a multitenant service that has the following default limit
 | Total CPU cores for Azure-SSIS Integration Runtimes under one subscription | 256 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Concurrent pipeline runs per data factory that's shared among all pipelines in the factory | 10,000  | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Maximum activities per pipeline, which includes inner activities for containers | 40 | 40 |
-| Maximum number of linked integration runtimes that can be created against a single self-hosted integration runtime | 20 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Maximum number of linked integration runtimes that can be created against a single self-hosted integration runtime | 100 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Maximum parameters per pipeline | 50 | 50 |
 | ForEach items | 100,000 | 100,000 |
 | ForEach parallelism | 20 | 50 |

@@ -4234,7 +4234,7 @@ The upgrade domain of this node.
 |use|optional|
 
 ## FileStoreETWType complexType
-Describes a file store destination for ETW events. Works only in on-premise environment.
+Describes a file store destination for ETW events. Works only in on-premises environment.
 
 |Attribute|Value|
 |---|---|
@@ -4246,7 +4246,7 @@ Describes a file store destination for ETW events. Works only in on-premise envi
 ```xml
 <xs:complexType xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="FileStoreETWType">
     <xs:annotation>
-      <xs:documentation>Describes a file store destination for ETW events. Works only in on-premise environment.</xs:documentation>
+      <xs:documentation>Describes a file store destination for ETW events. Works only in on-premises environment.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="FileStoreType">

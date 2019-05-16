@@ -151,4 +151,4 @@ The sample code above uses the console to output search results. You will likewi
 
 ## Next steps
 
-If you haven't done so already, review the sample code in [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) on GitHub, along with [How to use Azure Search from a .NET Application ](search-howto-dotnet-sdk.md) for more detailed descriptions of sample code. 
+If you haven't done so already, review the sample code in [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) on GitHub, along with [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.md) for more detailed descriptions of sample code. 

@@ -25,6 +25,9 @@ This document covers steps required to set up collection of performance counters
  > [!NOTE]
 > The WAD extension should be deployed on your cluster for these steps to work for you. If it is not set up, head over to [Event aggregation and collection using Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).  
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Collect performance counters via the WadCfg
 
 To collect performance counters via WAD, you need to modify the configuration appropriately in your cluster's Resource Manager template. Follow these steps to add a performance counter you want to collect to your template and run a Resource Manager resource upgrade.
@@ -189,10 +192,10 @@ Here is an example of a configuration with the counter for the *Total Processor 
  >[!NOTE]
  >Though you can use `*` to specify groups of performance counters that are named similarly, sending any counters via a sink (to Application Insights) requires that they are individually declared. 
 
-1. Once you have added the appropriate performance counters that need to be collected, you need to upgrade your cluster resource so that these changes are reflected in your running cluster. Save your modified `template.json` and open up PowerShell. You can upgrade your cluster using `New-AzureRmResourceGroupDeployment`. The call requires the name of the resource group, the updated template file, and the parameters file, and prompts Resource Manager to make appropriate changes to the resources that you updated. Once you are signed into your account and are in the right subscription, use the following command to run the upgrade:
+1. Once you have added the appropriate performance counters that need to be collected, you need to upgrade your cluster resource so that these changes are reflected in your running cluster. Save your modified `template.json` and open up PowerShell. You can upgrade your cluster using `New-AzResourceGroupDeployment`. The call requires the name of the resource group, the updated template file, and the parameters file, and prompts Resource Manager to make appropriate changes to the resources that you updated. Once you are signed into your account and are in the right subscription, use the following command to run the upgrade:
 
     ```sh
-    New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
+    New-AzResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
 1. Once the upgrade finishes rolling out (takes between 15-45 minutes depending on whether it's the first deployment and the size of your resource group), WAD should be collecting the performance counters and sending them to the table named WADPerformanceCountersTable in the storage account associated with your cluster. See your performance counters in Application Insights by [adding the AI Sink to the Resource Manager template](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
@@ -200,4 +203,4 @@ Here is an example of a configuration with the counter for the *Total Processor 
 ## Next steps
 * Collect more performance counters for your cluster. See [Performance metrics](service-fabric-diagnostics-event-generation-perf.md) for a list of counters you should collect.
 * [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../virtual-machines/windows/extensions-diagnostics-template.md) to make further modifications to your `WadCfg`, including configuring additional storage accounts to send diagnostics data to.
-* Visit the [WadCfg builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) to build a template from scratch and make sure your syntax is correct.
+* Visit the [WadCfg builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) to build a template from scratch and make sure your syntax is correct.(https://azure.github.io/azure-diagnostics-tools/config-builder/) to build a template from scratch and make sure your syntax is correct.

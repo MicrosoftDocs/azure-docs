@@ -27,6 +27,7 @@ ms.collection: M365-identity-device-management
 
 The following documentation provides information on how to enable the device writeback feature in Azure AD Connect. Device Writeback is used in the following scenarios:
 
+* Enable [Windows Hello for Business using hybrid certificate trust deployment](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
 * Enable conditional access based on devices to ADFS (2012 R2 or higher) protected applications (relying party trusts).
 
 This provides additional security and assurance that access to applications is granted only to trusted devices. For more information on conditional access, see [Managing Risk with Conditional Access](../active-directory-conditional-access-azure-portal.md) and [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md).

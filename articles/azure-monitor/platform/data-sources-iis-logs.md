@@ -16,7 +16,7 @@ ms.author: bwren
 ---
 
 # Collect IIS logs in Azure Monitor
-Internet Information Services (IIS) stores user activity in log files that can be collected by Azure Monitor and stored as [log data](data-collection.md).
+Internet Information Services (IIS) stores user activity in log files that can be collected by Azure Monitor and stored as [log data](data-platform.md).
 
 ![IIS logs](media/data-sources-iis-logs/overview.png)
 
@@ -46,7 +46,7 @@ IIS log records have a type of **W3CIISLog** and have the properties in the foll
 | csUriStem |Target of the request such as a web page. |
 | csUriQuery |Query, if any, that the client was trying to perform. |
 | ManagementGroupName |Name of the management group for Operations Manager agents.  For other agents, this is AOI-\<workspace ID\> |
-| RemoteIPCountry |Country of the IP address of the client. |
+| RemoteIPCountry |Country/region of the IP address of the client. |
 | RemoteIPLatitude |Latitude of the client IP address. |
 | RemoteIPLongitude |Longitude of the client IP address. |
 | scStatus |HTTP status code. |

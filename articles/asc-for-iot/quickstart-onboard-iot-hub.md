@@ -2,7 +2,8 @@
 
 title: Enable Azure Security Center for IoT service in IoT Hub Preview| Microsoft Docs
 description: Learn how to enable Azure Security Center for IoT service in your IoT Hub.
-services: ascforiot
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
@@ -37,7 +38,7 @@ This article provides an explanation of how to enable the Azure Security Center 
 - Log Analytics workspace
   - Two types of information are stored by default in your Log Analytics workspace by ASC for IoT; **security alerts** and **recommendations**. 
   - You can choose to add storage of an additional information type, **raw events**. Note that storing **raw events** in Log Analytics carries additional storage costs. 
-- IoT Hub (standard tier or higher)
+- IoT Hub (standard tier)
 - Meet all [service prerequisites](service-prerequisites.md) 
 - Supported service regions
   - Central US

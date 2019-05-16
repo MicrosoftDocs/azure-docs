@@ -6,11 +6,11 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/03/2017
-ms.author: robin.shahan
+ms.date: 05/11/2019
+ms.author: robinsh
 ---
 
-# Manage your IoT Hub device identities in bulk
+# Import and export IoT Hub device identities in bulk
 
 Each IoT hub has an identity registry you can use to create per-device resources in the service. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry.
 
@@ -79,6 +79,10 @@ while(true)
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
 ```
+
+## Device import/export job limits
+
+Only 1 active device import or export job is allowed at a time for all IoT Hub tiers. IoT Hub also has limits for rate of jobs operations. To learn more, see [Reference - IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
 ## Export devices
 
@@ -250,13 +254,13 @@ Use the optional **importMode** property in the import serialization data for ea
 
 | importMode | Description |
 | --- | --- |
-| **createOrUpdate** |If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data without regard to the **ETag** value. <br> The user can optionally specify twin data along with the device data. The twin’s etag, if specified, is processed independently from the device’s etag. If there is a mismatch with the existing twin’s etag, an error is written to the log file. |
-| **create** |If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, an error is written to the log file. <br> The user can optionally specify twin data along with the device data. The twin’s etag, if specified, is processed independently from the device’s etag. If there is a mismatch with the existing twin’s etag, an error is written to the log file. |
-| **update** |If a device already exists with the specified **id**, existing information is overwritten with the provided input data without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
-| **updateIfMatchETag** |If a device already exists with the specified **id**, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If the device does not exist, an error is written to the log file. <br/>If there is an **ETag** mismatch, an error is written to the log file. |
-| **createOrUpdateIfMatchETag** |If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If there is an **ETag** mismatch, an error is written to the log file. <br> The user can optionally specify twin data along with the device data. The twin’s etag, if specified, is processed independently from the device’s etag. If there is a mismatch with the existing twin’s etag, an error is written to the log file. |
-| **delete** |If a device already exists with the specified **id**, it is deleted without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
-| **deleteIfMatchETag** |If a device already exists with the specified **id**, it is deleted only if there is an **ETag** match. If the device does not exist, an error is written to the log file. <br/>If there is an ETag mismatch, an error is written to the log file. |
+| **createOrUpdate** |If a device does not exist with the specified **ID**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data without regard to the **ETag** value. <br> The user can optionally specify twin data along with the device data. The twin’s etag, if specified, is processed independently from the device’s etag. If there is a mismatch with the existing twin’s etag, an error is written to the log file. |
+| **create** |If a device does not exist with the specified **ID**, it is newly registered. <br/>If the device already exists, an error is written to the log file. <br> The user can optionally specify twin data along with the device data. The twin’s etag, if specified, is processed independently from the device’s etag. If there is a mismatch with the existing twin’s etag, an error is written to the log file. |
+| **update** |If a device already exists with the specified **ID**, existing information is overwritten with the provided input data without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
+| **updateIfMatchETag** |If a device already exists with the specified **ID**, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If the device does not exist, an error is written to the log file. <br/>If there is an **ETag** mismatch, an error is written to the log file. |
+| **createOrUpdateIfMatchETag** |If a device does not exist with the specified **ID**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If there is an **ETag** mismatch, an error is written to the log file. <br> The user can optionally specify twin data along with the device data. The twin’s etag, if specified, is processed independently from the device’s etag. If there is a mismatch with the existing twin’s etag, an error is written to the log file. |
+| **delete** |If a device already exists with the specified **ID**, it is deleted without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
+| **deleteIfMatchETag** |If a device already exists with the specified **ID**, it is deleted only if there is an **ETag** match. If the device does not exist, an error is written to the log file. <br/>If there is an ETag mismatch, an error is written to the log file. |
 
 > [!NOTE]
 > If the serialization data does not explicitly define an **importMode** flag for a device, it defaults to **createOrUpdate** during the import operation.
@@ -385,7 +389,7 @@ while(true)
 
 ## Get the container SAS URI
 
-The following code sample shows you how to generate a [SAS URI](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) with read, write, and delete permissions for a blob container:
+The following code sample shows you how to generate a [SAS URI](../storage/common/storage-dotnet-shared-access-signature-part-1.md) with read, write, and delete permissions for a blob container:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -415,7 +419,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 In this article, you learned how to perform bulk operations against the identity registry in an IoT hub. Follow these links to learn more about managing Azure IoT Hub:
 
 * [IoT Hub metrics](iot-hub-metrics.md)
-* [Operations monitoring](iot-hub-operations-monitoring.md)
+* [IoT Hub logs](iot-hub-monitor-resource-health.md)
 
 To further explore the capabilities of IoT Hub, see:
 

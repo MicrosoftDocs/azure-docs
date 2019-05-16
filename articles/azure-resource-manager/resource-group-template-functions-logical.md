@@ -4,8 +4,6 @@ description: Describes the functions to use in an Azure Resource Manager templat
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 
 ms.assetid: 
 ms.service: azure-resource-manager
@@ -13,7 +11,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2018
+ms.date: 04/15/2019
 ms.author: tomfitz
 
 ---
@@ -27,9 +25,8 @@ Resource Manager provides several functions for making comparisons in your templ
 * [not](#not)
 * [or](#or)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## and
+
 `and(arg1, arg2, ...)`
 
 Checks whether all parameter values are true.
@@ -80,19 +77,8 @@ The output from the preceding example is:
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
 ## bool
+
 `bool(arg1)`
 
 Converts the parameter to a boolean.
@@ -145,19 +131,8 @@ The output from the preceding example with the default values is:
 | trueInt | Bool | True |
 | falseInt | Bool | False |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
-```
-
 ## if
+
 `if(condition, trueValue, falseValue)`
 
 Returns a value based on whether a condition is true or false.
@@ -166,7 +141,7 @@ Returns a value based on whether a condition is true or false.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| condition |Yes |boolean |The value to check whether it is true. |
+| condition |Yes |boolean |The value to check whether it's true or false. |
 | trueValue |Yes | string, int, object, or array |The value to return when the condition is true. |
 | falseValue |Yes | string, int, object, or array |The value to return when the condition is false. |
 
@@ -176,49 +151,7 @@ Returns second parameter when first parameter is **True**; otherwise, returns th
 
 ### Remarks
 
-You can use this function to conditionally set a resource property. The following example is not a full template, but it shows the relevant portions for conditionally setting the availability set.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        ...
-        "availabilitySet": {
-            "type": "string",
-            "allowedValues": [
-                "yes",
-                "no"
-            ]
-        }
-    },
-    "variables": {
-        ...
-        "availabilitySetName": "availabilitySet1",
-        "availabilitySet": {
-            "id": "[resourceId('Microsoft.Compute/availabilitySets',variables('availabilitySetName'))]"
-        }
-    },
-    "resources": [
-        {
-            "condition": "[equals(parameters('availabilitySet'),'yes')]",
-            "type": "Microsoft.Compute/availabilitySets",
-            "name": "[variables('availabilitySetName')]",
-            ...
-        },
-        {
-            "apiVersion": "2016-03-30",
-            "type": "Microsoft.Compute/virtualMachines",
-            "properties": {
-                "availabilitySet": "[if(equals(parameters('availabilitySet'),'yes'), variables('availabilitySet'), json('null'))]",
-                ...
-            }
-        },
-        ...
-    ],
-    ...
-}
-```
+When the condition is **True**, only the true value is evaluated. When the condition is **False**, only the false value is evaluated. With the **if** function, you can include expressions that are only conditionally valid. For example, you can reference a resource that exists under one condition but not under the other condition. An example of conditionally evaluating expressions is shown in the following section.
 
 ### Examples
 
@@ -255,19 +188,56 @@ The output from the preceding example is:
 | noOutput | String | no |
 | objectOutput | Object | { "test": "value1" } |
 
-To deploy this example template with Azure CLI, use:
+The following [example template](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) shows how to use this function with expressions that are only conditionally valid.
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "logAnalytics": {
+            "type": "string",
+            "defaultValue": ""
+        }
+    },
+    "resources": [
+        {
+            "condition": "[not(empty(parameters('logAnalytics')))]",
+            "name": "[concat(parameters('vmName'),'/omsOnboarding')]",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "location": "[parameters('location')]",
+            "apiVersion": "2017-03-30",
+            "properties": {
+                "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                "type": "MicrosoftMonitoringAgent",
+                "typeHandlerVersion": "1.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "workspaceId": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
+                },
+                "protectedSettings": {
+                    "workspaceKey": "[if(not(empty(parameters('logAnalytics'))), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "mgmtStatus": {
+            "type": "string",
+            "value": "[if(not(empty(parameters('logAnalytics'))), 'Enabled monitoring for VM!', 'Nothing to enable')]"
+        }
+    }
+}
 ```
 
 ## not
+
 `not(arg1)`
 
 Converts boolean value to its opposite value.
@@ -316,18 +286,6 @@ The output from the preceding example is:
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) uses **not** with [equals](resource-group-template-functions-comparison.md#equals).
 
 ```json
@@ -350,19 +308,8 @@ The output from the preceding example is:
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
-```
-
 ## or
+
 `or(arg1, arg2, ...)`
 
 Checks whether any parameter value is true.
@@ -413,21 +360,10 @@ The output from the preceding example is:
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
 ## Next steps
+
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
-* To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
+* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
 

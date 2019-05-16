@@ -125,7 +125,7 @@ To configure Azure AD single sign-on with ProMaster (by Inlogik), perform the fo
 
     | |
 	| - |-|
-	| `https://secure.inlogik.com/<COMPANYNAME>/saml/acs `|
+	| `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`|
 	| `https://<CUSTOMDOMAIN>/SAMLBASE/saml/acs`|
 	| |
 
@@ -202,9 +202,9 @@ When you click the ProMaster (by Inlogik) tile in the Access Panel, you should b
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

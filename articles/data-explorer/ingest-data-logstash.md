@@ -1,13 +1,12 @@
 ---
 title: 'Quickstart: Ingest data from Logstash to Azure Data Explorer'
 description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer from Logstash'
-services: data-explorer
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 1/14/2019
+ms.date: 01/14/2019
 
 #Customer intent: As a DevOps engineer, I want to use Logstash to pipeline logs and ingest into Azure Data Explorer so that I can analyze them later.
 ---

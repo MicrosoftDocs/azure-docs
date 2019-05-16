@@ -17,7 +17,7 @@ ms.author: diberry
 Authoring access is available for owners and collaborators. For a private app, endpoint access is available for owners and collaborators. For a public app, endpoint access is available to everyone that has their own LUIS account and has the public app's ID. 
 
 ## Access to authoring
-Access to the app from the [LUIS](luis-reference-regions.md#luis-website) website or the [authoring APIs](https://aka.ms/luis-authoring-apis) is controlled by the owner of the app. 
+Access to the app from the [LUIS](luis-reference-regions.md#luis-website) website or the [authoring APIs](https://go.microsoft.com/fwlink/?linkid=2092087) is controlled by the owner of the app. 
 
 The owner and all collaborators have access to author the app. 
 
@@ -30,7 +30,7 @@ The owner and all collaborators have access to author the app.
 |Make app public|When an app is public, anyone with an authoring or endpoint key can query the app.|
 |Modify model|
 |Publish|
-|Review endpoint utterances for [active learning](luis-how-to-review-endoint-utt.md)|
+|Review endpoint utterances for [active learning](luis-how-to-review-endpoint-utterances.md)|
 |Train|
 
 ## Access to endpoint

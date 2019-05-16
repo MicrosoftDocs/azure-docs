@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/28/2019
+ms.date: 05/01/2019
 ms.author: jowargo
 ---
 
@@ -210,7 +210,6 @@ Your notification hub is configured to work with FCM, and you have the connectio
 9. Add the following using statements to `MyFirebaseIIDService.cs`:
 
     ```csharp
-    using Android.App;
     using Android.Util;
     using WindowsAzure.Messaging;
     using Firebase.Iid;
@@ -252,10 +251,8 @@ Your notification hub is configured to work with FCM, and you have the connectio
 13. Add the following using statements to `MyFirebaseMessagingService.cs`.
 
     ```csharp
-    using Android.App;
     using Android.Util;
     using Firebase.Messaging;
-    using Android.OS;
     using Android.Support.V4.App;
     using Build = Android.OS.Build;
     ```
@@ -365,4 +362,4 @@ In this tutorial, you sent broadcast notifications to all your Android devices r
 [Notification Hubs How-To for Android]: https://msdn.microsoft.com/library/dn282661.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[GitHub]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid
+[GitHub]: https://github.com/Azure/azure-notificationhubs-android

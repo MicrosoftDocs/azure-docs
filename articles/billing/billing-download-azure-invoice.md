@@ -139,7 +139,7 @@ To learn more about your invoice and charges, see:
 
 If you have a Microsoft Customer Agreement, see:
 
-- [Understand the charges on the invoice for your billing profile ](billing-mca-understand-your-bill.md)
+- [Understand the charges on the invoice for your billing profile](billing-mca-understand-your-bill.md)
 - [Understand terms on the invoice for your billing profile](billing-mca-understand-your-invoice.md)
 - [Understand the Azure usage and charges file for your billing profile](billing-mca-understand-your-usage.md)
 - [View and download tax documents for your billing profile](billing-mca-download-tax-document.md)
