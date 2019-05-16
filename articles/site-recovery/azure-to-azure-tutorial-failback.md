@@ -28,9 +28,9 @@ This tutorial describes how to fail back a single Azure VM. After you've failed 
 
 ## Before you start
 
-> * Make sure that the status of the VM is **Failover committed**.
-> * Check that the primary region is available, and that you're able to create and access new resources in it.
-> * Make sure that reprotection is enabled.
+* Make sure that the status of the VM is **Failover committed**.
+* Check that the primary region is available, and that you're able to create and access new resources in it.
+* Make sure that reprotection is enabled.
 
 ## Fail back to the primary region
 
