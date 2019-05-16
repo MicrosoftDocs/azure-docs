@@ -80,9 +80,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    >[!NOTE]
 	>You will get the Service Provider metadata file from the **Configure Oracle Cloud Single Sign-On** section of the tutorial.
 	
-		1. Click **Upload metadata file**.
-		1. Click on **folder logo** to select the metadata file and click **Upload**.
-		1. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Oracle Cloud section textbox.
+	a. Click **Upload metadata file**.
+
+	b. Click on **folder logo** to select the metadata file and click **Upload**.
+
+	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Oracle Cloud section textbox.
 	
 	> [!NOTE]
 	> If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
@@ -136,20 +138,24 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Configuration](./media/oracle-cloud-tutorial/config03.png)
 
-	1. In the **NAME** text box, enter your name.
-	1. In the **DESCRIPTION** text box, enter your description.
-	1. Select **MICROSOFT ACTIVE DIRECTORY FEDERATION SERVICE (ADFS) OR SAML 2.0 COMPLIANT IDENTITY PROVIDER** as **TYPE**.
-	1. Click **Browse** to upload the Federation Metadata XML, which you have downloaded from Azure portal.
-	1. Click **Continue** and on the **Edit Identity Provider** section perform the following steps:
+	a. In the **NAME** text box, enter your name.
+
+	b. In the **DESCRIPTION** text box, enter your description.
+
+	c. Select **MICROSOFT ACTIVE DIRECTORY FEDERATION SERVICE (ADFS) OR SAML 2.0 COMPLIANT IDENTITY PROVIDER** as **TYPE**.
+
+	d. Click **Browse** to upload the Federation Metadata XML, which you have downloaded from Azure portal.
+
+	e. Click **Continue** and on the **Edit Identity Provider** section perform the following steps:
 
 	![Configuration](./media/oracle-cloud-tutorial/config09.png)
 
-	1. For the **IDENTITY PROVIDER GROUP field**, enter a group name and group id that will be passed from Azure portal and select a corresponding group from the **OCI GROUP** dropdown list.
+	f. For the **IDENTITY PROVIDER GROUP field**, enter a group name and group id that will be passed from Azure portal and select a corresponding group from the **OCI GROUP** dropdown list.
 
 	>[!NOTE]
 	>In our example, we have used OCIAdmins for the Azure portal group name and the corresponding Administrators group for the OCI GROUP. You can create different groups by using **+ Add Mapping** option, for example OCIAdmins, OCIEveryone etc and set a mapping for each group.
 
-	1. Click **Submit**.
+	f. Click **Submit**.
 
 ### Create an Azure AD test user
 
