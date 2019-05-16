@@ -63,6 +63,8 @@
     href: Face-API-How-to-Topics/how-to-use-headpose.md
   - name: Specify a face recognition model
     href: Face-API-How-to-Topics/specify-recognition-model.md
+  - name: Specify a face detection model
+    href: Face-API-How-to-Topics/specify-detection-model.md  
   - name: Use the large-scale feature
     href: Face-API-How-to-Topics/how-to-use-large-scale.md
   - name: Analyze videos in real time
