@@ -1,6 +1,6 @@
 ---
 title: Problems signing in to an custom-developed application | Microsoft Docs
-description: Common rrors that could be causing you to not be able to sign into an application you have developed with Azure AD
+description: Common errors that could be causing you to not be able to sign into an application you have developed with Azure AD
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -20,7 +20,7 @@ ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ---
 
-# Problems signing in to an custom-developed application
+# Problems signing in to a custom-developed application
 
 There are several errors that could be causing you to not be able to sign into an app. The biggest reason people encounter this problem is misconfigured apps.
 
