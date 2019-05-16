@@ -28,7 +28,7 @@ In this tutorial, you'll learn how to integrate Oracle Cloud with Azure Active D
 * Enable your users to be automatically signed-in to Oracle Cloud with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Prerequisites
 
@@ -58,12 +58,12 @@ Configure and test Azure AD SSO with Oracle Cloud using a test user called **Bri
 
 To configure and test Azure AD SSO with Oracle Cloud, complete the following building blocks:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
+1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable your users to use this feature.
 2. **[Configure Oracle Cloud](#configure-oracle-cloud)** to configure the SSO settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
 5. **[Create Oracle Cloud test user](#create-oracle-cloud-test-user)** to have a counterpart of Britta Simon in Oracle Cloud that is linked to the Azure AD representation of user.
-6. **[Test SSO](#test-sso)** to verify whether the configuration works.
+6. **[Test single sign-on](#test-single-sign-on)** to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -80,11 +80,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    >[!NOTE]
 	>You will get the Service Provider metadata file from the **Configure Oracle Cloud Single Sign-On** section of the tutorial.
 	
-	a. Click **Upload metadata file**.
-
-	b. Click on **folder logo** to select the metadata file and click **Upload**.
-
-	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Oracle Cloud section textbox.
+		1. Click **Upload metadata file**.
+		1. Click on **folder logo** to select the metadata file and click **Upload**.
+		1. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Oracle Cloud section textbox.
 	
 	> [!NOTE]
 	> If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
@@ -105,23 +103,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, Oracle Cloud application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
 
-	a. Click the **pen** next to **Groups returned in claim**.
+	1. Click the **pen** next to **Groups returned in claim**.
 
 	![image](./media/oracle-cloud-tutorial/config07.png)
 
 	![image](./media/oracle-cloud-tutorial/config08.png)
 
-	b. Select **Security groups** from the radio list.
-
-	c. Select **Source Attribute** of **Group ID**.
-
-	d. Check **Customize the name of the group claim**.
-
-	e. In the **Name** text box, type **groupName**.
-
-	f. In the **Namespace (optional)** text box, type `https://auth.oraclecloud.com/saml/claims`.
-
-	g. Click **Save**.
+	1. Select **Security groups** from the radio list.
+	1. Select **Source Attribute** of **Group ID**.
+	1. Check **Customize the name of the group claim**.
+	1. In the **Name** text box, type **groupName**.
+	1. In the **Namespace (optional)** text box, type `https://auth.oraclecloud.com/saml/claims`.
+	1. Click **Save**.
 
 1. On the **Set up Oracle Cloud** section, copy the appropriate URL(s) based on your requirement.
 
@@ -143,24 +136,20 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Configuration](./media/oracle-cloud-tutorial/config03.png)
 
-	a. In the **NAME** text box, enter your name.
-
-	b. In the **DESCRIPTION** text box, enter your description.
-
-	c. Select **MICROSOFT ACTIVE DIRECTORY FEDERATION SERVICE (ADFS) OR SAML 2.0 COMPLIANT IDENTITY PROVIDER** as **TYPE**.
-
-	d. Click **Browse** to upload the Federation Metadata XML, which you have downloaded from Azure portal.
-
-	e. Click **Continue** and on the **Edit Identity Provider** section perform the following steps:
+	1. In the **NAME** text box, enter your name.
+	1. In the **DESCRIPTION** text box, enter your description.
+	1. Select **MICROSOFT ACTIVE DIRECTORY FEDERATION SERVICE (ADFS) OR SAML 2.0 COMPLIANT IDENTITY PROVIDER** as **TYPE**.
+	1. Click **Browse** to upload the Federation Metadata XML, which you have downloaded from Azure portal.
+	1. Click **Continue** and on the **Edit Identity Provider** section perform the following steps:
 
 	![Configuration](./media/oracle-cloud-tutorial/config09.png)
 
-	f. For the **IDENTITY PROVIDER GROUP field**, enter a group name and group id that will be passed from Azure portal and select a corresponding group from the **OCI GROUP** dropdown list.
+	1. For the **IDENTITY PROVIDER GROUP field**, enter a group name and group id that will be passed from Azure portal and select a corresponding group from the **OCI GROUP** dropdown list.
 
 	>[!NOTE]
 	>In our example, we have used OCIAdmins for the Azure portal group name and the corresponding Administrators group for the OCI GROUP. You can create different groups by using **+ Add Mapping** option, for example OCIAdmins, OCIEveryone etc and set a mapping for each group.
 
-	g. Click **Submit**.
+	1. Click **Submit**.
 
 ### Create an Azure AD test user
 
@@ -212,13 +201,10 @@ To enable Azure AD users to sign in to Oracle Cloud, they must be provisioned in
 
 	![Configuration](./media/oracle-cloud-tutorial/config05.png)
 
-	a. In the **NAME** text box, enter the name of user like **Brittasimon**.
-
-	b. In the **DESCRIPTION** text box, enter your description.
-
-	c. In **EMAIL** text box, enter the email of user like `Brittasimon@contoso.com`.
-
-	d. Click **Create**.
+	1. In the **NAME** text box, enter the name of user like **Brittasimon**.
+	1. In the **DESCRIPTION** text box, enter your description.
+	1. In **EMAIL** text box, enter the email of user like `Brittasimon@contoso.com`.
+	1. Click **Create**.
 
 ### Test single sign-on
 
