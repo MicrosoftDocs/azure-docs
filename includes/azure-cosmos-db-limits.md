@@ -12,33 +12,41 @@ Azure Cosmos DB is designed to support large scale globally distributed workload
 
 | Resource | Default limit |
 | --- | --- |
-| Min RU per collection with dedicated throughput |400 |
+| Min RU per container with dedicated throughput |400 |
 | Min RU per database with dedicated throughput |400 |
-| Min RU per collection created inside a shared database |100 |
+| Min RU per container created inside a shared database |100 |
 | Min RU per GB consumed in Cosmos DB |40 |
-| Max RU per collection |1000000 <sup>1</sup>|
-| Max RU across all collections per account |1000000 <sup>1</sup>|
+| Max RU per container |1000000 <sup>1</sup>|
+| Max RU across all containers per account |1000000 <sup>1</sup>|
 | Max RU per partition key |10000 |
 | Max storage across all items per partition key|10GB |
-| Max storage per collection |50TB <sup>1</sup>|
-| Max storage per account |50TB <sup>1</sup>|
+
+
+## Control plane operations
+
+| Resource | Default limit |
+| --- | --- |
+| Max database accounts per subscription |50 <sup>1</sup>|
+| Max regions per database account |30 <sup>1</sup>|
+| Max number of regional failovers |1/hour <sup>1</sup>|
+
 
 ## Per-item limits
 
 | Resource | Default limit |
 | --- | --- |
-| Max size per document |2MB |
+| Max size per item |2MB |
 | Max length of partition key |2048 bytes |
 | Max length of id |1024 bytes |
 
-## Per-collection limits
+## Per-container limits
 
 | Resource | Default limit |
 | --- | --- |
-| Max stored procedures per collection |100 <sup>1</sup>|
-| Max UDFs per collection |25 <sup>1</sup>|
+| Max stored procedures per container |100 <sup>1</sup>|
+| Max UDFs per container |25 <sup>1</sup>|
 | Max number of paths in indexing policy|100 <sup>1</sup>|
-| Max number of unique keys per collection|10 <sup>1</sup>|
+| Max number of unique keys per container|10 <sup>1</sup>|
 | Max number of paths per unique key constraint|16 <sup>1</sup>|
 
 ## Per-request limits
@@ -46,10 +54,12 @@ Azure Cosmos DB is designed to support large scale globally distributed workload
 | Resource | Default limit |
 | --- | --- |
 | Max execution time for single operations (CRUD or single paginated query)| 5s |
+| Max request size (stored procedure, CRUD)|2MB |
+| Max response size (e.g., paginated query) |4MB |
 | Max pre-triggers per request| 1 <sup>1</sup>|
 | Max post-triggers per request| 1 <sup>1</sup>|
 | Max master token expiry time |15min |
-| Minimum resource token expiry time |10min |
+| Min resource token expiry time |10min |
 | Max resource token expiry time |24h |
 | Max clock skew for token authorization| 15min |
  
@@ -58,7 +68,6 @@ Azure Cosmos DB is designed to support large scale globally distributed workload
 | Resource | Default limit |
 | --- | --- |
 | Max length of SQL query| 256kb <sup>1</sup>|
-| Max response size per query page| 4MB <sup>1</sup>|
 | Max JOINs per query| 5 <sup>1</sup>|
 | Max ANDs per query| 2000 <sup>1</sup>|
 | Max ORs per query| 2000 <sup>1</sup>|
