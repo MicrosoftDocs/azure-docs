@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Configure network on your Azure Data Box Edge to access modules
 
-This article describes how to configure the network on your Azure Data Box Edge so that you can access the compute modules running on the device.
+This article describes how to configure the network on your Azure Data Box Edge to access the compute modules running on the device.
 
 To configure the network, you'll take the following steps:
 
@@ -24,18 +24,18 @@ To configure the network, you'll take the following steps:
 
 Before you begin, you'll need:
 
-- A Data Box Edge device with device set up completed.
+- A Data Box Edge device with device setup completed.
 - You've completed **Configure compute** step as per the [Tutorial: Transform data with Azure Data Box Edge](data-box-edge-deploy-configure-compute-advanced.md#configure-compute) on your device. Your device should have an associated IoT Hub resource, an IoT device, and an IoT Edge device.
 
 ## Enable network interface for compute
 
-To access the modules running on your device via an external network, you will need to assign an IP address to a network interface on your device. You can manage these compute settings from your local web UI.
+To access the modules running on your device via an external network, you'll need to assign an IP address to a network interface on your device. You can manage these compute settings from your local web UI.
 
 Take the following steps on your local web UI to configure compute settings.
 
 1. In the local web UI, go to **Configuration > Compute settings**.  
 
-2. **Enable** the network interface that you want to use to connect to a compute module that you will run on the device.
+2. **Enable** the network interface that you want to use to connect to a compute module that you'll run on the device.
 
     - If using static IP addresses, enter an IP address for the network interface.
     - If using DHCP, the IP addresses are automatically assigned. This example uses DHCP.
@@ -62,9 +62,9 @@ Take the following steps to run a webserver app module on your Data Box Edge dev
 
 ## Configure webserver app module
 
-Take the following steps to configure the module you saved in the previous section. You will specify the port to be used to connect to the webserver app module.
+Take the following steps to configure the module you saved in the previous section. You'll specify the port to be used to connect to the webserver app module.
 
-1. On the **Set modules**, select the module you just saved and then select **Configure**. In this example, *nginx-web-server* is the module you saved.
+1. On the **Set modules**, select the module you saved and then select **Configure**. In this example, *nginx-web-server* is the module you saved.
 
     ![Configure webserver app module in IoT Edge custom module blade](media/data-box-edge-extend-compute-access-modules/configure-module-2.png)
 
