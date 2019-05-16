@@ -73,6 +73,11 @@ If you also want to encrypt your stream with CBCS (FairPlay), use 'Predefined_Mu
 
 See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
 
+## See also
+
+* [Streaming Locators](streaming-locators-concept.md)
+* [Content Key Policies](content-key-policy-concept.md)
+
 ## Next steps
 
 * [Stream a file](stream-files-dotnet-quickstart.md)
