@@ -412,4 +412,4 @@ This setting also applies to the `az acr run` command.
 
 ## Next steps
 
-* [Learn more](container-registry-intro.md) about Azure Container Instances.
+* [Learn more](container-registry-intro.md) about Azure Container Registry.
