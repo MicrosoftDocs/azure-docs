@@ -395,7 +395,7 @@ A. See [Azure virtual machine scale set automatic OS image upgrades](https://doc
 
 Q.**Why is update cycle taking so long??**
 
-A. Query for the result Json, then, go through the entry of the update cycle for all nodes and then, you can try to find out the time taken by update installation on every node using OperationStartTime and OperationTime(OperationCompletionTime). If one finds a large time window in which no update was going on, it could be because your cluster was in error state and because of that repair manager did not approve any other POA repair tasks. If update installation took long on any node, then, it could be possible that node was not updated from long time and a lot of updates were pending installation, which took time.
+A. Query for the result Json, then, go through the entry of the update cycle for all nodes and then, you can try to find out the time taken by update installation on every node using OperationStartTime and OperationTime(OperationCompletionTime). If there was large time window in which no update was going on, it could be because your cluster was in error state and because of that repair manager did not approve any other POA repair tasks. If update installation took long on any node, then, it could be possible that node was not updated from long time and a lot of updates were pending installation, which took time.
 
 ## Disclaimers
 
