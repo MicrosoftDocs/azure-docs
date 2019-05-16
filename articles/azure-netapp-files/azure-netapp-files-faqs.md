@@ -24,13 +24,13 @@ This article answers frequently asked questions (FAQs) about Azure NetApp Files.
 
 ### Does the NFS data path go over the Internet?  
 
-No. The NFS data path does not go over the Internet. Azure NetApp Files is an Azure native service that is deployed into the Azure Virtual Network (VNet) where the service is available. Azure NetApp Files utilizes a delegated subnet and provisions a network interface directly on the VNet. 
+No. The NFS data path does not go over the Internet. Azure NetApp Files is an Azure native service that is deployed into the Azure Virtual Network (VNet) where the service is available. Azure NetApp Files uses a delegated subnet and provisions a network interface directly on the VNet. 
 
 See [Guidelines for Azure NetApp Files network planning](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) for details.  
 
-### Can I connect a VNet that I have already created to the Azure NetApp Files service?
+### Can I connect a VNet that I already created to the Azure NetApp Files service?
 
-Yes, you can connect VNets that you have created to the service. 
+Yes, you can connect VNets that you created to the service. 
 
 See [Guidelines for Azure NetApp Files network planning](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) for details.  
 
@@ -72,7 +72,7 @@ Yes, Azure NetApp Files supports RBAC features with Azure IAM.
 
 ### What should I do to optimize or tune Azure NetApp Files performance?
 
-You can do the following per the performance requirements: 
+You can take the following actions per the performance requirements: 
 - Ensure that the Virtual Machine is sized appropriately.
 - Enable Accelerated Networking for the VM.
 - Select the desired service level and size for the capacity pool.
@@ -112,7 +112,7 @@ For example:
 
 The volume size reported in DF is the maximum size the Azure NetApp Files volume can grow to. The size of the Azure NetApp Files volume in DF command is not reflective of the quota or size of the volume.  You can get the Azure NetApp Files volume size or quota through the Azure portal or the API.
 
-### What NFS version dos Azure NetApp Files support?
+### What NFS version does Azure NetApp Files support?
 
 Azure NetApp Files currently supports NFSv3.
 
@@ -164,7 +164,7 @@ The requirements for data migration from on premises to Azure NetApp Files are a
 - Create the target Azure NetApp Files volume.
 - Transfer the source data to the target volume by using your preferred file copy tool.
 
-### How do I create a copy of an Azure NetApp Files in another Azure region?
+### How do I create a copy of an Azure NetApp Files volume in another Azure region?
 	
 Azure NetApp Files provides NFS and SMB volumes.  Any file based-copy tool can be used to replicate data between Azure regions. 
 
@@ -190,5 +190,5 @@ Azure Import/Export service does not support Azure NetApp Files currently.
 
 - [Microsoft Azure ExpressRoute FAQs](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Microsoft Azure Virtual Network FAQ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
-- [How to File an Azure Support Request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)
-- [Azure Data Box Documentation](https://docs.microsoft.com/azure/databox-family/)
+- [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)
+- [Azure Data Box](https://docs.microsoft.com/azure/databox-family/)

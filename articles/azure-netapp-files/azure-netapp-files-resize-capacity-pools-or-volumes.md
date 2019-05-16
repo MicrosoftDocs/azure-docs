@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2018
+ms.date: 05/14/2019
 ms.author: b-juche
 ---
 # Resize a capacity pool or a volume
