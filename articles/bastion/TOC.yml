@@ -8,7 +8,7 @@
   items:
   - name: Create a bastion host
     href: bastion-create-host-portal.md
-  - name: Connect to a VM
+  - name: Connect to a virtual machine
     href: bastion-connect-to-vm.md
 - name: Reference
   items:
