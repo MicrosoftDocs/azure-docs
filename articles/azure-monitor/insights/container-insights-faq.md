@@ -73,7 +73,7 @@ You may see the following error: **The reply url specified in the request does n
 
 If after you enable Azure Monitor for containers for an AKS cluster, you delete the Log Analytics workspace the cluster was sending its data to, when attempting to upgrade the cluster it will fail. To work around this, you will have to disable monitoring and then re-enable it referencing a different valid workspace in your subscription. When you try to perform the cluster upgrade again, it should process and complete successfully.  
 
-## What the ports & domains that i need to open/whitelist for the agent?
+## Which ports and domains do I need to open/whitelist for the agent?
 - *.ods.opinsights.azure.com   443
 - *.oms.opinsights.azure.com   443
 - *.blob.core.windows.net      443
