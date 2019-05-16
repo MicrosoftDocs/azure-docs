@@ -56,7 +56,7 @@ These items are implementations of [Application Insights](../../azure-monitor/ap
 * [Anything else](#projects)
 
 ## Logging frameworks
-* [ILogger](https://docs.microsoft.com/en-us/azure/azure-monitor/app/ilogger)
+* [ILogger](https://docs.microsoft.com/azure/azure-monitor/app/ilogger)
 * [Log4Net, NLog, or System.Diagnostics.Trace](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Java, Log4J, or Logback](../../azure-monitor/app/java-trace-logs.md)
 * [Semantic Logging (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - integrates with [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
