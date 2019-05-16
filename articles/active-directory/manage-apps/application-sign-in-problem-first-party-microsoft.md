@@ -432,7 +432,7 @@ To check or validate a single conditional access policy:
 
 6. click the policy you are interested in inspecting.
 
-7. Review that there are no specific conditions, assignments, or other settings which may be blocking user access.
+7. Review that there are no specific conditions, assignments, or other settings that may be blocking user access.
 
    >[!NOTE]
    >You may wish to temporarily disable this policy to ensure it is not affecting sign ins. To do this, set the **Enable policy** toggle to **No** and click the **Save** button.
@@ -453,7 +453,7 @@ To check or validate a single application’s currently configured conditional a
 
 5.  click **All applications**.
 
-6.  Search for the application you are interested in, or the user is attempting to sign in to by application display name or application id.
+6.  Search for the application you are interested in, or the user is attempting to sign in to by application display name or application ID.
 
      >[!NOTE]
      >If you don’t see the application you are looking for, click the **Filter** button and expand the scope of the list to **All applications**. If you want to see more columns, click the **Columns** button to add additional details for your applications.
