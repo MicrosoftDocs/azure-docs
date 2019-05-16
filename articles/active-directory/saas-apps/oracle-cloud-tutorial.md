@@ -58,14 +58,14 @@ Configure and test Azure AD SSO with Oracle Cloud using a test user called **Bri
 
 To configure and test Azure AD SSO with Oracle Cloud, complete the following building blocks:
 
-1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable your users to use this feature.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
 2. **[Configure Oracle Cloud](#configure-oracle-cloud)** to configure the SSO settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
 5. **[Create Oracle Cloud test user](#create-oracle-cloud-test-user)** to have a counterpart of Britta Simon in Oracle Cloud that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** to verify whether the configuration works.
+6. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+### Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -212,7 +212,7 @@ To enable Azure AD users to sign in to Oracle Cloud, they must be provisioned in
 	1. In **EMAIL** text box, enter the email of user like `Brittasimon@contoso.com`.
 	1. Click **Create**.
 
-### Test single sign-on
+### Test single SSO
 
 When you select the Oracle Cloud tile in the Access Panel, you should be automatically signed in to the Oracle Cloud for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
