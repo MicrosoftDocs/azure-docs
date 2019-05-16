@@ -56,7 +56,7 @@ Then run the Planner as follows:
 1. [Learn about](site-recovery-deployment-planner.md) the Deployment Planner. You can download the latest version from the portal, or [download it directly](https://aka.ms/asr-deployment-planner).
 2. Review the [prerequisites](site-recovery-deployment-planner.md#prerequisites) and [latest updates](site-recovery-deployment-planner-history.md) for the Deployment Planner, and [download and extract](site-recovery-deployment-planner.md#download-and-extract-the-deployment-planner-tool) the tool.
 3. [Run the Deployment Planner](site-recovery-vmware-deployment-planner-run.md) on the configuration server.
-4. [Generate a report](site-recovery-vmware-deployment-planner-run.md#generate-report) to summarize estimatiosn and recommendations.
+4. [Generate a report](site-recovery-vmware-deployment-planner-run.md#generate-report) to summarize estimations and recommendations.
 5. Analyze the [report recommendations](site-recovery-vmware-deployment-planner-analyze-report.md) and [cost estimations](site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 >[!NOTE]
