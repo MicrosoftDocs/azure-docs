@@ -73,7 +73,7 @@ Azure Files offers two performance tiers: standard and premium.
 
 **Standard file shares** are backed by rotational hard disk drives (HDDs) that provide reliable performance for IO workloads that are less sensitive to performance variability such as general-purpose file shares and dev/test environments. Standard file shares are only available in a pay-as-you-go billing model.
 
-Standard file shares up to 5 TiB in size are available as a GA offering. While larger file shares, which is any share larger than 5 TiB, up to a maximum of 100 TiB, are currently in available as a preview offering. While in preview, these larger shares have the following limitations:
+Standard file shares up to 5 TiB in size are available as a GA offering. While larger file shares, which are any share larger than 5 TiB, up to a maximum of 100 TiB, are currently available as a preview offering. While in preview, these larger shares have the following limitations:
 
 - Require you to create a new storage account (cannot expand existing storage accounts)
 - Are only available on GPv1 and GPv2 storage accounts
