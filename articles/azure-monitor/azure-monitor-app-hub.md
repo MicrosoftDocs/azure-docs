@@ -52,6 +52,7 @@ ms.author: mbullwin
                                                 </a>
                                             </li>
                                             <li>
+<!--
                                                 <a href="">
                                                     <div class="cardSize">
                                                         <div class="cardPadding">
@@ -67,6 +68,7 @@ ms.author: mbullwin
                                                         </div>
                                                     </div>
                                                 </a>
+-->
                                             </li>
 										</ul>
                                     </li>
