@@ -67,8 +67,8 @@ Depending on the video camera you use , you may have settings that can optimize 
 * **Smoothing**: Many video cameras come with a smoothing setting enabled. If possible, disable this effect because it creates a blur between frames and reduces clarity.
 * **Shutter Speed**: Faster shutter speed reduces motion between frames. This makes each frame clearer. Fast shutter speeds include anything below 1/60 (for example 1/125, 1/1250). 
 * **Shutter Angle**: Some cameras use "shutter angle" instead of shutter speed. The lower the degrees, the clearer each frame from your video will be. So, a 45 degree shutter angle will be clearer than a 360 degree shutter angle.
-   >[!NOTE]
-   The lower your shutter angle, the less light you let in and the darker the image will be.
+>[!NOTE]
+The lower your shutter angle, the less light you let in and the darker the image will be.
 
 ## Next steps
 
