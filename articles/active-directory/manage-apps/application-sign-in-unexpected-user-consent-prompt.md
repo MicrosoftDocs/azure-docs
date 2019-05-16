@@ -30,7 +30,7 @@ This results in a consent prompt being shown the first time an application is us
 
 Additional prompts can be expected in various scenarios:
 
-* The set of permissions required by the application have changed.
+* The set of permissions required by the application has changed.
 
 * The user who originally consented to the application was not an administrator, and now a different (non-admin) User is using the application for the first time.
 
