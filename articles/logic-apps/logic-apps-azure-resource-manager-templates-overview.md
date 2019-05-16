@@ -17,7 +17,7 @@ When you're ready to automate how you create and deploy your logic app, you can 
 
 For example, if you're deploying to a development, test, and production environment, you're likely using different connection strings in each environment. You can provide these connection strings for your template by creating and using a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
 
-This overview describes the high-level structure and syntax for a Resource Manager template that includes a logic app's underlying workflow definition. Both the template and your workflow definition use JSON but with some differences because the workflow definition also follows the [Workflow Definition Language schema](../logic-apps/logic-apps-workflow-definition-language.md). Also, the examples in this overview replaces values that can change at deployment with their parameterized versions. 
+This overview describes the high-level structure and syntax for a Resource Manager template that includes a logic app's underlying workflow definition. Both the template and your workflow definition use JSON but with some differences because the workflow definition also follows the [Workflow Definition Language schema](../logic-apps/logic-apps-workflow-definition-language.md). Also, the examples in this overview replace values that can change at deployment with their parameterized versions. 
 
 For general information about Resource Manager templates, see these topics:
 
@@ -412,7 +412,7 @@ In this example, the template's `parameters` attribute defines parameters for an
 }
 ```
 
-A template that includes a logic app workflow definition has more than one `parameters` attribute, which exist at different levels:
+A template that includes a logic app workflow definition has more than one `parameters` attribute, which exists at different levels:
 
 * Your template has its own `parameters` attribute, which differs from your workflow definition's `parameters` attribute. For example, to reference template parameter values, which are evaluated at deployment, expressions follow this syntax, which uses square brackets (**[ ]**) and the `parameters()` function:
 
@@ -427,7 +427,7 @@ A template that includes a logic app workflow definition has more than one `para
 
   `"<attribute-name>": "@parameters('<workflow-definition-parameter-name>')"`
 
-  You can provide the values for workflow definition parameters by referencing your template's parameters. For more information about workflow defintion parameters, see [Parameters in logic app workflow definitions](#workflow-parameters) later in this topic.
+  You can provide the values for workflow definition parameters by referencing your template's parameters. For more information about workflow definition parameters, see [Parameters in logic app workflow definitions](#workflow-parameters) later in this topic.
 
 Here are some best practices when defining parameters:
 
