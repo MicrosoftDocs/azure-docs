@@ -5,7 +5,7 @@ description: BLEU is a measurement of the differences between an automatic trans
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-rada

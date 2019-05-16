@@ -1,12 +1,11 @@
 ---
 title: Troubleshooting - Azure Disk Encryption for IaaS VMs | Microsoft Docs
 description: This article provides troubleshooting tips for Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
-author: mestew
+author: msmbaldwin
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.author: mstewart
-ms.date: 03/04/2019
+ms.author: mbaldwin
+ms.date: 03/12/2019
 
 ms.custom: seodec18
 
@@ -46,6 +45,14 @@ After the VM has restarted into the new kernel, the new kernel version can be co
 ```
 uname -a
 ```
+
+## Update the Azure Virtual Machine Agent and Extension Versions
+
+Azure Disk Encryption operations may fail on virtual machine images using unsupported versions of the Azure Virtual Machine Agent. Linux images with agent versions earlier than 2.2.38 should be updated prior to enabling encryption. For more information, see [How to update the Azure Linux Agent on a VM](../virtual-machines/extensions/update-linux-agent.md) and [Minimum version support for virtual machine agents in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+
+The correct version of the Microsoft.Azure.Security.AzureDiskEncryption or Microsoft.Azure.Security.AzureDiskEncryptionForLinux guest agent extension is also required. Extension versions are maintained and updated automatically by the platform when Azure Virtual Machine agent prerequisites are satisfied and a supported version of the virtual machine agent is used.
+
+The Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux extension has been deprecated and is no longer supported.  
 
 ## Unable to encrypt Linux disks
 
@@ -109,15 +116,15 @@ To work around this issue, copy the following four files from a Windows Server 2
    \windows\system32\en-US\bdehdcfg.exe.mui
    ```
 
-   2. Enter the following command:
+1. Enter the following command:
 
    ```
    bdehdcfg.exe -target default
    ```
 
-   3. This command creates a 550-MB system partition. Reboot the system.
+1. This command creates a 550-MB system partition. Reboot the system.
 
-   4. Use DiskPart to check the volumes, and then proceed.  
+1. Use DiskPart to check the volumes, and then proceed.  
 
 For example:
 
@@ -139,7 +146,7 @@ If the expected encryption state does not match what is being reported in the po
 
 The portal may display a disk as encrypted even after it has been unencrypted within the VM.  This can occur when low-level commands are used to directly unencrypt the disk from within the VM, instead of using the higher level Azure Disk Encryption management commands.  The higher level commands not only unencrypt the disk from within the VM, but outside of the VM they also update important platform level encryption settings and extension settings associated with the VM.  If these are not kept in alignment, the platform will not be able to report encryption status or provision the VM properly.   
 
-To properly disable Azure Disk Encryption, start from a known good state with encryption enabled, and then use the [Disable-AzureRmVmDiskEncryption](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) and [Remove-AzureRmVmDiskEncryptionExtension](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/remove-azurermvmdiskencryptionextension) Powershell commands, or the [az vm encryption disable](https://docs.microsoft.com/en-us/cli/azure/vm/encryption) CLI command. 
+To properly disable Azure Disk Encryption, start from a known good state with encryption enabled, and then use the [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) and [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension) Powershell commands, or the [az vm encryption disable](/cli/azure/vm/encryption) CLI command. 
 
 ## Next steps
 

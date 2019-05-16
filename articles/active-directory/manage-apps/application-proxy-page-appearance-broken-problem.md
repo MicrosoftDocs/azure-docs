@@ -27,7 +27,7 @@ When you publish an Application Proxy app, only pages under your root are access
 
 You can verify if missing resources is the issue by opening your network tracker (such as Fiddler, or F12 tools in Internet Explorer/Microsoft Edge), loading the page, and looking for 404 errors. That indicates the pages currently cannot be found and that you need to publish them.
 
-As an example of this case, assume you have published an expenses application using the internal URL http://myapps/expenses, but the app uses the stylesheet http://myapps/style.css. In this case, the stylesheet is not published in your application, so loading the expenses app throw a 404 error while trying to load style.css. In this example, the problem is resolved by publishing the application with an internal URL http://myapp/.
+As an example of this case, assume you have published an expenses application using the internal URL `http://myapps/expenses`, but the app uses the stylesheet `http://myapps/style.css`. In this case, the stylesheet is not published in your application, so loading the expenses app throw a 404 error while trying to load style.css. In this example, the problem is resolved by publishing the application with an internal URL `http://myapp/`.
 
 ## Problems with publishing as one application
 

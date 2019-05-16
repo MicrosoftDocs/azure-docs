@@ -3,15 +3,16 @@ title: Tutorial - Create user flows - Azure Active Directory B2C | Microsoft Doc
 description: Learn how to Create user flows for your applications in Azure Active Directory B2C using the Azure portal.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: davidmu
-
+ms.subservice: B2C
 ---
+
 # Tutorial: Create user flows in Azure Active Directory B2C
 
 In your applications, you may have [user flows](active-directory-b2c-reference-policies.md) that enable users to sign up, sign in, or manage their profile. You can create multiple user flows of different types in your Azure Active Directory (Azure AD) B2C tenant and use them in your applications as needed. User flows can be reused across applications.
@@ -71,7 +72,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 4. Enter a valid email address, click **Send verification code**, and then enter the verification code that you receive.
 5. Enter a new password and confirm the password.
 6. Enter the name that you want displayed, select your country and region, enter a postal code, and then click **Create**. The token is returned to `https://jwt.ms` and should be displayed to you.
-7. You can now run the user flow again and you should be able to sign in with the account that you created. The returned token includes the claims that you selected of name, country, and postal code.
+7. You can now run the user flow again and you should be able to sign in with the account that you created. The returned token includes the claims that you selected of name, country/region, and postal code.
 
 ## Create a profile editing user flow
 

@@ -4,14 +4,15 @@ titlesuffix: Azure Virtual Network
 description: Answers to the most frequently asked questions about Microsoft Azure virtual networks.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
-ms.author: jdial
+ms.author: kumud
 
 ---
 # Azure Virtual Network frequently asked questions (FAQ)
@@ -50,7 +51,7 @@ You can use the following tools to create or configure a VNet:
 * A network configuration file (netcfg - for classic VNets only). See the [Configure a VNet using a network configuration file](virtual-networks-using-network-configuration-file.md) article.
 
 ### What address ranges can I use in my VNets?
-Any IP address range defined in [RFC 1918](http://tools.ietf.org/html/rfc1918). For example, 10.0.0.0/16. 
+Any IP address range defined in [RFC 1918](https://tools.ietf.org/html/rfc1918). For example, 10.0.0.0/16. 
 You cannot add the following address ranges:
 * 224.0.0.0/4 (Multicast)
 * 255.255.255.255/32 (Broadcast)
@@ -65,7 +66,9 @@ Yes. For more information about public IP address ranges, see [Create a virtual 
 Yes. See [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) for details. Subnet address spaces cannot overlap one another.
 
 ### Are there any restrictions on using IP addresses within these subnets?
-Yes. Azure reserves some IP addresses within each subnet. The first and last IP addresses of each subnet are reserved for protocol conformance, along with the x.x.x.1-x.x.x.3 addresses of each subnet, which are used for Azure services.
+Yes. Azure reserves 5 IP addresses within each subnet. These are x.x.x.0-x.x.x.3 and the last address of the subnet.    
+- x.x.x.0 and the last address of the subnet is reserved for protocol conformance.
+- x.x.x.1-x.x.x.3 is reserved in each subnet for Azure services.
 
 ### How small and how large can VNets and subnets be?
 The smallest supported subnet is /29, and the largest is /8 (using CIDR subnet definitions).
@@ -168,7 +171,7 @@ Yes. You can find more information in the [How to move a VM or role instance to 
 No. A MAC address cannot be statically configured.
 
 ### Will the MAC address remain the same for my VM once it's created?
-Yes, the MAC address remains the same for a VM deployed through both the Resource Manager and classic deployment models until it's deleted. Previously, the MAC address was released if the VM was stopped (deallocated), but now the MAC address is retained even when the VM is in the deallocated state.
+Yes, the MAC address remains the same for a VM deployed through both the Resource Manager and classic deployment models until it's deleted. Previously, the MAC address was released if the VM was stopped (deallocated), but now the MAC address is retained even when the VM is in the deallocated state. The MAC address remains assigned to the network interface until the network interface is deleted or the private IP address assigned to the primary IP configuration of the primary network interface is changed. 
 
 ### Can I connect to the internet from a VM in a VNet?
 Yes. All VMs and Cloud Services role instances deployed within a VNet can connect to the Internet.
@@ -229,7 +232,7 @@ Yes. Learn more about using:
 VNet peering (or virtual network peering) enables you to connect virtual networks. A VNet peering connection between virtual networks enables you to route traffic between them privately through IPv4 addresses. Virtual machines in the peered VNets can communicate with each other as if they are within the same network. These virtual networks can be in the same region or in different regions (also known as Global VNet Peering). VNet peering connections can also be created across Azure subscriptions.
 
 ### Can I create a peering connection to a VNet in a different region?
-Yes. Global VNet peering enables you to peer VNets in different regions. Global VNet peering is available in all Azure public regions and China cloud regions. You cannot globally peer from Azure public regions to National cloud regions. Global peering is not currently available in Government cloud.
+Yes. Global VNet peering enables you to peer VNets in different regions. Global VNet peering is available in all Azure public regions, China cloud regions, and Government cloud regions. You cannot globally peer from Azure public regions to national cloud regions.
 
 ### What are the constraints related to Global VNet Peering and Load Balancers?
 If the two virtual networks are in different region (Global VNet Peering), you cannot connect to resources that use Basic Load Balancer. You can connect to resources that use Standard Load Balancer.
@@ -239,10 +242,9 @@ The following resources use Basic Load Balancers which means you cannot communic
 - Redis Cache 
 - Application Gateway (v1) SKU
 - Service Fabric
-- SQL Always-on
 - SQL MI
-- API Managemenet
-- ADDS
+- API Management
+- Active Directory Domain Service (ADDS)
 - Logic Apps
 - HD Insight
 -	Azure Batch
@@ -281,10 +283,13 @@ No. Transitive peering is not supported. You must peer VNetA and VNetC for this 
 ### Are there any bandwidth limitations for peering connections?
 No. VNet peering, whether local or global, does not impose any bandwidth restrictions. Bandwidth is only limited by the VM or the compute resource.
 
+### How can I troubleshoot VNet Peering issues?
+Here is a [troubleshooter guide] (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) you can try.
+
 ## Virtual network TAP
 
 ### Which Azure regions are available for virtual network TAP?
-During developer preview, the capability is available in the West Central US region. The monitored network interfaces, the virtual network TAP resource, and the collector or analytics solution must be deployed in the same region.
+Virtual network TAP  preview is available in all Azure regions. The monitored network interfaces, the virtual network TAP resource, and the collector or analytics solution must be deployed in the same region.
 
 ### Does Virtual Network TAP support any filtering capabilities on the mirrored packets?
 Filtering capabilities are not supported with the virtual network TAP preview. When a TAP configuration is added to a network interface a deep copy of all the ingress and egress traffic on the network interface is streamed to the TAP destination.
@@ -297,7 +302,7 @@ Yes. The same virtual network TAP resource can be used to aggregate mirrored tra
 
 ### Are there any performance considerations on production traffic if I enable a virtual network TAP configuration on a network interface?
 
-Virtual network TAP is in developer preview. During preview, there is no service level agreement. The capability should not be used for production workloads. When a virtual machine network interface is enabled with a TAP configuration, the same resources on the azure host allocated to the virtual machine to send the production traffic is used to perform the mirroring function and send the mirrored packets. Select the correct [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine size to ensure that sufficient resources are available for the virtual machine to send the production traffic and the mirrored traffic.
+Virtual network TAP is in preview. During preview, there is no service level agreement. The capability should not be used for production workloads. When a virtual machine network interface is enabled with a TAP configuration, the same resources on the azure host allocated to the virtual machine to send the production traffic is used to perform the mirroring function and send the mirrored packets. Select the correct [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine size to ensure that sufficient resources are available for the virtual machine to send the production traffic and the mirrored traffic.
 
 ### Is accelerated networking for [Linux](create-vm-accelerated-networking-cli.md) or [Windows](create-vm-accelerated-networking-powershell.md) supported with virtual network TAP?
 
@@ -369,7 +374,7 @@ The deletion of Azure service account is an independent operation and is support
 When virtual network service endpoints are enabled, the source IP addresses of the resources in your virtual network's subnet switches from using public IPV4 addresses to the Azure virtual network's private IP addresses for traffic to Azure service. Note that this can cause specific IP firewall that are set to public IPV4 address earlier on the Azure services to fail. 
 
 ### Does service endpoint route always take precedence?
-Service endpoints add a system route which takes precedence over BGP routes and provide optimum routing for the service endpoint traffic. Service endpoints always take service traffic directly from your virtual network to the service on the Microsoft Azure backbone network. For more information about how Azure selects a route, see [Azure Virtual network traffic routing] (virtual-networks-udr-overview.md).
+Service endpoints add a system route which takes precedence over BGP routes and provide optimum routing for the service endpoint traffic. Service endpoints always take service traffic directly from your virtual network to the service on the Microsoft Azure backbone network. For more information about how Azure selects a route, see [Azure Virtual network traffic routing](virtual-networks-udr-overview.md).
  
 ### How does NSG on a subnet work with service endpoints?
 To reach the Azure service, NSGs need to allow outbound connectivity. If your NSGs are opened to all Internet outbound traffic, then the service endpoint traffic should work. You can also limit the outbound traffic to service IPs only using the Service tags.  

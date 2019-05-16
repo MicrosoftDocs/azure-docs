@@ -9,7 +9,7 @@
   - name: About App Service Environments
     href: environment/intro.md
   - name: Compare hosting options
-    href: overview-compare.md
+    href: /azure/architecture/guide/technology-choices/compute-decision-tree
 - name: Quickstarts
   expanded: true
   items:
@@ -76,6 +76,8 @@
       href: overview-authentication-authorization.md
     - name: OS and runtime patching
       href: overview-patch-os-runtime.md
+    - name: Security attributes
+      href: app-service-security-attributes.md
   - name: Inbound and outbound IPs
     href: overview-inbound-outbound-ips.md
   - name: Hybrid connections
@@ -94,6 +96,8 @@
       href: web-sites-configure.md
     - name: Configure PHP
       href: web-sites-php-configure.md
+    - name: Java developer guide
+      href: configure-language-java.md
     - name: Connect to on-prem resources
       href: web-sites-integrate-with-vnet.md
   - name: Deploy to Azure
@@ -225,7 +229,7 @@
   - name: Cookbooks
     items:
     - name: Reference Architectures
-      href: https://docs.microsoft.com/azure/architecture/reference-architectures/#web-applications
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app
     - name: Deployment Scripts
       href: https://azure.microsoft.com/documentation/scripts/
   - name: Troubleshooting

@@ -17,7 +17,7 @@ In this quickstart, you get a list of languages supported for translation, trans
 
 ## Prerequisites
 
-You'll need [PHP 5.6.x](http://php.net/downloads.php) to run this code.
+You'll need [PHP 5.6.x](https://php.net/downloads.php) to run this code.
 
 ## Languages request
 
@@ -37,7 +37,7 @@ $output_path = "output.txt";
 function GetLanguages ($host, $path) {
     $headers = "Content-type: text/xml\r\n";
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $options = array (
         'http' => array (
             'header' => $headers,
@@ -51,7 +51,7 @@ function GetLanguages ($host, $path) {
 $result = GetLanguages ($host, $path);
 // Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
 // We want to avoid escaping any Unicode characters that result contains. See:
-// http://php.net/manual/en/function.json-encode.php
+// https://php.net/manual/en/function.json-encode.php
 $json = json_encode(json_decode($result), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 // Write the output to file.
 $out = fopen($output_path, 'w');

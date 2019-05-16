@@ -20,7 +20,9 @@ ms.author: tomfitz
 
 With Visual Studio, you can create a project that deploys your infrastructure and code to Azure. For example, you can define the web host, web site, and database for your app, and deploy that infrastructure along with the code. Visual Studio provides many different starter templates for deploying common scenarios. In this article, you deploy a web app and SQL Database.  
 
-This article shows how to use [Visual Studio 2017 with the Azure development and ASP.NET workloads installed](/dotnet/azure/dotnet-tools). If you use Visual Studio 2015 Update 2 and Microsoft Azure SDK for .NET 2.9, or Visual Studio 2013 with Azure SDK 2.9, your experience is largely the same.
+This article shows how to use [Visual Studio 2017 or later with the Azure development and ASP.NET workloads installed](/dotnet/azure/dotnet-tools). If you use Visual Studio 2015 Update 2 and Microsoft Azure SDK for .NET 2.9, or Visual Studio 2013 with Azure SDK 2.9, your experience is largely the same.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Create Azure Resource Group project
 
@@ -144,7 +146,7 @@ You're now ready to deploy your project. When you deploy an Azure Resource Group
    > [!NOTE]
    > Visual Studio may ask you to install the Azure PowerShell cmdlets. If prompted, install them. You need the Azure PowerShell modules to successfully deploy resource groups. The PowerShell script in the project doesn't work with the new [Azure PowerShell Az module](/powershell/azure/new-azureps-module-az). 
    >
-   > For more information, see [Install and configure Azure PowerShell modules](/powershell/azure/azurerm/install-azurerm-ps).
+   > For more information, see [Install and configure Azure PowerShell modules](/powershell/azure/install-Az-ps).
    > 
    > 
 6. The deployment may take a few minutes. In the **Output** windows, you see the status of the deployment. When the deployment has finished, the last message indicates a successful deployment with something similar to:
@@ -218,7 +220,7 @@ You aren't limited to only the resources that are available through the Visual S
 
 1. Open the WebsiteSqlDeploy.json file and add the following JSON after the storage account resource but before the closing `]` of the resources section.
 
-  ```json
+   ```json
     ,{
       "properties": {
         "lenses": {
@@ -293,7 +295,7 @@ You aren't limited to only the resources that are available through the Visual S
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
       }
     }
-  ```
+   ```
 
 2. Redeploy your resource group. Look at your dashboard on the Azure portal, and notice the shared dashboard has been added to your list of choices.
 

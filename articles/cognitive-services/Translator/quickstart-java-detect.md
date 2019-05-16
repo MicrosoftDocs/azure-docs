@@ -176,6 +176,8 @@ gradle run
 
 ## Sample response
 
+Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+
 ```json
 [
   {

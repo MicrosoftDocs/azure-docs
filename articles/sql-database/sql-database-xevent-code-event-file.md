@@ -11,7 +11,7 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
-ms.date: 12/19/2018
+ms.date: 03/12/2019
 ---
 # Event File target code for extended events in SQL Database
 
@@ -32,6 +32,8 @@ This topic presents a two-phase code sample:
 ## Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 * An Azure account and subscription. You can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 * Any database you can create a table in.
@@ -64,7 +66,7 @@ The script starts with commands to clean up after a possible previous run, and i
 
 ### PowerShell code
 
-This PowerShell script assumes you have already run the cmdlet Import-Module for the AzureRm module. For reference documentation, see [PowerShell Module Browser](https://docs.microsoft.com/powershell/module/).
+This PowerShell script assumes you have already installed the Az module. For information, see [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -92,7 +94,7 @@ $resourceGroupName   = 'YOUR_RESOURCE-GROUP-NAME';
 $policySasExpiryTime = '2018-08-28T23:44:56Z';
 $policySasStartTime  = '2017-10-01';
 
-$storageAccountLocation = 'West US';
+$storageAccountLocation = 'YOUR_STORAGE_ACCOUNT_LOCATION';
 $storageAccountName     = 'YOUR_STORAGE_ACCOUNT_NAME';
 $contextName            = 'YOUR_CONTEXT_NAME';
 $containerName          = 'YOUR_CONTAINER_NAME';
@@ -415,6 +417,7 @@ SELECT
         sys.fn_xe_file_target_read_file
             (
                 -- TODO: Fill in Storage Account name, and the associated Container name.
+                -- TODO: The name of the .xel file needs to be an exact match to the files in the storage account Container (You can use Storage Account explorer from the portal to find out the exact file names or you can retrieve the name using the following DMV-query: select target_data from sys.dm_xe_database_session_targets. The 3rd xml-node, "File name", contains the name of the file currently written to.)
                 'https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent/anyfilenamexel242b',
                 null, null, null
             );
@@ -455,9 +458,9 @@ GO
 
 ## Output
 
-When the Transact-SQL script completes, click a cell under the **event_data_XML** column header. One **<event>** element is displayed which shows one UPDATE statement.
+When the Transact-SQL script completes, click a cell under the **event_data_XML** column header. One **\<event>** element is displayed which shows one UPDATE statement.
 
-Here is one **<event>** element that was generated during testing:
+Here is one **\<event>** element that was generated during testing:
 
 
 ```xml

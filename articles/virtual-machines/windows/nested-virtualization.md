@@ -8,7 +8,7 @@ manager: jeconnoc
 
 ms.author: cynthn
 ms.date: 10/09/2017
-ms.topic: howto
+ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -78,7 +78,7 @@ Create a new virtual network adapter for the guest virtual machine and configure
 2. Create an internal switch.
 
     ```powershell
-    New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
+    New-VMSwitch -Name "InternalNAT" -SwitchType Internal
     ```
 
 3. View the properties of the switch and note the ifIndex for the new adapter.

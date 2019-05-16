@@ -82,7 +82,7 @@ Application Insights can gather telemetry data from any internet-connected appli
         });
         
         window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
-</script>
+   </script>
    ```
 
 3. Edit ``hello_world.html`` and add your instrumentation key.
@@ -122,7 +122,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 5. If we had instrumented a more complex website with multiple pages, another useful tool is [**User Flows**](../../azure-monitor/app/usage-flows.md). With **User Flows** you can track the pathway visitors takes through the various parts of your website.
 
-  ![User Flows visualization](./media/website-monitoring/user-flows.png)
+   ![User Flows visualization](./media/website-monitoring/user-flows.png)
 
 To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK API reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md).
 

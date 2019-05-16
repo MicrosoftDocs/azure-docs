@@ -1,7 +1,6 @@
 ---
 title: 'Azure Toolkit for IntelliJ: Create Spark applications for an HDInsight cluster '
 description: Use the Azure Toolkit for IntelliJ to develop Spark applications written in Scala, and submit them to an HDInsight Spark cluster.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -51,10 +50,10 @@ Perform the following steps to install the Scala plugin:
 3. Select **Spark Project (Scala)** from the main window.
 
 4. From the **Build tool** drop-down list, select one of the following:
-      * **Maven** for Scala project-creation wizard support.
-      * **SBT** for managing the dependencies and building for the Scala project.
+   * **Maven** for Scala project-creation wizard support.
+   * **SBT** for managing the dependencies and building for the Scala project.
 
-    ![The New Project dialog box](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
+     ![The New Project dialog box](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
 5. Select **Next**.
 
@@ -203,7 +202,7 @@ After creating a Scala application, you can submit it to the cluster.
     |Spark clusters (Linux only)|Select the HDInsight Spark cluster on which you want to run your application.|
     |Select an Artifact to submit|Leave default setting.|
     |Main class name|The default value is the main class from the selected file. You can change the class by selecting the ellipsis(**...**)  and choosing another class.|
-    |Job configurations|You can change the default keys and/or values. For more information, see [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
+    |Job configurations|You can change the default keys and/or values. For more information, see [Apache Livy REST API](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Command line arguments|You can enter arguments separated by space for the main class if needed.|
     |Referenced Jars and Referenced Files|You can enter the paths for the referenced Jars and files if any. For more information: [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  See also, [How to upload resources to cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
     |Job Upload Storage|Expand to reveal additional options.|

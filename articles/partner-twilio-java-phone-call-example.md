@@ -169,7 +169,7 @@ Following are the high-level steps to run your application; details for these st
 2. Modify **startup.cmd** to unzip your TwilioCloud WAR.
 3. Compile your application for the compute emulator.
 4. Start your deployment in the compute emulator.
-5. Open a browser, and run **http://localhost:8080/TwilioCloud/callform.jsp**.
+5. Open a browser, and run `http://localhost:8080/TwilioCloud/callform.jsp`.
 6. Enter values in the form, click **Make this call**, and then see the results in makecall.jsp.
 
 When you are ready to deploy to Azure, recompile for deployment to the cloud, deploy to Azure, and run http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp in the browser (substitute your value for *your_hosted_name*).

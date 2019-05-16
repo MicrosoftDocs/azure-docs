@@ -38,7 +38,7 @@ Azure Container Service provides a choice of Docker Swarm, DC/OS, or Kubernetes 
 ### Using DC/OS
 DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. Apache Mesos is housed at the Apache Software
 Foundation and lists some of the [biggest names in
-IT](http://mesos.apache.org/documentation/latest/powered-by-mesos/) as
+IT](https://mesos.apache.org/documentation/latest/powered-by-mesos/) as
 users and contributors.
 
 ![Azure Container Service configured for DC/OS showing agents and masters.](media/acs-intro/dcos.png)
@@ -46,7 +46,7 @@ users and contributors.
 DC/OS and Apache Mesos include an impressive feature set:
 
 * Proven scalability
-* Fault-tolerant replicated master and slaves using Apache ZooKeeper
+* Fault-tolerant replicated primary and secondaries using Apache ZooKeeper
 * Support for Docker-formatted containers
 * Native isolation between tasks with Linux containers
 * Multiresource scheduling (memory, CPU, disk, and ports)

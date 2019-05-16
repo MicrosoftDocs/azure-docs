@@ -25,10 +25,10 @@ This article guides you through using the Maven command line tool to build and p
 
 To develop functions using Java, you must have the following installed:
 
-- [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
-- [Apache Maven](https://maven.apache.org), version 3.0 or above.
+- [Java Developer Kit](https://aka.ms/azure-jdks), version 8
+- [Apache Maven](https://maven.apache.org), version 3.0 or above
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
-- [Azure Functions Core Tools](functions-run-local.md#v2) (requires **.NET Core 2.x SDK**)
+- [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above
 
 > [!IMPORTANT]
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
@@ -44,6 +44,9 @@ mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
 	-DarchetypeArtifactId=azure-functions-archetype 
 ```
+
+> [!NOTE]
+> If you're experiencing issues with running the command, take a look at what `maven-archetype-plugin` version is used. Because you are running the command in an empty directory with no `.pom` file, it might be attempting to use a plugin of the older version from `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` if you upgraded your Maven from an older version. If so, try deleting the `maven-archetype-plugin` directory and re-running the command.
 
 ### Windows
 
@@ -101,6 +104,10 @@ public class Function {
 
 ```
 
+## Reference bindings
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
 ## Run the function locally
 
 Change directory to the newly created project folder and build and run the function with Maven:
@@ -147,6 +154,9 @@ az login
 
 Deploy your code into a new Function app using the `azure-functions:deploy` Maven target.
 
+> [!NOTE]
+> When you use Visual Studio Code to deploy your Function app, remember to choose a non-free subscription, or you will get an error. You can watch your subscription on the left side of the IDE.
+
 ```
 mvn azure-functions:deploy
 ```
@@ -162,6 +172,9 @@ When the deploy is complete, you see the URL you can use to access your Azure fu
 ```
 
 Test the function app running on Azure using `cURL`. You'll need to change the URL from the sample below to match the deployed URL for your own function app from the previous step.
+
+> [!NOTE]
+> Make sure you set the **Access rights** to `Anonymous`. When you choose the default level of `Function`, you are required to present the [function key](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) in requests to access your function endpoint.
 
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
@@ -185,7 +198,7 @@ To the following:
 return request.createResponse(200, "Hi, " + name);
 ```
 
-Save the changes and redeploy by running `azure-functions:deploy` from the terminal as before. The function app will be updated and this request:
+Save the changes. Run mvn clean package and redeploy by running `azure-functions:deploy` from the terminal as before. The function app will be updated and this request:
 
 ```bash
 curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java

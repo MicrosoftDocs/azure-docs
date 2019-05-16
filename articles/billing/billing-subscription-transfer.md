@@ -15,7 +15,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 04/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
@@ -25,7 +25,7 @@ Transfer your subscription to another user in the Account Center to change the A
 
 > [!IMPORTANT]
 > 
-> If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../role-based-access-control/overview.md) are permanently deleted from the source tenant and are not migrated to the target tenant.
+> If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../role-based-access-control/overview.md) are permanently deleted from the source tenant and are not migrated to the target tenant. You also have to manually recreate managed identities for Azure resources. For more information, see [FAQs and known issues with managed identities](../active-directory/managed-identities-azure-resources/known-issues.md).
 
 ## Transfer ownership of an Azure subscription
 
@@ -47,7 +47,7 @@ Transfer your subscription to another user in the Account Center to change the A
 
    > [!IMPORTANT]
    > 
-   > If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../role-based-access-control/overview.md) are permanently deleted from the source tenant and are not migrated to the target tenant.
+   > If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../role-based-access-control/overview.md) are permanently deleted from the source tenant and are not migrated to the target tenant. You also have to manually recreate managed identities for Azure resources. For more information, see [FAQs and known issues with managed identities](../active-directory/managed-identities-azure-resources/known-issues.md).
 
    ![Transfer Subscription dialog box](./media/billing-subscription-transfer/image2.PNG)
 
@@ -114,7 +114,7 @@ All your resources like VMs, disks, and websites transfer to the new owner. Howe
 
 ### <a id="no-button"></a> Why don't I see the "Transfer subscription" button?
 
-Unfortunately, self-serve subscription transfer isn't available for your offer or country. To transfer your subscription, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Unfortunately, self-serve subscription transfer isn't available for your offer or country/region. To transfer your subscription, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### Does a subscription transfer result in any service downtime?
 
@@ -151,9 +151,9 @@ The sender is responsible for payment for any usage that was reported up to the 
 
 The offer must remain the same. To change your offer, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md).
 
-### Can I transfer a subscription to a user account in another country?
+### Can I transfer a subscription to a user account in another country/region?
 
-No, transferring a subscription to a user account in another country is not supported. The recipient's user account must be in the same country.
+No, transferring a subscription to a user account in another country/region is not supported. The recipient's user account must be in the same country/region.
 
 ### Can the recipient use a different payment method?
 
@@ -169,4 +169,4 @@ If you can't transfer subscription ownership, you can manually migrate your reso
 
 ## Need help? Contact us.
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

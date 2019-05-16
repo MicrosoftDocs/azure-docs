@@ -7,8 +7,6 @@ manager: dougeby
 tags: azure-resource-manager
 
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/04/2019
@@ -65,7 +63,7 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
     * **Tenant Id**: the template function automatically retrieve your tenant id.  Don't change the default value
     * **Ad User Id**: enter your Azure AD user object ID that you retrieved from [Prerequisites](#prerequisites).
     * **Secret Name**: enter a name for the secret that you store in the key vault.  For example, **adminpassword**
-    * **Secret Value**: enter the secret value.  If you store a password, it is recommended to use the generated password you created in [Prerequisite](#prerequisite).
+    * **Secret Value**: enter the secret value.  If you store a password, it is recommended to use the generated password you created in Prerequisites.
     * **I agree to the terms and conditions state above**: Select.
 3. Select **Purchase**.
 

@@ -2,10 +2,10 @@
 title: Data Filtering - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: When you submit documents to be used for training a custom system, the documents undergo a series of processing and filtering steps to prepare for training.
-author: jann-skotdal
+author: v-pawal
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.topic: conceptual
@@ -41,7 +41,7 @@ Custom Translator removes the sentences that are present in test and tuning docu
 Replace multiple sentence end punctuation characters with a single instance.  
 
 ## Japanese character normalization
-Normalize duplicate Japanese characters: Convert half width to full width characters.
+Convert full width letters and digits to half-width characters.
 
 ## Unescaped XML tags
 Filtering transforms unescaped tags into escaped tags:

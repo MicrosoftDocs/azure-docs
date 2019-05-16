@@ -4,10 +4,9 @@ titleSuffix: Azure Cognitive Services
 description: Use this article to learn how to specify search categories for the Bing Local Business search API endpoint.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod

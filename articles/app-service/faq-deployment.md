@@ -43,7 +43,7 @@ To resolve this error, upgrade to the [latest SDK](https://azure.microsoft.com/d
 ## How do I deploy an ASP.NET application from Visual Studio to App Service?
 <a id="deployasp"></a>
 
-The tutorial [Create your first ASP.NET web app in Azure in five minutes](app-service-web-get-started-dotnet.md) shows you how to deploy an ASP.NET web application to a web app in App Service by using Visual Studio 2017.
+The tutorial [Create your first ASP.NET web app in Azure in five minutes](app-service-web-get-started-dotnet.md) shows you how to deploy an ASP.NET web application to a web app in App Service by using Visual Studio.
 
 ## What are the different types of deployment credentials?
 
@@ -86,7 +86,7 @@ To learn about the circumstances under which an application deployment might res
 
 You have two options for using continuous deployment with Azure DevOps:
 
-*   Use a Git project. Connect via App Service by using the deployment options for that repo.
+*   Use a Git project. Connect via App Service by using the Deployment Center.
 *   Use a Team Foundation Version Control (TFVC) project. Deploy by using the build agent for App Service.
 
 Continuous code deployment for both these options depends on existing developer workflows and check-in procedures. For more information, see these articles: 

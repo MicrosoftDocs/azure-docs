@@ -75,9 +75,9 @@ Ensure no synchronization takes place while you are in the middle of implementin
 > [!Note]
 > The preceding steps are only applicable to newer versions (1.1.xxx.x) of Azure AD Connect with the built-in scheduler. If you are using older versions (1.0.xxx.x) of Azure AD Connect that uses Windows Task Scheduler, or you are using your own custom scheduler (not common) to trigger periodic synchronization, you need to disable them accordingly.
 
-3. Start the **Synchronization Service Manager** by going to START → Synchronization Service.
+1. Start the **Synchronization Service Manager** by going to START → Synchronization Service.
 
-4. Go to the **Operations** tab and confirm there is no operation whose status is *“in progress.”*
+1. Go to the **Operations** tab and confirm there is no operation whose status is *“in progress.”*
 
 ### Step 2.	Find the existing outbound sync rule for userCertificate attribute
 There should be an existing sync rule that is enabled and configured to export userCertificate attribute for User objects to Azure AD. Locate this sync rule to find out its **precedence** and **scoping filter** configuration:

@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/07/2019
+ms.date: 04/17/2019
 ---
 # Manage Azure SQL Database long-term backup retention
 
@@ -37,6 +37,9 @@ You can configure SQL Database to [retain automated backups](sql-database-long-t
    ![configure policies](./media/sql-database-long-term-retention/ltr-configure-policies.png)
 
 3. When complete, click **Apply**.
+
+> [!IMPORTANT]
+> When you enable a long-term backup retention policy, it may take up to 7 days for the first backup to become visible and available to restore. For details of the LTR backup cadance, see [long-term backup retention](sql-database-long-term-retention.md).
 
 ### View backups and restore from a backup using Azure portal
 
@@ -69,6 +72,8 @@ View the backups that are retained for a specific database with a LTR policy, an
 ## Use PowerShell to configure long-term retention policies and restore backups
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 The following sections show you how to use PowerShell to configure the long-term backup retention, view backups in Azure SQL storage, and restore from a backup in Azure SQL storage.
 

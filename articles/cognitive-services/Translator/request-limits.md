@@ -18,27 +18,28 @@ This article provides throttling limits for the Translator Text API. Services in
 
 ## Character limits per request
 
-Each request is limited to 5,000 characters. You're charged per character, not by the number of requests. It's recommended to send shorter requests, and to have some requests outstanding at any given time.
+Each Translate request is limited to 5,000 characters. You're charged per character, not by the number of requests. It's recommended to send shorter requests.
 
-There's no limit on the number of outstanding requests to the Translator Text API.
 
 ## Character limits per hour
 
-Your character limit per hour is based on your Translator Text subscription tier. If you reach or surpass these limits, you'll likely receive an out of quota response:
+Your character limit per hour is based on your Translator Text subscription tier. The hourly quota should be consumed evenly throughout the hour. If you reach or surpass these limits, or send too large of a portion of the quota in a short period of time, you'll likely receive an out of quota response. 
 
 | Tier | Character limit |
 |------|-----------------|
 | F0 | 2 million characters per hour |
 | S1 | 40 million characters per hour |
-| S2 | 40 million characters per hour |
-| S3 | 120 million characters per hour |
-| S4 | 200 million characters per hour |
+| S2 / C2 | 40 million characters per hour |
+| S3 / C3 | 120 million characters per hour |
+| S4 / C4 | 200 million characters per hour |
 
-These limits are restricted to Microsoft's generic systems. Custom translation systems that use Microsoft's Translator Hub are limited to 1,800 character per second.
+Limits for [multi-service subscriptions](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) are the same as the S1 tier.
+
+These limits are restricted to Microsoft's standard translation models. Custom translation models that use Custom Translator are limited to 1,800 character per second.
 
 ## Latency
 
-Translator Text has a maximum latency of 13 seconds. By this time you'll have received a result or a timeout response. Typically, responses are returned in 150 milliseconds to 300 milliseconds. Response times will vary based on the size or the request and language pair.
+The Translator Text API has a maximum latency of 15 seconds using standard models. Translation using custom models has a maximum latency of 25 seconds. By this time you'll have received a result or a timeout response. Typically, responses are returned in 150 milliseconds to 300 milliseconds. Response times will vary based on the size of the request and language pair. If you don’t receive a translation or an [error response](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) within that timeframe, you should check your network connection and retry.
 
 ## Sentence length limits
 

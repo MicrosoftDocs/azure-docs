@@ -30,11 +30,14 @@ You'll learn how to:
 To complete this quickstart, make sure you have:
 
 - A developer enabled macOS machine with <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10+</a> and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
+- Git installed via HomeBrew. Enter the following command into a single line of the Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Then, run `brew install git`.
 - A developer enabled <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit compatible</a> iOS device.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## Open the sample project
+
+Use the Terminal to perform the following actions.
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
@@ -78,19 +81,19 @@ open ./SampleObjC.xcworkspace
 
 ## Configure account identifier and key
 
-The next step is to use the account identifier and account key recorded previously when setting up the Spatial Anchors resource to configure the app.
+The next step is to configure the app to use your account identifier and account key. You copied them into a text editor when [setting up the Spatial Anchors resource](#create-a-spatial-anchors-resource).
 
 # [Swift](#tab/openproject-swift)
 
-Open `iOS/Swift/SampleSwift/ViewController.swift`.
+Open `iOS/Swift/SampleSwift/ViewControllers/BaseViewController.swift`.
 
-Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
+Locate the `spatialAnchorsAccountKey` field and replace `Set me` with the account key.
 
-Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
+Locate the `spatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
 # [Objective-C](#tab/openproject-objc)
 
-Open `iOS/Objective-C/SampleObjC/ViewController.m`.
+Open `iOS/Objective-C/SampleObjC/BaseViewController.m`.
 
 Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
 

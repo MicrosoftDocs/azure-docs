@@ -40,7 +40,7 @@ Here's how to obtain the model ID:
     npm run ui
     ```
 
-2. Open browser to http://localhost:5050 
+2. Open browser to `http://localhost:5050` 
 
 3. Click on the Conversation Learner model you want to get the ID for
 
@@ -104,20 +104,20 @@ Below are step-by-step instructions for deploying a Conversation Learner Bot to 
 
 3. In the Azure portal, edit the Web App Bot resource you just created.
 
-    1. Click on "Application Settings" nav item on the left
-    1. Scroll down to the "App Settings" section
-    2. Add these settings:
+   1. Click on "Application Settings" nav item on the left
+   1. Scroll down to the "App Settings" section
+   2. Add these settings:
 
-        Environment variable | value
-        --- | --- 
-        CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
-        CONVERSATION_LEARNER_MODEL_ID      | Application Id GUID, obtained from the Conversation Learner UI under the "settings" for the model>
-        LUIS_AUTHORING_KEY      		 | LUIS authoring key for this model
-        LUIS_SUBSCRIPTION_KEY            | Not required, but recommended for published bots to avoid using your Authoring quota.
+       Environment variable | value
+       --- | --- 
+       CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
+       CONVERSATION_LEARNER_MODEL_ID      | Application Id GUID, obtained from the Conversation Learner UI under the "settings" for the model>
+       LUIS_AUTHORING_KEY               | LUIS authoring key for this model
+       LUIS_SUBSCRIPTION_KEY            | Not required, but recommended for published bots to avoid using your Authoring quota.
     
-    4. Click on "Save" near the top of the page
-    5. Open "Build" nav item on the left
-    6. Click on "Configure continuous deployment" 
-    7. Click on the "Setup" icon under deployments
-    8. Click on "Required Settings"
-    9. Select the source where your bot code is available, and configure the source.
+   4. Click on "Save" near the top of the page
+   5. Open "Build" nav item on the left
+   6. Click on "Configure continuous deployment" 
+   7. Click on the "Setup" icon under deployments
+   8. Click on "Required Settings"
+   9. Select the source where your bot code is available, and configure the source.

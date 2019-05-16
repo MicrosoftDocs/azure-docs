@@ -174,7 +174,7 @@ To perform additional actions on VMs that require updates, Azure Automation allo
 
 The validation process also checks to see if the VM is provisioned with the Log Analytics agent and Automation hybrid runbook worker. This agent is used to communicate with the VM and obtain information about the update status.
 
-Choose the Log analytics workspace and automation account and select **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
+Choose the Log Analytics workspace and automation account and select **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
 
 If any of the following prerequisites were found to be missing during onboarding, they're automatically added:
 
@@ -182,11 +182,11 @@ If any of the following prerequisites were found to be missing during onboarding
 * [Automation account](../../automation/automation-offering-get-started.md)
 * A [Hybrid runbook worker](../../automation/automation-hybrid-runbook-worker.md) is enabled on the VM
 
-The **Update Management** screen opens. Configure the location, Log analytics workspace and Automation account to use and select **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used.
+The **Update Management** screen opens. Configure the location, Log Analytics workspace and Automation account to use and select **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used.
 
 ![Enable Update management solution](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
-Enabling the solution can take up to 15 minutes. During this time, you shouldn't close the browser window. After the solution is enabled, information about missing updates on the VM flows to Log Analytics. It can take between 30 minutes and 6 hours for the data to be available for analysis.
+Enabling the solution can take up to 15 minutes. During this time, you shouldn't close the browser window. After the solution is enabled, information about missing updates on the VM flows to Azure Monitor logs. It can take between 30 minutes and 6 hours for the data to be available for analysis.
 
 ### View update assessment
 
@@ -255,7 +255,7 @@ Enable Change and Inventory management for your VM:
 2. From the list, select a VM.
 3. On the VM screen, in the **Operations** section, select **Inventory** or **Change tracking**. The **Enable Change Tracking and Inventory** screen opens.
 
-Configure the location, Log analytics workspace and Automation account to use and select **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used. Even though the solutions are separate on the menu, they are the same solution. Enabling one enables both for your VM.
+Configure the location, Log Analytics workspace and Automation account to use and select **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used. Even though the solutions are separate on the menu, they are the same solution. Enabling one enables both for your VM.
 
 ![Enable Change and Inventory tracking](./media/tutorial-monitoring/manage-inventory-enable.png)
 
@@ -291,7 +291,7 @@ You can do more advanced monitoring of your VM by using a solution like [Azure M
 
 From the Log Analytics workspace the VM is connected to, you can also retrieve, consolidate, and analyze collected data with the [rich query language](../../azure-monitor/log-query/log-query-overview.md). 
 
-![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Log Analytics workspace](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## Next steps
 

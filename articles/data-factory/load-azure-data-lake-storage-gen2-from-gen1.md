@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 05/13/2019
 ms.author: jingwang
 ---
 
@@ -30,13 +30,14 @@ This article shows you how to use the Data Factory Copy Data tool to copy data f
 
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * Azure Data Lake Storage Gen1 account with data in it.
-* Azure Storage account with Data Lake Storage Gen2 enabled: If you don't have a Storage account, click [here](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) to create one.
+* Azure Storage account with Data Lake Storage Gen2 enabled: If you don't have a Storage account, [create an account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 
 ## Create a data factory
 
-1. On the left menu, select **New** > **Data + Analytics** > **Data Factory**:
+1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**:
    
-   ![Create a new data factory](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. In the **New data factory** page, provide values for the fields that are shown in the following image: 
       
    ![New data factory page](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
@@ -99,7 +100,7 @@ This article shows you how to use the Data Factory Copy Data tool to copy data f
    
    ![Specify Azure Data Lake Storage Gen2 account](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
-9. In the **Choose the output file or folder** page, enter **copyfromadlsgen1** as the output folder name, and select **Next**: 
+9. In the **Choose the output file or folder** page, enter **copyfromadlsgen1** as the output folder name, and select **Next**. ADF will create the corresponding ADLS Gen2 file system and sub-folders during copy if it doesn't exist.
 
     ![Specify output folder](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
 
@@ -127,12 +128,47 @@ This article shows you how to use the Data Factory Copy Data tool to copy data f
 
 ## Best practices
 
-When copy large volume of data from file-based data store, you are suggested to:
+To assess upgrading from Azure Data Lake Storage (ADLS) Gen1 to Gen2 in general, refer to [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md). The following sections introduce best practices of using ADF for data upgrade from Gen1 to Gen2.
 
-- Partition the files into 10TB to 30TB fileset each.
-- Do not trigger too many concurrent copy runs to avoid throttling from source or sink data stores. You can start with one copy run and monitor the throughput, then gradually add more as needed.
+### Data partition for historical data copy
+
+- If your total data size in ADLS Gen1 is less than **30TB** and the number of files is less than **1 million**, you can copy all data in single Copy activity run.
+- If you have larger size of data to copy, or you want the flexibility to manage data migration in batches and make each of them completed within a specific timing windows, you are suggested to partition the data, in which case it can also reduce the risk of any unexpected issue.
+
+A PoC (Proof of Concept) is highly recommended in order to verify the end to end solution and test the copy throughput in your environment. Major steps of doing PoC: 
+
+1. Create one ADF pipeline with single copy activity to copy several TBs of data from ADLS Gen1 to ADLS Gen2 to get a copy performance baseline, starting with [Data Integration Units (DIUs)](copy-activity-performance.md#data-integration-units) as 128 . 
+2. Based on the copy throughput you get in step #1, calculate the estimated time required for the entire data migration. 
+3. (Optional) Create a control table and define the file filter to partition the files to be migrated. The way to partition the files as followings: 
+
+    - Partitioned by folder name or folder name with wildcard filter (suggested) 
+    - Partitioned by file’s last modified time 
+
+### Network bandwidth and storage I/O 
+
+You can control the concurrency of ADF copy jobs which read data from ADLS Gen1 and write data to ADLS Gen2, so that you can manage the usage on storage I/O in order to not impact the normal business work on ADLS Gen1 during the migration.
+
+### Permissions 
+
+In Data Factory, [ADLS Gen1 connector](connector-azure-data-lake-store.md) supports Service Principal and Managed Identity for Azure resource authentications; [ADLS Gen2 connector](connector-azure-data-lake-storage.md) supports account key, Service Principal and Managed Identity for Azure resource authentications. To make Data Factory able to navigate and copy all the files/ACLs as you need, make sure you grant high enough permissions for the account you provide to access/read/write all files and set ACLs if you choose to. Suggest to grant it as super-user/owner role during the migration period. 
+
+### Preserve ACLs from Data Lake Storage Gen1
+
+If you want to replicate the ACLs along with data files when upgrading from Data Lake Storage Gen1 to Gen2, refer to [Preserve ACLs from Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls-from-data-lake-storage-gen1). 
+
+### Incremental copy 
+
+Several approaches can be used to load only the new or updated files from ADLS Gen1:
+
+- Load new or updated files by time partitioned folder or file name, e.g. /2019/05/13/*;
+- Load new or updated files by LastModifiedDate;
+- Identify new or updated files by any 3rd party tool/solution, then pass the file or folder name to ADF pipeline via parameter or a table/file.  
+
+The proper frequency to do incremental load depends on the total number of files in ADLS Gen1 and the volume of new or updated file to be loaded every time.  
 
 ## Next steps
 
-* [Copy activity overview](copy-activity-overview.md)
-* [Azure Data Lake Storage Gen2 connector](connector-azure-data-lake-storage.md)
+> [!div class="nextstepaction"]
+> [Copy activity overview](copy-activity-overview.md)
+> [Azure Data Lake Storage Gen1 connector](connector-azure-data-lake-store.md)
+> [Azure Data Lake Storage Gen2 connector](connector-azure-data-lake-storage.md)

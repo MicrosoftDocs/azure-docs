@@ -47,7 +47,7 @@ You can find Event Hubs samples on [GitHub](https://github.com/Azure/azure-event
 You can find Python samples for Azure Event Hubs in the [azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) GitHub repository.
 
 ## Node.js samples
-You can find Node.js samples for Azure Event Hubs in the [azure-event-hubs-node](https://github.com/Azure/azure-event-hubs-node) GitHub repository.
+You can find Node.js samples for Azure Event Hubs in the [azure-sdk-for-js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples) GitHub repository.
 
 ## Go samples
 You can find Go samples for Azure Event Hubs in the [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) GitHub repository.

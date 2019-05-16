@@ -110,10 +110,9 @@ sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H c
 > [!NOTE]
 > **Troubleshooting:**
 > If *adcli* is unable to find your managed domain:
-  * Ensure that the domain is reachable from the virtual machine (try ping).
-  * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-  * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
->
+>   * Ensure that the domain is reachable from the virtual machine (try ping).
+>   * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
+>   * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
 
 Start the SSSD service. In your SSH terminal, type the following command:
   ```

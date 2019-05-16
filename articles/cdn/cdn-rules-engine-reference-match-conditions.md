@@ -25,7 +25,7 @@ The second part of a rule is the match condition. A match condition identifies s
 
 For example, you can use a match condition to:
 - Filter requests for content at a particular location.
-- Filter requests generated from a particular IP address or country.
+- Filter requests generated from a particular IP address or country/region.
 - Filter requests by header information.
 
 ## Always match condition
@@ -51,7 +51,7 @@ The Location match conditions identify requests based on the requester's locatio
 Name | Purpose
 -----|--------
 [AS Number](#as-number) | Identifies requests that originate from a particular network.
-[Country](#country) | Identifies requests that originate from the specified countries.
+[Country](#country) | Identifies requests that originate from the specified countries/regions.
 
 ## Origin match conditions
 
@@ -99,7 +99,10 @@ Name | Purpose
 
 ## Reference for rules engine match conditions
 
+<a name="main"></a>
+
 ---
+
 ### Always
 
 The Always match condition applies a default set of features to all requests.
@@ -232,7 +235,7 @@ Key information:
 
 ---
 ### Country
-You can specify a country through its country code. 
+You can specify a country/region through its country code. 
 
 The **Matches**/**Does Not Match** option determines the conditions under which the Country match condition is met:
 - **Matches**: Requires the request to contain the specified country code values. 
@@ -257,9 +260,9 @@ This match condition allows you to perform a multitude of customizations based o
 - URL Path Wildcard match: Set the [URL Path Wildcard match condition](#url-path-wildcard) to the directory that will be secured. 
     Append an asterisk to the end of the relative path to ensure that access to all of its children will be restricted by this rule.
 
-- Country match: Set the Country match condition to the desired set of countries.
-   - Allow: Set the Country match condition to **Does Not Match** to allow only the specified countries access to content stored in the location defined by the URL Path Wildcard match condition.
-   - Block: Set the Country match condition to **Matches** to block the specified countries from accessing content stored in the location defined by the URL Path Wildcard match condition.
+- Country match: Set the Country match condition to the desired set of countries/regions.
+   - Allow: Set the Country match condition to **Does Not Match** to allow only the specified countries/regions access to content stored in the location defined by the URL Path Wildcard match condition.
+   - Block: Set the Country match condition to **Matches** to block the specified countries/regions from accessing content stored in the location defined by the URL Path Wildcard match condition.
 
 - Deny Access (403) Feature: Enable the [Deny Access (403) feature](cdn-rules-engine-reference-features.md#deny-access-403) to replicate the allow or block portion of the Country Filtering feature.
 
@@ -529,16 +532,16 @@ Key information:
 - An edge CNAME URL is rewritten to a CDN URL prior to the URL comparison.
 
     For example, both of the following URLs point to the same asset and therefore have the same URL path.
-    - CDN URL: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
+  - CDN URL: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
     
-    - Edge CNAME URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
+  - Edge CNAME URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Additional information:
-    - Custom domain: https:\//my.domain.com/path/asset.htm
+  - Custom domain: https:\//my.domain.com/path/asset.htm
     
-    - URL path (relative to root): /800001/CustomerOrigin/path/
+  - URL path (relative to root): /800001/CustomerOrigin/path/
     
-    - URL path (relative to origin): /path/
+  - URL path (relative to origin): /path/
 
 - The portion of the URL that is used for the URL comparison ends just before the file name of the requested asset. A trailing forward slash is the last character in this type of path.
     
@@ -636,27 +639,27 @@ Key information:
 - Use the **Relative to** option to specify whether the URL comparison point begins before or after the content access point. 
 
     The following values are available for the **Relative to** option:
-     - **Root**: Indicates that the URL comparison point begins directly after the CDN hostname.
+  - **Root**: Indicates that the URL comparison point begins directly after the CDN hostname.
 
-       For example: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
+    For example: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
 
-     - **Origin**: Indicates that the URL comparison point begins after the content access point (for example, /000001 or /800001/myorigin). Because the \*.azureedge.net CNAME is created relative to the origin directory on the Verizon CDN hostname by default, Azure CDN users should use the **Origin** value. 
+  - **Origin**: Indicates that the URL comparison point begins after the content access point (for example, /000001 or /800001/myorigin). Because the \*.azureedge.net CNAME is created relative to the origin directory on the Verizon CDN hostname by default, Azure CDN users should use the **Origin** value. 
 
-       For example: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
+    For example: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-     This URL points to the following Verizon CDN hostname: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder/index.htm**
+    This URL points to the following Verizon CDN hostname: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder/index.htm**
 
 - An edge CNAME URL is rewritten to a CDN URL prior to a URL comparison.
 
     For example, both of the following URLs point to the same asset and therefore have the same URL path:
-    - CDN URL: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
-    - Edge CNAME URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
+  - CDN URL: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
+  - Edge CNAME URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Additional information:
     
-    - URL path (relative to root): /800001/CustomerOrigin/path/asset.htm
+  - URL path (relative to root): /800001/CustomerOrigin/path/asset.htm
    
-    - URL path (relative to origin): /path/asset.htm
+  - URL path (relative to origin): /path/asset.htm
 
 - Query strings in the URL are ignored.
 - Use the **Ignore Case** option to control whether a case-sensitive comparison is performed.
@@ -681,13 +684,13 @@ Key information:
  
     For example, both URLs point to the same asset and therefore have the same URL path.
 
-     - CDN URL: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
+  - CDN URL: http:\//wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
 
-     - Edge CNAME URL: http:\//my.domain.com/path/asset.htm
+  - Edge CNAME URL: http:\//my.domain.com/path/asset.htm
     
     Additional information:
     
-     - URL path: /800001/CustomerOrigin/path/asset.htm
+  - URL path: /800001/CustomerOrigin/path/asset.htm
 
 - Query strings in the URL are ignored.
     
@@ -711,27 +714,27 @@ Key information:
 - **Relative to** option: This option determines whether the URL comparison point begins before or after the content access point.
 
    This option can have the following values:
-     - **Root**: Indicates that the URL comparison point begins directly after the CDN hostname.
+  - **Root**: Indicates that the URL comparison point begins directly after the CDN hostname.
 
-       For example: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
+    For example: http:\//wpc.0001.&lt;domain&gt;/**800001/myorigin/myfolder/index.htm**
 
-     - **Origin**: Indicates that the URL comparison point begins after the content access point (for example, /000001 or /800001/myorigin). Because the \*.azureedge.net CNAME is created relative to the origin directory on the Verizon CDN hostname by default, Azure CDN users should use the **Origin** value. 
+  - **Origin**: Indicates that the URL comparison point begins after the content access point (for example, /000001 or /800001/myorigin). Because the \*.azureedge.net CNAME is created relative to the origin directory on the Verizon CDN hostname by default, Azure CDN users should use the **Origin** value. 
 
-       For example: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
+    For example: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-     This URL points to the following Verizon CDN hostname: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder/index.htm**
+    This URL points to the following Verizon CDN hostname: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/**myfolder/index.htm**
 
 - An edge CNAME URL is rewritten to a CDN URL prior to URL comparison.
 
     For example, both of the following URLs point to the same asset and therefore have the same URL path:
-     - CDN URL: http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
-     - Edge CNAME URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
+  - CDN URL: http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
+  - Edge CNAME URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Additional information:
     
-     - URL path (relative to root): /800001/CustomerOrigin/path/asset.htm
+  - URL path (relative to root): /800001/CustomerOrigin/path/asset.htm
     
-     - URL path (relative to origin): /path/asset.htm
+  - URL path (relative to origin): /path/asset.htm
     
 - Specify multiple URL paths by delimiting each one with a single space.
 

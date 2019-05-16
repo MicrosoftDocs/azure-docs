@@ -3,7 +3,7 @@ title: Trigger Azure Functions using webhooks in Azure IoT Central
 description: Create a function app that runs each time a rule is triggered in Azure IoT Central.
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2018
+ms.date: 03/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -14,7 +14,7 @@ manager: peterpr
 
 *This topic applies to builders and administrators.*
 
-Use Azure Functions to run serverless code on the webhook output from IoT Central rules. You don't have to provision a VM or publish a web app to use Azure Functions, but instead you can run this code serverlessly. Use Azure Functions to transform the webhook payload before sending it to its final destination such as a SQL database or Event Grid.
+Use Azure Functions to run serverless code on the webhook output from IoT Central rules. You don't have to provision a VM or publish a web app to use Azure Functions, but instead you can run this code serverless. Use Azure Functions to transform the webhook payload before sending it to its final destination such as a SQL database or Event Grid.
 
 ## Prerequisites
 
@@ -22,15 +22,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## How to connect Azure Functions
 
-1. [Create a new function app in the Azure Portal](https://ms.portal.azure.com/#create/Microsoft.FunctionApp​).
+1. [Create a new function app in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.FunctionApp​).
 
-    ![Create a new function app in the Azure Portal](media/howto-trigger-azure-functions/createfunction.png)
+    ![Create a new function app in the Azure portal](media/howto-trigger-azure-functions/createfunction.png)
 
-2. Expand your function app and select the **+ button** next to Functions. If this function is the first one in your function app, select **Custom function**. This displays the complete set of function templates.
+2. Expand your function app and select the **+ button** next to Functions. If this function is the first one in your function app, select **In portal** as development environment and select **Continue**.
 
     ![Choose custom function in Function app](media/howto-trigger-azure-functions/customfunction.png)
 
-3. In the search field, type **"generic"** and then choose your desired language for the generic webhook trigger template. This topic uses a C# function. 
+3. Choose **Webhook + API** template and select **Create**. This topic uses .NET based Azure function.
 
     ![Select generic webhook trigger](media/howto-trigger-azure-functions/genericwebhooktrigger.png)
 

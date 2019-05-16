@@ -4,8 +4,6 @@ description: Describes the functions to use in an Azure Resource Manager templat
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 
 ms.assetid: 
 ms.service: azure-resource-manager
@@ -13,7 +11,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
 
 ---
@@ -31,6 +29,7 @@ Resource Manager provides the following functions for working with strings:
 * [empty](#empty)
 * [endsWith](#endswith)
 * [first](#first)
+* [format](#format)
 * [guid](#guid)
 * [indexOf](#indexof)
 * [last](#last)
@@ -537,7 +536,7 @@ Determines if an array, object, or string is empty.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Yes |array, object, or string |The value to check if it is empty. |
+| itemToTest |Yes |array, object, or string |The value to check if it's empty. |
 
 ### Return value
 
@@ -710,9 +709,66 @@ The output from the preceding example with the default values is:
 | arrayOutput | String | one |
 | stringOutput | String | O |
 
+## format
+
+`format(formatString, arg1, arg2, ...)`
+
+Creates a formatted string from input values.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| formatString | Yes | string | The composite format string. |
+| arg1 | Yes | string, integer, or boolean | The value to include in the formatted string. |
+| additional arguments | No | string, integer, or boolean | Additional values to include in the formatted string. |
+
+### Remarks
+
+Use this function to format a string in your template. It uses the same formatting options as the [System.String.Format](/dotnet/api/system.string.format) method in .NET.
+
+### Examples
+
+The following example template shows how to use the format function.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "greeting": {
+            "type": "string",
+            "defaultValue": "Hello"
+        },
+        "name": {
+            "type": "string",
+            "defaultValue": "User"
+        },
+        "numberToFormat": {
+            "type": "int",
+            "defaultValue": 8175133
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "formatTest": {
+            "type": "string",
+            "value": "[format('{0}, {1}. Formatted number: {2:N0}', parameters('greeting'), parameters('name'), parameters('numberToFormat'))]"
+        }
+    }
+}
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| formatTest | String | Hello, User. Formatted number: 8,175,133 |
+
 ## guid
 
-`guid (baseString, ...)`
+`guid(baseString, ...)`
 
 Creates a value in the format of a globally unique identifier based on the values provided as parameters.
 
@@ -727,7 +783,7 @@ Creates a value in the format of a globally unique identifier based on the value
 
 This function is helpful when you need to create a value in the format of a globally unique identifier. You provide parameter values that limit the scope of uniqueness for the result. You can specify whether the name is unique down to subscription, resource group, or deployment.
 
-The returned value is not a random string, but rather the result of a hash function on the parameters. The returned value is 36 characters long. It is not globally unique. To create a new GUID that is not based on that hash value of the parameters, use the [newGuid](#newguid) function.
+The returned value isn't a random string, but rather the result of a hash function on the parameters. The returned value is 36 characters long. It isn't globally unique. To create a new GUID that isn't based on that hash value of the parameters, use the [newGuid](#newguid) function.
 
 The following examples show how to use guid to create a unique value for commonly used levels.
 
@@ -796,7 +852,7 @@ Returns the first position of a value within a string. The comparison is case-in
 
 ### Return value
 
-An integer that represents the position of the item to find. The value is zero-based. If the item is not found, -1 is returned.
+An integer that represents the position of the item to find. The value is zero-based. If the item isn't found, -1 is returned.
 
 ### Examples
 
@@ -909,7 +965,7 @@ Returns the last position of a value within a string. The comparison is case-ins
 
 ### Return value
 
-An integer that represents the last position of the item to find. The value is zero-based. If the item is not found, -1 is returned.
+An integer that represents the last position of the item to find. The value is zero-based. If the item isn't found, -1 is returned.
 
 ### Examples
 
@@ -1028,6 +1084,8 @@ The newGuid function differs from the [guid](#guid) function because it doesn't 
 
 If you use the [option to redeploy an earlier successful deployment](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails), and the earlier deployment includes a parameter that uses newGuid, the parameter isn't reevaluated. Instead, the parameter value from the earlier deployment is automatically reused in the rollback deployment.
 
+In a test environment, you may need to repeatedly deploy resources that only live for a short time. Rather than constructing unique names, you can use newGuid with [uniqueString](#uniquestring) to create unique names.
+
 Be careful redeploying a template that relies on the newGuid function for a default value. When you redeploy and don't provide a value for the parameter, the function is reevaluated. If you want to update an existing resource rather than create a new one, pass in the parameter value from the earlier deployment.
 
 ### Return value
@@ -1064,6 +1122,50 @@ The output from the preceding example varies for each deployment but will be sim
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+
+The following example uses the newGuid function to create a unique name for a storage account. This template might work for test environment where the storage account exists for a short time and isn't redeployed.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "guidValue": {
+            "type": "string",
+            "defaultValue": "[newGuid()]"
+        }
+    },
+    "variables": {
+        "storageName": "[concat('storage', uniqueString(parameters('guidValue')))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[variables('storageName')]",
+            "location": "West US",
+            "apiVersion": "2018-07-01",
+            "sku":{
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2",
+            "properties": {}
+        }
+    ],
+    "outputs": {
+        "nameOutput": {
+            "type": "string",
+            "value": "[variables('storageName')]"
+        }
+    }
+}
+```
+
+The output from the preceding example varies for each deployment but will be similar to:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| nameOutput | string | storagenziwvyru7uxie |
+
 
 ## padLeft
 
@@ -1179,7 +1281,7 @@ Returns a string with all the characters after the specified number of character
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Yes |array or string |The array or string to use for skipping. |
-| numberToSkip |Yes |int |The number of elements or characters to skip. If this value is 0 or less, all the elements or characters in the value are returned. If it is larger than the length of the array or string, an empty array or string is returned. |
+| numberToSkip |Yes |int |The number of elements or characters to skip. If this value is 0 or less, all the elements or characters in the value are returned. If it's larger than the length of the array or string, an empty array or string is returned. |
 
 ### Return value
 
@@ -1504,7 +1606,7 @@ Returns a string with the specified number of characters from the start of the s
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Yes |array or string |The array or string to take the elements from. |
-| numberToTake |Yes |int |The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it is larger than the length of the given array or string, all the elements in the array or string are returned. |
+| numberToTake |Yes |int |The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it's larger than the length of the given array or string, all the elements in the array or string are returned. |
 
 ### Return value
 
@@ -1726,7 +1828,7 @@ Creates a deterministic hash string based on the values provided as parameters.
 
 This function is helpful when you need to create a unique name for a resource. You provide parameter values that limit the scope of uniqueness for the result. You can specify whether the name is unique down to subscription, resource group, or deployment. 
 
-The returned value is not a random string, but rather the result of a hash function. The returned value is 13 characters long. It is not globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is meaningful. The following example shows the format of the returned value. The actual value varies by the provided parameters.
+The returned value isn't a random string, but rather the result of a hash function. The returned value is 13 characters long. It isn't globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is meaningful. The following example shows the format of the returned value. The actual value varies by the provided parameters.
 
     tcvhiyu5h2o5o
 
@@ -1750,7 +1852,7 @@ Unique scoped to deployment for a resource group
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-The following example shows how to create a unique name for a storage account based on your resource group. Inside the resource group, the name is not unique if constructed the same way.
+The following example shows how to create a unique name for a storage account based on your resource group. Inside the resource group, the name isn't unique if constructed the same way.
 
 ```json
 "resources": [{ 
@@ -1759,7 +1861,7 @@ The following example shows how to create a unique name for a storage account ba
     ...
 ```
 
-If you need to create a new unique name each time you deploy a template, and don't intent to update the resource, you can use the [utcNow](#utcnow) function with uniqueString. You could use this approach in a test environment. For an example, see [utcNow](#utcNow).
+If you need to create a new unique name each time you deploy a template, and don't intend to update the resource, you can use the [utcNow](#utcnow) function with uniqueString. You could use this approach in a test environment. For an example, see [utcNow](#utcnow).
 
 ### Return value
 
@@ -1965,7 +2067,7 @@ The output from the preceding example with the default values is:
 
 `utcNow(format)`
 
-Returns the current (UTC) datetime value in the specified format. If no format is provided, the ISO 8601 (yyyyMMddTHH:mm:ssZ) format is used. **This function can only be used in the default value for a parameter.**
+Returns the current (UTC) datetime value in the specified format. If no format is provided, the ISO 8601 (yyyyMMddTHHmmssZ) format is used. **This function can only be used in the default value for a parameter.**
 
 ### Parameters
 
@@ -1979,9 +2081,7 @@ You can only use this function within an expression for the default value of a p
 
 If you use the [option to redeploy an earlier successful deployment](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails), and the earlier deployment includes a parameter that uses utcNow, the parameter isn't reevaluated. Instead, the parameter value from the earlier deployment is automatically reused in the rollback deployment.
 
-In a test environment, you may need to repeatedly deploy resources that only live for a short time. Rather than constructing unique names, you can use utcNow with [uniqueString](#uniquestring) to create unique names.
-
-However, be careful redeploying a template that relies on the utcNow function for a default value. When you redeploy and don't provide a value for the parameter, the function is reevaluated. If you want to update an existing resource rather than create a new one, pass in the parameter value from the earlier deployment.
+Be careful redeploying a template that relies on the utcNow function for a default value. When you redeploy and don't provide a value for the parameter, the function is reevaluated. If you want to update an existing resource rather than create a new one, pass in the parameter value from the earlier deployment.
 
 ### Return value
 
@@ -2036,48 +2136,41 @@ The output from the preceding example varies for each deployment but will be sim
 | utcShortOutput | string | 03/05/2019 |
 | utcCustomOutput | string | 3 5 |
 
-The following example uses the utcNow function to create a unique name for a storage account. This template might work for test environment where the storage account exists for a short time and isn't redeployed.
+The next example shows how to use a value from the function when setting a tag value.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "utcValue": {
+        "utcShort": {
             "type": "string",
-            "defaultValue": "[utcNow()]"
+            "defaultValue": "[utcNow('d')]"
+        },
+        "rgName": {
+            "type": "string"
         }
-    },
-    "variables": {
-        "storageName": "[concat('storage', uniqueString(parameters('utcValue')))]"
     },
     "resources": [
         {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('storageName')]",
-            "location": "West US",
-            "apiVersion": "2018-07-01",
-            "sku":{
-                "name": "Standard_LRS"
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "name": "[parameters('rgName')]",
+            "location": "westeurope",
+            "tags":{
+                "createdDate": "[parameters('utcShort')]"
             },
-            "kind": "StorageV2",
-            "properties": {}
+            "properties":{}
         }
     ],
     "outputs": {
-        "nameOutput": {
+        "utcShort": {
             "type": "string",
-            "value": "[variables('storageName')]"
+            "value": "[parameters('utcShort')]"
         }
     }
 }
 ```
-
-The output from the preceding example varies for each deployment but will be similar to:
-
-| Name | Type | Value |
-| ---- | ---- | ----- |
-| nameOutput | string | storagenziwvyru7uxie |
 
 ## Next steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).

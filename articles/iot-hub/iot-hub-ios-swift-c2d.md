@@ -32,7 +32,7 @@ At the end of this article, you run two Swift iOS projects:
 * **sample-service**, which sends a cloud-to-device message to the simulated device app through IoT Hub, and then receives its delivery acknowledgement.
 
 > [!NOTE]
-> IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center](http://www.azure.com/develop/iot).
+> IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center](https://www.azure.com/develop/iot).
 
 To complete this tutorial, you need the following:
 
@@ -123,7 +123,7 @@ Along with installing the pods required for your project, the installation comma
 1. Retrieve the service connection string for your IoT hub. You can copy this string from the [Azure portal](https://portal.azure.com) from the **iothubowner** policy in the **Shared access policies** blade, or retrieve it with the following CLI command:  
 
     ```azurecli-interactive
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
+    az iot hub show-connection-string --name {YourIoTHubName} --output table
     ```
 
 2. Open the sample workspace in XCode.

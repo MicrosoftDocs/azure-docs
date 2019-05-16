@@ -216,7 +216,7 @@ done
 
 ## Test the application gateway
 
-To get the public IP address of the application gateway, you can use [az network public-ip show](/cli/azure/network/public-ip). Copy the public IP address, and then paste it into the address bar of your browser. Such as, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, or *http://40.121.222.19:8080/video/test.htm*.
+To get the public IP address of the application gateway, you can use [az network public-ip show](/cli/azure/network/public-ip). Copy the public IP address, and then paste it into the address bar of your browser. Such as, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, or `http://40.121.222.19:8080/video/test.htm`.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -228,11 +228,11 @@ az network public-ip show \
 
 ![Test base URL in application gateway](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
 
-Change the URL to http://<ip-address>:8080/video/test.html to the end of the base URL and you should see something like the following example:
+Change the URL to `http://<ip-address>:8080/video/test.html` to the end of the base URL and you should see something like the following example:
 
 ![Test images URL in application gateway](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
 
-Change the URL to http://<ip-address>:8080/video/test.html and you should see something like the following example.
+Change the URL to `http://<ip-address>:8080/video/test.html` and you should see something like the following example.
 
 ![Test video URL in application gateway](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 

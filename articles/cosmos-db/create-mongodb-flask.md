@@ -32,10 +32,10 @@ This quick start guide uses the following [Flask example](https://github.com/Azu
 - If you don’t already have Visual Studio Code installed, you can quickly install [VS Code](https://code.visualstudio.com/Download) for your platform (Windows, Mac, Linux).
 
 - Be sure to add Python Language support by installing one of the popular Python extensions.
-    1. Select an extension.
-    2. Install the extension by typing `ext install` into the Command Palette `Ctrl+Shift+P`.
+  1. Select an extension.
+  2. Install the extension by typing `ext install` into the Command Palette `Ctrl+Shift+P`.
 
-    The examples in this document use Don Jayamanne's popular and full featured [Python Extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python).
+     The examples in this document use Don Jayamanne's popular and full featured [Python Extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python).
 
 ## Clone the sample application
 
@@ -99,7 +99,7 @@ The following snippets are all taken from the app.py file and uses the connectio
 
 2. Open a terminal window and `cd` to the directory that the app is saved in.
 
-3. Then set the environment variable for the Flask app with `set FLASK_APP=app.py` or `export FLASK_APP=app.py` if you are using a Mac.
+3. Then set the environment variable for the Flask app with `set FLASK_APP=app.py`, `$env:FLASK_APP = app.py` for PowerShell editors, or `export FLASK_APP=app.py` if you are using a Mac. 
 
 4. Run the app with `flask run` and browse to [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 

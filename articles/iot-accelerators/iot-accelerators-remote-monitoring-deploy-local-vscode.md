@@ -27,9 +27,9 @@ If you don’t have an account, you can create a free trial account in just a co
 To complete the local deployment, you need the following tools installed on your local development machine:
 
 * [Git](https://git-scm.com/)
-* [.Net Core](https://dotnet.microsoft.com/download)
+* [.NET Core](https://dotnet.microsoft.com/download)
 * [Docker](https://www.docker.com)
-* [Nginx](http://nginx.org/en/download.html)
+* [Nginx](https://nginx.org/en/download.html)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [VS Code's C# extension](https://code.visualstudio.com/docs/languages/csharp)
 * [Node.js v8](https://nodejs.org/) - this software is a prerequisite for the PCS CLI that the scripts use to create Azure resources. Don't use Node.js v10
@@ -74,7 +74,7 @@ npm install
 npm start
 ```
 
-When the start is complete, your browser displays the page **http://localhost:3000/dashboard**. The errors on this page are expected. To view the application without errors, complete the following step.
+When the start is complete, your browser displays the page **http:\//localhost:3000/dashboard**. The errors on this page are expected. To view the application without errors, complete the following step.
 
 ### Configure and run NGINX
 
@@ -83,11 +83,11 @@ Set up a reverse proxy server to link the web application and microservices runn
 * Copy the **nginx.conf** file from the **webui\scripts\localhost** folder to the **nginx\conf** install directory.
 * Run **nginx**.
 
-For more information about running **nginx**, see [nginx for Windows](http://nginx.org/en/docs/windows.html).
+For more information about running **nginx**, see [nginx for Windows](https://nginx.org/en/docs/windows.html).
 
 ### Connect to the dashboard
 
-To access the Remote Monitoring solution dashboard, navigate to [http://localhost:9000](http://localhost:9000) in your browser.
+To access the Remote Monitoring solution dashboard, navigate to http:\//localhost:9000 in your browser.
 
 ## Clean up
 

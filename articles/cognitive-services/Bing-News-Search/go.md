@@ -3,14 +3,14 @@ title: "Quickstart: Get news using Bing News Search REST API and Go"
 titleSuffix: Azure Cognitive Services
 description: Learn how to get news results from the Bing News Search API.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 2/21/2019
-ms.author: rosh
+ms.author: aahi
 ---
 
 # Quickstart: Get news results using the Bing News Search REST API and Go
@@ -147,7 +147,7 @@ resp, err := client.Do(req)
 defer resp.Body.Close()
 
 // Read the results
-resbody, err := ioutil.ReadAll(resp.Body)
+body, err := ioutil.ReadAll(resp.Body)
 if err != nil {
 	panic(err)
 }
@@ -183,7 +183,7 @@ The results contain name and URL of each result.
 (string) (len=91) "Cognitive Services Market: Global Industry Analysis and Opportunity Assessment, 2019 - 2025"
 (string) (len=142) "https://www.marketwatch.com/press-release/cognitive-services-market-global-industry-analysis-and-opportunity-assessment-2019---2025-2019-02-21"
 (string) (len=104) "Microsoft calls for greater collaboration to harness the power of AI to empower people with disabilities"
-(string) (len=115) "http://indiaeducationdiary.in/microsoft-calls-greater-collaboration-harness-power-ai-empower-people-disabilities-2/"
+(string) (len=115) "https://indiaeducationdiary.in/microsoft-calls-greater-collaboration-harness-power-ai-empower-people-disabilities-2/"
 (string) (len=70) "Microsoft 'Intelligent Cloud Hub' to build AI-ready workforce in India"
 (string) (len=139) "https://cio.economictimes.indiatimes.com/news/cloud-computing/microsoft-intelligent-cloud-hub-to-build-ai-ready-workforce-in-india/67187807"
 (string) (len=81) "Skills shortage is stopping many Asian companies from embracing A.I., study shows"

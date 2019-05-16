@@ -45,7 +45,7 @@ The **Invoice Summary** is on the top of the first page and shows information ab
 | P.O. number |An optional purchase order number, assigned by you for tracking |
 | Invoice number |A unique, Microsoft-generated invoice number used for tracking purposes |
 | Invoice date |Date that the invoice is generated, typically five to 12 days after end of the Billing cycle. You can check your invoice date in billing profile properties.|
-| Payment terms |How you pay for your Microsoft bill. *Net 30 days* means you pay by check or wire transfer within 30 days of the invoice date. |
+| Payment terms |How you pay for your Microsoft bill. *Net 30 days* means you pay within 30 days of the invoice date. |
 
 ### Billing summary
 
@@ -59,7 +59,7 @@ The **Billing Summary**  shows the charges against the billing profile since the
 | Credits |Credits you received from returns |
 | Azure credits applied | Azure credits that are automatically applied to Azure charges each billing period |
 | Subtotal |The pre-tax amount due |
-| Tax |The type and amount of tax that you pay, depending on the country of your billing profile. If you don't have to pay tax, then you won't see tax on your invoice. |
+| Tax |The type and amount of tax that you pay, depending on the country/region of your billing profile. If you don't have to pay tax, then you won't see tax on your invoice. |
 | Estimated total savings |The estimated total amount you saved from effective discounts. If applicable, effective discount rates are listed beneath the purchase line items in Details by Invoice Section. |
 
 ### Invoice sections
@@ -84,7 +84,7 @@ The total amount due for each service family is calculated by subtracting *Azure
 | Qty | Quantity purchased or consumed during the billing period |
 | Charges/Credits | Net amount of charges after credits/refunds are applied |
 | Azure Credit | The amount of Azure credits applied to the Charges/Credits|
-| Tax rate | Tax rate(s) depending on country |
+| Tax rate | Tax rate(s) depending on country/region |
 | Tax amount | Amount of tax applied to purchase based on tax rate |
 | Total | The total amount due for the purchase |
 
@@ -101,7 +101,7 @@ If you have third-party services in your bill, the name and address of each publ
 
 ## Need help? Contact us
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
 

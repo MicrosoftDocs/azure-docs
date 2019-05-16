@@ -306,7 +306,7 @@ Azure Resource Manager requires all resource groups to specify a location, which
 
 ### How do I determine the current health of each endpoint?
 
-The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal. This information also is available via the Traffic Monitor [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager), and [cross-platform Azure CLI](../cli-install-nodejs.md).
+The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal. This information also is available via the Traffic Monitor [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.trafficmanager), and [cross-platform Azure CLI](../cli-install-nodejs.md).
 
 You can also use Azure Monitor to track the health of your endpoints and see a visual representation of them. For more about using Azure Monitor, see the [Azure Monitoring documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
@@ -317,7 +317,7 @@ Yes. Traffic Manager supports probing over HTTPS. Configure **HTTPS** as the pro
 Traffic manager cannot provide any certificate validation, including:
 
 * Server-side certificates are not validated
-* SNI server-side certificates are not supported
+* SNI server-side certificates are not validated
 * Client certificates are not supported
 
 ### Do I use an IP address or a DNS name when adding an endpoint?
@@ -337,6 +337,7 @@ No, Traffic Manager does not allow you to mix endpoint addressing types within a
 When a query is received against a profile, Traffic Manager first finds the endpoint that needs to be returned as per the routing method specified and the health status of the endpoints. It then looks at the record type requested in the incoming query and the record type associated with the endpoint before returning a response based on the table below.
 
 For profiles with any routing method other than MultiValue:
+
 |Incoming query request| 	Endpoint type| 	Response Provided|
 |--|--|--|
 |ANY |	A / AAAA / CNAME |	Target Endpoint| 
@@ -347,6 +348,7 @@ For profiles with any routing method other than MultiValue:
 |CNAME |	CNAME |	Target Endpoint|
 |CNAME 	|A / AAAA |	NODATA |
 |
+
 For profiles with routing method set to MultiValue:
 
 |Incoming query request| 	Endpoint type |	Response Provided|

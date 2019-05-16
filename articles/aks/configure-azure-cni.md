@@ -54,20 +54,30 @@ The IP address plan for an AKS cluster consists of a virtual network, at least o
 
 ## Maximum pods per node
 
-The maximum number of pods per node in an AKS cluster is 110. The *default* maximum number of pods per node varies between *kubenet* and *Azure CNI* networking, and the method of cluster deployment.
+The maximum number of pods per node in an AKS cluster is 250. The *default* maximum number of pods per node varies between *kubenet* and *Azure CNI* networking, and the method of cluster deployment.
 
 | Deployment method | Kubenet default | Azure CNI default | Configurable at deployment |
 | -- | :--: | :--: | -- |
-| Azure CLI | 110 | 30 | Yes (up to 110) |
-| Resource Manager template | 110 | 30 | Yes (up to 110) |
+| Azure CLI | 110 | 30 | Yes (up to 250) |
+| Resource Manager template | 110 | 30 | Yes (up to 250) |
 | Portal | 110 | 30 | No |
 
 ### Configure maximum - new clusters
 
-You're able to configure the maximum number of pods per node *only at cluster deployment time*. If you deploy with the Azure CLI or with a Resource Manager template, you can set the maximum pods per node value as high as 110.
+You're able to configure the maximum number of pods per node *only at cluster deployment time*. If you deploy with the Azure CLI or with a Resource Manager template, you can set the maximum pods per node value as needed within the following `maxPods` guidelines:
 
-* **Azure CLI**: Specify the `--max-pods` argument when you deploy a cluster with the [az aks create][az-aks-create] command. The maximum value is 110.
-* **Resource Manager template**: Specify the `maxPods` property in the [ManagedClusterAgentPoolProfile] object when you deploy a cluster with a Resource Manager template. The maximum value is 110.
+| Networking | Minimum | Maximum |
+| -- | :--: | :--: |
+| Azure CNI | 30 | 250 |
+| Kubenet | 30 | 110 |
+
+> [!NOTE]
+> The minimum value in the table above is strictly enforced by the AKS service.
+  You can not set a maxPods value lower than the minimum shown as doing so
+  can prevent the cluster from starting.
+
+* **Azure CLI**: Specify the `--max-pods` argument when you deploy a cluster with the [az aks create][az-aks-create] command. The maximum value is 250.
+* **Resource Manager template**: Specify the `maxPods` property in the [ManagedClusterAgentPoolProfile] object when you deploy a cluster with a Resource Manager template. The maximum value is 250.
 * **Azure portal**: You can't change the maximum number of pods per node when you deploy a cluster with the Azure portal. Azure CNI networking clusters are limited to 30 pods per node when you deploy using the Azure portal.
 
 ### Configure maximum - existing clusters
@@ -139,7 +149,7 @@ The following questions and answers apply to the **Azure CNI** networking config
 
 * *Can I configure per-pod network policies?*
 
-  No. Per-pod network policies are currently unsupported.
+  Yes, Kubernetes network policy is available in AKS. To get started, see [Secure traffic between pods by using network policies in AKS][network-policy].
 
 * *Is the maximum number of pods deployable to a node configurable?*
 
@@ -197,3 +207,4 @@ Kubernetes clusters created with AKS Engine support both the [kubenet][kubenet] 
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
+[network-policy]: use-network-policies.md

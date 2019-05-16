@@ -40,8 +40,8 @@ The default analyzer is Standard Lucene, which works well for English, but perha
 
 + Microsoft's English analyzer performs lemmatization instead of stemming. This means it can handle inflected and irregular word forms much better what results in more relevant search results 
 
- > [!Tip]
- > The [Search Analyzer Demo](https://alice.unearth.ai/) provides side-by-side comparison of results produced by the standard Lucene analyzer, Lucene's English language analyzer, and Microsoft's English natural language processor. For each search input you provide, results from each analyzer are displayed in adjacent panes.
+  > [!Tip]
+  > The [Search Analyzer Demo](https://alice.unearth.ai/) provides side-by-side comparison of results produced by the standard Lucene analyzer, Lucene's English language analyzer, and Microsoft's English natural language processor. For each search input you provide, results from each analyzer are displayed in adjacent panes.
 
 ## Configuring analyzers
 
@@ -86,7 +86,7 @@ For more information about index properties, see [Create Index &#40;Azure Search
 |Irish||ga.lucene|  
 |Italian|it.microsoft|it.lucene|  
 |Japanese|ja.microsoft|ja.lucene|  
-|Kannada|ka.microsoft||  
+|Kannada|kn.microsoft||  
 |Korean|ko.microsoft|ko.lucene|  
 |Latvian|lv.microsoft|lv.lucene|  
 |Lithuanian|lt.microsoft||  

@@ -17,7 +17,7 @@ All Azure metrics have a one-minute frequency, and each metric provides 30 days 
 These metrics are available for Azure Database for MySQL:
 
 |Metric|Metric Display Name|Unit|Description|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|CPU percent|Percent|The percentage of CPU in use.|
 |memory_percent|Memory percent|Percent|The percentage of memory in use.|
 |io_consumption_percent|IO percent|Percent|The percentage of IO in use.|

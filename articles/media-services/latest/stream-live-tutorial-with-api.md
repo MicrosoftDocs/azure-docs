@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/01/2019
+ms.date: 04/21/2019
 ms.author: juliako
 
 ---
@@ -30,7 +30,7 @@ The tutorial shows you how to:
 > [!div class="checklist"]
 > * Download the sample app described in the topic
 > * Examine the code that performs live streaming
-> * Watch the event with [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) at http://ampdemo.azureedge.net
+> * Watch the event with [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) at https://ampdemo.azureedge.net
 > * Clean up resources
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -163,7 +163,7 @@ The following code shows how to clean up your account of all Live Events:
 
 ## Watch the event
 
-To watch the event, copy the streaming URL that you got when you ran code described in Create a Streaming Locator and use a player of your choice. You can use [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) to test your stream at http://ampdemo.azureedge.net. 
+To watch the event, copy the streaming URL that you got when you ran code described in Create a Streaming Locator and use a player of your choice. You can use [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) to test your stream at https://ampdemo.azureedge.net. 
 
 Live Event automatically converts events to on-demand content when stopped. Even after you stop and delete the event, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset. An asset cannot be deleted if it is used by an event; the event must be deleted first. 
 
@@ -179,6 +179,10 @@ az group delete --name amsResourceGroup
 
 > [!IMPORTANT]
 > Leaving the Live Event running incurs billing costs. Be aware, if the project/program crashes or is closed out for any reason, it could leave the Live Event running in a billing state.
+
+## Ask questions, give feedback, get updates
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 

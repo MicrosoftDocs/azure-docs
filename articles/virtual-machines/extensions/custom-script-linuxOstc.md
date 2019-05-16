@@ -292,8 +292,7 @@ Some points to note:
 
 1. Enable is when the command starts running.
 1. Download relates to the downloading of the CustomScript extension package from Azure, not the script files specified in fileUris.
-1. You can also see which log file it is writing out to,`/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log
-`
+1. You can also see which log file it is writing out to `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 Next step is to go an check the log file, this is the format:
 

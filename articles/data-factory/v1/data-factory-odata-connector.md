@@ -18,7 +18,7 @@ ms.author: jingwang
 
 robots: noindex
 ---
-# Move data From a OData source using Azure Data Factory
+# Move data From an OData source using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-odata-connector.md)
 > * [Version 2 (current version)](../connector-odata.md)
@@ -78,7 +78,7 @@ The following table provides description for JSON elements specific to OData lin
         "type": "OData",
         "typeProperties":
         {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Basic",
             "username": "username",
             "password": "password"
@@ -96,7 +96,7 @@ The following table provides description for JSON elements specific to OData lin
         "type": "OData",
         "typeProperties":
         {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Anonymous"
         }
     }
@@ -210,7 +210,7 @@ This example uses the Anonymous authentication. See [OData linked service](#link
         "type": "OData",
         "typeProperties":
         {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Anonymous"
         }
     }

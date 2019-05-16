@@ -3,10 +3,12 @@ title: Using shared access signatures (SAS) in Azure Storage | Microsoft Docs
 description: Learn to use shared access signatures (SAS) to delegate access to Azure Storage resources, including blobs, queues, tables, and files.
 services: storage
 author: tamram
+
 ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
 ---
 # Using shared access signatures (SAS)
@@ -34,11 +36,11 @@ A common scenario where a SAS is useful is a service where users read and write 
 
 1. Clients upload and download data via a front-end proxy service, which performs authentication. This front-end proxy service has the advantage of allowing validation of business rules, but for large amounts of data or high-volume transactions, creating a service that can scale to match demand may be expensive or difficult.
 
-  ![Scenario diagram: Front-end proxy service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
+   ![Scenario diagram: Front-end proxy service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
 1. A lightweight service authenticates the client as needed and then generates a SAS. Once the client receives the SAS, they can access storage account resources directly with the permissions defined by the SAS and for the interval allowed by the SAS. The SAS mitigates the need for routing all data through the front-end proxy service.
 
-  ![Scenario diagram: SAS provider service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
+   ![Scenario diagram: SAS provider service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
 
 Many real-world services may use a hybrid of these two approaches. For example, some data might be processed and validated via the front-end proxy, while other data is saved and/or read directly using SAS.
 
@@ -224,8 +226,8 @@ Below are some examples of both types of shared access signatures, account SAS a
 
 To run these C# examples, you need to reference the following NuGet packages in your project:
 
-* [Azure Storage Client Library for .NET](http://www.nuget.org/packages/WindowsAzure.Storage), version 6.x or later (to use account SAS).
-* [Azure Configuration Manager](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
+* [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage), version 6.x or later (to use account SAS).
+* [Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager)
 
 For additional examples that show how to create and test a SAS, see [Azure Code Samples for Storage](https://azure.microsoft.com/documentation/samples/?service=storage).
 
@@ -415,7 +417,6 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 Shared access signatures are useful for providing limited permissions to your storage account to clients that should not have the account key. As such, they are a vital part of the security model for any application using Azure Storage. If you follow the best practices listed here, you can use SAS to provide greater flexibility of access to resources in your storage account, without compromising the security of your application.
 
 ## Next Steps
-* [Shared Access Signatures, Part 2: Create and use a SAS with Blob storage](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md)
 * [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Introducing Table and Queue SAS](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

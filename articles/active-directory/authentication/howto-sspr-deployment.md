@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 05/06/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -29,6 +29,10 @@ To ensure a smooth rollout of the Azure Active directory (Azure AD) self-service
    * Have you provided them the URLs for registration and reset?
       * Registration:  https://aka.ms/ssprsetup
       * Reset: https://aka.ms/sspr
+
+   > [!WARNING]
+   > Use of the checkbox "User must change password at next logon" in on-premises Active Directory administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is not supported. When changing a password on-premises do not check this option. 
+
 1. Educate your users.
    * This following sections of this document go over sample communication, password portals, enforcing registration, and populating authentication data.
    * The Azure Active Directory product group has created a [step-by-step deployment plan](https://aka.ms/SSPRDeploymentPlan) that organizations can use in parallel with the documentation found on this site to make a business case and plan for deployment of self-service password reset.
@@ -46,7 +50,7 @@ Many customers find that the easiest way to get users to use SSPR is with an ema
 * **SSPR Table tents**: Table cards you can place in the lunch room, conference rooms, or on desks to encourage your users to complete registration.
 * **SSPR Stickers**: Sticker templates you can customize and print to place laptops, monitors, keyboards, or cell phones to remember how to access SSPR.
 
-![SSPR Email Samples][Email]
+![SSPR email samples for rollout to users][Email]
 
 ## Create your own password portal
 

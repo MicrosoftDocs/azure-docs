@@ -2,12 +2,14 @@
 title: Transfer Data with the Microsoft Azure Storage Data Movement Library | Microsoft Docs
 description: Use the Data Movement Library to move or copy data to or from blob and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
 services: storage
-author: seguler
+author: tamram
+
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
-ms.author: seguler
+ms.author: tamram
+ms.reviewer: seguler
 ms.subservice: common
 ---
 # Transfer Data with the Microsoft Azure Storage Data Movement Library
@@ -43,7 +45,7 @@ This document demonstrates how to create a .NET Core console application that ru
 3. Open this directory in Visual Studio Code. This step can be quickly done via the command line by typing `code .` in Windows.
 4. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the Visual Studio Code Marketplace. Restart Visual Studio Code.
 5. At this point, you should see two prompts. One is for adding "required assets to build and debug." Click "yes." Another prompt is for restoring unresolved dependencies. Click "restore."
-6. Modify `launch.json` under `.vscode` to use external terminal as a console. This setting should read as ` "console": "externalTerminal"`
+6. Modify `launch.json` under `.vscode` to use external terminal as a console. This setting should read as `"console": "externalTerminal"`
 7. Visual Studio Code allows you to debug .NET Core applications. Hit `F5` to run your application and verify that your setup is working. You should see "Hello World!" printed to the console.
 
 ## Add Data Movement Library to your project
@@ -74,9 +76,9 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Diagnostics;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
-using Microsoft.WindowsAzure.Storage.DataMovement;
+using Microsoft.Azure.Storage;
+using Microsoft.Azure.Storage.Blob;
+using Microsoft.Azure.Storage.DataMovement;
 
 namespace DMLibSample
 {
@@ -187,7 +189,7 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 
 This code prompts us for the path to a local file, the name of a new or existing container, and the name of a new blob. The `TransferManager.UploadAsync` method performs the upload using this information.
 
-Hit `F5` to run your application. You can verify that the upload occurred by viewing your Storage account with the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+Hit `F5` to run your application. You can verify that the upload occurred by viewing your Storage account with the [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 
 ## Set number of parallel operations
 A great feature offered by the Data Movement Library is the ability to set the number of parallel operations to increase the data transfer throughput. By default, the Data Movement Library sets the number of parallel operations to 8 * the number of cores on your machine.

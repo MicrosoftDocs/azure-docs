@@ -32,6 +32,7 @@ Even though Data Factory is only available in few regions, the data movement ser
 Azure Data Factory does not store any data except for linked service credentials for cloud data stores, which are encrypted by using certificates. With Data Factory, you create data-driven workflows to orchestrate movement of data between [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats), and processing of data by using [compute services](compute-linked-services.md) in other regions or in an on-premises environment. You can also monitor and manage workflows by using SDKs and Azure Monitor.
 
 Data Factory has been certified for:
+
 | **[CSA STAR Certification](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)** |
 | :----------------------------------------------------------- |
 | **[ISO 20000-1:2011](https://www.microsoft.com/trustcenter/Compliance/ISO-20000-1)** |
@@ -43,7 +44,7 @@ Data Factory has been certified for:
 | **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
 | **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-If you're interested in Azure compliance and how Azure secures its own infrastructure, visit the [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). For the latest list of all Azure Compliance offerings check -  http://aka.ms/AzureCompliance.
+If you're interested in Azure compliance and how Azure secures its own infrastructure, visit the [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). For the latest list of all Azure Compliance offerings check -  https://aka.ms/AzureCompliance.
 
 In this article, we review security considerations in the following two data movement scenarios: 
 
@@ -89,10 +90,10 @@ Azure Data Lake Store also provides encryption for data stored in the account. W
 Azure Blob storage and Azure Table storage support Storage Service Encryption (SSE), which automatically encrypts your data before persisting to storage and decrypts before retrieval. For more information, see [Azure Storage Service Encryption for Data at Rest](../storage/common/storage-service-encryption.md).
 
 #### Amazon S3
-Amazon S3 supports both client and server encryption of data at rest. For more information, see [Protecting Data Using Encryption](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html).
+Amazon S3 supports both client and server encryption of data at rest. For more information, see [Protecting Data Using Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html).
 
 #### Amazon Redshift
-Amazon Redshift supports cluster encryption for data at rest. For more information, see [Amazon Redshift Database Encryption](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). 
+Amazon Redshift supports cluster encryption for data at rest. For more information, see [Amazon Redshift Database Encryption](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). 
 
 #### Salesforce
 Salesforce supports Shield Platform Encryption that allows encryption of all files, attachments, and custom fields. For more information, see [Understanding the Web Server OAuth Authentication Flow](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
@@ -134,9 +135,9 @@ The following table summarizes the network and self-hosted integration runtime c
 
 | Source      | Destination                              | Network configuration                    | Integration runtime setup                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| On-premises | Virtual machines and cloud services deployed in virtual networks | IPSec VPN (point-to-site or site-to-site) | The self-hosted integration runtime can be installed either on-premises or on an Azure virtual machine in a virtual network. |
-| On-premises | Virtual machines and cloud services deployed in virtual networks | ExpressRoute (private peering)           | The self-hosted integration runtime can be installed either on-premises or on an Azure virtual machine in a virtual network. |
-| On-premises | Azure-based services that have a public endpoint | ExpressRoute (public peering)            | The self-hosted integration runtime must be installed on-premises. |
+| On-premises | Virtual machines and cloud services deployed in virtual networks | IPSec VPN (point-to-site or site-to-site) | The self-hosted integration runtime should be installed on an Azure virtual machine in the virtual network.  |
+| On-premises | Virtual machines and cloud services deployed in virtual networks | ExpressRoute (private peering)           | The self-hosted integration runtime should be installed on an Azure virtual machine in the virtual network.  |
+| On-premises | Azure-based services that have a public endpoint | ExpressRoute (Microsoft peering)            | The self-hosted integration runtime can be installed on-premises or on an Azure virtual machine. |
 
 The following images show the use of self-hosted integration runtime for moving data between an on-premises database and Azure services by using ExpressRoute and IPSec VPN (with Azure Virtual Network):
 
@@ -171,7 +172,7 @@ The following table provides inbound port requirements for Windows Firewall:
 
 | Inbound ports | Description                              |
 | ------------- | ---------------------------------------- |
-| 8050 (TCP)    | Required by the PowerShell encryption cmdlet as described in [Encrypt credentials for on-premises data stores in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), and by the credential manager application to securely set credentials for on-premises data stores on the self-hosted integration runtime. |
+| 8060 (TCP)    | Required by the PowerShell encryption cmdlet as described in [Encrypt credentials for on-premises data stores in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), and by the credential manager application to securely set credentials for on-premises data stores on the self-hosted integration runtime. |
 
 ![Gateway port requirements](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
@@ -184,13 +185,13 @@ The following cloud data stores require that you whitelist the IP address of the
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
-- [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
+- [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## Frequently asked questions
 
 **Can the self-hosted integration runtime be shared across different data factories?**
 
-We do not support this feature yet. We are actively working on it.
+Yes. More details [here](https://azure.microsoft.com/blog/sharing-a-self-hosted-integration-runtime-infrastructure-with-multiple-data-factories/).
 
 **What are the port requirements for the self-hosted integration runtime to work?**
 

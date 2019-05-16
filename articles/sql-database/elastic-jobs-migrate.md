@@ -11,7 +11,7 @@ author: johnpaulkee
 ms.author: joke
 ms.reviewer: sstein
 manager: craigg
-ms.date: 12/18/2018
+ms.date: 03/13/2019
 ---
 # Migrate to the new Elastic Database jobs
 
@@ -22,33 +22,31 @@ If you have an existing customer hosted version of [Elastic Database Jobs](sql-d
 
 ## Prerequisites
 
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
-
 The upgraded version of Elastic Database jobs has a new set of PowerShell cmdlets for use during migration. These new cmdlets transfer all of your existing job credentials, targets (including databases, servers, custom collections), job triggers, job schedules, job contents, and jobs over to a new Elastic Job agent.
 
 ### Install the latest Elastic Jobs cmdlets
 
 If you don't have already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-Install the **AzureRM.Sql** 4.8.1-preview module to get the latest Elastic Job cmdlets. Run the following commands in PowerShell with  administrative access.
+Install the **Az.Sql** 1.1.1-preview module to get the latest Elastic Job cmdlets. Run the following commands in PowerShell with  administrative access.
 
 ```powershell
-# Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
+# Installs the latest PackageManagement powershell package which PowerShellGet v1.6.5 is dependent on
 Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
 
-# Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
+# Installs the latest PowerShellGet module which adds the -AllowPrerelease flag to Install-Module
 Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
 
 # Restart your powershell session with administrative access
 
-# Places AzureRM.Sql preview cmdlets side by side with existing AzureRM.Sql version
-Install-Module -Name AzureRM.Sql -AllowPrerelease -RequiredVersion 4.8.1-preview -Force
+# Places Az.Sql preview cmdlets side by side with existing Az.Sql version
+Install-Module -Name Az.Sql -RequiredVersion 1.1.1-preview -AllowPrerelease
 
-# Import the AzureRM.Sql 4.8.1 module
-Import-Module AzureRM.Sql -RequiredVersion 4.8.1
+# Import the Az.Sql module
+Import-Module Az.Sql -RequiredVersion 1.1.1
 
-# Confirm if module successfully imported - if the imported version is 4.8.1, then continue
-Get-Module AzureRM.Sql
+# Confirm if module successfully imported - if the imported version is 1.1.1, then continue
+Get-Module Az.Sql
 ```
 
 ### Create a new Elastic Job agent

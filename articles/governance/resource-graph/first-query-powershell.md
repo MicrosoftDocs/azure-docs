@@ -1,7 +1,6 @@
 ---
 title: Run your first query using Azure PowerShell
 description: This article walks you through the steps to enable the Resource Graph module for Azure PowerShell and run your first query.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
@@ -82,10 +81,10 @@ Resource Graph query. The query will return the first five Azure resources with 
    Search-AzGraph -Query 'project name, type | limit 5 | order by name asc'
    ```
 
-  > [!NOTE]
-  > Just as with the first query, running this query multiple times is likely to yield a different
-  > set of resources per request. The order of the query commands is important. In this example, the
-  > `order by` comes after the `limit`. This will first limit the query results and then order them.
+   > [!NOTE]
+   > Just as with the first query, running this query multiple times is likely to yield a different
+   > set of resources per request. The order of the query commands is important. In this example, the
+   > `order by` comes after the `limit`. This will first limit the query results and then order them.
 
 1. Update the query to first `order by` the **Name** property and then `limit` to the top five results:
 
@@ -103,7 +102,7 @@ still limited to the top five results.
 If you wish to remove the Resource Graph module from your Azure PowerShell environment, you can do
 so by using the following command:
 
-```powershell
+```azurepowershell-interactive
 # Remove the Resource Graph module from the Azure PowerShell environment
 Remove-Module -Name 'Az.ResourceGraph'
 ```

@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 01/08/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
 
 ---
@@ -23,7 +23,7 @@ The pipelines you create are visible to the members of your Azure Machine Learni
 
 Pipelines use remote compute targets for computation and the storage of the intermediate and final data associated with that pipeline. Pipelines can read and write data to and from supported [Azure Storage](https://docs.microsoft.com/azure/storage/) locations.
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree).
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree).
 
 ## Prerequisites
 
@@ -31,14 +31,16 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 * Create an [Azure Machine Learning workspace](how-to-configure-environment.md#workspace) to hold all your pipeline resources. 
 
- ```python
- ws = Workspace.create(
+  ```python
+  from azureml.core import Workspace
+  
+  ws = Workspace.create(
      name = '<workspace-name>',
      subscription_id = '<subscription-id>',
      resource_group = '<resource-group>',
      location = '<workspace_region>',
      exist_ok = True)
- ```
+  ```
 
 ## Set up machine learning resources
 
@@ -115,6 +117,8 @@ Below are examples of creating and attaching compute targets for:
 You can create an Azure Machine Learning compute for running your steps.
 
 ```python
+from azureml.core.compute import ComputeTarget, AmlCompute
+
 compute_name = "aml-compute"
  if compute_name in ws.compute_targets:
     compute_target = ws.compute_targets[compute_name]
@@ -246,8 +250,8 @@ trainStep = PythonScriptStep(
 
 After you define your steps, you build the pipeline by using some or all of those steps.
 
->[!NOTE]
->No file or data is uploaded to the Azure Machine Learning service when you define the steps or build the pipeline.
+> [!NOTE]
+> No file or data is uploaded to the Azure Machine Learning service when you define the steps or build the pipeline.
 
 ```python
 # list of steps to run
@@ -282,8 +286,12 @@ For more information, see the [azure-pipeline-steps package](https://docs.micros
 
 ## Submit the pipeline
 
-When you submit the pipeline, Azure Machine Learning service checks the dependencies for each step and uploads a snapshot of the source directory you specified. If no source directory is specified, the current local directory is uploaded.
+When you submit the pipeline, Azure Machine Learning service checks the dependencies for each step and uploads a snapshot of the source directory you specified. If no source directory is specified, the current local directory is uploaded. The snapshot is also stored as part of the experiment in your workspace.
 
+> [!IMPORTANT]
+> To prevent files from being included in the snapshot, create a [.gitignore](https://git-scm.com/docs/gitignore) or `.amlignore` file in the directory and add the files to it. The `.amlignore` file uses the same syntax and patterns as the [.gitignore](https://git-scm.com/docs/gitignore) file. If both files exist, the `.amlignore` file takes precedence.
+>
+> For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshot).
 
 ```python
 # Submit the pipeline to be run
@@ -310,23 +318,23 @@ You can publish a pipeline to run it with different inputs later. For the REST e
 
 1. To create a pipeline parameter, use a [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) object with a default value.
 
- ```python
- pipeline_param = PipelineParameter(
+   ```python
+   pipeline_param = PipelineParameter(
      name="pipeline_arg", 
      default_value=10)
- ```
+   ```
 
 2. Add this `PipelineParameter` object as a parameter to any of the steps in the pipeline as follows:
 
- ```python
- compareStep = PythonScriptStep(
+   ```python
+   compareStep = PythonScriptStep(
      script_name="compare.py",
      arguments=["--comp_data1", comp_data1, "--comp_data2", comp_data2, "--output_data", out_data3, "--param1", pipeline_param],
      inputs=[ comp_data1, comp_data2],
      outputs=[out_data3],    
      target=compute_target, 
      source_directory=project_folder)
- ```
+   ```
 
 3. Publish this pipeline that will accept a parameter when invoked.
 
@@ -348,15 +356,35 @@ response = requests.post(published_pipeline1.endpoint,
     json={"ExperimentName": "My_Pipeline",
         "ParameterAssignments": {"pipeline_arg": 20}})
 ```
+
 ## View results
 
 See the list of all your pipelines and their run details:
 1. Sign in to the [Azure portal](https://portal.azure.com/).  
 
-1. [View your workspace](how-to-manage-workspace.md#view-a-workspace) to find the list of pipelines.
+1. [View your workspace](how-to-manage-workspace.md#view) to find the list of pipelines.
  ![list of machine learning pipelines](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Select a specific pipeline to see the run results.
+
+## Caching & reuse  
+
+In order to optimize and customize the behavior of your pipelines you can do a few things around caching and reuse. For example, you can choose to:
++ **Turn off the default reuse of the step run output** by setting `allow_reuse=False` during [step definition](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
++ **Extend hashing beyond the script**, to also include an absolute path or relative paths to the source_directory to other files and directories using the `hash_paths=['<file or directory']` 
++ **Force output regeneration for all steps in a run** with `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
+
+By default, step re-use is enabled and only the main script file is hashed. So, if the script for a given step remains the same (`script_name`, inputs, and the parameters), the output of a previous step run is reused, the job is not submitted to the compute, and the results from the previous run are immediately available to the next step instead.  
+
+```python
+step = PythonScriptStep(name="Hello World", 
+                        script_name="hello_world.py",  
+                        compute_target=aml_compute,  
+                        source_directory= source_directory, 
+                        allow_reuse=False, 
+                        hash_paths=['hello_world.ipynb']) 
+```
+ 
 
 ## Next steps
 - Use [these Jupyter notebooks on GitHub](https://aka.ms/aml-pipeline-readme) to explore machine learning pipelines further.

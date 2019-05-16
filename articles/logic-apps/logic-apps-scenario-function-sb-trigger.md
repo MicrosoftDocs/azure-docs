@@ -5,6 +5,7 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
+ms.author: estfan
 ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
 ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
@@ -135,7 +136,7 @@ Service Bus SDK `OnMessageReceive()` listener.
    
    private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/.........";
    
-   // Re-use instance of http clients if possible - https://docs.microsoft.com/en-us/azure/azure-functions/manage-connections
+   // Re-use instance of http clients if possible - https://docs.microsoft.com/azure/azure-functions/manage-connections
    private static HttpClient httpClient = new HttpClient();
    
    public static void Run(string myQueueItem, TraceWriter log)

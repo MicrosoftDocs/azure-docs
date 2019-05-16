@@ -86,7 +86,7 @@ To run the code, do the following:
    - Execute 2: to add your own filters.
    - Execute 3: to optionally remove your own filters. Note that this will not recreate the default filters.
 
-    ![Showing output of 2](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
+     ![Showing output of 2](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
 
 8. After filter creation, you can send messages. Press 4 and observe 10 messages being sent to the topic:
 

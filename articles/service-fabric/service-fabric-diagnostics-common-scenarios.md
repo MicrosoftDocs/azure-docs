@@ -4,7 +4,7 @@ description: Learn how to troubleshoot common scenarios with Azure Service Fabri
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:
@@ -70,7 +70,7 @@ The solutions in this article will use the following tools. We recommend you hav
 
     ```kusto
     ServiceFabricOperationalEvent
-    | where EventID >= 25622 or EventID <= 25626
+    | where EventID >= 25622 and EventID <= 25626
     ```
 
 5. Click "New Alert Rule" at the top and now anytime an event arrives based on this query, you will receive an alert in your chosen method of communication.
@@ -109,15 +109,15 @@ In the same view with all the graphs, you will see some tiles for the performanc
 
 3. Click on Data > Windows Performance Counters (Data > Linux Performance Counters for Linux machines) to start collecting specific counters from your nodes via the Log Analytics agent. Here are examples of the format for counters to add
 
-    * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
-    * `Processor(_Total)\\% Processor Time`
+   * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
+   * `Processor(_Total)\\% Processor Time`
 
-    In the quickstart, VotingData and VotingWeb are the process names used, so tracking these counters would look like
+     In the quickstart, VotingData and VotingWeb are the process names used, so tracking these counters would look like
 
-    * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
-    * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
+   * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
+   * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
 
-    ![Log Analytics Perf Counters](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
+     ![Log Analytics Perf Counters](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
 
 4. This will allow you to see how your infrastructure is handling your workloads, and set relevant alerts based on resource utilization. For example – you may want to set an alert if the total Processor utilization goes above 90% or below 5%. The counter name you would use for this is “% Processor Time.” You could do this by creating an alert rule for the following query:
 

@@ -12,7 +12,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer:
 manager: craigg
-ms.date: 01/03/2019
+ms.date: 03/12/2019
 ---
 # Always Encrypted: Protect sensitive data and store encryption keys in Azure Key Vault
 
@@ -33,6 +33,8 @@ Follow the steps in this article and learn how to set up Always Encrypted for an
 ## Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 For this tutorial, you'll need:
 
@@ -603,7 +605,7 @@ You can see that the encrypted columns do not contain any plaintext data.
 
    ![New console application](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-To use SSMS to access the plaintext data, you first need to ensure that the user has proper permissions to the Azure Key Vault: *get*, *unwrapKey*, and *verify*. For detailed information, see [Create and Store Column Master Keys (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017).
+To use SSMS to access the plaintext data, you first need to ensure that the user has proper permissions to the Azure Key Vault: *get*, *unwrapKey*, and *verify*. For detailed information, see [Create and Store Column Master Keys (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
 
 Then add the *Column Encryption Setting=enabled* parameter during your connection.
 

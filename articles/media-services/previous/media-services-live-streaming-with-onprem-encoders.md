@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
 
 ---
-# Live streaming with on-premises encoders that create multi-bitrate streams
+# Working with Channels that receive multi-bitrate live stream from on-premises encoders
 
 > [!NOTE]
 > Starting May 12, 2018, live channels will no longer support the RTP/MPEG-2 transport stream ingest protocol. Please migrate from RTP/MPEG-2 to RTMP or fragmented MP4 (Smooth Streaming) ingest protocols.
@@ -142,7 +142,7 @@ Channels provide a preview endpoint (preview URL) that you use to preview and va
 
 You can get the preview URL when you create the channel. For you to get the URL, the channel does not have to be in the **Running** state. After the channel starts ingesting data, you can preview your stream.
 
-Currently, the preview stream can be delivered only in fragmented MP4 (Smooth Streaming) format, regardless of the specified input type. You can use the [Smooth Streaming Health Monitor](http://playready.directtaps.net/smoothstreaming/) player to test the smooth stream. You can also use a player that's hosted in the Azure portal to view your stream.
+Currently, the preview stream can be delivered only in fragmented MP4 (Smooth Streaming) format, regardless of the specified input type. You can use the [Smooth Streaming Health Monitor](https://playready.directtaps.net/smoothstreaming/) player to test the smooth stream. You can also use a player that's hosted in the Azure portal to view your stream.
 
 #### Allowed IP addresses
 You can define the IP addresses that are allowed to connect to the preview endpoint. If no IP addresses are specified, any IP address is allowed. An allowed IP address can be specified as one of the following:
@@ -181,7 +181,7 @@ Possible values for the current state of a channel include:
 The following table shows how channel states map to the billing mode.
 
 | Channel state | Portal UI indicators | Billed? |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Starting** |**Starting** |No (transient state) |
 | **Running** |**Ready** (no running programs)<p><p>or<p>**Streaming** (at least one running program) |Yes |
 | **Stopping** |**Stopping** |No (transient state) |

@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: "allenwux"
 ms.author: "xiwu"
-ms.reviewer: douglasl
-manager: "craigg"
+ms.reviewer: carlrab
+manager: craigg
 ms.date: 12/20/2018
 ---
 # Best practices for SQL Data Sync 

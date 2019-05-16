@@ -1,22 +1,13 @@
 ---
-title: Azure Table | Microsoft Docs
+title: Azure Table | Azure Marketplace
 description: Configure lead management for Azure Table.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
-
 
 # Lead Management Instructions for Azure Table
 
@@ -31,11 +22,11 @@ This article describes how to configure Azure Table for storing sales leads. Azu
 
     ![Steps to create an Azure storage account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
-4.  Copy the storage account connection string for the key and paste it into the **Storage Account Connection String** field on the Cloud Partner Portal. An example of a connection sting is `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net `
+4.  Copy the storage account connection string for the key and paste it into the **Storage Account Connection String** field on the Cloud Partner Portal. An example of a connection sting is `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net`
     
     ![Azure storage key](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
-You can use [Azure storage explorer](http://azurestorageexplorer.codeplex.com/) or any other tool to see the data in your storage table. You can also export the data in Azure Table.
+You can use [Azure storage explorer](https://azurestorageexplorer.codeplex.com/) or any other tool to see the data in your storage table. You can also export the data in Azure Table.
 data.
 
 ## **(Optional)** Use Microsoft Flow with an Azure table

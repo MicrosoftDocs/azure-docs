@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Multi-Factor Authentication
+title: Configure Azure Multi-Factor Authentication - Azure Active Directory
 description: This article describes how to configure Azure Multi-Factor Authentication settings in the Azure portal
 
 services: multi-factor-authentication
@@ -31,7 +31,7 @@ Some of these settings apply to MFA Server, Azure MFA, or both.
 | ------- | ----------- |
 | Account lockout | Temporarily lock accounts in the multi-factor authentication service if there are too many denied authentication attempts in a row. This feature only applies to users who enter a PIN to authenticate. (MFA Server) |
 | [Block/unblock users](#block-and-unblock-users) | Used to block specific users on MFA Server (on-premises) from being able to receive Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. |
-| [Fraud alert](#fraud-alert) | Configure settings related to users ability to report fraudulent verification requests from MFA Server. |
+| [Fraud alert](#fraud-alert) | Configure settings related to users ability to report fraudulent verification requests |
 | Notifications | Enable notifications of events from MFA Server. |
 | [OATH tokens](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Used in cloud-based Azure MFA environments to manage OATH tokens for users. |
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
@@ -54,14 +54,14 @@ The reporting available here is specific to MFA Server (on-premises). For Azure 
 
 ## Block and unblock users
 
-Use the _block and unblock users_ feature to prevent users from receiving authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. This feature is specific to MFA Server (on-premises).
+Use the _block and unblock users_ feature to prevent users from receiving authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked.
 
 ### Block a user
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. Browse to **Azure Active Directory** > **MFA** > **Block/unblock users**.
 3. Select **Add** to block a user.
-4. Select the **Replication Group**. Enter the username for the blocked user as **username@domain.com**. Enter a comment in the **Reason** field.
+4. Select the **Replication Group**. Enter the username for the blocked user as **username\@domain.com**. Enter a comment in the **Reason** field.
 5. Select **Add** to finish blocking the user.
 
 ### Unblock a user
@@ -74,7 +74,7 @@ Use the _block and unblock users_ feature to prevent users from receiving authen
 
 ## Fraud alert
 
-Configure the _fraud alert_ feature so that your users can report fraudulent attempts to access their resources. Users can report fraud attempts by using the mobile app or through their phone. This feature is specific to MFA Server (on-premises).
+Configure the _fraud alert_ feature so that your users can report fraudulent attempts to access their resources. Users can report fraud attempts by using the mobile app or through their phone.
 
 ### Turn on fraud alerts
 
@@ -151,7 +151,7 @@ The _one-time bypass_ feature allows a user to authenticate a single time withou
 2. Browse to **Azure Active Directory** > **MFA** > **One-time bypass**.
 3. Select **Add**.
 4. If necessary, select the replication group for the bypass.
-5. Enter the username as **username@domain.com**. Enter the number of seconds that the bypass should last. Enter the reason for the bypass.
+5. Enter the username as **username\@domain.com**. Enter the number of seconds that the bypass should last. Enter the reason for the bypass.
 6. Select **Add**. The time limit goes into effect immediately. The user needs to sign in before the one-time bypass expires.
 
 ### View the one-time bypass report
@@ -249,7 +249,7 @@ By default, users can't create app passwords. The app passwords feature must be 
 
 Users can create app passwords during their initial registration. The user has the option to create app passwords at the end of the registration process.
 
-Users can also create app passwords after registration. The app passwords can be changed via the settings in the Azure portal or the Office 365 portal. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Users can also create app passwords after registration. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## Trusted IPs
 

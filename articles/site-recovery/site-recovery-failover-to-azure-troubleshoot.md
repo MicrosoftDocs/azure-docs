@@ -18,7 +18,7 @@ You may receive one of the following errors while doing failover of a virtual ma
 
 Site Recovery was not able to create a failed over virtual machine in Azure. It could happen because of one of the following reasons:
 
-* There isn't sufficient quota available to create the virtual machine: You can check the available quota by going to Subscription -> Usage + quotas. You can open a [new support request](http://aka.ms/getazuresupport) to increase the quota.
+* There isn't sufficient quota available to create the virtual machine: You can check the available quota by going to Subscription -> Usage + quotas. You can open a [new support request](https://aka.ms/getazuresupport) to increase the quota.
 
 * You are trying to failover virtual machines of different size families in same availability set. Ensure that you choose same size family for all virtual machines in the same availability set. Change size by going to Compute and Network settings of the virtual machine and then retry failover.
 
@@ -26,7 +26,7 @@ Site Recovery was not able to create a failed over virtual machine in Azure. It 
 
 ## Failover failed with Error ID 28092
 
-Site Recovery was not able to create a network interface for the failed over virtual machine. Make sure you have sufficient quota available to create network interfaces in the subscription. You can check the available quota by going to Subscription -> Usage + quotas. You can open a [new support request](http://aka.ms/getazuresupport) to increase the quota. If you have sufficient quota, then this might be an intermittent issue, try the operation again. If the issue persists even after retries, then leave a comment at the end of this document.  
+Site Recovery was not able to create a network interface for the failed over virtual machine. Make sure you have sufficient quota available to create network interfaces in the subscription. You can check the available quota by going to Subscription -> Usage + quotas. You can open a [new support request](https://aka.ms/getazuresupport) to increase the quota. If you have sufficient quota, then this might be an intermittent issue, try the operation again. If the issue persists even after retries, then leave a comment at the end of this document.  
 
 ## Failover failed with Error ID 70038
 
@@ -42,7 +42,7 @@ To bring up any machine in Azure, the Azure environment requires some of the dri
 
 To manually change the startup type of drivers for **Windows Guest OS**, follow the below steps:
 
-1. [Download](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) the no-hydration script and run it as follows. This script checks if VM requires hydration.
+1. [Download](https://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) the no-hydration script and run it as follows. This script checks if VM requires hydration.
 
     `.\Script-no-hydration.ps1`
 
@@ -126,8 +126,10 @@ The Azure Site Recovery Master Target registration with the configuration server
  
 This error is indicated by the following strings in the installation log: 
 
+```
 RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] CurlWrapper Post failed : server : 10.38.229.221, port : 443, phpUrl : request_handler.php, secure : true, ignoreCurlPartialError : false with error: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231]   failed to post request: (35) - SSL connect error. 
- 
+```
+
 To resolve the issue:
  
 1. On the configuration server VM, open a command prompt and verify the proxy settings using the following commands:

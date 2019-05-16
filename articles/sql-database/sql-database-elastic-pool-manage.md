@@ -1,5 +1,5 @@
 ---
-title: Create and manage elastic pools - Azure SQL database | Microsoft Docs
+title: Manage elastic pools - Azure SQL database | Microsoft Docs
 description: Create and manage Azure SQL elastic pools.
 services: sql-database
 ms.service: sql-database
@@ -11,10 +11,11 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 03/12/2019
+ms.custom: seoapril2019
 ---
 
-# Create and manage elastic pools in Azure SQL Database
+# Manage elastic pools in Azure SQL Database
 
 With an elastic pool, you determine the amount of resources that the elastic pool requires to handle the workload of its databases, and the amount of resources for each pooled database.
 
@@ -35,6 +36,8 @@ From here you can make any combination of the following changes and save them al
 ## PowerShell: Manage elastic pools and pooled databases
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 To create and manage SQL Database elastic pools and pooled databases with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). To create and manage the SQL Database servers for an elastic pool, see [Create and manage SQL Database servers](sql-database-servers.md). To create and manage firewall rules, see [Create and manage firewall rules using PowerShell](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-azure-powershell).
 
@@ -111,6 +114,5 @@ To create and manage SQL Database elastic pools and pooled databases, use these 
 
 ## Next steps
 
-* For a video, see [Microsoft Virtual Academy video course on Azure SQL Database elastic capabilities](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 * For a SaaS tutorial using elastic pools, see [Introduction to the Wingtip SaaS application](sql-database-wtp-overview.md).

@@ -1,7 +1,6 @@
 ---
 title: Query Apache Hive through the JDBC driver - Azure HDInsight
 description: Use the JDBC driver from a Java application to submit Apache Hive queries to Hadoop on HDInsight. Connect programmatically and from the SQuirrel SQL client.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -104,7 +103,7 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 
     * **Password**: The password for the cluster login account.
 
- ![add alias dialog](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
+   ![add alias dialog](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
 
     > [!IMPORTANT] 
     > Use the **Test** button to verify that the connection works. When **Connect to: Hive on HDInsight** dialog appears, select **Connect** to perform the test. If the test succeeds, you see a **Connection successful** dialog. If an error occurs, see [Troubleshooting](#troubleshooting).
@@ -153,7 +152,7 @@ Now that you have learned how to use JDBC to work with Hive, use the following l
 
 * [Visualize Apache Hive data with Microsoft Power BI in Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
 * [Visualize Interactive Query Hive data with Power BI in Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
-* [Use Apache Zeppelin to run Apache Hive queries in Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
+* [Use Apache Zeppelin to run Apache Hive queries in Azure HDInsight](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Connect Excel to Apache Hadoop by using Power Query](apache-hadoop-connect-excel-power-query.md).
 * [Connect to Azure HDInsight and run Apache Hive queries using Data Lake Tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).

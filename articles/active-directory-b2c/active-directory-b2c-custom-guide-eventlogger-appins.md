@@ -3,7 +3,7 @@ title: Track user behavior by using events in Application Insights from Azure Ac
 description: Learn how to enable event logs in Application Insights from Azure AD B2C user journeys by using custom policies (preview).
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.topic: conceptual
@@ -15,15 +15,14 @@ ms.subservice: B2C
 ---
 # Track user behavior in Azure Active Directory B2C using Application Insights
 
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
+
 When you use Azure Active Directory (Azure AD) B2C together with Azure Application Insights, you can get detailed and customized event logs for your user journeys. In this article, you learn how to:
 
 * Gain insights on user behavior.
 * Troubleshoot your own policies in development or in production.
 * Measure performance.
 * Create notifications from Application Insights.
-
-> [!NOTE]
-> This feature is in preview.
 
 ## How it works
 

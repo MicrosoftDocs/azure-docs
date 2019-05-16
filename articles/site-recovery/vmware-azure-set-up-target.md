@@ -19,7 +19,7 @@ This article describes how to prepare your target Azure environment to start rep
 ## Prerequisites
 
 The article assumes:
-- You have created a Recovery Services Vault on [Azure portal](http://portal.azure.com "Azure portal") to protect your source machines
+- You have created a Recovery Services Vault on [Azure portal](https://portal.azure.com "Azure portal") to protect your source machines
 - You have setup your on-premises environment to replicate the source [VMware virtual machines](vmware-azure-set-up-source.md) or [physical servers](physical-azure-set-up-source.md) to 
 Azure.
 

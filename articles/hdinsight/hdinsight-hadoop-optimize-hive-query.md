@@ -1,18 +1,18 @@
 ---
 title: Optimize Hive queries in Azure HDInsight 
 description: This article describes how to optimize your Apache Hive queries for Hadoop in HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 03/21/2019
 ---
+
 # Optimize Apache Hive queries in Azure HDInsight
 
-In Azure HDInsight, there are several cluster types and technologies that can run Apache Hive queries. When you create your HDInsight cluster, choose the appropriate cluster type to help optimize performance for your workload needs. 
+In Azure HDInsight, there are several cluster types and technologies that can run Apache Hive queries. When you create your HDInsight cluster, choose the appropriate cluster type to help optimize performance for your workload needs.
 
 For example, choose **Interactive Query** cluster type to optimize for ad hoc, interactive queries. Choose Apache **Hadoop** cluster type to optimize for Hive queries used as a batch process. **Spark** and **HBase** cluster types can also run Hive queries. For more information on running Hive queries on various HDInsight cluster types, see [What is Apache Hive and HiveQL on Azure HDInsight?](hadoop/hdinsight-use-hive.md).
 
@@ -190,10 +190,8 @@ There are more optimization methods that you can consider, for example:
 In this article, you have learned several common Hive query optimization methods. To learn more, see the following articles:
 
 * [Use Apache Hive in HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analyze flight delay data by using Apache Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
-* [Analyze Twitter data using Apache Hive in HDInsight](hdinsight-analyze-twitter-data.md)
-* [Analyze sensor data using the Apache Hive Query Console on Apache Hadoop in HDInsight](hadoop/apache-hive-analyze-sensor-data.md)
-* [Use Apache Hive with HDInsight to analyze logs from websites](hadoop/apache-hive-analyze-website-log.md)
+* [Analyze flight delay data by using Apache Hive in HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
+* [Analyze Twitter data using Apache Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

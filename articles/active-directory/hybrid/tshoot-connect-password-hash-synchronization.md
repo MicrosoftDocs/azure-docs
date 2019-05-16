@@ -20,6 +20,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 # Troubleshoot password hash synchronization with Azure AD Connect sync
+
 This topic provides steps for how to troubleshoot issues with password hash synchronization. If passwords are not synchronizing as expected, it can be either for a subset of users or for all users.
 
 For Azure Active Directory (Azure AD) Connect deployment with version 1.1.614.0 or after, use the troubleshooting task in the wizard to troubleshoot password hash synchronization issues:
@@ -43,12 +44,14 @@ For older versions of Azure AD Connect deployment:
 
 
 ## No passwords are synchronized: troubleshoot by using the troubleshooting task
+
 You can use the troubleshooting task to figure out why no passwords are synchronized.
 
 > [!NOTE]
 > The troubleshooting task is available only for Azure AD Connect version 1.1.614.0 or later.
 
 ### Run the troubleshooting task
+
 To troubleshoot issues where no passwords are synchronized:
 
 1. Open a new Windows PowerShell session on your Azure AD Connect server with the **Run as Administrator** option.
@@ -66,6 +69,7 @@ To troubleshoot issues where no passwords are synchronized:
 7. In the sub menu, select **Password hash synchronization does not work at all**.
 
 ### Understand the results of the troubleshooting task
+
 The troubleshooting task performs the following checks:
 
 * Validates that the password hash synchronization feature is enabled for your Azure AD tenant.
@@ -91,26 +95,31 @@ The following diagram illustrates the results of the cmdlet for a single-domain,
 The rest of this section describes specific results that are returned by the task and corresponding issues.
 
 #### password hash synchronization feature isn't enabled
+
 If you haven't enabled password hash synchronization by using the Azure AD Connect wizard, the following error is returned:
 
 ![password hash synchronization isn't enabled](./media/tshoot-connect-password-hash-synchronization/phsglobaldisabled.png)
 
 #### Azure AD Connect server is in staging mode
+
 If the Azure AD Connect server is in staging mode, password hash synchronization is temporarily disabled, and the following error is returned:
 
 ![Azure AD Connect server is in staging mode](./media/tshoot-connect-password-hash-synchronization/phsglobalstaging.png)
 
 #### No password hash synchronization heartbeat events
+
 Each on-premises Active Directory connector has its own password hash synchronization channel. When the password hash synchronization channel is established and there aren't any password changes to be synchronized, a heartbeat event (EventId 654) is generated once every 30 minutes under the Windows Application Event Log. For each on-premises Active Directory connector, the cmdlet searches for corresponding heartbeat events in the past three hours. If no heartbeat event is found, the following error is returned:
 
 ![No password hash synchronization heart beat event](./media/tshoot-connect-password-hash-synchronization/phsglobalnoheartbeat.png)
 
 #### AD DS account does not have correct permissions
+
 If the AD DS account that's used by the on-premises Active Directory connector to synchronize password hashes does not have the appropriate permissions, the following error is returned:
 
 ![Incorrect credential](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
 
 #### Incorrect AD DS account username or password
+
 If the AD DS account used by the on-premises Active Directory connector to synchronize password hashes has an incorrect username or password, the following error is returned:
 
 ![Incorrect credential](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectcredential.png)
@@ -125,6 +134,7 @@ You can use the troubleshooting task to determine why one object is not synchron
 > The troubleshooting task is available only for Azure AD Connect version 1.1.614.0 or later.
 
 ### Run the diagnostics cmdlet
+
 To troubleshoot issues for a specific user object:
 
 1. Open a new Windows PowerShell session on your Azure AD Connect server with the **Run as Administrator** option.
@@ -142,6 +152,7 @@ To troubleshoot issues for a specific user object:
 7. In the sub menu, select **Password is not synchronized for a specific user account**.
 
 ### Understand the results of the troubleshooting task
+
 The troubleshooting task performs the following checks:
 
 * Examines the state of the Active Directory object in the Active Directory connector space, Metaverse, and Azure AD connector space.
@@ -157,16 +168,19 @@ The following diagram illustrates the results of the cmdlet when troubleshooting
 The rest of this section describes specific results returned by the cmdlet and corresponding issues.
 
 #### The Active Directory object isn't exported to Azure AD
+
 password hash synchronization for this on-premises Active Directory account fails because there is no corresponding object in the Azure AD tenant. The following error is returned:
 
 ![Azure AD object is missing](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnotexported.png)
 
 #### User has a temporary password
+
 Currently, Azure AD Connect does not support synchronizing temporary passwords with Azure AD. A password is considered to be temporary if the **Change password at next logon** option is set on the on-premises Active Directory user. The following error is returned:
 
 ![Temporary password is not exported](./media/tshoot-connect-password-hash-synchronization/phssingleobjecttemporarypassword.png)
 
 #### Results of last attempt to synchronize password aren't available
+
 By default, Azure AD Connect stores the results of password hash synchronization attempts for seven days. If there are no results available for the selected Active Directory object, the following warning is returned:
 
 ![Diagnostic output for single object - no password sync history](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnohistory.png)
@@ -174,12 +188,14 @@ By default, Azure AD Connect stores the results of password hash synchronization
 
 
 ## No passwords are synchronized: troubleshoot by using the diagnostic cmdlet
+
 You can use the `Invoke-ADSyncDiagnostics` cmdlet to figure out why no passwords are synchronized.
 
 > [!NOTE]
 > The `Invoke-ADSyncDiagnostics` cmdlet is available only for Azure AD Connect version 1.1.524.0 or later.
 
 ### Run the diagnostics cmdlet
+
 To troubleshoot issues where no passwords are synchronized:
 
 1. Open a new Windows PowerShell session on your Azure AD Connect server with the **Run as Administrator** option.
@@ -193,12 +209,14 @@ To troubleshoot issues where no passwords are synchronized:
 
 
 ## One object is not synchronizing passwords: troubleshoot by using the diagnostic cmdlet
+
 You can use the `Invoke-ADSyncDiagnostics` cmdlet to determine why one object is not synchronizing passwords.
 
 > [!NOTE]
 > The `Invoke-ADSyncDiagnostics` cmdlet is available only for Azure AD Connect version 1.1.524.0 or later.
 
 ### Run the diagnostics cmdlet
+
 To troubleshoot issues where no passwords are synchronized for a user:
 
 1. Open a new Windows PowerShell session on your Azure AD Connect server with the **Run as Administrator** option.
@@ -208,17 +226,21 @@ To troubleshoot issues where no passwords are synchronized for a user:
 3. Run `Import-Module ADSyncDiagnostics`.
 
 4. Run the following cmdlet:
+
    ```
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
    ```
+
    For example:
-   ```
+
+   ```powershell
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
    ```
 
 
 
 ## No passwords are synchronized: manual troubleshooting steps
+
 Follow these steps to determine why no passwords are synchronized:
 
 1. Is the Connect server in [staging mode](how-to-connect-sync-staging-server.md)? A server in staging mode does not synchronize any passwords.
@@ -273,6 +295,7 @@ If you used custom installation, set the permissions manually by doing the follo
 10. If the script shows that there is no heartbeat, run the script in [Trigger a full sync of all passwords](#trigger-a-full-sync-of-all-passwords).
 
 ## One object is not synchronizing passwords: manual troubleshooting steps
+
 You can easily troubleshoot password hash synchronization issues by reviewing the status of an object.
 
 1. In **Active Directory Users and Computers**, search for the user, and then verify that the **User must change password at next logon** check box is cleared.  
@@ -322,6 +345,7 @@ You can easily troubleshoot password hash synchronization issues by reviewing th
     ![Connector Space Object Properties dialog box](./media/tshoot-connect-password-hash-synchronization/cspasswordsync2.png)  
 
 ### Password sync log
+
 The status column can have the following values:
 
 | Status | Description |
@@ -340,7 +364,8 @@ The status column can have the following values:
 ## Scripts to help troubleshooting
 
 ### Get the status of password sync settings
-```
+
+```powershell
 Import-Module ADSync
 $connectors = Get-ADSyncConnector
 $aadConnectors = $connectors | Where-Object {$_.SubType -eq "Windows Azure Active Directory (Microsoft)"}
@@ -394,12 +419,13 @@ Write-Host
 ```
 
 #### Trigger a full sync of all passwords
+
 > [!NOTE]
 > Run this script only once. If you need to run it more than once, something else is the problem. To troubleshoot the problem, contact Microsoft support.
 
 You can trigger a full sync of all passwords by using the following script:
 
-```
+```powershell
 $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
 $aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
 Import-Module adsync
@@ -414,6 +440,7 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 ```
 
 ## Next steps
+
 * [Implementing password hash synchronization with Azure AD Connect sync](how-to-connect-password-hash-synchronization.md)
 * [Azure AD Connect Sync: Customizing synchronization options](how-to-connect-sync-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md)

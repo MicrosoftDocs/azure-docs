@@ -1,22 +1,22 @@
 ---
-title: Scale cluster sizes - Azure HDInsight 
-description: Scale an HDInsight cluster to your workload.
-services: hdinsight
+title: Scale cluster sizes - Azure HDInsight
+description: Scale an Azure HDInsight cluster elastically to match your workload.
 author: ashishthaps
-ms.reviewer: jasonh
-
-ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 02/26/2019
 ms.author: ashish
-
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.date: 05/13/2019
 ---
 # Scale HDInsight clusters
 
 HDInsight provides elasticity by giving you the option to scale up and scale down the number of worker nodes in your clusters. This allows you to shrink a cluster after hours or on weekends, and expand it during peak business demands.
 
-For example, if you have some batch processing that happens once a day or once a month, the HDInsight cluster can be scaled up a few minutes prior to that scheduled event so  there will be adequate  memory and CPU compute power.  Later, after the processing is done, and usage goes down again, you can scale down the HDInsight cluster to fewer worker nodes.
+For example, if you have some batch processing that happens once a day or once a month, the HDInsight cluster can be scaled up a few minutes prior to that scheduled event so there will be adequate memory and CPU compute power.  Later, after the processing is done, and usage goes down again, you can scale down the HDInsight cluster to fewer worker nodes.
+
+You can scale a cluster manually using one of the methods outlined below, or use [autoscale](hdinsight-autoscale-clusters.md) options to have the system automatically scale up and down in response to CPU, Memory, and other metrics.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Utilities to scale clusters
 
@@ -24,10 +24,10 @@ Microsoft provides the following utilities to scale clusters:
 
 |Utility | Description|
 |---|---|
-|[PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
-|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/overview) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
-|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<Resource group> --name \<Cluster Name> --target-instance-count \<NewSize>|
-|[Azure Classic CLI](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<clusterName> \<Target Instance Count>|
+|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
+|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
+|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<Resource group> --name \<Cluster Name> --target-instance-count \<NewSize>|
+|[Azure Classic CLI](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<clusterName> \<Target Instance Count> |
 |[Azure portal](https://portal.azure.com)|Open your HDInsight cluster pane, select **Cluster size** on the left-hand menu, then on the Cluster size pane, type in the number of worker nodes, and select Save.|  
 
 ![Scale cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
@@ -117,8 +117,8 @@ After leaving safe mode, you can manually remove the  temporary files, or wait f
 * H100 Unable to submit statement show databases: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] failed: **Connection refused**
 
 * H020 Could not establish connection to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001:
-org.apache.thrift.transport.TTransportException: Could not create http connection to http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001
-[hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: Connection refused: org.apache.thrift.transport.TTransportException: Could not create http connection to http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: **Connection refused**
+  org.apache.thrift.transport.TTransportException: Could not create http connection to http:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001
+  [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: Connection refused: org.apache.thrift.transport.TTransportException: Could not create http connection to http:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: **Connection refused**
 
 * From the Hive logs:
     WARN [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – Error starting HiveServer2 on attempt 21, will retry in 60 seconds
@@ -324,6 +324,6 @@ The final option is to watch for the rare occasion in which HDFS enters safe mod
     
 ## Next steps
 
+* [Automatically scale Azure HDInsight clusters](hdinsight-autoscale-clusters.md)
 * [Introduction to Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Scale clusters](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)

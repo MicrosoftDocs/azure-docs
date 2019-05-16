@@ -317,7 +317,7 @@ For a complete example, see C# example.
 The following table explains the binding configuration properties that you set in the *function.json* file. There are no constructor parameters or properties to set in the `EventGridTrigger` attribute.
 
 |function.json property |Description|
-|---------|---------|----------------------|
+|---------|---------|
 | **type** | Required - must be set to `eventGridTrigger`. |
 | **direction** | Required - must be set to `in`. |
 | **name** | Required - the variable name used in function code for the parameter that receives the event data. |
@@ -480,10 +480,10 @@ Alternatively, you can send an HTTP PUT to specify the key value yourself.
 
 To test an Event Grid trigger locally, you have to get Event Grid HTTP requests delivered from their origin in the cloud to your local machine. One way to do that is by capturing requests online and manually resending them on your local machine:
 
-2. [Create a viewer web app](#create-a-viewer-web-app) that captures event messages.
-3. [Create an Event Grid subscription](#create-an-event-grid-subscription) that sends events to the viewer app.
-4. [Generate a request](#generate-a-request) and copy the request body from the viewer app.
-5. [Manually post the request](#manually-post-the-request) to the localhost URL of your Event Grid trigger function.
+1. [Create a viewer web app](#create-a-viewer-web-app) that captures event messages.
+1. [Create an Event Grid subscription](#create-an-event-grid-subscription) that sends events to the viewer app.
+1. [Generate a request](#generate-a-request) and copy the request body from the viewer app.
+1. [Manually post the request](#manually-post-the-request) to the localhost URL of your Event Grid trigger function.
 
 When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI command.
 
@@ -554,10 +554,10 @@ The Event Grid trigger function executes and shows logs similar to the following
 
 Another way to test an Event Grid trigger locally is to automate the HTTP connection between the Internet and your development computer. You can do that with an open-source tool named [ngrok](https://ngrok.com/):
 
-3. [Create an ngrok endpoint](#create-an-ngrok-endpoint).
-4. [Run the Event Grid trigger function](#run-the-event-grid-trigger-function).
-5. [Create an Event Grid subscription](#create-a-subscription) that sends events to the ngrok endpoint.
-6. [Trigger an event](#trigger-an-event).
+1. [Create an ngrok endpoint](#create-an-ngrok-endpoint).
+1. [Run the Event Grid trigger function](#run-the-event-grid-trigger-function).
+1. [Create an Event Grid subscription](#create-a-subscription) that sends events to the ngrok endpoint.
+1. [Trigger an event](#trigger-an-event).
 
 When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI command.
 

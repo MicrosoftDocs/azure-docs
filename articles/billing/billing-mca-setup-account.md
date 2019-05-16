@@ -43,7 +43,7 @@ Before you start the setup, we recommend you do the following:
 - **Understand changes to your billing administrators' access**
   - Administrators from your Enterprise Agreement enrollment get access to the billing scopes in the new account.[Understand changes to their access](#understand-changes-to-your-billing-administrators-access).
 - **View Enterprise Agreement features that are replaced by the new account**
-  - View features of the Enterprise Agreement enrollment that are [replaced by features in the new account](#review-features-replaced-by-the-new-billing-account).
+  - View features of the Enterprise Agreement enrollment that are replaced by features in the new account.
 - **View answers to most common questions**
   - View [additional information](#additional-information) to learn more about the setup.
 
@@ -104,7 +104,7 @@ An Azure Active Directory tenant is selected for the new billing account while s
 
 Your new account only supports users from the tenant that was selected while signing the Microsoft Customer Agreement. If users with administrative permission on your Enterprise Agreement are part of the tenant, they’ll get access to the new billing account during the setup. If they’re not part of the tenant, they won’t be able to access the new billing account unless you invite them.
 
-When you invite the users, they are added to the tenant as guest users and get access to the billing account. To invite the users, guest access must be turned on for the tenant. For more information, see [control guest access in Azure Active Directory](https://docs.microsoft.com/en-us/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). If the guest access is turned off, contact the global administrators of your tenant to turn it on. <!-- Todo - How can they find their global administrator -->
+When you invite the users, they are added to the tenant as guest users and get access to the billing account. To invite the users, guest access must be turned on for the tenant. For more information, see [control guest access in Azure Active Directory](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). If the guest access is turned off, contact the global administrators of your tenant to turn it on. <!-- Todo - How can they find their global administrator -->
 
 ## View features replaced by the new billing account
 
@@ -199,7 +199,7 @@ To complete the setup, you need access to both the new billing account and the E
 
 ### Azure subscriptions
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search on **Cost Management + Billing**.
 
@@ -215,7 +215,7 @@ Azure subscriptions that are transitioned from your Enterprise Agreement enrollm
 
 ### Azure Reservations
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search on **Cost Management + Billing**.
 
@@ -235,7 +235,7 @@ Azure Reservations that are moved from your Enterprise Agreement enrollment to t
 
 ### Access of enterprise administrators on the billing profile
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search on **Cost Management + Billing**.
 
@@ -251,7 +251,7 @@ Enterprise administrators are listed as billing profile owners while the enterpr
 
 ### Access of enterprise administrators, department administrators, and account owners on invoice sections
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search on **Cost Management + Billing**.
 

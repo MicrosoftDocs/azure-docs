@@ -3,6 +3,7 @@ title: Submit a workflow using multiple inputs - Microsoft Genomics
 titleSuffix: Azure
 description: This article demonstrates how to submit a workflow to the Microsoft Genomics service if your input file is multiple FASTQ or BAM files coming from the same sample. You already have the msgen client installed and have successfully run the sample data through the service.  
 services: genomics
+ms.service: genomics
 author: grhuynh
 manager: cgronlund
 ms.author: grhuynh
