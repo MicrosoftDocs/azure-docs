@@ -12,7 +12,7 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ---
-# Quickstart: Create and query an Azure Search index using Python and Jupyter notebooks
+# Quickstart: Create an Azure Search index using Jupyter Python notebooks
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
@@ -24,6 +24,8 @@ ms.custom: seodec2018
 Build a Jupyter notebook that creates, loads, and queries an Azure Search [index](search-what-is-an-index.md) using Python and the [Azure Search Service REST APIs](https://docs.microsoft.com/rest/api/searchservice/). 
 
 This article explains how to build your own notebook step by step. Optionally, you can run a finished notebook. To download a copy, go to [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples).
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin and then [sign up for Azure Search](search-create-service-portal.md).
 
 ## Prerequisites
 
@@ -59,13 +61,13 @@ Open a Jupyter notebook and verify the connection from your local workstation by
    from pprint import pprint
    ```
 
-1. In the second cell, input the request elements that will be constants on every request. Unchanging elements included on every request are a service endpoint andapi-version. Request headers indicate the content type and provide the api-key authentication token on every request.
+1. In the second cell, input the request elements that will be constants on every request. Replace the search service name (YOUR-SEARCH-SERVICE-NAME) and admin API key (YOUR-ADMIN-API-KEY) with valid values. 
 
    ```python
-    endpoint = 'https://<YOUR-SEARCH-SERVICE.search.windows.net/'
+    endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
     api_version = '?api-version=2019-05-06'
     headers = {'Content-Type': 'application/json',
-           'api-key': '<YOUR-ADMIN-API-KEY' }
+           'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
 
 1. In the third cell, formulate the request. This GET request targets the indexes collection of your search service and selects the name property.
@@ -92,7 +94,7 @@ Unless you are using the portal, an index must exist on the service before you c
 
 The fields collection defines the structure of a *document*. Required elements of an index include a name and a fields collection. Each field has a name, type, and attributes that determine how it's used (for example, whether it is full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document identity.
 
-This index is named "hotels-py" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) used in other walkthroughs. We trimmed it for this quickstart for brevity.
+This index is named "hotels-py" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) used in other walkthroughs. We trimmed it in this quickstart for brevity.
 
 
 1. In the next cell, paste the following example into a cell to provide the schema. 
