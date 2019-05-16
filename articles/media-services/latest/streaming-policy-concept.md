@@ -21,7 +21,7 @@ In Azure Media Services v3, [Streaming Policies](https://docs.microsoft.com/rest
 
 The currently available predefined Streaming Policies:<br/>'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'.
 
-If you have special requirements (for example, need to use a custom key delivery service or need to use a clear audio track), you can create a custom Streaming Policy.  
+If you have special requirements (for example, need to use a custom key delivery service or need to use a clear audio track), you can create a [custom Streaming Policy](#advanced-scenarios).  
 
 > [!IMPORTANT]
 > * Properties of **Streaming Policies** that are of the Datetime type are always in UTC format.
@@ -71,9 +71,9 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
 
 If you also want to encrypt your stream with CBCS (FairPlay), use 'Predefined_MultiDrmStreaming'.
 
-## Advanced scenarios
+### Advanced scenarios
 
-For explanation and examples of some more advanced scenarios, see [Content Key Policies](content-key-policy-concept.md).
+For explanations and examples of custom Streaming Policies, see [Content Key Policies](content-key-policy-concept.md).
 
 ## Filtering, ordering, paging
 
