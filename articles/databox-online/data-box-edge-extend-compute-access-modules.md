@@ -1,6 +1,6 @@
 ---
 title: Configure network on Azure Data Box Edge to access modules| Microsoft Docs 
-description: Describes how to extend the compute network on your Data Box Edge so as to access modules via an external network.
+description: Describes how to extend the compute network on your Data Box Edge to access modules via an external network.
 services: databox
 author: alkohli
 
