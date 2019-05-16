@@ -138,18 +138,16 @@
         href: https://docs.azure.cloudsimple.com/set-vcenter-identity/
       - name: Azure Application Gateway with VMware VMs
         href: https://docs.azure.cloudsimple.com/azure-application-gateway/
-      - name: Azure Public Load Balancer with VMware VMs
-        href: https://docs.azure.cloudsimple.com/load-balancers/
       - name: Configure private cloud vCenter server as vRealize automation endpoint
         href: https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/
       - name: Migrating workload VMs to a private cloud
         href: https://docs.azure.cloudsimple.com/migrate-workloads/
       - name: Ensuring Application high availability in VMware on Azure
-        href: https://docs.azure.cloudsimple.com/ha-ensuring/
+        href: https://docs.azure.cloudsimple.com/ensuring-high-availability/
     - name: VMware ecosystem
       items:
       - name: Backup workload virtual machines
-        href: https://docs.azure.cloudsimple.com/veeam/
+        href: https://docs.azure.cloudsimple.com/backup-workloads-veeam/
       - name: VMware Horizon solution guide
         href: https://docs.azure.cloudsimple.com/horizon-guide/
       - name: Configure vSAN encryption for your private cloud
@@ -161,7 +159,7 @@
       - name: Azure AD identity source on Private Cloud vCenter
         href: https://docs.azure.cloudsimple.com/azure-ad/
       - name: On-premises network connection with ExpressRoute 
-        href: https://docs.azure.cloudsimple.com/er-connection/
+        href: https://docs.azure.cloudsimple.com/on-premises-connection/
       - name: Azure Virtual network connection with ExpressRoute
-        href: https://docs.azure.cloudsimple.com/azure-er-connection/
+        href: https://docs.azure.cloudsimple.com/azure-expressroute-connection/
 
