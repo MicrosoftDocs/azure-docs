@@ -1,7 +1,11 @@
 - name: Overview
   items:
-  - name: Considerations for Oracle VMs
+  - name: Oracle solutions overview
     href: oracle-considerations.md
+  - name: Solutions on Azure VM
+    href: oracle-vm-solutions.md
+  - name: Oracle OCI integration
+    href: oracle-oci-overview.md
 - name: Quickstarts
   items:
   - name: Create an Oracle DB

@@ -25,7 +25,9 @@ Take advantage of this low latency and secure connectivity between the two cloud
 
 ## Applications in Microsoft Azure
 
-Cross-cloud connectivity provides one solution for you to run Oracle’s industry leading applications on Microsoft Azure while enjoying the benefits of the Exadata and Autonomous Database services in OCI. These applications include:
+Cross-cloud connectivity provides one solution for you to run Oracle’s industry leading applications on Microsoft Azure while enjoying the benefits of the Exadata and Autonomous Database services in OCI. 
+
+Applications you can run in a cross-cloud configuration include:
 
 * E-Business Suite
 * JD Edwards
@@ -39,7 +41,9 @@ The following is a high level overview of the connected solution. See the follow
 
 ## Networking
 
-Cross-cloud networking is established by connecting an [ExpressRoute](../../../expressroute/expressroute-introduction.md) circuit in Microsoft Azure with a [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm) circuit in OCI. This connectivity is possible where an Azure ExpressRoute peering location is in proximity to or in the same peering location as the OCI FastConnect. This allows for a secure, fast connectivity between the two clouds without the need for an intermediate Service Provider.
+Enterprise customers often choose to diversify and deploy workloads over multiple clouds. Reasons for diversification include disaster recovery, high availability, lower cost, avoiding single vendor lock-in, and choosing best of breed solutions. To diversify, customers interconnect cloud networks using the internet, IPSec VPN, or using the cloud provider’s direct connectivity solution via your on-premises network. Interconnecting cloud networks can require significant investments in time, money, design, procurement, installation, testing, and operations. 
+
+Oracle and Microsoft recognized these customer challenges and created an integrated multi-cloud experience. Cross-cloud networking is established by connecting an [ExpressRoute](../../../expressroute/expressroute-introduction.md) circuit in Microsoft Azure with a [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm) circuit in OCI. This connectivity is possible where an Azure ExpressRoute peering location is in proximity to or in the same peering location as the OCI FastConnect. This setup allows for secure, fast connectivity between the two clouds without the need for an intermediate service provider.
 
 Using ExpressRoute and FastConnect, customers are able to peer a virtual network in Azure with a virtual cloud network in OCI, provided that the private IP address space does not overlap. Peering the two networks allows a resource in the virtual network to communicate to a resource in the OCI virtual cloud network as if they were both in the same network.
 
@@ -59,3 +63,5 @@ Currently, this integration allows you to manage in one central location, which 
 ## Next steps
 
 See the quickstarts to set up an Oracle app in Azure and establish network connectivity and integrate identities with Oracle OCI.
+
+See the [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm) documentation for more information and whitepapers about OCI.
