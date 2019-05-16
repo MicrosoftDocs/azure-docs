@@ -221,10 +221,13 @@
     - name: Encode with a custom Transform
       items:
       - name: With .NET
+        displayName: encode, encoding, custom, transform  
         href: customize-encoder-presets-how-to.md
       - name: With CLI
+        displayName: encode, encoding, custom, transform
         href: custom-preset-cli-howto.md
       - name: With REST
+        displayName: encode, encoding, custom, transform
         href: custom-preset-rest-howto.md      
   - name: Use Event Grid
     items:
