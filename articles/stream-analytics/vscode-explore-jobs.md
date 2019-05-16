@@ -29,7 +29,6 @@ You can use the job view to interact with Azure Stream Analytics jobs from Visua
 
 1. Click the **Azure** icon on Visual Studio Code Activity Bar and then expand **Stream Analytics node**. Your jobs should appear under your subscriptions.
 
-<img src="./media/vscode-explore-jobs/open-explorer.png" width="320">
 <img src="./media/vscode-explore-jobs/open-explorer.png" width="320" alt="Open Stream Analytics Explorer">
 
 2. Expand your job node, you can open and view the job query,  configuration, inputs, outputs and functions. 
