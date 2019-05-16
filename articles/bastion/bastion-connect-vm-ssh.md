@@ -12,7 +12,7 @@ ms.author: cherylmc
 
 ---
 
-# Connect to a Linux virtual machine by using Azure Bastion (preview)
+# Connect to a Linux virtual machine using Azure Bastion (preview)
 
 This article shows you how to securely and seamlessly SSH to your Linux VMs in an Azure virtual network. You can connect to a VM directly from the Azure portal. When using Azure Bastion, VMs don't require a client, agent, or additional software. For more information about Azure Bastion, see the [Overview](bastion-overview.md).
 
