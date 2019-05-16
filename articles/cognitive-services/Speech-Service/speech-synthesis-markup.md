@@ -237,20 +237,19 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 **Examples**
 
 ```XML
-<speak version="1.0"
- xmlns="https://www.w3.org/2001/10/synthesis"
- xml:lang="en-US">
-<voice  name='en-US-Jessa24kRUS'>
-    <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
-</voice>
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice  name='en-US-Jessa24kRUS'>
+        <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
+    </voice>
 </speak>
 ```
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice  name='en-US-Jessa24kRUS'>
-    <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
-</voice> </speak>
+    <voice  name='en-US-Jessa24kRUS'>
+        <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
+    </voice>
+</speak>
 ```
 
 ## Adjust prosody
@@ -300,10 +299,12 @@ Volume changes can be applied to standard voices at the word or sentence-level. 
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice  name='en-US-Jessa24kRUS'>
-<prosody volume="+20.00%">
-    Welcome to Microsoft Cognitive Services Text-to-Speech API.
-</prosody></voice> </speak>
+    <voice  name='en-US-Jessa24kRUS'>
+        <prosody volume="+20.00%">
+            Welcome to Microsoft Cognitive Services Text-to-Speech API.
+        </prosody>
+    </voice>
+</speak>
 ```
 
 ### Change pitch
@@ -315,8 +316,9 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
     <voice  name='en-US-Guy24kRUS'>
-    Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
-</voice> </speak>
+        Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
+    </voice>
+</speak>
 ```
 
 ### Change pitch contour
@@ -328,10 +330,12 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice  name='en-US-Jessa24kRUS'>
-<prosody contour="(80%,+20%) (90%,+30%)" >
-    Good morning.
-</prosody></voice> </speak>
+    <voice  name='en-US-Jessa24kRUS'>
+        <prosody contour="(80%,+20%) (90%,+30%)" >
+            Good morning.
+        </prosody>
+    </voice>
+</speak>
 ```
 
 ## Next steps
