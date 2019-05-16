@@ -410,7 +410,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 
 | Parameters | Description | Example |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (Id)** of the policy you want. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** of the policy you want. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
