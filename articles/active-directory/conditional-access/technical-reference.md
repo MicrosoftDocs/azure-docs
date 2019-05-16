@@ -31,7 +31,7 @@ If this is not the information you are looking for, please leave a comment at th
 
 ## Cloud apps assignments
 
-With conditional access policies, you control how your users access your [cloud apps](conditions.md#cloud-apps). When you configure a conditional access policy, you need to select at least one cloud app. 
+With conditional access policies, you control how your users access your [cloud apps](conditions.md#cloud-apps-and-actions). When you configure a conditional access policy, you need to select at least one cloud app. 
 
 ![Select the cloud apps for your policy](./media/technical-reference/09.png)
 
