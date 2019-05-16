@@ -89,7 +89,7 @@ Within your Cognitive Services resource, You can use the Endpoint URL and keys i
 
 ![Resources screen](media/cognitive-services-apis-create-account/resourceScreen.png)
 
-Make a note of the Location and the Keys. You can get the Keys by clicking on Keys under Resource Management.
+Make a note of the location and the keys. You can get the keys by selecting **Keys** under **Resource Management**.
 
 ## Next steps
 
