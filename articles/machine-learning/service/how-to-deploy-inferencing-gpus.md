@@ -14,20 +14,20 @@ ms.date: 05/02/2019
 
 # Deploy a deep learning model for GPU inferencing
 
-Learn how to run inference workloads on a GPU-enabled machine learning model deployed as a web service. This article teaches you how to use the Azure Machine Learning service to deploy an example Tensorflow deep learning model. You deploy the  model to an Azure Kubernetes Service (AKS) cluster that uses a GPU-enabled virtual machine (VM). When requests are sent to the service, the model uses the GPU to perform inferencing.
+Learn how to run inference workloads on a GPU-enabled machine learning model deployed as a web service. This article teaches you how to use the Azure Machine Learning service to deploy an example Tensorflow deep learning model. You deploy the  model to an Azure Kubernetes Service (AKS) cluster hosted by a GPU-enabled virtual machine (VM). When requests are sent to the service, the model uses the GPU to perform inferencing.
 
-GPUs offer performance advantages over CPUs on highly parallelizable computation. Training and inferencing deep learning models (especially for large batches of requests) are excellent use cases for GPUs.  
+GPUs offer performance advantages over CPUs on highly parallelizable computation. Excellent use cases for GPU-enabled VMs include deep learning model training and inference, especially for large batches of requests.
 
-This example demonstrates how to deploy a TensorFlow saved model to Azure Machine Learning by:
+This example demonstrates how to deploy a TensorFlow saved model to Azure Machine Learning. You perform the following steps:
 
-* Creating a GPU-enabled AKS cluster
-* Deploying a Tensorflow GPU model
+* Create a GPU-enabled AKS cluster
+* Deploy a Tensorflow GPU model
 
 ## Prerequisites
 
 * An Azure Machine Learning services workspace
 * A Python distro
-* A registered Tensorflow saved model. To learn how to register models, see [Deploy Models](how-to-deploy-and-where#registermodel).
+* A registered Tensorflow saved model. To learn how to register models, see [Deploy Models](../service/how-to-deploy-and-where.md#registermodel).
 
 This article is based on the Jupyter notebook, [Deploying Tensorflow Models to AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb). The Jupyter notebook uses TensorFlow saved models and deploys them to an AKS cluster. You can also apply the notebook to any machine learning framework that supports GPUs by making small changes to the scoring file and the environment file.  
 
@@ -35,7 +35,7 @@ This article is based on the Jupyter notebook, [Deploying Tensorflow Models to A
 
 Azure has many different GPU options. You can use any of them for inferencing. See [the list of N-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) for a full breakdown of capabilities and costs.
 
-For more information on using AKS with Azure Machine Learning service, see [How to deploy and where](how-to-deploy-and-where#create-a-new-cluster).
+For more information on using AKS with Azure Machine Learning service, see [How to deploy and where](../service/how-to-deploy-and-where.md#deploy-aks).
 
 ```python
 # Provision AKS cluster with GPU machine
@@ -119,9 +119,9 @@ dependencies:
     - azureml-contrib-services
 ```
 
-## Define the GPU InferenceConfig
+## Define the GPU InferenceConfig class
 
-Create an `InferenceConfig class` that enables the GPUs and ensures that CUDA is installed with your VM image.
+Create an `InferenceConfig` class that enables the GPUs and ensures that CUDA is installed with your VM image.
 
 ```python
 from azureml.core.model import Model
@@ -161,7 +161,7 @@ print(aks_service.state)
 ```
 
 > [!NOTE]
-> Azure Machine Learning service won't deploy a model with an `InferenceConfig` that expects GPU to be enabled to a cluster that doesn't have a GPU.
+> Azure Machine Learning service won't deploy a model with an `InferenceConfig` class that expects GPU to be enabled to a cluster that doesn't have a GPU.
 
 For more information, see [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
@@ -182,7 +182,7 @@ r = requests.post(scoring_url, data = img_data, headers=headers)
 > [!IMPORTANT]
 > To minimize latency and optimize throughput, make sure your client is in the same Azure region as the endpoint. The APIs are created in the East US Azure region.
 
-## Cleaning up the resources
+## Clean up the resources
 
 Delete your resources after you're done with this example.
 
@@ -196,6 +196,6 @@ aks_target.delete()
 
 ## Next steps
 
-* [Deploy model on FPGA](how-to-deploy-fpga-web-service)
-* [Deploy model with ONNX](concept-onnx#deploy-onnx-models-in-azure)
-* [Train Tensorflow DNN Models](how-to-train-tensorflow)
+* [Deploy model on FPGA](../service/how-to-deploy-fpga-web-service.md)
+* [Deploy model with ONNX](../service/concept-onnx.md#deploy-onnx-models-in-azure)
+* [Train Tensorflow DNN Models](../service/how-to-train-tensorflow.md)
