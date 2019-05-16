@@ -14,9 +14,7 @@ ms.author: cherylmc
 
 # Connect to a virtual machine by using Azure Bastion (preview)
 
-This article shows you how to securely and seamlessly RDP & SSH to your VMs in an Azure virtual network. You can connect to a VM directly from the Azure portal. When using Azure Bastion, VMs do not require a client, agent, or additional software. For more information about Azure Bastion, see the [Overview](bastion-overview.md).
-
-In the preview, Bastion assumes that you are using RDP to connect to a Windows VM, and SSH to connect to your Linux VMs.
+This article shows you how to securely and seamlessly RDP & SSH to your VMs in an Azure virtual network. You can connect to a VM directly from the Azure portal. When using Azure Bastion, VMs don't require a client, agent, or additional software. For more information about Azure Bastion, see the [Overview](bastion-overview.md).
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
@@ -24,9 +22,7 @@ In the preview, Bastion assumes that you are using RDP to connect to a Windows V
 
 ## Before you begin
 
-Make sure that you have set up an Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](bastion-create-host-portal.md).
-
-Once the Bastion service is provisioned and deployed in your virtual network, you can use it to seamlessly connect to any VM in this virtual network.
+Make sure that you have set up an Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](bastion-create-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in this virtual network. In this preview, Bastion assumes that you are using RDP to connect to a Windows VM, and SSH to connect to your Linux VMs.
 
 ## <a name="rdp"></a>Connect using RDP (Windows)
 
@@ -48,7 +44,7 @@ Once the Bastion service is provisioned and deployed in your virtual network, yo
 
     ![VM connect](./media/bastion-connect-to-vm/connect.png)
 
-1. After you click Connect, a side bar appears that has three tabs – RDP, SSH, and Bastion (new). If Bastion was provisioned for the virtual network, the Bastion tab is active by default. If you did not provision Bastion for the virtual network, you can click the link to configure Bastion. For configuration instructions, see [Configure Bastion](bastion-create-host-portal.md).
+1. After you click Connect, a side bar appears that has three tabs – RDP, SSH, and Bastion (new). If Bastion was provisioned for the virtual network, the Bastion tab is active by default. If you didn't provision Bastion for the virtual network, you can click the link to configure Bastion. For configuration instructions, see [Configure Bastion](bastion-create-host-portal.md).
 
     ![VM connect](./media/bastion-connect-to-vm/bastion.png)
 
