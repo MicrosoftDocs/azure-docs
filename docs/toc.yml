@@ -1,7 +1,10 @@
 - name: Submit your solutions to AppSource
   href: submit-to-the-office-store.md
-- name: Open a developer account
-- name: Manage account users
+  items:
+  - name: Open a developer account
+    href: open-a-developer-account.md
+  - name: Manage account users
+    href: manage-account-users
 - name: Optimize add-in placement and ranking in AppSource
   href: optimize-for-store-discovery.md
 - name: License your add-ins
