@@ -257,6 +257,8 @@
                 href: msal-net-aad-b2c-considerations.md
             - name: MSAL.js
               items:
+              - name: Use Internet Explorer
+                href: msal-js-use-ie-browser.md
               - name: Internet Explorer and Microsoft Edge browsers
                 href: msal-js-known-issues-ie-edge-browsers.md
               - name: Safari browser
