@@ -24,29 +24,28 @@ Use the Azure Blob Storage client library for .NET to:
 * List all of the blobs in a container
 
 ## Prerequisites
+<!-- [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)] -->
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+* Azure storage account - see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Next, download and install .NET Core 2.1 for your operating system. If you are running Windows, you can install Visual Studio and use the .NET Framework if you prefer. You can also choose to install an editor to use with your operating system.
 
-Next, download and install .NET Core 2.1 for your operating system. If you are running Windows, you can install Visual Studio and use the .NET Framework if you prefer. You can also choose to install an editor to use with your operating system.
+   # [Windows](#tab/windows)
 
-# [Windows](#tab/windows)
+   * Install [.NET Core for Windows](https://www.microsoft.com/net/download/windows) or the [.NET Framework](https://www.microsoft.com/net/download/windows) (included with Visual Studio for Windows)
+   * Install [Visual Studio for Windows](https://www.visualstudio.com/) (optional if you are using .NET Core)
 
-* Install [.NET Core for Windows](https://www.microsoft.com/net/download/windows) or the [.NET Framework](https://www.microsoft.com/net/download/windows) (included with Visual Studio for Windows)
-* Install [Visual Studio for Windows](https://www.visualstudio.com/). If you are using .NET Core, installing Visual Studio is optional.  
+   # [Linux](#tab/linux)
 
-For information about choosing between .NET Core and the .NET Framework, see [Choose between .NET Core and .NET Framework for server apps](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
+   * Install [.NET Core for Linux](https://www.microsoft.com/net/download/linux)
+   * Optionally install [Visual Studio Code](https://www.visualstudio.com/) and the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
 
-# [Linux](#tab/linux)
+   # [macOS](#tab/macos)
 
-* Install [.NET Core for Linux](https://www.microsoft.com/net/download/linux)
-* Optionally install [Visual Studio Code](https://www.visualstudio.com/) and the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
+   * Install [.NET Core for macOS](https://www.microsoft.com/net/download/macos).
+   * Optionally install [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
-# [macOS](#tab/macos)
-
-* Install [.NET Core for macOS](https://www.microsoft.com/net/download/macos).
-* Optionally install [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
-
----
+   ---
 
 [API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 
