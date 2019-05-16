@@ -1,7 +1,7 @@
 ---
 title: Secure web services by using SSL
 titleSuffix: Azure Machine Learning service
-description: Learn how to secure a web service that's deployed through the Azure Machine Learning service by enabling HTTPS. HTTPS secures data from by clients by using transport layer security (TLS), a replacement for secure socket layers (SSL). It's also used by clients to verify the identity of the web service.
+description: Learn how to secure a web service that's deployed through the Azure Machine Learning service by enabling HTTPS. HTTPS secures data from by clients by using transport layer security (TLS), a replacement for secure socket layers (SSL). Clients also use HTTPS to verify the identity of the web service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 04/29/2019
 ms.custom: seodec18
 ---
 
-# Use SSL to secure web services by using the Azure Machine Learning service
+# Use SSL to secure web services through Azure Machine Learning
 
 This article shows you how to secure a web service that's deployed through the Azure Machine Learning service. You use [HTTPS)](https://en.wikipedia.org/wiki/HTTPS) to restrict access to web services and secure the data that clients submit.
 
@@ -25,7 +25,7 @@ HTTPS helps secure communications between a client and your web service by encry
 
 TLS and SSL both rely on *digital certificates*, which help with encryption and identity verification. For more information on how digital certificates work, see the Wikipedia topic [Public key infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure).
 
-> [!Warning]
+> [!WARNING]
 > If you don't use HTTPS for your web service, data that's sent to and from the service might be visible to others on the internet.
 >
 > HTTPS also enables the client to verify the authenticity of the server that its connecting to. This feature protects clients against [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attacks.
@@ -41,7 +41,7 @@ This is the general process to secure a web service:
 4. Update your DNS to point to the web service.
 
 > [!IMPORTANT]
-> If you're deploying to Azure Kubernetes Service (AKS), you can provide your own certificate or use a certificate that's provided by Microsoft. If you use a certificate that's provided by Microsoft, you don't need to get a domain name or SSL certificate. For more information, see the [Enable SSL and deploy](#enable) section of this article.
+> If you're deploying to Azure Kubernetes Service (AKS), you can provide your own certificate or use a certificate that's provided by Microsoft. If you use a certificate from Microsoft, you don't need to get a domain name or SSL certificate. For more information, see the [Enable SSL and deploy](#enable-ssl-and-deploy) section of this article.
 
 There are slight differences when you secure web services across [deployment targets](how-to-deploy-and-where.md).
 
@@ -56,7 +56,7 @@ There are many ways to get an SSL certificate (digital certificate). The most co
 * A **certificate**. The certificate must contain the full certificate chain, and it must be "PEM-encoded."
 * A **key**. The key must also be PEM-encoded.
 
-When you request a certificate, you must provide the fully qualified domain name of the address that you plan to use for the web service (for example, www\.contoso.com). The address that's stamped into the certificate and the address that the clients use are compared to verify the identity of the web service. If those addresses don't match, the client receives an error message.
+When you request a certificate, you must provide the FQDN of the address that you plan to use for the web service (for example, www\.contoso.com). The address that's stamped into the certificate and the address that the clients use are compared to verify the identity of the web service. If those addresses don't match, the client gets an error message.
 
 > [!TIP]
 > If the certificate authority can't provide the certificate and key as PEM-encoded files, you can use a utility such as [OpenSSL](https://www.openssl.org/) to change the format.
@@ -64,7 +64,7 @@ When you request a certificate, you must provide the fully qualified domain name
 > [!WARNING]
 > Use *self-signed* certificates only for development. Don't use them in production environments. Self-signed certificates can cause problems in your client applications. For more information, see the documentation for the network libraries that your client application uses.
 
-## <a id="enable"></a> Enable SSL and deploy
+## Enable SSL and deploy
 
 To deploy (or redeploy) the service with SSL enabled, set the *ssl_enabled* parameter to "True" wherever it's applicable. Set the *ssl_certificate* parameter to the value of the *certificate* file. Set the *ssl_key* to the value of the *key* file.
 
@@ -73,16 +73,16 @@ To deploy (or redeploy) the service with SSL enabled, set the *ssl_enabled* para
   > [!NOTE]
   > The information in this section also applies when you deploy a secure web service for the visual interface. If you aren't familiar with using the Python SDK, see [What is the Azure Machine Learning SDK for Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-  When you deploy to AKS, you can create a new AKS cluster or attach an existing one. If you create a new cluster, you use [AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none-). If you attach an existing cluster, you use [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none-). Both return a configuration object that has an **enable_ssl** method.
+  When you deploy to AKS, you can create a new AKS cluster or attach an existing one. If you create a new cluster, you use **[AksCompute.provisionining_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none-)**. If you attach an existing cluster, you use **[AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none-)**. Both return a configuration object that has an **enable_ssl** method.
 
   The **enable_ssl** method can use a certificate that's provided by Microsoft or a certificate that you supply.
 
-  * When you use a certificate that's provided by Microsoft, you must use the *leaf_domain_label* parameter. This parameter generates the DNS name for the service. For example, a value of "myservice" creates a domain name of "myservice\<six-random-characters>.\<azureregion>.cloudapp.azure.com", where \<azureregion> is the region that contains the service. Optionally, you can use the *overwrite_existing_domain* parameter to overwrite the existing *leaf_domain_label*.
+  * When you use a certificate from Microsoft, you must use the *leaf_domain_label* parameter. This parameter generates the DNS name for the service. For example, a value of "myservice" creates a domain name of "myservice\<six-random-characters>.\<azureregion>.cloudapp.azure.com", where \<azureregion> is the region that contains the service. Optionally, you can use the *overwrite_existing_domain* parameter to overwrite the existing *leaf_domain_label*.
 
     To deploy (or redeploy) the service with SSL enabled, set the *ssl_enabled* parameter to "True" wherever it's applicable. Set the *ssl_certificate* parameter to the value of the *certificate* file. Set the *ssl_key* to the value of the *key* file.
 
     > [!IMPORTANT]
-    > When you use a certificate that's provided by Microsoft, you don't need to purchase your own certificate or domain name.
+    > When you use a certificate from Microsoft, you don't need to purchase your own certificate or domain name.
 
     The following example demonstrates how to create configurations that enable an SSL certificate that's provided by Microsoft:
 
