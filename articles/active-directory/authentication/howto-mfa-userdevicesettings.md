@@ -72,6 +72,18 @@ Users can opt out of two-step verification for a configurable number of days on 
 
 The **Restore multi-factor authentication on all remembered devices** setting means that the user will be challenged to perform two-step verification the next time they sign in, regardless of whether they chose to mark their device as trusted.
 
+### How to restore MFA on all remembered devices for a user
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the left, select **Azure Active Directory** > **Users** > **All users**.
+3. On the right, select **Multi-Factor Authentication** on the toolbar. The multi-factor authentication page opens.
+4. Check the box next to the user or users that you wish to manage. A list of quick step options appear on the right.
+5. Select **Manage user settings**.
+6. Check the box for **Restore multi-factor authentication on all remembered devices**
+   ![Restore multi-factor authentication on all remembered devices](./media/howto-mfa-userdevicesettings/rememberdevices.png)
+7. Click **save**.
+8. Click **close**.
+
 #### PowerShell
 If MFA is being enforced against the user account, update the `StrongAuthenticationRequirements.RememberDevicesNotIssuedBefore` attribute(s):
 ```powershell
@@ -85,19 +97,10 @@ for ($i=0; $i -lt $user.StrongAuthenticationRequirements.count; $i++) {
 }
 $user | Set-MsolUser -StrongAuthenticationRequirements $reqs
 ```
-However, if MFA is configured through Conditional Access and MFA is disabled against the user account, `StrongAuthenticationRequirements` is never set and the above is not applicable.
-
-### How to restore MFA on all suspended devices for a user
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Users** > **All users**.
-3. On the right, select **Multi-Factor Authentication** on the toolbar. The multi-factor authentication page opens.
-4. Check the box next to the user or users that you wish to manage. A list of quick step options appear on the right.
-5. Select **Manage user settings**.
-6. Check the box for **Restore multi-factor authentication on all remembered devices**
-   ![Restore multi-factor authentication on all remembered devices](./media/howto-mfa-userdevicesettings/rememberdevices.png)
-7. Click **save**.
-8. Click **close**.
+However, if MFA is configured through Conditional Access and MFA is disabled against the user account, `StrongAuthenticationRequirements` is never set and the above is not applicable. Instead, the `StsRefreshTokensValidFrom` attribute can be updated:
+```powershell
+Set-MsolUser -UserPrincipalName $Upn -StsRefreshTokensValidFrom (Get-Date)
+```
 
 ## Next steps
 
