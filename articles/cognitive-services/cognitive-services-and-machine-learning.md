@@ -26,9 +26,17 @@ A Cognitive Service is a service that provides part or all of the machine learni
 
 These services are meant to require general data knowledge without having to know a high-degree of machine-learning or data-science. These services provide both REST and language-based SDKs. These services require programming language knowledge to use the model.
 
-## A fully-trained model is a black box 
+Cognitive Services provide a trained model for you. This brings data and an algorithm together, available from a REST API or SDK. You can implement this service within minutes or hours depending on your scenario. Machine learning is a process that generally requires a longer period of time to implement successfully. This time is spent on data collection, transformation, algorithm selection, model training, and deployment to get to the same level of functionality provided by a Cognitive Service. 
 
-Services that provide a fully-trained model can be treated as a black box. You don't need to know how they work or what data was used to train them. You bring your data to a fully-trained model to get a prediction. The following table lists some examples of a fully-trained model. 
+## How is a Cognitive Service different from Azure Machine learning?
+
+Cognitive Services provide answers to general problems such as key phrases in text or item identification in images. 
+
+With machine learning, it is possible to provide answers to any kind of problem including highly specialized or specific problems. These machine-learning problems require one or more of the following: subject matter, machine learning, data science.
+
+## Use a fully-trained model 
+
+Services that provide a fully-trained model can be treated as a _black box_. You don't need to know how they work or what data was used to train them. You bring your data to a fully-trained model to get a prediction. The following table lists some examples of a fully-trained model. 
 
 |Fully-trained service|Your data sent to trained model|Service Output|
 |--|--|--|
