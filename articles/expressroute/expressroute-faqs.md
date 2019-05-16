@@ -216,7 +216,7 @@ Yes. We accept up to 4000 route prefixes for private peering and 200 for Microso
 
 ### Are there restrictions on IP ranges I can advertise over the BGP session?
 
-We do not accept private prefixes (RFC1918) for the Microsoft peering BGP session.
+We do not accept private prefixes (RFC1918) for the Microsoft peering BGP session. We accept any prefix size (up to /32) on both the Microsoft and the private peering.
 
 ### What happens if I exceed the BGP limits?
 
