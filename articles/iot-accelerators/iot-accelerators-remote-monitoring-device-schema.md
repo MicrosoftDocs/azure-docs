@@ -83,7 +83,7 @@ The definition of the device state has two elements:
 * `InitialState` defines initial values for all the properties of the device state object.
 * `Script` identifies a JavaScript file that runs on a schedule to update the device state. You can use this script file to randomize the telemetry values sent by the device.
 
-To learn more about the JavaScript file that updates the device state object, see [Understand the device model behavior](../articles/iot-accelerators/iot-accelerators-device-simulation-device-behavior.md).
+To learn more about the JavaScript file that updates the device state object, see [Understand the device model behavior](../../articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md).
 
 The following example shows the definition of the device state object for a simulated chiller device:
 
@@ -205,7 +205,7 @@ A simulated device can respond to cloud-to-device methods called from an IoT hub
 
 The simulated device sends the list of methods it supports to the IoT hub it's connected to.
 
-To learn more about the JavaScript file that implements the behavior of the device, see [Understand the device model behavior](../articles/iot-accelerators/iot-accelerators-device-simulation-device-behavior.md).
+To learn more about the JavaScript file that implements the behavior of the device, see [Understand the device model behavior](../../articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md).
 
 The following example specifies three supported methods and the JavaScript files that implement those methods:
 
