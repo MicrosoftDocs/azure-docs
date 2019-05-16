@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/01/2016
+ms.date: 05/16/2019
 ms.reviewer: olegan
 ms.author: mbullwin
 ---
@@ -39,7 +39,7 @@ These items are implementations of [Application Insights](../../azure-monitor/ap
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
 * [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
 * [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)&#151;including both web and worker roles
-* [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
+* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
 * [Docker](../../azure-monitor/app/docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
@@ -56,6 +56,7 @@ These items are implementations of [Application Insights](../../azure-monitor/ap
 * [Anything else](#projects)
 
 ## Logging frameworks
+* [ILogger](https://docs.microsoft.com/azure/azure-monitor/app/ilogger)
 * [Log4Net, NLog, or System.Diagnostics.Trace](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Java, Log4J, or Logback](../../azure-monitor/app/java-trace-logs.md)
 * [Semantic Logging (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - integrates with [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
