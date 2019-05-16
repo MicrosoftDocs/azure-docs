@@ -74,7 +74,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
+1. On the **Basic SAML Configuration** page, enter the values for the following field:
 
 	In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.continuity.net/auth/saml`
