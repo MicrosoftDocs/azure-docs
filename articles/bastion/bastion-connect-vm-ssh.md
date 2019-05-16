@@ -20,14 +20,14 @@ This article shows you how to securely and seamlessly SSH to your Linux VMs in a
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 >
 
-You can use Azure Bastion to connect using SSH and use SSH keys for authentication. The SSH private key must be in the following format:
-
-  `"-----BEGIN RSA PRIVATE KEY-----" and ends with "-----END RSA PRIVATE KEY-----"`.
-
-You can connect using either:
+You can use Azure Bastion to connect using SSH and use SSH keys for authentication. You can connect to your VM using either:
 
 * A private key that you manually enter
 * A file that contains the private key information
+
+The SSH private key must be in a format that begins with  `"-----BEGIN RSA PRIVATE KEY-----"` and ends with `"-----END RSA PRIVATE KEY-----"`.
+
+
 
 ## Before you begin
 
