@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/1/2019
+ms.date: 05/16/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
