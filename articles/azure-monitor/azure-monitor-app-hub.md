@@ -52,24 +52,7 @@ ms.author: mbullwin
                                                 </a>
                                             </li>
                                             <li>
-<!--
-                                                <a href="">
-                                                    <div class="cardSize">
-                                                        <div class="cardPadding">
-                                                            <div class="card">
-                                                                <div class="cardImageOuter">
-                                                                    <div class="cardImage">
-                                                                        <img alt="" src="/learn/achievements/secure-azure-resources-with-conditional-access.svg" data-linktype="external">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="cardText" style="padding-left: 0px">
-                                 							    </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
--->
-                                            </li>
+                                           </li>
 										</ul>
                                     </li>
                                     <li>
@@ -80,7 +63,7 @@ ms.author: mbullwin
 	                                                    <h3>What's new?</h3>
                                                         <p>
                                                             <a href="./app/kubernetes.md">Monitor Kubernetes applications</a><br>
-                                                            <a href="./app/status-monitor-v2-overview.md">Monitor live IIS web apps with Status Monitor v2</a><br>
+                                                            <a href="./app/status-monitor-v2-overview.md">Status Monitor v2 for IIS apps</a><br>
 														</p>
 														<br><br>
 														<h3>Quickstarts</h3>
