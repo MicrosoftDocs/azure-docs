@@ -12,16 +12,38 @@ ms.date: 05/07/2019
 ms.author: cawa
 ---
 
-# Azure Monitor application change analysis (public preview)
+# Application Change Analysis (public preview)
 
-When a live site issue/outage occurs, determining root cause quickly is critical. Standard monitoring solutions may help you rapidly identify that there is a problem, and often even which component is failing. But this won't always lead to an immediate explanation for why the failure is occurring. Your site worked five minutes ago, now it's broken. What changed in the last five minutes? This is the question that the new feature Azure Monitor application change analysis is designed to answer. By building on the power of the [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) application change analysis provides insight into your Azure App Service application changes to increase observability and reduce MTTR (Mean Time To Repair).
+When a live site issue/outage occurs, determining root cause quickly is critical. Standard monitoring solutions may help you rapidly identify that there is a problem, and often even which component is failing. But this won't always lead to an immediate explanation for why the failure is occurring. Your site worked five minutes ago, now it's broken. What changed in the last five minutes? This is the question that the new feature Azure Monitor application change analysis is designed to answer. By building on the power of the [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) application change analysis provides insight into your Azure application changes to increase observability and reduce MTTR (Mean Time To Repair).
 
 > [!IMPORTANT]
 > Azure Monitor application change analysis is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## How do I use application change analysis?
+## Overview of Change Analysis service
+The change analysis service detects various types of changes from infrastructure layer all the way to application deployment. it is a subscription level Azure resource provider that looks into resource changes in the subscription and provides data for various diagnostics tools to help users understand what changes might have caused issues.
+
+The following diagram illustrates the architecture of change analysis service:
+![Architecture diagram for how change analysis service obtains change data and provide data to client tools](./media/change-analysis/overview-diagram.PNG)
+
+Currently the tool is integrated into the App Services web app diagnose and solve problems experience. See *Change Analysis service for App Services Web App* section on how to enable and view changes made to a web app.
+
+### Azure Resource Manager deployment changes
+Leveraging [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) Change Analysis service provides historical change record on how the Azure resource that host your application has changed overtime. For example, if a web app got a tag added to it, the change will be reflected in the Change Analysis service.
+This information is always available as long as Change Analysis resource provider is onboarded to the Azure subscription.
+
+### Web Application deployment and configuration changes
+Change Analysis tool captures deployment and configuration state of an application every 4 hours to compute the differences and present what has changed. Examples of such changes include application environment variable changes, IP configuration rule changes, Managed Service Identity changes, SSL settings changes, and so on.
+Unlike ARM changes, such change information may not be available immediately in the tool. To view the latest changes, use the 'Scan changes now' button in the tool.
+
+![Screenshot of scan for changes now button in Diagnose and Solve problems tool with change analysis integration for app service web app](./media/change-analysis/scan-changes.png)
+
+### Dependencies changes
+Dependencies resource could also be the cause of issues. For example, if a web app calls into a Redis cache, the web app performance can be impacted by Redis cache SKU. By looking into the web app DNS record change analysis service also present the dependencies change information to identify changes in all components of an app that could have caused issues.
+
+
+## Change Analysis service for App Services Web App
 
 Azure Monitor application change analysis is currently built into the self-service **Diagnose and solve problems** experience, which can be accessed from the **Overview** section of your Azure App Service application:
 
@@ -84,4 +106,4 @@ Set-AzResource -ResourceId <your_webapp_resourceid> -Tag $tag
 ## Next steps
 
 - Improve your monitoring of Azure App Services [by enabling the Application Insights features](azure-web-apps.md) of Azure Monitor.
-- Enhance your understanding of the [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) which helps power Azure Monitor application change analysis. 
+- Enhance your understanding of the [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) which helps power Azure Monitor application change analysis.
