@@ -71,14 +71,13 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
 
 If you also want to encrypt your stream with CBCS (FairPlay), use 'Predefined_MultiDrmStreaming'.
 
+## Advanced scenarios
+
+For explanation and examples of some more advanced scenarios, see [Content Key Policies](content-key-policy-concept.md).
+
 ## Filtering, ordering, paging
 
 See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
-
-## See also
-
-* [Streaming Locators](streaming-locators-concept.md)
-* [Content Key Policies](content-key-policy-concept.md)
 
 ## Next steps
 
