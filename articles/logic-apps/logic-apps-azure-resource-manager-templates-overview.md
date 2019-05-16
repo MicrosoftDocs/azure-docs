@@ -15,9 +15,9 @@ ms.date: 05/15/2019
 
 When you're ready to automate how you create and deploy your logic app, you can expand your logic app's underlying workflow definition into an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md). This template defines the infrastructure, resources, parameters, and other setup information for provisioning and deploying your logic app. By using Resource Manager templates, you can repeatedly and consistently deploy logic apps to any environment, Azure subscription, and Azure resource group that you want.
 
-For example, if you're deploying to a development, test, and production environment, you're likely using different connection strings in each environment. You can provide these connection strings for your template by creating a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
+For example, if you're deploying to a development, test, and production environment, you're likely using different connection strings in each environment. You can provide these connection strings for your template by creating and using a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
 
-This article provides an overview about the high-level structure and syntax for a Resource Manager template compared to a logic app's underlying workflow definition. Both the template and your workflow definition use JSON but with some differences because the workflow definition also follows the [Workflow Definition Language schema](../logic-apps/logic-apps-workflow-definition-language.md).
+This overview describes the high-level structure and syntax for a Resource Manager template that includes a logic app's underlying workflow definition. Both the template and your workflow definition use JSON but with some differences because the workflow definition also follows the [Workflow Definition Language schema](../logic-apps/logic-apps-workflow-definition-language.md). Also, the examples in this overview replaces values that can change at deployment with their parameterized versions. 
 
 For general information about Resource Manager templates, see these topics:
 
@@ -57,13 +57,225 @@ Here are brief details about these attributes in Resource Manager templates. For
 | `outputs` | No | The values that you want returned after deployment, for example, values from resources that the Resource Manager template deployed. For full details, see [Outputs - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#outputs). |
 ||||
 
+Here is the example template that this overview uses to illustrate a template's attributes:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "LogicAppIntegrationAccount": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/integrationAccounts/<integration-account-name>"
+    },
+    "office365_1_Connection_Name": {
+      "type": "string",
+      "defaultValue": "office365"
+    },
+    "office365_1_Connection_DisplayName": {
+      "type": "string",
+      "defaultValue": "<Office-365-account-name>"
+    },
+    "azureblob_1_Connection_Name": {
+      "type": "string",
+      "defaultValue": "azureblob"
+    },
+    "azureblob_1_Connection_DisplayName": {
+      "type": "string",
+      "defaultValue": "<Azure-Blob-Storage-connection-name>"
+    },
+    "azureblob_1_accountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the storage account the connector should use."
+      },
+      "defaultValue": "<Azure-Blob-storage-account-name>"
+    },
+    "azureblob_1_accessKey": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Specify a valid primary/secondary storage account access key."
+      }
+    },
+    "LogicAppLocation": {
+      "type": "string",
+      "minLength": 1,
+      "allowedValues": [
+        "[resourceGroup().location]",
+        "eastasia",
+        "southeastasia",
+        "centralus",
+        "eastus",
+        "eastus2",
+        "westus",
+        "northcentralus",
+        "southcentralus",
+        "northeurope",
+        "westeurope",
+        "japanwest",
+        "japaneast",
+        "brazilsouth",
+        "australiaeast",
+        "australiasoutheast",
+        "southindia",
+        "centralindia",
+        "westindia",
+        "canadacentral",
+        "canadaeast",
+        "uksouth",
+        "ukwest",
+        "westcentralus",
+        "westus2"
+      ],
+      "defaultValue": "<logic-app-location>"
+    },
+    "LogicAppName": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "<logic-app-name>"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "properties": {
+        "state": "Enabled",
+        "integrationAccount": {
+          "id": "[parameters('LogicAppIntegrationAccount')]"
+        },
+        "definition": {
+          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "actions": {
+            "Create_blob": {
+              "type": "ApiConnection",
+              "inputs": {
+                "host": {
+                  "connection": {
+                    "name": "@parameters('$connections')['azureblob']['connectionId']"
+                  }
+                },
+                "method": "post",
+                "body": "@triggerBody()?['Body']",
+                "path": "/datasets/default/files",
+                "queries": {
+                  "folderPath": "/emails",
+                  "name": "@triggerBody()?['Subject']",
+                  "queryParametersSingleEncoded": true
+                }
+              },
+              "runAfter": {},
+              "runtimeConfiguration": {
+                "contentTransfer": {
+                  "transferMode": "Chunked"
+                }
+              }
+            }
+          },
+          "parameters": {
+            "$connections": {
+              "defaultValue": {},
+              "type": "Object"
+            }
+          },
+          "triggers": {
+            "When_a_new_email_arrives": {
+              "type": "ApiConnection",
+              "inputs": {
+                "host": {
+                  "connection": {
+                    "name": "@parameters('$connections')['office365']['connectionId']"
+                  }
+                },
+                "method": "get",
+                "path": "/Mail/OnNewEmail",
+                "queries": {
+                  "folderPath": "Inbox",
+                  "importance": "Any",
+                  "fetchOnlyWithAttachment": false,
+                  "includeAttachments": false
+                }
+              },
+              "recurrence": {
+                "frequency": "Day",
+                "interval": 1
+              },
+              "splitOn": "@triggerBody()?['value']"
+            }
+          },
+          "contentVersion": "1.0.0.0",
+          "outputs": {}
+        },
+        "parameters": {
+          "$connections": {
+            "value": {
+              "azureblob": {
+                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'azureblob')]",
+                "connectionId": "[resourceId('Microsoft.Web/connections', parameters('azureblob_1_Connection_Name'))]",
+                "connectionName": "[parameters('azureblob_1_Connection_Name')]"
+              },
+              "office365": {
+                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'office365')]",
+                "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
+                "connectionName": "[parameters('office365_1_Connection_Name')]"
+              }
+            }
+          }
+        },
+        "accessControl": {}
+      },
+      "name": "[parameters('LogicAppName')]",
+      "type": "Microsoft.Logic/workflows",
+      "location": "[parameters('LogicAppLocation')]",
+      "tags": {
+        "displayName": "LogicApp"
+      },
+      "apiVersion": "2016-06-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/connections', parameters('azureblob_1_Connection_Name'))]",
+        "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
+      ]
+    },
+    {
+      "type": "MICROSOFT.WEB/CONNECTIONS",
+      "apiVersion": "2016-06-01",
+      "name": "[parameters('office365_1_Connection_Name')]",
+      "location": "westus",
+      "properties": {
+        "api": {
+          "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'office365')]"
+        },
+        "displayName": "[parameters('office365_1_Connection_DisplayName')]"
+      }
+    },
+    {
+      "type": "MICROSOFT.WEB/CONNECTIONS",
+      "apiVersion": "2016-06-01",
+      "name": "[parameters('azureblob_1_Connection_Name')]",
+      "location": "westus",
+      "properties": {
+        "api": {
+          "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'azureblob')]"
+        },
+        "displayName": "[parameters('azureblob_1_Connection_DisplayName')]",
+        "parameterValues": {
+          "accountName": "[parameters('azureblob_1_accountName')]",
+          "accessKey": "[parameters('azureblob_1_accessKey')]"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
+
 <a name="template-parameters"></a>
 
 ## Template parameters
 
 Your Resource Manager template's `parameters` attribute defines the parameters for the values to use when creating and deploying resources in Azure. Your template's `resources` attribute, described later in this topic, can then reference these values for your resources to use, including your logic app's workflow definition, connections, and other resources in Azure. You can then provide these values separately through a [template parameter file](#template-parameter-file).
 
-This example template defines parameters for the name and location to use when creating and deploying your logic app. If your logic app is also linked to an integration account, the template defines the parameter for the integration account to use, for example:
+This example template defines parameters for the name and location to use when creating and deploying your logic app. If your logic app is also linked to an integration account, the template defines the parameter for the integration account to use.
 
 ```json
 {
@@ -74,7 +286,7 @@ This example template defines parameters for the name and location to use when c
          "type": "string",
          "min length": 1,
          "allowedValues": [
-            "[resourceGroup().location]",
+           "[resourceGroup().location]",
            "eastasia",
            "southeastasia",
            "centralus",
@@ -100,7 +312,7 @@ This example template defines parameters for the name and location to use when c
            "westcentralus",
            "westus2"            
          ],
-         "defaultValue": "westus",
+         "defaultValue": "<logic-app-location>",
          "metadata": {
             "description": "Location of the logic app"
          }
@@ -117,7 +329,7 @@ This example template defines parameters for the name and location to use when c
       "LogicAppIntegrationAccount": {
          "type":"string",
          "minLength": 1,
-         "defaultValue": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/integrationAccounts/<integration-account-name>"
+         "defaultValue": "<integration-account-ID>"
       }
    },
    "variables": {},
@@ -142,7 +354,7 @@ In this example, the template's `parameters` attribute defines parameters for an
       },
       "office365_1_Connection_DisplayName": {
         "type": "string",
-        "defaultValue": "<office-365-account-name>"
+        "defaultValue": "<Office-365-account-name>"
       },
       "LogicAppLocation": {<...>},
       "LogicAppName": {<...>}
@@ -157,7 +369,7 @@ In this example, the template's `parameters` attribute defines parameters for an
                   "value": {
                      "office365": {
                         // References `office365` connection resource values in parameter file
-                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'office365')]",
+                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]",
                         // References `office365_1_Connection_Name` in template parameters
                         "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
                         // References `office365_1_Connection_Name` in template parameters
@@ -189,7 +401,7 @@ In this example, the template's `parameters` attribute defines parameters for an
          "properties": {
             "api": {
                // References `office365` connection resource
-               "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'office365')]"
+               "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]"
              },
              // References 'office365_1_Connection_Display_Name` in template parameters
              "displayName": "[parameters('office365_1_Connection_DisplayName')]"
@@ -234,7 +446,25 @@ For more information, see [Azure Resource Manager template best practices](../az
 
 ## Template parameter files
 
-To store and supply the values for Resource Manager template parameters, you can create a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). That way, you can use different parameter files based on where you want to create and deploy your logic app. For example, here is a short parameter file for the template parameters described in the previous section:
+To store and supply the values for Resource Manager template parameters, you can create a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). That way, you can use different parameter files based on where you want to create and deploy your logic app. Here is the syntax for a parameter file:
+
+```json
+{
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": {
+      "<parameter-name-1>": {
+        "value": "<parameter-value>"
+      },
+      "<parameter-name-2>": {
+        "value": "<parameter-value>"
+      },
+      <...>
+   }
+}
+```
+
+For example, here is a short parameter file for the template parameters described in the previous section:
 
 ```json
 {
@@ -255,6 +485,11 @@ To store and supply the values for Resource Manager template parameters, you can
            "northeurope",
            "westeurope"
         ]
+     },
+     "LogicAppIntegrationAccount" {
+        "value": {
+           "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/fabrikam-integration-acount-rg/providers/Microsoft.Logic/integrationAccounts/fabrikam-integration-account"
+        }
      }
    }
 }
@@ -290,7 +525,6 @@ Your Resource Manager template's `resources` attribute declares information abou
 |-----------|----------|-------------|
 | `state` | Yes | The state for your logic app at deployment where `Enabled` means your logic app is live and `Disabled` means that your logic app is inactive |
 | `definition` | Yes | Contains your logic app's underlying workflow definition, which describes how the Logic Apps service runs that workflow along with definitions for the trigger, actions, workflow parameters, outputs, schema, and so on. For more information, see [Logic app workflow definition](#workflow-definition). <p><p>To view the attributes in your logic app's workflow definition, switch from "design view" to "code view" in the Azure portal or Visual Studio, or by using a tool such as [Azure Resource Explorer](http://resources.azure.com). |
-attribute |
 | `parameters` | No | If your logic app uses [managed connectors](../connectors/apis-list.md) for accessing other services and systems, the `$connections` attribute references the values used by the connections that your logic app creates. For more information, see [Logic app connections](#workflow-connections). |
 ||||
 
@@ -307,7 +541,7 @@ In this example, the template `resources` attribute declares resource informatio
                "value": {
                   "office365": {
                      // References `office365` connection resource values in parameter file
-                     "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'office365')]",
+                     "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]",
                      // References `office365_1_Connection_Name` in template parameters
                      "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
                      // References `office365_1_Connection_Name` in template parameters
@@ -340,7 +574,7 @@ In this example, the template `resources` attribute declares resource informatio
       "properties": {
          "api": {
             // References `office365` connection resource
-            "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'office365')]"
+            "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]"
           },
           // References 'office365_1_Connection_Display_Name` in template parameters
           "displayName": "[parameters('office365_1_Connection_DisplayName')]"
@@ -400,9 +634,9 @@ In this example, the `$connections` attribute contains an `office365` attribute,
                "value": {
                   // References to connection resource
                   "office365": {
-                     "connectionId": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/connections/office365",
-                     "connectionName": "office365",
-                     "id": "/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<logic-app-location>/managedApis/office365"
+                     "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]",
+                   "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
+                   "connectionName": "[parameters('office365_1_Connection_Name')]"
                   }
                }
             }
@@ -475,7 +709,7 @@ For example, here's a logic app workflow definition that has these steps:
             "method": "post",
             "path": "/datasets/default/files",
             "queries": {
-               "folderPath": "/saved-emails",
+               "folderPath": "/emails",
                "name": "@triggerBody()?['Subject']",
                "queryParametersSingleEncoded": true
             }
