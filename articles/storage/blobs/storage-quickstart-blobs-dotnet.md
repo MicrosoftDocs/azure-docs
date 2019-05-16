@@ -1,20 +1,27 @@
 ---
-title: "Quickstart: Use .NET to create a blob in object storage - Azure Storage"
-description: In this quickstart, you learn how to use the Azure Storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
+title: "Quickstart: Azure Blob Storage client library for .NET"
+description: In this quickstart, you learn how to use the Azure Blob Storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 services: storage
 author: mhopkins-msft
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 05/09/2019
+ms.date: 05/16/2019
 ms.author: mhopkins
-ms.reviewer: seguler
+ms.subservice: blobs
 ---
 
-# Quickstart: Use .NET to create a blob in object storage
+# Quickstart: Azure Blob Storage client library for .NET
 
-In this quickstart, you learn how to use the Azure Storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
+Get started with the Azure Blob Storage client library for .NET. Follow steps to install the package and try out example code for basic tasks. Azure Blob Storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data.
+
+Use the Azure Blob Storage client library for .NET to:
+
+* Create a container
+* Create a blob in Azure Storage
+* Download the blob to your local computer
+* List all of the blobs in a container
 
 ## Prerequisites
 
@@ -24,22 +31,24 @@ Next, download and install .NET Core 2.1 for your operating system. If you are r
 
 # [Windows](#tab/windows)
 
-- Install [.NET Core for Windows](https://www.microsoft.com/net/download/windows) or the [.NET Framework](https://www.microsoft.com/net/download/windows) (included with Visual Studio for Windows)
-- Install [Visual Studio for Windows](https://www.visualstudio.com/). If you are using .NET Core, installing Visual Studio is optional.  
+* Install [.NET Core for Windows](https://www.microsoft.com/net/download/windows) or the [.NET Framework](https://www.microsoft.com/net/download/windows) (included with Visual Studio for Windows)
+* Install [Visual Studio for Windows](https://www.visualstudio.com/). If you are using .NET Core, installing Visual Studio is optional.  
 
 For information about choosing between .NET Core and the .NET Framework, see [Choose between .NET Core and .NET Framework for server apps](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
 
 # [Linux](#tab/linux)
 
-- Install [.NET Core for Linux](https://www.microsoft.com/net/download/linux)
-- Optionally install [Visual Studio Code](https://www.visualstudio.com/) and the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
+* Install [.NET Core for Linux](https://www.microsoft.com/net/download/linux)
+* Optionally install [Visual Studio Code](https://www.visualstudio.com/) and the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
 
 # [macOS](#tab/macos)
 
-- Install [.NET Core for macOS](https://www.microsoft.com/net/download/macos).
-- Optionally install [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
+* Install [.NET Core for macOS](https://www.microsoft.com/net/download/macos).
+* Optionally install [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
 ---
+
+[API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 
 ## Download the sample application
 
@@ -284,13 +293,13 @@ See these additional resources for .NET development with Blob storage:
 
 ### Binaries and source code
 
-- Download the NuGet package for the latest version of the [.NET client library](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) for Azure Blob Storage.
-- View the [Microsoft Azure Storage Blob SDK for .NET source code](https://github.com/Azure/azure-storage-net/tree/master/Blob) on GitHub.
+* Download the NuGet package for the latest version of the [.NET client library](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) for Azure Blob Storage.
+* View the [Microsoft Azure Storage Blob SDK for .NET source code](https://github.com/Azure/azure-storage-net/tree/master/Blob) on GitHub.
 
 ### Client library reference and samples
 
-- See the [.NET API reference](https://docs.microsoft.com/dotnet/api/overview/azure/storage) for more information about the .NET client library.
-- Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) written using the .NET client library.
+* See the [.NET API reference](https://docs.microsoft.com/dotnet/api/overview/azure/storage) for more information about the .NET client library.
+* Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) written using the .NET client library.
 
 ## Next steps
 
@@ -301,5 +310,5 @@ To learn how to create a web app that uploads an image to Blob storage, continue
 > [!div class="nextstepaction"]
 > [Upload and process an image](storage-upload-process-images.md)
 
-- To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).
-- To explore a sample application that you can deploy from Visual Studio for Windows, see the [.NET Photo Gallery Web Application Sample with Azure Blob Storage](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/).
+* To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).
+* To explore a sample application that you can deploy from Visual Studio for Windows, see the [.NET Photo Gallery Web Application Sample with Azure Blob Storage](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/).
