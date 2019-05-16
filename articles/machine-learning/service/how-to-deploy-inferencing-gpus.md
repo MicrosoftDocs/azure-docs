@@ -18,7 +18,7 @@ Learn how to run inference workloads on a GPU-enabled machine learning model dep
 
 GPUs offer performance advantages over CPUs on highly parallelizable computation. Training and inferencing deep learning models (especially for large batches of requests) are excellent use cases for GPUs.  
 
-This example will show you how to deploy a TensorFlow saved model to Azure Machine Learning by:
+This example demonstrates how to deploy a TensorFlow saved model to Azure Machine Learning by:
 
 * Creating a GPU-enabled AKS cluster
 * Deploying a Tensorflow GPU model
@@ -161,13 +161,13 @@ print(aks_service.state)
 ```
 
 > [!NOTE]
-> Azure Machine Learning service will not deploy a model with an `InferenceConfig` that expects GPU enabled to a cluster that's not GPU enabled.
+> Azure Machine Learning service won't deploy a model with an `InferenceConfig` that expects GPU to be enabled to a cluster that doesn't have a GPU.
 
-For more information, see [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
+For more information, see [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-## Issue sample query to deployed model
+## Issue a sample query to your deployed model
 
-Issue a sample query to your deployed model. This model will score any jpeg image you send to it as a post request.
+Send a test query to the deployed model. When you send a jpeg image to the model, it scores the image as a post request.
 
 ```python
 scoring_url = aks_service.scoring_uri
@@ -180,14 +180,14 @@ r = requests.post(scoring_url, data = img_data, headers=headers)
 ```
 
 > [!IMPORTANT]
-> To optimize latency and throughput, your client should be in the same Azure region as the endpoint.  Currently the APIs are created in the East US Azure region.
+> To minimize latency and optimize throughput, make sure your client is in the same Azure region as the endpoint. The APIs are created in the East US Azure region.
 
 ## Cleaning up the resources
 
-Delete your resources after you are done with the demo.
+Delete your resources after you are done with this example.
 
 > [!IMPORTANT]
-> Azure will bill you based on how long the AKS cluster is deployed. Make sure to clean it up after you are done with it.
+> Azure bills you based on how long the AKS cluster is deployed. Make sure to clean it up after you are done with it.
 
 ```python
 aks_service.delete()
@@ -196,6 +196,6 @@ aks_target.delete()
 
 ## Next steps
 
-* [Deploy model on FPGA](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service)
-* [Deploy model with ONNX](https://docs.microsoft.com/azure/machine-learning/service/how-to-build-deploy-onnx#deploy)
-* [Train Tensorflow DNN Models](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-tensorflow)
+* [Deploy model on FPGA](how-to-deploy-fpga-web-service)
+* [Deploy model with ONNX](concept-onnx#deploy-onnx-models-in-azure)
+* [Train Tensorflow DNN Models](how-to-train-tensorflow)
