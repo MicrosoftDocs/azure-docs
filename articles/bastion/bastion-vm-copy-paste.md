@@ -1,6 +1,6 @@
 ---
-title: 'Copy and paste content to a VM using Azure Bastion  | Microsoft Docs'
-description: In this article, learn how copy and paste and from an Azure Virtual Machine by using Azure Bastion.
+title: 'Copy and paste text to a VM: Azure Bastion  | Microsoft Docs'
+description: In this article, learn how copy and paste to and from an Azure Virtual Machine by using Azure Bastion.
 services: bastion
 author: cherylmc
 
@@ -8,11 +8,11 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: cherylmc
-# Customer intent: I want to copy and paste text across a local device and a remote session using Azure Bastion
+# Customer intent: I want to copy and paste text across a local device and a remote session using Azure Bastion.
 
 ---
 
-#  Copy and paste VM text using Azure Bastion(preview)
+#  Copy and paste text using Azure Bastion (preview)
 
 This article shows you how copy and paste text across local devices and remote sessions using Azure Bastion. You can connect to a VM directly from the Azure portal. When using Azure Bastion, VMs don't require a client, agent, or additional software. For more information about Azure Bastion, see the [Overview](bastion-overview.md).
 
