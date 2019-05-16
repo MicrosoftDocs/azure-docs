@@ -4,7 +4,7 @@ description: This article describes how to test queries locally with Azure Strea
 ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.date: 05/08/2019
+ms.date: 05/15/2019
 ms.topic: conceptual
 ---
 
