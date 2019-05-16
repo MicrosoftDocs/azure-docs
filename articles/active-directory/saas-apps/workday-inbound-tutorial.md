@@ -46,7 +46,7 @@ The Workday user provisioning workflows supported by the Azure AD user provision
 
 ### Who is this user provisioning solution best suited for?
 
-This Workday user provisioning solution is presently in public preview, and is ideally suited for:
+This Workday user provisioning solution is ideally suited for:
 
 * Organizations that desire a pre-built, cloud-based solution for Workday user provisioning
 
@@ -368,7 +368,7 @@ Once you have deployed .NET 4.7.1+, you can download the **[on-premises provisio
 
 1. Sign in to the Windows Server where you want to install the new agent.
 
-1. Launch the Provisioning Agent installer, agree to the terms and click on the **Install** button.
+1. Launch the Provisioning Agent installer, agree to the terms, and click on the **Install** button.
 
    ![Install Screen](./media/workday-inbound-tutorial/pa_install_screen_1.png "Install Screen")
    
@@ -470,7 +470,7 @@ In this section, you will configure how user data flows from Workday to Active D
 1. In the **Source Object Scope** field, you can select which sets of  users in Workday should be in scope for provisioning to AD, by defining a set of attribute-based filters. The default scope is “all users in Workday”. Example filters:
 
    * Example: Scope to users with Worker IDs between 1000000 and
-        2000000
+        2000000 (excluding 2000000)
 
       * Attribute: WorkerID
 
@@ -897,7 +897,7 @@ Yes, one Provisioning Agent can be configured to handle multiple AD domains as l
 
 * From the Azure portal, get the *tenant ID* of your Azure AD tenant.
 * Sign in to the Windows server running the Provisioning Agent.
-* Open powershell as Windows Administrator.
+* Open PowerShell as Windows Administrator.
 * Change to the directory containing the registration scripts and run the following commands replacing the \[tenant ID\] parameter with the value of your tenant ID.
 
   ```powershell
@@ -907,7 +907,7 @@ Yes, one Provisioning Agent can be configured to handle multiple AD domains as l
   ```
 
 * From the list of agents that appear – copy the value of the "id" field from that resource whose *resourceName* equals to your AD domain name.
-* Paste the ID value into this command and execute it in Powershell.
+* Paste the ID value into this command and execute the command in PowerShell.
 
   ```powershell
   Remove-PublishedResource -ResourceId "[resource ID]" -TenantId "[tenant ID]"
@@ -976,9 +976,9 @@ The solution currently does not support setting binary attributes such as *thumb
 
 #### How do I format display names in AD based on the user’s department/country/city attributes and handle regional variances?
 
-It is a common requirement to configure the *displayName* attribute in AD so that it also provides information about the user's department and country. For e.g. if John Smith works in the Marketing Department in US, you might want his *displayName* to show up as *Smith, John (Marketing-US)*.
+It is a common requirement to configure the *displayName* attribute in AD so that it also provides information about the user's department and country/region. For e.g. if John Smith works in the Marketing Department in US, you might want his *displayName* to show up as *Smith, John (Marketing-US)*.
 
-Here is how you can handle such requirements for constructing *CN* or *displayName* to include attributes such as company, business unit, city, or country.
+Here is how you can handle such requirements for constructing *CN* or *displayName* to include attributes such as company, business unit, city, or country/region.
 
 * Each Workday attribute is retrieved using an underlying XPATH API expression, which is configurable in  **Attribute Mapping -> Advanced Section -> Edit attribute list for Workday**. Here is the default XPATH API expression for Workday *PreferredFirstName*, *PreferredLastName*, *Company* and *SupervisoryOrganization* attributes.
 
@@ -1005,7 +1005,7 @@ Here is how you can handle such requirements for constructing *CN* or *displayNa
 
   Confirm with your Workday team that the API expressions above are valid for your Workday tenant configuration. If necessary, you can edit them as described in the section [Customizing the list of Workday user attributes](#customizing-the-list-of-workday-user-attributes).
 
-* To build the right attribute mapping expression, identify which Workday attribute “authoritatively” represents the user’s first name, last name, country and department. Let’s say the attributes are *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* and *SupervisoryOrganization* respectively. You can use this to build an expression for the AD *displayName* attribute as follows to get a display name like *Smith, John (Marketing-US)*.
+* To build the right attribute mapping expression, identify which Workday attribute “authoritatively” represents the user’s first name, last name, country/region and department. Let’s say the attributes are *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* and *SupervisoryOrganization* respectively. You can use this to build an expression for the AD *displayName* attribute as follows to get a display name like *Smith, John (Marketing-US)*.
 
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))

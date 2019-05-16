@@ -248,7 +248,7 @@ When you have created the cloud service, you can use [`kes.exe deploy_service`](
 
 [Swap](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md) the contents of the staging slot with the production slot, so that live traffic is now directed to the newly deployed service. You can repeat this process when deploying an updated version of the service with new data. As with all other Azure cloud services, you can optionally use the Azure portal to configure [auto-scaling](../../../articles/cloud-services/cloud-services-how-to-scale-portal.md).
 
-In this example, you deploy the *Academic* index to the staging slot of an existing cloud service with *<vm_size>* VMs. Use the following command:
+In this example, you deploy the *Academic* index to the staging slot of an existing cloud service with *\<vm_size>* VMs. Use the following command:
 
 `kes.exe deploy_service http://<account>.blob.core.windows.net/<container>/Academic.grammar http://<account>.blob.core.windows.net/<container>/Academic.index <serviceName> <vm_size> --slot Staging`
 

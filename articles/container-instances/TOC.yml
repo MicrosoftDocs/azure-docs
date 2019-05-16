@@ -45,6 +45,8 @@
     href: container-instances-region-availability.md
   - name: Relationship to orchestrators
     href: container-instances-orchestrator-relationship.md
+  - name: Security considerations
+    href: container-instances-image-security.md
 - name: How-to guides
   items:
   - name: Deploy
@@ -59,6 +61,8 @@
       href: container-instances-restart-policy.md
     - name: Set environment variables (env)
       href: container-instances-environment-variables.md
+    - name: Override container entrypoint
+      href: container-instances-start-command.md
     - name: Execute a command (exec)
       href: container-instances-exec.md
     - name: Run Jenkins build job
@@ -67,6 +71,8 @@
       href: container-instances-managed-identity.md
     - name: Use GPU resources (preview)
       href: container-instances-gpu.md
+    - name: Enable SSL endpoint
+      href: container-instances-container-group-ssl.md     
   - name: Mount data volumes
     items:
     - name: Azure file share
@@ -81,6 +87,8 @@
     items:
     - name: Configure liveness probes
       href: container-instances-liveness-probe.md
+    - name: Stop and start containers
+      href: container-instances-stop-start.md
     - name: Update running containers
       href: container-instances-update.md
   - name: Monitor and log
@@ -129,3 +137,5 @@
     href: https://stackoverflow.com/questions/tagged/azure-container-instances
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
+  - name: FAQ
+    href: container-instances-faq.md

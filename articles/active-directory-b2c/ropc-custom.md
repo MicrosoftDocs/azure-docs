@@ -3,7 +3,7 @@ title: Configure the resource owner password credentials flow in Azure Active Di
 description: Learn how to configure the resource owner password credentials flow in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity

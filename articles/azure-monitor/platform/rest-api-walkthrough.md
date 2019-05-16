@@ -1,12 +1,12 @@
 ---
 title: Azure Monitoring REST API walkthrough
 description: How to authenticate requests and use the Azure Monitor REST API to retrieve available metric definitions and metric values.
-author: mcollier
+author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: mcollier
+ms.author: robb
 ms.subservice: ""
 ---
 # Azure Monitoring REST API walkthrough
@@ -651,7 +651,7 @@ Version        : 08586982649483762729
 
 ### Azure CLI
 
-To retrieve the resource ID for an Azure Storage account using the Azure CLI, execute the 'az storage account show' command, as shown in the following example:
+To retrieve the resource ID for an Azure Storage account using the Azure CLI, execute the `az storage account show` command, as shown in the following example:
 
 ```
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
