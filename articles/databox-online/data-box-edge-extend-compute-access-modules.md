@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/16/2019
 ms.author: alkohli
 ---
 # Configure network on your Azure Data Box Edge to access modules
