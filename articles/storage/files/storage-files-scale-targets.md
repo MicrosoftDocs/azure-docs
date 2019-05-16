@@ -42,6 +42,8 @@ Premium file shares are provisioned in a special storage account called **filest
 > [!IMPORTANT]
 > Storage account limits apply to all shares. Scaling up to the max for storage accounts is only achievable if there is only one share per storage account.
 
+### File share and file scale targets
+
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
 ## Azure File Sync scale targets
