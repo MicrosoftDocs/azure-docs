@@ -32,7 +32,6 @@ You can use the job view to interact with Azure Stream Analytics jobs from Visua
 <img src="./media/vscode-explore-jobs/open-explorer.png" width="320">
 =======
 <img src="./media/vscode-explore-jobs/open-explorer.png" width="320" alt="Open Stream Analytics Explorer">
->>>>>>> Rename files and fix some issues in the content:articles/stream-analytics/vscode-explore-jobs.md
 
 2. Expand your job node, you can open and view the job query,  configuration, inputs, outputs and functions. 
 
