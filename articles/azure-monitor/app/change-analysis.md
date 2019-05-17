@@ -30,7 +30,7 @@ The following diagram illustrates the architecture of change analysis service:
 Currently the tool is integrated into the App Services web app diagnose and solve problems experience. See *Change Analysis service for App Services Web App* section on how to enable and view changes made to a web app.
 
 ### Azure Resource Manager deployment changes
-Leveraging [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) Change Analysis service provides historical change record on how the Azure resource that host your application has changed overtime. For example, if a web app got a tag added to it, the change will be reflected in the Change Analysis service.
+Leveraging [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) the change analysis tool provides a historical record of how the Azure resources that host your application have changed over time. For example, if a web app had a tag added to it, the change will be reflected in the change analysis tool.
 This information is always available as long as Change Analysis resource provider is onboarded to the Azure subscription.
 
 ### Web Application deployment and configuration changes
