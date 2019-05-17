@@ -36,8 +36,8 @@ This tutorial demonstrates how to develop a module in **C#** using **Visual Stud
 
 Use the following table to understand your options for developing and deploying C modules to Linux: 
 
-| C# | Visual Studio Code | Visual Studio 2017 | 
-| -- | ------------------ | ------------------ |
+| C# | Visual Studio Code | Visual Studio | 
+| -- | ------------------ | ------------- |
 | **Linux AMD64** | ![C# modules for LinuxAMD64 in VS Code](./media/tutorial-c-module/green-check.png) | ![C# modules for LinuxAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Linux ARM32** | ![C# modules for LinuxARM32 in VS Code](./media/tutorial-c-module/green-check.png) | ![C# modules for LinuxARM64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 
