@@ -44,7 +44,7 @@ The following example shows the target face:
 
 And these are the candidate faces:
 
-![Five images of women smiling with a and b showing the same person.](./Images/FaceFindSimilar.Candidates.jpg)
+![Five images of people smiling. Images a and b show the same person.](./Images/FaceFindSimilar.Candidates.jpg)
 
 To find four similar faces, the matchPerson mode returns a and b, which show the same person as the target face. The matchFace mode returns a, b, c, and d, exactly four candidates, even if some aren't the same person as the target or have low similarity. For more information, see the [Face recognition](concepts/face-recognition.md) concepts guide or the [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) reference documentation.
 

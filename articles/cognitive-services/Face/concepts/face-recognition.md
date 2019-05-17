@@ -59,7 +59,7 @@ Use the following tips to ensure that your input images give the most accurate r
 * Some faces might not be recognized because of technical challenges, such as:
   * Images with extreme lighting, for example, severe backlighting.
   * Obstructions that block one or both eyes.
-  * Differences in hairstyle or facial hair.
+  * Differences in hair type or facial hair.
   * Changes in facial appearance because of age.
   * Extreme facial expressions.
 
