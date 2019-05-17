@@ -4,7 +4,7 @@ description: Instructions for updating Azure Kinect DK device firmware
 author: joylital
 ms.author: joylital
 ms.prod: kinct-dk
-ms.date: 02/28/2019
+ms.date: 06/28/2019
 ms.topic: conceptual
 keywords: kinect, firmware, update, recovery
 ---
@@ -21,7 +21,7 @@ This document provides guidance on how to update device firmware on your Azure K
 
     - AzureKinectFirmwareTool.exe
     - A Firmware .bin file in the firmware folder, such as *AzureKinectDK_Fw_1.5.926614.bin*.
-    - 
+
 4. Connect your device to host PC and power it up also.
 
 > [!IMPORTANT] Keep the USB and power supply connected during the firmware update. Removing either connection during update may put the firmware into a corrupted state.
@@ -63,7 +63,7 @@ This document provides guidance on how to update device firmware on your Azure K
 3. If you see the above output, your firmware is updated. 
 
 
-4. After firmware update you can run [K4A Viewer](aazure-kinect-sensor-viewer.md) to verify all sensors are working as expected.
+4. After firmware update you can run [K4A Viewer](azure-kinect-sensor-viewer.md) to verify all sensors are working as expected.
 
 ## Troubleshooting
 

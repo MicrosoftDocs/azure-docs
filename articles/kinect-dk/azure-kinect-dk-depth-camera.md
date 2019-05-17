@@ -1,8 +1,8 @@
 ---
 title: Azure Kinect DK depth camera
 description: Depth camera concepts
-author: rabbitdaxi, 
-ms.author: rabbitdaxi
+author: joylital, 
+ms.author: joylital
 ms.prod: kinec-dk
 ms.date: 06/05/2019
 ms.topic: conceptual 
@@ -48,7 +48,7 @@ We measure the camera’s performance in terms of systematic and random errors. 
 
 Systematic error is defined as the difference between the measured depth after noise removal and the correct (ground truth) depth. We compute the temporal average over many frames of a static scene to eliminate depth noise as much as possible. More precisely, the systematic error is defined as:
 
-![Depth Systematic Error](./media/concepts/DepthCamera-depth-camera-systematic-error.png)
+![Depth Systematic Error](./media/concepts/depth-camera-systematic-error.png)
 
 Where *d_t* denotes the measure depth at time *t*, *N* is the number of frames used in the averaging procedure and d_gt is the ground truth depth. The depth camera’s systematic error specification is excluding multi-path interference (MPI). MPI is when one sensor pixel integrates light that's reflected by more than one object. MPI is partly mitigated in our depth camera using higher modulation frequencies, along with the depth invalidation, which we will introduce later.
 
