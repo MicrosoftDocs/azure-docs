@@ -18,7 +18,7 @@ ms.author: aschhab
 
 ---
 
-# Active Directory Role-Based Access Control (preview)
+# Active Directory Role-Based Access Control
 
 Microsoft Azure provides integrated access control management for resources and applications based on Azure Active Directory (Azure AD). With Azure AD, you can either manage user accounts and applications specifically for your Azure based applications, or you can federate your existing Active Directory infrastructure with Azure AD for company-wide single-sign-on that also spans Azure resources and Azure hosted applications. You can then assign those Azure AD user and application identities to global and service-specific roles in order to grant access to Azure resources.
 
@@ -28,7 +28,9 @@ An application that uses Azure AD RBAC does not need to handle SAS rules and key
 
 ## Service Bus roles and permissions
 
-For the initial public preview, you can only add Azure AD accounts and service principals to the "Owner" or "Contributor" roles of a Service Bus Messaging namespace. This operation grants the identity full control over all entities in the namespace. Management operations that change the namespace topology are initially only supported though Azure resource management and not through the native Service Bus REST management interface. This support also means that the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) object cannot be used with an Azure AD account.
+Azure provides the below built-in RBAC roles for authorizing access to a Service Bus namespace:
+
+* [Service Bus Data Owner](../role-based-access-control/built-in-roles#service-bus-data-owner): Used to enable full access to Service Bus namespaces and its entities (Queues, Topics, Subscriptions and Filters)
 
 ## Use Service Bus with an Azure AD domain user account
 
