@@ -59,7 +59,7 @@
       href: quickstart-scale-compute-powershell.md
     - name: T-SQL
       href: quickstart-scale-compute-tsql.md
-  - name: Workload Management
+  - name: Workload management
     items: 
     - name: Create workload classifier
       items:
@@ -177,9 +177,9 @@
     items:
     - name: Resource classes & workload management
       href: resource-classes-for-workload-management.md
-    - name: Workload Classification
+    - name: Workload classification
       href: sql-data-warehouse-workload-classification.md
-    - name: Workload Importance
+    - name: Workload importance
       href: sql-data-warehouse-workload-importance.md
     - name: Memory & concurrency limits
       href: memory-and-concurrency-limits.md
@@ -253,7 +253,7 @@
       href: sql-data-warehouse-query-visual-studio.md
     - name: Install Visual studio
       href: sql-data-warehouse-install-visual-studio.md
-  - name: Manage workload
+  - name: Workload management
     items:
     - name: Analyze your workload
       href: analyze-your-workload.md    
