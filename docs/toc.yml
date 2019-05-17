@@ -26,7 +26,7 @@
 - name: Submit add-ins via Partner Center
   items: 
   - name: Partner Center overview
-    href: use-partner-center-to-submit-to-the-office-store.md
+    href: use-partner-center-to-submit-to-appsource.md
   - name: Reserve add-in name
     href: reserve-add-in-name.md
   - name: Add-in setup
@@ -36,7 +36,7 @@
   - name: Define add-in properties
     href: define-add-in-properties.md
   - name: Create your AppSource listing
-    href: office-store-listing.md
+    href: appsource-listing.md
   - name: Set pricing and availability
     href: set-pricing-and-availability.md
   - name: Decide on a pricing model

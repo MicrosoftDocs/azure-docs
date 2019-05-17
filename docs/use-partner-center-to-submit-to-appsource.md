@@ -32,8 +32,9 @@ After you've verified that the name you chose is available, choose **Create**.
 
 |**Action**|**More information**|
 |:-------------|:-------|
-|Upload package|[Upload your submission package](upload-package.md).|
-|Define add-in properties    |[]
+|Upload your add-in package|[Upload your submission package](upload-package.md)|
+|Define your Store setings|[[Define add-in properties](define-add-in-properties.md)] and [Create your AppSource listing](appsource-listing.md)
+
 
 ### Details page
 
