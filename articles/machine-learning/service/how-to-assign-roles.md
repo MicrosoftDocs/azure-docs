@@ -110,5 +110,5 @@ For more information, see [Custom roles for Azure resources](/azure/role-based-a
 ## Next steps
 
 - [Enterprise security overview](concept-enterprise-security.md)
-- [Securely run experiments and inferencing inside a virtual network](how-to-enable-virtual-network.md)
+- [Securely run experiments and inference/score inside a virtual network](how-to-enable-virtual-network.md)
 - [Tutorial: Train models](tutorial-train-models-with-aml.md)

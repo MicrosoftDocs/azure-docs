@@ -40,9 +40,6 @@ The default analyzer is Standard Lucene, which works well for English, but perha
 
 + Microsoft's English analyzer performs lemmatization instead of stemming. This means it can handle inflected and irregular word forms much better what results in more relevant search results 
 
-  > [!Tip]
-  > The [Search Analyzer Demo](https://alice.unearth.ai/) provides side-by-side comparison of results produced by the standard Lucene analyzer, Lucene's English language analyzer, and Microsoft's English natural language processor. For each search input you provide, results from each analyzer are displayed in adjacent panes.
-
 ## Configuring analyzers
 
 Language analyzers are used as-is. For each field in the index definition, you can set the **analyzer** property to an analyzer name that specifies the language and linguistics stack (Microsoft or Lucene). The same analyzer will be applied when indexing and searching for that field. For example, you can have separate fields for English, French, and Spanish hotel descriptions that exist side by side in the same index. Alternatively, instead of **analyzer**, you can use **indexAnalyzer** and **searchAnalyzer** to have different analysis rules at indexing time and query time. 

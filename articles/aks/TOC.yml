@@ -187,7 +187,7 @@
       href: api-server-authorized-ip-ranges.md
     - name: Update cluster service principal credentials
       href: update-credentials.md
-    - name: Restrict and control cluster egress traffic
+    - name: Restrict and control cluster egress traffic (preview)
       href: limit-egress-traffic.md
     - name: Enable Azure Active Directory integration
       items:
@@ -212,6 +212,20 @@
     - name: View real-time container logs (preview)
       href: ../azure-monitor/insights/container-insights-live-logs.md
       maintainContext: true
+  - name: Use Windows Server containers (preview)
+    items:
+    - name: Create an AKS cluster
+      href: windows-container-cli.md
+    - name: Connect remotely
+      href: rdp.md
+    - name: Known limitations
+      href: windows-node-limitations.md
+    - name: Use the Kubernetes dashboard
+      href: kubernetes-dashboard.md
+    - name: Create Dockerfiles for Windows Server containers
+      href: https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
+    - name: Optimize Dockerfiles for Windows Server containers
+      href: https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
   - name: Develop and run applications
     items:
     - name: Develop with Dev Spaces

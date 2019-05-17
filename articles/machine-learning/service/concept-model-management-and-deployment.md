@@ -30,7 +30,7 @@ Each step can be performed independently or as part of a single command. Additio
 
 [!['Azure Machine Learning continuous integration/continuous deployment (CI/CD) cycle'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
-> [!VIDEO https://www.youtube.com/embed/0MaHb070H_8]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GX]
 
 ## Step 1: Register model
 
@@ -68,7 +68,7 @@ For more information, see [Deploy models](how-to-deploy-and-where.md).
 
 ### IoT Edge devices
 
-You can use models with IoT devices through **Azure IoT Edge modules**. IoT Edge modules are deployed to hardware devices, which enables inferencing on the device.
+You can use models with IoT devices through **Azure IoT Edge modules**. IoT Edge modules are deployed to hardware devices, which enables inference, or model scoring, on the device.
 
 For more information, see [Deploy models](how-to-deploy-and-where.md).
 
