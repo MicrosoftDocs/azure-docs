@@ -31,7 +31,7 @@ Currently the tool is integrated into the App Services web app diagnose and solv
 
 ### Azure Resource Manager deployment changes
 Leveraging [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) the change analysis tool provides a historical record of how the Azure resources that host your application have changed over time. For example, if a web app had a tag added to it, the change will be reflected in the change analysis tool.
-This information is always available as long as Change Analysis resource provider is onboarded to the Azure subscription.
+This information is always available as long as the `Microsoft.ChangeAnalysis` resource provider is onboarded to the Azure subscription.
 
 ### Web Application deployment and configuration changes
 Change Analysis tool captures deployment and configuration state of an application every 4 hours to compute the differences and present what has changed. Examples of such changes include application environment variable changes, IP configuration rule changes, Managed Service Identity changes, SSL settings changes, and so on.
