@@ -107,6 +107,61 @@ To get started, create a logic app in your Azure subscription by using the follo
 
     ![Select Use this template option](./media/devtest-lab-auto-shutdown/select-use-this-template.png)
 6. Copy the following JSON into the **Request Body JSON Schema** section: 
+
+    ```json
+    {
+    	"$schema": "http://json-schema.org/draft-04/schema#",
+    	"properties": {
+    		"delayUrl120": {
+    			"type": "string"
+    		},
+    		"delayUrl60": {
+    			"type": "string"
+    		},
+    		"eventType": {
+    			"type": "string"
+    		},
+    		"guid": {
+    			"type": "string"
+    		},
+    		"labName": {
+    			"type": "string"
+    		},
+    		"owner": {
+    			"type": "string"
+    		},
+    		"resourceGroupName": {
+    			"type": "string"
+    		},
+    		"skipUrl": {
+    			"type": "string"
+    		},
+    		"subscriptionId": {
+    			"type": "string"
+    		},
+    		"text": {
+    			"type": "string"
+    		},
+    		"vmName": {
+    			"type": "string"
+    		}
+    	},
+    	"required": [
+    		"skipUrl",
+    		"delayUrl60",
+    		"delayUrl120",
+    		"vmName",
+    		"guid",
+    		"owner",
+    		"eventType",
+    		"text",
+    		"subscriptionId",
+    		"resourceGroupName",
+    		"labName"
+    	],
+    	"type": "object"
+    }
+    ```
     
     ![Request Body JSON Schema](./media/devtest-lab-auto-shutdown/request-json.png)
 7. Select **+ New step** in the designer, and follow these steps:
@@ -118,7 +173,9 @@ To get started, create a logic app in your Azure subscription by using the follo
     4. Select **TO** field, and choose owner.
     5. Select **SUBJECT**, and input a subject of the email notification. For example: "Shutdown of machine vmName for Lab: labName."
     6. Select **BODY**, and define the body content for email notification. For example: "vmName is scheduled to shut down in 15 minutes. Skip this shutdown by clicking: URL. Delay shutdown for an hour: delayUrl60. Delay shutdown for 2 hours: delayUrl120."
-7. Select **Save** on the toolbar. Now, you can copy the **HTTP POST URL**. Select the copy button to copy the URL to the clipboard. 
+
+        ![Request Body JSON Schema](./media/devtest-lab-auto-shutdown/email-options.png)
+1. Select **Save** on the toolbar. Now, you can copy the **HTTP POST URL**. Select the copy button to copy the URL to the clipboard. 
 
     ![WebHook URL](./media/devtest-lab-auto-shutdown/webhook-url.png)
 
