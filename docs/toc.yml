@@ -65,7 +65,7 @@
     href: create-effective-office-store-listings.md
   - name: Craft effective AppSource store images
     href: craft-effective-appsource-store-images.md
-- Add-in management and services
+- name: Add-in management and services
   items:
     - name: Mange add-in names
       href: manage-add-in-names.md
