@@ -467,7 +467,7 @@ The following variables, functions, and views return different results:
 
 ### TEMPDB size
 
-The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited with the instance storage size. The `tempdb` database is always split into 12 data files. This maximum size per file can't be changed, and new files can be added to `tempdb`. Some queries might return an error if they need more than 24 GB per core in `tempdb`.
+The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited with the instance storage size. The `tempdb` database is always split into 12 data files. This maximum size per file can't be changed, and new files cannot be added to `tempdb`. Some queries might return an error if they need more than 24 GB per core in `tempdb`. `tempdb` is always re-created as an empty database when the instance start or fail-over and any change made in `tempdb` will not be preserved. 
 
 ### Can't restore contained database
 
