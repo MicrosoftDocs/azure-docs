@@ -146,12 +146,10 @@ If a tag does not exist, it is assumed to have the default value.
 | K4A_DEVICE_SERIAL_NUMBER   | ""                 | N/A                               | Recording device serial number                                                       |
 | K4A_START_OFFSET_NS        | "0"                | start_timestamp_offset_usec       | See [Timestamp Synchronization](https://aka.ms/AzureKinectAPIDocs/sdk-record-playback.md#timestamp-synchronization). |
 
-### Timestamp synchronization
+## Timestamp synchronization
 
 When using the external sync cable to synchronize cameras, the timestamps coming off each device will be synchronized, and the first timestamp off each device can be non-zero. Since recording files must always start at timestamp 0, it poses problems for synchronizing files recorded from multiple cameras.
 
 The `K4A_START_OFFSET_NS` tag is used to specify a timestamp offset so that files can be re synchronized after recording.
 By adding this timestamp offset to each timestamp in the file, the original timestamps from the device can be reconstructed.
 The start offset is also available in the [k4a_record_configuration_t](https://aka.ms/AzureKinectAPIDocs/api/k4a-record-configuration-t.md) struct.
-
-## Next Steps
