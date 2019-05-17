@@ -1,6 +1,6 @@
 ---
 title: Get SQL query performance & execution metrics
-description: Learn about how to retrieve SQL query execution metrics and profile SQL query performance of Azure Cosmos DB requests.
+description: Learn how to retrieve SQL query execution metrics and profile SQL query performance of Azure Cosmos DB requests.
 author: GinaRobinson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,9 +9,9 @@ ms.date: 05/17/2019
 ms.author: girobins
 
 ---
-# Get SQL query execution metrics and analyze query performance
+# Get SQL query execution metrics and analyze query performance using .Net SDK
 
-[QueryMetrics](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.querymetrics.aspx) is a strongly typed object with information about the backend query execution. These metrics are documented in more detail [here](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query-metrics). What this article focuses on is how you can retrieve these metrics client-side using the .net SDK.
+When you execute a SQL query on the Azure Cosmos DB items, you can gather different metrics on the executed query. The [QueryMetrics](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.querymetrics.aspx) class provides a strongly typed object, which you can use to gather metrics while the query is executed. These metrics are documented in more detail in the [Tune Query Performance](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query-metrics) article. What this article focuses on is how you can retrieve these metrics client-side using the .Net SDK.
 
 ## Set the FeedOptions parameter
 
