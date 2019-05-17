@@ -78,7 +78,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    In the **Relay State** text box, enter the customer specified Relay state URL.
+    1. Click **Set additional URLs**.
+    1. In the **Relay State** text box, enter the customer specified Relay state URL.
 
 1. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
 
