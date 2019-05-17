@@ -3,7 +3,7 @@ title: Deploy the Azure Blob Storage module to devices - Azure IoT Edge | Micros
 description: Deploy an Azure Blob Storage module to your IoT Edge device to store data at the edge.
 author: kgremban
 ms.author: kgremban
-ms.date: 05/14/2019
+ms.date: 05/21/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
@@ -50,7 +50,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    - **Name** - azureblobstorageoniotedge
    - **Image URI** - mcr.microsoft.com/azure-blob-storage:latest
 
-   > [!NOTE]
+   > [!IMPORTANT]
    > Azure IoT Edge is case-sensitive when you make calls to modules, and the Storage SDK also defaults to lowercase. Although the name of the module in the [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) is **AzureBlobStorageonIoTEdge**, changing the name to lowercase helps to ensure that your connections to the Azure Blob Storage on IoT Edge module aren't interrupted.
 
 1. The default **Container Create Options** values define the port bindings that your container needs, but you also need to add your storage account information and a bind for the storage directory on your device. Replace the default JSON in the portal with the JSON below:
@@ -88,9 +88,33 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
     ![Update module container create options - portal](./media/how-to-store-data-blob/edit-module.png)
 
-1. Set [tiering and time-to-live](how-to-store-data-blob.md#module-twin-desired-properties) in the module twin's desired properties.
+1. Set [tiering](how-to-store-data-blob.md#tiering-properties) and [time-to-live](how-to-store-data-blob.md#time-to-live-properties) properties for your module by copying the following JSON and pasting it into the **Set module twin's desired properties** box. Configure each property with an appropriate value, save it, and continue with the deployment.
 
-   For more information about desired properties, see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
+   ```json
+   {
+     "properties.desired": {
+       "ttlSettings": {
+         "ttlOn": <true, false>,
+         "timeToLiveInMinutes": <timeToLiveInMinutes>
+       },
+       "tieringSettings": {
+         "tieringOn": <true, false>,
+         "backlogPolicy": "<NewestFirst, OldestFirst>",
+         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>; EndpointSuffix=<your end point suffix>",
+         "tieredContainers": {
+           "<source container name1>": {
+             "target": "<target container name1>"
+           }
+             }
+           }
+         }
+       }
+
+      ```
+
+   ![set tiering and time-to-live properties](./media/how-to-store-data-blob/iotedge_custom_module.png)
+
+   For information on configuring tiering and TTL after your module has been deployed, see [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). For more information about desired properties, see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
 
 1. Select **Save**.
 
@@ -143,11 +167,12 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
 
    1. Delete the **tempSensor** module, as it's not necessary for this deployment.
 
-   1. Copy and paste the following code into the **createOptions** field of your blob storage module:
+   1. Copy and paste the following code into the `createOptions` field:
 
       ```json
-      "Env": [
-        "LOCAL_STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME","LOCAL_STORAGE_ACCOUNT_KEY=$STORAGE_ACCOUNT_KEY"
+      "Env":[
+       "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
+       "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>"
       ],
       "HostConfig":{
         "Binds": ["<storage directory bind>"],
@@ -159,7 +184,11 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
 
       ![Update module createOptions - Visual Studio Code](./media/how-to-store-data-blob/create-options.png)
 
-   1. Replace `<storage directory bind>` according to your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to a directory on your IoT Edge device where you want the blob module to store its data. The storage directory bind maps a location on your device that you provide to a set location in the module.  
+1. Replace `<your storage account name>` with a name that you can remember. Account names should be 3 to 24 characters long, with lowercase letters and numbers. No spaces.
+
+1. Replace `<your storage account key>` with a 64-byte base64 key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). You'll use these credentials to access the blob storage from other modules.
+
+1. Replace `<storage directory bind>` according to your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to a directory on your IoT Edge device where you want the blob module to store its data. The storage directory bind maps a location on your device that you provide to a set location in the module.  
 
       - For Linux containers, the format is *\<storage path>:/blobroot*. For example, **/srv/containerdata:/blobroot** or **my-volume:/blobroot**.
       - For Windows containers, the format is *\<storage path>:C:/BlobRoot*. For example, **C:/ContainerData:C:/BlobRoot** or **my-volume:C:/blobroot**.
@@ -167,32 +196,38 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
       > [!IMPORTANT]
       > Do not change the second half of the storage directory bind value, which points to a specific location in the module. The storage directory bind should always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
 
-1. Configure [tiering and time-to-live](how-to-store-data-blob.md#module-twin-desired-properties) in the *deployment.template.json* file.
+1. Configure [tiering](how-to-store-data-blob.md#tiering-properties) and [time-to-live](how-to-store-data-blob.md#time-to-live-properties) properties for your module by adding the following JSON to the *deployment.template.json* file. Configure each property with an appropriate value and save the file.
 
-   For more information about the module twin, see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
+   ```json
+   "<your azureblobstorageoniotedge module name>":{
+     "properties.desired": {
+       "ttlSettings": {
+         "ttlOn": <true, false>,
+         "timeToLiveInMinutes": <timeToLiveInMinutes>
+       },
+       "tieringSettings": {
+         "tieringOn": <true, false>,
+         "backlogPolicy": "<NewestFirst, OldestFirst>",
+         "remoteStorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>",
+         "tieredContainers": {
+           "<source container name1>": {
+             "target": "<target container name1>"
+           }
+         }
+       }
+     }
+   }
+   ```
+
+   ![set desired properties for azureblobstorageoniotedge - Visual Studio Code](./media/how-to-store-data-blob/tiering_ttl.png)
+
+   For information on configuring tiering and TTL after your module has been deployed, see [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). For more information about container create options, restart policy, and desired status, see [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties).
 
 1. Save the *deployment.template.json* file.
 
-1. Open the *.env* file in your solution workspace.
-
-   1. The *.env* file is set up to receive container registry credentials, but you don't need that for the blob storage image since it's publicly available. Instead, replace the file with two new environment variables:
-
-      ```env
-      STORAGE_ACCOUNT_NAME=
-      STORAGE_ACCOUNT_KEY=
-      ```
-
-   1. Provide a value for `STORAGE_ACCOUNT_NAME` with a name that you can remember. Account names should be 3 to 24 characters long, with lowercase letters and numbers.
-
-   1. Provide a 64-byte base64 key for `STORAGE_ACCOUNT_KEY`. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). You'll use these credentials to access the blob storage from other modules.
-
-      Don't include spaces or quotation marks around the values you provide.
-
-1. Save the *.env* file.
-
 1. Right-click **deployment.template.json** and select **Generate IoT Edge deployment manifest**.
 
-1. Visual Studio Code takes the information that you provided in *deployment.template.json* and *.env* and uses it to create a new deployment manifest file. The deployment manifest is created in a new **config** folder in your solution workspace. Once you have that file, you can follow the steps in [Deploy Azure IoT Edge modules from Visual Studio Code](how-to-deploy-modules-vscode.md) or [Deploy Azure IoT Edge modules with Azure CLI 2.0](how-to-deploy-modules-cli.md).
+1. Visual Studio Code takes the information that you provided in *deployment.template.json* and uses it to create a new deployment manifest file. The deployment manifest is created in a new **config** folder in your solution workspace. Once you have that file, you can follow the steps in [Deploy Azure IoT Edge modules from Visual Studio Code](how-to-deploy-modules-vscode.md) or [Deploy Azure IoT Edge modules with Azure CLI 2.0](how-to-deploy-modules-cli.md).
 
 ## Deploy multiple module instances
 
