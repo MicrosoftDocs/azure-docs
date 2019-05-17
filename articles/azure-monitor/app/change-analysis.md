@@ -35,7 +35,7 @@ This information is always available as long as the `Microsoft.ChangeAnalysis` r
 
 ### Web Application deployment and configuration changes
 Change Analysis tool captures deployment and configuration state of an application every 4 hours to compute the differences and present what has changed. Examples of such changes include application environment variable changes, IP configuration rule changes, Managed Service Identity changes, SSL settings changes, and so on.
-Unlike ARM changes, such change information may not be available immediately in the tool. To view the latest changes, use the 'Scan changes now' button in the tool.
+Unlike ARM changes, this type of change information may not be available immediately in the tool. To view the latest changes, use the 'Scan changes now' button in the tool.
 
 ![Screenshot of scan for changes now button in Diagnose and Solve problems tool with change analysis integration for app service web app](./media/change-analysis/scan-changes.png)
 
