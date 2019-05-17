@@ -381,7 +381,7 @@ Microsoft can remove the complexity of setting up a test drive by hosting and ma
 
 - **Max concurrent test drives** (required): Set the maximum number of customers that can use your test drive at one time. Each concurrent user will consume a Dynamics 365 license while the test drive is active, so you will need to ensure that you have enough licenses available to support the maximum limit set. Recommended value of 3-5.
 
-- **Test drive duration** (required): Enter the length of time that the Test Drive will stay active by defining the number of  of hours. After this many hours, the session will end and no longer consume one of your licenses. We recommend a value of 2-24 hours depending on the complexity of your offer. This duration may only bet set by a whole number of hours (e.g. "2" hours, "1.5" is not valid).  The user can request a new session if they run out of time and want to access the test drive again.
+- **Test drive duration** (required): Enter the length of time that the Test Drive will stay active by defining the number of hours. After this many hours, the session will end and no longer consume one of your licenses. We recommend a value of 2-24 hours depending on the complexity of your offer. This duration may only bet set by a whole number of hours (e.g. "2" hours, "1.5" is not valid).  The user can request a new session if they run out of time and want to access the test drive again.
 
 - **Instance URL** (required): The URL where the customer will begin their test drive. Typically the URL of your Dynamics 365 instance running your app with sample data installed (e.g. https://testdrive.crm.dynamics.com).
 

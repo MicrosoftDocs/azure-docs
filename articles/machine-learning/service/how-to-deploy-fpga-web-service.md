@@ -1,7 +1,7 @@
 ---
 title: Deploy models on FPGAs
 titleSuffix: Azure Machine Learning service
-description: Learn how to deploy a web service with a model running on an FPGA with Azure Machine Learning service for ultra-low latency inferencing. 
+description: Learn how to deploy a web service with a model running on an FPGA with Azure Machine Learning service for ultra-low latency inference. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 # Deploy a model as a web service on an FPGA with Azure Machine Learning service
 
-You can deploy a model as a web service on [field programmable gate arrays (FPGAs)](concept-accelerate-with-fpgas.md) with Azure Machine Learning Hardware Accelerated Models. Using FPGAs provides ultra-low latency inferencing, even with a single batch size.
+You can deploy a model as a web service on [field programmable gate arrays (FPGAs)](concept-accelerate-with-fpgas.md) with Azure Machine Learning Hardware Accelerated Models. Using FPGAs provides ultra-low latency inference, even with a single batch size. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
 
 These models are currently available:
   - ResNet 50
@@ -156,9 +156,9 @@ print(output_tensors)
 ```
 
 > [!IMPORTANT]
-> Save the input and output tensors because you will need them for model conversion and inferencing requests.
+> Save the input and output tensors because you will need them for model conversion and inference requests.
 
-The available models and the corresponding default classifier output tensors are below, which is what you would use during inferencing if you used the default classifier.
+The available models and the corresponding default classifier output tensors are below, which is what you would use for inference if you used the default classifier.
 
 + Resnet50, QuantizedResnet50
 ``
