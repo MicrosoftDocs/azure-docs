@@ -4,7 +4,7 @@ description: Kinect for Azure sensor data stream viewer homepage
 author: joylital
 ms.author: joylital
 ms.prod: kinect-dk
-ms.date: 04/08/2019
+ms.date: 06/08/2019
 ms.topic: conceptual
 keywords: azure, kinect, sensor, viewer, visualization, depth, rgb, color, imu, audio, microphone, point cloud
 ---

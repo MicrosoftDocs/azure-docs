@@ -1,5 +1,5 @@
 ---
-title: Azure Kinect DK depth camera
+title: Azure Kinect depth camera
 description: Depth camera concepts
 author: rabbitdaxi 
 ms.author: rabbitdaxi

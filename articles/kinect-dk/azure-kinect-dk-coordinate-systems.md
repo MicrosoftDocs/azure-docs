@@ -1,5 +1,5 @@
 ---
-title: Azure Kinect DK coordinate systems
+title: Azure Kinect coordinate systems
 description: 2D and 3D coordinate systems
 author: rabbitdaxi
 ms.author: rabbitdaxi
