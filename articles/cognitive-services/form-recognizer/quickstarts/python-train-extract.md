@@ -24,6 +24,8 @@ To complete this quickstart, you must have:
 - Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
 - A subscription key for Form Recognizer. Follow the single-service subscription instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) to subscribe to Form Recognizer and get your key. Don't use a multi-service subscription, because it won't include the Form Recognizer service.
+    > [!NOTE]
+    > Cognitive Services gives you the option to create a multi-service subscription key (used across different cognitive services) or a single-service subscription key (used only with a specific cognitive service). For this release, Form Recognizer only supports the use of single-service key.
 - A set of at least five forms of the same type. You can use a [sample dataset](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart.
 
 ## Create and run the sample
@@ -31,7 +33,7 @@ To complete this quickstart, you must have:
 To create and run the sample, make these changes to the code snippet that follows:
 1. Replace `<Endpoint>` with the endpoint URL for the Form Recognizer resource in the Azure region where you obtained your subscription keys.
 1. Replace `<SAS URL>` with an Azure Blob storage container shared access signature (SAS) URL of the location of the training data.  
-1. Replace `<Subscription Key>` with your subscription key.
+1. Replace `<Subscription key>` with your subscription key, which you can find by selecting **Show access keys** in the **Overview** section of your resource on the Azure portal.
     ```python
     ########### Python Form Recognizer Train #############
     from requests import post as http_post
