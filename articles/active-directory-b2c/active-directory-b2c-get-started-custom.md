@@ -66,8 +66,8 @@ Azure AD B2C requires you to register two applications that are used to sign up 
 
 ### Register the IdentityExperienceFramework application
 
-1. Choose **All services** in the top-left corner of the Azure portal, search for and select **App registrations**.
-2. Click the banner that says `This app registrations experience is not yet supported in Azure AD B2C directories. Click this banner to go to the legacy experience.`.
+1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure Active Directory**.
+2. In the menu, select **App registrations (Legacy)**.
 3. Select **New application registration**.
 4. For **Name**, enter `IdentityExperienceFramework`.
 5. For **Application type**, choose **Web app/API**.
