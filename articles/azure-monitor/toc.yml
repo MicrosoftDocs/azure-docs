@@ -306,7 +306,7 @@
         - name: Diagnostics
           href: ../application-insights/app-insights-azure-diagnostics.md
       - name: ASP.NET Core 
-        displayname: Core, .NET Core, services.add, dotnetcore
+        displayname: Core, .NET Core, services.add, dotnetcore, c#, csharp
         href: app/asp-net-core.md
       - name: ASP.NET apps
         items:

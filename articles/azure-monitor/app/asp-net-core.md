@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 05/17/2019
 ms.author: mbullwin
 ---
 
@@ -24,8 +24,8 @@ The [Application Insights SDK (Software Development Kit) for ASP.NET Core](https
 
 ## Prerequisites
 
-- A functioning ASP.NET Core Application. Follow the [ASP.NET Core getting started guide](https://docs.microsoft.com/aspnet/core/getting-started/) to create an ASP.NET Core Application, if needed.
-- A valid Application Insights instrumentation key, which is required to send any telemetry to the Application Insights service. Follow the [create a resource instructions] (https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) to create a new Application Insights resource, if needed and obtain an instrumentation key.
+- A functioning ASP.NET Core Application. Follow the [ASP.NET Core getting started guide](https://docs.microsoft.com/aspnet/core/getting-started/) to create an ASP.NET Core application, if needed.
+- A valid Application Insights instrumentation key, which is required to send any telemetry to the Application Insights service. Follow the [create a resource instructions](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) to create a new Application Insights resource, if needed and obtain an instrumentation key.
 
 ## Enable Application Insights server-side telemetry (Visual Studio)
 
@@ -48,7 +48,7 @@ The [Application Insights SDK (Software Development Kit) for ASP.NET Core](https
 
 ## Enable Application Insights server-side telemetry (without Visual Studio)
 
-1. Install the [Application Insights SDK NuGet package for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore). We recommend to always use the latest stable version. Full release notes for the SDK can be found [here](https://github.com/Microsoft/ApplicationInsights-aspnetcore/releases).
+1. Install the [Application Insights SDK NuGet package for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore). We recommend to always use the latest stable version. Full release notes for the SDK can be found on the [open source GitHub repo](https://github.com/Microsoft/ApplicationInsights-aspnetcore/releases).
 
     The following snippet shows the changes to be added to your project's `.csproj` file.
 
@@ -110,9 +110,9 @@ The [Application Insights SDK (Software Development Kit) for ASP.NET Core](https
 |Requests | Incoming web requests to your application. |
 |Http/Https | Calls made with `HttpClient`. |
 |SQL | Calls made with `SqlClient`. |
-|Azure storage | calls made with [Azure Storage Client](https://www.nuget.org/packages/WindowsAzure.Storage/) |
+|[Azure storage](https://www.nuget.org/packages/WindowsAzure.Storage/) | Calls made with Azure Storage Client. |
 |[EventHub Client SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | Version 1.1.0 and above. |
-|[ServiceBus Client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Version 3.0.0 and above|
+|[ServiceBus Client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Version 3.0.0 and above. |
 |Azure Cosmos DB | Only tracked automatically if HTTP/HTTPS is used. TCP mode won't be captured by Application Insights. |
 
 ### Performance Counters
@@ -219,7 +219,7 @@ To remove all or specific TelemetryInitializers, which are present by default, u
 
 ### Adding TelemetryProcessors
 
-Custom telemetry processors can be added to the `TelemetryConfiguration` by using the extension method `AddApplicationInsightsTelemetryProcessor` on `IServiceCollection`. Telemetry processors are used in [advanced filtering scenarios](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor) allow for more direct control over what is included or excluded from the telemetry you send to the Application Insights service. Use the following example.
+Custom telemetry processors can be added to the `TelemetryConfiguration` by using the extension method `AddApplicationInsightsTelemetryProcessor` on `IServiceCollection`. Telemetry processors are used in [advanced filtering scenarios](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor) to allow for more direct control over what is included or excluded from the telemetry you send to the Application Insights service. Use the following example.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
