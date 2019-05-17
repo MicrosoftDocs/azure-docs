@@ -32,6 +32,10 @@ The following decision tree will help you choose a predefined Streaming Policy f
 Click the image to view it full size.  <br/>
 <a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/small.png"></a> 
 
+## Advanced scenarios
+
+If you have special requirements (for example, if you want to specify different protocols, need to use a custom key delivery service, or need to use a clear audio track), you can create a custom Streaming Policy. The [Content Key Policies](content-key-policy-concept.md) topic provides examples of more advanced scenarios. 
+
 ## Examples
 
 ### Not encrypted
@@ -68,11 +72,6 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
 ```
 
 If you also want to encrypt your stream with CBCS (FairPlay), use 'Predefined_MultiDrmStreaming'.
-
-## Advanced scenarios
-
-If you have special requirements (for example, need to use a custom key delivery service or need to use a clear audio track), you can create a custom Streaming Policy. For explanations and examples, see [Content Key Policies](content-key-policy-concept.md).
-
 
 ## Filtering, ordering, paging
 
