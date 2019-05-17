@@ -4,7 +4,7 @@ description: calibration functions for Azure kinect dk
 author: cdedmonds
 ms.author: cdedmonds
 ms.prod: kinect-dk
-ms.date: 03/13/2019
+ms.date: 06/13/2019
 ms.topic: overview
 keywords: kinect, azure, sensor, sdk, coordinate system, calibration, functions, camera, intrinsic, extrinsic, project, unproject, transformation, rgb-d, point cloud
 ---
@@ -24,8 +24,6 @@ The calibration parameters are compatible with [OpenCV](https://opencv.org/). We
 ## Coordinate Transformation Functions
 
 The figure below shows the different coordinate systems of Azure Kinect as well as the functions to convert between them. We omit the 3D coordinate systems of gyroscope and accelerometer to keep the figure simple.
-
-![calibration function overview](https://aka.ms/AzureKinectAPIDocs/images/sdk_transformation_function_overview.png)
 
 Remark on lens distortion: 2D coordinates always refer to the distorted image in the SDK. The [undistortion example](https://github.com/Microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples/undistort) of the SDK demonstrates image undistortion. In general, 3D points will never be affected by lens distortion.
 

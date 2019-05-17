@@ -1,15 +1,15 @@
 ---
-title: Access microphone input data
+title: Access Azure Kinect microphone input data
 description: Get mic data for Azure Kinect
 author: joylital
 ms.author: joylital
 ms.prod: kinect-dk
-ms.date: 10/26/2018
+ms.date: 10/26/2019
 ms.topic: conceptual 
 keywords: kinect, azure, sensor, sdk, microphone, access mics, mic data
 ---
 
-# Access Microphones
+# Access microphones
 
 The Speech SDK Quickstarts provide examples to utilize the Azure Kinect DK microphone array in a variety of programming languages.
 For example, view Quickstart: Recognize speech in C++ on Windows by using the Speech SDK; the code is available [from GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp-windows).

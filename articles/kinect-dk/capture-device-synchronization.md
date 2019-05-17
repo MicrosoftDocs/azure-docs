@@ -1,15 +1,15 @@
 ---
-title: Capture device synchronization 
+title: Capture Azure Kinect device synchronization 
 description: Device synchronization
 author: xthexder
 ms.author: xthexder
 ms.prod: kinect-dk
-ms.date: 2/22/2019
+ms.date: 6/22/2019
 ms.topic: overview
 keywords: kinect, azure, sensor, sdk, depth, rgb, internal, external, synchronization, daisy chain, phase offset
 ---
 
-# Capture Synchronization
+# Capture synchronization
 
 The Azure Kinect is capable of hardware time alignment between the color and depth sensors on a single device. In addition,
 multiple Azure Kinect devices can be connected to one another to enable cross-device synchronization.

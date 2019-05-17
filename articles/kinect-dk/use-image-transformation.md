@@ -1,11 +1,11 @@
 ---
-title: Use image transformations
+title: Use Azure Kinect image transformations
 description: Transform Between Coordinate Systems
 author: cdedmonds
 ms.author: cdedmonds
 ms.prod: kinect-dk
 ms.topic: conceptual
-ms.date: 04/15/2019 
+ms.date: 06/15/2019 
 keywords: kinect, azure, sensor, sdk, coordinate system, calibration, project, unproject, transformation, rgb-d, point cloud
 ---
 
@@ -26,8 +26,6 @@ The following functions are covered:
 ## Overview of depth image from the color camera
 
  The function [k4a_transformation_depth_image_to_color_camera()](https://aka.ms/AzureKinectAPIDocs/api/k4a-transformation-depth-image-to-color-camera.md) transforms the depth map from the viewpoint of the depth camera into the viewpoint of the color camera. This function is designed to produce so-called RGB-D images, where D represents an additional image channel recording the depth value. As seen in the figure below, the color image and the output of [k4a_transformation_depth_image_to_color_camera()](https://aka.ms/AzureKinectAPIDocs/api/k4a-transformation-depth-image-to-color-camera.md) look as if they were taken from the same viewpoint, i.e., the viewpoint of the color camera.
-
- ![Result of RGB-D Functions](https://aka.ms/AzureKinectAPIDocs/images/sdk_rgbd.png)
 
 ### Implementation
 
