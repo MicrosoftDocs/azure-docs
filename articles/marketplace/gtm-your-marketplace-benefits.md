@@ -52,7 +52,7 @@ To access these benefits, you will need to:
 
 Based on your solution status, offer being List, Trial, or Transact – Marketplace rewards, you will receive either an email with self-help resources, or an invitation to a consultation call with a dedicated Engagement Manager. You do not need to do anything to initiate the call—the Marketplace Onboarding Team will reach out to you based on the information you provide in the [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
-The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion.  These listings are also eligible for additional marketing benefits based on solution status (List, Trial, or Transact- marketplace rewards), chosen marketplace, and Microsoft Partner Competency achievement.
+The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion.  These listings are also eligible for additional marketing benefits based on solution status (List, Trial, or Transact - marketplace rewards), chosen marketplace, and Microsoft Partner Competency achievement.
 
 The table below summarize the eligibility requirements for list and trial offers:
 
