@@ -27,21 +27,8 @@ Azure Logic Apps provides a [prebuilt logic apps Azure Resource Manager template
 
 For the easiest way to create a valid template for your logic app deployment, use Visual Studio and the Azure Logic Apps Tools for Visual Studio extension. By downloading your logic app from the Azure portal into Visual Studio, you get a valid deployment template that you can use with any Azure subscription and location. Also, downloading your logic app automatically parameterizes the logic app definition that's embedded in the template. For more information about creating and managing logic apps in Visual Studio, see [Create logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) and [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 
-### Add to existing resource group project
 
-If you have an existing Azure Resource Group project, you can add a new logic app to that project by using the JSON Outline window. You can also add a blank logic app to a previously same project you previously created.
 
-1. In Solution Explorer, open the `<template>.json` file.
-
-1. From the **View** menu, select **Other Windows** > **JSON Outline**.
-
-1. To add a resource to the template file, choose **Add Resource** at the top of the JSON Outline window. Or in the JSON Outline window, right-click **resources**, and select **Add New Resource**.
-
-   ![JSON Outline window](./media/logic-apps-create-azure-resource-manager-templates/jsonoutline.png)
-
-1. In the **Add Resource** dialog box, find and select **Logic App**. Name your logic app, and choose **Add**.
-
-   ![Add resource](./media/logic-apps-create-azure-resource-manager-templates/addresource.png)
 
 ## Create templates with Azure PowerShell
 
