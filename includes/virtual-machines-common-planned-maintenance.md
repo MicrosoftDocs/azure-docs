@@ -40,7 +40,7 @@ These types of updates can affect some applications. When the VM is live-migrate
 
 Live migration is an operation that doesn't require a reboot and that preserves memory for the VM. It causes a pause or freeze, typically lasting no more than 5 seconds. Except for G, M, N, and H series, all infrastructure as a service (IaaS) VMs, are eligible for live migration. Eligible VMs represent more than 90 percent of the IaaS VMs that are deployed to the Azure fleet. 
 
-Azure Service Fabric starts live migration in the following scenarios:
+The Azure platform starts live migration in the following scenarios:
 - Planned maintenance
 - Hardware failure
 - Allocation optimizations
