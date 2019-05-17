@@ -48,7 +48,7 @@ az extension add --name aks-preview
 > [!NOTE]
 > If you've previously installed the *aks-preview* extension, install any available updates using the `az extension update --name aks-preview` command.
 
-### Register multiple node pool feature provider
+### Register Windows preview feature
 
 To create an AKS cluster that can use multiple node pools and run Windows Server containers, first enable the *WindowsPreview* feature flags on your subscription. The *WindowsPreview* feature also uses multi-node pool clusters and virtual machine scale set to manage the deployment and configuration of the Kubernetes nodes. Register the  *WindowsPreview* feature flag using the [az feature register][az-feature-register] command as shown in the following example:
 
@@ -130,6 +130,7 @@ az aks create \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
     --enable-vmss \
+    --enable-addons monitoring \
     --network-plugin azure
 ```
 

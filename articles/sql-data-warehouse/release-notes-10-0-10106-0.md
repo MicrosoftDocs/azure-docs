@@ -4,7 +4,7 @@ description: Release notes for Azure SQL Data Warehouse.
 services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: 
 ms.date: 05/13/2019
 author: anumjs
 ms.author: anjangsh
@@ -18,16 +18,12 @@ This article summarizes the new features and improvements in the recent releases
 
 ## Check your Azure SQL Data Warehouse version
 
-Connect to your data warehouse via SQL Server Management Studio (SSMS) and run the following syntax to return the current version of SQL Data Warehouse.
-
-```sql
-SELECT @@VERSION AS 'SQL Data Warehouse';
-```
+As new features are being rolled out to all regions, please check the version deployed to your instance and the latest Azure SQL DW release notes for the feature availability. To check your Azure SQL DW, connect to your data warehouse via SQL Server Management Studio (SSMS) and run `SELECT @@VERSION AS 'SQL Data Warehouse';` to return the current version of Azure SQL DW.
 
 Example output:
 ![SQL Data Warehouse version](./media/release-notes/sql_data_warehouse_version.png)
 
-Use the date identified to confirm which release has been applied to your Azure SQL Data Warehouse.
+Use the date identified to confirm which release has been applied to your Azure SQL DW.
 
 ## May 2019
 
