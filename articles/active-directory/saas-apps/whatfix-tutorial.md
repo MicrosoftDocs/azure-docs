@@ -65,7 +65,6 @@ To configure and test Azure AD SSO with Whatfix, complete the following building
 5. **[Create Whatfix test user](#create-whatfix-test-user)** - to have a counterpart of Britta Simon in Whatfix that is linked to the Azure AD representation of user.
 6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
 
 ### Configure Azure AD SSO
 
