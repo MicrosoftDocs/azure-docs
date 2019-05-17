@@ -15,13 +15,14 @@ ms.custom: seodec18
 
 # Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning
 
-In this quickstart, you run Python code from a cloud-based Jupyter notebook that logs values in the [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md). The workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. 
+No install required.  Get started with Azure Machine Learning service using a managed notebook server in the cloud. If you want to instead install the SDK into your own Python environment, see [Quickstart: Use your own notebook server to get started with Azure Machine Learning](quickstart-run-local-notebook.md).
 
-This quickstart shows how to create a cloud virtual machine in your Azure Machine Learning workspace, configured with the Python environment necessary to run Azure Machine Learning. The [notebook VM (Preview)](how-to-configure-environment.md#notebookvm) is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter notebook server, JupyterLab, and a fully prepared ML environment. If you prefer to work locally, you can also [use your own notebook server](quickstart-run-local-notebook.md).  
+This quickstart shows how to create a [notebook VM (Preview)](how-to-configure-environment.md#notebookvm), a secure, cloud-based Azure workstation that provides data scientists with a Jupyter notebook server, JupyterLab, and a fully prepared ML environment. You then run a Python notebook that logs values into the [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md). The workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning.
 
 In this quickstart, you take the following actions:
 
-* Create a new cloud-based notebook server in your workspace.
+* Create a workspace
+* Create a notebook VM in your workspace.
 * Launch the Jupyter web interface.
 * Open a notebook that contains code to estimate pi and logs errors at each iteration.
 * Run the notebook.
@@ -35,7 +36,7 @@ If you have an Azure Machine Learning service workspace, skip to the [next secti
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## Create a cloud-based notebook server
+## Create a notebook VM
 
  From your workspace, you create a cloud resource to get started using Jupyter notebooks. This resource gives you a cloud-based platform pre-configured with everything you need to run Azure Machine Learning service.
 
@@ -139,6 +140,7 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 In this quickstart, you completed these tasks:
 
+* Create a workspace
 * Create a notebook VM.
 * Launch the Jupyter web interface.
 * Open a notebook that contains code to estimate pi and logs errors at each iteration.
