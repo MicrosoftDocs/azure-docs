@@ -88,7 +88,7 @@ For more information, see the reference documentation for the [Model class](http
 
 ## How to deploy
 
-To deploy as a web service, you must create an inference configuration (`InferenceConfig`) and a deployment configuration. In the inference config, you specify the scripts and dependencies needed to serve your model. In the deployment config you specify details of how to serve the model on the compute target.
+To deploy as a web service, you must create an inference configuration (`InferenceConfig`) and a deployment configuration. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data. In the inference config, you specify the scripts and dependencies needed to serve your model. In the deployment config you specify details of how to serve the model on the compute target.
 
 
 ### <a id="script"></a> 1. Define your entry script & dependencies
@@ -195,7 +195,7 @@ In this example, the configuration contains the following items:
 * A directory that contains assets needed to inference
 * That this model requires Python
 * The [entry script](#script), which is used to handle web requests sent to the deployed service
-* The conda file that describes the Python packages needed to run inferencing
+* The conda file that describes the Python packages needed to inference
 
 For information on InferenceConfig functionality, see the [Advanced configuration](#advanced-config) section.
 
