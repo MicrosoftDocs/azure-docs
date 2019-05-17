@@ -52,7 +52,7 @@ For example, in this case, the depth camera ISP is running FW 1.5.63.
 
 The depth camera viewer will show two windows: 
 
-* One is called *Active Brightness* which is a greyscale image showing IR brightness.
+* One is called *Active Brightness* which is a grayscale image showing IR brightness.
 * The second is called *Depth*, which has a colorized representation of the depth data.
 
 Hover your cursor, at the pixel in the the depth window, to see the value of the depth sensor, as shown below.
