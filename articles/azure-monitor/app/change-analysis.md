@@ -30,17 +30,22 @@ The following diagram illustrates the architecture of change analysis service:
 Currently the tool is integrated into the App Services web app diagnose and solve problems experience. See *Change Analysis service for App Services Web App* section on how to enable and view changes made to a web app.
 
 ### Azure Resource Manager deployment changes
-Leveraging [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) Change Analysis service provides historical change record on how the Azure resource that host your application has changed overtime. For example, if a web app got a tag added to it, the change will be reflected in the Change Analysis service.
-This information is always available as long as Change Analysis resource provider is onboarded to the Azure subscription.
+Leveraging [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) the change analysis tool provides a historical record of how the Azure resources that host your application have changed over time. For example, if a web app had a tag added to it, the change will be reflected in the change analysis tool.
+This information is always available as long as the `Microsoft.ChangeAnalysis` resource provider is onboarded to the Azure subscription.
 
 ### Web Application deployment and configuration changes
 Change Analysis tool captures deployment and configuration state of an application every 4 hours to compute the differences and present what has changed. Examples of such changes include application environment variable changes, IP configuration rule changes, Managed Service Identity changes, SSL settings changes, and so on.
-Unlike ARM changes, such change information may not be available immediately in the tool. To view the latest changes, use the 'Scan changes now' button in the tool.
+Unlike ARM changes, this type of change information may not be available immediately in the tool. To view the latest changes, use the 'Scan changes now' button in the tool.
 
 ![Screenshot of scan for changes now button in Diagnose and Solve problems tool with change analysis integration for app service web app](./media/change-analysis/scan-changes.png)
 
+<<<<<<< HEAD
 ### Dependency changes
 Dependencies resource could also be the cause of issues. For example, if a web app calls into a Redis cache, the web app performance can be impacted by Redis cache SKU. By looking into the web app DNS record change analysis service also present the dependencies change information to identify changes in all components of an app that could have caused issues.
+=======
+### Dependencies changes
+Resource dependencies could also be the cause of issues. For example, if a web app calls into a Redis cache, the web app performance can be impacted by the Redis cache SKU. By looking into the web app DNS record the change analysis tool will present the dependencies' change information to identify changes in all components of an app that could have caused issues.
+>>>>>>> f41fa207d83f485619f143f1ba08db6275a83fb7
 
 
 ## Change Analysis service for App Services Web App
