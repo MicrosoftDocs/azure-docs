@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 05/17/2019
 ms.author: cherylmc
 # Customer intent: I want to copy and paste text across a local device and a remote session using Azure Bastion.
 
@@ -32,6 +32,8 @@ Make sure that you have set up an Azure Bastion host for the virtual network in 
 
 ## <a name="to"></a>To a remote session
 
+After connecting to the virtual machine using the [Azure portal](https://aka.ms/BastionHost) for the Bastion preview:
+
 1. Copy the text/content from the local device into local clipboard.
 1. During the remote session, launch the Bastion clipboard access tool palette by selecting the two arrows. The arrows are located on the left center of the session.
 
@@ -45,6 +47,8 @@ Make sure that you have set up an Azure Bastion host for the virtual network in 
     ![paste](./media/bastion-vm-copy-paste/local.png)
 
 ## <a name="from"></a>From a remote session
+
+After connecting to the virtual machine using the [Azure portal](https://aka.ms/BastionHost) for the Bastion preview:
 
 1. Copy the text/content from the remote session into remote clipboard (using Ctrl-C).
 
