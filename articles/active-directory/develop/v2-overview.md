@@ -76,4 +76,4 @@ When you’re ready to launch your app into a **production environment**, review
 
 ## Learn more
 
-If you’d planning to build a customer-facing application that signs in social and local identities, take a look at the [Azure AD B2C overview](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).
+If you’re planning to build a customer-facing application that signs in social and local identities, see the [Azure AD B2C overview](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).
