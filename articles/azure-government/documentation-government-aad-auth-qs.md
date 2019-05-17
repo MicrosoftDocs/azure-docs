@@ -54,7 +54,7 @@ The only variation when setting up Azure AD Authorization on the Azure Governmen
 - "https:\//login.microsoftonline.us"
 
 #### Configure the InventoryApp project
-1. Open your application in Visual Studio 2017.
+1. Open your application in Visual Studio 2019.
 2. Open the `appsettings.json` file.
 3. Add an `Authentication` section and fill out the properties with your Azure AD tenant information.
 	

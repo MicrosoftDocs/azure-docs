@@ -23,20 +23,16 @@ This article walks you through the steps of creating a sample ASP.NET Core [Razo
 ## Prerequisites
 
 - .NET Core 2.0.0 SDK or later
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) version 15.7.3 or later, with the ASP.NET and web development workload
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/), with the ASP.NET and web development workload
 
 ## Create an ASP.NET Core project in Visual Studio
 
-1. Right-click **Visual Studio 2017**, and then select **Run as administrator**.
-2. Select **File** > **New** > **Project** (Ctrl+Shift+N).
+1. Right-click **Visual Studio 2019**, and then select **Run as administrator**.
+2. Select **Create a new project** (Ctrl+Shift+N).
 
    ![Screenshot of Visual Studio new project menu](./media/asp-net-core/001-new-project.png)
 
-3. Expand **Visual C#**. Select **.NET Core** > **ASP.NET Core Web Application**. Enter a project name and a solution name, and then select **Create new Git repository**.
-
-   ![Screenshot of Visual Studio new project wizard](./media/asp-net-core/002-asp-net-core-web-application.png)
-
-4. Select **.NET Core** > **ASP.NET Core 2.0** **Web Application** > **OK**.
+3. Select **ASP.NET Core Web Application** and then select **Next**.
 
     ![Screenshot of Visual Studio new project template selection](./media/asp-net-core/003-web-application.png)
 

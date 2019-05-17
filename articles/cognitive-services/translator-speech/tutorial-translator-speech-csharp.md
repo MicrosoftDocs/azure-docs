@@ -28,7 +28,7 @@ A Visual Studio solution file for this application is [available on GitHub](http
 
 ## Prerequisites
 
-For this tutorial, you need any edition of Visual Studio 2017, including the Community Edition.
+For this tutorial, you need any edition of Visual Studio 2019, including the Community Edition.
 
 The Visual Studio solution also builds an installer for the application. You need the [WiX Toolset](http://wixtoolset.org/) and the [WiX Toolset Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) to support this functionality.
 
