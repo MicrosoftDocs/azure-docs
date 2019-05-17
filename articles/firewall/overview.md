@@ -70,7 +70,9 @@ Inbound network traffic to your firewall public IP address is translated (Destin
 
 ### Multiple public IPs
 
-You can associate multiple public IP addresses with your firewall. This enables the following scenarios:
+You can associate multiple public IP addresses (up to 600) with your firewall.
+
+This enables the following scenarios:
 
 - **DNAT** - You can translate multiple standard port instances to your backend servers. For example, if you have two public IP addresses, you can translate TCP port 3389 (RDP) for both IP addresses.
 - **SNAT** - Additional ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall.
