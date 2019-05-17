@@ -80,4 +80,4 @@ wordpress:
 
 ## Next steps
 
-- [Configure web apps in Azure App Service](https://docs.microsoft.com/azure/app-service/web-sites-configure).
+- [Configure web apps in Azure App Service](../configure-common.md).
