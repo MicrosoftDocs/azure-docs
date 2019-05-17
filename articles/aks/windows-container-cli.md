@@ -130,6 +130,7 @@ az aks create \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
     --enable-vmss \
+    --enable-addons monitoring \
     --network-plugin azure
 ```
 
