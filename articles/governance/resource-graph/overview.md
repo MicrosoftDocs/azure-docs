@@ -79,13 +79,16 @@ group, results won't be returned.
 
 As a free service, queries to Resource Graph are throttled to provide the best experience and
 response time for all customers. If your organization wants to use the Resource Graph API for
-large-scale and frequent queries, use portal 'Feedback' from the Resource Graph page. Provide your
-business case and select the 'Microsoft can email you about your feedback' checkbox in order for the
-team to contact you.
+large-scale and frequent queries, use portal 'Feedback' from the
+[Resource Graph portal page](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
+Provide your business case and select the 'Microsoft can email you about your feedback' checkbox in
+order for the team to contact you.
 
-Resource Graph throttles queries at the user level. The service sets the following headers:
+Resource Graph throttles queries at the user level. The service response contains the following HTTP
+headers:
 
-- `x-ms-user-quota-remaining` (int): The remaining number of queries for user
+- `x-ms-user-quota-remaining` (int): The remaining resource quota for the user. This value maps to
+  query count.
 - `x-ms-user-quota-resets-after` (hh:mm:ss): The time duration until a user's quota consumption is reset
 
 For more information, see
