@@ -111,7 +111,7 @@ You can set up the OpenFrame environment using various deployment patterns, but 
 
 **To create a VM**
 
-1. Go to the Azure portal at <http://portal.azure.com> and sign in to your account.
+1. Go to the Azure portal at <https://portal.azure.com> and sign in to your account.
 
 2. Click **Virtual machines**.
 

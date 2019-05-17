@@ -15,6 +15,9 @@ Azure HDInsight’s cluster Autoscale feature automatically scales the number of
 
 ## Cluster compatibility
 
+> [!Important]
+> The Autoscale feature only works for clusters created after the public availability of the feature in May 2019. It won't work for pre-existing clusters.
+
 The following table describes the cluster types and versions that are compatible with the Autoscale feature.
 
 | Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |

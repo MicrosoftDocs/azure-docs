@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: Blackmist
-ms.date: 05/06/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
 ---
 
@@ -19,6 +19,12 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 + The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
+
+## 2019-05-14
+
+### Azure Machine Learning SDK for Python v1.0.39
++ **Changes**
+  + Run configuration auto_prepare_environment option is being deprecated, with auto prepare becoming the default.
 
 ## 2019-05-06
 
@@ -37,6 +43,15 @@ In Azure portal, you can now:
 + Added ability to download the config.json file from the Overview page of the Azure Machine Learning service workspace.
 + Support Machine Learning service workspace creation from Azure Databricks workspace 
 
+## 2019-04-26
+
+### Azure Machine Learning SDK for Python v1.0.33
++ **New features**
+  + The _Workspace.create_ method now accepts default cluster configurations for CPU and GPU clusters.
+  + If Workspace creation fails, depended resources are cleaned.
+  + Default Azure Container Registry SKU was switched to basic.
+  + Azure Container Registry is created lazily, when needed for run or image creation.
+  + Support for Environments for training runs.
 
 ### Notebook Virtual Machine 
 

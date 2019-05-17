@@ -51,7 +51,7 @@ This tutorial assumes you already have established an Azure file share. To back 
 
     ![Choose Azure Fileshare as Backup goal](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
-3. Click **Backup** to configure the Azure file share to your Recovery Services vault. 
+3. Click **Backup** to configure the Azure file share to your Recovery Services vault.
 
    ![click Backup to associate the Azure file share with vault](./media/backup-file-shares/set-backup-goal.png)
 
@@ -72,7 +72,7 @@ This tutorial assumes you already have established an Azure file share. To back 
     After establishing a backup policy, a snapshot of the File Shares will be taken at the scheduled time, and the recovery point is retained for the chosen period.
 
 ## Create an on-demand backup
-Occasionally you may want to generate a backup snapshot, or recovery point, outside of the times scheduled in the backup policy. A common time to generate an on-demand backup is right after you've configured the backup policy. Based on the schedule in the backup policy, it may be hours or days until a snapshot is taken. To protect your data until the backup policy engages, initiate an on-demand backup. Creating an Oo-demand backup is often required before you make planned changes to your file shares.
+Occasionally you may want to generate a backup snapshot, or recovery point, outside of the times scheduled in the backup policy. A common time to generate an on-demand backup is right after you've configured the backup policy. Based on the schedule in the backup policy, it may be hours or days until a snapshot is taken. To protect your data until the backup policy engages, initiate an on-demand backup. Creating an On-demand backup is often required before you make planned changes to your file shares.
 
 ### To create an on-demand backup
 
@@ -118,10 +118,12 @@ You can monitor the progress of all jobs on the **Backup Jobs** page.
 To open the **Backup Jobs** page:
 
 - Open the Recovery Services vault you want to monitor, and in the Recovery Services vault menu, click **Jobs** and then click **Backup Jobs**.
+
    ![Select the job you want to monitor](./media/backup-file-shares/open-backup-jobs.png)
 
     The list of Backup jobs and the status of those jobs appears.
-   ![Select the job you want to monitor](./media/backup-file-shares/backup-jobs-progress-list.png)
+
+    ![Select the job you want to monitor](./media/backup-file-shares/backup-jobs-progress-list.png)
 
 ### Create a new policy
 

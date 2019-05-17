@@ -75,7 +75,7 @@ You can register your application in either of two ways, as described in the nex
 
 #### CocoaPods
 
-You can use [CocoaPods](http://cocoapods.org/) to install `MSAL` by adding it to your `Podfile` under target:
+You can use [CocoaPods](https://cocoapods.org/) to install `MSAL` by adding it to your `Podfile` under target:
 
 ```
 use_frameworks!
