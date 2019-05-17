@@ -48,9 +48,8 @@ Fixes for the authentication redirect loop issues have been released in [MSAL.js
 
 When the `storeAuthStateInCookie` flag is enabled, MSAL.js will use the browser cookies to store the request state required for validation of the auth flows.
 
-**Note**:
-- This fix is not yet available for the msal-angular and msal-angularjs wrappers. 
-- This fix does not address the issue with Popup windows.
+> [!NOTE]
+> This fix is not yet available for the msal-angular and msal-angularjs wrappers. This fix does not address the issue with Popup windows.
 
 Use workarounds below.
 
@@ -72,3 +71,6 @@ Note, this will not solve the issue for InPrivate browsing since both session an
 There are cases when popups are blocked in IE or Microsoft Edge, for example when a second popup occurs during multi-factor authentication. You will get an alert in the browser to allow for the popup once or always. If you choose to allow, the browser opens the popup window automatically and returns a `null` handle for it. As a result, the library does not have a handle for the window and there is no way to close the popup window. The same issue does not happen in Chrome when it prompts you to allow popups because it does not automatically open a popup window.
 
 As a **workaround**, developers will need to allow popups in IE and Microsoft Edge before they start using their app to avoid this issue.
+
+## Next steps
+Learn more about [Using MSAL.js in Internet Explorer](msal-js-use-ie-browser.md).

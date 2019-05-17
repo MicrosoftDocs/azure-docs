@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 
 Microsoft Authentication Library for JavaScript (MSAL.js) is generated for [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) so that it can run in Internet Explorer. There are, however, a few things to know.
 
-## Authoring an application to run in Internet Explorer
+## Run an app in Internet Explorer
 If you intend to use MSAL.js in applications that can run in Internet Explorer, you will need to add a reference to a promise polyfill before referencing the MSAL.js script.
 
 ```html
@@ -53,3 +53,6 @@ If you want to run and debug locally your application running in Internet Explor
     1. Run and debug your application.
 
 When you are done, restore the Internet Explorer security settings.  Select **Settings** -> **Internet Options** -> **Security** -> **Reset all zones to default level**.
+
+## Next steps
+Learn more about [Known issues when using MSAL.js in Internet Explorer](msal-js-use-ie-browser.md).
