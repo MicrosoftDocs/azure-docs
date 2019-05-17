@@ -163,7 +163,7 @@ To deploy locally, modify your code to use `LocalWebservice.deploy_configuration
 from azureml.core.model import InferenceConfig
 from azureml.core.webservice import LocalWebservice
 
-# Create inferencing configuration. This creates a docker image that contains the model.
+# Create inference configuration. This creates a docker image that contains the model.
 inference_config = InferenceConfig(runtime= "python", 
                                    execution_script="score.py",
                                    conda_file="myenv.yml")

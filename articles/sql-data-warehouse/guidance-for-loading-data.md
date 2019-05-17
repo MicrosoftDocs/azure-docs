@@ -6,7 +6,7 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: load data
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: jrasnick
