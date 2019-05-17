@@ -70,6 +70,7 @@ This example defines template parameters for the name and location to use when c
 {
    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
    "contentVersion": "1.0.0.0",
+   // Template parameter definitions
    "parameters": {
       "LogicAppLocation": {
          "type": "string",
@@ -136,6 +137,7 @@ In this example, the template's `parameters` attribute defines the parameters fo
 {
    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
    "contentVersion": "1.0.0.0",
+   // Template parameter definitions
    "parameters": {
       "office365_1_Connection_Name": {
         "type": "string",
@@ -148,26 +150,28 @@ In this example, the template's `parameters` attribute defines the parameters fo
       "LogicAppLocation": {<...>},
       "LogicAppName": {<...>}
    },
+   // Template variable definitions
    "variables": {},
    "resources": [
       {
          "properties": {
             "definition": {<workflow-definition>},
+            // Workflow definition parameter values
             "parameters": {
                "$connections": {
                   "value": {
                      "office365": {
                         "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]",
-                        // References `office365_1_Connection_Name` in template parameters
+                        // References to template parameter values for `office365_1_Connection_Name`
                         "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
-                        // References `office365_1_Connection_Name` in template parameters
+                        // References to template parameter values for `office365_1_Connection_Name`
                         "connectionName": "[parameters('office365_1_Connection_Name')]"
                      }
                   }
                }
             }
          },
-         // References logic app information in template parameters
+         // References to template parameter values for `LogicAppName` and `LogicAppLocation`
          "name": "[parameters('LogicAppName')]",
          "type": "Microsoft.Logic/workflows",
          "location": "[parameters('LogicAppLocation')]",
@@ -176,21 +180,21 @@ In this example, the template's `parameters` attribute defines the parameters fo
          },
          "apiVersion": "2016-06-01",
          "dependsOn": [
-            // References 'office365_1_Connection_Name` in template parameters
+            // References to template parameter values for 'office365_1_Connection_Name`
            "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
          ]
       },
       {
          "type": "MICROSOFT.WEB/CONNECTIONS",
          "apiVersion": "2016-06-01",
-         // References 'office365_1_Connection_Name` in template parameters
+         // References to template parameter values for 'office365_1_Connection_Name`
          "name": "[parameters('office365_1_Connection_Name')]",
          "location": "<connection-resource-location>",
          "properties": {
             "api": {
                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]"
              },
-             // References 'office365_1_Connection_Display_Name` in template parameters
+             // References to template parameter values for 'office365_1_Connection_Display_Name`
              "displayName": "[parameters('office365_1_Connection_DisplayName')]"
          }
       }
@@ -227,6 +231,8 @@ Here are some best practices when defining parameters:
 
 * Differentiate template parameters from workflow definition parameters by using descriptive names.
 
+* Avoid using template expressions and functions, which are evaluated at deployment, inside your workflow definition where Workflow Definition Language expressions and functions are evaluated at runtime. For example, mixing both syntaxes can create complexity when evaluating Workflow Definition Language functions that accept values from template expressions.
+
 For more information, see [Best practices for template parameters](../azure-resource-manager/template-best-practices.md).
 
 <a name="template-parameter-files"></a>
@@ -239,6 +245,7 @@ To provide the values for Resource Manager template parameters, store those valu
 {
    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
    "contentVersion": "1.0.0.0",
+   // Template parameter values
    "parameters": {
       "<parameter-name-1>": {
         "value": "<parameter-value>"
@@ -257,6 +264,7 @@ For example, this short parameter file provides values for the template paramete
 {
    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
    "contentVersion": "1.0.0.0",
+   // Template parameter values
    "parameters": {
       "office365_1_Connection_Name": {
         "value": "office365-2"
@@ -300,10 +308,12 @@ Your template's `resources` attribute declares information for each resource tha
          "properties": {
             "state": "<enabled-or-disabled>",
             "definition": {<workflow-definition>},
+            // Workflow definition parameter values
             "parameters": {
                "$connections" : {<references-to-template-parameters-for-connection-resources>}
             }
          },
+         // References to template parameter values
          "name": "[parameters('LogicAppName')]",
          "type": "Microsoft.Logic/workflows",
          "location": "[parameters('LogicAppLocation')",
@@ -343,18 +353,18 @@ In this example, the template `resources` attribute declares resource informatio
                "$connections": {
                   "value": {
                      "office365": {
-                        // References `office365` connection resource values in parameter file
+                        // Workflow definition parameter values for `office365` connection
                         "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]",
-                        // References `office365_1_Connection_Name` in template parameters
+                        // References to template parameter values for `office365_1_Connection_Name`
                         "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
-                        // References `office365_1_Connection_Name` in template parameters
+                        // References to template parameter values for `office365_1_Connection_Name`
                         "connectionName": "[parameters('office365_1_Connection_Name')]"
                      }
                   }
                }
             }
          },
-         // Resource information for creating and deploying logic app
+         // Logic app resource information
          "name": "[parameters('LogicAppName')]",
          "type": "Microsoft.Logic/workflows",
          "location": "[parameters('LogicAppLocation')]",
@@ -363,23 +373,20 @@ In this example, the template `resources` attribute declares resource informatio
          },
          "apiVersion": "2016-06-01",
          "dependsOn": [
-            // References 'office365_1_Connection_Name` in template parameters
+            // References template parameter values for 'office365_1_Connection_Name`
             "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
          ]
       },
       {
-         // Resource information for creating Office 365 Outlook connection
+         // APIConnection information
          "type": "MICROSOFT.WEB/CONNECTIONS",
          "apiVersion": "2016-06-01",
-         // References 'office365_1_Connection_Name` in template parameters
          "name": "[parameters('office365_1_Connection_Name')]",
          "location": "westus",
          "properties": {
             "api": {
-               // References `office365` connection resource
                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]"
               },
-             // References 'office365_1_Connection_Display_Name` in template parameters
              "displayName": "[parameters('office365_1_Connection_DisplayName')]"
          }
       }
@@ -407,16 +414,20 @@ Under your template's `resources` > `properties` attributes, the `definition` at
       {
          "properties": {
             "state": "Enabled",
-            // Workflow definition structure starts here
+            // Workflow definition starts here
             "definition": {
                "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
                "actions": {<action-definitions>},
+               // Workflow definition parameters
                "parameters": {<workflow-parameter-definitions>},
                "triggers": {<trigger-definition>},
                "contentVersion": <workflow-definition-version-number>,
                "outputs": {<workflow-output-definitions>}
+            },
+            // Workflow definition parameter values
+            "parameters": {
+               "$connections": {<connection-values>}
             }
-            // Workflow definition structure ends here
          }
       }
    ],
@@ -443,6 +454,7 @@ For example, here's a logic app workflow definition that has these steps:
 ```json
 "definition": {
    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+   // Workflow action definitions
    "actions": {
       "Create_blob": {
          "inputs": {
@@ -469,12 +481,14 @@ For example, here's a logic app workflow definition that has these steps:
          "type": "ApiConnection"
       }
    },
+   // Workflow definition parameters
    "parameters": {
       "$connections": {
          "defaultValue": {},
          "type": "Object"
       }
    },
+   // Workflow trigger definition
    "triggers": {
       "When_a_new_email_arrives": {
          "inputs": {
@@ -530,7 +544,7 @@ For more information about workflow definition parameters, see [Parameters - Wor
 
 ## Logic app connections
 
-Under the template's `resources` > `properties` > `parameters` attributes, the `$connections` attribute contains references to resources that securely store metadata for any connections that your logic app creates and uses through [managed connectors](../connectors/apis-list.md). This metadata can include information such as connection strings and access tokens, which you can put into your template's parameter file.
+Under the template's `resources` > `properties` > `parameters` attributes, the `$connections` attribute contains references to the resources that securely store metadata for any connections that your logic app creates and uses through [managed connectors](../connectors/apis-list.md). This metadata can include information such as connection strings and access tokens, which you can put into your template's parameter file.
 
 Each new connection creates a resource with a unique name in Azure. So, when you have multiple connection resources for the same service or system, each resource name is appended with a number, which increments with each new instance, for example, `office365`, `office365-1`, and so on.
 
@@ -542,11 +556,12 @@ Each new connection creates a resource with a unique name in Azure. So, when you
          "properties": {
             "state": "Enabled",
             "definition": {<workflow-definition>},
+            // Workflow definition parameter values
             "parameters": {
                "$connections": {
                   "value": {
-                     // References to Office 365 Outlook connection template parameters
-                     "<connection-name>": {
+                     // Workflow definition parameter values for Office 365 Outlook connection
+                     "office365": {
                         "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]",
                       "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
                       "connectionName": "[parameters('office365_1_Connection_Name')]"
@@ -583,7 +598,9 @@ In this example, the `$connections` attribute contains an `office365` attribute,
             // Workflow definition starts here
             "definition": {
                "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+               // Workflow definition actions
                "actions": {<one-or-more-action-definitions>},
+               // Workflow definition parameters
                "parameters": {
                   "$connections": {
                      "defaultValue": {},
@@ -591,11 +608,11 @@ In this example, the `$connections` attribute contains an `office365` attribute,
                   }
                },
                "triggers": {
-                  // Trigger definition
+                  // Workflow definition trigger
                   "When_a_new_email_arrives": {
                      "inputs": {
                         "host": {
-                           // Reference to resource parameters
+                           // References to parameter values for workflow definition
                            "connection": {
                               "name": "@parameters('$connections')['office365']['connectionId']"
                            }
@@ -608,11 +625,11 @@ In this example, the `$connections` attribute contains an `office365` attribute,
                "contentVersion": <workflow-definition-version-number>,
                "outputs": {}
             },
-            // Workflow definition ends here
+            // Workflow definition parameter values
             "parameters": {
                "$connections": {
                   "value": {
-                     // References to connection resource and template parameters
+                     // Workflow definition parameter values for Office 365 Outlook connection
                      "office365": {
                         "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]",
                       "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
