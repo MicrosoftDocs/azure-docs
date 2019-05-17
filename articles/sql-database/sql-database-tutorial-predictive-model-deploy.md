@@ -196,6 +196,17 @@ RentalCount_Predicted
 
 You have successfully created, trained, and deployed a model in an Azure SQL database. You then used that model in a stored procedure to predict values based on new data.
 
+## Clean up resources
+
+When you've finished using the TutorialDB database, delete it from your Azure SQL Database server.
+
+From the Azure portal, follow these steps:
+
+1. From the left-hand menu in the Azure portal, select **All resources** or **SQL databases**.
+1. In the **Filter by name...** field, enter **TutorialDB**, and select your subscription.
+1. Select your TutorialDB database.
+1. On the **Overview** page, select **Delete**.
+
 ## Next Steps
 
 In part three of this tutorial series, you completed these steps:

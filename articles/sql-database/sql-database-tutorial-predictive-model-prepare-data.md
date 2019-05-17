@@ -140,6 +140,17 @@ $ Snow       : Factor w/ 2 levels "0","1": 1 1 1 1 1 1 1 1 1 1 ...
 
 The data is now prepared for training.
 
+## Clean up resources
+
+If you're not going to continue with this tutorial, delete the TutorialDB database from your Azure SQL Database server.
+
+From the Azure portal, follow these steps:
+
+1. From the left-hand menu in the Azure portal, select **All resources** or **SQL databases**.
+1. In the **Filter by name...** field, enter **TutorialDB**, and select your subscription.
+1. Select your TutorialDB database.
+1. On the **Overview** page, select **Delete**.
+
 ## Next Steps
 
 In part one of this tutorial series, you completed these steps:

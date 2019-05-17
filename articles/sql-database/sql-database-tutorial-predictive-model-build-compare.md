@@ -105,6 +105,17 @@ plot(predict_dtree$RentalCount_Pred  - predict_dtree$RentalCount,  main = "Diffe
 
 It looks like the decision tree model is the more accurate of the two models.
 
+## Clean up resources
+
+If you're not going to continue with this tutorial, delete the TutorialDB database from your Azure SQL Database server.
+
+From the Azure portal, follow these steps:
+
+1. From the left-hand menu in the Azure portal, select **All resources** or **SQL databases**.
+1. In the **Filter by name...** field, enter **TutorialDB**, and select your subscription.
+1. Select your TutorialDB database.
+1. On the **Overview** page, select **Delete**.
+
 ## Next Steps
 
 In part two of this tutorial series, you completed these steps:
