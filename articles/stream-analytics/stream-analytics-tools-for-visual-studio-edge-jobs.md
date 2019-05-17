@@ -19,7 +19,7 @@ In this tutorial, you learn how to use Stream Analytics tools for Visual Studio.
 
 You need the following prerequisites to complete this tutorial:
 
-* Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/), [Visual Studio 2017](https://my.visualstudio.com/Downloads?q=visual%20studio%202017&wt.mc_id=o~msft~vscom~older-downloads), [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/), or [Visual Studio 2013 Update 4](https://www.microsoft.com/download/details.aspx?id=45326). Enterprise (Ultimate/Premium), Professional, and Community editions are supported. Express edition isn't supported.  
+* Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/), [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/), or [Visual Studio 2013 Update 4](https://www.microsoft.com/download/details.aspx?id=45326). Enterprise (Ultimate/Premium), Professional, and Community editions are supported. Express edition isn't supported.  
 
 * Follow the [installation instructions](stream-analytics-tools-for-visual-studio-edge-jobs.md) to install Stream Analytics tools for Visual Studio.
  
