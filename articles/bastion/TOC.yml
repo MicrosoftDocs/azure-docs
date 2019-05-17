@@ -8,10 +8,18 @@
   items:
   - name: Create a bastion host
     href: bastion-create-host-portal.md
+  - name: Connect to a virtual machine
+    items:
+    - name: SSH (Linux)
+      href: bastion-connect-vm-ssh.md
+    - name: RDP (Windows)
+      href: bastion-connect-vm-rdp.md
+  - name: Copy and paste for virtual machines
+    href: bastion-vm-copy-paste.md
 - name: Reference
   items:
-  - name: Azure PowerShell
-    href: /powershell/module/az.network#vpn
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/network-gateway
 - name: Resources
   items:
   - name: Bastion FAQ
@@ -22,5 +30,7 @@
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Preview SLA
+    href: https://azure.microsoft.com/support/legal/preview-supplemental-terms
   - name: SLA
     href: https://azure.microsoft.com/support/legal/sla
