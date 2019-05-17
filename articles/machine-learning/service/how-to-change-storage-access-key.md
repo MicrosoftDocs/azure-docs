@@ -27,7 +27,7 @@ For security purposes, you may need to change the access keys for an Azure Stora
 
 * The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-* The [Azure Machine Learning CLI extension](reference-azure-machine-learning-cli).
+* The [Azure Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
 
 ## Update the key in Azure Machine Learning
 
