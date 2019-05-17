@@ -40,7 +40,7 @@ Unlike ARM changes, this type of change information may not be available immedia
 ![Screenshot of scan for changes now button in Diagnose and Solve problems tool with change analysis integration for app service web app](./media/change-analysis/scan-changes.png)
 
 ### Dependencies changes
-Dependencies resource could also be the cause of issues. For example, if a web app calls into a Redis cache, the web app performance can be impacted by Redis cache SKU. By looking into the web app DNS record change analysis service also present the dependencies change information to identify changes in all components of an app that could have caused issues.
+Resource dependencies could also be the cause of issues. For example, if a web app calls into a Redis cache, the web app performance can be impacted by the Redis cache SKU. By looking into the web app DNS record the change analysis tool will present the dependencies' change information to identify changes in all components of an app that could have caused issues.
 
 
 ## Change Analysis service for App Services Web App
