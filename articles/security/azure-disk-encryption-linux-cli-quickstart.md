@@ -28,15 +28,14 @@ az group create --name myResourceGroup --location eastus
 
 ## Create virtual machine
 
-Create a VM with [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). The following example creates a VM named *myVM*. This example uses *azureuser* for an administrative user name and *myPassword12* as the password. 
+Create a VM with [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). The following example creates a VM named *myVM*.
 
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image win2016datacenter \
-    --admin-username azureuser \
-    --admin-password myPassword12
+    --image Canonical:UbuntuServer:16.04-LTS:latest
+    --size Standard_D2S_V3 \
 ```
 
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
@@ -98,4 +97,5 @@ az group delete --name myResourceGroup
 ## Next steps
 
 In this quickstart, you created a virtual machine, created a Key Vault that was enable for encryption keys, and encrypted the VM. 
+
 
