@@ -26,7 +26,7 @@ The visual interface uses your Azure Machine Learning service [workspace](concep
 + Register [models](concept-azure-machine-learning-architecture.md#model).
 + [Deploy](#deployment) models as web services on compute resources in the workspace.
 
-![Overview of the visual interface](media/ui-concept-visual-interface/overview.png)
+[![Overview of the visual interface](media/ui-concept-visual-interface/overview.png)](media/ui-concept-visual-interface/overview.svg#lightbox)
 
 ## Workflow
 
