@@ -53,6 +53,8 @@
     href: functions-create-serverless-api.md
   - name: Create an OpenAPI definition
     href: functions-openapi-definition.md
+  - name: Connect to a Virtual Network
+    href: functions-create-vnet.md
   - name: Image resize with Event Grid
     href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Create a serverless web app
@@ -212,8 +214,8 @@
     items:   
     - name: Connect to SQL Database
       href: functions-scenario-database-table-cleanup.md
-    - name: Connect to a Virtual Network
-      href: functions-create-vnet.md
+    - name: Connect to a virtual Network
+      href: functions-create-vnet-old.md
     - name: Create an Open API 2.0 definition
       href: functions-api-definition-getting-started.md    
     - name: Export to PowerApps and Microsoft Flow
