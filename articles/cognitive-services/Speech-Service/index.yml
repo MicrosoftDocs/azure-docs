@@ -21,7 +21,7 @@ metadata:
 
 abstract:
   description: |
-    <div>Learn how to use the Speech Services with REST APIs or with our Speech SDK to add speech-enabled features to your apps. 
+    <div  style="max-width:100%">Learn how to use the Speech Services with REST APIs or with our Speech SDK to add speech-enabled features to your apps. 
     You can use the Speech SDK to add the following capabilities (and more) to your apps&colon; 
     <div class="row" style="font-size:16px"><div class="column"><ul>
     <li><b><a href="speech-to-text.md">speech-to-text</a></b> (speech-recognition/SR)</li>
