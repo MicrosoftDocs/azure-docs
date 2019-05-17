@@ -11,7 +11,7 @@ ms.author: iainfou
 ---
 # Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)
 
-All Azure services set default limits and quotas for resources and features. For the node size, certain virtual machine (VM) SKUs are then restricted for use.
+All Azure services set default limits and quotas for resources and features. Certain virtual machine (VM) SKUs are also restricted for use.
 
 This article details the default resource limits for Azure Kubernetes Service (AKS) resources and the availability of AKS in Azure regions.
 
