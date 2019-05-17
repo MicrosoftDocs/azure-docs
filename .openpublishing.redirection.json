@@ -91,6 +91,86 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/china/china-get-started-developer-guide.md",
+      "redirect_url": "https://docs.microsoft.com/azure/china/resources-developer-guide",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/china/china-get-started-plan.md",
+      "redirect_url": "https://docs.microsoft.com/azure/china",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/china/china-get-started-service-cdn.md",
+      "redirect_url": "https://docs.microsoft.com/azure/china",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/china/china-get-started-service-manage-and-connect.md",
+      "redirect_url": "https://docs.microsoft.com/azure/china",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/china/china-how-to-manage-performance.md",
+      "redirect_url": "https://docs.microsoft.com/azure/china",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/china/china-how-to-refactor.md",
+      "redirect_url": "https://docs.microsoft.com/azure/china",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/china/china-how-to-rehost.md",
+      "redirect_url": "https://docs.microsoft.com/azure/china",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/china/china-overview-faq.md",
+      "redirect_url": "https://docs.microsoft.com/azure/china",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/china/china-overview-operations.md",
+      "redirect_url": "https://docs.microsoft.com/azure/china",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/china/china-overview-policies.md",
+      "redirect_url": "https://docs.microsoft.com/azure/china",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/china/china-overview-service-hosting.md",
+      "redirect_url": "https://docs.microsoft.com/azure/china",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/china/china-overview-trust-cloud.md",
+      "redirect_url": "https://docs.microsoft.com/azure/china",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/china/china-resources-partners.md",
+      "redirect_url": "https://docs.microsoft.com/azure/china",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/china/china-resources-support.md",
+      "redirect_url": "https://docs.microsoft.com/azure/china",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/china/china-welcome.md",
+      "redirect_url": "https://docs.microsoft.com/azure/china",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/china/index.md",
+      "redirect_url": "https://docs.microsoft.com/azure/china",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/site-recovery/vmware-physical-mobility-service-install-manual.md",
       "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-mobility-agent-through-ui",
       "redirect_document_id": false
