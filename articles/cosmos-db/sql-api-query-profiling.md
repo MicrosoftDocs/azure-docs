@@ -12,7 +12,7 @@ ms.author: girobins
 # Profiling Queries
 
 ## QueryMetrics
-[QueryMetrics](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.querymetrics.aspx) is a strongly typed object with information about the backend query execution. These metrics are documented in more detail in the following article [https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query-metrics](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query-metrics). What this article focuses on is how you can retrieve these metrics client-side using the .net SDK.
+[QueryMetrics](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.querymetrics.aspx) is a strongly typed object with information about the backend query execution. These metrics are documented in more detail in [this article](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query-metrics). What this article focuses on is how you can retrieve these metrics client-side using the .net SDK.
 
 ## Setting the FeedOptions for CreateDocumentQuery
 
