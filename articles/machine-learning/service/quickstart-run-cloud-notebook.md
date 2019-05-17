@@ -36,7 +36,7 @@ If you have an Azure Machine Learning service workspace, skip to the [next secti
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a href="create-notebook"></a>Create a notebook VM
+## <a name="create-notebook"></a>Create a notebook VM
 
  From your workspace, you create a cloud resource to get started using Jupyter notebooks. This resource gives you a cloud-based platform pre-configured with everything you need to run Azure Machine Learning service.
 
