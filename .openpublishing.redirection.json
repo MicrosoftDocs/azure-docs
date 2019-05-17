@@ -36189,6 +36189,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/personalizer/personalizer-container-configuration.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/what-is-personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/personalizer/personalizer-container-howto.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/what-is-personalizer",
+      "redirect_document_id": false
+    },        
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-key-phrase.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-reference-prebuilt-keyphrase",
       "redirect_document_id": true
@@ -38901,21 +38911,6 @@
     {
       "source_path": "articles/media-services/latest/scripts/cli-upload-file-asset.md",
       "redirect_url": "/azure/media-services/latest/cli-upload-file-asset",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/aks/rdp.md",
-      "redirect_url": "https://cloudblogs.microsoft.com/opensource/2019/03/25/windows-server-containers-now-supported-kubernetes/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/aks/windows-container-cli.md",
-      "redirect_url": "https://cloudblogs.microsoft.com/opensource/2019/03/25/windows-server-containers-now-supported-kubernetes/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/aks/windows-node-limitations.md",
-      "redirect_url": "https://cloudblogs.microsoft.com/opensource/2019/03/25/windows-server-containers-now-supported-kubernetes/",
       "redirect_document_id": false
     },
     {
