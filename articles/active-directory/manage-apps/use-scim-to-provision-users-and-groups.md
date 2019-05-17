@@ -1344,8 +1344,8 @@ Group resources are identified by the schema identifier, `urn:ietf:params:scim:s
 | objectId |ID |
 | proxyAddresses |emails[type eq "other"].Value |
 
-## Allow IP addresses being used by the Azure AD provisioning service to make SCIM requests
-Certain apps allow inbound traffic to their app. In order for the Azure AD Provisioning service to function as expected, the IP addresses used must be allowed. A JSON file with the list of IP addresses for each service tag/region can be found [here](https://www.microsoft.com/en-us/download/details.aspx?id=56519). You can download and program these IPs into your firewall as needed. The reserved IP ranges for for Azure AD provisioning can be found under "AzureActiveDirectoryDomainServices."
+## Allow IP addresses used by the Azure AD provisioning service to make SCIM requests
+Certain apps allow inbound traffic to their app. In order for the Azure AD provisioning service to function as expected, the IP addresses used must be allowed. For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). You can download and program these IPs into your firewall as needed. The reserved IP ranges for for Azure AD provisioning can be found under "AzureActiveDirectoryDomainServices."
  
 
 ## Related articles
