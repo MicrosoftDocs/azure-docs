@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * Complete the article [Tutorial: Load data and run queries on an Apache Spark cluster in Azure HDInsight](./apache-spark-load-data-run-query.md).
 
-* Power BI: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
+* [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 * Optional: [Power BI trial subscription](https://app.powerbi.com/signupredirect?pbi_source=web).
 
@@ -63,39 +63,43 @@ The [Jupyter Notebook](https://jupyter.org/) that you created in the [previous t
 
 ## Visualize the data
 
-In this section, you use Power BI to create visualizations, reports, and dashboards from the Spark cluster data. 
+In this section, you use Power BI to create visualizations, reports, and dashboards from the Spark cluster data.
 
 ### Create a report in Power BI Desktop
+
 The first steps in working with Spark are to connect to the cluster in Power BI Desktop, load data from the cluster, and create a basic visualization based on that data.
 
 > [!NOTE]  
 > The connector demonstrated in this article is currently in preview. Provide any feedback you have through the [Power BI Community](https://community.powerbi.com/) site or [Power BI Ideas](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
 
-1. Open [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
-1. From the **Home** tab, click **Get Data**, then **More**.
+1. Open Power BI Desktop. Close the start up splash screen if it opens.
+
+2. From the **Home** tab, navigate to **Get Data** > **More..**.
 
     ![Get data into Power BI Desktop from HDInsight Apache Spark](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Get data into Power BI from Apache Spark BI")
 
-
-2. Enter `Spark` in the search box, select **Azure HDInsight Spark**, and then click **Connect**.
+3. Enter `Spark` in the search box, select **Azure HDInsight Spark**, and then select **Connect**.
 
     ![Get data into Power BI from Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Get data into Power BI from Apache Spark BI")
 
-3. Enter your cluster URL (in the form `mysparkcluster.azurehdinsight.net`), select **DirectQuery**, and then click **OK**.
+4. Enter your cluster URL (in the form `mysparkcluster.azurehdinsight.net`) in the **Server** text box.
 
-    You can use either data connectivity mode with Spark. If you use DirectQuery, changes are reflected in reports without refreshing the entire dataset. If you import data, you must refresh the data set to see changes. For more information on how and when to use DirectQuery, see [Using DirectQuery in Power BI](https://powerbi.microsoft.com/documentation/powerbi-desktop-directquery-about/). 
+5. Under **Data connectivity mode**, select **DirectQuery**. Then select **OK**.
 
-4. Enter the HDInsight login account information, then click **Connect**. The default account name is *admin*.
+    You can use either data connectivity mode with Spark. If you use DirectQuery, changes are reflected in reports without refreshing the entire dataset. If you import data, you must refresh the data set to see changes. For more information on how and when to use DirectQuery, see [Using DirectQuery in Power BI](https://powerbi.microsoft.com/documentation/powerbi-desktop-directquery-about/).
 
-5. Select the `hvac` table, wait to see a preview of the data, and then click **Load**.
+6. Enter the HDInsight login account information, then select **Connect**. The default account name is *admin*.
+
+7. Select the `hvac` table, wait to see a preview of the data, and then select **Load**.
 
     ![Spark cluster user name and password](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Spark cluster user name and password")
 
-    Power BI Desktop has the information it needs to connect to the Spark cluster and load data from the `hvac` table. The table and its columns are displayed in the **Fields** pane.  See the following screenshot:
+    Power BI Desktop has the information it needs to connect to the Spark cluster and load data from the `hvac` table. The table and its columns are displayed in the **Fields** pane.
 
-6. Visualize the variance between target temperature and actual temperature for each building: 
+8. Visualize the variance between target temperature and actual temperature for each building:
 
-    1. In the **VISUALIZATIONS** pane, select **Area Chart**. 
+    1. In the **VISUALIZATIONS** pane, select **Area Chart**.
+
     2. Drag the **BuildingID** field to **Axis**, and drag the **ActualTemp** and **TargetTemp** fields to **Value**.
 
         ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "Create Spark data visualizations using Apache Spark BI")
@@ -104,9 +108,9 @@ The first steps in working with Spark are to connect to the cluster in Power BI 
 
         ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "Create Spark data visualizations using Apache Spark BI")
 
-        By default the visualization shows the sum for **ActualTemp** and **TargetTemp**. Click the down arrow next to **ActualTemp** and **TragetTemp** in the Visualizations pane, you can see **Sum** is selected.
+        By default the visualization shows the sum for **ActualTemp** and **TargetTemp**. Select the down arrow next to **ActualTemp** and **TragetTemp** in the Visualizations pane, you can see **Sum** is selected.
 
-    3. Click the down arrows next to **ActualTemp** and **TragetTemp** in the Visualizations pane, select **Average** to get an average of actual and target temperatures for each building.
+    3. Select the down arrows next to **ActualTemp** and **TragetTemp** in the Visualizations pane, select **Average** to get an average of actual and target temperatures for each building.
 
         ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "Create Spark data visualizations using Apache Spark BI")
 
@@ -114,7 +118,7 @@ The first steps in working with Spark are to connect to the cluster in Power BI 
 
         ![Create Spark data visualizations using Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Create Spark data visualizations using Apache Spark BI")
 
-7. Click **File** then **Save**, and enter the name `BuildingTemperature.pbix` for the file. 
+9. Navigate to **File** > **Save**, enter the name `BuildingTemperature` for the file, then select **Save**.
 
 ### Publish the report to the Power BI Service (optional)
 
@@ -173,8 +177,7 @@ To delete a cluster, see [Delete an HDInsight cluster using your browser, PowerS
 
 ## Next steps
 
-In this tutorial, you learned how to use [Microsoft Power BI](https://powerbi.microsoft.com/) to visualize data in an Apache Spark cluster in [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
+In this tutorial, you learned how to use [Microsoft Power BI](https://powerbi.microsoft.com/) to visualize data in an Apache Spark cluster in [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/). Advance to the next article to see how the data you registered in Spark can be pulled into a BI analytics tool such as Power BI.
 
-Advance to the next article to see how the data you registered in Spark can be pulled into a BI analytics tool such as Power BI.
 > [!div class="nextstepaction"]
 > [Run an Apache Spark streaming job](apache-spark-eventhub-streaming.md)
