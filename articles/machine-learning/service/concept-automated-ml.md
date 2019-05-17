@@ -16,17 +16,17 @@ ms.custom: seodec18
 
 # What is automated machine learning?
 
-Automated machine learning, also referred to as AutoML, is the process of automating the time consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality.
+Automated machine learning, also referred to as automated ML, is the process of automating the time consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality.
 
-Traditional machine learning model development is resource-intensive, requiring significant domain knowledge and time to produce and compare dozens of models. Within  Azure Machine Learning service, AutoML is applied to the process of taking training data with a defined target feature, and intelligently iterating through combinations of ML algorithms and feature selections. As a result, each iteration produces a model and an associated training score; these scores are then used to rank and recommend the best fitted model for your data.
+Traditional machine learning model development is resource-intensive, requiring significant domain knowledge and time to produce and compare dozens of models. Within  Azure Machine Learning service, automated ML is applied to the process of taking training data with a defined target feature, and intelligently iterating through combinations of ML algorithms and feature selections. As a result, each iteration produces a model and an associated training score; these scores are then used to rank and recommend the best fitted model for your data.
 
 With automated machine learning, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
 
 ## When to use automated ML
 
-AutoML democratizes the machine learning model development process, and empowers its users, no matter their data science expertise, to identify an end-to-end machine learning pipeline for any problem.
+Automated ML democratizes the machine learning model development process, and empowers its users, no matter their data science expertise, to identify an end-to-end machine learning pipeline for any problem.
 
-Data scientists, analysts and developers across industries can use AutoML to:
+Data scientists, analysts and developers across industries can use automated ML to:
 
 + Implement machine learning solutions without extensive programming knowledge
 + Save time and resources
