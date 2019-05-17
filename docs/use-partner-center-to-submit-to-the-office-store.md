@@ -7,7 +7,7 @@ localization_priority: Priority
 
 # Submit your solution to AppSource via Partner Center
 
-If you want your Office or SharePoint add-in appear in AppSource and the in-product Store, you need to submit it to [Partner Center](http://go.microsoft.com/fwlink/?LinkId=248605) for approval. First, familiarize yourself with the [AppSource validation policies](validation-policies.md). You can add and save your submission as a draft in youraccount until you're ready to submit it for approval.
+If you want your Office or SharePoint add-in appear in AppSource and the in-product Store, you need to submit it to [Partner Center](http://go.microsoft.com/fwlink/?LinkId=248605) for approval. First, familiarize yourself with the [AppSource validation policies](validation-policies.md). You can add and save your submission as a draft in your account until you're ready to submit it for approval.
 
 If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and client secret, you can add a client ID and client secret before you add your add-in. For more information, see [Create or update client IDs and secrets in Partner Center](create-or-update-client-ids-and-secrets.md).
 
@@ -31,21 +31,10 @@ After you've verified that the name you chose is available, choose **Create**.
 
 ### Product overview page
 
-|**Field name**|**Notes**|
+|**Action**|**Notes**|
 |:-------------|:-------|
 |Upload package|Required <br/><br/>For more information, see [Upload your submission package](upload-package.md).|
-|Submission title|Required|
-|Version|Required (autopopulated)|
-|Release date (UTC)|Required. This controls the date on which your add-in will be made available after it passes validation. If this is set to a date in the future, your add-in will not be available until that date. If your submission is an update and you set this field to a date in the future, your existing add-in will be unpublished until the release date you specified.|
-|Category|One required; two optional|
-|Testing notes|Optional, but recommended|
-|Cryptography and encryption information|Optional|
-|Apple developer ID|Optional|
-|Logo|Required|
-|Support document link|Required|
-|Privacy document link|Required|
-|Video link|Optional|
-|End User License Agreement|Optional|
+
 
 ### Details page
 
@@ -78,7 +67,7 @@ For details, see [Decide on a pricing model](decide-on-a-pricing-model.md).
 
 ## Submit for approval
 
-After your account in the Seller Dashboard is approved, you can submit your solution for approval. To submit an app for purchase, your payout and tax information must also be validated. Your approved apps will be listed in product-specific stores.
+After your account is approved, you can submit your solution for approval. To submit an app for purchase, your payout and tax information must also be validated. Your approved apps will be listed in product-specific stores.
 
 ### To submit a new solution
 
@@ -107,13 +96,9 @@ After your account in the Seller Dashboard is approved, you can submit your solu
 - [Upload your package to AppSource](upload-package.md)
 - [Create your AppSource listing](office-store-listing.md)
 - [Add lead management details for your Office Add-ins in the Seller Dashboard](add-lead-management-details.md)
-- [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
-- [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
+- [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)=
 - [AppSource submission FAQ](office-store-submission-faq.md)
 - [Create effective AppSource listings](create-effective-office-store-listings.md)
 - [Register as an app developer](https://developer.microsoft.com/en-us/store/register)
-- [Have your app appear in the Office 365 app launcher](https://msdn.microsoft.com/en-us/office/office365/howto/connect-your-app-to-o365-app-launcher)
-- [Publish Power BI custom visuals to AppSource](https://docs.microsoft.com/en-us/power-bi/developer/office-store/)
-- [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)  
  
 
