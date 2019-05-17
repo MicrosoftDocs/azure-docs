@@ -138,9 +138,7 @@ Automatic Windows Updates might lead to availability loss because multiple clust
 
 ## Download the app package
 
-Application along with installation scripts can be downloaded from [Archive link](https://github.com/microsoft/Service-Fabric-POA/releases/download/v1.4.0/PatchOrchestrationApplication_v1.4.0.zip).
-
-Application in sfpkg format can be downloaded from [sfpkg link](https://github.com/microsoft/Service-Fabric-POA/releases/download/v1.4.0/PatchOrchestrationApplication_v1.4.0.sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
+To download application package, please visit github release [page](https://github.com/microsoft/Service-Fabric-POA/releases/latest/) of Patch Orchestration Application.
 
 ## Configure the app
 
@@ -446,6 +444,9 @@ An administrator must intervene and determine why the application or cluster bec
 
 ## Release Notes
 
+>[!NOTE]
+> Starting from version 1.4.0, release notes and releases can be found on github release [page](https://github.com/microsoft/Service-Fabric-POA/releases/).
+
 ### Version 1.1.0
 - Public release
 
@@ -481,9 +482,3 @@ An administrator must intervene and determine why the application or cluster bec
 
 ### Version 1.3.2
 - Fixing an issue which effected the patching lifecyle on a node in case there are nodes with name which is subset of the current node name. For such nodes, its possible, patching is missed or reboot is pending. 
-
-### Version 1.4.0
-- Diagnostics of the application is improved to make the task of debugging quick and easy.
-- Validation for settings for NodeAgentNTService is added.
-- Fixes an issue in which repair task, in post installation state, was not garbage collected if node gets deleted while installation of update.
-- Fixes an issue in which updates were stuck due to TimerCheckPoint.txt file was empty on some of the nodes.
