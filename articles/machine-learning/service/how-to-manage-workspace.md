@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 # Create and manage Azure Machine Learning service workspaces
 
-In this article, you'll create, view, and delete [**Azure Machine Learning service workspaces**](concept-azure-machine-learning-architecture.md#workspace) in the Azure portal for [Azure Machine Learning service](overview-what-is-azure-ml.md).  You can also create and delete workspaces [using the CLI](reference-azure-machine-learning-cli.md) or [with Python code](https://aka.ms/aml-sdk).
+In this article, you'll create, view, and delete [**Azure Machine Learning service workspaces**](concept-workspace.md) in the Azure portal for [Azure Machine Learning service](overview-what-is-azure-ml.md).  You can also create and delete workspaces [using the CLI](reference-azure-machine-learning-cli.md) or [with Python code](https://aka.ms/aml-sdk).
 
 ## Create a workspace 
 
