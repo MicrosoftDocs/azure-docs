@@ -276,7 +276,7 @@ The NodeAgentNTService creates [repair tasks](https://docs.microsoft.com/dotnet/
 4. Once the node is disabled, the repair task is moved to Executing state. Note, a repair task stuck in preparing state, after because a node is stuck in disabling state can result in blocking new repair task and hence halt patching of cluster.
 5. Once repair task is in executing state, the patch installation on that node begins. Here on, once the patch is installed, the node may or may not be restarted depending on the patch. Post that the repair task is moved to restoring state, which enables back the node again and then it is marked as completed.
 
-   In v1.4.0 and above versions of the application, status of the update can be found by looking at the health events on NodeAgentService with property "WUOperationStatus+[NodeName]". The highlighted sections in the images below show the status of windows update on node 'poanode_0' and 'poanode_2':
+   In v1.4.0 and above versions of the application, status of the update can be found by looking at the health events on NodeAgentService with property "WUOperationStatus-[NodeName]". The highlighted sections in the images below show the status of windows update on node 'poanode_0' and 'poanode_2':
 
    ![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/WUOperationStatusA.png)
 
@@ -306,7 +306,7 @@ The NodeAgentNTService creates [repair tasks](https://docs.microsoft.com/dotnet/
       OperationCompleted=9 | Windows update operation completed successfully.
       OperationAborted=10 | Implies that windows update operation is aborted.
 
-6. In v1.4.0 and above of the application, when update attempt on a node completes, an event with property "WUOperationStatus+[NodeName]" is posted on the NodeAgentService to notify when will the next attempt, to download and install update, start. See the image below:
+6. In v1.4.0 and above of the application, when update attempt on a node completes, an event with property "WUOperationStatus-[NodeName]" is posted on the NodeAgentService to notify when will the next attempt, to download and install update, start. See the image below:
 
      ![Image of Windows update operation status](media/service-fabric-patch-orchestration-application/WUOperationStatusC.png)
 
@@ -396,13 +396,13 @@ Q. **How do I patch cluster nodes on Linux?**
 
 A. See [Azure virtual machine scale set automatic OS image upgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) for orchestrating updates on linux.
 
-Q.**Why is update cycle taking so long??**
+Q.**Why is update cycle taking so long?**
 
 A. Query for the result json, then, go through the entry of the update cycle for all nodes and then, you can try to find out the time taken by update installation on every node using OperationStartTime and OperationTime(OperationCompletionTime). If there was large time window in which no update was going on, it could be because the cluster was in error state and because of that repair manager did not approve any other POA repair tasks. If update installation took long on any node, then, it could be possible that node was not updated from long time and a lot of updates were pending installation, which took time. There could also be a case in which patching on a node is blocked due to node being stuck in disabling state which usually happens because disabling the node might lead to quorum/data loss situations.
 
-Q. **Why is it required to disable the node when POA is patching it??**
+Q. **Why is it required to disable the node when POA is patching it?**
 
-A. Patch orchestration application disables the node with 'restart' intent which stops/reallocates all the Service fabric services running on the node. This is done to ensure that applications do not end up using a mix of new and old dlls so, it is not recommended to patch a node without disabling it.
+A. Patch orchestration application disables the node with 'restart' intent which stops/reallocates all the Service fabric services running on the node. This is done to ensure that applications do not end up using a mix of new and old dlls, so it is not recommended to patch a node without disabling it.
 
 ## Disclaimers
 
