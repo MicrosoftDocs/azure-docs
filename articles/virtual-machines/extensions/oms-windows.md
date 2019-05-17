@@ -34,9 +34,9 @@ The Log Analytics agent extension for Windows supports following versions of the
 - Windows Server 2008 R2, 2012, 2012 R2, 2016, version 1709 and 1803
 
 ### Agent and VM Extension version
-The following table provides a mapping of the version of the Azure Monitor VM extension and Log Analytics agent bundle for each release. 
+The following table provides a mapping of the version of the Windows Azure Monitor VM extension and Log Analytics agent bundle for each release. 
 
-| Azure Monitor Linux VM extension version | Log Analytics Agent bundle version | Release Date | Release Notes |
+| Log Analytics Windows Agent bundle version | Azure Monitor Windows VM extension version | Release Date | Release Notes |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
 | 10.19.13515.0 | 1.0.13515.1 | March 2019 | <ul><li>Minor stabilization fixes </li></ul> |
 | 10.19.10006.0 | n/a | Dec 2018 | <ul><li> Minor stabilization fixes </li></ul> | 
