@@ -21,7 +21,7 @@ ms.author: spelluru
 # Manage autoshutdown policies for a lab in Azure DevTest Labs
 Azure DevTest Labs enables you to control cost and minimize waste in your labs by managing policies (settings) for each lab. This article shows you how to configure autoshutdown policy for a lab account and configure autoshutdown settings for a lab in the lab account. To view how to set every lab policy, see [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
 
-## Set auto shutdown policy
+## Set auto shutdown policy for a lab
 As a lab owner, you can configure a shutdown schedule for all the VMs in your lab. By doing so, you can save costs from running machines that aren't being used (idle). You can enforce a shutdown policy on all your lab VMs centrally but also save your lab users the effort from setting up a schedule for their individual machines. This feature enables you to set the policy on your lab schedule starting from offering no control to full control, to your lab users. As a lab owner, you can configure this policy by taking the following steps:
 
 1. On the home page for your lab, select **Configuration and policies**.
@@ -30,7 +30,7 @@ As a lab owner, you can configure a shutdown schedule for all the VMs in your la
 
     ![Auto shut down policy options](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 
-## Set autoshutdown policy for a lab
+## Configure auto shutdown settings
 The autoshutdown policy helps to minimize lab waste by allowing you to specify the time that this lab's VMs shut down.
 
 To view (and change) the policies for a lab, follow these steps:
@@ -41,7 +41,7 @@ To view (and change) the policies for a lab, follow these steps:
 4. Select **Configuration and policies**.
 
     ![Policy settings pane](./media/devtest-lab-set-lab-policy/policies-menu.png)
-5. On the lab's **Configuration and policies** pane, select **Autoshutdown**.
+5. On the lab's **Configuration and policies** pane, select **Auto-shutdown** under **Schedules**.
    
     ![Autoshutdown](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 6. Select **On** to enable this policy, and **Off** to disable it.
