@@ -9,7 +9,7 @@ ms.date: 05/17/2019
 ---
 
 # Limits in Azure Cosmos DB
-Azure Cosmos DB is a globally distributed database service that's designed to provide low latency, elastic scalability of throughput, well-defined semantics for data consistency, and high availability. This article provides an overview of the limits in the Azure Cosmos DB service.
+Azure Cosmos DB is a globally distributed database service that provides low latency, elastic scalability of throughput, well-defined semantics for data consistency, and high availability. This article provides an overview of the limits in the Cosmos DB service.
 
 ## Storage and throughput
 
@@ -27,14 +27,14 @@ After you create a Cosmos DB account under your Azure subscription, you can mana
 > [!NOTE]
 > You can increase throughput beyond 1M RU/s by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 >
-> For best practices to manage workloads that have partition keys that need higher limits for storage or throughput, see [Designing for Hot Partition Keys](how-to-model-partition-example.md)
+> For best practices to manage workloads that have partition keys that need higher limits for storage or throughput, see [Designing for Hot Partition Keys](synthetic-partition-keys.md)
 >
 
-A Cosmos DB container (or share database) must have a minimum throughput of 400 RU/s. The minimum supported throughput depends on the following factors:
+A Cosmos container (or share database) must have a minimum throughput of 400 RU/s. As the container grows, the minimum supported throughput also depends on the following factors:
 
-* The maximum storage consumed in the container, measured in increments of 40 RU per GB consumed. For example, if a container contains 100 GB of data, then the minimum supported throughput is 4000 RU/s
-* The maximum throughput provisioned on the container. The service supports lowering throughput of a container to 10% of the provisioned maximum. For example, if your throughput was increased to to 10000 RU/s, then the throughput can be lowered to 1000 RU/s, but not lower
-* The maximum number of Azure Cosmos containers that you have created in a database with shared throughput, measured at 100 RU/s per container. For example, if you create five containers within a shared database, then the minimum throughput is 500 RU/s
+* The maximum storage consumed in the container, measured in increments of 40 RU per GB consumed. For example, if a container contains 100 GB of data, then the throughput must be at least 4000 RU/s
+* The maximum throughput provisioned on the container. The service supports lowering throughput of a container to 10% of the provisioned maximum. For example, if your throughput was increased to 10000 RU/s, then the throughput must be at least 1000 RU/s
+* The maximum number of containers that you have created in a shared database , measured at 100 RU/s per container. For example, if you create five containers within a shared database, then the throughput must be at least 500 RU/s
 
 The current and minimum throughput of a container or a database can be retrieved from the Azure portal or the SDKs. For more information, see [Provision throughput on containers and databases](set-throughput.md). In summary, here are the minimum provisioned RU limits. 
 
@@ -43,7 +43,7 @@ The current and minimum throughput of a container or a database can be retrieved
 | Min RU per container with dedicated throughput | 400 |
 | Min RU per database with dedicated throughput | 400 |
 | Min RU per container within a shared database | 100 |
-| Min RU per GB consumed in Cosmos DB | 40 |
+| Min RU per GB consumed per container | 40 |
 
 Cosmos DB supports elastic scaling of throughput (RUs) per container or database via the SDKs or portal. Each container supports a range of throughput scaling that's synchronous/immediate, typically a scale range between 10 to 100 times between min and max values. If the requested throughput value is outside the range, scaling is performed asynchronously. Asynchronous scaling may take minutes to hours to complete depending on the requested throughput and data storage size in the container.  
 
@@ -84,7 +84,7 @@ Depending on which API you use, an Azure Cosmos item can represent either a docu
 See [Modeling items in Cosmos DB](how-to-model-partition-example.md) for a real-world example, and patterns to manage large items. 
 
 ## Per-request limits
-Azure Cosmos DB supports [CRUD and query operations](https://docs.microsoft.com/rest/api/cosmos-db/) against resources like containers, items, and databases. For more information, see [Cosmos DB REST API](https://docs.microsoft.com/rest/api/cosmos-db/restful-interactions-with-cosmosdb-resources) and [Users, permissions, and resource tokens](secure-access-to-data.md). The following table lists the limits per request made to the Cosmos DB service.
+Cosmos DB supports [CRUD and query operations](https://docs.microsoft.com/rest/api/cosmos-db/) against resources like containers, items, and databases. For more information, see [Cosmos DB REST API](https://docs.microsoft.com/rest/api/cosmos-db/restful-interactions-with-cosmosdb-resources) and [Users, permissions, and resource tokens](secure-access-to-data.md). The following table lists the limits per request made to the Cosmos DB service.
 
 | Resource | Default limit |
 | --- | --- |
@@ -99,7 +99,7 @@ Azure Cosmos DB supports [CRUD and query operations](https://docs.microsoft.com/
 | Max clock skew for token authorization| 15 min |
  
 ## SQL query limits
-Azure Cosmos DB supports querying items using [SQL](how-to-sql-query.md). The following table describes restrictions in query statements, for example in terms of number of clauses or query length. 
+Cosmos DB supports querying items using [SQL](how-to-sql-query.md). The following table describes restrictions in query statements, for example in terms of number of clauses or query length. 
 
 | Resource | Default limit |
 | --- | --- |
@@ -120,5 +120,20 @@ The following table lists the limits specific to Mongo support. Other service li
 | --- | --- |
 | Max Mongo query memory size | 40 MB |
 | Max execution time for Mongo operations| 30s |
+
+
+## Try Cosmos DB Free limits
+The following table lists the limits for the [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/) trial. 
+
+| Resource | Default limit |
+| --- | --- |
+| Duration for the subscription | 30 days |
+| Max containers per subscription (SQL, Gremlin, Table API) | 1 |
+| Max containers per subscription (MongoDB API) | 3 |
+| Max throughput per container | 5000 |
+| Max throughput per shared database | 20000 |
+| Max total storage per account | 10 GB |
+
+Try Cosmos DB supports global distribution in only the Central US, North Europe, and Southeast Asia regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
 
 <sup>1</sup> You can increase these limits by contacting Azure Support or contacting us via askcosmosdb@microsoft.com.
