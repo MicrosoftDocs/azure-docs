@@ -1,12 +1,12 @@
 ---
-title: Primary Refresh Tokens in Azure AD - Azure Active Directory
+title: Primary Refresh Token (PRT) and Azure AD - Azure Active Directory
 description:  What is the role of and how do we manage the Primary Refresh Token (PRT) in Azure Active Directory?
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 05/17/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -24,12 +24,12 @@ This article assumes that you already understand the different device states ava
 
 The following Windows components play a key role in requesting and using a PRT:
 
-1. **Cloud Authentication Provider** (CloudAP): CloudAP is the modern authentication provider for Windows sign in, that verifies users logging to a Windows 10 device. CloudAP provides a plugin framework that identity providers can build on to enable authentication to Windows using that identity provider’s credentials.
-1. **Web Account Manager** (WAM): WAM is the default token broker on Windows 10 devices. WAM also provides a plugin framework that identity providers can build on and enable SSO to their applications relying on that identity provider.
-1. **Azure AD CloudAP plugin**: An Azure AD specific plugin built on the CloudAP framework, that verifies user credentials with Azure AD during Windows sign in.
-1. **Azure AD WAM plugin**: An Azure AD specific plugin built on the WAM framework, that enables SSO to applications that rely on Azure AD for authentication.
-1. **Dsreg**: An Azure AD specific component on Windows 10, that handles the device registration process for all device states.
-1. **Trusted Platform Module** (TPM): A TPM is a hardware component built into a device, that provides hardware-based security functions for user and device secrets. More details can be found in the article [Trusted Platform Module Technology Overview](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-overview).
+* **Cloud Authentication Provider** (CloudAP): CloudAP is the modern authentication provider for Windows sign in, that verifies users logging to a Windows 10 device. CloudAP provides a plugin framework that identity providers can build on to enable authentication to Windows using that identity provider’s credentials.
+* **Web Account Manager** (WAM): WAM is the default token broker on Windows 10 devices. WAM also provides a plugin framework that identity providers can build on and enable SSO to their applications relying on that identity provider.
+* **Azure AD CloudAP plugin**: An Azure AD specific plugin built on the CloudAP framework, that verifies user credentials with Azure AD during Windows sign in.
+* **Azure AD WAM plugin**: An Azure AD specific plugin built on the WAM framework, that enables SSO to applications that rely on Azure AD for authentication.
+* **Dsreg**: An Azure AD specific component on Windows 10, that handles the device registration process for all device states.
+* **Trusted Platform Module** (TPM): A TPM is a hardware component built into a device, that provides hardware-based security functions for user and device secrets. More details can be found in the article [Trusted Platform Module Technology Overview](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-overview).
 
 ## What does the PRT contain?
 
@@ -111,7 +111,7 @@ Windows 10 maintains a partitioned list of PRTs for each credential. So, there�
 
 ## How is a PRT invalidated?
 
-PRT is invalidated in the following scenarios:
+A PRT is invalidated in the following scenarios:
 
 1. **Invalid user**: If a user is deleted or disabled in Azure AD, their PRT is invalidated and cannot be used to obtain tokens for applications. If a deleted or disabled user already signed in to a device before, cached sign-in would log them in, until CloudAP is aware of their invalid state. Once CloudAP determines that the user is invalid, it blocks subsequent logons. An invalid user is automatically blocked from sign in to new devices that don’t have their credentials cached.
 1. **Invalid device**: If a device is deleted or disabled in Azure AD, the PRT obtained on that device is invalidated and cannot be used to obtain tokens for applications. If a user is already signed in to an invalid device, they can continue to do so. But all tokens on the device are invalidated and the user does not have SSO to any resources from that device.
