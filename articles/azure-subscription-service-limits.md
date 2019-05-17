@@ -247,8 +247,6 @@ The following table shows the limits for Azure BizTalk Services.
 ### Azure Cosmos DB limits
 For Azure Cosmos DB limits, see [Limits in Azure Cosmos DB](cosmos-db/concepts-limits.md).
 
-[!INCLUDE [azure-cosmos-db-limits](../includes/azure-cosmos-db-limits.md)]
-
 ### Azure Database for MySQL
 For Azure Database for MySQL limits, see [Limitations in Azure Database for MySQL](mysql/concepts-limits.md).
 

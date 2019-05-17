@@ -13,7 +13,7 @@ Azure Cosmos DB is a globally distributed database service that's designed to pr
 
 ## Storage and throughput
 
-After you create a Cosmos DB account under your Azure subscription, you can manage data in your account by [creating databases, containers, and items](databases-containers-items). You can provision throughput at a container-level or a database-level in terms of [request units (RUs)](request-units.md). The following table lists the limits for storage and throughput per container/database.
+After you create a Cosmos DB account under your Azure subscription, you can manage data in your account by [creating databases, containers, and items](databases-containers-items.md). You can provision throughput at a container-level or a database-level in terms of [request units (RUs)](request-units.md). The following table lists the limits for storage and throughput per container/database.
 
 | Resource | Default limit |
 | --- | --- |
@@ -27,7 +27,7 @@ After you create a Cosmos DB account under your Azure subscription, you can mana
 > [!NOTE]
 > You can increase throughput beyond 1M RU/s by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 >
-> For best practices to manage workloads that have partition keys that need higher limits for storage or throughput, see [Designing for Hot Partition Keys](partition-keys.md)
+> For best practices to manage workloads that have partition keys that need higher limits for storage or throughput, see [Designing for Hot Partition Keys](how-to-model-partition-example.md)
 >
 
 A Cosmos DB container (or share database) must have a minimum throughput of 400 RU/s. The minimum supported throughput depends on the following factors:
