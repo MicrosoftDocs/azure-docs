@@ -332,7 +332,6 @@ If the Node Agent NTService is down on a node, a warning-level health report is 
 
 If the repair manager service is not found on the cluster, a warning-level health report is generated for the Coordinator Service.
 
-
 ## Frequently asked questions
 
 Q. **Why do I see my cluster in an error state when the patch orchestration app is running?**
