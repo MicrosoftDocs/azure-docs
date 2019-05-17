@@ -33,8 +33,8 @@ After you create a Cosmos DB account under your Azure subscription, you can mana
 A Cosmos DB container (or share database) must have a minimum throughput of 400 RU/s. The minimum supported throughput depends on the following factors:
 
 * The maximum storage consumed in the container, measured in increments of 40 RU per GB consumed. For example, if a container contains 100 GB of data, then the minimum supported throughput is 4000 RU/s
-* The maximum throughput provisioned on the container. The service supports lowering throughput of a container to 10% of the provisioned maximum. For example, if your throughput increases to 10000 RU/s, then the throughput can be lowered to 1000 RU/s
-* The maximum number of Azure Cosmos containers that you ever create in a database with shared throughput, measured at 100 RU/s per container. Within a shared database, if you create five containers, then the minimum throughput is 500 RU/s
+* The maximum throughput provisioned on the container. The service supports lowering throughput of a container to 10% of the provisioned maximum. For example, if your throughput was increased to to 10000 RU/s, then the throughput can be lowered to 1000 RU/s, but not lower
+* The maximum number of Azure Cosmos containers that you have created in a database with shared throughput, measured at 100 RU/s per container. For example, if you create five containers within a shared database, then the minimum throughput is 500 RU/s
 
 The current and minimum throughput of a container or a database can be retrieved from the Azure portal or the SDKs. For more information, see [Provision throughput on containers and databases](set-throughput.md). In summary, here are the minimum provisioned RU limits. 
 
@@ -45,7 +45,7 @@ The current and minimum throughput of a container or a database can be retrieved
 | Min RU per container within a shared database | 100 |
 | Min RU per GB consumed in Cosmos DB | 40 |
 
-Cosmos DB supports elastic scaling of throughput (RUs) per container or database via the SDKs or portal. Each container supports a range of throughput scaling that's synchronous/immediate, typically between 10-100x. If the requested throughput value is outside the range, scaling is performed asynchronously. Asynchronous scaling may take minutes to hours to complete depending on the requested throughput and data storage size in the container.  
+Cosmos DB supports elastic scaling of throughput (RUs) per container or database via the SDKs or portal. Each container supports a range of throughput scaling that's synchronous/immediate, typically a scale range between 10 to 100 times between min and max values. If the requested throughput value is outside the range, scaling is performed asynchronously. Asynchronous scaling may take minutes to hours to complete depending on the requested throughput and data storage size in the container.  
 
 ## Management operations
 You can [provision and manage your Azure Cosmos account](how-to-manage-database-account.md) using the Azure portal, Azure PowerShell, Azure CLI, and Azure Resource Manager templates. The following table lists the limits per subscription, account, and number of operations.
