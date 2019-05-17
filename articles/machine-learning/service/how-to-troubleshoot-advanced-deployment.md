@@ -162,6 +162,19 @@ The steps in this section download the image to your local development environme
 
 ## Debug the service
 
+1. To start a container based on the image, use the following command:
+
+    ```bash
+    docker run -it --rm --name debug -p 8000:5001 -p 5678:5678 debug:1 /bin/bash
+    ```
+
+    This command creates a new container named __debug__. Once it starts, you arrive at a bash prompt inside the container. Your prompt changes to something similar to `root@ba216845db54:/#`.
+
+1. 
+
+2. To start the web service and immediately attach a debuggger, use the following command:
+
+
 7. <a name='step7'></a>**Launch debugging in the container** : depending on the debugging approach :
     1. **At start time** : Launch the container using `docker run -it --rm --name lab -p 8000:5001 -p 5678:5678 lab:1 /bin/bash`. This step launches a shell session in the container, after which you can type `cd /var/azureml-app/` and then run `python -m ptvsd --host 0.0.0.0 --port 5678 --wait score.py`. You will connect to the debugging session at step [12](#step12).
     2. <a name='step7.2'></a>**At run time** : Launch the container using: `docker run --rm --name lab -p 8000:5001 -p 5678:5678 lab:1`. This launches the processes to serve web requests assuming there aren’t issues with your `score.py` file’s init() or run() functions, and also assumes you have included the lines to run `ptvsd` from within your code if you want to debug your script:
