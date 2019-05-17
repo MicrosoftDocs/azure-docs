@@ -239,20 +239,30 @@
           href: msal-net-provide-httpclient.md
         - name: Integrate with Azure AD B2C
           href: msal-b2c-overview.md
-        - name: Platform-specific considerations (.NET)
+        - name: Considerations and known issues
           items:
-          - name: Web browsers
-            href: msal-net-web-browsers.md
-          - name: Xamarin Android
-            href: msal-net-xamarin-android-considerations.md
-          - name: System browser on Android
-            href: msal-net-system-browser-android-considerations.md
-          - name: Xamarin iOS
-            href: msal-net-xamarin-ios-considerations.md
-          - name: Universal Windows Platform
-            href: msal-net-uwp-considerations.md
-          - name: Apply an AAD B2C policy
-            href: msal-net-aad-b2c-considerations.md
+            - name: MSAL.NET
+              items:
+              - name: Web browsers
+                href: msal-net-web-browsers.md
+              - name: Xamarin Android
+                href: msal-net-xamarin-android-considerations.md
+              - name: System browser on Android
+                href: msal-net-system-browser-android-considerations.md
+              - name: Xamarin iOS
+                href: msal-net-xamarin-ios-considerations.md
+              - name: Universal Windows Platform
+                href: msal-net-uwp-considerations.md
+              - name: Apply an AAD B2C policy
+                href: msal-net-aad-b2c-considerations.md
+            - name: MSAL.js
+              items:
+              - name: Considerations using IE
+                href: msal-js-use-ie-browser.md
+              - name: Known issues- IE and Microsoft Edge
+                href: msal-js-known-issues-ie-edge-browsers.md
+              - name: Known issues- Safari 
+                href: msal-js-known-issues-safari-browser.md
     - name: Authentication
       items:
       - name: Authentication basics

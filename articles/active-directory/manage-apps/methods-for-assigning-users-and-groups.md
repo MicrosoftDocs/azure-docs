@@ -3,8 +3,8 @@ title: How to assign users and groups to an application | Microsoft Docs
 description: Assign users to the application to grant access
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/26/2019
-ms.author: celested
+ms.author: mimart
 
 ms.collection: M365-identity-device-management
 ---

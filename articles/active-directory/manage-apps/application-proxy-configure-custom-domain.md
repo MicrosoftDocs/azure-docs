@@ -3,8 +3,8 @@ title: Custom domains in Azure AD Application Proxy | Microsoft Docs
 description: Manage custom domains in Azure AD Application Proxy so that the URL for the app is the same regardless of where your users access it. 
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/31/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 
