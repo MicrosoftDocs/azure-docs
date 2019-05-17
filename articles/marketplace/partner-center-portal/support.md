@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 05/17/2019
 ---
 
-# Support options for the Commercial Marketplace 
+# Support for the Commercial Marketplace program in Partner Center
 
 Microsoft provides support for a wide variety of products and services. Finding the right support team is important to ensure an appropriate and timely response. Consider the following scenarios, which should help you route your query to the appropriate team: 
 
@@ -17,9 +17,9 @@ Microsoft provides support for a wide variety of products and services. Finding 
 
 - If you're a publisher and have a question relating to your app or service, review the following support options.
 
-## Support for publishers using the Commercial Marketplace portal in Partner Center 
+## Support options for publishers
 
-1) Sign in to the [Commercial Marketplace portal on Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) with your work account. (If you have not yet done so, you will need to [create a Partner Center account](./create-account.md).)
+1) Sign in to the [Commercial Marketplace program on Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) with your work account. (If you have not yet done so, you will need to [create a Partner Center account](./create-account.md).)
 
 2) In the upper menu on the right side of the page, select the **Support** icon. 
  
