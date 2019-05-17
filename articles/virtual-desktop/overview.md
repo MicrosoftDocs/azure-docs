@@ -88,6 +88,18 @@ For optimal performance, make sure your network meets the following requirements
 * Network traffic may flow outside country/region borders when VMs that host desktops and apps connect to the management service.
 * To optimize for network performance, we recommend that the session host's VMs are collocated in the same Azure region as the management service.
 
+## Supported Remote Desktop clients
+
+The following Remote Desktop clients support Windows Virtual Desktop in Public Preview. 
+
+|Client|Windows Virtual<br>Desktop Support|
+|-----|-----|
+|[Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)|Yes|
+|[HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)|Yes|
+|Android|No|
+|macOS|No|
+|iOS|No|
+
 ## Provide feedback
 
 Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members. We currently aren't taking support cases while Windows Virtual Desktop is in preview.
