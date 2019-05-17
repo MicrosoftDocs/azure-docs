@@ -19,13 +19,114 @@ First, ensure you’ve looked through the [WAF overview](waf-overview.md) and th
 
 When you have WAF logs available, you can do a few things with them.
 
-For example, say you have a legitimate traffic containing the string “1=1” that you want to pass through your WAF. If you try the request, the WAF blocks traffic that contains your “1=1” string in any parameter or field. You can look through the logs and see the timestamp of the request and the rules that blocked/matched. 
+For example, say you have a legitimate traffic containing the string “1=1” that you want to pass through your WAF. If you try the request, the WAF blocks traffic that contains your “1=1” string in any parameter or field. You can look through the logs and see the timestamp of the request and the rules that blocked/matched.
 
 In the following example, you can see that four rules are triggered during the same request (using the TransactionId field). The first one says it matched because the user used a numeric/IP URL for the request, which increases the anomaly score. The next rule that matched is 942130, which is the one you’re looking for. You can see the **1=1** in the `details.data` field. This further increases the anomaly score. Generally, every rule that has the action **Matched** increases the anomaly score. For more information, see [Anomaly scoring mode](waf-overview.md#anomaly-scoring-mode).
 
-The final two log entries show the request was blocked because the anomaly score was high enough. These entries have a different action than the other two. They show they actually *blocked* the request. These rules are mandatory and can’t be disabled. They shouldn’t be thought of as rules, but more as core infrastructure of [Drew, please complete this sentence]
+The final two log entries show the request was blocked because the anomaly score was high enough. These entries have a different action than the other two. They show they actually *blocked* the request. These rules are mandatory and can’t be disabled. They shouldn’t be thought of as rules, but more as core infrastructure of the WAF internals.
 
-[Screen shot of log]
+```json
+{ 
+    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
+    "operationName": "ApplicationGatewayFirewall", 
+    "category": "ApplicationGatewayFirewallLog", 
+    "properties": { 
+        "instanceId": "appgw_3", 
+        "clientIp": "167.220.2.139", 
+        "clientPort": "", 
+        "requestUri": "\/", 
+        "ruleSetType": "OWASP_CRS", 
+        "ruleSetVersion": "3.0.0", 
+        "ruleId": "920350", 
+        "message": "Host header is a numeric IP address", 
+        "action": "Matched", 
+        "site": "Global", 
+        "details": { 
+            "message": "Warning. Pattern match \\\"^[\\\\\\\\d.:]+$\\\" at REQUEST_HEADERS:Host. ", 
+            "data": "40.90.218.160", 
+            "file": "rules\/REQUEST-920-PROTOCOL-ENFORCEMENT.conf\\\"", 
+            "line": "791" 
+        }, 
+        "hostname": "vm000003", 
+        "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt" 
+    } 
+} 
+{ 
+    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
+    "operationName": "ApplicationGatewayFirewall", 
+    "category": "ApplicationGatewayFirewallLog", 
+    "properties": { 
+        "instanceId": "appgw_3", 
+        "clientIp": "167.220.2.139", 
+        "clientPort": "", 
+        "requestUri": "\/", 
+        "ruleSetType": "OWASP_CRS", 
+        "ruleSetVersion": "3.0.0", 
+        "ruleId": "942130", 
+        "message": "SQL Injection Attack: SQL Tautology Detected.", 
+        "action": "Matched", 
+        "site": "Global", 
+        "details": { 
+            "message": "Warning. Pattern match \\\"(?i:([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)([\\\\\\\\d\\\\\\\\w]++)([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)(?:(?:=|\\u003c=\\u003e|r?like|sounds\\\\\\\\s+like|regexp)([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)\\\\\\\\2|(?:!=|\\u003c=|\\u003e=|\\u003c\\u003e|\\u003c|\\u003e|\\\\\\\\^|is\\\\\\\\s+not|not\\\\\\\\s+like|not\\\\\\\\s+regexp)([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)(?!\\\\\\\\2)([\\\\\\\\d\\\\\\\\w]+)))\\\" at ARGS:text1. ", 
+            "data": "Matched Data: 1=1 found within ARGS:text1: 1=1", 
+            "file": "rules\/REQUEST-942-APPLICATION-ATTACK-SQLI.conf\\\"", 
+            "line": "554" 
+        }, 
+        "hostname": "vm000003", 
+        "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt" 
+    } 
+} 
+{ 
+    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
+    "operationName": "ApplicationGatewayFirewall", 
+    "category": "ApplicationGatewayFirewallLog", 
+    "properties": { 
+        "instanceId": "appgw_3", 
+        "clientIp": "167.220.2.139", 
+        "clientPort": "", 
+        "requestUri": "\/", 
+        "ruleSetType": "", 
+        "ruleSetVersion": "", 
+        "ruleId": "949110", 
+        "message": "Mandatory rule. Cannot be disabled. Inbound Anomaly Score Exceeded (Total Score: 8)", 
+        "action": "Blocked", 
+        "site": "Global", 
+        "details": { 
+            "message": "Access denied with code 403 (phase 2). Operator GE matched 5 at TX:anomaly_score. ", 
+            "data": "", 
+            "file": "rules\/REQUEST-949-BLOCKING-EVALUATION.conf\\\"", 
+            "line": "57" 
+        }, 
+        "hostname": "vm000003", 
+        "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt" 
+    } 
+} 
+{ 
+    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2", 
+    "operationName": "ApplicationGatewayFirewall", 
+    "category": "ApplicationGatewayFirewallLog", 
+    "properties": { 
+        "instanceId": "appgw_3", 
+        "clientIp": "167.220.2.139", 
+        "clientPort": "", 
+        "requestUri": "\/", 
+        "ruleSetType": "", 
+        "ruleSetVersion": "", 
+        "ruleId": "980130", 
+        "message": "Mandatory rule. Cannot be disabled. Inbound Anomaly Score Exceeded (Total Inbound Score: 8 - SQLI=5,XSS=0,RFI=0,LFI=0,RCE=0,PHPI=0,HTTP=0,SESS=0): SQL Injection Attack: SQL Tautology Detected.", 
+        "action": "Blocked", 
+        "site": "Global", 
+        "details": { 
+            "message": "Warning. Operator GE matched 5 at TX:inbound_anomaly_score. ", 
+            "data": "", 
+            "file": "rules\/RESPONSE-980-CORRELATION.conf\\\"", 
+            "line": "73" 
+        }, 
+        "hostname": "vm000003", 
+        "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt" 
+    }
+}
+```
 
 ## Fixing false positives
 
@@ -44,7 +145,7 @@ One benefit of using an exclusion list is that only a specific part of a request
 
 In this example, you’ll want to exclude the *request attribute name* that equals **text1**. This is apparent because you can see the attribute name in the firewall logs: **data: Matched Data: 1=1 found within ARGS:text1: 1=1**. The *attribute* is **text1**. You can also find this attribute name a few other ways, see [Finding request attribute names](#finding-request-attribute-names).
 
-[screenshot of exclusion list]
+![WAF exclusion lists](media/waf-tshoot/waf-config.png)
 
 ### Disabling rules
 
@@ -54,7 +155,7 @@ One benefit of disabling a rule is that if you know all traffic that contains a 
 
 If you want to use Azure PowerShell, see [Customize web application firewall rules through PowerShell](application-gateway-customize-waf-rules-powershell.md). If you want to use Azure CLI, see [Customize web application firewall rules through the Azure CLI](application-gateway-customize-waf-rules-cli.md).
 
-[screenshot of WAF rules]
+![WAF rules](media/waf-tshoot/waf-rules.png)
 
 ## Finding request attribute names
 
@@ -62,11 +163,12 @@ With the help of [Fiddler](https://www.telerik.com/fiddler), you inspect individ
 
 In this example, you can see that the field where the *1=1* string was entered is called **text1**.
 
-[Fiddler screenshot]
+![Fiddler](media/waf-tshoot/fiddler-1.png)
 
 This is a field you can exclude. To learn more about exclusion lists, See the How-to guide here. You can exclude the evaluation in this case by configuring the following exclusion:
 
-[screenshot of exclusion]
+![WAF exclusion](media/waf-tshoot/waf-exclusion-02.png)
+
 
 You can also examine the firewall logs to get the information to see what you need to add to the exclusion list. To enable logging, see [Back-end health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md).
 
@@ -74,7 +176,108 @@ Examine the firewall log and view the PT1H.json file for the hour that the reque
 
 In this example, you can see that you have four rules with the same TransactionID, and that they all occurred at the exact same time:
 
-[log screenshot]
+```json
+-	{
+-	    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+-	    "operationName": "ApplicationGatewayFirewall",
+-	    "category": "ApplicationGatewayFirewallLog",
+-	    "properties": {
+-	        "instanceId": "appgw_3",
+-	        "clientIp": "167.220.2.139",
+-	        "clientPort": "",
+-	        "requestUri": "\/",
+-	        "ruleSetType": "OWASP_CRS",
+-	        "ruleSetVersion": "3.0.0",
+-	        "ruleId": "920350",
+-	        "message": "Host header is a numeric IP address",
+-	        "action": "Matched",
+-	        "site": "Global",
+-	        "details": {
+-	            "message": "Warning. Pattern match \\\"^[\\\\\\\\d.:]+$\\\" at REQUEST_HEADERS:Host. ",
+-	            "data": "40.90.218.160",
+-	            "file": "rules\/REQUEST-920-PROTOCOL-ENFORCEMENT.conf\\\"",
+-	            "line": "791"
+-	        },
+-	        "hostname": "vm000003",
+-	        "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt"
+-	    }
+-	}
+-	{
+-	    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+-	    "operationName": "ApplicationGatewayFirewall",
+-	    "category": "ApplicationGatewayFirewallLog",
+-	    "properties": {
+-	        "instanceId": "appgw_3",
+-	        "clientIp": "167.220.2.139",
+-	        "clientPort": "",
+-	        "requestUri": "\/",
+-	        "ruleSetType": "OWASP_CRS",
+-	        "ruleSetVersion": "3.0.0",
+-	        "ruleId": "942130",
+-	        "message": "SQL Injection Attack: SQL Tautology Detected.",
+-	        "action": "Matched",
+-	        "site": "Global",
+-	        "details": {
+-	            "message": "Warning. Pattern match \\\"(?i:([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)([\\\\\\\\d\\\\\\\\w]++)([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)(?:(?:=|\\u003c=\\u003e|r?like|sounds\\\\\\\\s+like|regexp)([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)\\\\\\\\2|(?:!=|\\u003c=|\\u003e=|\\u003c\\u003e|\\u003c|\\u003e|\\\\\\\\^|is\\\\\\\\s+not|not\\\\\\\\s+like|not\\\\\\\\s+regexp)([\\\\\\\\s'\\\\\\\"`\\\\\\\\(\\\\\\\\)]*?)(?!\\\\\\\\2)([\\\\\\\\d\\\\\\\\w]+)))\\\" at ARGS:text1. ",
+-	            "data": "Matched Data: 1=1 found within ARGS:text1: 1=1",
+-	            "file": "rules\/REQUEST-942-APPLICATION-ATTACK-SQLI.conf\\\"",
+-	            "line": "554"
+-	        },
+-	        "hostname": "vm000003",
+-	        "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt"
+-	    }
+-	}
+-	{
+-	    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+-	    "operationName": "ApplicationGatewayFirewall",
+-	    "category": "ApplicationGatewayFirewallLog",
+-	    "properties": {
+-	        "instanceId": "appgw_3",
+-	        "clientIp": "167.220.2.139",
+-	        "clientPort": "",
+-	        "requestUri": "\/",
+-	        "ruleSetType": "",
+-	        "ruleSetVersion": "",
+-	        "ruleId": "949110",
+-	        "message": "Mandatory rule. Cannot be disabled. Inbound Anomaly Score Exceeded (Total Score: 8)",
+-	        "action": "Blocked",
+-	        "site": "Global",
+-	        "details": {
+-	            "message": "Access denied with code 403 (phase 2). Operator GE matched 5 at TX:anomaly_score. ",
+-	            "data": "",
+-	            "file": "rules\/REQUEST-949-BLOCKING-EVALUATION.conf\\\"",
+-	            "line": "57"
+-	        },
+-	        "hostname": "vm000003",
+-	        "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt"
+-	    }
+-	}
+-	{
+-	    "resourceId": "/SUBSCRIPTIONS/A6F44B25-259E-4AF5-888A-386FED92C11B/RESOURCEGROUPS/DEMOWAF_V2/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/DEMOWAF-V2",
+-	    "operationName": "ApplicationGatewayFirewall",
+-	    "category": "ApplicationGatewayFirewallLog",
+-	    "properties": {
+-	        "instanceId": "appgw_3",
+-	        "clientIp": "167.220.2.139",
+-	        "clientPort": "",
+-	        "requestUri": "\/",
+-	        "ruleSetType": "",
+-	        "ruleSetVersion": "",
+-	        "ruleId": "980130",
+-	        "message": "Mandatory rule. Cannot be disabled. Inbound Anomaly Score Exceeded (Total Inbound Score: 8 - SQLI=5,XSS=0,RFI=0,LFI=0,RCE=0,PHPI=0,HTTP=0,SESS=0): SQL Injection Attack: SQL Tautology Detected.",
+-	        "action": "Blocked",
+-	        "site": "Global",
+-	        "details": {
+-	            "message": "Warning. Operator GE matched 5 at TX:inbound_anomaly_score. ",
+-	            "data": "",
+-	            "file": "rules\/RESPONSE-980-CORRELATION.conf\\\"",
+-	            "line": "73"
+-	        },
+-	        "hostname": "vm000003",
+-	        "transactionId": "AcAcAcAcAKH@AcAcAcAcAyAt"
+-	    }
+-	}
+```
 
 With your knowledge of how the CRS rule sets work, and that the CRS ruleset 3.0 works with an anomaly scoring system (see more here https://docs.microsoft.com/en-us/azure/application-gateway/waf-overview) you know that the bottom two rules with the **action: Blocked** property are blocking based on the total anomaly score. The rules to focus on are the top two.
 
@@ -83,6 +286,12 @@ The first entry is logged because the user used a numeric IP address to navigate
 The second one (rule 942130) is the interesting one. You can see in the details that it matched a pattern (1=1), and the field is named **text1**. Follow the same previous steps to exclude the **Request Attribute Name** that **equals** **1=1**.
 
 Another way to find the Attribute name is to right-click and inspect the element in a browser. There should be a **name** field for any input area, and that is what qualifies as a *Request Attribute Name*.
+
+## Finding request header names
+
+Fiddler is a useful tool once again to find request header names. In the following screenshot, you can see [Drew please complete this section]
+
+![Fiddler](media/waf-tshoot/fiddler-2.png)
 
 ## Restrict global parameters to eliminate false positives
 
