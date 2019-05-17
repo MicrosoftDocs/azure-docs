@@ -17,7 +17,7 @@ ms.date: 04/15/2019
 ms.author: aschhab
 
 ---
-# How to Use Service Bus topics and subscriptions with Node.js and the azure/service-bus package
+# How to use Service Bus topics and subscriptions with Node.js and the azure/service-bus package
 > [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
@@ -25,8 +25,8 @@ ms.author: aschhab
 In this tutorial, you learn how to create Node.js applications to send messages to and receive messages from a Service Bus queue using the new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package. This package uses the faster [AMQP 1.0 protocol](service-bus-amqp-overview.md) whereas the older [azure-sb](https://www.npmjs.com/package/azure-sb) package used [Service Bus REST run-time APIs](/rest/api/servicebus/service-bus-runtime-rest). The samples are written in JavaScript.
 
 ## Prerequisites
-1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus topics and subscriptions](service-bus-quickstart-topics-subscriptions-portal.md) article to create a queue. Note down the connection string for your Service Bus instance and the names of the topic and subscription you created. We'll use these values in the samples.
+- An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus topics and subscriptions](service-bus-quickstart-topics-subscriptions-portal.md) article to create a queue. Note down the connection string for your Service Bus instance and the names of the topic and subscription you created. We'll use these values in the samples.
 
 > [!NOTE]
 > - This tutorial works with samples that you can copy and run using [Nodejs](https://nodejs.org/). For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website](../app-service/app-service-web-get-started-nodejs.md), or [Node.js Cloud Service using Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
