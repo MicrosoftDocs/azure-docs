@@ -38914,21 +38914,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/aks/rdp.md",
-      "redirect_url": "https://cloudblogs.microsoft.com/opensource/2019/03/25/windows-server-containers-now-supported-kubernetes/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/aks/windows-container-cli.md",
-      "redirect_url": "https://cloudblogs.microsoft.com/opensource/2019/03/25/windows-server-containers-now-supported-kubernetes/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/aks/windows-node-limitations.md",
-      "redirect_url": "https://cloudblogs.microsoft.com/opensource/2019/03/25/windows-server-containers-now-supported-kubernetes/",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/media-services/latest/scripts/cli-samples.md",
       "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
       "redirect_document_id": true
