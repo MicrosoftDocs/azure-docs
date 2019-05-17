@@ -18,7 +18,7 @@ GPU optimized VM sizes are specialized virtual machines available with single or
 
 * The **NCSv3**, **NCSv2**, and **ND** sizes feature an	Intel Xeon® E5-2690 v4 2.60GHz processor.
                       
-* **NV and NVv2** sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios using frameworks such as OpenGL and DirectX.  These VMs are backed by the NVIDIA Tesla M60 GPU.
+* **NV and NVv3** sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios using frameworks such as OpenGL and DirectX.  These VMs are backed by the NVIDIA Tesla M60 GPU.
 
 
 ## NC-series
@@ -148,7 +148,7 @@ Each GPU in NV instances comes with a GRID license. This license gives you the f
 
 1 GPU = one-half M60 card.
 
-## NVv3-series
+## NVv3-series (Preview)<sup>1</sup>
 
 Premium Storage:  Supported
 
@@ -165,5 +165,7 @@ Each GPU in NVv3 instances comes with a GRID license. This license gives you the
 | Standard_NV24s_v3 | 48 | 448 |1280 | 4 | 32 | 32 | 8 | 4 | 100 |
 
 1 GPU = one-half M60 card.
+
+<sup>1</sup> NVv3-series VM’s feature Intel® Hyper-Threading Technology
 
  
