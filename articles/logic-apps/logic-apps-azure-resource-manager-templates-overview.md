@@ -653,12 +653,6 @@ At deployment, your logic app works end-to-end with valid parameters. However, y
 
 * For automated deployment, you can use a script that provides consent for each OAuth connection. Here's an example script in GitHub in the [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) project.
 
-## Reference dependent resources
-
-If your logic app has references to dependent resources, you can use [Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions.md), such as `parameters()`, `variables()`, `resourceId()`, `concat()`, and so on, for referencing those dependencies.
-
-For example, suppose your logic app references an Azure function that you want deployed with your logic app. This sample prebuilt template shows how a logic app references that function and how the template deploys that Azure function: [GitHub - azure-quickstart-templates/101-logic-app-and-function-app](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-and-function-app)
-
 <a name="full-example-template"></a>
 
 ## Full example template
