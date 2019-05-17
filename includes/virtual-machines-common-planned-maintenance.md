@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-Azure periodically updates its platform to improve the reliability, performance, and security of the host infrastructure for virtual machines (VMs). The purpose of these updates ranges from patching software components in the hosting environment to upgrading networking components or decommissioning hardware. 
+Azure periodically updates its platform to improve the reliability, performance, and security of the host infrastructure for virtual machines. The purpose of these updates ranges from patching software components in the hosting environment to upgrading networking components or decommissioning hardware. 
 
 Updates rarely affect the hosted VMs. When updates do have an effect, Azure chooses the least impactful method for updates:
 
