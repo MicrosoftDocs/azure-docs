@@ -65,7 +65,7 @@ To block a user, follow the following steps.
 
 ## Reset a user password
 
-To programmatically work with user accounts, see the [User entity](https://docs.microsoft.com/rest/api/apimanagement/user) documentation in the [API Management REST](/rest/api/apimanagement/) reference. To reset a user account password to a specific value, you can use the [Update a user](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) operation and specify the desired password.
+To programmatically work with user accounts, see the User entity documentation in the [API Management REST API](/rest/api/apimanagement/) reference. To reset a user account password to a specific value, you can use the [Update a user](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) operation and specify the desired password.
 
 ## <a name="next-steps"> </a>Next steps
 Once a developer account is created, you can associate it with roles and subscribe it to products and APIs. For more information, see [How to create and use groups][How to create and use groups].

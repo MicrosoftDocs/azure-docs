@@ -208,7 +208,7 @@
     items:
     - name: Create transforms - CLI
       href: cli-create-transform.md
-    - name: Crate jobs - CLI
+    - name: Create jobs - CLI
       href: cli-create-jobs.md
   - name: Encode content
     items:
