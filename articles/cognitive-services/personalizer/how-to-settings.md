@@ -83,4 +83,7 @@ From the Resource management's section for **Model and Policy**, import a new le
 
 ## Next steps
 
+<!--
 [How to use the Personalizer container](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
+-->
+[Learn about region availability](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
