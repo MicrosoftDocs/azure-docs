@@ -162,3 +162,9 @@ Billing for the Consumption plan is described in detail on the [Azure Functions 
 Useful queries and information on how to understand your consumption bill can be found [on the billing FAQ](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
 
 [Azure Functions pricing page]: https://azure.microsoft.com/pricing/details/functions
+
+## Service limits
+
+The following table indicates the limits that apply to function apps when running in the various hosting plans:
+
+[!INCLUDE [functions-limits](../../includes/functions-limits.md)]

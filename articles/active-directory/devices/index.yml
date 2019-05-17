@@ -21,7 +21,7 @@ sections:
 - title: Step-by-step tutorials
   items:
   - type: paragraph
-    text: 'Learn how to integrated your on-premises AD-joined devices with Azure AD.'
+    text: 'Learn how to integrate your on-premises AD-joined devices with Azure AD.'
   - type: list
     style: icon48
     items: 

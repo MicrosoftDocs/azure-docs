@@ -46,7 +46,7 @@ Create the gallery image definition inside of your gallery. In this example, the
 1. For **Publisher**, type *myPublisher*. 
 1. For **Offer**, type *myOffer*.
 1. For **SKU**, type *mySKU*.
-1. Make sure **Yes** us selected for **Enable** and then select **Review + create**.
+1. When finished, select **Review + create**.
 1. After the image definition passes validation, select **Create**.
 1. When the deployment is finished, select **Go to resource**.
 
