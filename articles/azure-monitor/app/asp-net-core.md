@@ -20,12 +20,12 @@ This article describes how to enable Application Insights for an [ASP.NET Core](
 
 ## Supported scenarios
 
-The [Application Insights SDK (Software Development Kit) for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) can monitor your applications irrespective of where or how the application is run. If your application is running, and has network connectivity to Azure, telemetry can be collected. This means that Application Insights monitoring is supported everywhere .NET Core is supported. This support includes, any operating system (Windows, Linux, Mac), hosting method (in-process vs out-of-process), deployment method (framework-dependent vs self-contained), Web Server (IIS, Kestrel), platform (Azure Web Apps, Azure VM, Docker, Azure Kubernetes Service (AKS), and so on.) or IDE (Visual Studio, VS Code, command line.)
+The [Application Insights SDK (Software Development Kit) for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) can monitor your applications irrespective of where or how the application is run. If your application is running, and has network connectivity to Azure, telemetry can be collected. This means that Application Insights monitoring is supported everywhere .NET Core is supported. This support includes, any operating system (Windows, Linux, Mac), hosting method (in-process vs out-of-process), deployment method (framework-dependent vs self-contained), Web Server (IIS, Kestrel), hosting platform (Azure Web Apps, Azure VM, Docker, Azure Kubernetes Service (AKS), and so on.) or IDE (Visual Studio, VS Code, command line.)
 
 ## Prerequisites
 
-- A functioning ASP.NET Core Application. Follow [this](https://docs.microsoft.com/aspnet/core/getting-started/) guide to create an ASP.NET Core Application, if needed.
-- A valid Application Insights instrumentation key, which is required to send any telemetry to the Application Insights service. Follow [these](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) instructions to create a new Application Insights resource, if needed and obtain an instrumentation key.
+- A functioning ASP.NET Core Application. Follow the [ASP.NET Core getting started guide](https://docs.microsoft.com/aspnet/core/getting-started/) to create an ASP.NET Core Application, if needed.
+- A valid Application Insights instrumentation key, which is required to send any telemetry to the Application Insights service. Follow the [create a resource instructions] (https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) to create a new Application Insights resource, if needed and obtain an instrumentation key.
 
 ## Enable Application Insights server-side telemetry (Visual Studio)
 
