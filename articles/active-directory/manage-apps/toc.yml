@@ -35,7 +35,7 @@
         href: application-proxy-connectors.md
       - name: Connector groups
         href: application-proxy-connector-groups.md
-      - name: CORS issues with Application Proxy
+      - name: CORS in Application Proxy
         href: application-proxy-understand-cors-issues.md
       - name: Security
         href: application-proxy-security.md
