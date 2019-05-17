@@ -50,7 +50,38 @@ Regional outages aren't uncommon, and Azure Cosmos DB makes sure your database i
 
 - Single-region accounts may lose availability following a regional outage. It's always recommended to set up **at least two regions** (preferably, at least two write regions) with your Cosmos account to ensure high availability at all times.
 
-- Even in an extremely rare and unfortunate event when the Azure region is permanently irrecoverable, there is no data loss if your multi-region Cosmos account is configured with the default consistency level of *Strong*. In the event of a permanently irrecoverable write region, for the multi-region Cosmos accounts configured with bounded-staleness consistency, the potential data loss window is restricted to the staleness window (*K* or *T*); for session, consistent-prefix and eventual consistency levels, the potential data loss window is restricted to a maximum of five seconds.
+- Even in an extremely rare and unfortunate event when the Azure region is permanently irrecoverable, there is no data loss if your multi-region Cosmos account is configured with the default consistency level of *Strong*. In the event of a permanently irrecoverable write region, for the multi-region Cosmos accounts configured with bounded-staleness consistency, the potential data loss window is restricted to the staleness window (*K* or *T*); for session, consistent-prefix and eventual consistency levels, the potential data loss window is restricted to a maximum of five seconds. 
+
+## Availability Zone support (preview)
+
+Azure Cosmos DB is a globally distributed, multi-master database service that provides high availability and resiliency during regional outages. In addition to cross region resiliency, you can now enable **zone redundancy** when selecting a region to associate with your Azure Cosmos database. 
+
+With Availability Zone support, Azure Cosmos DB will ensure replicas are placed across multiple zones within a given region to provide high availability and resiliency during zonal failures. There are no changes to latency and other SLAs in this configuration. In the event of a single zone failure, zone redundancy provides full data durability with RPO=0 and availability with RTO=0. 
+
+Zone redundancy is a *supplemental capability* to the multi-master replication feature. Zone redundancy alone cannot be relied upon to achieve regional resiliency. For example, in the event of regional outages or low latency access across the regions, it’s helpful to have multiple write regions in addition to zone redundancy. 
+
+You can opt into zone redundancy when configuring a multi-region writes for your Azure Cosmos account at no extra cost. You can enable zone redundancy on an existing region of your Azure Cosmos account by removing the region and adding it back with the zone redundancy enabled.
+
+**This feature is available in preview mode with limited availability in following azure regions:**
+
+
+> [!NOTE] 
+> Enabling Availability Zones for a single region Azure Cosmos DB account will result in charges that are equivalent to adding an additional region for your account.
+
+The following table summarizes the high availability capability of various account configurations: 
+
+|KPI  |Single Region without Availability Zones (Non-AZ)  |Single Region with Availability Zones (AZ)  |Multi-regions with Availability Zones (AZ, 2 regions) – Recommended setting |
+|---------|---------|---------|---------|
+|Write availability SLA     |   99.99%      |    99.99%     |  99.999%  |
+|Read availability SLA   |   99.99%      |   99.99%      |  99.999%       |
+|Price  |  Single region billing rate |  Single region Availability Zone billing rate |  Multi-region billing rate       |
+|Zone failures – data loss   |  Data loss  |   **No data loss** |   No data loss  |
+|Zone failures – availability |  Availability loss  | **No availability loss**  |  No availability loss  |
+|Read latency    |  Cross region    |   Cross region   |    Low  |
+|Write latency    |   Cross region   |  Cross region    |   Low   |
+|Regional outage – data loss    |   Data loss      |  Data loss       |   Data loss      |
+|Regional outage –availability  |  Availability loss       |  Availability loss       |  No availability loss  |
+|Throughput    |  X       |  X       |  2X    |
 
 ## Building highly available applications
 
