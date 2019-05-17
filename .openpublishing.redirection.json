@@ -4769,6 +4769,11 @@
       "source_path": "articles/azure-functions/functions-bindings-external-file.md",
       "redirect_url": "/azure/azure-functions/functions-triggers-bindings#supported-bindings",
       "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/azure-functions/functions-create-vnet-old.md",
+      "redirect_url": "/azure/azure-functions/functions-create-vnet",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/automation/automation-source-control-integration.md",
@@ -36183,6 +36188,16 @@
       "redirect_url": "/azure/azure-monitor/platform/data-collector-api",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/cognitive-services/personalizer/personalizer-container-configuration.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/what-is-personalizer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/personalizer/personalizer-container-howto.md",
+      "redirect_url": "/azure/cognitive-services/personalizer/what-is-personalizer",
+      "redirect_document_id": false
+    },        
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-key-phrase.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-reference-prebuilt-keyphrase",
