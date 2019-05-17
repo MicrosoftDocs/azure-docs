@@ -40,8 +40,8 @@ This tutorial shows you how to:
 
 ## Prerequisites
 
-Visual Studio 2019 with the Azure development workflow installed:
-- You can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup. 
+Visual Studio 2017 with the Azure development workflow installed:
+- You can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup. 
 
 An Azure subscription or free Cosmos DB trial account:
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
@@ -71,7 +71,7 @@ Follow these instructions to create an Azure Cosmos DB account in the Azure port
 
 ## <a id="SetupVS"></a>Set up the Visual Studio solution
 
-1. In Visual Studio, select **File** > **New** > **Project**.
+1. In Visual Studio 2017, select **File** > **New** > **Project**.
    
 1. In the **New Project** dialog, select **Visual C#** > **Console App (.NET Framework)**, name your project *AzureCosmosDBApp*, and then select **OK**.
    

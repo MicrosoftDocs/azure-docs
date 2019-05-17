@@ -43,7 +43,7 @@ that you have the following installed:
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Visual Studio 2019](https://www.visualstudio.com/downloads/) with **Azure development** and **Python development** enabled. You can check whether these prerequisites are installed, and install them, by opening **Visual Studio Installer** locally.   
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) with **Azure development** and **Python development** enabled. You can check whether these prerequisites are installed, and install them, by opening **Visual Studio Installer** locally.   
 * [Microsoft Azure SDK for Python 2.7](https://azure.microsoft.com/downloads/). 
 * [Python 2.7](https://www.python.org/downloads/windows/). You can use the 32-bit or 64-bit installation.
 
@@ -364,7 +364,7 @@ def vote():
 
 ## Step 5: Deploy the web application to Azure
 Now that you have the complete application working correctly against
-Azure Cosmos DB locally, we're going to create a web.config file, update the files on the server to match the local environment, and then view the completed app on Azure. This procedure is specific to Visual Studio 2017 or higher. If you are using a different version of Visual Studio, see [Publishing to Azure App Service](/visualstudio/python/publishing-to-azure).
+Azure Cosmos DB locally, we're going to create a web.config file, update the files on the server to match the local environment, and then view the completed app on Azure. This procedure is specific to Visual Studio 2017. If you are using a different version of Visual Studio, see [Publishing to Azure App Service](/visualstudio/python/publishing-to-azure).
 
 1. In Visual Studio **Solution Explorer**, right-click the project and select **Add > New Item...**. In the dialog that appears, selecting the **Azure web.config (Fast CGI)** template and select **OK**. This creates a `web.config` file in your project root. 
 

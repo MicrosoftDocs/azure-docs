@@ -43,7 +43,7 @@ Don't have time create the application? The complete solution is available on [G
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* Download and use the free [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+* Download and use the free [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). If you are developing a Universal Windows Platform (UWP) app, you should use **Visual Studio 2017 with version 15.4** or higher. Make sure that you enable **Azure development** during the Visual Studio setup.
 
     * For MacOS or Linux, you can develop .NET Core apps from the command line by installing the [.NET Core SDK](https://www.microsoft.com/net/core#macos) for the platform of your choice. 
 
@@ -57,7 +57,7 @@ Use the following steps to create an Azure Cosmos account:
 
 ## <a id="SetupVS"></a>Set up your Visual Studio solution
 
-1. Open **Visual Studio 2019** on your computer.
+1. Open **Visual Studio 2017** on your computer.
 
 2. On the **File** menu, select **New**, and then choose **Project**.
 

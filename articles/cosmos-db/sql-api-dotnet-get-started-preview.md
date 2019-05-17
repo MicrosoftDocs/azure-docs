@@ -53,7 +53,7 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 [!INCLUDE [create-dbaccount-preview](../../includes/cosmos-db-create-dbaccount-preview.md)]
 
 ## <a id="SetupVS"></a>Step 2: Setup your Visual Studio project
-1. Open **Visual Studio 2019** on your computer.
+1. Open **Visual Studio 2017** on your computer.
 1. On the **File** menu, select **New**, and then choose **Project**.
 1. In the **New Project** dialog, select **Visual C#** / **Console App (.NET Framework)**, name your project, and then click **OK**.
     ![Screenshot of the New Project window](./media/sql-api-get-started/dotnet-tutorial-visual-studio-new-project.png)
