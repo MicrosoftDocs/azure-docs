@@ -26,13 +26,13 @@ The visual interface uses your Azure Machine Learning service [workspace](concep
 + Register [models](concept-azure-machine-learning-architecture.md#model).
 + [Deploy](#deployment) models as web services on compute resources in the workspace.
 
-[![Overview of the visual interface](media/ui-concept-visual-interface/overview.png)](media/ui-concept-visual-interface/overview.svg#lightbox)
+![Overview of the visual interface](media/ui-concept-visual-interface/overview.png)
 
 ## Workflow
 
 The visual interface gives you an interactive, visual canvas to quickly build, test, and iterate on a model. 
 
-+ You drag-and-drop [datasets](#dataset) and analysis [modules](#module) onto the canvas.
++ You drag-and-drop [modules](#module) onto the canvas.
 + Connect the modules together to form an [experiment](#experiment).
 + Run the experiment using the compute resource of the Machine Learning Service workspace.
 + Iterate on your model design by editing the experiment and running it again.
@@ -43,9 +43,8 @@ The visual interface gives you an interactive, visual canvas to quickly build, t
 
 Create an experiment from scratch, or use an existing sample experiment as a template.  Each time you run an experiment, artifacts are stored in your workspace.
 
-An experiment consists of datasets that provide data to analytical modules, which you connect together to construct a model. Specifically, a valid experiment has these characteristics:
+An experiment consists of datasets and analytical modules, which you connect together to construct a model. Specifically, a valid experiment has these characteristics:
 
-* The experiment contains at least one dataset and one module.
 * Datasets may be connected only to modules.
 * Modules may be connected to either datasets or other modules.
 * All input ports for modules must have some connection to the data flow.
