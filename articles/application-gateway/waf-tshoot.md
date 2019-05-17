@@ -4,7 +4,7 @@ description: This article provides troubleshooting information for web applicati
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 4/17/2019
+ms.date: 5/18/2019
 ms.author: ant
 ms.topic: conceptual
 ---
