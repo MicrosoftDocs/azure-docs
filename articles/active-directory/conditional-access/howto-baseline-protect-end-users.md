@@ -62,9 +62,11 @@ To enable the policy, click Use policy immediately.
 You can test the policy with up to 50 users by clicking on Select users. Under the Include tab, click Select users and then use the Select option to choose which administrators you want this policy to apply to. 
 Click Save and you’re ready to go. 
   
-Next steps 
-For more information about the other baseline protection policies, see:  
-What is baseline protection? 
-Five steps to securing your identity infrastructure 
-What is conditional access in Azure Active Directory? 
+## Next steps
+
+For more information, see:
+
+* [Conditional access baseline protection policies](concept-basline-protection.md)
+* [Five steps to securing your identity infrastructure](../security/azure-ad-secure-steps.md)
+* [What is conditional access in Azure Active Directory?](overview.md)
  

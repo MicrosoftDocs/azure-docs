@@ -67,20 +67,6 @@ You might be using a variety of Azure services in your organization. These servi
 
 To protect privileged actions, this **Require MFA for service management (preview)** policy will require multi-factor authentication for any user accessing Azure portal, Azure PowerShell, or Azure CLI.
 
-## Testing a baseline policy
-
-Baseline policies affect your entire directory. To better understand the behavior of each policy and to ensure a smooth deployment, each baseline policy can be tested with up to 50 users. Each baseline policy can be tested independently. Testing one baseline policy with 50 users does not affect the other policies.
-
-To test a baseline policy:
-
-1. Sign in to the **Azure portal** as global administrator, security administrator, or conditional access administrator.
-1. Browse to **Azure Active Directory** > **Conditional Access**
-1. In the list of policies, select the baseline policy to test.
-1. Click on the Users picker underneath the Enable Policy buttons.
-1. Under the Include tab, select the Select users option. To test the policy, click on Select and choose up to 50 users. The policy will only apply to the users selected. If you are testing “Baseline policy: Require MFA for admins”, you can only select administrators covered by this policy. Administrators outside of the nine accepted roles and end users cannot be chosen to test the policy.
-1. Once test users have been selected, click Select and then Done to save your selection.
-1. Enable the policy by selecting the Use policy immediately button. Click Save. The policy will now be enforced only for the users selected.
-
 ## Enable a baseline policy
 
 To enable a baseline policy:
