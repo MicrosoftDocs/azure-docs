@@ -68,7 +68,7 @@ A module may have a set of parameters that you can use to configure the module's
 
 For some help navigating through the library of machine learning algorithms available, see [Algorithm & module reference overview](../algorithm-module-reference/module-reference.md)
 
-## (a name="compute"></a> Compute resources
+## <a name="compute"></a> Compute resources
 
 Use compute resources from your workspace to run your experiment or host your deployed models as web services. The supported compute targets are:
 
