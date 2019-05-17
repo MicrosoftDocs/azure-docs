@@ -68,6 +68,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br><br>
   **The following services are NOT supported**:
     * CDN
+    * Azure Front Door
     * Multi-factor Authentication
     * Traffic Manager
 
@@ -80,6 +81,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure Global Services community)
 * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br><br>**The following services are NOT supported**:
     * CDN
+    * Azure Front Door
     * Multi-factor Authentication
     * Traffic Manager
 
