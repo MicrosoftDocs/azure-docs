@@ -32,7 +32,7 @@ Azure Firewall can be configured during deployment to span multiple Availability
 
 There's no additional cost for Azure Firewall deployed in an Availability Zone. The 99.99% uptime SLA is offered when two or more Availability Zones are selected.
 
-You can also associate Azure Firewall to a specific zone just for proximity reasons, using the service standard 99.95% SLA. In this case, there will be additional inbound/outbound data transfer charges. For more information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
+You can also associate Azure Firewall to a specific zone just for proximity reasons, using the service standard 99.95% SLA. In this case, there will be additional inbound/outbound data transfer charges associated with Availability Zones. For more information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 For more information about Availability Zones, see [What are Availability Zones in Azure?](../availability-zones/az-overview.md)
 
