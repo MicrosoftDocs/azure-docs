@@ -13,7 +13,6 @@ ms.author: victorh
 
 The Azure Application Gateway web application firewall (WAF) provides protection for web applications. This protection is provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). In some cases, you may need to create your own custom rules to meet your specific needs. For more information about WAF custom rules, see [Custom web application firewall rules overview](custom-waf-rules-overview.md).
 
-
 This article shows you some example custom rules that you can create and use with your WAF.
 
 >[!NOTE]
@@ -27,7 +26,7 @@ You want to block all requests from IP addresses in the range 198.168.5.4/24.
 
 In this example, you'll block all traffic that comes from an IP addresses range. The name of the rule is *myrule1* and the priority is set to *100*.
 
-Logic: **p**
+Logic: p
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -78,7 +77,7 @@ Corresponding CRS rule:
 
 You know there's a bot named *evilbot* that you want to block from crawling your website. In this case, you’ll block on the User-Agent *evilbot* in the request headers.
 
-Logic: **p**
+Logic: p
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -176,7 +175,7 @@ And the corresponding JSON:
 
 For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.4/24.
 
-Logic **p** and **q**
+Logic: p **and** q
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -244,11 +243,11 @@ Here's the corresponding JSON:
   } 
 ```
 
-## Example 3a
+## Example 4
 
 For this example, you want to block if the request is either outside of the IP address range *192.168.5.4/24*, or the user agent string isn't *chrome* (meaning the user isn’t using the Chrome browser). Since this logic uses *or*, the two conditions are in separate rules.
 
-Logic: **not (p and q) = not p or not q**.
+Logic: **not** (p and q) = **not** p **or not** q.
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -285,6 +284,7 @@ $rule2 = New-AzApplicationGatewayFirewallCustomRule `
    -MatchCondition $condition2 `
    -Action Block
 ```
+
 And the corresponding JSON:
 
 ```json
@@ -329,11 +329,11 @@ And the corresponding JSON:
   }
 ```
 
-## Example 4
+## Example 5
 
 You want to block custom SQLI.
 
-Logic: **p or q or r**
+Logic: p **or** q **or** r
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
