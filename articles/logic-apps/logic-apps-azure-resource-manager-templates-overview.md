@@ -823,8 +823,8 @@ Here is the parameterized sample template that this overview uses for the templa
             },
             "displayName": "[parameters('azureblob_1_Connection_DisplayName')]",
             "parameterValues": {
-            "accountName": "[parameters('azureblob_1_accountName')]",
-            "accessKey": "[parameters('azureblob_1_accessKey')]"
+               "accountName": "[parameters('azureblob_1_accountName')]",
+               "accessKey": "[parameters('azureblob_1_accessKey')]"
             }
          }
       }
