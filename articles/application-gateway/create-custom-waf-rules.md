@@ -5,7 +5,7 @@ services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 5/15/2019
+ms.date: 5/18/2019
 ms.author: victorh
 ---
 
@@ -50,7 +50,6 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
 Here's the corresponding JSON:
 
 ```json
-JSON Object:
   {
     "customRules": [
       {
@@ -104,7 +103,6 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
 And here is the corresponding JSON:
 
 ```json
-JSON Object:
   {
     "customRules": [
       {
@@ -153,7 +151,6 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
 And the corresponding JSON:
 
 ```json
-Object:
   {
     "customRules": [
       {
@@ -177,15 +174,15 @@ Object:
 
 ## Example 3
 
-For this example, you want to block if the request is either outside of the IP address range *192.168.5.4/24*, or the user agent string isn't *chrome* (meaning the user isn’t using the Chrome browser). Since this logic uses *or*, the two conditions are in separate rules.
+For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.4/24.
 
-Logic: **not (p and q) = not p or not q**.
+Logic **p** and **q**
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
    -VariableName RemoteAddr
 
-$variable2 = New-AzApplicationGatewayFirewallMatchVariable `
+ $variable2 = New-AzApplicationGatewayFirewallMatchVariable `
    -VariableName RequestHeaders `
    -Selector User-Agent
 
@@ -198,11 +195,11 @@ $condition1 = New-AzApplicationGatewayFirewallCondition `
 $condition2 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable2 `
    -Operator Contains `
-   -MatchValue "chrome" `
+   -MatchValue "evilbot" `
    -Transform Lowercase `
    -NegationCondition $False
 
-$rule = New-AzApplicationGatewayFirewallCustomRule `
+ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule `
    -Priority 100 `
    -RuleType MatchRule `
@@ -210,6 +207,84 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
+Here's the corresponding JSON:
+
+```json
+{ 
+
+    "customRules": [ 
+      { 
+        "name": "myrule", 
+        "ruleType": "MatchRule", 
+        "priority": 100, 
+        "action": "block", 
+        "matchConditions": [ 
+            { 
+              "matchVariable": "RemoteAddr", 
+              "operator": "IPMatch", 
+              "negateCondition": true, 
+              "matchValues": [ 
+                "192.168.5.4/24" 
+              ] 
+            }, 
+            { 
+              "matchVariable": "RequestHeaders", 
+              "selector": "User-Agent", 
+              "operator": "Contains", 
+              "transforms": [ 
+                "Lowercase" 
+              ], 
+              "matchValues": [ 
+                "evilbot" 
+              ] 
+            } 
+        ] 
+      } 
+    ] 
+  } 
+```
+
+## Example 3a
+
+For this example, you want to block if the request is either outside of the IP address range *192.168.5.4/24*, or the user agent string isn't *chrome* (meaning the user isn’t using the Chrome browser). Since this logic uses *or*, the two conditions are in separate rules.
+
+Logic: **not (p and q) = not p or not q**.
+
+```azurepowershell
+$variable1 = New-AzApplicationGatewayFirewallMatchVariable `
+   -VariableName RemoteAddr
+ 
+$variable2 = New-AzApplicationGatewayFirewallMatchVariable `
+   -VariableName RequestHeaders `
+   -Selector User-Agent
+ 
+$condition1 = New-AzApplicationGatewayFirewallCondition `
+   -MatchVariable $variable1 `
+   -Operator IPMatch `
+   -MatchValue "192.168.5.4/24" `
+   -NegationCondition $True
+
+$condition2 = New-AzApplicationGatewayFirewallCondition `
+   -MatchVariable $variable2 `
+   -Operator Contains `
+   -MatchValue "chrome" `
+   -Transform Lowercase `
+   -NegationCondition $True
+ 
+$rule1 = New-AzApplicationGatewayFirewallCustomRule `
+   -Name myrule1 `
+   -Priority 100 `
+   -RuleType MatchRule `
+   -MatchCondition $condition1 `
+   -Action Block
+ 
+$rule2 = New-AzApplicationGatewayFirewallCustomRule `
+   -Name myrule2 `
+   -Priority 100 `
+   -RuleType MatchRule `
+   -MatchCondition $condition2 `
+   -Action Block
+```
 And the corresponding JSON:
 
 ```json
@@ -280,7 +355,6 @@ $rule1 = New-AzApplicationGatewayFirewallCustomRule `
 Corresponding JSON:
 
 ```json
-Object:
   {
     "customRules": [
       {
@@ -358,7 +432,6 @@ $rule3 = New-AzApplicationGatewayFirewallCustomRule `
 Corresponding JSON:
 
 ```json
-Alternative object:
   {
     "customRules": [
       {
