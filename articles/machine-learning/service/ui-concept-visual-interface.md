@@ -22,7 +22,7 @@ The visual interface uses your Azure Machine Learning service [workspace](concep
 
 + Write artifacts of [experiment](#experiment) runs into the workspace.
 + Access [datasets](#dataset).
-+ Use the [compute resources](#compute-target) in the workspace to run the experiment. 
++ Use the [compute resources](#compute) in the workspace to run the experiment. 
 + Register [models](concept-azure-machine-learning-architecture.md#model).
 + [Deploy](#deployment) models as web services on compute resources in the workspace.
 
@@ -68,7 +68,7 @@ A module may have a set of parameters that you can use to configure the module's
 
 For some help navigating through the library of machine learning algorithms available, see [Algorithm & module reference overview](../algorithm-module-reference/module-reference.md)
 
-## Compute resources
+## (a name="compute"></a> Compute resources
 
 Use compute resources from your workspace to run your experiment or host your deployed models as web services. The supported compute targets are:
 
