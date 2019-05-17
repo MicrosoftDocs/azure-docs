@@ -30,9 +30,9 @@ This article doesn't apply to Microsoft 365 Government – GCC customers.
 
 ## Changes to the initial domain name
 
-During your organization's initial sign-up for a Microsoft 365 Government online service, you were asked to choose your organization's domain name, &lt;_your-domain-name_&gt;.onmicrosoft.com. If you already have a domain name with the .com suffix, nothing will change.
+During your organization's initial sign-up for a Microsoft 365 Government online service, you were asked to choose your organization's domain name, `<your-domain-name>.onmicrosoft.com`. If you already have a domain name with the .com suffix, nothing will change.
 
-However, if you're signing up for a new Microsoft 365 Government service, you'll be asked to choose a domain name using the .us suffix. So, it will be &lt;_your-domain-name_&gt;.onmicrosoft.us.
+However, if you're signing up for a new Microsoft 365 Government service, you'll be asked to choose a domain name using the `.us` suffix. So, it will be `<your-domain-name>.onmicrosoft.us`.
 
 >[!Note]
 >This change doesn't apply to any customers who are managed by cloud service providers (CSPs).
