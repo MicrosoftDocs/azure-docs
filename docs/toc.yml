@@ -60,11 +60,11 @@
   - name: AppSource submission FAQ
     href: office-store-submission-faq.md
   - name: Create effective AppSource listings
-  items:
-  - name: Overview
-    href: create-effective-office-store-listings.md
-  - name: Craft effective AppSource store images
-    href: craft-effective-appsource-store-images.md
+    items:
+    - name: Overview
+      href: create-effective-office-store-listings.md
+    - name: Craft effective AppSource store images
+      href: craft-effective-appsource-store-images.md
 - name: Add-in management and services
   items:
     - name: Mange add-in names
