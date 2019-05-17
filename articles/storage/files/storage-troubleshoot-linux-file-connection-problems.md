@@ -240,6 +240,8 @@ sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <
 
 You can then create symlinks as suggested on the [wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).
 
+[!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
+
 ## Need help? Contact support.
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
