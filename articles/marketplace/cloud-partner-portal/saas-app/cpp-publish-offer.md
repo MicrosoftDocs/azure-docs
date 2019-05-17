@@ -5,13 +5,8 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-<<<<<<< Updated upstream
-ms.date: 12/04/2018
-ms.author: pabutler
-=======
 ms.date: 05/16/2019
 ms.author: pbutlerm
->>>>>>> Stashed changes
 ---
 
 # Publish a SaaS application offer
