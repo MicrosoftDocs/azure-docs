@@ -161,12 +161,11 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 
 | Step | Description |
 | :---: | --- |
-| A | A user logs in to Windows with their credentials to get a PRT. Once the user opens the browser, the browser or extension loads the URLs from the registry. |
-| B | When a user opens an Azure AD login URL, the browser or extension validates the URL with the ones obtained from the registry. If they match, the browser invokes the native client host for getting a token. |
-| C | The native client host validates that the URLs belong to the Microsoft identity providers (Microsoft account or Azure AD), extracts a nonce sent from the URL and makes a call to CloudAP plugin to get a PRT cookie. |
-| D | The CloudAP plugin will create the PRT cookie, sign in with the TPM-bound session key and send it back to the native client host. As the cookie is signed by the session key, it cannot be tampered with. |
-| E | The native client host will return this PRT cookie to the browser, which will include it as part of the request header called x-ms-RefreshTokenCredential and request tokens from Azure AD. |
-| F | Azure AD validates the Session key signature on the PRT cookie, validates the nonce, verifies that the device is valid in the tenant, and issues an ID token for the web page and an encrypted session cookie for the browser. |
+| A | An application (e.g. Outlook, OneNote etc.) initiates a token request to WAM. WAM, in turn, asks the Azure AD WAM plugin to service the token request. |
+| B | If a Refresh token for the application is already available, Azure AD WAM plugin uses it to request an access token. To provide proof of device binding, WAM plugin signs the request with the Session key. Azure AD validates the Session key and issues an access token and a new refresh token for the app, encrypted by the Session key. WAM plugin requests Cloud AP plugin to decrypt the tokens which, in turn, requests the TPM to decrypt using the Session key, resulting in WAM plugin getting both the tokens. Next, WAM plugin provides only the access token to the application, while it re-encrypts the refresh token with DPAPI and stores it in its own cache  |
+| C |  If a Refresh token for the application is not available, Azure AD WAM plugin uses the PRT to request an access token. To provide proof of possession, WAM plugin signs the request containing the PRT with the Session key. Azure AD validates the Session key signature by comparing it against the Session key embedded in the PRT, verifies that the device is valid and issues an access token and a refresh token for the application. In additon, Azure AD can issue a new PRT (based on refresh cycle), all of them encrypted by the Session key. |
+| D | WAM plugin requests Cloud AP plugin to decrypt the tokens which, in turn, requests the TPM to decrypt using the Session key, resulting in WAM plugin getting both the tokens. Next, WAM plugin provides only the access token to the application, while it re-encrypts the refresh token with DPAPI and stores it in its own cache. WAM plugin will use the refresh token going forward for this application. WAM plugin also gives back the new PRT to Cloud AP plugin, which validates the PRT with Azure AD before updating it in its own cache. Cloud AP plugin will use the new PRT going forward. |
+| E | WAM provides the newly issued access token to WAM, which in turn, provides it back to the calling application|
 
 ### Browser SSO using PRT
 
