@@ -18,7 +18,7 @@ Azure Dev Spaces provides two recommended options for storing secrets: in the va
  
 ## Method 1: values.dev.yaml
 1. Open VS Code with your project that is enabled for Azure Dev Spaces.
-2. Add a file named _values.dev.yaml_ in the same folder as existing _values.yaml_ and define your secret key and values, as in the following example:
+2. Add a file named _values.dev.yaml_ in the same folder as existing _azds.yaml_ and define your secret key and values, as in the following example:
 
     ```yaml
     secrets:
@@ -28,12 +28,13 @@ Azure Dev Spaces provides two recommended options for storing secrets: in the va
         key: "secretkeyhere"
     ```
      
-3. Update _azds.yaml_ to tell Azure Dev Spaces to use your new _values.dev.yaml_ file. To do this, add this configuration under the configurations.develop.container section:
+3. _azds.yaml_ already references the _values.dev.yaml_ file if it exists. If you prefer a different file name, update the install.values section:
 
     ```yaml
-           container:
-             values:
-             - "charts/webfrontend/values.dev.yaml"
+    install:
+      values:
+      - values.dev.yaml?
+      - secrets.dev.yaml?
     ```
  
 4. Modify your service code to refer to these secrets as environment variables, as in the following example:
@@ -70,17 +71,17 @@ Azure Dev Spaces provides two recommended options for storing secrets: in the va
           set:
             secrets:
               redis:
-                port: "$REDIS_PORT_DEV"
-                host: "$REDIS_HOST_DEV"
-                key: "$REDIS_KEY_DEV"
+                port: "$REDIS_PORT"
+                host: "$REDIS_HOST"
+                key: "$REDIS_KEY"
     ```
      
 2.	Create a _.env_ file in the same folder as _azds.yaml_. Enter secrets using standard key=value notation. Don’t commit the _.env_ file to source control. (To omit from source control in git-based version control systems, add it to the _.gitignore_ file.) The following example shows an _.env_ file:
 
     ```
-    REDIS_PORT_DEV=3333
-    REDIS_HOST_DEV=myredishost
-    REDIS_KEY_DEV=myrediskey
+    REDIS_PORT=3333
+    REDIS_HOST=myredishost
+    REDIS_KEY=myrediskey
     ```
 2.	Modify your service source code to reference these secrets in code, as in the following example:
 
