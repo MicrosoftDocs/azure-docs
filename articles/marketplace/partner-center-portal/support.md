@@ -13,7 +13,7 @@ ms.date: 05/17/2019
 
 Microsoft provides support for a wide variety of products and services. Finding the right support team is important to ensure an appropriate and timely response. Consider the following scenarios, which should help you route your query to the appropriate team: 
 
-- If you're a publisher and have a question from a customer, ask your customer to request support using the support links in the [Azure Portal](https://portal.azure.com/). 
+- If you're a publisher and have a question from a customer, ask your customer to request support using the support links in the [Azure portal](https://portal.azure.com/). 
 
 - If you're a publisher and have a question relating to your app or service, review the following support options.
 
@@ -31,13 +31,13 @@ Microsoft provides support for a wide variety of products and services. Finding 
 
 4) Select **Documentation** to review comprehensive answers to questions and resources. (You're in the documentation now). 
 
-5) Select **[Marketplace Partner community forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** to answer your questions by leveraging the knowledge of thousands of Microsoft publishers on the Microsoft Partner community forum. 
+5) Select **[Marketplace Partner community forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** to answer your questions by leveraging the knowledge of thousands of Microsoft publishers. 
 
 6) Select **[Additional help](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff)** to open a New support request ticket. 
 
 ### Additional help: How to open a support ticket
 
-Selecting **Additional help** from the Commercial Marketplace support menu in Partner Center will direct you to the Microsoft Support for business page. You will see several dropdown menus. The first few dropdown menus will be automatically filled out for you, identifying the product family as **Cloud and Online Services**, the product as **Marketplace Publisher**, and the product version as **Marketplace Publishing**. For Marketplace support, do not change these pre-populated dropdown menu selections. 
+Selecting **Additional help** from the Commercial Marketplace support menu in Partner Center will direct you to the Microsoft Support for business page. You will see several dropdown menus. The first few dropdown menus are automatically filled out for you. For Marketplace support, identify the product family as **Cloud and Online Services**, the product as **Marketplace Publisher**, and the product version as **Marketplace Publishing**. Do not change these pre-populated dropdown menu selections. 
 
 #### Select a category that best describes the issue
 
@@ -45,13 +45,13 @@ Choose the category that best aligns with your question or problem. Selecting a 
 
 #### Select a problem that best describes the issue
  
-Choose the problem from the listed options that best aligns with your issue. This may trigger a title to appear saying "Here's some information that might help" with links relevant to issue. Please review these links before selecting the **Next** button to see whether your question or problem is addressed.
+Choose the problem from the listed options that best aligns with your issue. Depending on your problem, a new section may appear saying "Here's some information that might help" with links relevant to your issue. Review these links before selecting the **Next** button to see whether your question or problem is addressed.
 
 By selecting the **Next** button, you will be directed to the **Issue Details** page. 
 
 #### Tell us more about your issue
 
-In the **Issue Details** section, please select your country, the language in which you'd like to receive support, and enter a title for your issue (between 3 - 200 characters).  
+In the **Issue Details** section, select your country, the language in which you'd like to receive support, and enter a title for your issue (between 3 - 200 characters).  
 
 Enter a brief description of your issue (max 2000 characters), then select **Next**.
 
