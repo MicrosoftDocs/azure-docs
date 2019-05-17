@@ -687,7 +687,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/china/">
+                                            <a href="https://docs.microsoft.com/azure/china/">
                                                 <img src="media/index/azure-germany.svg" alt="" />
                                                 <p>Microsoft Azure China 21Vianet</p>
                                             </a>
@@ -6049,7 +6049,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/china/">
+                                <a href="https://docs.microsoft.com/azure/china/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
