@@ -13,11 +13,7 @@ If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and c
 
 For information about the AppSource approval process, see [Make your solutions available in AppSource](submit-to-the-office-store.md).
 
-## Submission process
-
-This section provides an overview of the process to submit your solution via Partner Center. 
-
-### Choose solution type
+## Choose solution type
 
 On the [Office Products](https://partner.microsoft-int.com/en-us/dashboard/office/products) page, select **Create a new...**, and select the type of solution that you are submitting:
 
@@ -28,17 +24,18 @@ In the dialog box, provide a name for your solution and choose **Check availabil
 
 After you've verified that the name you chose is available, choose **Create**.
 
-### Product overview page
+## Create your add-in submission
 
 |**Action**|**More information**|
 |:-------------|:-------|
 |Upload your add-in package|[Upload your submission package](upload-package.md)|
-|Define your Store setings|[[Define add-in properties](define-add-in-properties.md)] and [Create your AppSource listing](appsource-listing.md)|
+|Add setup details|[Add-in setup](add-in-setup.md)|
+|Define your Store setings|[[Define add-in properties](define-add-in-properties.md) and [Create your AppSource listing](appsource-listing.md)|
 |Define your pricing and availability|[Set pricing and availability](set-pricing-and-availability.md)|
 
 ## Submit for approval
 
-After your account is approved, you can submit your solution for approval. To submit an app for purchase, your payout and tax information must also be validated. Your approved apps will be listed in product-specific stores.
+After your account is approved, you can submit your solution for approval. To submit an app for purchase, your payout and tax information must also be validated. Your approved add-ins will be listed in product-specific stores.
 
 ### To submit a new solution
 
