@@ -92,8 +92,8 @@
     },
     {
       "source_path": "azure/china/china-get-started-developer-guide.md",
-      "redirect_url": "https://docs.microsoft.com/azure/china",
-      "redirect_document_id": false
+      "redirect_url": "https://docs.microsoft.com/azure/china/resources-developer-guide",
+      "redirect_document_id": true
     },
     {
       "source_path": "azure/china/china-get-started-plan.md",
