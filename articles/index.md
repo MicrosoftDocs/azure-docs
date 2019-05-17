@@ -6049,7 +6049,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/china/">
+                                <a href="/azure/china/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
