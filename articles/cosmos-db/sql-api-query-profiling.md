@@ -9,9 +9,9 @@ ms.date: 05/17/2019
 ms.author: girobins
 
 ---
-# Get SQL query execution metrics and analyze query performance using .Net SDK
+# Get SQL query execution metrics and analyze query performance using .NET SDK
 
-When you execute a SQL query on the Azure Cosmos DB items, you can gather different metrics on the executed query. The [QueryMetrics](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.querymetrics.aspx) class provides a strongly typed object, which you can use to gather metrics while the query is executed. These metrics are documented in more detail in the [Tune Query Performance](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query-metrics) article. What this article focuses on is how you can retrieve these metrics client-side using the .Net SDK.
+This article presents how to profile SQL query performance on Azure Cosmos DB. This profiling can be done using `QueryMetrics` retrieved from the .NET SDK and is detailed here. [QueryMetrics](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.querymetrics.aspx) is a strongly typed object with information about the backend query execution. These metrics are documented in more detail in the [Tune Query Performance](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sql-query-metrics) article.
 
 ## Set the FeedOptions parameter
 
@@ -19,7 +19,7 @@ All the overloads for [DocumentClient.CreateDocumentQuery](https://msdn.microsof
 
 To collect the Sql query execution metrics, you must set the parameter [PopulateQueryMetrics](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) in the [FeedOptions](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.client.feedoptions.aspx) to `true`. Setting `PopulateQueryMetrics` to true will make it so that the `FeedResponse` will contain the relevant `QueryMetrics`. 
 
-## AsDocumentQuery()
+## Get query metrics with AsDocumentQuery()
 The following code sample shows how to do retrieve metrics when using [AsDocumentQuery()](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.linq.documentqueryable.asdocumentquery.aspx) method:
 
 ```csharp
@@ -77,9 +77,9 @@ QueryMetrics aggregatedQueryMetrics = queryMetricsList.Aggregate((curr, acc) => 
 Console.WriteLine(aggregatedQueryMetrics);
 ```
 
-## Grouping query metrics by partition ID
+## Grouping query metrics by Partition ID
 
-You can group the `QueryMetrics` by the parition ID. Grouping by partition ID allows you to see if a specific partition is causing performance issues when compared to others. The following example shows how to group `QueryMetrics` with LINQ:
+You can group the `QueryMetrics` by the parition ID. Grouping by Partition ID allows you to see if a specific Partition is causing performance issues when compared to others. The following example shows how to group `QueryMetrics` with LINQ:
 
 ```csharp
 List<KeyValuePair<string, QueryMetrics>> partitionedQueryMetrics = new List<KeyValuePair<string, QueryMetrics>>();
@@ -202,3 +202,16 @@ This query loaded 157,743 documents, which totaled 1,578,730,753 bytes. Loading 
 ```
 
 Meaning that the query took 4.5 seconds to execute (and this was only one continuation).
+
+## <a id="References"></a>References
+
+- [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
+- [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+- [JSON](https://json.org/)
+- [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
+
+## Next steps
+
+- [Tune query performance](sql-api-query-metrics.md)
+- [Indexing overview](index-overview.md)
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
