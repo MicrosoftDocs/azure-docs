@@ -41,7 +41,7 @@ In Visual Studio, create a new .NET console application. The following steps sho
 
 1. Choose **Console App (.NET Core)**, and then select **Next**.
 
-1. In the **Name** field, enter a name for your application, for example, **CosmosTableSamples** (you can provide a different name as needed).
+1. In the **Project name** field, enter a name for your application, such as **CosmosTableSamples**. (You can provide a different name as needed.)
 
 1. Select **Create**.
 
