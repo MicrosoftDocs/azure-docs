@@ -93,6 +93,13 @@ When programmatically signing in, you need to pass the tenant ID with your authe
 
    ![Client ID](./media/howto-create-service-principal-portal/copy-app-id.png)
 
+## Certificates and secrets
+Deamon applications can use two forms of credentials to authenticate with Azure AD: certficates and application secrets.
+
+### Upload a certificate
+
+### Create a new application secret
+
 1. Select **Certificates & secrets**.
 
    ![Select settings](./media/howto-create-service-principal-portal/select-certs-secrets.png)
@@ -105,6 +112,7 @@ When programmatically signing in, you need to pass the tenant ID with your authe
    After saving the client secret, the value of the client secret is displayed. Copy this value because you aren't able to retrieve the key later. You provide the key value with the application ID to sign in as the application. Store the key value where your application can retrieve it.
 
    ![Copy secret](./media/howto-create-service-principal-portal/copy-secret.png)
+
 
 ## Required permissions
 
