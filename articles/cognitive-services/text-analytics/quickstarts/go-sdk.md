@@ -9,30 +9,25 @@ manager: assafi
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 05/17/2019
 ms.author: aahi
 ---
 # Quickstart: Call the Text Analytics service using the Go SDK 
 <a name="HOLTop"></a>
 
-Use this quickstart to begin analyzing language with the Text Analytics SDK for Go. While the [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/cognitiveservices).
+Use this quickstart to begin analyzing language with the Text Analytics SDK for Go. This article shows you how to detect language, analyze sentiment, extract key phrases, and identify linked entities. While the REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/cognitiveservices).
 
 ## Prerequisites
+
+* The Text Analytics [SDK for Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics)
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
 
-> [!Tip]
->  While you could call the [HTTP endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) directly from Go, the SDK makes it much easier to call the service without having to worry about serializing and deserializing JSON.
->
-> A few useful links:
-> - [SDK code](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics)
+## Set up a new Project
 
-## Set up Project
-
-1. Create a new Go project in your favorite code editor or IDE
-2. Add the following import statement to the Go file
+Create a new Go project in your favorite code editor or IDE. Then add the following import statement to the Go file.
 
 ```golang
 import (
@@ -44,7 +39,7 @@ import (
 )
 ```
 
-3. Add the following functions to your project since most of the parameters/properties expects string/bool pointers.
+Add the following functions to your project since most of the parameters/properties expects string/bool pointers.
 
 ```golang
 // returns a pointer to the string value passed in.
@@ -60,14 +55,14 @@ func BoolPointer(v bool) *bool {
 
 ## Create Text Analytics Client and Authenticate Credentials
 
-1. In the main function of your project, create a new `TextAnalytics` object. Use the correct Azure region for your Text Analytics subscription.
+In the main function of your project, create a new `TextAnalytics` object. Use the correct Azure region for your Text Analytics subscription. For example: `https://eastus.api.cognitive.microsoft.com`.
 
 ```golang
 //Replace 'eastus' with the correct region for your Text Analytics subscription
 textAnalyticsClient := textanalytics.New("https://eastus.api.cognitive.microsoft.com")
 ```
 
-2. Create a variable for your Text Analytics subscription key and pass it to the function `autorest.NewCognitiveServicesAuthorizer` which in turn will be passed to the `authorizer` property of the `textAnalyticsClient` created earlier.
+Create a variable for your Text Analytics subscription key and pass it to the function `autorest.NewCognitiveServicesAuthorizer` which will then be passed to the client's `authorizer` property.
 
 ```golang
 subscriptionKey := "<<subscriptionKey>>"
@@ -76,7 +71,7 @@ textAnalyticsClient.Authorizer = autorest.NewCognitiveServicesAuthorizer(subscri
 
 ## Sentiment analysis
 
-1. Create a new function called `SentimentAnalysis()` that takes the client created earlier. Create a list of `MultiLanguageInput` objects, containing the documents you want to analyze.
+Create a new function called `SentimentAnalysis()` that takes the client created earlier. Create a list of `MultiLanguageInput` objects, containing the documents you want to analyze. Each object will contain an `id`, `Language` and a `text` attribute. The `text` attribute stores the text to be analyzed, `language` is the langauge of the document, and the `id` can be any value. 
 
 ```golang
 func SentimentAnalysis(textAnalyticsclient textanalytics.BaseClient) {
@@ -109,28 +104,28 @@ func SentimentAnalysis(textAnalyticsclient textanalytics.BaseClient) {
 }
 ```
 
-2. In the same function, call textAnalyticsclient.Sentiment() and get the result. Then iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
+In the same function, call `textAnalyticsclient.Sentiment()` and get the result. Then iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
 
 ```golang
-    result, _ := textAnalyticsclient.Sentiment(ctx, BoolPointer(false), &batchInput)
-    batchResult := textanalytics.SentimentBatchResult{}
-    jsonString, _ := json.Marshal(result.Value)
-    json.Unmarshal(jsonString, &batchResult)
+result, _ := textAnalyticsclient.Sentiment(ctx, BoolPointer(false), &batchInput)
+batchResult := textanalytics.SentimentBatchResult{}
+jsonString, _ := json.Marshal(result.Value)
+json.Unmarshal(jsonString, &batchResult)
 
-    // Printing sentiment results
-    for _,document := range *batchResult.Documents {
-        fmt.Printf("Document ID: %s " , *document.ID)
-        fmt.Printf("Sentiment Score: %f\n",*document.Score)
-    }
+// Printing sentiment results
+for _,document := range *batchResult.Documents {
+    fmt.Printf("Document ID: %s " , *document.ID)
+    fmt.Printf("Sentiment Score: %f\n",*document.Score)
+}
 
-    // Printing document errors
-    fmt.Println("Document Errors")
-    for _,error := range *batchResult.Errors {
-        fmt.Printf("Document ID: %s Message : %s\n" ,*error.ID, *error.Message)
-    }
+// Printing document errors
+fmt.Println("Document Errors")
+for _,error := range *batchResult.Errors {
+    fmt.Printf("Document ID: %s Message : %s\n" ,*error.ID, *error.Message)
+}
 ```
 
-3. In the main function of your project, call `SentimentAnalysis()`.
+In the main function of your project, call `SentimentAnalysis()`.
 
 ### Output
 
@@ -143,7 +138,7 @@ Document ID: 4 , Sentiment Score: 1.00
 
 ## Language detection
 
-1. Create a new function called `LanguageDetection()` that takes the client created earlier. Create a list of `LanguageInput` objects, containing the documents you want to analyze.
+Create a new function called `LanguageDetection()` that takes the client created earlier. Create a list of `LanguageInput` objects, containing the documents you want to analyze. Each object will contain an `id` and a `text` attribute. The `text` attribute stores the text to be analyzed, and the `id` can be any value. 
 
 ```golang
 func LanguageDetection(textAnalyticsclient textanalytics.BaseClient) {
@@ -168,29 +163,29 @@ func LanguageDetection(textAnalyticsclient textanalytics.BaseClient) {
 }
 ```
 
-2. In the same function, call textAnalyticsclient.DetectLanguage() and get the result. Then iterate through the results, and print each document's ID, and detected language.
+In the same function, call `textAnalyticsclient.DetectLanguage()` and get the result. Then iterate through the results, and print each document's ID, and detected language.
 
 ```golang
-    result, _ := textAnalyticsclient.DetectLanguage(ctx, BoolPointer(false), &batchInput)
+result, _ := textAnalyticsclient.DetectLanguage(ctx, BoolPointer(false), &batchInput)
 
-	// Printing language detection results
-	for _,document := range *result.Documents {
-		fmt.Printf("Document ID: %s " , *document.ID)
-		fmt.Printf("Detected Languages with Score: ")
-		for _,language := range *document.DetectedLanguages{
-			fmt.Printf("%s %f,",*language.Name, *language.Score)
-		}
-		fmt.Println()
-	}
+// Printing language detection results
+for _,document := range *result.Documents {
+    fmt.Printf("Document ID: %s " , *document.ID)
+    fmt.Printf("Detected Languages with Score: ")
+    for _,language := range *document.DetectedLanguages{
+        fmt.Printf("%s %f,",*language.Name, *language.Score)
+    }
+    fmt.Println()
+}
 
-	// Printing document errors
-	fmt.Println("Document Errors")
-	for _,error := range *result.Errors {
-		fmt.Printf("Document ID: %s Message : %s\n" ,*error.ID, *error.Message)
-	}
+// Printing document errors
+fmt.Println("Document Errors")
+for _,error := range *result.Errors {
+    fmt.Printf("Document ID: %s Message : %s\n" ,*error.ID, *error.Message)
+}
 ```
 
-3. In the main function of your project, call `LanguageDetection()`.
+In the main function of your project, call `LanguageDetection()`.
 
 ### Output
 
@@ -202,7 +197,7 @@ Document ID: 2 Detected Languages with Score: Chinese_Simplified 1.000000,
 
 ## Entity recognition
 
-1. Create a new function called `ExtractEntities()` that takes the client created earlier. Create a list of `MultiLanguageInput` objects, containing the documents you want to analyze.
+Create a new function called `ExtractEntities()` that takes the client created earlier. Create a list of `MultiLanguageInput` objects, containing the documents you want to analyze. Each object will contain an `id`, `language`, and a `text` attribute. The `text` attribute stores the text to be analyzed, `language` is the language of the document, and the `id` can be any value. 
 
 ```golang
 func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
@@ -225,7 +220,7 @@ func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
 }
 ```
 
-2. In the same function, call textAnalyticsclient.Entities() and get the result. Then iterate through the results, and print each document's ID, and extracted entities score.
+In the same function, `call textAnalyticsclient.Entities()` and get the result. Then iterate through the results, and print each document's ID, and extracted entities score.
 
 ```golang
     result, _ := textAnalyticsclient.Entities(ctx, BoolPointer(false), &batchInput)
@@ -292,7 +287,7 @@ Document ID: 1
 
 ## Key phrase extraction
 
-1. Create a new function called `ExtractKeyPhrases()` that takes the client created earlier. Create a list of `MultiLanguageInput` objects, containing the documents you want to analyze.
+Create a new function called `ExtractKeyPhrases()` that takes the client created earlier. Create a list of `MultiLanguageInput` objects, containing the documents you want to analyze. Each object will contain an `id`, `language`, and a `text` attribute. The `text` attribute stores the text to be analyzed, `language` is the language of the document, and the `id` can be any value.
 
 ```golang
 func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
@@ -325,7 +320,7 @@ func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
 }
 ```
 
-2. In the same function, call textAnalyticsclient.KeyPhrases() and get the result. Then iterate through the results, and print each document's ID, and extracted key phrases.
+In the same function, call textAnalyticsclient.KeyPhrases() and get the result. Then iterate through the results, and print each document's ID, and extracted key phrases.
 
 ```golang
     result, _ := textAnalyticsclient.KeyPhrases(ctx, BoolPointer(false), &batchInput)
@@ -347,7 +342,7 @@ func ExtractKeyPhrases(textAnalyticsclient textanalytics.BaseClient) {
 	}
 ```
 
-3. In the main function of your project, call `ExtractKeyPhrases()`.
+In the main function of your project, call `ExtractKeyPhrases()`.
 
 ### Output
 
