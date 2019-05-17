@@ -221,7 +221,7 @@ vf_tx_dropped: 0
 ```
 Accelerated Networking is now enabled for your VM.
 
-## Handling Dynamic Binding, Revocation of Virtual Functions 
+## Handle dynamic binding and revocation of virtual function 
 Applications must run over the synthetic NIC that is exposed in VM. If the application runs directly over the VF NIC, it doesn't receive **all** packets that are destined to the VM, since some packets show up over the synthetic interface.
 If you run an application over the synthetic NIC, it guarantees that the application receives **all** packets that are destined to it. It also makes sure that the application keeps running, even if the VF is revoked when the host is being serviced. 
 Applications binding to the synthetic NIC is a **mandatory** requirement for all applications taking advantage of **Accelerated Networking**.
