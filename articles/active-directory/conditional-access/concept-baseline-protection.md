@@ -17,7 +17,9 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional access baseline protection policies
 
-Baseline policies are a set of predefined conditional access policies that help protect organizations against many common attacks such as password spray, breach replay, and phishing. While managing custom conditional access policies requires an Azure AD Premium license, baseline policies are available in all editions of Azure AD. Microsoft is making these baseline protection policies available to everyone because identity-based attacks have been on the rise over the last few years. The goal of these four policies is to ensure that all organizations have a baseline level of security enabled at no extra cost.
+Baseline policies are a set of predefined conditional access policies that help protect organizations against many common attacks. These common attacks can include password spray, replay, and phishing. Baseline policies are available in all editions of Azure AD. Microsoft is making these baseline protection policies available to everyone because identity-based attacks have been on the rise over the last few years. The goal of these four policies is to ensure that all organizations have a baseline level of security enabled at no extra cost.  
+
+Managing customized conditional access policies requires an Azure AD Premium license.
 
 ## Baseline Policies
 
@@ -45,13 +47,13 @@ Require MFA for admins is a baseline policy that requires multi-factor authent
 * Billing administrator
 * User administrator
 
-If your organization has privileged accounts in use in scripts or code, you should replace them with [managed identities for Azure resources](../managed-identities-azure-resources/overview.md) or [service principals with certificates](../develop/howto-authenticate-service-principal-powershell.md). As a temporary workaround, you can exclude specific user accounts from the baseline policy.
+If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md) or [service principals](../develop/howto-authenticate-service-principal-powershell.md). As a temporary workaround, you can exclude specific user accounts from the baseline policy.
 
 ### End user protection (preview)
 
 High privileged administrators aren’t the only ones targeted in attacks. Bad actors tend to target normal users. After gaining access, these bad actors can request access to privileged information on behalf of the original account holder or download the entire directory and perform a phishing attack on your whole organization. One common method to improve the protection for all users is to require a stronger form of account verification when a risky sign-in is detected.
 
-**End user protection (preview)** is a baseline policy that protects all users in a directory. Enabling this policy requires all users to register for Azure Multi-Factor Authentication within 14 days of accessing an application. Once registered, users will be prompted for MFA only during risky sign-in attempts. Compromised user accounts are blocked until password reset and risk dismissal.
+**End user protection (preview)** is a baseline policy that protects all users in a directory. Enabling this policy requires all users to register for Azure Multi-Factor Authentication within 14 days. Once registered, users will be prompted for MFA only during risky sign-in attempts. Compromised user accounts are blocked until password reset and risk dismissal.
 
 ### Block legacy authentication (preview)
 
@@ -59,11 +61,17 @@ Legacy authentication protocols (ex: IMAP, SMTP, POP3) are protocols normally us
 
 The best way to protect your account from malicious authentication requests made by legacy protocols is to block them.
 
-The **Block legacy authentication (preview)** baseline policy blocks all authentication requests that are made using legacy protocols. Modern authentication must be used to successfully sign in for all users. Used in conjunction with the other baseline policies, all requests coming from legacy protocols will be blocked and all users will be required to MFA whenever required. This policy does not block Exchange ActiveSync.
+The **Block legacy authentication (preview)** baseline policy blocks authentication requests that are made using legacy protocols. Modern authentication must be used to successfully sign in for all users. Used in conjunction with the other baseline policies, requests coming from legacy protocols will be blocked. In addition, all users will be required to MFA whenever required. This policy does not block Exchange ActiveSync.
 
 ### Require MFA for service management (preview)
 
-You might be using a variety of Azure services in your organization. These services can be managed through Azure Resource Manager (ARM) API, whether that’s Azure portal, Azure PowerShell, or Azure CLI. Using any of these applications to perform resource management is a highly privileged action. These actions can alter subscription-wide configurations, such as service settings and subscription billing.
+Organizations use a variety of Azure services and manage them from Azure Resource Manager (ARM) based tools:
+
+* Azure portal
+* Azure PowerShell
+* Azure CLI
+
+Using any of these tools to perform resource management is a highly privileged action. These tools can alter subscription-wide configurations, such as service settings and subscription billing.
 
 To protect privileged actions, this **Require MFA for service management (preview)** policy will require multi-factor authentication for any user accessing Azure portal, Azure PowerShell, or Azure CLI.
 
