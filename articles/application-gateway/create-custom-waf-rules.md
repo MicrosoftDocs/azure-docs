@@ -247,7 +247,7 @@ Here's the corresponding JSON:
 
 For this example, you want to block if the request is either outside of the IP address range *192.168.5.4/24*, or the user agent string isn't *chrome* (meaning the user isn’t using the Chrome browser). Since this logic uses *or*, the two conditions are in separate rules.
 
-Logic: **not** (p and q) = **not** p **or not** q.
+Logic: **not** (p **and** q) = **not** p **or not** q.
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
