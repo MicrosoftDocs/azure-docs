@@ -54,11 +54,11 @@ It takes a few minutes to create the VM and supporting resources. The following 
 }
 ```
 
-## Create a Key Vault that is enabled for encryption keys
+## Create an encryption key enabled Key Vault
 
-Azure disk encryption stores its encyption key in an Azure Key Vault. Create a Key Vault with [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create). 
+Azure disk encryption stores its encryption key in an Azure Key Vault. Create a Key Vault with [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create). 
 
-> [!NOTE]
+> [!Important]
 > Every Key Vault must have a unique name. The following example creates a Key Vault named *myKV*, but you must name it something distinct.
 
 To enable the Key Vault to store encryption keys, use the --enabled-for-disk-encryption parameter.
@@ -69,13 +69,13 @@ az keyvault create --name "myKV" --resource-group "myResourceGroup" --location e
 
 ## Encrypt the VM
 
-Encrypt your VM with [az vm encryption](/cli/azure/vm/encryption?view=azure-cli-latest), providing the --disk-encryption-keyvault parameter the unique Key Vault name you chose in the step above.
+Encrypt your VM with [az vm encryption](/cli/azure/vm/encryption?view=azure-cli-latest), providing your unique Key Vault name to the --disk-encryption-keyvault parameter.
 
 ```azurecli-interactive
 az vm encryption enable -g MyResourceGroup --name MyVM --disk-encryption-keyvault myKV
 ```
 
-You can verify that encryption is enablked on your VM with [az vm show](/cli/azure/vm/show?view=azure-cli-latest)
+You can verify that encryption is enabled on your VM with [az vm show](/cli/azure/vm/show?view=azure-cli-latest)
 
 ```azurecli-interactive
 az vm show --name MyVM -g MyResourceGroup
@@ -86,7 +86,6 @@ You will see the following in the returned output:
 ```azurecli-interactive
 "EncryptionOperation": "EnableEncryption"
 ```
-
 
 ## Clean up resources
 
