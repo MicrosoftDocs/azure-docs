@@ -127,7 +127,7 @@
         href: https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview
       - name: Use Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
-      - name: Use the Azure Classic CLI
+      - name: Use the Azure CLI
         href: ../hdinsight-administer-use-command-line.md
     - name: Manage clusters using the Apache Ambari web UI
       href: ../hdinsight-hadoop-manage-ambari.md
