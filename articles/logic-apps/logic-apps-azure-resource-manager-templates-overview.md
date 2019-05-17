@@ -671,7 +671,7 @@ Here is the parameterized sample template that this overview uses for the templa
   "contentVersion": "1.0.0.0",
   "parameters": {
      "LogicAppIntegrationAccount": {
-        "type": "securestring",
+        "type": "string",
         "minLength": 1
      },
      "office365_1_Connection_Name": {
@@ -727,7 +727,7 @@ Here is the parameterized sample template that this overview uses for the templa
             },
             "definition": {
                "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-                  "actions": {
+               "actions": {
                   "Create_blob": {
                      "type": "ApiConnection",
                      "inputs": {
@@ -736,14 +736,14 @@ Here is the parameterized sample template that this overview uses for the templa
                               "name": "@parameters('$connections')['azureblob']['connectionId']"
                            }
                         },
-                        "method": "post",
-                        "body": "@triggerBody()?['Body']",
-                        "path": "/datasets/default/files",
-                        "queries": {
-                           "folderPath": "/emails",
-                           "name": "@triggerBody()?['Subject']",
-                           "queryParametersSingleEncoded": true
-                        }
+                     },
+                     "method": "post",
+                     "body": "@triggerBody()?['Body']",
+                     "path": "/datasets/default/files",
+                     "queries": {
+                        "folderPath": "/emails",
+                        "name": "@triggerBody()?['Subject']",
+                        "queryParametersSingleEncoded": true
                      },
                      "runAfter": {},
                      "runtimeConfiguration": {
