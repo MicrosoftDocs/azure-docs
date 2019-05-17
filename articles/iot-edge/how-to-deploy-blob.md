@@ -39,13 +39,11 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 #### Add modules
 
-1. In the **Registry settings** section of the page, provide the credentials to access any private container registries that contain your module images.
-
 1. In the **Deployment modules** section of the page, select **Add**.
 
 1. From the types of modules in the drop-down list, select **IoT Edge Module**.
 
-1. Provide a name for the module and then specify the container image. For the **AzureBlobStorageonIoTEdge** module, enter:
+1. Provide a name for the module and then specify the container image:
 
    - **Name** - azureblobstorageoniotedge
    - **Image URI** - mcr.microsoft.com/azure-blob-storage:latest
