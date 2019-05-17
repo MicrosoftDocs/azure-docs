@@ -8,7 +8,7 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/17/2019
 ms.author: byvinyal
 
 ---
@@ -241,6 +241,8 @@ The following table shows the limits for Azure BizTalk Services.
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 ### Azure Cosmos DB limits
+For Azure Cosmos DB limits, see [Limits in Azure Cosmos DB](cosmos-db/concepts-limits.md).
+
 [!INCLUDE [azure-cosmos-db-limits](../includes/azure-cosmos-db-limits.md)]
 
 ### Azure Database for MySQL
