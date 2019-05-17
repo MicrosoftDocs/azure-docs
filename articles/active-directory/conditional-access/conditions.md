@@ -56,29 +56,23 @@ When you **Select users and groups**, you can set the following options:
 
 * **Users and groups** targets specific sets of users. For example, you can select a group that contains all members of the HR department when an HR app is selected as the cloud app. A group can be any type of group in Azure AD, including dynamic or assigned security and distribution groups.
 
-You can also exclude specific users or groups from a policy. One common use case is service accounts if your policy enforces multifactor authentication (MFA). 
+You can also exclude specific users or groups from a policy. One common use case is service accounts if your policy enforces multifactor authentication (MFA).
 
-Targeting specific sets of users is useful for the deployment of a new policy. In a new policy, you should target only an initial set of users to validate the policy behavior. 
+Targeting specific sets of users is useful for the deployment of a new policy. In a new policy, you should target only an initial set of users to validate the policy behavior.
 
+## Cloud apps and actions
 
+A cloud app is a website, service, or endpoint protected by Azure AD Application Proxy. For a detailed description of supported cloud apps, see [cloud apps assignments](technical-reference.md#cloud-apps-assignments). The **Cloud apps or actions** condition is mandatory in a conditional access policy. In your policy, you can either select **All cloud apps** or specify apps with **Select apps**.
 
-## Cloud apps 
+Organizations can choose from the following:
 
-A cloud app is a website or service. Websites protected by the Azure AD Application Proxy are also cloud apps. For a detailed description of supported cloud apps, see [cloud apps assignments](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
+* **All cloud apps** when applying baseline policies to apply to the entire organization. Use this selection for policies that require multi-factor authentication when sign-in risk is detected for any cloud app. A policy applied to All cloud apps applies to access to all websites and services. This setting isn't limited to the cloud apps that appear on the Select apps list.
+* **Select apps** to target specific services by your policy. For example, you can require users to have a compliant device to access SharePoint Online. This policy is also applied to other services when they access SharePoint content. An example is Microsoft Teams.
 
-The **cloud apps** condition is mandatory in a conditional access policy. In your policy, you can either select **All cloud apps** or select specific apps.
+> [!NOTE]
+> You can exclude specific apps from a policy. However, these apps are still subject to the policies applied to the services they access.
 
-![Include cloud apps](./media/conditions/03.png)
-
-Select:
-
-- **All cloud apps** to baseline policies to apply to the entire organization. Use this selection for policies that require multifactor authentication when sign-in risk is detected for any cloud app. A policy applied to **All cloud apps** applies to access to all websites and services. This setting isn't limited to the cloud apps that appear on the **Select apps** list. 
-
-- **Select apps** to target specific services by your policy. For example, you can require users to have a [compliant device](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) to access SharePoint Online. This policy is also applied to other services when they access SharePoint content. An example is Microsoft Teams. 
-
-You can exclude specific apps from a policy. However, these apps are still subject to the policies applied to the services they access. 
-
-
+**User actions** are tasks that can be performed by a user. The only currently supported action is **Register security information (preview)**, which allows conditional access policy to enforce when a user registers their security information.
 
 ## Sign-in risk
 
