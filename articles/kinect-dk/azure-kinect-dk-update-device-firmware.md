@@ -60,8 +60,7 @@ This document provides guidance on how to update device firmware on your Azure K
      Certificate Type:         Microsoft
 ```
 
-3. If you see the above output, your firmware is updated. 
-
+3. If you see the above output, your firmware is updated.
 
 4. After firmware update you can run [K4A Viewer](azure-kinect-sensor-viewer.md) to verify all sensors are working as expected.
 
@@ -70,7 +69,7 @@ This document provides guidance on how to update device firmware on your Azure K
 Firmware updates can fail for several reasons. When a firmware update fails try these mitigation steps:
 
 1. Try to run the firmware update command a 2nd time.
-2. Confirm the device is still connected by querying for the firmware version. 'AzureKinectFirmareTool.exe -q'
+2. Confirm the device is still connected by querying for the firmware version. AzureKinectFirmareTool.exe
 3. If all else fails, follow the [recovery](https://aka.ms/AzureKinectAPIDocs/azurekinect-fw-recovery.md) steps to revert to the factory firmware and try again.
 
 For any additional issues see also [troubleshooting](https://aka.ms/AzureKinectAPIDocs/troubleshooting.md)
