@@ -19,7 +19,7 @@
 - name: Reference
   items:
   - name: REST
-    href: https://go.microsoft.com/fwlink/p/?linkid=2005000
+    href: https://docs.microsoft.com/en-us/rest/api/network-gateway
 - name: Resources
   items:
   - name: Bastion FAQ
@@ -31,4 +31,4 @@
   - name: Forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
   - name: SLA
-    href: https://azure.microsoft.com/support/legal/sla
+    href: https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms
