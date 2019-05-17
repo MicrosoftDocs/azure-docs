@@ -586,6 +586,8 @@
         items:
         - name: Tune query performance
           href: sql-api-query-metrics.md 
+        - name: Profile query performance
+          href: sql-api-query-profiling.md     
         - name: Performance tips for .NET SDK
           href: performance-tips.md
         - name: Performance tips for Java SDK
