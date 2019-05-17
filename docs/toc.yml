@@ -33,6 +33,8 @@
     href: add-in-setup.md
   - name: Upload your package
     href: upload-package.md
+  - name: Define add-in properties
+    href: define-add-in-properties.md
   - name: Create your AppSource listing
     href: office-store-listing.md
   - name: Set pricing and availability

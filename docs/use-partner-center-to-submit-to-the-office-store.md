@@ -7,34 +7,33 @@ localization_priority: Priority
 
 # Submit your solution to AppSource via Partner Center
 
-If you want your Office or SharePoint add-in appear in AppSource and the in-product Store, you need to submit it to [Partner Center](http://go.microsoft.com/fwlink/?LinkId=248605) for approval. First, familiarize yourself with the [AppSource validation policies](validation-policies.md). You can add and save your submission as a draft in your account until you're ready to submit it for approval.
+If you want your Office or SharePoint add-in to appear in AppSource, you need to submit it to [Partner Center](https://partner.microsoft-int.com/en-us/dashboard/office/products) for approval. First, familiarize yourself with the [AppSource validation policies](validation-policies.md). You can add and save your submission as a draft in your account until you're ready to submit it for approval.
 
 If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and client secret, you can add a client ID and client secret before you add your add-in. For more information, see [Create or update client IDs and secrets in Partner Center](create-or-update-client-ids-and-secrets.md).
 
+For information about the AppSource approval process, see [Make your solutions available in AppSource](submit-to-the-office-store.md).
 
-For information about the AppSource approval process, see [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md).
+## Submission process
 
-## Submission checklist
+This section provides an overview of the process to submit your solution via Partner Center. 
 
-This section lists the information that you need to provide when you submit your solution in the Seller Dashboard. 
+### Choose solution type
 
-### Solution type
-
-On the Office Products page, select **Create a new...**, and select the type of solution that you are submitting:
+On the [Office Products](https://partner.microsoft-int.com/en-us/dashboard/office/products) page, select **Create a new...**, and select the type of solution that you are submitting:
 
 - Office Extension
 - SharePoint Add-in
 
-In the dialog box, provide a name for your solution and choose **Check availability** to verify that the name is available. For details, see [Reserve a name](https://docs.microsoft.com/en-us/windows/uwp/publish/create-your-app-by-reserving-a-name).
+In the dialog box, provide a name for your solution and choose **Check availability** to verify that the name is available. For details, see [Reserve a name](reserve-add-in-name.md).
 
 After you've verified that the name you chose is available, choose **Create**.
 
 ### Product overview page
 
-|**Action**|**Notes**|
+|**Action**|**More information**|
 |:-------------|:-------|
-|Upload package|Required <br/><br/>For more information, see [Upload your submission package](upload-package.md).|
-
+|Upload package|[Upload your submission package](upload-package.md).|
+|Define add-in properties    |[]
 
 ### Details page
 
