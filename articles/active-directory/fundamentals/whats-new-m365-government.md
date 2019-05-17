@@ -48,7 +48,7 @@ The following table shows the endpoints for all customers:
 
 | Name | Endpoint details |
 |------|------------------|
-| Portals | https://portal.azure.us<p>Microsoft 365 Government – GCC High: https://portal.office365.us<p>Microsoft 365 Government – DoD: https://portal.apps.mil |
+| Portals |Microsoft Government: https://portal.azure.us<p>Microsoft 365 Government – GCC High: https://portal.office365.us<p>Microsoft 365 Government – DoD: https://portal.apps.mil |
 | Azure Active Directory Authority Endpoint | https://login.microsoftonline.us |
 | Azure Active Directory Graph API | https://graph.microsoftazure.us |
 | Microsoft Graph API for Microsoft 365 Government - GCC High | https://graph.microsoft.us |
