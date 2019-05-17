@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/27/2017
+ms.date: 05/17/2019
 ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -60,4 +60,3 @@ Azure AD Application Proxy offers unique benefits when compared to similar produ
 ## Next steps
 
 - [Use Azure AD Application to provide secure remote access to on-premises applications](application-proxy.md)
-- [Transition from Forefront TMG and UAG to Application Proxy](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/).

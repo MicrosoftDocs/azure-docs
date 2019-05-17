@@ -25,13 +25,15 @@ To build and run Microsoft Azure Red Hat OpenShift applications, you'll need to:
 
 The following instructions will walk you through all of these prerequisites.
 
-## Purchase Azure virtual machine reserved instances
+## Purchase Azure Red Hat OpenShift application nodes reserved instances
 
-Before you can use Azure Red Hat OpenShift, you'll need to purchase Azure virtual machine reserved instances.
+Before you can use Azure Red Hat OpenShift, you'll need to purchase a minimum of 4 Azure Red Hat OpenShift reserved application nodes, after which you'll be able to provision clusters.
 
-If you are an Azure customer, here's how to [purchase Azure virtual machine reserved instances](https://aka.ms/openshift/buy). A reservation reduces your spend by pre-paying for fully managed Azure services. Refer to [*What are Azure Reservations*](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) to learn more about reservations and how they save you money.
+If you are an Azure customer,[purchase Azure Red Hat OpenShift reserved instances](https://aka.ms/openshift/buy) through the Azure portal. After purchasing, your subscription will be activated within 24 hours.
 
 If you are not an Azure customer, [contact sales](https://aka.ms/openshift/contact-sales) and fill out the sales form at the bottom of the page to start the process.
+
+Refer to the [Azure Red Hat OpenShift pricing page](https://aka.ms/openshift/pricing) for more information.
 
 ## Install the Azure CLI
 
