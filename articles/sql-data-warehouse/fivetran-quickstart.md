@@ -4,7 +4,6 @@ description: Get started quickly with Fivetran and Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: mlee3gsd 
 manager: craigg
-manager: jrj
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: integration
