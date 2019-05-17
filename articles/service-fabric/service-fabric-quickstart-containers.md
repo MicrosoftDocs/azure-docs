@@ -39,7 +39,7 @@ In this quickstart you learn how to:
 
 * An Azure subscription (you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * A development computer running:
-  * Visual Studio 2015, Visual Studio 2017, or Windows 2019.
+  * Visual Studio 2015 or Windows 2019.
   * [Service Fabric SDK and tools](service-fabric-get-started.md).
 
 ## Package a Docker image container with Visual Studio
