@@ -50,6 +50,11 @@ where `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX` is the service client application I
 ```azurepowershell-interactive
 $(Get-AzureADServicePrincipal -Filter "DisplayName eq 'testapp'").ObjectId
 ```
+If you are using Az PowerShell 2.0.0, you can use:
+
+```azurepowershell-interactive
+$(Get-AzADServicePrincipal -DisplayName eq 'testapp').Id
+```
 
 If you are using the Azure CLI, you can use:
 
