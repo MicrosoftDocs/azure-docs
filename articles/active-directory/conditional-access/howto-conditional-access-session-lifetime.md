@@ -77,7 +77,7 @@ If you have configured different Sign-in frequency for different web apps that a
 1. Choose all required conditions.
 
    > [!NOTE]
-   > Please note that this control requires to choose “All Cloud Apps” as a condition
+   > Please note that this control requires to choose “All Cloud Apps” as a condition. Browser session persistence is controlled by authentication session token. All tabs in a browser session share a single session token and therefore they all must share persistence state.
 
 1. Go to **Access Controls** > **Session** and click **Persistent browser session**
 1. Select a value from dropdown

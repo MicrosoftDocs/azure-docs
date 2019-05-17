@@ -57,7 +57,6 @@ Ad hoc queries can be executed in either **Batch** or **Interactive** mode.
 
     ![Screenshot of submit a hive query](./media/apache-hadoop-use-hive-visual-studio/vs-batch-query.png)
 
-
     The Hive editor supports IntelliSense. Data Lake Tools for Visual Studio supports loading remote metadata when you edit your Hive script. For example, if you type `SELECT * FROM`, IntelliSense lists all the suggested table names. When a table name is specified, IntelliSense lists the column names. The tools support most Hive DML statements, subqueries, and built-in UDFs. IntelliSense suggests only the metadata of the cluster that is selected in the HDInsight toolbar.
 
     ![Screenshot of an HDInsight Visual Studio Tools IntelliSense example 1](./media/apache-hadoop-use-hive-visual-studio/vs-intellisense-table-name.png "U-SQL IntelliSense")
@@ -68,7 +67,7 @@ Ad hoc queries can be executed in either **Batch** or **Interactive** mode.
 
    If you select the advanced submit option, configure **Job Name**, **Arguments**, **Additional Configurations**, and **Status Directory** for the script:
 
-      ![Screenshot of an HDInsight Hadoop Hive query](./media/apache-hadoop-use-hive-visual-studio/hdinsight.visual.studio.tools.submit.jobs.advanced.png "Submit queries")
+    ![Screenshot of an HDInsight Hadoop Hive query](./media/apache-hadoop-use-hive-visual-studio/hdinsight.visual.studio.tools.submit.jobs.advanced.png "Submit queries")
 
 ### Hive application
 
@@ -120,6 +119,35 @@ Ad hoc queries can be executed in either **Batch** or **Interactive** mode.
 
 8. Use the **Job Output** link to view the output of this job. It displays `[ERROR] 3`, which is the value returned by this query.
 
+### Additional example
+
+This example relies on the `log4jLogs` table created in the prior step.
+
+1. From **Server Explorer**, right-click your cluster and select **Write a Hive Query**.
+
+2. Enter the following hive query:
+
+    ```hql
+    set hive.execution.engine=tez;
+    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
+    INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
+    ```
+
+    These statements perform the following actions:
+
+    * `CREATE TABLE IF NOT EXISTS`: Creates a table if it does not already exist. Because the `EXTERNAL` keyword is not used, this statement creates an internal table. Internal tables are stored in the Hive data warehouse and are managed by Hive.
+    
+    > [!NOTE]  
+    > Unlike `EXTERNAL` tables, dropping an internal table also deletes the underlying data.
+
+    * `STORED AS ORC`: Stores the data in optimized row columnar (ORC) format. ORC is a highly optimized and efficient format for storing Hive data.
+    
+    * `INSERT OVERWRITE ... SELECT`: Selects rows from the `log4jLogs` table that contain `[ERROR]`, then inserts the data into the `errorLogs` table.
+
+3. Execute the query in **Batch** mode.
+
+4. To verify that the job created the table, use **Server Explorer** and expand **Azure** > **HDInsight** > your HDInsight cluster > **Hive Databases** > **default**. The **errorLogs** table and the **log4jLogs** table are listed.
+
 ## <a id="nextsteps"></a>Next steps
 
 As you can see, the HDInsight tools for Visual Studio provide an easy way to work with Hive queries on HDInsight.
@@ -137,4 +165,3 @@ For information about other ways you can work with Hadoop on HDInsight:
 For more information about the HDInsight tools for Visual Studio:
 
 * [Getting started with HDInsight tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)
-
