@@ -24,7 +24,6 @@ Use the Azure Blob Storage client library for .NET to:
 * List all of the blobs in a container
 
 ## Prerequisites
-<!-- [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)] -->
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 * Azure storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
@@ -49,18 +48,6 @@ Use the Azure Blob Storage client library for .NET to:
 
 [API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 
-## Download the sample application
-
-The sample application used in this quickstart is a basic console application. You can explore the sample application on [GitHub](https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart).
-
-Use [git](https://git-scm.com/) to download a copy of the application to your development environment.
-
-```bash
-git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
-```
-
-This command clones the repository to your local git folder. To open the Visual Studio solution, look for the *storage-blobs-dotnet-quickstart* folder, open it, and double-click on *storage-blobs-dotnet-quickstart.sln*.
-
 ## Install the package
 
 Navigate to your application directory and install the Azure Blob Storage client library for .NET package by using the `dotnet add package` command.
@@ -73,7 +60,7 @@ dotnet add package Microsoft.Azure.Storage.Blob
 
 ## Configure your storage connection string
 
-To run the application, you must provide the connection string for your storage account. The sample application reads the connection string from an environment variable and uses it to authorize requests to Azure Storage.
+To run the application, you must provide the connection string for your storage account. The example application reads the connection string from an environment variable and uses it to authorize requests to Azure Storage.
 
 After you have copied your connection string, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<yourconnectionstring>` with your actual connection string:
 
@@ -83,7 +70,7 @@ After you have copied your connection string, write it to a new environment vari
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
-After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the sample.
+After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
 
 # [Linux](#tab/linux)
 
@@ -105,47 +92,27 @@ After you add the environment variable, run `source .bash_profile` from your con
 
 ---
 
-## Run the sample
+## Key concepts
 
-This sample creates a test file in your local **MyDocuments** folder and uploads it to Blob storage. The sample then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files.
+Briefly introduce and describe the functionality of the library's main classes. Include links to their reference pages.
 
-If you are using Visual Studio as your editor, you can press **F5** to run.
+Explain how these classes work together - the object model.
 
-Otherwise, navigate to your application directory and run the application with the `dotnet run` command.
+## Usage examples
 
-```console
-dotnet run
-```
+This section provides examples of the key concepts. You'll learn how to:
 
-The output of the sample application is similar to the following example:
-
-```output
-Azure Blob storage - .NET Quickstart sample
-
-Created container 'quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f'
-
-Temp file = C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
-Uploading to Blob storage as blob 'QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt'
-
-Listing blobs in container.
-https://storagesamples.blob.core.windows.net/quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f/QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
-
-Downloading blob to C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db_DOWNLOADED.txt
-
-Press any key to delete the sample files and example container.
-```
-
-When you press the **Enter** key, the application deletes the storage container and the files. Before you delete them, check your **MyDocuments** folder for the two files. You can open them and observe that they are identical. Copy the blob's URL from the console window and paste it into a browser to view the contents of the blob.
-
-After you've verified the files, hit any key to finish the demo and delete the test files. Now that you know what the sample does, open the Program.cs file to look at the code.
-
-## Understand the sample code
-
-Next, explore the sample code so that you can understand how it works.
+   * [Try parsing the connection string](#try-parsing-the-connection-string)
+   * [Create a container](#create-a-container)
+   * [Set permissions on a container](#set-permissions-on-a-container)
+   * [Upload blobs to a container](#upload-blobs-to-a-container)
+   * [List the blobs in a container](#list-the-blobs-in-a-container)
+   * [Download blobs](#download-blobs)
+   * [Clean up resources](#clean-up-resources)
 
 ### Try parsing the connection string
 
-The first thing that the sample does is to check that the environment variable contains a connection string that can be parsed to create a [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) object pointing to the storage account. To check that the connection string is valid, use the [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) method. If **TryParse** is successful, it initializes the *storageAccount* variable and returns **true**.
+The first thing that the example does is to check that the environment variable contains a connection string that can be parsed to create a [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) object pointing to the storage account. To check that the connection string is valid, use the [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) method. If **TryParse** is successful, it initializes the *storageAccount* variable and returns **true**.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -168,18 +135,16 @@ else
         "A connection string has not been defined in the system environment variables. " +
         "Add an environment variable named 'storageconnectionstring' with your storage " +
         "connection string as a value.");
-    Console.WriteLine("Press any key to exit the sample application.");
+    Console.WriteLine("Press any key to exit the application.");
     Console.ReadLine();
 }
 ```
 
-### Create the container and set permissions
-
-Next, the sample creates a container and sets its permissions so that any blobs in the container are public. If a blob is public, it can be accessed anonymously by any client.
+### Create a container
 
 To create the container, first create an instance of the [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient) object, which points to Blob storage in your storage account. Next, create an instance of the [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) object, then create the container.
 
-In this case, the sample calls the [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync) method to create the container. A GUID value is appended to the container name to ensure that it is unique. In a production environment, it's often preferable to use the [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync) method to create a container only if it does not already exist and avoid naming conflicts.
+In this case, the code calls the [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync) method to create the container. A GUID value is appended to the container name to ensure that it is unique. In a production environment, it's often preferable to use the [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync) method to create a container only if it does not already exist and avoid naming conflicts.
 
 > [!IMPORTANT]
 > Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
@@ -191,7 +156,13 @@ CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 // Create a container called 'quickstartblobs' and append a GUID value to it to make the name unique.
 CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
 await cloudBlobContainer.CreateAsync();
+```
 
+### Set permissions on a container
+
+Sets permissions on the container so that any blobs in the container are public. If a blob is public, it can be accessed anonymously by any client.
+
+```csharp
 // Set the permissions so the blobs are public.
 BlobContainerPermissions permissions = new BlobContainerPermissions
 {
@@ -200,9 +171,9 @@ BlobContainerPermissions permissions = new BlobContainerPermissions
 await cloudBlobContainer.SetPermissionsAsync(permissions);
 ```
 
-### Upload blobs to the container
+### Upload blobs to a container
 
-Next, the sample uploads a local file to a block blob. The code example gets a reference to a **CloudBlockBlob** object by calling the [GetBlockBlobReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getblockblobreference) method on the container created in the previous section. It then uploads the selected file to the blob by calling the [​Upload​From​FileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromfileasync) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
+The code example gets a reference to a **CloudBlockBlob** object by calling the [GetBlockBlobReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getblockblobreference) method on the container created in the previous section. It then uploads the selected local file to the blob by calling the [​Upload​From​FileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromfileasync) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
 
 ```csharp
 // Create a file in your local MyDocuments folder to upload to a blob.
@@ -223,9 +194,9 @@ await cloudBlockBlob.UploadFromFileAsync(sourceFile);
 
 ### List the blobs in a container
 
-The sample lists the blobs in the container using the [​List​BlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync) method. In the case of the sample, only one blob has been added to the container, so the listing operation returns just that one blob.
+List the blobs in the container by using the [​List​BlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
 
-If there are too many blobs to return in one call (by default, more than 5000), then the **​List​BlobsSegmentedAsync** method returns a segment of the total result set and a continuation token. To retrieve the next segment of blobs, you provide in the continuation token returned by the previous call, and so on, until the continuation token is null. A null continuation token indicates that all of the blobs have been retrieved. The sample code shows how to use the continuation token for the sake of best practices.
+If there are too many blobs to return in one call (by default, more than 5000), then the **​List​BlobsSegmentedAsync** method returns a segment of the total result set and a continuation token. To retrieve the next segment of blobs, you provide in the continuation token returned by the previous call, and so on, until the continuation token is null. A null continuation token indicates that all of the blobs have been retrieved. The code shows how to use the continuation token for the sake of best practices.
 
 ```csharp
 // List the blobs in the container.
@@ -246,7 +217,7 @@ do
 
 ### Download blobs
 
-Next, the sample downloads the blob created previously to your local file system using the [​Download​To​FileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) method. The sample code adds a suffix of "_DOWNLOADED" to the blob name so that you can see both files in local file system.
+Download the blob created previously to your local file system by using the [​Download​To​FileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) method. The example code adds a suffix of "_DOWNLOADED" to the blob name so that you can see both files in local file system.
 
 ```csharp
 // Download the blob to a local file, using the reference created earlier.
@@ -258,10 +229,10 @@ await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);
 
 ### Clean up resources
 
-The sample cleans up the resources that it created by deleting the entire container using [Cloud​Blob​Container.​DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). You can also delete the local files if you like.
+The example cleans up the resources that it created by deleting the entire container using [Cloud​Blob​Container.​DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). You can also delete the local files if you like.
 
 ```csharp
-Console.WriteLine("Press the 'Enter' key to delete the sample files, example container, and exit the application.");
+Console.WriteLine("Press the 'Enter' key to delete the example files, example container, and exit the application.");
 Console.ReadLine();
 // Clean up resources. This includes the container and the two temp files.
 Console.WriteLine("Deleting the container");
@@ -273,6 +244,40 @@ Console.WriteLine("Deleting the source, and downloaded files");
 File.Delete(sourceFile);
 File.Delete(destinationFile);
 ```
+
+## Run the code
+
+This app creates a test file in your local **MyDocuments** folder and uploads it to Blob storage. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files.
+
+If you are using Visual Studio as your editor, you can press **F5** to run.
+
+Otherwise, navigate to your application directory and run the application with the `dotnet run` command.
+
+```console
+dotnet run
+```
+
+The output of the example application is similar to the following example:
+
+```output
+Azure Blob storage - .NET Quickstart example
+
+Created container 'quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f'
+
+Temp file = C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
+Uploading to Blob storage as blob 'QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt'
+
+Listing blobs in container.
+https://storagesamples.blob.core.windows.net/quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f/QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
+
+Downloading blob to C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db_DOWNLOADED.txt
+
+Press any key to delete the example files and example container.
+```
+
+When you press the **Enter** key, the application deletes the storage container and the files. Before you delete them, check your **MyDocuments** folder for the two files. You can open them and observe that they are identical. Copy the blob's URL from the console window and paste it into a browser to view the contents of the blob.
+
+After you've verified the files, hit any key to finish the demo and delete the test files. Now that you know what the example does, open the Program.cs file to look at the code.
 
 ## Resources for developing .NET applications with blobs
 
