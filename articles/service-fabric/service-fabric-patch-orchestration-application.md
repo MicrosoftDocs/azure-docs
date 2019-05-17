@@ -138,9 +138,9 @@ Automatic Windows Updates might lead to availability loss because multiple clust
 
 ## Download the app package
 
-Application along with installation scripts can be downloaded from [Archive link](https://go.microsoft.com/fwlink/?linkid=869566).
+Application along with installation scripts can be downloaded from [Archive link](https://github.com/microsoft/Service-Fabric-POA/releases/download/v1.4.0/PatchOrchestrationApplication_v1.4.0.zip).
 
-Application in sfpkg format can be downloaded from [sfpkg link](https://aka.ms/POA/POA.sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
+Application in sfpkg format can be downloaded from [sfpkg link](https://github.com/microsoft/Service-Fabric-POA/releases/download/v1.4.0/PatchOrchestrationApplication_v1.4.0.sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
 
 ## Configure the app
 
@@ -260,7 +260,10 @@ To enable the reverse proxy on the cluster, follow the steps in [Reverse proxy i
 
 ## Diagnostics/health events
 
-With diagnostic improvements in the latest version of Patch Orchestration Application it has become easy to debug the issues with update orchestration on Service fabric cluster.
+The following section talks about how to debug/ diagnose issues with patch updates through Patch Orchestration Application on Service Fabric clusters.
+
+>
+> You should have v1.4.0 version of POA installed to get many of the below called out self diagnostic improvements.
 
 NodeAgentNTService creates repair tasks to install updates on the nodes. Each task is then prepared by CoordinatorService according to task approval policy. The prepared tasks are finally approved by Repair manager which will not approve any task if cluster is in unhealthy state. Lets go step by step to understand how updates proceed on a node.
 
@@ -474,6 +477,7 @@ An administrator must intervene and determine why the application or cluster bec
 - Fixing an issue which effected the patching lifecyle on a node in case there are nodes with name which is subset of the current node name. For such nodes, its possible, patching is missed or reboot is pending. 
 
 ### Version 1.4.0
+- Diagnostics of the application is improved to make the task of debugging quick and easy.
+- Settings Validation for NodeAgentNTService is added.
 - Fixes an issue in which repair task, in post installation state, was not garbage collected if node gets deleted while installation of update.
 - Fixes an issue in which updates were stuck due to TimerCheckPoint.txt file was empty on some of the nodes.
-- Diagnostics of the application is improved to make the task of debugging quick and easy.
