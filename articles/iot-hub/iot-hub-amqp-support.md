@@ -60,7 +60,7 @@ The cloud-to-device message exchange between service and IoT Hub as well as betw
 | Created by | Link type | Link path | Description |
 |------------|-----------|-----------|-------------|
 | Service | Sender link | `/messages/devicebound` | C2D messages destined to devices are sent to this link by the service. Messages sent over this link have their `To` property set to the target device's receiver link path: i.e., `/devices/<deviceID>/messages/devicebound`. |
-| Service | Receiver link | `/messages/serviceBound/feedback` | Completion, rejection, and abandonment feedback messages coming from devices received on this link by service. See [here](./iot-hub-devguide-messages-c2d.md#message-feedback) for more information about feedback messages. |
+| Service | Receiver link | `/messages/serviceBound/feedback` | Completion, rejection, and abandonment feedback messages coming from devices received on this link by service. For more information about feedback messages, see [here](./iot-hub-devguide-messages-c2d.md#message-feedback). |
 
 The code snippet below demonstrates how to create a C2D message and send it to a device using [uAMQP library in Python](https://github.com/Azure/azure-uamqp-python).
 
@@ -126,7 +126,7 @@ By default, IoT Hub stores ingested device telemetry messages in a build-in Even
 
 For this purpose, the service client first needs to connect to the IoT Hub endpoint and receive a redirection address to the built-in Event Hubs. Service client then uses the provided address to connect to the built-in Event Hub.
 
-In each step, the client needs to present the following:
+In each step, the client needs to present the following pieces of information:
 * Valid service credentials (SAS token);
 * A well-formatted path to the consumer group partition it intends to retrieve messages from;
 * An optional filtering predicate to designate a starting point in the partition (this can be in the form of a sequence number, offset or enqueued timestamp).
@@ -182,12 +182,12 @@ for msg in batch:
   print('\t: ' + str(msg.annotations['x-opt-enqueued-time']))
 ```
 
-Note that even though the code snippet above demostrates receiving events from a single paritition ID, a typical application often needs to retrieve events stored on all the hub partitions.
+Even though the code snippet above demonstrates receiving events from a single partition ID, a typical application often needs to retrieve events stored on all the hub partitions.
 
 
 ### Additional notes
 * The AMQP connections may be disrupted due to network glitch, or expiry of the authentication token (generated in the code). The service client must handle these circumstances and re-establish the connection and links if needed. For the case of authentication token expiry, the client can also proactively renew the token prior to its expiry to avoid a connection drop.
-* In some cases, your client must be able to correctly handle link redirections. Refer to your AMQP client documentation on how to do this.
+* In some cases, your client must be able to correctly handle link redirections. Refer to your AMQP client documentation on how to handle this operation.
 
 ### Receive cloud-to-device messages (device and module client)
 AMQP links used on the device side are as follows:
