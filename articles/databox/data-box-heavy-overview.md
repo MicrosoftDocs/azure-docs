@@ -4,82 +4,75 @@ description: Describes Azure Data Box, a hybrid solution that enables you to tra
 services: databox
 documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: overview
-ms.custom:
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 05/16/2019
 ms.author: alkohli
 ---
-# What is Azure Data Box Heavy? (Preview)
 
-The Microsoft Azure Data Box hybrid solution lets you send hundreds of terabytes of data into Azure in a quick, inexpensive, and reliable way. The secure data transfer is accelerated by shipping you a proprietary storage device of 1 PB storage capacity via freight. The device has a rugged casing to protect and secure data during the transit.
+# What is Azure Data Box Heavy? (preview)
+
+The Microsoft Azure Data Box hybrid solution lets you send hundreds of terabytes of data into Azure in a quick, inexpensive, and reliable way. The secure data transfer is accelerated by shipping you a proprietary storage device of 1-PB storage capacity via freight. The device has a rugged casing to protect and secure data during the transit.
 
 Data Box Heavy is currently in preview and you can sign up to request for a device via the Azure portal. Once the device is received at your datacenter, you can set it up using the local web UI. Copy the data from your servers to the device and ship the device back to Azure. In the Azure datacenter, your data is automatically uploaded from the device to Azure. The entire process is tracked end-to-end by the Data Box service in the Azure portal.
 
 
 > [!IMPORTANT]
-> - Data Box Heavy is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution. 
-> - To request a device, sign up in the [Preview portal](https://aka.ms/).
+> - Data Box Heavy is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
+> - To request a device, sign up in the [Preview portal](https://aka.ms/azuredatabox).
 > - During preview, Data Box Heavy can be shipped to customers in US and European Union. For more information, go to [Region availability](#region-availability).
 
 ## Use cases
 
 Data Box Heavy is ideally suited to transfer data sizes larger than 500 TB in scenarios with limited to no network connectivity. The data movement can be one-time, periodic, or an initial bulk data transfer followed by periodic transfers. Here are the various scenarios where Data Box Heavy can be used for data transfer.
 
- - **One time migration** - when large amount of on-premises data is moved to Azure. 
+ - **One time migration** - when large amount of on-premises data is moved to Azure.
      - Moving a media library from offline tapes into Azure to create an online media library.
      - Migrating your VM farm, SQL server, and applications to Azure
      - Moving historical data to Azure for in-depth analysis and reporting using HDInsight
 
- - **Initial bulk transfer** - when an initial bulk transfer is done using Data Box Heavy (seed) followed by incremental transfers over the network. 
-     - For example, backup solutions partners such as Commvault and Data Box Heavy are used to move initial large historical backup to Azure. Once complete, the incremental data is transferred via network to Azure storage.
+ - **Initial bulk transfer** - when an initial bulk transfer is done using Data Box Heavy (seed) followed by incremental transfers over the network.
+     - For example, Data Box Heavy and backup solutions partners such as Commvault are used to move initial large historical backup to Azure. Once complete, the incremental data is transferred via network to Azure storage.
 
- - **Periodic uploads** - when large amount of data is generated periodically and needs to be moved to Azure. For example in energy exploration, where video content is generated on oil rigs and windmill farms.      
+ - **Periodic uploads** - when large amount of data is generated periodically and needs to be moved to Azure. For example in energy exploration, where video content is generated on oil rigs and windmill farms.
 
 ## Benefits
 
 Data Box Heavy is designed to move massive amounts of data to Azure with little to no impact to network. The solution has the following benefits:
 
-- **Speed** - Data Box Heavy uses high performance 40 Gbps network interfaces.
+- **Speed** - Data Box Heavy uses high performance 40-Gbps network interfaces.
 
 - **Secure** - Data Box Heavy has built-in security protections for the device, data, and the service.
-    - The device has a rugged device casing secured by tamper-resistant screws and tamper-evident stickers. 
+    - The device has a rugged device casing secured by tamper-resistant screws and tamper-evident stickers.
     - The data on the device is secured with an AES 256-bit encryption at all times.
     - The device can only be unlocked with a password provided in the Azure portal.
     - The service is protected by the Azure security features.
-    - Once your data is uploaded to Azure, the disks on the device are wiped clean, in accordance with NIST 800-88r1 standards.
+    - Once your data is uploaded to Azure, the disks on the device are wiped clean, in accordance with National Institute of Standards and Technology (NIST) 800-88r1 standards.
 
 
-<!--## Features and specifications
+## Features and specifications
 
 The Data Box Heavy device has the following features in this release.
 
 | Specifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
-| Weight                                                  | < 50 lbs.                |
-| Dimensions                                              | Device - Width: 309.0 mm Height: 430.4 mm Depth: 502.0 mm |            
-| Rack space                                              | 7 U when placed in the rack on its side (cannot be rack-mounted)|
-| Cables required                                         | 1 X power cable (included) <br> 2 RJ45 cables <br> 2 X SFP+ Twinax copper cables|
-| Storage capacity                                        | 100 TB <br> 80 TB usable capacity after RAID 5 protection|
-| Network interfaces                                      | 2 X 1 GbE interface - MGMT, DATA 3. <br> MGMT - for management, not user configurable, used for initial setup <br> DATA3 - for data, user configurable, and is dynamic by default <br> MGMT and DATA 3 can also work as 10 GbE <br> 2 X 10 GbE interface - DATA 1, DATA 2 <br> Both are for data, can be configured as dynamic (default) or static |
-| Data transfer media                                     | RJ45, SFP+ copper 10 GbE Ethernet  |
-| Security                                                | Rugged device casing with tamper-proof custom screws <br> Tamper-evident stickers placed at the bottom of the device|
-| Data transfer rate                                      | Up to 80 TB in a day over 10 GbE network interface        |
-| Management                                              | Local web UI - one-time initial setup and configuration <br> Azure portal - day-to-day device management        |-->
+| Weight                                                  | ~ 500 lbs.                |
+| Dimensions                                              | Device - Width: 26 inches Height: 28 inches Length: 48 inches |
+| Rack space                                              | Cannot be rack-mounted|
+| Cables required                                         | 4 X grounded power cords rated at 10 A or greater, are included. These cords have an IEC60320 C-13 connector at one end to connect to the device. <br> Use cables compatible with [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html) network interface  |
+|Power                                                    | 4 built-in power supply units (PSUs) shared across both the device nodes|
+| Storage capacity                                        | ~ 1-PB raw, 70 disks of 14 TB each <br> 786-TB usable capacity after RAID 5 protection|
+|Number of nodes                                          | 2 nodes per device |
+| Network interfaces per node                             | 4 network interfaces per node. <br> MGMT, DATA3 <ul><li> 2 X 1-GbE interfaces. </li><li> MGMT is for management, not user configurable, used for initial setup </li><li> DATA3 is a user-configurable data interface and is DHCP by default.</li><li>The 1 GbE network interfaces can also be configured as 10-GbE.</li></ul>DATA1, DATA2 data interfaces <ul><li>2 X 40-GbE interfaces. </li><li> DHCP (default) or static, user configurable data interfaces.</li>|
+
 
 ## Components
 
 The Data Box Heavy includes the following components:
 
-* **Data Box Heavy device** - a physical device with a rugged exterior that stores data securely. This device has a usable storage capacity of 800 TB. 
-
+* **Data Box Heavy device** - a physical device with a rugged exterior that stores data securely. This device has a usable storage capacity of 800 TB.
     
 * **Data Box service** – an extension of the Azure portal that lets you manage a Data Box Heavy device from a web interface that you can access from different geographical locations. Use the Data Box service to perform daily administration of your Data Box Heavy device. The service tasks include how to create and manage orders, view and manage alerts, and manage shares.  
 
@@ -100,11 +93,11 @@ A typical flow includes the following steps:
 
 5. **Upload** - Data is automatically copied from the device to Azure. The device disks are securely erased as per the National Institute of Standards and Technology (NIST) guidelines.
 
-Throughout this process, you are notified via email on all status changes. 
+Throughout this process, you are notified via email on all status changes.
 
 ## Region availability
 
-Data Box Heavy can transfer data based on the region in which service is deployed, country/region to which the device is shipped, and the target Azure storage account where you transfer the data. 
+Data Box Heavy can transfer data based on the region in which service is deployed, country/region to which the device is shipped, and the target Azure storage account where you transfer the data.
 
 - **Service availability** - For this release, Data Box Heavy is available in the following regions:
     - All public cloud regions in the United States - West Central US, West US2, West US, South Central US, Central US, North Central US, East US, and East US2.
@@ -112,7 +105,9 @@ Data Box Heavy can transfer data based on the region in which service is deploye
     - UK - UK South and UK West.
     - France - France Central and France South.
 
-- **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions where the service is available. 
+- **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions where the service is available.
+
+For the most up-to-date information on region availability for Data Box Heavy, go to [Azure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
 
 ## Sign up
 
@@ -136,7 +131,4 @@ Data Box Heavy is in preview and you need to sign up. Perform the following step
     <!--![The Data Box Heavy sign up 4]()-->
 
 Once you are signed up and enabled for preview, you can order a Data Box Heavy.
-
-
-
 
