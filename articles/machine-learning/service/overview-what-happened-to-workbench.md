@@ -9,7 +9,7 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
-ms.date: 01/09/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
 ---
 # What happened to Azure Machine Learning Workbench?
@@ -62,7 +62,7 @@ Start training your models and tracking the run histories using the new CLI and 
 
 Your pre-existing data preparation files aren't portable to the latest release because we don't have Machine Learning Workbench anymore. But you can still prepare any size data set for modeling.   
 
-With data sets of any size, you can use the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) to quickly prepare your data prior to modeling by writing Python code. 
+With data sets of any size, you can use the [data prep package for Azure Machine Learning](https://aka.ms/data-prep-sdk) to quickly prepare your data prior to modeling by writing Python code. 
 
 You can follow [this tutorial](tutorial-data-prep.md) to learn more about how to use Azure Machine Learning Data Prep SDK.
 
@@ -81,7 +81,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 The models that you registered in your old model registry must be migrated to your new workspace if you want to continue to use them. To migrate your models, download the models and re-register them in your new workspace. 
 
-The images that you created in your old image registry must be re-created in the new workspace to continue to use them. You can re-create these images by following the [Configure and create image](how-to-deploy-and-where.md#configureimage) sections. 
+The images that you created in your old image registry cannot be directly migrated to the new workspace. In most cases, the model can be deployed without having to create an image. If needed, you can create an image for the model in the new workspace. For more information, see [Manage, register, deploy, and monitor machine learning models](concept-model-management-and-deployment.md).
 
 ## What about deployed web services?
 

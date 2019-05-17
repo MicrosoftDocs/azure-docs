@@ -16,7 +16,7 @@ Enterprise Security Package (ESP) clusters provide multi-user access on Azure HD
 In this article, you learn how to configure a HDInsight cluster with ESP by using Azure Active Directory Domain Services (Azure AD-DS).
 
 > [!NOTE]  
-> ESP is generally available in HDI 3.6 for cluster types: Apache Spark, Interactive, and Apache Hadoop. ESP for Apache HBase and Apache Kafka cluster types is in preview.
+> ESP is generally available in HDInsight 3.6 and 4.0 for cluster types: Apache Spark, Interactive, Apache Hadoop and HBase. ESP for Apache Kafka cluster type is in preview.
 
 ## Enable Azure AD-DS
 
