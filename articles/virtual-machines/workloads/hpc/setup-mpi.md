@@ -11,14 +11,15 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: amverma
 ---
 
 # Set up MPI
 
-MPI workloads form a large portion of traditional HPC workloads. The SR-IOV enabled VM sizes on Azure allow almost any flavor of MPI to be used; we've used the following MPIs.
-Running MPI jobs on VMs requires setting up of partition keys across a tenant. Follow the steps in the [Discover partition keys](#pkey) sub-section for details on determining the p-key values.
+Message Passing Interface (MPI) workloads are a significant part of traditional HPC workloads. The SR-IOV enabled VM sizes on Azure allow almost any flavor of MPI to be used. 
+
+Running MPI jobs on VMs requires setting up of partition keys (p-keys) across a tenant. Follow the steps in the [Discover partition keys](#discover-partition-keys) section for details on determining the p-key values.
 
 ## UCX
 
@@ -138,7 +139,7 @@ make
 MPI Benchmarks are under `mpi/` folder.
 
 
-## <a name="pkey"></a>Discover partition keys
+## Discover partition keys
 
 Discover partition keys (pkeys) for communicating with other VMs.
 

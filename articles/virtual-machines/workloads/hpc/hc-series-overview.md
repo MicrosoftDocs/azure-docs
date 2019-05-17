@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: amverma
 ---
 
@@ -29,7 +29,8 @@ The VM has no knowledge that pCores 0-1 and 24-25 weren't given to it. Thus, it 
 
 Intel Xeon Platinum, Gold, and Silver CPUs also introduce an on-die 2D mesh network for communication within and external to the CPU socket. We strongly recommend process pinning for optimal performance and consistency. Process pinning will work on HC-series VMs because the underlying silicon is exposed as-is to the guest VM.
 
-More on Intel Xeon SP architecture at: https://bit.ly/2RCYkiE
+For more detailed information, see the [Intel Xeon SP architecture](https://bit.ly/2T3AWZ9) overview..
+
 
 Topology of Intel Xeon SP Server
 
@@ -64,7 +65,6 @@ Segregation of cores reserved for Azure Hypervisor and HC-series VMs
 | Azure Batch Support         | Yes                         |
 
 ## Next steps
-* Learn more about HPC VM sizes for [Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-hpc) and [Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-hpc) in Azure.
+* Learn more about HPC VM sizes for [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) and [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) in Azure.
 
-https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-hpc
 * Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.

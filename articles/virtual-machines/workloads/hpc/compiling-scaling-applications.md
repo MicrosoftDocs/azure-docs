@@ -11,21 +11,21 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: amverma
 ---
 
 # Scaling HPC applications
 
-For optimal scale-up and scale-out performance of HPC applications on Azure, we welcome performance tuning and optimization experiments for the specific workload. In this section and the VM series specific pages, we offer some general guidance based on our experience.
+Optimal scale-up and scale-out performance of HPC applications on Azure requires performance tuning and optimization experiments for the specific workload. This section and the VM series specific pages offer general guidance for scaling your applications.
 
-## Compiling applications 
+## Compiling applications
 
-Though not necessary, we suggest compiling applications with appropriate optimization flags for the best scale-up performance on our VMs.
+Though not necessary, compiling applications with appropriate optimization flags provides the best scale-up performance on HB and HC-series VMs.
 
 ### AOCC
 
-The AMD Optimizing C/C++ Compiler (AOCC) compiler system offers a high level of advanced optimizations, multi-threading, and processor support that includes global optimization, vectorization, inter-procedural analyses, loop transformations, and code generation.  AOCC compiler binaries are suitable for Linux systems having GNU C Library (glibc) version 2.17 and above. The compiler suite consists of a C/C++ compiler (clang), a Fortran compiler (Flang) and a Fortran front end to Clang (Dragon Egg).
+The AMD Optimizing C/C++ Compiler (AOCC) compiler system offers a high level of advanced optimizations, multi-threading, and processor support that includes global optimization, vectorization, inter-procedural analyses, loop transformations, and code generation. AOCC compiler binaries are suitable for Linux systems having GNU C Library (glibc) version 2.17 and above. The compiler suite consists of a C/C++ compiler (clang), a Fortran compiler (Flang) and a Fortran front end to Clang (Dragon Egg).
 
 ### Clang 
 

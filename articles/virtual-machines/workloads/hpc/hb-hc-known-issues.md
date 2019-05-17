@@ -1,5 +1,5 @@
 ---
-title: Known issues for HB-series VMs | Microsoft Docs
+title: Known issues for HB and HC-series VMs in Azure | Microsoft Docs
 description: Learn about known issues with HB and HC-series VMs in Azure. 
 services: virtual-machines
 documentationcenter: ''
@@ -11,13 +11,13 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/15/2019
 ms.author: msalias
 ---
 
 # Known issues with HB and HC-series VM sizes
 
-Some known issues with the SR-IOV enabled HB and HC-series VMs are described here.
+This article describes known issues with SR-IOV enabled HB and HC-series VMs.
 
 ## DRAM on HB-series
 
