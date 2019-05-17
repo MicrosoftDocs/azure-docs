@@ -632,8 +632,8 @@ In this example, the `$connections` attribute contains an `office365` attribute,
                      // Workflow definition parameter values for Office 365 Outlook connection
                      "office365": {
                         "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]",
-                      "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
-                      "connectionName": "[parameters('office365_1_Connection_Name')]"
+                        "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
+                        "connectionName": "[parameters('office365_1_Connection_Name')]"
                      }
                   }
                }
