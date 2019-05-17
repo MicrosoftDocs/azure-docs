@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/29/2019
+ms.date: 05/17/2019
 ms.author: cynthn
 
 ---
@@ -34,6 +34,14 @@ $ppg = New-AzProximityPlacementGroup `
    -Name $ppgName `
    -ResourceGroupName $resourceGroup `
    -ProximityPlacementGroupType Standard
+```
+
+## List proximity placement groups
+
+You can list all of the proimity placement groups using the [Get-AzProximityPlacementGroup](/powershell/module/az.compute/get-azproximityplacementgroup) cmdlet.
+
+```azurepowershell-interactive
+Get-AzProximityPlacementGroup
 ```
 
 
@@ -87,4 +95,4 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 ## Next steps
 
-Learn more about [Azure regions and availability](regions-and-availability.md).
+You can also use the [Azure CLI](../linux/proximity-placement-groups.ms) to create proximity placement groups.

@@ -20,6 +20,8 @@ ms.author: cynthn
 
 One of the largest contributors to latency between VMs is simply distance.
 
+## Preview: Proximity placement groups 
+
 [!INCLUDE [virtual-machines-common-ppg-overview](../../../includes/virtual-machines-common-ppg-overview.md)]
 
 ## Next steps

@@ -9,7 +9,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/09/2019
+ms.date: 05/17/2019
 ms.author: cynthn
 
 ---
@@ -19,7 +19,7 @@ ms.author: cynthn
 
 [!INCLUDE [virtual-machines-common-ppg-overview](../../../includes/virtual-machines-common-ppg-overview.md)]
 
-## CLI
+## Create the proximity placement group
 Create a proximity placement group using [`az ppg create`](/cli/azure/ppg#az-ppg-create). 
 
 ```azurecli-interactive
@@ -29,6 +29,14 @@ az ppg create \
    -g myPPGGroup \
    -l westus \
    -t standard 
+```
+
+## List proximity placement groups
+
+You can list all of your proximity placement groups using [az ppg list](/cli/azure/ppg#az-ppg-list).
+
+```azurecli-interactive
+az ppg list -o table
 ```
 
 ## Create a VM
