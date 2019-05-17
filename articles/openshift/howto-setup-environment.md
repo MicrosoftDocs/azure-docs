@@ -27,7 +27,7 @@ The following instructions will walk you through all of these prerequisites.
 
 ## Purchase Azure Red Hat OpenShift application nodes reserved instances
 
-Before you can use Azure Red Hat OpenShift, you'll need to purchase a minimum of 4 Azure Red Hat OpenShift reserved application nodes.
+Before you can use Azure Red Hat OpenShift, you'll need to purchase a minimum of 4 Azure Red Hat OpenShift reserved application nodes, after which you'll be able to provision clusters.
 
 If you are an Azure customer,[purchase Azure Red Hat OpenShift reserved instances](https://aka.ms/openshift/buy) through the Azure portal. After purchasing, your subscription will be activated within 24 hours.
 
