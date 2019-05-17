@@ -26,7 +26,11 @@
       - name: Java
         href: service-bus-java-how-to-use-queues.md
       - name: Node.js
-        href: service-bus-nodejs-how-to-use-queues.md
+        items:
+        - name: azure/service-bus package
+          href: service-bus-nodejs-how-to-use-queues-new-package.md          
+        - name: azure-sb package
+          href: service-bus-nodejs-how-to-use-queues.md
       - name: PHP
         href: service-bus-php-how-to-use-queues.md
       - name: Python
@@ -44,7 +48,11 @@
       - name: Java
         href: service-bus-java-how-to-use-topics-subscriptions.md
       - name: Node.js
-        href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+        items:
+        - name: azure/service-bus package
+          href: service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md
+        - name: azure-sb package
+          href: service-bus-nodejs-how-to-use-topics-subscriptions.md
       - name: PHP
         href: service-bus-php-how-to-use-topics-subscriptions.md
       - name: Python
