@@ -19,11 +19,10 @@ All the overloads for [DocumentClient.CreateDocumentQuery](https://msdn.microsof
 
 To collect the Sql query execution metrics, you must set the parameter [PopulateQueryMetrics](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) in the [FeedOptions](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.client.feedoptions.aspx) to `true`. Setting `PopulateQueryMetrics` to true will make it so that the `FeedResponse` will contain the relevant `QueryMetrics`. 
 
-### AsDocumentQuery()
+## AsDocumentQuery()
 The following code sample shows how to do retrieve metrics when using [AsDocumentQuery()](https://msdn.microsoft.com/en-us/library/microsoft.azure.documents.linq.documentqueryable.asdocumentquery.aspx) method:
 
 ```csharp
-
 // Initialize this DocumentClient and Collection
 DocumentClient documentClient = null;
 DocumentCollection collection = null;
@@ -109,7 +108,7 @@ foreach(IGrouping<string, KeyValuePair<string, QueryMetrics>> grouping in groupe
 }
 ```
 
-### LINQ on DocumentQuery
+## LINQ on DocumentQuery
 
 You can also get the `FeedResponse` from a LINQ Query using the `AsDocumentQuery()` method:
 
@@ -164,7 +163,7 @@ DoSomeLogging(queryExecutionTimeEndToEndTotal.Elapsed);
 
 ## Scan queries (commonly slow and expensive)
 
-```js
+```json
 "QueryMetrics": {
     "TotalTime": "00:00:04.5299799",
     "RetrievedDocumentCount": 157743,
@@ -191,14 +190,14 @@ DoSomeLogging(queryExecutionTimeEndToEndTotal.Elapsed);
 
 This above output is returned by a scan query. A scan query refers to a query that wasn't served by the index, due to which, many documents are loaded before returning the result set. Note the following values from the previous output:
 
-```js
+```json
 "RetrievedDocumentCount": 157743,
 "RetrievedDocumentSize": 1578730753,
 ```
 
 This query loaded 157,743 documents, which totaled 1,578,730,753 bytes. Loading this many bytes will result in high cost or request unit charge. It also takes a long time to execute the query, which is clear with the total time spent property:
 
-```js
+```json
 "TotalTime": "00:00:04.5299799"
 ```
 
