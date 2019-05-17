@@ -104,4 +104,4 @@ Another common case of multipath is pixels contain the mixed signal from foregro
 
 ## Next steps
 
-![Coordinate systems](azure-kinect-dk-coordinate-systems.md)
+[Coordinate systems](azure-kinect-dk-coordinate-systems.md)

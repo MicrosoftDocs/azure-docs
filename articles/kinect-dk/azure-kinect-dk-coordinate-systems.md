@@ -39,4 +39,4 @@ The gyroscope's origin ```[0,0,0]``` is identical to the origin of the depth cam
 
 ## Next steps
 
-![Coordinate systems](azure-kinect-dk-coordinate-systems.md)
+[Coordinate systems](azure-kinect-dk-coordinate-systems.md)
