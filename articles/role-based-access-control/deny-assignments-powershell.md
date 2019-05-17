@@ -15,6 +15,7 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
+
 # List deny assignments for Azure resources using Azure PowerShell
 
 [Deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. This article describes how to use Azure PowerShell to list deny assignments.
@@ -31,7 +32,9 @@ To get information about a deny assignment, you must have:
 - `Microsoft.Authorization/denyAssignments/read` permission, which is included in most [built-in roles for Azure resources](built-in-roles.md)
 - [PowerShell in Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure PowerShell](/powershell/azure/install-az-ps)
 
-## List deny assignments for a user
+## List deny assignments
+
+### List deny assignments for a user
 
 To list all deny assignments at a subscription scope, use [Get-AzDenyAssignment](/powershell/module/az.resources/get-azdenyassignment).
 
@@ -43,7 +46,7 @@ Get-AzDenyAssignment -SignInName <email_or_userprincipalname>
 PS C:\> Get-AzDenyAssignment -SignInName isabella@example.com | FL DisplayName, DenyAssignmentName, Scope
 ```
 
-## List deny assignments at a resource group scope
+### List deny assignments at a resource group scope
 
 To list all deny assignments at a subscription scope, use [Get-AzDenyAssignment](/powershell/module/az.resources/get-azdenyassignment).
 
@@ -55,7 +58,7 @@ Get-AzDenyAssignment -ResourceGroupName <resource_group_name>
 PS C:\> Get-AzDenyAssignment -ResourceGroupName pharma-sales | FL DisplayName, DenyAssignmentName, Scope
 ```
 
-## List deny assignments at a subscription scope
+### List deny assignments at a subscription scope
 
 To list all deny assignments at a subscription scope, use [Get-AzDenyAssignment](/powershell/module/az.resources/get-azdenyassignment). To get the subscription ID, you can find it on the **Subscriptions** blade in the Azure portal or you can use [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
@@ -67,7 +70,7 @@ Get-AzDenyAssignment -Scope /subscriptions/<subscription_id>
 PS C:\> Get-AzDenyAssignment -Scope /subscriptions/00000000-0000-0000-0000-000000000000
 ```
 
-## List deny assignments at a management group scope
+### List deny assignments at a management group scope
 
 To list all deny assignments at a subscription scope, use [Get-AzDenyAssignment](/powershell/module/az.resources/get-azdenyassignment). To get the management group ID, you can find it on the **Management groups** blade in the Azure portal or you can use [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
 
