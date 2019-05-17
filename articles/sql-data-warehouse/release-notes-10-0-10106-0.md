@@ -4,7 +4,7 @@ description: Release notes for Azure SQL Data Warehouse.
 services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: 
 ms.date: 05/13/2019
 author: anumjs
 ms.author: anjangsh
