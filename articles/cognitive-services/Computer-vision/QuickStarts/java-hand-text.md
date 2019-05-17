@@ -94,11 +94,6 @@ public class Main {
 
             URIBuilder builder = new URIBuilder(uriBase);
 
-            // The mode request parameter is optional. If it is left blank, the
-            // service will determine whether to use the printed or handwritten 
-            // recognition model.
-            builder.setParameter("mode", "Handwritten");
-
             // Prepare the URI for the REST API method.
             URI uri = builder.build();
             HttpPost request = new HttpPost(uri);

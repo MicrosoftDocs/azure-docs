@@ -69,13 +69,6 @@ To create and run the sample, do the following steps:
         var uriBase =
             "https://westus.api.cognitive.microsoft.com/vision/v2.0/read/core/asyncBatchAnalyze";
 
-        // The mode request parameter is optional. If it is left blank, the
-        // service will determine whether to use the printed or handwritten 
-        // recognition model.
-        var params = {
-            "mode": "Handwritten",
-        };
-
         // Display the image.
         var sourceImageUrl = document.getElementById("inputImage").value;
         document.querySelector("#sourceImage").src = sourceImageUrl;
@@ -85,7 +78,7 @@ To create and run the sample, do the following steps:
         //
         // Make the first REST API call to submit the image for processing.
         $.ajax({
-            url: uriBase + "?" + $.param(params),
+            url: uriBase,
 
             // Request headers.
             beforeSend: function(jqXHR){
