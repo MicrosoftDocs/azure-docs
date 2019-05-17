@@ -206,9 +206,9 @@ Microsoft has partnered with [BreakingPoint Cloud](https://www.ixiacom.com/produ
 Azure Security Center provides a list of [security alerts](/azure/security-center/security-center-managing-and-responding-alerts), with information to help investigate and remediate problems. With this feature, you get a unified view of alerts, including DDoS attack-related alerts and the actions taken to mitigate the attack in near-time.
 There are two specific alerts that you will see for any DDoS attack detection and mitigation:
 
-- DDoS Attack detected: This alert is generated when the DDoS protection service detects that one of your public IP addresses is the target of a DDoS attack.
-- DDoS Attack mitigated: This alert is generated when an attack on the public IP address has been mitigated. 
-To view the alerts, open Security Center in the Azure portal. Under Threat Protection, select Security alerts. The following screenshot shows an example of the DDoS attack alerts.
+- **DDoS Attack detected for Public IP**: This alert is generated when the DDoS protection service detects that one of your public IP addresses is the target of a DDoS attack.
+- **DDoS Attack mitigated for Public IP**: This alert is generated when an attack on the public IP address has been mitigated.
+To view the alerts, open **Security Center** in the Azure portal. Under **Threat Protection**, select **Security alerts**. The following screenshot shows an example of the DDoS attack alerts.
 
 ![DDoS Alert in Azure Security Center](./media/manage-ddos-protection/ddos-alert-asc.png)
 
