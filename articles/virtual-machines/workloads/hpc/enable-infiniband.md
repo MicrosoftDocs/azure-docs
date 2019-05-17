@@ -1,6 +1,6 @@
 ---
-title: Enable InifinBand with SRIOV in Azure | Microsoft Docs
-description: Learn how to enable InfiniBand with SRIOV. 
+title: Enable InifinBand with SR-IOV in Azure | Microsoft Docs
+description: Learn how to enable InfiniBand with SR-IOV. 
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -11,12 +11,12 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: amverma
 ---
 
 
-# Enable InfiniBand with SRIOV
+# Enable InfiniBand with SR-IOV
 
 
 The simplest and recommended way to configure your custom VM imge with InfiniBand (IB) is to add the InfiniBandDriverLinux or InfiniBandDriverWindows VM extension to your deployment.

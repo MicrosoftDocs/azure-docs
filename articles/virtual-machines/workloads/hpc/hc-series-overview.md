@@ -17,6 +17,10 @@ ms.author: amverma
 
 # HC-Series overview
 
+This article provides recommended practices, observed patterns, and recipes to get started with High Performance Computing (HPC) workloads on Azure HC-series VMs.
+
+## Performance and topology
+
 Maximizing HPC application performance on Intel Xeon Scalable Processors requires a thoughtful approach to process placement on this new architecture. Here, we outline our implementation of it on Azure HC-series VMs for HPC applications. We will use the term “pNUMA” to refer to a physical NUMA domain, and “vNUMA” to refer to a virtualized NUMA domain. Similarly, we will use the term “pCore” to refer to physical CPU cores, and “vCore” to refer to virtualized CPU cores.
 
 Physically, an HC server is 2 * 24-core Intel Xeon Platinum 8168 CPUs for a total of 48 physical cores. Each CPU is a single pNUMA domain, and has unified access to six channels of DRAM. Intel Xeon Platinum CPUs feature a 4x larger L2 cache than in prior generations (256 KB/core -> 1 MB/core), while also reducing the L3 cache compared to prior Intel CPUs (2.5 MB/core -> 1.375 MB/core).
@@ -29,7 +33,9 @@ The VM has no knowledge that pCores 0-1 and 24-25 weren't given to it. Thus, it 
 
 Intel Xeon Platinum, Gold, and Silver CPUs also introduce an on-die 2D mesh network for communication within and external to the CPU socket. We strongly recommend process pinning for optimal performance and consistency. Process pinning will work on HC-series VMs because the underlying silicon is exposed as-is to the guest VM.
 
-For more detailed information, see the [Intel Xeon SP architecture](https://bit.ly/2T3AWZ9) overview..
+For more detailed information, see the [Intel Xeon SP architecture](https://bit.ly/2T3AWZ9) overview.
+
+See the [HC-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) VM size article for detailed specifications.
 
 
 Topology of Intel Xeon SP Server

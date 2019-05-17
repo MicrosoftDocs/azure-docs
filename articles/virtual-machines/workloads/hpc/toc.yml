@@ -4,27 +4,27 @@
     href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
   - name: Configuration
     items:
-      - name: Configuration for Linux
+      - name: Optimization for Linux
         href: configure.md
-      - name: Enable Infiniband with SRIOV
-        href: enable-infiniband-with-sriov.md  
+      - name: Enable Infiniband
+        href: enable-infiniband.md  
   - name: Setup MPI
     href: setup-mpi.md 
-  - name: Compiling and scaling applications
+  - name: Scaling applications
     href: compiling-scaling-applications.md  
   - name: Virtual machines
     items:
     - name: HB-series 
       items:
-        - name: HB-series overview
+        - name: Overview
           href: hb-series-overview.md
-        - name: HB-series performance
+        - name: Performance
           href: hb-series-performance.md  
     - name: HC-series
       items:
-        - name: HC-series overview
+        - name: Overview
           href: hc-series-overview.md
-        - name: HC-series performance
+        - name: Performance
           href: hc-series-performance.md   
-    - name: HB and HC-series Known issues
+    - name: Known issues with HB and HC-series VMs
       href: hb-hc-known-issues.md

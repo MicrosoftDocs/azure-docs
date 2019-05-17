@@ -17,6 +17,8 @@ ms.author: amverma
 
 # Optimization for Linux
 
+This article shows a few key techniques to optimize your OS image. Learn more about [enabling InfiniBand](enable-infiniband.md) and optimizing the OS images.
+
 ## Update LIS
 
 If deploying using a custom image (for example, an older OS such as CentOS/RHEL 7.4 or 7.5), update LIS on the VM.
@@ -69,4 +71,6 @@ sudo systemctl disable cpupower
 
 ## Next steps
 
-Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) on Azure.
+* Learn more about [enabling InfiniBand](enable-infiniband.md) and optimizing OS images.
+
+* Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) on Azure.
