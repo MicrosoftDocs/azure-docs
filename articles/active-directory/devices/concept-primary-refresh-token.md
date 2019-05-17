@@ -24,8 +24,8 @@ This article assumes that you already understand the different device states ava
 
 The following Windows components play a key role in requesting and using a PRT:
 
-1. **Cloud Authentication Provider** (CloudAP): CloudAP is the modern authentication provider for Windows sign in, that verifies users logging to a Windows 10 device. CloudAP providers a plugin framework that identity providers can build on to enable authentication to Windows using that identity provider’s credentials.
-1. **Web Account Manager** (WAM): WAM is the default token broker on Windows 10 devices. WAM provides a plugin framework that identity providers can build on and enable SSO to their applications relying on that identity provider.
+1. **Cloud Authentication Provider** (CloudAP): CloudAP is the modern authentication provider for Windows sign in, that verifies users logging to a Windows 10 device. CloudAP provides a plugin framework that identity providers can build on to enable authentication to Windows using that identity provider’s credentials.
+1. **Web Account Manager** (WAM): WAM is the default token broker on Windows 10 devices. WAM also provides a plugin framework that identity providers can build on and enable SSO to their applications relying on that identity provider.
 1. **Azure AD CloudAP plugin**: An Azure AD specific plugin built on the CloudAP framework, that verifies user credentials with Azure AD during Windows sign in.
 1. **Azure AD WAM plugin**: An Azure AD specific plugin built on the WAM framework, that enables SSO to applications that rely on Azure AD for authentication.
 1. **Dsreg**: An Azure AD specific component on Windows 10, that handles the device registration process for all device states.
@@ -46,21 +46,20 @@ A PRT is an opaque blob sent from Azure AD whose contents are not known to any c
 
 The PRT is issued during user authentication on a Windows 10 device in two scenarios:
 
-1. **Azure AD joined** or **Hybrid Azure AD joined**: A PRT is issued when a user provides their organizational credentials to sign in, to an Azure AD joined or Hybrid Azure AD joined, Windows 10 device. In this scenario, Azure AD CloudAP plugin is the primary authority for the PRT.
-1. **Azure AD registered device**: A PRT is issued when a user adds a secondary work account to their Windows 10 device. Users can add an account to Windows 10 in two different ways. In these scenarios, the Azure AD WAM plugin is the primary authority for the PRT since Windows sign in is not happening with this account.
-   1. Agreeing to the **Add account to Windows?** prompt after signing in to an app (for example, Outlook)
-   1. Adding an account from **Windows Settings** > **Accounts** > **Access Work or School** > **Connect**
+1. **Azure AD joined** or **Hybrid Azure AD joined**: A PRT is issued during Windows logon when a user signs in with their corporate credentials. A PRT is issued with all Windows 10 supported credentials i.e. Password, Windows Hello for Business and FIDO2 security keys. In this scenario, Azure AD CloudAP plugin is the primary authority for the PRT.
+1. **Azure AD registered device**: A PRT is issued when a user adds a secondary work account to their Windows 10 device. Users can add an account to Windows 10 in two different ways -  
+   1. Adding an account via the **Use this account everywhere on this device** prompt after signing in to an app (for example, Outlook)
+   1. Adding an account from **Settings** > **Accounts** > **Access Work or School** > **Connect**
+In these scenarios, the Azure AD WAM plugin is the primary authority for the PRT since Windows logon is not happening with this Azure AD account.
 
 Once issued, a PRT is valid for 14 days and is continuously renewed as long as the user actively uses the device.  
 
-Device registration is a prerequisite for a device to get a PRT. For more information, see the article [Windows Hello for Business and Device Registration](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-how-it-works-device-registration).
-
-During device registration, the dsreg component generates two sets of cryptographic key pairs:
+Device registration is a prerequisite for a device to get a PRT. For more in-depth details on device registration, see the article [Windows Hello for Business and Device Registration](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-how-it-works-device-registration). During device registration, the dsreg component generates two sets of cryptographic key pairs:
 
 * Device key (dkpub/dkpriv)
 * Transport key (tkpub/tkpriv)
 
-The private keys are bound to the device’s TPM if the device has a valid and functioning TPM. These keys are used to validate the device state during PRT requests.
+The private keys are bound to the device’s TPM if the device has a valid and functioning TPM, while the public keys are sent to Azure AD during the device registration process. These keys are used to validate the device state during PRT requests.
 
 ## How is a PRT used?
 
@@ -80,7 +79,7 @@ A PRT is renewed in two different methods:
 
 ### Key considerations
 
-* A PRT is only issued and renewed during native app authentication. A PRT not renewed or issued during a browser session.
+* A PRT is only issued and renewed during native app authentication. A PRT is not renewed or issued during a browser session.
 * In Azure AD joined and hybrid Azure AD joined devices, the CloudAP plugin is the primary authority for a PRT. If a PRT is renewed during a WAM-based token request, the PRT is sent back to CloudAP, which verifies the validity of the PRT with Azure AD before accepting it.
 
 ## How is the PRT protected?
@@ -98,7 +97,7 @@ By securing these keys with the TPM, malicious actors cannot steal the keys nor 
 
 **Browser cookies**: In Windows 10, Azure AD supports browser SSO in Internet Explorer and Microsoft Edge natively or in Google Chrome via the Windows 10 accounts extension. The security is built not only to protect the cookies but also the endpoints to which the cookies are sent. Browser cookies are protected the same way a PRT is, by utilizing the session key to sign and protect the cookies.
 
-When a user initiates a browser interaction, the browser (or extension) invokes a COM native client host. The native client host ensures that the page is from one of the allowed domains. The browser could send other parameters to the native client host, including a nonce, however the native client host guarantees validation of the hostname. The native client host invokes the CloudAP plugin to provide a PRT-cookie. The CloudAP plugin creates the cookie and signs it with the TPM-protected session key before returning it to the native client host. As the PRT cookie is signed by the session key, it cannot be tampered with. The PRT cookie is included in the request header which Azure AD can use to validate the device it is originating from. If using the Chrome browser, only the extensions explicitly defined in the native client host’s manifest can invoke it preventing arbitrary extensions from making these requests. Once Azure AD validates the PRT cookie, it issues a session cookie to the browser. This session cookie also contains the same session key issued with a PRT. During subsequent requests, the session key is validated effectively binding the cookie to the device and preventing any replays from elsewhere.
+When a user initiates a browser interaction, the browser (or extension) invokes a COM native client host. The native client host ensures that the page is from one of the allowed domains. The browser could send other parameters to the native client host, including a nonce, however the native client host guarantees validation of the hostname. The native client host requests a PRT-cookie from CloudAP plugin, whcih creates and signs it with the TPM-protected session key. As the PRT cookie is signed by the session key, it cannot be tampered with. This PRT cookie is included in the request header for Azure AD to validate the device it is originating from. If using the Chrome browser, only the extension explicitly defined in the native client host’s manifest can invoke it preventing arbitrary extensions from making these requests. Once Azure AD validates the PRT cookie, it issues a session cookie to the browser. This session cookie also contains the same session key issued with a PRT. During subsequent requests, the session key is validated effectively binding the cookie to the device and preventing replays from elsewhere.
 
 ## When does a PRT get an MFA claim?
 
@@ -106,7 +105,7 @@ A PRT can get a multi-factor authentication (MFA) claim in specific scenarios. W
 
 1. **Sign in with Windows Hello for Business**: Windows Hello for Business replaces passwords and uses cryptographic keys to provide strong two-factor authentication. Windows Hello for Business is specific to a user on a device, and itself requires MFA to provision. When a user logs in with Windows Hello for Business, the user’s PRT gets an MFA claim. This scenario also applies to users logging in with smartcards if smartcard authentication produces an MFA claim from ADFS.
 1. **MFA during WAM interactive sign in**: During a token request through WAM, if a user is required to do MFA to access the app, the PRT that is renewed during this interaction is imprinted with an MFA claim.
-1. **MFA during device registration**: If an admin has configured their device settings in Azure AD to require MFA to join devices, the user is required to perform MFA to complete the registration. During this process, the PRT that is issued to the user has the MFA claim obtained during the registration. This process only applies to the user who did the join operation but not to others who sign in to that device.
+1. **MFA during device registration**: If an admin has configured their device settings in Azure AD to [require MFA to register devices](https://docs.microsoft.com/en-us/azure/active-directory/devices/device-management-azure-portal#configure-device-settings), the user needs to do MFA to complete the registration. During this process, the PRT that is issued to the user has the MFA claim obtained during the registration. This capability only applies to the user who did the join operation, not to other users who sign in to that device.
 
 Windows 10 maintains a partitioned list of PRTs for each credential. So, there’s a PRT for each of Windows Hello for Business, password, or smartcard. This partitioning ensures that MFA claims are isolated based on the credential used, and not mixed up during token requests.
 
