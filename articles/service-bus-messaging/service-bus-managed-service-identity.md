@@ -25,6 +25,8 @@ ms.author: aschhab
 With managed identities, the Azure platform manages this runtime identity. You do not need to store and protect access keys in your application code or configuration, either for the identity itself, or for the resources you need to access. A Service Bus client app running inside an Azure App Service application or in a virtual machine with enabled managed entities for Azure resources support does not need to handle SAS rules and keys, or any other access tokens. The client app only needs the endpoint address of the Service Bus Messaging namespace. When the app connects, Service Bus binds the managed entity's context to the client in an operation that is shown in an example later in this article. Once it is associated with a managed identity, your Service Bus client can do all authorized operations. Authorization is granted by associating a managed entity with Service Bus roles. 
 
 ## Service Bus roles and permissions
+>[!TODO]
+> Change this to refer to Service Bus Data Owner role and the fact that owner and contributor roles will not work anymore and need to be changed.
 
 You can only add a managed identity to the "Owner" or "Contributor" roles of a Service Bus namespace. It grants the identity full control on all entities in the namespace. However, management operations that change the namespace topology are initially supported only though Azure Resource Manager. It is not through the native Service Bus REST management interface. This support also means that you cannot use the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) or the .NET Standard client [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) objects within a managed identity.
 
