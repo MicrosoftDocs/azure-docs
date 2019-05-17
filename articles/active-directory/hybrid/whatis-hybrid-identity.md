@@ -14,9 +14,9 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
-# What is hybrid identity with Azure AD?
+# What is hybrid identity with Azure Active Directory?
 
-Today, businesses, and corporations are becoming more and more a mixture of on-premises and cloud applications.  Users require access to those applications both on-premises and in the cloud. Managing users both on-premises and in the cloud becomes a challenging scenario. 
+Today, businesses, and corporations are becoming more and more a mixture of on-premises and cloud applications.  Users require access to those applications both on-premises and in the cloud. Managing users both on-premises and in the cloud poses challenging scenarios. 
 
 Microsoft’s identity solutions span on-premises and cloud-based capabilities.  These solutions create a common user identity for authentication and authorization to all resources, regardless of location. We call this **hybrid identity**.
 
