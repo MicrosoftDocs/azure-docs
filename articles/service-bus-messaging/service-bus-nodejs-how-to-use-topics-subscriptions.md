@@ -17,9 +17,10 @@ ms.date: 04/15/2019
 ms.author: aschhab
 
 ---
-# How to Use Service Bus topics and subscriptions with Node.js
-
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+# How to Use Service Bus topics and subscriptions with Node.js and the azure-sb package
+> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
 This guide describes how to use Service Bus topics and subscriptions
 from Node.js applications. The scenarios covered include:
@@ -33,8 +34,8 @@ from Node.js applications. The scenarios covered include:
 For more information about topics and subscriptions, see [Next steps](#next-steps) section.
 
 ## Prerequisites
-1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md) to create a Service Bus **namespace** and get the **connection string**.
+- An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md) to create a Service Bus **namespace** and get the **connection string**.
 
     > [!NOTE]
     > You will create a **topic** and a **subscription** to the topic by using **Node.js** in this quickstart. 
@@ -427,7 +428,7 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 });
 ```
 
-## Next Steps
+## Next steps
 Now that you've learned the basics of Service Bus topics, follow these links to learn more.
 
 * See [Queues, topics, and subscriptions][Queues, topics, and subscriptions].
