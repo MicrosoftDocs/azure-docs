@@ -11,7 +11,7 @@ ms.author: pabutler
 
 # SaaS Fulfillment APIs Version 2 
 
-This article details the API that enables independent software vendors (ISVs) to sell their SaaS applications in the AppSource and Azure Marketplace. This API is a requirement for listing SaaS offers on the AppSource and Azure Marketplace.
+This article details the API that enables independent software vendors (ISVs) to sell their SaaS applications in the AppSource and Azure Marketplace. This API is a requirement for transactable SaaS offers on the AppSource and Azure Marketplace.
 
 ## Managing the SaaS subscription lifecycle
 
