@@ -176,6 +176,8 @@
         href: integrate-environments-devops-pipeline.md
       - name: Use Platform-as-a-Service (PaaS) services
         href: use-paas-services.md
+      - name: Deploy nested templates 
+        href: deploy-nested-template-environments.md
     - name: Secure access to labs
       items:
       - name: Add lab owners and users
