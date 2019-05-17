@@ -38,13 +38,13 @@ The following table provides a mapping of the version of the Azure Monitor VM ex
 
 | Azure Monitor Linux VM extension version | Log Analytics Agent bundle version | Release Date | Release Notes |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
-| 8.0.11049.0 | 1.0.11049.1 | Feb 2017 | |
-| 8.0.11072.0 | 1.0.11072.1 | Sept 2017 | |
-| 8.0.11081.0 | 1.0.11081.5 | Nov 2017 | | 
-| 8.0.11103.0 | n/a |  April 2018 | |
-| 8.0.11136.0 | n/a | Sept 2018 |  <ul><li> Added support for detecting resource ID change on VM move </li><li> Added Support for reporting resource ID when using non-extension install </li></ul>| 
-| 10.19.10006.0 | n/a | Dec 2018 | <ul><li> Minor stabilization fixes </li></ul> | 
 | 10.19.13515.0 | 1.0.13515.1 | March 2019 | <ul><li>Minor stabilization fixes </li></ul> |
+| 10.19.10006.0 | n/a | Dec 2018 | <ul><li> Minor stabilization fixes </li></ul> | 
+| 8.0.11136.0 | n/a | Sept 2018 |  <ul><li> Added support for detecting resource ID change on VM move </li><li> Added Support for reporting resource ID when using non-extension install </li></ul>| 
+| 8.0.11103.0 | n/a |  April 2018 | |
+| 8.0.11081.0 | 1.0.11081.5 | Nov 2017 | | 
+| 8.0.11072.0 | 1.0.11072.1 | Sept 2017 | |
+| 8.0.11049.0 | 1.0.11049.1 | Feb 2017 | |
 
 ### Azure Security Center
 
