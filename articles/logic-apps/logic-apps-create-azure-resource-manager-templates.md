@@ -21,9 +21,11 @@ Azure Logic Apps provides a [prebuilt logic apps Azure Resource Manager template
 * [Author Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Develop Azure Resource Manager templates for cloud consistency](../azure-resource-manager/templates-cloud-consistency.md)
 
+<a name="visual-studio"></a>
+
 ## Create templates with Visual Studio
 
-For the easiest way to create a valid logic app deployment template, use Visual Studio and the Azure Logic Apps Tools for Visual Studio extension. By downloading your logic app from the Azure portal into Visual Studio, you get a valid deployment template that you can use with any Azure subscription and location. Also, downloading your logic app automatically parameterizes the logic app definition that's embedded in the template. For more information about creating and managing logic apps in Visual Studio, see [Create logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) and [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
+For the easiest way to create a valid template for your logic app deployment, use Visual Studio and the Azure Logic Apps Tools for Visual Studio extension. By downloading your logic app from the Azure portal into Visual Studio, you get a valid deployment template that you can use with any Azure subscription and location. Also, downloading your logic app automatically parameterizes the logic app definition that's embedded in the template. For more information about creating and managing logic apps in Visual Studio, see [Create logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) and [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 
 ### Add to existing resource group project
 

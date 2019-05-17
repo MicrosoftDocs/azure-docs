@@ -15,16 +15,19 @@ ms.date: 05/15/2019
 
 When you're ready to automate how you create and deploy your logic app, you can expand your logic app's underlying workflow definition into an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md). This template defines the infrastructure, resources, parameters, and other setup information for provisioning and deploying your logic app. By using Resource Manager templates, you can repeatedly and consistently deploy logic apps to any environment, Azure subscription, and Azure resource group that you want.
 
-For example, if you're deploying to a development, test, and production environment, you're likely using different connection strings in each environment. You can provide these connection strings for your template by creating and using a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
+For example, when deploying to a development, test, and production environment, you're likely using different connection strings in each environment. You can define parameters in your template for accepting those connection strings, and then provide those connection strings in a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
 
-This overview describes the high-level structure and syntax for a Resource Manager template that includes a logic app's underlying workflow definition. Both the template and your workflow definition use JSON but with some differences because the workflow definition also follows the [Workflow Definition Language schema](../logic-apps/logic-apps-workflow-definition-language.md). Also, the examples in this overview replace the values that vary at deployment with their parameterized versions.
+This overview describes the high-level structure and syntax for a Resource Manager template that includes a logic app's workflow definition. Both the template and your workflow definition use JSON syntax but with some differences because the workflow definition also follows the [Workflow Definition Language schema](../logic-apps/logic-apps-workflow-definition-language.md). The examples in this overview also use parameterized values, which can vary at deployment. For the easiest way to create a valid parameterized template for deploying your logic app, create your logic app in the Azure portal, and then [download that logic app in Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md#download-logic-app) by using the Azure Logic Apps Tools for Visual Studio.
 
-For full details about Resource Manager templates, see these topics:
+For more information about Resource Manager templates, see these topics:
 
 * [Azure Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Azure Resource Manager template best practices](../azure-resource-manager/template-best-practices.md)
 
-For a sample prebuilt template for a basic logic app, see [GitHub - azure-quickstart-templates/101-logic-app-create](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create).
+For example templates, see these examples:
+
+* The [full example template](#full-example-template) that's used in this topic
+* The sample [quickstart logic app template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) in GitHub
 
 <a name="template-structure"></a>
 
@@ -35,7 +38,7 @@ At the top level, a Resource Manager template follows this structure:
 ```json
 {
    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-   "contentVersion": "<template-version-number>",
+   "contentVersion": <template-version-number>,
    "parameters": {},
    "variables": {},
    "functions": [],
@@ -48,208 +51,20 @@ At the top level, a Resource Manager template follows this structure:
 |-----------|----------|-------------|
 | `$schema` | Yes | The location for the JSON schema file that specifies the version for the Resource Manager template language |
 | `contentVersion` | Yes | The version for this Resource Manager template |
-| `parameters` | No | The template parameters to use for customizing resource deployment, for example, details about your dev, test, and production environments. For full details, see [Parameters - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#parameters). |
+| `parameters` | No | The template's parameters for the values to use when creating and deploying resources in Azure, such as your logic app's name and location, information about your dev, test, and production environments, and so on. For full details, see [Parameters - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#parameters). |
 | `variables` | No | The values that you construct and use for simplifying complex expressions throughout your Resource Manager template. That way, you only need to update the variable when those values change. For full details, see [Variables - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#variables). |
 | `functions` | No | Any functions that you want to create and use repeatedly within your Resource Manager template. For full details, see [Functions - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#functions). |
 | `resources` | Yes | The definitions for the resources that you want the Resource Manager template to deploy or update in an Azure resource group or subscription. For full details, see [Resources - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#resources). |
 | `outputs` | No | The values that you want returned after deployment, for example, values from resources that the Resource Manager template deployed. For full details, see [Outputs - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#outputs). |
 ||||
 
-Here is a full parameterized example template that this overview uses to illustrate the attributes for a template that includes a workflow definition with an Office 365 Outlook trigger and an Azure Blob Storage action:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "LogicAppIntegrationAccount": {
-      "type": "string",
-      "minLength": 1,
-      "defaultValue": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/integrationAccounts/<integration-account-name>"
-    },
-    "office365_1_Connection_Name": {
-      "type": "string",
-      "defaultValue": "office365"
-    },
-    "office365_1_Connection_DisplayName": {
-      "type": "string",
-      "defaultValue": "<Office-365-account-name>"
-    },
-    "azureblob_1_Connection_Name": {
-      "type": "string",
-      "defaultValue": "azureblob"
-    },
-    "azureblob_1_Connection_DisplayName": {
-      "type": "string",
-      "defaultValue": "<Azure-Blob-Storage-connection-name>"
-    },
-    "azureblob_1_accountName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the storage account the connector should use."
-      },
-      "defaultValue": "<Azure-Blob-storage-account-name>"
-    },
-    "azureblob_1_accessKey": {
-      "type": "securestring",
-      "metadata": {
-        "description": "Specify a valid primary/secondary storage account access key."
-      }
-    },
-    "LogicAppLocation": {
-      "type": "string",
-      "minLength": 1,
-      "allowedValues": [
-        "[resourceGroup().location]"
-      ],
-      "defaultValue": "[resourceGroup().location]"
-    },
-    "LogicAppName": {
-      "type": "string",
-      "minLength": 1,
-      "defaultValue": "<logic-app-name>"
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
-      "properties": {
-        "state": "Enabled",
-        "integrationAccount": {
-          "id": "[parameters('LogicAppIntegrationAccount')]"
-        },
-        "definition": {
-          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-          "actions": {
-            "Create_blob": {
-              "type": "ApiConnection",
-              "inputs": {
-                "host": {
-                  "connection": {
-                    "name": "@parameters('$connections')['azureblob']['connectionId']"
-                  }
-                },
-                "method": "post",
-                "body": "@triggerBody()?['Body']",
-                "path": "/datasets/default/files",
-                "queries": {
-                  "folderPath": "/emails",
-                  "name": "@triggerBody()?['Subject']",
-                  "queryParametersSingleEncoded": true
-                }
-              },
-              "runAfter": {},
-              "runtimeConfiguration": {
-                "contentTransfer": {
-                  "transferMode": "Chunked"
-                }
-              }
-            }
-          },
-          "parameters": {
-            "$connections": {
-              "defaultValue": {},
-              "type": "Object"
-            }
-          },
-          "triggers": {
-            "When_a_new_email_arrives": {
-              "type": "ApiConnection",
-              "inputs": {
-                "host": {
-                  "connection": {
-                    "name": "@parameters('$connections')['office365']['connectionId']"
-                  }
-                },
-                "method": "get",
-                "path": "/Mail/OnNewEmail",
-                "queries": {
-                  "folderPath": "Inbox",
-                  "importance": "Any",
-                  "fetchOnlyWithAttachment": false,
-                  "includeAttachments": false
-                }
-              },
-              "recurrence": {
-                "frequency": "Day",
-                "interval": 1
-              },
-              "splitOn": "@triggerBody()?['value']"
-            }
-          },
-          "contentVersion": "1.0.0.0",
-          "outputs": {}
-        },
-        "parameters": {
-          "$connections": {
-            "value": {
-              "azureblob": {
-                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'azureblob')]",
-                "connectionId": "[resourceId('Microsoft.Web/connections', parameters('azureblob_1_Connection_Name'))]",
-                "connectionName": "[parameters('azureblob_1_Connection_Name')]"
-              },
-              "office365": {
-                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'office365')]",
-                "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
-                "connectionName": "[parameters('office365_1_Connection_Name')]"
-              }
-            }
-          }
-        },
-        "accessControl": {}
-      },
-      "name": "[parameters('LogicAppName')]",
-      "type": "Microsoft.Logic/workflows",
-      "location": "[parameters('LogicAppLocation')]",
-      "tags": {
-        "displayName": "LogicApp"
-      },
-      "apiVersion": "2016-06-01",
-      "dependsOn": [
-        "[resourceId('Microsoft.Web/connections', parameters('azureblob_1_Connection_Name'))]",
-        "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
-      ]
-    },
-    {
-      "type": "MICROSOFT.WEB/CONNECTIONS",
-      "apiVersion": "2016-06-01",
-      "name": "[parameters('office365_1_Connection_Name')]",
-      "location": "westus",
-      "properties": {
-        "api": {
-          "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'office365')]"
-        },
-        "displayName": "[parameters('office365_1_Connection_DisplayName')]"
-      }
-    },
-    {
-      "type": "MICROSOFT.WEB/CONNECTIONS",
-      "apiVersion": "2016-06-01",
-      "name": "[parameters('azureblob_1_Connection_Name')]",
-      "location": "westus",
-      "properties": {
-        "api": {
-          "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'azureblob')]"
-        },
-        "displayName": "[parameters('azureblob_1_Connection_DisplayName')]",
-        "parameterValues": {
-          "accountName": "[parameters('azureblob_1_accountName')]",
-          "accessKey": "[parameters('azureblob_1_accessKey')]"
-        }
-      }
-    }
-  ],
-  "outputs": {}
-}
-```
-
 <a name="template-parameters"></a>
 
 ## Template parameters
 
-Your Resource Manager template's `parameters` attribute defines the parameters for the values to use when creating and deploying resources in Azure. Your template's `resources` attribute, described later in this topic, can then reference these values for your resources to use, including your logic app's workflow definition, connections, and other resources in Azure. You can then provide these values separately through a [template parameter file](#template-parameter-file).
+Your template's `parameters` attribute defines the parameters for the values that your template uses when creating and deploying resources in Azure. Your template's `resources` attribute, described later in this topic, can then reference these values for your resources to use, such as your logic app's workflow definition, connections, and other resources in Azure. You can provide these values separately through a [parameter file](#template-parameter-files).
 
-This example template defines parameters for the name and location to use when creating and deploying your logic app. If your logic app is also linked to an integration account, the template defines the parameter for the integration account to use.
+This example defines template parameters for the name and location to use when creating and deploying your logic app. If your logic app is also linked to an integration account, the template also defines the parameter for the integration account values to use:
 
 ```json
 {
@@ -284,7 +99,7 @@ This example template defines parameters for the name and location to use when c
            "uksouth",
            "ukwest",
            "westcentralus",
-           "westus2"            
+           "westus2"
          ],
          "defaultValue": "<logic-app-location>",
          "metadata": {
@@ -313,9 +128,9 @@ This example template defines parameters for the name and location to use when c
 }
 ```
 
-If your logic app creates connections to other services and systems by using [managed connectors](../connectors/apis-list.md), the template's `parameters` attribute defines the parameters for the values to use when creating and deploying resources for those connections. You can then provide these values, such as connection strings and access tokens, separately through a [template parameter file](#template-parameter-file).
+If your logic app creates connections to other services and systems by using [managed connectors](../connectors/apis-list.md), your template's `parameters` attribute defines the parameters that accept the values to use when creating and deploying those connection resources. You can provide these values, such as connection strings and access tokens, through a [parameter file](#template-parameter-files).
 
-In this example, the template's `parameters` attribute defines parameters for an Office 365 Outlook connection. The template's `resources` attribute can then reference the values, which pass through the template's parameters, for creating and deploying the resources for that connection:
+In this example, the template's `parameters` attribute defines the parameters for an Office 365 Outlook connection. The template's `resources` attribute can then reference the values that pass through the template's parameters for creating and deploying the connection resource:
 
 ```json
 {
@@ -342,7 +157,6 @@ In this example, the template's `parameters` attribute defines parameters for an
                "$connections": {
                   "value": {
                      "office365": {
-                        // References `office365` connection resource values in parameter file
                         "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]",
                         // References `office365_1_Connection_Name` in template parameters
                         "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
@@ -353,7 +167,7 @@ In this example, the template's `parameters` attribute defines parameters for an
                }
             }
          },
-         // Resource information for creating and deploying logic app
+         // References logic app information in template parameters
          "name": "[parameters('LogicAppName')]",
          "type": "Microsoft.Logic/workflows",
          "location": "[parameters('LogicAppLocation')]",
@@ -371,10 +185,9 @@ In this example, the template's `parameters` attribute defines parameters for an
          "apiVersion": "2016-06-01",
          // References 'office365_1_Connection_Name` in template parameters
          "name": "[parameters('office365_1_Connection_Name')]",
-         "location": "westus",
+         "location": "<connection-resource-location>",
          "properties": {
             "api": {
-               // References `office365` connection resource
                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]"
              },
              // References 'office365_1_Connection_Display_Name` in template parameters
@@ -420,7 +233,7 @@ For more information, see [Best practices for template parameters](../azure-reso
 
 ## Template parameter files
 
-To store and supply the values for Resource Manager template parameters, you can create a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). That way, you can use different parameter files based on where you want to create and deploy your logic app. Here is the syntax for a parameter file:
+To provide the values for Resource Manager template parameters, store those values in a [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). That way, you can use different parameter files based on where you want to create and deploy your logic app. Here is the syntax for a parameter file:
 
 ```json
 {
@@ -438,7 +251,7 @@ To store and supply the values for Resource Manager template parameters, you can
 }
 ```
 
-For example, here is a short parameter file for the template parameters described in the previous section:
+For example, this short parameter file provides values for the template parameters defined in the previous example:
 
 ```json
 {
@@ -460,7 +273,7 @@ For example, here is a short parameter file for the template parameters describe
            "westeurope"
         ]
      },
-     "LogicAppIntegrationAccount" {
+     "LogicAppIntegrationAccount": {
         "value": {
            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/fabrikam-integration-acount-rg/providers/Microsoft.Logic/integrationAccounts/fabrikam-integration-account"
         }
@@ -473,7 +286,7 @@ For example, here is a short parameter file for the template parameters describe
 
 ## Template resources
 
-Your Resource Manager template's `resources` attribute declares information about each resource that you want to create and deploy. This attribute references the values that pass through the template's `parameters` attribute by using the `parameters()` function with square brackets (**[]**). In the template's `resources` attribute, the `properties` attribute contains the workflow definition for your logic app and any references to resources for connections used by your logic app. Under `properties`, more attributes reference the template parameter values used for creating and deploying your logic app:
+Your template's `resources` attribute declares information for each resource that you want to create and deploy in Azure. This attribute references the values that pass through the template's `parameters` attribute by using an expression that's enclosed with square brackets (**[]**) and calls the `parameters()` function on the template parameter. In the template's `resources` attribute, the `properties` attribute contains the workflow definition for your logic app and any references to resources for connections used by your logic app. Under `properties`, other resource attributes reference the template parameter values used for creating and deploying your logic app:
 
 ```json
 {
@@ -524,7 +337,7 @@ In this example, the template `resources` attribute declares resource informatio
    "resources": [
       {
          "properties": {
-            "state": "Disabled",
+            "state": "Enabled",
             "definition": {<...>},
             "parameters": {
                "$connections": {
@@ -580,65 +393,30 @@ For more information about template resources, see these topics:
 * [Resources - Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md#resources)
 * [Best practices for template resources](../azure-resource-manager/template-best-practices.md#resources).
 
-<a name="workflow-connections"></a>
+<a name="workflow-definition"></a>
 
-## Logic app connections
+## Logic app workflow definition
 
-Under the template's `resources` > `properties` > `parameters` attributes, the `$connections` attribute contains references to resources that securely store metadata for any connections that your logic app creates and uses through [managed connectors](../connectors/apis-list.md). This metadata can include information such as connection strings and access tokens. In your workflow definition, the trigger or action definition that creates the connection also references the corresponding resource inside `$connections`. 
-
-In this example, the `$connections` attribute contains an `office365` attribute, which references the resource for an Office 365 Outlook connection. In the `definition` attribute, which contains for your [workflow definition](#workflow-definition), the trigger definition contains a `connection` attribute, which includes a `name` attribute that uses the `parameters()` function to reference the `office365` attribute along with its `connectionId` attribute:
+Under your template's `resources` > `properties` attributes, the `definition` attribute contains your logic app's workflow definition:
 
 ```json
 {
    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-   "contentVersion": "<template-version-number>",
-   "parameters": {},
-   "variables": {},
-   "functions": [],
+   <...>,
    "resources": [
       {
          "properties": {
-            "state": "Disabled",
-            // Workflow definition
+            "state": "Enabled",
+            // Workflow definition structure starts here
             "definition": {
                "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-               "actions": {<one-or-more-action-definitions>},
+               "actions": {<action-definitions>},
+               "parameters": {<workflow-parameter-definitions>},
+               "triggers": {<trigger-definition>},
                "contentVersion": <workflow-definition-version-number>,
-               "outputs": {},
-               "parameters": {
-                  "$connections": {
-                     "defaultValue": {},
-                     "type": "Object"
-                  }
-               },
-               "triggers": {
-                  // Trigger definition
-                  "When_a_new_email_arrives": {
-                     "inputs": {
-                        "host": {
-                           // Reference to connection resource
-                           "connection": {
-                              "name": "@parameters('$connections')['office365']['connectionId']"
-                           }
-                        },
-                        <...>
-                     },
-                     <...>
-                  }
-               }
-            },
-            "parameters": {
-               "$connections": {
-                  "value": {
-                     // References to connection resource
-                     "office365": {
-                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]",
-                      "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
-                      "connectionName": "[parameters('office365_1_Connection_Name')]"
-                     }
-                  }
-               }
+               "outputs": {<workflow-output-definitions>}
             }
+            // Workflow definition structure ends here
          }
       }
    ],
@@ -646,47 +424,15 @@ In this example, the `$connections` attribute contains an `office365` attribute,
 }
 ```
 
-Each new instance for a connection creates a resource with a unique name in Azure. So, when you have multiple instances for connections to the same service or system, each resource name is appended with a number, which increments with each new instance, for example, `office365`, `office365-1`, and so on.
-
-> [!NOTE]
-> When you view the underlying JSON for your logic app outside a Resource Manager template, the `$connections` attribute appears at the same level as the `definition` attribute, which contains your [workflow definition](#workflow-definition):
->
-> ```json
-> {
->    "$connections": {},
->    "definition": {}
-> }
-> ```
-
-<a name="workflow-definition"></a>
-
-## Logic app workflow definition
-
-In the `definition` attribute, your logic app's workflow definition has this high-level structure:
-
-```json
-"definition": {
-  "$schema": "<workflow-definition-language-schema-version>",
-  "actions": { <action-definitions> },
-  "contentVersion": <workflow-definition-version-number>,
-  "outputs": { <workflow-output-definitions> },
-  "parameters": { <workflow-parameter-definitions> },
-  "staticResults": { <static-results-definitions> },
-  "triggers": { <trigger-definitions> }
-}
-```
-
-Here are brief details about these attributes in workflow definitions. For full details, see [Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
-
 | Attribute | Required | Description |
 |-----------|----------|-------------|
 | `$schema` | Only when externally referencing a workflow definition | The location for the JSON schema file that describes the Workflow Definition Language version |
-| `actions` | No | The definitions for one or more actions to execute at workflow runtime. For more information, see [Triggers and actions](../logic-apps/logic-apps-workflow-definition-language.md#triggers-actions). |
+| `actions` | No | The definitions for one or more actions to execute at workflow runtime. For more information, see [Triggers and actions - Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#triggers-actions). |
 | `contentVersion` | No | The version number for your workflow definition |
-| `outputs` | No | The definitions for the outputs to return from a workflow run. For more information, see [Outputs](../logic-apps/logic-apps-workflow-definition-language.md#outputs) |
-| `parameters` | No | The definitions for one or more parameters that pass values for your workflow to use at workflow runtime. For more information, see [Parameters](../logic-apps/logic-apps-workflow-definition-language.md#parameters). |
-| `staticResults` | No | The definitions for one or more static results returned by actions as mock outputs when static results are enabled on those actions. For more information, see [Static results](../logic-apps/logic-apps-workflow-definition-language.md#static-results). |
-| `triggers` | No | The definitions for one or more triggers that start your workflow. You can define more than one trigger, but only with the Workflow Definition Language, not visually through the Logic Apps Designer. For more information, see [Triggers and actions](../logic-apps/logic-apps-workflow-definition-language.md#triggers-actions). |
+| `outputs` | No | The definitions for the outputs to return from a workflow run. For more information, see [Outputs - Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#outputs) |
+| `parameters` | No | The definitions for one or more parameters that pass values for your workflow to use at runtime. For more information, see [Parameters - Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#parameters). |
+| `staticResults` | No | The definitions for one or more static results returned by actions as mock outputs when static results are enabled on those actions. For more information, see [Static results - Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#static-results). |
+| `triggers` | No | The definitions for one or more triggers that start your workflow. You can define more than one trigger, but only with the Workflow Definition Language, not visually through the Logic Apps Designer. For more information, see [Triggers and actions - Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#triggers-actions). |
 ||||
 
 For example, here's a logic app workflow definition that has these steps:
@@ -723,8 +469,6 @@ For example, here's a logic app workflow definition that has these steps:
          "type": "ApiConnection"
       }
    },
-   "contentVersion": "1.0.0.0",
-   "outputs": {},
    "parameters": {
       "$connections": {
          "defaultValue": {},
@@ -755,15 +499,17 @@ For example, here's a logic app workflow definition that has these steps:
          "splitOn": "@triggerBody()?['value']",
          "type": "ApiConnection"
       }
-   }
-}
+   },
+   "contentVersion": "1.0.0.0",
+   "outputs": {}
+},
 ```
 
 <a name="workflow-parameters"></a>
 
 ## Workflow definition parameters
 
-In your workflow definition, you can add and edit any parameters that the workflow definition uses for accepting inputs at runtime. To make sure that the Logic App Designer can correctly show those parameters when you define these workflow definition parameters, note these practices:
+In your workflow definition's `parameters` attribute, you can add or edit any parameters that the workflow definition uses for accepting inputs at runtime. To make sure that the Logic App Designer can correctly show those parameters when you define these workflow definition parameters, note these practices:
 
 * You can use logic app parameters in these kinds of triggers and actions:
 
@@ -773,42 +519,114 @@ In your workflow definition, you can add and edit any parameters that the workfl
   * Azure Functions app
   * Nested or child logic app workflow
 
-* Provide default values for parameters except when parameters handle information that is sensitive or require security. To hide or protect sensitive information in workflow definition parameters, follow the guidance in these topics:
+* Provide default parameter values except you have information that is sensitive or requires security. To hide or protect sensitive information in workflow definition parameters, follow the guidance in these topics:
 
   * [Security recommendations for action and input parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters-and-inputs)
   * [Pass secure parameter values with Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
 
 For more information about workflow definition parameters, see [Parameters - Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#parameters).
 
-For example, suppose your logic app's workflow definition references a resource ID that represents an Azure function or a nested logic app workflow, and you want to deploy that resource ID along with your logic app as a single deployment. You can add that ID as a resource in your template and parameterize that ID. You can use this same approach for references to custom APIs or OpenAPI endpoints (formerly "Swagger") that you want deployed with each Azure resource group.
+<a name="workflow-connections"></a>
 
-Here's an example that shows how you can parameterize the Azure Service Bus "Send message" action:
+## Logic app connections
+
+Under the template's `resources` > `properties` > `parameters` attributes, the `$connections` attribute contains references to resources that securely store metadata for any connections that your logic app creates and uses through [managed connectors](../connectors/apis-list.md). This metadata can include information such as connection strings and access tokens, which you can put into your template's parameter file.
+
+Each new connection creates a resource with a unique name in Azure. So, when you have multiple connection resources for the same service or system, each resource name is appended with a number, which increments with each new instance, for example, `office365`, `office365-1`, and so on.
 
 ```json
-"Send_message": {
-   "type": "ApiConnection",
-   "inputs": {
-      "host": {
-         "connection": {
-            "name": "@parameters('$connections')['servicebus']['connectionId']"
-         },
-         // If the `host.runtimeUrl` property appears in your template, 
-         // you can remove this property, which is optional, for example:
-         "runtimeUrl": {}
-      },
-      "method": "POST",
-      "path": "[concat('/@{encodeURIComponent(''', parameters('<Azure-Service-Bus-queue-name>'), ''')}/messages')]",
-      "body": {
-         "ContentData": "@{base64(triggerBody())}"
-      },
-      "queries": {
-         "systemProperties": "None"
+{
+   <...>,
+   "resources": [
+      {
+         "properties": {
+            "state": "Enabled",
+            "definition": {<workflow-definition>},
+            "parameters": {
+               "$connections": {
+                  "value": {
+                     // References to Office 365 Outlook connection template parameters
+                     "<connection-name>": {
+                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]",
+                      "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
+                      "connectionName": "[parameters('office365_1_Connection_Name')]"
+                     }
+                  }
+               }
+            }
+         }
       }
-   },
-   "runAfter": {}
-},
+   ],
+   "outputs": {}
+}
 ```
 
+> [!NOTE]
+> When you view your logic app's workflow definition outside a Resource Manager template, for example, in "code view", the `$connections` attribute appears at the same level as the `definition` attribute that contains your workflow definition:
+>
+> ```json
+> {
+>    "$connections": {},
+>    "definition": {}
+> }
+> ```
+
+In this example, the `$connections` attribute contains an `office365` attribute, which references the resource for an Office 365 Outlook connection. In the `definition` attribute, which contains your workflow definition, the trigger definition contains a `connection` > `name` attribute that uses the `parameters()` function to reference the `office365` attribute along with its `connectionId` attribute:
+
+```json
+{
+   <...>,
+   "resources": [
+      {
+         "properties": {
+            "state": "Enabled",
+            // Workflow definition starts here
+            "definition": {
+               "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+               "actions": {<one-or-more-action-definitions>},
+               "parameters": {
+                  "$connections": {
+                     "defaultValue": {},
+                     "type": "Object"
+                  }
+               },
+               "triggers": {
+                  // Trigger definition
+                  "When_a_new_email_arrives": {
+                     "inputs": {
+                        "host": {
+                           // Reference to resource parameters
+                           "connection": {
+                              "name": "@parameters('$connections')['office365']['connectionId']"
+                           }
+                        },
+                        <...>
+                     },
+                     <...>
+                  }
+               },
+               "contentVersion": <workflow-definition-version-number>,
+               "outputs": {}
+            },
+            // Workflow definition ends here
+            "parameters": {
+               "$connections": {
+                  "value": {
+                     // References to connection resource and template parameters
+                     "office365": {
+                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', '<default-location>', '/managedApis/', 'office365')]",
+                      "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
+                      "connectionName": "[parameters('office365_1_Connection_Name')]"
+                     }
+                  }
+               }
+            }
+         }
+      }
+   ],
+   "outputs": {}
+}
+```
 
 ## Authorize OAuth connections
 
@@ -823,6 +641,197 @@ At deployment, your logic app works end-to-end with valid parameters. However, y
 If your logic app has references to dependent resources, you can use [Azure Resource Manager template functions](../azure-resource-manager/resource-group-template-functions.md), such as `parameters()`, `variables()`, `resourceId()`, `concat()`, and so on, for referencing those dependencies.
 
 For example, suppose your logic app references an Azure function that you want deployed with your logic app. This sample prebuilt template shows how a logic app references that function and how the template deploys that Azure function: [GitHub - azure-quickstart-templates/101-logic-app-and-function-app](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-and-function-app)
+
+<a name="full-example-template">
+
+## Full example template
+
+Here is the parameterized sample template that this overview uses for the template attribute examples. The template includes a workflow definition that has an Office 365 Outlook trigger and an Azure Blob Storage action:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+     "LogicAppIntegrationAccount": {
+        "type": "securestring",
+        "minLength": 1
+     },
+     "office365_1_Connection_Name": {
+        "type": "string",
+        "defaultValue": "office365"
+     },
+     "office365_1_Connection_DisplayName": {
+        "type": "string",
+        "defaultValue": "<Office-365-account-name>"
+     },
+     "azureblob_1_Connection_Name": {
+        "type": "string",
+        "defaultValue": "azureblob"
+     },
+     "azureblob_1_Connection_DisplayName": {
+        "type": "string",
+        "defaultValue": "<Azure-Blob-Storage-connection-name>"
+     },
+     "azureblob_1_accountName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the storage account the connector should use."
+        },
+        "defaultValue": "<Azure-Blob-storage-account-name>"
+     },
+     "azureblob_1_accessKey": {
+        "type": "securestring",
+        "metadata": {
+          "description": "Specify a valid primary/secondary storage account access key."
+        }
+     },
+     "LogicAppLocation": {
+        "type": "string",
+        "minLength": 1,
+        "allowedValues": [
+          "[resourceGroup().location]"
+        ],
+        "defaultValue": "[resourceGroup().location]"
+     },
+     "LogicAppName": {
+        "type": "string",
+        "minLength": 1,
+        "defaultValue": "<logic-app-name>"
+     }
+   },
+   "variables": {},
+   "resources": [
+      {
+         "properties": {
+            "state": "Enabled",
+            "integrationAccount": {
+              "id": "[parameters('LogicAppIntegrationAccount')]"
+            },
+            "definition": {
+               "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+                  "actions": {
+                  "Create_blob": {
+                     "type": "ApiConnection",
+                     "inputs": {
+                        "host": {
+                           "connection": {
+                              "name": "@parameters('$connections')['azureblob']['connectionId']"
+                           }
+                        },
+                        "method": "post",
+                        "body": "@triggerBody()?['Body']",
+                        "path": "/datasets/default/files",
+                        "queries": {
+                           "folderPath": "/emails",
+                           "name": "@triggerBody()?['Subject']",
+                           "queryParametersSingleEncoded": true
+                        }
+                     },
+                     "runAfter": {},
+                     "runtimeConfiguration": {
+                        "contentTransfer": {
+                           "transferMode": "Chunked"
+                        }
+                     }
+                  }
+               },
+               "parameters": {
+                  "$connections": {
+                     "defaultValue": {},
+                     "type": "Object"
+                  }
+               },
+               "triggers": {
+                  "When_a_new_email_arrives": {
+                     "type": "ApiConnection",
+                     "inputs": {
+                        "host": {
+                           "connection": {
+                              "name": "@parameters('$connections')['office365']['connectionId']"
+                           }
+                        },
+                        "method": "get",
+                        "path": "/Mail/OnNewEmail",
+                        "queries": {
+                           "folderPath": "Inbox",
+                           "importance": "Any",
+                           "fetchOnlyWithAttachment": false,
+                           "includeAttachments": false
+                        }
+                     },
+                     "recurrence": {
+                        "frequency": "Day",
+                        "interval": 1
+                     },
+                     "splitOn": "@triggerBody()?['value']"
+                  }
+               },
+               "contentVersion": "1.0.0.0",
+               "outputs": {}
+            },
+            "parameters": {
+               "$connections": {
+                  "value": {
+                     "azureblob": {
+                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'azureblob')]",
+                        "connectionId": "[resourceId('Microsoft.Web/connections', parameters('azureblob_1_Connection_Name'))]",
+                        "connectionName": "[parameters('azureblob_1_Connection_Name')]"
+                     },
+                     "office365": {
+                        "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'office365')]",
+                        "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
+                        "connectionName": "[parameters('office365_1_Connection_Name')]"
+                     }
+                  }
+               }
+            },
+            "accessControl": {}
+         },
+         "name": "[parameters('LogicAppName')]",
+         "type": "Microsoft.Logic/workflows",
+         "location": "[parameters('LogicAppLocation')]",
+         "tags": {
+            "displayName": "LogicApp"
+         },
+         "apiVersion": "2016-06-01",
+         "dependsOn": [
+            "[resourceId('Microsoft.Web/connections', parameters('azureblob_1_Connection_Name'))]",
+            "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
+         ]
+      },
+      {
+         "type": "MICROSOFT.WEB/CONNECTIONS",
+         "apiVersion": "2016-06-01",
+         "name": "[parameters('office365_1_Connection_Name')]",
+         "location": "westus",
+         "properties": {
+            "api": {
+               "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'office365')]"
+            },
+            "displayName": "[parameters('office365_1_Connection_DisplayName')]"
+         }
+      },
+      {
+         "type": "MICROSOFT.WEB/CONNECTIONS",
+         "apiVersion": "2016-06-01",
+         "name": "[parameters('azureblob_1_Connection_Name')]",
+         "location": "westus",
+         "properties": {
+            "api": {
+               "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'westus', '/managedApis/', 'azureblob')]"
+            },
+            "displayName": "[parameters('azureblob_1_Connection_DisplayName')]",
+            "parameterValues": {
+            "accountName": "[parameters('azureblob_1_accountName')]",
+            "accessKey": "[parameters('azureblob_1_accessKey')]"
+            }
+         }
+      }
+   ],
+   "outputs": {}
+}
+```
 
 ## Next steps
 
