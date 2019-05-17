@@ -180,6 +180,50 @@ Drill down on any of the output models to see training run details, like perform
 
 ![Iteration details](media/how-to-create-portal-experiments/iteration-details.png)
 
+
+## Deploy model
+
+Once you have the best model at hand, it is time to deploy it as a web service to predict on new data.
+
+Automated ML helps you with deploying the model without writing code:
+
+1. From the "Run Details" page, select the "Deploy best model", or from the algorithm details page, select "Deploy model"
+`TODO: insert screenshot "deploy model button.png"`
+
+1. First step is to register the model into the service. Select "Register model" and wait for the registration process to complete.
+`TODO: insert screenshot "deploy model blade.png"`
+
+1. Once the model is registered, you'll be able to download the scoring script (scoring.py) and the environment script (condaEnv.yml) to be used during deployment.
+
+1. When the scoring script and the environment script are downloaded, go to the "Models" page (in the left nav pane)
+`TODO: insert screenshot "Nav pane - models.png"`
+
+1. check the checkbox next to the model you registered, and select "Create image"
+`TODO: insert screenshot "Nav pane - models.png"`
+You can identify the model by its description, which will include the run id, iteration number, in the following format: "<Run_ID>_<Iteration_number>_Model"
+
+1. Enter a name for the image. 
+1. Select the "Browse" button next to the "Scoring File" box to upload the scoring file (scoring.py) you previously downloaded.
+1. Select the "Browse" button next to the "Conda File" box to upload the environment file (condaEnv.yml) you previously downloaded.
+**Important note: File names must be under 32 characters and must begin and end with alphanumerics. May include dashes, underscores, dots, and alphanumerics between. Spaces are not allowed."**
+`TODO: insert screenshot "create image.png"`
+
+You can use your own scoring script and conda file, as well as upload additional files. [Learn more about scoring script](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#script).
+
+1. Select the "Create" button to start the image creation. This will take a few minutes to complete, once done, you will see a message on the top bar.
+1. Go to the "Images" tab, check the checkbox next to the image you want to deploy, and select "Create deployment".
+There are 2 options for deployment:
+ ACI (Azure Container Instance) - This is used more for testing purpose rather than operational deployment at scale. Make sure to fill in the values for _CPU Reserve Capacity_ and _Memory Reserve Capacity_: CPU should be at least 1 (core), and memory should be at least 1 (GB). 
+ AKS (Azure Kubernetes Service) - This option is for deployment at scale. You will need to have an AKS based compute ready. 
+ [Learn more about deployments](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-and-where)
+ `TODO: insert screenshot "Images - create deployment.png"`
+
+When done, select "Create". Deploying the model can take a while for each pipeline to finish running.
+
+That's it! you have an operational web service to generate predictions.
+
 ## Next steps
 
 * [Learn more about automated machine learning](concept-automated-ml.md) and Azure Machine Learning.
+* [Learn how to consume a web service](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-consume-web-service).
+
