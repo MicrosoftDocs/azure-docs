@@ -124,6 +124,8 @@ Interacting with a Service Bus queue starts with instantiating the [ServiceBusCl
 3. Enter the connection string and name of your queue in the above code.
 4. Then run the command `node receiveMessages.js` in a command prompt to execute this file.
 
+Congratulations! You just received messages from a Service Bus queue.
+
 The [createReceiver](https://docs.microsoft.com/en-us/javascript/api/%40azure/service-bus/queueclient#createreceiver-receivemode-) method takes in a `ReceiveMode` which is an enum with values [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) and [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Remember to [settle your messages](message-transfers-locks-settlement.md#settling-receive-operations) if you use the `PeekLock` mode by using any of `complete()`, `abandon()`, `defer()`, or `deadletter()` methods on the message.
 
 ## Next steps
