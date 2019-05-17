@@ -123,7 +123,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 * Added support for change feed.
 * Added support for collection quota information through RequestOptions.setPopulateQuotaInfo.
 * Added support for stored procedure script logging through RequestOptions.setScriptLoggingEnabled.
-* Fixed a bug where query in DirectHttps mode may hang when encountering throttle failures.
+* Fixed a bug where query in DirectHttps mode may stop responding when encountering throttle failures.
 * Fixed a bug in session consistency mode.
 * Fixed a bug which may cause NullReferenceException in HttpContext when request rate is high.
 * Improved performance of DirectHttps mode.

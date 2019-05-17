@@ -3,7 +3,7 @@ title: Get started with custom policies - Azure Active Directory B2C | Microsoft
 description: Learn how to get started with custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
@@ -29,7 +29,7 @@ ms.subservice: B2C
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 2. Make sure you're using the directory that contains your Azure AD B2C tenant. Click the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant. 
 3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
-4. On the Overview page, select **Identity Experience Framework - PREVIEW**.
+4. On the Overview page, select **Identity Experience Framework**.
 
 ### Create the signing key
 

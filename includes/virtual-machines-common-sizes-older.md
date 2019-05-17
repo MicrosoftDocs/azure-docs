@@ -22,7 +22,7 @@ For more information on resizing a Linux VM, see [Resize a Linux virtual machine
 
 Premium Storage:  Not Supported
 
-Premium Storage Caching:  Not Supported
+Premium Storage caching:  Not Supported
 
 The basic tier sizes are primarily for development workloads and other applications that don't require load balancing, auto-scaling, or memory-intensive virtual machines.
 
@@ -44,7 +44,7 @@ ACU: 50-100
 
 Premium Storage:  Not Supported
 
-Premium Storage Caching:  Not Supported
+Premium Storage caching:  Not Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (HDD): GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Expected network bandwidth (Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -69,7 +69,7 @@ ACU: 225
 
 Premium Storage:  Not Supported
 
-Premium Storage Caching:  Not Supported
+Premium Storage caching:  Not Supported
 
 The A8-A11 and H-series sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. The A8-A11 series uses Intel Xeon E5-2670 @ 2.6 GHZ and the H-series uses Intel Xeon E5-2667 v3 @ 3.2 GHz.  
 
@@ -92,7 +92,7 @@ ACU: 160-250 <sup>1</sup>
 
 Premium Storage:  Not Supported
 
-Premium Storage Caching:  Not Supported
+Premium Storage caching:  Not Supported
 
 | Size         | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -113,7 +113,7 @@ ACU: 160-250 <sup>1</sup>
 
 Premium Storage:  Not Supported
 
-Premium Storage Caching:  Not Supported
+Premium Storage caching:  Not Supported
 
 | Size         | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -134,7 +134,7 @@ ACU: 160-250 <sup>1</sup>
 
 Premium Storage:  Supported
 
-Premium Storage Caching:  Supported
+Premium Storage caching:  Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -155,7 +155,7 @@ ACU: 160-250 <sup>1,2</sup>
 
 Premium Storage:  Supported
 
-Premium Storage Caching:  Supported
+Premium Storage caching:  Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

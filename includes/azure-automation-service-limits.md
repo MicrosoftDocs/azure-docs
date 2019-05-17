@@ -17,6 +17,7 @@ ms.custom: "include file"
 | Maximum number of new jobs that can be submitted every 30 seconds per Azure Automation account (nonscheduled jobs) |100 |When this limit is reached, the subsequent requests to create a job fail. The client receives an error response.|
 | Maximum number of concurrent running jobs at the same instance of time per Automation account (nonscheduled jobs) |200 |When this limit is reached, the subsequent requests to create a job fail. The client receives an error response.|
 | Maximum storage size of job metadata for a 30-day rolling period | 10 GB (approximately 4 million jobs)|When this limit is reached, the subsequent requests to create a job fail. |
+| Maximum job stream limit|1MB|A single stream cannot be larger than 1 MB.|
 | Maximum number of modules that can be imported every 30 seconds per Automation account |5 ||
 | Maximum size of a module |100 MB ||
 | Job run time, Free tier |500 minutes per subscription per calendar month ||
@@ -25,6 +26,7 @@ ms.custom: "include file"
 | Maximum number of network sockets allowed per sandbox<sup>1</sup> |1,000 |Applies to Azure sandboxes only.|
 | Maximum runtime allowed per runbook<sup>1</sup> |3 hours |Applies to Azure sandboxes only.|
 | Maximum number of Automation accounts in a subscription |No limit ||
+| Maximum number of Hybrid Worker Groups per Automation Account|4,000||
 |Maximum number of concurrent jobs that can be run on a single Hybrid Runbook Worker|50 ||
 | Maximum runbook job parameter size   | 512 kilobits||
 | Maximum runbook parameters   | 50|If you reach the 50-parameter limit, you can pass a JSON or XML string to a parameter and parse it with the runbook.|

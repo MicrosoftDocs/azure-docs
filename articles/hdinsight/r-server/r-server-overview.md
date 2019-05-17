@@ -1,7 +1,6 @@
 ---
 title: Introduction to ML Services on Azure HDInsight 
 description: Learn how to use ML Services on HDInsight to create applications for big data analysis.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,7 +9,7 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ---
-# Introduction to ML Services and open-source R capabilities on HDInsight
+# What is ML Services in Azure HDInsight
 
 > [!NOTE]  
 > In September 2017, Microsoft R Server was released under the new name of **Microsoft Machine Learning Server** or ML Server. Consequently, R Server cluster on HDInsight is now called **Machine Learning Services** or **ML Services** cluster on HDInsight. For more information on the R Server name change, see [Microsoft R Server is now Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server#get-support-for-r-server).

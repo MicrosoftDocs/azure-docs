@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2018 
+ms.date: 04/19/2019 
 ms.author: alkohli
 
 ---
 # Migrate data from StorSimple 5000-7000 series to Azure File Sync
 
 > [!IMPORTANT]
-> On July 31, 2019 the StorSimple 5000/7000 series will reach end of support (EOS) status. We recommend that StorSimple 5000/7000 series customers migrate to one of the alternatives described in the document.
+> On July 9, 2019 the StorSimple 5000/7000 series will reach end of support (EOS) status. We recommend that StorSimple 5000/7000 series customers migrate to one of the alternatives described in the document.
 
 Data migration is the process of moving data from one storage location to another. This entails making an exact copy of an organization’s current data from one device to another device—preferably without disrupting or disabling active applications — and then redirecting all input/output (I/O) activity to the new device. 
 
@@ -84,7 +84,7 @@ Perform the following steps to migrate the Windows file share configured on Stor
     Skip this step and go to the next step if you are using a different Windows Server host. If you are using the same Windows File Server for AFS, you will now experience a few minutes of downtime. 
     - **Downtime starts** - Delete the server endpoint that you created in *step 1F*. 
     - Create a new server endpoint with the path where you want the data to reside going forward.
-    - Once the server endpoint shows as Healthy (this may take a few minutes), you will see the data in this new location. You can now configure your Windows Server host to serve files from this new location. -**Downtime ends**.
+    - Once the server endpoint shows as Healthy (this may take a few minutes), you will see the data in this new location. You can now configure your Windows Server host to serve files from this new location. - **Downtime ends**.
 5.	If you are using another Windows File Server for Azure File Sync, then you will not experience any downtime. 
     - Add another server endpoint with the path of the local storage which you are prepared to use as a cache in lieu of the StorSimple device. 
     - You will be able to see the files in the new server in few minutes. You are free to make the switch from your StorSimple device to this new location on the host at any time.

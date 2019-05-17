@@ -35,6 +35,8 @@ In this topic, you learn how to:
 > * Add controls to call the function and display data.
 > * Run the app to determine whether a repair is cost-effective.
 
+[!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
+
 ## Prerequisites
 
 + An active [PowerApps account](https://docs.microsoft.com/powerapps/maker/signup-for-powerapps) with the same sign in credentials as your Azure account. 

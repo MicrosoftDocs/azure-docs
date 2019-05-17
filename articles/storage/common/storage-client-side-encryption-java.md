@@ -2,14 +2,17 @@
 title: Client-Side Encryption with Java for Microsoft Azure Storage | Microsoft Docs
 description: The Azure Storage Client Library for Java supports client-side encryption and integration with Azure Key Vault for maximum security for your Azure Storage applications.
 services: storage
-author: lakasa
+author: tamram
+
 ms.service: storage
 ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
 ---
+
 # Client-Side Encryption and Azure Key Vault with Java for Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
@@ -112,7 +115,7 @@ There are three Key Vault packages:
 1. Create a secret offline and upload it to Key Vault.  
 2. Use the secret's base identifier as a parameter to resolve the current version of the secret for encryption and cache this information locally. Use CachingKeyResolver for caching; users are not expected to implement their own caching logic.  
 3. Use the caching resolver as an input while creating the encryption policy.
-   More information regarding Key Vault usage can be found in the encryption code samples. <fix URL>  
+   More information regarding Key Vault usage can be found in the encryption code samples.
 
 ## Best practices
 Encryption support is available only in the storage client library for Java.
@@ -136,7 +139,7 @@ While creating an EncryptionPolicy object, users can provide only a Key (impleme
   * The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier, an error is thrown.  
   * If resolver is not specified but a key is specified, the key is used if its identifier matches the required key identifier. If the identifier does not match, an error is thrown.  
     
-    The [encryption samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>demonstrate a more detailed end-to-end scenario for blobs, queues and tables, along with Key Vault integration.
+    The [encryption samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) demonstrate a more detailed end-to-end scenario for blobs, queues and tables, along with Key Vault integration.
 
 ### RequireEncryption mode
 Users can optionally enable a mode of operation where all uploads and downloads must be encrypted. In this mode, attempts to upload data without an encryption policy or download data that is not encrypted on the service will fail on the client. The **requireEncryption** flag of the request options object controls this behavior. If your application will encrypt all objects stored in Azure Storage, then you can set the **requireEncryption** property on the default request options for the service client object.   

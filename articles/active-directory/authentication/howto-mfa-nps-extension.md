@@ -73,14 +73,14 @@ When you install the extension, you need the directory ID and admin credentials 
 
 The NPS server needs to be able to communicate with the following URLs over ports 80 and 443.
 
-* https://adnotifications.windowsazure.com  
-* https://login.microsoftonline.com
+* https:\//adnotifications.windowsazure.com  
+* https:\//login.microsoftonline.com
 
 Additionally, connectivity to the following URLs is required to complete the [setup of the adapter using the provided PowerShell script](#run-the-powershell-script)
 
-- https://login.microsoftonline.com
-- https://provisioningapi.microsoftonline.com
-- https://aadcdn.msauth.net
+- https:\//login.microsoftonline.com
+- https:\//provisioningapi.microsoftonline.com
+- https:\//aadcdn.msauth.net
 
 ## Prepare your environment
 
@@ -180,6 +180,8 @@ Unless you want to use your own certificates (instead of the self-signed certifi
 6. PowerShell shows a success message when the script is finished.  
 
 Repeat these steps on any additional NPS servers that you want to set up for load balancing.
+
+If your previous computer certificate has expired, and a new certificate has been generated, you should delete any expired certificates. Having expired certificates can cause issues with the NPS Extension starting.
 
 > [!NOTE]
 > If you use your own certificates instead of generating certificates with the PowerShell script, make sure that they align to the NPS naming convention. The subject name must be **CN=\<TenantID\>,OU=Microsoft NPS Extension**. 

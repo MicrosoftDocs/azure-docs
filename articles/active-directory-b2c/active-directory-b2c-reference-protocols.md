@@ -3,7 +3,7 @@ title: Authentication protocols in Azure Active Directory B2C | Microsoft Docs
 description: How to build apps directly by using the protocols that are supported by Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
