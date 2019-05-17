@@ -69,6 +69,8 @@
       href: availability.md
     - name: Co-location
       href: co-location.md
+    - name: Network performance
+      href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: VM types and sizes
     href: sizes.md
     items:
