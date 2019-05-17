@@ -5,15 +5,21 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: pabutler
+ms.date: 05/16/2019
+ms.author: pbutlerm
 ---
 
 # Azure SaaS application offer
 
 This section explains how to publish a software as a service (SaaS) application offer to the <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>.
 
-Use SaaS applications when your solution will be deployed in your own Azure subscription and customers will log on through an interface you design and manage to test the application. <a href="https://azure.microsoft.com/services/active-directory">Azure Active Directory (AAD)</a> is used to leverage your existing trial environment.
+> [!IMPORTANT] 
+> SaaS offer functionality is being migrated to the [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  All new publishers must 
+> use Partner Center for creating new SaaS offers and managing existing offers.  Current publishers with SaaS offers are being batchwise migrated from the 
+> Cloud Partner Portal to the Partner Center.  The Cloud Partner Portal will display status messages to indicate when specific existing offers have been migrated.
+
+
+Use SaaS applications when your solution will be deployed in your own Azure subscription and customers will sign in through an interface you design and manage to test the application. <a href="https://azure.microsoft.com/services/active-directory">Azure Active Directory (AAD)</a> is used to leverage your existing trial environment.
 
 ## Benefits
 
