@@ -20,4 +20,13 @@
          href: retrieve-images.md
        - name: Retrieve IMU samples
          href: retrieve-imu-samples.md
-         
+       - name: Access microphone input data
+         href: access-mics.md
+       - name: Use image transformations
+         href: use-image-transformation.md
+       - name: Use Azure Kinect calibration functions
+         href: use-azure-kinect-calibration-functions.md
+       - name: Capture device synchronization
+         href: capture-device-synchronization.md
+       - name: Record and playback API
+         href: record-playback-api.md
