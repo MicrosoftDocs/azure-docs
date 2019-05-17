@@ -33,37 +33,8 @@ After you've verified that the name you chose is available, choose **Create**.
 |**Action**|**More information**|
 |:-------------|:-------|
 |Upload your add-in package|[Upload your submission package](upload-package.md)|
-|Define your Store setings|[[Define add-in properties](define-add-in-properties.md)] and [Create your AppSource listing](appsource-listing.md)
-
-
-### Details page
-
-|**Field name**|**Notes**|
-|:-------------|:-------|
-|App name|Required. One entry per language.|
-|Short description|Required. One entry per language.|
-|Long description|Required. One entry per language.|
-|Screenshots|At least one is required.|
-
-For more information, see [Create your AppSource listing](office-store-listing.md).
-
-### Block access page
-
-|**Field name**|**Notes**|
-|:-------------|:-------|
-|Block access for specified countries/regions|By default, available in all countries or regions.|
-
-For more information, see [Regional availability](office-store-listing.md#regional-availability).
-
-### Pricing page
-
-|**Field name**|**Notes**|
-|:-------------|:-------|
-|Pricing|Required|
-|Trial support|By default, no trial support|
-
-For details, see [Decide on a pricing model](decide-on-a-pricing-model.md).
-
+|Define your Store setings|[[Define add-in properties](define-add-in-properties.md)] and [Create your AppSource listing](appsource-listing.md)|
+|Define your pricing and availability|[Set pricing and availability](set-pricing-and-availability.md)|
 
 ## Submit for approval
 
@@ -75,7 +46,7 @@ After your account is approved, you can submit your solution for approval. To su
 
 2. Select **SUBMIT FOR APPROVAL**.
 
-### To submit a solution that you saved to the Seller Dashboard as a draft and need to edit
+### To submit a solution that you saved as a draft and need to edit
 
 1. On the **Manage** tab, select the item that you want to edit and submit.
 
@@ -93,12 +64,8 @@ After your account is approved, you can submit your solution for approval. To su
 ## See also
 <a name="bk_addresources"> </a>
 
-- [Upload your package to AppSource](upload-package.md)
-- [Create your AppSource listing](office-store-listing.md)
-- [Add lead management details for your Office Add-ins in the Seller Dashboard](add-lead-management-details.md)
-- [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)=
 - [AppSource submission FAQ](office-store-submission-faq.md)
 - [Create effective AppSource listings](create-effective-office-store-listings.md)
-- [Register as an app developer](https://developer.microsoft.com/en-us/store/register)
+- [Validation policies](validation-policies.md)
  
 
