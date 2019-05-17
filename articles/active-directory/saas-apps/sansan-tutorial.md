@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | Native Mobile app |`https://internal.api.sansan.com/saml2/<company name>/acs` |
     | Mobile browser settings |`https://ap.sansan.com/s/saml2/<company name>/acs` |
 
-    2. In the **Identifier (Entity ID)** text box, you can set-up multiple identifier values and select any one of them as per the environments specified above.
+    2. In the **Identifier (Entity ID)** text box, you can set-up multiple identifier values and select any one of them as per the environments.
 
 	> [!NOTE]
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [Sansan Client support team](https://www.sansan.com/form/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
