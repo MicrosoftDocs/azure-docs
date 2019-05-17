@@ -2,13 +2,13 @@
 title: Migrate your solution to SQL Data Warehouse | Microsoft Docs
 description: Migration guidance for bringing your solution to Azure SQL Data Warehouse platform.
 services: sql-data-warehouse
-author: jrowlandjones
+author: TwoUnder 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: jrj
+ms.author: mausher
 ms.reviewer: igorstan
 ---
 
