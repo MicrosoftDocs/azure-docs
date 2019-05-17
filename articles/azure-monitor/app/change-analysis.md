@@ -22,7 +22,7 @@ When a live site issue/outage occurs, determining root cause quickly is critical
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Overview of Change Analysis service
-The change analysis service detects various types of changes from infrastructure layer all the way to application deployment. it is a subscription level Azure resource provider that looks into resource changes in the subscription and provides data for various diagnostics tools to help users understand what changes might have caused issues.
+The change analysis service detects various types of changes from infrastructure layer all the way to application deployment. It is a subscription level Azure resource provider that looks into resource changes in the subscription and provides data for various diagnostics tools to help users understand what changes might have caused issues.
 
 The following diagram illustrates the architecture of change analysis service:
 ![Architecture diagram for how change analysis service obtains change data and provide data to client tools](./media/change-analysis/overview-diagram.PNG)
@@ -69,7 +69,7 @@ Azure Monitor application change analysis is currently built into the self-servi
 
     If **Change Analysis** is enabled, you will be able to detect resource level changes. If **Scan for code changes** is enabled, you will also see deployment files and site configuration changes. Enabling **Always on** will optimize the change scanning performance, but may incur additional costs from a billing perspective.
 
-5.  Once everything  is enabled, selecting **Diagnose and solve problems** > **Availability and Performance** > **Application Crashes** will allow you to access the change analysis experience. The graph will summerize the type of changes that happened over time along with details on those changes:
+5.  Once everything  is enabled, selecting **Diagnose and solve problems** > **Availability and Performance** > **Application Crashes** will allow you to access the change analysis experience. The graph will summarize the type of changes that happened over time along with details on those changes:
 
      ![Screenshot of change diff view](./media/change-analysis/change-view.png)
 
