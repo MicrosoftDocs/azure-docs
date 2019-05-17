@@ -19,7 +19,7 @@
 - name: Reference
   items:
   - name: REST
-    href: https://docs.microsoft.com/en-us/rest/api/network-gateway
+    href: https://docs.microsoft.com/rest/api/network-gateway
 - name: Resources
   items:
   - name: Bastion FAQ
@@ -30,5 +30,7 @@
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Preview SLA
+    href: https://azure.microsoft.com/support/legal/preview-supplemental-terms
   - name: SLA
-    href: https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms
+    href: https://azure.microsoft.com/support/legal/sla
