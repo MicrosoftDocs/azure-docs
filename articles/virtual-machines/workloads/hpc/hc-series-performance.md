@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: amverma
 ---
 
@@ -36,7 +36,7 @@ Mellanox Perftest.
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 
-|  #bytes         | #iterations     | t_min[usec]     | t_max[usec]     | t_typical[usec] | t_avg[usec]     | t_stdev[usec]   |
+|  #bytes         | #iterations     | t_min[microsecond]     | t_max[microsecond]     | t_typical[microsecond] | t_avg[microsecond]     | t_stdev[microsecond]   |
 |-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
 | 2               | 1000            | 1.80            | 7.50            | 1.85            | 1.86            | 0.20            |
 | 4               | 1000            | 1.79            | 6.06            | 1.83            | 1.84            | 0.20            |
@@ -59,7 +59,7 @@ OSU MPI Latency Test v5.4.3.
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency 
 ```
 
-| #bytes  | Latency [usec] (MPICH 3.3 + CH4) | Latency [usec] (OpenMPI 4.0.0) | Latency [usec] (MVAPICH2 2.3) |
+| #bytes  | Latency [microsecond] (MPICH 3.3 + CH4) | Latency [microsecond] (OpenMPI 4.0.0) | Latency [microsecond] (MVAPICH2 2.3) |
 |------|----------|----------|----------|
 | 2    | 1.84     | 1.78     | 2.08     |
 | 4    | 1.84     | 1.79     | 2.08     |

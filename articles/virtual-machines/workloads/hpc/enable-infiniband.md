@@ -19,13 +19,13 @@ ms.author: amverma
 # Enable InfiniBand with SR-IOV
 
 
-The simplest and recommended way to configure your custom VM imge with InfiniBand (IB) is to add the InfiniBandDriverLinux or InfiniBandDriverWindows VM extension to your deployment.
+The simplest and recommended way to configure your custom VM image with InfiniBand (IB) is to add the InfiniBandDriverLinux or InfiniBandDriverWindows VM extension to your deployment.
 Learn how to use these VM extensions with [Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) and [Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
 
-To manually configure InfiniBand on SR-IOV enabled VMs (currently HB and HC series), follow the steps below. Note that these steps are for RHEL/CentOS only. For Ubuntu (16 and 18), and SLES (12 SP4 and 15), the inbox drivers work well. For Ubuntu, 
+To manually configure InfiniBand on SR-IOV enabled VMs (currently HB and HC series), follow the steps below. These steps are for RHEL/CentOS only. For Ubuntu (16.04 and 18.04), and SLES (12 SP4 and 15), the inbox drivers work well. For Ubuntu, 
 
 
-## Manully install OFED
+## Manually install OFED
 
 Install the latest MLNX_OFED drivers for ConnectX-5 from [Mellanox](http://www.mellanox.com/page/products_dyn?product_family=26).
 

@@ -17,24 +17,24 @@ ms.author: amverma
 
 # Scaling HPC applications
 
-Optimal scale-up and scale-out performance of HPC applications on Azure requires performance tuning and optimization experiments for the specific workload. This section and the VM series specific pages offer general guidance for scaling your applications.
+Optimal scale-up and scale-out performance of HPC applications on Azure requires performance tuning and optimization experiments for the specific workload. This section and the VM series-specific pages offer general guidance for scaling your applications.
 
 ## Compiling applications
 
 Though not necessary, compiling applications with appropriate optimization flags provides the best scale-up performance on HB and HC-series VMs.
 
-### AOCC
+### AMD Optimizing C/C++ Compiler
 
-The AMD Optimizing C/C++ Compiler (AOCC) compiler system offers a high level of advanced optimizations, multi-threading, and processor support that includes global optimization, vectorization, inter-procedural analyses, loop transformations, and code generation. AOCC compiler binaries are suitable for Linux systems having GNU C Library (glibc) version 2.17 and above. The compiler suite consists of a C/C++ compiler (clang), a Fortran compiler (Flang) and a Fortran front end to Clang (Dragon Egg).
+The AMD Optimizing C/C++ Compiler (AOCC) compiler system offers a high level of advanced optimizations, multi-threading, and processor support that includes global optimization, vectorization, inter-procedural analyses, loop transformations, and code generation. AOCC compiler binaries are suitable for Linux systems having GNU C Library (glibc) version 2.17 and above. The compiler suite consists of a C/C++ compiler (clang), a Fortran compiler (FLANG) and a Fortran front end to Clang (Dragon Egg).
 
 ### Clang 
 
 Clang is a C, C++, and Objective-C compiler handling preprocessing, parsing, optimization, code generation, assembly, and linking. 
 Clang supports the  `-march=znver1` flag to enable best code generation and tuning for AMD’s Zen based x86 architecture.
 
-### Flang
+### FLANG
 
-The Flang compiler is a recent addition to the AOCC suite (added April 2018) and is currently in pre-release for developers to download and test. Based on Fortran 2008, AMD extends the github version of Flang (https://github.com/flangcompiler/flang). The Flang compiler supports all Clang compiler options and an additional number of Flang-specific compiler options.
+The FLANG compiler is a recent addition to the AOCC suite (added April 2018) and is currently in pre-release for developers to download and test. Based on Fortran 2008, AMD extends the GitHub version of FLANG (https://github.com/flangcompiler/flang). The FLANG compiler supports all Clang compiler options and an additional number of FLANG-specific compiler options.
 
 ### DragonEgg
 
@@ -64,7 +64,7 @@ icc -o stream.intel stream.c -DSTATIC -DSTREAM_ARRAY_SIZE=800000000 -mcmodel=lar
 ```
 
 ### GCC Compiler 
-For HPC, AMD recommends GCC compiler 7.3 or newer. Older versions, such as 4.8.5 included with RHEL/CentOS 7.4, are not recommend. GCC 7.3, and newer, will deliver significantly higher performance on HPL, HPCG, and DGEMM tests.
+For HPC, AMD recommends GCC compiler 7.3 or newer. Older versions, such as 4.8.5 included with RHEL/CentOS 7.4, are not recommended. GCC 7.3, and newer, will deliver significantly higher performance on HPL, HPCG, and DGEMM tests.
 
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
@@ -79,7 +79,7 @@ The following suggestions apply for optimal application scaling efficiency, perf
 * For hybrid parallel applications (OpenMP+MPI), use 4 threads and 1 MPI rank per CCX.
 * For pure MPI applications, experiment with 1-4 MPI ranks per CCX for optimal performance.
 * Some applications with extreme sensitivity to memory bandwidth may benefit from using a reduced number of cores per CCX. For these applications, using 3 or 2 cores per CCX may reduce memory bandwidth contention and yield higher real-world performance or more consistent scalability. In particular, MPI Allreduce may benefit from this.
-* For significantly larger scale runs, it is recommended to use UD or hybrid RC+UD transports. Many MPI libraries/runtime libraries do this internally (such as UCX or MVAPICH2). Check your transport configurations for large scale runs.
+* For significantly larger scale runs, it is recommended to use UD or hybrid RC+UD transports. Many MPI libraries/runtime libraries do this internally (such as UCX or MVAPICH2). Check your transport configurations for large-scale runs.
 
 ## Next steps
 

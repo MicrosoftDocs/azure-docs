@@ -141,14 +141,14 @@ MPI Benchmarks are under `mpi/` folder.
 
 ## Discover partition keys
 
-Discover partition keys (pkeys) for communicating with other VMs.
+Discover partition keys (p-keys) for communicating with other VMs.
 
 ```bash
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 ```
 
-The larger of the two is the tenant key that should be used with MPI. Example: If the following are the pkeys, 0x800b should be used with MPI.
+The larger of the two is the tenant key that should be used with MPI. Example: If the following are the p-keys, 0x800b should be used with MPI.
 
 ```bash
 cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
@@ -157,7 +157,7 @@ cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 0x7fff
 ```
 
-Use the partition other than default (0x7fff) partition key. UCX requires the MSB of pkey to be cleared. For example, set UCX_IB_PKEY as 0x000b for 0x800b.
+Use the partition other than default (0x7fff) partition key. UCX requires the MSB of p-key to be cleared. For example, set UCX_IB_PKEY as 0x000b for 0x800b.
 
 
 ## Set up user limits for MPI

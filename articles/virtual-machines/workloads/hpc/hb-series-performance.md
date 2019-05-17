@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: amverma
 ---
 
@@ -39,7 +39,7 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 
 
-|  #bytes         | #iterations     | t_min[usec]     | t_max[usec]     | t_typical[usec] | t_avg[usec]     | t_stdev[usec]   |
+|  #bytes         | #iterations     | t_min[microsecond]     | t_max[microsecond]     | t_typical[microsecond] | t_avg[microsecond]     | t_stdev[microsecond]   |
 |-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
 | 2               | 1000            | 2.35            | 12.63           | 2.38            | 2.42            | 0.33            |
 | 4               | 1000            | 2.35            | 18.53           | 2.38            | 2.4             | 0.21            |
@@ -64,7 +64,7 @@ OSU MPI Latency Test v5.4.3.
 ```
 
 
-| #bytes  | Latency [usec] (MPICH 3.3 + CH4) | Latency [usec] (OpenMPI 4.0.0) | Latency [usec] (MVAPICH2 2.3) | Latency [usec] (Intel MPI 2019) |
+| #bytes  | Latency [microsecond] (MPICH 3.3 + CH4) | Latency [microsecond] (OpenMPI 4.0.0) | Latency [microsecond] (MVAPICH2 2.3) | Latency [microsecond] (Intel MPI 2019) |
 |------|----------|----------|----------|----------|
 | 2    | 2.44     | 2.52     | 2.84     | 2.76     |
 | 4    | 2.44     | 2.53     | 2.84     | 2.76     |
