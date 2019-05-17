@@ -67,11 +67,11 @@ if (result == K4A_STREAM_RESULT_FAILED)
 
 ### Seeking within a recording
 
-Once we've reached the end of the file, we may want to go back and read it again. This could be done by reading backwards with
-[k4a_playback_get_previous_capture](https://aka.ms/AzureKinectAPIDocs/api/k4a-playback-get-previous-capture.md), but this may be very slow depending on the length of the recording.
+Once we've reached the end of the file, we may want to go back and read it again. This process could be done by reading backwards with
+[k4a_playback_get_previous_capture](https://aka.ms/AzureKinectAPIDocs/api/k4a-playback-get-previous-capture.md), but it  be very slow depending on the length of the recording.
 Instead we can use the [k4a_playback_seek_timestamp](https://aka.ms/AzureKinectAPIDocs/api/k4a-playback-seek-timestamp.md) function to go to a specific point in the file.
 
-In this example we specify timestamps in microseconds to seek to various points in the file.
+In this example, we specify timestamps in microseconds to seek to various points in the file.
 
 ```C
 // Seek to the beginning of the file
@@ -141,16 +141,16 @@ If a tag does not exist, it is assumed to have the default value.
 | K4A_DEPTH_DELAY_NS         | "0"                | depth_delay_off_color_usec        | Value in nanoseconds                                                                 |
 | K4A_WIRED_SYNC_MODE        | "STANDALONE"       | wired_sync_mode                   | Possible values: "STANDALONE", "MASTER", "SUBORDINATE"                               |
 | K4A_SUBORDINATE_DELAY_NS   | "0"                | subordinate_delay_off_master_usec | Value in nanoseconds                                                                 |
-| K4A_COLOR_FIRMWARE_VERSION | ""                 | N/A                               | Device color firmware version, e.g. "1.x.xx"                                         |
-| K4A_DEPTH_FIRMWARE_VERSION | ""                 | N/A                               | Device depth firmware version, e.g. "1.x.xx"                                         |
+| K4A_COLOR_FIRMWARE_VERSION | ""                 | N/A                               | Device color firmware version, for example "1.x.xx"                                         |
+| K4A_DEPTH_FIRMWARE_VERSION | ""                 | N/A                               | Device depth firmware version, for example "1.x.xx"                                         |
 | K4A_DEVICE_SERIAL_NUMBER   | ""                 | N/A                               | Recording device serial number                                                       |
 | K4A_START_OFFSET_NS        | "0"                | start_timestamp_offset_usec       | See [Timestamp Synchronization](https://aka.ms/AzureKinectAPIDocs/sdk-record-playback.md#timestamp-synchronization). |
 
 ### Timestamp synchronization
 
-When using the external sync cable to synchronize cameras, the timestamps coming off each device will be synchronized, and the first timestamp off each device can be non-zero. Since recording files must always start at timestamp 0, this poses problems for synchronizing files recorded from multiple cameras.
+When using the external sync cable to synchronize cameras, the timestamps coming off each device will be synchronized, and the first timestamp off each device can be non-zero. Since recording files must always start at timestamp 0, it poses problems for synchronizing files recorded from multiple cameras.
 
-The `K4A_START_OFFSET_NS` tag is used to specify a timestamp offset so that files can be re-synchronized after recording.
+The `K4A_START_OFFSET_NS` tag is used to specify a timestamp offset so that files can be re synchronized after recording.
 By adding this timestamp offset to each timestamp in the file, the original timestamps from the device can be reconstructed.
 The start offset is also available in the [k4a_record_configuration_t](https://aka.ms/AzureKinectAPIDocs/api/k4a-record-configuration-t.md) struct.
 
