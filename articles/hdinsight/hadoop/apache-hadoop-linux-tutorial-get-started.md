@@ -143,7 +143,7 @@ To create and run ad hoc queries:
 
    If you select the advanced submit option, configure **Job Name**, **Arguments**, **Additional Configurations**, and **Status Directory** for the script:
 
-    ![Screenshot of an HDInsight Hadoop Hive query](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.submit.jobs.advanced.png "Submit queries")
+    ![Screenshot of an HDInsight Hadoop Hive query](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-submit-jobs-advanced.png "Submit queries")
 
    Run Interactive Hive queries
 
@@ -158,7 +158,7 @@ To create and run a Hive solution:
 1. On the **File** menu, select **New**, and then select **Project**.
 2. In the left pane, select **HDInsight**. In the middle pane, select **Hive Application**. Enter the properties, and then select **OK**.
    
-    ![Screenshot of an HDInsight Visual Studio Tools new Hive project](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.new.hive.project.png "Create Hive applications from Visual Studio")
+    ![Screenshot of an HDInsight Visual Studio Tools new Hive project](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-new-hive-project.png "Create Hive applications from Visual Studio")
 3. In **Solution Explorer**, double-click **Script.hql** to open the script.
 4. Enter the Hive queries and submit. (Refer to the step3&4 above)  
 
