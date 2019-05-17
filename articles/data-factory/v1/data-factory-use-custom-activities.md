@@ -38,7 +38,7 @@ The following walkthrough provides step-by-step instructions for creating a cust
 
 ## Walkthrough: create a custom activity
 ### Prerequisites
-* Visual Studio 2012/2013/2015
+* Visual Studio 2012/2013/2015/2017
 * Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### Azure Batch prerequisites

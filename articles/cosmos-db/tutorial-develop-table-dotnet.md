@@ -35,15 +35,15 @@ You need the following to complete this sample successfully:
 
 ## Create a .NET console project
 
-In Visual Studio, create a new .NET console application. The following steps show you how to create a console application in Visual Studio. (The steps may vary slightly, depending on which version of Visual Studio you're using.) You can use the Azure Cosmos DB Table Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
+In Visual Studio, create a new .NET console application. The following steps show you how to create a console application in Visual Studio 2019. You can use the Azure Cosmos DB Table Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
 
 1. Select **File** > **New** > **Project**.
 
-1. Select **Installed** > **Visual C#** > **Console App (.NET Core)**.
+1. Choose **Console App (.NET Core)**, and then select **Next**.
 
 1. In the **Name** field, enter a name for your application, for example, **CosmosTableSamples** (you can provide a different name as needed).
 
-1. Select **OK**.
+1. Select **Create**.
 
 All code examples in this sample can be added to the Main() method of your console application's **Program.cs** file.
 
