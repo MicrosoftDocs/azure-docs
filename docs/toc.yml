@@ -4,7 +4,7 @@
   - name: Open a developer account
     href: open-a-developer-account.md
   - name: Manage account users
-    href: manage-account-users
+    href: manage-account-users.md
 - name: Optimize add-in placement and ranking in AppSource
   href: optimize-for-store-discovery.md
 - name: License your add-ins
@@ -20,7 +20,7 @@
   - name: Add-in license schema
     href: add-in-license-schema.md
 - name: Add-in management and services
-  href: add-in-management-and-services
+  href: add-in-management-and-services.md
 - name: Prepare localized apps and add-ins
   href: prepare-localized-apps-and-add-ins.md
 - name: Submit add-ins via Partner Center
