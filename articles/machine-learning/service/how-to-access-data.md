@@ -224,25 +224,6 @@ est = Estimator(source_directory='your code directory',
                 inputs=[ds1.as_download(), ds2.path('./foo').as_download(), ds3.as_upload(path_on_compute='./bar.pkl')])
 ```
 
-<a name="changeaccesskey"></a>
-
-## Change access keys
-
-For security purposes, you may need to change the authentication value for an Azure service. For example, regenerating the access key for an Azure Storage account. When you change the authentication value, any datastore registered for the service will lose access to data stored there. The datastore was registered using the old authentication value.
-
-To update the datastore to use the new value, register it again using the new authentication value and the `overwrite = True` parameter. The following example demonstrates updating a datastore for an Azure Blob to use a new access key:
-
-```python
-ds = Datastore.register_azure_blob_container(workspace=ws, 
-                                              datastore_name='your datastore name', 
-                                              container_name='your azure blob container name',
-                                              account_name='your storage account name', 
-                                              account_key='new storage account key',
-                                              overwrite=True)
-```
-
-For more information on registering datastores, see the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class reference.
-
 ## Next steps
 
 * [Train a model](how-to-train-ml-models.md)
