@@ -32,11 +32,11 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Create a workspace
 
-If you have an Azure Machine Learning service workspace, skip to the [next section](#create-a-cloud-based-notebook-server). Otherwise, create one now.
+If you have an Azure Machine Learning service workspace, skip to the [next section](#create-notebook). Otherwise, create one now.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## Create a notebook VM
+## <a href="create-notebook"></a>Create a notebook VM
 
  From your workspace, you create a cloud resource to get started using Jupyter notebooks. This resource gives you a cloud-based platform pre-configured with everything you need to run Azure Machine Learning service.
 
