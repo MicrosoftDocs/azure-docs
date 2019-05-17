@@ -1,0 +1,84 @@
+---
+title: Get support for the Commercial Marketplace portal in Partner Center
+description: Learn about your support options in Partner Center, including how to file a support request.
+author: mattwojo 
+manager: evansma
+ms.author: jamwall 
+ms.service: marketplace 
+ms.topic: conceptual
+ms.date: 05/17/2019
+---
+
+# Support options for the Commercial Marketplace 
+
+Microsoft provides support for a wide variety of products and services. Finding the right support team is important to ensure an appropriate and timely response. Consider the following scenarios, which should help you route your query to the appropriate team: 
+
+- If you're a publisher and have a question from a customer, ask your customer to request support using the support links in the [Azure Portal](https://portal.azure.com/). 
+
+- If you're a publisher and have a question relating to your app or service, review the following support options.
+
+## Support for publishers using the Commercial Marketplace portal in Partner Center 
+
+1) Sign in to the [Commercial Marketplace portal on Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) with your work account. (If you have not yet done so, you will need to [create a Partner Center account](./create-account.md).)
+
+2) In the upper menu on the right side of the page, select the **Support** icon. 
+ 
+![Support icon](./media/commercial-marketplace-support.png)
+
+3) The **Help and support** pane will appear from the right-hand side of the page. There will be a dropdown for each program in Partner Center that your account is registered for. Select the **Commercial Marketplace** dropdown menu. 
+ 
+![Support drop-down menu](./media/commercial-marketplace-support-pane.png)
+
+4) Select **Documentation** to review comprehensive answers to questions and resources. (You're in the documentation now). 
+
+5) Select **[Marketplace Partner community forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** to answer your questions by leveraging the knowledge of thousands of Microsoft publishers on the Microsoft Partner community forum. 
+
+6) Select **[Additional help](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff)** to open a New support request ticket. 
+
+### Additional help: How to open a support ticket
+
+Selecting **Additional help** from the Commercial Marketplace support menu in Partner Center will direct you to the Microsoft Support for business page. You will see several dropdown menus. The first few dropdown menus will be automatically filled out for you, identifying the product family as **Cloud and Online Services**, the product as **Marketplace Publisher**, and the product version as **Marketplace Publishing**. For Marketplace support, do not change these pre-populated dropdown menu selections. 
+
+#### Select a category that best describes the issue
+
+Choose the category that best aligns with your question or problem. Selecting a category will cause an additional dropdown menu to appear, asking you to select the problem that best describes your issue.
+
+#### Select a problem that best describes the issue
+ 
+Choose the problem from the listed options that best aligns with your issue. This may trigger a title to appear saying "Here's some information that might help" with links relevant to issue. Please review these links before selecting the **Next** button to see whether your question or problem is addressed.
+
+By selecting the **Next** button, you will be directed to the **Issue Details** page. 
+
+#### Tell us more about your issue
+
+In the **Issue Details** section, please select your country, the language in which you'd like to receive support, and enter a title for your issue (between 3 - 200 characters).  
+
+Enter a brief description of your issue (max 2000 characters), then select **Next**.
+
+#### Select a support plan
+
+No information is required in the **Support Plan** section. Select **Next**. 
+
+#### Select the severity of your issue
+
+No information is required in the **Severity** section. Select **Next**. 
+
+#### Who should we contact
+
+In the **Contact Information** section, ensure that your primary contact’s name, phone number, and email is correct. Make any necessary updates to this information. You may also add other contacts from your company to this support request. When finished, select **Next**. 
+
+#### Review and submit your support request
+
+Review your support request information on the **Review** section. If all the information is correct, select **Submit**. If any information needs to be updated, select the **Change** button next to the section in need of updates.
+
+### Track your existing support requests 
+
+To track your support request, visit the [Commercial Marketplace support page](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). 
+
+On the top blue menu bar, next to "Support for business", select the **Support requests** link. 
+
+Review all of your open and closed support requests in the **Microsoft Professional Support** section. 
+
+## Next steps
+
+- [Update an existing offer in the Commercial Marketplace](./update-existing-offer.md)
