@@ -261,7 +261,7 @@ The information that's displayed when you view containers is described in the fo
 | Uptime | Represents the time since a container was started or rebooted. |
 | Trend Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% | Bar graph trend represents the average percentile metric percentage of the container. |
 
-The icons in the status field indicate the online statuses of pods, as described in the following table:
+The icons in the status field indicate the online statuses of pods, as described in the following table:  
  
 | Icon | Status |  
 |--------|-------------|  
