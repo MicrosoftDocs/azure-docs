@@ -27,8 +27,8 @@ Use the Azure Blob Storage client library for .NET to:
 <!-- [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)] -->
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure storage account - see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Next, download and install .NET Core 2.1 for your operating system. If you are running Windows, you can install Visual Studio and use the .NET Framework if you prefer. You can also choose to install an editor to use with your operating system.
+* Azure storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* NET Core 2.1 for your operating system - If you are running Windows, you can install Visual Studio and use the .NET Framework if you prefer.
 
    # [Windows](#tab/windows)
 
@@ -60,6 +60,14 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 ```
 
 This command clones the repository to your local git folder. To open the Visual Studio solution, look for the *storage-blobs-dotnet-quickstart* folder, open it, and double-click on *storage-blobs-dotnet-quickstart.sln*.
+
+## Install the package
+
+Navigate to your application directory and install the Azure Blob Storage client library for .NET package by using the `dotnet add package` command.
+
+```console
+dotnet add package Microsoft.Azure.Storage.Blob
+```
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -101,8 +109,6 @@ After you add the environment variable, run `source .bash_profile` from your con
 
 This sample creates a test file in your local **MyDocuments** folder and uploads it to Blob storage. The sample then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files.
 
-# [Windows](#tab/windows)
-
 If you are using Visual Studio as your editor, you can press **F5** to run.
 
 Otherwise, navigate to your application directory and run the application with the `dotnet run` command.
@@ -110,24 +116,6 @@ Otherwise, navigate to your application directory and run the application with t
 ```console
 dotnet run
 ```
-
-# [Linux](#tab/linux)
-
-Navigate to your application directory and run the application with the `dotnet run` command.
-
-```console
-dotnet run
-```
-
-# [macOS](#tab/macos)
-
-Navigate to your application directory and run the application with the `dotnet run` command.
-
-```console
-dotnet run
-```
-
----
 
 The output of the sample application is similar to the following example:
 
