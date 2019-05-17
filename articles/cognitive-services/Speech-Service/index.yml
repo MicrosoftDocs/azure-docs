@@ -20,7 +20,7 @@ metadata:
   ms.custom: seodec18
 
 abstract:
-  description: Use with REST APIs or with our Speech SDK.
+  description: Use with our Speech SDK or with REST API.
 sections:
 - items:
     - type: list
