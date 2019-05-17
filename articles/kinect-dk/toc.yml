@@ -30,3 +30,24 @@
          href: capture-device-synchronization.md
        - name: Record and playback API
          href: record-playback-api.md
+   - name: Tools
+     items:
+       - name: Azure Kinect sensor viewer
+         href: azure-kinect-sensor-viewer.md
+       - name: Azure Kinect Recorder
+         items:
+          - name: Azure Kinect recorder
+            href: azure-kinect-dk-recorder.md
+          - name: Azure Kinect DK record external synchronized units
+            href: azure-kinect-dk-record-external-synchronized-units.md
+       - name: Azure Kinect firmware tool
+         href: azure-kinect-firmware-tool.md
+   - name: Update Azure Kinect firmware
+     href: azure-kinect-dk-update-device-firmware.md
+- name: Concepts
+  items:
+   - name: Azure Kinect DK depth camera
+     href: azure-kinect-dk-depth-camera.md
+   - name: Azure Kinect DK coordinate systems
+     href: azure-kinect-dk-coordinate-systems.md
+     
