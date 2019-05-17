@@ -165,10 +165,9 @@ In this example, you can see that the field where the *1=1* string was entered i
 
 ![Fiddler](media/waf-tshoot/fiddler-1.png)
 
-This is a field you can exclude. To learn more about exclusion lists, See the How-to guide here. You can exclude the evaluation in this case by configuring the following exclusion:
+This is a field you can exclude. To learn more about exclusion lists, See [Web application firewall request size limits and exclusion lists](application-gateway-waf-configuration.md#waf-exclusion-lists). You can exclude the evaluation in this case by configuring the following exclusion:
 
 ![WAF exclusion](media/waf-tshoot/waf-exclusion-02.png)
-
 
 You can also examine the firewall logs to get the information to see what you need to add to the exclusion list. To enable logging, see [Back-end health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md).
 
