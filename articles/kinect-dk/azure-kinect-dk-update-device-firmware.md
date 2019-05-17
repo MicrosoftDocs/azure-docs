@@ -1,5 +1,5 @@
 ---
-title: Azure Kinect DK firmware update
+title: Update Azure Kinect firmware
 description: Instructions for updating Azure Kinect DK device firmware
 author: joylital
 ms.author: joylital
@@ -24,7 +24,8 @@ This document provides guidance on how to update device firmware on your Azure K
 
 4. Connect your device to host PC and power it up also.
 
-> [!IMPORTANT] Keep the USB and power supply connected during the firmware update. Removing either connection during update may put the firmware into a corrupted state.
+> [!IMPORTANT]
+> Keep the USB and power supply connected during the firmware update. Removing either connection during update may put the firmware into a corrupted state.
 
 ## Update device firmware
 
@@ -45,7 +46,7 @@ This document provides guidance on how to update device firmware on your Azure K
 
     `AzureKinectFirmwareTool.exe -q`
 
-2. View the following example. 
+2. View the following example.
 
 ```
     >AzureKinectFirmwareTool.exe -q
