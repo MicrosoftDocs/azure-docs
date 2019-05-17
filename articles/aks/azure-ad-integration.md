@@ -21,7 +21,9 @@ This article shows you how to deploy the prerequisites for AKS and Azure AD, and
 
 ## Authentication details
 
-Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. For more information about OpenID Connect, see the [Open ID connect documentation][open-id-connect].
+Azure AD authentication is provided to AKS clusters that have OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. 
+
+For more information about OpenID Connect, see the [Open ID connect documentation][open-id-connect].
 
 From inside of the Kubernetes cluster, webhook token authentication is used to verify authentication tokens. Webhook token authentication is configured and managed as part of the AKS cluster.
 
@@ -38,12 +40,12 @@ The first Azure AD application is used to get a users Azure AD group membership.
 
 1. Select **Azure Active Directory** > **App registrations** > **New registration**.
 
-    * Give the application a name, such as *AKSAzureADServer*.
-    * For **Supported account types**, choose *Accounts in this organizational directory only*.
-    * Choose *Web* for the **Redirect URI** type, and enter any URI formatted value such as *https://aksazureadserver*.
-    * Select **Register** when done.
+    - Give the application a name, such as AKSAzureADServer.
+    - For Supported account types, choose **Accounts in this organizational directory only**.
+    - Select **Web** for the Redirect URI type, and then enter any URI formatted value such as https://aksazureadserver.
+    - Select **Register** when done.
 
-1. Select **Manifest** and edit the `groupMembershipClaims` value to `"All"`.
+1. Select **Manifest**, and then edit the **"groupMembershipClaims":** value to `"All"`.
 
     ![Update group membership to all](media/aad-integration/edit-manifest.png)
 
@@ -96,7 +98,7 @@ The second Azure AD application is used when logging in with the Kubernetes CLI 
     * Choose *Web* for the **Redirect URI** type, and enter any URI formatted value such as *https://aksazureadclient*.
     * Select **Register** when done.
 
-1. On the left-hand navigation of the Azure AD application, select **API permissions**, then choose to **+ Add a permission**.
+1. On the left-hand navigation of the Azure AD application, select **API permissions**, and then choose to **+ Add a permission**.
 
     * Select **My APIs**, and then choose your Azure AD server application created in the previous step, such as *AKSAzureADServer*.
     * Choose **Delegated permissions**, and then place a check next to your Azure AD server app.
