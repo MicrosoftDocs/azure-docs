@@ -19,9 +19,15 @@ ms.author: diberry
 This reference provides information about the [prebuilt domains](luis-how-to-use-prebuilt-domains.md), which are prebuilt collections of intents and entities that LUIS offers.
 
 [Custom domains](luis-how-to-start-new-app.md), by contrast, start with no intents and models. You can add any prebuilt domain intents and entities to a custom model.
-# Supported Domains across cultures
+
+# Supported domains across cultures
+
+The only supported culture is english. 
+
+<!--
 
 The table below summarizes the currently supported domains. Support for English is usually more complete than others.
+
 
 | Entity Type       | EN-US      | ZH-CN   | DE    | FR     | ES    | IT      | PT-BR |  JP  |      KO |        NL |    TR |
 |:-----------------:|:-------:|:-------:|:-----:|:------:|:-----:|:-------:| :-------:| :-------:| :-------:| :-------:|  :-------:| 
@@ -39,6 +45,8 @@ The table below summarizes the currently supported domains. Support for English 
 | Web    | ✓    | -        | ✓    | ✓      | ✓     | ✓       | -  | -      | -    | -    | -     | -  |
 ||||||||||||| 
 
+-->
+
 <br><br>
 
 |Entity type|description|
@@ -51,7 +59,6 @@ The table below summarizes the currently supported domains. Support for English 
 |Places|Places include businesses, institutions, restaurants, public spaces and addresses. The domain supports place finding and asking about the information of a public place such as location, operating hours and distance.|
 |RestaurantReservation|Restaurant reservation domain supports intents for handling reservations for restaurants.|
 |ToDo|ToDo domain provides types of task lists for users to add, mark and delete their todo items.|
-|ToDo_IPA|Based on ToDo domain, ToDo_IPA is a customized version to expand the entities in ToDo. The IPA version provides intents and entities to support recognition of a todo list type. The model defines three kinds of to-do lists: grocery list, shopping list, and to-do list covering other cases.|
 |Utilities|Utilities domain is a general domain among all LUIS prebuilt models which contains common intents and utterances in difference scenarios.|
 |Weather|Weather domain focuses on checking weather condition and advisories with location and time or checking time by weather conditions.|
 |Web|The Web domain provides the intent and entities for searching for a website.|

@@ -216,7 +216,7 @@ Azure Cosmos DB enforces strict security requirements and standards. Azure Cosmo
 
 For more information, see [Connect to your Cosmos database with Azure Cosmos DB's API for MongoDB](connect-mongodb-account.md).
 
-Are there additional error codes that I need to deal with while using Azure Cosmos DB's API for MongoDB?
+### Are there additional error codes that I need to deal with while using Azure Cosmos DB's API for MongoDB?
 
 Along with the common MongoDB error codes, the Azure Cosmos DB's API for MongoDB has its own specific error codes:
 

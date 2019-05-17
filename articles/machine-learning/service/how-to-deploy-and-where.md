@@ -38,7 +38,7 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 ## Prerequisites for deployment
 
-- A model. If you do not have a trained model, you can use the model & dependency files provided in [this tutorial](http://aka.ms/azml-deploy-cloud).
+- A model. If you do not have a trained model, you can use the model & dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
 
 - The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), or the [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk).
 
@@ -59,6 +59,9 @@ print(model.name, model.id, model.version, sep='\t')
 ```
 
 ### Register an externally created model
+
+[!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
+
 You can register an externally created model by providing a **local path** to the model. You can provide either a folder or a single file.
 
 **ONNX example with the Python SDK:**
@@ -119,7 +122,7 @@ dependencies:
   - python=3.6.2
   - pip:
     - azureml-defaults
-    - scikit-learn
+    - scikit-learn==0.20.0
     - inference-schema[numpy-support]
 ```
 
@@ -189,7 +192,7 @@ inference_config = InferenceConfig(source_directory="C:/abc",
 
 In this example, the configuration contains the following items:
 
-* A directory that contains assets needed to perform inferencing
+* A directory that contains assets needed to inference
 * That this model requires Python
 * The [entry script](#script), which is used to handle web requests sent to the deployed service
 * The conda file that describes the Python packages needed to run inferencing
@@ -456,7 +459,7 @@ Azure Machine Learning Compute targets are created and managed by the Azure Mach
 For a walkthrough of batch inference with Azure Machine Learning Compute, read the [How to Run Batch Predictions](how-to-run-batch-predictions.md) article.
 
 ## <a id="iotedge"></a> Inference on IoT Edge
-Support for deploying to the edge is in preview. For more information, see the  [Deploy Azure Machine Learning as an IoT Edge module](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-machine-learning) article.
+Support for deploying to the edge is in preview. For more information, see the  [Deploy Azure Machine Learning as an IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) article.
 
 ## Next steps
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)

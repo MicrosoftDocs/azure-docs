@@ -123,7 +123,7 @@ Next, open the template file in a text editor and make three updates to support 
     },
     ```
 
-    Also consider removing the *certificateThumbprint*, it may no longer be needed.
+    Also consider removing the *certificateThumbprint*, it may no longer be referenced in the Resource Manager template.
 
 2. In the **Microsoft.Compute/virtualMachineScaleSets** resource, update the virtual machine extension to use the common name in certificate settings instead of the thumbprint.  In **virtualMachineProfile**->**extensionProfile**->**extensions**->**properties**->**settings**->**certificate**, add `"commonNames": ["[parameters('certificateCommonName')]"],` and remove `"thumbprint": "[parameters('certificateThumbprint')]",`.
     ```json

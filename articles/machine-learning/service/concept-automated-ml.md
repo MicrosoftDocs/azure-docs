@@ -48,7 +48,7 @@ You can also inspect the logged run information, which contains metrics gathered
 
 While model building is automated, you can also [learn how important or relevant features are](how-to-configure-auto-train.md#explain) to the generated models. 
 
-> [!VIDEO https://www.youtube.com/embed/l8c-4iDPE0M]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
 <a name="preprocess"></a>
 
@@ -86,7 +86,7 @@ With Azure Machine Learning, you can use automated ML to build a Python model an
 ## Automated ML across Microsoft
 
 Automated ML is also available in other Microsoft solutions such as:
-+ In .NET apps using Visual Studio and Visual Studio Code with [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/what-is-mldotnet)
++ In .NET apps using Visual Studio and Visual Studio Code with [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)
 + [On HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md), where you scale out your automated ML training jobs on Spark in HDInsight clusters in parallel. 
 + [In Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)
 
