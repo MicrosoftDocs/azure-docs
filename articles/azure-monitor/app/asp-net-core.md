@@ -31,6 +31,9 @@ The [Application Insights SDK (Software Development Kit) for ASP.NET Core](https
 
 1. Open your project in Visual Studio.
 
+    > [!TIP]
+    > While not a mandatory step, it can be helpful to set up source control for your project so you can track all the changes made by Application Insights. To enable source control select **File** > **Add to Source Control**.
+
 2. Select **Project** > **Add Application Insights Telemetry**.
 
 3. Select **Get Started**. (Depending on your version of Visual Studio, the text might vary slightly. Some earlier versions have a **Start Free** button instead.)
@@ -40,6 +43,8 @@ The [Application Insights SDK (Software Development Kit) for ASP.NET Core](https
 5. After adding Application Insights to your project, check to confirm that you are using the latest stable release of the SDK. Go to **Project** > **Manage NuGet Packages** > **Microsoft.ApplicationInsights.AspNetCore** > if needed choose **Update**.
 
      ![Screenshot of manage NuGet package screen with Application Insights package selected for update](./media/asp-net-core/update-nuget-package.png)
+
+6. If you followed the optional tip and added your project to source control you can then go to **View** > **Team Explorer** > **Changes** and select each individual file for a diff view of the changes made from adding Application Insights telemetry.
 
 ## Enable Application Insights server-side telemetry (without Visual Studio)
 
